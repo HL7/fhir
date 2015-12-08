@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,11 +51,11 @@ public class Account extends DomainResource {
         /**
          * This account is active and may be used.
          */
-        ACTIVE,
+        ACTIVE, 
         /**
          * This account is inactive and should not be used to track financial information.
          */
-        INACTIVE,
+        INACTIVE, 
         /**
          * added to help the parsers
          */
@@ -230,13 +230,13 @@ public class Account extends DomainResource {
     /**
      * @return {@link #identifier} (Unique identifier used to reference the account.  May or may not be intended for human use (e.g. credit card number).)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -270,7 +270,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #name} (Name used for the account when displaying it to humans in reports, etc.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() {
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.name");
@@ -279,18 +279,18 @@ public class Account extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() {
+    public boolean hasNameElement() { 
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (Name used for the account when displaying it to humans in reports, etc.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Account setNameElement(StringType value) {
+    public Account setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -298,14 +298,14 @@ public class Account extends DomainResource {
     /**
      * @return Name used for the account when displaying it to humans in reports, etc.
      */
-    public String getName() {
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value Name used for the account when displaying it to humans in reports, etc.
      */
-    public Account setName(String value) {
+    public Account setName(String value) { 
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -319,7 +319,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #type} (Categorizes the account for reporting and searching purposes.)
      */
-    public CodeableConcept getType() {
+    public CodeableConcept getType() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.type");
@@ -328,14 +328,14 @@ public class Account extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Categorizes the account for reporting and searching purposes.)
      */
-    public Account setType(CodeableConcept value) {
+    public Account setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
@@ -343,7 +343,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #status} (Indicates whether the account is presently used/useable or not.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<AccountStatus> getStatusElement() {
+    public Enumeration<AccountStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.status");
@@ -352,18 +352,18 @@ public class Account extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (Indicates whether the account is presently used/useable or not.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Account setStatusElement(Enumeration<AccountStatus> value) {
+    public Account setStatusElement(Enumeration<AccountStatus> value) { 
       this.status = value;
       return this;
     }
@@ -371,14 +371,14 @@ public class Account extends DomainResource {
     /**
      * @return Indicates whether the account is presently used/useable or not.
      */
-    public AccountStatus getStatus() {
+    public AccountStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Indicates whether the account is presently used/useable or not.
      */
-    public Account setStatus(AccountStatus value) {
+    public Account setStatus(AccountStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -392,7 +392,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #activePeriod} (Indicates the period of time over which the account is allowed.)
      */
-    public Period getActivePeriod() {
+    public Period getActivePeriod() { 
       if (this.activePeriod == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.activePeriod");
@@ -401,14 +401,14 @@ public class Account extends DomainResource {
       return this.activePeriod;
     }
 
-    public boolean hasActivePeriod() {
+    public boolean hasActivePeriod() { 
       return this.activePeriod != null && !this.activePeriod.isEmpty();
     }
 
     /**
      * @param value {@link #activePeriod} (Indicates the period of time over which the account is allowed.)
      */
-    public Account setActivePeriod(Period value) {
+    public Account setActivePeriod(Period value) { 
       this.activePeriod = value;
       return this;
     }
@@ -416,7 +416,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #currency} (Identifies the currency to which transactions must be converted when crediting or debiting the account.)
      */
-    public Coding getCurrency() {
+    public Coding getCurrency() { 
       if (this.currency == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.currency");
@@ -425,14 +425,14 @@ public class Account extends DomainResource {
       return this.currency;
     }
 
-    public boolean hasCurrency() {
+    public boolean hasCurrency() { 
       return this.currency != null && !this.currency.isEmpty();
     }
 
     /**
      * @param value {@link #currency} (Identifies the currency to which transactions must be converted when crediting or debiting the account.)
      */
-    public Account setCurrency(Coding value) {
+    public Account setCurrency(Coding value) { 
       this.currency = value;
       return this;
     }
@@ -440,7 +440,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #balance} (Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative.)
      */
-    public Money getBalance() {
+    public Money getBalance() { 
       if (this.balance == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.balance");
@@ -449,14 +449,14 @@ public class Account extends DomainResource {
       return this.balance;
     }
 
-    public boolean hasBalance() {
+    public boolean hasBalance() { 
       return this.balance != null && !this.balance.isEmpty();
     }
 
     /**
      * @param value {@link #balance} (Represents the sum of all credits less all debits associated with the account.  Might be positive, zero or negative.)
      */
-    public Account setBalance(Money value) {
+    public Account setBalance(Money value) { 
       this.balance = value;
       return this;
     }
@@ -464,7 +464,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #coveragePeriod} (Identifies the period of time the account applies to; e.g. accounts created per fiscal year, quarter, etc.)
      */
-    public Period getCoveragePeriod() {
+    public Period getCoveragePeriod() { 
       if (this.coveragePeriod == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.coveragePeriod");
@@ -473,14 +473,14 @@ public class Account extends DomainResource {
       return this.coveragePeriod;
     }
 
-    public boolean hasCoveragePeriod() {
+    public boolean hasCoveragePeriod() { 
       return this.coveragePeriod != null && !this.coveragePeriod.isEmpty();
     }
 
     /**
      * @param value {@link #coveragePeriod} (Identifies the period of time the account applies to; e.g. accounts created per fiscal year, quarter, etc.)
      */
-    public Account setCoveragePeriod(Period value) {
+    public Account setCoveragePeriod(Period value) { 
       this.coveragePeriod = value;
       return this;
     }
@@ -488,7 +488,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #subject} (Identifies the patient, device, practitioner, location or other object the account is associated with.)
      */
-    public Reference getSubject() {
+    public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.subject");
@@ -497,14 +497,14 @@ public class Account extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() {
+    public boolean hasSubject() { 
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (Identifies the patient, device, practitioner, location or other object the account is associated with.)
      */
-    public Account setSubject(Reference value) {
+    public Account setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -512,14 +512,14 @@ public class Account extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the patient, device, practitioner, location or other object the account is associated with.)
      */
-    public Resource getSubjectTarget() {
+    public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the patient, device, practitioner, location or other object the account is associated with.)
      */
-    public Account setSubjectTarget(Resource value) {
+    public Account setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -527,7 +527,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #owner} (Indicates the organization, department, etc. with responsibility for the account.)
      */
-    public Reference getOwner() {
+    public Reference getOwner() { 
       if (this.owner == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.owner");
@@ -536,14 +536,14 @@ public class Account extends DomainResource {
       return this.owner;
     }
 
-    public boolean hasOwner() {
+    public boolean hasOwner() { 
       return this.owner != null && !this.owner.isEmpty();
     }
 
     /**
      * @param value {@link #owner} (Indicates the organization, department, etc. with responsibility for the account.)
      */
-    public Account setOwner(Reference value) {
+    public Account setOwner(Reference value) { 
       this.owner = value;
       return this;
     }
@@ -551,7 +551,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #owner} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the organization, department, etc. with responsibility for the account.)
      */
-    public Organization getOwnerTarget() {
+    public Organization getOwnerTarget() { 
       if (this.ownerTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.owner");
@@ -563,7 +563,7 @@ public class Account extends DomainResource {
     /**
      * @param value {@link #owner} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates the organization, department, etc. with responsibility for the account.)
      */
-    public Account setOwnerTarget(Organization value) {
+    public Account setOwnerTarget(Organization value) { 
       this.ownerTarget = value;
       return this;
     }
@@ -571,7 +571,7 @@ public class Account extends DomainResource {
     /**
      * @return {@link #description} (Provides additional information about what the account tracks and how it is used.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Account.description");
@@ -580,18 +580,18 @@ public class Account extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (Provides additional information about what the account tracks and how it is used.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Account setDescriptionElement(StringType value) {
+    public Account setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -599,14 +599,14 @@ public class Account extends DomainResource {
     /**
      * @return Provides additional information about what the account tracks and how it is used.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value Provides additional information about what the account tracks and how it is used.
      */
-    public Account setDescription(String value) {
+    public Account setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {

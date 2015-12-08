@@ -24,6 +24,17 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|10183-2|Hospital discharge medications Narrative",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "10183-2",
+        "definition": null,
+        "display": "Hospital discharge medications Narrative"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|48765-2|Allergies and adverse reactions Document",
       "severity": null,
       "message": null,
@@ -43,17 +54,6 @@
         "code": "29299-5",
         "definition": null,
         "display": "Reason for visit Narrative"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|10183-2|Hospital discharge medications Narrative",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "10183-2",
-        "definition": null,
-        "display": "Hospital discharge medications Narrative"
       }
     }
   ]

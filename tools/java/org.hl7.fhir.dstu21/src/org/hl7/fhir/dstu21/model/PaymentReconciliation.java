@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -139,7 +139,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #type} (Code to indicate the nature of the payment, adjustment, funds advance, etc.)
          */
-        public Coding getType() {
+        public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.type");
@@ -148,14 +148,14 @@ public class PaymentReconciliation extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Code to indicate the nature of the payment, adjustment, funds advance, etc.)
          */
-        public DetailsComponent setType(Coding value) {
+        public DetailsComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
@@ -163,7 +163,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #request} (The claim or financial resource.)
          */
-        public Reference getRequest() {
+        public Reference getRequest() { 
           if (this.request == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.request");
@@ -172,14 +172,14 @@ public class PaymentReconciliation extends DomainResource {
           return this.request;
         }
 
-        public boolean hasRequest() {
+        public boolean hasRequest() { 
           return this.request != null && !this.request.isEmpty();
         }
 
         /**
          * @param value {@link #request} (The claim or financial resource.)
          */
-        public DetailsComponent setRequest(Reference value) {
+        public DetailsComponent setRequest(Reference value) { 
           this.request = value;
           return this;
         }
@@ -187,14 +187,14 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The claim or financial resource.)
          */
-        public Resource getRequestTarget() {
+        public Resource getRequestTarget() { 
           return this.requestTarget;
         }
 
         /**
          * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The claim or financial resource.)
          */
-        public DetailsComponent setRequestTarget(Resource value) {
+        public DetailsComponent setRequestTarget(Resource value) { 
           this.requestTarget = value;
           return this;
         }
@@ -202,7 +202,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #responce} (The claim response resource.)
          */
-        public Reference getResponce() {
+        public Reference getResponce() { 
           if (this.responce == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.responce");
@@ -211,14 +211,14 @@ public class PaymentReconciliation extends DomainResource {
           return this.responce;
         }
 
-        public boolean hasResponce() {
+        public boolean hasResponce() { 
           return this.responce != null && !this.responce.isEmpty();
         }
 
         /**
          * @param value {@link #responce} (The claim response resource.)
          */
-        public DetailsComponent setResponce(Reference value) {
+        public DetailsComponent setResponce(Reference value) { 
           this.responce = value;
           return this;
         }
@@ -226,14 +226,14 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #responce} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The claim response resource.)
          */
-        public Resource getResponceTarget() {
+        public Resource getResponceTarget() { 
           return this.responceTarget;
         }
 
         /**
          * @param value {@link #responce} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The claim response resource.)
          */
-        public DetailsComponent setResponceTarget(Resource value) {
+        public DetailsComponent setResponceTarget(Resource value) { 
           this.responceTarget = value;
           return this;
         }
@@ -241,7 +241,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #submitter} (The Organization which submitted the invoice or financial transaction.)
          */
-        public Reference getSubmitter() {
+        public Reference getSubmitter() { 
           if (this.submitter == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.submitter");
@@ -250,14 +250,14 @@ public class PaymentReconciliation extends DomainResource {
           return this.submitter;
         }
 
-        public boolean hasSubmitter() {
+        public boolean hasSubmitter() { 
           return this.submitter != null && !this.submitter.isEmpty();
         }
 
         /**
          * @param value {@link #submitter} (The Organization which submitted the invoice or financial transaction.)
          */
-        public DetailsComponent setSubmitter(Reference value) {
+        public DetailsComponent setSubmitter(Reference value) { 
           this.submitter = value;
           return this;
         }
@@ -265,7 +265,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #submitter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Organization which submitted the invoice or financial transaction.)
          */
-        public Organization getSubmitterTarget() {
+        public Organization getSubmitterTarget() { 
           if (this.submitterTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.submitter");
@@ -277,7 +277,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @param value {@link #submitter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Organization which submitted the invoice or financial transaction.)
          */
-        public DetailsComponent setSubmitterTarget(Organization value) {
+        public DetailsComponent setSubmitterTarget(Organization value) { 
           this.submitterTarget = value;
           return this;
         }
@@ -285,7 +285,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #payee} (The organization which is receiving the payment.)
          */
-        public Reference getPayee() {
+        public Reference getPayee() { 
           if (this.payee == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.payee");
@@ -294,14 +294,14 @@ public class PaymentReconciliation extends DomainResource {
           return this.payee;
         }
 
-        public boolean hasPayee() {
+        public boolean hasPayee() { 
           return this.payee != null && !this.payee.isEmpty();
         }
 
         /**
          * @param value {@link #payee} (The organization which is receiving the payment.)
          */
-        public DetailsComponent setPayee(Reference value) {
+        public DetailsComponent setPayee(Reference value) { 
           this.payee = value;
           return this;
         }
@@ -309,7 +309,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #payee} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is receiving the payment.)
          */
-        public Organization getPayeeTarget() {
+        public Organization getPayeeTarget() { 
           if (this.payeeTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.payee");
@@ -321,7 +321,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @param value {@link #payee} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is receiving the payment.)
          */
-        public DetailsComponent setPayeeTarget(Organization value) {
+        public DetailsComponent setPayeeTarget(Organization value) { 
           this.payeeTarget = value;
           return this;
         }
@@ -329,7 +329,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #date} (The date of the invoice or financial resource.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateType getDateElement() {
+        public DateType getDateElement() { 
           if (this.date == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.date");
@@ -338,18 +338,18 @@ public class PaymentReconciliation extends DomainResource {
           return this.date;
         }
 
-        public boolean hasDateElement() {
+        public boolean hasDateElement() { 
           return this.date != null && !this.date.isEmpty();
         }
 
-        public boolean hasDate() {
+        public boolean hasDate() { 
           return this.date != null && !this.date.isEmpty();
         }
 
         /**
          * @param value {@link #date} (The date of the invoice or financial resource.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DetailsComponent setDateElement(DateType value) {
+        public DetailsComponent setDateElement(DateType value) { 
           this.date = value;
           return this;
         }
@@ -357,14 +357,14 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return The date of the invoice or financial resource.
          */
-        public Date getDate() {
+        public Date getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value The date of the invoice or financial resource.
          */
-        public DetailsComponent setDate(Date value) {
+        public DetailsComponent setDate(Date value) { 
           if (value == null)
             this.date = null;
           else {
@@ -378,7 +378,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #amount} (Amount paid for this detail.)
          */
-        public Money getAmount() {
+        public Money getAmount() { 
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailsComponent.amount");
@@ -387,14 +387,14 @@ public class PaymentReconciliation extends DomainResource {
           return this.amount;
         }
 
-        public boolean hasAmount() {
+        public boolean hasAmount() { 
           return this.amount != null && !this.amount.isEmpty();
         }
 
         /**
          * @param value {@link #amount} (Amount paid for this detail.)
          */
-        public DetailsComponent setAmount(Money value) {
+        public DetailsComponent setAmount(Money value) { 
           this.amount = value;
           return this;
         }
@@ -540,7 +540,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #type} (The note purpose: Print/Display.)
          */
-        public Coding getType() {
+        public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.type");
@@ -549,14 +549,14 @@ public class PaymentReconciliation extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The note purpose: Print/Display.)
          */
-        public NotesComponent setType(Coding value) {
+        public NotesComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
@@ -564,7 +564,7 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return {@link #text} (The note text.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextElement() {
+        public StringType getTextElement() { 
           if (this.text == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NotesComponent.text");
@@ -573,18 +573,18 @@ public class PaymentReconciliation extends DomainResource {
           return this.text;
         }
 
-        public boolean hasTextElement() {
+        public boolean hasTextElement() { 
           return this.text != null && !this.text.isEmpty();
         }
 
-        public boolean hasText() {
+        public boolean hasText() { 
           return this.text != null && !this.text.isEmpty();
         }
 
         /**
          * @param value {@link #text} (The note text.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public NotesComponent setTextElement(StringType value) {
+        public NotesComponent setTextElement(StringType value) { 
           this.text = value;
           return this;
         }
@@ -592,14 +592,14 @@ public class PaymentReconciliation extends DomainResource {
         /**
          * @return The note text.
          */
-        public String getText() {
+        public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value The note text.
          */
-        public NotesComponent setText(String value) {
+        public NotesComponent setText(String value) { 
           if (Utilities.noString(value))
             this.text = null;
           else {
@@ -824,13 +824,13 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #identifier} (The Response business identifier.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -864,7 +864,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #request} (Original request resource reference.)
      */
-    public Reference getRequest() {
+    public Reference getRequest() { 
       if (this.request == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.request");
@@ -873,14 +873,14 @@ public class PaymentReconciliation extends DomainResource {
       return this.request;
     }
 
-    public boolean hasRequest() {
+    public boolean hasRequest() { 
       return this.request != null && !this.request.isEmpty();
     }
 
     /**
      * @param value {@link #request} (Original request resource reference.)
      */
-    public PaymentReconciliation setRequest(Reference value) {
+    public PaymentReconciliation setRequest(Reference value) { 
       this.request = value;
       return this;
     }
@@ -888,7 +888,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public ProcessRequest getRequestTarget() {
+    public ProcessRequest getRequestTarget() { 
       if (this.requestTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.request");
@@ -900,7 +900,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public PaymentReconciliation setRequestTarget(ProcessRequest value) {
+    public PaymentReconciliation setRequestTarget(ProcessRequest value) { 
       this.requestTarget = value;
       return this;
     }
@@ -908,7 +908,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public Enumeration<RemittanceOutcome> getOutcomeElement() {
+    public Enumeration<RemittanceOutcome> getOutcomeElement() { 
       if (this.outcome == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.outcome");
@@ -917,18 +917,18 @@ public class PaymentReconciliation extends DomainResource {
       return this.outcome;
     }
 
-    public boolean hasOutcomeElement() {
+    public boolean hasOutcomeElement() { 
       return this.outcome != null && !this.outcome.isEmpty();
     }
 
-    public boolean hasOutcome() {
+    public boolean hasOutcome() { 
       return this.outcome != null && !this.outcome.isEmpty();
     }
 
     /**
      * @param value {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public PaymentReconciliation setOutcomeElement(Enumeration<RemittanceOutcome> value) {
+    public PaymentReconciliation setOutcomeElement(Enumeration<RemittanceOutcome> value) { 
       this.outcome = value;
       return this;
     }
@@ -936,14 +936,14 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return Transaction status: error, complete.
      */
-    public RemittanceOutcome getOutcome() {
+    public RemittanceOutcome getOutcome() { 
       return this.outcome == null ? null : this.outcome.getValue();
     }
 
     /**
      * @param value Transaction status: error, complete.
      */
-    public PaymentReconciliation setOutcome(RemittanceOutcome value) {
+    public PaymentReconciliation setOutcome(RemittanceOutcome value) { 
       if (value == null)
         this.outcome = null;
       else {
@@ -957,7 +957,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
      */
-    public StringType getDispositionElement() {
+    public StringType getDispositionElement() { 
       if (this.disposition == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.disposition");
@@ -966,18 +966,18 @@ public class PaymentReconciliation extends DomainResource {
       return this.disposition;
     }
 
-    public boolean hasDispositionElement() {
+    public boolean hasDispositionElement() { 
       return this.disposition != null && !this.disposition.isEmpty();
     }
 
-    public boolean hasDisposition() {
+    public boolean hasDisposition() { 
       return this.disposition != null && !this.disposition.isEmpty();
     }
 
     /**
      * @param value {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
      */
-    public PaymentReconciliation setDispositionElement(StringType value) {
+    public PaymentReconciliation setDispositionElement(StringType value) { 
       this.disposition = value;
       return this;
     }
@@ -985,14 +985,14 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return A description of the status of the adjudication.
      */
-    public String getDisposition() {
+    public String getDisposition() { 
       return this.disposition == null ? null : this.disposition.getValue();
     }
 
     /**
      * @param value A description of the status of the adjudication.
      */
-    public PaymentReconciliation setDisposition(String value) {
+    public PaymentReconciliation setDisposition(String value) { 
       if (Utilities.noString(value))
         this.disposition = null;
       else {
@@ -1006,7 +1006,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public Coding getRuleset() {
+    public Coding getRuleset() { 
       if (this.ruleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.ruleset");
@@ -1015,14 +1015,14 @@ public class PaymentReconciliation extends DomainResource {
       return this.ruleset;
     }
 
-    public boolean hasRuleset() {
+    public boolean hasRuleset() { 
       return this.ruleset != null && !this.ruleset.isEmpty();
     }
 
     /**
      * @param value {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public PaymentReconciliation setRuleset(Coding value) {
+    public PaymentReconciliation setRuleset(Coding value) { 
       this.ruleset = value;
       return this;
     }
@@ -1030,7 +1030,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public Coding getOriginalRuleset() {
+    public Coding getOriginalRuleset() { 
       if (this.originalRuleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.originalRuleset");
@@ -1039,14 +1039,14 @@ public class PaymentReconciliation extends DomainResource {
       return this.originalRuleset;
     }
 
-    public boolean hasOriginalRuleset() {
+    public boolean hasOriginalRuleset() { 
       return this.originalRuleset != null && !this.originalRuleset.isEmpty();
     }
 
     /**
      * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public PaymentReconciliation setOriginalRuleset(Coding value) {
+    public PaymentReconciliation setOriginalRuleset(Coding value) { 
       this.originalRuleset = value;
       return this;
     }
@@ -1054,7 +1054,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #created} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateTimeType getCreatedElement() {
+    public DateTimeType getCreatedElement() { 
       if (this.created == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.created");
@@ -1063,18 +1063,18 @@ public class PaymentReconciliation extends DomainResource {
       return this.created;
     }
 
-    public boolean hasCreatedElement() {
+    public boolean hasCreatedElement() { 
       return this.created != null && !this.created.isEmpty();
     }
 
-    public boolean hasCreated() {
+    public boolean hasCreated() { 
       return this.created != null && !this.created.isEmpty();
     }
 
     /**
      * @param value {@link #created} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public PaymentReconciliation setCreatedElement(DateTimeType value) {
+    public PaymentReconciliation setCreatedElement(DateTimeType value) { 
       this.created = value;
       return this;
     }
@@ -1082,14 +1082,14 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return The date when the enclosed suite of services were performed or completed.
      */
-    public Date getCreated() {
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when the enclosed suite of services were performed or completed.
      */
-    public PaymentReconciliation setCreated(Date value) {
+    public PaymentReconciliation setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -1103,7 +1103,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #period} (The period of time for which payments have been gathered into this bulk payment for settlement.)
      */
-    public Period getPeriod() {
+    public Period getPeriod() { 
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.period");
@@ -1112,14 +1112,14 @@ public class PaymentReconciliation extends DomainResource {
       return this.period;
     }
 
-    public boolean hasPeriod() {
+    public boolean hasPeriod() { 
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (The period of time for which payments have been gathered into this bulk payment for settlement.)
      */
-    public PaymentReconciliation setPeriod(Period value) {
+    public PaymentReconciliation setPeriod(Period value) { 
       this.period = value;
       return this;
     }
@@ -1127,7 +1127,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #organization} (The Insurer who produced this adjudicated response.)
      */
-    public Reference getOrganization() {
+    public Reference getOrganization() { 
       if (this.organization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.organization");
@@ -1136,14 +1136,14 @@ public class PaymentReconciliation extends DomainResource {
       return this.organization;
     }
 
-    public boolean hasOrganization() {
+    public boolean hasOrganization() { 
       return this.organization != null && !this.organization.isEmpty();
     }
 
     /**
      * @param value {@link #organization} (The Insurer who produced this adjudicated response.)
      */
-    public PaymentReconciliation setOrganization(Reference value) {
+    public PaymentReconciliation setOrganization(Reference value) { 
       this.organization = value;
       return this;
     }
@@ -1151,7 +1151,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
      */
-    public Organization getOrganizationTarget() {
+    public Organization getOrganizationTarget() { 
       if (this.organizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.organization");
@@ -1163,7 +1163,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
      */
-    public PaymentReconciliation setOrganizationTarget(Organization value) {
+    public PaymentReconciliation setOrganizationTarget(Organization value) { 
       this.organizationTarget = value;
       return this;
     }
@@ -1171,7 +1171,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Reference getRequestProvider() {
+    public Reference getRequestProvider() { 
       if (this.requestProvider == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.requestProvider");
@@ -1180,14 +1180,14 @@ public class PaymentReconciliation extends DomainResource {
       return this.requestProvider;
     }
 
-    public boolean hasRequestProvider() {
+    public boolean hasRequestProvider() { 
       return this.requestProvider != null && !this.requestProvider.isEmpty();
     }
 
     /**
      * @param value {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public PaymentReconciliation setRequestProvider(Reference value) {
+    public PaymentReconciliation setRequestProvider(Reference value) { 
       this.requestProvider = value;
       return this;
     }
@@ -1195,7 +1195,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #requestProvider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Practitioner getRequestProviderTarget() {
+    public Practitioner getRequestProviderTarget() { 
       if (this.requestProviderTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.requestProvider");
@@ -1207,7 +1207,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @param value {@link #requestProvider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public PaymentReconciliation setRequestProviderTarget(Practitioner value) {
+    public PaymentReconciliation setRequestProviderTarget(Practitioner value) { 
       this.requestProviderTarget = value;
       return this;
     }
@@ -1215,7 +1215,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public Reference getRequestOrganization() {
+    public Reference getRequestOrganization() { 
       if (this.requestOrganization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.requestOrganization");
@@ -1224,14 +1224,14 @@ public class PaymentReconciliation extends DomainResource {
       return this.requestOrganization;
     }
 
-    public boolean hasRequestOrganization() {
+    public boolean hasRequestOrganization() { 
       return this.requestOrganization != null && !this.requestOrganization.isEmpty();
     }
 
     /**
      * @param value {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public PaymentReconciliation setRequestOrganization(Reference value) {
+    public PaymentReconciliation setRequestOrganization(Reference value) { 
       this.requestOrganization = value;
       return this;
     }
@@ -1239,7 +1239,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #requestOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public Organization getRequestOrganizationTarget() {
+    public Organization getRequestOrganizationTarget() { 
       if (this.requestOrganizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.requestOrganization");
@@ -1251,7 +1251,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @param value {@link #requestOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public PaymentReconciliation setRequestOrganizationTarget(Organization value) {
+    public PaymentReconciliation setRequestOrganizationTarget(Organization value) { 
       this.requestOrganizationTarget = value;
       return this;
     }
@@ -1259,13 +1259,13 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #detail} (List of individual settlement amounts and the corresponding transaction.)
      */
-    public List<DetailsComponent> getDetail() {
+    public List<DetailsComponent> getDetail() { 
       if (this.detail == null)
         this.detail = new ArrayList<DetailsComponent>();
       return this.detail;
     }
 
-    public boolean hasDetail() {
+    public boolean hasDetail() { 
       if (this.detail == null)
         return false;
       for (DetailsComponent item : this.detail)
@@ -1299,7 +1299,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #form} (The form to be used for printing the content.)
      */
-    public Coding getForm() {
+    public Coding getForm() { 
       if (this.form == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.form");
@@ -1308,14 +1308,14 @@ public class PaymentReconciliation extends DomainResource {
       return this.form;
     }
 
-    public boolean hasForm() {
+    public boolean hasForm() { 
       return this.form != null && !this.form.isEmpty();
     }
 
     /**
      * @param value {@link #form} (The form to be used for printing the content.)
      */
-    public PaymentReconciliation setForm(Coding value) {
+    public PaymentReconciliation setForm(Coding value) { 
       this.form = value;
       return this;
     }
@@ -1323,7 +1323,7 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #total} (Total payment amount.)
      */
-    public Money getTotal() {
+    public Money getTotal() { 
       if (this.total == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create PaymentReconciliation.total");
@@ -1332,14 +1332,14 @@ public class PaymentReconciliation extends DomainResource {
       return this.total;
     }
 
-    public boolean hasTotal() {
+    public boolean hasTotal() { 
       return this.total != null && !this.total.isEmpty();
     }
 
     /**
      * @param value {@link #total} (Total payment amount.)
      */
-    public PaymentReconciliation setTotal(Money value) {
+    public PaymentReconciliation setTotal(Money value) { 
       this.total = value;
       return this;
     }
@@ -1347,13 +1347,13 @@ public class PaymentReconciliation extends DomainResource {
     /**
      * @return {@link #note} (Suite of notes.)
      */
-    public List<NotesComponent> getNote() {
+    public List<NotesComponent> getNote() { 
       if (this.note == null)
         this.note = new ArrayList<NotesComponent>();
       return this.note;
     }
 
-    public boolean hasNote() {
+    public boolean hasNote() { 
       if (this.note == null)
         return false;
       for (NotesComponent item : this.note)

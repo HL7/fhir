@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,31 +51,31 @@ public class Appointment extends DomainResource {
         /**
          * None of the participant(s) have finalized their acceptance of the appointment request, and the start/end time may not be set yet.
          */
-        PROPOSED,
+        PROPOSED, 
         /**
          * Some or all of the participant(s) have not finalized their acceptance of the appointment request.
          */
-        PENDING,
+        PENDING, 
         /**
          * All participant(s) have been considered and the appointment is confirmed to go ahead at the date/times specified.
          */
-        BOOKED,
+        BOOKED, 
         /**
          * Some of the patients have arrived.
          */
-        ARRIVED,
+        ARRIVED, 
         /**
          * This appointment has completed and may have resulted in an encounter.
          */
-        FULFILLED,
+        FULFILLED, 
         /**
          * The appointment has been cancelled.
          */
-        CANCELLED,
+        CANCELLED, 
         /**
          * Some or all of the participant(s) have not/did not appear for the appointment (usually the patient).
          */
-        NOSHOW,
+        NOSHOW, 
         /**
          * added to help the parsers
          */
@@ -215,15 +215,15 @@ public class Appointment extends DomainResource {
         /**
          * The participant is required to attend the appointment.
          */
-        REQUIRED,
+        REQUIRED, 
         /**
          * The participant may optionally attend the appointment.
          */
-        OPTIONAL,
+        OPTIONAL, 
         /**
          * The participant is excluded from the appointment, and may not be informed of the appointment taking place. (Appointment is about them, not for them - such as 2 doctors discussing results about a patient's test).
          */
-        INFORMATIONONLY,
+        INFORMATIONONLY, 
         /**
          * added to help the parsers
          */
@@ -315,19 +315,19 @@ public class Appointment extends DomainResource {
         /**
          * The participant has accepted the appointment.
          */
-        ACCEPTED,
+        ACCEPTED, 
         /**
          * The participant has declined the appointment and will not participate in the appointment.
          */
-        DECLINED,
+        DECLINED, 
         /**
          * The participant has  tentatively accepted the appointment. This could be automatically created by a system and requires further processing before it can be accepted. There is no commitment that attendance will occur.
          */
-        TENTATIVE,
+        TENTATIVE, 
         /**
          * The participant needs to indicate if they accept the appointment by changing this status to one of the other statuses.
          */
-        NEEDSACTION,
+        NEEDSACTION, 
         /**
          * added to help the parsers
          */
@@ -482,13 +482,13 @@ public class Appointment extends DomainResource {
         /**
          * @return {@link #type} (Role of participant in the appointment.)
          */
-        public List<CodeableConcept> getType() {
+        public List<CodeableConcept> getType() { 
           if (this.type == null)
             this.type = new ArrayList<CodeableConcept>();
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           if (this.type == null)
             return false;
           for (CodeableConcept item : this.type)
@@ -522,7 +522,7 @@ public class Appointment extends DomainResource {
         /**
          * @return {@link #actor} (A Person, Location/HealthcareService or Device that is participating in the appointment.)
          */
-        public Reference getActor() {
+        public Reference getActor() { 
           if (this.actor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AppointmentParticipantComponent.actor");
@@ -531,14 +531,14 @@ public class Appointment extends DomainResource {
           return this.actor;
         }
 
-        public boolean hasActor() {
+        public boolean hasActor() { 
           return this.actor != null && !this.actor.isEmpty();
         }
 
         /**
          * @param value {@link #actor} (A Person, Location/HealthcareService or Device that is participating in the appointment.)
          */
-        public AppointmentParticipantComponent setActor(Reference value) {
+        public AppointmentParticipantComponent setActor(Reference value) { 
           this.actor = value;
           return this;
         }
@@ -546,14 +546,14 @@ public class Appointment extends DomainResource {
         /**
          * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A Person, Location/HealthcareService or Device that is participating in the appointment.)
          */
-        public Resource getActorTarget() {
+        public Resource getActorTarget() { 
           return this.actorTarget;
         }
 
         /**
          * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A Person, Location/HealthcareService or Device that is participating in the appointment.)
          */
-        public AppointmentParticipantComponent setActorTarget(Resource value) {
+        public AppointmentParticipantComponent setActorTarget(Resource value) { 
           this.actorTarget = value;
           return this;
         }
@@ -561,7 +561,7 @@ public class Appointment extends DomainResource {
         /**
          * @return {@link #required} (Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public Enumeration<ParticipantRequired> getRequiredElement() {
+        public Enumeration<ParticipantRequired> getRequiredElement() { 
           if (this.required == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AppointmentParticipantComponent.required");
@@ -570,18 +570,18 @@ public class Appointment extends DomainResource {
           return this.required;
         }
 
-        public boolean hasRequiredElement() {
+        public boolean hasRequiredElement() { 
           return this.required != null && !this.required.isEmpty();
         }
 
-        public boolean hasRequired() {
+        public boolean hasRequired() { 
           return this.required != null && !this.required.isEmpty();
         }
 
         /**
          * @param value {@link #required} (Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public AppointmentParticipantComponent setRequiredElement(Enumeration<ParticipantRequired> value) {
+        public AppointmentParticipantComponent setRequiredElement(Enumeration<ParticipantRequired> value) { 
           this.required = value;
           return this;
         }
@@ -589,14 +589,14 @@ public class Appointment extends DomainResource {
         /**
          * @return Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
          */
-        public ParticipantRequired getRequired() {
+        public ParticipantRequired getRequired() { 
           return this.required == null ? null : this.required.getValue();
         }
 
         /**
          * @param value Is this participant required to be present at the meeting. This covers a use-case where 2 doctors need to meet to discuss the results for a specific patient, and the patient is not required to be present.
          */
-        public AppointmentParticipantComponent setRequired(ParticipantRequired value) {
+        public AppointmentParticipantComponent setRequired(ParticipantRequired value) { 
           if (value == null)
             this.required = null;
           else {
@@ -610,7 +610,7 @@ public class Appointment extends DomainResource {
         /**
          * @return {@link #status} (Participation status of the Patient.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<ParticipationStatus> getStatusElement() {
+        public Enumeration<ParticipationStatus> getStatusElement() { 
           if (this.status == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AppointmentParticipantComponent.status");
@@ -619,18 +619,18 @@ public class Appointment extends DomainResource {
           return this.status;
         }
 
-        public boolean hasStatusElement() {
+        public boolean hasStatusElement() { 
           return this.status != null && !this.status.isEmpty();
         }
 
-        public boolean hasStatus() {
+        public boolean hasStatus() { 
           return this.status != null && !this.status.isEmpty();
         }
 
         /**
          * @param value {@link #status} (Participation status of the Patient.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public AppointmentParticipantComponent setStatusElement(Enumeration<ParticipationStatus> value) {
+        public AppointmentParticipantComponent setStatusElement(Enumeration<ParticipationStatus> value) { 
           this.status = value;
           return this;
         }
@@ -638,14 +638,14 @@ public class Appointment extends DomainResource {
         /**
          * @return Participation status of the Patient.
          */
-        public ParticipationStatus getStatus() {
+        public ParticipationStatus getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value Participation status of the Patient.
          */
-        public AppointmentParticipantComponent setStatus(ParticipationStatus value) {
+        public AppointmentParticipantComponent setStatus(ParticipationStatus value) { 
             if (this.status == null)
               this.status = new Enumeration<ParticipationStatus>(new ParticipationStatusEnumFactory());
             this.status.setValue(value);
@@ -849,13 +849,13 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #identifier} (This records identifiers associated with this appointment concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -889,7 +889,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #status} (The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<AppointmentStatus> getStatusElement() {
+    public Enumeration<AppointmentStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.status");
@@ -898,18 +898,18 @@ public class Appointment extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Appointment setStatusElement(Enumeration<AppointmentStatus> value) {
+    public Appointment setStatusElement(Enumeration<AppointmentStatus> value) { 
       this.status = value;
       return this;
     }
@@ -917,14 +917,14 @@ public class Appointment extends DomainResource {
     /**
      * @return The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
      */
-    public AppointmentStatus getStatus() {
+    public AppointmentStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
      */
-    public Appointment setStatus(AppointmentStatus value) {
+    public Appointment setStatus(AppointmentStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<AppointmentStatus>(new AppointmentStatusEnumFactory());
         this.status.setValue(value);
@@ -934,7 +934,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #type} (The type of appointment that is being booked (This may also be associated with participants for location, and/or a HealthcareService).)
      */
-    public CodeableConcept getType() {
+    public CodeableConcept getType() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.type");
@@ -943,14 +943,14 @@ public class Appointment extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (The type of appointment that is being booked (This may also be associated with participants for location, and/or a HealthcareService).)
      */
-    public Appointment setType(CodeableConcept value) {
+    public Appointment setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
@@ -958,7 +958,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #reason} (The reason that this appointment is being scheduled. This is more clinical than administrative.)
      */
-    public CodeableConcept getReason() {
+    public CodeableConcept getReason() { 
       if (this.reason == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.reason");
@@ -967,14 +967,14 @@ public class Appointment extends DomainResource {
       return this.reason;
     }
 
-    public boolean hasReason() {
+    public boolean hasReason() { 
       return this.reason != null && !this.reason.isEmpty();
     }
 
     /**
      * @param value {@link #reason} (The reason that this appointment is being scheduled. This is more clinical than administrative.)
      */
-    public Appointment setReason(CodeableConcept value) {
+    public Appointment setReason(CodeableConcept value) { 
       this.reason = value;
       return this;
     }
@@ -982,7 +982,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #priority} (The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority).). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public UnsignedIntType getPriorityElement() {
+    public UnsignedIntType getPriorityElement() { 
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.priority");
@@ -991,18 +991,18 @@ public class Appointment extends DomainResource {
       return this.priority;
     }
 
-    public boolean hasPriorityElement() {
+    public boolean hasPriorityElement() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
-    public boolean hasPriority() {
+    public boolean hasPriority() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
      * @param value {@link #priority} (The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority).). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public Appointment setPriorityElement(UnsignedIntType value) {
+    public Appointment setPriorityElement(UnsignedIntType value) { 
       this.priority = value;
       return this;
     }
@@ -1010,14 +1010,14 @@ public class Appointment extends DomainResource {
     /**
      * @return The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority).
      */
-    public int getPriority() {
+    public int getPriority() { 
       return this.priority == null || this.priority.isEmpty() ? 0 : this.priority.getValue();
     }
 
     /**
      * @param value The priority of the appointment. Can be used to make informed decisions if needing to re-prioritize appointments. (The iCal Standard specifies 0 as undefined, 1 as highest, 9 as lowest priority).
      */
-    public Appointment setPriority(int value) {
+    public Appointment setPriority(int value) { 
         if (this.priority == null)
           this.priority = new UnsignedIntType();
         this.priority.setValue(value);
@@ -1027,7 +1027,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #description} (The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.description");
@@ -1036,18 +1036,18 @@ public class Appointment extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Appointment setDescriptionElement(StringType value) {
+    public Appointment setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -1055,14 +1055,14 @@ public class Appointment extends DomainResource {
     /**
      * @return The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value The brief description of the appointment as would be shown on a subject line in a meeting request, or appointment list. Detailed or expanded information should be put in the comment field.
      */
-    public Appointment setDescription(String value) {
+    public Appointment setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -1076,7 +1076,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #start} (Date/Time that the appointment is to take place.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public InstantType getStartElement() {
+    public InstantType getStartElement() { 
       if (this.start == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.start");
@@ -1085,18 +1085,18 @@ public class Appointment extends DomainResource {
       return this.start;
     }
 
-    public boolean hasStartElement() {
+    public boolean hasStartElement() { 
       return this.start != null && !this.start.isEmpty();
     }
 
-    public boolean hasStart() {
+    public boolean hasStart() { 
       return this.start != null && !this.start.isEmpty();
     }
 
     /**
      * @param value {@link #start} (Date/Time that the appointment is to take place.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public Appointment setStartElement(InstantType value) {
+    public Appointment setStartElement(InstantType value) { 
       this.start = value;
       return this;
     }
@@ -1104,14 +1104,14 @@ public class Appointment extends DomainResource {
     /**
      * @return Date/Time that the appointment is to take place.
      */
-    public Date getStart() {
+    public Date getStart() { 
       return this.start == null ? null : this.start.getValue();
     }
 
     /**
      * @param value Date/Time that the appointment is to take place.
      */
-    public Appointment setStart(Date value) {
+    public Appointment setStart(Date value) { 
       if (value == null)
         this.start = null;
       else {
@@ -1125,7 +1125,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #end} (Date/Time that the appointment is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public InstantType getEndElement() {
+    public InstantType getEndElement() { 
       if (this.end == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.end");
@@ -1134,18 +1134,18 @@ public class Appointment extends DomainResource {
       return this.end;
     }
 
-    public boolean hasEndElement() {
+    public boolean hasEndElement() { 
       return this.end != null && !this.end.isEmpty();
     }
 
-    public boolean hasEnd() {
+    public boolean hasEnd() { 
       return this.end != null && !this.end.isEmpty();
     }
 
     /**
      * @param value {@link #end} (Date/Time that the appointment is to conclude.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public Appointment setEndElement(InstantType value) {
+    public Appointment setEndElement(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -1153,14 +1153,14 @@ public class Appointment extends DomainResource {
     /**
      * @return Date/Time that the appointment is to conclude.
      */
-    public Date getEnd() {
+    public Date getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value Date/Time that the appointment is to conclude.
      */
-    public Appointment setEnd(Date value) {
+    public Appointment setEnd(Date value) { 
       if (value == null)
         this.end = null;
       else {
@@ -1174,7 +1174,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #minutesDuration} (Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request).). This is the underlying object with id, value and extensions. The accessor "getMinutesDuration" gives direct access to the value
      */
-    public PositiveIntType getMinutesDurationElement() {
+    public PositiveIntType getMinutesDurationElement() { 
       if (this.minutesDuration == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.minutesDuration");
@@ -1183,18 +1183,18 @@ public class Appointment extends DomainResource {
       return this.minutesDuration;
     }
 
-    public boolean hasMinutesDurationElement() {
+    public boolean hasMinutesDurationElement() { 
       return this.minutesDuration != null && !this.minutesDuration.isEmpty();
     }
 
-    public boolean hasMinutesDuration() {
+    public boolean hasMinutesDuration() { 
       return this.minutesDuration != null && !this.minutesDuration.isEmpty();
     }
 
     /**
      * @param value {@link #minutesDuration} (Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request).). This is the underlying object with id, value and extensions. The accessor "getMinutesDuration" gives direct access to the value
      */
-    public Appointment setMinutesDurationElement(PositiveIntType value) {
+    public Appointment setMinutesDurationElement(PositiveIntType value) { 
       this.minutesDuration = value;
       return this;
     }
@@ -1202,14 +1202,14 @@ public class Appointment extends DomainResource {
     /**
      * @return Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request).
      */
-    public int getMinutesDuration() {
+    public int getMinutesDuration() { 
       return this.minutesDuration == null || this.minutesDuration.isEmpty() ? 0 : this.minutesDuration.getValue();
     }
 
     /**
      * @param value Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request).
      */
-    public Appointment setMinutesDuration(int value) {
+    public Appointment setMinutesDuration(int value) { 
         if (this.minutesDuration == null)
           this.minutesDuration = new PositiveIntType();
         this.minutesDuration.setValue(value);
@@ -1219,13 +1219,13 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #slot} (The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
      */
-    public List<Reference> getSlot() {
+    public List<Reference> getSlot() { 
       if (this.slot == null)
         this.slot = new ArrayList<Reference>();
       return this.slot;
     }
 
-    public boolean hasSlot() {
+    public boolean hasSlot() { 
       if (this.slot == null)
         return false;
       for (Reference item : this.slot)
@@ -1259,7 +1259,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #slot} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
      */
-    public List<Slot> getSlotTarget() {
+    public List<Slot> getSlotTarget() { 
       if (this.slotTarget == null)
         this.slotTarget = new ArrayList<Slot>();
       return this.slotTarget;
@@ -1269,7 +1269,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #slot} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.)
      */
-    public Slot addSlotTarget() {
+    public Slot addSlotTarget() { 
       Slot r = new Slot();
       if (this.slotTarget == null)
         this.slotTarget = new ArrayList<Slot>();
@@ -1280,7 +1280,7 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getCommentElement() {
+    public StringType getCommentElement() { 
       if (this.comment == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Appointment.comment");
@@ -1289,18 +1289,18 @@ public class Appointment extends DomainResource {
       return this.comment;
     }
 
-    public boolean hasCommentElement() {
+    public boolean hasCommentElement() { 
       return this.comment != null && !this.comment.isEmpty();
     }
 
-    public boolean hasComment() {
+    public boolean hasComment() { 
       return this.comment != null && !this.comment.isEmpty();
     }
 
     /**
      * @param value {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public Appointment setCommentElement(StringType value) {
+    public Appointment setCommentElement(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -1308,14 +1308,14 @@ public class Appointment extends DomainResource {
     /**
      * @return Additional comments about the appointment.
      */
-    public String getComment() {
+    public String getComment() { 
       return this.comment == null ? null : this.comment.getValue();
     }
 
     /**
      * @param value Additional comments about the appointment.
      */
-    public Appointment setComment(String value) {
+    public Appointment setComment(String value) { 
       if (Utilities.noString(value))
         this.comment = null;
       else {
@@ -1329,13 +1329,13 @@ public class Appointment extends DomainResource {
     /**
      * @return {@link #participant} (List of participants involved in the appointment.)
      */
-    public List<AppointmentParticipantComponent> getParticipant() {
+    public List<AppointmentParticipantComponent> getParticipant() { 
       if (this.participant == null)
         this.participant = new ArrayList<AppointmentParticipantComponent>();
       return this.participant;
     }
 
-    public boolean hasParticipant() {
+    public boolean hasParticipant() { 
       if (this.participant == null)
         return false;
       for (AppointmentParticipantComponent item : this.participant)

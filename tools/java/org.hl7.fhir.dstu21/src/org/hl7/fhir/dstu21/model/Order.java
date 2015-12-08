@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -74,7 +74,7 @@ public class Order extends DomainResource {
         /**
          * @return {@link #code} (Code specifies when request should be done. The code may simply be a priority code.)
          */
-        public CodeableConcept getCode() {
+        public CodeableConcept getCode() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderWhenComponent.code");
@@ -83,14 +83,14 @@ public class Order extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() {
+        public boolean hasCode() { 
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Code specifies when request should be done. The code may simply be a priority code.)
          */
-        public OrderWhenComponent setCode(CodeableConcept value) {
+        public OrderWhenComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
@@ -98,7 +98,7 @@ public class Order extends DomainResource {
         /**
          * @return {@link #schedule} (A formal schedule.)
          */
-        public Timing getSchedule() {
+        public Timing getSchedule() { 
           if (this.schedule == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderWhenComponent.schedule");
@@ -107,14 +107,14 @@ public class Order extends DomainResource {
           return this.schedule;
         }
 
-        public boolean hasSchedule() {
+        public boolean hasSchedule() { 
           return this.schedule != null && !this.schedule.isEmpty();
         }
 
         /**
          * @param value {@link #schedule} (A formal schedule.)
          */
-        public OrderWhenComponent setSchedule(Timing value) {
+        public OrderWhenComponent setSchedule(Timing value) { 
           this.schedule = value;
           return this;
         }
@@ -277,13 +277,13 @@ public class Order extends DomainResource {
     /**
      * @return {@link #identifier} (Identifiers assigned to this order by the orderer or by the receiver.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -317,7 +317,7 @@ public class Order extends DomainResource {
     /**
      * @return {@link #date} (When the order was made.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.date");
@@ -326,18 +326,18 @@ public class Order extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (When the order was made.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public Order setDateElement(DateTimeType value) {
+    public Order setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -345,14 +345,14 @@ public class Order extends DomainResource {
     /**
      * @return When the order was made.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value When the order was made.
      */
-    public Order setDate(Date value) {
+    public Order setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -366,7 +366,7 @@ public class Order extends DomainResource {
     /**
      * @return {@link #subject} (Patient this order is about.)
      */
-    public Reference getSubject() {
+    public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.subject");
@@ -375,14 +375,14 @@ public class Order extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() {
+    public boolean hasSubject() { 
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (Patient this order is about.)
      */
-    public Order setSubject(Reference value) {
+    public Order setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -390,14 +390,14 @@ public class Order extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient this order is about.)
      */
-    public Resource getSubjectTarget() {
+    public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Patient this order is about.)
      */
-    public Order setSubjectTarget(Resource value) {
+    public Order setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -405,7 +405,7 @@ public class Order extends DomainResource {
     /**
      * @return {@link #source} (Who initiated the order.)
      */
-    public Reference getSource() {
+    public Reference getSource() { 
       if (this.source == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.source");
@@ -414,14 +414,14 @@ public class Order extends DomainResource {
       return this.source;
     }
 
-    public boolean hasSource() {
+    public boolean hasSource() { 
       return this.source != null && !this.source.isEmpty();
     }
 
     /**
      * @param value {@link #source} (Who initiated the order.)
      */
-    public Order setSource(Reference value) {
+    public Order setSource(Reference value) { 
       this.source = value;
       return this;
     }
@@ -429,14 +429,14 @@ public class Order extends DomainResource {
     /**
      * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who initiated the order.)
      */
-    public Resource getSourceTarget() {
+    public Resource getSourceTarget() { 
       return this.sourceTarget;
     }
 
     /**
      * @param value {@link #source} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who initiated the order.)
      */
-    public Order setSourceTarget(Resource value) {
+    public Order setSourceTarget(Resource value) { 
       this.sourceTarget = value;
       return this;
     }
@@ -444,7 +444,7 @@ public class Order extends DomainResource {
     /**
      * @return {@link #target} (Who is intended to fulfill the order.)
      */
-    public Reference getTarget() {
+    public Reference getTarget() { 
       if (this.target == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.target");
@@ -453,14 +453,14 @@ public class Order extends DomainResource {
       return this.target;
     }
 
-    public boolean hasTarget() {
+    public boolean hasTarget() { 
       return this.target != null && !this.target.isEmpty();
     }
 
     /**
      * @param value {@link #target} (Who is intended to fulfill the order.)
      */
-    public Order setTarget(Reference value) {
+    public Order setTarget(Reference value) { 
       this.target = value;
       return this;
     }
@@ -468,14 +468,14 @@ public class Order extends DomainResource {
     /**
      * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who is intended to fulfill the order.)
      */
-    public Resource getTargetTarget() {
+    public Resource getTargetTarget() { 
       return this.targetTarget;
     }
 
     /**
      * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who is intended to fulfill the order.)
      */
-    public Order setTargetTarget(Resource value) {
+    public Order setTargetTarget(Resource value) { 
       this.targetTarget = value;
       return this;
     }
@@ -483,44 +483,44 @@ public class Order extends DomainResource {
     /**
      * @return {@link #reason} (Text - why the order was made.)
      */
-    public Type getReason() {
+    public Type getReason() { 
       return this.reason;
     }
 
     /**
      * @return {@link #reason} (Text - why the order was made.)
      */
-    public CodeableConcept getReasonCodeableConcept() throws FHIRException {
+    public CodeableConcept getReasonCodeableConcept() throws FHIRException { 
       if (!(this.reason instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (CodeableConcept) this.reason;
     }
 
-    public boolean hasReasonCodeableConcept() {
+    public boolean hasReasonCodeableConcept() { 
       return this.reason instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #reason} (Text - why the order was made.)
      */
-    public Reference getReasonReference() throws FHIRException {
+    public Reference getReasonReference() throws FHIRException { 
       if (!(this.reason instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (Reference) this.reason;
     }
 
-    public boolean hasReasonReference() {
+    public boolean hasReasonReference() { 
       return this.reason instanceof Reference;
     }
 
-    public boolean hasReason() {
+    public boolean hasReason() { 
       return this.reason != null && !this.reason.isEmpty();
     }
 
     /**
      * @param value {@link #reason} (Text - why the order was made.)
      */
-    public Order setReason(Type value) {
+    public Order setReason(Type value) { 
       this.reason = value;
       return this;
     }
@@ -528,7 +528,7 @@ public class Order extends DomainResource {
     /**
      * @return {@link #when} (When order should be fulfilled.)
      */
-    public OrderWhenComponent getWhen() {
+    public OrderWhenComponent getWhen() { 
       if (this.when == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Order.when");
@@ -537,14 +537,14 @@ public class Order extends DomainResource {
       return this.when;
     }
 
-    public boolean hasWhen() {
+    public boolean hasWhen() { 
       return this.when != null && !this.when.isEmpty();
     }
 
     /**
      * @param value {@link #when} (When order should be fulfilled.)
      */
-    public Order setWhen(OrderWhenComponent value) {
+    public Order setWhen(OrderWhenComponent value) { 
       this.when = value;
       return this;
     }
@@ -552,13 +552,13 @@ public class Order extends DomainResource {
     /**
      * @return {@link #detail} (What action is being ordered.)
      */
-    public List<Reference> getDetail() {
+    public List<Reference> getDetail() { 
       if (this.detail == null)
         this.detail = new ArrayList<Reference>();
       return this.detail;
     }
 
-    public boolean hasDetail() {
+    public boolean hasDetail() { 
       if (this.detail == null)
         return false;
       for (Reference item : this.detail)
@@ -592,7 +592,7 @@ public class Order extends DomainResource {
     /**
      * @return {@link #detail} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. What action is being ordered.)
      */
-    public List<Resource> getDetailTarget() {
+    public List<Resource> getDetailTarget() { 
       if (this.detailTarget == null)
         this.detailTarget = new ArrayList<Resource>();
       return this.detailTarget;

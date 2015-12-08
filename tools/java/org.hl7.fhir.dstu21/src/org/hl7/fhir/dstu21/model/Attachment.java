@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -115,7 +115,7 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return {@link #contentType} (Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
-    public CodeType getContentTypeElement() {
+    public CodeType getContentTypeElement() { 
       if (this.contentType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.contentType");
@@ -124,18 +124,18 @@ public class Attachment extends Type implements ICompositeType {
       return this.contentType;
     }
 
-    public boolean hasContentTypeElement() {
+    public boolean hasContentTypeElement() { 
       return this.contentType != null && !this.contentType.isEmpty();
     }
 
-    public boolean hasContentType() {
+    public boolean hasContentType() { 
       return this.contentType != null && !this.contentType.isEmpty();
     }
 
     /**
      * @param value {@link #contentType} (Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
-    public Attachment setContentTypeElement(CodeType value) {
+    public Attachment setContentTypeElement(CodeType value) { 
       this.contentType = value;
       return this;
     }
@@ -143,14 +143,14 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
      */
-    public String getContentType() {
+    public String getContentType() { 
       return this.contentType == null ? null : this.contentType.getValue();
     }
 
     /**
      * @param value Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
      */
-    public Attachment setContentType(String value) {
+    public Attachment setContentType(String value) { 
       if (Utilities.noString(value))
         this.contentType = null;
       else {
@@ -164,7 +164,7 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return {@link #language} (The human language of the content. The value can be any valid value according to BCP 47.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
      */
-    public CodeType getLanguageElement() {
+    public CodeType getLanguageElement() { 
       if (this.language == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.language");
@@ -173,18 +173,18 @@ public class Attachment extends Type implements ICompositeType {
       return this.language;
     }
 
-    public boolean hasLanguageElement() {
+    public boolean hasLanguageElement() { 
       return this.language != null && !this.language.isEmpty();
     }
 
-    public boolean hasLanguage() {
+    public boolean hasLanguage() { 
       return this.language != null && !this.language.isEmpty();
     }
 
     /**
      * @param value {@link #language} (The human language of the content. The value can be any valid value according to BCP 47.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
      */
-    public Attachment setLanguageElement(CodeType value) {
+    public Attachment setLanguageElement(CodeType value) { 
       this.language = value;
       return this;
     }
@@ -192,14 +192,14 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return The human language of the content. The value can be any valid value according to BCP 47.
      */
-    public String getLanguage() {
+    public String getLanguage() { 
       return this.language == null ? null : this.language.getValue();
     }
 
     /**
      * @param value The human language of the content. The value can be any valid value according to BCP 47.
      */
-    public Attachment setLanguage(String value) {
+    public Attachment setLanguage(String value) { 
       if (Utilities.noString(value))
         this.language = null;
       else {
@@ -213,7 +213,7 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return {@link #data} (The actual data of the attachment - a sequence of bytes. In XML, represented using base64.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public Base64BinaryType getDataElement() {
+    public Base64BinaryType getDataElement() { 
       if (this.data == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.data");
@@ -222,18 +222,18 @@ public class Attachment extends Type implements ICompositeType {
       return this.data;
     }
 
-    public boolean hasDataElement() {
+    public boolean hasDataElement() { 
       return this.data != null && !this.data.isEmpty();
     }
 
-    public boolean hasData() {
+    public boolean hasData() { 
       return this.data != null && !this.data.isEmpty();
     }
 
     /**
      * @param value {@link #data} (The actual data of the attachment - a sequence of bytes. In XML, represented using base64.). This is the underlying object with id, value and extensions. The accessor "getData" gives direct access to the value
      */
-    public Attachment setDataElement(Base64BinaryType value) {
+    public Attachment setDataElement(Base64BinaryType value) { 
       this.data = value;
       return this;
     }
@@ -241,14 +241,14 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return The actual data of the attachment - a sequence of bytes. In XML, represented using base64.
      */
-    public byte[] getData() {
+    public byte[] getData() { 
       return this.data == null ? null : this.data.getValue();
     }
 
     /**
      * @param value The actual data of the attachment - a sequence of bytes. In XML, represented using base64.
      */
-    public Attachment setData(byte[] value) {
+    public Attachment setData(byte[] value) { 
       if (value == null)
         this.data = null;
       else {
@@ -262,7 +262,7 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return {@link #url} (An alternative location where the data can be accessed.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() {
+    public UriType getUrlElement() { 
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.url");
@@ -271,18 +271,18 @@ public class Attachment extends Type implements ICompositeType {
       return this.url;
     }
 
-    public boolean hasUrlElement() {
+    public boolean hasUrlElement() { 
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() {
+    public boolean hasUrl() { 
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
      * @param value {@link #url} (An alternative location where the data can be accessed.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public Attachment setUrlElement(UriType value) {
+    public Attachment setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -290,14 +290,14 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return An alternative location where the data can be accessed.
      */
-    public String getUrl() {
+    public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value An alternative location where the data can be accessed.
      */
-    public Attachment setUrl(String value) {
+    public Attachment setUrl(String value) { 
       if (Utilities.noString(value))
         this.url = null;
       else {
@@ -311,7 +311,7 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return {@link #size} (The number of bytes of data that make up this attachment.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
      */
-    public UnsignedIntType getSizeElement() {
+    public UnsignedIntType getSizeElement() { 
       if (this.size == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.size");
@@ -320,18 +320,18 @@ public class Attachment extends Type implements ICompositeType {
       return this.size;
     }
 
-    public boolean hasSizeElement() {
+    public boolean hasSizeElement() { 
       return this.size != null && !this.size.isEmpty();
     }
 
-    public boolean hasSize() {
+    public boolean hasSize() { 
       return this.size != null && !this.size.isEmpty();
     }
 
     /**
      * @param value {@link #size} (The number of bytes of data that make up this attachment.). This is the underlying object with id, value and extensions. The accessor "getSize" gives direct access to the value
      */
-    public Attachment setSizeElement(UnsignedIntType value) {
+    public Attachment setSizeElement(UnsignedIntType value) { 
       this.size = value;
       return this;
     }
@@ -339,14 +339,14 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return The number of bytes of data that make up this attachment.
      */
-    public int getSize() {
+    public int getSize() { 
       return this.size == null || this.size.isEmpty() ? 0 : this.size.getValue();
     }
 
     /**
      * @param value The number of bytes of data that make up this attachment.
      */
-    public Attachment setSize(int value) {
+    public Attachment setSize(int value) { 
         if (this.size == null)
           this.size = new UnsignedIntType();
         this.size.setValue(value);
@@ -356,7 +356,7 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return {@link #hash} (The calculated hash of the data using SHA-1. Represented using base64.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
      */
-    public Base64BinaryType getHashElement() {
+    public Base64BinaryType getHashElement() { 
       if (this.hash == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.hash");
@@ -365,18 +365,18 @@ public class Attachment extends Type implements ICompositeType {
       return this.hash;
     }
 
-    public boolean hasHashElement() {
+    public boolean hasHashElement() { 
       return this.hash != null && !this.hash.isEmpty();
     }
 
-    public boolean hasHash() {
+    public boolean hasHash() { 
       return this.hash != null && !this.hash.isEmpty();
     }
 
     /**
      * @param value {@link #hash} (The calculated hash of the data using SHA-1. Represented using base64.). This is the underlying object with id, value and extensions. The accessor "getHash" gives direct access to the value
      */
-    public Attachment setHashElement(Base64BinaryType value) {
+    public Attachment setHashElement(Base64BinaryType value) { 
       this.hash = value;
       return this;
     }
@@ -384,14 +384,14 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return The calculated hash of the data using SHA-1. Represented using base64.
      */
-    public byte[] getHash() {
+    public byte[] getHash() { 
       return this.hash == null ? null : this.hash.getValue();
     }
 
     /**
      * @param value The calculated hash of the data using SHA-1. Represented using base64.
      */
-    public Attachment setHash(byte[] value) {
+    public Attachment setHash(byte[] value) { 
       if (value == null)
         this.hash = null;
       else {
@@ -405,7 +405,7 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return {@link #title} (A label or set of text to display in place of the data.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public StringType getTitleElement() {
+    public StringType getTitleElement() { 
       if (this.title == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.title");
@@ -414,18 +414,18 @@ public class Attachment extends Type implements ICompositeType {
       return this.title;
     }
 
-    public boolean hasTitleElement() {
+    public boolean hasTitleElement() { 
       return this.title != null && !this.title.isEmpty();
     }
 
-    public boolean hasTitle() {
+    public boolean hasTitle() { 
       return this.title != null && !this.title.isEmpty();
     }
 
     /**
      * @param value {@link #title} (A label or set of text to display in place of the data.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
-    public Attachment setTitleElement(StringType value) {
+    public Attachment setTitleElement(StringType value) { 
       this.title = value;
       return this;
     }
@@ -433,14 +433,14 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return A label or set of text to display in place of the data.
      */
-    public String getTitle() {
+    public String getTitle() { 
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
      * @param value A label or set of text to display in place of the data.
      */
-    public Attachment setTitle(String value) {
+    public Attachment setTitle(String value) { 
       if (Utilities.noString(value))
         this.title = null;
       else {
@@ -454,7 +454,7 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return {@link #creation} (The date that the attachment was first created.). This is the underlying object with id, value and extensions. The accessor "getCreation" gives direct access to the value
      */
-    public DateTimeType getCreationElement() {
+    public DateTimeType getCreationElement() { 
       if (this.creation == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Attachment.creation");
@@ -463,18 +463,18 @@ public class Attachment extends Type implements ICompositeType {
       return this.creation;
     }
 
-    public boolean hasCreationElement() {
+    public boolean hasCreationElement() { 
       return this.creation != null && !this.creation.isEmpty();
     }
 
-    public boolean hasCreation() {
+    public boolean hasCreation() { 
       return this.creation != null && !this.creation.isEmpty();
     }
 
     /**
      * @param value {@link #creation} (The date that the attachment was first created.). This is the underlying object with id, value and extensions. The accessor "getCreation" gives direct access to the value
      */
-    public Attachment setCreationElement(DateTimeType value) {
+    public Attachment setCreationElement(DateTimeType value) { 
       this.creation = value;
       return this;
     }
@@ -482,14 +482,14 @@ public class Attachment extends Type implements ICompositeType {
     /**
      * @return The date that the attachment was first created.
      */
-    public Date getCreation() {
+    public Date getCreation() { 
       return this.creation == null ? null : this.creation.getValue();
     }
 
     /**
      * @param value The date that the attachment was first created.
      */
-    public Attachment setCreation(Date value) {
+    public Attachment setCreation(Date value) { 
       if (value == null)
         this.creation = null;
       else {

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model.valuesets;
   
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 
 import org.hl7.fhir.dstu21.model.EnumFactory;
@@ -73,6 +73,8 @@ public class SignatureTypeEnumFactory implements EnumFactory<SignatureType> {
       return SignatureType.OID_1_2_840_10065_1_12_1_16;
     if ("1.2.840.10065.1.12.1.17".equals(codeString))
       return SignatureType.OID_1_2_840_10065_1_12_1_17;
+    if ("1.2.840.10065.1.12.1.18".equals(codeString))
+      return SignatureType.OID_1_2_840_10065_1_12_1_18;
     throw new IllegalArgumentException("Unknown SignatureType code '"+codeString+"'");
   }
 
@@ -111,6 +113,8 @@ public class SignatureTypeEnumFactory implements EnumFactory<SignatureType> {
       return "1.2.840.10065.1.12.1.16";
     if (code == SignatureType.OID_1_2_840_10065_1_12_1_17)
       return "1.2.840.10065.1.12.1.17";
+    if (code == SignatureType.OID_1_2_840_10065_1_12_1_18)
+      return "1.2.840.10065.1.12.1.18";
     return "?";
   }
 

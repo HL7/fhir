@@ -12,6 +12,7 @@ import java.util.Set;
 import org.hl7.fhir.dstu21.formats.IParser;
 import org.hl7.fhir.dstu21.model.Base;
 import org.hl7.fhir.dstu21.model.BooleanType;
+import org.hl7.fhir.dstu21.model.Coding;
 import org.hl7.fhir.dstu21.model.Element;
 import org.hl7.fhir.dstu21.model.ElementDefinition;
 import org.hl7.fhir.dstu21.model.IntegerType;
@@ -361,6 +362,9 @@ public class ProfileUtilities {
           } 
           if (template == null)
             template = currentBase.copy();
+          else
+            // some of what's in currentBase overrides template
+            template = overWriteWithCurrent(template, currentBase);
           ElementDefinition outcome = updateURLs(url, template);
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
           updateFromBase(outcome, currentBase);
@@ -550,6 +554,53 @@ public class ProfileUtilities {
         }
       }
     }
+  }
+
+
+  private ElementDefinition overWriteWithCurrent(ElementDefinition profile, ElementDefinition usage) {
+    ElementDefinition res = profile.copy();
+    if (usage.hasName())
+      res.setName(usage.getName());
+    if (usage.hasLabel())
+      res.setLabel(usage.getLabel());
+    for (Coding c : usage.getCode())
+      res.addCode(c);
+    
+    if (usage.hasDefinition())
+      res.setDefinition(usage.getDefinition());
+    if (usage.hasShort())
+      res.setShort(usage.getShort());
+    if (usage.hasComments())
+      res.setComments(usage.getComments());
+    if (usage.hasRequirements())
+      res.setRequirements(usage.getRequirements());
+    for (StringType c : usage.getAlias())
+      res.addAlias(c.getValue());
+    if (usage.hasMin())
+      res.setMin(usage.getMin());
+    if (usage.hasMax())
+      res.setMax(usage.getMax());
+     
+    if (usage.hasFixed())
+      res.setFixed(usage.getFixed());
+    if (usage.hasPattern())
+      res.setPattern(usage.getPattern());
+    if (usage.hasExample())
+      res.setExample(usage.getExample());
+    if (usage.hasMinValue())
+      res.setMinValue(usage.getMinValue());
+    if (usage.hasMaxValue())
+      res.setMaxValue(usage.getMaxValue());     
+    if (usage.hasMaxLength())
+      res.setMaxLength(usage.getMaxLength());
+    if (usage.hasMustSupport())
+      res.setMustSupport(usage.getMustSupport());
+    if (usage.hasBinding())
+      res.setBinding(usage.getBinding().copy());
+    for (ElementDefinitionConstraintComponent c : usage.getConstraint())
+      res.addConstraint(c);
+    
+    return res;
   }
 
 

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -50,31 +50,31 @@ public class HumanName extends Type implements ICompositeType {
         /**
          * Known as/conventional/the one you normally use
          */
-        USUAL,
+        USUAL, 
         /**
          * The formal name as registered in an official (government) registry, but which name might not be commonly used. May be called "legal name".
          */
-        OFFICIAL,
+        OFFICIAL, 
         /**
          * A temporary name. Name.period can provide more detailed information. This may also be used for temporary names assigned at birth or in emergency situations.
          */
-        TEMP,
+        TEMP, 
         /**
          * A name that is used to address the person in an informal manner, but is not part of their formal or usual name
          */
-        NICKNAME,
+        NICKNAME, 
         /**
          * Anonymous assigned name, alias, or pseudonym (used to protect a person's identity for privacy reasons)
          */
-        ANONYMOUS,
+        ANONYMOUS, 
         /**
          * This name is no longer in use (or was never correct, but retained for records)
          */
-        OLD,
+        OLD, 
         /**
          * A name used prior to marriage. Marriage naming customs vary greatly around the world. This name use is for use by applications that collect and store "maiden" names. Though the concept of maiden name is often gender specific, the use of this term is not gender specific. The use of this term does not imply any particular history for a person's name, nor should the maiden name be determined algorithmically.
          */
-        MAIDEN,
+        MAIDEN, 
         /**
          * added to help the parsers
          */
@@ -271,7 +271,7 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #use} (Identifies the purpose for this name.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<NameUse> getUseElement() {
+    public Enumeration<NameUse> getUseElement() { 
       if (this.use == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HumanName.use");
@@ -280,18 +280,18 @@ public class HumanName extends Type implements ICompositeType {
       return this.use;
     }
 
-    public boolean hasUseElement() {
+    public boolean hasUseElement() { 
       return this.use != null && !this.use.isEmpty();
     }
 
-    public boolean hasUse() {
+    public boolean hasUse() { 
       return this.use != null && !this.use.isEmpty();
     }
 
     /**
      * @param value {@link #use} (Identifies the purpose for this name.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public HumanName setUseElement(Enumeration<NameUse> value) {
+    public HumanName setUseElement(Enumeration<NameUse> value) { 
       this.use = value;
       return this;
     }
@@ -299,14 +299,14 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return Identifies the purpose for this name.
      */
-    public NameUse getUse() {
+    public NameUse getUse() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
      * @param value Identifies the purpose for this name.
      */
-    public HumanName setUse(NameUse value) {
+    public HumanName setUse(NameUse value) { 
       if (value == null)
         this.use = null;
       else {
@@ -320,7 +320,7 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #text} (A full text representation of the name.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public StringType getTextElement() {
+    public StringType getTextElement() { 
       if (this.text == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HumanName.text");
@@ -329,18 +329,18 @@ public class HumanName extends Type implements ICompositeType {
       return this.text;
     }
 
-    public boolean hasTextElement() {
+    public boolean hasTextElement() { 
       return this.text != null && !this.text.isEmpty();
     }
 
-    public boolean hasText() {
+    public boolean hasText() { 
       return this.text != null && !this.text.isEmpty();
     }
 
     /**
      * @param value {@link #text} (A full text representation of the name.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public HumanName setTextElement(StringType value) {
+    public HumanName setTextElement(StringType value) { 
       this.text = value;
       return this;
     }
@@ -348,14 +348,14 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return A full text representation of the name.
      */
-    public String getText() {
+    public String getText() { 
       return this.text == null ? null : this.text.getValue();
     }
 
     /**
      * @param value A full text representation of the name.
      */
-    public HumanName setText(String value) {
+    public HumanName setText(String value) { 
       if (Utilities.noString(value))
         this.text = null;
       else {
@@ -369,13 +369,13 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
-    public List<StringType> getFamily() {
+    public List<StringType> getFamily() { 
       if (this.family == null)
         this.family = new ArrayList<StringType>();
       return this.family;
     }
 
-    public boolean hasFamily() {
+    public boolean hasFamily() { 
       if (this.family == null)
         return false;
       for (StringType item : this.family)
@@ -388,7 +388,7 @@ public class HumanName extends Type implements ICompositeType {
      * @return {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
     // syntactic sugar
-    public StringType addFamilyElement() {//2
+    public StringType addFamilyElement() {//2 
       StringType t = new StringType();
       if (this.family == null)
         this.family = new ArrayList<StringType>();
@@ -411,7 +411,7 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @param value {@link #family} (The part of a name that links to the genealogy. In some cultures (e.g. Eritrea) the family name of a son is the first name of his father.)
      */
-    public boolean hasFamily(String value) {
+    public boolean hasFamily(String value) { 
       if (this.family == null)
         return false;
       for (StringType v : this.family)
@@ -423,13 +423,13 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #given} (Given name.)
      */
-    public List<StringType> getGiven() {
+    public List<StringType> getGiven() { 
       if (this.given == null)
         this.given = new ArrayList<StringType>();
       return this.given;
     }
 
-    public boolean hasGiven() {
+    public boolean hasGiven() { 
       if (this.given == null)
         return false;
       for (StringType item : this.given)
@@ -442,7 +442,7 @@ public class HumanName extends Type implements ICompositeType {
      * @return {@link #given} (Given name.)
      */
     // syntactic sugar
-    public StringType addGivenElement() {//2
+    public StringType addGivenElement() {//2 
       StringType t = new StringType();
       if (this.given == null)
         this.given = new ArrayList<StringType>();
@@ -465,7 +465,7 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @param value {@link #given} (Given name.)
      */
-    public boolean hasGiven(String value) {
+    public boolean hasGiven(String value) { 
       if (this.given == null)
         return false;
       for (StringType v : this.given)
@@ -477,13 +477,13 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
-    public List<StringType> getPrefix() {
+    public List<StringType> getPrefix() { 
       if (this.prefix == null)
         this.prefix = new ArrayList<StringType>();
       return this.prefix;
     }
 
-    public boolean hasPrefix() {
+    public boolean hasPrefix() { 
       if (this.prefix == null)
         return false;
       for (StringType item : this.prefix)
@@ -496,7 +496,7 @@ public class HumanName extends Type implements ICompositeType {
      * @return {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
     // syntactic sugar
-    public StringType addPrefixElement() {//2
+    public StringType addPrefixElement() {//2 
       StringType t = new StringType();
       if (this.prefix == null)
         this.prefix = new ArrayList<StringType>();
@@ -519,7 +519,7 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @param value {@link #prefix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the start of the name.)
      */
-    public boolean hasPrefix(String value) {
+    public boolean hasPrefix(String value) { 
       if (this.prefix == null)
         return false;
       for (StringType v : this.prefix)
@@ -531,13 +531,13 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
-    public List<StringType> getSuffix() {
+    public List<StringType> getSuffix() { 
       if (this.suffix == null)
         this.suffix = new ArrayList<StringType>();
       return this.suffix;
     }
 
-    public boolean hasSuffix() {
+    public boolean hasSuffix() { 
       if (this.suffix == null)
         return false;
       for (StringType item : this.suffix)
@@ -550,7 +550,7 @@ public class HumanName extends Type implements ICompositeType {
      * @return {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
     // syntactic sugar
-    public StringType addSuffixElement() {//2
+    public StringType addSuffixElement() {//2 
       StringType t = new StringType();
       if (this.suffix == null)
         this.suffix = new ArrayList<StringType>();
@@ -573,7 +573,7 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @param value {@link #suffix} (Part of the name that is acquired as a title due to academic, legal, employment or nobility status, etc. and that appears at the end of the name.)
      */
-    public boolean hasSuffix(String value) {
+    public boolean hasSuffix(String value) { 
       if (this.suffix == null)
         return false;
       for (StringType v : this.suffix)
@@ -585,7 +585,7 @@ public class HumanName extends Type implements ICompositeType {
     /**
      * @return {@link #period} (Indicates the period of time when this name was valid for the named person.)
      */
-    public Period getPeriod() {
+    public Period getPeriod() { 
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create HumanName.period");
@@ -594,14 +594,14 @@ public class HumanName extends Type implements ICompositeType {
       return this.period;
     }
 
-    public boolean hasPeriod() {
+    public boolean hasPeriod() { 
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (Indicates the period of time when this name was valid for the named person.)
      */
-    public HumanName setPeriod(Period value) {
+    public HumanName setPeriod(Period value) { 
       this.period = value;
       return this;
     }

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,11 +52,11 @@ public class OperationDefinition extends DomainResource {
         /**
          * This operation is invoked as an operation.
          */
-        OPERATION,
+        OPERATION, 
         /**
          * This operation is a named query, invoked using the search mechanism.
          */
-        QUERY,
+        QUERY, 
         /**
          * added to help the parsers
          */
@@ -136,11 +136,11 @@ public class OperationDefinition extends DomainResource {
         /**
          * This is an input parameter.
          */
-        IN,
+        IN, 
         /**
          * This is an output parameter.
          */
-        OUT,
+        OUT, 
         /**
          * added to help the parsers
          */
@@ -244,7 +244,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #name} (The name of an individual to contact regarding the operation definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionContactComponent.name");
@@ -253,18 +253,18 @@ public class OperationDefinition extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of an individual to contact regarding the operation definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public OperationDefinitionContactComponent setNameElement(StringType value) {
+        public OperationDefinitionContactComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -272,14 +272,14 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return The name of an individual to contact regarding the operation definition.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of an individual to contact regarding the operation definition.
          */
-        public OperationDefinitionContactComponent setName(String value) {
+        public OperationDefinitionContactComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -293,13 +293,13 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
-        public List<ContactPoint> getTelecom() {
+        public List<ContactPoint> getTelecom() { 
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() {
+        public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -495,7 +495,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public CodeType getNameElement() {
+        public CodeType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.name");
@@ -504,18 +504,18 @@ public class OperationDefinition extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of used to identify the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setNameElement(CodeType value) {
+        public OperationDefinitionParameterComponent setNameElement(CodeType value) { 
           this.name = value;
           return this;
         }
@@ -523,14 +523,14 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return The name of used to identify the parameter.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of used to identify the parameter.
          */
-        public OperationDefinitionParameterComponent setName(String value) {
+        public OperationDefinitionParameterComponent setName(String value) { 
             if (this.name == null)
               this.name = new CodeType();
             this.name.setValue(value);
@@ -540,7 +540,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #use} (Whether this is an input or an output parameter.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
          */
-        public Enumeration<OperationParameterUse> getUseElement() {
+        public Enumeration<OperationParameterUse> getUseElement() { 
           if (this.use == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.use");
@@ -549,18 +549,18 @@ public class OperationDefinition extends DomainResource {
           return this.use;
         }
 
-        public boolean hasUseElement() {
+        public boolean hasUseElement() { 
           return this.use != null && !this.use.isEmpty();
         }
 
-        public boolean hasUse() {
+        public boolean hasUse() { 
           return this.use != null && !this.use.isEmpty();
         }
 
         /**
          * @param value {@link #use} (Whether this is an input or an output parameter.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setUseElement(Enumeration<OperationParameterUse> value) {
+        public OperationDefinitionParameterComponent setUseElement(Enumeration<OperationParameterUse> value) { 
           this.use = value;
           return this;
         }
@@ -568,14 +568,14 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return Whether this is an input or an output parameter.
          */
-        public OperationParameterUse getUse() {
+        public OperationParameterUse getUse() { 
           return this.use == null ? null : this.use.getValue();
         }
 
         /**
          * @param value Whether this is an input or an output parameter.
          */
-        public OperationDefinitionParameterComponent setUse(OperationParameterUse value) {
+        public OperationDefinitionParameterComponent setUse(OperationParameterUse value) { 
             if (this.use == null)
               this.use = new Enumeration<OperationParameterUse>(new OperationParameterUseEnumFactory());
             this.use.setValue(value);
@@ -585,7 +585,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public IntegerType getMinElement() {
+        public IntegerType getMinElement() { 
           if (this.min == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.min");
@@ -594,18 +594,18 @@ public class OperationDefinition extends DomainResource {
           return this.min;
         }
 
-        public boolean hasMinElement() {
+        public boolean hasMinElement() { 
           return this.min != null && !this.min.isEmpty();
         }
 
-        public boolean hasMin() {
+        public boolean hasMin() { 
           return this.min != null && !this.min.isEmpty();
         }
 
         /**
          * @param value {@link #min} (The minimum number of times this parameter SHALL appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMin" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setMinElement(IntegerType value) {
+        public OperationDefinitionParameterComponent setMinElement(IntegerType value) { 
           this.min = value;
           return this;
         }
@@ -613,14 +613,14 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return The minimum number of times this parameter SHALL appear in the request or response.
          */
-        public int getMin() {
+        public int getMin() { 
           return this.min == null || this.min.isEmpty() ? 0 : this.min.getValue();
         }
 
         /**
          * @param value The minimum number of times this parameter SHALL appear in the request or response.
          */
-        public OperationDefinitionParameterComponent setMin(int value) {
+        public OperationDefinitionParameterComponent setMin(int value) { 
             if (this.min == null)
               this.min = new IntegerType();
             this.min.setValue(value);
@@ -630,7 +630,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
          */
-        public StringType getMaxElement() {
+        public StringType getMaxElement() { 
           if (this.max == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.max");
@@ -639,18 +639,18 @@ public class OperationDefinition extends DomainResource {
           return this.max;
         }
 
-        public boolean hasMaxElement() {
+        public boolean hasMaxElement() { 
           return this.max != null && !this.max.isEmpty();
         }
 
-        public boolean hasMax() {
+        public boolean hasMax() { 
           return this.max != null && !this.max.isEmpty();
         }
 
         /**
          * @param value {@link #max} (The maximum number of times this element is permitted to appear in the request or response.). This is the underlying object with id, value and extensions. The accessor "getMax" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setMaxElement(StringType value) {
+        public OperationDefinitionParameterComponent setMaxElement(StringType value) { 
           this.max = value;
           return this;
         }
@@ -658,14 +658,14 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return The maximum number of times this element is permitted to appear in the request or response.
          */
-        public String getMax() {
+        public String getMax() { 
           return this.max == null ? null : this.max.getValue();
         }
 
         /**
          * @param value The maximum number of times this element is permitted to appear in the request or response.
          */
-        public OperationDefinitionParameterComponent setMax(String value) {
+        public OperationDefinitionParameterComponent setMax(String value) { 
             if (this.max == null)
               this.max = new StringType();
             this.max.setValue(value);
@@ -675,7 +675,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() {
+        public StringType getDocumentationElement() { 
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.documentation");
@@ -684,18 +684,18 @@ public class OperationDefinition extends DomainResource {
           return this.documentation;
         }
 
-        public boolean hasDocumentationElement() {
+        public boolean hasDocumentationElement() { 
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
-        public boolean hasDocumentation() {
+        public boolean hasDocumentation() { 
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
          * @param value {@link #documentation} (Describes the meaning or use of this parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setDocumentationElement(StringType value) {
+        public OperationDefinitionParameterComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -703,14 +703,14 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return Describes the meaning or use of this parameter.
          */
-        public String getDocumentation() {
+        public String getDocumentation() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value Describes the meaning or use of this parameter.
          */
-        public OperationDefinitionParameterComponent setDocumentation(String value) {
+        public OperationDefinitionParameterComponent setDocumentation(String value) { 
           if (Utilities.noString(value))
             this.documentation = null;
           else {
@@ -724,7 +724,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #type} (The type for this parameter.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public CodeType getTypeElement() {
+        public CodeType getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.type");
@@ -733,18 +733,18 @@ public class OperationDefinition extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() {
+        public boolean hasTypeElement() { 
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type for this parameter.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public OperationDefinitionParameterComponent setTypeElement(CodeType value) {
+        public OperationDefinitionParameterComponent setTypeElement(CodeType value) { 
           this.type = value;
           return this;
         }
@@ -752,14 +752,14 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return The type for this parameter.
          */
-        public String getType() {
+        public String getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type for this parameter.
          */
-        public OperationDefinitionParameterComponent setType(String value) {
+        public OperationDefinitionParameterComponent setType(String value) { 
           if (Utilities.noString(value))
             this.type = null;
           else {
@@ -773,7 +773,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
          */
-        public Reference getProfile() {
+        public Reference getProfile() { 
           if (this.profile == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.profile");
@@ -782,14 +782,14 @@ public class OperationDefinition extends DomainResource {
           return this.profile;
         }
 
-        public boolean hasProfile() {
+        public boolean hasProfile() { 
           return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
          * @param value {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
          */
-        public OperationDefinitionParameterComponent setProfile(Reference value) {
+        public OperationDefinitionParameterComponent setProfile(Reference value) { 
           this.profile = value;
           return this;
         }
@@ -797,7 +797,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
          */
-        public StructureDefinition getProfileTarget() {
+        public StructureDefinition getProfileTarget() { 
           if (this.profileTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.profile");
@@ -809,7 +809,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A profile the specifies the rules that this parameter must conform to.)
          */
-        public OperationDefinitionParameterComponent setProfileTarget(StructureDefinition value) {
+        public OperationDefinitionParameterComponent setProfileTarget(StructureDefinition value) { 
           this.profileTarget = value;
           return this;
         }
@@ -817,7 +817,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #binding} (Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).)
          */
-        public OperationDefinitionParameterBindingComponent getBinding() {
+        public OperationDefinitionParameterBindingComponent getBinding() { 
           if (this.binding == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.binding");
@@ -826,14 +826,14 @@ public class OperationDefinition extends DomainResource {
           return this.binding;
         }
 
-        public boolean hasBinding() {
+        public boolean hasBinding() { 
           return this.binding != null && !this.binding.isEmpty();
         }
 
         /**
          * @param value {@link #binding} (Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).)
          */
-        public OperationDefinitionParameterComponent setBinding(OperationDefinitionParameterBindingComponent value) {
+        public OperationDefinitionParameterComponent setBinding(OperationDefinitionParameterBindingComponent value) { 
           this.binding = value;
           return this;
         }
@@ -841,13 +841,13 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #part} (The parts of a Tuple Parameter.)
          */
-        public List<OperationDefinitionParameterComponent> getPart() {
+        public List<OperationDefinitionParameterComponent> getPart() { 
           if (this.part == null)
             this.part = new ArrayList<OperationDefinitionParameterComponent>();
           return this.part;
         }
 
-        public boolean hasPart() {
+        public boolean hasPart() { 
           if (this.part == null)
             return false;
           for (OperationDefinitionParameterComponent item : this.part)
@@ -1045,7 +1045,7 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #strength} (Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.). This is the underlying object with id, value and extensions. The accessor "getStrength" gives direct access to the value
          */
-        public Enumeration<BindingStrength> getStrengthElement() {
+        public Enumeration<BindingStrength> getStrengthElement() { 
           if (this.strength == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OperationDefinitionParameterBindingComponent.strength");
@@ -1054,18 +1054,18 @@ public class OperationDefinition extends DomainResource {
           return this.strength;
         }
 
-        public boolean hasStrengthElement() {
+        public boolean hasStrengthElement() { 
           return this.strength != null && !this.strength.isEmpty();
         }
 
-        public boolean hasStrength() {
+        public boolean hasStrength() { 
           return this.strength != null && !this.strength.isEmpty();
         }
 
         /**
          * @param value {@link #strength} (Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.). This is the underlying object with id, value and extensions. The accessor "getStrength" gives direct access to the value
          */
-        public OperationDefinitionParameterBindingComponent setStrengthElement(Enumeration<BindingStrength> value) {
+        public OperationDefinitionParameterBindingComponent setStrengthElement(Enumeration<BindingStrength> value) { 
           this.strength = value;
           return this;
         }
@@ -1073,14 +1073,14 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
          */
-        public BindingStrength getStrength() {
+        public BindingStrength getStrength() { 
           return this.strength == null ? null : this.strength.getValue();
         }
 
         /**
          * @param value Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances.
          */
-        public OperationDefinitionParameterBindingComponent setStrength(BindingStrength value) {
+        public OperationDefinitionParameterBindingComponent setStrength(BindingStrength value) { 
             if (this.strength == null)
               this.strength = new Enumeration<BindingStrength>(new BindingStrengthEnumFactory());
             this.strength.setValue(value);
@@ -1090,44 +1090,44 @@ public class OperationDefinition extends DomainResource {
         /**
          * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
          */
-        public Type getValueSet() {
+        public Type getValueSet() { 
           return this.valueSet;
         }
 
         /**
          * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
          */
-        public UriType getValueSetUriType() throws FHIRException {
+        public UriType getValueSetUriType() throws FHIRException { 
           if (!(this.valueSet instanceof UriType))
             throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (UriType) this.valueSet;
         }
 
-        public boolean hasValueSetUriType() {
+        public boolean hasValueSetUriType() { 
           return this.valueSet instanceof UriType;
         }
 
         /**
          * @return {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
          */
-        public Reference getValueSetReference() throws FHIRException {
+        public Reference getValueSetReference() throws FHIRException { 
           if (!(this.valueSet instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (Reference) this.valueSet;
         }
 
-        public boolean hasValueSetReference() {
+        public boolean hasValueSetReference() { 
           return this.valueSet instanceof Reference;
         }
 
-        public boolean hasValueSet() {
+        public boolean hasValueSet() { 
           return this.valueSet != null && !this.valueSet.isEmpty();
         }
 
         /**
          * @param value {@link #valueSet} (Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used.)
          */
-        public OperationDefinitionParameterBindingComponent setValueSet(Type value) {
+        public OperationDefinitionParameterBindingComponent setValueSet(Type value) { 
           this.valueSet = value;
           return this;
         }
@@ -1368,7 +1368,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #url} (An absolute URL that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this operation definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() {
+    public UriType getUrlElement() { 
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.url");
@@ -1377,18 +1377,18 @@ public class OperationDefinition extends DomainResource {
       return this.url;
     }
 
-    public boolean hasUrlElement() {
+    public boolean hasUrlElement() { 
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() {
+    public boolean hasUrl() { 
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
      * @param value {@link #url} (An absolute URL that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this operation definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public OperationDefinition setUrlElement(UriType value) {
+    public OperationDefinition setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -1396,14 +1396,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return An absolute URL that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this operation definition is (or will be) published.
      */
-    public String getUrl() {
+    public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value An absolute URL that is used to identify this operation definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this operation definition is (or will be) published.
      */
-    public OperationDefinition setUrl(String value) {
+    public OperationDefinition setUrl(String value) { 
       if (Utilities.noString(value))
         this.url = null;
       else {
@@ -1417,7 +1417,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.version");
@@ -1426,18 +1426,18 @@ public class OperationDefinition extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public OperationDefinition setVersionElement(StringType value) {
+    public OperationDefinition setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -1445,14 +1445,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this version of the profile when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    public OperationDefinition setVersion(String value) {
+    public OperationDefinition setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -1466,7 +1466,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #name} (A free text natural language name identifying the operation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() {
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.name");
@@ -1475,18 +1475,18 @@ public class OperationDefinition extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() {
+    public boolean hasNameElement() { 
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A free text natural language name identifying the operation.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public OperationDefinition setNameElement(StringType value) {
+    public OperationDefinition setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -1494,14 +1494,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return A free text natural language name identifying the operation.
      */
-    public String getName() {
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A free text natural language name identifying the operation.
      */
-    public OperationDefinition setName(String value) {
+    public OperationDefinition setName(String value) { 
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
@@ -1511,7 +1511,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() {
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.status");
@@ -1520,18 +1520,18 @@ public class OperationDefinition extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public OperationDefinition setStatusElement(Enumeration<ConformanceResourceStatus> value) {
+    public OperationDefinition setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1539,14 +1539,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return The status of the profile.
      */
-    public ConformanceResourceStatus getStatus() {
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the profile.
      */
-    public OperationDefinition setStatus(ConformanceResourceStatus value) {
+    public OperationDefinition setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
@@ -1556,7 +1556,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #kind} (Whether this is an operation or a named query.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Enumeration<OperationKind> getKindElement() {
+    public Enumeration<OperationKind> getKindElement() { 
       if (this.kind == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.kind");
@@ -1565,18 +1565,18 @@ public class OperationDefinition extends DomainResource {
       return this.kind;
     }
 
-    public boolean hasKindElement() {
+    public boolean hasKindElement() { 
       return this.kind != null && !this.kind.isEmpty();
     }
 
-    public boolean hasKind() {
+    public boolean hasKind() { 
       return this.kind != null && !this.kind.isEmpty();
     }
 
     /**
      * @param value {@link #kind} (Whether this is an operation or a named query.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public OperationDefinition setKindElement(Enumeration<OperationKind> value) {
+    public OperationDefinition setKindElement(Enumeration<OperationKind> value) { 
       this.kind = value;
       return this;
     }
@@ -1584,14 +1584,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return Whether this is an operation or a named query.
      */
-    public OperationKind getKind() {
+    public OperationKind getKind() { 
       return this.kind == null ? null : this.kind.getValue();
     }
 
     /**
      * @param value Whether this is an operation or a named query.
      */
-    public OperationDefinition setKind(OperationKind value) {
+    public OperationDefinition setKind(OperationKind value) { 
         if (this.kind == null)
           this.kind = new Enumeration<OperationKind>(new OperationKindEnumFactory());
         this.kind.setValue(value);
@@ -1601,7 +1601,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalElement() {
+    public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.experimental");
@@ -1610,18 +1610,18 @@ public class OperationDefinition extends DomainResource {
       return this.experimental;
     }
 
-    public boolean hasExperimentalElement() {
+    public boolean hasExperimentalElement() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
-    public boolean hasExperimental() {
+    public boolean hasExperimental() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
      * @param value {@link #experimental} (This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public OperationDefinition setExperimentalElement(BooleanType value) {
+    public OperationDefinition setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -1629,14 +1629,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public boolean getExperimental() {
+    public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
      * @param value This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public OperationDefinition setExperimental(boolean value) {
+    public OperationDefinition setExperimental(boolean value) { 
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
@@ -1646,7 +1646,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the operation definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() {
+    public StringType getPublisherElement() { 
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.publisher");
@@ -1655,18 +1655,18 @@ public class OperationDefinition extends DomainResource {
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() {
+    public boolean hasPublisherElement() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() {
+    public boolean hasPublisher() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the operation definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public OperationDefinition setPublisherElement(StringType value) {
+    public OperationDefinition setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -1674,14 +1674,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return The name of the individual or organization that published the operation definition.
      */
-    public String getPublisher() {
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value The name of the individual or organization that published the operation definition.
      */
-    public OperationDefinition setPublisher(String value) {
+    public OperationDefinition setPublisher(String value) { 
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -1695,13 +1695,13 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<OperationDefinitionContactComponent> getContact() {
+    public List<OperationDefinitionContactComponent> getContact() { 
       if (this.contact == null)
         this.contact = new ArrayList<OperationDefinitionContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() {
+    public boolean hasContact() { 
       if (this.contact == null)
         return false;
       for (OperationDefinitionContactComponent item : this.contact)
@@ -1735,7 +1735,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #date} (The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.date");
@@ -1744,18 +1744,18 @@ public class OperationDefinition extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public OperationDefinition setDateElement(DateTimeType value) {
+    public OperationDefinition setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -1763,14 +1763,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.
      */
-    public OperationDefinition setDate(Date value) {
+    public OperationDefinition setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1784,7 +1784,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.description");
@@ -1793,18 +1793,18 @@ public class OperationDefinition extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the profile and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public OperationDefinition setDescriptionElement(StringType value) {
+    public OperationDefinition setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -1812,14 +1812,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return A free text natural language description of the profile and its use.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A free text natural language description of the profile and its use.
      */
-    public OperationDefinition setDescription(String value) {
+    public OperationDefinition setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -1833,7 +1833,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #requirements} (Explains why this operation definition is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public StringType getRequirementsElement() {
+    public StringType getRequirementsElement() { 
       if (this.requirements == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.requirements");
@@ -1842,18 +1842,18 @@ public class OperationDefinition extends DomainResource {
       return this.requirements;
     }
 
-    public boolean hasRequirementsElement() {
+    public boolean hasRequirementsElement() { 
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
-    public boolean hasRequirements() {
+    public boolean hasRequirements() { 
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
     /**
      * @param value {@link #requirements} (Explains why this operation definition is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public OperationDefinition setRequirementsElement(StringType value) {
+    public OperationDefinition setRequirementsElement(StringType value) { 
       this.requirements = value;
       return this;
     }
@@ -1861,14 +1861,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return Explains why this operation definition is needed and why it's been constrained as it has.
      */
-    public String getRequirements() {
+    public String getRequirements() { 
       return this.requirements == null ? null : this.requirements.getValue();
     }
 
     /**
      * @param value Explains why this operation definition is needed and why it's been constrained as it has.
      */
-    public OperationDefinition setRequirements(String value) {
+    public OperationDefinition setRequirements(String value) { 
       if (Utilities.noString(value))
         this.requirements = null;
       else {
@@ -1882,7 +1882,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #idempotent} (Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.). This is the underlying object with id, value and extensions. The accessor "getIdempotent" gives direct access to the value
      */
-    public BooleanType getIdempotentElement() {
+    public BooleanType getIdempotentElement() { 
       if (this.idempotent == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.idempotent");
@@ -1891,18 +1891,18 @@ public class OperationDefinition extends DomainResource {
       return this.idempotent;
     }
 
-    public boolean hasIdempotentElement() {
+    public boolean hasIdempotentElement() { 
       return this.idempotent != null && !this.idempotent.isEmpty();
     }
 
-    public boolean hasIdempotent() {
+    public boolean hasIdempotent() { 
       return this.idempotent != null && !this.idempotent.isEmpty();
     }
 
     /**
      * @param value {@link #idempotent} (Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.). This is the underlying object with id, value and extensions. The accessor "getIdempotent" gives direct access to the value
      */
-    public OperationDefinition setIdempotentElement(BooleanType value) {
+    public OperationDefinition setIdempotentElement(BooleanType value) { 
       this.idempotent = value;
       return this;
     }
@@ -1910,14 +1910,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
      */
-    public boolean getIdempotent() {
+    public boolean getIdempotent() { 
       return this.idempotent == null || this.idempotent.isEmpty() ? false : this.idempotent.getValue();
     }
 
     /**
      * @param value Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
      */
-    public OperationDefinition setIdempotent(boolean value) {
+    public OperationDefinition setIdempotent(boolean value) { 
         if (this.idempotent == null)
           this.idempotent = new BooleanType();
         this.idempotent.setValue(value);
@@ -1927,7 +1927,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #code} (The name used to invoke the operation.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public CodeType getCodeElement() {
+    public CodeType getCodeElement() { 
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.code");
@@ -1936,18 +1936,18 @@ public class OperationDefinition extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCodeElement() {
+    public boolean hasCodeElement() { 
       return this.code != null && !this.code.isEmpty();
     }
 
-    public boolean hasCode() {
+    public boolean hasCode() { 
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (The name used to invoke the operation.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public OperationDefinition setCodeElement(CodeType value) {
+    public OperationDefinition setCodeElement(CodeType value) { 
       this.code = value;
       return this;
     }
@@ -1955,14 +1955,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return The name used to invoke the operation.
      */
-    public String getCode() {
+    public String getCode() { 
       return this.code == null ? null : this.code.getValue();
     }
 
     /**
      * @param value The name used to invoke the operation.
      */
-    public OperationDefinition setCode(String value) {
+    public OperationDefinition setCode(String value) { 
         if (this.code == null)
           this.code = new CodeType();
         this.code.setValue(value);
@@ -1972,7 +1972,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #notes} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public StringType getNotesElement() {
+    public StringType getNotesElement() { 
       if (this.notes == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.notes");
@@ -1981,18 +1981,18 @@ public class OperationDefinition extends DomainResource {
       return this.notes;
     }
 
-    public boolean hasNotesElement() {
+    public boolean hasNotesElement() { 
       return this.notes != null && !this.notes.isEmpty();
     }
 
-    public boolean hasNotes() {
+    public boolean hasNotes() { 
       return this.notes != null && !this.notes.isEmpty();
     }
 
     /**
      * @param value {@link #notes} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
      */
-    public OperationDefinition setNotesElement(StringType value) {
+    public OperationDefinition setNotesElement(StringType value) { 
       this.notes = value;
       return this;
     }
@@ -2000,14 +2000,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return Additional information about how to use this operation or named query.
      */
-    public String getNotes() {
+    public String getNotes() { 
       return this.notes == null ? null : this.notes.getValue();
     }
 
     /**
      * @param value Additional information about how to use this operation or named query.
      */
-    public OperationDefinition setNotes(String value) {
+    public OperationDefinition setNotes(String value) { 
       if (Utilities.noString(value))
         this.notes = null;
       else {
@@ -2021,7 +2021,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #base} (Indicates that this operation definition is a constraining profile on the base.)
      */
-    public Reference getBase() {
+    public Reference getBase() { 
       if (this.base == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.base");
@@ -2030,14 +2030,14 @@ public class OperationDefinition extends DomainResource {
       return this.base;
     }
 
-    public boolean hasBase() {
+    public boolean hasBase() { 
       return this.base != null && !this.base.isEmpty();
     }
 
     /**
      * @param value {@link #base} (Indicates that this operation definition is a constraining profile on the base.)
      */
-    public OperationDefinition setBase(Reference value) {
+    public OperationDefinition setBase(Reference value) { 
       this.base = value;
       return this;
     }
@@ -2045,7 +2045,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #base} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates that this operation definition is a constraining profile on the base.)
      */
-    public OperationDefinition getBaseTarget() {
+    public OperationDefinition getBaseTarget() { 
       if (this.baseTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.base");
@@ -2057,7 +2057,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @param value {@link #base} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates that this operation definition is a constraining profile on the base.)
      */
-    public OperationDefinition setBaseTarget(OperationDefinition value) {
+    public OperationDefinition setBaseTarget(OperationDefinition value) { 
       this.baseTarget = value;
       return this;
     }
@@ -2065,7 +2065,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public BooleanType getSystemElement() {
+    public BooleanType getSystemElement() { 
       if (this.system == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.system");
@@ -2074,18 +2074,18 @@ public class OperationDefinition extends DomainResource {
       return this.system;
     }
 
-    public boolean hasSystemElement() {
+    public boolean hasSystemElement() { 
       return this.system != null && !this.system.isEmpty();
     }
 
-    public boolean hasSystem() {
+    public boolean hasSystem() { 
       return this.system != null && !this.system.isEmpty();
     }
 
     /**
      * @param value {@link #system} (Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public OperationDefinition setSystemElement(BooleanType value) {
+    public OperationDefinition setSystemElement(BooleanType value) { 
       this.system = value;
       return this;
     }
@@ -2093,14 +2093,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
-    public boolean getSystem() {
+    public boolean getSystem() { 
       return this.system == null || this.system.isEmpty() ? false : this.system.getValue();
     }
 
     /**
      * @param value Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
-    public OperationDefinition setSystem(boolean value) {
+    public OperationDefinition setSystem(boolean value) { 
         if (this.system == null)
           this.system = new BooleanType();
         this.system.setValue(value);
@@ -2110,13 +2110,13 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    public List<CodeType> getType() {
+    public List<CodeType> getType() { 
       if (this.type == null)
         this.type = new ArrayList<CodeType>();
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       if (this.type == null)
         return false;
       for (CodeType item : this.type)
@@ -2129,7 +2129,7 @@ public class OperationDefinition extends DomainResource {
      * @return {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
     // syntactic sugar
-    public CodeType addTypeElement() {//2
+    public CodeType addTypeElement() {//2 
       CodeType t = new CodeType();
       if (this.type == null)
         this.type = new ArrayList<CodeType>();
@@ -2152,7 +2152,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @param value {@link #type} (Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).)
      */
-    public boolean hasType(String value) {
+    public boolean hasType(String value) { 
       if (this.type == null)
         return false;
       for (CodeType v : this.type)
@@ -2164,7 +2164,7 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.). This is the underlying object with id, value and extensions. The accessor "getInstance" gives direct access to the value
      */
-    public BooleanType getInstanceElement() {
+    public BooleanType getInstanceElement() { 
       if (this.instance == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OperationDefinition.instance");
@@ -2173,18 +2173,18 @@ public class OperationDefinition extends DomainResource {
       return this.instance;
     }
 
-    public boolean hasInstanceElement() {
+    public boolean hasInstanceElement() { 
       return this.instance != null && !this.instance.isEmpty();
     }
 
-    public boolean hasInstance() {
+    public boolean hasInstance() { 
       return this.instance != null && !this.instance.isEmpty();
     }
 
     /**
      * @param value {@link #instance} (Indicates whether this operation can be invoked on a particular instance of one of the given types.). This is the underlying object with id, value and extensions. The accessor "getInstance" gives direct access to the value
      */
-    public OperationDefinition setInstanceElement(BooleanType value) {
+    public OperationDefinition setInstanceElement(BooleanType value) { 
       this.instance = value;
       return this;
     }
@@ -2192,14 +2192,14 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
-    public boolean getInstance() {
+    public boolean getInstance() { 
       return this.instance == null || this.instance.isEmpty() ? false : this.instance.getValue();
     }
 
     /**
      * @param value Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
-    public OperationDefinition setInstance(boolean value) {
+    public OperationDefinition setInstance(boolean value) { 
         if (this.instance == null)
           this.instance = new BooleanType();
         this.instance.setValue(value);
@@ -2209,13 +2209,13 @@ public class OperationDefinition extends DomainResource {
     /**
      * @return {@link #parameter} (The parameters for the operation/query.)
      */
-    public List<OperationDefinitionParameterComponent> getParameter() {
+    public List<OperationDefinitionParameterComponent> getParameter() { 
       if (this.parameter == null)
         this.parameter = new ArrayList<OperationDefinitionParameterComponent>();
       return this.parameter;
     }
 
-    public boolean hasParameter() {
+    public boolean hasParameter() { 
       if (this.parameter == null)
         return false;
       for (OperationDefinitionParameterComponent item : this.parameter)

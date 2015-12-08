@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -71,7 +71,7 @@ public class Ratio extends Type implements ICompositeType {
     /**
      * @return {@link #numerator} (The value of the numerator.)
      */
-    public Quantity getNumerator() {
+    public Quantity getNumerator() { 
       if (this.numerator == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Ratio.numerator");
@@ -80,14 +80,14 @@ public class Ratio extends Type implements ICompositeType {
       return this.numerator;
     }
 
-    public boolean hasNumerator() {
+    public boolean hasNumerator() { 
       return this.numerator != null && !this.numerator.isEmpty();
     }
 
     /**
      * @param value {@link #numerator} (The value of the numerator.)
      */
-    public Ratio setNumerator(Quantity value) {
+    public Ratio setNumerator(Quantity value) { 
       this.numerator = value;
       return this;
     }
@@ -95,7 +95,7 @@ public class Ratio extends Type implements ICompositeType {
     /**
      * @return {@link #denominator} (The value of the denominator.)
      */
-    public Quantity getDenominator() {
+    public Quantity getDenominator() { 
       if (this.denominator == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Ratio.denominator");
@@ -104,14 +104,14 @@ public class Ratio extends Type implements ICompositeType {
       return this.denominator;
     }
 
-    public boolean hasDenominator() {
+    public boolean hasDenominator() { 
       return this.denominator != null && !this.denominator.isEmpty();
     }
 
     /**
      * @param value {@link #denominator} (The value of the denominator.)
      */
-    public Ratio setDenominator(Quantity value) {
+    public Ratio setDenominator(Quantity value) { 
       this.denominator = value;
       return this;
     }

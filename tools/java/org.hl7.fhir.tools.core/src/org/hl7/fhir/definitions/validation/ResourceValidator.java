@@ -585,13 +585,19 @@ public class ResourceValidator extends BaseValidator {
 
     needsRimMapping = needsRimMapping && !"n/a".equalsIgnoreCase(s) && !Utilities.noString(s);
     
-    Set<String> childNames = new HashSet<String>();
+    // check name uniqueness
     for (ElementDefn c : e.getElements()) {
       String name = c.getName();
-      if (name.endsWith("[x]"))
+      if (name.endsWith("[x]")) {
         name = name.substring(0, name.length()-3);
-      rule(errors, IssueType.STRUCTURE, path, !childNames.contains(name), "Duplicate Child Name "+name+" at "+path);
-      childNames.add(name);
+        for (ElementDefn c2 : e.getElements()) {
+          if (c != c2)
+            rule(errors, IssueType.STRUCTURE, path, !c2.getName().startsWith(name) || !definitions.hasType(c2.getName().substring(name.length())), "Duplicate Child Name "+c.getName()+"/"+c2.getName()+" at "+path);
+        }
+      }
+    }
+    
+    for (ElementDefn c : e.getElements()) {
       vsWarnings = vsWarnings + checkElement(errors, path + "." + c.getName(), c, parent, e.getName(), needsRimMapping, optionalParent, hasSummary, vsWarns);
     }
 		return vsWarnings;

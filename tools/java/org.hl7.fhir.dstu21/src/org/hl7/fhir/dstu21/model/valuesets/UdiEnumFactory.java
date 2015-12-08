@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model.valuesets;
   
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 
 import org.hl7.fhir.dstu21.model.EnumFactory;
@@ -39,14 +39,14 @@ public class UdiEnumFactory implements EnumFactory<Udi> {
   public Udi fromCode(String codeString) throws IllegalArgumentException {
     if (codeString == null || "".equals(codeString))
       return null;
-    if ("{01}123456789".equals(codeString))
-      return Udi._01_123456789;
+    if ("gudid".equals(codeString))
+      return Udi.GUDID;
     throw new IllegalArgumentException("Unknown Udi code '"+codeString+"'");
   }
 
   public String toCode(Udi code) {
-    if (code == Udi._01_123456789)
-      return "{01}123456789";
+    if (code == Udi.GUDID)
+      return "gudid";
     return "?";
   }
 

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -150,13 +150,13 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #identifier} (The Response business identifier.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -190,7 +190,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #request} (Original request resource reference.)
      */
-    public Reference getRequest() {
+    public Reference getRequest() { 
       if (this.request == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.request");
@@ -199,14 +199,14 @@ public class EligibilityResponse extends DomainResource {
       return this.request;
     }
 
-    public boolean hasRequest() {
+    public boolean hasRequest() { 
       return this.request != null && !this.request.isEmpty();
     }
 
     /**
      * @param value {@link #request} (Original request resource reference.)
      */
-    public EligibilityResponse setRequest(Reference value) {
+    public EligibilityResponse setRequest(Reference value) { 
       this.request = value;
       return this;
     }
@@ -214,7 +214,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public EligibilityRequest getRequestTarget() {
+    public EligibilityRequest getRequestTarget() { 
       if (this.requestTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.request");
@@ -226,7 +226,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original request resource reference.)
      */
-    public EligibilityResponse setRequestTarget(EligibilityRequest value) {
+    public EligibilityResponse setRequestTarget(EligibilityRequest value) { 
       this.requestTarget = value;
       return this;
     }
@@ -234,7 +234,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public Enumeration<RemittanceOutcome> getOutcomeElement() {
+    public Enumeration<RemittanceOutcome> getOutcomeElement() { 
       if (this.outcome == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.outcome");
@@ -243,18 +243,18 @@ public class EligibilityResponse extends DomainResource {
       return this.outcome;
     }
 
-    public boolean hasOutcomeElement() {
+    public boolean hasOutcomeElement() { 
       return this.outcome != null && !this.outcome.isEmpty();
     }
 
-    public boolean hasOutcome() {
+    public boolean hasOutcome() { 
       return this.outcome != null && !this.outcome.isEmpty();
     }
 
     /**
      * @param value {@link #outcome} (Transaction status: error, complete.). This is the underlying object with id, value and extensions. The accessor "getOutcome" gives direct access to the value
      */
-    public EligibilityResponse setOutcomeElement(Enumeration<RemittanceOutcome> value) {
+    public EligibilityResponse setOutcomeElement(Enumeration<RemittanceOutcome> value) { 
       this.outcome = value;
       return this;
     }
@@ -262,14 +262,14 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return Transaction status: error, complete.
      */
-    public RemittanceOutcome getOutcome() {
+    public RemittanceOutcome getOutcome() { 
       return this.outcome == null ? null : this.outcome.getValue();
     }
 
     /**
      * @param value Transaction status: error, complete.
      */
-    public EligibilityResponse setOutcome(RemittanceOutcome value) {
+    public EligibilityResponse setOutcome(RemittanceOutcome value) { 
       if (value == null)
         this.outcome = null;
       else {
@@ -283,7 +283,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
      */
-    public StringType getDispositionElement() {
+    public StringType getDispositionElement() { 
       if (this.disposition == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.disposition");
@@ -292,18 +292,18 @@ public class EligibilityResponse extends DomainResource {
       return this.disposition;
     }
 
-    public boolean hasDispositionElement() {
+    public boolean hasDispositionElement() { 
       return this.disposition != null && !this.disposition.isEmpty();
     }
 
-    public boolean hasDisposition() {
+    public boolean hasDisposition() { 
       return this.disposition != null && !this.disposition.isEmpty();
     }
 
     /**
      * @param value {@link #disposition} (A description of the status of the adjudication.). This is the underlying object with id, value and extensions. The accessor "getDisposition" gives direct access to the value
      */
-    public EligibilityResponse setDispositionElement(StringType value) {
+    public EligibilityResponse setDispositionElement(StringType value) { 
       this.disposition = value;
       return this;
     }
@@ -311,14 +311,14 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return A description of the status of the adjudication.
      */
-    public String getDisposition() {
+    public String getDisposition() { 
       return this.disposition == null ? null : this.disposition.getValue();
     }
 
     /**
      * @param value A description of the status of the adjudication.
      */
-    public EligibilityResponse setDisposition(String value) {
+    public EligibilityResponse setDisposition(String value) { 
       if (Utilities.noString(value))
         this.disposition = null;
       else {
@@ -332,7 +332,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public Coding getRuleset() {
+    public Coding getRuleset() { 
       if (this.ruleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.ruleset");
@@ -341,14 +341,14 @@ public class EligibilityResponse extends DomainResource {
       return this.ruleset;
     }
 
-    public boolean hasRuleset() {
+    public boolean hasRuleset() { 
       return this.ruleset != null && !this.ruleset.isEmpty();
     }
 
     /**
      * @param value {@link #ruleset} (The version of the style of resource contents. This should be mapped to the allowable profiles for this and supporting resources.)
      */
-    public EligibilityResponse setRuleset(Coding value) {
+    public EligibilityResponse setRuleset(Coding value) { 
       this.ruleset = value;
       return this;
     }
@@ -356,7 +356,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public Coding getOriginalRuleset() {
+    public Coding getOriginalRuleset() { 
       if (this.originalRuleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.originalRuleset");
@@ -365,14 +365,14 @@ public class EligibilityResponse extends DomainResource {
       return this.originalRuleset;
     }
 
-    public boolean hasOriginalRuleset() {
+    public boolean hasOriginalRuleset() { 
       return this.originalRuleset != null && !this.originalRuleset.isEmpty();
     }
 
     /**
      * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
      */
-    public EligibilityResponse setOriginalRuleset(Coding value) {
+    public EligibilityResponse setOriginalRuleset(Coding value) { 
       this.originalRuleset = value;
       return this;
     }
@@ -380,7 +380,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #created} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateTimeType getCreatedElement() {
+    public DateTimeType getCreatedElement() { 
       if (this.created == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.created");
@@ -389,18 +389,18 @@ public class EligibilityResponse extends DomainResource {
       return this.created;
     }
 
-    public boolean hasCreatedElement() {
+    public boolean hasCreatedElement() { 
       return this.created != null && !this.created.isEmpty();
     }
 
-    public boolean hasCreated() {
+    public boolean hasCreated() { 
       return this.created != null && !this.created.isEmpty();
     }
 
     /**
      * @param value {@link #created} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public EligibilityResponse setCreatedElement(DateTimeType value) {
+    public EligibilityResponse setCreatedElement(DateTimeType value) { 
       this.created = value;
       return this;
     }
@@ -408,14 +408,14 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return The date when the enclosed suite of services were performed or completed.
      */
-    public Date getCreated() {
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when the enclosed suite of services were performed or completed.
      */
-    public EligibilityResponse setCreated(Date value) {
+    public EligibilityResponse setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -429,7 +429,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #organization} (The Insurer who produced this adjudicated response.)
      */
-    public Reference getOrganization() {
+    public Reference getOrganization() { 
       if (this.organization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.organization");
@@ -438,14 +438,14 @@ public class EligibilityResponse extends DomainResource {
       return this.organization;
     }
 
-    public boolean hasOrganization() {
+    public boolean hasOrganization() { 
       return this.organization != null && !this.organization.isEmpty();
     }
 
     /**
      * @param value {@link #organization} (The Insurer who produced this adjudicated response.)
      */
-    public EligibilityResponse setOrganization(Reference value) {
+    public EligibilityResponse setOrganization(Reference value) { 
       this.organization = value;
       return this;
     }
@@ -453,7 +453,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
      */
-    public Organization getOrganizationTarget() {
+    public Organization getOrganizationTarget() { 
       if (this.organizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.organization");
@@ -465,7 +465,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Insurer who produced this adjudicated response.)
      */
-    public EligibilityResponse setOrganizationTarget(Organization value) {
+    public EligibilityResponse setOrganizationTarget(Organization value) { 
       this.organizationTarget = value;
       return this;
     }
@@ -473,7 +473,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Reference getRequestProvider() {
+    public Reference getRequestProvider() { 
       if (this.requestProvider == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.requestProvider");
@@ -482,14 +482,14 @@ public class EligibilityResponse extends DomainResource {
       return this.requestProvider;
     }
 
-    public boolean hasRequestProvider() {
+    public boolean hasRequestProvider() { 
       return this.requestProvider != null && !this.requestProvider.isEmpty();
     }
 
     /**
      * @param value {@link #requestProvider} (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public EligibilityResponse setRequestProvider(Reference value) {
+    public EligibilityResponse setRequestProvider(Reference value) { 
       this.requestProvider = value;
       return this;
     }
@@ -497,7 +497,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #requestProvider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public Practitioner getRequestProviderTarget() {
+    public Practitioner getRequestProviderTarget() { 
       if (this.requestProviderTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.requestProvider");
@@ -509,7 +509,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #requestProvider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
      */
-    public EligibilityResponse setRequestProviderTarget(Practitioner value) {
+    public EligibilityResponse setRequestProviderTarget(Practitioner value) { 
       this.requestProviderTarget = value;
       return this;
     }
@@ -517,7 +517,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public Reference getRequestOrganization() {
+    public Reference getRequestOrganization() { 
       if (this.requestOrganization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.requestOrganization");
@@ -526,14 +526,14 @@ public class EligibilityResponse extends DomainResource {
       return this.requestOrganization;
     }
 
-    public boolean hasRequestOrganization() {
+    public boolean hasRequestOrganization() { 
       return this.requestOrganization != null && !this.requestOrganization.isEmpty();
     }
 
     /**
      * @param value {@link #requestOrganization} (The organization which is responsible for the services rendered to the patient.)
      */
-    public EligibilityResponse setRequestOrganization(Reference value) {
+    public EligibilityResponse setRequestOrganization(Reference value) { 
       this.requestOrganization = value;
       return this;
     }
@@ -541,7 +541,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @return {@link #requestOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public Organization getRequestOrganizationTarget() {
+    public Organization getRequestOrganizationTarget() { 
       if (this.requestOrganizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create EligibilityResponse.requestOrganization");
@@ -553,7 +553,7 @@ public class EligibilityResponse extends DomainResource {
     /**
      * @param value {@link #requestOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the services rendered to the patient.)
      */
-    public EligibilityResponse setRequestOrganizationTarget(Organization value) {
+    public EligibilityResponse setRequestOrganizationTarget(Organization value) { 
       this.requestOrganizationTarget = value;
       return this;
     }

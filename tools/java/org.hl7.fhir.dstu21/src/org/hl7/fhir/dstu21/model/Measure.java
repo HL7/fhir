@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,39 +51,39 @@ public class Measure extends DomainResource {
         /**
          * The initial population for the measure
          */
-        INITIALPOPULATION,
+        INITIALPOPULATION, 
         /**
          * The numerator for the measure
          */
-        NUMERATOR,
+        NUMERATOR, 
         /**
          * The numerator exclusion for the measure
          */
-        NUMERATOREXCLUSION,
+        NUMERATOREXCLUSION, 
         /**
          * The denominator for the measure
          */
-        DENOMINATOR,
+        DENOMINATOR, 
         /**
          * The denominator exclusion for the measure
          */
-        DENOMINATOREXCLUSION,
+        DENOMINATOREXCLUSION, 
         /**
          * The denominator exception for the measure
          */
-        DENOMINATOREXCEPTION,
+        DENOMINATOREXCEPTION, 
         /**
          * The measure population for the measure
          */
-        MEASUREPOPULATION,
+        MEASUREPOPULATION, 
         /**
          * The measure population exclusion for the measure
          */
-        MEASUREPOPULATIONEXCLUSION,
+        MEASUREPOPULATIONEXCLUSION, 
         /**
          * The measure score for the measure
          */
-        MEASURESCORE,
+        MEASURESCORE, 
         /**
          * added to help the parsers
          */
@@ -294,7 +294,7 @@ public class Measure extends DomainResource {
         /**
          * @return {@link #type} (The type of population criteria.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<MeasurePopulationType> getTypeElement() {
+        public Enumeration<MeasurePopulationType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MeasurePopulationComponent.type");
@@ -303,18 +303,18 @@ public class Measure extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() {
+        public boolean hasTypeElement() { 
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of population criteria.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public MeasurePopulationComponent setTypeElement(Enumeration<MeasurePopulationType> value) {
+        public MeasurePopulationComponent setTypeElement(Enumeration<MeasurePopulationType> value) { 
           this.type = value;
           return this;
         }
@@ -322,14 +322,14 @@ public class Measure extends DomainResource {
         /**
          * @return The type of population criteria.
          */
-        public MeasurePopulationType getType() {
+        public MeasurePopulationType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of population criteria.
          */
-        public MeasurePopulationComponent setType(MeasurePopulationType value) {
+        public MeasurePopulationComponent setType(MeasurePopulationType value) { 
             if (this.type == null)
               this.type = new Enumeration<MeasurePopulationType>(new MeasurePopulationTypeEnumFactory());
             this.type.setValue(value);
@@ -339,7 +339,7 @@ public class Measure extends DomainResource {
         /**
          * @return {@link #name} (Optional name or short description of this population.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MeasurePopulationComponent.name");
@@ -348,18 +348,18 @@ public class Measure extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (Optional name or short description of this population.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public MeasurePopulationComponent setNameElement(StringType value) {
+        public MeasurePopulationComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -367,14 +367,14 @@ public class Measure extends DomainResource {
         /**
          * @return Optional name or short description of this population.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value Optional name or short description of this population.
          */
-        public MeasurePopulationComponent setName(String value) {
+        public MeasurePopulationComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -388,7 +388,7 @@ public class Measure extends DomainResource {
         /**
          * @return {@link #description} (The human readable description of this population criteria.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() {
+        public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MeasurePopulationComponent.description");
@@ -397,18 +397,18 @@ public class Measure extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() {
+        public boolean hasDescriptionElement() { 
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() {
+        public boolean hasDescription() { 
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (The human readable description of this population criteria.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public MeasurePopulationComponent setDescriptionElement(StringType value) {
+        public MeasurePopulationComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -416,14 +416,14 @@ public class Measure extends DomainResource {
         /**
          * @return The human readable description of this population criteria.
          */
-        public String getDescription() {
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value The human readable description of this population criteria.
          */
-        public MeasurePopulationComponent setDescription(String value) {
+        public MeasurePopulationComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -437,7 +437,7 @@ public class Measure extends DomainResource {
         /**
          * @return {@link #criteria} (The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
          */
-        public StringType getCriteriaElement() {
+        public StringType getCriteriaElement() { 
           if (this.criteria == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MeasurePopulationComponent.criteria");
@@ -446,18 +446,18 @@ public class Measure extends DomainResource {
           return this.criteria;
         }
 
-        public boolean hasCriteriaElement() {
+        public boolean hasCriteriaElement() { 
           return this.criteria != null && !this.criteria.isEmpty();
         }
 
-        public boolean hasCriteria() {
+        public boolean hasCriteria() { 
           return this.criteria != null && !this.criteria.isEmpty();
         }
 
         /**
          * @param value {@link #criteria} (The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
          */
-        public MeasurePopulationComponent setCriteriaElement(StringType value) {
+        public MeasurePopulationComponent setCriteriaElement(StringType value) { 
           this.criteria = value;
           return this;
         }
@@ -465,14 +465,14 @@ public class Measure extends DomainResource {
         /**
          * @return The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.
          */
-        public String getCriteria() {
+        public String getCriteria() { 
           return this.criteria == null ? null : this.criteria.getValue();
         }
 
         /**
          * @param value The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.
          */
-        public MeasurePopulationComponent setCriteria(String value) {
+        public MeasurePopulationComponent setCriteria(String value) { 
             if (this.criteria == null)
               this.criteria = new StringType();
             this.criteria.setValue(value);
@@ -635,13 +635,13 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #identifier} (A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -675,7 +675,7 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Measure.version");
@@ -684,18 +684,18 @@ public class Measure extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public Measure setVersionElement(StringType value) {
+    public Measure setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -703,14 +703,14 @@ public class Measure extends DomainResource {
     /**
      * @return The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public Measure setVersion(String value) {
+    public Measure setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -724,7 +724,7 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #moduleMetadata} (A reference to a ModuleMetadata resource that describes the metadata for the measure.)
      */
-    public Reference getModuleMetadata() {
+    public Reference getModuleMetadata() { 
       if (this.moduleMetadata == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Measure.moduleMetadata");
@@ -733,14 +733,14 @@ public class Measure extends DomainResource {
       return this.moduleMetadata;
     }
 
-    public boolean hasModuleMetadata() {
+    public boolean hasModuleMetadata() { 
       return this.moduleMetadata != null && !this.moduleMetadata.isEmpty();
     }
 
     /**
      * @param value {@link #moduleMetadata} (A reference to a ModuleMetadata resource that describes the metadata for the measure.)
      */
-    public Measure setModuleMetadata(Reference value) {
+    public Measure setModuleMetadata(Reference value) { 
       this.moduleMetadata = value;
       return this;
     }
@@ -748,7 +748,7 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #moduleMetadata} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a ModuleMetadata resource that describes the metadata for the measure.)
      */
-    public ModuleMetadata getModuleMetadataTarget() {
+    public ModuleMetadata getModuleMetadataTarget() { 
       if (this.moduleMetadataTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Measure.moduleMetadata");
@@ -760,7 +760,7 @@ public class Measure extends DomainResource {
     /**
      * @param value {@link #moduleMetadata} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a ModuleMetadata resource that describes the metadata for the measure.)
      */
-    public Measure setModuleMetadataTarget(ModuleMetadata value) {
+    public Measure setModuleMetadataTarget(ModuleMetadata value) { 
       this.moduleMetadataTarget = value;
       return this;
     }
@@ -768,13 +768,13 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #library} (A reference to a Library resource containing the formal logic used by the measure.)
      */
-    public List<Reference> getLibrary() {
+    public List<Reference> getLibrary() { 
       if (this.library == null)
         this.library = new ArrayList<Reference>();
       return this.library;
     }
 
-    public boolean hasLibrary() {
+    public boolean hasLibrary() { 
       if (this.library == null)
         return false;
       for (Reference item : this.library)
@@ -808,7 +808,7 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #library} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A reference to a Library resource containing the formal logic used by the measure.)
      */
-    public List<Library> getLibraryTarget() {
+    public List<Library> getLibraryTarget() { 
       if (this.libraryTarget == null)
         this.libraryTarget = new ArrayList<Library>();
       return this.libraryTarget;
@@ -818,7 +818,7 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #library} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A reference to a Library resource containing the formal logic used by the measure.)
      */
-    public Library addLibraryTarget() {
+    public Library addLibraryTarget() { 
       Library r = new Library();
       if (this.libraryTarget == null)
         this.libraryTarget = new ArrayList<Library>();
@@ -829,13 +829,13 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #population} (The measure populations.)
      */
-    public List<MeasurePopulationComponent> getPopulation() {
+    public List<MeasurePopulationComponent> getPopulation() { 
       if (this.population == null)
         this.population = new ArrayList<MeasurePopulationComponent>();
       return this.population;
     }
 
-    public boolean hasPopulation() {
+    public boolean hasPopulation() { 
       if (this.population == null)
         return false;
       for (MeasurePopulationComponent item : this.population)
@@ -869,13 +869,13 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
      */
-    public List<StringType> getStratifier() {
+    public List<StringType> getStratifier() { 
       if (this.stratifier == null)
         this.stratifier = new ArrayList<StringType>();
       return this.stratifier;
     }
 
-    public boolean hasStratifier() {
+    public boolean hasStratifier() { 
       if (this.stratifier == null)
         return false;
       for (StringType item : this.stratifier)
@@ -888,7 +888,7 @@ public class Measure extends DomainResource {
      * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
      */
     // syntactic sugar
-    public StringType addStratifierElement() {//2
+    public StringType addStratifierElement() {//2 
       StringType t = new StringType();
       if (this.stratifier == null)
         this.stratifier = new ArrayList<StringType>();
@@ -911,7 +911,7 @@ public class Measure extends DomainResource {
     /**
      * @param value {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
      */
-    public boolean hasStratifier(String value) {
+    public boolean hasStratifier(String value) { 
       if (this.stratifier == null)
         return false;
       for (StringType v : this.stratifier)
@@ -923,13 +923,13 @@ public class Measure extends DomainResource {
     /**
      * @return {@link #supplementalData} (The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.)
      */
-    public List<StringType> getSupplementalData() {
+    public List<StringType> getSupplementalData() { 
       if (this.supplementalData == null)
         this.supplementalData = new ArrayList<StringType>();
       return this.supplementalData;
     }
 
-    public boolean hasSupplementalData() {
+    public boolean hasSupplementalData() { 
       if (this.supplementalData == null)
         return false;
       for (StringType item : this.supplementalData)
@@ -942,7 +942,7 @@ public class Measure extends DomainResource {
      * @return {@link #supplementalData} (The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.)
      */
     // syntactic sugar
-    public StringType addSupplementalDataElement() {//2
+    public StringType addSupplementalDataElement() {//2 
       StringType t = new StringType();
       if (this.supplementalData == null)
         this.supplementalData = new ArrayList<StringType>();
@@ -965,7 +965,7 @@ public class Measure extends DomainResource {
     /**
      * @param value {@link #supplementalData} (The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.)
      */
-    public boolean hasSupplementalData(String value) {
+    public boolean hasSupplementalData(String value) { 
       if (this.supplementalData == null)
         return false;
       for (StringType v : this.supplementalData)

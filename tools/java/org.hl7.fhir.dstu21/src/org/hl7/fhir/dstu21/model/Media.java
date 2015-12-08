@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,15 +51,15 @@ public class Media extends DomainResource {
         /**
          * The media consists of one or more unmoving images, including photographs, computer-generated graphs and charts, and scanned documents
          */
-        PHOTO,
+        PHOTO, 
         /**
          * The media consists of a series of frames that capture a moving image
          */
-        VIDEO,
+        VIDEO, 
         /**
          * The media consists of a sound recording
          */
-        AUDIO,
+        AUDIO, 
         /**
          * added to help the parsers
          */
@@ -262,7 +262,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #type} (Whether the media is a photo (still image), an audio recording, or a video recording.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<DigitalMediaType> getTypeElement() {
+    public Enumeration<DigitalMediaType> getTypeElement() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.type");
@@ -271,18 +271,18 @@ public class Media extends DomainResource {
       return this.type;
     }
 
-    public boolean hasTypeElement() {
+    public boolean hasTypeElement() { 
       return this.type != null && !this.type.isEmpty();
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Whether the media is a photo (still image), an audio recording, or a video recording.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Media setTypeElement(Enumeration<DigitalMediaType> value) {
+    public Media setTypeElement(Enumeration<DigitalMediaType> value) { 
       this.type = value;
       return this;
     }
@@ -290,14 +290,14 @@ public class Media extends DomainResource {
     /**
      * @return Whether the media is a photo (still image), an audio recording, or a video recording.
      */
-    public DigitalMediaType getType() {
+    public DigitalMediaType getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value Whether the media is a photo (still image), an audio recording, or a video recording.
      */
-    public Media setType(DigitalMediaType value) {
+    public Media setType(DigitalMediaType value) { 
         if (this.type == null)
           this.type = new Enumeration<DigitalMediaType>(new DigitalMediaTypeEnumFactory());
         this.type.setValue(value);
@@ -307,7 +307,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #subtype} (Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.)
      */
-    public CodeableConcept getSubtype() {
+    public CodeableConcept getSubtype() { 
       if (this.subtype == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.subtype");
@@ -316,14 +316,14 @@ public class Media extends DomainResource {
       return this.subtype;
     }
 
-    public boolean hasSubtype() {
+    public boolean hasSubtype() { 
       return this.subtype != null && !this.subtype.isEmpty();
     }
 
     /**
      * @param value {@link #subtype} (Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.)
      */
-    public Media setSubtype(CodeableConcept value) {
+    public Media setSubtype(CodeableConcept value) { 
       this.subtype = value;
       return this;
     }
@@ -331,13 +331,13 @@ public class Media extends DomainResource {
     /**
      * @return {@link #identifier} (Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -371,7 +371,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #subject} (Who/What this Media is a record of.)
      */
-    public Reference getSubject() {
+    public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.subject");
@@ -380,14 +380,14 @@ public class Media extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() {
+    public boolean hasSubject() { 
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (Who/What this Media is a record of.)
      */
-    public Media setSubject(Reference value) {
+    public Media setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -395,14 +395,14 @@ public class Media extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who/What this Media is a record of.)
      */
-    public Resource getSubjectTarget() {
+    public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who/What this Media is a record of.)
      */
-    public Media setSubjectTarget(Resource value) {
+    public Media setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -410,7 +410,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #operator} (The person who administered the collection of the image.)
      */
-    public Reference getOperator() {
+    public Reference getOperator() { 
       if (this.operator == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.operator");
@@ -419,14 +419,14 @@ public class Media extends DomainResource {
       return this.operator;
     }
 
-    public boolean hasOperator() {
+    public boolean hasOperator() { 
       return this.operator != null && !this.operator.isEmpty();
     }
 
     /**
      * @param value {@link #operator} (The person who administered the collection of the image.)
      */
-    public Media setOperator(Reference value) {
+    public Media setOperator(Reference value) { 
       this.operator = value;
       return this;
     }
@@ -434,7 +434,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #operator} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person who administered the collection of the image.)
      */
-    public Practitioner getOperatorTarget() {
+    public Practitioner getOperatorTarget() { 
       if (this.operatorTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.operator");
@@ -446,7 +446,7 @@ public class Media extends DomainResource {
     /**
      * @param value {@link #operator} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person who administered the collection of the image.)
      */
-    public Media setOperatorTarget(Practitioner value) {
+    public Media setOperatorTarget(Practitioner value) { 
       this.operatorTarget = value;
       return this;
     }
@@ -454,7 +454,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #view} (The name of the imaging view e.g. Lateral or Antero-posterior (AP).)
      */
-    public CodeableConcept getView() {
+    public CodeableConcept getView() { 
       if (this.view == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.view");
@@ -463,14 +463,14 @@ public class Media extends DomainResource {
       return this.view;
     }
 
-    public boolean hasView() {
+    public boolean hasView() { 
       return this.view != null && !this.view.isEmpty();
     }
 
     /**
      * @param value {@link #view} (The name of the imaging view e.g. Lateral or Antero-posterior (AP).)
      */
-    public Media setView(CodeableConcept value) {
+    public Media setView(CodeableConcept value) { 
       this.view = value;
       return this;
     }
@@ -478,7 +478,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.). This is the underlying object with id, value and extensions. The accessor "getDeviceName" gives direct access to the value
      */
-    public StringType getDeviceNameElement() {
+    public StringType getDeviceNameElement() { 
       if (this.deviceName == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.deviceName");
@@ -487,18 +487,18 @@ public class Media extends DomainResource {
       return this.deviceName;
     }
 
-    public boolean hasDeviceNameElement() {
+    public boolean hasDeviceNameElement() { 
       return this.deviceName != null && !this.deviceName.isEmpty();
     }
 
-    public boolean hasDeviceName() {
+    public boolean hasDeviceName() { 
       return this.deviceName != null && !this.deviceName.isEmpty();
     }
 
     /**
      * @param value {@link #deviceName} (The name of the device / manufacturer of the device  that was used to make the recording.). This is the underlying object with id, value and extensions. The accessor "getDeviceName" gives direct access to the value
      */
-    public Media setDeviceNameElement(StringType value) {
+    public Media setDeviceNameElement(StringType value) { 
       this.deviceName = value;
       return this;
     }
@@ -506,14 +506,14 @@ public class Media extends DomainResource {
     /**
      * @return The name of the device / manufacturer of the device  that was used to make the recording.
      */
-    public String getDeviceName() {
+    public String getDeviceName() { 
       return this.deviceName == null ? null : this.deviceName.getValue();
     }
 
     /**
      * @param value The name of the device / manufacturer of the device  that was used to make the recording.
      */
-    public Media setDeviceName(String value) {
+    public Media setDeviceName(String value) { 
       if (Utilities.noString(value))
         this.deviceName = null;
       else {
@@ -527,7 +527,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #height} (Height of the image in pixels (photo/video).). This is the underlying object with id, value and extensions. The accessor "getHeight" gives direct access to the value
      */
-    public PositiveIntType getHeightElement() {
+    public PositiveIntType getHeightElement() { 
       if (this.height == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.height");
@@ -536,18 +536,18 @@ public class Media extends DomainResource {
       return this.height;
     }
 
-    public boolean hasHeightElement() {
+    public boolean hasHeightElement() { 
       return this.height != null && !this.height.isEmpty();
     }
 
-    public boolean hasHeight() {
+    public boolean hasHeight() { 
       return this.height != null && !this.height.isEmpty();
     }
 
     /**
      * @param value {@link #height} (Height of the image in pixels (photo/video).). This is the underlying object with id, value and extensions. The accessor "getHeight" gives direct access to the value
      */
-    public Media setHeightElement(PositiveIntType value) {
+    public Media setHeightElement(PositiveIntType value) { 
       this.height = value;
       return this;
     }
@@ -555,14 +555,14 @@ public class Media extends DomainResource {
     /**
      * @return Height of the image in pixels (photo/video).
      */
-    public int getHeight() {
+    public int getHeight() { 
       return this.height == null || this.height.isEmpty() ? 0 : this.height.getValue();
     }
 
     /**
      * @param value Height of the image in pixels (photo/video).
      */
-    public Media setHeight(int value) {
+    public Media setHeight(int value) { 
         if (this.height == null)
           this.height = new PositiveIntType();
         this.height.setValue(value);
@@ -572,7 +572,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #width} (Width of the image in pixels (photo/video).). This is the underlying object with id, value and extensions. The accessor "getWidth" gives direct access to the value
      */
-    public PositiveIntType getWidthElement() {
+    public PositiveIntType getWidthElement() { 
       if (this.width == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.width");
@@ -581,18 +581,18 @@ public class Media extends DomainResource {
       return this.width;
     }
 
-    public boolean hasWidthElement() {
+    public boolean hasWidthElement() { 
       return this.width != null && !this.width.isEmpty();
     }
 
-    public boolean hasWidth() {
+    public boolean hasWidth() { 
       return this.width != null && !this.width.isEmpty();
     }
 
     /**
      * @param value {@link #width} (Width of the image in pixels (photo/video).). This is the underlying object with id, value and extensions. The accessor "getWidth" gives direct access to the value
      */
-    public Media setWidthElement(PositiveIntType value) {
+    public Media setWidthElement(PositiveIntType value) { 
       this.width = value;
       return this;
     }
@@ -600,14 +600,14 @@ public class Media extends DomainResource {
     /**
      * @return Width of the image in pixels (photo/video).
      */
-    public int getWidth() {
+    public int getWidth() { 
       return this.width == null || this.width.isEmpty() ? 0 : this.width.getValue();
     }
 
     /**
      * @param value Width of the image in pixels (photo/video).
      */
-    public Media setWidth(int value) {
+    public Media setWidth(int value) { 
         if (this.width == null)
           this.width = new PositiveIntType();
         this.width.setValue(value);
@@ -617,7 +617,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.). This is the underlying object with id, value and extensions. The accessor "getFrames" gives direct access to the value
      */
-    public PositiveIntType getFramesElement() {
+    public PositiveIntType getFramesElement() { 
       if (this.frames == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.frames");
@@ -626,18 +626,18 @@ public class Media extends DomainResource {
       return this.frames;
     }
 
-    public boolean hasFramesElement() {
+    public boolean hasFramesElement() { 
       return this.frames != null && !this.frames.isEmpty();
     }
 
-    public boolean hasFrames() {
+    public boolean hasFrames() { 
       return this.frames != null && !this.frames.isEmpty();
     }
 
     /**
      * @param value {@link #frames} (The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.). This is the underlying object with id, value and extensions. The accessor "getFrames" gives direct access to the value
      */
-    public Media setFramesElement(PositiveIntType value) {
+    public Media setFramesElement(PositiveIntType value) { 
       this.frames = value;
       return this;
     }
@@ -645,14 +645,14 @@ public class Media extends DomainResource {
     /**
      * @return The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
-    public int getFrames() {
+    public int getFrames() { 
       return this.frames == null || this.frames.isEmpty() ? 0 : this.frames.getValue();
     }
 
     /**
      * @param value The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required.
      */
-    public Media setFrames(int value) {
+    public Media setFrames(int value) { 
         if (this.frames == null)
           this.frames = new PositiveIntType();
         this.frames.setValue(value);
@@ -662,7 +662,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #duration} (The duration of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
      */
-    public UnsignedIntType getDurationElement() {
+    public UnsignedIntType getDurationElement() { 
       if (this.duration == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.duration");
@@ -671,18 +671,18 @@ public class Media extends DomainResource {
       return this.duration;
     }
 
-    public boolean hasDurationElement() {
+    public boolean hasDurationElement() { 
       return this.duration != null && !this.duration.isEmpty();
     }
 
-    public boolean hasDuration() {
+    public boolean hasDuration() { 
       return this.duration != null && !this.duration.isEmpty();
     }
 
     /**
      * @param value {@link #duration} (The duration of the recording in seconds - for audio and video.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
      */
-    public Media setDurationElement(UnsignedIntType value) {
+    public Media setDurationElement(UnsignedIntType value) { 
       this.duration = value;
       return this;
     }
@@ -690,14 +690,14 @@ public class Media extends DomainResource {
     /**
      * @return The duration of the recording in seconds - for audio and video.
      */
-    public int getDuration() {
+    public int getDuration() { 
       return this.duration == null || this.duration.isEmpty() ? 0 : this.duration.getValue();
     }
 
     /**
      * @param value The duration of the recording in seconds - for audio and video.
      */
-    public Media setDuration(int value) {
+    public Media setDuration(int value) { 
         if (this.duration == null)
           this.duration = new UnsignedIntType();
         this.duration.setValue(value);
@@ -707,7 +707,7 @@ public class Media extends DomainResource {
     /**
      * @return {@link #content} (The actual content of the media - inline or by direct reference to the media source file.)
      */
-    public Attachment getContent() {
+    public Attachment getContent() { 
       if (this.content == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Media.content");
@@ -716,14 +716,14 @@ public class Media extends DomainResource {
       return this.content;
     }
 
-    public boolean hasContent() {
+    public boolean hasContent() { 
       return this.content != null && !this.content.isEmpty();
     }
 
     /**
      * @param value {@link #content} (The actual content of the media - inline or by direct reference to the media source file.)
      */
-    public Media setContent(Attachment value) {
+    public Media setContent(Attachment value) { 
       this.content = value;
       return this;
     }

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -50,23 +50,23 @@ public class ContactPoint extends Type implements ICompositeType {
         /**
          * The value is a telephone number used for voice calls. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
          */
-        PHONE,
+        PHONE, 
         /**
          * The value is a fax machine. Use of full international numbers starting with + is recommended to enable automatic dialing support but not required.
          */
-        FAX,
+        FAX, 
         /**
          * The value is an email address.
          */
-        EMAIL,
+        EMAIL, 
         /**
          * The value is a pager number. These may be local pager numbers that are only usable on a particular pager system.
          */
-        PAGER,
+        PAGER, 
         /**
          * A contact that is not a phone, fax, or email address. The format of the value SHOULD be a URL. This is intended for various personal contacts including blogs, Twitter, Facebook, etc. Do not use for email addresses. If this is not a URL, then it will require human interpretation.
          */
-        OTHER,
+        OTHER, 
         /**
          * added to help the parsers
          */
@@ -182,23 +182,23 @@ public class ContactPoint extends Type implements ICompositeType {
         /**
          * A communication contact point at a home; attempted contacts for business purposes might intrude privacy and chances are one will contact family or other household members instead of the person one wishes to call. Typically used with urgent cases, or if no other contacts are available.
          */
-        HOME,
+        HOME, 
         /**
          * An office contact point. First choice for business related contacts during business hours.
          */
-        WORK,
+        WORK, 
         /**
          * A temporary contact point. The period can provide more detailed information.
          */
-        TEMP,
+        TEMP, 
         /**
          * This contact point is no longer in use (or was never correct, but retained for records).
          */
-        OLD,
+        OLD, 
         /**
          * A telecommunication device that moves and stays with its owner. May have characteristics of all other use codes, suitable for urgent matters, not the first choice for routine business.
          */
-        MOBILE,
+        MOBILE, 
         /**
          * added to help the parsers
          */
@@ -357,7 +357,7 @@ public class ContactPoint extends Type implements ICompositeType {
     /**
      * @return {@link #system} (Telecommunications form for contact point - what communications system is required to make use of the contact.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Enumeration<ContactPointSystem> getSystemElement() {
+    public Enumeration<ContactPointSystem> getSystemElement() { 
       if (this.system == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ContactPoint.system");
@@ -366,18 +366,18 @@ public class ContactPoint extends Type implements ICompositeType {
       return this.system;
     }
 
-    public boolean hasSystemElement() {
+    public boolean hasSystemElement() { 
       return this.system != null && !this.system.isEmpty();
     }
 
-    public boolean hasSystem() {
+    public boolean hasSystem() { 
       return this.system != null && !this.system.isEmpty();
     }
 
     /**
      * @param value {@link #system} (Telecommunications form for contact point - what communications system is required to make use of the contact.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public ContactPoint setSystemElement(Enumeration<ContactPointSystem> value) {
+    public ContactPoint setSystemElement(Enumeration<ContactPointSystem> value) { 
       this.system = value;
       return this;
     }
@@ -385,14 +385,14 @@ public class ContactPoint extends Type implements ICompositeType {
     /**
      * @return Telecommunications form for contact point - what communications system is required to make use of the contact.
      */
-    public ContactPointSystem getSystem() {
+    public ContactPointSystem getSystem() { 
       return this.system == null ? null : this.system.getValue();
     }
 
     /**
      * @param value Telecommunications form for contact point - what communications system is required to make use of the contact.
      */
-    public ContactPoint setSystem(ContactPointSystem value) {
+    public ContactPoint setSystem(ContactPointSystem value) { 
       if (value == null)
         this.system = null;
       else {
@@ -406,7 +406,7 @@ public class ContactPoint extends Type implements ICompositeType {
     /**
      * @return {@link #value} (The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public StringType getValueElement() {
+    public StringType getValueElement() { 
       if (this.value == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ContactPoint.value");
@@ -415,18 +415,18 @@ public class ContactPoint extends Type implements ICompositeType {
       return this.value;
     }
 
-    public boolean hasValueElement() {
+    public boolean hasValueElement() { 
       return this.value != null && !this.value.isEmpty();
     }
 
-    public boolean hasValue() {
+    public boolean hasValue() { 
       return this.value != null && !this.value.isEmpty();
     }
 
     /**
      * @param value {@link #value} (The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public ContactPoint setValueElement(StringType value) {
+    public ContactPoint setValueElement(StringType value) { 
       this.value = value;
       return this;
     }
@@ -434,14 +434,14 @@ public class ContactPoint extends Type implements ICompositeType {
     /**
      * @return The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
      */
-    public String getValue() {
+    public String getValue() { 
       return this.value == null ? null : this.value.getValue();
     }
 
     /**
      * @param value The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).
      */
-    public ContactPoint setValue(String value) {
+    public ContactPoint setValue(String value) { 
       if (Utilities.noString(value))
         this.value = null;
       else {
@@ -455,7 +455,7 @@ public class ContactPoint extends Type implements ICompositeType {
     /**
      * @return {@link #use} (Identifies the purpose for the contact point.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<ContactPointUse> getUseElement() {
+    public Enumeration<ContactPointUse> getUseElement() { 
       if (this.use == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ContactPoint.use");
@@ -464,18 +464,18 @@ public class ContactPoint extends Type implements ICompositeType {
       return this.use;
     }
 
-    public boolean hasUseElement() {
+    public boolean hasUseElement() { 
       return this.use != null && !this.use.isEmpty();
     }
 
-    public boolean hasUse() {
+    public boolean hasUse() { 
       return this.use != null && !this.use.isEmpty();
     }
 
     /**
      * @param value {@link #use} (Identifies the purpose for the contact point.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public ContactPoint setUseElement(Enumeration<ContactPointUse> value) {
+    public ContactPoint setUseElement(Enumeration<ContactPointUse> value) { 
       this.use = value;
       return this;
     }
@@ -483,14 +483,14 @@ public class ContactPoint extends Type implements ICompositeType {
     /**
      * @return Identifies the purpose for the contact point.
      */
-    public ContactPointUse getUse() {
+    public ContactPointUse getUse() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
      * @param value Identifies the purpose for the contact point.
      */
-    public ContactPoint setUse(ContactPointUse value) {
+    public ContactPoint setUse(ContactPointUse value) { 
       if (value == null)
         this.use = null;
       else {
@@ -504,7 +504,7 @@ public class ContactPoint extends Type implements ICompositeType {
     /**
      * @return {@link #rank} (Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values.). This is the underlying object with id, value and extensions. The accessor "getRank" gives direct access to the value
      */
-    public PositiveIntType getRankElement() {
+    public PositiveIntType getRankElement() { 
       if (this.rank == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ContactPoint.rank");
@@ -513,18 +513,18 @@ public class ContactPoint extends Type implements ICompositeType {
       return this.rank;
     }
 
-    public boolean hasRankElement() {
+    public boolean hasRankElement() { 
       return this.rank != null && !this.rank.isEmpty();
     }
 
-    public boolean hasRank() {
+    public boolean hasRank() { 
       return this.rank != null && !this.rank.isEmpty();
     }
 
     /**
      * @param value {@link #rank} (Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values.). This is the underlying object with id, value and extensions. The accessor "getRank" gives direct access to the value
      */
-    public ContactPoint setRankElement(PositiveIntType value) {
+    public ContactPoint setRankElement(PositiveIntType value) { 
       this.rank = value;
       return this;
     }
@@ -532,14 +532,14 @@ public class ContactPoint extends Type implements ICompositeType {
     /**
      * @return Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values.
      */
-    public int getRank() {
+    public int getRank() { 
       return this.rank == null || this.rank.isEmpty() ? 0 : this.rank.getValue();
     }
 
     /**
      * @param value Specifies a preferred order in which to use a set of contacts. Contacts are ranked with lower values coming before higher values.
      */
-    public ContactPoint setRank(int value) {
+    public ContactPoint setRank(int value) { 
         if (this.rank == null)
           this.rank = new PositiveIntType();
         this.rank.setValue(value);
@@ -549,7 +549,7 @@ public class ContactPoint extends Type implements ICompositeType {
     /**
      * @return {@link #period} (Time period when the contact point was/is in use.)
      */
-    public Period getPeriod() {
+    public Period getPeriod() { 
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ContactPoint.period");
@@ -558,14 +558,14 @@ public class ContactPoint extends Type implements ICompositeType {
       return this.period;
     }
 
-    public boolean hasPeriod() {
+    public boolean hasPeriod() { 
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (Time period when the contact point was/is in use.)
      */
-    public ContactPoint setPeriod(Period value) {
+    public ContactPoint setPeriod(Period value) { 
       this.period = value;
       return this;
     }

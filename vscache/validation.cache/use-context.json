@@ -2,14 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/use-context",
   "outcomes": [
     {
-      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@730802bb\": null"
-    },
-    {
       "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@4e380759\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.CodeableConcept@634b8d42\": null"
+    },
+    {
+      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.CodeableConcept@68708760\": null"
     },
     {
       "hash": "#|urn:iso:std:iso:3166|null|US|null",
@@ -23,30 +23,35 @@
       }
     },
     {
-      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
+      "hash": "#|urn:iso:std:iso:3166|null|AU|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "US",
+        "code": "AU",
         "definition": null,
-        "display": "United States of America (the)"
+        "display": "Australia"
       }
+    },
+    {
+      "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://example.org/FBPP|null|null|FBPP Pooled Database#|http://example.org/PhenX|null|null|Demographics#|http://example.org/EligibilityCriteria|null|null|Pt. Administrative#|http://example.org/UAMSClinicalResearch|null|null|UAMS New CDEs#|http://example.org/PhenX|null|null|Substance Abuse and #|http://example.org/Category|null|null|CSAERS Adverse Event#|http://example.org/PhenX|null|null|Core: Tier 1#|http://example.org/Category|null|null|Case Report Forms#|http://example.org/Category|null|null|CSAERS Review Set#|http://example.org/Demonstration%20Applications|null|null|CIAF#|http://example.org/NIDA%20CTN%20Usage|null|null|Clinical Research#|http://example.org/NIDA%20CTN%20Usage|null|null|Electronic Health Re#|http://example.org/Condition|null|null|Barretts Esophagus#|http://example.org/Condition|null|null|Bladder Cancer#|http://example.org/Condition|null|null|Oral Leukoplakia#|http://example.org/Condition|null|null|Sulindac for Breast",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@33548fb8\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.CodeableConcept@190dcb9b\": null"
     },
     {
-      "hash": "#|http://loinc.org/type|null|null|Lab",
+      "hash": "#|http://loinc.org/class|null|null|MISC",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@229c76bf\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.CodeableConcept@2e4fb866\": null"
     },
     {
       "hash": "#|http://loinc.org/class|null|null|PANEL.SURVEY.USSGFHT",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@9e3dc6c\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.CodeableConcept@47b82283\": null"
     },
     {
       "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
@@ -60,30 +65,25 @@
       }
     },
     {
-      "hash": "#|http://loinc.org/type|null|null|Survey",
+      "hash": "#|http://loinc.org/type|null|null|Lab",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@4e9c3b86\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.CodeableConcept@73d3484a\": null"
     },
     {
-      "hash": "#|urn:iso:std:iso:3166|null|AU|null",
+      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "AU",
+        "code": "US",
         "definition": null,
-        "display": "Australia"
+        "display": "United States of America (the)"
       }
     },
     {
-      "hash": "#|http://loinc.org/class|null|null|MISC",
+      "hash": "#|http://loinc.org/type|null|null|Survey",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.CodeableConcept@12eb7dfd\": null"
-    },
-    {
-      "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.CodeableConcept@9e1eb3e\": null"
     }
   ]
 }

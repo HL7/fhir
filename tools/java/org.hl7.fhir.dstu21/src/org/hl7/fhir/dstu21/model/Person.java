@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,19 +52,19 @@ public class Person extends DomainResource {
         /**
          * Little or no confidence in the asserted identity's accuracy.
          */
-        LEVEL1,
+        LEVEL1, 
         /**
          * Some confidence in the asserted identity's accuracy.
          */
-        LEVEL2,
+        LEVEL2, 
         /**
          * High confidence in the asserted identity's accuracy.
          */
-        LEVEL3,
+        LEVEL3, 
         /**
          * Very high confidence in the asserted identity's accuracy.
          */
-        LEVEL4,
+        LEVEL4, 
         /**
          * added to help the parsers
          */
@@ -205,7 +205,7 @@ public class Person extends DomainResource {
         /**
          * @return {@link #target} (The resource to which this actual person is associated.)
          */
-        public Reference getTarget() {
+        public Reference getTarget() { 
           if (this.target == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PersonLinkComponent.target");
@@ -214,14 +214,14 @@ public class Person extends DomainResource {
           return this.target;
         }
 
-        public boolean hasTarget() {
+        public boolean hasTarget() { 
           return this.target != null && !this.target.isEmpty();
         }
 
         /**
          * @param value {@link #target} (The resource to which this actual person is associated.)
          */
-        public PersonLinkComponent setTarget(Reference value) {
+        public PersonLinkComponent setTarget(Reference value) { 
           this.target = value;
           return this;
         }
@@ -229,14 +229,14 @@ public class Person extends DomainResource {
         /**
          * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource to which this actual person is associated.)
          */
-        public Resource getTargetTarget() {
+        public Resource getTargetTarget() { 
           return this.targetTarget;
         }
 
         /**
          * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource to which this actual person is associated.)
          */
-        public PersonLinkComponent setTargetTarget(Resource value) {
+        public PersonLinkComponent setTargetTarget(Resource value) { 
           this.targetTarget = value;
           return this;
         }
@@ -244,7 +244,7 @@ public class Person extends DomainResource {
         /**
          * @return {@link #assurance} (Level of assurance that this link is actually associated with the target resource.). This is the underlying object with id, value and extensions. The accessor "getAssurance" gives direct access to the value
          */
-        public Enumeration<IdentityAssuranceLevel> getAssuranceElement() {
+        public Enumeration<IdentityAssuranceLevel> getAssuranceElement() { 
           if (this.assurance == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PersonLinkComponent.assurance");
@@ -253,18 +253,18 @@ public class Person extends DomainResource {
           return this.assurance;
         }
 
-        public boolean hasAssuranceElement() {
+        public boolean hasAssuranceElement() { 
           return this.assurance != null && !this.assurance.isEmpty();
         }
 
-        public boolean hasAssurance() {
+        public boolean hasAssurance() { 
           return this.assurance != null && !this.assurance.isEmpty();
         }
 
         /**
          * @param value {@link #assurance} (Level of assurance that this link is actually associated with the target resource.). This is the underlying object with id, value and extensions. The accessor "getAssurance" gives direct access to the value
          */
-        public PersonLinkComponent setAssuranceElement(Enumeration<IdentityAssuranceLevel> value) {
+        public PersonLinkComponent setAssuranceElement(Enumeration<IdentityAssuranceLevel> value) { 
           this.assurance = value;
           return this;
         }
@@ -272,14 +272,14 @@ public class Person extends DomainResource {
         /**
          * @return Level of assurance that this link is actually associated with the target resource.
          */
-        public IdentityAssuranceLevel getAssurance() {
+        public IdentityAssuranceLevel getAssurance() { 
           return this.assurance == null ? null : this.assurance.getValue();
         }
 
         /**
          * @param value Level of assurance that this link is actually associated with the target resource.
          */
-        public PersonLinkComponent setAssurance(IdentityAssuranceLevel value) {
+        public PersonLinkComponent setAssurance(IdentityAssuranceLevel value) { 
           if (value == null)
             this.assurance = null;
           else {
@@ -446,13 +446,13 @@ public class Person extends DomainResource {
     /**
      * @return {@link #identifier} (Identifier for a person within a particular scope.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -486,13 +486,13 @@ public class Person extends DomainResource {
     /**
      * @return {@link #name} (A name associated with the person.)
      */
-    public List<HumanName> getName() {
+    public List<HumanName> getName() { 
       if (this.name == null)
         this.name = new ArrayList<HumanName>();
       return this.name;
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       if (this.name == null)
         return false;
       for (HumanName item : this.name)
@@ -526,13 +526,13 @@ public class Person extends DomainResource {
     /**
      * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
      */
-    public List<ContactPoint> getTelecom() {
+    public List<ContactPoint> getTelecom() { 
       if (this.telecom == null)
         this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
     }
 
-    public boolean hasTelecom() {
+    public boolean hasTelecom() { 
       if (this.telecom == null)
         return false;
       for (ContactPoint item : this.telecom)
@@ -566,7 +566,7 @@ public class Person extends DomainResource {
     /**
      * @return {@link #gender} (Administrative Gender.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Enumeration<AdministrativeGender> getGenderElement() {
+    public Enumeration<AdministrativeGender> getGenderElement() { 
       if (this.gender == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.gender");
@@ -575,18 +575,18 @@ public class Person extends DomainResource {
       return this.gender;
     }
 
-    public boolean hasGenderElement() {
+    public boolean hasGenderElement() { 
       return this.gender != null && !this.gender.isEmpty();
     }
 
-    public boolean hasGender() {
+    public boolean hasGender() { 
       return this.gender != null && !this.gender.isEmpty();
     }
 
     /**
      * @param value {@link #gender} (Administrative Gender.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Person setGenderElement(Enumeration<AdministrativeGender> value) {
+    public Person setGenderElement(Enumeration<AdministrativeGender> value) { 
       this.gender = value;
       return this;
     }
@@ -594,14 +594,14 @@ public class Person extends DomainResource {
     /**
      * @return Administrative Gender.
      */
-    public AdministrativeGender getGender() {
+    public AdministrativeGender getGender() { 
       return this.gender == null ? null : this.gender.getValue();
     }
 
     /**
      * @param value Administrative Gender.
      */
-    public Person setGender(AdministrativeGender value) {
+    public Person setGender(AdministrativeGender value) { 
       if (value == null)
         this.gender = null;
       else {
@@ -615,7 +615,7 @@ public class Person extends DomainResource {
     /**
      * @return {@link #birthDate} (The birth date for the person.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public DateType getBirthDateElement() {
+    public DateType getBirthDateElement() { 
       if (this.birthDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.birthDate");
@@ -624,18 +624,18 @@ public class Person extends DomainResource {
       return this.birthDate;
     }
 
-    public boolean hasBirthDateElement() {
+    public boolean hasBirthDateElement() { 
       return this.birthDate != null && !this.birthDate.isEmpty();
     }
 
-    public boolean hasBirthDate() {
+    public boolean hasBirthDate() { 
       return this.birthDate != null && !this.birthDate.isEmpty();
     }
 
     /**
      * @param value {@link #birthDate} (The birth date for the person.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public Person setBirthDateElement(DateType value) {
+    public Person setBirthDateElement(DateType value) { 
       this.birthDate = value;
       return this;
     }
@@ -643,14 +643,14 @@ public class Person extends DomainResource {
     /**
      * @return The birth date for the person.
      */
-    public Date getBirthDate() {
+    public Date getBirthDate() { 
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
     /**
      * @param value The birth date for the person.
      */
-    public Person setBirthDate(Date value) {
+    public Person setBirthDate(Date value) { 
       if (value == null)
         this.birthDate = null;
       else {
@@ -664,13 +664,13 @@ public class Person extends DomainResource {
     /**
      * @return {@link #address} (One or more addresses for the person.)
      */
-    public List<Address> getAddress() {
+    public List<Address> getAddress() { 
       if (this.address == null)
         this.address = new ArrayList<Address>();
       return this.address;
     }
 
-    public boolean hasAddress() {
+    public boolean hasAddress() { 
       if (this.address == null)
         return false;
       for (Address item : this.address)
@@ -704,7 +704,7 @@ public class Person extends DomainResource {
     /**
      * @return {@link #photo} (An image that can be displayed as a thumbnail of the person to enhance the identification of the individual.)
      */
-    public Attachment getPhoto() {
+    public Attachment getPhoto() { 
       if (this.photo == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.photo");
@@ -713,14 +713,14 @@ public class Person extends DomainResource {
       return this.photo;
     }
 
-    public boolean hasPhoto() {
+    public boolean hasPhoto() { 
       return this.photo != null && !this.photo.isEmpty();
     }
 
     /**
      * @param value {@link #photo} (An image that can be displayed as a thumbnail of the person to enhance the identification of the individual.)
      */
-    public Person setPhoto(Attachment value) {
+    public Person setPhoto(Attachment value) { 
       this.photo = value;
       return this;
     }
@@ -728,7 +728,7 @@ public class Person extends DomainResource {
     /**
      * @return {@link #managingOrganization} (The organization that is the custodian of the person record.)
      */
-    public Reference getManagingOrganization() {
+    public Reference getManagingOrganization() { 
       if (this.managingOrganization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.managingOrganization");
@@ -737,14 +737,14 @@ public class Person extends DomainResource {
       return this.managingOrganization;
     }
 
-    public boolean hasManagingOrganization() {
+    public boolean hasManagingOrganization() { 
       return this.managingOrganization != null && !this.managingOrganization.isEmpty();
     }
 
     /**
      * @param value {@link #managingOrganization} (The organization that is the custodian of the person record.)
      */
-    public Person setManagingOrganization(Reference value) {
+    public Person setManagingOrganization(Reference value) { 
       this.managingOrganization = value;
       return this;
     }
@@ -752,7 +752,7 @@ public class Person extends DomainResource {
     /**
      * @return {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization that is the custodian of the person record.)
      */
-    public Organization getManagingOrganizationTarget() {
+    public Organization getManagingOrganizationTarget() { 
       if (this.managingOrganizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.managingOrganization");
@@ -764,7 +764,7 @@ public class Person extends DomainResource {
     /**
      * @param value {@link #managingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization that is the custodian of the person record.)
      */
-    public Person setManagingOrganizationTarget(Organization value) {
+    public Person setManagingOrganizationTarget(Organization value) { 
       this.managingOrganizationTarget = value;
       return this;
     }
@@ -772,7 +772,7 @@ public class Person extends DomainResource {
     /**
      * @return {@link #active} (Whether this person's record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public BooleanType getActiveElement() {
+    public BooleanType getActiveElement() { 
       if (this.active == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Person.active");
@@ -781,18 +781,18 @@ public class Person extends DomainResource {
       return this.active;
     }
 
-    public boolean hasActiveElement() {
+    public boolean hasActiveElement() { 
       return this.active != null && !this.active.isEmpty();
     }
 
-    public boolean hasActive() {
+    public boolean hasActive() { 
       return this.active != null && !this.active.isEmpty();
     }
 
     /**
      * @param value {@link #active} (Whether this person's record is in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public Person setActiveElement(BooleanType value) {
+    public Person setActiveElement(BooleanType value) { 
       this.active = value;
       return this;
     }
@@ -800,14 +800,14 @@ public class Person extends DomainResource {
     /**
      * @return Whether this person's record is in active use.
      */
-    public boolean getActive() {
+    public boolean getActive() { 
       return this.active == null || this.active.isEmpty() ? false : this.active.getValue();
     }
 
     /**
      * @param value Whether this person's record is in active use.
      */
-    public Person setActive(boolean value) {
+    public Person setActive(boolean value) { 
         if (this.active == null)
           this.active = new BooleanType();
         this.active.setValue(value);
@@ -817,13 +817,13 @@ public class Person extends DomainResource {
     /**
      * @return {@link #link} (Link to a resource that concerns the same actual person.)
      */
-    public List<PersonLinkComponent> getLink() {
+    public List<PersonLinkComponent> getLink() { 
       if (this.link == null)
         this.link = new ArrayList<PersonLinkComponent>();
       return this.link;
     }
 
-    public boolean hasLink() {
+    public boolean hasLink() { 
       if (this.link == null)
         return false;
       for (PersonLinkComponent item : this.link)

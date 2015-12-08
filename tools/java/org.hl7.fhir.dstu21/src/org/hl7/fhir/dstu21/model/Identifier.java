@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class Identifier extends Type implements ICompositeType {
         /**
          * The identifier recommended for display and use in real-world interactions.
          */
-        USUAL,
+        USUAL, 
         /**
          * The identifier considered to be most trusted for the identification of this item.
          */
-        OFFICIAL,
+        OFFICIAL, 
         /**
          * A temporary identifier.
          */
-        TEMP,
+        TEMP, 
         /**
          * An identifier that was assigned in secondary use - it serves to identify the object in a relative context, but cannot be consistently assigned to the same object again in a different context.
          */
-        SECONDARY,
+        SECONDARY, 
         /**
          * added to help the parsers
          */
@@ -222,7 +222,7 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @return {@link #use} (The purpose of this identifier.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<IdentifierUse> getUseElement() {
+    public Enumeration<IdentifierUse> getUseElement() { 
       if (this.use == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.use");
@@ -231,18 +231,18 @@ public class Identifier extends Type implements ICompositeType {
       return this.use;
     }
 
-    public boolean hasUseElement() {
+    public boolean hasUseElement() { 
       return this.use != null && !this.use.isEmpty();
     }
 
-    public boolean hasUse() {
+    public boolean hasUse() { 
       return this.use != null && !this.use.isEmpty();
     }
 
     /**
      * @param value {@link #use} (The purpose of this identifier.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Identifier setUseElement(Enumeration<IdentifierUse> value) {
+    public Identifier setUseElement(Enumeration<IdentifierUse> value) { 
       this.use = value;
       return this;
     }
@@ -250,14 +250,14 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @return The purpose of this identifier.
      */
-    public IdentifierUse getUse() {
+    public IdentifierUse getUse() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
      * @param value The purpose of this identifier.
      */
-    public Identifier setUse(IdentifierUse value) {
+    public Identifier setUse(IdentifierUse value) { 
       if (value == null)
         this.use = null;
       else {
@@ -271,7 +271,7 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @return {@link #type} (A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.)
      */
-    public CodeableConcept getType() {
+    public CodeableConcept getType() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.type");
@@ -280,14 +280,14 @@ public class Identifier extends Type implements ICompositeType {
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.)
      */
-    public Identifier setType(CodeableConcept value) {
+    public Identifier setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
@@ -295,7 +295,7 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @return {@link #system} (Establishes the namespace in which set of possible id values is unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public UriType getSystemElement() {
+    public UriType getSystemElement() { 
       if (this.system == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.system");
@@ -304,18 +304,18 @@ public class Identifier extends Type implements ICompositeType {
       return this.system;
     }
 
-    public boolean hasSystemElement() {
+    public boolean hasSystemElement() { 
       return this.system != null && !this.system.isEmpty();
     }
 
-    public boolean hasSystem() {
+    public boolean hasSystem() { 
       return this.system != null && !this.system.isEmpty();
     }
 
     /**
      * @param value {@link #system} (Establishes the namespace in which set of possible id values is unique.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */
-    public Identifier setSystemElement(UriType value) {
+    public Identifier setSystemElement(UriType value) { 
       this.system = value;
       return this;
     }
@@ -323,14 +323,14 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @return Establishes the namespace in which set of possible id values is unique.
      */
-    public String getSystem() {
+    public String getSystem() { 
       return this.system == null ? null : this.system.getValue();
     }
 
     /**
      * @param value Establishes the namespace in which set of possible id values is unique.
      */
-    public Identifier setSystem(String value) {
+    public Identifier setSystem(String value) { 
       if (Utilities.noString(value))
         this.system = null;
       else {
@@ -344,7 +344,7 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @return {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public StringType getValueElement() {
+    public StringType getValueElement() { 
       if (this.value == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.value");
@@ -353,18 +353,18 @@ public class Identifier extends Type implements ICompositeType {
       return this.value;
     }
 
-    public boolean hasValueElement() {
+    public boolean hasValueElement() { 
       return this.value != null && !this.value.isEmpty();
     }
 
-    public boolean hasValue() {
+    public boolean hasValue() { 
       return this.value != null && !this.value.isEmpty();
     }
 
     /**
      * @param value {@link #value} (The portion of the identifier typically displayed to the user and which is unique within the context of the system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */
-    public Identifier setValueElement(StringType value) {
+    public Identifier setValueElement(StringType value) { 
       this.value = value;
       return this;
     }
@@ -372,14 +372,14 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @return The portion of the identifier typically displayed to the user and which is unique within the context of the system.
      */
-    public String getValue() {
+    public String getValue() { 
       return this.value == null ? null : this.value.getValue();
     }
 
     /**
      * @param value The portion of the identifier typically displayed to the user and which is unique within the context of the system.
      */
-    public Identifier setValue(String value) {
+    public Identifier setValue(String value) { 
       if (Utilities.noString(value))
         this.value = null;
       else {
@@ -393,7 +393,7 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @return {@link #period} (Time period during which identifier is/was valid for use.)
      */
-    public Period getPeriod() {
+    public Period getPeriod() { 
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.period");
@@ -402,14 +402,14 @@ public class Identifier extends Type implements ICompositeType {
       return this.period;
     }
 
-    public boolean hasPeriod() {
+    public boolean hasPeriod() { 
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (Time period during which identifier is/was valid for use.)
      */
-    public Identifier setPeriod(Period value) {
+    public Identifier setPeriod(Period value) { 
       this.period = value;
       return this;
     }
@@ -417,7 +417,7 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @return {@link #assigner} (Organization that issued/manages the identifier.)
      */
-    public Reference getAssigner() {
+    public Reference getAssigner() { 
       if (this.assigner == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.assigner");
@@ -426,14 +426,14 @@ public class Identifier extends Type implements ICompositeType {
       return this.assigner;
     }
 
-    public boolean hasAssigner() {
+    public boolean hasAssigner() { 
       return this.assigner != null && !this.assigner.isEmpty();
     }
 
     /**
      * @param value {@link #assigner} (Organization that issued/manages the identifier.)
      */
-    public Identifier setAssigner(Reference value) {
+    public Identifier setAssigner(Reference value) { 
       this.assigner = value;
       return this;
     }
@@ -441,7 +441,7 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @return {@link #assigner} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Organization that issued/manages the identifier.)
      */
-    public Organization getAssignerTarget() {
+    public Organization getAssignerTarget() { 
       if (this.assignerTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Identifier.assigner");
@@ -453,7 +453,7 @@ public class Identifier extends Type implements ICompositeType {
     /**
      * @param value {@link #assigner} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Organization that issued/manages the identifier.)
      */
-    public Identifier setAssignerTarget(Organization value) {
+    public Identifier setAssignerTarget(Organization value) { 
       this.assignerTarget = value;
       return this;
     }

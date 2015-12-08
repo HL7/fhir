@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/c80-doc-typecodes",
   "outcomes": [
     {
+      "hash": "#|http://ihe.net/connectathon/classCodes|null|History and Physical|History and Physical",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
       "hash": "#|http://loinc.org|null|34108-1|Outpatient Note",
       "severity": null,
       "message": null,
@@ -11,11 +16,6 @@
         "definition": null,
         "display": "Outpatient Note"
       }
-    },
-    {
-      "hash": "#|http://ihe.net/connectathon/classCodes|null|History and Physical|History and Physical",
-      "severity": "error",
-      "message": "The code provided is not  valid"
     }
   ]
 }

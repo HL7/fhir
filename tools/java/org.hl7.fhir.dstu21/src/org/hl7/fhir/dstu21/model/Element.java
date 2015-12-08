@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -71,7 +71,7 @@ public abstract class Element extends Base implements IBaseHasExtensions {
     /**
      * @return {@link #id} (unique id for the element within a resource (for internal references).). This is the underlying object with id, value and extensions. The accessor "getId" gives direct access to the value
      */
-    public IdType getIdElement() {
+    public IdType getIdElement() { 
       if (this.id == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Element.id");
@@ -80,18 +80,18 @@ public abstract class Element extends Base implements IBaseHasExtensions {
       return this.id;
     }
 
-    public boolean hasIdElement() {
+    public boolean hasIdElement() { 
       return this.id != null && !this.id.isEmpty();
     }
 
-    public boolean hasId() {
+    public boolean hasId() { 
       return this.id != null && !this.id.isEmpty();
     }
 
     /**
      * @param value {@link #id} (unique id for the element within a resource (for internal references).). This is the underlying object with id, value and extensions. The accessor "getId" gives direct access to the value
      */
-    public Element setIdElement(IdType value) {
+    public Element setIdElement(IdType value) { 
       this.id = value;
       return this;
     }
@@ -99,14 +99,14 @@ public abstract class Element extends Base implements IBaseHasExtensions {
     /**
      * @return unique id for the element within a resource (for internal references).
      */
-    public String getId() {
+    public String getId() { 
       return this.id == null ? null : this.id.getValue();
     }
 
     /**
      * @param value unique id for the element within a resource (for internal references).
      */
-    public Element setId(String value) {
+    public Element setId(String value) { 
       if (Utilities.noString(value))
         this.id = null;
       else {
@@ -120,13 +120,13 @@ public abstract class Element extends Base implements IBaseHasExtensions {
     /**
      * @return {@link #extension} (May be used to represent additional information that is not part of the basic definition of the element. In order to make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.)
      */
-    public List<Extension> getExtension() {
+    public List<Extension> getExtension() { 
       if (this.extension == null)
         this.extension = new ArrayList<Extension>();
       return this.extension;
     }
 
-    public boolean hasExtension() {
+    public boolean hasExtension() { 
       if (this.extension == null)
         return false;
       for (Extension item : this.extension)
@@ -158,11 +158,11 @@ public abstract class Element extends Base implements IBaseHasExtensions {
     }
 
    /**
-    * Returns an unmodifiable list containing all extensions on this element which
+    * Returns an unmodifiable list containing all extensions on this element which 
     * match the given URL.
-    *
+    * 
     * @param theUrl The URL. Must not be blank or null.
-    * @return an unmodifiable list containing all extensions on this element which
+    * @return an unmodifiable list containing all extensions on this element which 
     * match the given URL
     */
    public List<Extension> getExtensionsByUrl(String theUrl) {
@@ -176,14 +176,14 @@ public abstract class Element extends Base implements IBaseHasExtensions {
      return java.util.Collections.unmodifiableList(retVal);
    }
   public boolean hasExtension(String theUrl) {
-    return !getExtensionsByUrl(theUrl).isEmpty();
+    return !getExtensionsByUrl(theUrl).isEmpty(); 
   }
 
   public String getExtensionString(String theUrl) throws FHIRException {
-    List<Extension> ext = getExtensionsByUrl(theUrl);
-    if (ext.isEmpty())
-      return null;
-    if (ext.size() > 1)
+    List<Extension> ext = getExtensionsByUrl(theUrl); 
+    if (ext.isEmpty()) 
+      return null; 
+    if (ext.size() > 1) 
       throw new FHIRException("Multiple matching extensions found");
     if (!ext.get(0).getValue().isPrimitive())
       throw new FHIRException("Extension could not be converted to a string");

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,35 +51,35 @@ public class NutritionOrder extends DomainResource {
         /**
          * The request has been proposed.
          */
-        PROPOSED,
+        PROPOSED, 
         /**
          * The request is in preliminary form prior to being sent.
          */
-        DRAFT,
+        DRAFT, 
         /**
          * The request has been planned.
          */
-        PLANNED,
+        PLANNED, 
         /**
          * The request has been placed.
          */
-        REQUESTED,
+        REQUESTED, 
         /**
          * The request is 'actionable', but not all actions that are implied by it have occurred yet.
          */
-        ACTIVE,
+        ACTIVE, 
         /**
          * Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called "suspended".
          */
-        ONHOLD,
+        ONHOLD, 
         /**
          * All actions that are implied by the order have occurred and no continuation is planned (this will rarely be made explicit).
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * The request has been withdrawn and is no longer actionable.
          */
-        CANCELLED,
+        CANCELLED, 
         /**
          * added to help the parsers
          */
@@ -283,13 +283,13 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #type} (The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.)
          */
-        public List<CodeableConcept> getType() {
+        public List<CodeableConcept> getType() { 
           if (this.type == null)
             this.type = new ArrayList<CodeableConcept>();
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           if (this.type == null)
             return false;
           for (CodeableConcept item : this.type)
@@ -323,13 +323,13 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #schedule} (The time period and frequency at which the diet should be given.)
          */
-        public List<Timing> getSchedule() {
+        public List<Timing> getSchedule() { 
           if (this.schedule == null)
             this.schedule = new ArrayList<Timing>();
           return this.schedule;
         }
 
-        public boolean hasSchedule() {
+        public boolean hasSchedule() { 
           if (this.schedule == null)
             return false;
           for (Timing item : this.schedule)
@@ -363,13 +363,13 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #nutrient} (Class that defines the quantity and type of nutrient modifications required for the oral diet.)
          */
-        public List<NutritionOrderOralDietNutrientComponent> getNutrient() {
+        public List<NutritionOrderOralDietNutrientComponent> getNutrient() { 
           if (this.nutrient == null)
             this.nutrient = new ArrayList<NutritionOrderOralDietNutrientComponent>();
           return this.nutrient;
         }
 
-        public boolean hasNutrient() {
+        public boolean hasNutrient() { 
           if (this.nutrient == null)
             return false;
           for (NutritionOrderOralDietNutrientComponent item : this.nutrient)
@@ -403,13 +403,13 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #texture} (Class that describes any texture modifications required for the patient to safely consume various types of solid foods.)
          */
-        public List<NutritionOrderOralDietTextureComponent> getTexture() {
+        public List<NutritionOrderOralDietTextureComponent> getTexture() { 
           if (this.texture == null)
             this.texture = new ArrayList<NutritionOrderOralDietTextureComponent>();
           return this.texture;
         }
 
-        public boolean hasTexture() {
+        public boolean hasTexture() { 
           if (this.texture == null)
             return false;
           for (NutritionOrderOralDietTextureComponent item : this.texture)
@@ -443,13 +443,13 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #fluidConsistencyType} (The required consistency (e.g. honey-thick, nectar-thick, thin, thickened.) of liquids or fluids served to the patient.)
          */
-        public List<CodeableConcept> getFluidConsistencyType() {
+        public List<CodeableConcept> getFluidConsistencyType() { 
           if (this.fluidConsistencyType == null)
             this.fluidConsistencyType = new ArrayList<CodeableConcept>();
           return this.fluidConsistencyType;
         }
 
-        public boolean hasFluidConsistencyType() {
+        public boolean hasFluidConsistencyType() { 
           if (this.fluidConsistencyType == null)
             return false;
           for (CodeableConcept item : this.fluidConsistencyType)
@@ -483,7 +483,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #instruction} (Free text or additional instructions or information pertaining to the oral diet.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
          */
-        public StringType getInstructionElement() {
+        public StringType getInstructionElement() { 
           if (this.instruction == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderOralDietComponent.instruction");
@@ -492,18 +492,18 @@ public class NutritionOrder extends DomainResource {
           return this.instruction;
         }
 
-        public boolean hasInstructionElement() {
+        public boolean hasInstructionElement() { 
           return this.instruction != null && !this.instruction.isEmpty();
         }
 
-        public boolean hasInstruction() {
+        public boolean hasInstruction() { 
           return this.instruction != null && !this.instruction.isEmpty();
         }
 
         /**
          * @param value {@link #instruction} (Free text or additional instructions or information pertaining to the oral diet.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
          */
-        public NutritionOrderOralDietComponent setInstructionElement(StringType value) {
+        public NutritionOrderOralDietComponent setInstructionElement(StringType value) { 
           this.instruction = value;
           return this;
         }
@@ -511,14 +511,14 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return Free text or additional instructions or information pertaining to the oral diet.
          */
-        public String getInstruction() {
+        public String getInstruction() { 
           return this.instruction == null ? null : this.instruction.getValue();
         }
 
         /**
          * @param value Free text or additional instructions or information pertaining to the oral diet.
          */
-        public NutritionOrderOralDietComponent setInstruction(String value) {
+        public NutritionOrderOralDietComponent setInstruction(String value) { 
           if (Utilities.noString(value))
             this.instruction = null;
           else {
@@ -676,7 +676,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #modifier} (The nutrient that is being modified such as carbohydrate or sodium.)
          */
-        public CodeableConcept getModifier() {
+        public CodeableConcept getModifier() { 
           if (this.modifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderOralDietNutrientComponent.modifier");
@@ -685,14 +685,14 @@ public class NutritionOrder extends DomainResource {
           return this.modifier;
         }
 
-        public boolean hasModifier() {
+        public boolean hasModifier() { 
           return this.modifier != null && !this.modifier.isEmpty();
         }
 
         /**
          * @param value {@link #modifier} (The nutrient that is being modified such as carbohydrate or sodium.)
          */
-        public NutritionOrderOralDietNutrientComponent setModifier(CodeableConcept value) {
+        public NutritionOrderOralDietNutrientComponent setModifier(CodeableConcept value) { 
           this.modifier = value;
           return this;
         }
@@ -700,7 +700,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #amount} (The quantity of the specified nutrient to include in diet.)
          */
-        public SimpleQuantity getAmount() {
+        public SimpleQuantity getAmount() { 
           if (this.amount == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderOralDietNutrientComponent.amount");
@@ -709,14 +709,14 @@ public class NutritionOrder extends DomainResource {
           return this.amount;
         }
 
-        public boolean hasAmount() {
+        public boolean hasAmount() { 
           return this.amount != null && !this.amount.isEmpty();
         }
 
         /**
          * @param value {@link #amount} (The quantity of the specified nutrient to include in diet.)
          */
-        public NutritionOrderOralDietNutrientComponent setAmount(SimpleQuantity value) {
+        public NutritionOrderOralDietNutrientComponent setAmount(SimpleQuantity value) { 
           this.amount = value;
           return this;
         }
@@ -819,7 +819,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #modifier} (Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.)
          */
-        public CodeableConcept getModifier() {
+        public CodeableConcept getModifier() { 
           if (this.modifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderOralDietTextureComponent.modifier");
@@ -828,14 +828,14 @@ public class NutritionOrder extends DomainResource {
           return this.modifier;
         }
 
-        public boolean hasModifier() {
+        public boolean hasModifier() { 
           return this.modifier != null && !this.modifier.isEmpty();
         }
 
         /**
          * @param value {@link #modifier} (Any texture modifications (for solid foods) that should be made, e.g. easy to chew, chopped, ground, and pureed.)
          */
-        public NutritionOrderOralDietTextureComponent setModifier(CodeableConcept value) {
+        public NutritionOrderOralDietTextureComponent setModifier(CodeableConcept value) { 
           this.modifier = value;
           return this;
         }
@@ -843,7 +843,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #foodType} (The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types.)
          */
-        public CodeableConcept getFoodType() {
+        public CodeableConcept getFoodType() { 
           if (this.foodType == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderOralDietTextureComponent.foodType");
@@ -852,14 +852,14 @@ public class NutritionOrder extends DomainResource {
           return this.foodType;
         }
 
-        public boolean hasFoodType() {
+        public boolean hasFoodType() { 
           return this.foodType != null && !this.foodType.isEmpty();
         }
 
         /**
          * @param value {@link #foodType} (The food type(s) (e.g. meats, all foods)  that the texture modification applies to.  This could be all foods types.)
          */
-        public NutritionOrderOralDietTextureComponent setFoodType(CodeableConcept value) {
+        public NutritionOrderOralDietTextureComponent setFoodType(CodeableConcept value) { 
           this.foodType = value;
           return this;
         }
@@ -983,7 +983,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #type} (The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement.)
          */
-        public CodeableConcept getType() {
+        public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderSupplementComponent.type");
@@ -992,14 +992,14 @@ public class NutritionOrder extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement.)
          */
-        public NutritionOrderSupplementComponent setType(CodeableConcept value) {
+        public NutritionOrderSupplementComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -1007,7 +1007,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #productName} (The product or brand name of the nutritional supplement such as "Acme Protein Shake".). This is the underlying object with id, value and extensions. The accessor "getProductName" gives direct access to the value
          */
-        public StringType getProductNameElement() {
+        public StringType getProductNameElement() { 
           if (this.productName == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderSupplementComponent.productName");
@@ -1016,18 +1016,18 @@ public class NutritionOrder extends DomainResource {
           return this.productName;
         }
 
-        public boolean hasProductNameElement() {
+        public boolean hasProductNameElement() { 
           return this.productName != null && !this.productName.isEmpty();
         }
 
-        public boolean hasProductName() {
+        public boolean hasProductName() { 
           return this.productName != null && !this.productName.isEmpty();
         }
 
         /**
          * @param value {@link #productName} (The product or brand name of the nutritional supplement such as "Acme Protein Shake".). This is the underlying object with id, value and extensions. The accessor "getProductName" gives direct access to the value
          */
-        public NutritionOrderSupplementComponent setProductNameElement(StringType value) {
+        public NutritionOrderSupplementComponent setProductNameElement(StringType value) { 
           this.productName = value;
           return this;
         }
@@ -1035,14 +1035,14 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return The product or brand name of the nutritional supplement such as "Acme Protein Shake".
          */
-        public String getProductName() {
+        public String getProductName() { 
           return this.productName == null ? null : this.productName.getValue();
         }
 
         /**
          * @param value The product or brand name of the nutritional supplement such as "Acme Protein Shake".
          */
-        public NutritionOrderSupplementComponent setProductName(String value) {
+        public NutritionOrderSupplementComponent setProductName(String value) { 
           if (Utilities.noString(value))
             this.productName = null;
           else {
@@ -1056,13 +1056,13 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #schedule} (The time period and frequency at which the supplement(s) should be given.)
          */
-        public List<Timing> getSchedule() {
+        public List<Timing> getSchedule() { 
           if (this.schedule == null)
             this.schedule = new ArrayList<Timing>();
           return this.schedule;
         }
 
-        public boolean hasSchedule() {
+        public boolean hasSchedule() { 
           if (this.schedule == null)
             return false;
           for (Timing item : this.schedule)
@@ -1096,7 +1096,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #quantity} (The amount of the nutritional supplement to be given.)
          */
-        public SimpleQuantity getQuantity() {
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderSupplementComponent.quantity");
@@ -1105,14 +1105,14 @@ public class NutritionOrder extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() {
+        public boolean hasQuantity() { 
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (The amount of the nutritional supplement to be given.)
          */
-        public NutritionOrderSupplementComponent setQuantity(SimpleQuantity value) {
+        public NutritionOrderSupplementComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -1120,7 +1120,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #instruction} (Free text or additional instructions or information pertaining to the oral supplement.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
          */
-        public StringType getInstructionElement() {
+        public StringType getInstructionElement() { 
           if (this.instruction == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderSupplementComponent.instruction");
@@ -1129,18 +1129,18 @@ public class NutritionOrder extends DomainResource {
           return this.instruction;
         }
 
-        public boolean hasInstructionElement() {
+        public boolean hasInstructionElement() { 
           return this.instruction != null && !this.instruction.isEmpty();
         }
 
-        public boolean hasInstruction() {
+        public boolean hasInstruction() { 
           return this.instruction != null && !this.instruction.isEmpty();
         }
 
         /**
          * @param value {@link #instruction} (Free text or additional instructions or information pertaining to the oral supplement.). This is the underlying object with id, value and extensions. The accessor "getInstruction" gives direct access to the value
          */
-        public NutritionOrderSupplementComponent setInstructionElement(StringType value) {
+        public NutritionOrderSupplementComponent setInstructionElement(StringType value) { 
           this.instruction = value;
           return this;
         }
@@ -1148,14 +1148,14 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return Free text or additional instructions or information pertaining to the oral supplement.
          */
-        public String getInstruction() {
+        public String getInstruction() { 
           return this.instruction == null ? null : this.instruction.getValue();
         }
 
         /**
          * @param value Free text or additional instructions or information pertaining to the oral supplement.
          */
-        public NutritionOrderSupplementComponent setInstruction(String value) {
+        public NutritionOrderSupplementComponent setInstruction(String value) { 
           if (Utilities.noString(value))
             this.instruction = null;
           else {
@@ -1341,7 +1341,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #baseFormulaType} (The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.)
          */
-        public CodeableConcept getBaseFormulaType() {
+        public CodeableConcept getBaseFormulaType() { 
           if (this.baseFormulaType == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaComponent.baseFormulaType");
@@ -1350,14 +1350,14 @@ public class NutritionOrder extends DomainResource {
           return this.baseFormulaType;
         }
 
-        public boolean hasBaseFormulaType() {
+        public boolean hasBaseFormulaType() { 
           return this.baseFormulaType != null && !this.baseFormulaType.isEmpty();
         }
 
         /**
          * @param value {@link #baseFormulaType} (The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.)
          */
-        public NutritionOrderEnteralFormulaComponent setBaseFormulaType(CodeableConcept value) {
+        public NutritionOrderEnteralFormulaComponent setBaseFormulaType(CodeableConcept value) { 
           this.baseFormulaType = value;
           return this;
         }
@@ -1365,7 +1365,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #baseFormulaProductName} (The product or brand name of the enteral or infant formula product such as "ACME Adult Standard Formula".). This is the underlying object with id, value and extensions. The accessor "getBaseFormulaProductName" gives direct access to the value
          */
-        public StringType getBaseFormulaProductNameElement() {
+        public StringType getBaseFormulaProductNameElement() { 
           if (this.baseFormulaProductName == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaComponent.baseFormulaProductName");
@@ -1374,18 +1374,18 @@ public class NutritionOrder extends DomainResource {
           return this.baseFormulaProductName;
         }
 
-        public boolean hasBaseFormulaProductNameElement() {
+        public boolean hasBaseFormulaProductNameElement() { 
           return this.baseFormulaProductName != null && !this.baseFormulaProductName.isEmpty();
         }
 
-        public boolean hasBaseFormulaProductName() {
+        public boolean hasBaseFormulaProductName() { 
           return this.baseFormulaProductName != null && !this.baseFormulaProductName.isEmpty();
         }
 
         /**
          * @param value {@link #baseFormulaProductName} (The product or brand name of the enteral or infant formula product such as "ACME Adult Standard Formula".). This is the underlying object with id, value and extensions. The accessor "getBaseFormulaProductName" gives direct access to the value
          */
-        public NutritionOrderEnteralFormulaComponent setBaseFormulaProductNameElement(StringType value) {
+        public NutritionOrderEnteralFormulaComponent setBaseFormulaProductNameElement(StringType value) { 
           this.baseFormulaProductName = value;
           return this;
         }
@@ -1393,14 +1393,14 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return The product or brand name of the enteral or infant formula product such as "ACME Adult Standard Formula".
          */
-        public String getBaseFormulaProductName() {
+        public String getBaseFormulaProductName() { 
           return this.baseFormulaProductName == null ? null : this.baseFormulaProductName.getValue();
         }
 
         /**
          * @param value The product or brand name of the enteral or infant formula product such as "ACME Adult Standard Formula".
          */
-        public NutritionOrderEnteralFormulaComponent setBaseFormulaProductName(String value) {
+        public NutritionOrderEnteralFormulaComponent setBaseFormulaProductName(String value) { 
           if (Utilities.noString(value))
             this.baseFormulaProductName = null;
           else {
@@ -1414,7 +1414,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #additiveType} (Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula.)
          */
-        public CodeableConcept getAdditiveType() {
+        public CodeableConcept getAdditiveType() { 
           if (this.additiveType == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaComponent.additiveType");
@@ -1423,14 +1423,14 @@ public class NutritionOrder extends DomainResource {
           return this.additiveType;
         }
 
-        public boolean hasAdditiveType() {
+        public boolean hasAdditiveType() { 
           return this.additiveType != null && !this.additiveType.isEmpty();
         }
 
         /**
          * @param value {@link #additiveType} (Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula.)
          */
-        public NutritionOrderEnteralFormulaComponent setAdditiveType(CodeableConcept value) {
+        public NutritionOrderEnteralFormulaComponent setAdditiveType(CodeableConcept value) { 
           this.additiveType = value;
           return this;
         }
@@ -1438,7 +1438,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #additiveProductName} (The product or brand name of the type of modular component to be added to the formula.). This is the underlying object with id, value and extensions. The accessor "getAdditiveProductName" gives direct access to the value
          */
-        public StringType getAdditiveProductNameElement() {
+        public StringType getAdditiveProductNameElement() { 
           if (this.additiveProductName == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaComponent.additiveProductName");
@@ -1447,18 +1447,18 @@ public class NutritionOrder extends DomainResource {
           return this.additiveProductName;
         }
 
-        public boolean hasAdditiveProductNameElement() {
+        public boolean hasAdditiveProductNameElement() { 
           return this.additiveProductName != null && !this.additiveProductName.isEmpty();
         }
 
-        public boolean hasAdditiveProductName() {
+        public boolean hasAdditiveProductName() { 
           return this.additiveProductName != null && !this.additiveProductName.isEmpty();
         }
 
         /**
          * @param value {@link #additiveProductName} (The product or brand name of the type of modular component to be added to the formula.). This is the underlying object with id, value and extensions. The accessor "getAdditiveProductName" gives direct access to the value
          */
-        public NutritionOrderEnteralFormulaComponent setAdditiveProductNameElement(StringType value) {
+        public NutritionOrderEnteralFormulaComponent setAdditiveProductNameElement(StringType value) { 
           this.additiveProductName = value;
           return this;
         }
@@ -1466,14 +1466,14 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return The product or brand name of the type of modular component to be added to the formula.
          */
-        public String getAdditiveProductName() {
+        public String getAdditiveProductName() { 
           return this.additiveProductName == null ? null : this.additiveProductName.getValue();
         }
 
         /**
          * @param value The product or brand name of the type of modular component to be added to the formula.
          */
-        public NutritionOrderEnteralFormulaComponent setAdditiveProductName(String value) {
+        public NutritionOrderEnteralFormulaComponent setAdditiveProductName(String value) { 
           if (Utilities.noString(value))
             this.additiveProductName = null;
           else {
@@ -1487,7 +1487,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #caloricDensity} (The amount of energy (Calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 Calories per fluid ounce or an adult may require an enteral formula that provides 1.5 Calorie/mL.)
          */
-        public SimpleQuantity getCaloricDensity() {
+        public SimpleQuantity getCaloricDensity() { 
           if (this.caloricDensity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaComponent.caloricDensity");
@@ -1496,14 +1496,14 @@ public class NutritionOrder extends DomainResource {
           return this.caloricDensity;
         }
 
-        public boolean hasCaloricDensity() {
+        public boolean hasCaloricDensity() { 
           return this.caloricDensity != null && !this.caloricDensity.isEmpty();
         }
 
         /**
          * @param value {@link #caloricDensity} (The amount of energy (Calories) that the formula should provide per specified volume, typically per mL or fluid oz.  For example, an infant may require a formula that provides 24 Calories per fluid ounce or an adult may require an enteral formula that provides 1.5 Calorie/mL.)
          */
-        public NutritionOrderEnteralFormulaComponent setCaloricDensity(SimpleQuantity value) {
+        public NutritionOrderEnteralFormulaComponent setCaloricDensity(SimpleQuantity value) { 
           this.caloricDensity = value;
           return this;
         }
@@ -1511,7 +1511,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #routeofAdministration} (The route or physiological path of administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube.)
          */
-        public CodeableConcept getRouteofAdministration() {
+        public CodeableConcept getRouteofAdministration() { 
           if (this.routeofAdministration == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaComponent.routeofAdministration");
@@ -1520,14 +1520,14 @@ public class NutritionOrder extends DomainResource {
           return this.routeofAdministration;
         }
 
-        public boolean hasRouteofAdministration() {
+        public boolean hasRouteofAdministration() { 
           return this.routeofAdministration != null && !this.routeofAdministration.isEmpty();
         }
 
         /**
          * @param value {@link #routeofAdministration} (The route or physiological path of administration into the patient's gastrointestinal  tract for purposes of providing the formula feeding, e.g. nasogastric tube.)
          */
-        public NutritionOrderEnteralFormulaComponent setRouteofAdministration(CodeableConcept value) {
+        public NutritionOrderEnteralFormulaComponent setRouteofAdministration(CodeableConcept value) { 
           this.routeofAdministration = value;
           return this;
         }
@@ -1535,13 +1535,13 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #administration} (Formula administration instructions as structured data.  This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding.  An example of this would be an instruction to increase the rate of continuous feeding every 2 hours.)
          */
-        public List<NutritionOrderEnteralFormulaAdministrationComponent> getAdministration() {
+        public List<NutritionOrderEnteralFormulaAdministrationComponent> getAdministration() { 
           if (this.administration == null)
             this.administration = new ArrayList<NutritionOrderEnteralFormulaAdministrationComponent>();
           return this.administration;
         }
 
-        public boolean hasAdministration() {
+        public boolean hasAdministration() { 
           if (this.administration == null)
             return false;
           for (NutritionOrderEnteralFormulaAdministrationComponent item : this.administration)
@@ -1575,7 +1575,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #maxVolumeToDeliver} (The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours.)
          */
-        public SimpleQuantity getMaxVolumeToDeliver() {
+        public SimpleQuantity getMaxVolumeToDeliver() { 
           if (this.maxVolumeToDeliver == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaComponent.maxVolumeToDeliver");
@@ -1584,14 +1584,14 @@ public class NutritionOrder extends DomainResource {
           return this.maxVolumeToDeliver;
         }
 
-        public boolean hasMaxVolumeToDeliver() {
+        public boolean hasMaxVolumeToDeliver() { 
           return this.maxVolumeToDeliver != null && !this.maxVolumeToDeliver.isEmpty();
         }
 
         /**
          * @param value {@link #maxVolumeToDeliver} (The maximum total quantity of formula that may be administered to a subject over the period of time, e.g. 1440 mL over 24 hours.)
          */
-        public NutritionOrderEnteralFormulaComponent setMaxVolumeToDeliver(SimpleQuantity value) {
+        public NutritionOrderEnteralFormulaComponent setMaxVolumeToDeliver(SimpleQuantity value) { 
           this.maxVolumeToDeliver = value;
           return this;
         }
@@ -1599,7 +1599,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #administrationInstruction} (Free text formula administration, feeding instructions or additional instructions or information.). This is the underlying object with id, value and extensions. The accessor "getAdministrationInstruction" gives direct access to the value
          */
-        public StringType getAdministrationInstructionElement() {
+        public StringType getAdministrationInstructionElement() { 
           if (this.administrationInstruction == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaComponent.administrationInstruction");
@@ -1608,18 +1608,18 @@ public class NutritionOrder extends DomainResource {
           return this.administrationInstruction;
         }
 
-        public boolean hasAdministrationInstructionElement() {
+        public boolean hasAdministrationInstructionElement() { 
           return this.administrationInstruction != null && !this.administrationInstruction.isEmpty();
         }
 
-        public boolean hasAdministrationInstruction() {
+        public boolean hasAdministrationInstruction() { 
           return this.administrationInstruction != null && !this.administrationInstruction.isEmpty();
         }
 
         /**
          * @param value {@link #administrationInstruction} (Free text formula administration, feeding instructions or additional instructions or information.). This is the underlying object with id, value and extensions. The accessor "getAdministrationInstruction" gives direct access to the value
          */
-        public NutritionOrderEnteralFormulaComponent setAdministrationInstructionElement(StringType value) {
+        public NutritionOrderEnteralFormulaComponent setAdministrationInstructionElement(StringType value) { 
           this.administrationInstruction = value;
           return this;
         }
@@ -1627,14 +1627,14 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return Free text formula administration, feeding instructions or additional instructions or information.
          */
-        public String getAdministrationInstruction() {
+        public String getAdministrationInstruction() { 
           return this.administrationInstruction == null ? null : this.administrationInstruction.getValue();
         }
 
         /**
          * @param value Free text formula administration, feeding instructions or additional instructions or information.
          */
-        public NutritionOrderEnteralFormulaComponent setAdministrationInstruction(String value) {
+        public NutritionOrderEnteralFormulaComponent setAdministrationInstruction(String value) { 
           if (Utilities.noString(value))
             this.administrationInstruction = null;
           else {
@@ -1814,7 +1814,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #schedule} (The time period and frequency at which the enteral formula should be delivered to the patient.)
          */
-        public Timing getSchedule() {
+        public Timing getSchedule() { 
           if (this.schedule == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaAdministrationComponent.schedule");
@@ -1823,14 +1823,14 @@ public class NutritionOrder extends DomainResource {
           return this.schedule;
         }
 
-        public boolean hasSchedule() {
+        public boolean hasSchedule() { 
           return this.schedule != null && !this.schedule.isEmpty();
         }
 
         /**
          * @param value {@link #schedule} (The time period and frequency at which the enteral formula should be delivered to the patient.)
          */
-        public NutritionOrderEnteralFormulaAdministrationComponent setSchedule(Timing value) {
+        public NutritionOrderEnteralFormulaAdministrationComponent setSchedule(Timing value) { 
           this.schedule = value;
           return this;
         }
@@ -1838,7 +1838,7 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #quantity} (The volume of formula to provide to the patient per the specified administration schedule.)
          */
-        public SimpleQuantity getQuantity() {
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NutritionOrderEnteralFormulaAdministrationComponent.quantity");
@@ -1847,14 +1847,14 @@ public class NutritionOrder extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() {
+        public boolean hasQuantity() { 
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (The volume of formula to provide to the patient per the specified administration schedule.)
          */
-        public NutritionOrderEnteralFormulaAdministrationComponent setQuantity(SimpleQuantity value) {
+        public NutritionOrderEnteralFormulaAdministrationComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -1862,44 +1862,44 @@ public class NutritionOrder extends DomainResource {
         /**
          * @return {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
-        public Type getRate() {
+        public Type getRate() { 
           return this.rate;
         }
 
         /**
          * @return {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
-        public SimpleQuantity getRateSimpleQuantity() throws FHIRException {
+        public SimpleQuantity getRateSimpleQuantity() throws FHIRException { 
           if (!(this.rate instanceof SimpleQuantity))
             throw new FHIRException("Type mismatch: the type SimpleQuantity was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (SimpleQuantity) this.rate;
         }
 
-        public boolean hasRateSimpleQuantity() {
+        public boolean hasRateSimpleQuantity() { 
           return this.rate instanceof SimpleQuantity;
         }
 
         /**
          * @return {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
-        public Ratio getRateRatio() throws FHIRException {
+        public Ratio getRateRatio() throws FHIRException { 
           if (!(this.rate instanceof Ratio))
             throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (Ratio) this.rate;
         }
 
-        public boolean hasRateRatio() {
+        public boolean hasRateRatio() { 
           return this.rate instanceof Ratio;
         }
 
-        public boolean hasRate() {
+        public boolean hasRate() { 
           return this.rate != null && !this.rate.isEmpty();
         }
 
         /**
          * @param value {@link #rate} (The rate of administration of formula via a feeding pump, e.g. 60 mL per hour, according to the specified schedule.)
          */
-        public NutritionOrderEnteralFormulaAdministrationComponent setRate(Type value) {
+        public NutritionOrderEnteralFormulaAdministrationComponent setRate(Type value) { 
           this.rate = value;
           return this;
         }
@@ -2112,7 +2112,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #patient} (The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
      */
-    public Reference getPatient() {
+    public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.patient");
@@ -2121,14 +2121,14 @@ public class NutritionOrder extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() {
+    public boolean hasPatient() { 
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
      */
-    public NutritionOrder setPatient(Reference value) {
+    public NutritionOrder setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -2136,7 +2136,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
      */
-    public Patient getPatientTarget() {
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.patient");
@@ -2148,7 +2148,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
      */
-    public NutritionOrder setPatientTarget(Patient value) {
+    public NutritionOrder setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -2156,7 +2156,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #orderer} (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
-    public Reference getOrderer() {
+    public Reference getOrderer() { 
       if (this.orderer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.orderer");
@@ -2165,14 +2165,14 @@ public class NutritionOrder extends DomainResource {
       return this.orderer;
     }
 
-    public boolean hasOrderer() {
+    public boolean hasOrderer() { 
       return this.orderer != null && !this.orderer.isEmpty();
     }
 
     /**
      * @param value {@link #orderer} (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
-    public NutritionOrder setOrderer(Reference value) {
+    public NutritionOrder setOrderer(Reference value) { 
       this.orderer = value;
       return this;
     }
@@ -2180,7 +2180,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #orderer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
-    public Practitioner getOrdererTarget() {
+    public Practitioner getOrdererTarget() { 
       if (this.ordererTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.orderer");
@@ -2192,7 +2192,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @param value {@link #orderer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
-    public NutritionOrder setOrdererTarget(Practitioner value) {
+    public NutritionOrder setOrdererTarget(Practitioner value) { 
       this.ordererTarget = value;
       return this;
     }
@@ -2200,13 +2200,13 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #identifier} (Identifiers assigned to this order by the order sender or by the order receiver.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -2240,7 +2240,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #encounter} (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
-    public Reference getEncounter() {
+    public Reference getEncounter() { 
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.encounter");
@@ -2249,14 +2249,14 @@ public class NutritionOrder extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() {
+    public boolean hasEncounter() { 
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
-    public NutritionOrder setEncounter(Reference value) {
+    public NutritionOrder setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -2264,7 +2264,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
-    public Encounter getEncounterTarget() {
+    public Encounter getEncounterTarget() { 
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.encounter");
@@ -2276,7 +2276,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
-    public NutritionOrder setEncounterTarget(Encounter value) {
+    public NutritionOrder setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
       return this;
     }
@@ -2284,7 +2284,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #dateTime} (The date and time that this nutrition order was requested.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public DateTimeType getDateTimeElement() {
+    public DateTimeType getDateTimeElement() { 
       if (this.dateTime == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.dateTime");
@@ -2293,18 +2293,18 @@ public class NutritionOrder extends DomainResource {
       return this.dateTime;
     }
 
-    public boolean hasDateTimeElement() {
+    public boolean hasDateTimeElement() { 
       return this.dateTime != null && !this.dateTime.isEmpty();
     }
 
-    public boolean hasDateTime() {
+    public boolean hasDateTime() { 
       return this.dateTime != null && !this.dateTime.isEmpty();
     }
 
     /**
      * @param value {@link #dateTime} (The date and time that this nutrition order was requested.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public NutritionOrder setDateTimeElement(DateTimeType value) {
+    public NutritionOrder setDateTimeElement(DateTimeType value) { 
       this.dateTime = value;
       return this;
     }
@@ -2312,14 +2312,14 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return The date and time that this nutrition order was requested.
      */
-    public Date getDateTime() {
+    public Date getDateTime() { 
       return this.dateTime == null ? null : this.dateTime.getValue();
     }
 
     /**
      * @param value The date and time that this nutrition order was requested.
      */
-    public NutritionOrder setDateTime(Date value) {
+    public NutritionOrder setDateTime(Date value) { 
         if (this.dateTime == null)
           this.dateTime = new DateTimeType();
         this.dateTime.setValue(value);
@@ -2329,7 +2329,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<NutritionOrderStatus> getStatusElement() {
+    public Enumeration<NutritionOrderStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.status");
@@ -2338,18 +2338,18 @@ public class NutritionOrder extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public NutritionOrder setStatusElement(Enumeration<NutritionOrderStatus> value) {
+    public NutritionOrder setStatusElement(Enumeration<NutritionOrderStatus> value) { 
       this.status = value;
       return this;
     }
@@ -2357,14 +2357,14 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return The workflow status of the nutrition order/request.
      */
-    public NutritionOrderStatus getStatus() {
+    public NutritionOrderStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The workflow status of the nutrition order/request.
      */
-    public NutritionOrder setStatus(NutritionOrderStatus value) {
+    public NutritionOrder setStatus(NutritionOrderStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -2378,13 +2378,13 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #allergyIntolerance} (A link to a record of allergies or intolerances  which should be included in the nutrition order.)
      */
-    public List<Reference> getAllergyIntolerance() {
+    public List<Reference> getAllergyIntolerance() { 
       if (this.allergyIntolerance == null)
         this.allergyIntolerance = new ArrayList<Reference>();
       return this.allergyIntolerance;
     }
 
-    public boolean hasAllergyIntolerance() {
+    public boolean hasAllergyIntolerance() { 
       if (this.allergyIntolerance == null)
         return false;
       for (Reference item : this.allergyIntolerance)
@@ -2418,7 +2418,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #allergyIntolerance} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A link to a record of allergies or intolerances  which should be included in the nutrition order.)
      */
-    public List<AllergyIntolerance> getAllergyIntoleranceTarget() {
+    public List<AllergyIntolerance> getAllergyIntoleranceTarget() { 
       if (this.allergyIntoleranceTarget == null)
         this.allergyIntoleranceTarget = new ArrayList<AllergyIntolerance>();
       return this.allergyIntoleranceTarget;
@@ -2428,7 +2428,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #allergyIntolerance} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A link to a record of allergies or intolerances  which should be included in the nutrition order.)
      */
-    public AllergyIntolerance addAllergyIntoleranceTarget() {
+    public AllergyIntolerance addAllergyIntoleranceTarget() { 
       AllergyIntolerance r = new AllergyIntolerance();
       if (this.allergyIntoleranceTarget == null)
         this.allergyIntoleranceTarget = new ArrayList<AllergyIntolerance>();
@@ -2439,13 +2439,13 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #foodPreferenceModifier} (This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.)
      */
-    public List<CodeableConcept> getFoodPreferenceModifier() {
+    public List<CodeableConcept> getFoodPreferenceModifier() { 
       if (this.foodPreferenceModifier == null)
         this.foodPreferenceModifier = new ArrayList<CodeableConcept>();
       return this.foodPreferenceModifier;
     }
 
-    public boolean hasFoodPreferenceModifier() {
+    public boolean hasFoodPreferenceModifier() { 
       if (this.foodPreferenceModifier == null)
         return false;
       for (CodeableConcept item : this.foodPreferenceModifier)
@@ -2479,13 +2479,13 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #excludeFoodModifier} (This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced allergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.)
      */
-    public List<CodeableConcept> getExcludeFoodModifier() {
+    public List<CodeableConcept> getExcludeFoodModifier() { 
       if (this.excludeFoodModifier == null)
         this.excludeFoodModifier = new ArrayList<CodeableConcept>();
       return this.excludeFoodModifier;
     }
 
-    public boolean hasExcludeFoodModifier() {
+    public boolean hasExcludeFoodModifier() { 
       if (this.excludeFoodModifier == null)
         return false;
       for (CodeableConcept item : this.excludeFoodModifier)
@@ -2519,7 +2519,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #oralDiet} (Diet given orally in contrast to enteral (tube) feeding.)
      */
-    public NutritionOrderOralDietComponent getOralDiet() {
+    public NutritionOrderOralDietComponent getOralDiet() { 
       if (this.oralDiet == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.oralDiet");
@@ -2528,14 +2528,14 @@ public class NutritionOrder extends DomainResource {
       return this.oralDiet;
     }
 
-    public boolean hasOralDiet() {
+    public boolean hasOralDiet() { 
       return this.oralDiet != null && !this.oralDiet.isEmpty();
     }
 
     /**
      * @param value {@link #oralDiet} (Diet given orally in contrast to enteral (tube) feeding.)
      */
-    public NutritionOrder setOralDiet(NutritionOrderOralDietComponent value) {
+    public NutritionOrder setOralDiet(NutritionOrderOralDietComponent value) { 
       this.oralDiet = value;
       return this;
     }
@@ -2543,13 +2543,13 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #supplement} (Oral nutritional products given in order to add further nutritional value to the patient's diet.)
      */
-    public List<NutritionOrderSupplementComponent> getSupplement() {
+    public List<NutritionOrderSupplementComponent> getSupplement() { 
       if (this.supplement == null)
         this.supplement = new ArrayList<NutritionOrderSupplementComponent>();
       return this.supplement;
     }
 
-    public boolean hasSupplement() {
+    public boolean hasSupplement() { 
       if (this.supplement == null)
         return false;
       for (NutritionOrderSupplementComponent item : this.supplement)
@@ -2583,7 +2583,7 @@ public class NutritionOrder extends DomainResource {
     /**
      * @return {@link #enteralFormula} (Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.)
      */
-    public NutritionOrderEnteralFormulaComponent getEnteralFormula() {
+    public NutritionOrderEnteralFormulaComponent getEnteralFormula() { 
       if (this.enteralFormula == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NutritionOrder.enteralFormula");
@@ -2592,14 +2592,14 @@ public class NutritionOrder extends DomainResource {
       return this.enteralFormula;
     }
 
-    public boolean hasEnteralFormula() {
+    public boolean hasEnteralFormula() { 
       return this.enteralFormula != null && !this.enteralFormula.isEmpty();
     }
 
     /**
      * @param value {@link #enteralFormula} (Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity.)
      */
-    public NutritionOrder setEnteralFormula(NutritionOrderEnteralFormulaComponent value) {
+    public NutritionOrder setEnteralFormula(NutritionOrderEnteralFormulaComponent value) { 
       this.enteralFormula = value;
       return this;
     }

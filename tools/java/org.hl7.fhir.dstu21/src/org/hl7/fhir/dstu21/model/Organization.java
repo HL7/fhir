@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -89,7 +89,7 @@ public class Organization extends DomainResource {
         /**
          * @return {@link #purpose} (Indicates a purpose for which the contact can be reached.)
          */
-        public CodeableConcept getPurpose() {
+        public CodeableConcept getPurpose() { 
           if (this.purpose == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrganizationContactComponent.purpose");
@@ -98,14 +98,14 @@ public class Organization extends DomainResource {
           return this.purpose;
         }
 
-        public boolean hasPurpose() {
+        public boolean hasPurpose() { 
           return this.purpose != null && !this.purpose.isEmpty();
         }
 
         /**
          * @param value {@link #purpose} (Indicates a purpose for which the contact can be reached.)
          */
-        public OrganizationContactComponent setPurpose(CodeableConcept value) {
+        public OrganizationContactComponent setPurpose(CodeableConcept value) { 
           this.purpose = value;
           return this;
         }
@@ -113,7 +113,7 @@ public class Organization extends DomainResource {
         /**
          * @return {@link #name} (A name associated with the contact.)
          */
-        public HumanName getName() {
+        public HumanName getName() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrganizationContactComponent.name");
@@ -122,14 +122,14 @@ public class Organization extends DomainResource {
           return this.name;
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (A name associated with the contact.)
          */
-        public OrganizationContactComponent setName(HumanName value) {
+        public OrganizationContactComponent setName(HumanName value) { 
           this.name = value;
           return this;
         }
@@ -137,13 +137,13 @@ public class Organization extends DomainResource {
         /**
          * @return {@link #telecom} (A contact detail (e.g. a telephone number or an email address) by which the party may be contacted.)
          */
-        public List<ContactPoint> getTelecom() {
+        public List<ContactPoint> getTelecom() { 
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() {
+        public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -177,7 +177,7 @@ public class Organization extends DomainResource {
         /**
          * @return {@link #address} (Visiting or postal addresses for the contact.)
          */
-        public Address getAddress() {
+        public Address getAddress() { 
           if (this.address == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrganizationContactComponent.address");
@@ -186,14 +186,14 @@ public class Organization extends DomainResource {
           return this.address;
         }
 
-        public boolean hasAddress() {
+        public boolean hasAddress() { 
           return this.address != null && !this.address.isEmpty();
         }
 
         /**
          * @param value {@link #address} (Visiting or postal addresses for the contact.)
          */
-        public OrganizationContactComponent setAddress(Address value) {
+        public OrganizationContactComponent setAddress(Address value) { 
           this.address = value;
           return this;
         }
@@ -361,13 +361,13 @@ public class Organization extends DomainResource {
     /**
      * @return {@link #identifier} (Identifier for the organization that is used to identify the organization across multiple disparate systems.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -401,7 +401,7 @@ public class Organization extends DomainResource {
     /**
      * @return {@link #active} (Whether the organization's record is still in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public BooleanType getActiveElement() {
+    public BooleanType getActiveElement() { 
       if (this.active == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Organization.active");
@@ -410,18 +410,18 @@ public class Organization extends DomainResource {
       return this.active;
     }
 
-    public boolean hasActiveElement() {
+    public boolean hasActiveElement() { 
       return this.active != null && !this.active.isEmpty();
     }
 
-    public boolean hasActive() {
+    public boolean hasActive() { 
       return this.active != null && !this.active.isEmpty();
     }
 
     /**
      * @param value {@link #active} (Whether the organization's record is still in active use.). This is the underlying object with id, value and extensions. The accessor "getActive" gives direct access to the value
      */
-    public Organization setActiveElement(BooleanType value) {
+    public Organization setActiveElement(BooleanType value) { 
       this.active = value;
       return this;
     }
@@ -429,14 +429,14 @@ public class Organization extends DomainResource {
     /**
      * @return Whether the organization's record is still in active use.
      */
-    public boolean getActive() {
+    public boolean getActive() { 
       return this.active == null || this.active.isEmpty() ? false : this.active.getValue();
     }
 
     /**
      * @param value Whether the organization's record is still in active use.
      */
-    public Organization setActive(boolean value) {
+    public Organization setActive(boolean value) { 
         if (this.active == null)
           this.active = new BooleanType();
         this.active.setValue(value);
@@ -446,7 +446,7 @@ public class Organization extends DomainResource {
     /**
      * @return {@link #type} (The kind of organization that this is.)
      */
-    public CodeableConcept getType() {
+    public CodeableConcept getType() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Organization.type");
@@ -455,14 +455,14 @@ public class Organization extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (The kind of organization that this is.)
      */
-    public Organization setType(CodeableConcept value) {
+    public Organization setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
@@ -470,7 +470,7 @@ public class Organization extends DomainResource {
     /**
      * @return {@link #name} (A name associated with the organization.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() {
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Organization.name");
@@ -479,18 +479,18 @@ public class Organization extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() {
+    public boolean hasNameElement() { 
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A name associated with the organization.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public Organization setNameElement(StringType value) {
+    public Organization setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -498,14 +498,14 @@ public class Organization extends DomainResource {
     /**
      * @return A name associated with the organization.
      */
-    public String getName() {
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A name associated with the organization.
      */
-    public Organization setName(String value) {
+    public Organization setName(String value) { 
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -519,13 +519,13 @@ public class Organization extends DomainResource {
     /**
      * @return {@link #telecom} (A contact detail for the organization.)
      */
-    public List<ContactPoint> getTelecom() {
+    public List<ContactPoint> getTelecom() { 
       if (this.telecom == null)
         this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
     }
 
-    public boolean hasTelecom() {
+    public boolean hasTelecom() { 
       if (this.telecom == null)
         return false;
       for (ContactPoint item : this.telecom)
@@ -559,13 +559,13 @@ public class Organization extends DomainResource {
     /**
      * @return {@link #address} (An address for the organization.)
      */
-    public List<Address> getAddress() {
+    public List<Address> getAddress() { 
       if (this.address == null)
         this.address = new ArrayList<Address>();
       return this.address;
     }
 
-    public boolean hasAddress() {
+    public boolean hasAddress() { 
       if (this.address == null)
         return false;
       for (Address item : this.address)
@@ -599,7 +599,7 @@ public class Organization extends DomainResource {
     /**
      * @return {@link #partOf} (The organization of which this organization forms a part.)
      */
-    public Reference getPartOf() {
+    public Reference getPartOf() { 
       if (this.partOf == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Organization.partOf");
@@ -608,14 +608,14 @@ public class Organization extends DomainResource {
       return this.partOf;
     }
 
-    public boolean hasPartOf() {
+    public boolean hasPartOf() { 
       return this.partOf != null && !this.partOf.isEmpty();
     }
 
     /**
      * @param value {@link #partOf} (The organization of which this organization forms a part.)
      */
-    public Organization setPartOf(Reference value) {
+    public Organization setPartOf(Reference value) { 
       this.partOf = value;
       return this;
     }
@@ -623,7 +623,7 @@ public class Organization extends DomainResource {
     /**
      * @return {@link #partOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization of which this organization forms a part.)
      */
-    public Organization getPartOfTarget() {
+    public Organization getPartOfTarget() { 
       if (this.partOfTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Organization.partOf");
@@ -635,7 +635,7 @@ public class Organization extends DomainResource {
     /**
      * @param value {@link #partOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization of which this organization forms a part.)
      */
-    public Organization setPartOfTarget(Organization value) {
+    public Organization setPartOfTarget(Organization value) { 
       this.partOfTarget = value;
       return this;
     }
@@ -643,13 +643,13 @@ public class Organization extends DomainResource {
     /**
      * @return {@link #contact} (Contact for the organization for a certain purpose.)
      */
-    public List<OrganizationContactComponent> getContact() {
+    public List<OrganizationContactComponent> getContact() { 
       if (this.contact == null)
         this.contact = new ArrayList<OrganizationContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() {
+    public boolean hasContact() { 
       if (this.contact == null)
         return false;
       for (OrganizationContactComponent item : this.contact)

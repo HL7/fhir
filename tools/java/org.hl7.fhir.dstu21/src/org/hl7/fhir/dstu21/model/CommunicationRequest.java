@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,43 +51,43 @@ public class CommunicationRequest extends DomainResource {
         /**
          * The request has been proposed.
          */
-        PROPOSED,
+        PROPOSED, 
         /**
          * The request has been planned.
          */
-        PLANNED,
+        PLANNED, 
         /**
          * The request has been placed.
          */
-        REQUESTED,
+        REQUESTED, 
         /**
          * The receiving system has received the request but not yet decided whether it will be performed.
          */
-        RECEIVED,
+        RECEIVED, 
         /**
          * The receiving system has accepted the order, but work has not yet commenced.
          */
-        ACCEPTED,
+        ACCEPTED, 
         /**
          * The work to fulfill the order is happening.
          */
-        INPROGRESS,
+        INPROGRESS, 
         /**
          * The work has been complete, the report(s) released, and no further work is planned.
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * The request has been held by originating system/user request.
          */
-        SUSPENDED,
+        SUSPENDED, 
         /**
          * The receiving system has declined to fulfill the request
          */
-        REJECTED,
+        REJECTED, 
         /**
          * The communication was attempted, but due to some procedural error, it could not be completed.
          */
-        FAILED,
+        FAILED, 
         /**
          * added to help the parsers
          */
@@ -288,57 +288,57 @@ public class CommunicationRequest extends DomainResource {
         /**
          * @return {@link #content} (The communicated content (or for multi-part communications, one portion of the communication).)
          */
-        public Type getContent() {
+        public Type getContent() { 
           return this.content;
         }
 
         /**
          * @return {@link #content} (The communicated content (or for multi-part communications, one portion of the communication).)
          */
-        public StringType getContentStringType() throws FHIRException {
+        public StringType getContentStringType() throws FHIRException { 
           if (!(this.content instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.content.getClass().getName()+" was encountered");
           return (StringType) this.content;
         }
 
-        public boolean hasContentStringType() {
+        public boolean hasContentStringType() { 
           return this.content instanceof StringType;
         }
 
         /**
          * @return {@link #content} (The communicated content (or for multi-part communications, one portion of the communication).)
          */
-        public Attachment getContentAttachment() throws FHIRException {
+        public Attachment getContentAttachment() throws FHIRException { 
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
         }
 
-        public boolean hasContentAttachment() {
+        public boolean hasContentAttachment() { 
           return this.content instanceof Attachment;
         }
 
         /**
          * @return {@link #content} (The communicated content (or for multi-part communications, one portion of the communication).)
          */
-        public Reference getContentReference() throws FHIRException {
+        public Reference getContentReference() throws FHIRException { 
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
         }
 
-        public boolean hasContentReference() {
+        public boolean hasContentReference() { 
           return this.content instanceof Reference;
         }
 
-        public boolean hasContent() {
+        public boolean hasContent() { 
           return this.content != null && !this.content.isEmpty();
         }
 
         /**
          * @param value {@link #content} (The communicated content (or for multi-part communications, one portion of the communication).)
          */
-        public CommunicationRequestPayloadComponent setContent(Type value) {
+        public CommunicationRequestPayloadComponent setContent(Type value) { 
           this.content = value;
           return this;
         }
@@ -547,13 +547,13 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #identifier} (A unique ID of this request for reference purposes. It must be provided if user wants it returned as part of any output, otherwise it will be autogenerated, if needed, by CDS system. Does not need to be the actual ID of the source system.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -587,7 +587,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #category} (The type of message to be sent such as alert, notification, reminder, instruction, etc.)
      */
-    public CodeableConcept getCategory() {
+    public CodeableConcept getCategory() { 
       if (this.category == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.category");
@@ -596,14 +596,14 @@ public class CommunicationRequest extends DomainResource {
       return this.category;
     }
 
-    public boolean hasCategory() {
+    public boolean hasCategory() { 
       return this.category != null && !this.category.isEmpty();
     }
 
     /**
      * @param value {@link #category} (The type of message to be sent such as alert, notification, reminder, instruction, etc.)
      */
-    public CommunicationRequest setCategory(CodeableConcept value) {
+    public CommunicationRequest setCategory(CodeableConcept value) { 
       this.category = value;
       return this;
     }
@@ -611,7 +611,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #sender} (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
      */
-    public Reference getSender() {
+    public Reference getSender() { 
       if (this.sender == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.sender");
@@ -620,14 +620,14 @@ public class CommunicationRequest extends DomainResource {
       return this.sender;
     }
 
-    public boolean hasSender() {
+    public boolean hasSender() { 
       return this.sender != null && !this.sender.isEmpty();
     }
 
     /**
      * @param value {@link #sender} (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
      */
-    public CommunicationRequest setSender(Reference value) {
+    public CommunicationRequest setSender(Reference value) { 
       this.sender = value;
       return this;
     }
@@ -635,14 +635,14 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #sender} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
      */
-    public Resource getSenderTarget() {
+    public Resource getSenderTarget() { 
       return this.senderTarget;
     }
 
     /**
      * @param value {@link #sender} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The entity (e.g. person, organization, clinical information system, or device) which is to be the source of the communication.)
      */
-    public CommunicationRequest setSenderTarget(Resource value) {
+    public CommunicationRequest setSenderTarget(Resource value) { 
       this.senderTarget = value;
       return this;
     }
@@ -650,13 +650,13 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #recipient} (The entity (e.g. person, organization, clinical information system, or device) which is the intended target of the communication.)
      */
-    public List<Reference> getRecipient() {
+    public List<Reference> getRecipient() { 
       if (this.recipient == null)
         this.recipient = new ArrayList<Reference>();
       return this.recipient;
     }
 
-    public boolean hasRecipient() {
+    public boolean hasRecipient() { 
       if (this.recipient == null)
         return false;
       for (Reference item : this.recipient)
@@ -690,7 +690,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #recipient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The entity (e.g. person, organization, clinical information system, or device) which is the intended target of the communication.)
      */
-    public List<Resource> getRecipientTarget() {
+    public List<Resource> getRecipientTarget() { 
       if (this.recipientTarget == null)
         this.recipientTarget = new ArrayList<Resource>();
       return this.recipientTarget;
@@ -699,13 +699,13 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #payload} (Text, attachment(s), or resource(s) to be communicated to the recipient.)
      */
-    public List<CommunicationRequestPayloadComponent> getPayload() {
+    public List<CommunicationRequestPayloadComponent> getPayload() { 
       if (this.payload == null)
         this.payload = new ArrayList<CommunicationRequestPayloadComponent>();
       return this.payload;
     }
 
-    public boolean hasPayload() {
+    public boolean hasPayload() { 
       if (this.payload == null)
         return false;
       for (CommunicationRequestPayloadComponent item : this.payload)
@@ -739,13 +739,13 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #medium} (A channel that was used for this communication (e.g. email, fax).)
      */
-    public List<CodeableConcept> getMedium() {
+    public List<CodeableConcept> getMedium() { 
       if (this.medium == null)
         this.medium = new ArrayList<CodeableConcept>();
       return this.medium;
     }
 
-    public boolean hasMedium() {
+    public boolean hasMedium() { 
       if (this.medium == null)
         return false;
       for (CodeableConcept item : this.medium)
@@ -779,7 +779,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #requester} (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
      */
-    public Reference getRequester() {
+    public Reference getRequester() { 
       if (this.requester == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.requester");
@@ -788,14 +788,14 @@ public class CommunicationRequest extends DomainResource {
       return this.requester;
     }
 
-    public boolean hasRequester() {
+    public boolean hasRequester() { 
       return this.requester != null && !this.requester.isEmpty();
     }
 
     /**
      * @param value {@link #requester} (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
      */
-    public CommunicationRequest setRequester(Reference value) {
+    public CommunicationRequest setRequester(Reference value) { 
       this.requester = value;
       return this;
     }
@@ -803,14 +803,14 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
      */
-    public Resource getRequesterTarget() {
+    public Resource getRequesterTarget() { 
       return this.requesterTarget;
     }
 
     /**
      * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.)
      */
-    public CommunicationRequest setRequesterTarget(Resource value) {
+    public CommunicationRequest setRequesterTarget(Resource value) { 
       this.requesterTarget = value;
       return this;
     }
@@ -818,7 +818,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #status} (The status of the proposal or order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<CommunicationRequestStatus> getStatusElement() {
+    public Enumeration<CommunicationRequestStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.status");
@@ -827,18 +827,18 @@ public class CommunicationRequest extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the proposal or order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public CommunicationRequest setStatusElement(Enumeration<CommunicationRequestStatus> value) {
+    public CommunicationRequest setStatusElement(Enumeration<CommunicationRequestStatus> value) { 
       this.status = value;
       return this;
     }
@@ -846,14 +846,14 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return The status of the proposal or order.
      */
-    public CommunicationRequestStatus getStatus() {
+    public CommunicationRequestStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the proposal or order.
      */
-    public CommunicationRequest setStatus(CommunicationRequestStatus value) {
+    public CommunicationRequest setStatus(CommunicationRequestStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -867,7 +867,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #encounter} (The encounter within which the communication request was created.)
      */
-    public Reference getEncounter() {
+    public Reference getEncounter() { 
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.encounter");
@@ -876,14 +876,14 @@ public class CommunicationRequest extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() {
+    public boolean hasEncounter() { 
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (The encounter within which the communication request was created.)
      */
-    public CommunicationRequest setEncounter(Reference value) {
+    public CommunicationRequest setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -891,7 +891,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter within which the communication request was created.)
      */
-    public Encounter getEncounterTarget() {
+    public Encounter getEncounterTarget() { 
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.encounter");
@@ -903,7 +903,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter within which the communication request was created.)
      */
-    public CommunicationRequest setEncounterTarget(Encounter value) {
+    public CommunicationRequest setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
       return this;
     }
@@ -911,44 +911,44 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #scheduled} (The time when this communication is to occur.)
      */
-    public Type getScheduled() {
+    public Type getScheduled() { 
       return this.scheduled;
     }
 
     /**
      * @return {@link #scheduled} (The time when this communication is to occur.)
      */
-    public DateTimeType getScheduledDateTimeType() throws FHIRException {
+    public DateTimeType getScheduledDateTimeType() throws FHIRException { 
       if (!(this.scheduled instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.scheduled.getClass().getName()+" was encountered");
       return (DateTimeType) this.scheduled;
     }
 
-    public boolean hasScheduledDateTimeType() {
+    public boolean hasScheduledDateTimeType() { 
       return this.scheduled instanceof DateTimeType;
     }
 
     /**
      * @return {@link #scheduled} (The time when this communication is to occur.)
      */
-    public Period getScheduledPeriod() throws FHIRException {
+    public Period getScheduledPeriod() throws FHIRException { 
       if (!(this.scheduled instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.scheduled.getClass().getName()+" was encountered");
       return (Period) this.scheduled;
     }
 
-    public boolean hasScheduledPeriod() {
+    public boolean hasScheduledPeriod() { 
       return this.scheduled instanceof Period;
     }
 
-    public boolean hasScheduled() {
+    public boolean hasScheduled() { 
       return this.scheduled != null && !this.scheduled.isEmpty();
     }
 
     /**
      * @param value {@link #scheduled} (The time when this communication is to occur.)
      */
-    public CommunicationRequest setScheduled(Type value) {
+    public CommunicationRequest setScheduled(Type value) { 
       this.scheduled = value;
       return this;
     }
@@ -956,13 +956,13 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #reason} (The reason or justification for the communication request.)
      */
-    public List<CodeableConcept> getReason() {
+    public List<CodeableConcept> getReason() { 
       if (this.reason == null)
         this.reason = new ArrayList<CodeableConcept>();
       return this.reason;
     }
 
-    public boolean hasReason() {
+    public boolean hasReason() { 
       if (this.reason == null)
         return false;
       for (CodeableConcept item : this.reason)
@@ -996,7 +996,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #requestedOn} (The time when the request was made.). This is the underlying object with id, value and extensions. The accessor "getRequestedOn" gives direct access to the value
      */
-    public DateTimeType getRequestedOnElement() {
+    public DateTimeType getRequestedOnElement() { 
       if (this.requestedOn == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.requestedOn");
@@ -1005,18 +1005,18 @@ public class CommunicationRequest extends DomainResource {
       return this.requestedOn;
     }
 
-    public boolean hasRequestedOnElement() {
+    public boolean hasRequestedOnElement() { 
       return this.requestedOn != null && !this.requestedOn.isEmpty();
     }
 
-    public boolean hasRequestedOn() {
+    public boolean hasRequestedOn() { 
       return this.requestedOn != null && !this.requestedOn.isEmpty();
     }
 
     /**
      * @param value {@link #requestedOn} (The time when the request was made.). This is the underlying object with id, value and extensions. The accessor "getRequestedOn" gives direct access to the value
      */
-    public CommunicationRequest setRequestedOnElement(DateTimeType value) {
+    public CommunicationRequest setRequestedOnElement(DateTimeType value) { 
       this.requestedOn = value;
       return this;
     }
@@ -1024,14 +1024,14 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return The time when the request was made.
      */
-    public Date getRequestedOn() {
+    public Date getRequestedOn() { 
       return this.requestedOn == null ? null : this.requestedOn.getValue();
     }
 
     /**
      * @param value The time when the request was made.
      */
-    public CommunicationRequest setRequestedOn(Date value) {
+    public CommunicationRequest setRequestedOn(Date value) { 
       if (value == null)
         this.requestedOn = null;
       else {
@@ -1045,7 +1045,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #subject} (The patient who is the focus of this communication request.)
      */
-    public Reference getSubject() {
+    public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.subject");
@@ -1054,14 +1054,14 @@ public class CommunicationRequest extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() {
+    public boolean hasSubject() { 
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (The patient who is the focus of this communication request.)
      */
-    public CommunicationRequest setSubject(Reference value) {
+    public CommunicationRequest setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -1069,7 +1069,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who is the focus of this communication request.)
      */
-    public Patient getSubjectTarget() {
+    public Patient getSubjectTarget() { 
       if (this.subjectTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.subject");
@@ -1081,7 +1081,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who is the focus of this communication request.)
      */
-    public CommunicationRequest setSubjectTarget(Patient value) {
+    public CommunicationRequest setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -1089,7 +1089,7 @@ public class CommunicationRequest extends DomainResource {
     /**
      * @return {@link #priority} (Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.)
      */
-    public CodeableConcept getPriority() {
+    public CodeableConcept getPriority() { 
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CommunicationRequest.priority");
@@ -1098,14 +1098,14 @@ public class CommunicationRequest extends DomainResource {
       return this.priority;
     }
 
-    public boolean hasPriority() {
+    public boolean hasPriority() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
      * @param value {@link #priority} (Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.)
      */
-    public CommunicationRequest setPriority(CodeableConcept value) {
+    public CommunicationRequest setPriority(CodeableConcept value) { 
       this.priority = value;
       return this;
     }

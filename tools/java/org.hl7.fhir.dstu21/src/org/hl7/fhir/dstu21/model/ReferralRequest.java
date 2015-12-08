@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,31 +51,31 @@ public class ReferralRequest extends DomainResource {
         /**
          * A draft referral that has yet to be send.
          */
-        DRAFT,
+        DRAFT, 
         /**
          * The referral has been transmitted, but not yet acknowledged by the recipient.
          */
-        REQUESTED,
+        REQUESTED, 
         /**
          * The referral has been acknowledged by the recipient, and is in the process of being actioned.
          */
-        ACTIVE,
+        ACTIVE, 
         /**
          * The referral has been cancelled without being completed. For example it is no longer needed.
          */
-        CANCELLED,
+        CANCELLED, 
         /**
          * The recipient has agreed to deliver the care requested by the referral.
          */
-        ACCEPTED,
+        ACCEPTED, 
         /**
          * The recipient has declined to accept the referral.
          */
-        REJECTED,
+        REJECTED, 
         /**
          * The referral has been completely actioned.
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * added to help the parsers
          */
@@ -368,7 +368,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #status} (The workflow status of the referral or transfer of care request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ReferralStatus> getStatusElement() {
+    public Enumeration<ReferralStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.status");
@@ -377,18 +377,18 @@ public class ReferralRequest extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The workflow status of the referral or transfer of care request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ReferralRequest setStatusElement(Enumeration<ReferralStatus> value) {
+    public ReferralRequest setStatusElement(Enumeration<ReferralStatus> value) { 
       this.status = value;
       return this;
     }
@@ -396,14 +396,14 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return The workflow status of the referral or transfer of care request.
      */
-    public ReferralStatus getStatus() {
+    public ReferralStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The workflow status of the referral or transfer of care request.
      */
-    public ReferralRequest setStatus(ReferralStatus value) {
+    public ReferralRequest setStatus(ReferralStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ReferralStatus>(new ReferralStatusEnumFactory());
         this.status.setValue(value);
@@ -413,13 +413,13 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #identifier} (Business identifier that uniquely identifies the referral/care transfer request instance.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -453,7 +453,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #date} (Date/DateTime of creation for draft requests and date of activation for active requests.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.date");
@@ -462,18 +462,18 @@ public class ReferralRequest extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (Date/DateTime of creation for draft requests and date of activation for active requests.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public ReferralRequest setDateElement(DateTimeType value) {
+    public ReferralRequest setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -481,14 +481,14 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return Date/DateTime of creation for draft requests and date of activation for active requests.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value Date/DateTime of creation for draft requests and date of activation for active requests.
      */
-    public ReferralRequest setDate(Date value) {
+    public ReferralRequest setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -502,7 +502,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #type} (An indication of the type of referral (or where applicable the type of transfer of care) request.)
      */
-    public CodeableConcept getType() {
+    public CodeableConcept getType() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.type");
@@ -511,14 +511,14 @@ public class ReferralRequest extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (An indication of the type of referral (or where applicable the type of transfer of care) request.)
      */
-    public ReferralRequest setType(CodeableConcept value) {
+    public ReferralRequest setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
@@ -526,7 +526,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #specialty} (Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.  For example: Cardiology Gastroenterology Diabetology.)
      */
-    public CodeableConcept getSpecialty() {
+    public CodeableConcept getSpecialty() { 
       if (this.specialty == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.specialty");
@@ -535,14 +535,14 @@ public class ReferralRequest extends DomainResource {
       return this.specialty;
     }
 
-    public boolean hasSpecialty() {
+    public boolean hasSpecialty() { 
       return this.specialty != null && !this.specialty.isEmpty();
     }
 
     /**
      * @param value {@link #specialty} (Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.  For example: Cardiology Gastroenterology Diabetology.)
      */
-    public ReferralRequest setSpecialty(CodeableConcept value) {
+    public ReferralRequest setSpecialty(CodeableConcept value) { 
       this.specialty = value;
       return this;
     }
@@ -550,7 +550,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #priority} (An indication of the urgency of referral (or where applicable the type of transfer of care) request.)
      */
-    public CodeableConcept getPriority() {
+    public CodeableConcept getPriority() { 
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.priority");
@@ -559,14 +559,14 @@ public class ReferralRequest extends DomainResource {
       return this.priority;
     }
 
-    public boolean hasPriority() {
+    public boolean hasPriority() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
      * @param value {@link #priority} (An indication of the urgency of referral (or where applicable the type of transfer of care) request.)
      */
-    public ReferralRequest setPriority(CodeableConcept value) {
+    public ReferralRequest setPriority(CodeableConcept value) { 
       this.priority = value;
       return this;
     }
@@ -574,7 +574,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #patient} (The patient who is the subject of a referral or transfer of care request.)
      */
-    public Reference getPatient() {
+    public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.patient");
@@ -583,14 +583,14 @@ public class ReferralRequest extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() {
+    public boolean hasPatient() { 
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (The patient who is the subject of a referral or transfer of care request.)
      */
-    public ReferralRequest setPatient(Reference value) {
+    public ReferralRequest setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -598,7 +598,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
      */
-    public Patient getPatientTarget() {
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.patient");
@@ -610,7 +610,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who is the subject of a referral or transfer of care request.)
      */
-    public ReferralRequest setPatientTarget(Patient value) {
+    public ReferralRequest setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -618,7 +618,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #requester} (The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).)
      */
-    public Reference getRequester() {
+    public Reference getRequester() { 
       if (this.requester == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.requester");
@@ -627,14 +627,14 @@ public class ReferralRequest extends DomainResource {
       return this.requester;
     }
 
-    public boolean hasRequester() {
+    public boolean hasRequester() { 
       return this.requester != null && !this.requester.isEmpty();
     }
 
     /**
      * @param value {@link #requester} (The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).)
      */
-    public ReferralRequest setRequester(Reference value) {
+    public ReferralRequest setRequester(Reference value) { 
       this.requester = value;
       return this;
     }
@@ -642,14 +642,14 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #requester} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).)
      */
-    public Resource getRequesterTarget() {
+    public Resource getRequesterTarget() { 
       return this.requesterTarget;
     }
 
     /**
      * @param value {@link #requester} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).)
      */
-    public ReferralRequest setRequesterTarget(Resource value) {
+    public ReferralRequest setRequesterTarget(Resource value) { 
       this.requesterTarget = value;
       return this;
     }
@@ -657,13 +657,13 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #recipient} (The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.)
      */
-    public List<Reference> getRecipient() {
+    public List<Reference> getRecipient() { 
       if (this.recipient == null)
         this.recipient = new ArrayList<Reference>();
       return this.recipient;
     }
 
-    public boolean hasRecipient() {
+    public boolean hasRecipient() { 
       if (this.recipient == null)
         return false;
       for (Reference item : this.recipient)
@@ -697,7 +697,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #recipient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request.)
      */
-    public List<Resource> getRecipientTarget() {
+    public List<Resource> getRecipientTarget() { 
       if (this.recipientTarget == null)
         this.recipientTarget = new ArrayList<Resource>();
       return this.recipientTarget;
@@ -706,7 +706,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #encounter} (The encounter at which the request for referral or transfer of care is initiated.)
      */
-    public Reference getEncounter() {
+    public Reference getEncounter() { 
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.encounter");
@@ -715,14 +715,14 @@ public class ReferralRequest extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() {
+    public boolean hasEncounter() { 
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (The encounter at which the request for referral or transfer of care is initiated.)
      */
-    public ReferralRequest setEncounter(Reference value) {
+    public ReferralRequest setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -730,7 +730,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter at which the request for referral or transfer of care is initiated.)
      */
-    public Encounter getEncounterTarget() {
+    public Encounter getEncounterTarget() { 
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.encounter");
@@ -742,7 +742,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter at which the request for referral or transfer of care is initiated.)
      */
-    public ReferralRequest setEncounterTarget(Encounter value) {
+    public ReferralRequest setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
       return this;
     }
@@ -750,7 +750,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #dateSent} (Date/DateTime the request for referral or transfer of care is sent by the author.). This is the underlying object with id, value and extensions. The accessor "getDateSent" gives direct access to the value
      */
-    public DateTimeType getDateSentElement() {
+    public DateTimeType getDateSentElement() { 
       if (this.dateSent == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.dateSent");
@@ -759,18 +759,18 @@ public class ReferralRequest extends DomainResource {
       return this.dateSent;
     }
 
-    public boolean hasDateSentElement() {
+    public boolean hasDateSentElement() { 
       return this.dateSent != null && !this.dateSent.isEmpty();
     }
 
-    public boolean hasDateSent() {
+    public boolean hasDateSent() { 
       return this.dateSent != null && !this.dateSent.isEmpty();
     }
 
     /**
      * @param value {@link #dateSent} (Date/DateTime the request for referral or transfer of care is sent by the author.). This is the underlying object with id, value and extensions. The accessor "getDateSent" gives direct access to the value
      */
-    public ReferralRequest setDateSentElement(DateTimeType value) {
+    public ReferralRequest setDateSentElement(DateTimeType value) { 
       this.dateSent = value;
       return this;
     }
@@ -778,14 +778,14 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return Date/DateTime the request for referral or transfer of care is sent by the author.
      */
-    public Date getDateSent() {
+    public Date getDateSent() { 
       return this.dateSent == null ? null : this.dateSent.getValue();
     }
 
     /**
      * @param value Date/DateTime the request for referral or transfer of care is sent by the author.
      */
-    public ReferralRequest setDateSent(Date value) {
+    public ReferralRequest setDateSent(Date value) { 
       if (value == null)
         this.dateSent = null;
       else {
@@ -799,7 +799,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #reason} (Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.)
      */
-    public CodeableConcept getReason() {
+    public CodeableConcept getReason() { 
       if (this.reason == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.reason");
@@ -808,14 +808,14 @@ public class ReferralRequest extends DomainResource {
       return this.reason;
     }
 
-    public boolean hasReason() {
+    public boolean hasReason() { 
       return this.reason != null && !this.reason.isEmpty();
     }
 
     /**
      * @param value {@link #reason} (Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.)
      */
-    public ReferralRequest setReason(CodeableConcept value) {
+    public ReferralRequest setReason(CodeableConcept value) { 
       this.reason = value;
       return this;
     }
@@ -823,7 +823,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #description} (The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.description");
@@ -832,18 +832,18 @@ public class ReferralRequest extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ReferralRequest setDescriptionElement(StringType value) {
+    public ReferralRequest setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -851,14 +851,14 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary.
      */
-    public ReferralRequest setDescription(String value) {
+    public ReferralRequest setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -872,13 +872,13 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #serviceRequested} (The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion.)
      */
-    public List<CodeableConcept> getServiceRequested() {
+    public List<CodeableConcept> getServiceRequested() { 
       if (this.serviceRequested == null)
         this.serviceRequested = new ArrayList<CodeableConcept>();
       return this.serviceRequested;
     }
 
-    public boolean hasServiceRequested() {
+    public boolean hasServiceRequested() { 
       if (this.serviceRequested == null)
         return false;
       for (CodeableConcept item : this.serviceRequested)
@@ -912,13 +912,13 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #supportingInformation} (Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan.)
      */
-    public List<Reference> getSupportingInformation() {
+    public List<Reference> getSupportingInformation() { 
       if (this.supportingInformation == null)
         this.supportingInformation = new ArrayList<Reference>();
       return this.supportingInformation;
     }
 
-    public boolean hasSupportingInformation() {
+    public boolean hasSupportingInformation() { 
       if (this.supportingInformation == null)
         return false;
       for (Reference item : this.supportingInformation)
@@ -952,7 +952,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #supportingInformation} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan.)
      */
-    public List<Resource> getSupportingInformationTarget() {
+    public List<Resource> getSupportingInformationTarget() { 
       if (this.supportingInformationTarget == null)
         this.supportingInformationTarget = new ArrayList<Resource>();
       return this.supportingInformationTarget;
@@ -961,7 +961,7 @@ public class ReferralRequest extends DomainResource {
     /**
      * @return {@link #fulfillmentTime} (The period of time within which the services identified in the referral/transfer of care is specified or required to occur.)
      */
-    public Period getFulfillmentTime() {
+    public Period getFulfillmentTime() { 
       if (this.fulfillmentTime == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ReferralRequest.fulfillmentTime");
@@ -970,14 +970,14 @@ public class ReferralRequest extends DomainResource {
       return this.fulfillmentTime;
     }
 
-    public boolean hasFulfillmentTime() {
+    public boolean hasFulfillmentTime() { 
       return this.fulfillmentTime != null && !this.fulfillmentTime.isEmpty();
     }
 
     /**
      * @param value {@link #fulfillmentTime} (The period of time within which the services identified in the referral/transfer of care is specified or required to occur.)
      */
-    public ReferralRequest setFulfillmentTime(Period value) {
+    public ReferralRequest setFulfillmentTime(Period value) { 
       this.fulfillmentTime = value;
       return this;
     }

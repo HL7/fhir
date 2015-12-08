@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model.valuesets;
   
 */
 
-// Generated on Wed, Dec 2, 2015 23:24+1100 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 
 import org.hl7.fhir.exceptions.FHIRException;
@@ -105,6 +105,10 @@ public enum SignatureType {
          */
         OID_1_2_840_10065_1_12_1_17, 
         /**
+         * the signature by an entity or device trusted to provide accurate timestamps. This timestamp might be provided, for example, in the signature time attribute.
+         */
+        OID_1_2_840_10065_1_12_1_18, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -145,6 +149,8 @@ public enum SignatureType {
           return OID_1_2_840_10065_1_12_1_16;
         if ("1.2.840.10065.1.12.1.17".equals(codeString))
           return OID_1_2_840_10065_1_12_1_17;
+        if ("1.2.840.10065.1.12.1.18".equals(codeString))
+          return OID_1_2_840_10065_1_12_1_18;
         throw new FHIRException("Unknown SignatureType code '"+codeString+"'");
         }
         public String toCode() {
@@ -166,6 +172,7 @@ public enum SignatureType {
             case OID_1_2_840_10065_1_12_1_15: return "1.2.840.10065.1.12.1.15";
             case OID_1_2_840_10065_1_12_1_16: return "1.2.840.10065.1.12.1.16";
             case OID_1_2_840_10065_1_12_1_17: return "1.2.840.10065.1.12.1.17";
+            case OID_1_2_840_10065_1_12_1_18: return "1.2.840.10065.1.12.1.18";
             default: return "?";
           }
         }
@@ -191,28 +198,30 @@ public enum SignatureType {
             case OID_1_2_840_10065_1_12_1_15: return "the signature on a new amended document of an individual who has corrected, edited, or amended an original health information document. An addendum signature can either be a signature type or a signature sub-type (see 8.1). Any document with an addendum signature shall have a companion document that is the original document with its original, unaltered content, and original signatures. The original document shall be referenced via an attribute in the new document, which contains, for example, the digest of the old document. Whether the original, unaltered, document is always displayed with the addended document is a local matter, but the original, unaltered, document must remain as part of the patient record and be retrievable on demand.";
             case OID_1_2_840_10065_1_12_1_16: return "the signature on an original document of an individual who has generated a new amended document. This (original) document shall reference the new document via an additional signature purpose. This is the inverse of an addendum signature and provides a pointer from the original to the amended document.";
             case OID_1_2_840_10065_1_12_1_17: return "the signature of an individual who is certifying that the document is invalidated by an error(s), or is placed in the wrong chart. An administrative (error/edit) signature must include an addendum to the document and therefore shall have an addendum signature sub-type (see 8.1). This signature is reserved for the highest health information system administrative classification, since it is a statement that the entire document is invalidated by the error and that the document should no longer be used for patient care, although for legal reasons the document must remain part of the permanent patient record.";
+            case OID_1_2_840_10065_1_12_1_18: return "the signature by an entity or device trusted to provide accurate timestamps. This timestamp might be provided, for example, in the signature time attribute.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case OID_1_2_840_10065_1_12_1_1: return "AuthorID";
-            case OID_1_2_840_10065_1_12_1_2: return "Co-AuthorID";
-            case OID_1_2_840_10065_1_12_1_3: return "Co-Participated";
-            case OID_1_2_840_10065_1_12_1_4: return "Transcriptionist";
-            case OID_1_2_840_10065_1_12_1_5: return "Verification";
-            case OID_1_2_840_10065_1_12_1_6: return "Validation";
-            case OID_1_2_840_10065_1_12_1_7: return "Consent";
-            case OID_1_2_840_10065_1_12_1_8: return "Witness";
-            case OID_1_2_840_10065_1_12_1_9: return "Event-Witness";
-            case OID_1_2_840_10065_1_12_1_10: return "Identity-Witness";
-            case OID_1_2_840_10065_1_12_1_11: return "Consent-Witness";
-            case OID_1_2_840_10065_1_12_1_12: return "Interpreter";
-            case OID_1_2_840_10065_1_12_1_13: return "Review";
-            case OID_1_2_840_10065_1_12_1_14: return "Source";
-            case OID_1_2_840_10065_1_12_1_15: return "Addendum";
-            case OID_1_2_840_10065_1_12_1_16: return "Administrative";
-            case OID_1_2_840_10065_1_12_1_17: return "Timestamp";
+            case OID_1_2_840_10065_1_12_1_1: return "Author's Signature";
+            case OID_1_2_840_10065_1_12_1_2: return "Coauthor's Signature";
+            case OID_1_2_840_10065_1_12_1_3: return "Co-participant's Signature";
+            case OID_1_2_840_10065_1_12_1_4: return "Transcriptionist/Recorder Signature";
+            case OID_1_2_840_10065_1_12_1_5: return "Verification Signature";
+            case OID_1_2_840_10065_1_12_1_6: return "Validation Sianature";
+            case OID_1_2_840_10065_1_12_1_7: return "Consent Signature";
+            case OID_1_2_840_10065_1_12_1_8: return "Signature Witness Signature";
+            case OID_1_2_840_10065_1_12_1_9: return "Event Witness Signature";
+            case OID_1_2_840_10065_1_12_1_10: return "Identity Witness Signature";
+            case OID_1_2_840_10065_1_12_1_11: return "Consent Witness Signature";
+            case OID_1_2_840_10065_1_12_1_12: return "Interpreter Signature";
+            case OID_1_2_840_10065_1_12_1_13: return "Review Signature";
+            case OID_1_2_840_10065_1_12_1_14: return "Source Signature";
+            case OID_1_2_840_10065_1_12_1_15: return "Addendum Signature";
+            case OID_1_2_840_10065_1_12_1_16: return "Modification Signature";
+            case OID_1_2_840_10065_1_12_1_17: return "Administrative (Error/Edit) Signature";
+            case OID_1_2_840_10065_1_12_1_18: return "Timestamp Signature";
             default: return "?";
           }
     }

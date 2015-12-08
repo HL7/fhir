@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,47 +52,47 @@ public class DeviceComponent extends DomainResource {
         /**
          * Measurement principle isn't in the list.
          */
-        OTHER,
+        OTHER, 
         /**
          * Measurement is done using the chemical principle.
          */
-        CHEMICAL,
+        CHEMICAL, 
         /**
          * Measurement is done using the electrical principle.
          */
-        ELECTRICAL,
+        ELECTRICAL, 
         /**
          * Measurement is done using the impedance principle.
          */
-        IMPEDANCE,
+        IMPEDANCE, 
         /**
          * Measurement is done using the nuclear principle.
          */
-        NUCLEAR,
+        NUCLEAR, 
         /**
          * Measurement is done using the optical principle.
          */
-        OPTICAL,
+        OPTICAL, 
         /**
          * Measurement is done using the thermal principle.
          */
-        THERMAL,
+        THERMAL, 
         /**
          * Measurement is done using the biological principle.
          */
-        BIOLOGICAL,
+        BIOLOGICAL, 
         /**
          * Measurement is done using the mechanical principle.
          */
-        MECHANICAL,
+        MECHANICAL, 
         /**
          * Measurement is done using the acoustical principle.
          */
-        ACOUSTICAL,
+        ACOUSTICAL, 
         /**
          * Measurement is done using the manual principle.
          */
-        MANUAL,
+        MANUAL, 
         /**
          * added to help the parsers
          */
@@ -311,7 +311,7 @@ public class DeviceComponent extends DomainResource {
         /**
          * @return {@link #specType} (Describes the specification type, such as, serial number, part number, hardware revision, software revision, etc.)
          */
-        public CodeableConcept getSpecType() {
+        public CodeableConcept getSpecType() { 
           if (this.specType == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceComponentProductionSpecificationComponent.specType");
@@ -320,14 +320,14 @@ public class DeviceComponent extends DomainResource {
           return this.specType;
         }
 
-        public boolean hasSpecType() {
+        public boolean hasSpecType() { 
           return this.specType != null && !this.specType.isEmpty();
         }
 
         /**
          * @param value {@link #specType} (Describes the specification type, such as, serial number, part number, hardware revision, software revision, etc.)
          */
-        public DeviceComponentProductionSpecificationComponent setSpecType(CodeableConcept value) {
+        public DeviceComponentProductionSpecificationComponent setSpecType(CodeableConcept value) { 
           this.specType = value;
           return this;
         }
@@ -335,7 +335,7 @@ public class DeviceComponent extends DomainResource {
         /**
          * @return {@link #componentId} (Describes the internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of.)
          */
-        public Identifier getComponentId() {
+        public Identifier getComponentId() { 
           if (this.componentId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceComponentProductionSpecificationComponent.componentId");
@@ -344,14 +344,14 @@ public class DeviceComponent extends DomainResource {
           return this.componentId;
         }
 
-        public boolean hasComponentId() {
+        public boolean hasComponentId() { 
           return this.componentId != null && !this.componentId.isEmpty();
         }
 
         /**
          * @param value {@link #componentId} (Describes the internal component unique identification. This is a provision for manufacture specific standard components using a private OID. 11073-10101 has a partition for private OID semantic that the manufacture can make use of.)
          */
-        public DeviceComponentProductionSpecificationComponent setComponentId(Identifier value) {
+        public DeviceComponentProductionSpecificationComponent setComponentId(Identifier value) { 
           this.componentId = value;
           return this;
         }
@@ -359,7 +359,7 @@ public class DeviceComponent extends DomainResource {
         /**
          * @return {@link #productionSpec} (Describes the printable string defining the component.). This is the underlying object with id, value and extensions. The accessor "getProductionSpec" gives direct access to the value
          */
-        public StringType getProductionSpecElement() {
+        public StringType getProductionSpecElement() { 
           if (this.productionSpec == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DeviceComponentProductionSpecificationComponent.productionSpec");
@@ -368,18 +368,18 @@ public class DeviceComponent extends DomainResource {
           return this.productionSpec;
         }
 
-        public boolean hasProductionSpecElement() {
+        public boolean hasProductionSpecElement() { 
           return this.productionSpec != null && !this.productionSpec.isEmpty();
         }
 
-        public boolean hasProductionSpec() {
+        public boolean hasProductionSpec() { 
           return this.productionSpec != null && !this.productionSpec.isEmpty();
         }
 
         /**
          * @param value {@link #productionSpec} (Describes the printable string defining the component.). This is the underlying object with id, value and extensions. The accessor "getProductionSpec" gives direct access to the value
          */
-        public DeviceComponentProductionSpecificationComponent setProductionSpecElement(StringType value) {
+        public DeviceComponentProductionSpecificationComponent setProductionSpecElement(StringType value) { 
           this.productionSpec = value;
           return this;
         }
@@ -387,14 +387,14 @@ public class DeviceComponent extends DomainResource {
         /**
          * @return Describes the printable string defining the component.
          */
-        public String getProductionSpec() {
+        public String getProductionSpec() { 
           return this.productionSpec == null ? null : this.productionSpec.getValue();
         }
 
         /**
          * @param value Describes the printable string defining the component.
          */
-        public DeviceComponentProductionSpecificationComponent setProductionSpec(String value) {
+        public DeviceComponentProductionSpecificationComponent setProductionSpec(String value) { 
           if (Utilities.noString(value))
             this.productionSpec = null;
           else {
@@ -585,7 +585,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #type} (Describes the specific component type as defined in the object-oriented or metric nomenclature partition.)
      */
-    public CodeableConcept getType() {
+    public CodeableConcept getType() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.type");
@@ -594,14 +594,14 @@ public class DeviceComponent extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Describes the specific component type as defined in the object-oriented or metric nomenclature partition.)
      */
-    public DeviceComponent setType(CodeableConcept value) {
+    public DeviceComponent setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
@@ -609,7 +609,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #identifier} (Describes the local assigned unique identification by the software. For example: handle ID.)
      */
-    public Identifier getIdentifier() {
+    public Identifier getIdentifier() { 
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.identifier");
@@ -618,14 +618,14 @@ public class DeviceComponent extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Describes the local assigned unique identification by the software. For example: handle ID.)
      */
-    public DeviceComponent setIdentifier(Identifier value) {
+    public DeviceComponent setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
@@ -633,7 +633,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #lastSystemChange} (Describes the timestamp for the most recent system change which includes device configuration or setting change.). This is the underlying object with id, value and extensions. The accessor "getLastSystemChange" gives direct access to the value
      */
-    public InstantType getLastSystemChangeElement() {
+    public InstantType getLastSystemChangeElement() { 
       if (this.lastSystemChange == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.lastSystemChange");
@@ -642,18 +642,18 @@ public class DeviceComponent extends DomainResource {
       return this.lastSystemChange;
     }
 
-    public boolean hasLastSystemChangeElement() {
+    public boolean hasLastSystemChangeElement() { 
       return this.lastSystemChange != null && !this.lastSystemChange.isEmpty();
     }
 
-    public boolean hasLastSystemChange() {
+    public boolean hasLastSystemChange() { 
       return this.lastSystemChange != null && !this.lastSystemChange.isEmpty();
     }
 
     /**
      * @param value {@link #lastSystemChange} (Describes the timestamp for the most recent system change which includes device configuration or setting change.). This is the underlying object with id, value and extensions. The accessor "getLastSystemChange" gives direct access to the value
      */
-    public DeviceComponent setLastSystemChangeElement(InstantType value) {
+    public DeviceComponent setLastSystemChangeElement(InstantType value) { 
       this.lastSystemChange = value;
       return this;
     }
@@ -661,14 +661,14 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return Describes the timestamp for the most recent system change which includes device configuration or setting change.
      */
-    public Date getLastSystemChange() {
+    public Date getLastSystemChange() { 
       return this.lastSystemChange == null ? null : this.lastSystemChange.getValue();
     }
 
     /**
      * @param value Describes the timestamp for the most recent system change which includes device configuration or setting change.
      */
-    public DeviceComponent setLastSystemChange(Date value) {
+    public DeviceComponent setLastSystemChange(Date value) { 
         if (this.lastSystemChange == null)
           this.lastSystemChange = new InstantType();
         this.lastSystemChange.setValue(value);
@@ -678,7 +678,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #source} (Describes the link to the source Device that contains administrative device information such as manufacture, serial number, etc.)
      */
-    public Reference getSource() {
+    public Reference getSource() { 
       if (this.source == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.source");
@@ -687,14 +687,14 @@ public class DeviceComponent extends DomainResource {
       return this.source;
     }
 
-    public boolean hasSource() {
+    public boolean hasSource() { 
       return this.source != null && !this.source.isEmpty();
     }
 
     /**
      * @param value {@link #source} (Describes the link to the source Device that contains administrative device information such as manufacture, serial number, etc.)
      */
-    public DeviceComponent setSource(Reference value) {
+    public DeviceComponent setSource(Reference value) { 
       this.source = value;
       return this;
     }
@@ -702,7 +702,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the link to the source Device that contains administrative device information such as manufacture, serial number, etc.)
      */
-    public Device getSourceTarget() {
+    public Device getSourceTarget() { 
       if (this.sourceTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.source");
@@ -714,7 +714,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @param value {@link #source} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the link to the source Device that contains administrative device information such as manufacture, serial number, etc.)
      */
-    public DeviceComponent setSourceTarget(Device value) {
+    public DeviceComponent setSourceTarget(Device value) { 
       this.sourceTarget = value;
       return this;
     }
@@ -722,7 +722,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #parent} (Describes the link to the parent resource. For example: Channel is linked to its VMD parent.)
      */
-    public Reference getParent() {
+    public Reference getParent() { 
       if (this.parent == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.parent");
@@ -731,14 +731,14 @@ public class DeviceComponent extends DomainResource {
       return this.parent;
     }
 
-    public boolean hasParent() {
+    public boolean hasParent() { 
       return this.parent != null && !this.parent.isEmpty();
     }
 
     /**
      * @param value {@link #parent} (Describes the link to the parent resource. For example: Channel is linked to its VMD parent.)
      */
-    public DeviceComponent setParent(Reference value) {
+    public DeviceComponent setParent(Reference value) { 
       this.parent = value;
       return this;
     }
@@ -746,7 +746,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #parent} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Describes the link to the parent resource. For example: Channel is linked to its VMD parent.)
      */
-    public DeviceComponent getParentTarget() {
+    public DeviceComponent getParentTarget() { 
       if (this.parentTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.parent");
@@ -758,7 +758,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @param value {@link #parent} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Describes the link to the parent resource. For example: Channel is linked to its VMD parent.)
      */
-    public DeviceComponent setParentTarget(DeviceComponent value) {
+    public DeviceComponent setParentTarget(DeviceComponent value) { 
       this.parentTarget = value;
       return this;
     }
@@ -766,13 +766,13 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #operationalStatus} (Indicates current operational status of the device. For example: On, Off, Standby, etc.)
      */
-    public List<CodeableConcept> getOperationalStatus() {
+    public List<CodeableConcept> getOperationalStatus() { 
       if (this.operationalStatus == null)
         this.operationalStatus = new ArrayList<CodeableConcept>();
       return this.operationalStatus;
     }
 
-    public boolean hasOperationalStatus() {
+    public boolean hasOperationalStatus() { 
       if (this.operationalStatus == null)
         return false;
       for (CodeableConcept item : this.operationalStatus)
@@ -806,7 +806,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #parameterGroup} (Describes the parameter group supported by the current device component that is based on some nomenclature, e.g. cardiovascular.)
      */
-    public CodeableConcept getParameterGroup() {
+    public CodeableConcept getParameterGroup() { 
       if (this.parameterGroup == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.parameterGroup");
@@ -815,14 +815,14 @@ public class DeviceComponent extends DomainResource {
       return this.parameterGroup;
     }
 
-    public boolean hasParameterGroup() {
+    public boolean hasParameterGroup() { 
       return this.parameterGroup != null && !this.parameterGroup.isEmpty();
     }
 
     /**
      * @param value {@link #parameterGroup} (Describes the parameter group supported by the current device component that is based on some nomenclature, e.g. cardiovascular.)
      */
-    public DeviceComponent setParameterGroup(CodeableConcept value) {
+    public DeviceComponent setParameterGroup(CodeableConcept value) { 
       this.parameterGroup = value;
       return this;
     }
@@ -830,7 +830,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #measurementPrinciple} (Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc.). This is the underlying object with id, value and extensions. The accessor "getMeasurementPrinciple" gives direct access to the value
      */
-    public Enumeration<MeasmntPrinciple> getMeasurementPrincipleElement() {
+    public Enumeration<MeasmntPrinciple> getMeasurementPrincipleElement() { 
       if (this.measurementPrinciple == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.measurementPrinciple");
@@ -839,18 +839,18 @@ public class DeviceComponent extends DomainResource {
       return this.measurementPrinciple;
     }
 
-    public boolean hasMeasurementPrincipleElement() {
+    public boolean hasMeasurementPrincipleElement() { 
       return this.measurementPrinciple != null && !this.measurementPrinciple.isEmpty();
     }
 
-    public boolean hasMeasurementPrinciple() {
+    public boolean hasMeasurementPrinciple() { 
       return this.measurementPrinciple != null && !this.measurementPrinciple.isEmpty();
     }
 
     /**
      * @param value {@link #measurementPrinciple} (Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc.). This is the underlying object with id, value and extensions. The accessor "getMeasurementPrinciple" gives direct access to the value
      */
-    public DeviceComponent setMeasurementPrincipleElement(Enumeration<MeasmntPrinciple> value) {
+    public DeviceComponent setMeasurementPrincipleElement(Enumeration<MeasmntPrinciple> value) { 
       this.measurementPrinciple = value;
       return this;
     }
@@ -858,14 +858,14 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc.
      */
-    public MeasmntPrinciple getMeasurementPrinciple() {
+    public MeasmntPrinciple getMeasurementPrinciple() { 
       return this.measurementPrinciple == null ? null : this.measurementPrinciple.getValue();
     }
 
     /**
      * @param value Describes the physical principle of the measurement. For example: thermal, chemical, acoustical, etc.
      */
-    public DeviceComponent setMeasurementPrinciple(MeasmntPrinciple value) {
+    public DeviceComponent setMeasurementPrinciple(MeasmntPrinciple value) { 
       if (value == null)
         this.measurementPrinciple = null;
       else {
@@ -879,13 +879,13 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #productionSpecification} (Describes the production specification such as component revision, serial number, etc.)
      */
-    public List<DeviceComponentProductionSpecificationComponent> getProductionSpecification() {
+    public List<DeviceComponentProductionSpecificationComponent> getProductionSpecification() { 
       if (this.productionSpecification == null)
         this.productionSpecification = new ArrayList<DeviceComponentProductionSpecificationComponent>();
       return this.productionSpecification;
     }
 
-    public boolean hasProductionSpecification() {
+    public boolean hasProductionSpecification() { 
       if (this.productionSpecification == null)
         return false;
       for (DeviceComponentProductionSpecificationComponent item : this.productionSpecification)
@@ -919,7 +919,7 @@ public class DeviceComponent extends DomainResource {
     /**
      * @return {@link #languageCode} (Describes the language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.)
      */
-    public CodeableConcept getLanguageCode() {
+    public CodeableConcept getLanguageCode() { 
       if (this.languageCode == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceComponent.languageCode");
@@ -928,14 +928,14 @@ public class DeviceComponent extends DomainResource {
       return this.languageCode;
     }
 
-    public boolean hasLanguageCode() {
+    public boolean hasLanguageCode() { 
       return this.languageCode != null && !this.languageCode.isEmpty();
     }
 
     /**
      * @param value {@link #languageCode} (Describes the language code for the human-readable text string produced by the device. This language code will follow the IETF language tag. Example: en-US.)
      */
-    public DeviceComponent setLanguageCode(CodeableConcept value) {
+    public DeviceComponent setLanguageCode(CodeableConcept value) { 
       this.languageCode = value;
       return this;
     }

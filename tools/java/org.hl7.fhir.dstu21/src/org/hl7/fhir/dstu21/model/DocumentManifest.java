@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -77,44 +77,44 @@ public class DocumentManifest extends DomainResource {
         /**
          * @return {@link #p} (The list of references to document content, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.)
          */
-        public Type getP() {
+        public Type getP() { 
           return this.p;
         }
 
         /**
          * @return {@link #p} (The list of references to document content, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.)
          */
-        public Attachment getPAttachment() throws FHIRException {
+        public Attachment getPAttachment() throws FHIRException { 
           if (!(this.p instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.p.getClass().getName()+" was encountered");
           return (Attachment) this.p;
         }
 
-        public boolean hasPAttachment() {
+        public boolean hasPAttachment() { 
           return this.p instanceof Attachment;
         }
 
         /**
          * @return {@link #p} (The list of references to document content, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.)
          */
-        public Reference getPReference() throws FHIRException {
+        public Reference getPReference() throws FHIRException { 
           if (!(this.p instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.p.getClass().getName()+" was encountered");
           return (Reference) this.p;
         }
 
-        public boolean hasPReference() {
+        public boolean hasPReference() { 
           return this.p instanceof Reference;
         }
 
-        public boolean hasP() {
+        public boolean hasP() { 
           return this.p != null && !this.p.isEmpty();
         }
 
         /**
          * @param value {@link #p} (The list of references to document content, or Attachment that consist of the parts of this document manifest. Usually, these would be document references, but direct references to Media or Attachments are also allowed.)
          */
-        public DocumentManifestContentComponent setP(Type value) {
+        public DocumentManifestContentComponent setP(Type value) { 
           this.p = value;
           return this;
         }
@@ -217,7 +217,7 @@ public class DocumentManifest extends DomainResource {
         /**
          * @return {@link #identifier} (Related identifier to this DocumentManifest.  For example, Order numbers, accession numbers, XDW workflow numbers.)
          */
-        public Identifier getIdentifier() {
+        public Identifier getIdentifier() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentManifestRelatedComponent.identifier");
@@ -226,14 +226,14 @@ public class DocumentManifest extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifier() {
+        public boolean hasIdentifier() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (Related identifier to this DocumentManifest.  For example, Order numbers, accession numbers, XDW workflow numbers.)
          */
-        public DocumentManifestRelatedComponent setIdentifier(Identifier value) {
+        public DocumentManifestRelatedComponent setIdentifier(Identifier value) { 
           this.identifier = value;
           return this;
         }
@@ -241,7 +241,7 @@ public class DocumentManifest extends DomainResource {
         /**
          * @return {@link #ref} (Related Resource to this DocumentManifest. For example, Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.)
          */
-        public Reference getRef() {
+        public Reference getRef() { 
           if (this.ref == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DocumentManifestRelatedComponent.ref");
@@ -250,14 +250,14 @@ public class DocumentManifest extends DomainResource {
           return this.ref;
         }
 
-        public boolean hasRef() {
+        public boolean hasRef() { 
           return this.ref != null && !this.ref.isEmpty();
         }
 
         /**
          * @param value {@link #ref} (Related Resource to this DocumentManifest. For example, Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.)
          */
-        public DocumentManifestRelatedComponent setRef(Reference value) {
+        public DocumentManifestRelatedComponent setRef(Reference value) { 
           this.ref = value;
           return this;
         }
@@ -265,14 +265,14 @@ public class DocumentManifest extends DomainResource {
         /**
          * @return {@link #ref} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentManifest. For example, Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.)
          */
-        public Resource getRefTarget() {
+        public Resource getRefTarget() { 
           return this.refTarget;
         }
 
         /**
          * @param value {@link #ref} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Related Resource to this DocumentManifest. For example, Order, DiagnosticOrder,  Procedure, EligibilityRequest, etc.)
          */
-        public DocumentManifestRelatedComponent setRefTarget(Resource value) {
+        public DocumentManifestRelatedComponent setRefTarget(Resource value) { 
           this.refTarget = value;
           return this;
         }
@@ -466,7 +466,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #masterIdentifier} (A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.)
      */
-    public Identifier getMasterIdentifier() {
+    public Identifier getMasterIdentifier() { 
       if (this.masterIdentifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.masterIdentifier");
@@ -475,14 +475,14 @@ public class DocumentManifest extends DomainResource {
       return this.masterIdentifier;
     }
 
-    public boolean hasMasterIdentifier() {
+    public boolean hasMasterIdentifier() { 
       return this.masterIdentifier != null && !this.masterIdentifier.isEmpty();
     }
 
     /**
      * @param value {@link #masterIdentifier} (A single identifier that uniquely identifies this manifest. Principally used to refer to the manifest in non-FHIR contexts.)
      */
-    public DocumentManifest setMasterIdentifier(Identifier value) {
+    public DocumentManifest setMasterIdentifier(Identifier value) { 
       this.masterIdentifier = value;
       return this;
     }
@@ -490,13 +490,13 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #identifier} (Other identifiers associated with the document manifest, including version independent  identifiers.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -530,7 +530,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
-    public Reference getSubject() {
+    public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.subject");
@@ -539,14 +539,14 @@ public class DocumentManifest extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() {
+    public boolean hasSubject() { 
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
-    public DocumentManifest setSubject(Reference value) {
+    public DocumentManifest setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -554,14 +554,14 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
-    public Resource getSubjectTarget() {
+    public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what the set of documents is about. The documents can be about a person, (patient or healthcare practitioner), a device (i.e. machine) or even a group of subjects (such as a document about a herd of farm animals, or a set of patients that share a common exposure). If the documents cross more than one subject, then more than one subject is allowed here (unusual use case).)
      */
-    public DocumentManifest setSubjectTarget(Resource value) {
+    public DocumentManifest setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -569,13 +569,13 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #recipient} (A patient, practitioner, or organization for which this set of documents is intended.)
      */
-    public List<Reference> getRecipient() {
+    public List<Reference> getRecipient() { 
       if (this.recipient == null)
         this.recipient = new ArrayList<Reference>();
       return this.recipient;
     }
 
-    public boolean hasRecipient() {
+    public boolean hasRecipient() { 
       if (this.recipient == null)
         return false;
       for (Reference item : this.recipient)
@@ -609,7 +609,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #recipient} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A patient, practitioner, or organization for which this set of documents is intended.)
      */
-    public List<Resource> getRecipientTarget() {
+    public List<Resource> getRecipientTarget() { 
       if (this.recipientTarget == null)
         this.recipientTarget = new ArrayList<Resource>();
       return this.recipientTarget;
@@ -618,7 +618,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.)
      */
-    public CodeableConcept getType() {
+    public CodeableConcept getType() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.type");
@@ -627,14 +627,14 @@ public class DocumentManifest extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Specifies the kind of this set of documents (e.g. Patient Summary, Discharge Summary, Prescription, etc.). The type of a set of documents may be the same as one of the documents in it - especially if there is only one - but it may be wider.)
      */
-    public DocumentManifest setType(CodeableConcept value) {
+    public DocumentManifest setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
@@ -642,13 +642,13 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #author} (Identifies who is responsible for creating the manifest, and adding  documents to it.)
      */
-    public List<Reference> getAuthor() {
+    public List<Reference> getAuthor() { 
       if (this.author == null)
         this.author = new ArrayList<Reference>();
       return this.author;
     }
 
-    public boolean hasAuthor() {
+    public boolean hasAuthor() { 
       if (this.author == null)
         return false;
       for (Reference item : this.author)
@@ -682,7 +682,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #author} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies who is responsible for creating the manifest, and adding  documents to it.)
      */
-    public List<Resource> getAuthorTarget() {
+    public List<Resource> getAuthorTarget() { 
       if (this.authorTarget == null)
         this.authorTarget = new ArrayList<Resource>();
       return this.authorTarget;
@@ -691,7 +691,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateTimeType getCreatedElement() {
+    public DateTimeType getCreatedElement() { 
       if (this.created == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.created");
@@ -700,18 +700,18 @@ public class DocumentManifest extends DomainResource {
       return this.created;
     }
 
-    public boolean hasCreatedElement() {
+    public boolean hasCreatedElement() { 
       return this.created != null && !this.created.isEmpty();
     }
 
-    public boolean hasCreated() {
+    public boolean hasCreated() { 
       return this.created != null && !this.created.isEmpty();
     }
 
     /**
      * @param value {@link #created} (When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DocumentManifest setCreatedElement(DateTimeType value) {
+    public DocumentManifest setCreatedElement(DateTimeType value) { 
       this.created = value;
       return this;
     }
@@ -719,14 +719,14 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).
      */
-    public Date getCreated() {
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value When the document manifest was created for submission to the server (not necessarily the same thing as the actual resource last modified time, since it may be modified, replicated, etc.).
      */
-    public DocumentManifest setCreated(Date value) {
+    public DocumentManifest setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -740,7 +740,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #source} (Identifies the source system, application, or software that produced the document manifest.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
      */
-    public UriType getSourceElement() {
+    public UriType getSourceElement() { 
       if (this.source == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.source");
@@ -749,18 +749,18 @@ public class DocumentManifest extends DomainResource {
       return this.source;
     }
 
-    public boolean hasSourceElement() {
+    public boolean hasSourceElement() { 
       return this.source != null && !this.source.isEmpty();
     }
 
-    public boolean hasSource() {
+    public boolean hasSource() { 
       return this.source != null && !this.source.isEmpty();
     }
 
     /**
      * @param value {@link #source} (Identifies the source system, application, or software that produced the document manifest.). This is the underlying object with id, value and extensions. The accessor "getSource" gives direct access to the value
      */
-    public DocumentManifest setSourceElement(UriType value) {
+    public DocumentManifest setSourceElement(UriType value) { 
       this.source = value;
       return this;
     }
@@ -768,14 +768,14 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return Identifies the source system, application, or software that produced the document manifest.
      */
-    public String getSource() {
+    public String getSource() { 
       return this.source == null ? null : this.source.getValue();
     }
 
     /**
      * @param value Identifies the source system, application, or software that produced the document manifest.
      */
-    public DocumentManifest setSource(String value) {
+    public DocumentManifest setSource(String value) { 
       if (Utilities.noString(value))
         this.source = null;
       else {
@@ -789,7 +789,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #status} (The status of this document manifest.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DocumentReferenceStatus> getStatusElement() {
+    public Enumeration<DocumentReferenceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.status");
@@ -798,18 +798,18 @@ public class DocumentManifest extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of this document manifest.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DocumentManifest setStatusElement(Enumeration<DocumentReferenceStatus> value) {
+    public DocumentManifest setStatusElement(Enumeration<DocumentReferenceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -817,14 +817,14 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return The status of this document manifest.
      */
-    public DocumentReferenceStatus getStatus() {
+    public DocumentReferenceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this document manifest.
      */
-    public DocumentManifest setStatus(DocumentReferenceStatus value) {
+    public DocumentManifest setStatus(DocumentReferenceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<DocumentReferenceStatus>(new DocumentReferenceStatusEnumFactory());
         this.status.setValue(value);
@@ -834,7 +834,7 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DocumentManifest.description");
@@ -843,18 +843,18 @@ public class DocumentManifest extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (Human-readable description of the source document. This is sometimes known as the "title".). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public DocumentManifest setDescriptionElement(StringType value) {
+    public DocumentManifest setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -862,14 +862,14 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return Human-readable description of the source document. This is sometimes known as the "title".
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value Human-readable description of the source document. This is sometimes known as the "title".
      */
-    public DocumentManifest setDescription(String value) {
+    public DocumentManifest setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -883,13 +883,13 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #content} (The list of Documents included in the manifest.)
      */
-    public List<DocumentManifestContentComponent> getContent() {
+    public List<DocumentManifestContentComponent> getContent() { 
       if (this.content == null)
         this.content = new ArrayList<DocumentManifestContentComponent>();
       return this.content;
     }
 
-    public boolean hasContent() {
+    public boolean hasContent() { 
       if (this.content == null)
         return false;
       for (DocumentManifestContentComponent item : this.content)
@@ -923,13 +923,13 @@ public class DocumentManifest extends DomainResource {
     /**
      * @return {@link #related} (Related identifiers or resources associated with the DocumentManifest.)
      */
-    public List<DocumentManifestRelatedComponent> getRelated() {
+    public List<DocumentManifestRelatedComponent> getRelated() { 
       if (this.related == null)
         this.related = new ArrayList<DocumentManifestRelatedComponent>();
       return this.related;
     }
 
-    public boolean hasRelated() {
+    public boolean hasRelated() { 
       if (this.related == null)
         return false;
       for (DocumentManifestRelatedComponent item : this.related)

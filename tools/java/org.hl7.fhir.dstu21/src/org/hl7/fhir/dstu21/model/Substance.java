@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -82,7 +82,7 @@ public class Substance extends DomainResource {
         /**
          * @return {@link #identifier} (Identifier associated with the package/container (usually a label affixed directly).)
          */
-        public Identifier getIdentifier() {
+        public Identifier getIdentifier() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceInstanceComponent.identifier");
@@ -91,14 +91,14 @@ public class Substance extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifier() {
+        public boolean hasIdentifier() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (Identifier associated with the package/container (usually a label affixed directly).)
          */
-        public SubstanceInstanceComponent setIdentifier(Identifier value) {
+        public SubstanceInstanceComponent setIdentifier(Identifier value) { 
           this.identifier = value;
           return this;
         }
@@ -106,7 +106,7 @@ public class Substance extends DomainResource {
         /**
          * @return {@link #expiry} (When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
          */
-        public DateTimeType getExpiryElement() {
+        public DateTimeType getExpiryElement() { 
           if (this.expiry == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceInstanceComponent.expiry");
@@ -115,18 +115,18 @@ public class Substance extends DomainResource {
           return this.expiry;
         }
 
-        public boolean hasExpiryElement() {
+        public boolean hasExpiryElement() { 
           return this.expiry != null && !this.expiry.isEmpty();
         }
 
-        public boolean hasExpiry() {
+        public boolean hasExpiry() { 
           return this.expiry != null && !this.expiry.isEmpty();
         }
 
         /**
          * @param value {@link #expiry} (When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.). This is the underlying object with id, value and extensions. The accessor "getExpiry" gives direct access to the value
          */
-        public SubstanceInstanceComponent setExpiryElement(DateTimeType value) {
+        public SubstanceInstanceComponent setExpiryElement(DateTimeType value) { 
           this.expiry = value;
           return this;
         }
@@ -134,14 +134,14 @@ public class Substance extends DomainResource {
         /**
          * @return When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
          */
-        public Date getExpiry() {
+        public Date getExpiry() { 
           return this.expiry == null ? null : this.expiry.getValue();
         }
 
         /**
          * @param value When the substance is no longer valid to use. For some substances, a single arbitrary date is used for expiry.
          */
-        public SubstanceInstanceComponent setExpiry(Date value) {
+        public SubstanceInstanceComponent setExpiry(Date value) { 
           if (value == null)
             this.expiry = null;
           else {
@@ -155,7 +155,7 @@ public class Substance extends DomainResource {
         /**
          * @return {@link #quantity} (The amount of the substance.)
          */
-        public SimpleQuantity getQuantity() {
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceInstanceComponent.quantity");
@@ -164,14 +164,14 @@ public class Substance extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() {
+        public boolean hasQuantity() { 
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (The amount of the substance.)
          */
-        public SubstanceInstanceComponent setQuantity(SimpleQuantity value) {
+        public SubstanceInstanceComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -295,7 +295,7 @@ public class Substance extends DomainResource {
         /**
          * @return {@link #quantity} (The amount of the ingredient in the substance - a concentration ratio.)
          */
-        public Ratio getQuantity() {
+        public Ratio getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceIngredientComponent.quantity");
@@ -304,14 +304,14 @@ public class Substance extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() {
+        public boolean hasQuantity() { 
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (The amount of the ingredient in the substance - a concentration ratio.)
          */
-        public SubstanceIngredientComponent setQuantity(Ratio value) {
+        public SubstanceIngredientComponent setQuantity(Ratio value) { 
           this.quantity = value;
           return this;
         }
@@ -319,7 +319,7 @@ public class Substance extends DomainResource {
         /**
          * @return {@link #substance} (Another substance that is a component of this substance.)
          */
-        public Reference getSubstance() {
+        public Reference getSubstance() { 
           if (this.substance == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceIngredientComponent.substance");
@@ -328,14 +328,14 @@ public class Substance extends DomainResource {
           return this.substance;
         }
 
-        public boolean hasSubstance() {
+        public boolean hasSubstance() { 
           return this.substance != null && !this.substance.isEmpty();
         }
 
         /**
          * @param value {@link #substance} (Another substance that is a component of this substance.)
          */
-        public SubstanceIngredientComponent setSubstance(Reference value) {
+        public SubstanceIngredientComponent setSubstance(Reference value) { 
           this.substance = value;
           return this;
         }
@@ -343,7 +343,7 @@ public class Substance extends DomainResource {
         /**
          * @return {@link #substance} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another substance that is a component of this substance.)
          */
-        public Substance getSubstanceTarget() {
+        public Substance getSubstanceTarget() { 
           if (this.substanceTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubstanceIngredientComponent.substance");
@@ -355,7 +355,7 @@ public class Substance extends DomainResource {
         /**
          * @param value {@link #substance} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Another substance that is a component of this substance.)
          */
-        public SubstanceIngredientComponent setSubstanceTarget(Substance value) {
+        public SubstanceIngredientComponent setSubstanceTarget(Substance value) { 
           this.substanceTarget = value;
           return this;
         }
@@ -492,13 +492,13 @@ public class Substance extends DomainResource {
     /**
      * @return {@link #identifier} (Unique identifier for the substance.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -532,13 +532,13 @@ public class Substance extends DomainResource {
     /**
      * @return {@link #category} (A code that classifies the general type of substance.  This is used  for searching, sorting and display purposes.)
      */
-    public List<CodeableConcept> getCategory() {
+    public List<CodeableConcept> getCategory() { 
       if (this.category == null)
         this.category = new ArrayList<CodeableConcept>();
       return this.category;
     }
 
-    public boolean hasCategory() {
+    public boolean hasCategory() { 
       if (this.category == null)
         return false;
       for (CodeableConcept item : this.category)
@@ -572,7 +572,7 @@ public class Substance extends DomainResource {
     /**
      * @return {@link #code} (A code (or set of codes) that identify this substance.)
      */
-    public CodeableConcept getCode() {
+    public CodeableConcept getCode() { 
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Substance.code");
@@ -581,14 +581,14 @@ public class Substance extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCode() {
+    public boolean hasCode() { 
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (A code (or set of codes) that identify this substance.)
      */
-    public Substance setCode(CodeableConcept value) {
+    public Substance setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
@@ -596,7 +596,7 @@ public class Substance extends DomainResource {
     /**
      * @return {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Substance.description");
@@ -605,18 +605,18 @@ public class Substance extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A description of the substance - its appearance, handling requirements, and other usage notes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Substance setDescriptionElement(StringType value) {
+    public Substance setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -624,14 +624,14 @@ public class Substance extends DomainResource {
     /**
      * @return A description of the substance - its appearance, handling requirements, and other usage notes.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A description of the substance - its appearance, handling requirements, and other usage notes.
      */
-    public Substance setDescription(String value) {
+    public Substance setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -645,13 +645,13 @@ public class Substance extends DomainResource {
     /**
      * @return {@link #instance} (Substance may be used to describe a kind of substance, or a specific package/container of the substance: an instance.)
      */
-    public List<SubstanceInstanceComponent> getInstance() {
+    public List<SubstanceInstanceComponent> getInstance() { 
       if (this.instance == null)
         this.instance = new ArrayList<SubstanceInstanceComponent>();
       return this.instance;
     }
 
-    public boolean hasInstance() {
+    public boolean hasInstance() { 
       if (this.instance == null)
         return false;
       for (SubstanceInstanceComponent item : this.instance)
@@ -685,13 +685,13 @@ public class Substance extends DomainResource {
     /**
      * @return {@link #ingredient} (A substance can be composed of other substances.)
      */
-    public List<SubstanceIngredientComponent> getIngredient() {
+    public List<SubstanceIngredientComponent> getIngredient() { 
       if (this.ingredient == null)
         this.ingredient = new ArrayList<SubstanceIngredientComponent>();
       return this.ingredient;
     }
 
-    public boolean hasIngredient() {
+    public boolean hasIngredient() { 
       if (this.ingredient == null)
         return false;
       for (SubstanceIngredientComponent item : this.ingredient)

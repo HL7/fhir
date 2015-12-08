@@ -4,7 +4,7 @@
     {
       "hash": "|http://loinc.org|null|57133-1|Referral note",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@23924242\" in system \"http://loinc.org\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@4572479e\" in system \"http://loinc.org\": null"
     }
   ]
 }

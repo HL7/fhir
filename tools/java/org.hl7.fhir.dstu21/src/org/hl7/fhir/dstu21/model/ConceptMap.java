@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -76,7 +76,7 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #name} (The name of an individual to contact regarding the concept map.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ConceptMapContactComponent.name");
@@ -85,18 +85,18 @@ public class ConceptMap extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of an individual to contact regarding the concept map.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ConceptMapContactComponent setNameElement(StringType value) {
+        public ConceptMapContactComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -104,14 +104,14 @@ public class ConceptMap extends DomainResource {
         /**
          * @return The name of an individual to contact regarding the concept map.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of an individual to contact regarding the concept map.
          */
-        public ConceptMapContactComponent setName(String value) {
+        public ConceptMapContactComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -125,13 +125,13 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
-        public List<ContactPoint> getTelecom() {
+        public List<ContactPoint> getTelecom() { 
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() {
+        public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -269,7 +269,7 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #codeSystem} (An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public UriType getCodeSystemElement() {
+        public UriType getCodeSystemElement() { 
           if (this.codeSystem == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SourceElementComponent.codeSystem");
@@ -278,18 +278,18 @@ public class ConceptMap extends DomainResource {
           return this.codeSystem;
         }
 
-        public boolean hasCodeSystemElement() {
+        public boolean hasCodeSystemElement() { 
           return this.codeSystem != null && !this.codeSystem.isEmpty();
         }
 
-        public boolean hasCodeSystem() {
+        public boolean hasCodeSystem() { 
           return this.codeSystem != null && !this.codeSystem.isEmpty();
         }
 
         /**
          * @param value {@link #codeSystem} (An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public SourceElementComponent setCodeSystemElement(UriType value) {
+        public SourceElementComponent setCodeSystemElement(UriType value) { 
           this.codeSystem = value;
           return this;
         }
@@ -297,14 +297,14 @@ public class ConceptMap extends DomainResource {
         /**
          * @return An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
          */
-        public String getCodeSystem() {
+        public String getCodeSystem() { 
           return this.codeSystem == null ? null : this.codeSystem.getValue();
         }
 
         /**
          * @param value An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
          */
-        public SourceElementComponent setCodeSystem(String value) {
+        public SourceElementComponent setCodeSystem(String value) { 
           if (Utilities.noString(value))
             this.codeSystem = null;
           else {
@@ -318,7 +318,7 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #code} (Identity (code or path) or the element/item being mapped.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public CodeType getCodeElement() {
+        public CodeType getCodeElement() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SourceElementComponent.code");
@@ -327,18 +327,18 @@ public class ConceptMap extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCodeElement() {
+        public boolean hasCodeElement() { 
           return this.code != null && !this.code.isEmpty();
         }
 
-        public boolean hasCode() {
+        public boolean hasCode() { 
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Identity (code or path) or the element/item being mapped.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public SourceElementComponent setCodeElement(CodeType value) {
+        public SourceElementComponent setCodeElement(CodeType value) { 
           this.code = value;
           return this;
         }
@@ -346,14 +346,14 @@ public class ConceptMap extends DomainResource {
         /**
          * @return Identity (code or path) or the element/item being mapped.
          */
-        public String getCode() {
+        public String getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value Identity (code or path) or the element/item being mapped.
          */
-        public SourceElementComponent setCode(String value) {
+        public SourceElementComponent setCode(String value) { 
           if (Utilities.noString(value))
             this.code = null;
           else {
@@ -367,13 +367,13 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #target} (A concept from the target value set that this concept maps to.)
          */
-        public List<TargetElementComponent> getTarget() {
+        public List<TargetElementComponent> getTarget() { 
           if (this.target == null)
             this.target = new ArrayList<TargetElementComponent>();
           return this.target;
         }
 
-        public boolean hasTarget() {
+        public boolean hasTarget() { 
           if (this.target == null)
             return false;
           for (TargetElementComponent item : this.target)
@@ -548,7 +548,7 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #codeSystem} (An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public UriType getCodeSystemElement() {
+        public UriType getCodeSystemElement() { 
           if (this.codeSystem == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TargetElementComponent.codeSystem");
@@ -557,18 +557,18 @@ public class ConceptMap extends DomainResource {
           return this.codeSystem;
         }
 
-        public boolean hasCodeSystemElement() {
+        public boolean hasCodeSystemElement() { 
           return this.codeSystem != null && !this.codeSystem.isEmpty();
         }
 
-        public boolean hasCodeSystem() {
+        public boolean hasCodeSystem() { 
           return this.codeSystem != null && !this.codeSystem.isEmpty();
         }
 
         /**
          * @param value {@link #codeSystem} (An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public TargetElementComponent setCodeSystemElement(UriType value) {
+        public TargetElementComponent setCodeSystemElement(UriType value) { 
           this.codeSystem = value;
           return this;
         }
@@ -576,14 +576,14 @@ public class ConceptMap extends DomainResource {
         /**
          * @return An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
          */
-        public String getCodeSystem() {
+        public String getCodeSystem() { 
           return this.codeSystem == null ? null : this.codeSystem.getValue();
         }
 
         /**
          * @param value An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
          */
-        public TargetElementComponent setCodeSystem(String value) {
+        public TargetElementComponent setCodeSystem(String value) { 
           if (Utilities.noString(value))
             this.codeSystem = null;
           else {
@@ -597,7 +597,7 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #code} (Identity (code or path) or the element/item that the map refers to.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public CodeType getCodeElement() {
+        public CodeType getCodeElement() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TargetElementComponent.code");
@@ -606,18 +606,18 @@ public class ConceptMap extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCodeElement() {
+        public boolean hasCodeElement() { 
           return this.code != null && !this.code.isEmpty();
         }
 
-        public boolean hasCode() {
+        public boolean hasCode() { 
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Identity (code or path) or the element/item that the map refers to.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public TargetElementComponent setCodeElement(CodeType value) {
+        public TargetElementComponent setCodeElement(CodeType value) { 
           this.code = value;
           return this;
         }
@@ -625,14 +625,14 @@ public class ConceptMap extends DomainResource {
         /**
          * @return Identity (code or path) or the element/item that the map refers to.
          */
-        public String getCode() {
+        public String getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value Identity (code or path) or the element/item that the map refers to.
          */
-        public TargetElementComponent setCode(String value) {
+        public TargetElementComponent setCode(String value) { 
           if (Utilities.noString(value))
             this.code = null;
           else {
@@ -646,7 +646,7 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #equivalence} (The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).). This is the underlying object with id, value and extensions. The accessor "getEquivalence" gives direct access to the value
          */
-        public Enumeration<ConceptMapEquivalence> getEquivalenceElement() {
+        public Enumeration<ConceptMapEquivalence> getEquivalenceElement() { 
           if (this.equivalence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TargetElementComponent.equivalence");
@@ -655,18 +655,18 @@ public class ConceptMap extends DomainResource {
           return this.equivalence;
         }
 
-        public boolean hasEquivalenceElement() {
+        public boolean hasEquivalenceElement() { 
           return this.equivalence != null && !this.equivalence.isEmpty();
         }
 
-        public boolean hasEquivalence() {
+        public boolean hasEquivalence() { 
           return this.equivalence != null && !this.equivalence.isEmpty();
         }
 
         /**
          * @param value {@link #equivalence} (The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).). This is the underlying object with id, value and extensions. The accessor "getEquivalence" gives direct access to the value
          */
-        public TargetElementComponent setEquivalenceElement(Enumeration<ConceptMapEquivalence> value) {
+        public TargetElementComponent setEquivalenceElement(Enumeration<ConceptMapEquivalence> value) { 
           this.equivalence = value;
           return this;
         }
@@ -674,14 +674,14 @@ public class ConceptMap extends DomainResource {
         /**
          * @return The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).
          */
-        public ConceptMapEquivalence getEquivalence() {
+        public ConceptMapEquivalence getEquivalence() { 
           return this.equivalence == null ? null : this.equivalence.getValue();
         }
 
         /**
          * @param value The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).
          */
-        public TargetElementComponent setEquivalence(ConceptMapEquivalence value) {
+        public TargetElementComponent setEquivalence(ConceptMapEquivalence value) { 
             if (this.equivalence == null)
               this.equivalence = new Enumeration<ConceptMapEquivalence>(new ConceptMapEquivalenceEnumFactory());
             this.equivalence.setValue(value);
@@ -691,7 +691,7 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #comments} (A description of status/issues in mapping that conveys additional information not represented in  the structured data.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public StringType getCommentsElement() {
+        public StringType getCommentsElement() { 
           if (this.comments == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TargetElementComponent.comments");
@@ -700,18 +700,18 @@ public class ConceptMap extends DomainResource {
           return this.comments;
         }
 
-        public boolean hasCommentsElement() {
+        public boolean hasCommentsElement() { 
           return this.comments != null && !this.comments.isEmpty();
         }
 
-        public boolean hasComments() {
+        public boolean hasComments() { 
           return this.comments != null && !this.comments.isEmpty();
         }
 
         /**
          * @param value {@link #comments} (A description of status/issues in mapping that conveys additional information not represented in  the structured data.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public TargetElementComponent setCommentsElement(StringType value) {
+        public TargetElementComponent setCommentsElement(StringType value) { 
           this.comments = value;
           return this;
         }
@@ -719,14 +719,14 @@ public class ConceptMap extends DomainResource {
         /**
          * @return A description of status/issues in mapping that conveys additional information not represented in  the structured data.
          */
-        public String getComments() {
+        public String getComments() { 
           return this.comments == null ? null : this.comments.getValue();
         }
 
         /**
          * @param value A description of status/issues in mapping that conveys additional information not represented in  the structured data.
          */
-        public TargetElementComponent setComments(String value) {
+        public TargetElementComponent setComments(String value) { 
           if (Utilities.noString(value))
             this.comments = null;
           else {
@@ -740,13 +740,13 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #dependsOn} (A set of additional dependencies for this mapping to hold. This mapping is only applicable if the specified element can be resolved, and it has the specified value.)
          */
-        public List<OtherElementComponent> getDependsOn() {
+        public List<OtherElementComponent> getDependsOn() { 
           if (this.dependsOn == null)
             this.dependsOn = new ArrayList<OtherElementComponent>();
           return this.dependsOn;
         }
 
-        public boolean hasDependsOn() {
+        public boolean hasDependsOn() { 
           if (this.dependsOn == null)
             return false;
           for (OtherElementComponent item : this.dependsOn)
@@ -780,13 +780,13 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #product} (A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on.)
          */
-        public List<OtherElementComponent> getProduct() {
+        public List<OtherElementComponent> getProduct() { 
           if (this.product == null)
             this.product = new ArrayList<OtherElementComponent>();
           return this.product;
         }
 
-        public boolean hasProduct() {
+        public boolean hasProduct() { 
           if (this.product == null)
             return false;
           for (OtherElementComponent item : this.product)
@@ -970,7 +970,7 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #element} (A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. HL7 v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.). This is the underlying object with id, value and extensions. The accessor "getElement" gives direct access to the value
          */
-        public UriType getElementElement() {
+        public UriType getElementElement() { 
           if (this.element == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OtherElementComponent.element");
@@ -979,18 +979,18 @@ public class ConceptMap extends DomainResource {
           return this.element;
         }
 
-        public boolean hasElementElement() {
+        public boolean hasElementElement() { 
           return this.element != null && !this.element.isEmpty();
         }
 
-        public boolean hasElement() {
+        public boolean hasElement() { 
           return this.element != null && !this.element.isEmpty();
         }
 
         /**
          * @param value {@link #element} (A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. HL7 v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.). This is the underlying object with id, value and extensions. The accessor "getElement" gives direct access to the value
          */
-        public OtherElementComponent setElementElement(UriType value) {
+        public OtherElementComponent setElementElement(UriType value) { 
           this.element = value;
           return this;
         }
@@ -998,14 +998,14 @@ public class ConceptMap extends DomainResource {
         /**
          * @return A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. HL7 v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.
          */
-        public String getElement() {
+        public String getElement() { 
           return this.element == null ? null : this.element.getValue();
         }
 
         /**
          * @param value A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. HL7 v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.
          */
-        public OtherElementComponent setElement(String value) {
+        public OtherElementComponent setElement(String value) { 
             if (this.element == null)
               this.element = new UriType();
             this.element.setValue(value);
@@ -1015,7 +1015,7 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #codeSystem} (An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public UriType getCodeSystemElement() {
+        public UriType getCodeSystemElement() { 
           if (this.codeSystem == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OtherElementComponent.codeSystem");
@@ -1024,18 +1024,18 @@ public class ConceptMap extends DomainResource {
           return this.codeSystem;
         }
 
-        public boolean hasCodeSystemElement() {
+        public boolean hasCodeSystemElement() { 
           return this.codeSystem != null && !this.codeSystem.isEmpty();
         }
 
-        public boolean hasCodeSystem() {
+        public boolean hasCodeSystem() { 
           return this.codeSystem != null && !this.codeSystem.isEmpty();
         }
 
         /**
          * @param value {@link #codeSystem} (An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
          */
-        public OtherElementComponent setCodeSystemElement(UriType value) {
+        public OtherElementComponent setCodeSystemElement(UriType value) { 
           this.codeSystem = value;
           return this;
         }
@@ -1043,14 +1043,14 @@ public class ConceptMap extends DomainResource {
         /**
          * @return An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).
          */
-        public String getCodeSystem() {
+        public String getCodeSystem() { 
           return this.codeSystem == null ? null : this.codeSystem.getValue();
         }
 
         /**
          * @param value An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).
          */
-        public OtherElementComponent setCodeSystem(String value) {
+        public OtherElementComponent setCodeSystem(String value) { 
             if (this.codeSystem == null)
               this.codeSystem = new UriType();
             this.codeSystem.setValue(value);
@@ -1060,7 +1060,7 @@ public class ConceptMap extends DomainResource {
         /**
          * @return {@link #code} (Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public StringType getCodeElement() {
+        public StringType getCodeElement() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OtherElementComponent.code");
@@ -1069,18 +1069,18 @@ public class ConceptMap extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCodeElement() {
+        public boolean hasCodeElement() { 
           return this.code != null && !this.code.isEmpty();
         }
 
-        public boolean hasCode() {
+        public boolean hasCode() { 
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
          */
-        public OtherElementComponent setCodeElement(StringType value) {
+        public OtherElementComponent setCodeElement(StringType value) { 
           this.code = value;
           return this;
         }
@@ -1088,14 +1088,14 @@ public class ConceptMap extends DomainResource {
         /**
          * @return Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.
          */
-        public String getCode() {
+        public String getCode() { 
           return this.code == null ? null : this.code.getValue();
         }
 
         /**
          * @param value Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.
          */
-        public OtherElementComponent setCode(String value) {
+        public OtherElementComponent setCode(String value) { 
             if (this.code == null)
               this.code = new StringType();
             this.code.setValue(value);
@@ -1313,7 +1313,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #url} (An absolute URL that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this concept map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() {
+    public UriType getUrlElement() { 
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.url");
@@ -1322,18 +1322,18 @@ public class ConceptMap extends DomainResource {
       return this.url;
     }
 
-    public boolean hasUrlElement() {
+    public boolean hasUrlElement() { 
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() {
+    public boolean hasUrl() { 
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
      * @param value {@link #url} (An absolute URL that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this concept map is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public ConceptMap setUrlElement(UriType value) {
+    public ConceptMap setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -1341,14 +1341,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return An absolute URL that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this concept map is (or will be) published.
      */
-    public String getUrl() {
+    public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value An absolute URL that is used to identify this concept map when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this concept map is (or will be) published.
      */
-    public ConceptMap setUrl(String value) {
+    public ConceptMap setUrl(String value) { 
       if (Utilities.noString(value))
         this.url = null;
       else {
@@ -1362,7 +1362,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #identifier} (Formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
-    public Identifier getIdentifier() {
+    public Identifier getIdentifier() { 
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.identifier");
@@ -1371,14 +1371,14 @@ public class ConceptMap extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Formal identifier that is used to identify this concept map when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
-    public ConceptMap setIdentifier(Identifier value) {
+    public ConceptMap setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
@@ -1386,7 +1386,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.version");
@@ -1395,18 +1395,18 @@ public class ConceptMap extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public ConceptMap setVersionElement(StringType value) {
+    public ConceptMap setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -1414,14 +1414,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this version of the concept map when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the profile author manually and the value should be a timestamp.
      */
-    public ConceptMap setVersion(String value) {
+    public ConceptMap setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -1435,7 +1435,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #name} (A free text natural language name describing the concept map.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() {
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.name");
@@ -1444,18 +1444,18 @@ public class ConceptMap extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() {
+    public boolean hasNameElement() { 
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A free text natural language name describing the concept map.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public ConceptMap setNameElement(StringType value) {
+    public ConceptMap setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -1463,14 +1463,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return A free text natural language name describing the concept map.
      */
-    public String getName() {
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A free text natural language name describing the concept map.
      */
-    public ConceptMap setName(String value) {
+    public ConceptMap setName(String value) { 
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -1484,7 +1484,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #status} (The status of the concept map.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() {
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.status");
@@ -1493,18 +1493,18 @@ public class ConceptMap extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the concept map.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ConceptMap setStatusElement(Enumeration<ConformanceResourceStatus> value) {
+    public ConceptMap setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1512,14 +1512,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return The status of the concept map.
      */
-    public ConformanceResourceStatus getStatus() {
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the concept map.
      */
-    public ConceptMap setStatus(ConformanceResourceStatus value) {
+    public ConceptMap setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
@@ -1529,7 +1529,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #experimental} (This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalElement() {
+    public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.experimental");
@@ -1538,18 +1538,18 @@ public class ConceptMap extends DomainResource {
       return this.experimental;
     }
 
-    public boolean hasExperimentalElement() {
+    public boolean hasExperimentalElement() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
-    public boolean hasExperimental() {
+    public boolean hasExperimental() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
      * @param value {@link #experimental} (This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public ConceptMap setExperimentalElement(BooleanType value) {
+    public ConceptMap setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -1557,14 +1557,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public boolean getExperimental() {
+    public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
      * @param value This ConceptMap was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public ConceptMap setExperimental(boolean value) {
+    public ConceptMap setExperimental(boolean value) { 
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
@@ -1574,7 +1574,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the concept map.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() {
+    public StringType getPublisherElement() { 
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.publisher");
@@ -1583,18 +1583,18 @@ public class ConceptMap extends DomainResource {
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() {
+    public boolean hasPublisherElement() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() {
+    public boolean hasPublisher() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the concept map.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public ConceptMap setPublisherElement(StringType value) {
+    public ConceptMap setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -1602,14 +1602,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return The name of the individual or organization that published the concept map.
      */
-    public String getPublisher() {
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value The name of the individual or organization that published the concept map.
      */
-    public ConceptMap setPublisher(String value) {
+    public ConceptMap setPublisher(String value) { 
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -1623,13 +1623,13 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<ConceptMapContactComponent> getContact() {
+    public List<ConceptMapContactComponent> getContact() { 
       if (this.contact == null)
         this.contact = new ArrayList<ConceptMapContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() {
+    public boolean hasContact() { 
       if (this.contact == null)
         return false;
       for (ConceptMapContactComponent item : this.contact)
@@ -1663,7 +1663,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #date} (The date this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.date");
@@ -1672,18 +1672,18 @@ public class ConceptMap extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public ConceptMap setDateElement(DateTimeType value) {
+    public ConceptMap setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -1691,14 +1691,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return The date this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date this version of the concept map was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the concept map changes.
      */
-    public ConceptMap setDate(Date value) {
+    public ConceptMap setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1712,7 +1712,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #description} (A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.description");
@@ -1721,18 +1721,18 @@ public class ConceptMap extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ConceptMap setDescriptionElement(StringType value) {
+    public ConceptMap setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -1740,14 +1740,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A free text natural language description of the use of the concept map - reason for definition, conditions of use, etc.
      */
-    public ConceptMap setDescription(String value) {
+    public ConceptMap setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -1761,13 +1761,13 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of concept map instances.)
      */
-    public List<CodeableConcept> getUseContext() {
+    public List<CodeableConcept> getUseContext() { 
       if (this.useContext == null)
         this.useContext = new ArrayList<CodeableConcept>();
       return this.useContext;
     }
 
-    public boolean hasUseContext() {
+    public boolean hasUseContext() { 
       if (this.useContext == null)
         return false;
       for (CodeableConcept item : this.useContext)
@@ -1801,7 +1801,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #requirements} (Explains why this concept map is needed and why it has been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public StringType getRequirementsElement() {
+    public StringType getRequirementsElement() { 
       if (this.requirements == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.requirements");
@@ -1810,18 +1810,18 @@ public class ConceptMap extends DomainResource {
       return this.requirements;
     }
 
-    public boolean hasRequirementsElement() {
+    public boolean hasRequirementsElement() { 
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
-    public boolean hasRequirements() {
+    public boolean hasRequirements() { 
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
     /**
      * @param value {@link #requirements} (Explains why this concept map is needed and why it has been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public ConceptMap setRequirementsElement(StringType value) {
+    public ConceptMap setRequirementsElement(StringType value) { 
       this.requirements = value;
       return this;
     }
@@ -1829,14 +1829,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return Explains why this concept map is needed and why it has been constrained as it has.
      */
-    public String getRequirements() {
+    public String getRequirements() { 
       return this.requirements == null ? null : this.requirements.getValue();
     }
 
     /**
      * @param value Explains why this concept map is needed and why it has been constrained as it has.
      */
-    public ConceptMap setRequirements(String value) {
+    public ConceptMap setRequirements(String value) { 
       if (Utilities.noString(value))
         this.requirements = null;
       else {
@@ -1850,7 +1850,7 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #copyright} (A copyright statement relating to the concept map and/or its contents.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public StringType getCopyrightElement() {
+    public StringType getCopyrightElement() { 
       if (this.copyright == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ConceptMap.copyright");
@@ -1859,18 +1859,18 @@ public class ConceptMap extends DomainResource {
       return this.copyright;
     }
 
-    public boolean hasCopyrightElement() {
+    public boolean hasCopyrightElement() { 
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
-    public boolean hasCopyright() {
+    public boolean hasCopyright() { 
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
     /**
      * @param value {@link #copyright} (A copyright statement relating to the concept map and/or its contents.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public ConceptMap setCopyrightElement(StringType value) {
+    public ConceptMap setCopyrightElement(StringType value) { 
       this.copyright = value;
       return this;
     }
@@ -1878,14 +1878,14 @@ public class ConceptMap extends DomainResource {
     /**
      * @return A copyright statement relating to the concept map and/or its contents.
      */
-    public String getCopyright() {
+    public String getCopyright() { 
       return this.copyright == null ? null : this.copyright.getValue();
     }
 
     /**
      * @param value A copyright statement relating to the concept map and/or its contents.
      */
-    public ConceptMap setCopyright(String value) {
+    public ConceptMap setCopyright(String value) { 
       if (Utilities.noString(value))
         this.copyright = null;
       else {
@@ -1899,44 +1899,44 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #source} (The source value set that specifies the concepts that are being mapped.)
      */
-    public Type getSource() {
+    public Type getSource() { 
       return this.source;
     }
 
     /**
      * @return {@link #source} (The source value set that specifies the concepts that are being mapped.)
      */
-    public UriType getSourceUriType() throws FHIRException {
+    public UriType getSourceUriType() throws FHIRException { 
       if (!(this.source instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.source.getClass().getName()+" was encountered");
       return (UriType) this.source;
     }
 
-    public boolean hasSourceUriType() {
+    public boolean hasSourceUriType() { 
       return this.source instanceof UriType;
     }
 
     /**
      * @return {@link #source} (The source value set that specifies the concepts that are being mapped.)
      */
-    public Reference getSourceReference() throws FHIRException {
+    public Reference getSourceReference() throws FHIRException { 
       if (!(this.source instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.source.getClass().getName()+" was encountered");
       return (Reference) this.source;
     }
 
-    public boolean hasSourceReference() {
+    public boolean hasSourceReference() { 
       return this.source instanceof Reference;
     }
 
-    public boolean hasSource() {
+    public boolean hasSource() { 
       return this.source != null && !this.source.isEmpty();
     }
 
     /**
      * @param value {@link #source} (The source value set that specifies the concepts that are being mapped.)
      */
-    public ConceptMap setSource(Type value) {
+    public ConceptMap setSource(Type value) { 
       this.source = value;
       return this;
     }
@@ -1944,44 +1944,44 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #target} (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
      */
-    public Type getTarget() {
+    public Type getTarget() { 
       return this.target;
     }
 
     /**
      * @return {@link #target} (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
      */
-    public UriType getTargetUriType() throws FHIRException {
+    public UriType getTargetUriType() throws FHIRException { 
       if (!(this.target instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.target.getClass().getName()+" was encountered");
       return (UriType) this.target;
     }
 
-    public boolean hasTargetUriType() {
+    public boolean hasTargetUriType() { 
       return this.target instanceof UriType;
     }
 
     /**
      * @return {@link #target} (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
      */
-    public Reference getTargetReference() throws FHIRException {
+    public Reference getTargetReference() throws FHIRException { 
       if (!(this.target instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.target.getClass().getName()+" was encountered");
       return (Reference) this.target;
     }
 
-    public boolean hasTargetReference() {
+    public boolean hasTargetReference() { 
       return this.target instanceof Reference;
     }
 
-    public boolean hasTarget() {
+    public boolean hasTarget() { 
       return this.target != null && !this.target.isEmpty();
     }
 
     /**
      * @param value {@link #target} (The target value set provides context to the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.)
      */
-    public ConceptMap setTarget(Type value) {
+    public ConceptMap setTarget(Type value) { 
       this.target = value;
       return this;
     }
@@ -1989,13 +1989,13 @@ public class ConceptMap extends DomainResource {
     /**
      * @return {@link #element} (Mappings for an individual concept in the source to one or more concepts in the target.)
      */
-    public List<SourceElementComponent> getElement() {
+    public List<SourceElementComponent> getElement() { 
       if (this.element == null)
         this.element = new ArrayList<SourceElementComponent>();
       return this.element;
     }
 
-    public boolean hasElement() {
+    public boolean hasElement() { 
       if (this.element == null)
         return false;
       for (SourceElementComponent item : this.element)

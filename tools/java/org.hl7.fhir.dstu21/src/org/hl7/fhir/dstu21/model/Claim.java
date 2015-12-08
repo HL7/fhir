@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -53,23 +53,23 @@ public class Claim extends DomainResource {
         /**
          * A claim for Institution based, typically in-patient, goods and services.
          */
-        INSTITUTIONAL,
+        INSTITUTIONAL, 
         /**
          * A claim for Oral Health (Dentist, Denturist, Hygienist) goods and services.
          */
-        ORAL,
+        ORAL, 
         /**
          * A claim for Pharmacy based goods and services.
          */
-        PHARMACY,
+        PHARMACY, 
         /**
          * A claim for Professional, typically out-patient, goods and services.
          */
-        PROFESSIONAL,
+        PROFESSIONAL, 
         /**
-         * A claim for Vision (Ophthamologist, Optometrist and Optician) goods and services.
+         * A claim for Vision (Opthamologist, Optometrist and Optician) goods and services.
          */
-        VISION,
+        VISION, 
         /**
          * added to help the parsers
          */
@@ -115,7 +115,7 @@ public class Claim extends DomainResource {
             case ORAL: return "A claim for Oral Health (Dentist, Denturist, Hygienist) goods and services.";
             case PHARMACY: return "A claim for Pharmacy based goods and services.";
             case PROFESSIONAL: return "A claim for Professional, typically out-patient, goods and services.";
-            case VISION: return "A claim for Vision (Ophthamologist, Optometrist and Optician) goods and services.";
+            case VISION: return "A claim for Vision (Opthamologist, Optometrist and Optician) goods and services.";
             default: return "?";
           }
         }
@@ -185,19 +185,19 @@ public class Claim extends DomainResource {
         /**
          * The treatment is complete and this represents a Claim for the services.
          */
-        COMPLETE,
+        COMPLETE, 
         /**
          * The treatment is proposed and this represents a Pre-authorization for the services.
          */
-        PROPOSED,
+        PROPOSED, 
         /**
          * The treatment is proposed and this represents a Pre-determination for the services.
          */
-        EXPLORATORY,
+        EXPLORATORY, 
         /**
          * A locally defined or otherwise resolved status.
          */
-        OTHER,
+        OTHER, 
         /**
          * added to help the parsers
          */
@@ -354,7 +354,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #type} (Party to be reimbursed: Subscriber, provider, other.)
          */
-        public Coding getType() {
+        public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.type");
@@ -363,14 +363,14 @@ public class Claim extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Party to be reimbursed: Subscriber, provider, other.)
          */
-        public PayeeComponent setType(Coding value) {
+        public PayeeComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
@@ -378,7 +378,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #provider} (The provider who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public Reference getProvider() {
+        public Reference getProvider() { 
           if (this.provider == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.provider");
@@ -387,14 +387,14 @@ public class Claim extends DomainResource {
           return this.provider;
         }
 
-        public boolean hasProvider() {
+        public boolean hasProvider() { 
           return this.provider != null && !this.provider.isEmpty();
         }
 
         /**
          * @param value {@link #provider} (The provider who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public PayeeComponent setProvider(Reference value) {
+        public PayeeComponent setProvider(Reference value) { 
           this.provider = value;
           return this;
         }
@@ -402,7 +402,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The provider who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public Practitioner getProviderTarget() {
+        public Practitioner getProviderTarget() { 
           if (this.providerTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.provider");
@@ -414,7 +414,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #provider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The provider who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public PayeeComponent setProviderTarget(Practitioner value) {
+        public PayeeComponent setProviderTarget(Practitioner value) { 
           this.providerTarget = value;
           return this;
         }
@@ -422,7 +422,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #organization} (The organization who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public Reference getOrganization() {
+        public Reference getOrganization() { 
           if (this.organization == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.organization");
@@ -431,14 +431,14 @@ public class Claim extends DomainResource {
           return this.organization;
         }
 
-        public boolean hasOrganization() {
+        public boolean hasOrganization() { 
           return this.organization != null && !this.organization.isEmpty();
         }
 
         /**
          * @param value {@link #organization} (The organization who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public PayeeComponent setOrganization(Reference value) {
+        public PayeeComponent setOrganization(Reference value) { 
           this.organization = value;
           return this;
         }
@@ -446,7 +446,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public Organization getOrganizationTarget() {
+        public Organization getOrganizationTarget() { 
           if (this.organizationTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.organization");
@@ -458,7 +458,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public PayeeComponent setOrganizationTarget(Organization value) {
+        public PayeeComponent setOrganizationTarget(Organization value) { 
           this.organizationTarget = value;
           return this;
         }
@@ -466,7 +466,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #person} (The person other than the subscriber who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public Reference getPerson() {
+        public Reference getPerson() { 
           if (this.person == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.person");
@@ -475,14 +475,14 @@ public class Claim extends DomainResource {
           return this.person;
         }
 
-        public boolean hasPerson() {
+        public boolean hasPerson() { 
           return this.person != null && !this.person.isEmpty();
         }
 
         /**
          * @param value {@link #person} (The person other than the subscriber who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public PayeeComponent setPerson(Reference value) {
+        public PayeeComponent setPerson(Reference value) { 
           this.person = value;
           return this;
         }
@@ -490,7 +490,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #person} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person other than the subscriber who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public Patient getPersonTarget() {
+        public Patient getPersonTarget() { 
           if (this.personTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create PayeeComponent.person");
@@ -502,7 +502,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #person} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person other than the subscriber who is to be reimbursed for the claim (the party to whom any benefit is assigned).)
          */
-        public PayeeComponent setPersonTarget(Patient value) {
+        public PayeeComponent setPersonTarget(Patient value) { 
           this.personTarget = value;
           return this;
         }
@@ -632,7 +632,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #sequence} (Sequence of diagnosis which serves to order and provide a link.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public PositiveIntType getSequenceElement() {
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosisComponent.sequence");
@@ -641,18 +641,18 @@ public class Claim extends DomainResource {
           return this.sequence;
         }
 
-        public boolean hasSequenceElement() {
+        public boolean hasSequenceElement() { 
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
-        public boolean hasSequence() {
+        public boolean hasSequence() { 
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
          * @param value {@link #sequence} (Sequence of diagnosis which serves to order and provide a link.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public DiagnosisComponent setSequenceElement(PositiveIntType value) {
+        public DiagnosisComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -660,14 +660,14 @@ public class Claim extends DomainResource {
         /**
          * @return Sequence of diagnosis which serves to order and provide a link.
          */
-        public int getSequence() {
+        public int getSequence() { 
           return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
         }
 
         /**
          * @param value Sequence of diagnosis which serves to order and provide a link.
          */
-        public DiagnosisComponent setSequence(int value) {
+        public DiagnosisComponent setSequence(int value) { 
             if (this.sequence == null)
               this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
@@ -677,7 +677,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #diagnosis} (The diagnosis.)
          */
-        public Coding getDiagnosis() {
+        public Coding getDiagnosis() { 
           if (this.diagnosis == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosisComponent.diagnosis");
@@ -686,14 +686,14 @@ public class Claim extends DomainResource {
           return this.diagnosis;
         }
 
-        public boolean hasDiagnosis() {
+        public boolean hasDiagnosis() { 
           return this.diagnosis != null && !this.diagnosis.isEmpty();
         }
 
         /**
          * @param value {@link #diagnosis} (The diagnosis.)
          */
-        public DiagnosisComponent setDiagnosis(Coding value) {
+        public DiagnosisComponent setDiagnosis(Coding value) { 
           this.diagnosis = value;
           return this;
         }
@@ -780,7 +780,7 @@ public class Claim extends DomainResource {
          * The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
         @Child(name = "focal", type = {BooleanType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The focal Coverage", formalDefinition="The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated." )
+        @Description(shortDefinition="Is the focal Coverage", formalDefinition="The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated." )
         protected BooleanType focal;
 
         /**
@@ -858,7 +858,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public PositiveIntType getSequenceElement() {
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.sequence");
@@ -867,18 +867,18 @@ public class Claim extends DomainResource {
           return this.sequence;
         }
 
-        public boolean hasSequenceElement() {
+        public boolean hasSequenceElement() { 
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
-        public boolean hasSequence() {
+        public boolean hasSequence() { 
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
          * @param value {@link #sequence} (A service line item.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public CoverageComponent setSequenceElement(PositiveIntType value) {
+        public CoverageComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -886,14 +886,14 @@ public class Claim extends DomainResource {
         /**
          * @return A service line item.
          */
-        public int getSequence() {
+        public int getSequence() { 
           return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
         }
 
         /**
          * @param value A service line item.
          */
-        public CoverageComponent setSequence(int value) {
+        public CoverageComponent setSequence(int value) { 
             if (this.sequence == null)
               this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
@@ -903,7 +903,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #focal} (The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
          */
-        public BooleanType getFocalElement() {
+        public BooleanType getFocalElement() { 
           if (this.focal == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.focal");
@@ -912,18 +912,18 @@ public class Claim extends DomainResource {
           return this.focal;
         }
 
-        public boolean hasFocalElement() {
+        public boolean hasFocalElement() { 
           return this.focal != null && !this.focal.isEmpty();
         }
 
-        public boolean hasFocal() {
+        public boolean hasFocal() { 
           return this.focal != null && !this.focal.isEmpty();
         }
 
         /**
          * @param value {@link #focal} (The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.). This is the underlying object with id, value and extensions. The accessor "getFocal" gives direct access to the value
          */
-        public CoverageComponent setFocalElement(BooleanType value) {
+        public CoverageComponent setFocalElement(BooleanType value) { 
           this.focal = value;
           return this;
         }
@@ -931,14 +931,14 @@ public class Claim extends DomainResource {
         /**
          * @return The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
-        public boolean getFocal() {
+        public boolean getFocal() { 
           return this.focal == null || this.focal.isEmpty() ? false : this.focal.getValue();
         }
 
         /**
          * @param value The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
          */
-        public CoverageComponent setFocal(boolean value) {
+        public CoverageComponent setFocal(boolean value) { 
             if (this.focal == null)
               this.focal = new BooleanType();
             this.focal.setValue(value);
@@ -948,7 +948,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
          */
-        public Reference getCoverage() {
+        public Reference getCoverage() { 
           if (this.coverage == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.coverage");
@@ -957,14 +957,14 @@ public class Claim extends DomainResource {
           return this.coverage;
         }
 
-        public boolean hasCoverage() {
+        public boolean hasCoverage() { 
           return this.coverage != null && !this.coverage.isEmpty();
         }
 
         /**
          * @param value {@link #coverage} (Reference to the program or plan identification, underwriter or payor.)
          */
-        public CoverageComponent setCoverage(Reference value) {
+        public CoverageComponent setCoverage(Reference value) { 
           this.coverage = value;
           return this;
         }
@@ -972,7 +972,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #coverage} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
          */
-        public Coverage getCoverageTarget() {
+        public Coverage getCoverageTarget() { 
           if (this.coverageTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.coverage");
@@ -984,7 +984,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #coverage} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the program or plan identification, underwriter or payor.)
          */
-        public CoverageComponent setCoverageTarget(Coverage value) {
+        public CoverageComponent setCoverageTarget(Coverage value) { 
           this.coverageTarget = value;
           return this;
         }
@@ -992,7 +992,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #businessArrangement} (The contract number of a business agreement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
          */
-        public StringType getBusinessArrangementElement() {
+        public StringType getBusinessArrangementElement() { 
           if (this.businessArrangement == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.businessArrangement");
@@ -1001,18 +1001,18 @@ public class Claim extends DomainResource {
           return this.businessArrangement;
         }
 
-        public boolean hasBusinessArrangementElement() {
+        public boolean hasBusinessArrangementElement() { 
           return this.businessArrangement != null && !this.businessArrangement.isEmpty();
         }
 
-        public boolean hasBusinessArrangement() {
+        public boolean hasBusinessArrangement() { 
           return this.businessArrangement != null && !this.businessArrangement.isEmpty();
         }
 
         /**
          * @param value {@link #businessArrangement} (The contract number of a business agreement which describes the terms and conditions.). This is the underlying object with id, value and extensions. The accessor "getBusinessArrangement" gives direct access to the value
          */
-        public CoverageComponent setBusinessArrangementElement(StringType value) {
+        public CoverageComponent setBusinessArrangementElement(StringType value) { 
           this.businessArrangement = value;
           return this;
         }
@@ -1020,14 +1020,14 @@ public class Claim extends DomainResource {
         /**
          * @return The contract number of a business agreement which describes the terms and conditions.
          */
-        public String getBusinessArrangement() {
+        public String getBusinessArrangement() { 
           return this.businessArrangement == null ? null : this.businessArrangement.getValue();
         }
 
         /**
          * @param value The contract number of a business agreement which describes the terms and conditions.
          */
-        public CoverageComponent setBusinessArrangement(String value) {
+        public CoverageComponent setBusinessArrangement(String value) { 
           if (Utilities.noString(value))
             this.businessArrangement = null;
           else {
@@ -1041,7 +1041,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #relationship} (The relationship of the patient to the subscriber.)
          */
-        public Coding getRelationship() {
+        public Coding getRelationship() { 
           if (this.relationship == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.relationship");
@@ -1050,14 +1050,14 @@ public class Claim extends DomainResource {
           return this.relationship;
         }
 
-        public boolean hasRelationship() {
+        public boolean hasRelationship() { 
           return this.relationship != null && !this.relationship.isEmpty();
         }
 
         /**
          * @param value {@link #relationship} (The relationship of the patient to the subscriber.)
          */
-        public CoverageComponent setRelationship(Coding value) {
+        public CoverageComponent setRelationship(Coding value) { 
           this.relationship = value;
           return this;
         }
@@ -1065,13 +1065,13 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
-        public List<StringType> getPreAuthRef() {
+        public List<StringType> getPreAuthRef() { 
           if (this.preAuthRef == null)
             this.preAuthRef = new ArrayList<StringType>();
           return this.preAuthRef;
         }
 
-        public boolean hasPreAuthRef() {
+        public boolean hasPreAuthRef() { 
           if (this.preAuthRef == null)
             return false;
           for (StringType item : this.preAuthRef)
@@ -1084,7 +1084,7 @@ public class Claim extends DomainResource {
          * @return {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
     // syntactic sugar
-        public StringType addPreAuthRefElement() {//2
+        public StringType addPreAuthRefElement() {//2 
           StringType t = new StringType();
           if (this.preAuthRef == null)
             this.preAuthRef = new ArrayList<StringType>();
@@ -1107,7 +1107,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #preAuthRef} (A list of references from the Insurer to which these services pertain.)
          */
-        public boolean hasPreAuthRef(String value) {
+        public boolean hasPreAuthRef(String value) { 
           if (this.preAuthRef == null)
             return false;
           for (StringType v : this.preAuthRef)
@@ -1119,7 +1119,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #claimResponse} (The Coverages adjudication details.)
          */
-        public Reference getClaimResponse() {
+        public Reference getClaimResponse() { 
           if (this.claimResponse == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
@@ -1128,14 +1128,14 @@ public class Claim extends DomainResource {
           return this.claimResponse;
         }
 
-        public boolean hasClaimResponse() {
+        public boolean hasClaimResponse() { 
           return this.claimResponse != null && !this.claimResponse.isEmpty();
         }
 
         /**
          * @param value {@link #claimResponse} (The Coverages adjudication details.)
          */
-        public CoverageComponent setClaimResponse(Reference value) {
+        public CoverageComponent setClaimResponse(Reference value) { 
           this.claimResponse = value;
           return this;
         }
@@ -1143,7 +1143,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #claimResponse} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Coverages adjudication details.)
          */
-        public ClaimResponse getClaimResponseTarget() {
+        public ClaimResponse getClaimResponseTarget() { 
           if (this.claimResponseTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.claimResponse");
@@ -1155,7 +1155,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #claimResponse} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Coverages adjudication details.)
          */
-        public CoverageComponent setClaimResponseTarget(ClaimResponse value) {
+        public CoverageComponent setClaimResponseTarget(ClaimResponse value) { 
           this.claimResponseTarget = value;
           return this;
         }
@@ -1163,7 +1163,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
          */
-        public Coding getOriginalRuleset() {
+        public Coding getOriginalRuleset() { 
           if (this.originalRuleset == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create CoverageComponent.originalRuleset");
@@ -1172,14 +1172,14 @@ public class Claim extends DomainResource {
           return this.originalRuleset;
         }
 
-        public boolean hasOriginalRuleset() {
+        public boolean hasOriginalRuleset() { 
           return this.originalRuleset != null && !this.originalRuleset.isEmpty();
         }
 
         /**
          * @param value {@link #originalRuleset} (The style (standard) and version of the original material which was converted into this resource.)
          */
-        public CoverageComponent setOriginalRuleset(Coding value) {
+        public CoverageComponent setOriginalRuleset(Coding value) { 
           this.originalRuleset = value;
           return this;
         }
@@ -1352,90 +1352,97 @@ public class Claim extends DomainResource {
         protected Coding service;
 
         /**
-         * The date when the enclosed suite of services were performed or completed.
+         * The date or dates when the enclosed suite of services were performed or completed.
          */
-        @Child(name = "serviceDate", type = {DateType.class}, order=6, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Date of Service", formalDefinition="The date when the enclosed suite of services were performed or completed." )
-        protected DateType serviceDate;
+        @Child(name = "serviced", type = {DateType.class, Period.class}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Date or dates of Service", formalDefinition="The date or dates when the enclosed suite of services were performed or completed." )
+        protected Type serviced;
+
+        /**
+         * Where the service was provided.
+         */
+        @Child(name = "place", type = {Coding.class}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Place of service", formalDefinition="Where the service was provided." )
+        protected Coding place;
 
         /**
          * The number of repetitions of a service or product.
          */
-        @Child(name = "quantity", type = {SimpleQuantity.class}, order=7, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "quantity", type = {SimpleQuantity.class}, order=8, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Count of Products or Services", formalDefinition="The number of repetitions of a service or product." )
         protected SimpleQuantity quantity;
 
         /**
          * If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
          */
-        @Child(name = "unitPrice", type = {Money.class}, order=8, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "unitPrice", type = {Money.class}, order=9, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group." )
         protected Money unitPrice;
 
         /**
          * A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        @Child(name = "factor", type = {DecimalType.class}, order=9, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "factor", type = {DecimalType.class}, order=10, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Price scaling factor", formalDefinition="A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount." )
         protected DecimalType factor;
 
         /**
          * An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        @Child(name = "points", type = {DecimalType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "points", type = {DecimalType.class}, order=11, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Difficulty scaling factor", formalDefinition="An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point." )
         protected DecimalType points;
 
         /**
-         * The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+         * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
-        @Child(name = "net", type = {Money.class}, order=11, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Total item cost", formalDefinition="The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
+        @Child(name = "net", type = {Money.class}, order=12, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Total item cost", formalDefinition="The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Coding.class}, order=12, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "udi", type = {Coding.class}, order=13, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
         protected Coding udi;
 
         /**
-         * Physical service site on the patient (limb, tooth, etc.).
+         * Physical service site on the patient (limb, tooth, etc).
          */
-        @Child(name = "bodySite", type = {Coding.class}, order=13, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Service Location", formalDefinition="Physical service site on the patient (limb, tooth, etc.)." )
+        @Child(name = "bodySite", type = {Coding.class}, order=14, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Service Location", formalDefinition="Physical service site on the patient (limb, tooth, etc)." )
         protected Coding bodySite;
 
         /**
-         * A region or surface of the site, e.g. limb region or tooth surface(s).
+         * A region or surface of the site, eg. limb region or tooth surface(s).
          */
-        @Child(name = "subSite", type = {Coding.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Service Sub-location", formalDefinition="A region or surface of the site, e.g. limb region or tooth surface(s)." )
+        @Child(name = "subSite", type = {Coding.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Service Sub-location", formalDefinition="A region or surface of the site, eg. limb region or tooth surface(s)." )
         protected List<Coding> subSite;
 
         /**
-         * Item typification or modifiers codes, e.g. for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
+         * Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
          */
-        @Child(name = "modifier", type = {Coding.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, e.g. for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen." )
+        @Child(name = "modifier", type = {Coding.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Service/Product billing modifiers", formalDefinition="Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen." )
         protected List<Coding> modifier;
 
         /**
          * Second tier of goods and services.
          */
-        @Child(name = "detail", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "detail", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Additional items", formalDefinition="Second tier of goods and services." )
         protected List<DetailComponent> detail;
 
         /**
          * The materials and placement date of prior fixed prosthesis.
          */
-        @Child(name = "prosthesis", type = {}, order=17, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "prosthesis", type = {}, order=18, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Prosthetic details", formalDefinition="The materials and placement date of prior fixed prosthesis." )
         protected ProsthesisComponent prosthesis;
 
-        private static final long serialVersionUID = 1295830456L;
+        private static final long serialVersionUID = -1914609123L;
 
     /*
      * Constructor
@@ -1457,7 +1464,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public PositiveIntType getSequenceElement() {
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.sequence");
@@ -1466,18 +1473,18 @@ public class Claim extends DomainResource {
           return this.sequence;
         }
 
-        public boolean hasSequenceElement() {
+        public boolean hasSequenceElement() { 
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
-        public boolean hasSequence() {
+        public boolean hasSequence() { 
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
          * @param value {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public ItemsComponent setSequenceElement(PositiveIntType value) {
+        public ItemsComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -1485,14 +1492,14 @@ public class Claim extends DomainResource {
         /**
          * @return A service line number.
          */
-        public int getSequence() {
+        public int getSequence() { 
           return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
         }
 
         /**
          * @param value A service line number.
          */
-        public ItemsComponent setSequence(int value) {
+        public ItemsComponent setSequence(int value) { 
             if (this.sequence == null)
               this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
@@ -1502,7 +1509,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #type} (The type of product or service.)
          */
-        public Coding getType() {
+        public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.type");
@@ -1511,14 +1518,14 @@ public class Claim extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of product or service.)
          */
-        public ItemsComponent setType(Coding value) {
+        public ItemsComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
@@ -1526,7 +1533,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
          */
-        public Reference getProvider() {
+        public Reference getProvider() { 
           if (this.provider == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.provider");
@@ -1535,14 +1542,14 @@ public class Claim extends DomainResource {
           return this.provider;
         }
 
-        public boolean hasProvider() {
+        public boolean hasProvider() { 
           return this.provider != null && !this.provider.isEmpty();
         }
 
         /**
          * @param value {@link #provider} (The practitioner who is responsible for the services rendered to the patient.)
          */
-        public ItemsComponent setProvider(Reference value) {
+        public ItemsComponent setProvider(Reference value) { 
           this.provider = value;
           return this;
         }
@@ -1550,7 +1557,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
          */
-        public Practitioner getProviderTarget() {
+        public Practitioner getProviderTarget() { 
           if (this.providerTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.provider");
@@ -1562,7 +1569,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #provider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who is responsible for the services rendered to the patient.)
          */
-        public ItemsComponent setProviderTarget(Practitioner value) {
+        public ItemsComponent setProviderTarget(Practitioner value) { 
           this.providerTarget = value;
           return this;
         }
@@ -1570,13 +1577,13 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
          */
-        public List<PositiveIntType> getDiagnosisLinkId() {
+        public List<PositiveIntType> getDiagnosisLinkId() { 
           if (this.diagnosisLinkId == null)
             this.diagnosisLinkId = new ArrayList<PositiveIntType>();
           return this.diagnosisLinkId;
         }
 
-        public boolean hasDiagnosisLinkId() {
+        public boolean hasDiagnosisLinkId() { 
           if (this.diagnosisLinkId == null)
             return false;
           for (PositiveIntType item : this.diagnosisLinkId)
@@ -1589,7 +1596,7 @@ public class Claim extends DomainResource {
          * @return {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
          */
     // syntactic sugar
-        public PositiveIntType addDiagnosisLinkIdElement() {//2
+        public PositiveIntType addDiagnosisLinkIdElement() {//2 
           PositiveIntType t = new PositiveIntType();
           if (this.diagnosisLinkId == null)
             this.diagnosisLinkId = new ArrayList<PositiveIntType>();
@@ -1612,7 +1619,7 @@ public class Claim extends DomainResource {
         /**
          * @param value {@link #diagnosisLinkId} (Diagnosis applicable for this service or product line.)
          */
-        public boolean hasDiagnosisLinkId(int value) {
+        public boolean hasDiagnosisLinkId(int value) { 
           if (this.diagnosisLinkId == null)
             return false;
           for (PositiveIntType v : this.diagnosisLinkId)
@@ -1624,7 +1631,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
          */
-        public Coding getService() {
+        public Coding getService() { 
           if (this.service == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.service");
@@ -1633,71 +1640,91 @@ public class Claim extends DomainResource {
           return this.service;
         }
 
-        public boolean hasService() {
+        public boolean hasService() { 
           return this.service != null && !this.service.isEmpty();
         }
 
         /**
          * @param value {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
          */
-        public ItemsComponent setService(Coding value) {
+        public ItemsComponent setService(Coding value) { 
           this.service = value;
           return this;
         }
 
         /**
-         * @return {@link #serviceDate} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getServiceDate" gives direct access to the value
+         * @return {@link #serviced} (The date or dates when the enclosed suite of services were performed or completed.)
          */
-        public DateType getServiceDateElement() {
-          if (this.serviceDate == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ItemsComponent.serviceDate");
-            else if (Configuration.doAutoCreate())
-              this.serviceDate = new DateType(); // bb
-          return this.serviceDate;
-        }
-
-        public boolean hasServiceDateElement() {
-          return this.serviceDate != null && !this.serviceDate.isEmpty();
-        }
-
-        public boolean hasServiceDate() {
-          return this.serviceDate != null && !this.serviceDate.isEmpty();
+        public Type getServiced() { 
+          return this.serviced;
         }
 
         /**
-         * @param value {@link #serviceDate} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getServiceDate" gives direct access to the value
+         * @return {@link #serviced} (The date or dates when the enclosed suite of services were performed or completed.)
          */
-        public ItemsComponent setServiceDateElement(DateType value) {
-          this.serviceDate = value;
+        public DateType getServicedDateType() throws FHIRException { 
+          if (!(this.serviced instanceof DateType))
+            throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.serviced.getClass().getName()+" was encountered");
+          return (DateType) this.serviced;
+        }
+
+        public boolean hasServicedDateType() { 
+          return this.serviced instanceof DateType;
+        }
+
+        /**
+         * @return {@link #serviced} (The date or dates when the enclosed suite of services were performed or completed.)
+         */
+        public Period getServicedPeriod() throws FHIRException { 
+          if (!(this.serviced instanceof Period))
+            throw new FHIRException("Type mismatch: the type Period was expected, but "+this.serviced.getClass().getName()+" was encountered");
+          return (Period) this.serviced;
+        }
+
+        public boolean hasServicedPeriod() { 
+          return this.serviced instanceof Period;
+        }
+
+        public boolean hasServiced() { 
+          return this.serviced != null && !this.serviced.isEmpty();
+        }
+
+        /**
+         * @param value {@link #serviced} (The date or dates when the enclosed suite of services were performed or completed.)
+         */
+        public ItemsComponent setServiced(Type value) { 
+          this.serviced = value;
           return this;
         }
 
         /**
-         * @return The date when the enclosed suite of services were performed or completed.
+         * @return {@link #place} (Where the service was provided.)
          */
-        public Date getServiceDate() {
-          return this.serviceDate == null ? null : this.serviceDate.getValue();
+        public Coding getPlace() { 
+          if (this.place == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ItemsComponent.place");
+            else if (Configuration.doAutoCreate())
+              this.place = new Coding(); // cc
+          return this.place;
+        }
+
+        public boolean hasPlace() { 
+          return this.place != null && !this.place.isEmpty();
         }
 
         /**
-         * @param value The date when the enclosed suite of services were performed or completed.
+         * @param value {@link #place} (Where the service was provided.)
          */
-        public ItemsComponent setServiceDate(Date value) {
-          if (value == null)
-            this.serviceDate = null;
-          else {
-            if (this.serviceDate == null)
-              this.serviceDate = new DateType();
-            this.serviceDate.setValue(value);
-          }
+        public ItemsComponent setPlace(Coding value) { 
+          this.place = value;
           return this;
         }
 
         /**
          * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public SimpleQuantity getQuantity() {
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.quantity");
@@ -1706,14 +1733,14 @@ public class Claim extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() {
+        public boolean hasQuantity() { 
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public ItemsComponent setQuantity(SimpleQuantity value) {
+        public ItemsComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -1721,7 +1748,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #unitPrice} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
-        public Money getUnitPrice() {
+        public Money getUnitPrice() { 
           if (this.unitPrice == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.unitPrice");
@@ -1730,14 +1757,14 @@ public class Claim extends DomainResource {
           return this.unitPrice;
         }
 
-        public boolean hasUnitPrice() {
+        public boolean hasUnitPrice() { 
           return this.unitPrice != null && !this.unitPrice.isEmpty();
         }
 
         /**
          * @param value {@link #unitPrice} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
-        public ItemsComponent setUnitPrice(Money value) {
+        public ItemsComponent setUnitPrice(Money value) { 
           this.unitPrice = value;
           return this;
         }
@@ -1745,7 +1772,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public DecimalType getFactorElement() {
+        public DecimalType getFactorElement() { 
           if (this.factor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.factor");
@@ -1754,18 +1781,18 @@ public class Claim extends DomainResource {
           return this.factor;
         }
 
-        public boolean hasFactorElement() {
+        public boolean hasFactorElement() { 
           return this.factor != null && !this.factor.isEmpty();
         }
 
-        public boolean hasFactor() {
+        public boolean hasFactor() { 
           return this.factor != null && !this.factor.isEmpty();
         }
 
         /**
          * @param value {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public ItemsComponent setFactorElement(DecimalType value) {
+        public ItemsComponent setFactorElement(DecimalType value) { 
           this.factor = value;
           return this;
         }
@@ -1773,14 +1800,14 @@ public class Claim extends DomainResource {
         /**
          * @return A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public BigDecimal getFactor() {
+        public BigDecimal getFactor() { 
           return this.factor == null ? null : this.factor.getValue();
         }
 
         /**
          * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public ItemsComponent setFactor(BigDecimal value) {
+        public ItemsComponent setFactor(BigDecimal value) { 
           if (value == null)
             this.factor = null;
           else {
@@ -1794,7 +1821,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
-        public DecimalType getPointsElement() {
+        public DecimalType getPointsElement() { 
           if (this.points == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.points");
@@ -1803,18 +1830,18 @@ public class Claim extends DomainResource {
           return this.points;
         }
 
-        public boolean hasPointsElement() {
+        public boolean hasPointsElement() { 
           return this.points != null && !this.points.isEmpty();
         }
 
-        public boolean hasPoints() {
+        public boolean hasPoints() { 
           return this.points != null && !this.points.isEmpty();
         }
 
         /**
          * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
-        public ItemsComponent setPointsElement(DecimalType value) {
+        public ItemsComponent setPointsElement(DecimalType value) { 
           this.points = value;
           return this;
         }
@@ -1822,14 +1849,14 @@ public class Claim extends DomainResource {
         /**
          * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        public BigDecimal getPoints() {
+        public BigDecimal getPoints() { 
           return this.points == null ? null : this.points.getValue();
         }
 
         /**
          * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        public ItemsComponent setPoints(BigDecimal value) {
+        public ItemsComponent setPoints(BigDecimal value) { 
           if (value == null)
             this.points = null;
           else {
@@ -1841,9 +1868,9 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #net} (The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @return {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
-        public Money getNet() {
+        public Money getNet() { 
           if (this.net == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.net");
@@ -1852,14 +1879,14 @@ public class Claim extends DomainResource {
           return this.net;
         }
 
-        public boolean hasNet() {
+        public boolean hasNet() { 
           return this.net != null && !this.net.isEmpty();
         }
 
         /**
-         * @param value {@link #net} (The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @param value {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
-        public ItemsComponent setNet(Money value) {
+        public ItemsComponent setNet(Money value) { 
           this.net = value;
           return this;
         }
@@ -1867,7 +1894,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public Coding getUdi() {
+        public Coding getUdi() { 
           if (this.udi == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.udi");
@@ -1876,22 +1903,22 @@ public class Claim extends DomainResource {
           return this.udi;
         }
 
-        public boolean hasUdi() {
+        public boolean hasUdi() { 
           return this.udi != null && !this.udi.isEmpty();
         }
 
         /**
          * @param value {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public ItemsComponent setUdi(Coding value) {
+        public ItemsComponent setUdi(Coding value) { 
           this.udi = value;
           return this;
         }
 
         /**
-         * @return {@link #bodySite} (Physical service site on the patient (limb, tooth, etc.).)
+         * @return {@link #bodySite} (Physical service site on the patient (limb, tooth, etc).)
          */
-        public Coding getBodySite() {
+        public Coding getBodySite() { 
           if (this.bodySite == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.bodySite");
@@ -1900,28 +1927,28 @@ public class Claim extends DomainResource {
           return this.bodySite;
         }
 
-        public boolean hasBodySite() {
+        public boolean hasBodySite() { 
           return this.bodySite != null && !this.bodySite.isEmpty();
         }
 
         /**
-         * @param value {@link #bodySite} (Physical service site on the patient (limb, tooth, etc.).)
+         * @param value {@link #bodySite} (Physical service site on the patient (limb, tooth, etc).)
          */
-        public ItemsComponent setBodySite(Coding value) {
+        public ItemsComponent setBodySite(Coding value) { 
           this.bodySite = value;
           return this;
         }
 
         /**
-         * @return {@link #subSite} (A region or surface of the site, e.g. limb region or tooth surface(s).)
+         * @return {@link #subSite} (A region or surface of the site, eg. limb region or tooth surface(s).)
          */
-        public List<Coding> getSubSite() {
+        public List<Coding> getSubSite() { 
           if (this.subSite == null)
             this.subSite = new ArrayList<Coding>();
           return this.subSite;
         }
 
-        public boolean hasSubSite() {
+        public boolean hasSubSite() { 
           if (this.subSite == null)
             return false;
           for (Coding item : this.subSite)
@@ -1931,7 +1958,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #subSite} (A region or surface of the site, e.g. limb region or tooth surface(s).)
+         * @return {@link #subSite} (A region or surface of the site, eg. limb region or tooth surface(s).)
          */
     // syntactic sugar
         public Coding addSubSite() { //3
@@ -1953,15 +1980,15 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #modifier} (Item typification or modifiers codes, e.g. for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.)
+         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.)
          */
-        public List<Coding> getModifier() {
+        public List<Coding> getModifier() { 
           if (this.modifier == null)
             this.modifier = new ArrayList<Coding>();
           return this.modifier;
         }
 
-        public boolean hasModifier() {
+        public boolean hasModifier() { 
           if (this.modifier == null)
             return false;
           for (Coding item : this.modifier)
@@ -1971,7 +1998,7 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #modifier} (Item typification or modifiers codes, e.g. for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.)
+         * @return {@link #modifier} (Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.)
          */
     // syntactic sugar
         public Coding addModifier() { //3
@@ -1995,13 +2022,13 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #detail} (Second tier of goods and services.)
          */
-        public List<DetailComponent> getDetail() {
+        public List<DetailComponent> getDetail() { 
           if (this.detail == null)
             this.detail = new ArrayList<DetailComponent>();
           return this.detail;
         }
 
-        public boolean hasDetail() {
+        public boolean hasDetail() { 
           if (this.detail == null)
             return false;
           for (DetailComponent item : this.detail)
@@ -2035,7 +2062,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #prosthesis} (The materials and placement date of prior fixed prosthesis.)
          */
-        public ProsthesisComponent getProsthesis() {
+        public ProsthesisComponent getProsthesis() { 
           if (this.prosthesis == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ItemsComponent.prosthesis");
@@ -2044,14 +2071,14 @@ public class Claim extends DomainResource {
           return this.prosthesis;
         }
 
-        public boolean hasProsthesis() {
+        public boolean hasProsthesis() { 
           return this.prosthesis != null && !this.prosthesis.isEmpty();
         }
 
         /**
          * @param value {@link #prosthesis} (The materials and placement date of prior fixed prosthesis.)
          */
-        public ItemsComponent setProsthesis(ProsthesisComponent value) {
+        public ItemsComponent setProsthesis(ProsthesisComponent value) { 
           this.prosthesis = value;
           return this;
         }
@@ -2063,16 +2090,17 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("provider", "Reference(Practitioner)", "The practitioner who is responsible for the services rendered to the patient.", 0, java.lang.Integer.MAX_VALUE, provider));
           childrenList.add(new Property("diagnosisLinkId", "positiveInt", "Diagnosis applicable for this service or product line.", 0, java.lang.Integer.MAX_VALUE, diagnosisLinkId));
           childrenList.add(new Property("service", "Coding", "If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.", 0, java.lang.Integer.MAX_VALUE, service));
-          childrenList.add(new Property("serviceDate", "date", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, serviceDate));
+          childrenList.add(new Property("serviced[x]", "date|Period", "The date or dates when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, serviced));
+          childrenList.add(new Property("place", "Coding", "Where the service was provided.", 0, java.lang.Integer.MAX_VALUE, place));
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
           childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
           childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
-          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
+          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
-          childrenList.add(new Property("bodySite", "Coding", "Physical service site on the patient (limb, tooth, etc.).", 0, java.lang.Integer.MAX_VALUE, bodySite));
-          childrenList.add(new Property("subSite", "Coding", "A region or surface of the site, e.g. limb region or tooth surface(s).", 0, java.lang.Integer.MAX_VALUE, subSite));
-          childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, e.g. for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.", 0, java.lang.Integer.MAX_VALUE, modifier));
+          childrenList.add(new Property("bodySite", "Coding", "Physical service site on the patient (limb, tooth, etc).", 0, java.lang.Integer.MAX_VALUE, bodySite));
+          childrenList.add(new Property("subSite", "Coding", "A region or surface of the site, eg. limb region or tooth surface(s).", 0, java.lang.Integer.MAX_VALUE, subSite));
+          childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.", 0, java.lang.Integer.MAX_VALUE, modifier));
           childrenList.add(new Property("detail", "", "Second tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, detail));
           childrenList.add(new Property("prosthesis", "", "The materials and placement date of prior fixed prosthesis.", 0, java.lang.Integer.MAX_VALUE, prosthesis));
         }
@@ -2089,8 +2117,10 @@ public class Claim extends DomainResource {
           this.getDiagnosisLinkId().add(castToPositiveInt(value));
         else if (name.equals("service"))
           this.service = castToCoding(value); // Coding
-        else if (name.equals("serviceDate"))
-          this.serviceDate = castToDate(value); // DateType
+        else if (name.equals("serviced[x]"))
+          this.serviced = (Type) value; // Type
+        else if (name.equals("place"))
+          this.place = castToCoding(value); // Coding
         else if (name.equals("quantity"))
           this.quantity = castToSimpleQuantity(value); // SimpleQuantity
         else if (name.equals("unitPrice"))
@@ -2137,8 +2167,17 @@ public class Claim extends DomainResource {
           this.service = new Coding();
           return this.service;
         }
-        else if (name.equals("serviceDate")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Claim.serviceDate");
+        else if (name.equals("servicedDate")) {
+          this.serviced = new DateType();
+          return this.serviced;
+        }
+        else if (name.equals("servicedPeriod")) {
+          this.serviced = new Period();
+          return this.serviced;
+        }
+        else if (name.equals("place")) {
+          this.place = new Coding();
+          return this.place;
         }
         else if (name.equals("quantity")) {
           this.quantity = new SimpleQuantity();
@@ -2195,7 +2234,8 @@ public class Claim extends DomainResource {
             dst.diagnosisLinkId.add(i.copy());
         };
         dst.service = service == null ? null : service.copy();
-        dst.serviceDate = serviceDate == null ? null : serviceDate.copy();
+        dst.serviced = serviced == null ? null : serviced.copy();
+        dst.place = place == null ? null : place.copy();
         dst.quantity = quantity == null ? null : quantity.copy();
         dst.unitPrice = unitPrice == null ? null : unitPrice.copy();
         dst.factor = factor == null ? null : factor.copy();
@@ -2231,11 +2271,11 @@ public class Claim extends DomainResource {
         ItemsComponent o = (ItemsComponent) other;
         return compareDeep(sequence, o.sequence, true) && compareDeep(type, o.type, true) && compareDeep(provider, o.provider, true)
            && compareDeep(diagnosisLinkId, o.diagnosisLinkId, true) && compareDeep(service, o.service, true)
-           && compareDeep(serviceDate, o.serviceDate, true) && compareDeep(quantity, o.quantity, true) && compareDeep(unitPrice, o.unitPrice, true)
-           && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true) && compareDeep(net, o.net, true)
-           && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true) && compareDeep(subSite, o.subSite, true)
-           && compareDeep(modifier, o.modifier, true) && compareDeep(detail, o.detail, true) && compareDeep(prosthesis, o.prosthesis, true)
-          ;
+           && compareDeep(serviced, o.serviced, true) && compareDeep(place, o.place, true) && compareDeep(quantity, o.quantity, true)
+           && compareDeep(unitPrice, o.unitPrice, true) && compareDeep(factor, o.factor, true) && compareDeep(points, o.points, true)
+           && compareDeep(net, o.net, true) && compareDeep(udi, o.udi, true) && compareDeep(bodySite, o.bodySite, true)
+           && compareDeep(subSite, o.subSite, true) && compareDeep(modifier, o.modifier, true) && compareDeep(detail, o.detail, true)
+           && compareDeep(prosthesis, o.prosthesis, true);
       }
 
       @Override
@@ -2246,14 +2286,13 @@ public class Claim extends DomainResource {
           return false;
         ItemsComponent o = (ItemsComponent) other;
         return compareValues(sequence, o.sequence, true) && compareValues(diagnosisLinkId, o.diagnosisLinkId, true)
-           && compareValues(serviceDate, o.serviceDate, true) && compareValues(factor, o.factor, true) && compareValues(points, o.points, true)
-          ;
+           && compareValues(factor, o.factor, true) && compareValues(points, o.points, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (sequence == null || sequence.isEmpty()) && (type == null || type.isEmpty())
            && (provider == null || provider.isEmpty()) && (diagnosisLinkId == null || diagnosisLinkId.isEmpty())
-           && (service == null || service.isEmpty()) && (serviceDate == null || serviceDate.isEmpty())
+           && (service == null || service.isEmpty()) && (serviced == null || serviced.isEmpty()) && (place == null || place.isEmpty())
            && (quantity == null || quantity.isEmpty()) && (unitPrice == null || unitPrice.isEmpty())
            && (factor == null || factor.isEmpty()) && (points == null || points.isEmpty()) && (net == null || net.isEmpty())
            && (udi == null || udi.isEmpty()) && (bodySite == null || bodySite.isEmpty()) && (subSite == null || subSite.isEmpty())
@@ -2320,10 +2359,10 @@ public class Claim extends DomainResource {
         protected DecimalType points;
 
         /**
-         * The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+         * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
         @Child(name = "net", type = {Money.class}, order=8, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Total additional item cost", formalDefinition="The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
+        @Description(shortDefinition="Total additional item cost", formalDefinition="The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
@@ -2362,7 +2401,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public PositiveIntType getSequenceElement() {
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.sequence");
@@ -2371,18 +2410,18 @@ public class Claim extends DomainResource {
           return this.sequence;
         }
 
-        public boolean hasSequenceElement() {
+        public boolean hasSequenceElement() { 
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
-        public boolean hasSequence() {
+        public boolean hasSequence() { 
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
          * @param value {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public DetailComponent setSequenceElement(PositiveIntType value) {
+        public DetailComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -2390,14 +2429,14 @@ public class Claim extends DomainResource {
         /**
          * @return A service line number.
          */
-        public int getSequence() {
+        public int getSequence() { 
           return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
         }
 
         /**
          * @param value A service line number.
          */
-        public DetailComponent setSequence(int value) {
+        public DetailComponent setSequence(int value) { 
             if (this.sequence == null)
               this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
@@ -2407,7 +2446,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #type} (The type of product or service.)
          */
-        public Coding getType() {
+        public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.type");
@@ -2416,14 +2455,14 @@ public class Claim extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of product or service.)
          */
-        public DetailComponent setType(Coding value) {
+        public DetailComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
@@ -2431,7 +2470,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
          */
-        public Coding getService() {
+        public Coding getService() { 
           if (this.service == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.service");
@@ -2440,14 +2479,14 @@ public class Claim extends DomainResource {
           return this.service;
         }
 
-        public boolean hasService() {
+        public boolean hasService() { 
           return this.service != null && !this.service.isEmpty();
         }
 
         /**
          * @param value {@link #service} (If a grouping item then 'GROUP' otherwise it is a node therefore a code to indicate the Professional Service or Product supplied.)
          */
-        public DetailComponent setService(Coding value) {
+        public DetailComponent setService(Coding value) { 
           this.service = value;
           return this;
         }
@@ -2455,7 +2494,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public SimpleQuantity getQuantity() {
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.quantity");
@@ -2464,14 +2503,14 @@ public class Claim extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() {
+        public boolean hasQuantity() { 
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public DetailComponent setQuantity(SimpleQuantity value) {
+        public DetailComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -2479,7 +2518,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #unitPrice} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
-        public Money getUnitPrice() {
+        public Money getUnitPrice() { 
           if (this.unitPrice == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.unitPrice");
@@ -2488,14 +2527,14 @@ public class Claim extends DomainResource {
           return this.unitPrice;
         }
 
-        public boolean hasUnitPrice() {
+        public boolean hasUnitPrice() { 
           return this.unitPrice != null && !this.unitPrice.isEmpty();
         }
 
         /**
          * @param value {@link #unitPrice} (If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.)
          */
-        public DetailComponent setUnitPrice(Money value) {
+        public DetailComponent setUnitPrice(Money value) { 
           this.unitPrice = value;
           return this;
         }
@@ -2503,7 +2542,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public DecimalType getFactorElement() {
+        public DecimalType getFactorElement() { 
           if (this.factor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.factor");
@@ -2512,18 +2551,18 @@ public class Claim extends DomainResource {
           return this.factor;
         }
 
-        public boolean hasFactorElement() {
+        public boolean hasFactorElement() { 
           return this.factor != null && !this.factor.isEmpty();
         }
 
-        public boolean hasFactor() {
+        public boolean hasFactor() { 
           return this.factor != null && !this.factor.isEmpty();
         }
 
         /**
          * @param value {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public DetailComponent setFactorElement(DecimalType value) {
+        public DetailComponent setFactorElement(DecimalType value) { 
           this.factor = value;
           return this;
         }
@@ -2531,14 +2570,14 @@ public class Claim extends DomainResource {
         /**
          * @return A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public BigDecimal getFactor() {
+        public BigDecimal getFactor() { 
           return this.factor == null ? null : this.factor.getValue();
         }
 
         /**
          * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public DetailComponent setFactor(BigDecimal value) {
+        public DetailComponent setFactor(BigDecimal value) { 
           if (value == null)
             this.factor = null;
           else {
@@ -2552,7 +2591,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
-        public DecimalType getPointsElement() {
+        public DecimalType getPointsElement() { 
           if (this.points == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.points");
@@ -2561,18 +2600,18 @@ public class Claim extends DomainResource {
           return this.points;
         }
 
-        public boolean hasPointsElement() {
+        public boolean hasPointsElement() { 
           return this.points != null && !this.points.isEmpty();
         }
 
-        public boolean hasPoints() {
+        public boolean hasPoints() { 
           return this.points != null && !this.points.isEmpty();
         }
 
         /**
          * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
-        public DetailComponent setPointsElement(DecimalType value) {
+        public DetailComponent setPointsElement(DecimalType value) { 
           this.points = value;
           return this;
         }
@@ -2580,14 +2619,14 @@ public class Claim extends DomainResource {
         /**
          * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        public BigDecimal getPoints() {
+        public BigDecimal getPoints() { 
           return this.points == null ? null : this.points.getValue();
         }
 
         /**
          * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        public DetailComponent setPoints(BigDecimal value) {
+        public DetailComponent setPoints(BigDecimal value) { 
           if (value == null)
             this.points = null;
           else {
@@ -2599,9 +2638,9 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #net} (The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @return {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
-        public Money getNet() {
+        public Money getNet() { 
           if (this.net == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.net");
@@ -2610,14 +2649,14 @@ public class Claim extends DomainResource {
           return this.net;
         }
 
-        public boolean hasNet() {
+        public boolean hasNet() { 
           return this.net != null && !this.net.isEmpty();
         }
 
         /**
-         * @param value {@link #net} (The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @param value {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
-        public DetailComponent setNet(Money value) {
+        public DetailComponent setNet(Money value) { 
           this.net = value;
           return this;
         }
@@ -2625,7 +2664,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public Coding getUdi() {
+        public Coding getUdi() { 
           if (this.udi == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetailComponent.udi");
@@ -2634,14 +2673,14 @@ public class Claim extends DomainResource {
           return this.udi;
         }
 
-        public boolean hasUdi() {
+        public boolean hasUdi() { 
           return this.udi != null && !this.udi.isEmpty();
         }
 
         /**
          * @param value {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public DetailComponent setUdi(Coding value) {
+        public DetailComponent setUdi(Coding value) { 
           this.udi = value;
           return this;
         }
@@ -2649,13 +2688,13 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #subDetail} (Third tier of goods and services.)
          */
-        public List<SubDetailComponent> getSubDetail() {
+        public List<SubDetailComponent> getSubDetail() { 
           if (this.subDetail == null)
             this.subDetail = new ArrayList<SubDetailComponent>();
           return this.subDetail;
         }
 
-        public boolean hasSubDetail() {
+        public boolean hasSubDetail() { 
           if (this.subDetail == null)
             return false;
           for (SubDetailComponent item : this.subDetail)
@@ -2695,7 +2734,7 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("unitPrice", "Money", "If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
           childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
-          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
+          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("subDetail", "", "Third tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, subDetail));
         }
@@ -2843,10 +2882,10 @@ public class Claim extends DomainResource {
         protected Coding type;
 
         /**
-         * The fee for an additional  service or product or charge.
+         * The fee for an addittional service or product or charge.
          */
         @Child(name = "service", type = {Coding.class}, order=3, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Additional item codes", formalDefinition="The fee for an additional  service or product or charge." )
+        @Description(shortDefinition="Additional item codes", formalDefinition="The fee for an addittional service or product or charge." )
         protected Coding service;
 
         /**
@@ -2857,10 +2896,10 @@ public class Claim extends DomainResource {
         protected SimpleQuantity quantity;
 
         /**
-         * The fee for an additional  service or product or charge.
+         * The fee for an addittional service or product or charge.
          */
         @Child(name = "unitPrice", type = {Money.class}, order=5, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="The fee for an additional  service or product or charge." )
+        @Description(shortDefinition="Fee, charge or cost per point", formalDefinition="The fee for an addittional service or product or charge." )
         protected Money unitPrice;
 
         /**
@@ -2878,10 +2917,10 @@ public class Claim extends DomainResource {
         protected DecimalType points;
 
         /**
-         * The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+         * The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
          */
         @Child(name = "net", type = {Money.class}, order=8, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Net additional item cost", formalDefinition="The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
+        @Description(shortDefinition="Net additional item cost", formalDefinition="The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied." )
         protected Money net;
 
         /**
@@ -2913,7 +2952,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public PositiveIntType getSequenceElement() {
+        public PositiveIntType getSequenceElement() { 
           if (this.sequence == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.sequence");
@@ -2922,18 +2961,18 @@ public class Claim extends DomainResource {
           return this.sequence;
         }
 
-        public boolean hasSequenceElement() {
+        public boolean hasSequenceElement() { 
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
-        public boolean hasSequence() {
+        public boolean hasSequence() { 
           return this.sequence != null && !this.sequence.isEmpty();
         }
 
         /**
          * @param value {@link #sequence} (A service line number.). This is the underlying object with id, value and extensions. The accessor "getSequence" gives direct access to the value
          */
-        public SubDetailComponent setSequenceElement(PositiveIntType value) {
+        public SubDetailComponent setSequenceElement(PositiveIntType value) { 
           this.sequence = value;
           return this;
         }
@@ -2941,14 +2980,14 @@ public class Claim extends DomainResource {
         /**
          * @return A service line number.
          */
-        public int getSequence() {
+        public int getSequence() { 
           return this.sequence == null || this.sequence.isEmpty() ? 0 : this.sequence.getValue();
         }
 
         /**
          * @param value A service line number.
          */
-        public SubDetailComponent setSequence(int value) {
+        public SubDetailComponent setSequence(int value) { 
             if (this.sequence == null)
               this.sequence = new PositiveIntType();
             this.sequence.setValue(value);
@@ -2958,7 +2997,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #type} (The type of product or service.)
          */
-        public Coding getType() {
+        public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.type");
@@ -2967,22 +3006,22 @@ public class Claim extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of product or service.)
          */
-        public SubDetailComponent setType(Coding value) {
+        public SubDetailComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
 
         /**
-         * @return {@link #service} (The fee for an additional  service or product or charge.)
+         * @return {@link #service} (The fee for an addittional service or product or charge.)
          */
-        public Coding getService() {
+        public Coding getService() { 
           if (this.service == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.service");
@@ -2991,14 +3030,14 @@ public class Claim extends DomainResource {
           return this.service;
         }
 
-        public boolean hasService() {
+        public boolean hasService() { 
           return this.service != null && !this.service.isEmpty();
         }
 
         /**
-         * @param value {@link #service} (The fee for an additional  service or product or charge.)
+         * @param value {@link #service} (The fee for an addittional service or product or charge.)
          */
-        public SubDetailComponent setService(Coding value) {
+        public SubDetailComponent setService(Coding value) { 
           this.service = value;
           return this;
         }
@@ -3006,7 +3045,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public SimpleQuantity getQuantity() {
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.quantity");
@@ -3015,22 +3054,22 @@ public class Claim extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() {
+        public boolean hasQuantity() { 
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (The number of repetitions of a service or product.)
          */
-        public SubDetailComponent setQuantity(SimpleQuantity value) {
+        public SubDetailComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
 
         /**
-         * @return {@link #unitPrice} (The fee for an additional  service or product or charge.)
+         * @return {@link #unitPrice} (The fee for an addittional service or product or charge.)
          */
-        public Money getUnitPrice() {
+        public Money getUnitPrice() { 
           if (this.unitPrice == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.unitPrice");
@@ -3039,14 +3078,14 @@ public class Claim extends DomainResource {
           return this.unitPrice;
         }
 
-        public boolean hasUnitPrice() {
+        public boolean hasUnitPrice() { 
           return this.unitPrice != null && !this.unitPrice.isEmpty();
         }
 
         /**
-         * @param value {@link #unitPrice} (The fee for an additional  service or product or charge.)
+         * @param value {@link #unitPrice} (The fee for an addittional service or product or charge.)
          */
-        public SubDetailComponent setUnitPrice(Money value) {
+        public SubDetailComponent setUnitPrice(Money value) { 
           this.unitPrice = value;
           return this;
         }
@@ -3054,7 +3093,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public DecimalType getFactorElement() {
+        public DecimalType getFactorElement() { 
           if (this.factor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.factor");
@@ -3063,18 +3102,18 @@ public class Claim extends DomainResource {
           return this.factor;
         }
 
-        public boolean hasFactorElement() {
+        public boolean hasFactorElement() { 
           return this.factor != null && !this.factor.isEmpty();
         }
 
-        public boolean hasFactor() {
+        public boolean hasFactor() { 
           return this.factor != null && !this.factor.isEmpty();
         }
 
         /**
          * @param value {@link #factor} (A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public SubDetailComponent setFactorElement(DecimalType value) {
+        public SubDetailComponent setFactorElement(DecimalType value) { 
           this.factor = value;
           return this;
         }
@@ -3082,14 +3121,14 @@ public class Claim extends DomainResource {
         /**
          * @return A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public BigDecimal getFactor() {
+        public BigDecimal getFactor() { 
           return this.factor == null ? null : this.factor.getValue();
         }
 
         /**
          * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public SubDetailComponent setFactor(BigDecimal value) {
+        public SubDetailComponent setFactor(BigDecimal value) { 
           if (value == null)
             this.factor = null;
           else {
@@ -3103,7 +3142,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
-        public DecimalType getPointsElement() {
+        public DecimalType getPointsElement() { 
           if (this.points == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.points");
@@ -3112,18 +3151,18 @@ public class Claim extends DomainResource {
           return this.points;
         }
 
-        public boolean hasPointsElement() {
+        public boolean hasPointsElement() { 
           return this.points != null && !this.points.isEmpty();
         }
 
-        public boolean hasPoints() {
+        public boolean hasPoints() { 
           return this.points != null && !this.points.isEmpty();
         }
 
         /**
          * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
-        public SubDetailComponent setPointsElement(DecimalType value) {
+        public SubDetailComponent setPointsElement(DecimalType value) { 
           this.points = value;
           return this;
         }
@@ -3131,14 +3170,14 @@ public class Claim extends DomainResource {
         /**
          * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        public BigDecimal getPoints() {
+        public BigDecimal getPoints() { 
           return this.points == null ? null : this.points.getValue();
         }
 
         /**
          * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
          */
-        public SubDetailComponent setPoints(BigDecimal value) {
+        public SubDetailComponent setPoints(BigDecimal value) { 
           if (value == null)
             this.points = null;
           else {
@@ -3150,9 +3189,9 @@ public class Claim extends DomainResource {
         }
 
         /**
-         * @return {@link #net} (The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @return {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
-        public Money getNet() {
+        public Money getNet() { 
           if (this.net == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.net");
@@ -3161,14 +3200,14 @@ public class Claim extends DomainResource {
           return this.net;
         }
 
-        public boolean hasNet() {
+        public boolean hasNet() { 
           return this.net != null && !this.net.isEmpty();
         }
 
         /**
-         * @param value {@link #net} (The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
+         * @param value {@link #net} (The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
-        public SubDetailComponent setNet(Money value) {
+        public SubDetailComponent setNet(Money value) { 
           this.net = value;
           return this;
         }
@@ -3176,7 +3215,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public Coding getUdi() {
+        public Coding getUdi() { 
           if (this.udi == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubDetailComponent.udi");
@@ -3185,14 +3224,14 @@ public class Claim extends DomainResource {
           return this.udi;
         }
 
-        public boolean hasUdi() {
+        public boolean hasUdi() { 
           return this.udi != null && !this.udi.isEmpty();
         }
 
         /**
          * @param value {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public SubDetailComponent setUdi(Coding value) {
+        public SubDetailComponent setUdi(Coding value) { 
           this.udi = value;
           return this;
         }
@@ -3201,12 +3240,12 @@ public class Claim extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("sequence", "positiveInt", "A service line number.", 0, java.lang.Integer.MAX_VALUE, sequence));
           childrenList.add(new Property("type", "Coding", "The type of product or service.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("service", "Coding", "The fee for an additional  service or product or charge.", 0, java.lang.Integer.MAX_VALUE, service));
+          childrenList.add(new Property("service", "Coding", "The fee for an addittional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, service));
           childrenList.add(new Property("quantity", "SimpleQuantity", "The number of repetitions of a service or product.", 0, java.lang.Integer.MAX_VALUE, quantity));
-          childrenList.add(new Property("unitPrice", "Money", "The fee for an additional  service or product or charge.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
+          childrenList.add(new Property("unitPrice", "Money", "The fee for an addittional service or product or charge.", 0, java.lang.Integer.MAX_VALUE, unitPrice));
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
           childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
-          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an additional  service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
+          childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
           childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
         }
 
@@ -3361,7 +3400,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #initial} (Indicates whether this is the initial placement of a fixed prosthesis.). This is the underlying object with id, value and extensions. The accessor "getInitial" gives direct access to the value
          */
-        public BooleanType getInitialElement() {
+        public BooleanType getInitialElement() { 
           if (this.initial == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProsthesisComponent.initial");
@@ -3370,18 +3409,18 @@ public class Claim extends DomainResource {
           return this.initial;
         }
 
-        public boolean hasInitialElement() {
+        public boolean hasInitialElement() { 
           return this.initial != null && !this.initial.isEmpty();
         }
 
-        public boolean hasInitial() {
+        public boolean hasInitial() { 
           return this.initial != null && !this.initial.isEmpty();
         }
 
         /**
          * @param value {@link #initial} (Indicates whether this is the initial placement of a fixed prosthesis.). This is the underlying object with id, value and extensions. The accessor "getInitial" gives direct access to the value
          */
-        public ProsthesisComponent setInitialElement(BooleanType value) {
+        public ProsthesisComponent setInitialElement(BooleanType value) { 
           this.initial = value;
           return this;
         }
@@ -3389,14 +3428,14 @@ public class Claim extends DomainResource {
         /**
          * @return Indicates whether this is the initial placement of a fixed prosthesis.
          */
-        public boolean getInitial() {
+        public boolean getInitial() { 
           return this.initial == null || this.initial.isEmpty() ? false : this.initial.getValue();
         }
 
         /**
          * @param value Indicates whether this is the initial placement of a fixed prosthesis.
          */
-        public ProsthesisComponent setInitial(boolean value) {
+        public ProsthesisComponent setInitial(boolean value) { 
             if (this.initial == null)
               this.initial = new BooleanType();
             this.initial.setValue(value);
@@ -3406,7 +3445,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #priorDate} (Date of the initial placement.). This is the underlying object with id, value and extensions. The accessor "getPriorDate" gives direct access to the value
          */
-        public DateType getPriorDateElement() {
+        public DateType getPriorDateElement() { 
           if (this.priorDate == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProsthesisComponent.priorDate");
@@ -3415,18 +3454,18 @@ public class Claim extends DomainResource {
           return this.priorDate;
         }
 
-        public boolean hasPriorDateElement() {
+        public boolean hasPriorDateElement() { 
           return this.priorDate != null && !this.priorDate.isEmpty();
         }
 
-        public boolean hasPriorDate() {
+        public boolean hasPriorDate() { 
           return this.priorDate != null && !this.priorDate.isEmpty();
         }
 
         /**
          * @param value {@link #priorDate} (Date of the initial placement.). This is the underlying object with id, value and extensions. The accessor "getPriorDate" gives direct access to the value
          */
-        public ProsthesisComponent setPriorDateElement(DateType value) {
+        public ProsthesisComponent setPriorDateElement(DateType value) { 
           this.priorDate = value;
           return this;
         }
@@ -3434,14 +3473,14 @@ public class Claim extends DomainResource {
         /**
          * @return Date of the initial placement.
          */
-        public Date getPriorDate() {
+        public Date getPriorDate() { 
           return this.priorDate == null ? null : this.priorDate.getValue();
         }
 
         /**
          * @param value Date of the initial placement.
          */
-        public ProsthesisComponent setPriorDate(Date value) {
+        public ProsthesisComponent setPriorDate(Date value) { 
           if (value == null)
             this.priorDate = null;
           else {
@@ -3455,7 +3494,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #priorMaterial} (Material of the prior denture or bridge prosthesis. (Oral).)
          */
-        public Coding getPriorMaterial() {
+        public Coding getPriorMaterial() { 
           if (this.priorMaterial == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProsthesisComponent.priorMaterial");
@@ -3464,14 +3503,14 @@ public class Claim extends DomainResource {
           return this.priorMaterial;
         }
 
-        public boolean hasPriorMaterial() {
+        public boolean hasPriorMaterial() { 
           return this.priorMaterial != null && !this.priorMaterial.isEmpty();
         }
 
         /**
          * @param value {@link #priorMaterial} (Material of the prior denture or bridge prosthesis. (Oral).)
          */
-        public ProsthesisComponent setPriorMaterial(Coding value) {
+        public ProsthesisComponent setPriorMaterial(Coding value) { 
           this.priorMaterial = value;
           return this;
         }
@@ -3596,7 +3635,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #tooth} (The code identifying which tooth is missing.)
          */
-        public Coding getTooth() {
+        public Coding getTooth() { 
           if (this.tooth == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MissingTeethComponent.tooth");
@@ -3605,14 +3644,14 @@ public class Claim extends DomainResource {
           return this.tooth;
         }
 
-        public boolean hasTooth() {
+        public boolean hasTooth() { 
           return this.tooth != null && !this.tooth.isEmpty();
         }
 
         /**
          * @param value {@link #tooth} (The code identifying which tooth is missing.)
          */
-        public MissingTeethComponent setTooth(Coding value) {
+        public MissingTeethComponent setTooth(Coding value) { 
           this.tooth = value;
           return this;
         }
@@ -3620,7 +3659,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #reason} (Missing reason may be: E-extraction, O-other.)
          */
-        public Coding getReason() {
+        public Coding getReason() { 
           if (this.reason == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MissingTeethComponent.reason");
@@ -3629,14 +3668,14 @@ public class Claim extends DomainResource {
           return this.reason;
         }
 
-        public boolean hasReason() {
+        public boolean hasReason() { 
           return this.reason != null && !this.reason.isEmpty();
         }
 
         /**
          * @param value {@link #reason} (Missing reason may be: E-extraction, O-other.)
          */
-        public MissingTeethComponent setReason(Coding value) {
+        public MissingTeethComponent setReason(Coding value) { 
           this.reason = value;
           return this;
         }
@@ -3644,7 +3683,7 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #extractionDate} (The date of the extraction either known from records or patient reported estimate.). This is the underlying object with id, value and extensions. The accessor "getExtractionDate" gives direct access to the value
          */
-        public DateType getExtractionDateElement() {
+        public DateType getExtractionDateElement() { 
           if (this.extractionDate == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MissingTeethComponent.extractionDate");
@@ -3653,18 +3692,18 @@ public class Claim extends DomainResource {
           return this.extractionDate;
         }
 
-        public boolean hasExtractionDateElement() {
+        public boolean hasExtractionDateElement() { 
           return this.extractionDate != null && !this.extractionDate.isEmpty();
         }
 
-        public boolean hasExtractionDate() {
+        public boolean hasExtractionDate() { 
           return this.extractionDate != null && !this.extractionDate.isEmpty();
         }
 
         /**
          * @param value {@link #extractionDate} (The date of the extraction either known from records or patient reported estimate.). This is the underlying object with id, value and extensions. The accessor "getExtractionDate" gives direct access to the value
          */
-        public MissingTeethComponent setExtractionDateElement(DateType value) {
+        public MissingTeethComponent setExtractionDateElement(DateType value) { 
           this.extractionDate = value;
           return this;
         }
@@ -3672,14 +3711,14 @@ public class Claim extends DomainResource {
         /**
          * @return The date of the extraction either known from records or patient reported estimate.
          */
-        public Date getExtractionDate() {
+        public Date getExtractionDate() { 
           return this.extractionDate == null ? null : this.extractionDate.getValue();
         }
 
         /**
          * @param value The date of the extraction either known from records or patient reported estimate.
          */
-        public MissingTeethComponent setExtractionDate(Date value) {
+        public MissingTeethComponent setExtractionDate(Date value) { 
           if (value == null)
             this.extractionDate = null;
           else {
@@ -3804,9 +3843,16 @@ public class Claim extends DomainResource {
     protected DateTimeType created;
 
     /**
+     * The billable period for which charges are being submitted.
+     */
+    @Child(name = "billablePeriod", type = {Period.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Period for charge submission", formalDefinition="The billable period for which charges are being submitted." )
+    protected Period billablePeriod;
+
+    /**
      * Insurer Identifier, typical BIN number (6 digit).
      */
-    @Child(name = "target", type = {Organization.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "target", type = {Organization.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Insurer", formalDefinition="Insurer Identifier, typical BIN number (6 digit)." )
     protected Reference target;
 
@@ -3818,7 +3864,7 @@ public class Claim extends DomainResource {
     /**
      * The provider which is responsible for the bill, claim pre-determination, pre-authorization.
      */
-    @Child(name = "provider", type = {Practitioner.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "provider", type = {Practitioner.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Responsible provider", formalDefinition="The provider which is responsible for the bill, claim pre-determination, pre-authorization." )
     protected Reference provider;
 
@@ -3830,7 +3876,7 @@ public class Claim extends DomainResource {
     /**
      * The organization which is responsible for the bill, claim pre-determination, pre-authorization.
      */
-    @Child(name = "organization", type = {Organization.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "organization", type = {Organization.class}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Responsible organization", formalDefinition="The organization which is responsible for the bill, claim pre-determination, pre-authorization." )
     protected Reference organization;
 
@@ -3842,28 +3888,28 @@ public class Claim extends DomainResource {
     /**
      * Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
      */
-    @Child(name = "use", type = {CodeType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "use", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="complete | proposed | exploratory | other", formalDefinition="Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination)." )
     protected Enumeration<Use> use;
 
     /**
-     * Immediate (stat), best effort (normal), deferred (deferred).
+     * Immediate (STAT), best effort (NORMAL), deferred (DEFER).
      */
-    @Child(name = "priority", type = {Coding.class}, order=9, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Desired processing priority", formalDefinition="Immediate (stat), best effort (normal), deferred (deferred)." )
+    @Child(name = "priority", type = {Coding.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Desired processing priority", formalDefinition="Immediate (STAT), best effort (NORMAL), deferred (DEFER)." )
     protected Coding priority;
 
     /**
      * In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.
      */
-    @Child(name = "fundsReserve", type = {Coding.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "fundsReserve", type = {Coding.class}, order=11, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Funds requested to be reserved", formalDefinition="In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested." )
     protected Coding fundsReserve;
 
     /**
      * Person who created the invoice/claim/pre-determination or pre-authorization.
      */
-    @Child(name = "enterer", type = {Practitioner.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "enterer", type = {Practitioner.class}, order=12, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Author", formalDefinition="Person who created the invoice/claim/pre-determination or pre-authorization." )
     protected Reference enterer;
 
@@ -3875,7 +3921,7 @@ public class Claim extends DomainResource {
     /**
      * Facility where the services were provided.
      */
-    @Child(name = "facility", type = {Location.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "facility", type = {Location.class}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Servicing Facility", formalDefinition="Facility where the services were provided." )
     protected Reference facility;
 
@@ -3885,9 +3931,21 @@ public class Claim extends DomainResource {
     protected Location facilityTarget;
 
     /**
+     * Other claims which are related to this claim such as prior claim versions or for related services.
+     */
+    @Child(name = "relatedClaim", type = {Claim.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Related Claims", formalDefinition="Other claims which are related to this claim such as prior claim versions or for related services." )
+    protected List<Reference> relatedClaim;
+    /**
+     * The actual objects that are the target of the reference (Other claims which are related to this claim such as prior claim versions or for related services.)
+     */
+    protected List<Claim> relatedClaimTarget;
+
+
+    /**
      * Prescription to support the dispensing of Pharmacy or Vision products.
      */
-    @Child(name = "prescription", type = {MedicationOrder.class, VisionPrescription.class}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "prescription", type = {MedicationOrder.class, VisionPrescription.class}, order=15, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Prescription", formalDefinition="Prescription to support the dispensing of Pharmacy or Vision products." )
     protected Reference prescription;
 
@@ -3897,28 +3955,28 @@ public class Claim extends DomainResource {
     protected Resource prescriptionTarget;
 
     /**
-     * Original prescription to support the dispensing of pharmacy services, medications or products.
+     * Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.
      */
-    @Child(name = "originalPrescription", type = {MedicationOrder.class}, order=14, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription to support the dispensing of pharmacy services, medications or products." )
+    @Child(name = "originalPrescription", type = {MedicationOrder.class}, order=16, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Original Prescription", formalDefinition="Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products." )
     protected Reference originalPrescription;
 
     /**
-     * The actual object that is the target of the reference (Original prescription to support the dispensing of pharmacy services, medications or products.)
+     * The actual object that is the target of the reference (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
      */
     protected MedicationOrder originalPrescriptionTarget;
 
     /**
      * The party to be reimbursed for the services.
      */
-    @Child(name = "payee", type = {}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "payee", type = {}, order=17, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Payee", formalDefinition="The party to be reimbursed for the services." )
     protected PayeeComponent payee;
 
     /**
      * The referral resource which lists the date, practitioner, reason and other supporting information.
      */
-    @Child(name = "referral", type = {ReferralRequest.class}, order=16, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "referral", type = {ReferralRequest.class}, order=18, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Treatment Referral", formalDefinition="The referral resource which lists the date, practitioner, reason and other supporting information." )
     protected Reference referral;
 
@@ -3930,21 +3988,21 @@ public class Claim extends DomainResource {
     /**
      * Ordered list of patient diagnosis for which care is sought.
      */
-    @Child(name = "diagnosis", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "diagnosis", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Diagnosis", formalDefinition="Ordered list of patient diagnosis for which care is sought." )
     protected List<DiagnosisComponent> diagnosis;
 
     /**
-     * List of patient conditions for which care is sought.
+     * List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.
      */
-    @Child(name = "condition", type = {Coding.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="List of presenting Conditions", formalDefinition="List of patient conditions for which care is sought." )
-    protected List<Coding> condition;
+    @Child(name = "specialCondition", type = {Coding.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="List of special Conditions", formalDefinition="List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication." )
+    protected List<Coding> specialCondition;
 
     /**
      * Patient Resource.
      */
-    @Child(name = "patient", type = {Patient.class}, order=19, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=21, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The subject of the Products and Services", formalDefinition="Patient Resource." )
     protected Reference patient;
 
@@ -3956,67 +4014,102 @@ public class Claim extends DomainResource {
     /**
      * Financial instrument by which payment information for health care.
      */
-    @Child(name = "coverage", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "coverage", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Insurance or medical plan", formalDefinition="Financial instrument by which payment information for health care." )
     protected List<CoverageComponent> coverage;
 
     /**
      * Factors which may influence the applicability of coverage.
      */
-    @Child(name = "exception", type = {Coding.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "exception", type = {Coding.class}, order=23, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Eligibility exceptions", formalDefinition="Factors which may influence the applicability of coverage." )
     protected List<Coding> exception;
 
     /**
-     * Name of school for over-aged dependents.
+     * Name of school for over-aged dependants.
      */
-    @Child(name = "school", type = {StringType.class}, order=22, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Name of School", formalDefinition="Name of school for over-aged dependents." )
+    @Child(name = "school", type = {StringType.class}, order=24, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Name of School", formalDefinition="Name of school for over-aged dependants." )
     protected StringType school;
 
     /**
      * Date of an accident which these services are addressing.
      */
-    @Child(name = "accident", type = {DateType.class}, order=23, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "accidentDate", type = {DateType.class}, order=25, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Accident Date", formalDefinition="Date of an accident which these services are addressing." )
-    protected DateType accident;
+    protected DateType accidentDate;
 
     /**
      * Type of accident: work, auto, etc.
      */
-    @Child(name = "accidentType", type = {Coding.class}, order=24, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "accidentType", type = {Coding.class}, order=26, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Accident Type", formalDefinition="Type of accident: work, auto, etc." )
     protected Coding accidentType;
 
     /**
+     * Accident Place.
+     */
+    @Child(name = "accidentLocation", type = {StringType.class, Address.class, Location.class}, order=27, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Accident Place", formalDefinition="Accident Place." )
+    protected Type accidentLocation;
+
+    /**
      * A list of intervention and exception codes which may influence the adjudication of the claim.
      */
-    @Child(name = "interventionException", type = {Coding.class}, order=25, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "interventionException", type = {Coding.class}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Intervention and exception code (Pharma)", formalDefinition="A list of intervention and exception codes which may influence the adjudication of the claim." )
     protected List<Coding> interventionException;
 
     /**
+     * The start or start and end dates for the treatable condition.
+     */
+    @Child(name = "onset", type = {DateType.class, Period.class}, order=29, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Illness, injury or treatable condition date", formalDefinition="The start or start and end dates for the treatable condition." )
+    protected Type onset;
+
+    /**
+     * The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).
+     */
+    @Child(name = "employmentImpacted", type = {Period.class}, order=30, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Period unable to work", formalDefinition="The start and optional end dates of when the patient was precluded from working due to the treatable condition(s)." )
+    protected Period employmentImpacted;
+
+    /**
+     * The start and optional end dates of when the patient was confined to a treatment center.
+     */
+    @Child(name = "hospitalization", type = {Period.class}, order=31, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Period in hospital", formalDefinition="The start and optional end dates of when the patient was confined to a treatment center." )
+    protected Period hospitalization;
+
+    /**
      * First tier of goods and services.
      */
-    @Child(name = "item", type = {}, order=26, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "item", type = {}, order=32, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Goods and Services", formalDefinition="First tier of goods and services." )
     protected List<ItemsComponent> item;
 
     /**
+     * The total value of the claim.
+     */
+    @Child(name = "total", type = {Money.class}, order=33, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Total claim cost", formalDefinition="The total value of the claim." )
+    protected Money total;
+
+    /**
      * Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.
      */
-    @Child(name = "additionalMaterials", type = {Coding.class}, order=27, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "additionalMaterials", type = {Coding.class}, order=34, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Additional materials, documents, etc.", formalDefinition="Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission." )
     protected List<Coding> additionalMaterials;
 
     /**
      * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
      */
-    @Child(name = "missingTeeth", type = {}, order=28, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "missingTeeth", type = {}, order=35, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Only if type = oral", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
     protected List<MissingTeethComponent> missingTeeth;
 
-    private static final long serialVersionUID = 4272227L;
+    private static final long serialVersionUID = -763997683L;
 
   /*
    * Constructor
@@ -4037,7 +4130,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #type} (The category of claim this is.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<ClaimType> getTypeElement() {
+    public Enumeration<ClaimType> getTypeElement() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.type");
@@ -4046,18 +4139,18 @@ public class Claim extends DomainResource {
       return this.type;
     }
 
-    public boolean hasTypeElement() {
+    public boolean hasTypeElement() { 
       return this.type != null && !this.type.isEmpty();
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (The category of claim this is.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Claim setTypeElement(Enumeration<ClaimType> value) {
+    public Claim setTypeElement(Enumeration<ClaimType> value) { 
       this.type = value;
       return this;
     }
@@ -4065,14 +4158,14 @@ public class Claim extends DomainResource {
     /**
      * @return The category of claim this is.
      */
-    public ClaimType getType() {
+    public ClaimType getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value The category of claim this is.
      */
-    public Claim setType(ClaimType value) {
+    public Claim setType(ClaimType value) { 
         if (this.type == null)
           this.type = new Enumeration<ClaimType>(new ClaimTypeEnumFactory());
         this.type.setValue(value);
@@ -4082,13 +4175,13 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #identifier} (The business identifier for the instance: invoice number, claim number, pre-determination or pre-authorization number.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -4122,7 +4215,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #ruleset} (The version of the specification on which this instance relies.)
      */
-    public Coding getRuleset() {
+    public Coding getRuleset() { 
       if (this.ruleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.ruleset");
@@ -4131,14 +4224,14 @@ public class Claim extends DomainResource {
       return this.ruleset;
     }
 
-    public boolean hasRuleset() {
+    public boolean hasRuleset() { 
       return this.ruleset != null && !this.ruleset.isEmpty();
     }
 
     /**
      * @param value {@link #ruleset} (The version of the specification on which this instance relies.)
      */
-    public Claim setRuleset(Coding value) {
+    public Claim setRuleset(Coding value) { 
       this.ruleset = value;
       return this;
     }
@@ -4146,7 +4239,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #originalRuleset} (The version of the specification from which the original instance was created.)
      */
-    public Coding getOriginalRuleset() {
+    public Coding getOriginalRuleset() { 
       if (this.originalRuleset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.originalRuleset");
@@ -4155,14 +4248,14 @@ public class Claim extends DomainResource {
       return this.originalRuleset;
     }
 
-    public boolean hasOriginalRuleset() {
+    public boolean hasOriginalRuleset() { 
       return this.originalRuleset != null && !this.originalRuleset.isEmpty();
     }
 
     /**
      * @param value {@link #originalRuleset} (The version of the specification from which the original instance was created.)
      */
-    public Claim setOriginalRuleset(Coding value) {
+    public Claim setOriginalRuleset(Coding value) { 
       this.originalRuleset = value;
       return this;
     }
@@ -4170,7 +4263,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #created} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public DateTimeType getCreatedElement() {
+    public DateTimeType getCreatedElement() { 
       if (this.created == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.created");
@@ -4179,18 +4272,18 @@ public class Claim extends DomainResource {
       return this.created;
     }
 
-    public boolean hasCreatedElement() {
+    public boolean hasCreatedElement() { 
       return this.created != null && !this.created.isEmpty();
     }
 
-    public boolean hasCreated() {
+    public boolean hasCreated() { 
       return this.created != null && !this.created.isEmpty();
     }
 
     /**
      * @param value {@link #created} (The date when the enclosed suite of services were performed or completed.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
-    public Claim setCreatedElement(DateTimeType value) {
+    public Claim setCreatedElement(DateTimeType value) { 
       this.created = value;
       return this;
     }
@@ -4198,14 +4291,14 @@ public class Claim extends DomainResource {
     /**
      * @return The date when the enclosed suite of services were performed or completed.
      */
-    public Date getCreated() {
+    public Date getCreated() { 
       return this.created == null ? null : this.created.getValue();
     }
 
     /**
      * @param value The date when the enclosed suite of services were performed or completed.
      */
-    public Claim setCreated(Date value) {
+    public Claim setCreated(Date value) { 
       if (value == null)
         this.created = null;
       else {
@@ -4217,9 +4310,33 @@ public class Claim extends DomainResource {
     }
 
     /**
+     * @return {@link #billablePeriod} (The billable period for which charges are being submitted.)
+     */
+    public Period getBillablePeriod() { 
+      if (this.billablePeriod == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Claim.billablePeriod");
+        else if (Configuration.doAutoCreate())
+          this.billablePeriod = new Period(); // cc
+      return this.billablePeriod;
+    }
+
+    public boolean hasBillablePeriod() { 
+      return this.billablePeriod != null && !this.billablePeriod.isEmpty();
+    }
+
+    /**
+     * @param value {@link #billablePeriod} (The billable period for which charges are being submitted.)
+     */
+    public Claim setBillablePeriod(Period value) { 
+      this.billablePeriod = value;
+      return this;
+    }
+
+    /**
      * @return {@link #target} (Insurer Identifier, typical BIN number (6 digit).)
      */
-    public Reference getTarget() {
+    public Reference getTarget() { 
       if (this.target == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.target");
@@ -4228,14 +4345,14 @@ public class Claim extends DomainResource {
       return this.target;
     }
 
-    public boolean hasTarget() {
+    public boolean hasTarget() { 
       return this.target != null && !this.target.isEmpty();
     }
 
     /**
      * @param value {@link #target} (Insurer Identifier, typical BIN number (6 digit).)
      */
-    public Claim setTarget(Reference value) {
+    public Claim setTarget(Reference value) { 
       this.target = value;
       return this;
     }
@@ -4243,7 +4360,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #target} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Insurer Identifier, typical BIN number (6 digit).)
      */
-    public Organization getTargetTarget() {
+    public Organization getTargetTarget() { 
       if (this.targetTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.target");
@@ -4255,7 +4372,7 @@ public class Claim extends DomainResource {
     /**
      * @param value {@link #target} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Insurer Identifier, typical BIN number (6 digit).)
      */
-    public Claim setTargetTarget(Organization value) {
+    public Claim setTargetTarget(Organization value) { 
       this.targetTarget = value;
       return this;
     }
@@ -4263,7 +4380,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #provider} (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
-    public Reference getProvider() {
+    public Reference getProvider() { 
       if (this.provider == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.provider");
@@ -4272,14 +4389,14 @@ public class Claim extends DomainResource {
       return this.provider;
     }
 
-    public boolean hasProvider() {
+    public boolean hasProvider() { 
       return this.provider != null && !this.provider.isEmpty();
     }
 
     /**
      * @param value {@link #provider} (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
-    public Claim setProvider(Reference value) {
+    public Claim setProvider(Reference value) { 
       this.provider = value;
       return this;
     }
@@ -4287,7 +4404,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #provider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
-    public Practitioner getProviderTarget() {
+    public Practitioner getProviderTarget() { 
       if (this.providerTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.provider");
@@ -4299,7 +4416,7 @@ public class Claim extends DomainResource {
     /**
      * @param value {@link #provider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The provider which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
-    public Claim setProviderTarget(Practitioner value) {
+    public Claim setProviderTarget(Practitioner value) { 
       this.providerTarget = value;
       return this;
     }
@@ -4307,7 +4424,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #organization} (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
-    public Reference getOrganization() {
+    public Reference getOrganization() { 
       if (this.organization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.organization");
@@ -4316,14 +4433,14 @@ public class Claim extends DomainResource {
       return this.organization;
     }
 
-    public boolean hasOrganization() {
+    public boolean hasOrganization() { 
       return this.organization != null && !this.organization.isEmpty();
     }
 
     /**
      * @param value {@link #organization} (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
-    public Claim setOrganization(Reference value) {
+    public Claim setOrganization(Reference value) { 
       this.organization = value;
       return this;
     }
@@ -4331,7 +4448,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #organization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
-    public Organization getOrganizationTarget() {
+    public Organization getOrganizationTarget() { 
       if (this.organizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.organization");
@@ -4343,7 +4460,7 @@ public class Claim extends DomainResource {
     /**
      * @param value {@link #organization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization which is responsible for the bill, claim pre-determination, pre-authorization.)
      */
-    public Claim setOrganizationTarget(Organization value) {
+    public Claim setOrganizationTarget(Organization value) { 
       this.organizationTarget = value;
       return this;
     }
@@ -4351,7 +4468,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #use} (Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Enumeration<Use> getUseElement() {
+    public Enumeration<Use> getUseElement() { 
       if (this.use == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.use");
@@ -4360,18 +4477,18 @@ public class Claim extends DomainResource {
       return this.use;
     }
 
-    public boolean hasUseElement() {
+    public boolean hasUseElement() { 
       return this.use != null && !this.use.isEmpty();
     }
 
-    public boolean hasUse() {
+    public boolean hasUse() { 
       return this.use != null && !this.use.isEmpty();
     }
 
     /**
      * @param value {@link #use} (Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
      */
-    public Claim setUseElement(Enumeration<Use> value) {
+    public Claim setUseElement(Enumeration<Use> value) { 
       this.use = value;
       return this;
     }
@@ -4379,14 +4496,14 @@ public class Claim extends DomainResource {
     /**
      * @return Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
      */
-    public Use getUse() {
+    public Use getUse() { 
       return this.use == null ? null : this.use.getValue();
     }
 
     /**
      * @param value Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
      */
-    public Claim setUse(Use value) {
+    public Claim setUse(Use value) { 
       if (value == null)
         this.use = null;
       else {
@@ -4398,9 +4515,9 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #priority} (Immediate (stat), best effort (normal), deferred (deferred).)
+     * @return {@link #priority} (Immediate (STAT), best effort (NORMAL), deferred (DEFER).)
      */
-    public Coding getPriority() {
+    public Coding getPriority() { 
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.priority");
@@ -4409,14 +4526,14 @@ public class Claim extends DomainResource {
       return this.priority;
     }
 
-    public boolean hasPriority() {
+    public boolean hasPriority() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
-     * @param value {@link #priority} (Immediate (stat), best effort (normal), deferred (deferred).)
+     * @param value {@link #priority} (Immediate (STAT), best effort (NORMAL), deferred (DEFER).)
      */
-    public Claim setPriority(Coding value) {
+    public Claim setPriority(Coding value) { 
       this.priority = value;
       return this;
     }
@@ -4424,7 +4541,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #fundsReserve} (In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.)
      */
-    public Coding getFundsReserve() {
+    public Coding getFundsReserve() { 
       if (this.fundsReserve == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.fundsReserve");
@@ -4433,14 +4550,14 @@ public class Claim extends DomainResource {
       return this.fundsReserve;
     }
 
-    public boolean hasFundsReserve() {
+    public boolean hasFundsReserve() { 
       return this.fundsReserve != null && !this.fundsReserve.isEmpty();
     }
 
     /**
      * @param value {@link #fundsReserve} (In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.)
      */
-    public Claim setFundsReserve(Coding value) {
+    public Claim setFundsReserve(Coding value) { 
       this.fundsReserve = value;
       return this;
     }
@@ -4448,7 +4565,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #enterer} (Person who created the invoice/claim/pre-determination or pre-authorization.)
      */
-    public Reference getEnterer() {
+    public Reference getEnterer() { 
       if (this.enterer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.enterer");
@@ -4457,14 +4574,14 @@ public class Claim extends DomainResource {
       return this.enterer;
     }
 
-    public boolean hasEnterer() {
+    public boolean hasEnterer() { 
       return this.enterer != null && !this.enterer.isEmpty();
     }
 
     /**
      * @param value {@link #enterer} (Person who created the invoice/claim/pre-determination or pre-authorization.)
      */
-    public Claim setEnterer(Reference value) {
+    public Claim setEnterer(Reference value) { 
       this.enterer = value;
       return this;
     }
@@ -4472,7 +4589,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #enterer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Person who created the invoice/claim/pre-determination or pre-authorization.)
      */
-    public Practitioner getEntererTarget() {
+    public Practitioner getEntererTarget() { 
       if (this.entererTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.enterer");
@@ -4484,7 +4601,7 @@ public class Claim extends DomainResource {
     /**
      * @param value {@link #enterer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Person who created the invoice/claim/pre-determination or pre-authorization.)
      */
-    public Claim setEntererTarget(Practitioner value) {
+    public Claim setEntererTarget(Practitioner value) { 
       this.entererTarget = value;
       return this;
     }
@@ -4492,7 +4609,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #facility} (Facility where the services were provided.)
      */
-    public Reference getFacility() {
+    public Reference getFacility() { 
       if (this.facility == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.facility");
@@ -4501,14 +4618,14 @@ public class Claim extends DomainResource {
       return this.facility;
     }
 
-    public boolean hasFacility() {
+    public boolean hasFacility() { 
       return this.facility != null && !this.facility.isEmpty();
     }
 
     /**
      * @param value {@link #facility} (Facility where the services were provided.)
      */
-    public Claim setFacility(Reference value) {
+    public Claim setFacility(Reference value) { 
       this.facility = value;
       return this;
     }
@@ -4516,7 +4633,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #facility} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Facility where the services were provided.)
      */
-    public Location getFacilityTarget() {
+    public Location getFacilityTarget() { 
       if (this.facilityTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.facility");
@@ -4528,15 +4645,76 @@ public class Claim extends DomainResource {
     /**
      * @param value {@link #facility} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Facility where the services were provided.)
      */
-    public Claim setFacilityTarget(Location value) {
+    public Claim setFacilityTarget(Location value) { 
       this.facilityTarget = value;
       return this;
     }
 
     /**
+     * @return {@link #relatedClaim} (Other claims which are related to this claim such as prior claim versions or for related services.)
+     */
+    public List<Reference> getRelatedClaim() { 
+      if (this.relatedClaim == null)
+        this.relatedClaim = new ArrayList<Reference>();
+      return this.relatedClaim;
+    }
+
+    public boolean hasRelatedClaim() { 
+      if (this.relatedClaim == null)
+        return false;
+      for (Reference item : this.relatedClaim)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #relatedClaim} (Other claims which are related to this claim such as prior claim versions or for related services.)
+     */
+    // syntactic sugar
+    public Reference addRelatedClaim() { //3
+      Reference t = new Reference();
+      if (this.relatedClaim == null)
+        this.relatedClaim = new ArrayList<Reference>();
+      this.relatedClaim.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public Claim addRelatedClaim(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.relatedClaim == null)
+        this.relatedClaim = new ArrayList<Reference>();
+      this.relatedClaim.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #relatedClaim} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Other claims which are related to this claim such as prior claim versions or for related services.)
+     */
+    public List<Claim> getRelatedClaimTarget() { 
+      if (this.relatedClaimTarget == null)
+        this.relatedClaimTarget = new ArrayList<Claim>();
+      return this.relatedClaimTarget;
+    }
+
+    // syntactic sugar
+    /**
+     * @return {@link #relatedClaim} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Other claims which are related to this claim such as prior claim versions or for related services.)
+     */
+    public Claim addRelatedClaimTarget() { 
+      Claim r = new Claim();
+      if (this.relatedClaimTarget == null)
+        this.relatedClaimTarget = new ArrayList<Claim>();
+      this.relatedClaimTarget.add(r);
+      return r;
+    }
+
+    /**
      * @return {@link #prescription} (Prescription to support the dispensing of Pharmacy or Vision products.)
      */
-    public Reference getPrescription() {
+    public Reference getPrescription() { 
       if (this.prescription == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.prescription");
@@ -4545,14 +4723,14 @@ public class Claim extends DomainResource {
       return this.prescription;
     }
 
-    public boolean hasPrescription() {
+    public boolean hasPrescription() { 
       return this.prescription != null && !this.prescription.isEmpty();
     }
 
     /**
      * @param value {@link #prescription} (Prescription to support the dispensing of Pharmacy or Vision products.)
      */
-    public Claim setPrescription(Reference value) {
+    public Claim setPrescription(Reference value) { 
       this.prescription = value;
       return this;
     }
@@ -4560,22 +4738,22 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #prescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Prescription to support the dispensing of Pharmacy or Vision products.)
      */
-    public Resource getPrescriptionTarget() {
+    public Resource getPrescriptionTarget() { 
       return this.prescriptionTarget;
     }
 
     /**
      * @param value {@link #prescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Prescription to support the dispensing of Pharmacy or Vision products.)
      */
-    public Claim setPrescriptionTarget(Resource value) {
+    public Claim setPrescriptionTarget(Resource value) { 
       this.prescriptionTarget = value;
       return this;
     }
 
     /**
-     * @return {@link #originalPrescription} (Original prescription to support the dispensing of pharmacy services, medications or products.)
+     * @return {@link #originalPrescription} (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
      */
-    public Reference getOriginalPrescription() {
+    public Reference getOriginalPrescription() { 
       if (this.originalPrescription == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.originalPrescription");
@@ -4584,22 +4762,22 @@ public class Claim extends DomainResource {
       return this.originalPrescription;
     }
 
-    public boolean hasOriginalPrescription() {
+    public boolean hasOriginalPrescription() { 
       return this.originalPrescription != null && !this.originalPrescription.isEmpty();
     }
 
     /**
-     * @param value {@link #originalPrescription} (Original prescription to support the dispensing of pharmacy services, medications or products.)
+     * @param value {@link #originalPrescription} (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
      */
-    public Claim setOriginalPrescription(Reference value) {
+    public Claim setOriginalPrescription(Reference value) { 
       this.originalPrescription = value;
       return this;
     }
 
     /**
-     * @return {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original prescription to support the dispensing of pharmacy services, medications or products.)
+     * @return {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
      */
-    public MedicationOrder getOriginalPrescriptionTarget() {
+    public MedicationOrder getOriginalPrescriptionTarget() { 
       if (this.originalPrescriptionTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.originalPrescription");
@@ -4609,9 +4787,9 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @param value {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original prescription to support the dispensing of pharmacy services, medications or products.)
+     * @param value {@link #originalPrescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.)
      */
-    public Claim setOriginalPrescriptionTarget(MedicationOrder value) {
+    public Claim setOriginalPrescriptionTarget(MedicationOrder value) { 
       this.originalPrescriptionTarget = value;
       return this;
     }
@@ -4619,7 +4797,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #payee} (The party to be reimbursed for the services.)
      */
-    public PayeeComponent getPayee() {
+    public PayeeComponent getPayee() { 
       if (this.payee == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.payee");
@@ -4628,14 +4806,14 @@ public class Claim extends DomainResource {
       return this.payee;
     }
 
-    public boolean hasPayee() {
+    public boolean hasPayee() { 
       return this.payee != null && !this.payee.isEmpty();
     }
 
     /**
      * @param value {@link #payee} (The party to be reimbursed for the services.)
      */
-    public Claim setPayee(PayeeComponent value) {
+    public Claim setPayee(PayeeComponent value) { 
       this.payee = value;
       return this;
     }
@@ -4643,7 +4821,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #referral} (The referral resource which lists the date, practitioner, reason and other supporting information.)
      */
-    public Reference getReferral() {
+    public Reference getReferral() { 
       if (this.referral == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.referral");
@@ -4652,14 +4830,14 @@ public class Claim extends DomainResource {
       return this.referral;
     }
 
-    public boolean hasReferral() {
+    public boolean hasReferral() { 
       return this.referral != null && !this.referral.isEmpty();
     }
 
     /**
      * @param value {@link #referral} (The referral resource which lists the date, practitioner, reason and other supporting information.)
      */
-    public Claim setReferral(Reference value) {
+    public Claim setReferral(Reference value) { 
       this.referral = value;
       return this;
     }
@@ -4667,7 +4845,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #referral} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The referral resource which lists the date, practitioner, reason and other supporting information.)
      */
-    public ReferralRequest getReferralTarget() {
+    public ReferralRequest getReferralTarget() { 
       if (this.referralTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.referral");
@@ -4679,7 +4857,7 @@ public class Claim extends DomainResource {
     /**
      * @param value {@link #referral} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The referral resource which lists the date, practitioner, reason and other supporting information.)
      */
-    public Claim setReferralTarget(ReferralRequest value) {
+    public Claim setReferralTarget(ReferralRequest value) { 
       this.referralTarget = value;
       return this;
     }
@@ -4687,13 +4865,13 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #diagnosis} (Ordered list of patient diagnosis for which care is sought.)
      */
-    public List<DiagnosisComponent> getDiagnosis() {
+    public List<DiagnosisComponent> getDiagnosis() { 
       if (this.diagnosis == null)
         this.diagnosis = new ArrayList<DiagnosisComponent>();
       return this.diagnosis;
     }
 
-    public boolean hasDiagnosis() {
+    public boolean hasDiagnosis() { 
       if (this.diagnosis == null)
         return false;
       for (DiagnosisComponent item : this.diagnosis)
@@ -4725,49 +4903,49 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #condition} (List of patient conditions for which care is sought.)
+     * @return {@link #specialCondition} (List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.)
      */
-    public List<Coding> getCondition() {
-      if (this.condition == null)
-        this.condition = new ArrayList<Coding>();
-      return this.condition;
+    public List<Coding> getSpecialCondition() { 
+      if (this.specialCondition == null)
+        this.specialCondition = new ArrayList<Coding>();
+      return this.specialCondition;
     }
 
-    public boolean hasCondition() {
-      if (this.condition == null)
+    public boolean hasSpecialCondition() { 
+      if (this.specialCondition == null)
         return false;
-      for (Coding item : this.condition)
+      for (Coding item : this.specialCondition)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #condition} (List of patient conditions for which care is sought.)
+     * @return {@link #specialCondition} (List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.)
      */
     // syntactic sugar
-    public Coding addCondition() { //3
+    public Coding addSpecialCondition() { //3
       Coding t = new Coding();
-      if (this.condition == null)
-        this.condition = new ArrayList<Coding>();
-      this.condition.add(t);
+      if (this.specialCondition == null)
+        this.specialCondition = new ArrayList<Coding>();
+      this.specialCondition.add(t);
       return t;
     }
 
     // syntactic sugar
-    public Claim addCondition(Coding t) { //3
+    public Claim addSpecialCondition(Coding t) { //3
       if (t == null)
         return this;
-      if (this.condition == null)
-        this.condition = new ArrayList<Coding>();
-      this.condition.add(t);
+      if (this.specialCondition == null)
+        this.specialCondition = new ArrayList<Coding>();
+      this.specialCondition.add(t);
       return this;
     }
 
     /**
      * @return {@link #patient} (Patient Resource.)
      */
-    public Reference getPatient() {
+    public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.patient");
@@ -4776,14 +4954,14 @@ public class Claim extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() {
+    public boolean hasPatient() { 
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (Patient Resource.)
      */
-    public Claim setPatient(Reference value) {
+    public Claim setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -4791,7 +4969,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient Resource.)
      */
-    public Patient getPatientTarget() {
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.patient");
@@ -4803,7 +4981,7 @@ public class Claim extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Patient Resource.)
      */
-    public Claim setPatientTarget(Patient value) {
+    public Claim setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -4811,13 +4989,13 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #coverage} (Financial instrument by which payment information for health care.)
      */
-    public List<CoverageComponent> getCoverage() {
+    public List<CoverageComponent> getCoverage() { 
       if (this.coverage == null)
         this.coverage = new ArrayList<CoverageComponent>();
       return this.coverage;
     }
 
-    public boolean hasCoverage() {
+    public boolean hasCoverage() { 
       if (this.coverage == null)
         return false;
       for (CoverageComponent item : this.coverage)
@@ -4851,13 +5029,13 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #exception} (Factors which may influence the applicability of coverage.)
      */
-    public List<Coding> getException() {
+    public List<Coding> getException() { 
       if (this.exception == null)
         this.exception = new ArrayList<Coding>();
       return this.exception;
     }
 
-    public boolean hasException() {
+    public boolean hasException() { 
       if (this.exception == null)
         return false;
       for (Coding item : this.exception)
@@ -4889,9 +5067,9 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #school} (Name of school for over-aged dependents.). This is the underlying object with id, value and extensions. The accessor "getSchool" gives direct access to the value
+     * @return {@link #school} (Name of school for over-aged dependants.). This is the underlying object with id, value and extensions. The accessor "getSchool" gives direct access to the value
      */
-    public StringType getSchoolElement() {
+    public StringType getSchoolElement() { 
       if (this.school == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.school");
@@ -4900,33 +5078,33 @@ public class Claim extends DomainResource {
       return this.school;
     }
 
-    public boolean hasSchoolElement() {
+    public boolean hasSchoolElement() { 
       return this.school != null && !this.school.isEmpty();
     }
 
-    public boolean hasSchool() {
+    public boolean hasSchool() { 
       return this.school != null && !this.school.isEmpty();
     }
 
     /**
-     * @param value {@link #school} (Name of school for over-aged dependents.). This is the underlying object with id, value and extensions. The accessor "getSchool" gives direct access to the value
+     * @param value {@link #school} (Name of school for over-aged dependants.). This is the underlying object with id, value and extensions. The accessor "getSchool" gives direct access to the value
      */
-    public Claim setSchoolElement(StringType value) {
+    public Claim setSchoolElement(StringType value) { 
       this.school = value;
       return this;
     }
 
     /**
-     * @return Name of school for over-aged dependents.
+     * @return Name of school for over-aged dependants.
      */
-    public String getSchool() {
+    public String getSchool() { 
       return this.school == null ? null : this.school.getValue();
     }
 
     /**
-     * @param value Name of school for over-aged dependents.
+     * @param value Name of school for over-aged dependants.
      */
-    public Claim setSchool(String value) {
+    public Claim setSchool(String value) { 
       if (Utilities.noString(value))
         this.school = null;
       else {
@@ -4938,50 +5116,50 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #accident} (Date of an accident which these services are addressing.). This is the underlying object with id, value and extensions. The accessor "getAccident" gives direct access to the value
+     * @return {@link #accidentDate} (Date of an accident which these services are addressing.). This is the underlying object with id, value and extensions. The accessor "getAccidentDate" gives direct access to the value
      */
-    public DateType getAccidentElement() {
-      if (this.accident == null)
+    public DateType getAccidentDateElement() { 
+      if (this.accidentDate == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Claim.accident");
+          throw new Error("Attempt to auto-create Claim.accidentDate");
         else if (Configuration.doAutoCreate())
-          this.accident = new DateType(); // bb
-      return this.accident;
+          this.accidentDate = new DateType(); // bb
+      return this.accidentDate;
     }
 
-    public boolean hasAccidentElement() {
-      return this.accident != null && !this.accident.isEmpty();
+    public boolean hasAccidentDateElement() { 
+      return this.accidentDate != null && !this.accidentDate.isEmpty();
     }
 
-    public boolean hasAccident() {
-      return this.accident != null && !this.accident.isEmpty();
+    public boolean hasAccidentDate() { 
+      return this.accidentDate != null && !this.accidentDate.isEmpty();
     }
 
     /**
-     * @param value {@link #accident} (Date of an accident which these services are addressing.). This is the underlying object with id, value and extensions. The accessor "getAccident" gives direct access to the value
+     * @param value {@link #accidentDate} (Date of an accident which these services are addressing.). This is the underlying object with id, value and extensions. The accessor "getAccidentDate" gives direct access to the value
      */
-    public Claim setAccidentElement(DateType value) {
-      this.accident = value;
+    public Claim setAccidentDateElement(DateType value) { 
+      this.accidentDate = value;
       return this;
     }
 
     /**
      * @return Date of an accident which these services are addressing.
      */
-    public Date getAccident() {
-      return this.accident == null ? null : this.accident.getValue();
+    public Date getAccidentDate() { 
+      return this.accidentDate == null ? null : this.accidentDate.getValue();
     }
 
     /**
      * @param value Date of an accident which these services are addressing.
      */
-    public Claim setAccident(Date value) {
+    public Claim setAccidentDate(Date value) { 
       if (value == null)
-        this.accident = null;
+        this.accidentDate = null;
       else {
-        if (this.accident == null)
-          this.accident = new DateType();
-        this.accident.setValue(value);
+        if (this.accidentDate == null)
+          this.accidentDate = new DateType();
+        this.accidentDate.setValue(value);
       }
       return this;
     }
@@ -4989,7 +5167,7 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #accidentType} (Type of accident: work, auto, etc.)
      */
-    public Coding getAccidentType() {
+    public Coding getAccidentType() { 
       if (this.accidentType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Claim.accidentType");
@@ -4998,28 +5176,86 @@ public class Claim extends DomainResource {
       return this.accidentType;
     }
 
-    public boolean hasAccidentType() {
+    public boolean hasAccidentType() { 
       return this.accidentType != null && !this.accidentType.isEmpty();
     }
 
     /**
      * @param value {@link #accidentType} (Type of accident: work, auto, etc.)
      */
-    public Claim setAccidentType(Coding value) {
+    public Claim setAccidentType(Coding value) { 
       this.accidentType = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #accidentLocation} (Accident Place.)
+     */
+    public Type getAccidentLocation() { 
+      return this.accidentLocation;
+    }
+
+    /**
+     * @return {@link #accidentLocation} (Accident Place.)
+     */
+    public StringType getAccidentLocationStringType() throws FHIRException { 
+      if (!(this.accidentLocation instanceof StringType))
+        throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.accidentLocation.getClass().getName()+" was encountered");
+      return (StringType) this.accidentLocation;
+    }
+
+    public boolean hasAccidentLocationStringType() { 
+      return this.accidentLocation instanceof StringType;
+    }
+
+    /**
+     * @return {@link #accidentLocation} (Accident Place.)
+     */
+    public Address getAccidentLocationAddress() throws FHIRException { 
+      if (!(this.accidentLocation instanceof Address))
+        throw new FHIRException("Type mismatch: the type Address was expected, but "+this.accidentLocation.getClass().getName()+" was encountered");
+      return (Address) this.accidentLocation;
+    }
+
+    public boolean hasAccidentLocationAddress() { 
+      return this.accidentLocation instanceof Address;
+    }
+
+    /**
+     * @return {@link #accidentLocation} (Accident Place.)
+     */
+    public Reference getAccidentLocationReference() throws FHIRException { 
+      if (!(this.accidentLocation instanceof Reference))
+        throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.accidentLocation.getClass().getName()+" was encountered");
+      return (Reference) this.accidentLocation;
+    }
+
+    public boolean hasAccidentLocationReference() { 
+      return this.accidentLocation instanceof Reference;
+    }
+
+    public boolean hasAccidentLocation() { 
+      return this.accidentLocation != null && !this.accidentLocation.isEmpty();
+    }
+
+    /**
+     * @param value {@link #accidentLocation} (Accident Place.)
+     */
+    public Claim setAccidentLocation(Type value) { 
+      this.accidentLocation = value;
       return this;
     }
 
     /**
      * @return {@link #interventionException} (A list of intervention and exception codes which may influence the adjudication of the claim.)
      */
-    public List<Coding> getInterventionException() {
+    public List<Coding> getInterventionException() { 
       if (this.interventionException == null)
         this.interventionException = new ArrayList<Coding>();
       return this.interventionException;
     }
 
-    public boolean hasInterventionException() {
+    public boolean hasInterventionException() { 
       if (this.interventionException == null)
         return false;
       for (Coding item : this.interventionException)
@@ -5051,15 +5287,108 @@ public class Claim extends DomainResource {
     }
 
     /**
+     * @return {@link #onset} (The start or start and end dates for the treatable condition.)
+     */
+    public Type getOnset() { 
+      return this.onset;
+    }
+
+    /**
+     * @return {@link #onset} (The start or start and end dates for the treatable condition.)
+     */
+    public DateType getOnsetDateType() throws FHIRException { 
+      if (!(this.onset instanceof DateType))
+        throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.onset.getClass().getName()+" was encountered");
+      return (DateType) this.onset;
+    }
+
+    public boolean hasOnsetDateType() { 
+      return this.onset instanceof DateType;
+    }
+
+    /**
+     * @return {@link #onset} (The start or start and end dates for the treatable condition.)
+     */
+    public Period getOnsetPeriod() throws FHIRException { 
+      if (!(this.onset instanceof Period))
+        throw new FHIRException("Type mismatch: the type Period was expected, but "+this.onset.getClass().getName()+" was encountered");
+      return (Period) this.onset;
+    }
+
+    public boolean hasOnsetPeriod() { 
+      return this.onset instanceof Period;
+    }
+
+    public boolean hasOnset() { 
+      return this.onset != null && !this.onset.isEmpty();
+    }
+
+    /**
+     * @param value {@link #onset} (The start or start and end dates for the treatable condition.)
+     */
+    public Claim setOnset(Type value) { 
+      this.onset = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #employmentImpacted} (The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).)
+     */
+    public Period getEmploymentImpacted() { 
+      if (this.employmentImpacted == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Claim.employmentImpacted");
+        else if (Configuration.doAutoCreate())
+          this.employmentImpacted = new Period(); // cc
+      return this.employmentImpacted;
+    }
+
+    public boolean hasEmploymentImpacted() { 
+      return this.employmentImpacted != null && !this.employmentImpacted.isEmpty();
+    }
+
+    /**
+     * @param value {@link #employmentImpacted} (The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).)
+     */
+    public Claim setEmploymentImpacted(Period value) { 
+      this.employmentImpacted = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #hospitalization} (The start and optional end dates of when the patient was confined to a treatment center.)
+     */
+    public Period getHospitalization() { 
+      if (this.hospitalization == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Claim.hospitalization");
+        else if (Configuration.doAutoCreate())
+          this.hospitalization = new Period(); // cc
+      return this.hospitalization;
+    }
+
+    public boolean hasHospitalization() { 
+      return this.hospitalization != null && !this.hospitalization.isEmpty();
+    }
+
+    /**
+     * @param value {@link #hospitalization} (The start and optional end dates of when the patient was confined to a treatment center.)
+     */
+    public Claim setHospitalization(Period value) { 
+      this.hospitalization = value;
+      return this;
+    }
+
+    /**
      * @return {@link #item} (First tier of goods and services.)
      */
-    public List<ItemsComponent> getItem() {
+    public List<ItemsComponent> getItem() { 
       if (this.item == null)
         this.item = new ArrayList<ItemsComponent>();
       return this.item;
     }
 
-    public boolean hasItem() {
+    public boolean hasItem() { 
       if (this.item == null)
         return false;
       for (ItemsComponent item : this.item)
@@ -5091,15 +5420,39 @@ public class Claim extends DomainResource {
     }
 
     /**
+     * @return {@link #total} (The total value of the claim.)
+     */
+    public Money getTotal() { 
+      if (this.total == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Claim.total");
+        else if (Configuration.doAutoCreate())
+          this.total = new Money(); // cc
+      return this.total;
+    }
+
+    public boolean hasTotal() { 
+      return this.total != null && !this.total.isEmpty();
+    }
+
+    /**
+     * @param value {@link #total} (The total value of the claim.)
+     */
+    public Claim setTotal(Money value) { 
+      this.total = value;
+      return this;
+    }
+
+    /**
      * @return {@link #additionalMaterials} (Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.)
      */
-    public List<Coding> getAdditionalMaterials() {
+    public List<Coding> getAdditionalMaterials() { 
       if (this.additionalMaterials == null)
         this.additionalMaterials = new ArrayList<Coding>();
       return this.additionalMaterials;
     }
 
-    public boolean hasAdditionalMaterials() {
+    public boolean hasAdditionalMaterials() { 
       if (this.additionalMaterials == null)
         return false;
       for (Coding item : this.additionalMaterials)
@@ -5133,13 +5486,13 @@ public class Claim extends DomainResource {
     /**
      * @return {@link #missingTeeth} (A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.)
      */
-    public List<MissingTeethComponent> getMissingTeeth() {
+    public List<MissingTeethComponent> getMissingTeeth() { 
       if (this.missingTeeth == null)
         this.missingTeeth = new ArrayList<MissingTeethComponent>();
       return this.missingTeeth;
     }
 
-    public boolean hasMissingTeeth() {
+    public boolean hasMissingTeeth() { 
       if (this.missingTeeth == null)
         return false;
       for (MissingTeethComponent item : this.missingTeeth)
@@ -5177,28 +5530,35 @@ public class Claim extends DomainResource {
         childrenList.add(new Property("ruleset", "Coding", "The version of the specification on which this instance relies.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("originalRuleset", "Coding", "The version of the specification from which the original instance was created.", 0, java.lang.Integer.MAX_VALUE, originalRuleset));
         childrenList.add(new Property("created", "dateTime", "The date when the enclosed suite of services were performed or completed.", 0, java.lang.Integer.MAX_VALUE, created));
+        childrenList.add(new Property("billablePeriod", "Period", "The billable period for which charges are being submitted.", 0, java.lang.Integer.MAX_VALUE, billablePeriod));
         childrenList.add(new Property("target", "Reference(Organization)", "Insurer Identifier, typical BIN number (6 digit).", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("provider", "Reference(Practitioner)", "The provider which is responsible for the bill, claim pre-determination, pre-authorization.", 0, java.lang.Integer.MAX_VALUE, provider));
         childrenList.add(new Property("organization", "Reference(Organization)", "The organization which is responsible for the bill, claim pre-determination, pre-authorization.", 0, java.lang.Integer.MAX_VALUE, organization));
         childrenList.add(new Property("use", "code", "Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).", 0, java.lang.Integer.MAX_VALUE, use));
-        childrenList.add(new Property("priority", "Coding", "Immediate (stat), best effort (normal), deferred (deferred).", 0, java.lang.Integer.MAX_VALUE, priority));
+        childrenList.add(new Property("priority", "Coding", "Immediate (STAT), best effort (NORMAL), deferred (DEFER).", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("fundsReserve", "Coding", "In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.", 0, java.lang.Integer.MAX_VALUE, fundsReserve));
         childrenList.add(new Property("enterer", "Reference(Practitioner)", "Person who created the invoice/claim/pre-determination or pre-authorization.", 0, java.lang.Integer.MAX_VALUE, enterer));
         childrenList.add(new Property("facility", "Reference(Location)", "Facility where the services were provided.", 0, java.lang.Integer.MAX_VALUE, facility));
+        childrenList.add(new Property("relatedClaim", "Reference(Claim)", "Other claims which are related to this claim such as prior claim versions or for related services.", 0, java.lang.Integer.MAX_VALUE, relatedClaim));
         childrenList.add(new Property("prescription", "Reference(MedicationOrder|VisionPrescription)", "Prescription to support the dispensing of Pharmacy or Vision products.", 0, java.lang.Integer.MAX_VALUE, prescription));
-        childrenList.add(new Property("originalPrescription", "Reference(MedicationOrder)", "Original prescription to support the dispensing of pharmacy services, medications or products.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
+        childrenList.add(new Property("originalPrescription", "Reference(MedicationOrder)", "Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.", 0, java.lang.Integer.MAX_VALUE, originalPrescription));
         childrenList.add(new Property("payee", "", "The party to be reimbursed for the services.", 0, java.lang.Integer.MAX_VALUE, payee));
         childrenList.add(new Property("referral", "Reference(ReferralRequest)", "The referral resource which lists the date, practitioner, reason and other supporting information.", 0, java.lang.Integer.MAX_VALUE, referral));
         childrenList.add(new Property("diagnosis", "", "Ordered list of patient diagnosis for which care is sought.", 0, java.lang.Integer.MAX_VALUE, diagnosis));
-        childrenList.add(new Property("condition", "Coding", "List of patient conditions for which care is sought.", 0, java.lang.Integer.MAX_VALUE, condition));
+        childrenList.add(new Property("specialCondition", "Coding", "List of special conditions relating to the setting, treatment or patient  for which care is sought which may influence the adjudication.", 0, java.lang.Integer.MAX_VALUE, specialCondition));
         childrenList.add(new Property("patient", "Reference(Patient)", "Patient Resource.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("coverage", "", "Financial instrument by which payment information for health care.", 0, java.lang.Integer.MAX_VALUE, coverage));
         childrenList.add(new Property("exception", "Coding", "Factors which may influence the applicability of coverage.", 0, java.lang.Integer.MAX_VALUE, exception));
-        childrenList.add(new Property("school", "string", "Name of school for over-aged dependents.", 0, java.lang.Integer.MAX_VALUE, school));
-        childrenList.add(new Property("accident", "date", "Date of an accident which these services are addressing.", 0, java.lang.Integer.MAX_VALUE, accident));
+        childrenList.add(new Property("school", "string", "Name of school for over-aged dependants.", 0, java.lang.Integer.MAX_VALUE, school));
+        childrenList.add(new Property("accidentDate", "date", "Date of an accident which these services are addressing.", 0, java.lang.Integer.MAX_VALUE, accidentDate));
         childrenList.add(new Property("accidentType", "Coding", "Type of accident: work, auto, etc.", 0, java.lang.Integer.MAX_VALUE, accidentType));
+        childrenList.add(new Property("accidentLocation[x]", "string|Address|Reference(Location)", "Accident Place.", 0, java.lang.Integer.MAX_VALUE, accidentLocation));
         childrenList.add(new Property("interventionException", "Coding", "A list of intervention and exception codes which may influence the adjudication of the claim.", 0, java.lang.Integer.MAX_VALUE, interventionException));
+        childrenList.add(new Property("onset[x]", "date|Period", "The start or start and end dates for the treatable condition.", 0, java.lang.Integer.MAX_VALUE, onset));
+        childrenList.add(new Property("employmentImpacted", "Period", "The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).", 0, java.lang.Integer.MAX_VALUE, employmentImpacted));
+        childrenList.add(new Property("hospitalization", "Period", "The start and optional end dates of when the patient was confined to a treatment center.", 0, java.lang.Integer.MAX_VALUE, hospitalization));
         childrenList.add(new Property("item", "", "First tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, item));
+        childrenList.add(new Property("total", "Money", "The total value of the claim.", 0, java.lang.Integer.MAX_VALUE, total));
         childrenList.add(new Property("additionalMaterials", "Coding", "Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.", 0, java.lang.Integer.MAX_VALUE, additionalMaterials));
         childrenList.add(new Property("missingTeeth", "", "A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.", 0, java.lang.Integer.MAX_VALUE, missingTeeth));
       }
@@ -5215,6 +5575,8 @@ public class Claim extends DomainResource {
           this.originalRuleset = castToCoding(value); // Coding
         else if (name.equals("created"))
           this.created = castToDateTime(value); // DateTimeType
+        else if (name.equals("billablePeriod"))
+          this.billablePeriod = castToPeriod(value); // Period
         else if (name.equals("target"))
           this.target = castToReference(value); // Reference
         else if (name.equals("provider"))
@@ -5231,6 +5593,8 @@ public class Claim extends DomainResource {
           this.enterer = castToReference(value); // Reference
         else if (name.equals("facility"))
           this.facility = castToReference(value); // Reference
+        else if (name.equals("relatedClaim"))
+          this.getRelatedClaim().add(castToReference(value));
         else if (name.equals("prescription"))
           this.prescription = castToReference(value); // Reference
         else if (name.equals("originalPrescription"))
@@ -5241,8 +5605,8 @@ public class Claim extends DomainResource {
           this.referral = castToReference(value); // Reference
         else if (name.equals("diagnosis"))
           this.getDiagnosis().add((DiagnosisComponent) value);
-        else if (name.equals("condition"))
-          this.getCondition().add(castToCoding(value));
+        else if (name.equals("specialCondition"))
+          this.getSpecialCondition().add(castToCoding(value));
         else if (name.equals("patient"))
           this.patient = castToReference(value); // Reference
         else if (name.equals("coverage"))
@@ -5251,14 +5615,24 @@ public class Claim extends DomainResource {
           this.getException().add(castToCoding(value));
         else if (name.equals("school"))
           this.school = castToString(value); // StringType
-        else if (name.equals("accident"))
-          this.accident = castToDate(value); // DateType
+        else if (name.equals("accidentDate"))
+          this.accidentDate = castToDate(value); // DateType
         else if (name.equals("accidentType"))
           this.accidentType = castToCoding(value); // Coding
+        else if (name.equals("accidentLocation[x]"))
+          this.accidentLocation = (Type) value; // Type
         else if (name.equals("interventionException"))
           this.getInterventionException().add(castToCoding(value));
+        else if (name.equals("onset[x]"))
+          this.onset = (Type) value; // Type
+        else if (name.equals("employmentImpacted"))
+          this.employmentImpacted = castToPeriod(value); // Period
+        else if (name.equals("hospitalization"))
+          this.hospitalization = castToPeriod(value); // Period
         else if (name.equals("item"))
           this.getItem().add((ItemsComponent) value);
+        else if (name.equals("total"))
+          this.total = castToMoney(value); // Money
         else if (name.equals("additionalMaterials"))
           this.getAdditionalMaterials().add(castToCoding(value));
         else if (name.equals("missingTeeth"))
@@ -5285,6 +5659,10 @@ public class Claim extends DomainResource {
         }
         else if (name.equals("created")) {
           throw new FHIRException("Cannot call addChild on a primitive type Claim.created");
+        }
+        else if (name.equals("billablePeriod")) {
+          this.billablePeriod = new Period();
+          return this.billablePeriod;
         }
         else if (name.equals("target")) {
           this.target = new Reference();
@@ -5317,6 +5695,9 @@ public class Claim extends DomainResource {
           this.facility = new Reference();
           return this.facility;
         }
+        else if (name.equals("relatedClaim")) {
+          return addRelatedClaim();
+        }
         else if (name.equals("prescription")) {
           this.prescription = new Reference();
           return this.prescription;
@@ -5336,8 +5717,8 @@ public class Claim extends DomainResource {
         else if (name.equals("diagnosis")) {
           return addDiagnosis();
         }
-        else if (name.equals("condition")) {
-          return addCondition();
+        else if (name.equals("specialCondition")) {
+          return addSpecialCondition();
         }
         else if (name.equals("patient")) {
           this.patient = new Reference();
@@ -5352,18 +5733,50 @@ public class Claim extends DomainResource {
         else if (name.equals("school")) {
           throw new FHIRException("Cannot call addChild on a primitive type Claim.school");
         }
-        else if (name.equals("accident")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Claim.accident");
+        else if (name.equals("accidentDate")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Claim.accidentDate");
         }
         else if (name.equals("accidentType")) {
           this.accidentType = new Coding();
           return this.accidentType;
         }
+        else if (name.equals("accidentLocationString")) {
+          this.accidentLocation = new StringType();
+          return this.accidentLocation;
+        }
+        else if (name.equals("accidentLocationAddress")) {
+          this.accidentLocation = new Address();
+          return this.accidentLocation;
+        }
+        else if (name.equals("accidentLocationReference")) {
+          this.accidentLocation = new Reference();
+          return this.accidentLocation;
+        }
         else if (name.equals("interventionException")) {
           return addInterventionException();
         }
+        else if (name.equals("onsetDate")) {
+          this.onset = new DateType();
+          return this.onset;
+        }
+        else if (name.equals("onsetPeriod")) {
+          this.onset = new Period();
+          return this.onset;
+        }
+        else if (name.equals("employmentImpacted")) {
+          this.employmentImpacted = new Period();
+          return this.employmentImpacted;
+        }
+        else if (name.equals("hospitalization")) {
+          this.hospitalization = new Period();
+          return this.hospitalization;
+        }
         else if (name.equals("item")) {
           return addItem();
+        }
+        else if (name.equals("total")) {
+          this.total = new Money();
+          return this.total;
         }
         else if (name.equals("additionalMaterials")) {
           return addAdditionalMaterials();
@@ -5392,6 +5805,7 @@ public class Claim extends DomainResource {
         dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.originalRuleset = originalRuleset == null ? null : originalRuleset.copy();
         dst.created = created == null ? null : created.copy();
+        dst.billablePeriod = billablePeriod == null ? null : billablePeriod.copy();
         dst.target = target == null ? null : target.copy();
         dst.provider = provider == null ? null : provider.copy();
         dst.organization = organization == null ? null : organization.copy();
@@ -5400,6 +5814,11 @@ public class Claim extends DomainResource {
         dst.fundsReserve = fundsReserve == null ? null : fundsReserve.copy();
         dst.enterer = enterer == null ? null : enterer.copy();
         dst.facility = facility == null ? null : facility.copy();
+        if (relatedClaim != null) {
+          dst.relatedClaim = new ArrayList<Reference>();
+          for (Reference i : relatedClaim)
+            dst.relatedClaim.add(i.copy());
+        };
         dst.prescription = prescription == null ? null : prescription.copy();
         dst.originalPrescription = originalPrescription == null ? null : originalPrescription.copy();
         dst.payee = payee == null ? null : payee.copy();
@@ -5409,10 +5828,10 @@ public class Claim extends DomainResource {
           for (DiagnosisComponent i : diagnosis)
             dst.diagnosis.add(i.copy());
         };
-        if (condition != null) {
-          dst.condition = new ArrayList<Coding>();
-          for (Coding i : condition)
-            dst.condition.add(i.copy());
+        if (specialCondition != null) {
+          dst.specialCondition = new ArrayList<Coding>();
+          for (Coding i : specialCondition)
+            dst.specialCondition.add(i.copy());
         };
         dst.patient = patient == null ? null : patient.copy();
         if (coverage != null) {
@@ -5426,18 +5845,23 @@ public class Claim extends DomainResource {
             dst.exception.add(i.copy());
         };
         dst.school = school == null ? null : school.copy();
-        dst.accident = accident == null ? null : accident.copy();
+        dst.accidentDate = accidentDate == null ? null : accidentDate.copy();
         dst.accidentType = accidentType == null ? null : accidentType.copy();
+        dst.accidentLocation = accidentLocation == null ? null : accidentLocation.copy();
         if (interventionException != null) {
           dst.interventionException = new ArrayList<Coding>();
           for (Coding i : interventionException)
             dst.interventionException.add(i.copy());
         };
+        dst.onset = onset == null ? null : onset.copy();
+        dst.employmentImpacted = employmentImpacted == null ? null : employmentImpacted.copy();
+        dst.hospitalization = hospitalization == null ? null : hospitalization.copy();
         if (item != null) {
           dst.item = new ArrayList<ItemsComponent>();
           for (ItemsComponent i : item)
             dst.item.add(i.copy());
         };
+        dst.total = total == null ? null : total.copy();
         if (additionalMaterials != null) {
           dst.additionalMaterials = new ArrayList<Coding>();
           for (Coding i : additionalMaterials)
@@ -5464,14 +5888,17 @@ public class Claim extends DomainResource {
         Claim o = (Claim) other;
         return compareDeep(type, o.type, true) && compareDeep(identifier, o.identifier, true) && compareDeep(ruleset, o.ruleset, true)
            && compareDeep(originalRuleset, o.originalRuleset, true) && compareDeep(created, o.created, true)
-           && compareDeep(target, o.target, true) && compareDeep(provider, o.provider, true) && compareDeep(organization, o.organization, true)
-           && compareDeep(use, o.use, true) && compareDeep(priority, o.priority, true) && compareDeep(fundsReserve, o.fundsReserve, true)
-           && compareDeep(enterer, o.enterer, true) && compareDeep(facility, o.facility, true) && compareDeep(prescription, o.prescription, true)
+           && compareDeep(billablePeriod, o.billablePeriod, true) && compareDeep(target, o.target, true) && compareDeep(provider, o.provider, true)
+           && compareDeep(organization, o.organization, true) && compareDeep(use, o.use, true) && compareDeep(priority, o.priority, true)
+           && compareDeep(fundsReserve, o.fundsReserve, true) && compareDeep(enterer, o.enterer, true) && compareDeep(facility, o.facility, true)
+           && compareDeep(relatedClaim, o.relatedClaim, true) && compareDeep(prescription, o.prescription, true)
            && compareDeep(originalPrescription, o.originalPrescription, true) && compareDeep(payee, o.payee, true)
-           && compareDeep(referral, o.referral, true) && compareDeep(diagnosis, o.diagnosis, true) && compareDeep(condition, o.condition, true)
+           && compareDeep(referral, o.referral, true) && compareDeep(diagnosis, o.diagnosis, true) && compareDeep(specialCondition, o.specialCondition, true)
            && compareDeep(patient, o.patient, true) && compareDeep(coverage, o.coverage, true) && compareDeep(exception, o.exception, true)
-           && compareDeep(school, o.school, true) && compareDeep(accident, o.accident, true) && compareDeep(accidentType, o.accidentType, true)
-           && compareDeep(interventionException, o.interventionException, true) && compareDeep(item, o.item, true)
+           && compareDeep(school, o.school, true) && compareDeep(accidentDate, o.accidentDate, true) && compareDeep(accidentType, o.accidentType, true)
+           && compareDeep(accidentLocation, o.accidentLocation, true) && compareDeep(interventionException, o.interventionException, true)
+           && compareDeep(onset, o.onset, true) && compareDeep(employmentImpacted, o.employmentImpacted, true)
+           && compareDeep(hospitalization, o.hospitalization, true) && compareDeep(item, o.item, true) && compareDeep(total, o.total, true)
            && compareDeep(additionalMaterials, o.additionalMaterials, true) && compareDeep(missingTeeth, o.missingTeeth, true)
           ;
       }
@@ -5484,22 +5911,25 @@ public class Claim extends DomainResource {
           return false;
         Claim o = (Claim) other;
         return compareValues(type, o.type, true) && compareValues(created, o.created, true) && compareValues(use, o.use, true)
-           && compareValues(school, o.school, true) && compareValues(accident, o.accident, true);
+           && compareValues(school, o.school, true) && compareValues(accidentDate, o.accidentDate, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
            && (ruleset == null || ruleset.isEmpty()) && (originalRuleset == null || originalRuleset.isEmpty())
-           && (created == null || created.isEmpty()) && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty())
-           && (organization == null || organization.isEmpty()) && (use == null || use.isEmpty()) && (priority == null || priority.isEmpty())
-           && (fundsReserve == null || fundsReserve.isEmpty()) && (enterer == null || enterer.isEmpty())
-           && (facility == null || facility.isEmpty()) && (prescription == null || prescription.isEmpty())
-           && (originalPrescription == null || originalPrescription.isEmpty()) && (payee == null || payee.isEmpty())
-           && (referral == null || referral.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
-           && (condition == null || condition.isEmpty()) && (patient == null || patient.isEmpty()) && (coverage == null || coverage.isEmpty())
-           && (exception == null || exception.isEmpty()) && (school == null || school.isEmpty()) && (accident == null || accident.isEmpty())
-           && (accidentType == null || accidentType.isEmpty()) && (interventionException == null || interventionException.isEmpty())
-           && (item == null || item.isEmpty()) && (additionalMaterials == null || additionalMaterials.isEmpty())
+           && (created == null || created.isEmpty()) && (billablePeriod == null || billablePeriod.isEmpty())
+           && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
+           && (use == null || use.isEmpty()) && (priority == null || priority.isEmpty()) && (fundsReserve == null || fundsReserve.isEmpty())
+           && (enterer == null || enterer.isEmpty()) && (facility == null || facility.isEmpty()) && (relatedClaim == null || relatedClaim.isEmpty())
+           && (prescription == null || prescription.isEmpty()) && (originalPrescription == null || originalPrescription.isEmpty())
+           && (payee == null || payee.isEmpty()) && (referral == null || referral.isEmpty()) && (diagnosis == null || diagnosis.isEmpty())
+           && (specialCondition == null || specialCondition.isEmpty()) && (patient == null || patient.isEmpty())
+           && (coverage == null || coverage.isEmpty()) && (exception == null || exception.isEmpty())
+           && (school == null || school.isEmpty()) && (accidentDate == null || accidentDate.isEmpty())
+           && (accidentType == null || accidentType.isEmpty()) && (accidentLocation == null || accidentLocation.isEmpty())
+           && (interventionException == null || interventionException.isEmpty()) && (onset == null || onset.isEmpty())
+           && (employmentImpacted == null || employmentImpacted.isEmpty()) && (hospitalization == null || hospitalization.isEmpty())
+           && (item == null || item.isEmpty()) && (total == null || total.isEmpty()) && (additionalMaterials == null || additionalMaterials.isEmpty())
            && (missingTeeth == null || missingTeeth.isEmpty());
       }
 

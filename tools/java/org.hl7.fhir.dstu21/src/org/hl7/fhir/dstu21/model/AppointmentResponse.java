@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,27 +51,27 @@ public class AppointmentResponse extends DomainResource {
         /**
          * The appointment participant has accepted that they can attend the appointment at the time specified in the AppointmentResponse.
          */
-        ACCEPTED,
+        ACCEPTED, 
         /**
          * The appointment participant has declined the appointment.
          */
-        DECLINED,
+        DECLINED, 
         /**
          * The appointment participant has tentatively accepted the appointment.
          */
-        TENTATIVE,
+        TENTATIVE, 
         /**
          * The participant has in-process the appointment.
          */
-        INPROCESS,
+        INPROCESS, 
         /**
          * The participant has completed the appointment.
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * This is the intitial status of an appointment participant until a participant has replied. It implies that there is no commitment for the appointment.
          */
-        NEEDSACTION,
+        NEEDSACTION, 
         /**
          * added to help the parsers
          */
@@ -282,13 +282,13 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return {@link #identifier} (This records identifiers associated with this appointment response concern that are defined by business processes and/ or used to refer to it when a direct URL reference to the resource itself is not appropriate.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -322,7 +322,7 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return {@link #appointment} (Appointment that this response is replying to.)
      */
-    public Reference getAppointment() {
+    public Reference getAppointment() { 
       if (this.appointment == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.appointment");
@@ -331,14 +331,14 @@ public class AppointmentResponse extends DomainResource {
       return this.appointment;
     }
 
-    public boolean hasAppointment() {
+    public boolean hasAppointment() { 
       return this.appointment != null && !this.appointment.isEmpty();
     }
 
     /**
      * @param value {@link #appointment} (Appointment that this response is replying to.)
      */
-    public AppointmentResponse setAppointment(Reference value) {
+    public AppointmentResponse setAppointment(Reference value) { 
       this.appointment = value;
       return this;
     }
@@ -346,7 +346,7 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return {@link #appointment} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Appointment that this response is replying to.)
      */
-    public Appointment getAppointmentTarget() {
+    public Appointment getAppointmentTarget() { 
       if (this.appointmentTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.appointment");
@@ -358,7 +358,7 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @param value {@link #appointment} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Appointment that this response is replying to.)
      */
-    public AppointmentResponse setAppointmentTarget(Appointment value) {
+    public AppointmentResponse setAppointmentTarget(Appointment value) { 
       this.appointmentTarget = value;
       return this;
     }
@@ -366,7 +366,7 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return {@link #start} (Date/Time that the appointment is to take place, or requested new start time.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public InstantType getStartElement() {
+    public InstantType getStartElement() { 
       if (this.start == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.start");
@@ -375,18 +375,18 @@ public class AppointmentResponse extends DomainResource {
       return this.start;
     }
 
-    public boolean hasStartElement() {
+    public boolean hasStartElement() { 
       return this.start != null && !this.start.isEmpty();
     }
 
-    public boolean hasStart() {
+    public boolean hasStart() { 
       return this.start != null && !this.start.isEmpty();
     }
 
     /**
      * @param value {@link #start} (Date/Time that the appointment is to take place, or requested new start time.). This is the underlying object with id, value and extensions. The accessor "getStart" gives direct access to the value
      */
-    public AppointmentResponse setStartElement(InstantType value) {
+    public AppointmentResponse setStartElement(InstantType value) { 
       this.start = value;
       return this;
     }
@@ -394,14 +394,14 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return Date/Time that the appointment is to take place, or requested new start time.
      */
-    public Date getStart() {
+    public Date getStart() { 
       return this.start == null ? null : this.start.getValue();
     }
 
     /**
      * @param value Date/Time that the appointment is to take place, or requested new start time.
      */
-    public AppointmentResponse setStart(Date value) {
+    public AppointmentResponse setStart(Date value) { 
       if (value == null)
         this.start = null;
       else {
@@ -415,7 +415,7 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return {@link #end} (This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public InstantType getEndElement() {
+    public InstantType getEndElement() { 
       if (this.end == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.end");
@@ -424,18 +424,18 @@ public class AppointmentResponse extends DomainResource {
       return this.end;
     }
 
-    public boolean hasEndElement() {
+    public boolean hasEndElement() { 
       return this.end != null && !this.end.isEmpty();
     }
 
-    public boolean hasEnd() {
+    public boolean hasEnd() { 
       return this.end != null && !this.end.isEmpty();
     }
 
     /**
      * @param value {@link #end} (This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public AppointmentResponse setEndElement(InstantType value) {
+    public AppointmentResponse setEndElement(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -443,14 +443,14 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.
      */
-    public Date getEnd() {
+    public Date getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value This may be either the same as the appointment request to confirm the details of the appointment, or alternately a new time to request a re-negotiation of the end time.
      */
-    public AppointmentResponse setEnd(Date value) {
+    public AppointmentResponse setEnd(Date value) { 
       if (value == null)
         this.end = null;
       else {
@@ -464,13 +464,13 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return {@link #participantType} (Role of participant in the appointment.)
      */
-    public List<CodeableConcept> getParticipantType() {
+    public List<CodeableConcept> getParticipantType() { 
       if (this.participantType == null)
         this.participantType = new ArrayList<CodeableConcept>();
       return this.participantType;
     }
 
-    public boolean hasParticipantType() {
+    public boolean hasParticipantType() { 
       if (this.participantType == null)
         return false;
       for (CodeableConcept item : this.participantType)
@@ -504,7 +504,7 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return {@link #actor} (A Person, Location/HealthcareService or Device that is participating in the appointment.)
      */
-    public Reference getActor() {
+    public Reference getActor() { 
       if (this.actor == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.actor");
@@ -513,14 +513,14 @@ public class AppointmentResponse extends DomainResource {
       return this.actor;
     }
 
-    public boolean hasActor() {
+    public boolean hasActor() { 
       return this.actor != null && !this.actor.isEmpty();
     }
 
     /**
      * @param value {@link #actor} (A Person, Location/HealthcareService or Device that is participating in the appointment.)
      */
-    public AppointmentResponse setActor(Reference value) {
+    public AppointmentResponse setActor(Reference value) { 
       this.actor = value;
       return this;
     }
@@ -528,14 +528,14 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A Person, Location/HealthcareService or Device that is participating in the appointment.)
      */
-    public Resource getActorTarget() {
+    public Resource getActorTarget() { 
       return this.actorTarget;
     }
 
     /**
      * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A Person, Location/HealthcareService or Device that is participating in the appointment.)
      */
-    public AppointmentResponse setActorTarget(Resource value) {
+    public AppointmentResponse setActorTarget(Resource value) { 
       this.actorTarget = value;
       return this;
     }
@@ -543,7 +543,7 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return {@link #participantStatus} (Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
      */
-    public Enumeration<ParticipantStatus> getParticipantStatusElement() {
+    public Enumeration<ParticipantStatus> getParticipantStatusElement() { 
       if (this.participantStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.participantStatus");
@@ -552,18 +552,18 @@ public class AppointmentResponse extends DomainResource {
       return this.participantStatus;
     }
 
-    public boolean hasParticipantStatusElement() {
+    public boolean hasParticipantStatusElement() { 
       return this.participantStatus != null && !this.participantStatus.isEmpty();
     }
 
-    public boolean hasParticipantStatus() {
+    public boolean hasParticipantStatus() { 
       return this.participantStatus != null && !this.participantStatus.isEmpty();
     }
 
     /**
      * @param value {@link #participantStatus} (Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.). This is the underlying object with id, value and extensions. The accessor "getParticipantStatus" gives direct access to the value
      */
-    public AppointmentResponse setParticipantStatusElement(Enumeration<ParticipantStatus> value) {
+    public AppointmentResponse setParticipantStatusElement(Enumeration<ParticipantStatus> value) { 
       this.participantStatus = value;
       return this;
     }
@@ -571,14 +571,14 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
      */
-    public ParticipantStatus getParticipantStatus() {
+    public ParticipantStatus getParticipantStatus() { 
       return this.participantStatus == null ? null : this.participantStatus.getValue();
     }
 
     /**
      * @param value Participation status of the participant. When the status is declined or tentative if the start/end times are different to the appointment, then these times should be interpreted as a requested time change. When the status is accepted, the times can either be the time of the appointment (as a confirmation of the time) or can be empty.
      */
-    public AppointmentResponse setParticipantStatus(ParticipantStatus value) {
+    public AppointmentResponse setParticipantStatus(ParticipantStatus value) { 
         if (this.participantStatus == null)
           this.participantStatus = new Enumeration<ParticipantStatus>(new ParticipantStatusEnumFactory());
         this.participantStatus.setValue(value);
@@ -588,7 +588,7 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getCommentElement() {
+    public StringType getCommentElement() { 
       if (this.comment == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AppointmentResponse.comment");
@@ -597,18 +597,18 @@ public class AppointmentResponse extends DomainResource {
       return this.comment;
     }
 
-    public boolean hasCommentElement() {
+    public boolean hasCommentElement() { 
       return this.comment != null && !this.comment.isEmpty();
     }
 
-    public boolean hasComment() {
+    public boolean hasComment() { 
       return this.comment != null && !this.comment.isEmpty();
     }
 
     /**
      * @param value {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public AppointmentResponse setCommentElement(StringType value) {
+    public AppointmentResponse setCommentElement(StringType value) { 
       this.comment = value;
       return this;
     }
@@ -616,14 +616,14 @@ public class AppointmentResponse extends DomainResource {
     /**
      * @return Additional comments about the appointment.
      */
-    public String getComment() {
+    public String getComment() { 
       return this.comment == null ? null : this.comment.getValue();
     }
 
     /**
      * @param value Additional comments about the appointment.
      */
-    public AppointmentResponse setComment(String value) {
+    public AppointmentResponse setComment(String value) { 
       if (Utilities.noString(value))
         this.comment = null;
       else {

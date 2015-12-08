@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -71,7 +71,7 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
 
     /**
      * Constructor
-     *
+     * 
      * @param theReference The given reference string (e.g. "Patient/123" or "http://example.com/Patient/123")
      */
     public Reference(String theReference) {
@@ -80,7 +80,7 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
 
     /**
      * Constructor
-     *
+     * 
      * @param theReference The given reference as an IdType (e.g. "Patient/123" or "http://example.com/Patient/123")
      */
     public Reference(IdType theReference) {
@@ -89,7 +89,7 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
 
     /**
      * Constructor
-     *
+     * 
      * @param theResource The resource represented by this reference
      */
     public Reference(IAnyResource theResource) {
@@ -99,18 +99,18 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
     /**
      * @return {@link #reference} (A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public boolean hasReferenceElement() {
+    public boolean hasReferenceElement() { 
       return this.reference != null && !this.reference.isEmpty();
     }
 
-    public boolean hasReference() {
+    public boolean hasReference() { 
       return this.reference != null && !this.reference.isEmpty();
     }
 
     /**
      * @param value {@link #reference} (A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public Reference setReferenceElement(StringType value) {
+    public Reference setReferenceElement(StringType value) { 
       this.reference = value;
       return this;
     }
@@ -118,14 +118,14 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
     /**
      * @return A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.
      */
-    public String getReference() {
+    public String getReference() { 
       return this.reference == null ? null : this.reference.getValue();
     }
 
     /**
      * @param value A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.
      */
-    public Reference setReference(String value) {
+    public Reference setReference(String value) { 
       if (Utilities.noString(value))
         this.reference = null;
       else {
@@ -139,7 +139,7 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
     /**
      * @return {@link #display} (Plain text narrative that identifies the resource in addition to the resource reference.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public StringType getDisplayElement() {
+    public StringType getDisplayElement() { 
       if (this.display == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Reference.display");
@@ -148,18 +148,18 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
       return this.display;
     }
 
-    public boolean hasDisplayElement() {
+    public boolean hasDisplayElement() { 
       return this.display != null && !this.display.isEmpty();
     }
 
-    public boolean hasDisplay() {
+    public boolean hasDisplay() { 
       return this.display != null && !this.display.isEmpty();
     }
 
     /**
      * @param value {@link #display} (Plain text narrative that identifies the resource in addition to the resource reference.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public Reference setDisplayElement(StringType value) {
+    public Reference setDisplayElement(StringType value) { 
       this.display = value;
       return this;
     }
@@ -167,14 +167,14 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
     /**
      * @return Plain text narrative that identifies the resource in addition to the resource reference.
      */
-    public String getDisplay() {
+    public String getDisplay() { 
       return this.display == null ? null : this.display.getValue();
     }
 
     /**
      * @param value Plain text narrative that identifies the resource in addition to the resource reference.
      */
-    public Reference setDisplay(String value) {
+    public Reference setDisplay(String value) { 
       if (Utilities.noString(value))
         this.display = null;
       else {

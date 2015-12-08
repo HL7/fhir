@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -89,7 +89,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #entity} (Who or what actors are assigned roles in this Contract.)
          */
-        public Reference getEntity() {
+        public Reference getEntity() { 
           if (this.entity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ActorComponent.entity");
@@ -98,14 +98,14 @@ public class Contract extends DomainResource {
           return this.entity;
         }
 
-        public boolean hasEntity() {
+        public boolean hasEntity() { 
           return this.entity != null && !this.entity.isEmpty();
         }
 
         /**
          * @param value {@link #entity} (Who or what actors are assigned roles in this Contract.)
          */
-        public ActorComponent setEntity(Reference value) {
+        public ActorComponent setEntity(Reference value) { 
           this.entity = value;
           return this;
         }
@@ -113,14 +113,14 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #entity} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what actors are assigned roles in this Contract.)
          */
-        public Resource getEntityTarget() {
+        public Resource getEntityTarget() { 
           return this.entityTarget;
         }
 
         /**
          * @param value {@link #entity} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what actors are assigned roles in this Contract.)
          */
-        public ActorComponent setEntityTarget(Resource value) {
+        public ActorComponent setEntityTarget(Resource value) { 
           this.entityTarget = value;
           return this;
         }
@@ -128,13 +128,13 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #role} (Role type of actors assigned roles in this Contract.)
          */
-        public List<CodeableConcept> getRole() {
+        public List<CodeableConcept> getRole() { 
           if (this.role == null)
             this.role = new ArrayList<CodeableConcept>();
           return this.role;
         }
 
-        public boolean hasRole() {
+        public boolean hasRole() { 
           if (this.role == null)
             return false;
           for (CodeableConcept item : this.role)
@@ -308,44 +308,44 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #entity} (Specific type of Contract Valued Item that may be priced.)
          */
-        public Type getEntity() {
+        public Type getEntity() { 
           return this.entity;
         }
 
         /**
          * @return {@link #entity} (Specific type of Contract Valued Item that may be priced.)
          */
-        public CodeableConcept getEntityCodeableConcept() throws FHIRException {
+        public CodeableConcept getEntityCodeableConcept() throws FHIRException { 
           if (!(this.entity instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.entity.getClass().getName()+" was encountered");
           return (CodeableConcept) this.entity;
         }
 
-        public boolean hasEntityCodeableConcept() {
+        public boolean hasEntityCodeableConcept() { 
           return this.entity instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #entity} (Specific type of Contract Valued Item that may be priced.)
          */
-        public Reference getEntityReference() throws FHIRException {
+        public Reference getEntityReference() throws FHIRException { 
           if (!(this.entity instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.entity.getClass().getName()+" was encountered");
           return (Reference) this.entity;
         }
 
-        public boolean hasEntityReference() {
+        public boolean hasEntityReference() { 
           return this.entity instanceof Reference;
         }
 
-        public boolean hasEntity() {
+        public boolean hasEntity() { 
           return this.entity != null && !this.entity.isEmpty();
         }
 
         /**
          * @param value {@link #entity} (Specific type of Contract Valued Item that may be priced.)
          */
-        public ValuedItemComponent setEntity(Type value) {
+        public ValuedItemComponent setEntity(Type value) { 
           this.entity = value;
           return this;
         }
@@ -353,7 +353,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #identifier} (Identifies a Contract Valued Item instance.)
          */
-        public Identifier getIdentifier() {
+        public Identifier getIdentifier() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValuedItemComponent.identifier");
@@ -362,14 +362,14 @@ public class Contract extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifier() {
+        public boolean hasIdentifier() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (Identifies a Contract Valued Item instance.)
          */
-        public ValuedItemComponent setIdentifier(Identifier value) {
+        public ValuedItemComponent setIdentifier(Identifier value) { 
           this.identifier = value;
           return this;
         }
@@ -377,7 +377,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #effectiveTime} (Indicates the time during which this Contract ValuedItem information is effective.). This is the underlying object with id, value and extensions. The accessor "getEffectiveTime" gives direct access to the value
          */
-        public DateTimeType getEffectiveTimeElement() {
+        public DateTimeType getEffectiveTimeElement() { 
           if (this.effectiveTime == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValuedItemComponent.effectiveTime");
@@ -386,18 +386,18 @@ public class Contract extends DomainResource {
           return this.effectiveTime;
         }
 
-        public boolean hasEffectiveTimeElement() {
+        public boolean hasEffectiveTimeElement() { 
           return this.effectiveTime != null && !this.effectiveTime.isEmpty();
         }
 
-        public boolean hasEffectiveTime() {
+        public boolean hasEffectiveTime() { 
           return this.effectiveTime != null && !this.effectiveTime.isEmpty();
         }
 
         /**
          * @param value {@link #effectiveTime} (Indicates the time during which this Contract ValuedItem information is effective.). This is the underlying object with id, value and extensions. The accessor "getEffectiveTime" gives direct access to the value
          */
-        public ValuedItemComponent setEffectiveTimeElement(DateTimeType value) {
+        public ValuedItemComponent setEffectiveTimeElement(DateTimeType value) { 
           this.effectiveTime = value;
           return this;
         }
@@ -405,14 +405,14 @@ public class Contract extends DomainResource {
         /**
          * @return Indicates the time during which this Contract ValuedItem information is effective.
          */
-        public Date getEffectiveTime() {
+        public Date getEffectiveTime() { 
           return this.effectiveTime == null ? null : this.effectiveTime.getValue();
         }
 
         /**
          * @param value Indicates the time during which this Contract ValuedItem information is effective.
          */
-        public ValuedItemComponent setEffectiveTime(Date value) {
+        public ValuedItemComponent setEffectiveTime(Date value) { 
           if (value == null)
             this.effectiveTime = null;
           else {
@@ -426,7 +426,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #quantity} (Specifies the units by which the Contract Valued Item is measured or counted, and quantifies the countable or measurable Contract Valued Item instances.)
          */
-        public SimpleQuantity getQuantity() {
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValuedItemComponent.quantity");
@@ -435,14 +435,14 @@ public class Contract extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() {
+        public boolean hasQuantity() { 
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (Specifies the units by which the Contract Valued Item is measured or counted, and quantifies the countable or measurable Contract Valued Item instances.)
          */
-        public ValuedItemComponent setQuantity(SimpleQuantity value) {
+        public ValuedItemComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -450,7 +450,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #unitPrice} (A Contract Valued Item unit valuation measure.)
          */
-        public Money getUnitPrice() {
+        public Money getUnitPrice() { 
           if (this.unitPrice == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValuedItemComponent.unitPrice");
@@ -459,14 +459,14 @@ public class Contract extends DomainResource {
           return this.unitPrice;
         }
 
-        public boolean hasUnitPrice() {
+        public boolean hasUnitPrice() { 
           return this.unitPrice != null && !this.unitPrice.isEmpty();
         }
 
         /**
          * @param value {@link #unitPrice} (A Contract Valued Item unit valuation measure.)
          */
-        public ValuedItemComponent setUnitPrice(Money value) {
+        public ValuedItemComponent setUnitPrice(Money value) { 
           this.unitPrice = value;
           return this;
         }
@@ -474,7 +474,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public DecimalType getFactorElement() {
+        public DecimalType getFactorElement() { 
           if (this.factor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValuedItemComponent.factor");
@@ -483,18 +483,18 @@ public class Contract extends DomainResource {
           return this.factor;
         }
 
-        public boolean hasFactorElement() {
+        public boolean hasFactorElement() { 
           return this.factor != null && !this.factor.isEmpty();
         }
 
-        public boolean hasFactor() {
+        public boolean hasFactor() { 
           return this.factor != null && !this.factor.isEmpty();
         }
 
         /**
          * @param value {@link #factor} (A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public ValuedItemComponent setFactorElement(DecimalType value) {
+        public ValuedItemComponent setFactorElement(DecimalType value) { 
           this.factor = value;
           return this;
         }
@@ -502,14 +502,14 @@ public class Contract extends DomainResource {
         /**
          * @return A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public BigDecimal getFactor() {
+        public BigDecimal getFactor() { 
           return this.factor == null ? null : this.factor.getValue();
         }
 
         /**
          * @param value A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public ValuedItemComponent setFactor(BigDecimal value) {
+        public ValuedItemComponent setFactor(BigDecimal value) { 
           if (value == null)
             this.factor = null;
           else {
@@ -523,7 +523,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
-        public DecimalType getPointsElement() {
+        public DecimalType getPointsElement() { 
           if (this.points == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValuedItemComponent.points");
@@ -532,18 +532,18 @@ public class Contract extends DomainResource {
           return this.points;
         }
 
-        public boolean hasPointsElement() {
+        public boolean hasPointsElement() { 
           return this.points != null && !this.points.isEmpty();
         }
 
-        public boolean hasPoints() {
+        public boolean hasPoints() { 
           return this.points != null && !this.points.isEmpty();
         }
 
         /**
          * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
-        public ValuedItemComponent setPointsElement(DecimalType value) {
+        public ValuedItemComponent setPointsElement(DecimalType value) { 
           this.points = value;
           return this;
         }
@@ -551,14 +551,14 @@ public class Contract extends DomainResource {
         /**
          * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point.
          */
-        public BigDecimal getPoints() {
+        public BigDecimal getPoints() { 
           return this.points == null ? null : this.points.getValue();
         }
 
         /**
          * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point.
          */
-        public ValuedItemComponent setPoints(BigDecimal value) {
+        public ValuedItemComponent setPoints(BigDecimal value) { 
           if (value == null)
             this.points = null;
           else {
@@ -572,7 +572,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #net} (Expresses the product of the Contract Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
-        public Money getNet() {
+        public Money getNet() { 
           if (this.net == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ValuedItemComponent.net");
@@ -581,14 +581,14 @@ public class Contract extends DomainResource {
           return this.net;
         }
 
-        public boolean hasNet() {
+        public boolean hasNet() { 
           return this.net != null && !this.net.isEmpty();
         }
 
         /**
          * @param value {@link #net} (Expresses the product of the Contract Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
-        public ValuedItemComponent setNet(Money value) {
+        public ValuedItemComponent setNet(Money value) { 
           this.net = value;
           return this;
         }
@@ -767,7 +767,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #type} (Role of this Contract signer, e.g. notary, grantee.)
          */
-        public Coding getType() {
+        public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SignatoryComponent.type");
@@ -776,14 +776,14 @@ public class Contract extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Role of this Contract signer, e.g. notary, grantee.)
          */
-        public SignatoryComponent setType(Coding value) {
+        public SignatoryComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
@@ -791,7 +791,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #party} (Party which is a signator to this Contract.)
          */
-        public Reference getParty() {
+        public Reference getParty() { 
           if (this.party == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SignatoryComponent.party");
@@ -800,14 +800,14 @@ public class Contract extends DomainResource {
           return this.party;
         }
 
-        public boolean hasParty() {
+        public boolean hasParty() { 
           return this.party != null && !this.party.isEmpty();
         }
 
         /**
          * @param value {@link #party} (Party which is a signator to this Contract.)
          */
-        public SignatoryComponent setParty(Reference value) {
+        public SignatoryComponent setParty(Reference value) { 
           this.party = value;
           return this;
         }
@@ -815,14 +815,14 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #party} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Party which is a signator to this Contract.)
          */
-        public Resource getPartyTarget() {
+        public Resource getPartyTarget() { 
           return this.partyTarget;
         }
 
         /**
          * @param value {@link #party} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Party which is a signator to this Contract.)
          */
-        public SignatoryComponent setPartyTarget(Resource value) {
+        public SignatoryComponent setPartyTarget(Resource value) { 
           this.partyTarget = value;
           return this;
         }
@@ -830,7 +830,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #signature} (Legally binding Contract DSIG signature contents in Base64.). This is the underlying object with id, value and extensions. The accessor "getSignature" gives direct access to the value
          */
-        public StringType getSignatureElement() {
+        public StringType getSignatureElement() { 
           if (this.signature == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SignatoryComponent.signature");
@@ -839,18 +839,18 @@ public class Contract extends DomainResource {
           return this.signature;
         }
 
-        public boolean hasSignatureElement() {
+        public boolean hasSignatureElement() { 
           return this.signature != null && !this.signature.isEmpty();
         }
 
-        public boolean hasSignature() {
+        public boolean hasSignature() { 
           return this.signature != null && !this.signature.isEmpty();
         }
 
         /**
          * @param value {@link #signature} (Legally binding Contract DSIG signature contents in Base64.). This is the underlying object with id, value and extensions. The accessor "getSignature" gives direct access to the value
          */
-        public SignatoryComponent setSignatureElement(StringType value) {
+        public SignatoryComponent setSignatureElement(StringType value) { 
           this.signature = value;
           return this;
         }
@@ -858,14 +858,14 @@ public class Contract extends DomainResource {
         /**
          * @return Legally binding Contract DSIG signature contents in Base64.
          */
-        public String getSignature() {
+        public String getSignature() { 
           return this.signature == null ? null : this.signature.getValue();
         }
 
         /**
          * @param value Legally binding Contract DSIG signature contents in Base64.
          */
-        public SignatoryComponent setSignature(String value) {
+        public SignatoryComponent setSignature(String value) { 
             if (this.signature == null)
               this.signature = new StringType();
             this.signature.setValue(value);
@@ -1053,7 +1053,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #identifier} (Unique identifier for this particular Contract Provision.)
          */
-        public Identifier getIdentifier() {
+        public Identifier getIdentifier() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermComponent.identifier");
@@ -1062,14 +1062,14 @@ public class Contract extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifier() {
+        public boolean hasIdentifier() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (Unique identifier for this particular Contract Provision.)
          */
-        public TermComponent setIdentifier(Identifier value) {
+        public TermComponent setIdentifier(Identifier value) { 
           this.identifier = value;
           return this;
         }
@@ -1077,7 +1077,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #issued} (When this Contract Provision was issued.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
          */
-        public DateTimeType getIssuedElement() {
+        public DateTimeType getIssuedElement() { 
           if (this.issued == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermComponent.issued");
@@ -1086,18 +1086,18 @@ public class Contract extends DomainResource {
           return this.issued;
         }
 
-        public boolean hasIssuedElement() {
+        public boolean hasIssuedElement() { 
           return this.issued != null && !this.issued.isEmpty();
         }
 
-        public boolean hasIssued() {
+        public boolean hasIssued() { 
           return this.issued != null && !this.issued.isEmpty();
         }
 
         /**
          * @param value {@link #issued} (When this Contract Provision was issued.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
          */
-        public TermComponent setIssuedElement(DateTimeType value) {
+        public TermComponent setIssuedElement(DateTimeType value) { 
           this.issued = value;
           return this;
         }
@@ -1105,14 +1105,14 @@ public class Contract extends DomainResource {
         /**
          * @return When this Contract Provision was issued.
          */
-        public Date getIssued() {
+        public Date getIssued() { 
           return this.issued == null ? null : this.issued.getValue();
         }
 
         /**
          * @param value When this Contract Provision was issued.
          */
-        public TermComponent setIssued(Date value) {
+        public TermComponent setIssued(Date value) { 
           if (value == null)
             this.issued = null;
           else {
@@ -1126,7 +1126,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #applies} (Relevant time or time-period when this Contract Provision is applicable.)
          */
-        public Period getApplies() {
+        public Period getApplies() { 
           if (this.applies == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermComponent.applies");
@@ -1135,14 +1135,14 @@ public class Contract extends DomainResource {
           return this.applies;
         }
 
-        public boolean hasApplies() {
+        public boolean hasApplies() { 
           return this.applies != null && !this.applies.isEmpty();
         }
 
         /**
          * @param value {@link #applies} (Relevant time or time-period when this Contract Provision is applicable.)
          */
-        public TermComponent setApplies(Period value) {
+        public TermComponent setApplies(Period value) { 
           this.applies = value;
           return this;
         }
@@ -1150,7 +1150,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #type} (Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.)
          */
-        public CodeableConcept getType() {
+        public CodeableConcept getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermComponent.type");
@@ -1159,14 +1159,14 @@ public class Contract extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.)
          */
-        public TermComponent setType(CodeableConcept value) {
+        public TermComponent setType(CodeableConcept value) { 
           this.type = value;
           return this;
         }
@@ -1174,7 +1174,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #subType} (Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.)
          */
-        public CodeableConcept getSubType() {
+        public CodeableConcept getSubType() { 
           if (this.subType == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermComponent.subType");
@@ -1183,14 +1183,14 @@ public class Contract extends DomainResource {
           return this.subType;
         }
 
-        public boolean hasSubType() {
+        public boolean hasSubType() { 
           return this.subType != null && !this.subType.isEmpty();
         }
 
         /**
          * @param value {@link #subType} (Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.)
          */
-        public TermComponent setSubType(CodeableConcept value) {
+        public TermComponent setSubType(CodeableConcept value) { 
           this.subType = value;
           return this;
         }
@@ -1198,7 +1198,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #subject} (Who or what this Contract Provision is about.)
          */
-        public Reference getSubject() {
+        public Reference getSubject() { 
           if (this.subject == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermComponent.subject");
@@ -1207,14 +1207,14 @@ public class Contract extends DomainResource {
           return this.subject;
         }
 
-        public boolean hasSubject() {
+        public boolean hasSubject() { 
           return this.subject != null && !this.subject.isEmpty();
         }
 
         /**
          * @param value {@link #subject} (Who or what this Contract Provision is about.)
          */
-        public TermComponent setSubject(Reference value) {
+        public TermComponent setSubject(Reference value) { 
           this.subject = value;
           return this;
         }
@@ -1222,14 +1222,14 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what this Contract Provision is about.)
          */
-        public Resource getSubjectTarget() {
+        public Resource getSubjectTarget() { 
           return this.subjectTarget;
         }
 
         /**
          * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what this Contract Provision is about.)
          */
-        public TermComponent setSubjectTarget(Resource value) {
+        public TermComponent setSubjectTarget(Resource value) { 
           this.subjectTarget = value;
           return this;
         }
@@ -1237,13 +1237,13 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #action} (Action stipulated by this Contract Provision.)
          */
-        public List<CodeableConcept> getAction() {
+        public List<CodeableConcept> getAction() { 
           if (this.action == null)
             this.action = new ArrayList<CodeableConcept>();
           return this.action;
         }
 
-        public boolean hasAction() {
+        public boolean hasAction() { 
           if (this.action == null)
             return false;
           for (CodeableConcept item : this.action)
@@ -1277,13 +1277,13 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #actionReason} (Reason or purpose for the action stipulated by this Contract Provision.)
          */
-        public List<CodeableConcept> getActionReason() {
+        public List<CodeableConcept> getActionReason() { 
           if (this.actionReason == null)
             this.actionReason = new ArrayList<CodeableConcept>();
           return this.actionReason;
         }
 
-        public boolean hasActionReason() {
+        public boolean hasActionReason() { 
           if (this.actionReason == null)
             return false;
           for (CodeableConcept item : this.actionReason)
@@ -1317,13 +1317,13 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #actor} (List of actors participating in this Contract Provision.)
          */
-        public List<TermActorComponent> getActor() {
+        public List<TermActorComponent> getActor() { 
           if (this.actor == null)
             this.actor = new ArrayList<TermActorComponent>();
           return this.actor;
         }
 
-        public boolean hasActor() {
+        public boolean hasActor() { 
           if (this.actor == null)
             return false;
           for (TermActorComponent item : this.actor)
@@ -1357,7 +1357,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #text} (Human readable form of this Contract Provision.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextElement() {
+        public StringType getTextElement() { 
           if (this.text == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermComponent.text");
@@ -1366,18 +1366,18 @@ public class Contract extends DomainResource {
           return this.text;
         }
 
-        public boolean hasTextElement() {
+        public boolean hasTextElement() { 
           return this.text != null && !this.text.isEmpty();
         }
 
-        public boolean hasText() {
+        public boolean hasText() { 
           return this.text != null && !this.text.isEmpty();
         }
 
         /**
          * @param value {@link #text} (Human readable form of this Contract Provision.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public TermComponent setTextElement(StringType value) {
+        public TermComponent setTextElement(StringType value) { 
           this.text = value;
           return this;
         }
@@ -1385,14 +1385,14 @@ public class Contract extends DomainResource {
         /**
          * @return Human readable form of this Contract Provision.
          */
-        public String getText() {
+        public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Human readable form of this Contract Provision.
          */
-        public TermComponent setText(String value) {
+        public TermComponent setText(String value) { 
           if (Utilities.noString(value))
             this.text = null;
           else {
@@ -1406,13 +1406,13 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #valuedItem} (Contract Provision Valued Item List.)
          */
-        public List<TermValuedItemComponent> getValuedItem() {
+        public List<TermValuedItemComponent> getValuedItem() { 
           if (this.valuedItem == null)
             this.valuedItem = new ArrayList<TermValuedItemComponent>();
           return this.valuedItem;
         }
 
-        public boolean hasValuedItem() {
+        public boolean hasValuedItem() { 
           if (this.valuedItem == null)
             return false;
           for (TermValuedItemComponent item : this.valuedItem)
@@ -1446,13 +1446,13 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #group} (Nested group of Contract Provisions.)
          */
-        public List<TermComponent> getGroup() {
+        public List<TermComponent> getGroup() { 
           if (this.group == null)
             this.group = new ArrayList<TermComponent>();
           return this.group;
         }
 
-        public boolean hasGroup() {
+        public boolean hasGroup() { 
           if (this.group == null)
             return false;
           for (TermComponent item : this.group)
@@ -1694,7 +1694,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #entity} (The actor assigned a role in this Contract Provision.)
          */
-        public Reference getEntity() {
+        public Reference getEntity() { 
           if (this.entity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermActorComponent.entity");
@@ -1703,14 +1703,14 @@ public class Contract extends DomainResource {
           return this.entity;
         }
 
-        public boolean hasEntity() {
+        public boolean hasEntity() { 
           return this.entity != null && !this.entity.isEmpty();
         }
 
         /**
          * @param value {@link #entity} (The actor assigned a role in this Contract Provision.)
          */
-        public TermActorComponent setEntity(Reference value) {
+        public TermActorComponent setEntity(Reference value) { 
           this.entity = value;
           return this;
         }
@@ -1718,14 +1718,14 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #entity} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The actor assigned a role in this Contract Provision.)
          */
-        public Resource getEntityTarget() {
+        public Resource getEntityTarget() { 
           return this.entityTarget;
         }
 
         /**
          * @param value {@link #entity} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The actor assigned a role in this Contract Provision.)
          */
-        public TermActorComponent setEntityTarget(Resource value) {
+        public TermActorComponent setEntityTarget(Resource value) { 
           this.entityTarget = value;
           return this;
         }
@@ -1733,13 +1733,13 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #role} (Role played by the actor assigned this role in this Contract Provision.)
          */
-        public List<CodeableConcept> getRole() {
+        public List<CodeableConcept> getRole() { 
           if (this.role == null)
             this.role = new ArrayList<CodeableConcept>();
           return this.role;
         }
 
-        public boolean hasRole() {
+        public boolean hasRole() { 
           if (this.role == null)
             return false;
           for (CodeableConcept item : this.role)
@@ -1913,44 +1913,44 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #entity} (Specific type of Contract Provision Valued Item that may be priced.)
          */
-        public Type getEntity() {
+        public Type getEntity() { 
           return this.entity;
         }
 
         /**
          * @return {@link #entity} (Specific type of Contract Provision Valued Item that may be priced.)
          */
-        public CodeableConcept getEntityCodeableConcept() throws FHIRException {
+        public CodeableConcept getEntityCodeableConcept() throws FHIRException { 
           if (!(this.entity instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.entity.getClass().getName()+" was encountered");
           return (CodeableConcept) this.entity;
         }
 
-        public boolean hasEntityCodeableConcept() {
+        public boolean hasEntityCodeableConcept() { 
           return this.entity instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #entity} (Specific type of Contract Provision Valued Item that may be priced.)
          */
-        public Reference getEntityReference() throws FHIRException {
+        public Reference getEntityReference() throws FHIRException { 
           if (!(this.entity instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.entity.getClass().getName()+" was encountered");
           return (Reference) this.entity;
         }
 
-        public boolean hasEntityReference() {
+        public boolean hasEntityReference() { 
           return this.entity instanceof Reference;
         }
 
-        public boolean hasEntity() {
+        public boolean hasEntity() { 
           return this.entity != null && !this.entity.isEmpty();
         }
 
         /**
          * @param value {@link #entity} (Specific type of Contract Provision Valued Item that may be priced.)
          */
-        public TermValuedItemComponent setEntity(Type value) {
+        public TermValuedItemComponent setEntity(Type value) { 
           this.entity = value;
           return this;
         }
@@ -1958,7 +1958,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #identifier} (Identifies a Contract Provision Valued Item instance.)
          */
-        public Identifier getIdentifier() {
+        public Identifier getIdentifier() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermValuedItemComponent.identifier");
@@ -1967,14 +1967,14 @@ public class Contract extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifier() {
+        public boolean hasIdentifier() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (Identifies a Contract Provision Valued Item instance.)
          */
-        public TermValuedItemComponent setIdentifier(Identifier value) {
+        public TermValuedItemComponent setIdentifier(Identifier value) { 
           this.identifier = value;
           return this;
         }
@@ -1982,7 +1982,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #effectiveTime} (Indicates the time during which this Contract Term ValuedItem information is effective.). This is the underlying object with id, value and extensions. The accessor "getEffectiveTime" gives direct access to the value
          */
-        public DateTimeType getEffectiveTimeElement() {
+        public DateTimeType getEffectiveTimeElement() { 
           if (this.effectiveTime == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermValuedItemComponent.effectiveTime");
@@ -1991,18 +1991,18 @@ public class Contract extends DomainResource {
           return this.effectiveTime;
         }
 
-        public boolean hasEffectiveTimeElement() {
+        public boolean hasEffectiveTimeElement() { 
           return this.effectiveTime != null && !this.effectiveTime.isEmpty();
         }
 
-        public boolean hasEffectiveTime() {
+        public boolean hasEffectiveTime() { 
           return this.effectiveTime != null && !this.effectiveTime.isEmpty();
         }
 
         /**
          * @param value {@link #effectiveTime} (Indicates the time during which this Contract Term ValuedItem information is effective.). This is the underlying object with id, value and extensions. The accessor "getEffectiveTime" gives direct access to the value
          */
-        public TermValuedItemComponent setEffectiveTimeElement(DateTimeType value) {
+        public TermValuedItemComponent setEffectiveTimeElement(DateTimeType value) { 
           this.effectiveTime = value;
           return this;
         }
@@ -2010,14 +2010,14 @@ public class Contract extends DomainResource {
         /**
          * @return Indicates the time during which this Contract Term ValuedItem information is effective.
          */
-        public Date getEffectiveTime() {
+        public Date getEffectiveTime() { 
           return this.effectiveTime == null ? null : this.effectiveTime.getValue();
         }
 
         /**
          * @param value Indicates the time during which this Contract Term ValuedItem information is effective.
          */
-        public TermValuedItemComponent setEffectiveTime(Date value) {
+        public TermValuedItemComponent setEffectiveTime(Date value) { 
           if (value == null)
             this.effectiveTime = null;
           else {
@@ -2031,7 +2031,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #quantity} (Specifies the units by which the Contract Provision Valued Item is measured or counted, and quantifies the countable or measurable Contract Term Valued Item instances.)
          */
-        public SimpleQuantity getQuantity() {
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermValuedItemComponent.quantity");
@@ -2040,14 +2040,14 @@ public class Contract extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() {
+        public boolean hasQuantity() { 
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (Specifies the units by which the Contract Provision Valued Item is measured or counted, and quantifies the countable or measurable Contract Term Valued Item instances.)
          */
-        public TermValuedItemComponent setQuantity(SimpleQuantity value) {
+        public TermValuedItemComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -2055,7 +2055,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #unitPrice} (A Contract Provision Valued Item unit valuation measure.)
          */
-        public Money getUnitPrice() {
+        public Money getUnitPrice() { 
           if (this.unitPrice == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermValuedItemComponent.unitPrice");
@@ -2064,14 +2064,14 @@ public class Contract extends DomainResource {
           return this.unitPrice;
         }
 
-        public boolean hasUnitPrice() {
+        public boolean hasUnitPrice() { 
           return this.unitPrice != null && !this.unitPrice.isEmpty();
         }
 
         /**
          * @param value {@link #unitPrice} (A Contract Provision Valued Item unit valuation measure.)
          */
-        public TermValuedItemComponent setUnitPrice(Money value) {
+        public TermValuedItemComponent setUnitPrice(Money value) { 
           this.unitPrice = value;
           return this;
         }
@@ -2079,7 +2079,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #factor} (A real number that represents a multiplier used in determining the overall value of the Contract Provision Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public DecimalType getFactorElement() {
+        public DecimalType getFactorElement() { 
           if (this.factor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermValuedItemComponent.factor");
@@ -2088,18 +2088,18 @@ public class Contract extends DomainResource {
           return this.factor;
         }
 
-        public boolean hasFactorElement() {
+        public boolean hasFactorElement() { 
           return this.factor != null && !this.factor.isEmpty();
         }
 
-        public boolean hasFactor() {
+        public boolean hasFactor() { 
           return this.factor != null && !this.factor.isEmpty();
         }
 
         /**
          * @param value {@link #factor} (A real number that represents a multiplier used in determining the overall value of the Contract Provision Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
          */
-        public TermValuedItemComponent setFactorElement(DecimalType value) {
+        public TermValuedItemComponent setFactorElement(DecimalType value) { 
           this.factor = value;
           return this;
         }
@@ -2107,14 +2107,14 @@ public class Contract extends DomainResource {
         /**
          * @return A real number that represents a multiplier used in determining the overall value of the Contract Provision Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public BigDecimal getFactor() {
+        public BigDecimal getFactor() { 
           return this.factor == null ? null : this.factor.getValue();
         }
 
         /**
          * @param value A real number that represents a multiplier used in determining the overall value of the Contract Provision Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
          */
-        public TermValuedItemComponent setFactor(BigDecimal value) {
+        public TermValuedItemComponent setFactor(BigDecimal value) { 
           if (value == null)
             this.factor = null;
           else {
@@ -2128,7 +2128,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Provision Valued Item delivered. The concept of Points allows for assignment of point values for a Contract ProvisionValued Item, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
-        public DecimalType getPointsElement() {
+        public DecimalType getPointsElement() { 
           if (this.points == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermValuedItemComponent.points");
@@ -2137,18 +2137,18 @@ public class Contract extends DomainResource {
           return this.points;
         }
 
-        public boolean hasPointsElement() {
+        public boolean hasPointsElement() { 
           return this.points != null && !this.points.isEmpty();
         }
 
-        public boolean hasPoints() {
+        public boolean hasPoints() { 
           return this.points != null && !this.points.isEmpty();
         }
 
         /**
          * @param value {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Provision Valued Item delivered. The concept of Points allows for assignment of point values for a Contract ProvisionValued Item, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
-        public TermValuedItemComponent setPointsElement(DecimalType value) {
+        public TermValuedItemComponent setPointsElement(DecimalType value) { 
           this.points = value;
           return this;
         }
@@ -2156,14 +2156,14 @@ public class Contract extends DomainResource {
         /**
          * @return An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Provision Valued Item delivered. The concept of Points allows for assignment of point values for a Contract ProvisionValued Item, such that a monetary amount can be assigned to each point.
          */
-        public BigDecimal getPoints() {
+        public BigDecimal getPoints() { 
           return this.points == null ? null : this.points.getValue();
         }
 
         /**
          * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Provision Valued Item delivered. The concept of Points allows for assignment of point values for a Contract ProvisionValued Item, such that a monetary amount can be assigned to each point.
          */
-        public TermValuedItemComponent setPoints(BigDecimal value) {
+        public TermValuedItemComponent setPoints(BigDecimal value) { 
           if (value == null)
             this.points = null;
           else {
@@ -2177,7 +2177,7 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #net} (Expresses the product of the Contract Provision Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
-        public Money getNet() {
+        public Money getNet() { 
           if (this.net == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TermValuedItemComponent.net");
@@ -2186,14 +2186,14 @@ public class Contract extends DomainResource {
           return this.net;
         }
 
-        public boolean hasNet() {
+        public boolean hasNet() { 
           return this.net != null && !this.net.isEmpty();
         }
 
         /**
          * @param value {@link #net} (Expresses the product of the Contract Provision Valued Item unitQuantity and the unitPriceAmt. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.)
          */
-        public TermValuedItemComponent setNet(Money value) {
+        public TermValuedItemComponent setNet(Money value) { 
           this.net = value;
           return this;
         }
@@ -2351,44 +2351,44 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #content} (Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.)
          */
-        public Type getContent() {
+        public Type getContent() { 
           return this.content;
         }
 
         /**
          * @return {@link #content} (Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.)
          */
-        public Attachment getContentAttachment() throws FHIRException {
+        public Attachment getContentAttachment() throws FHIRException { 
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
         }
 
-        public boolean hasContentAttachment() {
+        public boolean hasContentAttachment() { 
           return this.content instanceof Attachment;
         }
 
         /**
          * @return {@link #content} (Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.)
          */
-        public Reference getContentReference() throws FHIRException {
+        public Reference getContentReference() throws FHIRException { 
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
         }
 
-        public boolean hasContentReference() {
+        public boolean hasContentReference() { 
           return this.content instanceof Reference;
         }
 
-        public boolean hasContent() {
+        public boolean hasContent() { 
           return this.content != null && !this.content.isEmpty();
         }
 
         /**
          * @param value {@link #content} (Human readable rendering of this Contract in a format and representation intended to enhance comprehension and ensure understandability.)
          */
-        public FriendlyLanguageComponent setContent(Type value) {
+        public FriendlyLanguageComponent setContent(Type value) { 
           this.content = value;
           return this;
         }
@@ -2487,44 +2487,44 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #content} (Contract legal text in human renderable form.)
          */
-        public Type getContent() {
+        public Type getContent() { 
           return this.content;
         }
 
         /**
          * @return {@link #content} (Contract legal text in human renderable form.)
          */
-        public Attachment getContentAttachment() throws FHIRException {
+        public Attachment getContentAttachment() throws FHIRException { 
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
         }
 
-        public boolean hasContentAttachment() {
+        public boolean hasContentAttachment() { 
           return this.content instanceof Attachment;
         }
 
         /**
          * @return {@link #content} (Contract legal text in human renderable form.)
          */
-        public Reference getContentReference() throws FHIRException {
+        public Reference getContentReference() throws FHIRException { 
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
         }
 
-        public boolean hasContentReference() {
+        public boolean hasContentReference() { 
           return this.content instanceof Reference;
         }
 
-        public boolean hasContent() {
+        public boolean hasContent() { 
           return this.content != null && !this.content.isEmpty();
         }
 
         /**
          * @param value {@link #content} (Contract legal text in human renderable form.)
          */
-        public LegalLanguageComponent setContent(Type value) {
+        public LegalLanguageComponent setContent(Type value) { 
           this.content = value;
           return this;
         }
@@ -2623,44 +2623,44 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #content} (Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).)
          */
-        public Type getContent() {
+        public Type getContent() { 
           return this.content;
         }
 
         /**
          * @return {@link #content} (Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).)
          */
-        public Attachment getContentAttachment() throws FHIRException {
+        public Attachment getContentAttachment() throws FHIRException { 
           if (!(this.content instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Attachment) this.content;
         }
 
-        public boolean hasContentAttachment() {
+        public boolean hasContentAttachment() { 
           return this.content instanceof Attachment;
         }
 
         /**
          * @return {@link #content} (Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).)
          */
-        public Reference getContentReference() throws FHIRException {
+        public Reference getContentReference() throws FHIRException { 
           if (!(this.content instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.content.getClass().getName()+" was encountered");
           return (Reference) this.content;
         }
 
-        public boolean hasContentReference() {
+        public boolean hasContentReference() { 
           return this.content instanceof Reference;
         }
 
-        public boolean hasContent() {
+        public boolean hasContent() { 
           return this.content != null && !this.content.isEmpty();
         }
 
         /**
          * @param value {@link #content} (Computable Contract conveyed using a policy rule language (e.g. XACML, DKAL, SecPal).)
          */
-        public ComputableLanguageComponent setContent(Type value) {
+        public ComputableLanguageComponent setContent(Type value) { 
           this.content = value;
           return this;
         }
@@ -2883,7 +2883,7 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #identifier} (Unique identifier for this Contract.)
      */
-    public Identifier getIdentifier() {
+    public Identifier getIdentifier() { 
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.identifier");
@@ -2892,14 +2892,14 @@ public class Contract extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Unique identifier for this Contract.)
      */
-    public Contract setIdentifier(Identifier value) {
+    public Contract setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
@@ -2907,7 +2907,7 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #issued} (When this  Contract was issued.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public DateTimeType getIssuedElement() {
+    public DateTimeType getIssuedElement() { 
       if (this.issued == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.issued");
@@ -2916,18 +2916,18 @@ public class Contract extends DomainResource {
       return this.issued;
     }
 
-    public boolean hasIssuedElement() {
+    public boolean hasIssuedElement() { 
       return this.issued != null && !this.issued.isEmpty();
     }
 
-    public boolean hasIssued() {
+    public boolean hasIssued() { 
       return this.issued != null && !this.issued.isEmpty();
     }
 
     /**
      * @param value {@link #issued} (When this  Contract was issued.). This is the underlying object with id, value and extensions. The accessor "getIssued" gives direct access to the value
      */
-    public Contract setIssuedElement(DateTimeType value) {
+    public Contract setIssuedElement(DateTimeType value) { 
       this.issued = value;
       return this;
     }
@@ -2935,14 +2935,14 @@ public class Contract extends DomainResource {
     /**
      * @return When this  Contract was issued.
      */
-    public Date getIssued() {
+    public Date getIssued() { 
       return this.issued == null ? null : this.issued.getValue();
     }
 
     /**
      * @param value When this  Contract was issued.
      */
-    public Contract setIssued(Date value) {
+    public Contract setIssued(Date value) { 
       if (value == null)
         this.issued = null;
       else {
@@ -2956,7 +2956,7 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #applies} (Relevant time or time-period when this Contract is applicable.)
      */
-    public Period getApplies() {
+    public Period getApplies() { 
       if (this.applies == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.applies");
@@ -2965,14 +2965,14 @@ public class Contract extends DomainResource {
       return this.applies;
     }
 
-    public boolean hasApplies() {
+    public boolean hasApplies() { 
       return this.applies != null && !this.applies.isEmpty();
     }
 
     /**
      * @param value {@link #applies} (Relevant time or time-period when this Contract is applicable.)
      */
-    public Contract setApplies(Period value) {
+    public Contract setApplies(Period value) { 
       this.applies = value;
       return this;
     }
@@ -2980,13 +2980,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #subject} (Who and/or what this Contract is about: typically a Patient, Organization, or valued items such as goods and services.)
      */
-    public List<Reference> getSubject() {
+    public List<Reference> getSubject() { 
       if (this.subject == null)
         this.subject = new ArrayList<Reference>();
       return this.subject;
     }
 
-    public boolean hasSubject() {
+    public boolean hasSubject() { 
       if (this.subject == null)
         return false;
       for (Reference item : this.subject)
@@ -3020,7 +3020,7 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #subject} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Who and/or what this Contract is about: typically a Patient, Organization, or valued items such as goods and services.)
      */
-    public List<Resource> getSubjectTarget() {
+    public List<Resource> getSubjectTarget() { 
       if (this.subjectTarget == null)
         this.subjectTarget = new ArrayList<Resource>();
       return this.subjectTarget;
@@ -3029,13 +3029,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #authority} (A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies.)
      */
-    public List<Reference> getAuthority() {
+    public List<Reference> getAuthority() { 
       if (this.authority == null)
         this.authority = new ArrayList<Reference>();
       return this.authority;
     }
 
-    public boolean hasAuthority() {
+    public boolean hasAuthority() { 
       if (this.authority == null)
         return false;
       for (Reference item : this.authority)
@@ -3069,7 +3069,7 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #authority} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies.)
      */
-    public List<Organization> getAuthorityTarget() {
+    public List<Organization> getAuthorityTarget() { 
       if (this.authorityTarget == null)
         this.authorityTarget = new ArrayList<Organization>();
       return this.authorityTarget;
@@ -3079,7 +3079,7 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #authority} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies.)
      */
-    public Organization addAuthorityTarget() {
+    public Organization addAuthorityTarget() { 
       Organization r = new Organization();
       if (this.authorityTarget == null)
         this.authorityTarget = new ArrayList<Organization>();
@@ -3090,13 +3090,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #domain} (Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.)
      */
-    public List<Reference> getDomain() {
+    public List<Reference> getDomain() { 
       if (this.domain == null)
         this.domain = new ArrayList<Reference>();
       return this.domain;
     }
 
-    public boolean hasDomain() {
+    public boolean hasDomain() { 
       if (this.domain == null)
         return false;
       for (Reference item : this.domain)
@@ -3130,7 +3130,7 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #domain} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.)
      */
-    public List<Location> getDomainTarget() {
+    public List<Location> getDomainTarget() { 
       if (this.domainTarget == null)
         this.domainTarget = new ArrayList<Location>();
       return this.domainTarget;
@@ -3140,7 +3140,7 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #domain} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.)
      */
-    public Location addDomainTarget() {
+    public Location addDomainTarget() { 
       Location r = new Location();
       if (this.domainTarget == null)
         this.domainTarget = new ArrayList<Location>();
@@ -3151,7 +3151,7 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #type} (Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.)
      */
-    public CodeableConcept getType() {
+    public CodeableConcept getType() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Contract.type");
@@ -3160,14 +3160,14 @@ public class Contract extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.)
      */
-    public Contract setType(CodeableConcept value) {
+    public Contract setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
@@ -3175,13 +3175,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #subType} (More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.)
      */
-    public List<CodeableConcept> getSubType() {
+    public List<CodeableConcept> getSubType() { 
       if (this.subType == null)
         this.subType = new ArrayList<CodeableConcept>();
       return this.subType;
     }
 
-    public boolean hasSubType() {
+    public boolean hasSubType() { 
       if (this.subType == null)
         return false;
       for (CodeableConcept item : this.subType)
@@ -3215,13 +3215,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #action} (Action stipulated by this Contract.)
      */
-    public List<CodeableConcept> getAction() {
+    public List<CodeableConcept> getAction() { 
       if (this.action == null)
         this.action = new ArrayList<CodeableConcept>();
       return this.action;
     }
 
-    public boolean hasAction() {
+    public boolean hasAction() { 
       if (this.action == null)
         return false;
       for (CodeableConcept item : this.action)
@@ -3255,13 +3255,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #actionReason} (Reason for action stipulated by this Contract.)
      */
-    public List<CodeableConcept> getActionReason() {
+    public List<CodeableConcept> getActionReason() { 
       if (this.actionReason == null)
         this.actionReason = new ArrayList<CodeableConcept>();
       return this.actionReason;
     }
 
-    public boolean hasActionReason() {
+    public boolean hasActionReason() { 
       if (this.actionReason == null)
         return false;
       for (CodeableConcept item : this.actionReason)
@@ -3295,13 +3295,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #actor} (List of Contract actors.)
      */
-    public List<ActorComponent> getActor() {
+    public List<ActorComponent> getActor() { 
       if (this.actor == null)
         this.actor = new ArrayList<ActorComponent>();
       return this.actor;
     }
 
-    public boolean hasActor() {
+    public boolean hasActor() { 
       if (this.actor == null)
         return false;
       for (ActorComponent item : this.actor)
@@ -3335,13 +3335,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #valuedItem} (Contract Valued Item List.)
      */
-    public List<ValuedItemComponent> getValuedItem() {
+    public List<ValuedItemComponent> getValuedItem() { 
       if (this.valuedItem == null)
         this.valuedItem = new ArrayList<ValuedItemComponent>();
       return this.valuedItem;
     }
 
-    public boolean hasValuedItem() {
+    public boolean hasValuedItem() { 
       if (this.valuedItem == null)
         return false;
       for (ValuedItemComponent item : this.valuedItem)
@@ -3375,13 +3375,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #signer} (Party signing this Contract.)
      */
-    public List<SignatoryComponent> getSigner() {
+    public List<SignatoryComponent> getSigner() { 
       if (this.signer == null)
         this.signer = new ArrayList<SignatoryComponent>();
       return this.signer;
     }
 
-    public boolean hasSigner() {
+    public boolean hasSigner() { 
       if (this.signer == null)
         return false;
       for (SignatoryComponent item : this.signer)
@@ -3415,13 +3415,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #term} (One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.)
      */
-    public List<TermComponent> getTerm() {
+    public List<TermComponent> getTerm() { 
       if (this.term == null)
         this.term = new ArrayList<TermComponent>();
       return this.term;
     }
 
-    public boolean hasTerm() {
+    public boolean hasTerm() { 
       if (this.term == null)
         return false;
       for (TermComponent item : this.term)
@@ -3455,44 +3455,44 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #binding} (Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.)
      */
-    public Type getBinding() {
+    public Type getBinding() { 
       return this.binding;
     }
 
     /**
      * @return {@link #binding} (Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.)
      */
-    public Attachment getBindingAttachment() throws FHIRException {
+    public Attachment getBindingAttachment() throws FHIRException { 
       if (!(this.binding instanceof Attachment))
         throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.binding.getClass().getName()+" was encountered");
       return (Attachment) this.binding;
     }
 
-    public boolean hasBindingAttachment() {
+    public boolean hasBindingAttachment() { 
       return this.binding instanceof Attachment;
     }
 
     /**
      * @return {@link #binding} (Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.)
      */
-    public Reference getBindingReference() throws FHIRException {
+    public Reference getBindingReference() throws FHIRException { 
       if (!(this.binding instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.binding.getClass().getName()+" was encountered");
       return (Reference) this.binding;
     }
 
-    public boolean hasBindingReference() {
+    public boolean hasBindingReference() { 
       return this.binding instanceof Reference;
     }
 
-    public boolean hasBinding() {
+    public boolean hasBinding() { 
       return this.binding != null && !this.binding.isEmpty();
     }
 
     /**
      * @param value {@link #binding} (Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the "source of truth" and which would be the basis for legal action related to enforcement of this Contract.)
      */
-    public Contract setBinding(Type value) {
+    public Contract setBinding(Type value) { 
       this.binding = value;
       return this;
     }
@@ -3500,13 +3500,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #friendly} (The "patient friendly language" versionof the Contract in whole or in parts. "Patient friendly language" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.)
      */
-    public List<FriendlyLanguageComponent> getFriendly() {
+    public List<FriendlyLanguageComponent> getFriendly() { 
       if (this.friendly == null)
         this.friendly = new ArrayList<FriendlyLanguageComponent>();
       return this.friendly;
     }
 
-    public boolean hasFriendly() {
+    public boolean hasFriendly() { 
       if (this.friendly == null)
         return false;
       for (FriendlyLanguageComponent item : this.friendly)
@@ -3540,13 +3540,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #legal} (List of Legal expressions or representations of this Contract.)
      */
-    public List<LegalLanguageComponent> getLegal() {
+    public List<LegalLanguageComponent> getLegal() { 
       if (this.legal == null)
         this.legal = new ArrayList<LegalLanguageComponent>();
       return this.legal;
     }
 
-    public boolean hasLegal() {
+    public boolean hasLegal() { 
       if (this.legal == null)
         return false;
       for (LegalLanguageComponent item : this.legal)
@@ -3580,13 +3580,13 @@ public class Contract extends DomainResource {
     /**
      * @return {@link #rule} (List of Computable Policy Rule Language Representations of this Contract.)
      */
-    public List<ComputableLanguageComponent> getRule() {
+    public List<ComputableLanguageComponent> getRule() { 
       if (this.rule == null)
         this.rule = new ArrayList<ComputableLanguageComponent>();
       return this.rule;
     }
 
-    public boolean hasRule() {
+    public boolean hasRule() { 
       if (this.rule == null)
         return false;
       for (ComputableLanguageComponent item : this.rule)

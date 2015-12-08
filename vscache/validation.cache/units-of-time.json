@@ -4,12 +4,12 @@
     {
       "hash": "|null|null|h|null",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@7e909805\" in system \"null\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@10ad58d4\" in system \"null\": null"
     },
     {
       "hash": "|null|null|d|null",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.instance.model.Coding@2f5c91c0\" in system \"null\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@33f13b56\" in system \"null\": null"
     }
   ]
 }

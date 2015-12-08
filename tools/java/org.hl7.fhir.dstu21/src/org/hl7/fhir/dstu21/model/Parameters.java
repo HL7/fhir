@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -97,7 +97,7 @@ public class Parameters extends Resource implements IBaseParameters {
         /**
          * @return {@link #name} (The name of the parameter (reference to the operation definition).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ParametersParameterComponent.name");
@@ -106,18 +106,18 @@ public class Parameters extends Resource implements IBaseParameters {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of the parameter (reference to the operation definition).). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ParametersParameterComponent setNameElement(StringType value) {
+        public ParametersParameterComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -125,14 +125,14 @@ public class Parameters extends Resource implements IBaseParameters {
         /**
          * @return The name of the parameter (reference to the operation definition).
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of the parameter (reference to the operation definition).
          */
-        public ParametersParameterComponent setName(String value) {
+        public ParametersParameterComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -142,18 +142,18 @@ public class Parameters extends Resource implements IBaseParameters {
         /**
          * @return {@link #value} (If the parameter is a data type.)
          */
-        public org.hl7.fhir.dstu21.model.Type getValue() {
+        public org.hl7.fhir.dstu21.model.Type getValue() { 
           return this.value;
         }
 
-        public boolean hasValue() {
+        public boolean hasValue() { 
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (If the parameter is a data type.)
          */
-        public ParametersParameterComponent setValue(org.hl7.fhir.dstu21.model.Type value) {
+        public ParametersParameterComponent setValue(org.hl7.fhir.dstu21.model.Type value) { 
           this.value = value;
           return this;
         }
@@ -161,18 +161,18 @@ public class Parameters extends Resource implements IBaseParameters {
         /**
          * @return {@link #resource} (If the parameter is a whole resource.)
          */
-        public Resource getResource() {
+        public Resource getResource() { 
           return this.resource;
         }
 
-        public boolean hasResource() {
+        public boolean hasResource() { 
           return this.resource != null && !this.resource.isEmpty();
         }
 
         /**
          * @param value {@link #resource} (If the parameter is a whole resource.)
          */
-        public ParametersParameterComponent setResource(Resource value) {
+        public ParametersParameterComponent setResource(Resource value) { 
           this.resource = value;
           return this;
         }
@@ -180,13 +180,13 @@ public class Parameters extends Resource implements IBaseParameters {
         /**
          * @return {@link #part} (A named part of a parameter. In many implementation context, a set of named parts is known as a "Tuple".)
          */
-        public List<ParametersParameterComponent> getPart() {
+        public List<ParametersParameterComponent> getPart() { 
           if (this.part == null)
             this.part = new ArrayList<ParametersParameterComponent>();
           return this.part;
         }
 
-        public boolean hasPart() {
+        public boolean hasPart() { 
           if (this.part == null)
             return false;
           for (ParametersParameterComponent item : this.part)
@@ -452,13 +452,13 @@ public class Parameters extends Resource implements IBaseParameters {
     /**
      * @return {@link #parameter} (A parameter passed to or received from the operation.)
      */
-    public List<ParametersParameterComponent> getParameter() {
+    public List<ParametersParameterComponent> getParameter() { 
       if (this.parameter == null)
         this.parameter = new ArrayList<ParametersParameterComponent>();
       return this.parameter;
     }
 
-    public boolean hasParameter() {
+    public boolean hasParameter() { 
       if (this.parameter == null)
         return false;
       for (ParametersParameterComponent item : this.parameter)

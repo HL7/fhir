@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -87,44 +87,44 @@ public class Annotation extends Type implements ICompositeType {
     /**
      * @return {@link #author} (The individual responsible for making the annotation.)
      */
-    public Type getAuthor() {
+    public Type getAuthor() { 
       return this.author;
     }
 
     /**
      * @return {@link #author} (The individual responsible for making the annotation.)
      */
-    public Reference getAuthorReference() throws FHIRException {
+    public Reference getAuthorReference() throws FHIRException { 
       if (!(this.author instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.author.getClass().getName()+" was encountered");
       return (Reference) this.author;
     }
 
-    public boolean hasAuthorReference() {
+    public boolean hasAuthorReference() { 
       return this.author instanceof Reference;
     }
 
     /**
      * @return {@link #author} (The individual responsible for making the annotation.)
      */
-    public StringType getAuthorStringType() throws FHIRException {
+    public StringType getAuthorStringType() throws FHIRException { 
       if (!(this.author instanceof StringType))
         throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.author.getClass().getName()+" was encountered");
       return (StringType) this.author;
     }
 
-    public boolean hasAuthorStringType() {
+    public boolean hasAuthorStringType() { 
       return this.author instanceof StringType;
     }
 
-    public boolean hasAuthor() {
+    public boolean hasAuthor() { 
       return this.author != null && !this.author.isEmpty();
     }
 
     /**
      * @param value {@link #author} (The individual responsible for making the annotation.)
      */
-    public Annotation setAuthor(Type value) {
+    public Annotation setAuthor(Type value) { 
       this.author = value;
       return this;
     }
@@ -132,7 +132,7 @@ public class Annotation extends Type implements ICompositeType {
     /**
      * @return {@link #time} (Indicates when this particular annotation was made.). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
      */
-    public DateTimeType getTimeElement() {
+    public DateTimeType getTimeElement() { 
       if (this.time == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Annotation.time");
@@ -141,18 +141,18 @@ public class Annotation extends Type implements ICompositeType {
       return this.time;
     }
 
-    public boolean hasTimeElement() {
+    public boolean hasTimeElement() { 
       return this.time != null && !this.time.isEmpty();
     }
 
-    public boolean hasTime() {
+    public boolean hasTime() { 
       return this.time != null && !this.time.isEmpty();
     }
 
     /**
      * @param value {@link #time} (Indicates when this particular annotation was made.). This is the underlying object with id, value and extensions. The accessor "getTime" gives direct access to the value
      */
-    public Annotation setTimeElement(DateTimeType value) {
+    public Annotation setTimeElement(DateTimeType value) { 
       this.time = value;
       return this;
     }
@@ -160,14 +160,14 @@ public class Annotation extends Type implements ICompositeType {
     /**
      * @return Indicates when this particular annotation was made.
      */
-    public Date getTime() {
+    public Date getTime() { 
       return this.time == null ? null : this.time.getValue();
     }
 
     /**
      * @param value Indicates when this particular annotation was made.
      */
-    public Annotation setTime(Date value) {
+    public Annotation setTime(Date value) { 
       if (value == null)
         this.time = null;
       else {
@@ -181,7 +181,7 @@ public class Annotation extends Type implements ICompositeType {
     /**
      * @return {@link #text} (The text of the annotation.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public StringType getTextElement() {
+    public StringType getTextElement() { 
       if (this.text == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Annotation.text");
@@ -190,18 +190,18 @@ public class Annotation extends Type implements ICompositeType {
       return this.text;
     }
 
-    public boolean hasTextElement() {
+    public boolean hasTextElement() { 
       return this.text != null && !this.text.isEmpty();
     }
 
-    public boolean hasText() {
+    public boolean hasText() { 
       return this.text != null && !this.text.isEmpty();
     }
 
     /**
      * @param value {@link #text} (The text of the annotation.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public Annotation setTextElement(StringType value) {
+    public Annotation setTextElement(StringType value) { 
       this.text = value;
       return this;
     }
@@ -209,14 +209,14 @@ public class Annotation extends Type implements ICompositeType {
     /**
      * @return The text of the annotation.
      */
-    public String getText() {
+    public String getText() { 
       return this.text == null ? null : this.text.getValue();
     }
 
     /**
      * @param value The text of the annotation.
      */
-    public Annotation setText(String value) {
+    public Annotation setText(String value) { 
         if (this.text == null)
           this.text = new StringType();
         this.text.setValue(value);

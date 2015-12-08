@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class SupplyRequest extends DomainResource {
         /**
          * Supply has been requested, but not dispensed.
          */
-        REQUESTED,
+        REQUESTED, 
         /**
          * Supply has been received by the requestor.
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * The supply will not be completed because the supplier was unable or unwilling to supply the item.
          */
-        FAILED,
+        FAILED, 
         /**
          * The orderer of the supply cancelled the request.
          */
-        CANCELLED,
+        CANCELLED, 
         /**
          * added to help the parsers
          */
@@ -191,7 +191,7 @@ public class SupplyRequest extends DomainResource {
         /**
          * @return {@link #code} (Code indicating when the request should be fulfilled.)
          */
-        public CodeableConcept getCode() {
+        public CodeableConcept getCode() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyRequestWhenComponent.code");
@@ -200,14 +200,14 @@ public class SupplyRequest extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() {
+        public boolean hasCode() { 
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (Code indicating when the request should be fulfilled.)
          */
-        public SupplyRequestWhenComponent setCode(CodeableConcept value) {
+        public SupplyRequestWhenComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
@@ -215,7 +215,7 @@ public class SupplyRequest extends DomainResource {
         /**
          * @return {@link #schedule} (Formal fulfillment schedule.)
          */
-        public Timing getSchedule() {
+        public Timing getSchedule() { 
           if (this.schedule == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SupplyRequestWhenComponent.schedule");
@@ -224,14 +224,14 @@ public class SupplyRequest extends DomainResource {
           return this.schedule;
         }
 
-        public boolean hasSchedule() {
+        public boolean hasSchedule() { 
           return this.schedule != null && !this.schedule.isEmpty();
         }
 
         /**
          * @param value {@link #schedule} (Formal fulfillment schedule.)
          */
-        public SupplyRequestWhenComponent setSchedule(Timing value) {
+        public SupplyRequestWhenComponent setSchedule(Timing value) { 
           this.schedule = value;
           return this;
         }
@@ -408,7 +408,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #patient} (A link to a resource representing the person whom the ordered item is for.)
      */
-    public Reference getPatient() {
+    public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyRequest.patient");
@@ -417,14 +417,14 @@ public class SupplyRequest extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() {
+    public boolean hasPatient() { 
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (A link to a resource representing the person whom the ordered item is for.)
      */
-    public SupplyRequest setPatient(Reference value) {
+    public SupplyRequest setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -432,7 +432,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person whom the ordered item is for.)
      */
-    public Patient getPatientTarget() {
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyRequest.patient");
@@ -444,7 +444,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A link to a resource representing the person whom the ordered item is for.)
      */
-    public SupplyRequest setPatientTarget(Patient value) {
+    public SupplyRequest setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -452,7 +452,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #source} (The Practitioner , Organization or Patient who initiated this order for the supply.)
      */
-    public Reference getSource() {
+    public Reference getSource() { 
       if (this.source == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyRequest.source");
@@ -461,14 +461,14 @@ public class SupplyRequest extends DomainResource {
       return this.source;
     }
 
-    public boolean hasSource() {
+    public boolean hasSource() { 
       return this.source != null && !this.source.isEmpty();
     }
 
     /**
      * @param value {@link #source} (The Practitioner , Organization or Patient who initiated this order for the supply.)
      */
-    public SupplyRequest setSource(Reference value) {
+    public SupplyRequest setSource(Reference value) { 
       this.source = value;
       return this;
     }
@@ -476,14 +476,14 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #source} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The Practitioner , Organization or Patient who initiated this order for the supply.)
      */
-    public Resource getSourceTarget() {
+    public Resource getSourceTarget() { 
       return this.sourceTarget;
     }
 
     /**
      * @param value {@link #source} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The Practitioner , Organization or Patient who initiated this order for the supply.)
      */
-    public SupplyRequest setSourceTarget(Resource value) {
+    public SupplyRequest setSourceTarget(Resource value) { 
       this.sourceTarget = value;
       return this;
     }
@@ -491,7 +491,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #date} (When the request was made.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyRequest.date");
@@ -500,18 +500,18 @@ public class SupplyRequest extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (When the request was made.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public SupplyRequest setDateElement(DateTimeType value) {
+    public SupplyRequest setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -519,14 +519,14 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return When the request was made.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value When the request was made.
      */
-    public SupplyRequest setDate(Date value) {
+    public SupplyRequest setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -540,7 +540,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #identifier} (Unique identifier for this supply request.)
      */
-    public Identifier getIdentifier() {
+    public Identifier getIdentifier() { 
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyRequest.identifier");
@@ -549,14 +549,14 @@ public class SupplyRequest extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Unique identifier for this supply request.)
      */
-    public SupplyRequest setIdentifier(Identifier value) {
+    public SupplyRequest setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
@@ -564,7 +564,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #status} (Status of the supply request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<SupplyRequestStatus> getStatusElement() {
+    public Enumeration<SupplyRequestStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyRequest.status");
@@ -573,18 +573,18 @@ public class SupplyRequest extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (Status of the supply request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public SupplyRequest setStatusElement(Enumeration<SupplyRequestStatus> value) {
+    public SupplyRequest setStatusElement(Enumeration<SupplyRequestStatus> value) { 
       this.status = value;
       return this;
     }
@@ -592,14 +592,14 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return Status of the supply request.
      */
-    public SupplyRequestStatus getStatus() {
+    public SupplyRequestStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Status of the supply request.
      */
-    public SupplyRequest setStatus(SupplyRequestStatus value) {
+    public SupplyRequest setStatus(SupplyRequestStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -613,7 +613,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #kind} (Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.)
      */
-    public CodeableConcept getKind() {
+    public CodeableConcept getKind() { 
       if (this.kind == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyRequest.kind");
@@ -622,14 +622,14 @@ public class SupplyRequest extends DomainResource {
       return this.kind;
     }
 
-    public boolean hasKind() {
+    public boolean hasKind() { 
       return this.kind != null && !this.kind.isEmpty();
     }
 
     /**
      * @param value {@link #kind} (Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.)
      */
-    public SupplyRequest setKind(CodeableConcept value) {
+    public SupplyRequest setKind(CodeableConcept value) { 
       this.kind = value;
       return this;
     }
@@ -637,7 +637,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #orderedItem} (The item that is requested to be supplied.)
      */
-    public Reference getOrderedItem() {
+    public Reference getOrderedItem() { 
       if (this.orderedItem == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyRequest.orderedItem");
@@ -646,14 +646,14 @@ public class SupplyRequest extends DomainResource {
       return this.orderedItem;
     }
 
-    public boolean hasOrderedItem() {
+    public boolean hasOrderedItem() { 
       return this.orderedItem != null && !this.orderedItem.isEmpty();
     }
 
     /**
      * @param value {@link #orderedItem} (The item that is requested to be supplied.)
      */
-    public SupplyRequest setOrderedItem(Reference value) {
+    public SupplyRequest setOrderedItem(Reference value) { 
       this.orderedItem = value;
       return this;
     }
@@ -661,14 +661,14 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #orderedItem} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The item that is requested to be supplied.)
      */
-    public Resource getOrderedItemTarget() {
+    public Resource getOrderedItemTarget() { 
       return this.orderedItemTarget;
     }
 
     /**
      * @param value {@link #orderedItem} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The item that is requested to be supplied.)
      */
-    public SupplyRequest setOrderedItemTarget(Resource value) {
+    public SupplyRequest setOrderedItemTarget(Resource value) { 
       this.orderedItemTarget = value;
       return this;
     }
@@ -676,13 +676,13 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #supplier} (Who is intended to fulfill the request.)
      */
-    public List<Reference> getSupplier() {
+    public List<Reference> getSupplier() { 
       if (this.supplier == null)
         this.supplier = new ArrayList<Reference>();
       return this.supplier;
     }
 
-    public boolean hasSupplier() {
+    public boolean hasSupplier() { 
       if (this.supplier == null)
         return false;
       for (Reference item : this.supplier)
@@ -716,7 +716,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #supplier} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Who is intended to fulfill the request.)
      */
-    public List<Organization> getSupplierTarget() {
+    public List<Organization> getSupplierTarget() { 
       if (this.supplierTarget == null)
         this.supplierTarget = new ArrayList<Organization>();
       return this.supplierTarget;
@@ -726,7 +726,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #supplier} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Who is intended to fulfill the request.)
      */
-    public Organization addSupplierTarget() {
+    public Organization addSupplierTarget() { 
       Organization r = new Organization();
       if (this.supplierTarget == null)
         this.supplierTarget = new ArrayList<Organization>();
@@ -737,44 +737,44 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #reason} (Why the supply item was requested.)
      */
-    public Type getReason() {
+    public Type getReason() { 
       return this.reason;
     }
 
     /**
      * @return {@link #reason} (Why the supply item was requested.)
      */
-    public CodeableConcept getReasonCodeableConcept() throws FHIRException {
+    public CodeableConcept getReasonCodeableConcept() throws FHIRException { 
       if (!(this.reason instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (CodeableConcept) this.reason;
     }
 
-    public boolean hasReasonCodeableConcept() {
+    public boolean hasReasonCodeableConcept() { 
       return this.reason instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #reason} (Why the supply item was requested.)
      */
-    public Reference getReasonReference() throws FHIRException {
+    public Reference getReasonReference() throws FHIRException { 
       if (!(this.reason instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (Reference) this.reason;
     }
 
-    public boolean hasReasonReference() {
+    public boolean hasReasonReference() { 
       return this.reason instanceof Reference;
     }
 
-    public boolean hasReason() {
+    public boolean hasReason() { 
       return this.reason != null && !this.reason.isEmpty();
     }
 
     /**
      * @param value {@link #reason} (Why the supply item was requested.)
      */
-    public SupplyRequest setReason(Type value) {
+    public SupplyRequest setReason(Type value) { 
       this.reason = value;
       return this;
     }
@@ -782,7 +782,7 @@ public class SupplyRequest extends DomainResource {
     /**
      * @return {@link #when} (When the request should be fulfilled.)
      */
-    public SupplyRequestWhenComponent getWhen() {
+    public SupplyRequestWhenComponent getWhen() { 
       if (this.when == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SupplyRequest.when");
@@ -791,14 +791,14 @@ public class SupplyRequest extends DomainResource {
       return this.when;
     }
 
-    public boolean hasWhen() {
+    public boolean hasWhen() { 
       return this.when != null && !this.when.isEmpty();
     }
 
     /**
      * @param value {@link #when} (When the request should be fulfilled.)
      */
-    public SupplyRequest setWhen(SupplyRequestWhenComponent value) {
+    public SupplyRequest setWhen(SupplyRequestWhenComponent value) { 
       this.when = value;
       return this;
     }

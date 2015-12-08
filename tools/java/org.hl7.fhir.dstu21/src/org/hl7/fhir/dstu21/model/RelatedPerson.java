@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -143,13 +143,13 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #identifier} (Identifier for a person within a particular scope.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -183,7 +183,7 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #patient} (The patient this person is related to.)
      */
-    public Reference getPatient() {
+    public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RelatedPerson.patient");
@@ -192,14 +192,14 @@ public class RelatedPerson extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() {
+    public boolean hasPatient() { 
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (The patient this person is related to.)
      */
-    public RelatedPerson setPatient(Reference value) {
+    public RelatedPerson setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -207,7 +207,7 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient this person is related to.)
      */
-    public Patient getPatientTarget() {
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RelatedPerson.patient");
@@ -219,7 +219,7 @@ public class RelatedPerson extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient this person is related to.)
      */
-    public RelatedPerson setPatientTarget(Patient value) {
+    public RelatedPerson setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -227,7 +227,7 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #relationship} (The nature of the relationship between a patient and the related person.)
      */
-    public CodeableConcept getRelationship() {
+    public CodeableConcept getRelationship() { 
       if (this.relationship == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RelatedPerson.relationship");
@@ -236,14 +236,14 @@ public class RelatedPerson extends DomainResource {
       return this.relationship;
     }
 
-    public boolean hasRelationship() {
+    public boolean hasRelationship() { 
       return this.relationship != null && !this.relationship.isEmpty();
     }
 
     /**
      * @param value {@link #relationship} (The nature of the relationship between a patient and the related person.)
      */
-    public RelatedPerson setRelationship(CodeableConcept value) {
+    public RelatedPerson setRelationship(CodeableConcept value) { 
       this.relationship = value;
       return this;
     }
@@ -251,7 +251,7 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #name} (A name associated with the person.)
      */
-    public HumanName getName() {
+    public HumanName getName() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RelatedPerson.name");
@@ -260,14 +260,14 @@ public class RelatedPerson extends DomainResource {
       return this.name;
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A name associated with the person.)
      */
-    public RelatedPerson setName(HumanName value) {
+    public RelatedPerson setName(HumanName value) { 
       this.name = value;
       return this;
     }
@@ -275,13 +275,13 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #telecom} (A contact detail for the person, e.g. a telephone number or an email address.)
      */
-    public List<ContactPoint> getTelecom() {
+    public List<ContactPoint> getTelecom() { 
       if (this.telecom == null)
         this.telecom = new ArrayList<ContactPoint>();
       return this.telecom;
     }
 
-    public boolean hasTelecom() {
+    public boolean hasTelecom() { 
       if (this.telecom == null)
         return false;
       for (ContactPoint item : this.telecom)
@@ -315,7 +315,7 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public Enumeration<AdministrativeGender> getGenderElement() {
+    public Enumeration<AdministrativeGender> getGenderElement() { 
       if (this.gender == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RelatedPerson.gender");
@@ -324,18 +324,18 @@ public class RelatedPerson extends DomainResource {
       return this.gender;
     }
 
-    public boolean hasGenderElement() {
+    public boolean hasGenderElement() { 
       return this.gender != null && !this.gender.isEmpty();
     }
 
-    public boolean hasGender() {
+    public boolean hasGender() { 
       return this.gender != null && !this.gender.isEmpty();
     }
 
     /**
      * @param value {@link #gender} (Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.). This is the underlying object with id, value and extensions. The accessor "getGender" gives direct access to the value
      */
-    public RelatedPerson setGenderElement(Enumeration<AdministrativeGender> value) {
+    public RelatedPerson setGenderElement(Enumeration<AdministrativeGender> value) { 
       this.gender = value;
       return this;
     }
@@ -343,14 +343,14 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
      */
-    public AdministrativeGender getGender() {
+    public AdministrativeGender getGender() { 
       return this.gender == null ? null : this.gender.getValue();
     }
 
     /**
      * @param value Administrative Gender - the gender that the person is considered to have for administration and record keeping purposes.
      */
-    public RelatedPerson setGender(AdministrativeGender value) {
+    public RelatedPerson setGender(AdministrativeGender value) { 
       if (value == null)
         this.gender = null;
       else {
@@ -364,7 +364,7 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #birthDate} (The date on which the related person was born.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public DateType getBirthDateElement() {
+    public DateType getBirthDateElement() { 
       if (this.birthDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RelatedPerson.birthDate");
@@ -373,18 +373,18 @@ public class RelatedPerson extends DomainResource {
       return this.birthDate;
     }
 
-    public boolean hasBirthDateElement() {
+    public boolean hasBirthDateElement() { 
       return this.birthDate != null && !this.birthDate.isEmpty();
     }
 
-    public boolean hasBirthDate() {
+    public boolean hasBirthDate() { 
       return this.birthDate != null && !this.birthDate.isEmpty();
     }
 
     /**
      * @param value {@link #birthDate} (The date on which the related person was born.). This is the underlying object with id, value and extensions. The accessor "getBirthDate" gives direct access to the value
      */
-    public RelatedPerson setBirthDateElement(DateType value) {
+    public RelatedPerson setBirthDateElement(DateType value) { 
       this.birthDate = value;
       return this;
     }
@@ -392,14 +392,14 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return The date on which the related person was born.
      */
-    public Date getBirthDate() {
+    public Date getBirthDate() { 
       return this.birthDate == null ? null : this.birthDate.getValue();
     }
 
     /**
      * @param value The date on which the related person was born.
      */
-    public RelatedPerson setBirthDate(Date value) {
+    public RelatedPerson setBirthDate(Date value) { 
       if (value == null)
         this.birthDate = null;
       else {
@@ -413,13 +413,13 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #address} (Address where the related person can be contacted or visited.)
      */
-    public List<Address> getAddress() {
+    public List<Address> getAddress() { 
       if (this.address == null)
         this.address = new ArrayList<Address>();
       return this.address;
     }
 
-    public boolean hasAddress() {
+    public boolean hasAddress() { 
       if (this.address == null)
         return false;
       for (Address item : this.address)
@@ -453,13 +453,13 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #photo} (Image of the person.)
      */
-    public List<Attachment> getPhoto() {
+    public List<Attachment> getPhoto() { 
       if (this.photo == null)
         this.photo = new ArrayList<Attachment>();
       return this.photo;
     }
 
-    public boolean hasPhoto() {
+    public boolean hasPhoto() { 
       if (this.photo == null)
         return false;
       for (Attachment item : this.photo)
@@ -493,7 +493,7 @@ public class RelatedPerson extends DomainResource {
     /**
      * @return {@link #period} (The period of time that this relationship is considered to be valid. If there are no dates defined, then the interval is unknown.)
      */
-    public Period getPeriod() {
+    public Period getPeriod() { 
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create RelatedPerson.period");
@@ -502,14 +502,14 @@ public class RelatedPerson extends DomainResource {
       return this.period;
     }
 
-    public boolean hasPeriod() {
+    public boolean hasPeriod() { 
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (The period of time that this relationship is considered to be valid. If there are no dates defined, then the interval is unknown.)
      */
-    public RelatedPerson setPeriod(Period value) {
+    public RelatedPerson setPeriod(Period value) { 
       this.period = value;
       return this;
     }

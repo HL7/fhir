@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,23 +52,23 @@ public class SearchParameter extends DomainResource {
         /**
          * The search parameter is derived directly from the selected nodes based on the type definitions.
          */
-        NORMAL,
+        NORMAL, 
         /**
          * The search parameter is derived by a phonetic transform from the selected nodes.
          */
-        PHONETIC,
+        PHONETIC, 
         /**
          * The search parameter is based on a spatial transform of the selected nodes.
          */
-        NEARBY,
+        NEARBY, 
         /**
          * The search parameter is based on a spatial transform of the selected nodes, using physical distance from the middle.
          */
-        DISTANCE,
+        DISTANCE, 
         /**
          * The interpretation of the xpath statement is unknown (and can't be automated).
          */
-        OTHER,
+        OTHER, 
         /**
          * added to help the parsers
          */
@@ -208,7 +208,7 @@ public class SearchParameter extends DomainResource {
         /**
          * @return {@link #name} (The name of an individual to contact regarding the search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SearchParameterContactComponent.name");
@@ -217,18 +217,18 @@ public class SearchParameter extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of an individual to contact regarding the search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public SearchParameterContactComponent setNameElement(StringType value) {
+        public SearchParameterContactComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -236,14 +236,14 @@ public class SearchParameter extends DomainResource {
         /**
          * @return The name of an individual to contact regarding the search parameter.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of an individual to contact regarding the search parameter.
          */
-        public SearchParameterContactComponent setName(String value) {
+        public SearchParameterContactComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -257,13 +257,13 @@ public class SearchParameter extends DomainResource {
         /**
          * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
-        public List<ContactPoint> getTelecom() {
+        public List<ContactPoint> getTelecom() { 
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() {
+        public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -496,7 +496,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #url} (An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() {
+    public UriType getUrlElement() { 
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.url");
@@ -505,18 +505,18 @@ public class SearchParameter extends DomainResource {
       return this.url;
     }
 
-    public boolean hasUrlElement() {
+    public boolean hasUrlElement() { 
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() {
+    public boolean hasUrl() { 
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
      * @param value {@link #url} (An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public SearchParameter setUrlElement(UriType value) {
+    public SearchParameter setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -524,14 +524,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.
      */
-    public String getUrl() {
+    public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value An absolute URL that is used to identify this search parameter when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this search parameter is (or will be) published.
      */
-    public SearchParameter setUrl(String value) {
+    public SearchParameter setUrl(String value) { 
         if (this.url == null)
           this.url = new UriType();
         this.url.setValue(value);
@@ -541,7 +541,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #name} (A free text natural language name identifying the search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() {
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.name");
@@ -550,18 +550,18 @@ public class SearchParameter extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() {
+    public boolean hasNameElement() { 
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A free text natural language name identifying the search parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public SearchParameter setNameElement(StringType value) {
+    public SearchParameter setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -569,14 +569,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return A free text natural language name identifying the search parameter.
      */
-    public String getName() {
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A free text natural language name identifying the search parameter.
      */
-    public SearchParameter setName(String value) {
+    public SearchParameter setName(String value) { 
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
@@ -586,7 +586,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #status} (The status of this search parameter definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() {
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.status");
@@ -595,18 +595,18 @@ public class SearchParameter extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of this search parameter definition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public SearchParameter setStatusElement(Enumeration<ConformanceResourceStatus> value) {
+    public SearchParameter setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -614,14 +614,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return The status of this search parameter definition.
      */
-    public ConformanceResourceStatus getStatus() {
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of this search parameter definition.
      */
-    public SearchParameter setStatus(ConformanceResourceStatus value) {
+    public SearchParameter setStatus(ConformanceResourceStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -635,7 +635,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #experimental} (A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalElement() {
+    public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.experimental");
@@ -644,18 +644,18 @@ public class SearchParameter extends DomainResource {
       return this.experimental;
     }
 
-    public boolean hasExperimentalElement() {
+    public boolean hasExperimentalElement() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
-    public boolean hasExperimental() {
+    public boolean hasExperimental() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
      * @param value {@link #experimental} (A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public SearchParameter setExperimentalElement(BooleanType value) {
+    public SearchParameter setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -663,14 +663,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public boolean getExperimental() {
+    public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
      * @param value A flag to indicate that this search parameter definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public SearchParameter setExperimental(boolean value) {
+    public SearchParameter setExperimental(boolean value) { 
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
@@ -680,7 +680,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the search parameter.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() {
+    public StringType getPublisherElement() { 
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.publisher");
@@ -689,18 +689,18 @@ public class SearchParameter extends DomainResource {
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() {
+    public boolean hasPublisherElement() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() {
+    public boolean hasPublisher() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the search parameter.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public SearchParameter setPublisherElement(StringType value) {
+    public SearchParameter setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -708,14 +708,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return The name of the individual or organization that published the search parameter.
      */
-    public String getPublisher() {
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value The name of the individual or organization that published the search parameter.
      */
-    public SearchParameter setPublisher(String value) {
+    public SearchParameter setPublisher(String value) { 
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -729,13 +729,13 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<SearchParameterContactComponent> getContact() {
+    public List<SearchParameterContactComponent> getContact() { 
       if (this.contact == null)
         this.contact = new ArrayList<SearchParameterContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() {
+    public boolean hasContact() { 
       if (this.contact == null)
         return false;
       for (SearchParameterContactComponent item : this.contact)
@@ -769,7 +769,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #date} (The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.date");
@@ -778,18 +778,18 @@ public class SearchParameter extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public SearchParameter setDateElement(DateTimeType value) {
+    public SearchParameter setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -797,14 +797,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes.
      */
-    public SearchParameter setDate(Date value) {
+    public SearchParameter setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -818,7 +818,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #requirements} (The Scope and Usage that this search parameter was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public StringType getRequirementsElement() {
+    public StringType getRequirementsElement() { 
       if (this.requirements == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.requirements");
@@ -827,18 +827,18 @@ public class SearchParameter extends DomainResource {
       return this.requirements;
     }
 
-    public boolean hasRequirementsElement() {
+    public boolean hasRequirementsElement() { 
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
-    public boolean hasRequirements() {
+    public boolean hasRequirements() { 
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
     /**
      * @param value {@link #requirements} (The Scope and Usage that this search parameter was created to meet.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public SearchParameter setRequirementsElement(StringType value) {
+    public SearchParameter setRequirementsElement(StringType value) { 
       this.requirements = value;
       return this;
     }
@@ -846,14 +846,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return The Scope and Usage that this search parameter was created to meet.
      */
-    public String getRequirements() {
+    public String getRequirements() { 
       return this.requirements == null ? null : this.requirements.getValue();
     }
 
     /**
      * @param value The Scope and Usage that this search parameter was created to meet.
      */
-    public SearchParameter setRequirements(String value) {
+    public SearchParameter setRequirements(String value) { 
       if (Utilities.noString(value))
         this.requirements = null;
       else {
@@ -867,7 +867,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #code} (The code used in the URL or the parameter name in a parameters resource for this search parameter.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public CodeType getCodeElement() {
+    public CodeType getCodeElement() { 
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.code");
@@ -876,18 +876,18 @@ public class SearchParameter extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCodeElement() {
+    public boolean hasCodeElement() { 
       return this.code != null && !this.code.isEmpty();
     }
 
-    public boolean hasCode() {
+    public boolean hasCode() { 
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (The code used in the URL or the parameter name in a parameters resource for this search parameter.). This is the underlying object with id, value and extensions. The accessor "getCode" gives direct access to the value
      */
-    public SearchParameter setCodeElement(CodeType value) {
+    public SearchParameter setCodeElement(CodeType value) { 
       this.code = value;
       return this;
     }
@@ -895,14 +895,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return The code used in the URL or the parameter name in a parameters resource for this search parameter.
      */
-    public String getCode() {
+    public String getCode() { 
       return this.code == null ? null : this.code.getValue();
     }
 
     /**
      * @param value The code used in the URL or the parameter name in a parameters resource for this search parameter.
      */
-    public SearchParameter setCode(String value) {
+    public SearchParameter setCode(String value) { 
         if (this.code == null)
           this.code = new CodeType();
         this.code.setValue(value);
@@ -912,7 +912,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #base} (The base resource type that this search parameter refers to.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
      */
-    public CodeType getBaseElement() {
+    public CodeType getBaseElement() { 
       if (this.base == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.base");
@@ -921,18 +921,18 @@ public class SearchParameter extends DomainResource {
       return this.base;
     }
 
-    public boolean hasBaseElement() {
+    public boolean hasBaseElement() { 
       return this.base != null && !this.base.isEmpty();
     }
 
-    public boolean hasBase() {
+    public boolean hasBase() { 
       return this.base != null && !this.base.isEmpty();
     }
 
     /**
      * @param value {@link #base} (The base resource type that this search parameter refers to.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
      */
-    public SearchParameter setBaseElement(CodeType value) {
+    public SearchParameter setBaseElement(CodeType value) { 
       this.base = value;
       return this;
     }
@@ -940,14 +940,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return The base resource type that this search parameter refers to.
      */
-    public String getBase() {
+    public String getBase() { 
       return this.base == null ? null : this.base.getValue();
     }
 
     /**
      * @param value The base resource type that this search parameter refers to.
      */
-    public SearchParameter setBase(String value) {
+    public SearchParameter setBase(String value) { 
         if (this.base == null)
           this.base = new CodeType();
         this.base.setValue(value);
@@ -957,7 +957,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<SearchParamType> getTypeElement() {
+    public Enumeration<SearchParamType> getTypeElement() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.type");
@@ -966,18 +966,18 @@ public class SearchParameter extends DomainResource {
       return this.type;
     }
 
-    public boolean hasTypeElement() {
+    public boolean hasTypeElement() { 
       return this.type != null && !this.type.isEmpty();
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (The type of value a search parameter refers to, and how the content is interpreted.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public SearchParameter setTypeElement(Enumeration<SearchParamType> value) {
+    public SearchParameter setTypeElement(Enumeration<SearchParamType> value) { 
       this.type = value;
       return this;
     }
@@ -985,14 +985,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return The type of value a search parameter refers to, and how the content is interpreted.
      */
-    public SearchParamType getType() {
+    public SearchParamType getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value The type of value a search parameter refers to, and how the content is interpreted.
      */
-    public SearchParameter setType(SearchParamType value) {
+    public SearchParameter setType(SearchParamType value) { 
         if (this.type == null)
           this.type = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory());
         this.type.setValue(value);
@@ -1002,7 +1002,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #description} (A description of the search parameters and how it used.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.description");
@@ -1011,18 +1011,18 @@ public class SearchParameter extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A description of the search parameters and how it used.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public SearchParameter setDescriptionElement(StringType value) {
+    public SearchParameter setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -1030,14 +1030,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return A description of the search parameters and how it used.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A description of the search parameters and how it used.
      */
-    public SearchParameter setDescription(String value) {
+    public SearchParameter setDescription(String value) { 
         if (this.description == null)
           this.description = new StringType();
         this.description.setValue(value);
@@ -1047,7 +1047,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
      */
-    public StringType getXpathElement() {
+    public StringType getXpathElement() { 
       if (this.xpath == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.xpath");
@@ -1056,18 +1056,18 @@ public class SearchParameter extends DomainResource {
       return this.xpath;
     }
 
-    public boolean hasXpathElement() {
+    public boolean hasXpathElement() { 
       return this.xpath != null && !this.xpath.isEmpty();
     }
 
-    public boolean hasXpath() {
+    public boolean hasXpath() { 
       return this.xpath != null && !this.xpath.isEmpty();
     }
 
     /**
      * @param value {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
      */
-    public SearchParameter setXpathElement(StringType value) {
+    public SearchParameter setXpathElement(StringType value) { 
       this.xpath = value;
       return this;
     }
@@ -1075,14 +1075,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return An XPath expression that returns a set of elements for the search parameter.
      */
-    public String getXpath() {
+    public String getXpath() { 
       return this.xpath == null ? null : this.xpath.getValue();
     }
 
     /**
      * @param value An XPath expression that returns a set of elements for the search parameter.
      */
-    public SearchParameter setXpath(String value) {
+    public SearchParameter setXpath(String value) { 
       if (Utilities.noString(value))
         this.xpath = null;
       else {
@@ -1096,7 +1096,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #xpathUsage} (How the search parameter relates to the set of elements returned by evaluating the xpath query.). This is the underlying object with id, value and extensions. The accessor "getXpathUsage" gives direct access to the value
      */
-    public Enumeration<XPathUsageType> getXpathUsageElement() {
+    public Enumeration<XPathUsageType> getXpathUsageElement() { 
       if (this.xpathUsage == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create SearchParameter.xpathUsage");
@@ -1105,18 +1105,18 @@ public class SearchParameter extends DomainResource {
       return this.xpathUsage;
     }
 
-    public boolean hasXpathUsageElement() {
+    public boolean hasXpathUsageElement() { 
       return this.xpathUsage != null && !this.xpathUsage.isEmpty();
     }
 
-    public boolean hasXpathUsage() {
+    public boolean hasXpathUsage() { 
       return this.xpathUsage != null && !this.xpathUsage.isEmpty();
     }
 
     /**
      * @param value {@link #xpathUsage} (How the search parameter relates to the set of elements returned by evaluating the xpath query.). This is the underlying object with id, value and extensions. The accessor "getXpathUsage" gives direct access to the value
      */
-    public SearchParameter setXpathUsageElement(Enumeration<XPathUsageType> value) {
+    public SearchParameter setXpathUsageElement(Enumeration<XPathUsageType> value) { 
       this.xpathUsage = value;
       return this;
     }
@@ -1124,14 +1124,14 @@ public class SearchParameter extends DomainResource {
     /**
      * @return How the search parameter relates to the set of elements returned by evaluating the xpath query.
      */
-    public XPathUsageType getXpathUsage() {
+    public XPathUsageType getXpathUsage() { 
       return this.xpathUsage == null ? null : this.xpathUsage.getValue();
     }
 
     /**
      * @param value How the search parameter relates to the set of elements returned by evaluating the xpath query.
      */
-    public SearchParameter setXpathUsage(XPathUsageType value) {
+    public SearchParameter setXpathUsage(XPathUsageType value) { 
       if (value == null)
         this.xpathUsage = null;
       else {
@@ -1145,13 +1145,13 @@ public class SearchParameter extends DomainResource {
     /**
      * @return {@link #target} (Types of resource (if a resource is referenced).)
      */
-    public List<CodeType> getTarget() {
+    public List<CodeType> getTarget() { 
       if (this.target == null)
         this.target = new ArrayList<CodeType>();
       return this.target;
     }
 
-    public boolean hasTarget() {
+    public boolean hasTarget() { 
       if (this.target == null)
         return false;
       for (CodeType item : this.target)
@@ -1164,7 +1164,7 @@ public class SearchParameter extends DomainResource {
      * @return {@link #target} (Types of resource (if a resource is referenced).)
      */
     // syntactic sugar
-    public CodeType addTargetElement() {//2
+    public CodeType addTargetElement() {//2 
       CodeType t = new CodeType();
       if (this.target == null)
         this.target = new ArrayList<CodeType>();
@@ -1187,7 +1187,7 @@ public class SearchParameter extends DomainResource {
     /**
      * @param value {@link #target} (Types of resource (if a resource is referenced).)
      */
-    public boolean hasTarget(String value) {
+    public boolean hasTarget(String value) { 
       if (this.target == null)
         return false;
       for (CodeType v : this.target)

@@ -873,6 +873,10 @@ public class ElementDefn {
 
   public Map<Integer, Type> getOtherExamples() {
     return otherExamples;
+  }
+
+  public String getPathTail() {
+    return path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path;
   }	
   
 }

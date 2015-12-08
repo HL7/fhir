@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -102,7 +102,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #uid} (Study instance UID of the SOP instances in the selection.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public OidType getUidElement() {
+        public OidType getUidElement() { 
           if (this.uid == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StudyComponent.uid");
@@ -111,18 +111,18 @@ public class ImagingObjectSelection extends DomainResource {
           return this.uid;
         }
 
-        public boolean hasUidElement() {
+        public boolean hasUidElement() { 
           return this.uid != null && !this.uid.isEmpty();
         }
 
-        public boolean hasUid() {
+        public boolean hasUid() { 
           return this.uid != null && !this.uid.isEmpty();
         }
 
         /**
          * @param value {@link #uid} (Study instance UID of the SOP instances in the selection.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public StudyComponent setUidElement(OidType value) {
+        public StudyComponent setUidElement(OidType value) { 
           this.uid = value;
           return this;
         }
@@ -130,14 +130,14 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return Study instance UID of the SOP instances in the selection.
          */
-        public String getUid() {
+        public String getUid() { 
           return this.uid == null ? null : this.uid.getValue();
         }
 
         /**
          * @param value Study instance UID of the SOP instances in the selection.
          */
-        public StudyComponent setUid(String value) {
+        public StudyComponent setUid(String value) { 
             if (this.uid == null)
               this.uid = new OidType();
             this.uid.setValue(value);
@@ -147,7 +147,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #url} (WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlElement() {
+        public UriType getUrlElement() { 
           if (this.url == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StudyComponent.url");
@@ -156,18 +156,18 @@ public class ImagingObjectSelection extends DomainResource {
           return this.url;
         }
 
-        public boolean hasUrlElement() {
+        public boolean hasUrlElement() { 
           return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasUrl() {
+        public boolean hasUrl() { 
           return this.url != null && !this.url.isEmpty();
         }
 
         /**
          * @param value {@link #url} (WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public StudyComponent setUrlElement(UriType value) {
+        public StudyComponent setUrlElement(UriType value) { 
           this.url = value;
           return this;
         }
@@ -175,14 +175,14 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.
          */
-        public String getUrl() {
+        public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value WADO-RS URL to retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.
          */
-        public StudyComponent setUrl(String value) {
+        public StudyComponent setUrl(String value) { 
           if (Utilities.noString(value))
             this.url = null;
           else {
@@ -196,7 +196,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #imagingStudy} (Reference to the Imaging Study in FHIR form.)
          */
-        public Reference getImagingStudy() {
+        public Reference getImagingStudy() { 
           if (this.imagingStudy == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StudyComponent.imagingStudy");
@@ -205,14 +205,14 @@ public class ImagingObjectSelection extends DomainResource {
           return this.imagingStudy;
         }
 
-        public boolean hasImagingStudy() {
+        public boolean hasImagingStudy() { 
           return this.imagingStudy != null && !this.imagingStudy.isEmpty();
         }
 
         /**
          * @param value {@link #imagingStudy} (Reference to the Imaging Study in FHIR form.)
          */
-        public StudyComponent setImagingStudy(Reference value) {
+        public StudyComponent setImagingStudy(Reference value) { 
           this.imagingStudy = value;
           return this;
         }
@@ -220,7 +220,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #imagingStudy} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the Imaging Study in FHIR form.)
          */
-        public ImagingStudy getImagingStudyTarget() {
+        public ImagingStudy getImagingStudyTarget() { 
           if (this.imagingStudyTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StudyComponent.imagingStudy");
@@ -232,7 +232,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @param value {@link #imagingStudy} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the Imaging Study in FHIR form.)
          */
-        public StudyComponent setImagingStudyTarget(ImagingStudy value) {
+        public StudyComponent setImagingStudyTarget(ImagingStudy value) { 
           this.imagingStudyTarget = value;
           return this;
         }
@@ -240,13 +240,13 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #series} (Series identity and locating information of the DICOM SOP instances in the selection.)
          */
-        public List<SeriesComponent> getSeries() {
+        public List<SeriesComponent> getSeries() { 
           if (this.series == null)
             this.series = new ArrayList<SeriesComponent>();
           return this.series;
         }
 
-        public boolean hasSeries() {
+        public boolean hasSeries() { 
           if (this.series == null)
             return false;
           for (SeriesComponent item : this.series)
@@ -400,7 +400,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #uid} (Series instance UID of the SOP instances in the selection.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public OidType getUidElement() {
+        public OidType getUidElement() { 
           if (this.uid == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SeriesComponent.uid");
@@ -409,18 +409,18 @@ public class ImagingObjectSelection extends DomainResource {
           return this.uid;
         }
 
-        public boolean hasUidElement() {
+        public boolean hasUidElement() { 
           return this.uid != null && !this.uid.isEmpty();
         }
 
-        public boolean hasUid() {
+        public boolean hasUid() { 
           return this.uid != null && !this.uid.isEmpty();
         }
 
         /**
          * @param value {@link #uid} (Series instance UID of the SOP instances in the selection.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public SeriesComponent setUidElement(OidType value) {
+        public SeriesComponent setUidElement(OidType value) { 
           this.uid = value;
           return this;
         }
@@ -428,14 +428,14 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return Series instance UID of the SOP instances in the selection.
          */
-        public String getUid() {
+        public String getUid() { 
           return this.uid == null ? null : this.uid.getValue();
         }
 
         /**
          * @param value Series instance UID of the SOP instances in the selection.
          */
-        public SeriesComponent setUid(String value) {
+        public SeriesComponent setUid(String value) { 
           if (Utilities.noString(value))
             this.uid = null;
           else {
@@ -449,7 +449,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #url} (WADO-RS URL to retrieve the series. Note that this URL retrieves all SOP instances of the series not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlElement() {
+        public UriType getUrlElement() { 
           if (this.url == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SeriesComponent.url");
@@ -458,18 +458,18 @@ public class ImagingObjectSelection extends DomainResource {
           return this.url;
         }
 
-        public boolean hasUrlElement() {
+        public boolean hasUrlElement() { 
           return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasUrl() {
+        public boolean hasUrl() { 
           return this.url != null && !this.url.isEmpty();
         }
 
         /**
          * @param value {@link #url} (WADO-RS URL to retrieve the series. Note that this URL retrieves all SOP instances of the series not only those in the selection.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public SeriesComponent setUrlElement(UriType value) {
+        public SeriesComponent setUrlElement(UriType value) { 
           this.url = value;
           return this;
         }
@@ -477,14 +477,14 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return WADO-RS URL to retrieve the series. Note that this URL retrieves all SOP instances of the series not only those in the selection.
          */
-        public String getUrl() {
+        public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value WADO-RS URL to retrieve the series. Note that this URL retrieves all SOP instances of the series not only those in the selection.
          */
-        public SeriesComponent setUrl(String value) {
+        public SeriesComponent setUrl(String value) { 
           if (Utilities.noString(value))
             this.url = null;
           else {
@@ -498,13 +498,13 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #instance} (Identity and locating information of the selected DICOM SOP instances.)
          */
-        public List<InstanceComponent> getInstance() {
+        public List<InstanceComponent> getInstance() { 
           if (this.instance == null)
             this.instance = new ArrayList<InstanceComponent>();
           return this.instance;
         }
 
-        public boolean hasInstance() {
+        public boolean hasInstance() { 
           if (this.instance == null)
             return false;
           for (InstanceComponent item : this.instance)
@@ -667,7 +667,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #sopClass} (SOP class UID of the selected instance.). This is the underlying object with id, value and extensions. The accessor "getSopClass" gives direct access to the value
          */
-        public OidType getSopClassElement() {
+        public OidType getSopClassElement() { 
           if (this.sopClass == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create InstanceComponent.sopClass");
@@ -676,18 +676,18 @@ public class ImagingObjectSelection extends DomainResource {
           return this.sopClass;
         }
 
-        public boolean hasSopClassElement() {
+        public boolean hasSopClassElement() { 
           return this.sopClass != null && !this.sopClass.isEmpty();
         }
 
-        public boolean hasSopClass() {
+        public boolean hasSopClass() { 
           return this.sopClass != null && !this.sopClass.isEmpty();
         }
 
         /**
          * @param value {@link #sopClass} (SOP class UID of the selected instance.). This is the underlying object with id, value and extensions. The accessor "getSopClass" gives direct access to the value
          */
-        public InstanceComponent setSopClassElement(OidType value) {
+        public InstanceComponent setSopClassElement(OidType value) { 
           this.sopClass = value;
           return this;
         }
@@ -695,14 +695,14 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return SOP class UID of the selected instance.
          */
-        public String getSopClass() {
+        public String getSopClass() { 
           return this.sopClass == null ? null : this.sopClass.getValue();
         }
 
         /**
          * @param value SOP class UID of the selected instance.
          */
-        public InstanceComponent setSopClass(String value) {
+        public InstanceComponent setSopClass(String value) { 
             if (this.sopClass == null)
               this.sopClass = new OidType();
             this.sopClass.setValue(value);
@@ -712,7 +712,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #uid} (SOP Instance UID of the selected instance.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public OidType getUidElement() {
+        public OidType getUidElement() { 
           if (this.uid == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create InstanceComponent.uid");
@@ -721,18 +721,18 @@ public class ImagingObjectSelection extends DomainResource {
           return this.uid;
         }
 
-        public boolean hasUidElement() {
+        public boolean hasUidElement() { 
           return this.uid != null && !this.uid.isEmpty();
         }
 
-        public boolean hasUid() {
+        public boolean hasUid() { 
           return this.uid != null && !this.uid.isEmpty();
         }
 
         /**
          * @param value {@link #uid} (SOP Instance UID of the selected instance.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
          */
-        public InstanceComponent setUidElement(OidType value) {
+        public InstanceComponent setUidElement(OidType value) { 
           this.uid = value;
           return this;
         }
@@ -740,14 +740,14 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return SOP Instance UID of the selected instance.
          */
-        public String getUid() {
+        public String getUid() { 
           return this.uid == null ? null : this.uid.getValue();
         }
 
         /**
          * @param value SOP Instance UID of the selected instance.
          */
-        public InstanceComponent setUid(String value) {
+        public InstanceComponent setUid(String value) { 
             if (this.uid == null)
               this.uid = new OidType();
             this.uid.setValue(value);
@@ -757,7 +757,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #url} (WADO-RS URL to retrieve the DICOM SOP Instance.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlElement() {
+        public UriType getUrlElement() { 
           if (this.url == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create InstanceComponent.url");
@@ -766,18 +766,18 @@ public class ImagingObjectSelection extends DomainResource {
           return this.url;
         }
 
-        public boolean hasUrlElement() {
+        public boolean hasUrlElement() { 
           return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasUrl() {
+        public boolean hasUrl() { 
           return this.url != null && !this.url.isEmpty();
         }
 
         /**
          * @param value {@link #url} (WADO-RS URL to retrieve the DICOM SOP Instance.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public InstanceComponent setUrlElement(UriType value) {
+        public InstanceComponent setUrlElement(UriType value) { 
           this.url = value;
           return this;
         }
@@ -785,14 +785,14 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return WADO-RS URL to retrieve the DICOM SOP Instance.
          */
-        public String getUrl() {
+        public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value WADO-RS URL to retrieve the DICOM SOP Instance.
          */
-        public InstanceComponent setUrl(String value) {
+        public InstanceComponent setUrl(String value) { 
             if (this.url == null)
               this.url = new UriType();
             this.url.setValue(value);
@@ -802,13 +802,13 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #frames} (Identity and location information of the frames in the selected instance.)
          */
-        public List<FramesComponent> getFrames() {
+        public List<FramesComponent> getFrames() { 
           if (this.frames == null)
             this.frames = new ArrayList<FramesComponent>();
           return this.frames;
         }
 
-        public boolean hasFrames() {
+        public boolean hasFrames() { 
           if (this.frames == null)
             return false;
           for (FramesComponent item : this.frames)
@@ -963,13 +963,13 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #frameNumbers} (The frame numbers in the frame set.)
          */
-        public List<UnsignedIntType> getFrameNumbers() {
+        public List<UnsignedIntType> getFrameNumbers() { 
           if (this.frameNumbers == null)
             this.frameNumbers = new ArrayList<UnsignedIntType>();
           return this.frameNumbers;
         }
 
-        public boolean hasFrameNumbers() {
+        public boolean hasFrameNumbers() { 
           if (this.frameNumbers == null)
             return false;
           for (UnsignedIntType item : this.frameNumbers)
@@ -982,7 +982,7 @@ public class ImagingObjectSelection extends DomainResource {
          * @return {@link #frameNumbers} (The frame numbers in the frame set.)
          */
     // syntactic sugar
-        public UnsignedIntType addFrameNumbersElement() {//2
+        public UnsignedIntType addFrameNumbersElement() {//2 
           UnsignedIntType t = new UnsignedIntType();
           if (this.frameNumbers == null)
             this.frameNumbers = new ArrayList<UnsignedIntType>();
@@ -1005,7 +1005,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @param value {@link #frameNumbers} (The frame numbers in the frame set.)
          */
-        public boolean hasFrameNumbers(int value) {
+        public boolean hasFrameNumbers(int value) { 
           if (this.frameNumbers == null)
             return false;
           for (UnsignedIntType v : this.frameNumbers)
@@ -1017,7 +1017,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return {@link #url} (WADO-RS URL to retrieve the DICOM frames.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlElement() {
+        public UriType getUrlElement() { 
           if (this.url == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create FramesComponent.url");
@@ -1026,18 +1026,18 @@ public class ImagingObjectSelection extends DomainResource {
           return this.url;
         }
 
-        public boolean hasUrlElement() {
+        public boolean hasUrlElement() { 
           return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasUrl() {
+        public boolean hasUrl() { 
           return this.url != null && !this.url.isEmpty();
         }
 
         /**
          * @param value {@link #url} (WADO-RS URL to retrieve the DICOM frames.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public FramesComponent setUrlElement(UriType value) {
+        public FramesComponent setUrlElement(UriType value) { 
           this.url = value;
           return this;
         }
@@ -1045,14 +1045,14 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * @return WADO-RS URL to retrieve the DICOM frames.
          */
-        public String getUrl() {
+        public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value WADO-RS URL to retrieve the DICOM frames.
          */
-        public FramesComponent setUrl(String value) {
+        public FramesComponent setUrl(String value) { 
             if (this.url == null)
               this.url = new UriType();
             this.url.setValue(value);
@@ -1212,7 +1212,7 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return {@link #uid} (Instance UID of the DICOM KOS SOP Instances represented in this resource.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
      */
-    public OidType getUidElement() {
+    public OidType getUidElement() { 
       if (this.uid == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.uid");
@@ -1221,18 +1221,18 @@ public class ImagingObjectSelection extends DomainResource {
       return this.uid;
     }
 
-    public boolean hasUidElement() {
+    public boolean hasUidElement() { 
       return this.uid != null && !this.uid.isEmpty();
     }
 
-    public boolean hasUid() {
+    public boolean hasUid() { 
       return this.uid != null && !this.uid.isEmpty();
     }
 
     /**
      * @param value {@link #uid} (Instance UID of the DICOM KOS SOP Instances represented in this resource.). This is the underlying object with id, value and extensions. The accessor "getUid" gives direct access to the value
      */
-    public ImagingObjectSelection setUidElement(OidType value) {
+    public ImagingObjectSelection setUidElement(OidType value) { 
       this.uid = value;
       return this;
     }
@@ -1240,14 +1240,14 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return Instance UID of the DICOM KOS SOP Instances represented in this resource.
      */
-    public String getUid() {
+    public String getUid() { 
       return this.uid == null ? null : this.uid.getValue();
     }
 
     /**
      * @param value Instance UID of the DICOM KOS SOP Instances represented in this resource.
      */
-    public ImagingObjectSelection setUid(String value) {
+    public ImagingObjectSelection setUid(String value) { 
         if (this.uid == null)
           this.uid = new OidType();
         this.uid.setValue(value);
@@ -1257,7 +1257,7 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return {@link #patient} (A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingObjectSelection.)
      */
-    public Reference getPatient() {
+    public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.patient");
@@ -1266,14 +1266,14 @@ public class ImagingObjectSelection extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() {
+    public boolean hasPatient() { 
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingObjectSelection.)
      */
-    public ImagingObjectSelection setPatient(Reference value) {
+    public ImagingObjectSelection setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -1281,7 +1281,7 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingObjectSelection.)
      */
-    public Patient getPatientTarget() {
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.patient");
@@ -1293,7 +1293,7 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingObjectSelection.)
      */
-    public ImagingObjectSelection setPatientTarget(Patient value) {
+    public ImagingObjectSelection setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -1301,7 +1301,7 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return {@link #title} (The reason for, or significance of, the selection of objects referenced in the resource.)
      */
-    public CodeableConcept getTitle() {
+    public CodeableConcept getTitle() { 
       if (this.title == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.title");
@@ -1310,14 +1310,14 @@ public class ImagingObjectSelection extends DomainResource {
       return this.title;
     }
 
-    public boolean hasTitle() {
+    public boolean hasTitle() { 
       return this.title != null && !this.title.isEmpty();
     }
 
     /**
      * @param value {@link #title} (The reason for, or significance of, the selection of objects referenced in the resource.)
      */
-    public ImagingObjectSelection setTitle(CodeableConcept value) {
+    public ImagingObjectSelection setTitle(CodeableConcept value) { 
       this.title = value;
       return this;
     }
@@ -1325,7 +1325,7 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return {@link #description} (Text description of the DICOM SOP instances selected in the ImagingObjectSelection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.description");
@@ -1334,18 +1334,18 @@ public class ImagingObjectSelection extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (Text description of the DICOM SOP instances selected in the ImagingObjectSelection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ImagingObjectSelection setDescriptionElement(StringType value) {
+    public ImagingObjectSelection setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -1353,14 +1353,14 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return Text description of the DICOM SOP instances selected in the ImagingObjectSelection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value Text description of the DICOM SOP instances selected in the ImagingObjectSelection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.
      */
-    public ImagingObjectSelection setDescription(String value) {
+    public ImagingObjectSelection setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -1374,7 +1374,7 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return {@link #author} (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
      */
-    public Reference getAuthor() {
+    public Reference getAuthor() { 
       if (this.author == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.author");
@@ -1383,14 +1383,14 @@ public class ImagingObjectSelection extends DomainResource {
       return this.author;
     }
 
-    public boolean hasAuthor() {
+    public boolean hasAuthor() { 
       return this.author != null && !this.author.isEmpty();
     }
 
     /**
      * @param value {@link #author} (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
      */
-    public ImagingObjectSelection setAuthor(Reference value) {
+    public ImagingObjectSelection setAuthor(Reference value) { 
       this.author = value;
       return this;
     }
@@ -1398,14 +1398,14 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
      */
-    public Resource getAuthorTarget() {
+    public Resource getAuthorTarget() { 
       return this.authorTarget;
     }
 
     /**
      * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
      */
-    public ImagingObjectSelection setAuthorTarget(Resource value) {
+    public ImagingObjectSelection setAuthorTarget(Resource value) { 
       this.authorTarget = value;
       return this;
     }
@@ -1413,7 +1413,7 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return {@link #authoringTime} (Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).). This is the underlying object with id, value and extensions. The accessor "getAuthoringTime" gives direct access to the value
      */
-    public DateTimeType getAuthoringTimeElement() {
+    public DateTimeType getAuthoringTimeElement() { 
       if (this.authoringTime == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ImagingObjectSelection.authoringTime");
@@ -1422,18 +1422,18 @@ public class ImagingObjectSelection extends DomainResource {
       return this.authoringTime;
     }
 
-    public boolean hasAuthoringTimeElement() {
+    public boolean hasAuthoringTimeElement() { 
       return this.authoringTime != null && !this.authoringTime.isEmpty();
     }
 
-    public boolean hasAuthoringTime() {
+    public boolean hasAuthoringTime() { 
       return this.authoringTime != null && !this.authoringTime.isEmpty();
     }
 
     /**
      * @param value {@link #authoringTime} (Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).). This is the underlying object with id, value and extensions. The accessor "getAuthoringTime" gives direct access to the value
      */
-    public ImagingObjectSelection setAuthoringTimeElement(DateTimeType value) {
+    public ImagingObjectSelection setAuthoringTimeElement(DateTimeType value) { 
       this.authoringTime = value;
       return this;
     }
@@ -1441,14 +1441,14 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
      */
-    public Date getAuthoringTime() {
+    public Date getAuthoringTime() { 
       return this.authoringTime == null ? null : this.authoringTime.getValue();
     }
 
     /**
      * @param value Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
      */
-    public ImagingObjectSelection setAuthoringTime(Date value) {
+    public ImagingObjectSelection setAuthoringTime(Date value) { 
       if (value == null)
         this.authoringTime = null;
       else {
@@ -1462,13 +1462,13 @@ public class ImagingObjectSelection extends DomainResource {
     /**
      * @return {@link #study} (Study identity and locating information of the DICOM SOP instances in the selection.)
      */
-    public List<StudyComponent> getStudy() {
+    public List<StudyComponent> getStudy() { 
       if (this.study == null)
         this.study = new ArrayList<StudyComponent>();
       return this.study;
     }
 
-    public boolean hasStudy() {
+    public boolean hasStudy() { 
       if (this.study == null)
         return false;
       for (StudyComponent item : this.study)

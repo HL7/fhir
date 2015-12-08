@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -76,7 +76,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #name} (The name of an individual to contact regarding the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileContactComponent.name");
@@ -85,18 +85,18 @@ public class ExpansionProfile extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of an individual to contact regarding the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ExpansionProfileContactComponent setNameElement(StringType value) {
+        public ExpansionProfileContactComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -104,14 +104,14 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return The name of an individual to contact regarding the expansion profile.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of an individual to contact regarding the expansion profile.
          */
-        public ExpansionProfileContactComponent setName(String value) {
+        public ExpansionProfileContactComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -125,13 +125,13 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
-        public List<ContactPoint> getTelecom() {
+        public List<ContactPoint> getTelecom() { 
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() {
+        public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -262,7 +262,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #include} (Code systems to be included in value set expansions.)
          */
-        public ExpansionProfileCodeSystemIncludeComponent getInclude() {
+        public ExpansionProfileCodeSystemIncludeComponent getInclude() { 
           if (this.include == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileCodeSystemComponent.include");
@@ -271,14 +271,14 @@ public class ExpansionProfile extends DomainResource {
           return this.include;
         }
 
-        public boolean hasInclude() {
+        public boolean hasInclude() { 
           return this.include != null && !this.include.isEmpty();
         }
 
         /**
          * @param value {@link #include} (Code systems to be included in value set expansions.)
          */
-        public ExpansionProfileCodeSystemComponent setInclude(ExpansionProfileCodeSystemIncludeComponent value) {
+        public ExpansionProfileCodeSystemComponent setInclude(ExpansionProfileCodeSystemIncludeComponent value) { 
           this.include = value;
           return this;
         }
@@ -286,7 +286,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #exclude} (Code systems to be excluded from value set expansions.)
          */
-        public ExpansionProfileCodeSystemExcludeComponent getExclude() {
+        public ExpansionProfileCodeSystemExcludeComponent getExclude() { 
           if (this.exclude == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileCodeSystemComponent.exclude");
@@ -295,14 +295,14 @@ public class ExpansionProfile extends DomainResource {
           return this.exclude;
         }
 
-        public boolean hasExclude() {
+        public boolean hasExclude() { 
           return this.exclude != null && !this.exclude.isEmpty();
         }
 
         /**
          * @param value {@link #exclude} (Code systems to be excluded from value set expansions.)
          */
-        public ExpansionProfileCodeSystemComponent setExclude(ExpansionProfileCodeSystemExcludeComponent value) {
+        public ExpansionProfileCodeSystemComponent setExclude(ExpansionProfileCodeSystemExcludeComponent value) { 
           this.exclude = value;
           return this;
         }
@@ -398,13 +398,13 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #codeSystem} (A data group for each code system to be included.)
          */
-        public List<ExpansionProfileCodeSystemIncludeCodeSystemComponent> getCodeSystem() {
+        public List<ExpansionProfileCodeSystemIncludeCodeSystemComponent> getCodeSystem() { 
           if (this.codeSystem == null)
             this.codeSystem = new ArrayList<ExpansionProfileCodeSystemIncludeCodeSystemComponent>();
           return this.codeSystem;
         }
 
-        public boolean hasCodeSystem() {
+        public boolean hasCodeSystem() { 
           if (this.codeSystem == null)
             return false;
           for (ExpansionProfileCodeSystemIncludeCodeSystemComponent item : this.codeSystem)
@@ -535,7 +535,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #system} (An absolute URI which is the code system to be included.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public UriType getSystemElement() {
+        public UriType getSystemElement() { 
           if (this.system == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileCodeSystemIncludeCodeSystemComponent.system");
@@ -544,18 +544,18 @@ public class ExpansionProfile extends DomainResource {
           return this.system;
         }
 
-        public boolean hasSystemElement() {
+        public boolean hasSystemElement() { 
           return this.system != null && !this.system.isEmpty();
         }
 
-        public boolean hasSystem() {
+        public boolean hasSystem() { 
           return this.system != null && !this.system.isEmpty();
         }
 
         /**
          * @param value {@link #system} (An absolute URI which is the code system to be included.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public ExpansionProfileCodeSystemIncludeCodeSystemComponent setSystemElement(UriType value) {
+        public ExpansionProfileCodeSystemIncludeCodeSystemComponent setSystemElement(UriType value) { 
           this.system = value;
           return this;
         }
@@ -563,14 +563,14 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return An absolute URI which is the code system to be included.
          */
-        public String getSystem() {
+        public String getSystem() { 
           return this.system == null ? null : this.system.getValue();
         }
 
         /**
          * @param value An absolute URI which is the code system to be included.
          */
-        public ExpansionProfileCodeSystemIncludeCodeSystemComponent setSystem(String value) {
+        public ExpansionProfileCodeSystemIncludeCodeSystemComponent setSystem(String value) { 
             if (this.system == null)
               this.system = new UriType();
             this.system.setValue(value);
@@ -580,7 +580,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #version} (The version of the code system from which codes in the expansion should be included.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersionElement() {
+        public StringType getVersionElement() { 
           if (this.version == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileCodeSystemIncludeCodeSystemComponent.version");
@@ -589,18 +589,18 @@ public class ExpansionProfile extends DomainResource {
           return this.version;
         }
 
-        public boolean hasVersionElement() {
+        public boolean hasVersionElement() { 
           return this.version != null && !this.version.isEmpty();
         }
 
-        public boolean hasVersion() {
+        public boolean hasVersion() { 
           return this.version != null && !this.version.isEmpty();
         }
 
         /**
          * @param value {@link #version} (The version of the code system from which codes in the expansion should be included.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public ExpansionProfileCodeSystemIncludeCodeSystemComponent setVersionElement(StringType value) {
+        public ExpansionProfileCodeSystemIncludeCodeSystemComponent setVersionElement(StringType value) { 
           this.version = value;
           return this;
         }
@@ -608,14 +608,14 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return The version of the code system from which codes in the expansion should be included.
          */
-        public String getVersion() {
+        public String getVersion() { 
           return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value The version of the code system from which codes in the expansion should be included.
          */
-        public ExpansionProfileCodeSystemIncludeCodeSystemComponent setVersion(String value) {
+        public ExpansionProfileCodeSystemIncludeCodeSystemComponent setVersion(String value) { 
           if (Utilities.noString(value))
             this.version = null;
           else {
@@ -715,13 +715,13 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #codeSystem} (A data group for each code system to be excluded.)
          */
-        public List<ExpansionProfileCodeSystemExcludeCodeSystemComponent> getCodeSystem() {
+        public List<ExpansionProfileCodeSystemExcludeCodeSystemComponent> getCodeSystem() { 
           if (this.codeSystem == null)
             this.codeSystem = new ArrayList<ExpansionProfileCodeSystemExcludeCodeSystemComponent>();
           return this.codeSystem;
         }
 
-        public boolean hasCodeSystem() {
+        public boolean hasCodeSystem() { 
           if (this.codeSystem == null)
             return false;
           for (ExpansionProfileCodeSystemExcludeCodeSystemComponent item : this.codeSystem)
@@ -852,7 +852,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #system} (An absolute URI which is the code system to be excluded.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public UriType getSystemElement() {
+        public UriType getSystemElement() { 
           if (this.system == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileCodeSystemExcludeCodeSystemComponent.system");
@@ -861,18 +861,18 @@ public class ExpansionProfile extends DomainResource {
           return this.system;
         }
 
-        public boolean hasSystemElement() {
+        public boolean hasSystemElement() { 
           return this.system != null && !this.system.isEmpty();
         }
 
-        public boolean hasSystem() {
+        public boolean hasSystem() { 
           return this.system != null && !this.system.isEmpty();
         }
 
         /**
          * @param value {@link #system} (An absolute URI which is the code system to be excluded.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public ExpansionProfileCodeSystemExcludeCodeSystemComponent setSystemElement(UriType value) {
+        public ExpansionProfileCodeSystemExcludeCodeSystemComponent setSystemElement(UriType value) { 
           this.system = value;
           return this;
         }
@@ -880,14 +880,14 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return An absolute URI which is the code system to be excluded.
          */
-        public String getSystem() {
+        public String getSystem() { 
           return this.system == null ? null : this.system.getValue();
         }
 
         /**
          * @param value An absolute URI which is the code system to be excluded.
          */
-        public ExpansionProfileCodeSystemExcludeCodeSystemComponent setSystem(String value) {
+        public ExpansionProfileCodeSystemExcludeCodeSystemComponent setSystem(String value) { 
             if (this.system == null)
               this.system = new UriType();
             this.system.setValue(value);
@@ -897,7 +897,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #version} (The version of the code system from which codes in the expansion should be excluded.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersionElement() {
+        public StringType getVersionElement() { 
           if (this.version == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileCodeSystemExcludeCodeSystemComponent.version");
@@ -906,18 +906,18 @@ public class ExpansionProfile extends DomainResource {
           return this.version;
         }
 
-        public boolean hasVersionElement() {
+        public boolean hasVersionElement() { 
           return this.version != null && !this.version.isEmpty();
         }
 
-        public boolean hasVersion() {
+        public boolean hasVersion() { 
           return this.version != null && !this.version.isEmpty();
         }
 
         /**
          * @param value {@link #version} (The version of the code system from which codes in the expansion should be excluded.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public ExpansionProfileCodeSystemExcludeCodeSystemComponent setVersionElement(StringType value) {
+        public ExpansionProfileCodeSystemExcludeCodeSystemComponent setVersionElement(StringType value) { 
           this.version = value;
           return this;
         }
@@ -925,14 +925,14 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return The version of the code system from which codes in the expansion should be excluded.
          */
-        public String getVersion() {
+        public String getVersion() { 
           return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value The version of the code system from which codes in the expansion should be excluded.
          */
-        public ExpansionProfileCodeSystemExcludeCodeSystemComponent setVersion(String value) {
+        public ExpansionProfileCodeSystemExcludeCodeSystemComponent setVersion(String value) { 
           if (Utilities.noString(value))
             this.version = null;
           else {
@@ -1039,7 +1039,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #include} (Designations to be included.)
          */
-        public ExpansionProfileDesignationIncludeComponent getInclude() {
+        public ExpansionProfileDesignationIncludeComponent getInclude() { 
           if (this.include == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileDesignationComponent.include");
@@ -1048,14 +1048,14 @@ public class ExpansionProfile extends DomainResource {
           return this.include;
         }
 
-        public boolean hasInclude() {
+        public boolean hasInclude() { 
           return this.include != null && !this.include.isEmpty();
         }
 
         /**
          * @param value {@link #include} (Designations to be included.)
          */
-        public ExpansionProfileDesignationComponent setInclude(ExpansionProfileDesignationIncludeComponent value) {
+        public ExpansionProfileDesignationComponent setInclude(ExpansionProfileDesignationIncludeComponent value) { 
           this.include = value;
           return this;
         }
@@ -1063,7 +1063,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #exclude} (Designations to be excluded.)
          */
-        public ExpansionProfileDesignationExcludeComponent getExclude() {
+        public ExpansionProfileDesignationExcludeComponent getExclude() { 
           if (this.exclude == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileDesignationComponent.exclude");
@@ -1072,14 +1072,14 @@ public class ExpansionProfile extends DomainResource {
           return this.exclude;
         }
 
-        public boolean hasExclude() {
+        public boolean hasExclude() { 
           return this.exclude != null && !this.exclude.isEmpty();
         }
 
         /**
          * @param value {@link #exclude} (Designations to be excluded.)
          */
-        public ExpansionProfileDesignationComponent setExclude(ExpansionProfileDesignationExcludeComponent value) {
+        public ExpansionProfileDesignationComponent setExclude(ExpansionProfileDesignationExcludeComponent value) { 
           this.exclude = value;
           return this;
         }
@@ -1175,13 +1175,13 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #designation} (A data group for each designation to be included.)
          */
-        public List<ExpansionProfileDesignationIncludeDesignationComponent> getDesignation() {
+        public List<ExpansionProfileDesignationIncludeDesignationComponent> getDesignation() { 
           if (this.designation == null)
             this.designation = new ArrayList<ExpansionProfileDesignationIncludeDesignationComponent>();
           return this.designation;
         }
 
-        public boolean hasDesignation() {
+        public boolean hasDesignation() { 
           if (this.designation == null)
             return false;
           for (ExpansionProfileDesignationIncludeDesignationComponent item : this.designation)
@@ -1304,7 +1304,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #language} (The language this designation is defined for.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
          */
-        public CodeType getLanguageElement() {
+        public CodeType getLanguageElement() { 
           if (this.language == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileDesignationIncludeDesignationComponent.language");
@@ -1313,18 +1313,18 @@ public class ExpansionProfile extends DomainResource {
           return this.language;
         }
 
-        public boolean hasLanguageElement() {
+        public boolean hasLanguageElement() { 
           return this.language != null && !this.language.isEmpty();
         }
 
-        public boolean hasLanguage() {
+        public boolean hasLanguage() { 
           return this.language != null && !this.language.isEmpty();
         }
 
         /**
          * @param value {@link #language} (The language this designation is defined for.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
          */
-        public ExpansionProfileDesignationIncludeDesignationComponent setLanguageElement(CodeType value) {
+        public ExpansionProfileDesignationIncludeDesignationComponent setLanguageElement(CodeType value) { 
           this.language = value;
           return this;
         }
@@ -1332,14 +1332,14 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return The language this designation is defined for.
          */
-        public String getLanguage() {
+        public String getLanguage() { 
           return this.language == null ? null : this.language.getValue();
         }
 
         /**
          * @param value The language this designation is defined for.
          */
-        public ExpansionProfileDesignationIncludeDesignationComponent setLanguage(String value) {
+        public ExpansionProfileDesignationIncludeDesignationComponent setLanguage(String value) { 
           if (Utilities.noString(value))
             this.language = null;
           else {
@@ -1353,7 +1353,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #use} (Designation uses for inclusion in the expansion.)
          */
-        public Coding getUse() {
+        public Coding getUse() { 
           if (this.use == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileDesignationIncludeDesignationComponent.use");
@@ -1362,14 +1362,14 @@ public class ExpansionProfile extends DomainResource {
           return this.use;
         }
 
-        public boolean hasUse() {
+        public boolean hasUse() { 
           return this.use != null && !this.use.isEmpty();
         }
 
         /**
          * @param value {@link #use} (Designation uses for inclusion in the expansion.)
          */
-        public ExpansionProfileDesignationIncludeDesignationComponent setUse(Coding value) {
+        public ExpansionProfileDesignationIncludeDesignationComponent setUse(Coding value) { 
           this.use = value;
           return this;
         }
@@ -1464,13 +1464,13 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #designation} (A data group for each designation to be excluded.)
          */
-        public List<ExpansionProfileDesignationExcludeDesignationComponent> getDesignation() {
+        public List<ExpansionProfileDesignationExcludeDesignationComponent> getDesignation() { 
           if (this.designation == null)
             this.designation = new ArrayList<ExpansionProfileDesignationExcludeDesignationComponent>();
           return this.designation;
         }
 
-        public boolean hasDesignation() {
+        public boolean hasDesignation() { 
           if (this.designation == null)
             return false;
           for (ExpansionProfileDesignationExcludeDesignationComponent item : this.designation)
@@ -1593,7 +1593,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #language} (The language this designation is defined for.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
          */
-        public CodeType getLanguageElement() {
+        public CodeType getLanguageElement() { 
           if (this.language == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileDesignationExcludeDesignationComponent.language");
@@ -1602,18 +1602,18 @@ public class ExpansionProfile extends DomainResource {
           return this.language;
         }
 
-        public boolean hasLanguageElement() {
+        public boolean hasLanguageElement() { 
           return this.language != null && !this.language.isEmpty();
         }
 
-        public boolean hasLanguage() {
+        public boolean hasLanguage() { 
           return this.language != null && !this.language.isEmpty();
         }
 
         /**
          * @param value {@link #language} (The language this designation is defined for.). This is the underlying object with id, value and extensions. The accessor "getLanguage" gives direct access to the value
          */
-        public ExpansionProfileDesignationExcludeDesignationComponent setLanguageElement(CodeType value) {
+        public ExpansionProfileDesignationExcludeDesignationComponent setLanguageElement(CodeType value) { 
           this.language = value;
           return this;
         }
@@ -1621,14 +1621,14 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return The language this designation is defined for.
          */
-        public String getLanguage() {
+        public String getLanguage() { 
           return this.language == null ? null : this.language.getValue();
         }
 
         /**
          * @param value The language this designation is defined for.
          */
-        public ExpansionProfileDesignationExcludeDesignationComponent setLanguage(String value) {
+        public ExpansionProfileDesignationExcludeDesignationComponent setLanguage(String value) { 
           if (Utilities.noString(value))
             this.language = null;
           else {
@@ -1642,7 +1642,7 @@ public class ExpansionProfile extends DomainResource {
         /**
          * @return {@link #use} (Designation uses for exclusion in the expansion.)
          */
-        public Coding getUse() {
+        public Coding getUse() { 
           if (this.use == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ExpansionProfileDesignationExcludeDesignationComponent.use");
@@ -1651,14 +1651,14 @@ public class ExpansionProfile extends DomainResource {
           return this.use;
         }
 
-        public boolean hasUse() {
+        public boolean hasUse() { 
           return this.use != null && !this.use.isEmpty();
         }
 
         /**
          * @param value {@link #use} (Designation uses for exclusion in the expansion.)
          */
-        public ExpansionProfileDesignationExcludeDesignationComponent setUse(Coding value) {
+        public ExpansionProfileDesignationExcludeDesignationComponent setUse(Coding value) { 
           this.use = value;
           return this;
         }
@@ -1885,7 +1885,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #url} (An absolute URL that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this expansion profile is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() {
+    public UriType getUrlElement() { 
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.url");
@@ -1894,18 +1894,18 @@ public class ExpansionProfile extends DomainResource {
       return this.url;
     }
 
-    public boolean hasUrlElement() {
+    public boolean hasUrlElement() { 
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() {
+    public boolean hasUrl() { 
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
      * @param value {@link #url} (An absolute URL that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this expansion profile is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public ExpansionProfile setUrlElement(UriType value) {
+    public ExpansionProfile setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -1913,14 +1913,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return An absolute URL that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this expansion profile is (or will be) published.
      */
-    public String getUrl() {
+    public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value An absolute URL that is used to identify this expansion profile when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this expansion profile is (or will be) published.
      */
-    public ExpansionProfile setUrl(String value) {
+    public ExpansionProfile setUrl(String value) { 
       if (Utilities.noString(value))
         this.url = null;
       else {
@@ -1934,7 +1934,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #identifier} (Formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
-    public Identifier getIdentifier() {
+    public Identifier getIdentifier() { 
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.identifier");
@@ -1943,14 +1943,14 @@ public class ExpansionProfile extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Formal identifier that is used to identify this expansion profile when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
-    public ExpansionProfile setIdentifier(Identifier value) {
+    public ExpansionProfile setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
@@ -1958,7 +1958,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #version} (Used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.version");
@@ -1967,18 +1967,18 @@ public class ExpansionProfile extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (Used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public ExpansionProfile setVersionElement(StringType value) {
+    public ExpansionProfile setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -1986,14 +1986,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return Used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value Used to identify this version of the expansion profile when it is referenced in a specification, model, design or instance.
      */
-    public ExpansionProfile setVersion(String value) {
+    public ExpansionProfile setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -2007,7 +2007,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #name} (A free text natural language name for the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() {
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.name");
@@ -2016,18 +2016,18 @@ public class ExpansionProfile extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() {
+    public boolean hasNameElement() { 
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A free text natural language name for the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public ExpansionProfile setNameElement(StringType value) {
+    public ExpansionProfile setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -2035,14 +2035,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return A free text natural language name for the expansion profile.
      */
-    public String getName() {
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A free text natural language name for the expansion profile.
      */
-    public ExpansionProfile setName(String value) {
+    public ExpansionProfile setName(String value) { 
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -2056,7 +2056,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #status} (The status of the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() {
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.status");
@@ -2065,18 +2065,18 @@ public class ExpansionProfile extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public ExpansionProfile setStatusElement(Enumeration<ConformanceResourceStatus> value) {
+    public ExpansionProfile setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -2084,14 +2084,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return The status of the expansion profile.
      */
-    public ConformanceResourceStatus getStatus() {
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the expansion profile.
      */
-    public ExpansionProfile setStatus(ConformanceResourceStatus value) {
+    public ExpansionProfile setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
@@ -2101,7 +2101,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #experimental} (This expansion profile was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine production usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalElement() {
+    public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.experimental");
@@ -2110,18 +2110,18 @@ public class ExpansionProfile extends DomainResource {
       return this.experimental;
     }
 
-    public boolean hasExperimentalElement() {
+    public boolean hasExperimentalElement() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
-    public boolean hasExperimental() {
+    public boolean hasExperimental() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
      * @param value {@link #experimental} (This expansion profile was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine production usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public ExpansionProfile setExperimentalElement(BooleanType value) {
+    public ExpansionProfile setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -2129,14 +2129,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return This expansion profile was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine production usage.
      */
-    public boolean getExperimental() {
+    public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
      * @param value This expansion profile was authored for testing purposes (or education/evaluation/marketing), and is not intended for genuine production usage.
      */
-    public ExpansionProfile setExperimental(boolean value) {
+    public ExpansionProfile setExperimental(boolean value) { 
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
@@ -2146,7 +2146,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() {
+    public StringType getPublisherElement() { 
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.publisher");
@@ -2155,18 +2155,18 @@ public class ExpansionProfile extends DomainResource {
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() {
+    public boolean hasPublisherElement() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() {
+    public boolean hasPublisher() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public ExpansionProfile setPublisherElement(StringType value) {
+    public ExpansionProfile setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -2174,14 +2174,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return The name of the individual or organization that published the expansion profile.
      */
-    public String getPublisher() {
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value The name of the individual or organization that published the expansion profile.
      */
-    public ExpansionProfile setPublisher(String value) {
+    public ExpansionProfile setPublisher(String value) { 
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -2195,13 +2195,13 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<ExpansionProfileContactComponent> getContact() {
+    public List<ExpansionProfileContactComponent> getContact() { 
       if (this.contact == null)
         this.contact = new ArrayList<ExpansionProfileContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() {
+    public boolean hasContact() { 
       if (this.contact == null)
         return false;
       for (ExpansionProfileContactComponent item : this.contact)
@@ -2235,7 +2235,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #date} (The date that the expansion profile status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.date");
@@ -2244,18 +2244,18 @@ public class ExpansionProfile extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date that the expansion profile status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public ExpansionProfile setDateElement(DateTimeType value) {
+    public ExpansionProfile setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -2263,14 +2263,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return The date that the expansion profile status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date that the expansion profile status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes.
      */
-    public ExpansionProfile setDate(Date value) {
+    public ExpansionProfile setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -2284,7 +2284,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #description} (A free text natural language description of the use of the expansion profile - reason for definition,  conditions of use, etc. The description may include a list of expected usages for the expansion profile and can also describe the approach taken to build the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.description");
@@ -2293,18 +2293,18 @@ public class ExpansionProfile extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the use of the expansion profile - reason for definition,  conditions of use, etc. The description may include a list of expected usages for the expansion profile and can also describe the approach taken to build the expansion profile.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public ExpansionProfile setDescriptionElement(StringType value) {
+    public ExpansionProfile setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -2312,14 +2312,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return A free text natural language description of the use of the expansion profile - reason for definition,  conditions of use, etc. The description may include a list of expected usages for the expansion profile and can also describe the approach taken to build the expansion profile.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A free text natural language description of the use of the expansion profile - reason for definition,  conditions of use, etc. The description may include a list of expected usages for the expansion profile and can also describe the approach taken to build the expansion profile.
      */
-    public ExpansionProfile setDescription(String value) {
+    public ExpansionProfile setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -2333,7 +2333,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #codeSystem} (A set of criteria that provide the constraints imposed on the value set expansion by including or excluding codes from specific code systems (or versions).)
      */
-    public ExpansionProfileCodeSystemComponent getCodeSystem() {
+    public ExpansionProfileCodeSystemComponent getCodeSystem() { 
       if (this.codeSystem == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.codeSystem");
@@ -2342,14 +2342,14 @@ public class ExpansionProfile extends DomainResource {
       return this.codeSystem;
     }
 
-    public boolean hasCodeSystem() {
+    public boolean hasCodeSystem() { 
       return this.codeSystem != null && !this.codeSystem.isEmpty();
     }
 
     /**
      * @param value {@link #codeSystem} (A set of criteria that provide the constraints imposed on the value set expansion by including or excluding codes from specific code systems (or versions).)
      */
-    public ExpansionProfile setCodeSystem(ExpansionProfileCodeSystemComponent value) {
+    public ExpansionProfile setCodeSystem(ExpansionProfileCodeSystemComponent value) { 
       this.codeSystem = value;
       return this;
     }
@@ -2357,7 +2357,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #includeDesignations} (Controls whether concept designations are to be included or excluded in value set expansions.). This is the underlying object with id, value and extensions. The accessor "getIncludeDesignations" gives direct access to the value
      */
-    public BooleanType getIncludeDesignationsElement() {
+    public BooleanType getIncludeDesignationsElement() { 
       if (this.includeDesignations == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.includeDesignations");
@@ -2366,18 +2366,18 @@ public class ExpansionProfile extends DomainResource {
       return this.includeDesignations;
     }
 
-    public boolean hasIncludeDesignationsElement() {
+    public boolean hasIncludeDesignationsElement() { 
       return this.includeDesignations != null && !this.includeDesignations.isEmpty();
     }
 
-    public boolean hasIncludeDesignations() {
+    public boolean hasIncludeDesignations() { 
       return this.includeDesignations != null && !this.includeDesignations.isEmpty();
     }
 
     /**
      * @param value {@link #includeDesignations} (Controls whether concept designations are to be included or excluded in value set expansions.). This is the underlying object with id, value and extensions. The accessor "getIncludeDesignations" gives direct access to the value
      */
-    public ExpansionProfile setIncludeDesignationsElement(BooleanType value) {
+    public ExpansionProfile setIncludeDesignationsElement(BooleanType value) { 
       this.includeDesignations = value;
       return this;
     }
@@ -2385,14 +2385,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return Controls whether concept designations are to be included or excluded in value set expansions.
      */
-    public boolean getIncludeDesignations() {
+    public boolean getIncludeDesignations() { 
       return this.includeDesignations == null || this.includeDesignations.isEmpty() ? false : this.includeDesignations.getValue();
     }
 
     /**
      * @param value Controls whether concept designations are to be included or excluded in value set expansions.
      */
-    public ExpansionProfile setIncludeDesignations(boolean value) {
+    public ExpansionProfile setIncludeDesignations(boolean value) { 
         if (this.includeDesignations == null)
           this.includeDesignations = new BooleanType();
         this.includeDesignations.setValue(value);
@@ -2402,7 +2402,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #designation} (A set of criteria that provide the constraints imposed on the value set expansion by including or excluding designations.)
      */
-    public ExpansionProfileDesignationComponent getDesignation() {
+    public ExpansionProfileDesignationComponent getDesignation() { 
       if (this.designation == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.designation");
@@ -2411,14 +2411,14 @@ public class ExpansionProfile extends DomainResource {
       return this.designation;
     }
 
-    public boolean hasDesignation() {
+    public boolean hasDesignation() { 
       return this.designation != null && !this.designation.isEmpty();
     }
 
     /**
      * @param value {@link #designation} (A set of criteria that provide the constraints imposed on the value set expansion by including or excluding designations.)
      */
-    public ExpansionProfile setDesignation(ExpansionProfileDesignationComponent value) {
+    public ExpansionProfile setDesignation(ExpansionProfileDesignationComponent value) { 
       this.designation = value;
       return this;
     }
@@ -2426,7 +2426,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #includeDefinition} (Controls whether the value set definition is included or excluded in value set expansions.). This is the underlying object with id, value and extensions. The accessor "getIncludeDefinition" gives direct access to the value
      */
-    public BooleanType getIncludeDefinitionElement() {
+    public BooleanType getIncludeDefinitionElement() { 
       if (this.includeDefinition == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.includeDefinition");
@@ -2435,18 +2435,18 @@ public class ExpansionProfile extends DomainResource {
       return this.includeDefinition;
     }
 
-    public boolean hasIncludeDefinitionElement() {
+    public boolean hasIncludeDefinitionElement() { 
       return this.includeDefinition != null && !this.includeDefinition.isEmpty();
     }
 
-    public boolean hasIncludeDefinition() {
+    public boolean hasIncludeDefinition() { 
       return this.includeDefinition != null && !this.includeDefinition.isEmpty();
     }
 
     /**
      * @param value {@link #includeDefinition} (Controls whether the value set definition is included or excluded in value set expansions.). This is the underlying object with id, value and extensions. The accessor "getIncludeDefinition" gives direct access to the value
      */
-    public ExpansionProfile setIncludeDefinitionElement(BooleanType value) {
+    public ExpansionProfile setIncludeDefinitionElement(BooleanType value) { 
       this.includeDefinition = value;
       return this;
     }
@@ -2454,14 +2454,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return Controls whether the value set definition is included or excluded in value set expansions.
      */
-    public boolean getIncludeDefinition() {
+    public boolean getIncludeDefinition() { 
       return this.includeDefinition == null || this.includeDefinition.isEmpty() ? false : this.includeDefinition.getValue();
     }
 
     /**
      * @param value Controls whether the value set definition is included or excluded in value set expansions.
      */
-    public ExpansionProfile setIncludeDefinition(boolean value) {
+    public ExpansionProfile setIncludeDefinition(boolean value) { 
         if (this.includeDefinition == null)
           this.includeDefinition = new BooleanType();
         this.includeDefinition.setValue(value);
@@ -2471,7 +2471,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #excludeNested} (Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).). This is the underlying object with id, value and extensions. The accessor "getExcludeNested" gives direct access to the value
      */
-    public BooleanType getExcludeNestedElement() {
+    public BooleanType getExcludeNestedElement() { 
       if (this.excludeNested == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.excludeNested");
@@ -2480,18 +2480,18 @@ public class ExpansionProfile extends DomainResource {
       return this.excludeNested;
     }
 
-    public boolean hasExcludeNestedElement() {
+    public boolean hasExcludeNestedElement() { 
       return this.excludeNested != null && !this.excludeNested.isEmpty();
     }
 
-    public boolean hasExcludeNested() {
+    public boolean hasExcludeNested() { 
       return this.excludeNested != null && !this.excludeNested.isEmpty();
     }
 
     /**
      * @param value {@link #excludeNested} (Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).). This is the underlying object with id, value and extensions. The accessor "getExcludeNested" gives direct access to the value
      */
-    public ExpansionProfile setExcludeNestedElement(BooleanType value) {
+    public ExpansionProfile setExcludeNestedElement(BooleanType value) { 
       this.excludeNested = value;
       return this;
     }
@@ -2499,14 +2499,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).
      */
-    public boolean getExcludeNested() {
+    public boolean getExcludeNested() { 
       return this.excludeNested == null || this.excludeNested.isEmpty() ? false : this.excludeNested.getValue();
     }
 
     /**
      * @param value Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).
      */
-    public ExpansionProfile setExcludeNested(boolean value) {
+    public ExpansionProfile setExcludeNested(boolean value) { 
         if (this.excludeNested == null)
           this.excludeNested = new BooleanType();
         this.excludeNested.setValue(value);
@@ -2516,7 +2516,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #excludeNotForUI} (Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces.). This is the underlying object with id, value and extensions. The accessor "getExcludeNotForUI" gives direct access to the value
      */
-    public BooleanType getExcludeNotForUIElement() {
+    public BooleanType getExcludeNotForUIElement() { 
       if (this.excludeNotForUI == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.excludeNotForUI");
@@ -2525,18 +2525,18 @@ public class ExpansionProfile extends DomainResource {
       return this.excludeNotForUI;
     }
 
-    public boolean hasExcludeNotForUIElement() {
+    public boolean hasExcludeNotForUIElement() { 
       return this.excludeNotForUI != null && !this.excludeNotForUI.isEmpty();
     }
 
-    public boolean hasExcludeNotForUI() {
+    public boolean hasExcludeNotForUI() { 
       return this.excludeNotForUI != null && !this.excludeNotForUI.isEmpty();
     }
 
     /**
      * @param value {@link #excludeNotForUI} (Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces.). This is the underlying object with id, value and extensions. The accessor "getExcludeNotForUI" gives direct access to the value
      */
-    public ExpansionProfile setExcludeNotForUIElement(BooleanType value) {
+    public ExpansionProfile setExcludeNotForUIElement(BooleanType value) { 
       this.excludeNotForUI = value;
       return this;
     }
@@ -2544,14 +2544,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces.
      */
-    public boolean getExcludeNotForUI() {
+    public boolean getExcludeNotForUI() { 
       return this.excludeNotForUI == null || this.excludeNotForUI.isEmpty() ? false : this.excludeNotForUI.getValue();
     }
 
     /**
      * @param value Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces.
      */
-    public ExpansionProfile setExcludeNotForUI(boolean value) {
+    public ExpansionProfile setExcludeNotForUI(boolean value) { 
         if (this.excludeNotForUI == null)
           this.excludeNotForUI = new BooleanType();
         this.excludeNotForUI.setValue(value);
@@ -2561,7 +2561,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #excludePostCoordinated} (Controls whether or not the value set expansion includes post coordinated codes.). This is the underlying object with id, value and extensions. The accessor "getExcludePostCoordinated" gives direct access to the value
      */
-    public BooleanType getExcludePostCoordinatedElement() {
+    public BooleanType getExcludePostCoordinatedElement() { 
       if (this.excludePostCoordinated == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.excludePostCoordinated");
@@ -2570,18 +2570,18 @@ public class ExpansionProfile extends DomainResource {
       return this.excludePostCoordinated;
     }
 
-    public boolean hasExcludePostCoordinatedElement() {
+    public boolean hasExcludePostCoordinatedElement() { 
       return this.excludePostCoordinated != null && !this.excludePostCoordinated.isEmpty();
     }
 
-    public boolean hasExcludePostCoordinated() {
+    public boolean hasExcludePostCoordinated() { 
       return this.excludePostCoordinated != null && !this.excludePostCoordinated.isEmpty();
     }
 
     /**
      * @param value {@link #excludePostCoordinated} (Controls whether or not the value set expansion includes post coordinated codes.). This is the underlying object with id, value and extensions. The accessor "getExcludePostCoordinated" gives direct access to the value
      */
-    public ExpansionProfile setExcludePostCoordinatedElement(BooleanType value) {
+    public ExpansionProfile setExcludePostCoordinatedElement(BooleanType value) { 
       this.excludePostCoordinated = value;
       return this;
     }
@@ -2589,14 +2589,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return Controls whether or not the value set expansion includes post coordinated codes.
      */
-    public boolean getExcludePostCoordinated() {
+    public boolean getExcludePostCoordinated() { 
       return this.excludePostCoordinated == null || this.excludePostCoordinated.isEmpty() ? false : this.excludePostCoordinated.getValue();
     }
 
     /**
      * @param value Controls whether or not the value set expansion includes post coordinated codes.
      */
-    public ExpansionProfile setExcludePostCoordinated(boolean value) {
+    public ExpansionProfile setExcludePostCoordinated(boolean value) { 
         if (this.excludePostCoordinated == null)
           this.excludePostCoordinated = new BooleanType();
         this.excludePostCoordinated.setValue(value);
@@ -2606,7 +2606,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #displayLanguage} (Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display.). This is the underlying object with id, value and extensions. The accessor "getDisplayLanguage" gives direct access to the value
      */
-    public CodeType getDisplayLanguageElement() {
+    public CodeType getDisplayLanguageElement() { 
       if (this.displayLanguage == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.displayLanguage");
@@ -2615,18 +2615,18 @@ public class ExpansionProfile extends DomainResource {
       return this.displayLanguage;
     }
 
-    public boolean hasDisplayLanguageElement() {
+    public boolean hasDisplayLanguageElement() { 
       return this.displayLanguage != null && !this.displayLanguage.isEmpty();
     }
 
-    public boolean hasDisplayLanguage() {
+    public boolean hasDisplayLanguage() { 
       return this.displayLanguage != null && !this.displayLanguage.isEmpty();
     }
 
     /**
      * @param value {@link #displayLanguage} (Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display.). This is the underlying object with id, value and extensions. The accessor "getDisplayLanguage" gives direct access to the value
      */
-    public ExpansionProfile setDisplayLanguageElement(CodeType value) {
+    public ExpansionProfile setDisplayLanguageElement(CodeType value) { 
       this.displayLanguage = value;
       return this;
     }
@@ -2634,14 +2634,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display.
      */
-    public String getDisplayLanguage() {
+    public String getDisplayLanguage() { 
       return this.displayLanguage == null ? null : this.displayLanguage.getValue();
     }
 
     /**
      * @param value Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display.
      */
-    public ExpansionProfile setDisplayLanguage(String value) {
+    public ExpansionProfile setDisplayLanguage(String value) { 
       if (Utilities.noString(value))
         this.displayLanguage = null;
       else {
@@ -2655,7 +2655,7 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return {@link #limitedExpansion} (If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.). This is the underlying object with id, value and extensions. The accessor "getLimitedExpansion" gives direct access to the value
      */
-    public BooleanType getLimitedExpansionElement() {
+    public BooleanType getLimitedExpansionElement() { 
       if (this.limitedExpansion == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ExpansionProfile.limitedExpansion");
@@ -2664,18 +2664,18 @@ public class ExpansionProfile extends DomainResource {
       return this.limitedExpansion;
     }
 
-    public boolean hasLimitedExpansionElement() {
+    public boolean hasLimitedExpansionElement() { 
       return this.limitedExpansion != null && !this.limitedExpansion.isEmpty();
     }
 
-    public boolean hasLimitedExpansion() {
+    public boolean hasLimitedExpansion() { 
       return this.limitedExpansion != null && !this.limitedExpansion.isEmpty();
     }
 
     /**
      * @param value {@link #limitedExpansion} (If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.). This is the underlying object with id, value and extensions. The accessor "getLimitedExpansion" gives direct access to the value
      */
-    public ExpansionProfile setLimitedExpansionElement(BooleanType value) {
+    public ExpansionProfile setLimitedExpansionElement(BooleanType value) { 
       this.limitedExpansion = value;
       return this;
     }
@@ -2683,14 +2683,14 @@ public class ExpansionProfile extends DomainResource {
     /**
      * @return If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.
      */
-    public boolean getLimitedExpansion() {
+    public boolean getLimitedExpansion() { 
       return this.limitedExpansion == null || this.limitedExpansion.isEmpty() ? false : this.limitedExpansion.getValue();
     }
 
     /**
      * @param value If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.
      */
-    public ExpansionProfile setLimitedExpansion(boolean value) {
+    public ExpansionProfile setLimitedExpansion(boolean value) { 
         if (this.limitedExpansion == null)
           this.limitedExpansion = new BooleanType();
         this.limitedExpansion.setValue(value);

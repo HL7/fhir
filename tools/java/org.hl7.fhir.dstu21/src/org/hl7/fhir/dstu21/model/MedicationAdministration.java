@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,23 +51,23 @@ public class MedicationAdministration extends DomainResource {
         /**
          * The administration has started but has not yet completed.
          */
-        INPROGRESS,
+        INPROGRESS, 
         /**
          * Actions implied by the administration have been temporarily halted, but are expected to continue later. May also be called "suspended".
          */
-        ONHOLD,
+        ONHOLD, 
         /**
          * All actions that are implied by the administration have occurred.
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * The administration was entered in error and therefore nullified.
          */
-        ENTEREDINERROR,
+        ENTEREDINERROR, 
         /**
          * Actions implied by the administration have been permanently halted, before all of them occurred.
          */
-        STOPPED,
+        STOPPED, 
         /**
          * added to help the parsers
          */
@@ -235,7 +235,7 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return {@link #text} (Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public StringType getTextElement() {
+        public StringType getTextElement() { 
           if (this.text == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationAdministrationDosageComponent.text");
@@ -244,18 +244,18 @@ public class MedicationAdministration extends DomainResource {
           return this.text;
         }
 
-        public boolean hasTextElement() {
+        public boolean hasTextElement() { 
           return this.text != null && !this.text.isEmpty();
         }
 
-        public boolean hasText() {
+        public boolean hasText() { 
           return this.text != null && !this.text.isEmpty();
         }
 
         /**
          * @param value {@link #text} (Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
          */
-        public MedicationAdministrationDosageComponent setTextElement(StringType value) {
+        public MedicationAdministrationDosageComponent setTextElement(StringType value) { 
           this.text = value;
           return this;
         }
@@ -263,14 +263,14 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
          */
-        public String getText() {
+        public String getText() { 
           return this.text == null ? null : this.text.getValue();
         }
 
         /**
          * @param value Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
          */
-        public MedicationAdministrationDosageComponent setText(String value) {
+        public MedicationAdministrationDosageComponent setText(String value) { 
           if (Utilities.noString(value))
             this.text = null;
           else {
@@ -284,44 +284,44 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return {@link #site} (A coded specification of the anatomic site where the medication first entered the body.  For example, "left arm".)
          */
-        public Type getSite() {
+        public Type getSite() { 
           return this.site;
         }
 
         /**
          * @return {@link #site} (A coded specification of the anatomic site where the medication first entered the body.  For example, "left arm".)
          */
-        public CodeableConcept getSiteCodeableConcept() throws FHIRException {
+        public CodeableConcept getSiteCodeableConcept() throws FHIRException { 
           if (!(this.site instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.site.getClass().getName()+" was encountered");
           return (CodeableConcept) this.site;
         }
 
-        public boolean hasSiteCodeableConcept() {
+        public boolean hasSiteCodeableConcept() { 
           return this.site instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #site} (A coded specification of the anatomic site where the medication first entered the body.  For example, "left arm".)
          */
-        public Reference getSiteReference() throws FHIRException {
+        public Reference getSiteReference() throws FHIRException { 
           if (!(this.site instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.site.getClass().getName()+" was encountered");
           return (Reference) this.site;
         }
 
-        public boolean hasSiteReference() {
+        public boolean hasSiteReference() { 
           return this.site instanceof Reference;
         }
 
-        public boolean hasSite() {
+        public boolean hasSite() { 
           return this.site != null && !this.site.isEmpty();
         }
 
         /**
          * @param value {@link #site} (A coded specification of the anatomic site where the medication first entered the body.  For example, "left arm".)
          */
-        public MedicationAdministrationDosageComponent setSite(Type value) {
+        public MedicationAdministrationDosageComponent setSite(Type value) { 
           this.site = value;
           return this;
         }
@@ -329,7 +329,7 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return {@link #route} (A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.  For example, topical, intravenous, etc.)
          */
-        public CodeableConcept getRoute() {
+        public CodeableConcept getRoute() { 
           if (this.route == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationAdministrationDosageComponent.route");
@@ -338,14 +338,14 @@ public class MedicationAdministration extends DomainResource {
           return this.route;
         }
 
-        public boolean hasRoute() {
+        public boolean hasRoute() { 
           return this.route != null && !this.route.isEmpty();
         }
 
         /**
          * @param value {@link #route} (A code specifying the route or physiological path of administration of a therapeutic agent into or onto the patient.  For example, topical, intravenous, etc.)
          */
-        public MedicationAdministrationDosageComponent setRoute(CodeableConcept value) {
+        public MedicationAdministrationDosageComponent setRoute(CodeableConcept value) { 
           this.route = value;
           return this;
         }
@@ -353,7 +353,7 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return {@link #method} (A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.)
          */
-        public CodeableConcept getMethod() {
+        public CodeableConcept getMethod() { 
           if (this.method == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationAdministrationDosageComponent.method");
@@ -362,14 +362,14 @@ public class MedicationAdministration extends DomainResource {
           return this.method;
         }
 
-        public boolean hasMethod() {
+        public boolean hasMethod() { 
           return this.method != null && !this.method.isEmpty();
         }
 
         /**
          * @param value {@link #method} (A coded value indicating the method by which the medication is intended to be or was introduced into or on the body.  This attribute will most often NOT be populated.  It is most commonly used for injections.  For example, Slow Push, Deep IV.)
          */
-        public MedicationAdministrationDosageComponent setMethod(CodeableConcept value) {
+        public MedicationAdministrationDosageComponent setMethod(CodeableConcept value) { 
           this.method = value;
           return this;
         }
@@ -377,7 +377,7 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return {@link #quantity} (The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.)
          */
-        public SimpleQuantity getQuantity() {
+        public SimpleQuantity getQuantity() { 
           if (this.quantity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MedicationAdministrationDosageComponent.quantity");
@@ -386,14 +386,14 @@ public class MedicationAdministration extends DomainResource {
           return this.quantity;
         }
 
-        public boolean hasQuantity() {
+        public boolean hasQuantity() { 
           return this.quantity != null && !this.quantity.isEmpty();
         }
 
         /**
          * @param value {@link #quantity} (The amount of the medication given at one administration event.   Use this value when the administration is essentially an instantaneous event such as a swallowing a tablet or giving an injection.)
          */
-        public MedicationAdministrationDosageComponent setQuantity(SimpleQuantity value) {
+        public MedicationAdministrationDosageComponent setQuantity(SimpleQuantity value) { 
           this.quantity = value;
           return this;
         }
@@ -401,44 +401,44 @@ public class MedicationAdministration extends DomainResource {
         /**
          * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Currently we do not specify a default of '1' in the denominator, but this is being discussed.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
-        public Type getRate() {
+        public Type getRate() { 
           return this.rate;
         }
 
         /**
          * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Currently we do not specify a default of '1' in the denominator, but this is being discussed.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
-        public Ratio getRateRatio() throws FHIRException {
+        public Ratio getRateRatio() throws FHIRException { 
           if (!(this.rate instanceof Ratio))
             throw new FHIRException("Type mismatch: the type Ratio was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (Ratio) this.rate;
         }
 
-        public boolean hasRateRatio() {
+        public boolean hasRateRatio() { 
           return this.rate instanceof Ratio;
         }
 
         /**
          * @return {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Currently we do not specify a default of '1' in the denominator, but this is being discussed.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
-        public Range getRateRange() throws FHIRException {
+        public Range getRateRange() throws FHIRException { 
           if (!(this.rate instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.rate.getClass().getName()+" was encountered");
           return (Range) this.rate;
         }
 
-        public boolean hasRateRange() {
+        public boolean hasRateRange() { 
           return this.rate instanceof Range;
         }
 
-        public boolean hasRate() {
+        public boolean hasRate() { 
           return this.rate != null && !this.rate.isEmpty();
         }
 
         /**
          * @param value {@link #rate} (Identifies the speed with which the medication was or will be introduced into the patient.  Typically the rate for an infusion e.g. 100 ml per 1 hour or 100 ml/hr.  May also be expressed as a rate per unit of time e.g. 500 ml per 2 hours.  Currently we do not specify a default of '1' in the denominator, but this is being discussed.  Other examples:  200 mcg/min or 200 mcg/1 minute; 1 liter/8 hours.)
          */
-        public MedicationAdministrationDosageComponent setRate(Type value) {
+        public MedicationAdministrationDosageComponent setRate(Type value) { 
           this.rate = value;
           return this;
         }
@@ -701,13 +701,13 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #identifier} (External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -741,7 +741,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #status} (Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<MedicationAdministrationStatus> getStatusElement() {
+    public Enumeration<MedicationAdministrationStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.status");
@@ -750,18 +750,18 @@ public class MedicationAdministration extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public MedicationAdministration setStatusElement(Enumeration<MedicationAdministrationStatus> value) {
+    public MedicationAdministration setStatusElement(Enumeration<MedicationAdministrationStatus> value) { 
       this.status = value;
       return this;
     }
@@ -769,14 +769,14 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
      */
-    public MedicationAdministrationStatus getStatus() {
+    public MedicationAdministrationStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
      */
-    public MedicationAdministration setStatus(MedicationAdministrationStatus value) {
+    public MedicationAdministration setStatus(MedicationAdministrationStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<MedicationAdministrationStatus>(new MedicationAdministrationStatusEnumFactory());
         this.status.setValue(value);
@@ -786,7 +786,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #patient} (The person or animal receiving the medication.)
      */
-    public Reference getPatient() {
+    public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.patient");
@@ -795,14 +795,14 @@ public class MedicationAdministration extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() {
+    public boolean hasPatient() { 
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (The person or animal receiving the medication.)
      */
-    public MedicationAdministration setPatient(Reference value) {
+    public MedicationAdministration setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -810,7 +810,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person or animal receiving the medication.)
      */
-    public Patient getPatientTarget() {
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.patient");
@@ -822,7 +822,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person or animal receiving the medication.)
      */
-    public MedicationAdministration setPatientTarget(Patient value) {
+    public MedicationAdministration setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -830,7 +830,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #practitioner} (The individual who was responsible for giving the medication to the patient.)
      */
-    public Reference getPractitioner() {
+    public Reference getPractitioner() { 
       if (this.practitioner == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.practitioner");
@@ -839,14 +839,14 @@ public class MedicationAdministration extends DomainResource {
       return this.practitioner;
     }
 
-    public boolean hasPractitioner() {
+    public boolean hasPractitioner() { 
       return this.practitioner != null && !this.practitioner.isEmpty();
     }
 
     /**
      * @param value {@link #practitioner} (The individual who was responsible for giving the medication to the patient.)
      */
-    public MedicationAdministration setPractitioner(Reference value) {
+    public MedicationAdministration setPractitioner(Reference value) { 
       this.practitioner = value;
       return this;
     }
@@ -854,14 +854,14 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #practitioner} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The individual who was responsible for giving the medication to the patient.)
      */
-    public Resource getPractitionerTarget() {
+    public Resource getPractitionerTarget() { 
       return this.practitionerTarget;
     }
 
     /**
      * @param value {@link #practitioner} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The individual who was responsible for giving the medication to the patient.)
      */
-    public MedicationAdministration setPractitionerTarget(Resource value) {
+    public MedicationAdministration setPractitionerTarget(Resource value) { 
       this.practitionerTarget = value;
       return this;
     }
@@ -869,7 +869,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #encounter} (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    public Reference getEncounter() {
+    public Reference getEncounter() { 
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.encounter");
@@ -878,14 +878,14 @@ public class MedicationAdministration extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() {
+    public boolean hasEncounter() { 
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    public MedicationAdministration setEncounter(Reference value) {
+    public MedicationAdministration setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -893,7 +893,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    public Encounter getEncounterTarget() {
+    public Encounter getEncounterTarget() { 
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.encounter");
@@ -905,7 +905,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.)
      */
-    public MedicationAdministration setEncounterTarget(Encounter value) {
+    public MedicationAdministration setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
       return this;
     }
@@ -913,7 +913,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #prescription} (The original request, instruction or authority to perform the administration.)
      */
-    public Reference getPrescription() {
+    public Reference getPrescription() { 
       if (this.prescription == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.prescription");
@@ -922,14 +922,14 @@ public class MedicationAdministration extends DomainResource {
       return this.prescription;
     }
 
-    public boolean hasPrescription() {
+    public boolean hasPrescription() { 
       return this.prescription != null && !this.prescription.isEmpty();
     }
 
     /**
      * @param value {@link #prescription} (The original request, instruction or authority to perform the administration.)
      */
-    public MedicationAdministration setPrescription(Reference value) {
+    public MedicationAdministration setPrescription(Reference value) { 
       this.prescription = value;
       return this;
     }
@@ -937,7 +937,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #prescription} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The original request, instruction or authority to perform the administration.)
      */
-    public MedicationOrder getPrescriptionTarget() {
+    public MedicationOrder getPrescriptionTarget() { 
       if (this.prescriptionTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.prescription");
@@ -949,7 +949,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @param value {@link #prescription} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The original request, instruction or authority to perform the administration.)
      */
-    public MedicationAdministration setPrescriptionTarget(MedicationOrder value) {
+    public MedicationAdministration setPrescriptionTarget(MedicationOrder value) { 
       this.prescriptionTarget = value;
       return this;
     }
@@ -957,7 +957,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT administered.). This is the underlying object with id, value and extensions. The accessor "getWasNotGiven" gives direct access to the value
      */
-    public BooleanType getWasNotGivenElement() {
+    public BooleanType getWasNotGivenElement() { 
       if (this.wasNotGiven == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.wasNotGiven");
@@ -966,18 +966,18 @@ public class MedicationAdministration extends DomainResource {
       return this.wasNotGiven;
     }
 
-    public boolean hasWasNotGivenElement() {
+    public boolean hasWasNotGivenElement() { 
       return this.wasNotGiven != null && !this.wasNotGiven.isEmpty();
     }
 
-    public boolean hasWasNotGiven() {
+    public boolean hasWasNotGiven() { 
       return this.wasNotGiven != null && !this.wasNotGiven.isEmpty();
     }
 
     /**
      * @param value {@link #wasNotGiven} (Set this to true if the record is saying that the medication was NOT administered.). This is the underlying object with id, value and extensions. The accessor "getWasNotGiven" gives direct access to the value
      */
-    public MedicationAdministration setWasNotGivenElement(BooleanType value) {
+    public MedicationAdministration setWasNotGivenElement(BooleanType value) { 
       this.wasNotGiven = value;
       return this;
     }
@@ -985,14 +985,14 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return Set this to true if the record is saying that the medication was NOT administered.
      */
-    public boolean getWasNotGiven() {
+    public boolean getWasNotGiven() { 
       return this.wasNotGiven == null || this.wasNotGiven.isEmpty() ? false : this.wasNotGiven.getValue();
     }
 
     /**
      * @param value Set this to true if the record is saying that the medication was NOT administered.
      */
-    public MedicationAdministration setWasNotGiven(boolean value) {
+    public MedicationAdministration setWasNotGiven(boolean value) { 
         if (this.wasNotGiven == null)
           this.wasNotGiven = new BooleanType();
         this.wasNotGiven.setValue(value);
@@ -1002,13 +1002,13 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #reasonNotGiven} (A code indicating why the administration was not performed.)
      */
-    public List<CodeableConcept> getReasonNotGiven() {
+    public List<CodeableConcept> getReasonNotGiven() { 
       if (this.reasonNotGiven == null)
         this.reasonNotGiven = new ArrayList<CodeableConcept>();
       return this.reasonNotGiven;
     }
 
-    public boolean hasReasonNotGiven() {
+    public boolean hasReasonNotGiven() { 
       if (this.reasonNotGiven == null)
         return false;
       for (CodeableConcept item : this.reasonNotGiven)
@@ -1042,13 +1042,13 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #reasonGiven} (A code indicating why the medication was given.)
      */
-    public List<CodeableConcept> getReasonGiven() {
+    public List<CodeableConcept> getReasonGiven() { 
       if (this.reasonGiven == null)
         this.reasonGiven = new ArrayList<CodeableConcept>();
       return this.reasonGiven;
     }
 
-    public boolean hasReasonGiven() {
+    public boolean hasReasonGiven() { 
       if (this.reasonGiven == null)
         return false;
       for (CodeableConcept item : this.reasonGiven)
@@ -1082,44 +1082,44 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #effectiveTime} (A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.)
      */
-    public Type getEffectiveTime() {
+    public Type getEffectiveTime() { 
       return this.effectiveTime;
     }
 
     /**
      * @return {@link #effectiveTime} (A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.)
      */
-    public DateTimeType getEffectiveTimeDateTimeType() throws FHIRException {
+    public DateTimeType getEffectiveTimeDateTimeType() throws FHIRException { 
       if (!(this.effectiveTime instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.effectiveTime.getClass().getName()+" was encountered");
       return (DateTimeType) this.effectiveTime;
     }
 
-    public boolean hasEffectiveTimeDateTimeType() {
+    public boolean hasEffectiveTimeDateTimeType() { 
       return this.effectiveTime instanceof DateTimeType;
     }
 
     /**
      * @return {@link #effectiveTime} (A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.)
      */
-    public Period getEffectiveTimePeriod() throws FHIRException {
+    public Period getEffectiveTimePeriod() throws FHIRException { 
       if (!(this.effectiveTime instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.effectiveTime.getClass().getName()+" was encountered");
       return (Period) this.effectiveTime;
     }
 
-    public boolean hasEffectiveTimePeriod() {
+    public boolean hasEffectiveTimePeriod() { 
       return this.effectiveTime instanceof Period;
     }
 
-    public boolean hasEffectiveTime() {
+    public boolean hasEffectiveTime() { 
       return this.effectiveTime != null && !this.effectiveTime.isEmpty();
     }
 
     /**
      * @param value {@link #effectiveTime} (A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.)
      */
-    public MedicationAdministration setEffectiveTime(Type value) {
+    public MedicationAdministration setEffectiveTime(Type value) { 
       this.effectiveTime = value;
       return this;
     }
@@ -1127,44 +1127,44 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #medication} (Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public Type getMedication() {
+    public Type getMedication() { 
       return this.medication;
     }
 
     /**
      * @return {@link #medication} (Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public CodeableConcept getMedicationCodeableConcept() throws FHIRException {
+    public CodeableConcept getMedicationCodeableConcept() throws FHIRException { 
       if (!(this.medication instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (CodeableConcept) this.medication;
     }
 
-    public boolean hasMedicationCodeableConcept() {
+    public boolean hasMedicationCodeableConcept() { 
       return this.medication instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #medication} (Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public Reference getMedicationReference() throws FHIRException {
+    public Reference getMedicationReference() throws FHIRException { 
       if (!(this.medication instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.medication.getClass().getName()+" was encountered");
       return (Reference) this.medication;
     }
 
-    public boolean hasMedicationReference() {
+    public boolean hasMedicationReference() { 
       return this.medication instanceof Reference;
     }
 
-    public boolean hasMedication() {
+    public boolean hasMedication() { 
       return this.medication != null && !this.medication.isEmpty();
     }
 
     /**
      * @param value {@link #medication} (Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.)
      */
-    public MedicationAdministration setMedication(Type value) {
+    public MedicationAdministration setMedication(Type value) { 
       this.medication = value;
       return this;
     }
@@ -1172,13 +1172,13 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #device} (The device used in administering the medication to the patient.  For example, a particular infusion pump.)
      */
-    public List<Reference> getDevice() {
+    public List<Reference> getDevice() { 
       if (this.device == null)
         this.device = new ArrayList<Reference>();
       return this.device;
     }
 
-    public boolean hasDevice() {
+    public boolean hasDevice() { 
       if (this.device == null)
         return false;
       for (Reference item : this.device)
@@ -1212,7 +1212,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #device} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The device used in administering the medication to the patient.  For example, a particular infusion pump.)
      */
-    public List<Device> getDeviceTarget() {
+    public List<Device> getDeviceTarget() { 
       if (this.deviceTarget == null)
         this.deviceTarget = new ArrayList<Device>();
       return this.deviceTarget;
@@ -1222,7 +1222,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #device} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The device used in administering the medication to the patient.  For example, a particular infusion pump.)
      */
-    public Device addDeviceTarget() {
+    public Device addDeviceTarget() { 
       Device r = new Device();
       if (this.deviceTarget == null)
         this.deviceTarget = new ArrayList<Device>();
@@ -1233,7 +1233,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #note} (Extra information about the medication administration that is not conveyed by the other attributes.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public StringType getNoteElement() {
+    public StringType getNoteElement() { 
       if (this.note == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.note");
@@ -1242,18 +1242,18 @@ public class MedicationAdministration extends DomainResource {
       return this.note;
     }
 
-    public boolean hasNoteElement() {
+    public boolean hasNoteElement() { 
       return this.note != null && !this.note.isEmpty();
     }
 
-    public boolean hasNote() {
+    public boolean hasNote() { 
       return this.note != null && !this.note.isEmpty();
     }
 
     /**
      * @param value {@link #note} (Extra information about the medication administration that is not conveyed by the other attributes.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
      */
-    public MedicationAdministration setNoteElement(StringType value) {
+    public MedicationAdministration setNoteElement(StringType value) { 
       this.note = value;
       return this;
     }
@@ -1261,14 +1261,14 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return Extra information about the medication administration that is not conveyed by the other attributes.
      */
-    public String getNote() {
+    public String getNote() { 
       return this.note == null ? null : this.note.getValue();
     }
 
     /**
      * @param value Extra information about the medication administration that is not conveyed by the other attributes.
      */
-    public MedicationAdministration setNote(String value) {
+    public MedicationAdministration setNote(String value) { 
       if (Utilities.noString(value))
         this.note = null;
       else {
@@ -1282,7 +1282,7 @@ public class MedicationAdministration extends DomainResource {
     /**
      * @return {@link #dosage} (Describes the medication dosage information details e.g. dose, rate, site, route, etc.)
      */
-    public MedicationAdministrationDosageComponent getDosage() {
+    public MedicationAdministrationDosageComponent getDosage() { 
       if (this.dosage == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create MedicationAdministration.dosage");
@@ -1291,14 +1291,14 @@ public class MedicationAdministration extends DomainResource {
       return this.dosage;
     }
 
-    public boolean hasDosage() {
+    public boolean hasDosage() { 
       return this.dosage != null && !this.dosage.isEmpty();
     }
 
     /**
      * @param value {@link #dosage} (Describes the medication dosage information details e.g. dose, rate, site, route, etc.)
      */
-    public MedicationAdministration setDosage(MedicationAdministrationDosageComponent value) {
+    public MedicationAdministration setDosage(MedicationAdministrationDosageComponent value) { 
       this.dosage = value;
       return this;
     }

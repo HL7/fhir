@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -72,13 +72,13 @@ public class CodeableConcept extends Type implements ICompositeType {
     /**
      * @return {@link #coding} (A reference to a code defined by a terminology system.)
      */
-    public List<Coding> getCoding() {
+    public List<Coding> getCoding() { 
       if (this.coding == null)
         this.coding = new ArrayList<Coding>();
       return this.coding;
     }
 
-    public boolean hasCoding() {
+    public boolean hasCoding() { 
       if (this.coding == null)
         return false;
       for (Coding item : this.coding)
@@ -112,7 +112,7 @@ public class CodeableConcept extends Type implements ICompositeType {
     /**
      * @return {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public StringType getTextElement() {
+    public StringType getTextElement() { 
       if (this.text == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create CodeableConcept.text");
@@ -121,18 +121,18 @@ public class CodeableConcept extends Type implements ICompositeType {
       return this.text;
     }
 
-    public boolean hasTextElement() {
+    public boolean hasTextElement() { 
       return this.text != null && !this.text.isEmpty();
     }
 
-    public boolean hasText() {
+    public boolean hasText() { 
       return this.text != null && !this.text.isEmpty();
     }
 
     /**
      * @param value {@link #text} (A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.). This is the underlying object with id, value and extensions. The accessor "getText" gives direct access to the value
      */
-    public CodeableConcept setTextElement(StringType value) {
+    public CodeableConcept setTextElement(StringType value) { 
       this.text = value;
       return this;
     }
@@ -140,14 +140,14 @@ public class CodeableConcept extends Type implements ICompositeType {
     /**
      * @return A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.
      */
-    public String getText() {
+    public String getText() { 
       return this.text == null ? null : this.text.getValue();
     }
 
     /**
      * @param value A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.
      */
-    public CodeableConcept setText(String value) {
+    public CodeableConcept setText(String value) { 
       if (Utilities.noString(value))
         this.text = null;
       else {

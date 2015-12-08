@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -113,13 +113,13 @@ public class Library extends DomainResource {
     /**
      * @return {@link #identifier} (A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -153,7 +153,7 @@ public class Library extends DomainResource {
     /**
      * @return {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Library.version");
@@ -162,18 +162,18 @@ public class Library extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public Library setVersionElement(StringType value) {
+    public Library setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -181,14 +181,14 @@ public class Library extends DomainResource {
     /**
      * @return The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public Library setVersion(String value) {
+    public Library setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -202,7 +202,7 @@ public class Library extends DomainResource {
     /**
      * @return {@link #moduleMetadata} (A reference to a ModuleMetadata resource containing publication, description, and supporting information for the library.)
      */
-    public Reference getModuleMetadata() {
+    public Reference getModuleMetadata() { 
       if (this.moduleMetadata == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Library.moduleMetadata");
@@ -211,14 +211,14 @@ public class Library extends DomainResource {
       return this.moduleMetadata;
     }
 
-    public boolean hasModuleMetadata() {
+    public boolean hasModuleMetadata() { 
       return this.moduleMetadata != null && !this.moduleMetadata.isEmpty();
     }
 
     /**
      * @param value {@link #moduleMetadata} (A reference to a ModuleMetadata resource containing publication, description, and supporting information for the library.)
      */
-    public Library setModuleMetadata(Reference value) {
+    public Library setModuleMetadata(Reference value) { 
       this.moduleMetadata = value;
       return this;
     }
@@ -226,7 +226,7 @@ public class Library extends DomainResource {
     /**
      * @return {@link #moduleMetadata} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a ModuleMetadata resource containing publication, description, and supporting information for the library.)
      */
-    public ModuleMetadata getModuleMetadataTarget() {
+    public ModuleMetadata getModuleMetadataTarget() { 
       if (this.moduleMetadataTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Library.moduleMetadata");
@@ -238,7 +238,7 @@ public class Library extends DomainResource {
     /**
      * @param value {@link #moduleMetadata} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a ModuleMetadata resource containing publication, description, and supporting information for the library.)
      */
-    public Library setModuleMetadataTarget(ModuleMetadata value) {
+    public Library setModuleMetadataTarget(ModuleMetadata value) { 
       this.moduleMetadataTarget = value;
       return this;
     }
@@ -246,7 +246,7 @@ public class Library extends DomainResource {
     /**
      * @return {@link #moduleDefinition} (A reference to a ModuleDefinition resource describing the header information for the library.)
      */
-    public Reference getModuleDefinition() {
+    public Reference getModuleDefinition() { 
       if (this.moduleDefinition == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Library.moduleDefinition");
@@ -255,14 +255,14 @@ public class Library extends DomainResource {
       return this.moduleDefinition;
     }
 
-    public boolean hasModuleDefinition() {
+    public boolean hasModuleDefinition() { 
       return this.moduleDefinition != null && !this.moduleDefinition.isEmpty();
     }
 
     /**
      * @param value {@link #moduleDefinition} (A reference to a ModuleDefinition resource describing the header information for the library.)
      */
-    public Library setModuleDefinition(Reference value) {
+    public Library setModuleDefinition(Reference value) { 
       this.moduleDefinition = value;
       return this;
     }
@@ -270,7 +270,7 @@ public class Library extends DomainResource {
     /**
      * @return {@link #moduleDefinition} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a ModuleDefinition resource describing the header information for the library.)
      */
-    public ModuleDefinition getModuleDefinitionTarget() {
+    public ModuleDefinition getModuleDefinitionTarget() { 
       if (this.moduleDefinitionTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Library.moduleDefinition");
@@ -282,7 +282,7 @@ public class Library extends DomainResource {
     /**
      * @param value {@link #moduleDefinition} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a ModuleDefinition resource describing the header information for the library.)
      */
-    public Library setModuleDefinitionTarget(ModuleDefinition value) {
+    public Library setModuleDefinitionTarget(ModuleDefinition value) { 
       this.moduleDefinitionTarget = value;
       return this;
     }
@@ -290,7 +290,7 @@ public class Library extends DomainResource {
     /**
      * @return {@link #document} (The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document.)
      */
-    public Attachment getDocument() {
+    public Attachment getDocument() { 
       if (this.document == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Library.document");
@@ -299,14 +299,14 @@ public class Library extends DomainResource {
       return this.document;
     }
 
-    public boolean hasDocument() {
+    public boolean hasDocument() { 
       return this.document != null && !this.document.isEmpty();
     }
 
     /**
      * @param value {@link #document} (The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document.)
      */
-    public Library setDocument(Attachment value) {
+    public Library setDocument(Attachment value) { 
       this.document = value;
       return this;
     }

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,15 +52,15 @@ public class StructureDefinition extends DomainResource {
         /**
          * A data type - either a primitive or complex structure that defines a set of data elements. These can be used throughout Resource and extension definitions.
          */
-        DATATYPE,
+        DATATYPE, 
         /**
          * A resource defined by the FHIR specification.
          */
-        RESOURCE,
+        RESOURCE, 
         /**
          * A logical model - a conceptual package of data that will be mapped to resources for implementation.
          */
-        LOGICAL,
+        LOGICAL, 
         /**
          * added to help the parsers
          */
@@ -152,19 +152,19 @@ public class StructureDefinition extends DomainResource {
         /**
          * The context is all elements matching a particular resource element path.
          */
-        RESOURCE,
+        RESOURCE, 
         /**
          * The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
          */
-        DATATYPE,
+        DATATYPE, 
         /**
          * The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.
          */
-        MAPPING,
+        MAPPING, 
         /**
          * The context is a particular extension from a particular profile, a uri that identifies the extension definition.
          */
-        EXTENSION,
+        EXTENSION, 
         /**
          * added to help the parsers
          */
@@ -292,7 +292,7 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return {@link #name} (The name of an individual to contact regarding the structure definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StructureDefinitionContactComponent.name");
@@ -301,18 +301,18 @@ public class StructureDefinition extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of an individual to contact regarding the structure definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StructureDefinitionContactComponent setNameElement(StringType value) {
+        public StructureDefinitionContactComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -320,14 +320,14 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return The name of an individual to contact regarding the structure definition.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of an individual to contact regarding the structure definition.
          */
-        public StructureDefinitionContactComponent setName(String value) {
+        public StructureDefinitionContactComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -341,13 +341,13 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
-        public List<ContactPoint> getTelecom() {
+        public List<ContactPoint> getTelecom() { 
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() {
+        public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -500,7 +500,7 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return {@link #identity} (An Internal id that is used to identify this mapping set when specific mappings are made.). This is the underlying object with id, value and extensions. The accessor "getIdentity" gives direct access to the value
          */
-        public IdType getIdentityElement() {
+        public IdType getIdentityElement() { 
           if (this.identity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StructureDefinitionMappingComponent.identity");
@@ -509,18 +509,18 @@ public class StructureDefinition extends DomainResource {
           return this.identity;
         }
 
-        public boolean hasIdentityElement() {
+        public boolean hasIdentityElement() { 
           return this.identity != null && !this.identity.isEmpty();
         }
 
-        public boolean hasIdentity() {
+        public boolean hasIdentity() { 
           return this.identity != null && !this.identity.isEmpty();
         }
 
         /**
          * @param value {@link #identity} (An Internal id that is used to identify this mapping set when specific mappings are made.). This is the underlying object with id, value and extensions. The accessor "getIdentity" gives direct access to the value
          */
-        public StructureDefinitionMappingComponent setIdentityElement(IdType value) {
+        public StructureDefinitionMappingComponent setIdentityElement(IdType value) { 
           this.identity = value;
           return this;
         }
@@ -528,14 +528,14 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return An Internal id that is used to identify this mapping set when specific mappings are made.
          */
-        public String getIdentity() {
+        public String getIdentity() { 
           return this.identity == null ? null : this.identity.getValue();
         }
 
         /**
          * @param value An Internal id that is used to identify this mapping set when specific mappings are made.
          */
-        public StructureDefinitionMappingComponent setIdentity(String value) {
+        public StructureDefinitionMappingComponent setIdentity(String value) { 
             if (this.identity == null)
               this.identity = new IdType();
             this.identity.setValue(value);
@@ -545,7 +545,7 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return {@link #uri} (An absolute URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
-        public UriType getUriElement() {
+        public UriType getUriElement() { 
           if (this.uri == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StructureDefinitionMappingComponent.uri");
@@ -554,18 +554,18 @@ public class StructureDefinition extends DomainResource {
           return this.uri;
         }
 
-        public boolean hasUriElement() {
+        public boolean hasUriElement() { 
           return this.uri != null && !this.uri.isEmpty();
         }
 
-        public boolean hasUri() {
+        public boolean hasUri() { 
           return this.uri != null && !this.uri.isEmpty();
         }
 
         /**
          * @param value {@link #uri} (An absolute URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
-        public StructureDefinitionMappingComponent setUriElement(UriType value) {
+        public StructureDefinitionMappingComponent setUriElement(UriType value) { 
           this.uri = value;
           return this;
         }
@@ -573,14 +573,14 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return An absolute URI that identifies the specification that this mapping is expressed to.
          */
-        public String getUri() {
+        public String getUri() { 
           return this.uri == null ? null : this.uri.getValue();
         }
 
         /**
          * @param value An absolute URI that identifies the specification that this mapping is expressed to.
          */
-        public StructureDefinitionMappingComponent setUri(String value) {
+        public StructureDefinitionMappingComponent setUri(String value) { 
           if (Utilities.noString(value))
             this.uri = null;
           else {
@@ -594,7 +594,7 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return {@link #name} (A name for the specification that is being mapped to.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StructureDefinitionMappingComponent.name");
@@ -603,18 +603,18 @@ public class StructureDefinition extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (A name for the specification that is being mapped to.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StructureDefinitionMappingComponent setNameElement(StringType value) {
+        public StructureDefinitionMappingComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -622,14 +622,14 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return A name for the specification that is being mapped to.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value A name for the specification that is being mapped to.
          */
-        public StructureDefinitionMappingComponent setName(String value) {
+        public StructureDefinitionMappingComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -643,7 +643,7 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public StringType getCommentsElement() {
+        public StringType getCommentsElement() { 
           if (this.comments == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create StructureDefinitionMappingComponent.comments");
@@ -652,18 +652,18 @@ public class StructureDefinition extends DomainResource {
           return this.comments;
         }
 
-        public boolean hasCommentsElement() {
+        public boolean hasCommentsElement() { 
           return this.comments != null && !this.comments.isEmpty();
         }
 
-        public boolean hasComments() {
+        public boolean hasComments() { 
           return this.comments != null && !this.comments.isEmpty();
         }
 
         /**
          * @param value {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public StructureDefinitionMappingComponent setCommentsElement(StringType value) {
+        public StructureDefinitionMappingComponent setCommentsElement(StringType value) { 
           this.comments = value;
           return this;
         }
@@ -671,14 +671,14 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public String getComments() {
+        public String getComments() { 
           return this.comments == null ? null : this.comments.getValue();
         }
 
         /**
          * @param value Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public StructureDefinitionMappingComponent setComments(String value) {
+        public StructureDefinitionMappingComponent setComments(String value) { 
           if (Utilities.noString(value))
             this.comments = null;
           else {
@@ -794,13 +794,13 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return {@link #element} (Captures constraints on each element within the resource.)
          */
-        public List<ElementDefinition> getElement() {
+        public List<ElementDefinition> getElement() { 
           if (this.element == null)
             this.element = new ArrayList<ElementDefinition>();
           return this.element;
         }
 
-        public boolean hasElement() {
+        public boolean hasElement() { 
           if (this.element == null)
             return false;
           for (ElementDefinition item : this.element)
@@ -916,13 +916,13 @@ public class StructureDefinition extends DomainResource {
         /**
          * @return {@link #element} (Captures constraints on each element within the resource.)
          */
-        public List<ElementDefinition> getElement() {
+        public List<ElementDefinition> getElement() { 
           if (this.element == null)
             this.element = new ArrayList<ElementDefinition>();
           return this.element;
         }
 
-        public boolean hasElement() {
+        public boolean hasElement() { 
           if (this.element == null)
             return false;
           for (ElementDefinition item : this.element)
@@ -1216,7 +1216,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #url} (An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() {
+    public UriType getUrlElement() { 
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.url");
@@ -1225,18 +1225,18 @@ public class StructureDefinition extends DomainResource {
       return this.url;
     }
 
-    public boolean hasUrlElement() {
+    public boolean hasUrlElement() { 
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() {
+    public boolean hasUrl() { 
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
      * @param value {@link #url} (An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public StructureDefinition setUrlElement(UriType value) {
+    public StructureDefinition setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -1244,14 +1244,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.
      */
-    public String getUrl() {
+    public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value An absolute URL that is used to identify this structure definition when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this structure definition is (or will be) published.
      */
-    public StructureDefinition setUrl(String value) {
+    public StructureDefinition setUrl(String value) { 
         if (this.url == null)
           this.url = new UriType();
         this.url.setValue(value);
@@ -1261,13 +1261,13 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #identifier} (Formal identifier that is used to identify this StructureDefinition when it is represented in other formats, or referenced in a specification, model, design or an instance  (should be globally unique OID, UUID, or URI), (if it's not possible to use the literal URI).)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1301,7 +1301,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the StructureDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the StructureDefinition author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.version");
@@ -1310,18 +1310,18 @@ public class StructureDefinition extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the StructureDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the StructureDefinition author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StructureDefinition setVersionElement(StringType value) {
+    public StructureDefinition setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -1329,14 +1329,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return The identifier that is used to identify this version of the StructureDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the StructureDefinition author manually.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this version of the StructureDefinition when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the StructureDefinition author manually.
      */
-    public StructureDefinition setVersion(String value) {
+    public StructureDefinition setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -1350,7 +1350,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #name} (A free text natural language name identifying the StructureDefinition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() {
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.name");
@@ -1359,18 +1359,18 @@ public class StructureDefinition extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() {
+    public boolean hasNameElement() { 
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A free text natural language name identifying the StructureDefinition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StructureDefinition setNameElement(StringType value) {
+    public StructureDefinition setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -1378,14 +1378,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return A free text natural language name identifying the StructureDefinition.
      */
-    public String getName() {
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A free text natural language name identifying the StructureDefinition.
      */
-    public StructureDefinition setName(String value) {
+    public StructureDefinition setName(String value) { 
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
@@ -1395,7 +1395,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #display} (Defined so that applications can use this name when displaying the value of the extension to the user.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public StringType getDisplayElement() {
+    public StringType getDisplayElement() { 
       if (this.display == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.display");
@@ -1404,18 +1404,18 @@ public class StructureDefinition extends DomainResource {
       return this.display;
     }
 
-    public boolean hasDisplayElement() {
+    public boolean hasDisplayElement() { 
       return this.display != null && !this.display.isEmpty();
     }
 
-    public boolean hasDisplay() {
+    public boolean hasDisplay() { 
       return this.display != null && !this.display.isEmpty();
     }
 
     /**
      * @param value {@link #display} (Defined so that applications can use this name when displaying the value of the extension to the user.). This is the underlying object with id, value and extensions. The accessor "getDisplay" gives direct access to the value
      */
-    public StructureDefinition setDisplayElement(StringType value) {
+    public StructureDefinition setDisplayElement(StringType value) { 
       this.display = value;
       return this;
     }
@@ -1423,14 +1423,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return Defined so that applications can use this name when displaying the value of the extension to the user.
      */
-    public String getDisplay() {
+    public String getDisplay() { 
       return this.display == null ? null : this.display.getValue();
     }
 
     /**
      * @param value Defined so that applications can use this name when displaying the value of the extension to the user.
      */
-    public StructureDefinition setDisplay(String value) {
+    public StructureDefinition setDisplay(String value) { 
       if (Utilities.noString(value))
         this.display = null;
       else {
@@ -1444,7 +1444,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #status} (The status of the StructureDefinition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() {
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.status");
@@ -1453,18 +1453,18 @@ public class StructureDefinition extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the StructureDefinition.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public StructureDefinition setStatusElement(Enumeration<ConformanceResourceStatus> value) {
+    public StructureDefinition setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1472,14 +1472,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return The status of the StructureDefinition.
      */
-    public ConformanceResourceStatus getStatus() {
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the StructureDefinition.
      */
-    public StructureDefinition setStatus(ConformanceResourceStatus value) {
+    public StructureDefinition setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
@@ -1489,7 +1489,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #experimental} (This StructureDefinition was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalElement() {
+    public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.experimental");
@@ -1498,18 +1498,18 @@ public class StructureDefinition extends DomainResource {
       return this.experimental;
     }
 
-    public boolean hasExperimentalElement() {
+    public boolean hasExperimentalElement() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
-    public boolean hasExperimental() {
+    public boolean hasExperimental() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
      * @param value {@link #experimental} (This StructureDefinition was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public StructureDefinition setExperimentalElement(BooleanType value) {
+    public StructureDefinition setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -1517,14 +1517,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return This StructureDefinition was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public boolean getExperimental() {
+    public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
      * @param value This StructureDefinition was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public StructureDefinition setExperimental(boolean value) {
+    public StructureDefinition setExperimental(boolean value) { 
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
@@ -1534,7 +1534,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the structure definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() {
+    public StringType getPublisherElement() { 
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.publisher");
@@ -1543,18 +1543,18 @@ public class StructureDefinition extends DomainResource {
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() {
+    public boolean hasPublisherElement() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() {
+    public boolean hasPublisher() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the structure definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StructureDefinition setPublisherElement(StringType value) {
+    public StructureDefinition setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -1562,14 +1562,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return The name of the individual or organization that published the structure definition.
      */
-    public String getPublisher() {
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value The name of the individual or organization that published the structure definition.
      */
-    public StructureDefinition setPublisher(String value) {
+    public StructureDefinition setPublisher(String value) { 
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -1583,13 +1583,13 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<StructureDefinitionContactComponent> getContact() {
+    public List<StructureDefinitionContactComponent> getContact() { 
       if (this.contact == null)
         this.contact = new ArrayList<StructureDefinitionContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() {
+    public boolean hasContact() { 
       if (this.contact == null)
         return false;
       for (StructureDefinitionContactComponent item : this.contact)
@@ -1623,7 +1623,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #date} (The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.date");
@@ -1632,18 +1632,18 @@ public class StructureDefinition extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public StructureDefinition setDateElement(DateTimeType value) {
+    public StructureDefinition setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -1651,14 +1651,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date this version of the structure definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the structure definition changes.
      */
-    public StructureDefinition setDate(Date value) {
+    public StructureDefinition setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1672,7 +1672,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #description} (A free text natural language description of the StructureDefinition and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.description");
@@ -1681,18 +1681,18 @@ public class StructureDefinition extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the StructureDefinition and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StructureDefinition setDescriptionElement(StringType value) {
+    public StructureDefinition setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -1700,14 +1700,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return A free text natural language description of the StructureDefinition and its use.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A free text natural language description of the StructureDefinition and its use.
      */
-    public StructureDefinition setDescription(String value) {
+    public StructureDefinition setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -1721,13 +1721,13 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of structure definitions.)
      */
-    public List<CodeableConcept> getUseContext() {
+    public List<CodeableConcept> getUseContext() { 
       if (this.useContext == null)
         this.useContext = new ArrayList<CodeableConcept>();
       return this.useContext;
     }
 
-    public boolean hasUseContext() {
+    public boolean hasUseContext() { 
       if (this.useContext == null)
         return false;
       for (CodeableConcept item : this.useContext)
@@ -1761,7 +1761,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #requirements} (Explains why this structure definition is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public StringType getRequirementsElement() {
+    public StringType getRequirementsElement() { 
       if (this.requirements == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.requirements");
@@ -1770,18 +1770,18 @@ public class StructureDefinition extends DomainResource {
       return this.requirements;
     }
 
-    public boolean hasRequirementsElement() {
+    public boolean hasRequirementsElement() { 
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
-    public boolean hasRequirements() {
+    public boolean hasRequirements() { 
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
     /**
      * @param value {@link #requirements} (Explains why this structure definition is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public StructureDefinition setRequirementsElement(StringType value) {
+    public StructureDefinition setRequirementsElement(StringType value) { 
       this.requirements = value;
       return this;
     }
@@ -1789,14 +1789,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return Explains why this structure definition is needed and why it's been constrained as it has.
      */
-    public String getRequirements() {
+    public String getRequirements() { 
       return this.requirements == null ? null : this.requirements.getValue();
     }
 
     /**
      * @param value Explains why this structure definition is needed and why it's been constrained as it has.
      */
-    public StructureDefinition setRequirements(String value) {
+    public StructureDefinition setRequirements(String value) { 
       if (Utilities.noString(value))
         this.requirements = null;
       else {
@@ -1810,7 +1810,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #copyright} (A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public StringType getCopyrightElement() {
+    public StringType getCopyrightElement() { 
       if (this.copyright == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.copyright");
@@ -1819,18 +1819,18 @@ public class StructureDefinition extends DomainResource {
       return this.copyright;
     }
 
-    public boolean hasCopyrightElement() {
+    public boolean hasCopyrightElement() { 
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
-    public boolean hasCopyright() {
+    public boolean hasCopyright() { 
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
     /**
      * @param value {@link #copyright} (A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public StructureDefinition setCopyrightElement(StringType value) {
+    public StructureDefinition setCopyrightElement(StringType value) { 
       this.copyright = value;
       return this;
     }
@@ -1838,14 +1838,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
      */
-    public String getCopyright() {
+    public String getCopyright() { 
       return this.copyright == null ? null : this.copyright.getValue();
     }
 
     /**
      * @param value A copyright statement relating to the structure definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
      */
-    public StructureDefinition setCopyright(String value) {
+    public StructureDefinition setCopyright(String value) { 
       if (Utilities.noString(value))
         this.copyright = null;
       else {
@@ -1859,13 +1859,13 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #code} (A set of terms from external terminologies that may be used to assist with indexing and searching of templates.)
      */
-    public List<Coding> getCode() {
+    public List<Coding> getCode() { 
       if (this.code == null)
         this.code = new ArrayList<Coding>();
       return this.code;
     }
 
-    public boolean hasCode() {
+    public boolean hasCode() { 
       if (this.code == null)
         return false;
       for (Coding item : this.code)
@@ -1899,7 +1899,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #fhirVersion} (The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.1.0 for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public IdType getFhirVersionElement() {
+    public IdType getFhirVersionElement() { 
       if (this.fhirVersion == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.fhirVersion");
@@ -1908,18 +1908,18 @@ public class StructureDefinition extends DomainResource {
       return this.fhirVersion;
     }
 
-    public boolean hasFhirVersionElement() {
+    public boolean hasFhirVersionElement() { 
       return this.fhirVersion != null && !this.fhirVersion.isEmpty();
     }
 
-    public boolean hasFhirVersion() {
+    public boolean hasFhirVersion() { 
       return this.fhirVersion != null && !this.fhirVersion.isEmpty();
     }
 
     /**
      * @param value {@link #fhirVersion} (The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.1.0 for this version.). This is the underlying object with id, value and extensions. The accessor "getFhirVersion" gives direct access to the value
      */
-    public StructureDefinition setFhirVersionElement(IdType value) {
+    public StructureDefinition setFhirVersionElement(IdType value) { 
       this.fhirVersion = value;
       return this;
     }
@@ -1927,14 +1927,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.1.0 for this version.
      */
-    public String getFhirVersion() {
+    public String getFhirVersion() { 
       return this.fhirVersion == null ? null : this.fhirVersion.getValue();
     }
 
     /**
      * @param value The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.1.0 for this version.
      */
-    public StructureDefinition setFhirVersion(String value) {
+    public StructureDefinition setFhirVersion(String value) { 
       if (Utilities.noString(value))
         this.fhirVersion = null;
       else {
@@ -1948,13 +1948,13 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #mapping} (An external specification that the content is mapped to.)
      */
-    public List<StructureDefinitionMappingComponent> getMapping() {
+    public List<StructureDefinitionMappingComponent> getMapping() { 
       if (this.mapping == null)
         this.mapping = new ArrayList<StructureDefinitionMappingComponent>();
       return this.mapping;
     }
 
-    public boolean hasMapping() {
+    public boolean hasMapping() { 
       if (this.mapping == null)
         return false;
       for (StructureDefinitionMappingComponent item : this.mapping)
@@ -1988,7 +1988,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #kind} (Defines the kind of structure that this definition is describing.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Enumeration<StructureDefinitionKind> getKindElement() {
+    public Enumeration<StructureDefinitionKind> getKindElement() { 
       if (this.kind == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.kind");
@@ -1997,18 +1997,18 @@ public class StructureDefinition extends DomainResource {
       return this.kind;
     }
 
-    public boolean hasKindElement() {
+    public boolean hasKindElement() { 
       return this.kind != null && !this.kind.isEmpty();
     }
 
-    public boolean hasKind() {
+    public boolean hasKind() { 
       return this.kind != null && !this.kind.isEmpty();
     }
 
     /**
      * @param value {@link #kind} (Defines the kind of structure that this definition is describing.). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public StructureDefinition setKindElement(Enumeration<StructureDefinitionKind> value) {
+    public StructureDefinition setKindElement(Enumeration<StructureDefinitionKind> value) { 
       this.kind = value;
       return this;
     }
@@ -2016,14 +2016,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return Defines the kind of structure that this definition is describing.
      */
-    public StructureDefinitionKind getKind() {
+    public StructureDefinitionKind getKind() { 
       return this.kind == null ? null : this.kind.getValue();
     }
 
     /**
      * @param value Defines the kind of structure that this definition is describing.
      */
-    public StructureDefinition setKind(StructureDefinitionKind value) {
+    public StructureDefinition setKind(StructureDefinitionKind value) { 
         if (this.kind == null)
           this.kind = new Enumeration<StructureDefinitionKind>(new StructureDefinitionKindEnumFactory());
         this.kind.setValue(value);
@@ -2033,7 +2033,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #constrainedType} (The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.). This is the underlying object with id, value and extensions. The accessor "getConstrainedType" gives direct access to the value
      */
-    public CodeType getConstrainedTypeElement() {
+    public CodeType getConstrainedTypeElement() { 
       if (this.constrainedType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.constrainedType");
@@ -2042,18 +2042,18 @@ public class StructureDefinition extends DomainResource {
       return this.constrainedType;
     }
 
-    public boolean hasConstrainedTypeElement() {
+    public boolean hasConstrainedTypeElement() { 
       return this.constrainedType != null && !this.constrainedType.isEmpty();
     }
 
-    public boolean hasConstrainedType() {
+    public boolean hasConstrainedType() { 
       return this.constrainedType != null && !this.constrainedType.isEmpty();
     }
 
     /**
      * @param value {@link #constrainedType} (The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.). This is the underlying object with id, value and extensions. The accessor "getConstrainedType" gives direct access to the value
      */
-    public StructureDefinition setConstrainedTypeElement(CodeType value) {
+    public StructureDefinition setConstrainedTypeElement(CodeType value) { 
       this.constrainedType = value;
       return this;
     }
@@ -2061,14 +2061,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.
      */
-    public String getConstrainedType() {
+    public String getConstrainedType() { 
       return this.constrainedType == null ? null : this.constrainedType.getValue();
     }
 
     /**
      * @param value The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.
      */
-    public StructureDefinition setConstrainedType(String value) {
+    public StructureDefinition setConstrainedType(String value) { 
       if (Utilities.noString(value))
         this.constrainedType = null;
       else {
@@ -2082,7 +2082,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #abstract_} (Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.). This is the underlying object with id, value and extensions. The accessor "getAbstract" gives direct access to the value
      */
-    public BooleanType getAbstractElement() {
+    public BooleanType getAbstractElement() { 
       if (this.abstract_ == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.abstract_");
@@ -2091,18 +2091,18 @@ public class StructureDefinition extends DomainResource {
       return this.abstract_;
     }
 
-    public boolean hasAbstractElement() {
+    public boolean hasAbstractElement() { 
       return this.abstract_ != null && !this.abstract_.isEmpty();
     }
 
-    public boolean hasAbstract() {
+    public boolean hasAbstract() { 
       return this.abstract_ != null && !this.abstract_.isEmpty();
     }
 
     /**
      * @param value {@link #abstract_} (Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.). This is the underlying object with id, value and extensions. The accessor "getAbstract" gives direct access to the value
      */
-    public StructureDefinition setAbstractElement(BooleanType value) {
+    public StructureDefinition setAbstractElement(BooleanType value) { 
       this.abstract_ = value;
       return this;
     }
@@ -2110,14 +2110,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.
      */
-    public boolean getAbstract() {
+    public boolean getAbstract() { 
       return this.abstract_ == null || this.abstract_.isEmpty() ? false : this.abstract_.getValue();
     }
 
     /**
      * @param value Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.
      */
-    public StructureDefinition setAbstract(boolean value) {
+    public StructureDefinition setAbstract(boolean value) { 
         if (this.abstract_ == null)
           this.abstract_ = new BooleanType();
         this.abstract_.setValue(value);
@@ -2127,7 +2127,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #contextType} (If this is an extension, Identifies the context within FHIR resources where the extension can be used.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
      */
-    public Enumeration<ExtensionContext> getContextTypeElement() {
+    public Enumeration<ExtensionContext> getContextTypeElement() { 
       if (this.contextType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.contextType");
@@ -2136,18 +2136,18 @@ public class StructureDefinition extends DomainResource {
       return this.contextType;
     }
 
-    public boolean hasContextTypeElement() {
+    public boolean hasContextTypeElement() { 
       return this.contextType != null && !this.contextType.isEmpty();
     }
 
-    public boolean hasContextType() {
+    public boolean hasContextType() { 
       return this.contextType != null && !this.contextType.isEmpty();
     }
 
     /**
      * @param value {@link #contextType} (If this is an extension, Identifies the context within FHIR resources where the extension can be used.). This is the underlying object with id, value and extensions. The accessor "getContextType" gives direct access to the value
      */
-    public StructureDefinition setContextTypeElement(Enumeration<ExtensionContext> value) {
+    public StructureDefinition setContextTypeElement(Enumeration<ExtensionContext> value) { 
       this.contextType = value;
       return this;
     }
@@ -2155,14 +2155,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return If this is an extension, Identifies the context within FHIR resources where the extension can be used.
      */
-    public ExtensionContext getContextType() {
+    public ExtensionContext getContextType() { 
       return this.contextType == null ? null : this.contextType.getValue();
     }
 
     /**
      * @param value If this is an extension, Identifies the context within FHIR resources where the extension can be used.
      */
-    public StructureDefinition setContextType(ExtensionContext value) {
+    public StructureDefinition setContextType(ExtensionContext value) { 
       if (value == null)
         this.contextType = null;
       else {
@@ -2176,13 +2176,13 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #context} (Identifies the types of resource or data type elements to which the extension can be applied.)
      */
-    public List<StringType> getContext() {
+    public List<StringType> getContext() { 
       if (this.context == null)
         this.context = new ArrayList<StringType>();
       return this.context;
     }
 
-    public boolean hasContext() {
+    public boolean hasContext() { 
       if (this.context == null)
         return false;
       for (StringType item : this.context)
@@ -2195,7 +2195,7 @@ public class StructureDefinition extends DomainResource {
      * @return {@link #context} (Identifies the types of resource or data type elements to which the extension can be applied.)
      */
     // syntactic sugar
-    public StringType addContextElement() {//2
+    public StringType addContextElement() {//2 
       StringType t = new StringType();
       if (this.context == null)
         this.context = new ArrayList<StringType>();
@@ -2218,7 +2218,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @param value {@link #context} (Identifies the types of resource or data type elements to which the extension can be applied.)
      */
-    public boolean hasContext(String value) {
+    public boolean hasContext(String value) { 
       if (this.context == null)
         return false;
       for (StringType v : this.context)
@@ -2230,7 +2230,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #base} (An absolute URI that is the base structure from which this set of constraints is derived.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
      */
-    public UriType getBaseElement() {
+    public UriType getBaseElement() { 
       if (this.base == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.base");
@@ -2239,18 +2239,18 @@ public class StructureDefinition extends DomainResource {
       return this.base;
     }
 
-    public boolean hasBaseElement() {
+    public boolean hasBaseElement() { 
       return this.base != null && !this.base.isEmpty();
     }
 
-    public boolean hasBase() {
+    public boolean hasBase() { 
       return this.base != null && !this.base.isEmpty();
     }
 
     /**
      * @param value {@link #base} (An absolute URI that is the base structure from which this set of constraints is derived.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
      */
-    public StructureDefinition setBaseElement(UriType value) {
+    public StructureDefinition setBaseElement(UriType value) { 
       this.base = value;
       return this;
     }
@@ -2258,14 +2258,14 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return An absolute URI that is the base structure from which this set of constraints is derived.
      */
-    public String getBase() {
+    public String getBase() { 
       return this.base == null ? null : this.base.getValue();
     }
 
     /**
      * @param value An absolute URI that is the base structure from which this set of constraints is derived.
      */
-    public StructureDefinition setBase(String value) {
+    public StructureDefinition setBase(String value) { 
       if (Utilities.noString(value))
         this.base = null;
       else {
@@ -2279,7 +2279,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.)
      */
-    public StructureDefinitionSnapshotComponent getSnapshot() {
+    public StructureDefinitionSnapshotComponent getSnapshot() { 
       if (this.snapshot == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.snapshot");
@@ -2288,14 +2288,14 @@ public class StructureDefinition extends DomainResource {
       return this.snapshot;
     }
 
-    public boolean hasSnapshot() {
+    public boolean hasSnapshot() { 
       return this.snapshot != null && !this.snapshot.isEmpty();
     }
 
     /**
      * @param value {@link #snapshot} (A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.)
      */
-    public StructureDefinition setSnapshot(StructureDefinitionSnapshotComponent value) {
+    public StructureDefinition setSnapshot(StructureDefinitionSnapshotComponent value) { 
       this.snapshot = value;
       return this;
     }
@@ -2303,7 +2303,7 @@ public class StructureDefinition extends DomainResource {
     /**
      * @return {@link #differential} (A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.)
      */
-    public StructureDefinitionDifferentialComponent getDifferential() {
+    public StructureDefinitionDifferentialComponent getDifferential() { 
       if (this.differential == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create StructureDefinition.differential");
@@ -2312,14 +2312,14 @@ public class StructureDefinition extends DomainResource {
       return this.differential;
     }
 
-    public boolean hasDifferential() {
+    public boolean hasDifferential() { 
       return this.differential != null && !this.differential.isEmpty();
     }
 
     /**
      * @param value {@link #differential} (A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.)
      */
-    public StructureDefinition setDifferential(StructureDefinitionDifferentialComponent value) {
+    public StructureDefinition setDifferential(StructureDefinitionDifferentialComponent value) { 
       this.differential = value;
       return this;
     }

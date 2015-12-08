@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,31 +51,31 @@ public class Timing extends Type implements ICompositeType {
         /**
          * null
          */
-        S,
+        S, 
         /**
          * null
          */
-        MIN,
+        MIN, 
         /**
          * null
          */
-        H,
+        H, 
         /**
          * null
          */
-        D,
+        D, 
         /**
          * null
          */
-        WK,
+        WK, 
         /**
          * null
          */
-        MO,
+        MO, 
         /**
          * null
          */
-        A,
+        A, 
         /**
          * added to help the parsers
          */
@@ -215,59 +215,59 @@ public class Timing extends Type implements ICompositeType {
         /**
          * null
          */
-        HS,
+        HS, 
         /**
          * null
          */
-        WAKE,
+        WAKE, 
         /**
          * null
          */
-        C,
+        C, 
         /**
          * null
          */
-        CM,
+        CM, 
         /**
          * null
          */
-        CD,
+        CD, 
         /**
          * null
          */
-        CV,
+        CV, 
         /**
          * null
          */
-        AC,
+        AC, 
         /**
          * null
          */
-        ACM,
+        ACM, 
         /**
          * null
          */
-        ACD,
+        ACD, 
         /**
          * null
          */
-        ACV,
+        ACV, 
         /**
          * null
          */
-        PC,
+        PC, 
         /**
          * null
          */
-        PCM,
+        PCM, 
         /**
          * null
          */
-        PCD,
+        PCD, 
         /**
          * null
          */
-        PCV,
+        PCV, 
         /**
          * added to help the parsers
          */
@@ -578,57 +578,57 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
-        public Type getBounds() {
+        public Type getBounds() { 
           return this.bounds;
         }
 
         /**
          * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
-        public Duration getBoundsDuration() throws FHIRException {
+        public Duration getBoundsDuration() throws FHIRException { 
           if (!(this.bounds instanceof Duration))
             throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.bounds.getClass().getName()+" was encountered");
           return (Duration) this.bounds;
         }
 
-        public boolean hasBoundsDuration() {
+        public boolean hasBoundsDuration() { 
           return this.bounds instanceof Duration;
         }
 
         /**
          * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
-        public Range getBoundsRange() throws FHIRException {
+        public Range getBoundsRange() throws FHIRException { 
           if (!(this.bounds instanceof Range))
             throw new FHIRException("Type mismatch: the type Range was expected, but "+this.bounds.getClass().getName()+" was encountered");
           return (Range) this.bounds;
         }
 
-        public boolean hasBoundsRange() {
+        public boolean hasBoundsRange() { 
           return this.bounds instanceof Range;
         }
 
         /**
          * @return {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
-        public Period getBoundsPeriod() throws FHIRException {
+        public Period getBoundsPeriod() throws FHIRException { 
           if (!(this.bounds instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.bounds.getClass().getName()+" was encountered");
           return (Period) this.bounds;
         }
 
-        public boolean hasBoundsPeriod() {
+        public boolean hasBoundsPeriod() { 
           return this.bounds instanceof Period;
         }
 
-        public boolean hasBounds() {
+        public boolean hasBounds() { 
           return this.bounds != null && !this.bounds.isEmpty();
         }
 
         /**
          * @param value {@link #bounds} (Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.)
          */
-        public TimingRepeatComponent setBounds(Type value) {
+        public TimingRepeatComponent setBounds(Type value) { 
           this.bounds = value;
           return this;
         }
@@ -636,7 +636,7 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #count} (A total count of the desired number of repetitions.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
-        public IntegerType getCountElement() {
+        public IntegerType getCountElement() { 
           if (this.count == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.count");
@@ -645,18 +645,18 @@ public class Timing extends Type implements ICompositeType {
           return this.count;
         }
 
-        public boolean hasCountElement() {
+        public boolean hasCountElement() { 
           return this.count != null && !this.count.isEmpty();
         }
 
-        public boolean hasCount() {
+        public boolean hasCount() { 
           return this.count != null && !this.count.isEmpty();
         }
 
         /**
          * @param value {@link #count} (A total count of the desired number of repetitions.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
-        public TimingRepeatComponent setCountElement(IntegerType value) {
+        public TimingRepeatComponent setCountElement(IntegerType value) { 
           this.count = value;
           return this;
         }
@@ -664,14 +664,14 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return A total count of the desired number of repetitions.
          */
-        public int getCount() {
+        public int getCount() { 
           return this.count == null || this.count.isEmpty() ? 0 : this.count.getValue();
         }
 
         /**
          * @param value A total count of the desired number of repetitions.
          */
-        public TimingRepeatComponent setCount(int value) {
+        public TimingRepeatComponent setCount(int value) { 
             if (this.count == null)
               this.count = new IntegerType();
             this.count.setValue(value);
@@ -681,7 +681,7 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #duration} (How long this thing happens for when it happens.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
          */
-        public DecimalType getDurationElement() {
+        public DecimalType getDurationElement() { 
           if (this.duration == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.duration");
@@ -690,18 +690,18 @@ public class Timing extends Type implements ICompositeType {
           return this.duration;
         }
 
-        public boolean hasDurationElement() {
+        public boolean hasDurationElement() { 
           return this.duration != null && !this.duration.isEmpty();
         }
 
-        public boolean hasDuration() {
+        public boolean hasDuration() { 
           return this.duration != null && !this.duration.isEmpty();
         }
 
         /**
          * @param value {@link #duration} (How long this thing happens for when it happens.). This is the underlying object with id, value and extensions. The accessor "getDuration" gives direct access to the value
          */
-        public TimingRepeatComponent setDurationElement(DecimalType value) {
+        public TimingRepeatComponent setDurationElement(DecimalType value) { 
           this.duration = value;
           return this;
         }
@@ -709,14 +709,14 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return How long this thing happens for when it happens.
          */
-        public BigDecimal getDuration() {
+        public BigDecimal getDuration() { 
           return this.duration == null ? null : this.duration.getValue();
         }
 
         /**
          * @param value How long this thing happens for when it happens.
          */
-        public TimingRepeatComponent setDuration(BigDecimal value) {
+        public TimingRepeatComponent setDuration(BigDecimal value) { 
           if (value == null)
             this.duration = null;
           else {
@@ -730,7 +730,7 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #durationMax} (The upper limit of how long this thing happens for when it happens.). This is the underlying object with id, value and extensions. The accessor "getDurationMax" gives direct access to the value
          */
-        public DecimalType getDurationMaxElement() {
+        public DecimalType getDurationMaxElement() { 
           if (this.durationMax == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.durationMax");
@@ -739,18 +739,18 @@ public class Timing extends Type implements ICompositeType {
           return this.durationMax;
         }
 
-        public boolean hasDurationMaxElement() {
+        public boolean hasDurationMaxElement() { 
           return this.durationMax != null && !this.durationMax.isEmpty();
         }
 
-        public boolean hasDurationMax() {
+        public boolean hasDurationMax() { 
           return this.durationMax != null && !this.durationMax.isEmpty();
         }
 
         /**
          * @param value {@link #durationMax} (The upper limit of how long this thing happens for when it happens.). This is the underlying object with id, value and extensions. The accessor "getDurationMax" gives direct access to the value
          */
-        public TimingRepeatComponent setDurationMaxElement(DecimalType value) {
+        public TimingRepeatComponent setDurationMaxElement(DecimalType value) { 
           this.durationMax = value;
           return this;
         }
@@ -758,14 +758,14 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return The upper limit of how long this thing happens for when it happens.
          */
-        public BigDecimal getDurationMax() {
+        public BigDecimal getDurationMax() { 
           return this.durationMax == null ? null : this.durationMax.getValue();
         }
 
         /**
          * @param value The upper limit of how long this thing happens for when it happens.
          */
-        public TimingRepeatComponent setDurationMax(BigDecimal value) {
+        public TimingRepeatComponent setDurationMax(BigDecimal value) { 
           if (value == null)
             this.durationMax = null;
           else {
@@ -779,7 +779,7 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #durationUnits} (The units of time for the duration, in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getDurationUnits" gives direct access to the value
          */
-        public Enumeration<UnitsOfTime> getDurationUnitsElement() {
+        public Enumeration<UnitsOfTime> getDurationUnitsElement() { 
           if (this.durationUnits == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.durationUnits");
@@ -788,18 +788,18 @@ public class Timing extends Type implements ICompositeType {
           return this.durationUnits;
         }
 
-        public boolean hasDurationUnitsElement() {
+        public boolean hasDurationUnitsElement() { 
           return this.durationUnits != null && !this.durationUnits.isEmpty();
         }
 
-        public boolean hasDurationUnits() {
+        public boolean hasDurationUnits() { 
           return this.durationUnits != null && !this.durationUnits.isEmpty();
         }
 
         /**
          * @param value {@link #durationUnits} (The units of time for the duration, in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getDurationUnits" gives direct access to the value
          */
-        public TimingRepeatComponent setDurationUnitsElement(Enumeration<UnitsOfTime> value) {
+        public TimingRepeatComponent setDurationUnitsElement(Enumeration<UnitsOfTime> value) { 
           this.durationUnits = value;
           return this;
         }
@@ -807,14 +807,14 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return The units of time for the duration, in UCUM units.
          */
-        public UnitsOfTime getDurationUnits() {
+        public UnitsOfTime getDurationUnits() { 
           return this.durationUnits == null ? null : this.durationUnits.getValue();
         }
 
         /**
          * @param value The units of time for the duration, in UCUM units.
          */
-        public TimingRepeatComponent setDurationUnits(UnitsOfTime value) {
+        public TimingRepeatComponent setDurationUnits(UnitsOfTime value) { 
           if (value == null)
             this.durationUnits = null;
           else {
@@ -828,7 +828,7 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #frequency} (The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).). This is the underlying object with id, value and extensions. The accessor "getFrequency" gives direct access to the value
          */
-        public IntegerType getFrequencyElement() {
+        public IntegerType getFrequencyElement() { 
           if (this.frequency == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.frequency");
@@ -837,18 +837,18 @@ public class Timing extends Type implements ICompositeType {
           return this.frequency;
         }
 
-        public boolean hasFrequencyElement() {
+        public boolean hasFrequencyElement() { 
           return this.frequency != null && !this.frequency.isEmpty();
         }
 
-        public boolean hasFrequency() {
+        public boolean hasFrequency() { 
           return this.frequency != null && !this.frequency.isEmpty();
         }
 
         /**
          * @param value {@link #frequency} (The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).). This is the underlying object with id, value and extensions. The accessor "getFrequency" gives direct access to the value
          */
-        public TimingRepeatComponent setFrequencyElement(IntegerType value) {
+        public TimingRepeatComponent setFrequencyElement(IntegerType value) { 
           this.frequency = value;
           return this;
         }
@@ -856,14 +856,14 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).
          */
-        public int getFrequency() {
+        public int getFrequency() { 
           return this.frequency == null || this.frequency.isEmpty() ? 0 : this.frequency.getValue();
         }
 
         /**
          * @param value The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).
          */
-        public TimingRepeatComponent setFrequency(int value) {
+        public TimingRepeatComponent setFrequency(int value) { 
             if (this.frequency == null)
               this.frequency = new IntegerType();
             this.frequency.setValue(value);
@@ -873,7 +873,7 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #frequencyMax} (If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range.). This is the underlying object with id, value and extensions. The accessor "getFrequencyMax" gives direct access to the value
          */
-        public IntegerType getFrequencyMaxElement() {
+        public IntegerType getFrequencyMaxElement() { 
           if (this.frequencyMax == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.frequencyMax");
@@ -882,18 +882,18 @@ public class Timing extends Type implements ICompositeType {
           return this.frequencyMax;
         }
 
-        public boolean hasFrequencyMaxElement() {
+        public boolean hasFrequencyMaxElement() { 
           return this.frequencyMax != null && !this.frequencyMax.isEmpty();
         }
 
-        public boolean hasFrequencyMax() {
+        public boolean hasFrequencyMax() { 
           return this.frequencyMax != null && !this.frequencyMax.isEmpty();
         }
 
         /**
          * @param value {@link #frequencyMax} (If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range.). This is the underlying object with id, value and extensions. The accessor "getFrequencyMax" gives direct access to the value
          */
-        public TimingRepeatComponent setFrequencyMaxElement(IntegerType value) {
+        public TimingRepeatComponent setFrequencyMaxElement(IntegerType value) { 
           this.frequencyMax = value;
           return this;
         }
@@ -901,14 +901,14 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range.
          */
-        public int getFrequencyMax() {
+        public int getFrequencyMax() { 
           return this.frequencyMax == null || this.frequencyMax.isEmpty() ? 0 : this.frequencyMax.getValue();
         }
 
         /**
          * @param value If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range.
          */
-        public TimingRepeatComponent setFrequencyMax(int value) {
+        public TimingRepeatComponent setFrequencyMax(int value) { 
             if (this.frequencyMax == null)
               this.frequencyMax = new IntegerType();
             this.frequencyMax.setValue(value);
@@ -918,7 +918,7 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #period} (Indicates the duration of time over which repetitions are to occur; e.g. to express "3 times per day", 3 would be the frequency and "1 day" would be the period.). This is the underlying object with id, value and extensions. The accessor "getPeriod" gives direct access to the value
          */
-        public DecimalType getPeriodElement() {
+        public DecimalType getPeriodElement() { 
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.period");
@@ -927,18 +927,18 @@ public class Timing extends Type implements ICompositeType {
           return this.period;
         }
 
-        public boolean hasPeriodElement() {
+        public boolean hasPeriodElement() { 
           return this.period != null && !this.period.isEmpty();
         }
 
-        public boolean hasPeriod() {
+        public boolean hasPeriod() { 
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (Indicates the duration of time over which repetitions are to occur; e.g. to express "3 times per day", 3 would be the frequency and "1 day" would be the period.). This is the underlying object with id, value and extensions. The accessor "getPeriod" gives direct access to the value
          */
-        public TimingRepeatComponent setPeriodElement(DecimalType value) {
+        public TimingRepeatComponent setPeriodElement(DecimalType value) { 
           this.period = value;
           return this;
         }
@@ -946,14 +946,14 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return Indicates the duration of time over which repetitions are to occur; e.g. to express "3 times per day", 3 would be the frequency and "1 day" would be the period.
          */
-        public BigDecimal getPeriod() {
+        public BigDecimal getPeriod() { 
           return this.period == null ? null : this.period.getValue();
         }
 
         /**
          * @param value Indicates the duration of time over which repetitions are to occur; e.g. to express "3 times per day", 3 would be the frequency and "1 day" would be the period.
          */
-        public TimingRepeatComponent setPeriod(BigDecimal value) {
+        public TimingRepeatComponent setPeriod(BigDecimal value) { 
           if (value == null)
             this.period = null;
           else {
@@ -967,7 +967,7 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #periodMax} (If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as "do this once every 3-5 days.). This is the underlying object with id, value and extensions. The accessor "getPeriodMax" gives direct access to the value
          */
-        public DecimalType getPeriodMaxElement() {
+        public DecimalType getPeriodMaxElement() { 
           if (this.periodMax == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.periodMax");
@@ -976,18 +976,18 @@ public class Timing extends Type implements ICompositeType {
           return this.periodMax;
         }
 
-        public boolean hasPeriodMaxElement() {
+        public boolean hasPeriodMaxElement() { 
           return this.periodMax != null && !this.periodMax.isEmpty();
         }
 
-        public boolean hasPeriodMax() {
+        public boolean hasPeriodMax() { 
           return this.periodMax != null && !this.periodMax.isEmpty();
         }
 
         /**
          * @param value {@link #periodMax} (If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as "do this once every 3-5 days.). This is the underlying object with id, value and extensions. The accessor "getPeriodMax" gives direct access to the value
          */
-        public TimingRepeatComponent setPeriodMaxElement(DecimalType value) {
+        public TimingRepeatComponent setPeriodMaxElement(DecimalType value) { 
           this.periodMax = value;
           return this;
         }
@@ -995,14 +995,14 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as "do this once every 3-5 days.
          */
-        public BigDecimal getPeriodMax() {
+        public BigDecimal getPeriodMax() { 
           return this.periodMax == null ? null : this.periodMax.getValue();
         }
 
         /**
          * @param value If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as "do this once every 3-5 days.
          */
-        public TimingRepeatComponent setPeriodMax(BigDecimal value) {
+        public TimingRepeatComponent setPeriodMax(BigDecimal value) { 
           if (value == null)
             this.periodMax = null;
           else {
@@ -1016,7 +1016,7 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #periodUnits} (The units of time for the period in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getPeriodUnits" gives direct access to the value
          */
-        public Enumeration<UnitsOfTime> getPeriodUnitsElement() {
+        public Enumeration<UnitsOfTime> getPeriodUnitsElement() { 
           if (this.periodUnits == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.periodUnits");
@@ -1025,18 +1025,18 @@ public class Timing extends Type implements ICompositeType {
           return this.periodUnits;
         }
 
-        public boolean hasPeriodUnitsElement() {
+        public boolean hasPeriodUnitsElement() { 
           return this.periodUnits != null && !this.periodUnits.isEmpty();
         }
 
-        public boolean hasPeriodUnits() {
+        public boolean hasPeriodUnits() { 
           return this.periodUnits != null && !this.periodUnits.isEmpty();
         }
 
         /**
          * @param value {@link #periodUnits} (The units of time for the period in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getPeriodUnits" gives direct access to the value
          */
-        public TimingRepeatComponent setPeriodUnitsElement(Enumeration<UnitsOfTime> value) {
+        public TimingRepeatComponent setPeriodUnitsElement(Enumeration<UnitsOfTime> value) { 
           this.periodUnits = value;
           return this;
         }
@@ -1044,14 +1044,14 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return The units of time for the period in UCUM units.
          */
-        public UnitsOfTime getPeriodUnits() {
+        public UnitsOfTime getPeriodUnits() { 
           return this.periodUnits == null ? null : this.periodUnits.getValue();
         }
 
         /**
          * @param value The units of time for the period in UCUM units.
          */
-        public TimingRepeatComponent setPeriodUnits(UnitsOfTime value) {
+        public TimingRepeatComponent setPeriodUnits(UnitsOfTime value) { 
           if (value == null)
             this.periodUnits = null;
           else {
@@ -1065,7 +1065,7 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return {@link #when} (A real world event that the occurrence of the event should be tied to.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
          */
-        public Enumeration<EventTiming> getWhenElement() {
+        public Enumeration<EventTiming> getWhenElement() { 
           if (this.when == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TimingRepeatComponent.when");
@@ -1074,18 +1074,18 @@ public class Timing extends Type implements ICompositeType {
           return this.when;
         }
 
-        public boolean hasWhenElement() {
+        public boolean hasWhenElement() { 
           return this.when != null && !this.when.isEmpty();
         }
 
-        public boolean hasWhen() {
+        public boolean hasWhen() { 
           return this.when != null && !this.when.isEmpty();
         }
 
         /**
          * @param value {@link #when} (A real world event that the occurrence of the event should be tied to.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
          */
-        public TimingRepeatComponent setWhenElement(Enumeration<EventTiming> value) {
+        public TimingRepeatComponent setWhenElement(Enumeration<EventTiming> value) { 
           this.when = value;
           return this;
         }
@@ -1093,14 +1093,14 @@ public class Timing extends Type implements ICompositeType {
         /**
          * @return A real world event that the occurrence of the event should be tied to.
          */
-        public EventTiming getWhen() {
+        public EventTiming getWhen() { 
           return this.when == null ? null : this.when.getValue();
         }
 
         /**
          * @param value A real world event that the occurrence of the event should be tied to.
          */
-        public TimingRepeatComponent setWhen(EventTiming value) {
+        public TimingRepeatComponent setWhen(EventTiming value) { 
           if (value == null)
             this.when = null;
           else {
@@ -1295,13 +1295,13 @@ public class Timing extends Type implements ICompositeType {
     /**
      * @return {@link #event} (Identifies specific times when the event occurs.)
      */
-    public List<DateTimeType> getEvent() {
+    public List<DateTimeType> getEvent() { 
       if (this.event == null)
         this.event = new ArrayList<DateTimeType>();
       return this.event;
     }
 
-    public boolean hasEvent() {
+    public boolean hasEvent() { 
       if (this.event == null)
         return false;
       for (DateTimeType item : this.event)
@@ -1314,7 +1314,7 @@ public class Timing extends Type implements ICompositeType {
      * @return {@link #event} (Identifies specific times when the event occurs.)
      */
     // syntactic sugar
-    public DateTimeType addEventElement() {//2
+    public DateTimeType addEventElement() {//2 
       DateTimeType t = new DateTimeType();
       if (this.event == null)
         this.event = new ArrayList<DateTimeType>();
@@ -1337,7 +1337,7 @@ public class Timing extends Type implements ICompositeType {
     /**
      * @param value {@link #event} (Identifies specific times when the event occurs.)
      */
-    public boolean hasEvent(Date value) {
+    public boolean hasEvent(Date value) { 
       if (this.event == null)
         return false;
       for (DateTimeType v : this.event)
@@ -1349,7 +1349,7 @@ public class Timing extends Type implements ICompositeType {
     /**
      * @return {@link #repeat} (A set of rules that describe when the event should occur.)
      */
-    public TimingRepeatComponent getRepeat() {
+    public TimingRepeatComponent getRepeat() { 
       if (this.repeat == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Timing.repeat");
@@ -1358,14 +1358,14 @@ public class Timing extends Type implements ICompositeType {
       return this.repeat;
     }
 
-    public boolean hasRepeat() {
+    public boolean hasRepeat() { 
       return this.repeat != null && !this.repeat.isEmpty();
     }
 
     /**
      * @param value {@link #repeat} (A set of rules that describe when the event should occur.)
      */
-    public Timing setRepeat(TimingRepeatComponent value) {
+    public Timing setRepeat(TimingRepeatComponent value) { 
       this.repeat = value;
       return this;
     }
@@ -1373,7 +1373,7 @@ public class Timing extends Type implements ICompositeType {
     /**
      * @return {@link #code} (A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes.)
      */
-    public CodeableConcept getCode() {
+    public CodeableConcept getCode() { 
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Timing.code");
@@ -1382,14 +1382,14 @@ public class Timing extends Type implements ICompositeType {
       return this.code;
     }
 
-    public boolean hasCode() {
+    public boolean hasCode() { 
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes.)
      */
-    public Timing setCode(CodeableConcept value) {
+    public Timing setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }

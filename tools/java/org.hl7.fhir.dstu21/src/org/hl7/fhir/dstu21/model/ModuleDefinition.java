@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -90,7 +90,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #name} (The name of the model.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionModelComponent.name");
@@ -99,18 +99,18 @@ public class ModuleDefinition extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of the model.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ModuleDefinitionModelComponent setNameElement(StringType value) {
+        public ModuleDefinitionModelComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -118,14 +118,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The name of the model.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of the model.
          */
-        public ModuleDefinitionModelComponent setName(String value) {
+        public ModuleDefinitionModelComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -139,7 +139,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #identifier} (The identifier of the model.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public StringType getIdentifierElement() {
+        public StringType getIdentifierElement() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionModelComponent.identifier");
@@ -148,18 +148,18 @@ public class ModuleDefinition extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifierElement() {
+        public boolean hasIdentifierElement() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
-        public boolean hasIdentifier() {
+        public boolean hasIdentifier() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (The identifier of the model.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public ModuleDefinitionModelComponent setIdentifierElement(StringType value) {
+        public ModuleDefinitionModelComponent setIdentifierElement(StringType value) { 
           this.identifier = value;
           return this;
         }
@@ -167,14 +167,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The identifier of the model.
          */
-        public String getIdentifier() {
+        public String getIdentifier() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
         /**
          * @param value The identifier of the model.
          */
-        public ModuleDefinitionModelComponent setIdentifier(String value) {
+        public ModuleDefinitionModelComponent setIdentifier(String value) { 
             if (this.identifier == null)
               this.identifier = new StringType();
             this.identifier.setValue(value);
@@ -184,7 +184,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #version} (The version of the model.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersionElement() {
+        public StringType getVersionElement() { 
           if (this.version == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionModelComponent.version");
@@ -193,18 +193,18 @@ public class ModuleDefinition extends DomainResource {
           return this.version;
         }
 
-        public boolean hasVersionElement() {
+        public boolean hasVersionElement() { 
           return this.version != null && !this.version.isEmpty();
         }
 
-        public boolean hasVersion() {
+        public boolean hasVersion() { 
           return this.version != null && !this.version.isEmpty();
         }
 
         /**
          * @param value {@link #version} (The version of the model.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public ModuleDefinitionModelComponent setVersionElement(StringType value) {
+        public ModuleDefinitionModelComponent setVersionElement(StringType value) { 
           this.version = value;
           return this;
         }
@@ -212,14 +212,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The version of the model.
          */
-        public String getVersion() {
+        public String getVersion() { 
           return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value The version of the model.
          */
-        public ModuleDefinitionModelComponent setVersion(String value) {
+        public ModuleDefinitionModelComponent setVersion(String value) { 
           if (Utilities.noString(value))
             this.version = null;
           else {
@@ -349,7 +349,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #name} (The local name for the library reference. If no local name is provided, the name of the referenced library is assumed.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionLibraryComponent.name");
@@ -358,18 +358,18 @@ public class ModuleDefinition extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The local name for the library reference. If no local name is provided, the name of the referenced library is assumed.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ModuleDefinitionLibraryComponent setNameElement(StringType value) {
+        public ModuleDefinitionLibraryComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -377,14 +377,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The local name for the library reference. If no local name is provided, the name of the referenced library is assumed.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The local name for the library reference. If no local name is provided, the name of the referenced library is assumed.
          */
-        public ModuleDefinitionLibraryComponent setName(String value) {
+        public ModuleDefinitionLibraryComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -398,7 +398,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #identifier} (The identifier of the library.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public StringType getIdentifierElement() {
+        public StringType getIdentifierElement() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionLibraryComponent.identifier");
@@ -407,18 +407,18 @@ public class ModuleDefinition extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifierElement() {
+        public boolean hasIdentifierElement() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
-        public boolean hasIdentifier() {
+        public boolean hasIdentifier() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (The identifier of the library.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public ModuleDefinitionLibraryComponent setIdentifierElement(StringType value) {
+        public ModuleDefinitionLibraryComponent setIdentifierElement(StringType value) { 
           this.identifier = value;
           return this;
         }
@@ -426,14 +426,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The identifier of the library.
          */
-        public String getIdentifier() {
+        public String getIdentifier() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
         /**
          * @param value The identifier of the library.
          */
-        public ModuleDefinitionLibraryComponent setIdentifier(String value) {
+        public ModuleDefinitionLibraryComponent setIdentifier(String value) { 
           if (Utilities.noString(value))
             this.identifier = null;
           else {
@@ -447,7 +447,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #version} (The version of the library.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersionElement() {
+        public StringType getVersionElement() { 
           if (this.version == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionLibraryComponent.version");
@@ -456,18 +456,18 @@ public class ModuleDefinition extends DomainResource {
           return this.version;
         }
 
-        public boolean hasVersionElement() {
+        public boolean hasVersionElement() { 
           return this.version != null && !this.version.isEmpty();
         }
 
-        public boolean hasVersion() {
+        public boolean hasVersion() { 
           return this.version != null && !this.version.isEmpty();
         }
 
         /**
          * @param value {@link #version} (The version of the library.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public ModuleDefinitionLibraryComponent setVersionElement(StringType value) {
+        public ModuleDefinitionLibraryComponent setVersionElement(StringType value) { 
           this.version = value;
           return this;
         }
@@ -475,14 +475,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The version of the library.
          */
-        public String getVersion() {
+        public String getVersion() { 
           return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value The version of the library.
          */
-        public ModuleDefinitionLibraryComponent setVersion(String value) {
+        public ModuleDefinitionLibraryComponent setVersion(String value) { 
           if (Utilities.noString(value))
             this.version = null;
           else {
@@ -496,44 +496,44 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #document} (A reference to the library.)
          */
-        public Type getDocument() {
+        public Type getDocument() { 
           return this.document;
         }
 
         /**
          * @return {@link #document} (A reference to the library.)
          */
-        public Attachment getDocumentAttachment() throws FHIRException {
+        public Attachment getDocumentAttachment() throws FHIRException { 
           if (!(this.document instanceof Attachment))
             throw new FHIRException("Type mismatch: the type Attachment was expected, but "+this.document.getClass().getName()+" was encountered");
           return (Attachment) this.document;
         }
 
-        public boolean hasDocumentAttachment() {
+        public boolean hasDocumentAttachment() { 
           return this.document instanceof Attachment;
         }
 
         /**
          * @return {@link #document} (A reference to the library.)
          */
-        public Reference getDocumentReference() throws FHIRException {
+        public Reference getDocumentReference() throws FHIRException { 
           if (!(this.document instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.document.getClass().getName()+" was encountered");
           return (Reference) this.document;
         }
 
-        public boolean hasDocumentReference() {
+        public boolean hasDocumentReference() { 
           return this.document instanceof Reference;
         }
 
-        public boolean hasDocument() {
+        public boolean hasDocument() { 
           return this.document != null && !this.document.isEmpty();
         }
 
         /**
          * @param value {@link #document} (A reference to the library.)
          */
-        public ModuleDefinitionLibraryComponent setDocument(Type value) {
+        public ModuleDefinitionLibraryComponent setDocument(Type value) { 
           this.document = value;
           return this;
         }
@@ -671,7 +671,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #name} (The local name for the code system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionCodeSystemComponent.name");
@@ -680,18 +680,18 @@ public class ModuleDefinition extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The local name for the code system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ModuleDefinitionCodeSystemComponent setNameElement(StringType value) {
+        public ModuleDefinitionCodeSystemComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -699,14 +699,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The local name for the code system.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The local name for the code system.
          */
-        public ModuleDefinitionCodeSystemComponent setName(String value) {
+        public ModuleDefinitionCodeSystemComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -716,7 +716,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #identifier} (The code system uri.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public StringType getIdentifierElement() {
+        public StringType getIdentifierElement() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionCodeSystemComponent.identifier");
@@ -725,18 +725,18 @@ public class ModuleDefinition extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifierElement() {
+        public boolean hasIdentifierElement() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
-        public boolean hasIdentifier() {
+        public boolean hasIdentifier() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (The code system uri.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public ModuleDefinitionCodeSystemComponent setIdentifierElement(StringType value) {
+        public ModuleDefinitionCodeSystemComponent setIdentifierElement(StringType value) { 
           this.identifier = value;
           return this;
         }
@@ -744,14 +744,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The code system uri.
          */
-        public String getIdentifier() {
+        public String getIdentifier() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
         /**
          * @param value The code system uri.
          */
-        public ModuleDefinitionCodeSystemComponent setIdentifier(String value) {
+        public ModuleDefinitionCodeSystemComponent setIdentifier(String value) { 
             if (this.identifier == null)
               this.identifier = new StringType();
             this.identifier.setValue(value);
@@ -761,7 +761,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #version} (The code system version, if any.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersionElement() {
+        public StringType getVersionElement() { 
           if (this.version == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionCodeSystemComponent.version");
@@ -770,18 +770,18 @@ public class ModuleDefinition extends DomainResource {
           return this.version;
         }
 
-        public boolean hasVersionElement() {
+        public boolean hasVersionElement() { 
           return this.version != null && !this.version.isEmpty();
         }
 
-        public boolean hasVersion() {
+        public boolean hasVersion() { 
           return this.version != null && !this.version.isEmpty();
         }
 
         /**
          * @param value {@link #version} (The code system version, if any.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public ModuleDefinitionCodeSystemComponent setVersionElement(StringType value) {
+        public ModuleDefinitionCodeSystemComponent setVersionElement(StringType value) { 
           this.version = value;
           return this;
         }
@@ -789,14 +789,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The code system version, if any.
          */
-        public String getVersion() {
+        public String getVersion() { 
           return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value The code system version, if any.
          */
-        public ModuleDefinitionCodeSystemComponent setVersion(String value) {
+        public ModuleDefinitionCodeSystemComponent setVersion(String value) { 
           if (Utilities.noString(value))
             this.version = null;
           else {
@@ -935,7 +935,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #name} (The local name for the value set.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionValueSetComponent.name");
@@ -944,18 +944,18 @@ public class ModuleDefinition extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The local name for the value set.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ModuleDefinitionValueSetComponent setNameElement(StringType value) {
+        public ModuleDefinitionValueSetComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -963,14 +963,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The local name for the value set.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The local name for the value set.
          */
-        public ModuleDefinitionValueSetComponent setName(String value) {
+        public ModuleDefinitionValueSetComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -980,7 +980,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #identifier} (The value set uri.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public StringType getIdentifierElement() {
+        public StringType getIdentifierElement() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionValueSetComponent.identifier");
@@ -989,18 +989,18 @@ public class ModuleDefinition extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifierElement() {
+        public boolean hasIdentifierElement() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
-        public boolean hasIdentifier() {
+        public boolean hasIdentifier() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (The value set uri.). This is the underlying object with id, value and extensions. The accessor "getIdentifier" gives direct access to the value
          */
-        public ModuleDefinitionValueSetComponent setIdentifierElement(StringType value) {
+        public ModuleDefinitionValueSetComponent setIdentifierElement(StringType value) { 
           this.identifier = value;
           return this;
         }
@@ -1008,14 +1008,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The value set uri.
          */
-        public String getIdentifier() {
+        public String getIdentifier() { 
           return this.identifier == null ? null : this.identifier.getValue();
         }
 
         /**
          * @param value The value set uri.
          */
-        public ModuleDefinitionValueSetComponent setIdentifier(String value) {
+        public ModuleDefinitionValueSetComponent setIdentifier(String value) { 
             if (this.identifier == null)
               this.identifier = new StringType();
             this.identifier.setValue(value);
@@ -1025,7 +1025,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #version} (The version of the value set, if any.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getVersionElement() {
+        public StringType getVersionElement() { 
           if (this.version == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionValueSetComponent.version");
@@ -1034,18 +1034,18 @@ public class ModuleDefinition extends DomainResource {
           return this.version;
         }
 
-        public boolean hasVersionElement() {
+        public boolean hasVersionElement() { 
           return this.version != null && !this.version.isEmpty();
         }
 
-        public boolean hasVersion() {
+        public boolean hasVersion() { 
           return this.version != null && !this.version.isEmpty();
         }
 
         /**
          * @param value {@link #version} (The version of the value set, if any.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public ModuleDefinitionValueSetComponent setVersionElement(StringType value) {
+        public ModuleDefinitionValueSetComponent setVersionElement(StringType value) { 
           this.version = value;
           return this;
         }
@@ -1053,14 +1053,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The version of the value set, if any.
          */
-        public String getVersion() {
+        public String getVersion() { 
           return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value The version of the value set, if any.
          */
-        public ModuleDefinitionValueSetComponent setVersion(String value) {
+        public ModuleDefinitionValueSetComponent setVersion(String value) { 
           if (Utilities.noString(value))
             this.version = null;
           else {
@@ -1074,13 +1074,13 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #codeSystem} (The code systems in use within the value set. These must refer to previously defined code systems within this knowledge module or a referenced library.)
          */
-        public List<StringType> getCodeSystem() {
+        public List<StringType> getCodeSystem() { 
           if (this.codeSystem == null)
             this.codeSystem = new ArrayList<StringType>();
           return this.codeSystem;
         }
 
-        public boolean hasCodeSystem() {
+        public boolean hasCodeSystem() { 
           if (this.codeSystem == null)
             return false;
           for (StringType item : this.codeSystem)
@@ -1093,7 +1093,7 @@ public class ModuleDefinition extends DomainResource {
          * @return {@link #codeSystem} (The code systems in use within the value set. These must refer to previously defined code systems within this knowledge module or a referenced library.)
          */
     // syntactic sugar
-        public StringType addCodeSystemElement() {//2
+        public StringType addCodeSystemElement() {//2 
           StringType t = new StringType();
           if (this.codeSystem == null)
             this.codeSystem = new ArrayList<StringType>();
@@ -1116,7 +1116,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @param value {@link #codeSystem} (The code systems in use within the value set. These must refer to previously defined code systems within this knowledge module or a referenced library.)
          */
-        public boolean hasCodeSystem(String value) {
+        public boolean hasCodeSystem(String value) { 
           if (this.codeSystem == null)
             return false;
           for (StringType v : this.codeSystem)
@@ -1278,7 +1278,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #name} (The name of the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public CodeType getNameElement() {
+        public CodeType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionParameterComponent.name");
@@ -1287,18 +1287,18 @@ public class ModuleDefinition extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of the parameter.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public ModuleDefinitionParameterComponent setNameElement(CodeType value) {
+        public ModuleDefinitionParameterComponent setNameElement(CodeType value) { 
           this.name = value;
           return this;
         }
@@ -1306,14 +1306,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The name of the parameter.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of the parameter.
          */
-        public ModuleDefinitionParameterComponent setName(String value) {
+        public ModuleDefinitionParameterComponent setName(String value) { 
             if (this.name == null)
               this.name = new CodeType();
             this.name.setValue(value);
@@ -1323,7 +1323,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #use} (Whether the parameter is input or output for the module.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
          */
-        public CodeType getUseElement() {
+        public CodeType getUseElement() { 
           if (this.use == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionParameterComponent.use");
@@ -1332,18 +1332,18 @@ public class ModuleDefinition extends DomainResource {
           return this.use;
         }
 
-        public boolean hasUseElement() {
+        public boolean hasUseElement() { 
           return this.use != null && !this.use.isEmpty();
         }
 
-        public boolean hasUse() {
+        public boolean hasUse() { 
           return this.use != null && !this.use.isEmpty();
         }
 
         /**
          * @param value {@link #use} (Whether the parameter is input or output for the module.). This is the underlying object with id, value and extensions. The accessor "getUse" gives direct access to the value
          */
-        public ModuleDefinitionParameterComponent setUseElement(CodeType value) {
+        public ModuleDefinitionParameterComponent setUseElement(CodeType value) { 
           this.use = value;
           return this;
         }
@@ -1351,14 +1351,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return Whether the parameter is input or output for the module.
          */
-        public String getUse() {
+        public String getUse() { 
           return this.use == null ? null : this.use.getValue();
         }
 
         /**
          * @param value Whether the parameter is input or output for the module.
          */
-        public ModuleDefinitionParameterComponent setUse(String value) {
+        public ModuleDefinitionParameterComponent setUse(String value) { 
             if (this.use == null)
               this.use = new CodeType();
             this.use.setValue(value);
@@ -1368,7 +1368,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #documentation} (A brief description of the parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public StringType getDocumentationElement() {
+        public StringType getDocumentationElement() { 
           if (this.documentation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionParameterComponent.documentation");
@@ -1377,18 +1377,18 @@ public class ModuleDefinition extends DomainResource {
           return this.documentation;
         }
 
-        public boolean hasDocumentationElement() {
+        public boolean hasDocumentationElement() { 
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
-        public boolean hasDocumentation() {
+        public boolean hasDocumentation() { 
           return this.documentation != null && !this.documentation.isEmpty();
         }
 
         /**
          * @param value {@link #documentation} (A brief description of the parameter.). This is the underlying object with id, value and extensions. The accessor "getDocumentation" gives direct access to the value
          */
-        public ModuleDefinitionParameterComponent setDocumentationElement(StringType value) {
+        public ModuleDefinitionParameterComponent setDocumentationElement(StringType value) { 
           this.documentation = value;
           return this;
         }
@@ -1396,14 +1396,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return A brief description of the parameter.
          */
-        public String getDocumentation() {
+        public String getDocumentation() { 
           return this.documentation == null ? null : this.documentation.getValue();
         }
 
         /**
          * @param value A brief description of the parameter.
          */
-        public ModuleDefinitionParameterComponent setDocumentation(String value) {
+        public ModuleDefinitionParameterComponent setDocumentation(String value) { 
           if (Utilities.noString(value))
             this.documentation = null;
           else {
@@ -1417,7 +1417,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #type} (The type of the parameter.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public CodeType getTypeElement() {
+        public CodeType getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionParameterComponent.type");
@@ -1426,18 +1426,18 @@ public class ModuleDefinition extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() {
+        public boolean hasTypeElement() { 
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of the parameter.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ModuleDefinitionParameterComponent setTypeElement(CodeType value) {
+        public ModuleDefinitionParameterComponent setTypeElement(CodeType value) { 
           this.type = value;
           return this;
         }
@@ -1445,14 +1445,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The type of the parameter.
          */
-        public String getType() {
+        public String getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of the parameter.
          */
-        public ModuleDefinitionParameterComponent setType(String value) {
+        public ModuleDefinitionParameterComponent setType(String value) { 
             if (this.type == null)
               this.type = new CodeType();
             this.type.setValue(value);
@@ -1462,7 +1462,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #profile} (The profile of the parameter, if any.)
          */
-        public Reference getProfile() {
+        public Reference getProfile() { 
           if (this.profile == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionParameterComponent.profile");
@@ -1471,14 +1471,14 @@ public class ModuleDefinition extends DomainResource {
           return this.profile;
         }
 
-        public boolean hasProfile() {
+        public boolean hasProfile() { 
           return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
          * @param value {@link #profile} (The profile of the parameter, if any.)
          */
-        public ModuleDefinitionParameterComponent setProfile(Reference value) {
+        public ModuleDefinitionParameterComponent setProfile(Reference value) { 
           this.profile = value;
           return this;
         }
@@ -1486,7 +1486,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The profile of the parameter, if any.)
          */
-        public StructureDefinition getProfileTarget() {
+        public StructureDefinition getProfileTarget() { 
           if (this.profileTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionParameterComponent.profile");
@@ -1498,7 +1498,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The profile of the parameter, if any.)
          */
-        public ModuleDefinitionParameterComponent setProfileTarget(StructureDefinition value) {
+        public ModuleDefinitionParameterComponent setProfileTarget(StructureDefinition value) { 
           this.profileTarget = value;
           return this;
         }
@@ -1658,7 +1658,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #type} (The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public CodeType getTypeElement() {
+        public CodeType getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionDataComponent.type");
@@ -1667,18 +1667,18 @@ public class ModuleDefinition extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() {
+        public boolean hasTypeElement() { 
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public ModuleDefinitionDataComponent setTypeElement(CodeType value) {
+        public ModuleDefinitionDataComponent setTypeElement(CodeType value) { 
           this.type = value;
           return this;
         }
@@ -1686,14 +1686,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile.
          */
-        public String getType() {
+        public String getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile.
          */
-        public ModuleDefinitionDataComponent setType(String value) {
+        public ModuleDefinitionDataComponent setType(String value) { 
             if (this.type == null)
               this.type = new CodeType();
             this.type.setValue(value);
@@ -1703,7 +1703,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #profile} (The profile of the required data, specified as the uri of the profile definition.)
          */
-        public Reference getProfile() {
+        public Reference getProfile() { 
           if (this.profile == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionDataComponent.profile");
@@ -1712,14 +1712,14 @@ public class ModuleDefinition extends DomainResource {
           return this.profile;
         }
 
-        public boolean hasProfile() {
+        public boolean hasProfile() { 
           return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
          * @param value {@link #profile} (The profile of the required data, specified as the uri of the profile definition.)
          */
-        public ModuleDefinitionDataComponent setProfile(Reference value) {
+        public ModuleDefinitionDataComponent setProfile(Reference value) { 
           this.profile = value;
           return this;
         }
@@ -1727,7 +1727,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #profile} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The profile of the required data, specified as the uri of the profile definition.)
          */
-        public StructureDefinition getProfileTarget() {
+        public StructureDefinition getProfileTarget() { 
           if (this.profileTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionDataComponent.profile");
@@ -1739,7 +1739,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @param value {@link #profile} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The profile of the required data, specified as the uri of the profile definition.)
          */
-        public ModuleDefinitionDataComponent setProfileTarget(StructureDefinition value) {
+        public ModuleDefinitionDataComponent setProfileTarget(StructureDefinition value) { 
           this.profileTarget = value;
           return this;
         }
@@ -1747,13 +1747,13 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #mustSupport} (Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.)
          */
-        public List<StringType> getMustSupport() {
+        public List<StringType> getMustSupport() { 
           if (this.mustSupport == null)
             this.mustSupport = new ArrayList<StringType>();
           return this.mustSupport;
         }
 
-        public boolean hasMustSupport() {
+        public boolean hasMustSupport() { 
           if (this.mustSupport == null)
             return false;
           for (StringType item : this.mustSupport)
@@ -1766,7 +1766,7 @@ public class ModuleDefinition extends DomainResource {
          * @return {@link #mustSupport} (Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.)
          */
     // syntactic sugar
-        public StringType addMustSupportElement() {//2
+        public StringType addMustSupportElement() {//2 
           StringType t = new StringType();
           if (this.mustSupport == null)
             this.mustSupport = new ArrayList<StringType>();
@@ -1789,7 +1789,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @param value {@link #mustSupport} (Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available.)
          */
-        public boolean hasMustSupport(String value) {
+        public boolean hasMustSupport(String value) { 
           if (this.mustSupport == null)
             return false;
           for (StringType v : this.mustSupport)
@@ -1801,13 +1801,13 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #codeFilter} (Code filters for the required data, if any.)
          */
-        public List<ModuleDefinitionDataCodeFilterComponent> getCodeFilter() {
+        public List<ModuleDefinitionDataCodeFilterComponent> getCodeFilter() { 
           if (this.codeFilter == null)
             this.codeFilter = new ArrayList<ModuleDefinitionDataCodeFilterComponent>();
           return this.codeFilter;
         }
 
-        public boolean hasCodeFilter() {
+        public boolean hasCodeFilter() { 
           if (this.codeFilter == null)
             return false;
           for (ModuleDefinitionDataCodeFilterComponent item : this.codeFilter)
@@ -1841,13 +1841,13 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #dateFilter} (Date filters for the required data, if any.)
          */
-        public List<ModuleDefinitionDataDateFilterComponent> getDateFilter() {
+        public List<ModuleDefinitionDataDateFilterComponent> getDateFilter() { 
           if (this.dateFilter == null)
             this.dateFilter = new ArrayList<ModuleDefinitionDataDateFilterComponent>();
           return this.dateFilter;
         }
 
-        public boolean hasDateFilter() {
+        public boolean hasDateFilter() { 
           if (this.dateFilter == null)
             return false;
           for (ModuleDefinitionDataDateFilterComponent item : this.dateFilter)
@@ -2025,7 +2025,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #path} (The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public StringType getPathElement() {
+        public StringType getPathElement() { 
           if (this.path == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionDataCodeFilterComponent.path");
@@ -2034,18 +2034,18 @@ public class ModuleDefinition extends DomainResource {
           return this.path;
         }
 
-        public boolean hasPathElement() {
+        public boolean hasPathElement() { 
           return this.path != null && !this.path.isEmpty();
         }
 
-        public boolean hasPath() {
+        public boolean hasPath() { 
           return this.path != null && !this.path.isEmpty();
         }
 
         /**
          * @param value {@link #path} (The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public ModuleDefinitionDataCodeFilterComponent setPathElement(StringType value) {
+        public ModuleDefinitionDataCodeFilterComponent setPathElement(StringType value) { 
           this.path = value;
           return this;
         }
@@ -2053,14 +2053,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.
          */
-        public String getPath() {
+        public String getPath() { 
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
          * @param value The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.
          */
-        public ModuleDefinitionDataCodeFilterComponent setPath(String value) {
+        public ModuleDefinitionDataCodeFilterComponent setPath(String value) { 
             if (this.path == null)
               this.path = new StringType();
             this.path.setValue(value);
@@ -2070,44 +2070,44 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #valueSet} (The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
-        public Type getValueSet() {
+        public Type getValueSet() { 
           return this.valueSet;
         }
 
         /**
          * @return {@link #valueSet} (The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
-        public StringType getValueSetStringType() throws FHIRException {
+        public StringType getValueSetStringType() throws FHIRException { 
           if (!(this.valueSet instanceof StringType))
             throw new FHIRException("Type mismatch: the type StringType was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (StringType) this.valueSet;
         }
 
-        public boolean hasValueSetStringType() {
+        public boolean hasValueSetStringType() { 
           return this.valueSet instanceof StringType;
         }
 
         /**
          * @return {@link #valueSet} (The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
-        public Reference getValueSetReference() throws FHIRException {
+        public Reference getValueSetReference() throws FHIRException { 
           if (!(this.valueSet instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.valueSet.getClass().getName()+" was encountered");
           return (Reference) this.valueSet;
         }
 
-        public boolean hasValueSetReference() {
+        public boolean hasValueSetReference() { 
           return this.valueSet instanceof Reference;
         }
 
-        public boolean hasValueSet() {
+        public boolean hasValueSet() { 
           return this.valueSet != null && !this.valueSet.isEmpty();
         }
 
         /**
          * @param value {@link #valueSet} (The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
-        public ModuleDefinitionDataCodeFilterComponent setValueSet(Type value) {
+        public ModuleDefinitionDataCodeFilterComponent setValueSet(Type value) { 
           this.valueSet = value;
           return this;
         }
@@ -2115,13 +2115,13 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #codeableConcept} (The codeable concept for the code filter. Only one of valueSet or codeableConcept may be specified. If codeableConcepts are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codeable concepts.)
          */
-        public List<CodeableConcept> getCodeableConcept() {
+        public List<CodeableConcept> getCodeableConcept() { 
           if (this.codeableConcept == null)
             this.codeableConcept = new ArrayList<CodeableConcept>();
           return this.codeableConcept;
         }
 
-        public boolean hasCodeableConcept() {
+        public boolean hasCodeableConcept() { 
           if (this.codeableConcept == null)
             return false;
           for (CodeableConcept item : this.codeableConcept)
@@ -2273,7 +2273,7 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #path} (The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public StringType getPathElement() {
+        public StringType getPathElement() { 
           if (this.path == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ModuleDefinitionDataDateFilterComponent.path");
@@ -2282,18 +2282,18 @@ public class ModuleDefinition extends DomainResource {
           return this.path;
         }
 
-        public boolean hasPathElement() {
+        public boolean hasPathElement() { 
           return this.path != null && !this.path.isEmpty();
         }
 
-        public boolean hasPath() {
+        public boolean hasPath() { 
           return this.path != null && !this.path.isEmpty();
         }
 
         /**
          * @param value {@link #path} (The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public ModuleDefinitionDataDateFilterComponent setPathElement(StringType value) {
+        public ModuleDefinitionDataDateFilterComponent setPathElement(StringType value) { 
           this.path = value;
           return this;
         }
@@ -2301,14 +2301,14 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing.
          */
-        public String getPath() {
+        public String getPath() { 
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
          * @param value The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing.
          */
-        public ModuleDefinitionDataDateFilterComponent setPath(String value) {
+        public ModuleDefinitionDataDateFilterComponent setPath(String value) { 
             if (this.path == null)
               this.path = new StringType();
             this.path.setValue(value);
@@ -2318,44 +2318,44 @@ public class ModuleDefinition extends DomainResource {
         /**
          * @return {@link #value} (The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime.)
          */
-        public Type getValue() {
+        public Type getValue() { 
           return this.value;
         }
 
         /**
          * @return {@link #value} (The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime.)
          */
-        public DateTimeType getValueDateTimeType() throws FHIRException {
+        public DateTimeType getValueDateTimeType() throws FHIRException { 
           if (!(this.value instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
           return (DateTimeType) this.value;
         }
 
-        public boolean hasValueDateTimeType() {
+        public boolean hasValueDateTimeType() { 
           return this.value instanceof DateTimeType;
         }
 
         /**
          * @return {@link #value} (The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime.)
          */
-        public Period getValuePeriod() throws FHIRException {
+        public Period getValuePeriod() throws FHIRException { 
           if (!(this.value instanceof Period))
             throw new FHIRException("Type mismatch: the type Period was expected, but "+this.value.getClass().getName()+" was encountered");
           return (Period) this.value;
         }
 
-        public boolean hasValuePeriod() {
+        public boolean hasValuePeriod() { 
           return this.value instanceof Period;
         }
 
-        public boolean hasValue() {
+        public boolean hasValue() { 
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime.)
          */
-        public ModuleDefinitionDataDateFilterComponent setValue(Type value) {
+        public ModuleDefinitionDataDateFilterComponent setValue(Type value) { 
           this.value = value;
           return this;
         }
@@ -2501,13 +2501,13 @@ public class ModuleDefinition extends DomainResource {
     /**
      * @return {@link #identifier} (A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -2541,7 +2541,7 @@ public class ModuleDefinition extends DomainResource {
     /**
      * @return {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create ModuleDefinition.version");
@@ -2550,18 +2550,18 @@ public class ModuleDefinition extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public ModuleDefinition setVersionElement(StringType value) {
+    public ModuleDefinition setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -2569,14 +2569,14 @@ public class ModuleDefinition extends DomainResource {
     /**
      * @return The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public ModuleDefinition setVersion(String value) {
+    public ModuleDefinition setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -2590,13 +2590,13 @@ public class ModuleDefinition extends DomainResource {
     /**
      * @return {@link #model} (A model reference used by the content.)
      */
-    public List<ModuleDefinitionModelComponent> getModel() {
+    public List<ModuleDefinitionModelComponent> getModel() { 
       if (this.model == null)
         this.model = new ArrayList<ModuleDefinitionModelComponent>();
       return this.model;
     }
 
-    public boolean hasModel() {
+    public boolean hasModel() { 
       if (this.model == null)
         return false;
       for (ModuleDefinitionModelComponent item : this.model)
@@ -2630,13 +2630,13 @@ public class ModuleDefinition extends DomainResource {
     /**
      * @return {@link #library} (A library referenced by the module. The reference must consist of either an id, or a document reference.)
      */
-    public List<ModuleDefinitionLibraryComponent> getLibrary() {
+    public List<ModuleDefinitionLibraryComponent> getLibrary() { 
       if (this.library == null)
         this.library = new ArrayList<ModuleDefinitionLibraryComponent>();
       return this.library;
     }
 
-    public boolean hasLibrary() {
+    public boolean hasLibrary() { 
       if (this.library == null)
         return false;
       for (ModuleDefinitionLibraryComponent item : this.library)
@@ -2670,13 +2670,13 @@ public class ModuleDefinition extends DomainResource {
     /**
      * @return {@link #codeSystem} (A code system definition used within the knowledge module.)
      */
-    public List<ModuleDefinitionCodeSystemComponent> getCodeSystem() {
+    public List<ModuleDefinitionCodeSystemComponent> getCodeSystem() { 
       if (this.codeSystem == null)
         this.codeSystem = new ArrayList<ModuleDefinitionCodeSystemComponent>();
       return this.codeSystem;
     }
 
-    public boolean hasCodeSystem() {
+    public boolean hasCodeSystem() { 
       if (this.codeSystem == null)
         return false;
       for (ModuleDefinitionCodeSystemComponent item : this.codeSystem)
@@ -2710,13 +2710,13 @@ public class ModuleDefinition extends DomainResource {
     /**
      * @return {@link #valueSet} (A value set definition used by the knowledge module.)
      */
-    public List<ModuleDefinitionValueSetComponent> getValueSet() {
+    public List<ModuleDefinitionValueSetComponent> getValueSet() { 
       if (this.valueSet == null)
         this.valueSet = new ArrayList<ModuleDefinitionValueSetComponent>();
       return this.valueSet;
     }
 
-    public boolean hasValueSet() {
+    public boolean hasValueSet() { 
       if (this.valueSet == null)
         return false;
       for (ModuleDefinitionValueSetComponent item : this.valueSet)
@@ -2750,13 +2750,13 @@ public class ModuleDefinition extends DomainResource {
     /**
      * @return {@link #parameter} (Parameters to the module.)
      */
-    public List<ModuleDefinitionParameterComponent> getParameter() {
+    public List<ModuleDefinitionParameterComponent> getParameter() { 
       if (this.parameter == null)
         this.parameter = new ArrayList<ModuleDefinitionParameterComponent>();
       return this.parameter;
     }
 
-    public boolean hasParameter() {
+    public boolean hasParameter() { 
       if (this.parameter == null)
         return false;
       for (ModuleDefinitionParameterComponent item : this.parameter)
@@ -2790,13 +2790,13 @@ public class ModuleDefinition extends DomainResource {
     /**
      * @return {@link #data} (Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.)
      */
-    public List<ModuleDefinitionDataComponent> getData() {
+    public List<ModuleDefinitionDataComponent> getData() { 
       if (this.data == null)
         this.data = new ArrayList<ModuleDefinitionDataComponent>();
       return this.data;
     }
 
-    public boolean hasData() {
+    public boolean hasData() { 
       if (this.data == null)
         return false;
       for (ModuleDefinitionDataComponent item : this.data)

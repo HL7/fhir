@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -202,7 +202,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #module} (A reference to a knowledge module involved in an interaction.)
      */
-    public Reference getModule() {
+    public Reference getModule() { 
       if (this.module == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.module");
@@ -211,14 +211,14 @@ public class GuidanceRequest extends DomainResource {
       return this.module;
     }
 
-    public boolean hasModule() {
+    public boolean hasModule() { 
       return this.module != null && !this.module.isEmpty();
     }
 
     /**
      * @param value {@link #module} (A reference to a knowledge module involved in an interaction.)
      */
-    public GuidanceRequest setModule(Reference value) {
+    public GuidanceRequest setModule(Reference value) { 
       this.module = value;
       return this;
     }
@@ -226,14 +226,14 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #module} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a knowledge module involved in an interaction.)
      */
-    public Resource getModuleTarget() {
+    public Resource getModuleTarget() { 
       return this.moduleTarget;
     }
 
     /**
      * @param value {@link #module} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a knowledge module involved in an interaction.)
      */
-    public GuidanceRequest setModuleTarget(Resource value) {
+    public GuidanceRequest setModuleTarget(Resource value) { 
       this.moduleTarget = value;
       return this;
     }
@@ -241,7 +241,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #dateTime} (The date and time of the request, with respect to the initiator.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public DateTimeType getDateTimeElement() {
+    public DateTimeType getDateTimeElement() { 
       if (this.dateTime == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.dateTime");
@@ -250,18 +250,18 @@ public class GuidanceRequest extends DomainResource {
       return this.dateTime;
     }
 
-    public boolean hasDateTimeElement() {
+    public boolean hasDateTimeElement() { 
       return this.dateTime != null && !this.dateTime.isEmpty();
     }
 
-    public boolean hasDateTime() {
+    public boolean hasDateTime() { 
       return this.dateTime != null && !this.dateTime.isEmpty();
     }
 
     /**
      * @param value {@link #dateTime} (The date and time of the request, with respect to the initiator.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
      */
-    public GuidanceRequest setDateTimeElement(DateTimeType value) {
+    public GuidanceRequest setDateTimeElement(DateTimeType value) { 
       this.dateTime = value;
       return this;
     }
@@ -269,14 +269,14 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return The date and time of the request, with respect to the initiator.
      */
-    public Date getDateTime() {
+    public Date getDateTime() { 
       return this.dateTime == null ? null : this.dateTime.getValue();
     }
 
     /**
      * @param value The date and time of the request, with respect to the initiator.
      */
-    public GuidanceRequest setDateTime(Date value) {
+    public GuidanceRequest setDateTime(Date value) { 
       if (value == null)
         this.dateTime = null;
       else {
@@ -290,7 +290,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #evaluateAtDateTime} (Indicates that the evaluation should be performed as though it was the given date and time. The most direct implication of this is that references to "Now" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the requestDateTime is assumed.). This is the underlying object with id, value and extensions. The accessor "getEvaluateAtDateTime" gives direct access to the value
      */
-    public DateTimeType getEvaluateAtDateTimeElement() {
+    public DateTimeType getEvaluateAtDateTimeElement() { 
       if (this.evaluateAtDateTime == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.evaluateAtDateTime");
@@ -299,18 +299,18 @@ public class GuidanceRequest extends DomainResource {
       return this.evaluateAtDateTime;
     }
 
-    public boolean hasEvaluateAtDateTimeElement() {
+    public boolean hasEvaluateAtDateTimeElement() { 
       return this.evaluateAtDateTime != null && !this.evaluateAtDateTime.isEmpty();
     }
 
-    public boolean hasEvaluateAtDateTime() {
+    public boolean hasEvaluateAtDateTime() { 
       return this.evaluateAtDateTime != null && !this.evaluateAtDateTime.isEmpty();
     }
 
     /**
      * @param value {@link #evaluateAtDateTime} (Indicates that the evaluation should be performed as though it was the given date and time. The most direct implication of this is that references to "Now" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the requestDateTime is assumed.). This is the underlying object with id, value and extensions. The accessor "getEvaluateAtDateTime" gives direct access to the value
      */
-    public GuidanceRequest setEvaluateAtDateTimeElement(DateTimeType value) {
+    public GuidanceRequest setEvaluateAtDateTimeElement(DateTimeType value) { 
       this.evaluateAtDateTime = value;
       return this;
     }
@@ -318,14 +318,14 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return Indicates that the evaluation should be performed as though it was the given date and time. The most direct implication of this is that references to "Now" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the requestDateTime is assumed.
      */
-    public Date getEvaluateAtDateTime() {
+    public Date getEvaluateAtDateTime() { 
       return this.evaluateAtDateTime == null ? null : this.evaluateAtDateTime.getValue();
     }
 
     /**
      * @param value Indicates that the evaluation should be performed as though it was the given date and time. The most direct implication of this is that references to "Now" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the requestDateTime is assumed.
      */
-    public GuidanceRequest setEvaluateAtDateTime(Date value) {
+    public GuidanceRequest setEvaluateAtDateTime(Date value) { 
       if (value == null)
         this.evaluateAtDateTime = null;
       else {
@@ -339,7 +339,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #inputParameters} (The input parameters for a request, if any. These parameters are used to provide patient-independent information to the evaluation. Patient-specific information is either accessed directly as part of the evaluation (because the evaluation engine and the patient-data are co-located) or provided as part of the operation input in the form of resources.)
      */
-    public Reference getInputParameters() {
+    public Reference getInputParameters() { 
       if (this.inputParameters == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.inputParameters");
@@ -348,14 +348,14 @@ public class GuidanceRequest extends DomainResource {
       return this.inputParameters;
     }
 
-    public boolean hasInputParameters() {
+    public boolean hasInputParameters() { 
       return this.inputParameters != null && !this.inputParameters.isEmpty();
     }
 
     /**
      * @param value {@link #inputParameters} (The input parameters for a request, if any. These parameters are used to provide patient-independent information to the evaluation. Patient-specific information is either accessed directly as part of the evaluation (because the evaluation engine and the patient-data are co-located) or provided as part of the operation input in the form of resources.)
      */
-    public GuidanceRequest setInputParameters(Reference value) {
+    public GuidanceRequest setInputParameters(Reference value) { 
       this.inputParameters = value;
       return this;
     }
@@ -363,7 +363,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #inputParameters} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The input parameters for a request, if any. These parameters are used to provide patient-independent information to the evaluation. Patient-specific information is either accessed directly as part of the evaluation (because the evaluation engine and the patient-data are co-located) or provided as part of the operation input in the form of resources.)
      */
-    public Parameters getInputParametersTarget() {
+    public Parameters getInputParametersTarget() { 
       if (this.inputParametersTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.inputParameters");
@@ -375,7 +375,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @param value {@link #inputParameters} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The input parameters for a request, if any. These parameters are used to provide patient-independent information to the evaluation. Patient-specific information is either accessed directly as part of the evaluation (because the evaluation engine and the patient-data are co-located) or provided as part of the operation input in the form of resources.)
      */
-    public GuidanceRequest setInputParametersTarget(Parameters value) {
+    public GuidanceRequest setInputParametersTarget(Parameters value) { 
       this.inputParametersTarget = value;
       return this;
     }
@@ -383,7 +383,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #initiatingOrganization} (The organization initiating the request.)
      */
-    public Reference getInitiatingOrganization() {
+    public Reference getInitiatingOrganization() { 
       if (this.initiatingOrganization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.initiatingOrganization");
@@ -392,14 +392,14 @@ public class GuidanceRequest extends DomainResource {
       return this.initiatingOrganization;
     }
 
-    public boolean hasInitiatingOrganization() {
+    public boolean hasInitiatingOrganization() { 
       return this.initiatingOrganization != null && !this.initiatingOrganization.isEmpty();
     }
 
     /**
      * @param value {@link #initiatingOrganization} (The organization initiating the request.)
      */
-    public GuidanceRequest setInitiatingOrganization(Reference value) {
+    public GuidanceRequest setInitiatingOrganization(Reference value) { 
       this.initiatingOrganization = value;
       return this;
     }
@@ -407,7 +407,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #initiatingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization initiating the request.)
      */
-    public Organization getInitiatingOrganizationTarget() {
+    public Organization getInitiatingOrganizationTarget() { 
       if (this.initiatingOrganizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.initiatingOrganization");
@@ -419,7 +419,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @param value {@link #initiatingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization initiating the request.)
      */
-    public GuidanceRequest setInitiatingOrganizationTarget(Organization value) {
+    public GuidanceRequest setInitiatingOrganizationTarget(Organization value) { 
       this.initiatingOrganizationTarget = value;
       return this;
     }
@@ -427,7 +427,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #initiatingPerson} (The person initiating the request.)
      */
-    public Reference getInitiatingPerson() {
+    public Reference getInitiatingPerson() { 
       if (this.initiatingPerson == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.initiatingPerson");
@@ -436,14 +436,14 @@ public class GuidanceRequest extends DomainResource {
       return this.initiatingPerson;
     }
 
-    public boolean hasInitiatingPerson() {
+    public boolean hasInitiatingPerson() { 
       return this.initiatingPerson != null && !this.initiatingPerson.isEmpty();
     }
 
     /**
      * @param value {@link #initiatingPerson} (The person initiating the request.)
      */
-    public GuidanceRequest setInitiatingPerson(Reference value) {
+    public GuidanceRequest setInitiatingPerson(Reference value) { 
       this.initiatingPerson = value;
       return this;
     }
@@ -451,14 +451,14 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #initiatingPerson} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person initiating the request.)
      */
-    public Resource getInitiatingPersonTarget() {
+    public Resource getInitiatingPersonTarget() { 
       return this.initiatingPersonTarget;
     }
 
     /**
      * @param value {@link #initiatingPerson} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person initiating the request.)
      */
-    public GuidanceRequest setInitiatingPersonTarget(Resource value) {
+    public GuidanceRequest setInitiatingPersonTarget(Resource value) { 
       this.initiatingPersonTarget = value;
       return this;
     }
@@ -466,7 +466,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #userType} (The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.).)
      */
-    public CodeableConcept getUserType() {
+    public CodeableConcept getUserType() { 
       if (this.userType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.userType");
@@ -475,14 +475,14 @@ public class GuidanceRequest extends DomainResource {
       return this.userType;
     }
 
-    public boolean hasUserType() {
+    public boolean hasUserType() { 
       return this.userType != null && !this.userType.isEmpty();
     }
 
     /**
      * @param value {@link #userType} (The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.).)
      */
-    public GuidanceRequest setUserType(CodeableConcept value) {
+    public GuidanceRequest setUserType(CodeableConcept value) { 
       this.userType = value;
       return this;
     }
@@ -490,7 +490,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #userLanguage} (Preferred language of the person using the system.)
      */
-    public CodeableConcept getUserLanguage() {
+    public CodeableConcept getUserLanguage() { 
       if (this.userLanguage == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.userLanguage");
@@ -499,14 +499,14 @@ public class GuidanceRequest extends DomainResource {
       return this.userLanguage;
     }
 
-    public boolean hasUserLanguage() {
+    public boolean hasUserLanguage() { 
       return this.userLanguage != null && !this.userLanguage.isEmpty();
     }
 
     /**
      * @param value {@link #userLanguage} (Preferred language of the person using the system.)
      */
-    public GuidanceRequest setUserLanguage(CodeableConcept value) {
+    public GuidanceRequest setUserLanguage(CodeableConcept value) { 
       this.userLanguage = value;
       return this;
     }
@@ -514,7 +514,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #userTaskContext} (The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources.)
      */
-    public CodeableConcept getUserTaskContext() {
+    public CodeableConcept getUserTaskContext() { 
       if (this.userTaskContext == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.userTaskContext");
@@ -523,14 +523,14 @@ public class GuidanceRequest extends DomainResource {
       return this.userTaskContext;
     }
 
-    public boolean hasUserTaskContext() {
+    public boolean hasUserTaskContext() { 
       return this.userTaskContext != null && !this.userTaskContext.isEmpty();
     }
 
     /**
      * @param value {@link #userTaskContext} (The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources.)
      */
-    public GuidanceRequest setUserTaskContext(CodeableConcept value) {
+    public GuidanceRequest setUserTaskContext(CodeableConcept value) { 
       this.userTaskContext = value;
       return this;
     }
@@ -538,7 +538,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #receivingOrganization} (The organization that will receive the response.)
      */
-    public Reference getReceivingOrganization() {
+    public Reference getReceivingOrganization() { 
       if (this.receivingOrganization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.receivingOrganization");
@@ -547,14 +547,14 @@ public class GuidanceRequest extends DomainResource {
       return this.receivingOrganization;
     }
 
-    public boolean hasReceivingOrganization() {
+    public boolean hasReceivingOrganization() { 
       return this.receivingOrganization != null && !this.receivingOrganization.isEmpty();
     }
 
     /**
      * @param value {@link #receivingOrganization} (The organization that will receive the response.)
      */
-    public GuidanceRequest setReceivingOrganization(Reference value) {
+    public GuidanceRequest setReceivingOrganization(Reference value) { 
       this.receivingOrganization = value;
       return this;
     }
@@ -562,7 +562,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #receivingOrganization} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The organization that will receive the response.)
      */
-    public Organization getReceivingOrganizationTarget() {
+    public Organization getReceivingOrganizationTarget() { 
       if (this.receivingOrganizationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.receivingOrganization");
@@ -574,7 +574,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @param value {@link #receivingOrganization} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The organization that will receive the response.)
      */
-    public GuidanceRequest setReceivingOrganizationTarget(Organization value) {
+    public GuidanceRequest setReceivingOrganizationTarget(Organization value) { 
       this.receivingOrganizationTarget = value;
       return this;
     }
@@ -582,7 +582,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #receivingPerson} (The person in the receiving organization that will receive the response.)
      */
-    public Reference getReceivingPerson() {
+    public Reference getReceivingPerson() { 
       if (this.receivingPerson == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.receivingPerson");
@@ -591,14 +591,14 @@ public class GuidanceRequest extends DomainResource {
       return this.receivingPerson;
     }
 
-    public boolean hasReceivingPerson() {
+    public boolean hasReceivingPerson() { 
       return this.receivingPerson != null && !this.receivingPerson.isEmpty();
     }
 
     /**
      * @param value {@link #receivingPerson} (The person in the receiving organization that will receive the response.)
      */
-    public GuidanceRequest setReceivingPerson(Reference value) {
+    public GuidanceRequest setReceivingPerson(Reference value) { 
       this.receivingPerson = value;
       return this;
     }
@@ -606,14 +606,14 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #receivingPerson} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person in the receiving organization that will receive the response.)
      */
-    public Resource getReceivingPersonTarget() {
+    public Resource getReceivingPersonTarget() { 
       return this.receivingPersonTarget;
     }
 
     /**
      * @param value {@link #receivingPerson} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person in the receiving organization that will receive the response.)
      */
-    public GuidanceRequest setReceivingPersonTarget(Resource value) {
+    public GuidanceRequest setReceivingPersonTarget(Resource value) { 
       this.receivingPersonTarget = value;
       return this;
     }
@@ -621,7 +621,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #recipientType} (The type of individual that will consume the response content. This may be different from the requesting user type (e.g. if a clinician is getting disease management guidance for provision to a patient). E.g. patient, healthcare provider or specific type of healthcare provider (physician, nurse, etc.).)
      */
-    public CodeableConcept getRecipientType() {
+    public CodeableConcept getRecipientType() { 
       if (this.recipientType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.recipientType");
@@ -630,14 +630,14 @@ public class GuidanceRequest extends DomainResource {
       return this.recipientType;
     }
 
-    public boolean hasRecipientType() {
+    public boolean hasRecipientType() { 
       return this.recipientType != null && !this.recipientType.isEmpty();
     }
 
     /**
      * @param value {@link #recipientType} (The type of individual that will consume the response content. This may be different from the requesting user type (e.g. if a clinician is getting disease management guidance for provision to a patient). E.g. patient, healthcare provider or specific type of healthcare provider (physician, nurse, etc.).)
      */
-    public GuidanceRequest setRecipientType(CodeableConcept value) {
+    public GuidanceRequest setRecipientType(CodeableConcept value) { 
       this.recipientType = value;
       return this;
     }
@@ -645,7 +645,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #recipientLanguage} (Preferred language of the person that will consume the content.)
      */
-    public CodeableConcept getRecipientLanguage() {
+    public CodeableConcept getRecipientLanguage() { 
       if (this.recipientLanguage == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.recipientLanguage");
@@ -654,14 +654,14 @@ public class GuidanceRequest extends DomainResource {
       return this.recipientLanguage;
     }
 
-    public boolean hasRecipientLanguage() {
+    public boolean hasRecipientLanguage() { 
       return this.recipientLanguage != null && !this.recipientLanguage.isEmpty();
     }
 
     /**
      * @param value {@link #recipientLanguage} (Preferred language of the person that will consume the content.)
      */
-    public GuidanceRequest setRecipientLanguage(CodeableConcept value) {
+    public GuidanceRequest setRecipientLanguage(CodeableConcept value) { 
       this.recipientLanguage = value;
       return this;
     }
@@ -669,7 +669,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #encounterClass} (The class of encounter (inpatient, outpatient, etc).)
      */
-    public CodeableConcept getEncounterClass() {
+    public CodeableConcept getEncounterClass() { 
       if (this.encounterClass == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.encounterClass");
@@ -678,14 +678,14 @@ public class GuidanceRequest extends DomainResource {
       return this.encounterClass;
     }
 
-    public boolean hasEncounterClass() {
+    public boolean hasEncounterClass() { 
       return this.encounterClass != null && !this.encounterClass.isEmpty();
     }
 
     /**
      * @param value {@link #encounterClass} (The class of encounter (inpatient, outpatient, etc).)
      */
-    public GuidanceRequest setEncounterClass(CodeableConcept value) {
+    public GuidanceRequest setEncounterClass(CodeableConcept value) { 
       this.encounterClass = value;
       return this;
     }
@@ -693,7 +693,7 @@ public class GuidanceRequest extends DomainResource {
     /**
      * @return {@link #encounterType} (The type of the encounter.)
      */
-    public CodeableConcept getEncounterType() {
+    public CodeableConcept getEncounterType() { 
       if (this.encounterType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create GuidanceRequest.encounterType");
@@ -702,14 +702,14 @@ public class GuidanceRequest extends DomainResource {
       return this.encounterType;
     }
 
-    public boolean hasEncounterType() {
+    public boolean hasEncounterType() { 
       return this.encounterType != null && !this.encounterType.isEmpty();
     }
 
     /**
      * @param value {@link #encounterType} (The type of the encounter.)
      */
-    public GuidanceRequest setEncounterType(CodeableConcept value) {
+    public GuidanceRequest setEncounterType(CodeableConcept value) { 
       this.encounterType = value;
       return this;
     }

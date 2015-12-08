@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,15 +51,15 @@ public class DetectedIssue extends DomainResource {
         /**
          * Indicates the issue may be life-threatening or has the potential to cause permanent injury.
          */
-        HIGH,
+        HIGH, 
         /**
          * Indicates the issue may result in noticeable adverse consequences but is unlikely to be life-threatening or cause permanent injury.
          */
-        MODERATE,
+        MODERATE, 
         /**
          * Indicates the issue may result in some adverse consequences but is unlikely to substantially affect the situation of the subject.
          */
-        LOW,
+        LOW, 
         /**
          * added to help the parsers
          */
@@ -195,7 +195,7 @@ public class DetectedIssue extends DomainResource {
         /**
          * @return {@link #action} (Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified issue.)
          */
-        public CodeableConcept getAction() {
+        public CodeableConcept getAction() { 
           if (this.action == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetectedIssueMitigationComponent.action");
@@ -204,14 +204,14 @@ public class DetectedIssue extends DomainResource {
           return this.action;
         }
 
-        public boolean hasAction() {
+        public boolean hasAction() { 
           return this.action != null && !this.action.isEmpty();
         }
 
         /**
          * @param value {@link #action} (Describes the action that was taken or the observation that was made that reduces/eliminates the risk associated with the identified issue.)
          */
-        public DetectedIssueMitigationComponent setAction(CodeableConcept value) {
+        public DetectedIssueMitigationComponent setAction(CodeableConcept value) { 
           this.action = value;
           return this;
         }
@@ -219,7 +219,7 @@ public class DetectedIssue extends DomainResource {
         /**
          * @return {@link #date} (Indicates when the mitigating action was documented.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DateTimeType getDateElement() {
+        public DateTimeType getDateElement() { 
           if (this.date == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetectedIssueMitigationComponent.date");
@@ -228,18 +228,18 @@ public class DetectedIssue extends DomainResource {
           return this.date;
         }
 
-        public boolean hasDateElement() {
+        public boolean hasDateElement() { 
           return this.date != null && !this.date.isEmpty();
         }
 
-        public boolean hasDate() {
+        public boolean hasDate() { 
           return this.date != null && !this.date.isEmpty();
         }
 
         /**
          * @param value {@link #date} (Indicates when the mitigating action was documented.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
          */
-        public DetectedIssueMitigationComponent setDateElement(DateTimeType value) {
+        public DetectedIssueMitigationComponent setDateElement(DateTimeType value) { 
           this.date = value;
           return this;
         }
@@ -247,14 +247,14 @@ public class DetectedIssue extends DomainResource {
         /**
          * @return Indicates when the mitigating action was documented.
          */
-        public Date getDate() {
+        public Date getDate() { 
           return this.date == null ? null : this.date.getValue();
         }
 
         /**
          * @param value Indicates when the mitigating action was documented.
          */
-        public DetectedIssueMitigationComponent setDate(Date value) {
+        public DetectedIssueMitigationComponent setDate(Date value) { 
           if (value == null)
             this.date = null;
           else {
@@ -268,7 +268,7 @@ public class DetectedIssue extends DomainResource {
         /**
          * @return {@link #author} (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
-        public Reference getAuthor() {
+        public Reference getAuthor() { 
           if (this.author == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetectedIssueMitigationComponent.author");
@@ -277,14 +277,14 @@ public class DetectedIssue extends DomainResource {
           return this.author;
         }
 
-        public boolean hasAuthor() {
+        public boolean hasAuthor() { 
           return this.author != null && !this.author.isEmpty();
         }
 
         /**
          * @param value {@link #author} (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
-        public DetectedIssueMitigationComponent setAuthor(Reference value) {
+        public DetectedIssueMitigationComponent setAuthor(Reference value) { 
           this.author = value;
           return this;
         }
@@ -292,7 +292,7 @@ public class DetectedIssue extends DomainResource {
         /**
          * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
-        public Practitioner getAuthorTarget() {
+        public Practitioner getAuthorTarget() { 
           if (this.authorTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DetectedIssueMitigationComponent.author");
@@ -304,7 +304,7 @@ public class DetectedIssue extends DomainResource {
         /**
          * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the practitioner who determined the mitigation and takes responsibility for the mitigation step occurring.)
          */
-        public DetectedIssueMitigationComponent setAuthorTarget(Practitioner value) {
+        public DetectedIssueMitigationComponent setAuthorTarget(Practitioner value) { 
           this.authorTarget = value;
           return this;
         }
@@ -484,7 +484,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #patient} (Indicates the patient whose record the detected issue is associated with.)
      */
-    public Reference getPatient() {
+    public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DetectedIssue.patient");
@@ -493,14 +493,14 @@ public class DetectedIssue extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() {
+    public boolean hasPatient() { 
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (Indicates the patient whose record the detected issue is associated with.)
      */
-    public DetectedIssue setPatient(Reference value) {
+    public DetectedIssue setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -508,7 +508,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates the patient whose record the detected issue is associated with.)
      */
-    public Patient getPatientTarget() {
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DetectedIssue.patient");
@@ -520,7 +520,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates the patient whose record the detected issue is associated with.)
      */
-    public DetectedIssue setPatientTarget(Patient value) {
+    public DetectedIssue setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -528,7 +528,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #category} (Identifies the general type of issue identified.)
      */
-    public CodeableConcept getCategory() {
+    public CodeableConcept getCategory() { 
       if (this.category == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DetectedIssue.category");
@@ -537,14 +537,14 @@ public class DetectedIssue extends DomainResource {
       return this.category;
     }
 
-    public boolean hasCategory() {
+    public boolean hasCategory() { 
       return this.category != null && !this.category.isEmpty();
     }
 
     /**
      * @param value {@link #category} (Identifies the general type of issue identified.)
      */
-    public DetectedIssue setCategory(CodeableConcept value) {
+    public DetectedIssue setCategory(CodeableConcept value) { 
       this.category = value;
       return this;
     }
@@ -552,7 +552,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
      */
-    public Enumeration<DetectedIssueSeverity> getSeverityElement() {
+    public Enumeration<DetectedIssueSeverity> getSeverityElement() { 
       if (this.severity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DetectedIssue.severity");
@@ -561,18 +561,18 @@ public class DetectedIssue extends DomainResource {
       return this.severity;
     }
 
-    public boolean hasSeverityElement() {
+    public boolean hasSeverityElement() { 
       return this.severity != null && !this.severity.isEmpty();
     }
 
-    public boolean hasSeverity() {
+    public boolean hasSeverity() { 
       return this.severity != null && !this.severity.isEmpty();
     }
 
     /**
      * @param value {@link #severity} (Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
      */
-    public DetectedIssue setSeverityElement(Enumeration<DetectedIssueSeverity> value) {
+    public DetectedIssue setSeverityElement(Enumeration<DetectedIssueSeverity> value) { 
       this.severity = value;
       return this;
     }
@@ -580,14 +580,14 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
      */
-    public DetectedIssueSeverity getSeverity() {
+    public DetectedIssueSeverity getSeverity() { 
       return this.severity == null ? null : this.severity.getValue();
     }
 
     /**
      * @param value Indicates the degree of importance associated with the identified issue based on the potential impact on the patient.
      */
-    public DetectedIssue setSeverity(DetectedIssueSeverity value) {
+    public DetectedIssue setSeverity(DetectedIssueSeverity value) { 
       if (value == null)
         this.severity = null;
       else {
@@ -601,13 +601,13 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #implicated} (Indicates the resource representing the current activity or proposed activity that is potentially problematic.)
      */
-    public List<Reference> getImplicated() {
+    public List<Reference> getImplicated() { 
       if (this.implicated == null)
         this.implicated = new ArrayList<Reference>();
       return this.implicated;
     }
 
-    public boolean hasImplicated() {
+    public boolean hasImplicated() { 
       if (this.implicated == null)
         return false;
       for (Reference item : this.implicated)
@@ -641,7 +641,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #implicated} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Indicates the resource representing the current activity or proposed activity that is potentially problematic.)
      */
-    public List<Resource> getImplicatedTarget() {
+    public List<Resource> getImplicatedTarget() { 
       if (this.implicatedTarget == null)
         this.implicatedTarget = new ArrayList<Resource>();
       return this.implicatedTarget;
@@ -650,7 +650,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #detail} (A textual explanation of the detected issue.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
      */
-    public StringType getDetailElement() {
+    public StringType getDetailElement() { 
       if (this.detail == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DetectedIssue.detail");
@@ -659,18 +659,18 @@ public class DetectedIssue extends DomainResource {
       return this.detail;
     }
 
-    public boolean hasDetailElement() {
+    public boolean hasDetailElement() { 
       return this.detail != null && !this.detail.isEmpty();
     }
 
-    public boolean hasDetail() {
+    public boolean hasDetail() { 
       return this.detail != null && !this.detail.isEmpty();
     }
 
     /**
      * @param value {@link #detail} (A textual explanation of the detected issue.). This is the underlying object with id, value and extensions. The accessor "getDetail" gives direct access to the value
      */
-    public DetectedIssue setDetailElement(StringType value) {
+    public DetectedIssue setDetailElement(StringType value) { 
       this.detail = value;
       return this;
     }
@@ -678,14 +678,14 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return A textual explanation of the detected issue.
      */
-    public String getDetail() {
+    public String getDetail() { 
       return this.detail == null ? null : this.detail.getValue();
     }
 
     /**
      * @param value A textual explanation of the detected issue.
      */
-    public DetectedIssue setDetail(String value) {
+    public DetectedIssue setDetail(String value) { 
       if (Utilities.noString(value))
         this.detail = null;
       else {
@@ -699,7 +699,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #date} (The date or date-time when the detected issue was initially identified.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DetectedIssue.date");
@@ -708,18 +708,18 @@ public class DetectedIssue extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date or date-time when the detected issue was initially identified.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DetectedIssue setDateElement(DateTimeType value) {
+    public DetectedIssue setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -727,14 +727,14 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return The date or date-time when the detected issue was initially identified.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date or date-time when the detected issue was initially identified.
      */
-    public DetectedIssue setDate(Date value) {
+    public DetectedIssue setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -748,7 +748,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #author} (Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.)
      */
-    public Reference getAuthor() {
+    public Reference getAuthor() { 
       if (this.author == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DetectedIssue.author");
@@ -757,14 +757,14 @@ public class DetectedIssue extends DomainResource {
       return this.author;
     }
 
-    public boolean hasAuthor() {
+    public boolean hasAuthor() { 
       return this.author != null && !this.author.isEmpty();
     }
 
     /**
      * @param value {@link #author} (Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.)
      */
-    public DetectedIssue setAuthor(Reference value) {
+    public DetectedIssue setAuthor(Reference value) { 
       this.author = value;
       return this;
     }
@@ -772,14 +772,14 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.)
      */
-    public Resource getAuthorTarget() {
+    public Resource getAuthorTarget() { 
       return this.authorTarget;
     }
 
     /**
      * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Individual or device responsible for the issue being raised.  For example, a decision support application or a pharmacist conducting a medication review.)
      */
-    public DetectedIssue setAuthorTarget(Resource value) {
+    public DetectedIssue setAuthorTarget(Resource value) { 
       this.authorTarget = value;
       return this;
     }
@@ -787,7 +787,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #identifier} (Business identifier associated with the detected issue record.)
      */
-    public Identifier getIdentifier() {
+    public Identifier getIdentifier() { 
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DetectedIssue.identifier");
@@ -796,14 +796,14 @@ public class DetectedIssue extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Business identifier associated with the detected issue record.)
      */
-    public DetectedIssue setIdentifier(Identifier value) {
+    public DetectedIssue setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
@@ -811,7 +811,7 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the detected issue identified.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public UriType getReferenceElement() {
+    public UriType getReferenceElement() { 
       if (this.reference == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DetectedIssue.reference");
@@ -820,18 +820,18 @@ public class DetectedIssue extends DomainResource {
       return this.reference;
     }
 
-    public boolean hasReferenceElement() {
+    public boolean hasReferenceElement() { 
       return this.reference != null && !this.reference.isEmpty();
     }
 
-    public boolean hasReference() {
+    public boolean hasReference() { 
       return this.reference != null && !this.reference.isEmpty();
     }
 
     /**
      * @param value {@link #reference} (The literature, knowledge-base or similar reference that describes the propensity for the detected issue identified.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
-    public DetectedIssue setReferenceElement(UriType value) {
+    public DetectedIssue setReferenceElement(UriType value) { 
       this.reference = value;
       return this;
     }
@@ -839,14 +839,14 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return The literature, knowledge-base or similar reference that describes the propensity for the detected issue identified.
      */
-    public String getReference() {
+    public String getReference() { 
       return this.reference == null ? null : this.reference.getValue();
     }
 
     /**
      * @param value The literature, knowledge-base or similar reference that describes the propensity for the detected issue identified.
      */
-    public DetectedIssue setReference(String value) {
+    public DetectedIssue setReference(String value) { 
       if (Utilities.noString(value))
         this.reference = null;
       else {
@@ -860,13 +860,13 @@ public class DetectedIssue extends DomainResource {
     /**
      * @return {@link #mitigation} (Indicates an action that has been taken or is committed to to reduce or eliminate the likelihood of the risk identified by the detected issue from manifesting.  Can also reflect an observation of known mitigating factors that may reduce/eliminate the need for any action.)
      */
-    public List<DetectedIssueMitigationComponent> getMitigation() {
+    public List<DetectedIssueMitigationComponent> getMitigation() { 
       if (this.mitigation == null)
         this.mitigation = new ArrayList<DetectedIssueMitigationComponent>();
       return this.mitigation;
     }
 
-    public boolean hasMitigation() {
+    public boolean hasMitigation() { 
       if (this.mitigation == null)
         return false;
       for (DetectedIssueMitigationComponent item : this.mitigation)

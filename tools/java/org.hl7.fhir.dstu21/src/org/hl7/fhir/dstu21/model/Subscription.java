@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class Subscription extends DomainResource {
         /**
          * The client has requested the subscription, and the server has not yet set it up.
          */
-        REQUESTED,
+        REQUESTED, 
         /**
          * The subscription is active.
          */
-        ACTIVE,
+        ACTIVE, 
         /**
          * The server has an error executing the notification.
          */
-        ERROR,
+        ERROR, 
         /**
          * Too many errors have occurred or the subscription has expired.
          */
-        OFF,
+        OFF, 
         /**
          * added to help the parsers
          */
@@ -167,23 +167,23 @@ public class Subscription extends DomainResource {
         /**
          * The channel is executed by making a post to the URI. If a payload is included, the URL is interpreted as the service base, and an update (PUT) is made.
          */
-        RESTHOOK,
+        RESTHOOK, 
         /**
          * The channel is executed by sending a packet across a web socket connection maintained by the client. The URL identifies the websocket, and the client binds to this URL.
          */
-        WEBSOCKET,
+        WEBSOCKET, 
         /**
          * The channel is executed by sending an email to the email addressed in the URI (which must be a mailto:).
          */
-        EMAIL,
+        EMAIL, 
         /**
          * The channel is executed by sending an SMS message to the phone number identified in the URL (tel:).
          */
-        SMS,
+        SMS, 
         /**
          * The channel is executed by sending a message (e.g. a Bundle with a MessageHeader resource etc.) to the application identified in the URI.
          */
-        MESSAGE,
+        MESSAGE, 
         /**
          * added to help the parsers
          */
@@ -346,7 +346,7 @@ public class Subscription extends DomainResource {
         /**
          * @return {@link #type} (The type of channel to send notifications on.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<SubscriptionChannelType> getTypeElement() {
+        public Enumeration<SubscriptionChannelType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionChannelComponent.type");
@@ -355,18 +355,18 @@ public class Subscription extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() {
+        public boolean hasTypeElement() { 
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of channel to send notifications on.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public SubscriptionChannelComponent setTypeElement(Enumeration<SubscriptionChannelType> value) {
+        public SubscriptionChannelComponent setTypeElement(Enumeration<SubscriptionChannelType> value) { 
           this.type = value;
           return this;
         }
@@ -374,14 +374,14 @@ public class Subscription extends DomainResource {
         /**
          * @return The type of channel to send notifications on.
          */
-        public SubscriptionChannelType getType() {
+        public SubscriptionChannelType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of channel to send notifications on.
          */
-        public SubscriptionChannelComponent setType(SubscriptionChannelType value) {
+        public SubscriptionChannelComponent setType(SubscriptionChannelType value) { 
             if (this.type == null)
               this.type = new Enumeration<SubscriptionChannelType>(new SubscriptionChannelTypeEnumFactory());
             this.type.setValue(value);
@@ -391,7 +391,7 @@ public class Subscription extends DomainResource {
         /**
          * @return {@link #endpoint} (The uri that describes the actual end-point to send messages to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public UriType getEndpointElement() {
+        public UriType getEndpointElement() { 
           if (this.endpoint == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionChannelComponent.endpoint");
@@ -400,18 +400,18 @@ public class Subscription extends DomainResource {
           return this.endpoint;
         }
 
-        public boolean hasEndpointElement() {
+        public boolean hasEndpointElement() { 
           return this.endpoint != null && !this.endpoint.isEmpty();
         }
 
-        public boolean hasEndpoint() {
+        public boolean hasEndpoint() { 
           return this.endpoint != null && !this.endpoint.isEmpty();
         }
 
         /**
          * @param value {@link #endpoint} (The uri that describes the actual end-point to send messages to.). This is the underlying object with id, value and extensions. The accessor "getEndpoint" gives direct access to the value
          */
-        public SubscriptionChannelComponent setEndpointElement(UriType value) {
+        public SubscriptionChannelComponent setEndpointElement(UriType value) { 
           this.endpoint = value;
           return this;
         }
@@ -419,14 +419,14 @@ public class Subscription extends DomainResource {
         /**
          * @return The uri that describes the actual end-point to send messages to.
          */
-        public String getEndpoint() {
+        public String getEndpoint() { 
           return this.endpoint == null ? null : this.endpoint.getValue();
         }
 
         /**
          * @param value The uri that describes the actual end-point to send messages to.
          */
-        public SubscriptionChannelComponent setEndpoint(String value) {
+        public SubscriptionChannelComponent setEndpoint(String value) { 
           if (Utilities.noString(value))
             this.endpoint = null;
           else {
@@ -440,7 +440,7 @@ public class Subscription extends DomainResource {
         /**
          * @return {@link #payload} (The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.). This is the underlying object with id, value and extensions. The accessor "getPayload" gives direct access to the value
          */
-        public StringType getPayloadElement() {
+        public StringType getPayloadElement() { 
           if (this.payload == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionChannelComponent.payload");
@@ -449,18 +449,18 @@ public class Subscription extends DomainResource {
           return this.payload;
         }
 
-        public boolean hasPayloadElement() {
+        public boolean hasPayloadElement() { 
           return this.payload != null && !this.payload.isEmpty();
         }
 
-        public boolean hasPayload() {
+        public boolean hasPayload() { 
           return this.payload != null && !this.payload.isEmpty();
         }
 
         /**
          * @param value {@link #payload} (The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.). This is the underlying object with id, value and extensions. The accessor "getPayload" gives direct access to the value
          */
-        public SubscriptionChannelComponent setPayloadElement(StringType value) {
+        public SubscriptionChannelComponent setPayloadElement(StringType value) { 
           this.payload = value;
           return this;
         }
@@ -468,14 +468,14 @@ public class Subscription extends DomainResource {
         /**
          * @return The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.
          */
-        public String getPayload() {
+        public String getPayload() { 
           return this.payload == null ? null : this.payload.getValue();
         }
 
         /**
          * @param value The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification.
          */
-        public SubscriptionChannelComponent setPayload(String value) {
+        public SubscriptionChannelComponent setPayload(String value) { 
             if (this.payload == null)
               this.payload = new StringType();
             this.payload.setValue(value);
@@ -485,7 +485,7 @@ public class Subscription extends DomainResource {
         /**
          * @return {@link #header} (Additional headers / information to send as part of the notification.). This is the underlying object with id, value and extensions. The accessor "getHeader" gives direct access to the value
          */
-        public StringType getHeaderElement() {
+        public StringType getHeaderElement() { 
           if (this.header == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create SubscriptionChannelComponent.header");
@@ -494,18 +494,18 @@ public class Subscription extends DomainResource {
           return this.header;
         }
 
-        public boolean hasHeaderElement() {
+        public boolean hasHeaderElement() { 
           return this.header != null && !this.header.isEmpty();
         }
 
-        public boolean hasHeader() {
+        public boolean hasHeader() { 
           return this.header != null && !this.header.isEmpty();
         }
 
         /**
          * @param value {@link #header} (Additional headers / information to send as part of the notification.). This is the underlying object with id, value and extensions. The accessor "getHeader" gives direct access to the value
          */
-        public SubscriptionChannelComponent setHeaderElement(StringType value) {
+        public SubscriptionChannelComponent setHeaderElement(StringType value) { 
           this.header = value;
           return this;
         }
@@ -513,14 +513,14 @@ public class Subscription extends DomainResource {
         /**
          * @return Additional headers / information to send as part of the notification.
          */
-        public String getHeader() {
+        public String getHeader() { 
           return this.header == null ? null : this.header.getValue();
         }
 
         /**
          * @param value Additional headers / information to send as part of the notification.
          */
-        public SubscriptionChannelComponent setHeader(String value) {
+        public SubscriptionChannelComponent setHeader(String value) { 
           if (Utilities.noString(value))
             this.header = null;
           else {
@@ -694,7 +694,7 @@ public class Subscription extends DomainResource {
     /**
      * @return {@link #criteria} (The rules that the server should use to determine when to generate notifications for this subscription.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
      */
-    public StringType getCriteriaElement() {
+    public StringType getCriteriaElement() { 
       if (this.criteria == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.criteria");
@@ -703,18 +703,18 @@ public class Subscription extends DomainResource {
       return this.criteria;
     }
 
-    public boolean hasCriteriaElement() {
+    public boolean hasCriteriaElement() { 
       return this.criteria != null && !this.criteria.isEmpty();
     }
 
-    public boolean hasCriteria() {
+    public boolean hasCriteria() { 
       return this.criteria != null && !this.criteria.isEmpty();
     }
 
     /**
      * @param value {@link #criteria} (The rules that the server should use to determine when to generate notifications for this subscription.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
      */
-    public Subscription setCriteriaElement(StringType value) {
+    public Subscription setCriteriaElement(StringType value) { 
       this.criteria = value;
       return this;
     }
@@ -722,14 +722,14 @@ public class Subscription extends DomainResource {
     /**
      * @return The rules that the server should use to determine when to generate notifications for this subscription.
      */
-    public String getCriteria() {
+    public String getCriteria() { 
       return this.criteria == null ? null : this.criteria.getValue();
     }
 
     /**
      * @param value The rules that the server should use to determine when to generate notifications for this subscription.
      */
-    public Subscription setCriteria(String value) {
+    public Subscription setCriteria(String value) { 
         if (this.criteria == null)
           this.criteria = new StringType();
         this.criteria.setValue(value);
@@ -739,13 +739,13 @@ public class Subscription extends DomainResource {
     /**
      * @return {@link #contact} (Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting.)
      */
-    public List<ContactPoint> getContact() {
+    public List<ContactPoint> getContact() { 
       if (this.contact == null)
         this.contact = new ArrayList<ContactPoint>();
       return this.contact;
     }
 
-    public boolean hasContact() {
+    public boolean hasContact() { 
       if (this.contact == null)
         return false;
       for (ContactPoint item : this.contact)
@@ -779,7 +779,7 @@ public class Subscription extends DomainResource {
     /**
      * @return {@link #reason} (A description of why this subscription is defined.). This is the underlying object with id, value and extensions. The accessor "getReason" gives direct access to the value
      */
-    public StringType getReasonElement() {
+    public StringType getReasonElement() { 
       if (this.reason == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.reason");
@@ -788,18 +788,18 @@ public class Subscription extends DomainResource {
       return this.reason;
     }
 
-    public boolean hasReasonElement() {
+    public boolean hasReasonElement() { 
       return this.reason != null && !this.reason.isEmpty();
     }
 
-    public boolean hasReason() {
+    public boolean hasReason() { 
       return this.reason != null && !this.reason.isEmpty();
     }
 
     /**
      * @param value {@link #reason} (A description of why this subscription is defined.). This is the underlying object with id, value and extensions. The accessor "getReason" gives direct access to the value
      */
-    public Subscription setReasonElement(StringType value) {
+    public Subscription setReasonElement(StringType value) { 
       this.reason = value;
       return this;
     }
@@ -807,14 +807,14 @@ public class Subscription extends DomainResource {
     /**
      * @return A description of why this subscription is defined.
      */
-    public String getReason() {
+    public String getReason() { 
       return this.reason == null ? null : this.reason.getValue();
     }
 
     /**
      * @param value A description of why this subscription is defined.
      */
-    public Subscription setReason(String value) {
+    public Subscription setReason(String value) { 
         if (this.reason == null)
           this.reason = new StringType();
         this.reason.setValue(value);
@@ -824,7 +824,7 @@ public class Subscription extends DomainResource {
     /**
      * @return {@link #status} (The status of the subscription, which marks the server state for managing the subscription.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<SubscriptionStatus> getStatusElement() {
+    public Enumeration<SubscriptionStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.status");
@@ -833,18 +833,18 @@ public class Subscription extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the subscription, which marks the server state for managing the subscription.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Subscription setStatusElement(Enumeration<SubscriptionStatus> value) {
+    public Subscription setStatusElement(Enumeration<SubscriptionStatus> value) { 
       this.status = value;
       return this;
     }
@@ -852,14 +852,14 @@ public class Subscription extends DomainResource {
     /**
      * @return The status of the subscription, which marks the server state for managing the subscription.
      */
-    public SubscriptionStatus getStatus() {
+    public SubscriptionStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the subscription, which marks the server state for managing the subscription.
      */
-    public Subscription setStatus(SubscriptionStatus value) {
+    public Subscription setStatus(SubscriptionStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<SubscriptionStatus>(new SubscriptionStatusEnumFactory());
         this.status.setValue(value);
@@ -869,7 +869,7 @@ public class Subscription extends DomainResource {
     /**
      * @return {@link #error} (A record of the last error that occurred when the server processed a notification.). This is the underlying object with id, value and extensions. The accessor "getError" gives direct access to the value
      */
-    public StringType getErrorElement() {
+    public StringType getErrorElement() { 
       if (this.error == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.error");
@@ -878,18 +878,18 @@ public class Subscription extends DomainResource {
       return this.error;
     }
 
-    public boolean hasErrorElement() {
+    public boolean hasErrorElement() { 
       return this.error != null && !this.error.isEmpty();
     }
 
-    public boolean hasError() {
+    public boolean hasError() { 
       return this.error != null && !this.error.isEmpty();
     }
 
     /**
      * @param value {@link #error} (A record of the last error that occurred when the server processed a notification.). This is the underlying object with id, value and extensions. The accessor "getError" gives direct access to the value
      */
-    public Subscription setErrorElement(StringType value) {
+    public Subscription setErrorElement(StringType value) { 
       this.error = value;
       return this;
     }
@@ -897,14 +897,14 @@ public class Subscription extends DomainResource {
     /**
      * @return A record of the last error that occurred when the server processed a notification.
      */
-    public String getError() {
+    public String getError() { 
       return this.error == null ? null : this.error.getValue();
     }
 
     /**
      * @param value A record of the last error that occurred when the server processed a notification.
      */
-    public Subscription setError(String value) {
+    public Subscription setError(String value) { 
       if (Utilities.noString(value))
         this.error = null;
       else {
@@ -918,7 +918,7 @@ public class Subscription extends DomainResource {
     /**
      * @return {@link #channel} (Details where to send notifications when resources are received that meet the criteria.)
      */
-    public SubscriptionChannelComponent getChannel() {
+    public SubscriptionChannelComponent getChannel() { 
       if (this.channel == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.channel");
@@ -927,14 +927,14 @@ public class Subscription extends DomainResource {
       return this.channel;
     }
 
-    public boolean hasChannel() {
+    public boolean hasChannel() { 
       return this.channel != null && !this.channel.isEmpty();
     }
 
     /**
      * @param value {@link #channel} (Details where to send notifications when resources are received that meet the criteria.)
      */
-    public Subscription setChannel(SubscriptionChannelComponent value) {
+    public Subscription setChannel(SubscriptionChannelComponent value) { 
       this.channel = value;
       return this;
     }
@@ -942,7 +942,7 @@ public class Subscription extends DomainResource {
     /**
      * @return {@link #end} (The time for the server to turn the subscription off.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public InstantType getEndElement() {
+    public InstantType getEndElement() { 
       if (this.end == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Subscription.end");
@@ -951,18 +951,18 @@ public class Subscription extends DomainResource {
       return this.end;
     }
 
-    public boolean hasEndElement() {
+    public boolean hasEndElement() { 
       return this.end != null && !this.end.isEmpty();
     }
 
-    public boolean hasEnd() {
+    public boolean hasEnd() { 
       return this.end != null && !this.end.isEmpty();
     }
 
     /**
      * @param value {@link #end} (The time for the server to turn the subscription off.). This is the underlying object with id, value and extensions. The accessor "getEnd" gives direct access to the value
      */
-    public Subscription setEndElement(InstantType value) {
+    public Subscription setEndElement(InstantType value) { 
       this.end = value;
       return this;
     }
@@ -970,14 +970,14 @@ public class Subscription extends DomainResource {
     /**
      * @return The time for the server to turn the subscription off.
      */
-    public Date getEnd() {
+    public Date getEnd() { 
       return this.end == null ? null : this.end.getValue();
     }
 
     /**
      * @param value The time for the server to turn the subscription off.
      */
-    public Subscription setEnd(Date value) {
+    public Subscription setEnd(Date value) { 
       if (value == null)
         this.end = null;
       else {
@@ -991,13 +991,13 @@ public class Subscription extends DomainResource {
     /**
      * @return {@link #tag} (A tag to add to any resource that matches the criteria, after the subscription is processed.)
      */
-    public List<Coding> getTag() {
+    public List<Coding> getTag() { 
       if (this.tag == null)
         this.tag = new ArrayList<Coding>();
       return this.tag;
     }
 
-    public boolean hasTag() {
+    public boolean hasTag() { 
       if (this.tag == null)
         return false;
       for (Coding item : this.tag)

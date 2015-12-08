@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,39 +51,39 @@ public class OrderResponse extends DomainResource {
         /**
          * The order is known, but no processing has occurred at this time
          */
-        PENDING,
+        PENDING, 
         /**
          * The order is undergoing initial processing to determine whether it will be accepted (usually this involves human review)
          */
-        REVIEW,
+        REVIEW, 
         /**
          * The order was rejected because of a workflow/business logic reason
          */
-        REJECTED,
+        REJECTED, 
         /**
          * The order was unable to be processed because of a technical error (i.e. unexpected error)
          */
-        ERROR,
+        ERROR, 
         /**
          * The order has been accepted, and work is in progress.
          */
-        ACCEPTED,
+        ACCEPTED, 
         /**
          * Processing the order was halted at the initiators request.
          */
-        CANCELLED,
+        CANCELLED, 
         /**
          * The order has been cancelled and replaced by another.
          */
-        REPLACED,
+        REPLACED, 
         /**
          * Processing the order was stopped because of some workflow/business logic reason.
          */
-        ABORTED,
+        ABORTED, 
         /**
          * The order has been completed.
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * added to help the parsers
          */
@@ -328,13 +328,13 @@ public class OrderResponse extends DomainResource {
     /**
      * @return {@link #identifier} (Identifiers assigned to this order. The identifiers are usually assigned by the system responding to the order, but they may be provided or added to by other systems.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -368,7 +368,7 @@ public class OrderResponse extends DomainResource {
     /**
      * @return {@link #request} (A reference to the order that this is in response to.)
      */
-    public Reference getRequest() {
+    public Reference getRequest() { 
       if (this.request == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.request");
@@ -377,14 +377,14 @@ public class OrderResponse extends DomainResource {
       return this.request;
     }
 
-    public boolean hasRequest() {
+    public boolean hasRequest() { 
       return this.request != null && !this.request.isEmpty();
     }
 
     /**
      * @param value {@link #request} (A reference to the order that this is in response to.)
      */
-    public OrderResponse setRequest(Reference value) {
+    public OrderResponse setRequest(Reference value) { 
       this.request = value;
       return this;
     }
@@ -392,7 +392,7 @@ public class OrderResponse extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to the order that this is in response to.)
      */
-    public Order getRequestTarget() {
+    public Order getRequestTarget() { 
       if (this.requestTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.request");
@@ -404,7 +404,7 @@ public class OrderResponse extends DomainResource {
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to the order that this is in response to.)
      */
-    public OrderResponse setRequestTarget(Order value) {
+    public OrderResponse setRequestTarget(Order value) { 
       this.requestTarget = value;
       return this;
     }
@@ -412,7 +412,7 @@ public class OrderResponse extends DomainResource {
     /**
      * @return {@link #date} (The date and time at which this order response was made (created/posted).). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.date");
@@ -421,18 +421,18 @@ public class OrderResponse extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date and time at which this order response was made (created/posted).). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public OrderResponse setDateElement(DateTimeType value) {
+    public OrderResponse setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -440,14 +440,14 @@ public class OrderResponse extends DomainResource {
     /**
      * @return The date and time at which this order response was made (created/posted).
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date and time at which this order response was made (created/posted).
      */
-    public OrderResponse setDate(Date value) {
+    public OrderResponse setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -461,7 +461,7 @@ public class OrderResponse extends DomainResource {
     /**
      * @return {@link #who} (The person, organization, or device credited with making the response.)
      */
-    public Reference getWho() {
+    public Reference getWho() { 
       if (this.who == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.who");
@@ -470,14 +470,14 @@ public class OrderResponse extends DomainResource {
       return this.who;
     }
 
-    public boolean hasWho() {
+    public boolean hasWho() { 
       return this.who != null && !this.who.isEmpty();
     }
 
     /**
      * @param value {@link #who} (The person, organization, or device credited with making the response.)
      */
-    public OrderResponse setWho(Reference value) {
+    public OrderResponse setWho(Reference value) { 
       this.who = value;
       return this;
     }
@@ -485,14 +485,14 @@ public class OrderResponse extends DomainResource {
     /**
      * @return {@link #who} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person, organization, or device credited with making the response.)
      */
-    public Resource getWhoTarget() {
+    public Resource getWhoTarget() { 
       return this.whoTarget;
     }
 
     /**
      * @param value {@link #who} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person, organization, or device credited with making the response.)
      */
-    public OrderResponse setWhoTarget(Resource value) {
+    public OrderResponse setWhoTarget(Resource value) { 
       this.whoTarget = value;
       return this;
     }
@@ -500,7 +500,7 @@ public class OrderResponse extends DomainResource {
     /**
      * @return {@link #orderStatus} (What this response says about the status of the original order.). This is the underlying object with id, value and extensions. The accessor "getOrderStatus" gives direct access to the value
      */
-    public Enumeration<OrderStatus> getOrderStatusElement() {
+    public Enumeration<OrderStatus> getOrderStatusElement() { 
       if (this.orderStatus == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.orderStatus");
@@ -509,18 +509,18 @@ public class OrderResponse extends DomainResource {
       return this.orderStatus;
     }
 
-    public boolean hasOrderStatusElement() {
+    public boolean hasOrderStatusElement() { 
       return this.orderStatus != null && !this.orderStatus.isEmpty();
     }
 
-    public boolean hasOrderStatus() {
+    public boolean hasOrderStatus() { 
       return this.orderStatus != null && !this.orderStatus.isEmpty();
     }
 
     /**
      * @param value {@link #orderStatus} (What this response says about the status of the original order.). This is the underlying object with id, value and extensions. The accessor "getOrderStatus" gives direct access to the value
      */
-    public OrderResponse setOrderStatusElement(Enumeration<OrderStatus> value) {
+    public OrderResponse setOrderStatusElement(Enumeration<OrderStatus> value) { 
       this.orderStatus = value;
       return this;
     }
@@ -528,14 +528,14 @@ public class OrderResponse extends DomainResource {
     /**
      * @return What this response says about the status of the original order.
      */
-    public OrderStatus getOrderStatus() {
+    public OrderStatus getOrderStatus() { 
       return this.orderStatus == null ? null : this.orderStatus.getValue();
     }
 
     /**
      * @param value What this response says about the status of the original order.
      */
-    public OrderResponse setOrderStatus(OrderStatus value) {
+    public OrderResponse setOrderStatus(OrderStatus value) { 
         if (this.orderStatus == null)
           this.orderStatus = new Enumeration<OrderStatus>(new OrderStatusEnumFactory());
         this.orderStatus.setValue(value);
@@ -545,7 +545,7 @@ public class OrderResponse extends DomainResource {
     /**
      * @return {@link #description} (Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderResponse.description");
@@ -554,18 +554,18 @@ public class OrderResponse extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public OrderResponse setDescriptionElement(StringType value) {
+    public OrderResponse setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -573,14 +573,14 @@ public class OrderResponse extends DomainResource {
     /**
      * @return Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value Additional description about the response - e.g. a text description provided by a human user when making decisions about the order.
      */
-    public OrderResponse setDescription(String value) {
+    public OrderResponse setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -594,13 +594,13 @@ public class OrderResponse extends DomainResource {
     /**
      * @return {@link #fulfillment} (Links to resources that provide details of the outcome of performing the order; e.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
      */
-    public List<Reference> getFulfillment() {
+    public List<Reference> getFulfillment() { 
       if (this.fulfillment == null)
         this.fulfillment = new ArrayList<Reference>();
       return this.fulfillment;
     }
 
-    public boolean hasFulfillment() {
+    public boolean hasFulfillment() { 
       if (this.fulfillment == null)
         return false;
       for (Reference item : this.fulfillment)
@@ -634,7 +634,7 @@ public class OrderResponse extends DomainResource {
     /**
      * @return {@link #fulfillment} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Links to resources that provide details of the outcome of performing the order; e.g. Diagnostic Reports in a response that is made to an order that referenced a diagnostic order.)
      */
-    public List<Resource> getFulfillmentTarget() {
+    public List<Resource> getFulfillmentTarget() { 
       if (this.fulfillmentTarget == null)
         this.fulfillmentTarget = new ArrayList<Resource>();
       return this.fulfillmentTarget;

@@ -59,7 +59,7 @@ public class LogicalModelUtilities implements IConstantResolver {
     processMappings(logical);
     
     // 1. process the data
-    LogicalModelMode data = readExampleData(logical.getSnapshot().getElement(), index);
+    LogicalModelNode data = readExampleData(logical.getSnapshot().getElement(), index);
     if (data.isEmpty())
       return null;
     
@@ -93,17 +93,17 @@ public class LogicalModelUtilities implements IConstantResolver {
     return uri.equals("http://snomed.info/sct") || uri.equals("http://loinc.org") || uri.equals("http://cap.org/ecc");
   }
 
-  private LogicalModelMode readExampleData(List<ElementDefinition> element, int index) throws Exception {
-    Map<String, LogicalModelMode> map = new HashMap<String, LogicalModelMode>();
-    LogicalModelMode root = null;
+  private LogicalModelNode readExampleData(List<ElementDefinition> element, int index) throws Exception {
+    Map<String, LogicalModelNode> map = new HashMap<String, LogicalModelNode>();
+    LogicalModelNode root = null;
     for (ElementDefinition ed : element) {
-      LogicalModelMode focus;
+      LogicalModelNode focus;
       if (root == null) { // first
-        focus = new LogicalModelMode(ed);
+        focus = new LogicalModelNode(ed);
         root = focus;
       } else {
-        focus = new LogicalModelMode(ed);
-        LogicalModelMode parent = map.get(ed.getPath().substring(0, ed.getPath().lastIndexOf(".")));
+        focus = new LogicalModelNode(ed);
+        LogicalModelNode parent = map.get(ed.getPath().substring(0, ed.getPath().lastIndexOf(".")));
         if (parent.hasData())
           throw new DefinitionException("Cannot provide example data for elements that have children on "+parent.getDefinition().getPath());
         parent.getChildren().add(focus);
@@ -131,12 +131,12 @@ public class LogicalModelUtilities implements IConstantResolver {
     return null;
   }
 
-  private void parseExpressions(FHIRPathEngine fp, BundleMappingContext mc, String key, LogicalModelMode node) throws Exception {
+  private void parseExpressions(FHIRPathEngine fp, BundleMappingContext mc, String key, LogicalModelNode node) throws Exception {
     node.setMapping(getLogicalMapping(node.getDefinition(), key));
     if (node.getMapping() != null && !node.getMapping().startsWith("!"))
       node.setExpressions(fp.parseMap(mc, node.getMapping()));
     if (node.hasChildren())
-      for (LogicalModelMode child : node.getChildren()) 
+      for (LogicalModelNode child : node.getChildren()) 
         parseExpressions(fp, mc, key, child);
   }
 
@@ -156,7 +156,7 @@ public class LogicalModelUtilities implements IConstantResolver {
     return null;
   }
 
-  private void executeExpressions(FHIRPathEngine fp, BundleMappingContext mc, LogicalModelMode node) throws Exception {
+  private void executeExpressions(FHIRPathEngine fp, BundleMappingContext mc, LogicalModelNode node) throws Exception {
     if (node.isEmpty())
       return; // don't execute expressions if there's no data
     if (node.getExpressions() != null) {
@@ -167,7 +167,7 @@ public class LogicalModelUtilities implements IConstantResolver {
       }
     }
     if (node.hasChildren())
-      for (LogicalModelMode child : node.getChildren()) 
+      for (LogicalModelNode child : node.getChildren()) 
         executeExpressions(fp, mc, child);
   }        
 

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,15 +52,15 @@ public class NamingSystem extends DomainResource {
         /**
          * The naming system is used to define concepts and symbols to represent those concepts; e.g. UCUM, LOINC, NDC code, local lab codes, etc.
          */
-        CODESYSTEM,
+        CODESYSTEM, 
         /**
          * The naming system is used to manage identifiers (e.g. license numbers, order numbers, etc.).
          */
-        IDENTIFIER,
+        IDENTIFIER, 
         /**
          * The naming system is used as the root for other identifiers and naming systems.
          */
-        ROOT,
+        ROOT, 
         /**
          * added to help the parsers
          */
@@ -152,19 +152,19 @@ public class NamingSystem extends DomainResource {
         /**
          * An ISO object identifier; e.g. 1.2.3.4.5.
          */
-        OID,
+        OID, 
         /**
          * A universally unique identifier of the form a5afddf4-e880-459b-876e-e4591b0acc11.
          */
-        UUID,
+        UUID, 
         /**
          * A uniform resource identifier (ideally a URL - uniform resource locator); e.g. http://unitsofmeasure.org.
          */
-        URI,
+        URI, 
         /**
          * Some other type of unique identifier; e.g. HL7-assigned reserved string such as LN for LOINC.
          */
-        OTHER,
+        OTHER, 
         /**
          * added to help the parsers
          */
@@ -292,7 +292,7 @@ public class NamingSystem extends DomainResource {
         /**
          * @return {@link #name} (The name of an individual to contact regarding the naming system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemContactComponent.name");
@@ -301,18 +301,18 @@ public class NamingSystem extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of an individual to contact regarding the naming system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public NamingSystemContactComponent setNameElement(StringType value) {
+        public NamingSystemContactComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -320,14 +320,14 @@ public class NamingSystem extends DomainResource {
         /**
          * @return The name of an individual to contact regarding the naming system.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of an individual to contact regarding the naming system.
          */
-        public NamingSystemContactComponent setName(String value) {
+        public NamingSystemContactComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -341,13 +341,13 @@ public class NamingSystem extends DomainResource {
         /**
          * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
-        public List<ContactPoint> getTelecom() {
+        public List<ContactPoint> getTelecom() { 
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() {
+        public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -501,7 +501,7 @@ public class NamingSystem extends DomainResource {
         /**
          * @return {@link #type} (Identifies the unique identifier scheme used for this particular identifier.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<NamingSystemIdentifierType> getTypeElement() {
+        public Enumeration<NamingSystemIdentifierType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemUniqueIdComponent.type");
@@ -510,18 +510,18 @@ public class NamingSystem extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() {
+        public boolean hasTypeElement() { 
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Identifies the unique identifier scheme used for this particular identifier.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public NamingSystemUniqueIdComponent setTypeElement(Enumeration<NamingSystemIdentifierType> value) {
+        public NamingSystemUniqueIdComponent setTypeElement(Enumeration<NamingSystemIdentifierType> value) { 
           this.type = value;
           return this;
         }
@@ -529,14 +529,14 @@ public class NamingSystem extends DomainResource {
         /**
          * @return Identifies the unique identifier scheme used for this particular identifier.
          */
-        public NamingSystemIdentifierType getType() {
+        public NamingSystemIdentifierType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value Identifies the unique identifier scheme used for this particular identifier.
          */
-        public NamingSystemUniqueIdComponent setType(NamingSystemIdentifierType value) {
+        public NamingSystemUniqueIdComponent setType(NamingSystemIdentifierType value) { 
             if (this.type == null)
               this.type = new Enumeration<NamingSystemIdentifierType>(new NamingSystemIdentifierTypeEnumFactory());
             this.type.setValue(value);
@@ -546,7 +546,7 @@ public class NamingSystem extends DomainResource {
         /**
          * @return {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public StringType getValueElement() {
+        public StringType getValueElement() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemUniqueIdComponent.value");
@@ -555,18 +555,18 @@ public class NamingSystem extends DomainResource {
           return this.value;
         }
 
-        public boolean hasValueElement() {
+        public boolean hasValueElement() { 
           return this.value != null && !this.value.isEmpty();
         }
 
-        public boolean hasValue() {
+        public boolean hasValue() { 
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (The string that should be sent over the wire to identify the code system or identifier system.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public NamingSystemUniqueIdComponent setValueElement(StringType value) {
+        public NamingSystemUniqueIdComponent setValueElement(StringType value) { 
           this.value = value;
           return this;
         }
@@ -574,14 +574,14 @@ public class NamingSystem extends DomainResource {
         /**
          * @return The string that should be sent over the wire to identify the code system or identifier system.
          */
-        public String getValue() {
+        public String getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value The string that should be sent over the wire to identify the code system or identifier system.
          */
-        public NamingSystemUniqueIdComponent setValue(String value) {
+        public NamingSystemUniqueIdComponent setValue(String value) { 
             if (this.value == null)
               this.value = new StringType();
             this.value.setValue(value);
@@ -591,7 +591,7 @@ public class NamingSystem extends DomainResource {
         /**
          * @return {@link #preferred} (Indicates whether this identifier is the "preferred" identifier of this type.). This is the underlying object with id, value and extensions. The accessor "getPreferred" gives direct access to the value
          */
-        public BooleanType getPreferredElement() {
+        public BooleanType getPreferredElement() { 
           if (this.preferred == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemUniqueIdComponent.preferred");
@@ -600,18 +600,18 @@ public class NamingSystem extends DomainResource {
           return this.preferred;
         }
 
-        public boolean hasPreferredElement() {
+        public boolean hasPreferredElement() { 
           return this.preferred != null && !this.preferred.isEmpty();
         }
 
-        public boolean hasPreferred() {
+        public boolean hasPreferred() { 
           return this.preferred != null && !this.preferred.isEmpty();
         }
 
         /**
          * @param value {@link #preferred} (Indicates whether this identifier is the "preferred" identifier of this type.). This is the underlying object with id, value and extensions. The accessor "getPreferred" gives direct access to the value
          */
-        public NamingSystemUniqueIdComponent setPreferredElement(BooleanType value) {
+        public NamingSystemUniqueIdComponent setPreferredElement(BooleanType value) { 
           this.preferred = value;
           return this;
         }
@@ -619,14 +619,14 @@ public class NamingSystem extends DomainResource {
         /**
          * @return Indicates whether this identifier is the "preferred" identifier of this type.
          */
-        public boolean getPreferred() {
+        public boolean getPreferred() { 
           return this.preferred == null || this.preferred.isEmpty() ? false : this.preferred.getValue();
         }
 
         /**
          * @param value Indicates whether this identifier is the "preferred" identifier of this type.
          */
-        public NamingSystemUniqueIdComponent setPreferred(boolean value) {
+        public NamingSystemUniqueIdComponent setPreferred(boolean value) { 
             if (this.preferred == null)
               this.preferred = new BooleanType();
             this.preferred.setValue(value);
@@ -636,7 +636,7 @@ public class NamingSystem extends DomainResource {
         /**
          * @return {@link #period} (Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic.)
          */
-        public Period getPeriod() {
+        public Period getPeriod() { 
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create NamingSystemUniqueIdComponent.period");
@@ -645,14 +645,14 @@ public class NamingSystem extends DomainResource {
           return this.period;
         }
 
-        public boolean hasPeriod() {
+        public boolean hasPeriod() { 
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (Identifies the period of time over which this identifier is considered appropriate to refer to the naming system.  Outside of this window, the identifier might be non-deterministic.)
          */
-        public NamingSystemUniqueIdComponent setPeriod(Period value) {
+        public NamingSystemUniqueIdComponent setPeriod(Period value) { 
           this.period = value;
           return this;
         }
@@ -861,7 +861,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #name} (The descriptive name of this particular identifier type or code system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() {
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.name");
@@ -870,18 +870,18 @@ public class NamingSystem extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() {
+    public boolean hasNameElement() { 
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (The descriptive name of this particular identifier type or code system.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public NamingSystem setNameElement(StringType value) {
+    public NamingSystem setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -889,14 +889,14 @@ public class NamingSystem extends DomainResource {
     /**
      * @return The descriptive name of this particular identifier type or code system.
      */
-    public String getName() {
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value The descriptive name of this particular identifier type or code system.
      */
-    public NamingSystem setName(String value) {
+    public NamingSystem setName(String value) { 
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
@@ -906,7 +906,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #status} (Indicates whether the naming system is "ready for use" or not.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() {
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.status");
@@ -915,18 +915,18 @@ public class NamingSystem extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (Indicates whether the naming system is "ready for use" or not.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public NamingSystem setStatusElement(Enumeration<ConformanceResourceStatus> value) {
+    public NamingSystem setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -934,14 +934,14 @@ public class NamingSystem extends DomainResource {
     /**
      * @return Indicates whether the naming system is "ready for use" or not.
      */
-    public ConformanceResourceStatus getStatus() {
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Indicates whether the naming system is "ready for use" or not.
      */
-    public NamingSystem setStatus(ConformanceResourceStatus value) {
+    public NamingSystem setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
@@ -951,7 +951,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #kind} (Indicates the purpose for the naming system - what kinds of things does it make unique?). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public Enumeration<NamingSystemType> getKindElement() {
+    public Enumeration<NamingSystemType> getKindElement() { 
       if (this.kind == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.kind");
@@ -960,18 +960,18 @@ public class NamingSystem extends DomainResource {
       return this.kind;
     }
 
-    public boolean hasKindElement() {
+    public boolean hasKindElement() { 
       return this.kind != null && !this.kind.isEmpty();
     }
 
-    public boolean hasKind() {
+    public boolean hasKind() { 
       return this.kind != null && !this.kind.isEmpty();
     }
 
     /**
      * @param value {@link #kind} (Indicates the purpose for the naming system - what kinds of things does it make unique?). This is the underlying object with id, value and extensions. The accessor "getKind" gives direct access to the value
      */
-    public NamingSystem setKindElement(Enumeration<NamingSystemType> value) {
+    public NamingSystem setKindElement(Enumeration<NamingSystemType> value) { 
       this.kind = value;
       return this;
     }
@@ -979,14 +979,14 @@ public class NamingSystem extends DomainResource {
     /**
      * @return Indicates the purpose for the naming system - what kinds of things does it make unique?
      */
-    public NamingSystemType getKind() {
+    public NamingSystemType getKind() { 
       return this.kind == null ? null : this.kind.getValue();
     }
 
     /**
      * @param value Indicates the purpose for the naming system - what kinds of things does it make unique?
      */
-    public NamingSystem setKind(NamingSystemType value) {
+    public NamingSystem setKind(NamingSystemType value) { 
         if (this.kind == null)
           this.kind = new Enumeration<NamingSystemType>(new NamingSystemTypeEnumFactory());
         this.kind.setValue(value);
@@ -996,7 +996,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the naming system.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() {
+    public StringType getPublisherElement() { 
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.publisher");
@@ -1005,18 +1005,18 @@ public class NamingSystem extends DomainResource {
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() {
+    public boolean hasPublisherElement() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() {
+    public boolean hasPublisher() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the naming system.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public NamingSystem setPublisherElement(StringType value) {
+    public NamingSystem setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -1024,14 +1024,14 @@ public class NamingSystem extends DomainResource {
     /**
      * @return The name of the individual or organization that published the naming system.
      */
-    public String getPublisher() {
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value The name of the individual or organization that published the naming system.
      */
-    public NamingSystem setPublisher(String value) {
+    public NamingSystem setPublisher(String value) { 
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -1045,13 +1045,13 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<NamingSystemContactComponent> getContact() {
+    public List<NamingSystemContactComponent> getContact() { 
       if (this.contact == null)
         this.contact = new ArrayList<NamingSystemContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() {
+    public boolean hasContact() { 
       if (this.contact == null)
         return false;
       for (NamingSystemContactComponent item : this.contact)
@@ -1085,7 +1085,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.). This is the underlying object with id, value and extensions. The accessor "getResponsible" gives direct access to the value
      */
-    public StringType getResponsibleElement() {
+    public StringType getResponsibleElement() { 
       if (this.responsible == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.responsible");
@@ -1094,18 +1094,18 @@ public class NamingSystem extends DomainResource {
       return this.responsible;
     }
 
-    public boolean hasResponsibleElement() {
+    public boolean hasResponsibleElement() { 
       return this.responsible != null && !this.responsible.isEmpty();
     }
 
-    public boolean hasResponsible() {
+    public boolean hasResponsible() { 
       return this.responsible != null && !this.responsible.isEmpty();
     }
 
     /**
      * @param value {@link #responsible} (The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.). This is the underlying object with id, value and extensions. The accessor "getResponsible" gives direct access to the value
      */
-    public NamingSystem setResponsibleElement(StringType value) {
+    public NamingSystem setResponsibleElement(StringType value) { 
       this.responsible = value;
       return this;
     }
@@ -1113,14 +1113,14 @@ public class NamingSystem extends DomainResource {
     /**
      * @return The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
      */
-    public String getResponsible() {
+    public String getResponsible() { 
       return this.responsible == null ? null : this.responsible.getValue();
     }
 
     /**
      * @param value The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
      */
-    public NamingSystem setResponsible(String value) {
+    public NamingSystem setResponsible(String value) { 
       if (Utilities.noString(value))
         this.responsible = null;
       else {
@@ -1134,7 +1134,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #date} (The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the registration changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.date");
@@ -1143,18 +1143,18 @@ public class NamingSystem extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the registration changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public NamingSystem setDateElement(DateTimeType value) {
+    public NamingSystem setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -1162,14 +1162,14 @@ public class NamingSystem extends DomainResource {
     /**
      * @return The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the registration changes.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the registration changes.
      */
-    public NamingSystem setDate(Date value) {
+    public NamingSystem setDate(Date value) { 
         if (this.date == null)
           this.date = new DateTimeType();
         this.date.setValue(value);
@@ -1179,7 +1179,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #type} (Categorizes a naming system for easier search by grouping related naming systems.)
      */
-    public CodeableConcept getType() {
+    public CodeableConcept getType() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.type");
@@ -1188,14 +1188,14 @@ public class NamingSystem extends DomainResource {
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Categorizes a naming system for easier search by grouping related naming systems.)
      */
-    public NamingSystem setType(CodeableConcept value) {
+    public NamingSystem setType(CodeableConcept value) { 
       this.type = value;
       return this;
     }
@@ -1203,7 +1203,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.description");
@@ -1212,18 +1212,18 @@ public class NamingSystem extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (Details about what the namespace identifies including scope, granularity, version labeling, etc.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public NamingSystem setDescriptionElement(StringType value) {
+    public NamingSystem setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -1231,14 +1231,14 @@ public class NamingSystem extends DomainResource {
     /**
      * @return Details about what the namespace identifies including scope, granularity, version labeling, etc.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value Details about what the namespace identifies including scope, granularity, version labeling, etc.
      */
-    public NamingSystem setDescription(String value) {
+    public NamingSystem setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -1252,13 +1252,13 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of naming systems.)
      */
-    public List<CodeableConcept> getUseContext() {
+    public List<CodeableConcept> getUseContext() { 
       if (this.useContext == null)
         this.useContext = new ArrayList<CodeableConcept>();
       return this.useContext;
     }
 
-    public boolean hasUseContext() {
+    public boolean hasUseContext() { 
       if (this.useContext == null)
         return false;
       for (CodeableConcept item : this.useContext)
@@ -1292,7 +1292,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #usage} (Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
-    public StringType getUsageElement() {
+    public StringType getUsageElement() { 
       if (this.usage == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.usage");
@@ -1301,18 +1301,18 @@ public class NamingSystem extends DomainResource {
       return this.usage;
     }
 
-    public boolean hasUsageElement() {
+    public boolean hasUsageElement() { 
       return this.usage != null && !this.usage.isEmpty();
     }
 
-    public boolean hasUsage() {
+    public boolean hasUsage() { 
       return this.usage != null && !this.usage.isEmpty();
     }
 
     /**
      * @param value {@link #usage} (Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.). This is the underlying object with id, value and extensions. The accessor "getUsage" gives direct access to the value
      */
-    public NamingSystem setUsageElement(StringType value) {
+    public NamingSystem setUsageElement(StringType value) { 
       this.usage = value;
       return this;
     }
@@ -1320,14 +1320,14 @@ public class NamingSystem extends DomainResource {
     /**
      * @return Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.
      */
-    public String getUsage() {
+    public String getUsage() { 
       return this.usage == null ? null : this.usage.getValue();
     }
 
     /**
      * @param value Provides guidance on the use of the namespace, including the handling of formatting characters, use of upper vs. lower case, etc.
      */
-    public NamingSystem setUsage(String value) {
+    public NamingSystem setUsage(String value) { 
       if (Utilities.noString(value))
         this.usage = null;
       else {
@@ -1341,13 +1341,13 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #uniqueId} (Indicates how the system may be identified when referenced in electronic exchange.)
      */
-    public List<NamingSystemUniqueIdComponent> getUniqueId() {
+    public List<NamingSystemUniqueIdComponent> getUniqueId() { 
       if (this.uniqueId == null)
         this.uniqueId = new ArrayList<NamingSystemUniqueIdComponent>();
       return this.uniqueId;
     }
 
-    public boolean hasUniqueId() {
+    public boolean hasUniqueId() { 
       if (this.uniqueId == null)
         return false;
       for (NamingSystemUniqueIdComponent item : this.uniqueId)
@@ -1381,7 +1381,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #replacedBy} (For naming systems that are retired, indicates the naming system that should be used in their place (if any).)
      */
-    public Reference getReplacedBy() {
+    public Reference getReplacedBy() { 
       if (this.replacedBy == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.replacedBy");
@@ -1390,14 +1390,14 @@ public class NamingSystem extends DomainResource {
       return this.replacedBy;
     }
 
-    public boolean hasReplacedBy() {
+    public boolean hasReplacedBy() { 
       return this.replacedBy != null && !this.replacedBy.isEmpty();
     }
 
     /**
      * @param value {@link #replacedBy} (For naming systems that are retired, indicates the naming system that should be used in their place (if any).)
      */
-    public NamingSystem setReplacedBy(Reference value) {
+    public NamingSystem setReplacedBy(Reference value) { 
       this.replacedBy = value;
       return this;
     }
@@ -1405,7 +1405,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @return {@link #replacedBy} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (For naming systems that are retired, indicates the naming system that should be used in their place (if any).)
      */
-    public NamingSystem getReplacedByTarget() {
+    public NamingSystem getReplacedByTarget() { 
       if (this.replacedByTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create NamingSystem.replacedBy");
@@ -1417,7 +1417,7 @@ public class NamingSystem extends DomainResource {
     /**
      * @param value {@link #replacedBy} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (For naming systems that are retired, indicates the naming system that should be used in their place (if any).)
      */
-    public NamingSystem setReplacedByTarget(NamingSystem value) {
+    public NamingSystem setReplacedByTarget(NamingSystem value) { 
       this.replacedByTarget = value;
       return this;
     }

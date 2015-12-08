@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,27 +51,27 @@ public class Encounter extends DomainResource {
         /**
          * The Encounter has not yet started.
          */
-        PLANNED,
+        PLANNED, 
         /**
          * The Patient is present for the encounter, however is not currently meeting with a practitioner.
          */
-        ARRIVED,
+        ARRIVED, 
         /**
          * The Encounter has begun and the patient is present / the practitioner and the patient are meeting.
          */
-        INPROGRESS,
+        INPROGRESS, 
         /**
          * The Encounter has begun, but the patient is temporarily on leave.
          */
-        ONLEAVE,
+        ONLEAVE, 
         /**
          * The Encounter has ended.
          */
-        FINISHED,
+        FINISHED, 
         /**
          * The Encounter has ended before it has begun.
          */
-        CANCELLED,
+        CANCELLED, 
         /**
          * added to help the parsers
          */
@@ -199,39 +199,39 @@ public class Encounter extends DomainResource {
         /**
          * An encounter during which the patient is hospitalized and stays overnight.
          */
-        INPATIENT,
+        INPATIENT, 
         /**
          * An encounter during which the patient is not hospitalized overnight.
          */
-        OUTPATIENT,
+        OUTPATIENT, 
         /**
          * An encounter where the patient visits the practitioner in his/her office, e.g. a G.P. visit.
          */
-        AMBULATORY,
+        AMBULATORY, 
         /**
          * An encounter in the Emergency Care Department.
          */
-        EMERGENCY,
+        EMERGENCY, 
         /**
          * An encounter where the practitioner visits the patient at his/her home.
          */
-        HOME,
+        HOME, 
         /**
          * An encounter taking place outside the regular environment for giving care.
          */
-        FIELD,
+        FIELD, 
         /**
          * An encounter where the patient needs more prolonged treatment or investigations than outpatients, but who do not need to stay in the hospital overnight.
          */
-        DAYTIME,
+        DAYTIME, 
         /**
          * An encounter that takes place where the patient and practitioner do not physically meet but use electronic means for contact.
          */
-        VIRTUAL,
+        VIRTUAL, 
         /**
          * Any other encounter type that is not described by one of the other values. Where this is used it is expected that an implementer will include an extension value to define what the actual other type is.
          */
-        OTHER,
+        OTHER, 
         /**
          * added to help the parsers
          */
@@ -395,23 +395,23 @@ public class Encounter extends DomainResource {
         /**
          * The patient is planned to be moved to this location at some point in the future.
          */
-        PLANNED,
+        PLANNED, 
         /**
          * The patient is currently at this location, or was between the period specified.
 
 A system may update these records when the patient leaves the location to either reserved, or completed
          */
-        ACTIVE,
+        ACTIVE, 
         /**
          * This location is held empty for this patient.
          */
-        RESERVED,
+        RESERVED, 
         /**
          * The patient was at this location during the period specified.
 
 Not to be used when the patient is currently at the location
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * added to help the parsers
          */
@@ -548,7 +548,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #status} (planned | arrived | in-progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<EncounterState> getStatusElement() {
+        public Enumeration<EncounterState> getStatusElement() { 
           if (this.status == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterStatusHistoryComponent.status");
@@ -557,18 +557,18 @@ Not to be used when the patient is currently at the location
           return this.status;
         }
 
-        public boolean hasStatusElement() {
+        public boolean hasStatusElement() { 
           return this.status != null && !this.status.isEmpty();
         }
 
-        public boolean hasStatus() {
+        public boolean hasStatus() { 
           return this.status != null && !this.status.isEmpty();
         }
 
         /**
          * @param value {@link #status} (planned | arrived | in-progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public EncounterStatusHistoryComponent setStatusElement(Enumeration<EncounterState> value) {
+        public EncounterStatusHistoryComponent setStatusElement(Enumeration<EncounterState> value) { 
           this.status = value;
           return this;
         }
@@ -576,14 +576,14 @@ Not to be used when the patient is currently at the location
         /**
          * @return planned | arrived | in-progress | onleave | finished | cancelled.
          */
-        public EncounterState getStatus() {
+        public EncounterState getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value planned | arrived | in-progress | onleave | finished | cancelled.
          */
-        public EncounterStatusHistoryComponent setStatus(EncounterState value) {
+        public EncounterStatusHistoryComponent setStatus(EncounterState value) { 
             if (this.status == null)
               this.status = new Enumeration<EncounterState>(new EncounterStateEnumFactory());
             this.status.setValue(value);
@@ -593,7 +593,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #period} (The time that the episode was in the specified status.)
          */
-        public Period getPeriod() {
+        public Period getPeriod() { 
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterStatusHistoryComponent.period");
@@ -602,14 +602,14 @@ Not to be used when the patient is currently at the location
           return this.period;
         }
 
-        public boolean hasPeriod() {
+        public boolean hasPeriod() { 
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (The time that the episode was in the specified status.)
          */
-        public EncounterStatusHistoryComponent setPeriod(Period value) {
+        public EncounterStatusHistoryComponent setPeriod(Period value) { 
           this.period = value;
           return this;
         }
@@ -723,13 +723,13 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #type} (Role of participant in encounter.)
          */
-        public List<CodeableConcept> getType() {
+        public List<CodeableConcept> getType() { 
           if (this.type == null)
             this.type = new ArrayList<CodeableConcept>();
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           if (this.type == null)
             return false;
           for (CodeableConcept item : this.type)
@@ -763,7 +763,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #period} (The period of time that the specified participant was present during the encounter. These can overlap or be sub-sets of the overall encounters period.)
          */
-        public Period getPeriod() {
+        public Period getPeriod() { 
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterParticipantComponent.period");
@@ -772,14 +772,14 @@ Not to be used when the patient is currently at the location
           return this.period;
         }
 
-        public boolean hasPeriod() {
+        public boolean hasPeriod() { 
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (The period of time that the specified participant was present during the encounter. These can overlap or be sub-sets of the overall encounters period.)
          */
-        public EncounterParticipantComponent setPeriod(Period value) {
+        public EncounterParticipantComponent setPeriod(Period value) { 
           this.period = value;
           return this;
         }
@@ -787,7 +787,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #individual} (Persons involved in the encounter other than the patient.)
          */
-        public Reference getIndividual() {
+        public Reference getIndividual() { 
           if (this.individual == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterParticipantComponent.individual");
@@ -796,14 +796,14 @@ Not to be used when the patient is currently at the location
           return this.individual;
         }
 
-        public boolean hasIndividual() {
+        public boolean hasIndividual() { 
           return this.individual != null && !this.individual.isEmpty();
         }
 
         /**
          * @param value {@link #individual} (Persons involved in the encounter other than the patient.)
          */
-        public EncounterParticipantComponent setIndividual(Reference value) {
+        public EncounterParticipantComponent setIndividual(Reference value) { 
           this.individual = value;
           return this;
         }
@@ -811,14 +811,14 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #individual} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Persons involved in the encounter other than the patient.)
          */
-        public Resource getIndividualTarget() {
+        public Resource getIndividualTarget() { 
           return this.individualTarget;
         }
 
         /**
          * @param value {@link #individual} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Persons involved in the encounter other than the patient.)
          */
-        public EncounterParticipantComponent setIndividualTarget(Resource value) {
+        public EncounterParticipantComponent setIndividualTarget(Resource value) { 
           this.individualTarget = value;
           return this;
         }
@@ -1016,7 +1016,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #preAdmissionIdentifier} (Pre-admission identifier.)
          */
-        public Identifier getPreAdmissionIdentifier() {
+        public Identifier getPreAdmissionIdentifier() { 
           if (this.preAdmissionIdentifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.preAdmissionIdentifier");
@@ -1025,14 +1025,14 @@ Not to be used when the patient is currently at the location
           return this.preAdmissionIdentifier;
         }
 
-        public boolean hasPreAdmissionIdentifier() {
+        public boolean hasPreAdmissionIdentifier() { 
           return this.preAdmissionIdentifier != null && !this.preAdmissionIdentifier.isEmpty();
         }
 
         /**
          * @param value {@link #preAdmissionIdentifier} (Pre-admission identifier.)
          */
-        public EncounterHospitalizationComponent setPreAdmissionIdentifier(Identifier value) {
+        public EncounterHospitalizationComponent setPreAdmissionIdentifier(Identifier value) { 
           this.preAdmissionIdentifier = value;
           return this;
         }
@@ -1040,7 +1040,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #origin} (The location from which the patient came before admission.)
          */
-        public Reference getOrigin() {
+        public Reference getOrigin() { 
           if (this.origin == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.origin");
@@ -1049,14 +1049,14 @@ Not to be used when the patient is currently at the location
           return this.origin;
         }
 
-        public boolean hasOrigin() {
+        public boolean hasOrigin() { 
           return this.origin != null && !this.origin.isEmpty();
         }
 
         /**
          * @param value {@link #origin} (The location from which the patient came before admission.)
          */
-        public EncounterHospitalizationComponent setOrigin(Reference value) {
+        public EncounterHospitalizationComponent setOrigin(Reference value) { 
           this.origin = value;
           return this;
         }
@@ -1064,7 +1064,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #origin} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The location from which the patient came before admission.)
          */
-        public Location getOriginTarget() {
+        public Location getOriginTarget() { 
           if (this.originTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.origin");
@@ -1076,7 +1076,7 @@ Not to be used when the patient is currently at the location
         /**
          * @param value {@link #origin} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The location from which the patient came before admission.)
          */
-        public EncounterHospitalizationComponent setOriginTarget(Location value) {
+        public EncounterHospitalizationComponent setOriginTarget(Location value) { 
           this.originTarget = value;
           return this;
         }
@@ -1084,7 +1084,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #admitSource} (From where patient was admitted (physician referral, transfer).)
          */
-        public CodeableConcept getAdmitSource() {
+        public CodeableConcept getAdmitSource() { 
           if (this.admitSource == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.admitSource");
@@ -1093,14 +1093,14 @@ Not to be used when the patient is currently at the location
           return this.admitSource;
         }
 
-        public boolean hasAdmitSource() {
+        public boolean hasAdmitSource() { 
           return this.admitSource != null && !this.admitSource.isEmpty();
         }
 
         /**
          * @param value {@link #admitSource} (From where patient was admitted (physician referral, transfer).)
          */
-        public EncounterHospitalizationComponent setAdmitSource(CodeableConcept value) {
+        public EncounterHospitalizationComponent setAdmitSource(CodeableConcept value) { 
           this.admitSource = value;
           return this;
         }
@@ -1108,13 +1108,13 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #admittingDiagnosis} (The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter.)
          */
-        public List<Reference> getAdmittingDiagnosis() {
+        public List<Reference> getAdmittingDiagnosis() { 
           if (this.admittingDiagnosis == null)
             this.admittingDiagnosis = new ArrayList<Reference>();
           return this.admittingDiagnosis;
         }
 
-        public boolean hasAdmittingDiagnosis() {
+        public boolean hasAdmittingDiagnosis() { 
           if (this.admittingDiagnosis == null)
             return false;
           for (Reference item : this.admittingDiagnosis)
@@ -1148,7 +1148,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #admittingDiagnosis} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter.)
          */
-        public List<Condition> getAdmittingDiagnosisTarget() {
+        public List<Condition> getAdmittingDiagnosisTarget() { 
           if (this.admittingDiagnosisTarget == null)
             this.admittingDiagnosisTarget = new ArrayList<Condition>();
           return this.admittingDiagnosisTarget;
@@ -1158,7 +1158,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #admittingDiagnosis} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter.)
          */
-        public Condition addAdmittingDiagnosisTarget() {
+        public Condition addAdmittingDiagnosisTarget() { 
           Condition r = new Condition();
           if (this.admittingDiagnosisTarget == null)
             this.admittingDiagnosisTarget = new ArrayList<Condition>();
@@ -1169,7 +1169,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #reAdmission} (Whether this hospitalization is a readmission and why if known.)
          */
-        public CodeableConcept getReAdmission() {
+        public CodeableConcept getReAdmission() { 
           if (this.reAdmission == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.reAdmission");
@@ -1178,14 +1178,14 @@ Not to be used when the patient is currently at the location
           return this.reAdmission;
         }
 
-        public boolean hasReAdmission() {
+        public boolean hasReAdmission() { 
           return this.reAdmission != null && !this.reAdmission.isEmpty();
         }
 
         /**
          * @param value {@link #reAdmission} (Whether this hospitalization is a readmission and why if known.)
          */
-        public EncounterHospitalizationComponent setReAdmission(CodeableConcept value) {
+        public EncounterHospitalizationComponent setReAdmission(CodeableConcept value) { 
           this.reAdmission = value;
           return this;
         }
@@ -1193,13 +1193,13 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #dietPreference} (Diet preferences reported by the patient.)
          */
-        public List<CodeableConcept> getDietPreference() {
+        public List<CodeableConcept> getDietPreference() { 
           if (this.dietPreference == null)
             this.dietPreference = new ArrayList<CodeableConcept>();
           return this.dietPreference;
         }
 
-        public boolean hasDietPreference() {
+        public boolean hasDietPreference() { 
           if (this.dietPreference == null)
             return false;
           for (CodeableConcept item : this.dietPreference)
@@ -1233,13 +1233,13 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #specialCourtesy} (Special courtesies (VIP, board member).)
          */
-        public List<CodeableConcept> getSpecialCourtesy() {
+        public List<CodeableConcept> getSpecialCourtesy() { 
           if (this.specialCourtesy == null)
             this.specialCourtesy = new ArrayList<CodeableConcept>();
           return this.specialCourtesy;
         }
 
-        public boolean hasSpecialCourtesy() {
+        public boolean hasSpecialCourtesy() { 
           if (this.specialCourtesy == null)
             return false;
           for (CodeableConcept item : this.specialCourtesy)
@@ -1273,13 +1273,13 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #specialArrangement} (Wheelchair, translator, stretcher, etc.)
          */
-        public List<CodeableConcept> getSpecialArrangement() {
+        public List<CodeableConcept> getSpecialArrangement() { 
           if (this.specialArrangement == null)
             this.specialArrangement = new ArrayList<CodeableConcept>();
           return this.specialArrangement;
         }
 
-        public boolean hasSpecialArrangement() {
+        public boolean hasSpecialArrangement() { 
           if (this.specialArrangement == null)
             return false;
           for (CodeableConcept item : this.specialArrangement)
@@ -1313,7 +1313,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #destination} (Location to which the patient is discharged.)
          */
-        public Reference getDestination() {
+        public Reference getDestination() { 
           if (this.destination == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.destination");
@@ -1322,14 +1322,14 @@ Not to be used when the patient is currently at the location
           return this.destination;
         }
 
-        public boolean hasDestination() {
+        public boolean hasDestination() { 
           return this.destination != null && !this.destination.isEmpty();
         }
 
         /**
          * @param value {@link #destination} (Location to which the patient is discharged.)
          */
-        public EncounterHospitalizationComponent setDestination(Reference value) {
+        public EncounterHospitalizationComponent setDestination(Reference value) { 
           this.destination = value;
           return this;
         }
@@ -1337,7 +1337,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #destination} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Location to which the patient is discharged.)
          */
-        public Location getDestinationTarget() {
+        public Location getDestinationTarget() { 
           if (this.destinationTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.destination");
@@ -1349,7 +1349,7 @@ Not to be used when the patient is currently at the location
         /**
          * @param value {@link #destination} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Location to which the patient is discharged.)
          */
-        public EncounterHospitalizationComponent setDestinationTarget(Location value) {
+        public EncounterHospitalizationComponent setDestinationTarget(Location value) { 
           this.destinationTarget = value;
           return this;
         }
@@ -1357,7 +1357,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #dischargeDisposition} (Category or kind of location after discharge.)
          */
-        public CodeableConcept getDischargeDisposition() {
+        public CodeableConcept getDischargeDisposition() { 
           if (this.dischargeDisposition == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterHospitalizationComponent.dischargeDisposition");
@@ -1366,14 +1366,14 @@ Not to be used when the patient is currently at the location
           return this.dischargeDisposition;
         }
 
-        public boolean hasDischargeDisposition() {
+        public boolean hasDischargeDisposition() { 
           return this.dischargeDisposition != null && !this.dischargeDisposition.isEmpty();
         }
 
         /**
          * @param value {@link #dischargeDisposition} (Category or kind of location after discharge.)
          */
-        public EncounterHospitalizationComponent setDischargeDisposition(CodeableConcept value) {
+        public EncounterHospitalizationComponent setDischargeDisposition(CodeableConcept value) { 
           this.dischargeDisposition = value;
           return this;
         }
@@ -1381,13 +1381,13 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #dischargeDiagnosis} (The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
          */
-        public List<Reference> getDischargeDiagnosis() {
+        public List<Reference> getDischargeDiagnosis() { 
           if (this.dischargeDiagnosis == null)
             this.dischargeDiagnosis = new ArrayList<Reference>();
           return this.dischargeDiagnosis;
         }
 
-        public boolean hasDischargeDiagnosis() {
+        public boolean hasDischargeDiagnosis() { 
           if (this.dischargeDiagnosis == null)
             return false;
           for (Reference item : this.dischargeDiagnosis)
@@ -1421,7 +1421,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #dischargeDiagnosis} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
          */
-        public List<Condition> getDischargeDiagnosisTarget() {
+        public List<Condition> getDischargeDiagnosisTarget() { 
           if (this.dischargeDiagnosisTarget == null)
             this.dischargeDiagnosisTarget = new ArrayList<Condition>();
           return this.dischargeDiagnosisTarget;
@@ -1431,7 +1431,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #dischargeDiagnosis} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.)
          */
-        public Condition addDischargeDiagnosisTarget() {
+        public Condition addDischargeDiagnosisTarget() { 
           Condition r = new Condition();
           if (this.dischargeDiagnosisTarget == null)
             this.dischargeDiagnosisTarget = new ArrayList<Condition>();
@@ -1654,7 +1654,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #location} (The location where the encounter takes place.)
          */
-        public Reference getLocation() {
+        public Reference getLocation() { 
           if (this.location == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterLocationComponent.location");
@@ -1663,14 +1663,14 @@ Not to be used when the patient is currently at the location
           return this.location;
         }
 
-        public boolean hasLocation() {
+        public boolean hasLocation() { 
           return this.location != null && !this.location.isEmpty();
         }
 
         /**
          * @param value {@link #location} (The location where the encounter takes place.)
          */
-        public EncounterLocationComponent setLocation(Reference value) {
+        public EncounterLocationComponent setLocation(Reference value) { 
           this.location = value;
           return this;
         }
@@ -1678,7 +1678,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The location where the encounter takes place.)
          */
-        public Location getLocationTarget() {
+        public Location getLocationTarget() { 
           if (this.locationTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterLocationComponent.location");
@@ -1690,7 +1690,7 @@ Not to be used when the patient is currently at the location
         /**
          * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The location where the encounter takes place.)
          */
-        public EncounterLocationComponent setLocationTarget(Location value) {
+        public EncounterLocationComponent setLocationTarget(Location value) { 
           this.locationTarget = value;
           return this;
         }
@@ -1698,7 +1698,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #status} (The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<EncounterLocationStatus> getStatusElement() {
+        public Enumeration<EncounterLocationStatus> getStatusElement() { 
           if (this.status == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterLocationComponent.status");
@@ -1707,18 +1707,18 @@ Not to be used when the patient is currently at the location
           return this.status;
         }
 
-        public boolean hasStatusElement() {
+        public boolean hasStatusElement() { 
           return this.status != null && !this.status.isEmpty();
         }
 
-        public boolean hasStatus() {
+        public boolean hasStatus() { 
           return this.status != null && !this.status.isEmpty();
         }
 
         /**
          * @param value {@link #status} (The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public EncounterLocationComponent setStatusElement(Enumeration<EncounterLocationStatus> value) {
+        public EncounterLocationComponent setStatusElement(Enumeration<EncounterLocationStatus> value) { 
           this.status = value;
           return this;
         }
@@ -1726,14 +1726,14 @@ Not to be used when the patient is currently at the location
         /**
          * @return The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time.
          */
-        public EncounterLocationStatus getStatus() {
+        public EncounterLocationStatus getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value The status of the participants' presence at the specified location during the period specified. If the participant is is no longer at the location, then the period will have an end date/time.
          */
-        public EncounterLocationComponent setStatus(EncounterLocationStatus value) {
+        public EncounterLocationComponent setStatus(EncounterLocationStatus value) { 
           if (value == null)
             this.status = null;
           else {
@@ -1747,7 +1747,7 @@ Not to be used when the patient is currently at the location
         /**
          * @return {@link #period} (Time period during which the patient was present at the location.)
          */
-        public Period getPeriod() {
+        public Period getPeriod() { 
           if (this.period == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create EncounterLocationComponent.period");
@@ -1756,14 +1756,14 @@ Not to be used when the patient is currently at the location
           return this.period;
         }
 
-        public boolean hasPeriod() {
+        public boolean hasPeriod() { 
           return this.period != null && !this.period.isEmpty();
         }
 
         /**
          * @param value {@link #period} (Time period during which the patient was present at the location.)
          */
-        public EncounterLocationComponent setPeriod(Period value) {
+        public EncounterLocationComponent setPeriod(Period value) { 
           this.period = value;
           return this;
         }
@@ -2034,13 +2034,13 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #identifier} (Identifier(s) by which this encounter is known.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -2074,7 +2074,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #status} (planned | arrived | in-progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<EncounterState> getStatusElement() {
+    public Enumeration<EncounterState> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.status");
@@ -2083,18 +2083,18 @@ Not to be used when the patient is currently at the location
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (planned | arrived | in-progress | onleave | finished | cancelled.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Encounter setStatusElement(Enumeration<EncounterState> value) {
+    public Encounter setStatusElement(Enumeration<EncounterState> value) { 
       this.status = value;
       return this;
     }
@@ -2102,14 +2102,14 @@ Not to be used when the patient is currently at the location
     /**
      * @return planned | arrived | in-progress | onleave | finished | cancelled.
      */
-    public EncounterState getStatus() {
+    public EncounterState getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value planned | arrived | in-progress | onleave | finished | cancelled.
      */
-    public Encounter setStatus(EncounterState value) {
+    public Encounter setStatus(EncounterState value) { 
         if (this.status == null)
           this.status = new Enumeration<EncounterState>(new EncounterStateEnumFactory());
         this.status.setValue(value);
@@ -2119,13 +2119,13 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #statusHistory} (The status history permits the encounter resource to contain the status history without needing to read through the historical versions of the resource, or even have the server store them.)
      */
-    public List<EncounterStatusHistoryComponent> getStatusHistory() {
+    public List<EncounterStatusHistoryComponent> getStatusHistory() { 
       if (this.statusHistory == null)
         this.statusHistory = new ArrayList<EncounterStatusHistoryComponent>();
       return this.statusHistory;
     }
 
-    public boolean hasStatusHistory() {
+    public boolean hasStatusHistory() { 
       if (this.statusHistory == null)
         return false;
       for (EncounterStatusHistoryComponent item : this.statusHistory)
@@ -2159,7 +2159,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #class_} (inpatient | outpatient | ambulatory | emergency +.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
      */
-    public Enumeration<EncounterClass> getClass_Element() {
+    public Enumeration<EncounterClass> getClass_Element() { 
       if (this.class_ == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.class_");
@@ -2168,18 +2168,18 @@ Not to be used when the patient is currently at the location
       return this.class_;
     }
 
-    public boolean hasClass_Element() {
+    public boolean hasClass_Element() { 
       return this.class_ != null && !this.class_.isEmpty();
     }
 
-    public boolean hasClass_() {
+    public boolean hasClass_() { 
       return this.class_ != null && !this.class_.isEmpty();
     }
 
     /**
      * @param value {@link #class_} (inpatient | outpatient | ambulatory | emergency +.). This is the underlying object with id, value and extensions. The accessor "getClass_" gives direct access to the value
      */
-    public Encounter setClass_Element(Enumeration<EncounterClass> value) {
+    public Encounter setClass_Element(Enumeration<EncounterClass> value) { 
       this.class_ = value;
       return this;
     }
@@ -2187,14 +2187,14 @@ Not to be used when the patient is currently at the location
     /**
      * @return inpatient | outpatient | ambulatory | emergency +.
      */
-    public EncounterClass getClass_() {
+    public EncounterClass getClass_() { 
       return this.class_ == null ? null : this.class_.getValue();
     }
 
     /**
      * @param value inpatient | outpatient | ambulatory | emergency +.
      */
-    public Encounter setClass_(EncounterClass value) {
+    public Encounter setClass_(EncounterClass value) { 
       if (value == null)
         this.class_ = null;
       else {
@@ -2208,13 +2208,13 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #type} (Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation).)
      */
-    public List<CodeableConcept> getType() {
+    public List<CodeableConcept> getType() { 
       if (this.type == null)
         this.type = new ArrayList<CodeableConcept>();
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       if (this.type == null)
         return false;
       for (CodeableConcept item : this.type)
@@ -2248,7 +2248,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #priority} (Indicates the urgency of the encounter.)
      */
-    public CodeableConcept getPriority() {
+    public CodeableConcept getPriority() { 
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.priority");
@@ -2257,14 +2257,14 @@ Not to be used when the patient is currently at the location
       return this.priority;
     }
 
-    public boolean hasPriority() {
+    public boolean hasPriority() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
      * @param value {@link #priority} (Indicates the urgency of the encounter.)
      */
-    public Encounter setPriority(CodeableConcept value) {
+    public Encounter setPriority(CodeableConcept value) { 
       this.priority = value;
       return this;
     }
@@ -2272,7 +2272,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #patient} (The patient present at the encounter.)
      */
-    public Reference getPatient() {
+    public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.patient");
@@ -2281,14 +2281,14 @@ Not to be used when the patient is currently at the location
       return this.patient;
     }
 
-    public boolean hasPatient() {
+    public boolean hasPatient() { 
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (The patient present at the encounter.)
      */
-    public Encounter setPatient(Reference value) {
+    public Encounter setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -2296,7 +2296,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient present at the encounter.)
      */
-    public Patient getPatientTarget() {
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.patient");
@@ -2308,7 +2308,7 @@ Not to be used when the patient is currently at the location
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient present at the encounter.)
      */
-    public Encounter setPatientTarget(Patient value) {
+    public Encounter setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -2316,13 +2316,13 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #episodeOfCare} (Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).)
      */
-    public List<Reference> getEpisodeOfCare() {
+    public List<Reference> getEpisodeOfCare() { 
       if (this.episodeOfCare == null)
         this.episodeOfCare = new ArrayList<Reference>();
       return this.episodeOfCare;
     }
 
-    public boolean hasEpisodeOfCare() {
+    public boolean hasEpisodeOfCare() { 
       if (this.episodeOfCare == null)
         return false;
       for (Reference item : this.episodeOfCare)
@@ -2356,7 +2356,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #episodeOfCare} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).)
      */
-    public List<EpisodeOfCare> getEpisodeOfCareTarget() {
+    public List<EpisodeOfCare> getEpisodeOfCareTarget() { 
       if (this.episodeOfCareTarget == null)
         this.episodeOfCareTarget = new ArrayList<EpisodeOfCare>();
       return this.episodeOfCareTarget;
@@ -2366,7 +2366,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #episodeOfCare} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Where a specific encounter should be classified as a part of a specific episode(s) of care this field should be used. This association can facilitate grouping of related encounters together for a specific purpose, such as government reporting, issue tracking, association via a common problem.  The association is recorded on the encounter as these are typically created after the episode of care, and grouped on entry rather than editing the episode of care to append another encounter to it (the episode of care could span years).)
      */
-    public EpisodeOfCare addEpisodeOfCareTarget() {
+    public EpisodeOfCare addEpisodeOfCareTarget() { 
       EpisodeOfCare r = new EpisodeOfCare();
       if (this.episodeOfCareTarget == null)
         this.episodeOfCareTarget = new ArrayList<EpisodeOfCare>();
@@ -2377,13 +2377,13 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #incomingReferral} (The referral request this encounter satisfies (incoming referral).)
      */
-    public List<Reference> getIncomingReferral() {
+    public List<Reference> getIncomingReferral() { 
       if (this.incomingReferral == null)
         this.incomingReferral = new ArrayList<Reference>();
       return this.incomingReferral;
     }
 
-    public boolean hasIncomingReferral() {
+    public boolean hasIncomingReferral() { 
       if (this.incomingReferral == null)
         return false;
       for (Reference item : this.incomingReferral)
@@ -2417,7 +2417,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #incomingReferral} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The referral request this encounter satisfies (incoming referral).)
      */
-    public List<ReferralRequest> getIncomingReferralTarget() {
+    public List<ReferralRequest> getIncomingReferralTarget() { 
       if (this.incomingReferralTarget == null)
         this.incomingReferralTarget = new ArrayList<ReferralRequest>();
       return this.incomingReferralTarget;
@@ -2427,7 +2427,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #incomingReferral} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The referral request this encounter satisfies (incoming referral).)
      */
-    public ReferralRequest addIncomingReferralTarget() {
+    public ReferralRequest addIncomingReferralTarget() { 
       ReferralRequest r = new ReferralRequest();
       if (this.incomingReferralTarget == null)
         this.incomingReferralTarget = new ArrayList<ReferralRequest>();
@@ -2438,13 +2438,13 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #participant} (The list of people responsible for providing the service.)
      */
-    public List<EncounterParticipantComponent> getParticipant() {
+    public List<EncounterParticipantComponent> getParticipant() { 
       if (this.participant == null)
         this.participant = new ArrayList<EncounterParticipantComponent>();
       return this.participant;
     }
 
-    public boolean hasParticipant() {
+    public boolean hasParticipant() { 
       if (this.participant == null)
         return false;
       for (EncounterParticipantComponent item : this.participant)
@@ -2478,7 +2478,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #appointment} (The appointment that scheduled this encounter.)
      */
-    public Reference getAppointment() {
+    public Reference getAppointment() { 
       if (this.appointment == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.appointment");
@@ -2487,14 +2487,14 @@ Not to be used when the patient is currently at the location
       return this.appointment;
     }
 
-    public boolean hasAppointment() {
+    public boolean hasAppointment() { 
       return this.appointment != null && !this.appointment.isEmpty();
     }
 
     /**
      * @param value {@link #appointment} (The appointment that scheduled this encounter.)
      */
-    public Encounter setAppointment(Reference value) {
+    public Encounter setAppointment(Reference value) { 
       this.appointment = value;
       return this;
     }
@@ -2502,7 +2502,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #appointment} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The appointment that scheduled this encounter.)
      */
-    public Appointment getAppointmentTarget() {
+    public Appointment getAppointmentTarget() { 
       if (this.appointmentTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.appointment");
@@ -2514,7 +2514,7 @@ Not to be used when the patient is currently at the location
     /**
      * @param value {@link #appointment} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The appointment that scheduled this encounter.)
      */
-    public Encounter setAppointmentTarget(Appointment value) {
+    public Encounter setAppointmentTarget(Appointment value) { 
       this.appointmentTarget = value;
       return this;
     }
@@ -2522,7 +2522,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #period} (The start and end time of the encounter.)
      */
-    public Period getPeriod() {
+    public Period getPeriod() { 
       if (this.period == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.period");
@@ -2531,14 +2531,14 @@ Not to be used when the patient is currently at the location
       return this.period;
     }
 
-    public boolean hasPeriod() {
+    public boolean hasPeriod() { 
       return this.period != null && !this.period.isEmpty();
     }
 
     /**
      * @param value {@link #period} (The start and end time of the encounter.)
      */
-    public Encounter setPeriod(Period value) {
+    public Encounter setPeriod(Period value) { 
       this.period = value;
       return this;
     }
@@ -2546,7 +2546,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #length} (Quantity of time the encounter lasted. This excludes the time during leaves of absence.)
      */
-    public Duration getLength() {
+    public Duration getLength() { 
       if (this.length == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.length");
@@ -2555,14 +2555,14 @@ Not to be used when the patient is currently at the location
       return this.length;
     }
 
-    public boolean hasLength() {
+    public boolean hasLength() { 
       return this.length != null && !this.length.isEmpty();
     }
 
     /**
      * @param value {@link #length} (Quantity of time the encounter lasted. This excludes the time during leaves of absence.)
      */
-    public Encounter setLength(Duration value) {
+    public Encounter setLength(Duration value) { 
       this.length = value;
       return this;
     }
@@ -2570,13 +2570,13 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #reason} (Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.)
      */
-    public List<CodeableConcept> getReason() {
+    public List<CodeableConcept> getReason() { 
       if (this.reason == null)
         this.reason = new ArrayList<CodeableConcept>();
       return this.reason;
     }
 
-    public boolean hasReason() {
+    public boolean hasReason() { 
       if (this.reason == null)
         return false;
       for (CodeableConcept item : this.reason)
@@ -2610,13 +2610,13 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #indication} (Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
      */
-    public List<Reference> getIndication() {
+    public List<Reference> getIndication() { 
       if (this.indication == null)
         this.indication = new ArrayList<Reference>();
       return this.indication;
     }
 
-    public boolean hasIndication() {
+    public boolean hasIndication() { 
       if (this.indication == null)
         return false;
       for (Reference item : this.indication)
@@ -2650,7 +2650,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #indication} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.)
      */
-    public List<Resource> getIndicationTarget() {
+    public List<Resource> getIndicationTarget() { 
       if (this.indicationTarget == null)
         this.indicationTarget = new ArrayList<Resource>();
       return this.indicationTarget;
@@ -2659,7 +2659,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #hospitalization} (Details about the admission to a healthcare service.)
      */
-    public EncounterHospitalizationComponent getHospitalization() {
+    public EncounterHospitalizationComponent getHospitalization() { 
       if (this.hospitalization == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.hospitalization");
@@ -2668,14 +2668,14 @@ Not to be used when the patient is currently at the location
       return this.hospitalization;
     }
 
-    public boolean hasHospitalization() {
+    public boolean hasHospitalization() { 
       return this.hospitalization != null && !this.hospitalization.isEmpty();
     }
 
     /**
      * @param value {@link #hospitalization} (Details about the admission to a healthcare service.)
      */
-    public Encounter setHospitalization(EncounterHospitalizationComponent value) {
+    public Encounter setHospitalization(EncounterHospitalizationComponent value) { 
       this.hospitalization = value;
       return this;
     }
@@ -2683,13 +2683,13 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #location} (List of locations where  the patient has been during this encounter.)
      */
-    public List<EncounterLocationComponent> getLocation() {
+    public List<EncounterLocationComponent> getLocation() { 
       if (this.location == null)
         this.location = new ArrayList<EncounterLocationComponent>();
       return this.location;
     }
 
-    public boolean hasLocation() {
+    public boolean hasLocation() { 
       if (this.location == null)
         return false;
       for (EncounterLocationComponent item : this.location)
@@ -2723,7 +2723,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #serviceProvider} (An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location's Organization.)
      */
-    public Reference getServiceProvider() {
+    public Reference getServiceProvider() { 
       if (this.serviceProvider == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.serviceProvider");
@@ -2732,14 +2732,14 @@ Not to be used when the patient is currently at the location
       return this.serviceProvider;
     }
 
-    public boolean hasServiceProvider() {
+    public boolean hasServiceProvider() { 
       return this.serviceProvider != null && !this.serviceProvider.isEmpty();
     }
 
     /**
      * @param value {@link #serviceProvider} (An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location's Organization.)
      */
-    public Encounter setServiceProvider(Reference value) {
+    public Encounter setServiceProvider(Reference value) { 
       this.serviceProvider = value;
       return this;
     }
@@ -2747,7 +2747,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #serviceProvider} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location's Organization.)
      */
-    public Organization getServiceProviderTarget() {
+    public Organization getServiceProviderTarget() { 
       if (this.serviceProviderTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.serviceProvider");
@@ -2759,7 +2759,7 @@ Not to be used when the patient is currently at the location
     /**
      * @param value {@link #serviceProvider} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (An organization that is in charge of maintaining the information of this Encounter (e.g. who maintains the report or the master service catalog item, etc.). This MAY be the same as the organization on the Patient record, however it could be different. This MAY not be not the Service Delivery Location's Organization.)
      */
-    public Encounter setServiceProviderTarget(Organization value) {
+    public Encounter setServiceProviderTarget(Organization value) { 
       this.serviceProviderTarget = value;
       return this;
     }
@@ -2767,7 +2767,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #partOf} (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
-    public Reference getPartOf() {
+    public Reference getPartOf() { 
       if (this.partOf == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.partOf");
@@ -2776,14 +2776,14 @@ Not to be used when the patient is currently at the location
       return this.partOf;
     }
 
-    public boolean hasPartOf() {
+    public boolean hasPartOf() { 
       return this.partOf != null && !this.partOf.isEmpty();
     }
 
     /**
      * @param value {@link #partOf} (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
-    public Encounter setPartOf(Reference value) {
+    public Encounter setPartOf(Reference value) { 
       this.partOf = value;
       return this;
     }
@@ -2791,7 +2791,7 @@ Not to be used when the patient is currently at the location
     /**
      * @return {@link #partOf} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
-    public Encounter getPartOfTarget() {
+    public Encounter getPartOfTarget() { 
       if (this.partOfTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Encounter.partOf");
@@ -2803,7 +2803,7 @@ Not to be used when the patient is currently at the location
     /**
      * @param value {@link #partOf} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Another Encounter of which this encounter is a part of (administratively or in time).)
      */
-    public Encounter setPartOfTarget(Encounter value) {
+    public Encounter setPartOfTarget(Encounter value) { 
       this.partOfTarget = value;
       return this;
     }

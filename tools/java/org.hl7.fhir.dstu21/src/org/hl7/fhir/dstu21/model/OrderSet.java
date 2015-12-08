@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class OrderSet extends DomainResource {
         /**
          * The participant is the patient under evaluation
          */
-        PATIENT,
+        PATIENT, 
         /**
          * The participant is a person
          */
-        PERSON,
+        PERSON, 
         /**
          * The participant is a practitioner involved in the patient's care
          */
-        PRACTITIONER,
+        PRACTITIONER, 
         /**
          * The participant is a person related to the patient
          */
-        RELATEDPERSON,
+        RELATEDPERSON, 
         /**
          * added to help the parsers
          */
@@ -167,19 +167,19 @@ public class OrderSet extends DomainResource {
         /**
          * The action is to create a new resource
          */
-        CREATE,
+        CREATE, 
         /**
          * The action is to update an existing resource
          */
-        UPDATE,
+        UPDATE, 
         /**
          * The action is to remove an existing resource
          */
-        REMOVE,
+        REMOVE, 
         /**
          * The action is to fire a specific event
          */
-        FIREEVENT,
+        FIREEVENT, 
         /**
          * added to help the parsers
          */
@@ -283,15 +283,15 @@ public class OrderSet extends DomainResource {
         /**
          * Any group marked with this behavior should be displayed as a visual group to the end user
          */
-        VISUALGROUP,
+        VISUALGROUP, 
         /**
          * A group with this behavior logically groups its sub-elements, and may be shown as a visual group to the end user, but it is not required to do so
          */
-        LOGICALGROUP,
+        LOGICALGROUP, 
         /**
          * A group of related alternative items is a sentence group if the target referenced by the item is the same in all the items, and each item simply constitutes a different variation on how to specify the details for the target. For example, two items that could be in a SentenceGroup are "aspirin, 500 mg, 2 times per day" and "aspirin, 300 mg, 3 times per day". In both cases, aspirin is the target referenced by the item, and the two items represent two different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of "AtMostOne", unless it's a required item, in which case, it would be "ExactlyOne"
          */
-        SENTENCEGROUP,
+        SENTENCEGROUP, 
         /**
          * added to help the parsers
          */
@@ -383,27 +383,27 @@ public class OrderSet extends DomainResource {
         /**
          * Any number of the items in the group may be chosen, from zero to all
          */
-        ANY,
+        ANY, 
         /**
          * All the items in the group must be selected as a single unit
          */
-        ALL,
+        ALL, 
         /**
          * All the items in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected
          */
-        ALLORNONE,
+        ALLORNONE, 
         /**
          * The end user must choose one and only one of the selectable items in the group. The user may not choose none of the items in the group
          */
-        EXACTLYONE,
+        EXACTLYONE, 
         /**
          * The end user may choose zero or at most one of the items in the group
          */
-        ATMOSTONE,
+        ATMOSTONE, 
         /**
          * The end user must choose a minimum of one, and as many additional as desired
          */
-        ONEORMORE,
+        ONEORMORE, 
         /**
          * added to help the parsers
          */
@@ -531,15 +531,15 @@ public class OrderSet extends DomainResource {
         /**
          * An item with this behavior must be included in the items processed by the end user; the end user may not choose not to include this item
          */
-        MUST,
+        MUST, 
         /**
          * An item with this behavior may be included in the set of items processed by the end user
          */
-        COULD,
+        COULD, 
         /**
          * An item with this behavior must be included in the set of items processed by the end user, unless the end user provides documentation as to why the item was not included
          */
-        MUSTUNLESSDOCUMENTED,
+        MUSTUNLESSDOCUMENTED, 
         /**
          * added to help the parsers
          */
@@ -631,11 +631,11 @@ public class OrderSet extends DomainResource {
         /**
          * An item with this behavior is one of the most frequent items that is, or should be, included by an end user, for the particular context in which the item occurs. The system displaying the item to the end user should consider "pre-checking" such an item as a convenience for the user
          */
-        YES,
+        YES, 
         /**
          * An item with this behavior is one of the less frequent items included by the end user, for the particular context in which the item occurs. The system displaying the items to the end user would typically not "pre-check" such an item
          */
-        NO,
+        NO, 
         /**
          * added to help the parsers
          */
@@ -715,11 +715,11 @@ public class OrderSet extends DomainResource {
         /**
          * The item may only be selected one time
          */
-        SINGLE,
+        SINGLE, 
         /**
          * The item may be selected multiple times
          */
-        MULTIPLE,
+        MULTIPLE, 
         /**
          * added to help the parsers
          */
@@ -940,7 +940,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #identifier} (A unique identifier for the item.)
          */
-        public Identifier getIdentifier() {
+        public Identifier getIdentifier() { 
           if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.identifier");
@@ -949,14 +949,14 @@ public class OrderSet extends DomainResource {
           return this.identifier;
         }
 
-        public boolean hasIdentifier() {
+        public boolean hasIdentifier() { 
           return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
          * @param value {@link #identifier} (A unique identifier for the item.)
          */
-        public OrderSetItemComponent setIdentifier(Identifier value) {
+        public OrderSetItemComponent setIdentifier(Identifier value) { 
           this.identifier = value;
           return this;
         }
@@ -964,7 +964,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #number} (A user-visible number for the item.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public StringType getNumberElement() {
+        public StringType getNumberElement() { 
           if (this.number == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.number");
@@ -973,18 +973,18 @@ public class OrderSet extends DomainResource {
           return this.number;
         }
 
-        public boolean hasNumberElement() {
+        public boolean hasNumberElement() { 
           return this.number != null && !this.number.isEmpty();
         }
 
-        public boolean hasNumber() {
+        public boolean hasNumber() { 
           return this.number != null && !this.number.isEmpty();
         }
 
         /**
          * @param value {@link #number} (A user-visible number for the item.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public OrderSetItemComponent setNumberElement(StringType value) {
+        public OrderSetItemComponent setNumberElement(StringType value) { 
           this.number = value;
           return this;
         }
@@ -992,14 +992,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return A user-visible number for the item.
          */
-        public String getNumber() {
+        public String getNumber() { 
           return this.number == null ? null : this.number.getValue();
         }
 
         /**
          * @param value A user-visible number for the item.
          */
-        public OrderSetItemComponent setNumber(String value) {
+        public OrderSetItemComponent setNumber(String value) { 
           if (Utilities.noString(value))
             this.number = null;
           else {
@@ -1013,7 +1013,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #title} (The title of the item.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitleElement() {
+        public StringType getTitleElement() { 
           if (this.title == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.title");
@@ -1022,18 +1022,18 @@ public class OrderSet extends DomainResource {
           return this.title;
         }
 
-        public boolean hasTitleElement() {
+        public boolean hasTitleElement() { 
           return this.title != null && !this.title.isEmpty();
         }
 
-        public boolean hasTitle() {
+        public boolean hasTitle() { 
           return this.title != null && !this.title.isEmpty();
         }
 
         /**
          * @param value {@link #title} (The title of the item.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public OrderSetItemComponent setTitleElement(StringType value) {
+        public OrderSetItemComponent setTitleElement(StringType value) { 
           this.title = value;
           return this;
         }
@@ -1041,14 +1041,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return The title of the item.
          */
-        public String getTitle() {
+        public String getTitle() { 
           return this.title == null ? null : this.title.getValue();
         }
 
         /**
          * @param value The title of the item.
          */
-        public OrderSetItemComponent setTitle(String value) {
+        public OrderSetItemComponent setTitle(String value) { 
           if (Utilities.noString(value))
             this.title = null;
           else {
@@ -1062,7 +1062,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #description} (A short description of the item.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() {
+        public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.description");
@@ -1071,18 +1071,18 @@ public class OrderSet extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() {
+        public boolean hasDescriptionElement() { 
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() {
+        public boolean hasDescription() { 
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (A short description of the item.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public OrderSetItemComponent setDescriptionElement(StringType value) {
+        public OrderSetItemComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -1090,14 +1090,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return A short description of the item.
          */
-        public String getDescription() {
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value A short description of the item.
          */
-        public OrderSetItemComponent setDescription(String value) {
+        public OrderSetItemComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -1111,7 +1111,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #textEquivalent} (A text equivalent of the item in the orderset.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
          */
-        public StringType getTextEquivalentElement() {
+        public StringType getTextEquivalentElement() { 
           if (this.textEquivalent == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.textEquivalent");
@@ -1120,18 +1120,18 @@ public class OrderSet extends DomainResource {
           return this.textEquivalent;
         }
 
-        public boolean hasTextEquivalentElement() {
+        public boolean hasTextEquivalentElement() { 
           return this.textEquivalent != null && !this.textEquivalent.isEmpty();
         }
 
-        public boolean hasTextEquivalent() {
+        public boolean hasTextEquivalent() { 
           return this.textEquivalent != null && !this.textEquivalent.isEmpty();
         }
 
         /**
          * @param value {@link #textEquivalent} (A text equivalent of the item in the orderset.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
          */
-        public OrderSetItemComponent setTextEquivalentElement(StringType value) {
+        public OrderSetItemComponent setTextEquivalentElement(StringType value) { 
           this.textEquivalent = value;
           return this;
         }
@@ -1139,14 +1139,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return A text equivalent of the item in the orderset.
          */
-        public String getTextEquivalent() {
+        public String getTextEquivalent() { 
           return this.textEquivalent == null ? null : this.textEquivalent.getValue();
         }
 
         /**
          * @param value A text equivalent of the item in the orderset.
          */
-        public OrderSetItemComponent setTextEquivalent(String value) {
+        public OrderSetItemComponent setTextEquivalent(String value) { 
           if (Utilities.noString(value))
             this.textEquivalent = null;
           else {
@@ -1160,13 +1160,13 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #supportingEvidence} (Supporting evidence for the item.)
          */
-        public List<Attachment> getSupportingEvidence() {
+        public List<Attachment> getSupportingEvidence() { 
           if (this.supportingEvidence == null)
             this.supportingEvidence = new ArrayList<Attachment>();
           return this.supportingEvidence;
         }
 
-        public boolean hasSupportingEvidence() {
+        public boolean hasSupportingEvidence() { 
           if (this.supportingEvidence == null)
             return false;
           for (Attachment item : this.supportingEvidence)
@@ -1200,13 +1200,13 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #documentation} (Supporting documentation for the  item.)
          */
-        public List<Attachment> getDocumentation() {
+        public List<Attachment> getDocumentation() { 
           if (this.documentation == null)
             this.documentation = new ArrayList<Attachment>();
           return this.documentation;
         }
 
-        public boolean hasDocumentation() {
+        public boolean hasDocumentation() { 
           if (this.documentation == null)
             return false;
           for (Attachment item : this.documentation)
@@ -1240,13 +1240,13 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #participantType} (The type of participant in the item.)
          */
-        public List<Enumeration<OrderSetParticipantType>> getParticipantType() {
+        public List<Enumeration<OrderSetParticipantType>> getParticipantType() { 
           if (this.participantType == null)
             this.participantType = new ArrayList<Enumeration<OrderSetParticipantType>>();
           return this.participantType;
         }
 
-        public boolean hasParticipantType() {
+        public boolean hasParticipantType() { 
           if (this.participantType == null)
             return false;
           for (Enumeration<OrderSetParticipantType> item : this.participantType)
@@ -1259,7 +1259,7 @@ public class OrderSet extends DomainResource {
          * @return {@link #participantType} (The type of participant in the item.)
          */
     // syntactic sugar
-        public Enumeration<OrderSetParticipantType> addParticipantTypeElement() {//2
+        public Enumeration<OrderSetParticipantType> addParticipantTypeElement() {//2 
           Enumeration<OrderSetParticipantType> t = new Enumeration<OrderSetParticipantType>(new OrderSetParticipantTypeEnumFactory());
           if (this.participantType == null)
             this.participantType = new ArrayList<Enumeration<OrderSetParticipantType>>();
@@ -1282,7 +1282,7 @@ public class OrderSet extends DomainResource {
         /**
          * @param value {@link #participantType} (The type of participant in the item.)
          */
-        public boolean hasParticipantType(OrderSetParticipantType value) {
+        public boolean hasParticipantType(OrderSetParticipantType value) { 
           if (this.participantType == null)
             return false;
           for (Enumeration<OrderSetParticipantType> v : this.participantType)
@@ -1294,13 +1294,13 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #concept} (Concepts associated with the item.)
          */
-        public List<CodeableConcept> getConcept() {
+        public List<CodeableConcept> getConcept() { 
           if (this.concept == null)
             this.concept = new ArrayList<CodeableConcept>();
           return this.concept;
         }
 
-        public boolean hasConcept() {
+        public boolean hasConcept() { 
           if (this.concept == null)
             return false;
           for (CodeableConcept item : this.concept)
@@ -1334,7 +1334,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #type} (The type of item (create, update, remove).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<OrderSetItemType> getTypeElement() {
+        public Enumeration<OrderSetItemType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.type");
@@ -1343,18 +1343,18 @@ public class OrderSet extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() {
+        public boolean hasTypeElement() { 
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of item (create, update, remove).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public OrderSetItemComponent setTypeElement(Enumeration<OrderSetItemType> value) {
+        public OrderSetItemComponent setTypeElement(Enumeration<OrderSetItemType> value) { 
           this.type = value;
           return this;
         }
@@ -1362,14 +1362,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return The type of item (create, update, remove).
          */
-        public OrderSetItemType getType() {
+        public OrderSetItemType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of item (create, update, remove).
          */
-        public OrderSetItemComponent setType(OrderSetItemType value) {
+        public OrderSetItemComponent setType(OrderSetItemType value) { 
           if (value == null)
             this.type = null;
           else {
@@ -1383,7 +1383,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #groupingBehavior} (Defines organization behavior of a group: gives the reason why the items are grouped together.). This is the underlying object with id, value and extensions. The accessor "getGroupingBehavior" gives direct access to the value
          */
-        public Enumeration<OrderSetItemGroupingBehavior> getGroupingBehaviorElement() {
+        public Enumeration<OrderSetItemGroupingBehavior> getGroupingBehaviorElement() { 
           if (this.groupingBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.groupingBehavior");
@@ -1392,18 +1392,18 @@ public class OrderSet extends DomainResource {
           return this.groupingBehavior;
         }
 
-        public boolean hasGroupingBehaviorElement() {
+        public boolean hasGroupingBehaviorElement() { 
           return this.groupingBehavior != null && !this.groupingBehavior.isEmpty();
         }
 
-        public boolean hasGroupingBehavior() {
+        public boolean hasGroupingBehavior() { 
           return this.groupingBehavior != null && !this.groupingBehavior.isEmpty();
         }
 
         /**
          * @param value {@link #groupingBehavior} (Defines organization behavior of a group: gives the reason why the items are grouped together.). This is the underlying object with id, value and extensions. The accessor "getGroupingBehavior" gives direct access to the value
          */
-        public OrderSetItemComponent setGroupingBehaviorElement(Enumeration<OrderSetItemGroupingBehavior> value) {
+        public OrderSetItemComponent setGroupingBehaviorElement(Enumeration<OrderSetItemGroupingBehavior> value) { 
           this.groupingBehavior = value;
           return this;
         }
@@ -1411,14 +1411,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return Defines organization behavior of a group: gives the reason why the items are grouped together.
          */
-        public OrderSetItemGroupingBehavior getGroupingBehavior() {
+        public OrderSetItemGroupingBehavior getGroupingBehavior() { 
           return this.groupingBehavior == null ? null : this.groupingBehavior.getValue();
         }
 
         /**
          * @param value Defines organization behavior of a group: gives the reason why the items are grouped together.
          */
-        public OrderSetItemComponent setGroupingBehavior(OrderSetItemGroupingBehavior value) {
+        public OrderSetItemComponent setGroupingBehavior(OrderSetItemGroupingBehavior value) { 
           if (value == null)
             this.groupingBehavior = null;
           else {
@@ -1432,7 +1432,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #selectionBehavior} (Defines selection behavior of a group: specifies the number of selectable items in the group that may be selected by the end user when the items of the group are displayed.). This is the underlying object with id, value and extensions. The accessor "getSelectionBehavior" gives direct access to the value
          */
-        public Enumeration<OrderSetItemSelectionBehavior> getSelectionBehaviorElement() {
+        public Enumeration<OrderSetItemSelectionBehavior> getSelectionBehaviorElement() { 
           if (this.selectionBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.selectionBehavior");
@@ -1441,18 +1441,18 @@ public class OrderSet extends DomainResource {
           return this.selectionBehavior;
         }
 
-        public boolean hasSelectionBehaviorElement() {
+        public boolean hasSelectionBehaviorElement() { 
           return this.selectionBehavior != null && !this.selectionBehavior.isEmpty();
         }
 
-        public boolean hasSelectionBehavior() {
+        public boolean hasSelectionBehavior() { 
           return this.selectionBehavior != null && !this.selectionBehavior.isEmpty();
         }
 
         /**
          * @param value {@link #selectionBehavior} (Defines selection behavior of a group: specifies the number of selectable items in the group that may be selected by the end user when the items of the group are displayed.). This is the underlying object with id, value and extensions. The accessor "getSelectionBehavior" gives direct access to the value
          */
-        public OrderSetItemComponent setSelectionBehaviorElement(Enumeration<OrderSetItemSelectionBehavior> value) {
+        public OrderSetItemComponent setSelectionBehaviorElement(Enumeration<OrderSetItemSelectionBehavior> value) { 
           this.selectionBehavior = value;
           return this;
         }
@@ -1460,14 +1460,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return Defines selection behavior of a group: specifies the number of selectable items in the group that may be selected by the end user when the items of the group are displayed.
          */
-        public OrderSetItemSelectionBehavior getSelectionBehavior() {
+        public OrderSetItemSelectionBehavior getSelectionBehavior() { 
           return this.selectionBehavior == null ? null : this.selectionBehavior.getValue();
         }
 
         /**
          * @param value Defines selection behavior of a group: specifies the number of selectable items in the group that may be selected by the end user when the items of the group are displayed.
          */
-        public OrderSetItemComponent setSelectionBehavior(OrderSetItemSelectionBehavior value) {
+        public OrderSetItemComponent setSelectionBehavior(OrderSetItemSelectionBehavior value) { 
           if (value == null)
             this.selectionBehavior = null;
           else {
@@ -1481,7 +1481,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #requiredBehavior} (Defines requiredness behavior for selecting an action or an action group; i.e., whether the action or action group is required or optional.). This is the underlying object with id, value and extensions. The accessor "getRequiredBehavior" gives direct access to the value
          */
-        public Enumeration<OrderSetItemRequiredBehavior> getRequiredBehaviorElement() {
+        public Enumeration<OrderSetItemRequiredBehavior> getRequiredBehaviorElement() { 
           if (this.requiredBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.requiredBehavior");
@@ -1490,18 +1490,18 @@ public class OrderSet extends DomainResource {
           return this.requiredBehavior;
         }
 
-        public boolean hasRequiredBehaviorElement() {
+        public boolean hasRequiredBehaviorElement() { 
           return this.requiredBehavior != null && !this.requiredBehavior.isEmpty();
         }
 
-        public boolean hasRequiredBehavior() {
+        public boolean hasRequiredBehavior() { 
           return this.requiredBehavior != null && !this.requiredBehavior.isEmpty();
         }
 
         /**
          * @param value {@link #requiredBehavior} (Defines requiredness behavior for selecting an action or an action group; i.e., whether the action or action group is required or optional.). This is the underlying object with id, value and extensions. The accessor "getRequiredBehavior" gives direct access to the value
          */
-        public OrderSetItemComponent setRequiredBehaviorElement(Enumeration<OrderSetItemRequiredBehavior> value) {
+        public OrderSetItemComponent setRequiredBehaviorElement(Enumeration<OrderSetItemRequiredBehavior> value) { 
           this.requiredBehavior = value;
           return this;
         }
@@ -1509,14 +1509,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return Defines requiredness behavior for selecting an action or an action group; i.e., whether the action or action group is required or optional.
          */
-        public OrderSetItemRequiredBehavior getRequiredBehavior() {
+        public OrderSetItemRequiredBehavior getRequiredBehavior() { 
           return this.requiredBehavior == null ? null : this.requiredBehavior.getValue();
         }
 
         /**
          * @param value Defines requiredness behavior for selecting an action or an action group; i.e., whether the action or action group is required or optional.
          */
-        public OrderSetItemComponent setRequiredBehavior(OrderSetItemRequiredBehavior value) {
+        public OrderSetItemComponent setRequiredBehavior(OrderSetItemRequiredBehavior value) { 
           if (value == null)
             this.requiredBehavior = null;
           else {
@@ -1530,7 +1530,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #precheckBehavior} (Defines selection frequency behavior for an action or group; i.e., for most frequently selected items, the end-user system may provide convenience options in the UI (such as pre-selection) in order to (1) communicate to the end user what the most frequently selected item is, or should, be in a particular context, and (2) save the end user time.). This is the underlying object with id, value and extensions. The accessor "getPrecheckBehavior" gives direct access to the value
          */
-        public Enumeration<OrderSetItemPrecheckBehavior> getPrecheckBehaviorElement() {
+        public Enumeration<OrderSetItemPrecheckBehavior> getPrecheckBehaviorElement() { 
           if (this.precheckBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.precheckBehavior");
@@ -1539,18 +1539,18 @@ public class OrderSet extends DomainResource {
           return this.precheckBehavior;
         }
 
-        public boolean hasPrecheckBehaviorElement() {
+        public boolean hasPrecheckBehaviorElement() { 
           return this.precheckBehavior != null && !this.precheckBehavior.isEmpty();
         }
 
-        public boolean hasPrecheckBehavior() {
+        public boolean hasPrecheckBehavior() { 
           return this.precheckBehavior != null && !this.precheckBehavior.isEmpty();
         }
 
         /**
          * @param value {@link #precheckBehavior} (Defines selection frequency behavior for an action or group; i.e., for most frequently selected items, the end-user system may provide convenience options in the UI (such as pre-selection) in order to (1) communicate to the end user what the most frequently selected item is, or should, be in a particular context, and (2) save the end user time.). This is the underlying object with id, value and extensions. The accessor "getPrecheckBehavior" gives direct access to the value
          */
-        public OrderSetItemComponent setPrecheckBehaviorElement(Enumeration<OrderSetItemPrecheckBehavior> value) {
+        public OrderSetItemComponent setPrecheckBehaviorElement(Enumeration<OrderSetItemPrecheckBehavior> value) { 
           this.precheckBehavior = value;
           return this;
         }
@@ -1558,14 +1558,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return Defines selection frequency behavior for an action or group; i.e., for most frequently selected items, the end-user system may provide convenience options in the UI (such as pre-selection) in order to (1) communicate to the end user what the most frequently selected item is, or should, be in a particular context, and (2) save the end user time.
          */
-        public OrderSetItemPrecheckBehavior getPrecheckBehavior() {
+        public OrderSetItemPrecheckBehavior getPrecheckBehavior() { 
           return this.precheckBehavior == null ? null : this.precheckBehavior.getValue();
         }
 
         /**
          * @param value Defines selection frequency behavior for an action or group; i.e., for most frequently selected items, the end-user system may provide convenience options in the UI (such as pre-selection) in order to (1) communicate to the end user what the most frequently selected item is, or should, be in a particular context, and (2) save the end user time.
          */
-        public OrderSetItemComponent setPrecheckBehavior(OrderSetItemPrecheckBehavior value) {
+        public OrderSetItemComponent setPrecheckBehavior(OrderSetItemPrecheckBehavior value) { 
           if (value == null)
             this.precheckBehavior = null;
           else {
@@ -1579,7 +1579,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #cardinalityBehavior} (Defines behavior for an action or a group for how many times that item may be repeated, i.e., cardinality. For example, if a user is documenting lesions, the lesion element may be repeated several times, once for each occurrence of a lesion on the patient or tissue sample or image.). This is the underlying object with id, value and extensions. The accessor "getCardinalityBehavior" gives direct access to the value
          */
-        public Enumeration<OrderSetItemCardinalityBehavior> getCardinalityBehaviorElement() {
+        public Enumeration<OrderSetItemCardinalityBehavior> getCardinalityBehaviorElement() { 
           if (this.cardinalityBehavior == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.cardinalityBehavior");
@@ -1588,18 +1588,18 @@ public class OrderSet extends DomainResource {
           return this.cardinalityBehavior;
         }
 
-        public boolean hasCardinalityBehaviorElement() {
+        public boolean hasCardinalityBehaviorElement() { 
           return this.cardinalityBehavior != null && !this.cardinalityBehavior.isEmpty();
         }
 
-        public boolean hasCardinalityBehavior() {
+        public boolean hasCardinalityBehavior() { 
           return this.cardinalityBehavior != null && !this.cardinalityBehavior.isEmpty();
         }
 
         /**
          * @param value {@link #cardinalityBehavior} (Defines behavior for an action or a group for how many times that item may be repeated, i.e., cardinality. For example, if a user is documenting lesions, the lesion element may be repeated several times, once for each occurrence of a lesion on the patient or tissue sample or image.). This is the underlying object with id, value and extensions. The accessor "getCardinalityBehavior" gives direct access to the value
          */
-        public OrderSetItemComponent setCardinalityBehaviorElement(Enumeration<OrderSetItemCardinalityBehavior> value) {
+        public OrderSetItemComponent setCardinalityBehaviorElement(Enumeration<OrderSetItemCardinalityBehavior> value) { 
           this.cardinalityBehavior = value;
           return this;
         }
@@ -1607,14 +1607,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return Defines behavior for an action or a group for how many times that item may be repeated, i.e., cardinality. For example, if a user is documenting lesions, the lesion element may be repeated several times, once for each occurrence of a lesion on the patient or tissue sample or image.
          */
-        public OrderSetItemCardinalityBehavior getCardinalityBehavior() {
+        public OrderSetItemCardinalityBehavior getCardinalityBehavior() { 
           return this.cardinalityBehavior == null ? null : this.cardinalityBehavior.getValue();
         }
 
         /**
          * @param value Defines behavior for an action or a group for how many times that item may be repeated, i.e., cardinality. For example, if a user is documenting lesions, the lesion element may be repeated several times, once for each occurrence of a lesion on the patient or tissue sample or image.
          */
-        public OrderSetItemComponent setCardinalityBehavior(OrderSetItemCardinalityBehavior value) {
+        public OrderSetItemComponent setCardinalityBehavior(OrderSetItemCardinalityBehavior value) { 
           if (value == null)
             this.cardinalityBehavior = null;
           else {
@@ -1628,7 +1628,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #resource} (The resource that is the target of the item (e.g. CommunicationRequest).)
          */
-        public Reference getResource() {
+        public Reference getResource() { 
           if (this.resource == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemComponent.resource");
@@ -1637,14 +1637,14 @@ public class OrderSet extends DomainResource {
           return this.resource;
         }
 
-        public boolean hasResource() {
+        public boolean hasResource() { 
           return this.resource != null && !this.resource.isEmpty();
         }
 
         /**
          * @param value {@link #resource} (The resource that is the target of the item (e.g. CommunicationRequest).)
          */
-        public OrderSetItemComponent setResource(Reference value) {
+        public OrderSetItemComponent setResource(Reference value) { 
           this.resource = value;
           return this;
         }
@@ -1652,14 +1652,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource that is the target of the item (e.g. CommunicationRequest).)
          */
-        public Resource getResourceTarget() {
+        public Resource getResourceTarget() { 
           return this.resourceTarget;
         }
 
         /**
          * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource that is the target of the item (e.g. CommunicationRequest).)
          */
-        public OrderSetItemComponent setResourceTarget(Resource value) {
+        public OrderSetItemComponent setResourceTarget(Resource value) { 
           this.resourceTarget = value;
           return this;
         }
@@ -1667,13 +1667,13 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #customization} (Customizations that should be applied to the statically defined resource.)
          */
-        public List<OrderSetItemCustomizationComponent> getCustomization() {
+        public List<OrderSetItemCustomizationComponent> getCustomization() { 
           if (this.customization == null)
             this.customization = new ArrayList<OrderSetItemCustomizationComponent>();
           return this.customization;
         }
 
-        public boolean hasCustomization() {
+        public boolean hasCustomization() { 
           if (this.customization == null)
             return false;
           for (OrderSetItemCustomizationComponent item : this.customization)
@@ -1707,13 +1707,13 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #items} (Sub items for the orderable.)
          */
-        public List<OrderSetItemComponent> getItems() {
+        public List<OrderSetItemComponent> getItems() { 
           if (this.items == null)
             this.items = new ArrayList<OrderSetItemComponent>();
           return this.items;
         }
 
-        public boolean hasItems() {
+        public boolean hasItems() { 
           if (this.items == null)
             return false;
           for (OrderSetItemComponent item : this.items)
@@ -2005,7 +2005,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #path} (The path to the element to be customized.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public StringType getPathElement() {
+        public StringType getPathElement() { 
           if (this.path == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemCustomizationComponent.path");
@@ -2014,18 +2014,18 @@ public class OrderSet extends DomainResource {
           return this.path;
         }
 
-        public boolean hasPathElement() {
+        public boolean hasPathElement() { 
           return this.path != null && !this.path.isEmpty();
         }
 
-        public boolean hasPath() {
+        public boolean hasPath() { 
           return this.path != null && !this.path.isEmpty();
         }
 
         /**
          * @param value {@link #path} (The path to the element to be customized.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public OrderSetItemCustomizationComponent setPathElement(StringType value) {
+        public OrderSetItemCustomizationComponent setPathElement(StringType value) { 
           this.path = value;
           return this;
         }
@@ -2033,14 +2033,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return The path to the element to be customized.
          */
-        public String getPath() {
+        public String getPath() { 
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
          * @param value The path to the element to be customized.
          */
-        public OrderSetItemCustomizationComponent setPath(String value) {
+        public OrderSetItemCustomizationComponent setPath(String value) { 
             if (this.path == null)
               this.path = new StringType();
             this.path.setValue(value);
@@ -2050,7 +2050,7 @@ public class OrderSet extends DomainResource {
         /**
          * @return {@link #expression} (An expression specifying the value of the customized element.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
-        public StringType getExpressionElement() {
+        public StringType getExpressionElement() { 
           if (this.expression == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create OrderSetItemCustomizationComponent.expression");
@@ -2059,18 +2059,18 @@ public class OrderSet extends DomainResource {
           return this.expression;
         }
 
-        public boolean hasExpressionElement() {
+        public boolean hasExpressionElement() { 
           return this.expression != null && !this.expression.isEmpty();
         }
 
-        public boolean hasExpression() {
+        public boolean hasExpression() { 
           return this.expression != null && !this.expression.isEmpty();
         }
 
         /**
          * @param value {@link #expression} (An expression specifying the value of the customized element.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
-        public OrderSetItemCustomizationComponent setExpressionElement(StringType value) {
+        public OrderSetItemCustomizationComponent setExpressionElement(StringType value) { 
           this.expression = value;
           return this;
         }
@@ -2078,14 +2078,14 @@ public class OrderSet extends DomainResource {
         /**
          * @return An expression specifying the value of the customized element.
          */
-        public String getExpression() {
+        public String getExpression() { 
           return this.expression == null ? null : this.expression.getValue();
         }
 
         /**
          * @param value An expression specifying the value of the customized element.
          */
-        public OrderSetItemCustomizationComponent setExpression(String value) {
+        public OrderSetItemCustomizationComponent setExpression(String value) { 
             if (this.expression == null)
               this.expression = new StringType();
             this.expression.setValue(value);
@@ -2217,13 +2217,13 @@ public class OrderSet extends DomainResource {
     /**
      * @return {@link #identifier} (A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -2257,7 +2257,7 @@ public class OrderSet extends DomainResource {
     /**
      * @return {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderSet.version");
@@ -2266,18 +2266,18 @@ public class OrderSet extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public OrderSet setVersionElement(StringType value) {
+    public OrderSet setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -2285,14 +2285,14 @@ public class OrderSet extends DomainResource {
     /**
      * @return The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public OrderSet setVersion(String value) {
+    public OrderSet setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -2306,7 +2306,7 @@ public class OrderSet extends DomainResource {
     /**
      * @return {@link #moduleMetadata} (A reference to a ModuleMetadata resource containing metadata for the orderset.)
      */
-    public Reference getModuleMetadata() {
+    public Reference getModuleMetadata() { 
       if (this.moduleMetadata == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderSet.moduleMetadata");
@@ -2315,14 +2315,14 @@ public class OrderSet extends DomainResource {
       return this.moduleMetadata;
     }
 
-    public boolean hasModuleMetadata() {
+    public boolean hasModuleMetadata() { 
       return this.moduleMetadata != null && !this.moduleMetadata.isEmpty();
     }
 
     /**
      * @param value {@link #moduleMetadata} (A reference to a ModuleMetadata resource containing metadata for the orderset.)
      */
-    public OrderSet setModuleMetadata(Reference value) {
+    public OrderSet setModuleMetadata(Reference value) { 
       this.moduleMetadata = value;
       return this;
     }
@@ -2330,7 +2330,7 @@ public class OrderSet extends DomainResource {
     /**
      * @return {@link #moduleMetadata} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a ModuleMetadata resource containing metadata for the orderset.)
      */
-    public ModuleMetadata getModuleMetadataTarget() {
+    public ModuleMetadata getModuleMetadataTarget() { 
       if (this.moduleMetadataTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create OrderSet.moduleMetadata");
@@ -2342,7 +2342,7 @@ public class OrderSet extends DomainResource {
     /**
      * @param value {@link #moduleMetadata} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a ModuleMetadata resource containing metadata for the orderset.)
      */
-    public OrderSet setModuleMetadataTarget(ModuleMetadata value) {
+    public OrderSet setModuleMetadataTarget(ModuleMetadata value) { 
       this.moduleMetadataTarget = value;
       return this;
     }
@@ -2350,13 +2350,13 @@ public class OrderSet extends DomainResource {
     /**
      * @return {@link #library} (A reference to a Library resource containing any formal logic used by the orderset.)
      */
-    public List<Reference> getLibrary() {
+    public List<Reference> getLibrary() { 
       if (this.library == null)
         this.library = new ArrayList<Reference>();
       return this.library;
     }
 
-    public boolean hasLibrary() {
+    public boolean hasLibrary() { 
       if (this.library == null)
         return false;
       for (Reference item : this.library)
@@ -2390,7 +2390,7 @@ public class OrderSet extends DomainResource {
     /**
      * @return {@link #library} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A reference to a Library resource containing any formal logic used by the orderset.)
      */
-    public List<Library> getLibraryTarget() {
+    public List<Library> getLibraryTarget() { 
       if (this.libraryTarget == null)
         this.libraryTarget = new ArrayList<Library>();
       return this.libraryTarget;
@@ -2400,7 +2400,7 @@ public class OrderSet extends DomainResource {
     /**
      * @return {@link #library} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A reference to a Library resource containing any formal logic used by the orderset.)
      */
-    public Library addLibraryTarget() {
+    public Library addLibraryTarget() { 
       Library r = new Library();
       if (this.libraryTarget == null)
         this.libraryTarget = new ArrayList<Library>();
@@ -2411,13 +2411,13 @@ public class OrderSet extends DomainResource {
     /**
      * @return {@link #item} (The definition of the items that make up the orderset.)
      */
-    public List<OrderSetItemComponent> getItem() {
+    public List<OrderSetItemComponent> getItem() { 
       if (this.item == null)
         this.item = new ArrayList<OrderSetItemComponent>();
       return this.item;
     }
 
-    public boolean hasItem() {
+    public boolean hasItem() { 
       if (this.item == null)
         return false;
       for (OrderSetItemComponent item : this.item)

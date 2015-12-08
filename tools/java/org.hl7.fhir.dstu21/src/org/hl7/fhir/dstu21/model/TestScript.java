@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,11 +52,11 @@ public class TestScript extends DomainResource {
         /**
          * General DSTU2 client initiating against a DSTU2 Server.
          */
-        FHIRDSTU2CLIENT,
+        FHIRDSTU2CLIENT, 
         /**
          * DSTU2 client that serves as an SDC-FormFiller.
          */
-        FHIRDSTU2SDCFORMFILLER,
+        FHIRDSTU2SDCFORMFILLER, 
         /**
          * added to help the parsers
          */
@@ -136,19 +136,19 @@ public class TestScript extends DomainResource {
         /**
          * General DSTU2 server.
          */
-        FHIRDSTU2SERVER,
+        FHIRDSTU2SERVER, 
         /**
          * DSTU2 server that serves as an SDC-FormManager.
          */
-        FHIRDSTU2SDCFORMMANAGER,
+        FHIRDSTU2SDCFORMMANAGER, 
         /**
          * DSTU2 server that serves as an SDC-FormReceiver.
          */
-        FHIRDSTU2SDCFORMRECEIVER,
+        FHIRDSTU2SDCFORMRECEIVER, 
         /**
          * DSTU2 server that serves as an SDC-FormProcessor.
          */
-        FHIRDSTU2SDCFORMPROCESSOR,
+        FHIRDSTU2SDCFORMPROCESSOR, 
         /**
          * added to help the parsers
          */
@@ -252,11 +252,11 @@ public class TestScript extends DomainResource {
         /**
          * XML content-type corresponding to the application/xml+fhir mime-type.
          */
-        XML,
+        XML, 
         /**
          * JSON content-type corresponding to the application/json+fhir mime-type.
          */
-        JSON,
+        JSON, 
         /**
          * added to help the parsers
          */
@@ -336,11 +336,11 @@ public class TestScript extends DomainResource {
         /**
          * The assertion is evaluated on the response. This is the default value.
          */
-        RESPONSE,
+        RESPONSE, 
         /**
          * The assertion is evaluated on the request.
          */
-        REQUEST,
+        REQUEST, 
         /**
          * added to help the parsers
          */
@@ -420,43 +420,43 @@ public class TestScript extends DomainResource {
         /**
          * Default value. Equals comparison.
          */
-        EQUALS,
+        EQUALS, 
         /**
          * Not equals comparison.
          */
-        NOTEQUALS,
+        NOTEQUALS, 
         /**
          * Compare value within a known set of values.
          */
-        IN,
+        IN, 
         /**
          * Compare value not within a known set of values.
          */
-        NOTIN,
+        NOTIN, 
         /**
          * Compare value to be greater than a known value.
          */
-        GREATERTHAN,
+        GREATERTHAN, 
         /**
          * Compare value to be less than a known value.
          */
-        LESSTHAN,
+        LESSTHAN, 
         /**
          * Compare value is empty.
          */
-        EMPTY,
+        EMPTY, 
         /**
          * Compare value is not empty.
          */
-        NOTEMPTY,
+        NOTEMPTY, 
         /**
          * Compare value string contains a known value.
          */
-        CONTAINS,
+        CONTAINS, 
         /**
          * Compare value string does not contain a known value.
          */
-        NOTCONTAINS,
+        NOTCONTAINS, 
         /**
          * added to help the parsers
          */
@@ -632,51 +632,51 @@ public class TestScript extends DomainResource {
         /**
          * Response code is 200.
          */
-        OKAY,
+        OKAY, 
         /**
          * Response code is 201.
          */
-        CREATED,
+        CREATED, 
         /**
          * Response code is 204.
          */
-        NOCONTENT,
+        NOCONTENT, 
         /**
          * Response code is 304.
          */
-        NOTMODIFIED,
+        NOTMODIFIED, 
         /**
          * Response code is 400.
          */
-        BAD,
+        BAD, 
         /**
          * Response code is 403.
          */
-        FORBIDDEN,
+        FORBIDDEN, 
         /**
          * Response code is 404.
          */
-        NOTFOUND,
+        NOTFOUND, 
         /**
          * Response code is 405.
          */
-        METHODNOTALLOWED,
+        METHODNOTALLOWED, 
         /**
          * Response code is 409.
          */
-        CONFLICT,
+        CONFLICT, 
         /**
          * Response code is 410.
          */
-        GONE,
+        GONE, 
         /**
          * Response code is 412.
          */
-        PRECONDITIONFAILED,
+        PRECONDITIONFAILED, 
         /**
          * Response code is 422.
          */
-        UNPROCESSABLE,
+        UNPROCESSABLE, 
         /**
          * added to help the parsers
          */
@@ -900,7 +900,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #name} (The name of an individual to contact regarding the Test Script.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptContactComponent.name");
@@ -909,18 +909,18 @@ public class TestScript extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of an individual to contact regarding the Test Script.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public TestScriptContactComponent setNameElement(StringType value) {
+        public TestScriptContactComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -928,14 +928,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The name of an individual to contact regarding the Test Script.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of an individual to contact regarding the Test Script.
          */
-        public TestScriptContactComponent setName(String value) {
+        public TestScriptContactComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -949,13 +949,13 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
-        public List<ContactPoint> getTelecom() {
+        public List<ContactPoint> getTelecom() { 
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() {
+        public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -1086,13 +1086,13 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #link} (A link to the FHIR specification that this test is covering.)
          */
-        public List<TestScriptMetadataLinkComponent> getLink() {
+        public List<TestScriptMetadataLinkComponent> getLink() { 
           if (this.link == null)
             this.link = new ArrayList<TestScriptMetadataLinkComponent>();
           return this.link;
         }
 
-        public boolean hasLink() {
+        public boolean hasLink() { 
           if (this.link == null)
             return false;
           for (TestScriptMetadataLinkComponent item : this.link)
@@ -1126,13 +1126,13 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #capability} (Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.)
          */
-        public List<TestScriptMetadataCapabilityComponent> getCapability() {
+        public List<TestScriptMetadataCapabilityComponent> getCapability() { 
           if (this.capability == null)
             this.capability = new ArrayList<TestScriptMetadataCapabilityComponent>();
           return this.capability;
         }
 
-        public boolean hasCapability() {
+        public boolean hasCapability() { 
           if (this.capability == null)
             return false;
           for (TestScriptMetadataCapabilityComponent item : this.capability)
@@ -1275,7 +1275,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #url} (URL to a particular requirement or feature within the FHIR specification.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public UriType getUrlElement() {
+        public UriType getUrlElement() { 
           if (this.url == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptMetadataLinkComponent.url");
@@ -1284,18 +1284,18 @@ public class TestScript extends DomainResource {
           return this.url;
         }
 
-        public boolean hasUrlElement() {
+        public boolean hasUrlElement() { 
           return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasUrl() {
+        public boolean hasUrl() { 
           return this.url != null && !this.url.isEmpty();
         }
 
         /**
          * @param value {@link #url} (URL to a particular requirement or feature within the FHIR specification.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public TestScriptMetadataLinkComponent setUrlElement(UriType value) {
+        public TestScriptMetadataLinkComponent setUrlElement(UriType value) { 
           this.url = value;
           return this;
         }
@@ -1303,14 +1303,14 @@ public class TestScript extends DomainResource {
         /**
          * @return URL to a particular requirement or feature within the FHIR specification.
          */
-        public String getUrl() {
+        public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value URL to a particular requirement or feature within the FHIR specification.
          */
-        public TestScriptMetadataLinkComponent setUrl(String value) {
+        public TestScriptMetadataLinkComponent setUrl(String value) { 
             if (this.url == null)
               this.url = new UriType();
             this.url.setValue(value);
@@ -1320,7 +1320,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #description} (Short description of the link.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() {
+        public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptMetadataLinkComponent.description");
@@ -1329,18 +1329,18 @@ public class TestScript extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() {
+        public boolean hasDescriptionElement() { 
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() {
+        public boolean hasDescription() { 
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (Short description of the link.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public TestScriptMetadataLinkComponent setDescriptionElement(StringType value) {
+        public TestScriptMetadataLinkComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -1348,14 +1348,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Short description of the link.
          */
-        public String getDescription() {
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Short description of the link.
          */
-        public TestScriptMetadataLinkComponent setDescription(String value) {
+        public TestScriptMetadataLinkComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -1510,7 +1510,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #required} (Whether or not the test execution will require the given capabilities of the server in order for this test script to execute.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public BooleanType getRequiredElement() {
+        public BooleanType getRequiredElement() { 
           if (this.required == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.required");
@@ -1519,18 +1519,18 @@ public class TestScript extends DomainResource {
           return this.required;
         }
 
-        public boolean hasRequiredElement() {
+        public boolean hasRequiredElement() { 
           return this.required != null && !this.required.isEmpty();
         }
 
-        public boolean hasRequired() {
+        public boolean hasRequired() { 
           return this.required != null && !this.required.isEmpty();
         }
 
         /**
          * @param value {@link #required} (Whether or not the test execution will require the given capabilities of the server in order for this test script to execute.). This is the underlying object with id, value and extensions. The accessor "getRequired" gives direct access to the value
          */
-        public TestScriptMetadataCapabilityComponent setRequiredElement(BooleanType value) {
+        public TestScriptMetadataCapabilityComponent setRequiredElement(BooleanType value) { 
           this.required = value;
           return this;
         }
@@ -1538,14 +1538,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Whether or not the test execution will require the given capabilities of the server in order for this test script to execute.
          */
-        public boolean getRequired() {
+        public boolean getRequired() { 
           return this.required == null || this.required.isEmpty() ? false : this.required.getValue();
         }
 
         /**
          * @param value Whether or not the test execution will require the given capabilities of the server in order for this test script to execute.
          */
-        public TestScriptMetadataCapabilityComponent setRequired(boolean value) {
+        public TestScriptMetadataCapabilityComponent setRequired(boolean value) { 
             if (this.required == null)
               this.required = new BooleanType();
             this.required.setValue(value);
@@ -1555,7 +1555,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #validated} (Whether or not the test execution will validate the given capabilities of the server in order for this test script to execute.). This is the underlying object with id, value and extensions. The accessor "getValidated" gives direct access to the value
          */
-        public BooleanType getValidatedElement() {
+        public BooleanType getValidatedElement() { 
           if (this.validated == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.validated");
@@ -1564,18 +1564,18 @@ public class TestScript extends DomainResource {
           return this.validated;
         }
 
-        public boolean hasValidatedElement() {
+        public boolean hasValidatedElement() { 
           return this.validated != null && !this.validated.isEmpty();
         }
 
-        public boolean hasValidated() {
+        public boolean hasValidated() { 
           return this.validated != null && !this.validated.isEmpty();
         }
 
         /**
          * @param value {@link #validated} (Whether or not the test execution will validate the given capabilities of the server in order for this test script to execute.). This is the underlying object with id, value and extensions. The accessor "getValidated" gives direct access to the value
          */
-        public TestScriptMetadataCapabilityComponent setValidatedElement(BooleanType value) {
+        public TestScriptMetadataCapabilityComponent setValidatedElement(BooleanType value) { 
           this.validated = value;
           return this;
         }
@@ -1583,14 +1583,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Whether or not the test execution will validate the given capabilities of the server in order for this test script to execute.
          */
-        public boolean getValidated() {
+        public boolean getValidated() { 
           return this.validated == null || this.validated.isEmpty() ? false : this.validated.getValue();
         }
 
         /**
          * @param value Whether or not the test execution will validate the given capabilities of the server in order for this test script to execute.
          */
-        public TestScriptMetadataCapabilityComponent setValidated(boolean value) {
+        public TestScriptMetadataCapabilityComponent setValidated(boolean value) { 
             if (this.validated == null)
               this.validated = new BooleanType();
             this.validated.setValue(value);
@@ -1600,7 +1600,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #description} (Description of the capabilities that this test script is requiring the server to support.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() {
+        public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.description");
@@ -1609,18 +1609,18 @@ public class TestScript extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() {
+        public boolean hasDescriptionElement() { 
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() {
+        public boolean hasDescription() { 
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (Description of the capabilities that this test script is requiring the server to support.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public TestScriptMetadataCapabilityComponent setDescriptionElement(StringType value) {
+        public TestScriptMetadataCapabilityComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -1628,14 +1628,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Description of the capabilities that this test script is requiring the server to support.
          */
-        public String getDescription() {
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Description of the capabilities that this test script is requiring the server to support.
          */
-        public TestScriptMetadataCapabilityComponent setDescription(String value) {
+        public TestScriptMetadataCapabilityComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -1649,13 +1649,13 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #origin} (Which origin server these requirements apply to.)
          */
-        public List<IntegerType> getOrigin() {
+        public List<IntegerType> getOrigin() { 
           if (this.origin == null)
             this.origin = new ArrayList<IntegerType>();
           return this.origin;
         }
 
-        public boolean hasOrigin() {
+        public boolean hasOrigin() { 
           if (this.origin == null)
             return false;
           for (IntegerType item : this.origin)
@@ -1668,7 +1668,7 @@ public class TestScript extends DomainResource {
          * @return {@link #origin} (Which origin server these requirements apply to.)
          */
     // syntactic sugar
-        public IntegerType addOriginElement() {//2
+        public IntegerType addOriginElement() {//2 
           IntegerType t = new IntegerType();
           if (this.origin == null)
             this.origin = new ArrayList<IntegerType>();
@@ -1691,7 +1691,7 @@ public class TestScript extends DomainResource {
         /**
          * @param value {@link #origin} (Which origin server these requirements apply to.)
          */
-        public boolean hasOrigin(int value) {
+        public boolean hasOrigin(int value) { 
           if (this.origin == null)
             return false;
           for (IntegerType v : this.origin)
@@ -1703,7 +1703,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #destination} (Which server these requirements apply to.). This is the underlying object with id, value and extensions. The accessor "getDestination" gives direct access to the value
          */
-        public IntegerType getDestinationElement() {
+        public IntegerType getDestinationElement() { 
           if (this.destination == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.destination");
@@ -1712,18 +1712,18 @@ public class TestScript extends DomainResource {
           return this.destination;
         }
 
-        public boolean hasDestinationElement() {
+        public boolean hasDestinationElement() { 
           return this.destination != null && !this.destination.isEmpty();
         }
 
-        public boolean hasDestination() {
+        public boolean hasDestination() { 
           return this.destination != null && !this.destination.isEmpty();
         }
 
         /**
          * @param value {@link #destination} (Which server these requirements apply to.). This is the underlying object with id, value and extensions. The accessor "getDestination" gives direct access to the value
          */
-        public TestScriptMetadataCapabilityComponent setDestinationElement(IntegerType value) {
+        public TestScriptMetadataCapabilityComponent setDestinationElement(IntegerType value) { 
           this.destination = value;
           return this;
         }
@@ -1731,14 +1731,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Which server these requirements apply to.
          */
-        public int getDestination() {
+        public int getDestination() { 
           return this.destination == null || this.destination.isEmpty() ? 0 : this.destination.getValue();
         }
 
         /**
          * @param value Which server these requirements apply to.
          */
-        public TestScriptMetadataCapabilityComponent setDestination(int value) {
+        public TestScriptMetadataCapabilityComponent setDestination(int value) { 
             if (this.destination == null)
               this.destination = new IntegerType();
             this.destination.setValue(value);
@@ -1748,13 +1748,13 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #link} (Links to the FHIR specification that describes this interaction and the resources involved in more detail.)
          */
-        public List<UriType> getLink() {
+        public List<UriType> getLink() { 
           if (this.link == null)
             this.link = new ArrayList<UriType>();
           return this.link;
         }
 
-        public boolean hasLink() {
+        public boolean hasLink() { 
           if (this.link == null)
             return false;
           for (UriType item : this.link)
@@ -1767,7 +1767,7 @@ public class TestScript extends DomainResource {
          * @return {@link #link} (Links to the FHIR specification that describes this interaction and the resources involved in more detail.)
          */
     // syntactic sugar
-        public UriType addLinkElement() {//2
+        public UriType addLinkElement() {//2 
           UriType t = new UriType();
           if (this.link == null)
             this.link = new ArrayList<UriType>();
@@ -1790,7 +1790,7 @@ public class TestScript extends DomainResource {
         /**
          * @param value {@link #link} (Links to the FHIR specification that describes this interaction and the resources involved in more detail.)
          */
-        public boolean hasLink(String value) {
+        public boolean hasLink(String value) { 
           if (this.link == null)
             return false;
           for (UriType v : this.link)
@@ -1802,7 +1802,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #conformance} (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
          */
-        public Reference getConformance() {
+        public Reference getConformance() { 
           if (this.conformance == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.conformance");
@@ -1811,14 +1811,14 @@ public class TestScript extends DomainResource {
           return this.conformance;
         }
 
-        public boolean hasConformance() {
+        public boolean hasConformance() { 
           return this.conformance != null && !this.conformance.isEmpty();
         }
 
         /**
          * @param value {@link #conformance} (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
          */
-        public TestScriptMetadataCapabilityComponent setConformance(Reference value) {
+        public TestScriptMetadataCapabilityComponent setConformance(Reference value) { 
           this.conformance = value;
           return this;
         }
@@ -1826,7 +1826,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #conformance} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
          */
-        public Conformance getConformanceTarget() {
+        public Conformance getConformanceTarget() { 
           if (this.conformanceTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptMetadataCapabilityComponent.conformance");
@@ -1838,7 +1838,7 @@ public class TestScript extends DomainResource {
         /**
          * @param value {@link #conformance} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Minimum conformance required of server for test script to execute successfully.   If server does not meet at a minimum the reference conformance definition, then all tests in this script are skipped.)
          */
-        public TestScriptMetadataCapabilityComponent setConformanceTarget(Conformance value) {
+        public TestScriptMetadataCapabilityComponent setConformanceTarget(Conformance value) { 
           this.conformanceTarget = value;
           return this;
         }
@@ -1998,7 +1998,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #index} (Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
          */
-        public IntegerType getIndexElement() {
+        public IntegerType getIndexElement() { 
           if (this.index == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptOriginComponent.index");
@@ -2007,18 +2007,18 @@ public class TestScript extends DomainResource {
           return this.index;
         }
 
-        public boolean hasIndexElement() {
+        public boolean hasIndexElement() { 
           return this.index != null && !this.index.isEmpty();
         }
 
-        public boolean hasIndex() {
+        public boolean hasIndex() { 
           return this.index != null && !this.index.isEmpty();
         }
 
         /**
          * @param value {@link #index} (Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
          */
-        public TestScriptOriginComponent setIndexElement(IntegerType value) {
+        public TestScriptOriginComponent setIndexElement(IntegerType value) { 
           this.index = value;
           return this;
         }
@@ -2026,14 +2026,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.
          */
-        public int getIndex() {
+        public int getIndex() { 
           return this.index == null || this.index.isEmpty() ? 0 : this.index.getValue();
         }
 
         /**
          * @param value Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.
          */
-        public TestScriptOriginComponent setIndex(int value) {
+        public TestScriptOriginComponent setIndex(int value) { 
             if (this.index == null)
               this.index = new IntegerType();
             this.index.setValue(value);
@@ -2043,7 +2043,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #profile} (The type of profile the server supports.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
-        public Enumeration<ProfileOriginType> getProfileElement() {
+        public Enumeration<ProfileOriginType> getProfileElement() { 
           if (this.profile == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptOriginComponent.profile");
@@ -2052,18 +2052,18 @@ public class TestScript extends DomainResource {
           return this.profile;
         }
 
-        public boolean hasProfileElement() {
+        public boolean hasProfileElement() { 
           return this.profile != null && !this.profile.isEmpty();
         }
 
-        public boolean hasProfile() {
+        public boolean hasProfile() { 
           return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
          * @param value {@link #profile} (The type of profile the server supports.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
-        public TestScriptOriginComponent setProfileElement(Enumeration<ProfileOriginType> value) {
+        public TestScriptOriginComponent setProfileElement(Enumeration<ProfileOriginType> value) { 
           this.profile = value;
           return this;
         }
@@ -2071,14 +2071,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The type of profile the server supports.
          */
-        public ProfileOriginType getProfile() {
+        public ProfileOriginType getProfile() { 
           return this.profile == null ? null : this.profile.getValue();
         }
 
         /**
          * @param value The type of profile the server supports.
          */
-        public TestScriptOriginComponent setProfile(ProfileOriginType value) {
+        public TestScriptOriginComponent setProfile(ProfileOriginType value) { 
             if (this.profile == null)
               this.profile = new Enumeration<ProfileOriginType>(new ProfileOriginTypeEnumFactory());
             this.profile.setValue(value);
@@ -2190,7 +2190,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #index} (Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
          */
-        public IntegerType getIndexElement() {
+        public IntegerType getIndexElement() { 
           if (this.index == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptDestinationComponent.index");
@@ -2199,18 +2199,18 @@ public class TestScript extends DomainResource {
           return this.index;
         }
 
-        public boolean hasIndexElement() {
+        public boolean hasIndexElement() { 
           return this.index != null && !this.index.isEmpty();
         }
 
-        public boolean hasIndex() {
+        public boolean hasIndex() { 
           return this.index != null && !this.index.isEmpty();
         }
 
         /**
          * @param value {@link #index} (Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
          */
-        public TestScriptDestinationComponent setIndexElement(IntegerType value) {
+        public TestScriptDestinationComponent setIndexElement(IntegerType value) { 
           this.index = value;
           return this;
         }
@@ -2218,14 +2218,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.
          */
-        public int getIndex() {
+        public int getIndex() { 
           return this.index == null || this.index.isEmpty() ? 0 : this.index.getValue();
         }
 
         /**
          * @param value Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.
          */
-        public TestScriptDestinationComponent setIndex(int value) {
+        public TestScriptDestinationComponent setIndex(int value) { 
             if (this.index == null)
               this.index = new IntegerType();
             this.index.setValue(value);
@@ -2235,7 +2235,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #profile} (The type of profile the server supports.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
-        public Enumeration<ProfileDestinationType> getProfileElement() {
+        public Enumeration<ProfileDestinationType> getProfileElement() { 
           if (this.profile == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptDestinationComponent.profile");
@@ -2244,18 +2244,18 @@ public class TestScript extends DomainResource {
           return this.profile;
         }
 
-        public boolean hasProfileElement() {
+        public boolean hasProfileElement() { 
           return this.profile != null && !this.profile.isEmpty();
         }
 
-        public boolean hasProfile() {
+        public boolean hasProfile() { 
           return this.profile != null && !this.profile.isEmpty();
         }
 
         /**
          * @param value {@link #profile} (The type of profile the server supports.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
          */
-        public TestScriptDestinationComponent setProfileElement(Enumeration<ProfileDestinationType> value) {
+        public TestScriptDestinationComponent setProfileElement(Enumeration<ProfileDestinationType> value) { 
           this.profile = value;
           return this;
         }
@@ -2263,14 +2263,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The type of profile the server supports.
          */
-        public ProfileDestinationType getProfile() {
+        public ProfileDestinationType getProfile() { 
           return this.profile == null ? null : this.profile.getValue();
         }
 
         /**
          * @param value The type of profile the server supports.
          */
-        public TestScriptDestinationComponent setProfile(ProfileDestinationType value) {
+        public TestScriptDestinationComponent setProfile(ProfileDestinationType value) { 
             if (this.profile == null)
               this.profile = new Enumeration<ProfileDestinationType>(new ProfileDestinationTypeEnumFactory());
             this.profile.setValue(value);
@@ -2385,7 +2385,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #autocreate} (Whether or not to implicitly create the fixture during setup. If true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the TestScript.setup section.). This is the underlying object with id, value and extensions. The accessor "getAutocreate" gives direct access to the value
          */
-        public BooleanType getAutocreateElement() {
+        public BooleanType getAutocreateElement() { 
           if (this.autocreate == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptFixtureComponent.autocreate");
@@ -2394,18 +2394,18 @@ public class TestScript extends DomainResource {
           return this.autocreate;
         }
 
-        public boolean hasAutocreateElement() {
+        public boolean hasAutocreateElement() { 
           return this.autocreate != null && !this.autocreate.isEmpty();
         }
 
-        public boolean hasAutocreate() {
+        public boolean hasAutocreate() { 
           return this.autocreate != null && !this.autocreate.isEmpty();
         }
 
         /**
          * @param value {@link #autocreate} (Whether or not to implicitly create the fixture during setup. If true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the TestScript.setup section.). This is the underlying object with id, value and extensions. The accessor "getAutocreate" gives direct access to the value
          */
-        public TestScriptFixtureComponent setAutocreateElement(BooleanType value) {
+        public TestScriptFixtureComponent setAutocreateElement(BooleanType value) { 
           this.autocreate = value;
           return this;
         }
@@ -2413,14 +2413,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Whether or not to implicitly create the fixture during setup. If true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the TestScript.setup section.
          */
-        public boolean getAutocreate() {
+        public boolean getAutocreate() { 
           return this.autocreate == null || this.autocreate.isEmpty() ? false : this.autocreate.getValue();
         }
 
         /**
          * @param value Whether or not to implicitly create the fixture during setup. If true, the fixture is automatically created on each server being tested during setup, therefore no create operation is required for this fixture in the TestScript.setup section.
          */
-        public TestScriptFixtureComponent setAutocreate(boolean value) {
+        public TestScriptFixtureComponent setAutocreate(boolean value) { 
             if (this.autocreate == null)
               this.autocreate = new BooleanType();
             this.autocreate.setValue(value);
@@ -2430,7 +2430,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #autodelete} (Whether or not to implicitly delete the fixture during teardown If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.). This is the underlying object with id, value and extensions. The accessor "getAutodelete" gives direct access to the value
          */
-        public BooleanType getAutodeleteElement() {
+        public BooleanType getAutodeleteElement() { 
           if (this.autodelete == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptFixtureComponent.autodelete");
@@ -2439,18 +2439,18 @@ public class TestScript extends DomainResource {
           return this.autodelete;
         }
 
-        public boolean hasAutodeleteElement() {
+        public boolean hasAutodeleteElement() { 
           return this.autodelete != null && !this.autodelete.isEmpty();
         }
 
-        public boolean hasAutodelete() {
+        public boolean hasAutodelete() { 
           return this.autodelete != null && !this.autodelete.isEmpty();
         }
 
         /**
          * @param value {@link #autodelete} (Whether or not to implicitly delete the fixture during teardown If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.). This is the underlying object with id, value and extensions. The accessor "getAutodelete" gives direct access to the value
          */
-        public TestScriptFixtureComponent setAutodeleteElement(BooleanType value) {
+        public TestScriptFixtureComponent setAutodeleteElement(BooleanType value) { 
           this.autodelete = value;
           return this;
         }
@@ -2458,14 +2458,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Whether or not to implicitly delete the fixture during teardown If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.
          */
-        public boolean getAutodelete() {
+        public boolean getAutodelete() { 
           return this.autodelete == null || this.autodelete.isEmpty() ? false : this.autodelete.getValue();
         }
 
         /**
          * @param value Whether or not to implicitly delete the fixture during teardown If true, the fixture is automatically deleted on each server being tested during teardown, therefore no delete operation is required for this fixture in the TestScript.teardown section.
          */
-        public TestScriptFixtureComponent setAutodelete(boolean value) {
+        public TestScriptFixtureComponent setAutodelete(boolean value) { 
             if (this.autodelete == null)
               this.autodelete = new BooleanType();
             this.autodelete.setValue(value);
@@ -2475,7 +2475,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #resource} (Reference to the resource (containing the contents of the resource needed for operations).)
          */
-        public Reference getResource() {
+        public Reference getResource() { 
           if (this.resource == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptFixtureComponent.resource");
@@ -2484,14 +2484,14 @@ public class TestScript extends DomainResource {
           return this.resource;
         }
 
-        public boolean hasResource() {
+        public boolean hasResource() { 
           return this.resource != null && !this.resource.isEmpty();
         }
 
         /**
          * @param value {@link #resource} (Reference to the resource (containing the contents of the resource needed for operations).)
          */
-        public TestScriptFixtureComponent setResource(Reference value) {
+        public TestScriptFixtureComponent setResource(Reference value) { 
           this.resource = value;
           return this;
         }
@@ -2499,14 +2499,14 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the resource (containing the contents of the resource needed for operations).)
          */
-        public Resource getResourceTarget() {
+        public Resource getResourceTarget() { 
           return this.resourceTarget;
         }
 
         /**
          * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the resource (containing the contents of the resource needed for operations).)
          */
-        public TestScriptFixtureComponent setResourceTarget(Resource value) {
+        public TestScriptFixtureComponent setResourceTarget(Resource value) { 
           this.resourceTarget = value;
           return this;
         }
@@ -2639,7 +2639,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #name} (Descriptive name for this variable.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptVariableComponent.name");
@@ -2648,18 +2648,18 @@ public class TestScript extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (Descriptive name for this variable.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public TestScriptVariableComponent setNameElement(StringType value) {
+        public TestScriptVariableComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -2667,14 +2667,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Descriptive name for this variable.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value Descriptive name for this variable.
          */
-        public TestScriptVariableComponent setName(String value) {
+        public TestScriptVariableComponent setName(String value) { 
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
@@ -2684,7 +2684,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #headerField} (Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.). This is the underlying object with id, value and extensions. The accessor "getHeaderField" gives direct access to the value
          */
-        public StringType getHeaderFieldElement() {
+        public StringType getHeaderFieldElement() { 
           if (this.headerField == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptVariableComponent.headerField");
@@ -2693,18 +2693,18 @@ public class TestScript extends DomainResource {
           return this.headerField;
         }
 
-        public boolean hasHeaderFieldElement() {
+        public boolean hasHeaderFieldElement() { 
           return this.headerField != null && !this.headerField.isEmpty();
         }
 
-        public boolean hasHeaderField() {
+        public boolean hasHeaderField() { 
           return this.headerField != null && !this.headerField.isEmpty();
         }
 
         /**
          * @param value {@link #headerField} (Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.). This is the underlying object with id, value and extensions. The accessor "getHeaderField" gives direct access to the value
          */
-        public TestScriptVariableComponent setHeaderFieldElement(StringType value) {
+        public TestScriptVariableComponent setHeaderFieldElement(StringType value) { 
           this.headerField = value;
           return this;
         }
@@ -2712,14 +2712,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.
          */
-        public String getHeaderField() {
+        public String getHeaderField() { 
           return this.headerField == null ? null : this.headerField.getValue();
         }
 
         /**
          * @param value Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.
          */
-        public TestScriptVariableComponent setHeaderField(String value) {
+        public TestScriptVariableComponent setHeaderField(String value) { 
           if (Utilities.noString(value))
             this.headerField = null;
           else {
@@ -2733,7 +2733,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #path} (XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public StringType getPathElement() {
+        public StringType getPathElement() { 
           if (this.path == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptVariableComponent.path");
@@ -2742,18 +2742,18 @@ public class TestScript extends DomainResource {
           return this.path;
         }
 
-        public boolean hasPathElement() {
+        public boolean hasPathElement() { 
           return this.path != null && !this.path.isEmpty();
         }
 
-        public boolean hasPath() {
+        public boolean hasPath() { 
           return this.path != null && !this.path.isEmpty();
         }
 
         /**
          * @param value {@link #path} (XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public TestScriptVariableComponent setPathElement(StringType value) {
+        public TestScriptVariableComponent setPathElement(StringType value) { 
           this.path = value;
           return this;
         }
@@ -2761,14 +2761,14 @@ public class TestScript extends DomainResource {
         /**
          * @return XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.
          */
-        public String getPath() {
+        public String getPath() { 
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
          * @param value XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.
          */
-        public TestScriptVariableComponent setPath(String value) {
+        public TestScriptVariableComponent setPath(String value) { 
           if (Utilities.noString(value))
             this.path = null;
           else {
@@ -2782,7 +2782,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #sourceId} (Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.). This is the underlying object with id, value and extensions. The accessor "getSourceId" gives direct access to the value
          */
-        public IdType getSourceIdElement() {
+        public IdType getSourceIdElement() { 
           if (this.sourceId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptVariableComponent.sourceId");
@@ -2791,18 +2791,18 @@ public class TestScript extends DomainResource {
           return this.sourceId;
         }
 
-        public boolean hasSourceIdElement() {
+        public boolean hasSourceIdElement() { 
           return this.sourceId != null && !this.sourceId.isEmpty();
         }
 
-        public boolean hasSourceId() {
+        public boolean hasSourceId() { 
           return this.sourceId != null && !this.sourceId.isEmpty();
         }
 
         /**
          * @param value {@link #sourceId} (Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.). This is the underlying object with id, value and extensions. The accessor "getSourceId" gives direct access to the value
          */
-        public TestScriptVariableComponent setSourceIdElement(IdType value) {
+        public TestScriptVariableComponent setSourceIdElement(IdType value) { 
           this.sourceId = value;
           return this;
         }
@@ -2810,14 +2810,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.
          */
-        public String getSourceId() {
+        public String getSourceId() { 
           return this.sourceId == null ? null : this.sourceId.getValue();
         }
 
         /**
          * @param value Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.
          */
-        public TestScriptVariableComponent setSourceId(String value) {
+        public TestScriptVariableComponent setSourceId(String value) { 
           if (Utilities.noString(value))
             this.sourceId = null;
           else {
@@ -2940,7 +2940,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #metadata} (Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.)
          */
-        public TestScriptMetadataComponent getMetadata() {
+        public TestScriptMetadataComponent getMetadata() { 
           if (this.metadata == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupComponent.metadata");
@@ -2949,14 +2949,14 @@ public class TestScript extends DomainResource {
           return this.metadata;
         }
 
-        public boolean hasMetadata() {
+        public boolean hasMetadata() { 
           return this.metadata != null && !this.metadata.isEmpty();
         }
 
         /**
          * @param value {@link #metadata} (Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.)
          */
-        public TestScriptSetupComponent setMetadata(TestScriptMetadataComponent value) {
+        public TestScriptSetupComponent setMetadata(TestScriptMetadataComponent value) { 
           this.metadata = value;
           return this;
         }
@@ -2964,13 +2964,13 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #action} (Action would contain either an operation or an assertion.)
          */
-        public List<TestScriptSetupActionComponent> getAction() {
+        public List<TestScriptSetupActionComponent> getAction() { 
           if (this.action == null)
             this.action = new ArrayList<TestScriptSetupActionComponent>();
           return this.action;
         }
 
-        public boolean hasAction() {
+        public boolean hasAction() { 
           if (this.action == null)
             return false;
           for (TestScriptSetupActionComponent item : this.action)
@@ -3102,7 +3102,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #operation} (The operation to perform.)
          */
-        public TestScriptSetupActionOperationComponent getOperation() {
+        public TestScriptSetupActionOperationComponent getOperation() { 
           if (this.operation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionComponent.operation");
@@ -3111,14 +3111,14 @@ public class TestScript extends DomainResource {
           return this.operation;
         }
 
-        public boolean hasOperation() {
+        public boolean hasOperation() { 
           return this.operation != null && !this.operation.isEmpty();
         }
 
         /**
          * @param value {@link #operation} (The operation to perform.)
          */
-        public TestScriptSetupActionComponent setOperation(TestScriptSetupActionOperationComponent value) {
+        public TestScriptSetupActionComponent setOperation(TestScriptSetupActionOperationComponent value) { 
           this.operation = value;
           return this;
         }
@@ -3126,7 +3126,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #assert_} (Evaluates the results of previous operations to determine if the server under test behaves appropriately.)
          */
-        public TestScriptSetupActionAssertComponent getAssert() {
+        public TestScriptSetupActionAssertComponent getAssert() { 
           if (this.assert_ == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionComponent.assert_");
@@ -3135,14 +3135,14 @@ public class TestScript extends DomainResource {
           return this.assert_;
         }
 
-        public boolean hasAssert() {
+        public boolean hasAssert() { 
           return this.assert_ != null && !this.assert_.isEmpty();
         }
 
         /**
          * @param value {@link #assert_} (Evaluates the results of previous operations to determine if the server under test behaves appropriately.)
          */
-        public TestScriptSetupActionComponent setAssert(TestScriptSetupActionAssertComponent value) {
+        public TestScriptSetupActionComponent setAssert(TestScriptSetupActionAssertComponent value) { 
           this.assert_ = value;
           return this;
         }
@@ -3336,7 +3336,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #type} (Server interaction or operation type.)
          */
-        public Coding getType() {
+        public Coding getType() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.type");
@@ -3345,14 +3345,14 @@ public class TestScript extends DomainResource {
           return this.type;
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (Server interaction or operation type.)
          */
-        public TestScriptSetupActionOperationComponent setType(Coding value) {
+        public TestScriptSetupActionOperationComponent setType(Coding value) { 
           this.type = value;
           return this;
         }
@@ -3360,7 +3360,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #resource} (The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.). This is the underlying object with id, value and extensions. The accessor "getResource" gives direct access to the value
          */
-        public CodeType getResourceElement() {
+        public CodeType getResourceElement() { 
           if (this.resource == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.resource");
@@ -3369,18 +3369,18 @@ public class TestScript extends DomainResource {
           return this.resource;
         }
 
-        public boolean hasResourceElement() {
+        public boolean hasResourceElement() { 
           return this.resource != null && !this.resource.isEmpty();
         }
 
-        public boolean hasResource() {
+        public boolean hasResource() { 
           return this.resource != null && !this.resource.isEmpty();
         }
 
         /**
          * @param value {@link #resource} (The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.). This is the underlying object with id, value and extensions. The accessor "getResource" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setResourceElement(CodeType value) {
+        public TestScriptSetupActionOperationComponent setResourceElement(CodeType value) { 
           this.resource = value;
           return this;
         }
@@ -3388,14 +3388,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
          */
-        public String getResource() {
+        public String getResource() { 
           return this.resource == null ? null : this.resource.getValue();
         }
 
         /**
          * @param value The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
          */
-        public TestScriptSetupActionOperationComponent setResource(String value) {
+        public TestScriptSetupActionOperationComponent setResource(String value) { 
           if (Utilities.noString(value))
             this.resource = null;
           else {
@@ -3409,7 +3409,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #label} (The label would be used for tracking/logging purposes by test engines.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
          */
-        public StringType getLabelElement() {
+        public StringType getLabelElement() { 
           if (this.label == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.label");
@@ -3418,18 +3418,18 @@ public class TestScript extends DomainResource {
           return this.label;
         }
 
-        public boolean hasLabelElement() {
+        public boolean hasLabelElement() { 
           return this.label != null && !this.label.isEmpty();
         }
 
-        public boolean hasLabel() {
+        public boolean hasLabel() { 
           return this.label != null && !this.label.isEmpty();
         }
 
         /**
          * @param value {@link #label} (The label would be used for tracking/logging purposes by test engines.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setLabelElement(StringType value) {
+        public TestScriptSetupActionOperationComponent setLabelElement(StringType value) { 
           this.label = value;
           return this;
         }
@@ -3437,14 +3437,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The label would be used for tracking/logging purposes by test engines.
          */
-        public String getLabel() {
+        public String getLabel() { 
           return this.label == null ? null : this.label.getValue();
         }
 
         /**
          * @param value The label would be used for tracking/logging purposes by test engines.
          */
-        public TestScriptSetupActionOperationComponent setLabel(String value) {
+        public TestScriptSetupActionOperationComponent setLabel(String value) { 
           if (Utilities.noString(value))
             this.label = null;
           else {
@@ -3458,7 +3458,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #description} (The description would be used by test engines for tracking and reporting purposes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() {
+        public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.description");
@@ -3467,18 +3467,18 @@ public class TestScript extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() {
+        public boolean hasDescriptionElement() { 
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() {
+        public boolean hasDescription() { 
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (The description would be used by test engines for tracking and reporting purposes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setDescriptionElement(StringType value) {
+        public TestScriptSetupActionOperationComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -3486,14 +3486,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The description would be used by test engines for tracking and reporting purposes.
          */
-        public String getDescription() {
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value The description would be used by test engines for tracking and reporting purposes.
          */
-        public TestScriptSetupActionOperationComponent setDescription(String value) {
+        public TestScriptSetupActionOperationComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -3507,7 +3507,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #accept} (The content-type or mime-type to use for RESTful operation in the 'Accept' header.). This is the underlying object with id, value and extensions. The accessor "getAccept" gives direct access to the value
          */
-        public Enumeration<ContentType> getAcceptElement() {
+        public Enumeration<ContentType> getAcceptElement() { 
           if (this.accept == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.accept");
@@ -3516,18 +3516,18 @@ public class TestScript extends DomainResource {
           return this.accept;
         }
 
-        public boolean hasAcceptElement() {
+        public boolean hasAcceptElement() { 
           return this.accept != null && !this.accept.isEmpty();
         }
 
-        public boolean hasAccept() {
+        public boolean hasAccept() { 
           return this.accept != null && !this.accept.isEmpty();
         }
 
         /**
          * @param value {@link #accept} (The content-type or mime-type to use for RESTful operation in the 'Accept' header.). This is the underlying object with id, value and extensions. The accessor "getAccept" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setAcceptElement(Enumeration<ContentType> value) {
+        public TestScriptSetupActionOperationComponent setAcceptElement(Enumeration<ContentType> value) { 
           this.accept = value;
           return this;
         }
@@ -3535,14 +3535,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The content-type or mime-type to use for RESTful operation in the 'Accept' header.
          */
-        public ContentType getAccept() {
+        public ContentType getAccept() { 
           return this.accept == null ? null : this.accept.getValue();
         }
 
         /**
          * @param value The content-type or mime-type to use for RESTful operation in the 'Accept' header.
          */
-        public TestScriptSetupActionOperationComponent setAccept(ContentType value) {
+        public TestScriptSetupActionOperationComponent setAccept(ContentType value) { 
           if (value == null)
             this.accept = null;
           else {
@@ -3556,7 +3556,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #contentType} (The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
          */
-        public Enumeration<ContentType> getContentTypeElement() {
+        public Enumeration<ContentType> getContentTypeElement() { 
           if (this.contentType == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.contentType");
@@ -3565,18 +3565,18 @@ public class TestScript extends DomainResource {
           return this.contentType;
         }
 
-        public boolean hasContentTypeElement() {
+        public boolean hasContentTypeElement() { 
           return this.contentType != null && !this.contentType.isEmpty();
         }
 
-        public boolean hasContentType() {
+        public boolean hasContentType() { 
           return this.contentType != null && !this.contentType.isEmpty();
         }
 
         /**
          * @param value {@link #contentType} (The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setContentTypeElement(Enumeration<ContentType> value) {
+        public TestScriptSetupActionOperationComponent setContentTypeElement(Enumeration<ContentType> value) { 
           this.contentType = value;
           return this;
         }
@@ -3584,14 +3584,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
          */
-        public ContentType getContentType() {
+        public ContentType getContentType() { 
           return this.contentType == null ? null : this.contentType.getValue();
         }
 
         /**
          * @param value The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
          */
-        public TestScriptSetupActionOperationComponent setContentType(ContentType value) {
+        public TestScriptSetupActionOperationComponent setContentType(ContentType value) { 
           if (value == null)
             this.contentType = null;
           else {
@@ -3605,7 +3605,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #destination} (The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.). This is the underlying object with id, value and extensions. The accessor "getDestination" gives direct access to the value
          */
-        public IntegerType getDestinationElement() {
+        public IntegerType getDestinationElement() { 
           if (this.destination == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.destination");
@@ -3614,18 +3614,18 @@ public class TestScript extends DomainResource {
           return this.destination;
         }
 
-        public boolean hasDestinationElement() {
+        public boolean hasDestinationElement() { 
           return this.destination != null && !this.destination.isEmpty();
         }
 
-        public boolean hasDestination() {
+        public boolean hasDestination() { 
           return this.destination != null && !this.destination.isEmpty();
         }
 
         /**
          * @param value {@link #destination} (The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.). This is the underlying object with id, value and extensions. The accessor "getDestination" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setDestinationElement(IntegerType value) {
+        public TestScriptSetupActionOperationComponent setDestinationElement(IntegerType value) { 
           this.destination = value;
           return this;
         }
@@ -3633,14 +3633,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.
          */
-        public int getDestination() {
+        public int getDestination() { 
           return this.destination == null || this.destination.isEmpty() ? 0 : this.destination.getValue();
         }
 
         /**
          * @param value The server where the request message is destined for.  Must be one of the server numbers listed in TestScript.destination section.
          */
-        public TestScriptSetupActionOperationComponent setDestination(int value) {
+        public TestScriptSetupActionOperationComponent setDestination(int value) { 
             if (this.destination == null)
               this.destination = new IntegerType();
             this.destination.setValue(value);
@@ -3650,7 +3650,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #encodeRequestUrl} (Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.). This is the underlying object with id, value and extensions. The accessor "getEncodeRequestUrl" gives direct access to the value
          */
-        public BooleanType getEncodeRequestUrlElement() {
+        public BooleanType getEncodeRequestUrlElement() { 
           if (this.encodeRequestUrl == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.encodeRequestUrl");
@@ -3659,18 +3659,18 @@ public class TestScript extends DomainResource {
           return this.encodeRequestUrl;
         }
 
-        public boolean hasEncodeRequestUrlElement() {
+        public boolean hasEncodeRequestUrlElement() { 
           return this.encodeRequestUrl != null && !this.encodeRequestUrl.isEmpty();
         }
 
-        public boolean hasEncodeRequestUrl() {
+        public boolean hasEncodeRequestUrl() { 
           return this.encodeRequestUrl != null && !this.encodeRequestUrl.isEmpty();
         }
 
         /**
          * @param value {@link #encodeRequestUrl} (Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.). This is the underlying object with id, value and extensions. The accessor "getEncodeRequestUrl" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setEncodeRequestUrlElement(BooleanType value) {
+        public TestScriptSetupActionOperationComponent setEncodeRequestUrlElement(BooleanType value) { 
           this.encodeRequestUrl = value;
           return this;
         }
@@ -3678,14 +3678,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
          */
-        public boolean getEncodeRequestUrl() {
+        public boolean getEncodeRequestUrl() { 
           return this.encodeRequestUrl == null || this.encodeRequestUrl.isEmpty() ? false : this.encodeRequestUrl.getValue();
         }
 
         /**
          * @param value Whether or not to implicitly send the request url in encoded format. The default is true to match the standard RESTful client behavior. Set to false when communicating with a server that does not support encoded url paths.
          */
-        public TestScriptSetupActionOperationComponent setEncodeRequestUrl(boolean value) {
+        public TestScriptSetupActionOperationComponent setEncodeRequestUrl(boolean value) { 
             if (this.encodeRequestUrl == null)
               this.encodeRequestUrl = new BooleanType();
             this.encodeRequestUrl.setValue(value);
@@ -3695,7 +3695,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #origin} (The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section.). This is the underlying object with id, value and extensions. The accessor "getOrigin" gives direct access to the value
          */
-        public IntegerType getOriginElement() {
+        public IntegerType getOriginElement() { 
           if (this.origin == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.origin");
@@ -3704,18 +3704,18 @@ public class TestScript extends DomainResource {
           return this.origin;
         }
 
-        public boolean hasOriginElement() {
+        public boolean hasOriginElement() { 
           return this.origin != null && !this.origin.isEmpty();
         }
 
-        public boolean hasOrigin() {
+        public boolean hasOrigin() { 
           return this.origin != null && !this.origin.isEmpty();
         }
 
         /**
          * @param value {@link #origin} (The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section.). This is the underlying object with id, value and extensions. The accessor "getOrigin" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setOriginElement(IntegerType value) {
+        public TestScriptSetupActionOperationComponent setOriginElement(IntegerType value) { 
           this.origin = value;
           return this;
         }
@@ -3723,14 +3723,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section.
          */
-        public int getOrigin() {
+        public int getOrigin() { 
           return this.origin == null || this.origin.isEmpty() ? 0 : this.origin.getValue();
         }
 
         /**
          * @param value The server where the request message originates from.  Must be one of the server numbers listed in TestScript.origin section.
          */
-        public TestScriptSetupActionOperationComponent setOrigin(int value) {
+        public TestScriptSetupActionOperationComponent setOrigin(int value) { 
             if (this.origin == null)
               this.origin = new IntegerType();
             this.origin.setValue(value);
@@ -3740,7 +3740,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #params} (Path plus parameters after [type].  Used to set parts of the request URL explicitly.). This is the underlying object with id, value and extensions. The accessor "getParams" gives direct access to the value
          */
-        public StringType getParamsElement() {
+        public StringType getParamsElement() { 
           if (this.params == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.params");
@@ -3749,18 +3749,18 @@ public class TestScript extends DomainResource {
           return this.params;
         }
 
-        public boolean hasParamsElement() {
+        public boolean hasParamsElement() { 
           return this.params != null && !this.params.isEmpty();
         }
 
-        public boolean hasParams() {
+        public boolean hasParams() { 
           return this.params != null && !this.params.isEmpty();
         }
 
         /**
          * @param value {@link #params} (Path plus parameters after [type].  Used to set parts of the request URL explicitly.). This is the underlying object with id, value and extensions. The accessor "getParams" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setParamsElement(StringType value) {
+        public TestScriptSetupActionOperationComponent setParamsElement(StringType value) { 
           this.params = value;
           return this;
         }
@@ -3768,14 +3768,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Path plus parameters after [type].  Used to set parts of the request URL explicitly.
          */
-        public String getParams() {
+        public String getParams() { 
           return this.params == null ? null : this.params.getValue();
         }
 
         /**
          * @param value Path plus parameters after [type].  Used to set parts of the request URL explicitly.
          */
-        public TestScriptSetupActionOperationComponent setParams(String value) {
+        public TestScriptSetupActionOperationComponent setParams(String value) { 
           if (Utilities.noString(value))
             this.params = null;
           else {
@@ -3789,13 +3789,13 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #requestHeader} (Header elements would be used to set HTTP headers.)
          */
-        public List<TestScriptSetupActionOperationRequestHeaderComponent> getRequestHeader() {
+        public List<TestScriptSetupActionOperationRequestHeaderComponent> getRequestHeader() { 
           if (this.requestHeader == null)
             this.requestHeader = new ArrayList<TestScriptSetupActionOperationRequestHeaderComponent>();
           return this.requestHeader;
         }
 
-        public boolean hasRequestHeader() {
+        public boolean hasRequestHeader() { 
           if (this.requestHeader == null)
             return false;
           for (TestScriptSetupActionOperationRequestHeaderComponent item : this.requestHeader)
@@ -3829,7 +3829,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #responseId} (The fixture id (maybe new) to map to the response.). This is the underlying object with id, value and extensions. The accessor "getResponseId" gives direct access to the value
          */
-        public IdType getResponseIdElement() {
+        public IdType getResponseIdElement() { 
           if (this.responseId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.responseId");
@@ -3838,18 +3838,18 @@ public class TestScript extends DomainResource {
           return this.responseId;
         }
 
-        public boolean hasResponseIdElement() {
+        public boolean hasResponseIdElement() { 
           return this.responseId != null && !this.responseId.isEmpty();
         }
 
-        public boolean hasResponseId() {
+        public boolean hasResponseId() { 
           return this.responseId != null && !this.responseId.isEmpty();
         }
 
         /**
          * @param value {@link #responseId} (The fixture id (maybe new) to map to the response.). This is the underlying object with id, value and extensions. The accessor "getResponseId" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setResponseIdElement(IdType value) {
+        public TestScriptSetupActionOperationComponent setResponseIdElement(IdType value) { 
           this.responseId = value;
           return this;
         }
@@ -3857,14 +3857,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The fixture id (maybe new) to map to the response.
          */
-        public String getResponseId() {
+        public String getResponseId() { 
           return this.responseId == null ? null : this.responseId.getValue();
         }
 
         /**
          * @param value The fixture id (maybe new) to map to the response.
          */
-        public TestScriptSetupActionOperationComponent setResponseId(String value) {
+        public TestScriptSetupActionOperationComponent setResponseId(String value) { 
           if (Utilities.noString(value))
             this.responseId = null;
           else {
@@ -3878,7 +3878,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #sourceId} (The id of the fixture used as the body of a PUT or POST request.). This is the underlying object with id, value and extensions. The accessor "getSourceId" gives direct access to the value
          */
-        public IdType getSourceIdElement() {
+        public IdType getSourceIdElement() { 
           if (this.sourceId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.sourceId");
@@ -3887,18 +3887,18 @@ public class TestScript extends DomainResource {
           return this.sourceId;
         }
 
-        public boolean hasSourceIdElement() {
+        public boolean hasSourceIdElement() { 
           return this.sourceId != null && !this.sourceId.isEmpty();
         }
 
-        public boolean hasSourceId() {
+        public boolean hasSourceId() { 
           return this.sourceId != null && !this.sourceId.isEmpty();
         }
 
         /**
          * @param value {@link #sourceId} (The id of the fixture used as the body of a PUT or POST request.). This is the underlying object with id, value and extensions. The accessor "getSourceId" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setSourceIdElement(IdType value) {
+        public TestScriptSetupActionOperationComponent setSourceIdElement(IdType value) { 
           this.sourceId = value;
           return this;
         }
@@ -3906,14 +3906,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The id of the fixture used as the body of a PUT or POST request.
          */
-        public String getSourceId() {
+        public String getSourceId() { 
           return this.sourceId == null ? null : this.sourceId.getValue();
         }
 
         /**
          * @param value The id of the fixture used as the body of a PUT or POST request.
          */
-        public TestScriptSetupActionOperationComponent setSourceId(String value) {
+        public TestScriptSetupActionOperationComponent setSourceId(String value) { 
           if (Utilities.noString(value))
             this.sourceId = null;
           else {
@@ -3927,7 +3927,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #targetId} (Id of fixture used for extracting the [id],  [type], and [vid] for GET requests.). This is the underlying object with id, value and extensions. The accessor "getTargetId" gives direct access to the value
          */
-        public IdType getTargetIdElement() {
+        public IdType getTargetIdElement() { 
           if (this.targetId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.targetId");
@@ -3936,18 +3936,18 @@ public class TestScript extends DomainResource {
           return this.targetId;
         }
 
-        public boolean hasTargetIdElement() {
+        public boolean hasTargetIdElement() { 
           return this.targetId != null && !this.targetId.isEmpty();
         }
 
-        public boolean hasTargetId() {
+        public boolean hasTargetId() { 
           return this.targetId != null && !this.targetId.isEmpty();
         }
 
         /**
          * @param value {@link #targetId} (Id of fixture used for extracting the [id],  [type], and [vid] for GET requests.). This is the underlying object with id, value and extensions. The accessor "getTargetId" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setTargetIdElement(IdType value) {
+        public TestScriptSetupActionOperationComponent setTargetIdElement(IdType value) { 
           this.targetId = value;
           return this;
         }
@@ -3955,14 +3955,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Id of fixture used for extracting the [id],  [type], and [vid] for GET requests.
          */
-        public String getTargetId() {
+        public String getTargetId() { 
           return this.targetId == null ? null : this.targetId.getValue();
         }
 
         /**
          * @param value Id of fixture used for extracting the [id],  [type], and [vid] for GET requests.
          */
-        public TestScriptSetupActionOperationComponent setTargetId(String value) {
+        public TestScriptSetupActionOperationComponent setTargetId(String value) { 
           if (Utilities.noString(value))
             this.targetId = null;
           else {
@@ -3976,7 +3976,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #url} (Complete request URL.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public StringType getUrlElement() {
+        public StringType getUrlElement() { 
           if (this.url == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationComponent.url");
@@ -3985,18 +3985,18 @@ public class TestScript extends DomainResource {
           return this.url;
         }
 
-        public boolean hasUrlElement() {
+        public boolean hasUrlElement() { 
           return this.url != null && !this.url.isEmpty();
         }
 
-        public boolean hasUrl() {
+        public boolean hasUrl() { 
           return this.url != null && !this.url.isEmpty();
         }
 
         /**
          * @param value {@link #url} (Complete request URL.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
          */
-        public TestScriptSetupActionOperationComponent setUrlElement(StringType value) {
+        public TestScriptSetupActionOperationComponent setUrlElement(StringType value) { 
           this.url = value;
           return this;
         }
@@ -4004,14 +4004,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Complete request URL.
          */
-        public String getUrl() {
+        public String getUrl() { 
           return this.url == null ? null : this.url.getValue();
         }
 
         /**
          * @param value Complete request URL.
          */
-        public TestScriptSetupActionOperationComponent setUrl(String value) {
+        public TestScriptSetupActionOperationComponent setUrl(String value) { 
           if (Utilities.noString(value))
             this.url = null;
           else {
@@ -4237,7 +4237,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #field} (The HTTP header field e.g. "Accept".). This is the underlying object with id, value and extensions. The accessor "getField" gives direct access to the value
          */
-        public StringType getFieldElement() {
+        public StringType getFieldElement() { 
           if (this.field == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationRequestHeaderComponent.field");
@@ -4246,18 +4246,18 @@ public class TestScript extends DomainResource {
           return this.field;
         }
 
-        public boolean hasFieldElement() {
+        public boolean hasFieldElement() { 
           return this.field != null && !this.field.isEmpty();
         }
 
-        public boolean hasField() {
+        public boolean hasField() { 
           return this.field != null && !this.field.isEmpty();
         }
 
         /**
          * @param value {@link #field} (The HTTP header field e.g. "Accept".). This is the underlying object with id, value and extensions. The accessor "getField" gives direct access to the value
          */
-        public TestScriptSetupActionOperationRequestHeaderComponent setFieldElement(StringType value) {
+        public TestScriptSetupActionOperationRequestHeaderComponent setFieldElement(StringType value) { 
           this.field = value;
           return this;
         }
@@ -4265,14 +4265,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The HTTP header field e.g. "Accept".
          */
-        public String getField() {
+        public String getField() { 
           return this.field == null ? null : this.field.getValue();
         }
 
         /**
          * @param value The HTTP header field e.g. "Accept".
          */
-        public TestScriptSetupActionOperationRequestHeaderComponent setField(String value) {
+        public TestScriptSetupActionOperationRequestHeaderComponent setField(String value) { 
             if (this.field == null)
               this.field = new StringType();
             this.field.setValue(value);
@@ -4282,7 +4282,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #value} (The value of the header e.g. "application/xml".). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public StringType getValueElement() {
+        public StringType getValueElement() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionOperationRequestHeaderComponent.value");
@@ -4291,18 +4291,18 @@ public class TestScript extends DomainResource {
           return this.value;
         }
 
-        public boolean hasValueElement() {
+        public boolean hasValueElement() { 
           return this.value != null && !this.value.isEmpty();
         }
 
-        public boolean hasValue() {
+        public boolean hasValue() { 
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (The value of the header e.g. "application/xml".). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public TestScriptSetupActionOperationRequestHeaderComponent setValueElement(StringType value) {
+        public TestScriptSetupActionOperationRequestHeaderComponent setValueElement(StringType value) { 
           this.value = value;
           return this;
         }
@@ -4310,14 +4310,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The value of the header e.g. "application/xml".
          */
-        public String getValue() {
+        public String getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value The value of the header e.g. "application/xml".
          */
-        public TestScriptSetupActionOperationRequestHeaderComponent setValue(String value) {
+        public TestScriptSetupActionOperationRequestHeaderComponent setValue(String value) { 
             if (this.value == null)
               this.value = new StringType();
             this.value.setValue(value);
@@ -4532,7 +4532,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #label} (The label would be used for tracking/logging purposes by test engines.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
          */
-        public StringType getLabelElement() {
+        public StringType getLabelElement() { 
           if (this.label == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.label");
@@ -4541,18 +4541,18 @@ public class TestScript extends DomainResource {
           return this.label;
         }
 
-        public boolean hasLabelElement() {
+        public boolean hasLabelElement() { 
           return this.label != null && !this.label.isEmpty();
         }
 
-        public boolean hasLabel() {
+        public boolean hasLabel() { 
           return this.label != null && !this.label.isEmpty();
         }
 
         /**
          * @param value {@link #label} (The label would be used for tracking/logging purposes by test engines.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setLabelElement(StringType value) {
+        public TestScriptSetupActionAssertComponent setLabelElement(StringType value) { 
           this.label = value;
           return this;
         }
@@ -4560,14 +4560,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The label would be used for tracking/logging purposes by test engines.
          */
-        public String getLabel() {
+        public String getLabel() { 
           return this.label == null ? null : this.label.getValue();
         }
 
         /**
          * @param value The label would be used for tracking/logging purposes by test engines.
          */
-        public TestScriptSetupActionAssertComponent setLabel(String value) {
+        public TestScriptSetupActionAssertComponent setLabel(String value) { 
           if (Utilities.noString(value))
             this.label = null;
           else {
@@ -4581,7 +4581,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #description} (The description would be used by test engines for tracking and reporting purposes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() {
+        public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.description");
@@ -4590,18 +4590,18 @@ public class TestScript extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() {
+        public boolean hasDescriptionElement() { 
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() {
+        public boolean hasDescription() { 
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (The description would be used by test engines for tracking and reporting purposes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setDescriptionElement(StringType value) {
+        public TestScriptSetupActionAssertComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -4609,14 +4609,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The description would be used by test engines for tracking and reporting purposes.
          */
-        public String getDescription() {
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value The description would be used by test engines for tracking and reporting purposes.
          */
-        public TestScriptSetupActionAssertComponent setDescription(String value) {
+        public TestScriptSetupActionAssertComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -4630,7 +4630,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #direction} (The direction to use for the assertion.). This is the underlying object with id, value and extensions. The accessor "getDirection" gives direct access to the value
          */
-        public Enumeration<AssertionDirectionType> getDirectionElement() {
+        public Enumeration<AssertionDirectionType> getDirectionElement() { 
           if (this.direction == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.direction");
@@ -4639,18 +4639,18 @@ public class TestScript extends DomainResource {
           return this.direction;
         }
 
-        public boolean hasDirectionElement() {
+        public boolean hasDirectionElement() { 
           return this.direction != null && !this.direction.isEmpty();
         }
 
-        public boolean hasDirection() {
+        public boolean hasDirection() { 
           return this.direction != null && !this.direction.isEmpty();
         }
 
         /**
          * @param value {@link #direction} (The direction to use for the assertion.). This is the underlying object with id, value and extensions. The accessor "getDirection" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setDirectionElement(Enumeration<AssertionDirectionType> value) {
+        public TestScriptSetupActionAssertComponent setDirectionElement(Enumeration<AssertionDirectionType> value) { 
           this.direction = value;
           return this;
         }
@@ -4658,14 +4658,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The direction to use for the assertion.
          */
-        public AssertionDirectionType getDirection() {
+        public AssertionDirectionType getDirection() { 
           return this.direction == null ? null : this.direction.getValue();
         }
 
         /**
          * @param value The direction to use for the assertion.
          */
-        public TestScriptSetupActionAssertComponent setDirection(AssertionDirectionType value) {
+        public TestScriptSetupActionAssertComponent setDirection(AssertionDirectionType value) { 
           if (value == null)
             this.direction = null;
           else {
@@ -4679,7 +4679,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #compareToSourceId} (Id of fixture used to compare the "sourceId/path" evaluations to.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceId" gives direct access to the value
          */
-        public StringType getCompareToSourceIdElement() {
+        public StringType getCompareToSourceIdElement() { 
           if (this.compareToSourceId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.compareToSourceId");
@@ -4688,18 +4688,18 @@ public class TestScript extends DomainResource {
           return this.compareToSourceId;
         }
 
-        public boolean hasCompareToSourceIdElement() {
+        public boolean hasCompareToSourceIdElement() { 
           return this.compareToSourceId != null && !this.compareToSourceId.isEmpty();
         }
 
-        public boolean hasCompareToSourceId() {
+        public boolean hasCompareToSourceId() { 
           return this.compareToSourceId != null && !this.compareToSourceId.isEmpty();
         }
 
         /**
          * @param value {@link #compareToSourceId} (Id of fixture used to compare the "sourceId/path" evaluations to.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourceId" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setCompareToSourceIdElement(StringType value) {
+        public TestScriptSetupActionAssertComponent setCompareToSourceIdElement(StringType value) { 
           this.compareToSourceId = value;
           return this;
         }
@@ -4707,14 +4707,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Id of fixture used to compare the "sourceId/path" evaluations to.
          */
-        public String getCompareToSourceId() {
+        public String getCompareToSourceId() { 
           return this.compareToSourceId == null ? null : this.compareToSourceId.getValue();
         }
 
         /**
          * @param value Id of fixture used to compare the "sourceId/path" evaluations to.
          */
-        public TestScriptSetupActionAssertComponent setCompareToSourceId(String value) {
+        public TestScriptSetupActionAssertComponent setCompareToSourceId(String value) { 
           if (Utilities.noString(value))
             this.compareToSourceId = null;
           else {
@@ -4728,7 +4728,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #compareToSourcePath} (XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourcePath" gives direct access to the value
          */
-        public StringType getCompareToSourcePathElement() {
+        public StringType getCompareToSourcePathElement() { 
           if (this.compareToSourcePath == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.compareToSourcePath");
@@ -4737,18 +4737,18 @@ public class TestScript extends DomainResource {
           return this.compareToSourcePath;
         }
 
-        public boolean hasCompareToSourcePathElement() {
+        public boolean hasCompareToSourcePathElement() { 
           return this.compareToSourcePath != null && !this.compareToSourcePath.isEmpty();
         }
 
-        public boolean hasCompareToSourcePath() {
+        public boolean hasCompareToSourcePath() { 
           return this.compareToSourcePath != null && !this.compareToSourcePath.isEmpty();
         }
 
         /**
          * @param value {@link #compareToSourcePath} (XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.). This is the underlying object with id, value and extensions. The accessor "getCompareToSourcePath" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setCompareToSourcePathElement(StringType value) {
+        public TestScriptSetupActionAssertComponent setCompareToSourcePathElement(StringType value) { 
           this.compareToSourcePath = value;
           return this;
         }
@@ -4756,14 +4756,14 @@ public class TestScript extends DomainResource {
         /**
          * @return XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.
          */
-        public String getCompareToSourcePath() {
+        public String getCompareToSourcePath() { 
           return this.compareToSourcePath == null ? null : this.compareToSourcePath.getValue();
         }
 
         /**
          * @param value XPath or JSONPath expression against fixture used to compare the "sourceId/path" evaluations to.
          */
-        public TestScriptSetupActionAssertComponent setCompareToSourcePath(String value) {
+        public TestScriptSetupActionAssertComponent setCompareToSourcePath(String value) { 
           if (Utilities.noString(value))
             this.compareToSourcePath = null;
           else {
@@ -4777,7 +4777,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #contentType} (The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
          */
-        public Enumeration<ContentType> getContentTypeElement() {
+        public Enumeration<ContentType> getContentTypeElement() { 
           if (this.contentType == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.contentType");
@@ -4786,18 +4786,18 @@ public class TestScript extends DomainResource {
           return this.contentType;
         }
 
-        public boolean hasContentTypeElement() {
+        public boolean hasContentTypeElement() { 
           return this.contentType != null && !this.contentType.isEmpty();
         }
 
-        public boolean hasContentType() {
+        public boolean hasContentType() { 
           return this.contentType != null && !this.contentType.isEmpty();
         }
 
         /**
          * @param value {@link #contentType} (The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setContentTypeElement(Enumeration<ContentType> value) {
+        public TestScriptSetupActionAssertComponent setContentTypeElement(Enumeration<ContentType> value) { 
           this.contentType = value;
           return this;
         }
@@ -4805,14 +4805,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
          */
-        public ContentType getContentType() {
+        public ContentType getContentType() { 
           return this.contentType == null ? null : this.contentType.getValue();
         }
 
         /**
          * @param value The content-type or mime-type to use for RESTful operation in the 'Content-Type' header.
          */
-        public TestScriptSetupActionAssertComponent setContentType(ContentType value) {
+        public TestScriptSetupActionAssertComponent setContentType(ContentType value) { 
           if (value == null)
             this.contentType = null;
           else {
@@ -4826,7 +4826,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #headerField} (The HTTP header field name e.g. 'Location'.). This is the underlying object with id, value and extensions. The accessor "getHeaderField" gives direct access to the value
          */
-        public StringType getHeaderFieldElement() {
+        public StringType getHeaderFieldElement() { 
           if (this.headerField == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.headerField");
@@ -4835,18 +4835,18 @@ public class TestScript extends DomainResource {
           return this.headerField;
         }
 
-        public boolean hasHeaderFieldElement() {
+        public boolean hasHeaderFieldElement() { 
           return this.headerField != null && !this.headerField.isEmpty();
         }
 
-        public boolean hasHeaderField() {
+        public boolean hasHeaderField() { 
           return this.headerField != null && !this.headerField.isEmpty();
         }
 
         /**
          * @param value {@link #headerField} (The HTTP header field name e.g. 'Location'.). This is the underlying object with id, value and extensions. The accessor "getHeaderField" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setHeaderFieldElement(StringType value) {
+        public TestScriptSetupActionAssertComponent setHeaderFieldElement(StringType value) { 
           this.headerField = value;
           return this;
         }
@@ -4854,14 +4854,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The HTTP header field name e.g. 'Location'.
          */
-        public String getHeaderField() {
+        public String getHeaderField() { 
           return this.headerField == null ? null : this.headerField.getValue();
         }
 
         /**
          * @param value The HTTP header field name e.g. 'Location'.
          */
-        public TestScriptSetupActionAssertComponent setHeaderField(String value) {
+        public TestScriptSetupActionAssertComponent setHeaderField(String value) { 
           if (Utilities.noString(value))
             this.headerField = null;
           else {
@@ -4875,7 +4875,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #minimumId} (The ID of a fixture.  Asserts that the response contains at a minimumId the fixture specified by minimumId.). This is the underlying object with id, value and extensions. The accessor "getMinimumId" gives direct access to the value
          */
-        public StringType getMinimumIdElement() {
+        public StringType getMinimumIdElement() { 
           if (this.minimumId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.minimumId");
@@ -4884,18 +4884,18 @@ public class TestScript extends DomainResource {
           return this.minimumId;
         }
 
-        public boolean hasMinimumIdElement() {
+        public boolean hasMinimumIdElement() { 
           return this.minimumId != null && !this.minimumId.isEmpty();
         }
 
-        public boolean hasMinimumId() {
+        public boolean hasMinimumId() { 
           return this.minimumId != null && !this.minimumId.isEmpty();
         }
 
         /**
          * @param value {@link #minimumId} (The ID of a fixture.  Asserts that the response contains at a minimumId the fixture specified by minimumId.). This is the underlying object with id, value and extensions. The accessor "getMinimumId" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setMinimumIdElement(StringType value) {
+        public TestScriptSetupActionAssertComponent setMinimumIdElement(StringType value) { 
           this.minimumId = value;
           return this;
         }
@@ -4903,14 +4903,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The ID of a fixture.  Asserts that the response contains at a minimumId the fixture specified by minimumId.
          */
-        public String getMinimumId() {
+        public String getMinimumId() { 
           return this.minimumId == null ? null : this.minimumId.getValue();
         }
 
         /**
          * @param value The ID of a fixture.  Asserts that the response contains at a minimumId the fixture specified by minimumId.
          */
-        public TestScriptSetupActionAssertComponent setMinimumId(String value) {
+        public TestScriptSetupActionAssertComponent setMinimumId(String value) { 
           if (Utilities.noString(value))
             this.minimumId = null;
           else {
@@ -4924,7 +4924,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #navigationLinks} (Whether or not the test execution performs validation on the bundle navigation links.). This is the underlying object with id, value and extensions. The accessor "getNavigationLinks" gives direct access to the value
          */
-        public BooleanType getNavigationLinksElement() {
+        public BooleanType getNavigationLinksElement() { 
           if (this.navigationLinks == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.navigationLinks");
@@ -4933,18 +4933,18 @@ public class TestScript extends DomainResource {
           return this.navigationLinks;
         }
 
-        public boolean hasNavigationLinksElement() {
+        public boolean hasNavigationLinksElement() { 
           return this.navigationLinks != null && !this.navigationLinks.isEmpty();
         }
 
-        public boolean hasNavigationLinks() {
+        public boolean hasNavigationLinks() { 
           return this.navigationLinks != null && !this.navigationLinks.isEmpty();
         }
 
         /**
          * @param value {@link #navigationLinks} (Whether or not the test execution performs validation on the bundle navigation links.). This is the underlying object with id, value and extensions. The accessor "getNavigationLinks" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setNavigationLinksElement(BooleanType value) {
+        public TestScriptSetupActionAssertComponent setNavigationLinksElement(BooleanType value) { 
           this.navigationLinks = value;
           return this;
         }
@@ -4952,14 +4952,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Whether or not the test execution performs validation on the bundle navigation links.
          */
-        public boolean getNavigationLinks() {
+        public boolean getNavigationLinks() { 
           return this.navigationLinks == null || this.navigationLinks.isEmpty() ? false : this.navigationLinks.getValue();
         }
 
         /**
          * @param value Whether or not the test execution performs validation on the bundle navigation links.
          */
-        public TestScriptSetupActionAssertComponent setNavigationLinks(boolean value) {
+        public TestScriptSetupActionAssertComponent setNavigationLinks(boolean value) { 
             if (this.navigationLinks == null)
               this.navigationLinks = new BooleanType();
             this.navigationLinks.setValue(value);
@@ -4969,7 +4969,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #operator} (The operator type.). This is the underlying object with id, value and extensions. The accessor "getOperator" gives direct access to the value
          */
-        public Enumeration<AssertionOperatorType> getOperatorElement() {
+        public Enumeration<AssertionOperatorType> getOperatorElement() { 
           if (this.operator == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.operator");
@@ -4978,18 +4978,18 @@ public class TestScript extends DomainResource {
           return this.operator;
         }
 
-        public boolean hasOperatorElement() {
+        public boolean hasOperatorElement() { 
           return this.operator != null && !this.operator.isEmpty();
         }
 
-        public boolean hasOperator() {
+        public boolean hasOperator() { 
           return this.operator != null && !this.operator.isEmpty();
         }
 
         /**
          * @param value {@link #operator} (The operator type.). This is the underlying object with id, value and extensions. The accessor "getOperator" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setOperatorElement(Enumeration<AssertionOperatorType> value) {
+        public TestScriptSetupActionAssertComponent setOperatorElement(Enumeration<AssertionOperatorType> value) { 
           this.operator = value;
           return this;
         }
@@ -4997,14 +4997,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The operator type.
          */
-        public AssertionOperatorType getOperator() {
+        public AssertionOperatorType getOperator() { 
           return this.operator == null ? null : this.operator.getValue();
         }
 
         /**
          * @param value The operator type.
          */
-        public TestScriptSetupActionAssertComponent setOperator(AssertionOperatorType value) {
+        public TestScriptSetupActionAssertComponent setOperator(AssertionOperatorType value) { 
           if (value == null)
             this.operator = null;
           else {
@@ -5018,7 +5018,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #path} (The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public StringType getPathElement() {
+        public StringType getPathElement() { 
           if (this.path == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.path");
@@ -5027,18 +5027,18 @@ public class TestScript extends DomainResource {
           return this.path;
         }
 
-        public boolean hasPathElement() {
+        public boolean hasPathElement() { 
           return this.path != null && !this.path.isEmpty();
         }
 
-        public boolean hasPath() {
+        public boolean hasPath() { 
           return this.path != null && !this.path.isEmpty();
         }
 
         /**
          * @param value {@link #path} (The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setPathElement(StringType value) {
+        public TestScriptSetupActionAssertComponent setPathElement(StringType value) { 
           this.path = value;
           return this;
         }
@@ -5046,14 +5046,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server.
          */
-        public String getPath() {
+        public String getPath() { 
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
          * @param value The XPath or JSONPath expression to be evaluated against the fixture representing the response received from server.
          */
-        public TestScriptSetupActionAssertComponent setPath(String value) {
+        public TestScriptSetupActionAssertComponent setPath(String value) { 
           if (Utilities.noString(value))
             this.path = null;
           else {
@@ -5067,7 +5067,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #resource} (The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.). This is the underlying object with id, value and extensions. The accessor "getResource" gives direct access to the value
          */
-        public CodeType getResourceElement() {
+        public CodeType getResourceElement() { 
           if (this.resource == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.resource");
@@ -5076,18 +5076,18 @@ public class TestScript extends DomainResource {
           return this.resource;
         }
 
-        public boolean hasResourceElement() {
+        public boolean hasResourceElement() { 
           return this.resource != null && !this.resource.isEmpty();
         }
 
-        public boolean hasResource() {
+        public boolean hasResource() { 
           return this.resource != null && !this.resource.isEmpty();
         }
 
         /**
          * @param value {@link #resource} (The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.). This is the underlying object with id, value and extensions. The accessor "getResource" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setResourceElement(CodeType value) {
+        public TestScriptSetupActionAssertComponent setResourceElement(CodeType value) { 
           this.resource = value;
           return this;
         }
@@ -5095,14 +5095,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
          */
-        public String getResource() {
+        public String getResource() { 
           return this.resource == null ? null : this.resource.getValue();
         }
 
         /**
          * @param value The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.
          */
-        public TestScriptSetupActionAssertComponent setResource(String value) {
+        public TestScriptSetupActionAssertComponent setResource(String value) { 
           if (Utilities.noString(value))
             this.resource = null;
           else {
@@ -5116,7 +5116,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #response} (okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.). This is the underlying object with id, value and extensions. The accessor "getResponse" gives direct access to the value
          */
-        public Enumeration<AssertionResponseTypes> getResponseElement() {
+        public Enumeration<AssertionResponseTypes> getResponseElement() { 
           if (this.response == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.response");
@@ -5125,18 +5125,18 @@ public class TestScript extends DomainResource {
           return this.response;
         }
 
-        public boolean hasResponseElement() {
+        public boolean hasResponseElement() { 
           return this.response != null && !this.response.isEmpty();
         }
 
-        public boolean hasResponse() {
+        public boolean hasResponse() { 
           return this.response != null && !this.response.isEmpty();
         }
 
         /**
          * @param value {@link #response} (okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.). This is the underlying object with id, value and extensions. The accessor "getResponse" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setResponseElement(Enumeration<AssertionResponseTypes> value) {
+        public TestScriptSetupActionAssertComponent setResponseElement(Enumeration<AssertionResponseTypes> value) { 
           this.response = value;
           return this;
         }
@@ -5144,14 +5144,14 @@ public class TestScript extends DomainResource {
         /**
          * @return okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.
          */
-        public AssertionResponseTypes getResponse() {
+        public AssertionResponseTypes getResponse() { 
           return this.response == null ? null : this.response.getValue();
         }
 
         /**
          * @param value okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.
          */
-        public TestScriptSetupActionAssertComponent setResponse(AssertionResponseTypes value) {
+        public TestScriptSetupActionAssertComponent setResponse(AssertionResponseTypes value) { 
           if (value == null)
             this.response = null;
           else {
@@ -5165,7 +5165,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #responseCode} (The value of the HTTP response code to be tested.). This is the underlying object with id, value and extensions. The accessor "getResponseCode" gives direct access to the value
          */
-        public StringType getResponseCodeElement() {
+        public StringType getResponseCodeElement() { 
           if (this.responseCode == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.responseCode");
@@ -5174,18 +5174,18 @@ public class TestScript extends DomainResource {
           return this.responseCode;
         }
 
-        public boolean hasResponseCodeElement() {
+        public boolean hasResponseCodeElement() { 
           return this.responseCode != null && !this.responseCode.isEmpty();
         }
 
-        public boolean hasResponseCode() {
+        public boolean hasResponseCode() { 
           return this.responseCode != null && !this.responseCode.isEmpty();
         }
 
         /**
          * @param value {@link #responseCode} (The value of the HTTP response code to be tested.). This is the underlying object with id, value and extensions. The accessor "getResponseCode" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setResponseCodeElement(StringType value) {
+        public TestScriptSetupActionAssertComponent setResponseCodeElement(StringType value) { 
           this.responseCode = value;
           return this;
         }
@@ -5193,14 +5193,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The value of the HTTP response code to be tested.
          */
-        public String getResponseCode() {
+        public String getResponseCode() { 
           return this.responseCode == null ? null : this.responseCode.getValue();
         }
 
         /**
          * @param value The value of the HTTP response code to be tested.
          */
-        public TestScriptSetupActionAssertComponent setResponseCode(String value) {
+        public TestScriptSetupActionAssertComponent setResponseCode(String value) { 
           if (Utilities.noString(value))
             this.responseCode = null;
           else {
@@ -5214,7 +5214,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #sourceId} (Fixture to evaluate the XPath/JSONPath expression or the headerField  against.). This is the underlying object with id, value and extensions. The accessor "getSourceId" gives direct access to the value
          */
-        public IdType getSourceIdElement() {
+        public IdType getSourceIdElement() { 
           if (this.sourceId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.sourceId");
@@ -5223,18 +5223,18 @@ public class TestScript extends DomainResource {
           return this.sourceId;
         }
 
-        public boolean hasSourceIdElement() {
+        public boolean hasSourceIdElement() { 
           return this.sourceId != null && !this.sourceId.isEmpty();
         }
 
-        public boolean hasSourceId() {
+        public boolean hasSourceId() { 
           return this.sourceId != null && !this.sourceId.isEmpty();
         }
 
         /**
          * @param value {@link #sourceId} (Fixture to evaluate the XPath/JSONPath expression or the headerField  against.). This is the underlying object with id, value and extensions. The accessor "getSourceId" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setSourceIdElement(IdType value) {
+        public TestScriptSetupActionAssertComponent setSourceIdElement(IdType value) { 
           this.sourceId = value;
           return this;
         }
@@ -5242,14 +5242,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
          */
-        public String getSourceId() {
+        public String getSourceId() { 
           return this.sourceId == null ? null : this.sourceId.getValue();
         }
 
         /**
          * @param value Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
          */
-        public TestScriptSetupActionAssertComponent setSourceId(String value) {
+        public TestScriptSetupActionAssertComponent setSourceId(String value) { 
           if (Utilities.noString(value))
             this.sourceId = null;
           else {
@@ -5263,7 +5263,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #validateProfileId} (The ID of the Profile to validate against.). This is the underlying object with id, value and extensions. The accessor "getValidateProfileId" gives direct access to the value
          */
-        public IdType getValidateProfileIdElement() {
+        public IdType getValidateProfileIdElement() { 
           if (this.validateProfileId == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.validateProfileId");
@@ -5272,18 +5272,18 @@ public class TestScript extends DomainResource {
           return this.validateProfileId;
         }
 
-        public boolean hasValidateProfileIdElement() {
+        public boolean hasValidateProfileIdElement() { 
           return this.validateProfileId != null && !this.validateProfileId.isEmpty();
         }
 
-        public boolean hasValidateProfileId() {
+        public boolean hasValidateProfileId() { 
           return this.validateProfileId != null && !this.validateProfileId.isEmpty();
         }
 
         /**
          * @param value {@link #validateProfileId} (The ID of the Profile to validate against.). This is the underlying object with id, value and extensions. The accessor "getValidateProfileId" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setValidateProfileIdElement(IdType value) {
+        public TestScriptSetupActionAssertComponent setValidateProfileIdElement(IdType value) { 
           this.validateProfileId = value;
           return this;
         }
@@ -5291,14 +5291,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The ID of the Profile to validate against.
          */
-        public String getValidateProfileId() {
+        public String getValidateProfileId() { 
           return this.validateProfileId == null ? null : this.validateProfileId.getValue();
         }
 
         /**
          * @param value The ID of the Profile to validate against.
          */
-        public TestScriptSetupActionAssertComponent setValidateProfileId(String value) {
+        public TestScriptSetupActionAssertComponent setValidateProfileId(String value) { 
           if (Utilities.noString(value))
             this.validateProfileId = null;
           else {
@@ -5312,7 +5312,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #value} (The value to compare to.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public StringType getValueElement() {
+        public StringType getValueElement() { 
           if (this.value == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.value");
@@ -5321,18 +5321,18 @@ public class TestScript extends DomainResource {
           return this.value;
         }
 
-        public boolean hasValueElement() {
+        public boolean hasValueElement() { 
           return this.value != null && !this.value.isEmpty();
         }
 
-        public boolean hasValue() {
+        public boolean hasValue() { 
           return this.value != null && !this.value.isEmpty();
         }
 
         /**
          * @param value {@link #value} (The value to compare to.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setValueElement(StringType value) {
+        public TestScriptSetupActionAssertComponent setValueElement(StringType value) { 
           this.value = value;
           return this;
         }
@@ -5340,14 +5340,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The value to compare to.
          */
-        public String getValue() {
+        public String getValue() { 
           return this.value == null ? null : this.value.getValue();
         }
 
         /**
          * @param value The value to compare to.
          */
-        public TestScriptSetupActionAssertComponent setValue(String value) {
+        public TestScriptSetupActionAssertComponent setValue(String value) { 
           if (Utilities.noString(value))
             this.value = null;
           else {
@@ -5361,7 +5361,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #warningOnly} (Whether or not the test execution will produce a warning only on error for this assert.). This is the underlying object with id, value and extensions. The accessor "getWarningOnly" gives direct access to the value
          */
-        public BooleanType getWarningOnlyElement() {
+        public BooleanType getWarningOnlyElement() { 
           if (this.warningOnly == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptSetupActionAssertComponent.warningOnly");
@@ -5370,18 +5370,18 @@ public class TestScript extends DomainResource {
           return this.warningOnly;
         }
 
-        public boolean hasWarningOnlyElement() {
+        public boolean hasWarningOnlyElement() { 
           return this.warningOnly != null && !this.warningOnly.isEmpty();
         }
 
-        public boolean hasWarningOnly() {
+        public boolean hasWarningOnly() { 
           return this.warningOnly != null && !this.warningOnly.isEmpty();
         }
 
         /**
          * @param value {@link #warningOnly} (Whether or not the test execution will produce a warning only on error for this assert.). This is the underlying object with id, value and extensions. The accessor "getWarningOnly" gives direct access to the value
          */
-        public TestScriptSetupActionAssertComponent setWarningOnlyElement(BooleanType value) {
+        public TestScriptSetupActionAssertComponent setWarningOnlyElement(BooleanType value) { 
           this.warningOnly = value;
           return this;
         }
@@ -5389,14 +5389,14 @@ public class TestScript extends DomainResource {
         /**
          * @return Whether or not the test execution will produce a warning only on error for this assert.
          */
-        public boolean getWarningOnly() {
+        public boolean getWarningOnly() { 
           return this.warningOnly == null || this.warningOnly.isEmpty() ? false : this.warningOnly.getValue();
         }
 
         /**
          * @param value Whether or not the test execution will produce a warning only on error for this assert.
          */
-        public TestScriptSetupActionAssertComponent setWarningOnly(boolean value) {
+        public TestScriptSetupActionAssertComponent setWarningOnly(boolean value) { 
             if (this.warningOnly == null)
               this.warningOnly = new BooleanType();
             this.warningOnly.setValue(value);
@@ -5646,7 +5646,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #name} (The name of this test used for tracking/logging purposes by test engines.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptTestComponent.name");
@@ -5655,18 +5655,18 @@ public class TestScript extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of this test used for tracking/logging purposes by test engines.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public TestScriptTestComponent setNameElement(StringType value) {
+        public TestScriptTestComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -5674,14 +5674,14 @@ public class TestScript extends DomainResource {
         /**
          * @return The name of this test used for tracking/logging purposes by test engines.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of this test used for tracking/logging purposes by test engines.
          */
-        public TestScriptTestComponent setName(String value) {
+        public TestScriptTestComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -5695,7 +5695,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #description} (A short description of the test used by test engines for tracking and reporting purposes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() {
+        public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptTestComponent.description");
@@ -5704,18 +5704,18 @@ public class TestScript extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() {
+        public boolean hasDescriptionElement() { 
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() {
+        public boolean hasDescription() { 
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (A short description of the test used by test engines for tracking and reporting purposes.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public TestScriptTestComponent setDescriptionElement(StringType value) {
+        public TestScriptTestComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -5723,14 +5723,14 @@ public class TestScript extends DomainResource {
         /**
          * @return A short description of the test used by test engines for tracking and reporting purposes.
          */
-        public String getDescription() {
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value A short description of the test used by test engines for tracking and reporting purposes.
          */
-        public TestScriptTestComponent setDescription(String value) {
+        public TestScriptTestComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -5744,7 +5744,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #metadata} (Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.)
          */
-        public TestScriptMetadataComponent getMetadata() {
+        public TestScriptMetadataComponent getMetadata() { 
           if (this.metadata == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptTestComponent.metadata");
@@ -5753,14 +5753,14 @@ public class TestScript extends DomainResource {
           return this.metadata;
         }
 
-        public boolean hasMetadata() {
+        public boolean hasMetadata() { 
           return this.metadata != null && !this.metadata.isEmpty();
         }
 
         /**
          * @param value {@link #metadata} (Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.)
          */
-        public TestScriptTestComponent setMetadata(TestScriptMetadataComponent value) {
+        public TestScriptTestComponent setMetadata(TestScriptMetadataComponent value) { 
           this.metadata = value;
           return this;
         }
@@ -5768,13 +5768,13 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #action} (Action would contain either an operation or an assertion.)
          */
-        public List<TestScriptTestActionComponent> getAction() {
+        public List<TestScriptTestActionComponent> getAction() { 
           if (this.action == null)
             this.action = new ArrayList<TestScriptTestActionComponent>();
           return this.action;
         }
 
-        public boolean hasAction() {
+        public boolean hasAction() { 
           if (this.action == null)
             return false;
           for (TestScriptTestActionComponent item : this.action)
@@ -5921,7 +5921,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #operation} (An operation would involve a REST request to a server.)
          */
-        public TestScriptSetupActionOperationComponent getOperation() {
+        public TestScriptSetupActionOperationComponent getOperation() { 
           if (this.operation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptTestActionComponent.operation");
@@ -5930,14 +5930,14 @@ public class TestScript extends DomainResource {
           return this.operation;
         }
 
-        public boolean hasOperation() {
+        public boolean hasOperation() { 
           return this.operation != null && !this.operation.isEmpty();
         }
 
         /**
          * @param value {@link #operation} (An operation would involve a REST request to a server.)
          */
-        public TestScriptTestActionComponent setOperation(TestScriptSetupActionOperationComponent value) {
+        public TestScriptTestActionComponent setOperation(TestScriptSetupActionOperationComponent value) { 
           this.operation = value;
           return this;
         }
@@ -5945,7 +5945,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #assert_} (Evaluates the results of previous operations to determine if the server under test behaves appropriately.)
          */
-        public TestScriptSetupActionAssertComponent getAssert() {
+        public TestScriptSetupActionAssertComponent getAssert() { 
           if (this.assert_ == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptTestActionComponent.assert_");
@@ -5954,14 +5954,14 @@ public class TestScript extends DomainResource {
           return this.assert_;
         }
 
-        public boolean hasAssert() {
+        public boolean hasAssert() { 
           return this.assert_ != null && !this.assert_.isEmpty();
         }
 
         /**
          * @param value {@link #assert_} (Evaluates the results of previous operations to determine if the server under test behaves appropriately.)
          */
-        public TestScriptTestActionComponent setAssert(TestScriptSetupActionAssertComponent value) {
+        public TestScriptTestActionComponent setAssert(TestScriptSetupActionAssertComponent value) { 
           this.assert_ = value;
           return this;
         }
@@ -6057,13 +6057,13 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #action} (The teardown action will only contain an operation.)
          */
-        public List<TestScriptTeardownActionComponent> getAction() {
+        public List<TestScriptTeardownActionComponent> getAction() { 
           if (this.action == null)
             this.action = new ArrayList<TestScriptTeardownActionComponent>();
           return this.action;
         }
 
-        public boolean hasAction() {
+        public boolean hasAction() { 
           if (this.action == null)
             return false;
           for (TestScriptTeardownActionComponent item : this.action)
@@ -6179,7 +6179,7 @@ public class TestScript extends DomainResource {
         /**
          * @return {@link #operation} (An operation would involve a REST request to a server.)
          */
-        public TestScriptSetupActionOperationComponent getOperation() {
+        public TestScriptSetupActionOperationComponent getOperation() { 
           if (this.operation == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create TestScriptTeardownActionComponent.operation");
@@ -6188,14 +6188,14 @@ public class TestScript extends DomainResource {
           return this.operation;
         }
 
-        public boolean hasOperation() {
+        public boolean hasOperation() { 
           return this.operation != null && !this.operation.isEmpty();
         }
 
         /**
          * @param value {@link #operation} (An operation would involve a REST request to a server.)
          */
-        public TestScriptTeardownActionComponent setOperation(TestScriptSetupActionOperationComponent value) {
+        public TestScriptTeardownActionComponent setOperation(TestScriptSetupActionOperationComponent value) { 
           this.operation = value;
           return this;
         }
@@ -6449,7 +6449,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #url} (An absolute URL that is used to identify this Test Script. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this Test Script is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() {
+    public UriType getUrlElement() { 
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.url");
@@ -6458,18 +6458,18 @@ public class TestScript extends DomainResource {
       return this.url;
     }
 
-    public boolean hasUrlElement() {
+    public boolean hasUrlElement() { 
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() {
+    public boolean hasUrl() { 
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
      * @param value {@link #url} (An absolute URL that is used to identify this Test Script. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this Test Script is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public TestScript setUrlElement(UriType value) {
+    public TestScript setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -6477,14 +6477,14 @@ public class TestScript extends DomainResource {
     /**
      * @return An absolute URL that is used to identify this Test Script. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this Test Script is (or will be) published.
      */
-    public String getUrl() {
+    public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value An absolute URL that is used to identify this Test Script. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this Test Script is (or will be) published.
      */
-    public TestScript setUrl(String value) {
+    public TestScript setUrl(String value) { 
         if (this.url == null)
           this.url = new UriType();
         this.url.setValue(value);
@@ -6494,7 +6494,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the TestScript. This is an arbitrary value managed by the TestScript author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.version");
@@ -6503,18 +6503,18 @@ public class TestScript extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the TestScript. This is an arbitrary value managed by the TestScript author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public TestScript setVersionElement(StringType value) {
+    public TestScript setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -6522,14 +6522,14 @@ public class TestScript extends DomainResource {
     /**
      * @return The identifier that is used to identify this version of the TestScript. This is an arbitrary value managed by the TestScript author manually.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this version of the TestScript. This is an arbitrary value managed by the TestScript author manually.
      */
-    public TestScript setVersion(String value) {
+    public TestScript setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -6543,7 +6543,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #name} (A free text natural language name identifying the TestScript.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() {
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.name");
@@ -6552,18 +6552,18 @@ public class TestScript extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() {
+    public boolean hasNameElement() { 
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (A free text natural language name identifying the TestScript.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public TestScript setNameElement(StringType value) {
+    public TestScript setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -6571,14 +6571,14 @@ public class TestScript extends DomainResource {
     /**
      * @return A free text natural language name identifying the TestScript.
      */
-    public String getName() {
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value A free text natural language name identifying the TestScript.
      */
-    public TestScript setName(String value) {
+    public TestScript setName(String value) { 
         if (this.name == null)
           this.name = new StringType();
         this.name.setValue(value);
@@ -6588,7 +6588,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #status} (The status of the TestScript.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() {
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.status");
@@ -6597,18 +6597,18 @@ public class TestScript extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the TestScript.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public TestScript setStatusElement(Enumeration<ConformanceResourceStatus> value) {
+    public TestScript setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -6616,14 +6616,14 @@ public class TestScript extends DomainResource {
     /**
      * @return The status of the TestScript.
      */
-    public ConformanceResourceStatus getStatus() {
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the TestScript.
      */
-    public TestScript setStatus(ConformanceResourceStatus value) {
+    public TestScript setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
@@ -6633,7 +6633,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #identifier} (Identifier for the TestScript assigned for external purposes outside the context of FHIR.)
      */
-    public Identifier getIdentifier() {
+    public Identifier getIdentifier() { 
       if (this.identifier == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.identifier");
@@ -6642,14 +6642,14 @@ public class TestScript extends DomainResource {
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       return this.identifier != null && !this.identifier.isEmpty();
     }
 
     /**
      * @param value {@link #identifier} (Identifier for the TestScript assigned for external purposes outside the context of FHIR.)
      */
-    public TestScript setIdentifier(Identifier value) {
+    public TestScript setIdentifier(Identifier value) { 
       this.identifier = value;
       return this;
     }
@@ -6657,7 +6657,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #experimental} (This TestScript was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalElement() {
+    public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.experimental");
@@ -6666,18 +6666,18 @@ public class TestScript extends DomainResource {
       return this.experimental;
     }
 
-    public boolean hasExperimentalElement() {
+    public boolean hasExperimentalElement() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
-    public boolean hasExperimental() {
+    public boolean hasExperimental() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
      * @param value {@link #experimental} (This TestScript was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public TestScript setExperimentalElement(BooleanType value) {
+    public TestScript setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -6685,14 +6685,14 @@ public class TestScript extends DomainResource {
     /**
      * @return This TestScript was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public boolean getExperimental() {
+    public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
      * @param value This TestScript was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public TestScript setExperimental(boolean value) {
+    public TestScript setExperimental(boolean value) { 
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
@@ -6702,7 +6702,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the Test Script.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() {
+    public StringType getPublisherElement() { 
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.publisher");
@@ -6711,18 +6711,18 @@ public class TestScript extends DomainResource {
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() {
+    public boolean hasPublisherElement() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() {
+    public boolean hasPublisher() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the Test Script.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public TestScript setPublisherElement(StringType value) {
+    public TestScript setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -6730,14 +6730,14 @@ public class TestScript extends DomainResource {
     /**
      * @return The name of the individual or organization that published the Test Script.
      */
-    public String getPublisher() {
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value The name of the individual or organization that published the Test Script.
      */
-    public TestScript setPublisher(String value) {
+    public TestScript setPublisher(String value) { 
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -6751,13 +6751,13 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<TestScriptContactComponent> getContact() {
+    public List<TestScriptContactComponent> getContact() { 
       if (this.contact == null)
         this.contact = new ArrayList<TestScriptContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() {
+    public boolean hasContact() { 
       if (this.contact == null)
         return false;
       for (TestScriptContactComponent item : this.contact)
@@ -6791,7 +6791,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #date} (The date this version of the test tcript was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the test cases change.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.date");
@@ -6800,18 +6800,18 @@ public class TestScript extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date this version of the test tcript was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the test cases change.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public TestScript setDateElement(DateTimeType value) {
+    public TestScript setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -6819,14 +6819,14 @@ public class TestScript extends DomainResource {
     /**
      * @return The date this version of the test tcript was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the test cases change.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date this version of the test tcript was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the test cases change.
      */
-    public TestScript setDate(Date value) {
+    public TestScript setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -6840,7 +6840,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #description} (A free text natural language description of the TestScript and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.description");
@@ -6849,18 +6849,18 @@ public class TestScript extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (A free text natural language description of the TestScript and its use.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public TestScript setDescriptionElement(StringType value) {
+    public TestScript setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -6868,14 +6868,14 @@ public class TestScript extends DomainResource {
     /**
      * @return A free text natural language description of the TestScript and its use.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value A free text natural language description of the TestScript and its use.
      */
-    public TestScript setDescription(String value) {
+    public TestScript setDescription(String value) { 
       if (Utilities.noString(value))
         this.description = null;
       else {
@@ -6889,13 +6889,13 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of Test Scripts.)
      */
-    public List<CodeableConcept> getUseContext() {
+    public List<CodeableConcept> getUseContext() { 
       if (this.useContext == null)
         this.useContext = new ArrayList<CodeableConcept>();
       return this.useContext;
     }
 
-    public boolean hasUseContext() {
+    public boolean hasUseContext() { 
       if (this.useContext == null)
         return false;
       for (CodeableConcept item : this.useContext)
@@ -6929,7 +6929,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #requirements} (Explains why this Test Script is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public StringType getRequirementsElement() {
+    public StringType getRequirementsElement() { 
       if (this.requirements == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.requirements");
@@ -6938,18 +6938,18 @@ public class TestScript extends DomainResource {
       return this.requirements;
     }
 
-    public boolean hasRequirementsElement() {
+    public boolean hasRequirementsElement() { 
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
-    public boolean hasRequirements() {
+    public boolean hasRequirements() { 
       return this.requirements != null && !this.requirements.isEmpty();
     }
 
     /**
      * @param value {@link #requirements} (Explains why this Test Script is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
-    public TestScript setRequirementsElement(StringType value) {
+    public TestScript setRequirementsElement(StringType value) { 
       this.requirements = value;
       return this;
     }
@@ -6957,14 +6957,14 @@ public class TestScript extends DomainResource {
     /**
      * @return Explains why this Test Script is needed and why it's been constrained as it has.
      */
-    public String getRequirements() {
+    public String getRequirements() { 
       return this.requirements == null ? null : this.requirements.getValue();
     }
 
     /**
      * @param value Explains why this Test Script is needed and why it's been constrained as it has.
      */
-    public TestScript setRequirements(String value) {
+    public TestScript setRequirements(String value) { 
       if (Utilities.noString(value))
         this.requirements = null;
       else {
@@ -6978,7 +6978,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #copyright} (A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public StringType getCopyrightElement() {
+    public StringType getCopyrightElement() { 
       if (this.copyright == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.copyright");
@@ -6987,18 +6987,18 @@ public class TestScript extends DomainResource {
       return this.copyright;
     }
 
-    public boolean hasCopyrightElement() {
+    public boolean hasCopyrightElement() { 
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
-    public boolean hasCopyright() {
+    public boolean hasCopyright() { 
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
     /**
      * @param value {@link #copyright} (A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public TestScript setCopyrightElement(StringType value) {
+    public TestScript setCopyrightElement(StringType value) { 
       this.copyright = value;
       return this;
     }
@@ -7006,14 +7006,14 @@ public class TestScript extends DomainResource {
     /**
      * @return A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
      */
-    public String getCopyright() {
+    public String getCopyright() { 
       return this.copyright == null ? null : this.copyright.getValue();
     }
 
     /**
      * @param value A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.
      */
-    public TestScript setCopyright(String value) {
+    public TestScript setCopyright(String value) { 
       if (Utilities.noString(value))
         this.copyright = null;
       else {
@@ -7027,7 +7027,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #metadata} (The required capability must exist and are assumed to function correctly on the FHIR server being tested.)
      */
-    public TestScriptMetadataComponent getMetadata() {
+    public TestScriptMetadataComponent getMetadata() { 
       if (this.metadata == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.metadata");
@@ -7036,14 +7036,14 @@ public class TestScript extends DomainResource {
       return this.metadata;
     }
 
-    public boolean hasMetadata() {
+    public boolean hasMetadata() { 
       return this.metadata != null && !this.metadata.isEmpty();
     }
 
     /**
      * @param value {@link #metadata} (The required capability must exist and are assumed to function correctly on the FHIR server being tested.)
      */
-    public TestScript setMetadata(TestScriptMetadataComponent value) {
+    public TestScript setMetadata(TestScriptMetadataComponent value) { 
       this.metadata = value;
       return this;
     }
@@ -7051,13 +7051,13 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #origin} (An abstract server used in operations within this test script in the origin element.)
      */
-    public List<TestScriptOriginComponent> getOrigin() {
+    public List<TestScriptOriginComponent> getOrigin() { 
       if (this.origin == null)
         this.origin = new ArrayList<TestScriptOriginComponent>();
       return this.origin;
     }
 
-    public boolean hasOrigin() {
+    public boolean hasOrigin() { 
       if (this.origin == null)
         return false;
       for (TestScriptOriginComponent item : this.origin)
@@ -7091,13 +7091,13 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #destination} (An abstract server used in operations within this test script in the destination element.)
      */
-    public List<TestScriptDestinationComponent> getDestination() {
+    public List<TestScriptDestinationComponent> getDestination() { 
       if (this.destination == null)
         this.destination = new ArrayList<TestScriptDestinationComponent>();
       return this.destination;
     }
 
-    public boolean hasDestination() {
+    public boolean hasDestination() { 
       if (this.destination == null)
         return false;
       for (TestScriptDestinationComponent item : this.destination)
@@ -7131,7 +7131,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #multiserver} (If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.). This is the underlying object with id, value and extensions. The accessor "getMultiserver" gives direct access to the value
      */
-    public BooleanType getMultiserverElement() {
+    public BooleanType getMultiserverElement() { 
       if (this.multiserver == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.multiserver");
@@ -7140,18 +7140,18 @@ public class TestScript extends DomainResource {
       return this.multiserver;
     }
 
-    public boolean hasMultiserverElement() {
+    public boolean hasMultiserverElement() { 
       return this.multiserver != null && !this.multiserver.isEmpty();
     }
 
-    public boolean hasMultiserver() {
+    public boolean hasMultiserver() { 
       return this.multiserver != null && !this.multiserver.isEmpty();
     }
 
     /**
      * @param value {@link #multiserver} (If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.). This is the underlying object with id, value and extensions. The accessor "getMultiserver" gives direct access to the value
      */
-    public TestScript setMultiserverElement(BooleanType value) {
+    public TestScript setMultiserverElement(BooleanType value) { 
       this.multiserver = value;
       return this;
     }
@@ -7159,14 +7159,14 @@ public class TestScript extends DomainResource {
     /**
      * @return If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.
      */
-    public boolean getMultiserver() {
+    public boolean getMultiserver() { 
       return this.multiserver == null || this.multiserver.isEmpty() ? false : this.multiserver.getValue();
     }
 
     /**
      * @param value If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.
      */
-    public TestScript setMultiserver(boolean value) {
+    public TestScript setMultiserver(boolean value) { 
         if (this.multiserver == null)
           this.multiserver = new BooleanType();
         this.multiserver.setValue(value);
@@ -7176,13 +7176,13 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #fixture} (Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute.)
      */
-    public List<TestScriptFixtureComponent> getFixture() {
+    public List<TestScriptFixtureComponent> getFixture() { 
       if (this.fixture == null)
         this.fixture = new ArrayList<TestScriptFixtureComponent>();
       return this.fixture;
     }
 
-    public boolean hasFixture() {
+    public boolean hasFixture() { 
       if (this.fixture == null)
         return false;
       for (TestScriptFixtureComponent item : this.fixture)
@@ -7216,13 +7216,13 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #profile} (Reference to the profile to be used for validation.)
      */
-    public List<Reference> getProfile() {
+    public List<Reference> getProfile() { 
       if (this.profile == null)
         this.profile = new ArrayList<Reference>();
       return this.profile;
     }
 
-    public boolean hasProfile() {
+    public boolean hasProfile() { 
       if (this.profile == null)
         return false;
       for (Reference item : this.profile)
@@ -7256,7 +7256,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #profile} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Reference to the profile to be used for validation.)
      */
-    public List<Resource> getProfileTarget() {
+    public List<Resource> getProfileTarget() { 
       if (this.profileTarget == null)
         this.profileTarget = new ArrayList<Resource>();
       return this.profileTarget;
@@ -7265,13 +7265,13 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #variable} (Variable is set based either on element value in response body or on header field value in the response headers.)
      */
-    public List<TestScriptVariableComponent> getVariable() {
+    public List<TestScriptVariableComponent> getVariable() { 
       if (this.variable == null)
         this.variable = new ArrayList<TestScriptVariableComponent>();
       return this.variable;
     }
 
-    public boolean hasVariable() {
+    public boolean hasVariable() { 
       if (this.variable == null)
         return false;
       for (TestScriptVariableComponent item : this.variable)
@@ -7305,7 +7305,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #setup} (A series of required setup operations before tests are executed.)
      */
-    public TestScriptSetupComponent getSetup() {
+    public TestScriptSetupComponent getSetup() { 
       if (this.setup == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.setup");
@@ -7314,14 +7314,14 @@ public class TestScript extends DomainResource {
       return this.setup;
     }
 
-    public boolean hasSetup() {
+    public boolean hasSetup() { 
       return this.setup != null && !this.setup.isEmpty();
     }
 
     /**
      * @param value {@link #setup} (A series of required setup operations before tests are executed.)
      */
-    public TestScript setSetup(TestScriptSetupComponent value) {
+    public TestScript setSetup(TestScriptSetupComponent value) { 
       this.setup = value;
       return this;
     }
@@ -7329,13 +7329,13 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #test} (A test in this script.)
      */
-    public List<TestScriptTestComponent> getTest() {
+    public List<TestScriptTestComponent> getTest() { 
       if (this.test == null)
         this.test = new ArrayList<TestScriptTestComponent>();
       return this.test;
     }
 
-    public boolean hasTest() {
+    public boolean hasTest() { 
       if (this.test == null)
         return false;
       for (TestScriptTestComponent item : this.test)
@@ -7369,7 +7369,7 @@ public class TestScript extends DomainResource {
     /**
      * @return {@link #teardown} (A series of operations required to clean up after the all the tests are executed (successfully or otherwise).)
      */
-    public TestScriptTeardownComponent getTeardown() {
+    public TestScriptTeardownComponent getTeardown() { 
       if (this.teardown == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create TestScript.teardown");
@@ -7378,14 +7378,14 @@ public class TestScript extends DomainResource {
       return this.teardown;
     }
 
-    public boolean hasTeardown() {
+    public boolean hasTeardown() { 
       return this.teardown != null && !this.teardown.isEmpty();
     }
 
     /**
      * @param value {@link #teardown} (A series of operations required to clean up after the all the tests are executed (successfully or otherwise).)
      */
-    public TestScript setTeardown(TestScriptTeardownComponent value) {
+    public TestScript setTeardown(TestScriptTeardownComponent value) { 
       this.teardown = value;
       return this;
     }

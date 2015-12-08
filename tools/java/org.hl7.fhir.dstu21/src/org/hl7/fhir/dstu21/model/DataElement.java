@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -52,27 +52,27 @@ public class DataElement extends DomainResource {
         /**
          * The data element is sufficiently well-constrained that multiple pieces of data captured according to the constraints of the data element will be comparable (though in some cases, a degree of automated conversion/normalization may be required).
          */
-        COMPARABLE,
+        COMPARABLE, 
         /**
          * The data element is fully specified down to a single value set, single unit of measure, single data type, etc.  Multiple pieces of data associated with this data element are fully comparable.
          */
-        FULLYSPECIFIED,
+        FULLYSPECIFIED, 
         /**
          * The data element allows multiple units of measure having equivalent meaning; e.g. "cc" (cubic centimeter) and "mL" (milliliter).
          */
-        EQUIVALENT,
+        EQUIVALENT, 
         /**
          * The data element allows multiple units of measure that are convertable between each other (e.g. inches and centimeters) and/or allows data to be captured in multiple value sets for which a known mapping exists allowing conversion of meaning.
          */
-        CONVERTABLE,
+        CONVERTABLE, 
         /**
          * A convertable data element where unit conversions are different only by a power of 10; e.g. g, mg, kg.
          */
-        SCALEABLE,
+        SCALEABLE, 
         /**
          * The data element is unconstrained in units, choice of data types and/or choice of vocabulary such that automated comparison of data captured using the data element is not possible.
          */
-        FLEXIBLE,
+        FLEXIBLE, 
         /**
          * added to help the parsers
          */
@@ -224,7 +224,7 @@ public class DataElement extends DomainResource {
         /**
          * @return {@link #name} (The name of an individual to contact regarding the data element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementContactComponent.name");
@@ -233,18 +233,18 @@ public class DataElement extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (The name of an individual to contact regarding the data element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public DataElementContactComponent setNameElement(StringType value) {
+        public DataElementContactComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -252,14 +252,14 @@ public class DataElement extends DomainResource {
         /**
          * @return The name of an individual to contact regarding the data element.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value The name of an individual to contact regarding the data element.
          */
-        public DataElementContactComponent setName(String value) {
+        public DataElementContactComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -273,13 +273,13 @@ public class DataElement extends DomainResource {
         /**
          * @return {@link #telecom} (Contact details for individual (if a name was provided) or the publisher.)
          */
-        public List<ContactPoint> getTelecom() {
+        public List<ContactPoint> getTelecom() { 
           if (this.telecom == null)
             this.telecom = new ArrayList<ContactPoint>();
           return this.telecom;
         }
 
-        public boolean hasTelecom() {
+        public boolean hasTelecom() { 
           if (this.telecom == null)
             return false;
           for (ContactPoint item : this.telecom)
@@ -432,7 +432,7 @@ public class DataElement extends DomainResource {
         /**
          * @return {@link #identity} (An internal id that is used to identify this mapping set when specific mappings are made on a per-element basis.). This is the underlying object with id, value and extensions. The accessor "getIdentity" gives direct access to the value
          */
-        public IdType getIdentityElement() {
+        public IdType getIdentityElement() { 
           if (this.identity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementMappingComponent.identity");
@@ -441,18 +441,18 @@ public class DataElement extends DomainResource {
           return this.identity;
         }
 
-        public boolean hasIdentityElement() {
+        public boolean hasIdentityElement() { 
           return this.identity != null && !this.identity.isEmpty();
         }
 
-        public boolean hasIdentity() {
+        public boolean hasIdentity() { 
           return this.identity != null && !this.identity.isEmpty();
         }
 
         /**
          * @param value {@link #identity} (An internal id that is used to identify this mapping set when specific mappings are made on a per-element basis.). This is the underlying object with id, value and extensions. The accessor "getIdentity" gives direct access to the value
          */
-        public DataElementMappingComponent setIdentityElement(IdType value) {
+        public DataElementMappingComponent setIdentityElement(IdType value) { 
           this.identity = value;
           return this;
         }
@@ -460,14 +460,14 @@ public class DataElement extends DomainResource {
         /**
          * @return An internal id that is used to identify this mapping set when specific mappings are made on a per-element basis.
          */
-        public String getIdentity() {
+        public String getIdentity() { 
           return this.identity == null ? null : this.identity.getValue();
         }
 
         /**
          * @param value An internal id that is used to identify this mapping set when specific mappings are made on a per-element basis.
          */
-        public DataElementMappingComponent setIdentity(String value) {
+        public DataElementMappingComponent setIdentity(String value) { 
             if (this.identity == null)
               this.identity = new IdType();
             this.identity.setValue(value);
@@ -477,7 +477,7 @@ public class DataElement extends DomainResource {
         /**
          * @return {@link #uri} (An absolute URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
-        public UriType getUriElement() {
+        public UriType getUriElement() { 
           if (this.uri == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementMappingComponent.uri");
@@ -486,18 +486,18 @@ public class DataElement extends DomainResource {
           return this.uri;
         }
 
-        public boolean hasUriElement() {
+        public boolean hasUriElement() { 
           return this.uri != null && !this.uri.isEmpty();
         }
 
-        public boolean hasUri() {
+        public boolean hasUri() { 
           return this.uri != null && !this.uri.isEmpty();
         }
 
         /**
          * @param value {@link #uri} (An absolute URI that identifies the specification that this mapping is expressed to.). This is the underlying object with id, value and extensions. The accessor "getUri" gives direct access to the value
          */
-        public DataElementMappingComponent setUriElement(UriType value) {
+        public DataElementMappingComponent setUriElement(UriType value) { 
           this.uri = value;
           return this;
         }
@@ -505,14 +505,14 @@ public class DataElement extends DomainResource {
         /**
          * @return An absolute URI that identifies the specification that this mapping is expressed to.
          */
-        public String getUri() {
+        public String getUri() { 
           return this.uri == null ? null : this.uri.getValue();
         }
 
         /**
          * @param value An absolute URI that identifies the specification that this mapping is expressed to.
          */
-        public DataElementMappingComponent setUri(String value) {
+        public DataElementMappingComponent setUri(String value) { 
           if (Utilities.noString(value))
             this.uri = null;
           else {
@@ -526,7 +526,7 @@ public class DataElement extends DomainResource {
         /**
          * @return {@link #name} (A name for the specification that is being mapped to.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public StringType getNameElement() {
+        public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementMappingComponent.name");
@@ -535,18 +535,18 @@ public class DataElement extends DomainResource {
           return this.name;
         }
 
-        public boolean hasNameElement() {
+        public boolean hasNameElement() { 
           return this.name != null && !this.name.isEmpty();
         }
 
-        public boolean hasName() {
+        public boolean hasName() { 
           return this.name != null && !this.name.isEmpty();
         }
 
         /**
          * @param value {@link #name} (A name for the specification that is being mapped to.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public DataElementMappingComponent setNameElement(StringType value) {
+        public DataElementMappingComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -554,14 +554,14 @@ public class DataElement extends DomainResource {
         /**
          * @return A name for the specification that is being mapped to.
          */
-        public String getName() {
+        public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
          * @param value A name for the specification that is being mapped to.
          */
-        public DataElementMappingComponent setName(String value) {
+        public DataElementMappingComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -575,7 +575,7 @@ public class DataElement extends DomainResource {
         /**
          * @return {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public StringType getCommentsElement() {
+        public StringType getCommentsElement() { 
           if (this.comments == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DataElementMappingComponent.comments");
@@ -584,18 +584,18 @@ public class DataElement extends DomainResource {
           return this.comments;
         }
 
-        public boolean hasCommentsElement() {
+        public boolean hasCommentsElement() { 
           return this.comments != null && !this.comments.isEmpty();
         }
 
-        public boolean hasComments() {
+        public boolean hasComments() { 
           return this.comments != null && !this.comments.isEmpty();
         }
 
         /**
          * @param value {@link #comments} (Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.). This is the underlying object with id, value and extensions. The accessor "getComments" gives direct access to the value
          */
-        public DataElementMappingComponent setCommentsElement(StringType value) {
+        public DataElementMappingComponent setCommentsElement(StringType value) { 
           this.comments = value;
           return this;
         }
@@ -603,14 +603,14 @@ public class DataElement extends DomainResource {
         /**
          * @return Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public String getComments() {
+        public String getComments() { 
           return this.comments == null ? null : this.comments.getValue();
         }
 
         /**
          * @param value Comments about this mapping, including version notes, issues, scope limitations, and other important notes for usage.
          */
-        public DataElementMappingComponent setComments(String value) {
+        public DataElementMappingComponent setComments(String value) { 
           if (Utilities.noString(value))
             this.comments = null;
           else {
@@ -823,7 +823,7 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #url} (An absolute URL that is used to identify this data element when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this data element is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public UriType getUrlElement() {
+    public UriType getUrlElement() { 
       if (this.url == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.url");
@@ -832,18 +832,18 @@ public class DataElement extends DomainResource {
       return this.url;
     }
 
-    public boolean hasUrlElement() {
+    public boolean hasUrlElement() { 
       return this.url != null && !this.url.isEmpty();
     }
 
-    public boolean hasUrl() {
+    public boolean hasUrl() { 
       return this.url != null && !this.url.isEmpty();
     }
 
     /**
      * @param value {@link #url} (An absolute URL that is used to identify this data element when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this data element is (or will be) published.). This is the underlying object with id, value and extensions. The accessor "getUrl" gives direct access to the value
      */
-    public DataElement setUrlElement(UriType value) {
+    public DataElement setUrlElement(UriType value) { 
       this.url = value;
       return this;
     }
@@ -851,14 +851,14 @@ public class DataElement extends DomainResource {
     /**
      * @return An absolute URL that is used to identify this data element when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this data element is (or will be) published.
      */
-    public String getUrl() {
+    public String getUrl() { 
       return this.url == null ? null : this.url.getValue();
     }
 
     /**
      * @param value An absolute URL that is used to identify this data element when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this data element is (or will be) published.
      */
-    public DataElement setUrl(String value) {
+    public DataElement setUrl(String value) { 
       if (Utilities.noString(value))
         this.url = null;
       else {
@@ -872,13 +872,13 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #identifier} (Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -912,7 +912,7 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #version} (The identifier that is used to identify this version of the data element when it is referenced in a StructureDefinition, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.version");
@@ -921,18 +921,18 @@ public class DataElement extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The identifier that is used to identify this version of the data element when it is referenced in a StructureDefinition, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public DataElement setVersionElement(StringType value) {
+    public DataElement setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -940,14 +940,14 @@ public class DataElement extends DomainResource {
     /**
      * @return The identifier that is used to identify this version of the data element when it is referenced in a StructureDefinition, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The identifier that is used to identify this version of the data element when it is referenced in a StructureDefinition, Questionnaire or instance. This is an arbitrary value managed by the definition author manually.
      */
-    public DataElement setVersion(String value) {
+    public DataElement setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -961,7 +961,7 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #name} (The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public StringType getNameElement() {
+    public StringType getNameElement() { 
       if (this.name == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.name");
@@ -970,18 +970,18 @@ public class DataElement extends DomainResource {
       return this.name;
     }
 
-    public boolean hasNameElement() {
+    public boolean hasNameElement() { 
       return this.name != null && !this.name.isEmpty();
     }
 
-    public boolean hasName() {
+    public boolean hasName() { 
       return this.name != null && !this.name.isEmpty();
     }
 
     /**
      * @param value {@link #name} (The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
      */
-    public DataElement setNameElement(StringType value) {
+    public DataElement setNameElement(StringType value) { 
       this.name = value;
       return this;
     }
@@ -989,14 +989,14 @@ public class DataElement extends DomainResource {
     /**
      * @return The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
      */
-    public String getName() {
+    public String getName() { 
       return this.name == null ? null : this.name.getValue();
     }
 
     /**
      * @param value The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
      */
-    public DataElement setName(String value) {
+    public DataElement setName(String value) { 
       if (Utilities.noString(value))
         this.name = null;
       else {
@@ -1010,7 +1010,7 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #status} (The status of the data element.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ConformanceResourceStatus> getStatusElement() {
+    public Enumeration<ConformanceResourceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.status");
@@ -1019,18 +1019,18 @@ public class DataElement extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the data element.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DataElement setStatusElement(Enumeration<ConformanceResourceStatus> value) {
+    public DataElement setStatusElement(Enumeration<ConformanceResourceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1038,14 +1038,14 @@ public class DataElement extends DomainResource {
     /**
      * @return The status of the data element.
      */
-    public ConformanceResourceStatus getStatus() {
+    public ConformanceResourceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the data element.
      */
-    public DataElement setStatus(ConformanceResourceStatus value) {
+    public DataElement setStatus(ConformanceResourceStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
@@ -1055,7 +1055,7 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #experimental} (A flag to indicate that this search data element definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public BooleanType getExperimentalElement() {
+    public BooleanType getExperimentalElement() { 
       if (this.experimental == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.experimental");
@@ -1064,18 +1064,18 @@ public class DataElement extends DomainResource {
       return this.experimental;
     }
 
-    public boolean hasExperimentalElement() {
+    public boolean hasExperimentalElement() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
-    public boolean hasExperimental() {
+    public boolean hasExperimental() { 
       return this.experimental != null && !this.experimental.isEmpty();
     }
 
     /**
      * @param value {@link #experimental} (A flag to indicate that this search data element definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.). This is the underlying object with id, value and extensions. The accessor "getExperimental" gives direct access to the value
      */
-    public DataElement setExperimentalElement(BooleanType value) {
+    public DataElement setExperimentalElement(BooleanType value) { 
       this.experimental = value;
       return this;
     }
@@ -1083,14 +1083,14 @@ public class DataElement extends DomainResource {
     /**
      * @return A flag to indicate that this search data element definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public boolean getExperimental() {
+    public boolean getExperimental() { 
       return this.experimental == null || this.experimental.isEmpty() ? false : this.experimental.getValue();
     }
 
     /**
      * @param value A flag to indicate that this search data element definition is authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.
      */
-    public DataElement setExperimental(boolean value) {
+    public DataElement setExperimental(boolean value) { 
         if (this.experimental == null)
           this.experimental = new BooleanType();
         this.experimental.setValue(value);
@@ -1100,7 +1100,7 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #publisher} (The name of the individual or organization that published the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public StringType getPublisherElement() {
+    public StringType getPublisherElement() { 
       if (this.publisher == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.publisher");
@@ -1109,18 +1109,18 @@ public class DataElement extends DomainResource {
       return this.publisher;
     }
 
-    public boolean hasPublisherElement() {
+    public boolean hasPublisherElement() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
-    public boolean hasPublisher() {
+    public boolean hasPublisher() { 
       return this.publisher != null && !this.publisher.isEmpty();
     }
 
     /**
      * @param value {@link #publisher} (The name of the individual or organization that published the data element.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
-    public DataElement setPublisherElement(StringType value) {
+    public DataElement setPublisherElement(StringType value) { 
       this.publisher = value;
       return this;
     }
@@ -1128,14 +1128,14 @@ public class DataElement extends DomainResource {
     /**
      * @return The name of the individual or organization that published the data element.
      */
-    public String getPublisher() {
+    public String getPublisher() { 
       return this.publisher == null ? null : this.publisher.getValue();
     }
 
     /**
      * @param value The name of the individual or organization that published the data element.
      */
-    public DataElement setPublisher(String value) {
+    public DataElement setPublisher(String value) { 
       if (Utilities.noString(value))
         this.publisher = null;
       else {
@@ -1149,13 +1149,13 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #contact} (Contacts to assist a user in finding and communicating with the publisher.)
      */
-    public List<DataElementContactComponent> getContact() {
+    public List<DataElementContactComponent> getContact() { 
       if (this.contact == null)
         this.contact = new ArrayList<DataElementContactComponent>();
       return this.contact;
     }
 
-    public boolean hasContact() {
+    public boolean hasContact() { 
       if (this.contact == null)
         return false;
       for (DataElementContactComponent item : this.contact)
@@ -1189,7 +1189,7 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #date} (The date this version of the data element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element  changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DateTimeType getDateElement() {
+    public DateTimeType getDateElement() { 
       if (this.date == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.date");
@@ -1198,18 +1198,18 @@ public class DataElement extends DomainResource {
       return this.date;
     }
 
-    public boolean hasDateElement() {
+    public boolean hasDateElement() { 
       return this.date != null && !this.date.isEmpty();
     }
 
-    public boolean hasDate() {
+    public boolean hasDate() { 
       return this.date != null && !this.date.isEmpty();
     }
 
     /**
      * @param value {@link #date} (The date this version of the data element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element  changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
      */
-    public DataElement setDateElement(DateTimeType value) {
+    public DataElement setDateElement(DateTimeType value) { 
       this.date = value;
       return this;
     }
@@ -1217,14 +1217,14 @@ public class DataElement extends DomainResource {
     /**
      * @return The date this version of the data element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element  changes.
      */
-    public Date getDate() {
+    public Date getDate() { 
       return this.date == null ? null : this.date.getValue();
     }
 
     /**
      * @param value The date this version of the data element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element  changes.
      */
-    public DataElement setDate(Date value) {
+    public DataElement setDate(Date value) { 
       if (value == null)
         this.date = null;
       else {
@@ -1238,13 +1238,13 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of data element definitions.)
      */
-    public List<CodeableConcept> getUseContext() {
+    public List<CodeableConcept> getUseContext() { 
       if (this.useContext == null)
         this.useContext = new ArrayList<CodeableConcept>();
       return this.useContext;
     }
 
-    public boolean hasUseContext() {
+    public boolean hasUseContext() { 
       if (this.useContext == null)
         return false;
       for (CodeableConcept item : this.useContext)
@@ -1278,7 +1278,7 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #copyright} (A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public StringType getCopyrightElement() {
+    public StringType getCopyrightElement() { 
       if (this.copyright == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.copyright");
@@ -1287,18 +1287,18 @@ public class DataElement extends DomainResource {
       return this.copyright;
     }
 
-    public boolean hasCopyrightElement() {
+    public boolean hasCopyrightElement() { 
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
-    public boolean hasCopyright() {
+    public boolean hasCopyright() { 
       return this.copyright != null && !this.copyright.isEmpty();
     }
 
     /**
      * @param value {@link #copyright} (A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.). This is the underlying object with id, value and extensions. The accessor "getCopyright" gives direct access to the value
      */
-    public DataElement setCopyrightElement(StringType value) {
+    public DataElement setCopyrightElement(StringType value) { 
       this.copyright = value;
       return this;
     }
@@ -1306,14 +1306,14 @@ public class DataElement extends DomainResource {
     /**
      * @return A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.
      */
-    public String getCopyright() {
+    public String getCopyright() { 
       return this.copyright == null ? null : this.copyright.getValue();
     }
 
     /**
      * @param value A copyright statement relating to the definition of the data element. Copyright statements are generally legal restrictions on the use and publishing of the details of the definition of the data element.
      */
-    public DataElement setCopyright(String value) {
+    public DataElement setCopyright(String value) { 
       if (Utilities.noString(value))
         this.copyright = null;
       else {
@@ -1327,7 +1327,7 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #stringency} (Identifies how precise the data element is in its definition.). This is the underlying object with id, value and extensions. The accessor "getStringency" gives direct access to the value
      */
-    public Enumeration<DataElementStringency> getStringencyElement() {
+    public Enumeration<DataElementStringency> getStringencyElement() { 
       if (this.stringency == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DataElement.stringency");
@@ -1336,18 +1336,18 @@ public class DataElement extends DomainResource {
       return this.stringency;
     }
 
-    public boolean hasStringencyElement() {
+    public boolean hasStringencyElement() { 
       return this.stringency != null && !this.stringency.isEmpty();
     }
 
-    public boolean hasStringency() {
+    public boolean hasStringency() { 
       return this.stringency != null && !this.stringency.isEmpty();
     }
 
     /**
      * @param value {@link #stringency} (Identifies how precise the data element is in its definition.). This is the underlying object with id, value and extensions. The accessor "getStringency" gives direct access to the value
      */
-    public DataElement setStringencyElement(Enumeration<DataElementStringency> value) {
+    public DataElement setStringencyElement(Enumeration<DataElementStringency> value) { 
       this.stringency = value;
       return this;
     }
@@ -1355,14 +1355,14 @@ public class DataElement extends DomainResource {
     /**
      * @return Identifies how precise the data element is in its definition.
      */
-    public DataElementStringency getStringency() {
+    public DataElementStringency getStringency() { 
       return this.stringency == null ? null : this.stringency.getValue();
     }
 
     /**
      * @param value Identifies how precise the data element is in its definition.
      */
-    public DataElement setStringency(DataElementStringency value) {
+    public DataElement setStringency(DataElementStringency value) { 
       if (value == null)
         this.stringency = null;
       else {
@@ -1376,13 +1376,13 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #mapping} (Identifies a specification (other than a terminology) that the elements which make up the DataElement have some correspondence with.)
      */
-    public List<DataElementMappingComponent> getMapping() {
+    public List<DataElementMappingComponent> getMapping() { 
       if (this.mapping == null)
         this.mapping = new ArrayList<DataElementMappingComponent>();
       return this.mapping;
     }
 
-    public boolean hasMapping() {
+    public boolean hasMapping() { 
       if (this.mapping == null)
         return false;
       for (DataElementMappingComponent item : this.mapping)
@@ -1416,13 +1416,13 @@ public class DataElement extends DomainResource {
     /**
      * @return {@link #element} (Defines the structure, type, allowed values and other constraining characteristics of the data element.)
      */
-    public List<ElementDefinition> getElement() {
+    public List<ElementDefinition> getElement() { 
       if (this.element == null)
         this.element = new ArrayList<ElementDefinition>();
       return this.element;
     }
 
-    public boolean hasElement() {
+    public boolean hasElement() { 
       if (this.element == null)
         return false;
       for (ElementDefinition item : this.element)

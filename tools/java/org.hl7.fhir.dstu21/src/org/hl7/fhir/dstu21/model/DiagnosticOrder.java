@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,55 +51,55 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * The request has been proposed.
          */
-        PROPOSED,
+        PROPOSED, 
         /**
          * The request is in preliminary form prior to being sent.
          */
-        DRAFT,
+        DRAFT, 
         /**
          * The request has been planned.
          */
-        PLANNED,
+        PLANNED, 
         /**
          * The request has been placed.
          */
-        REQUESTED,
+        REQUESTED, 
         /**
          * The receiving system has received the order, but not yet decided whether it will be performed.
          */
-        RECEIVED,
+        RECEIVED, 
         /**
          * The receiving system has accepted the order, but work has not yet commenced.
          */
-        ACCEPTED,
+        ACCEPTED, 
         /**
          * The work to fulfill the order is happening.
          */
-        INPROGRESS,
+        INPROGRESS, 
         /**
          * The work is complete, and the outcomes are being reviewed for approval.
          */
-        REVIEW,
+        REVIEW, 
         /**
          * The work has been completed, the report(s) released, and no further work is planned.
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * The request has been withdrawn.
          */
-        CANCELLED,
+        CANCELLED, 
         /**
          * The request has been held by originating system/user request.
          */
-        SUSPENDED,
+        SUSPENDED, 
         /**
          * The receiving system has declined to fulfill the request.
          */
-        REJECTED,
+        REJECTED, 
         /**
          * The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.
          */
-        FAILED,
+        FAILED, 
         /**
          * added to help the parsers
          */
@@ -311,19 +311,19 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * The order has a normal priority .
          */
-        ROUTINE,
+        ROUTINE, 
         /**
          * The order should be urgently.
          */
-        URGENT,
+        URGENT, 
         /**
          * The order is time-critical.
          */
-        STAT,
+        STAT, 
         /**
          * The order should be acted on as soon as possible.
          */
-        ASAP,
+        ASAP, 
         /**
          * added to help the parsers
          */
@@ -479,7 +479,7 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<DiagnosticOrderStatus> getStatusElement() {
+        public Enumeration<DiagnosticOrderStatus> getStatusElement() { 
           if (this.status == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderEventComponent.status");
@@ -488,18 +488,18 @@ public class DiagnosticOrder extends DomainResource {
           return this.status;
         }
 
-        public boolean hasStatusElement() {
+        public boolean hasStatusElement() { 
           return this.status != null && !this.status.isEmpty();
         }
 
-        public boolean hasStatus() {
+        public boolean hasStatus() { 
           return this.status != null && !this.status.isEmpty();
         }
 
         /**
          * @param value {@link #status} (The status for the event.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public DiagnosticOrderEventComponent setStatusElement(Enumeration<DiagnosticOrderStatus> value) {
+        public DiagnosticOrderEventComponent setStatusElement(Enumeration<DiagnosticOrderStatus> value) { 
           this.status = value;
           return this;
         }
@@ -507,14 +507,14 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return The status for the event.
          */
-        public DiagnosticOrderStatus getStatus() {
+        public DiagnosticOrderStatus getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value The status for the event.
          */
-        public DiagnosticOrderEventComponent setStatus(DiagnosticOrderStatus value) {
+        public DiagnosticOrderEventComponent setStatus(DiagnosticOrderStatus value) { 
             if (this.status == null)
               this.status = new Enumeration<DiagnosticOrderStatus>(new DiagnosticOrderStatusEnumFactory());
             this.status.setValue(value);
@@ -524,7 +524,7 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #description} (Additional information about the event that occurred - e.g. if the status remained unchanged.)
          */
-        public CodeableConcept getDescription() {
+        public CodeableConcept getDescription() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderEventComponent.description");
@@ -533,14 +533,14 @@ public class DiagnosticOrder extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescription() {
+        public boolean hasDescription() { 
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (Additional information about the event that occurred - e.g. if the status remained unchanged.)
          */
-        public DiagnosticOrderEventComponent setDescription(CodeableConcept value) {
+        public DiagnosticOrderEventComponent setDescription(CodeableConcept value) { 
           this.description = value;
           return this;
         }
@@ -548,7 +548,7 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public DateTimeType getDateTimeElement() {
+        public DateTimeType getDateTimeElement() { 
           if (this.dateTime == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderEventComponent.dateTime");
@@ -557,18 +557,18 @@ public class DiagnosticOrder extends DomainResource {
           return this.dateTime;
         }
 
-        public boolean hasDateTimeElement() {
+        public boolean hasDateTimeElement() { 
           return this.dateTime != null && !this.dateTime.isEmpty();
         }
 
-        public boolean hasDateTime() {
+        public boolean hasDateTime() { 
           return this.dateTime != null && !this.dateTime.isEmpty();
         }
 
         /**
          * @param value {@link #dateTime} (The date/time at which the event occurred.). This is the underlying object with id, value and extensions. The accessor "getDateTime" gives direct access to the value
          */
-        public DiagnosticOrderEventComponent setDateTimeElement(DateTimeType value) {
+        public DiagnosticOrderEventComponent setDateTimeElement(DateTimeType value) { 
           this.dateTime = value;
           return this;
         }
@@ -576,14 +576,14 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return The date/time at which the event occurred.
          */
-        public Date getDateTime() {
+        public Date getDateTime() { 
           return this.dateTime == null ? null : this.dateTime.getValue();
         }
 
         /**
          * @param value The date/time at which the event occurred.
          */
-        public DiagnosticOrderEventComponent setDateTime(Date value) {
+        public DiagnosticOrderEventComponent setDateTime(Date value) { 
             if (this.dateTime == null)
               this.dateTime = new DateTimeType();
             this.dateTime.setValue(value);
@@ -593,7 +593,7 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #actor} (The person responsible for performing or recording the action.)
          */
-        public Reference getActor() {
+        public Reference getActor() { 
           if (this.actor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderEventComponent.actor");
@@ -602,14 +602,14 @@ public class DiagnosticOrder extends DomainResource {
           return this.actor;
         }
 
-        public boolean hasActor() {
+        public boolean hasActor() { 
           return this.actor != null && !this.actor.isEmpty();
         }
 
         /**
          * @param value {@link #actor} (The person responsible for performing or recording the action.)
          */
-        public DiagnosticOrderEventComponent setActor(Reference value) {
+        public DiagnosticOrderEventComponent setActor(Reference value) { 
           this.actor = value;
           return this;
         }
@@ -617,14 +617,14 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person responsible for performing or recording the action.)
          */
-        public Resource getActorTarget() {
+        public Resource getActorTarget() { 
           return this.actorTarget;
         }
 
         /**
          * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person responsible for performing or recording the action.)
          */
-        public DiagnosticOrderEventComponent setActorTarget(Resource value) {
+        public DiagnosticOrderEventComponent setActorTarget(Resource value) { 
           this.actorTarget = value;
           return this;
         }
@@ -776,7 +776,7 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #code} (A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.)
          */
-        public CodeableConcept getCode() {
+        public CodeableConcept getCode() { 
           if (this.code == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderItemComponent.code");
@@ -785,14 +785,14 @@ public class DiagnosticOrder extends DomainResource {
           return this.code;
         }
 
-        public boolean hasCode() {
+        public boolean hasCode() { 
           return this.code != null && !this.code.isEmpty();
         }
 
         /**
          * @param value {@link #code} (A code that identifies a particular diagnostic investigation, or panel of investigations, that have been requested.)
          */
-        public DiagnosticOrderItemComponent setCode(CodeableConcept value) {
+        public DiagnosticOrderItemComponent setCode(CodeableConcept value) { 
           this.code = value;
           return this;
         }
@@ -800,13 +800,13 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #specimen} (If the item is related to a specific specimen.)
          */
-        public List<Reference> getSpecimen() {
+        public List<Reference> getSpecimen() { 
           if (this.specimen == null)
             this.specimen = new ArrayList<Reference>();
           return this.specimen;
         }
 
-        public boolean hasSpecimen() {
+        public boolean hasSpecimen() { 
           if (this.specimen == null)
             return false;
           for (Reference item : this.specimen)
@@ -840,7 +840,7 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. If the item is related to a specific specimen.)
          */
-        public List<Specimen> getSpecimenTarget() {
+        public List<Specimen> getSpecimenTarget() { 
           if (this.specimenTarget == null)
             this.specimenTarget = new ArrayList<Specimen>();
           return this.specimenTarget;
@@ -850,7 +850,7 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. If the item is related to a specific specimen.)
          */
-        public Specimen addSpecimenTarget() {
+        public Specimen addSpecimenTarget() { 
           Specimen r = new Specimen();
           if (this.specimenTarget == null)
             this.specimenTarget = new ArrayList<Specimen>();
@@ -861,7 +861,7 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
          */
-        public CodeableConcept getBodySite() {
+        public CodeableConcept getBodySite() { 
           if (this.bodySite == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderItemComponent.bodySite");
@@ -870,14 +870,14 @@ public class DiagnosticOrder extends DomainResource {
           return this.bodySite;
         }
 
-        public boolean hasBodySite() {
+        public boolean hasBodySite() { 
           return this.bodySite != null && !this.bodySite.isEmpty();
         }
 
         /**
          * @param value {@link #bodySite} (Anatomical location where the request test should be performed.  This is the target site.)
          */
-        public DiagnosticOrderItemComponent setBodySite(CodeableConcept value) {
+        public DiagnosticOrderItemComponent setBodySite(CodeableConcept value) { 
           this.bodySite = value;
           return this;
         }
@@ -885,7 +885,7 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #status} (The status of this individual item within the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public Enumeration<DiagnosticOrderStatus> getStatusElement() {
+        public Enumeration<DiagnosticOrderStatus> getStatusElement() { 
           if (this.status == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DiagnosticOrderItemComponent.status");
@@ -894,18 +894,18 @@ public class DiagnosticOrder extends DomainResource {
           return this.status;
         }
 
-        public boolean hasStatusElement() {
+        public boolean hasStatusElement() { 
           return this.status != null && !this.status.isEmpty();
         }
 
-        public boolean hasStatus() {
+        public boolean hasStatus() { 
           return this.status != null && !this.status.isEmpty();
         }
 
         /**
          * @param value {@link #status} (The status of this individual item within the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
          */
-        public DiagnosticOrderItemComponent setStatusElement(Enumeration<DiagnosticOrderStatus> value) {
+        public DiagnosticOrderItemComponent setStatusElement(Enumeration<DiagnosticOrderStatus> value) { 
           this.status = value;
           return this;
         }
@@ -913,14 +913,14 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return The status of this individual item within the order.
          */
-        public DiagnosticOrderStatus getStatus() {
+        public DiagnosticOrderStatus getStatus() { 
           return this.status == null ? null : this.status.getValue();
         }
 
         /**
          * @param value The status of this individual item within the order.
          */
-        public DiagnosticOrderItemComponent setStatus(DiagnosticOrderStatus value) {
+        public DiagnosticOrderItemComponent setStatus(DiagnosticOrderStatus value) { 
           if (value == null)
             this.status = null;
           else {
@@ -934,13 +934,13 @@ public class DiagnosticOrder extends DomainResource {
         /**
          * @return {@link #event} (A summary of the events of interest that have occurred as this item of the request is processed.)
          */
-        public List<DiagnosticOrderEventComponent> getEvent() {
+        public List<DiagnosticOrderEventComponent> getEvent() { 
           if (this.event == null)
             this.event = new ArrayList<DiagnosticOrderEventComponent>();
           return this.event;
         }
 
-        public boolean hasEvent() {
+        public boolean hasEvent() { 
           if (this.event == null)
             return false;
           for (DiagnosticOrderEventComponent item : this.event)
@@ -1201,7 +1201,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #subject} (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
-    public Reference getSubject() {
+    public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.subject");
@@ -1210,14 +1210,14 @@ public class DiagnosticOrder extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() {
+    public boolean hasSubject() { 
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
-    public DiagnosticOrder setSubject(Reference value) {
+    public DiagnosticOrder setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -1225,14 +1225,14 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
-    public Resource getSubjectTarget() {
+    public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
-    public DiagnosticOrder setSubjectTarget(Resource value) {
+    public DiagnosticOrder setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -1240,7 +1240,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #orderer} (The practitioner that holds legal responsibility for ordering the investigation.)
      */
-    public Reference getOrderer() {
+    public Reference getOrderer() { 
       if (this.orderer == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.orderer");
@@ -1249,14 +1249,14 @@ public class DiagnosticOrder extends DomainResource {
       return this.orderer;
     }
 
-    public boolean hasOrderer() {
+    public boolean hasOrderer() { 
       return this.orderer != null && !this.orderer.isEmpty();
     }
 
     /**
      * @param value {@link #orderer} (The practitioner that holds legal responsibility for ordering the investigation.)
      */
-    public DiagnosticOrder setOrderer(Reference value) {
+    public DiagnosticOrder setOrderer(Reference value) { 
       this.orderer = value;
       return this;
     }
@@ -1264,7 +1264,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #orderer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the investigation.)
      */
-    public Practitioner getOrdererTarget() {
+    public Practitioner getOrdererTarget() { 
       if (this.ordererTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.orderer");
@@ -1276,7 +1276,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @param value {@link #orderer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the investigation.)
      */
-    public DiagnosticOrder setOrdererTarget(Practitioner value) {
+    public DiagnosticOrder setOrdererTarget(Practitioner value) { 
       this.ordererTarget = value;
       return this;
     }
@@ -1284,13 +1284,13 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #identifier} (Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1324,7 +1324,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #encounter} (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
-    public Reference getEncounter() {
+    public Reference getEncounter() { 
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.encounter");
@@ -1333,14 +1333,14 @@ public class DiagnosticOrder extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() {
+    public boolean hasEncounter() { 
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
-    public DiagnosticOrder setEncounter(Reference value) {
+    public DiagnosticOrder setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -1348,7 +1348,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
-    public Encounter getEncounterTarget() {
+    public Encounter getEncounterTarget() { 
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.encounter");
@@ -1360,7 +1360,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (An encounter that provides additional information about the healthcare context in which this request is made.)
      */
-    public DiagnosticOrder setEncounterTarget(Encounter value) {
+    public DiagnosticOrder setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
       return this;
     }
@@ -1368,13 +1368,13 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #reason} (An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.)
      */
-    public List<CodeableConcept> getReason() {
+    public List<CodeableConcept> getReason() { 
       if (this.reason == null)
         this.reason = new ArrayList<CodeableConcept>();
       return this.reason;
     }
 
-    public boolean hasReason() {
+    public boolean hasReason() { 
       if (this.reason == null)
         return false;
       for (CodeableConcept item : this.reason)
@@ -1408,13 +1408,13 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #supportingInformation} (Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.)
      */
-    public List<Reference> getSupportingInformation() {
+    public List<Reference> getSupportingInformation() { 
       if (this.supportingInformation == null)
         this.supportingInformation = new ArrayList<Reference>();
       return this.supportingInformation;
     }
 
-    public boolean hasSupportingInformation() {
+    public boolean hasSupportingInformation() { 
       if (this.supportingInformation == null)
         return false;
       for (Reference item : this.supportingInformation)
@@ -1448,7 +1448,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #supportingInformation} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.)
      */
-    public List<Resource> getSupportingInformationTarget() {
+    public List<Resource> getSupportingInformationTarget() { 
       if (this.supportingInformationTarget == null)
         this.supportingInformationTarget = new ArrayList<Resource>();
       return this.supportingInformationTarget;
@@ -1457,13 +1457,13 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #specimen} (One or more specimens that the diagnostic investigation is about.)
      */
-    public List<Reference> getSpecimen() {
+    public List<Reference> getSpecimen() { 
       if (this.specimen == null)
         this.specimen = new ArrayList<Reference>();
       return this.specimen;
     }
 
-    public boolean hasSpecimen() {
+    public boolean hasSpecimen() { 
       if (this.specimen == null)
         return false;
       for (Reference item : this.specimen)
@@ -1497,7 +1497,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #specimen} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. One or more specimens that the diagnostic investigation is about.)
      */
-    public List<Specimen> getSpecimenTarget() {
+    public List<Specimen> getSpecimenTarget() { 
       if (this.specimenTarget == null)
         this.specimenTarget = new ArrayList<Specimen>();
       return this.specimenTarget;
@@ -1507,7 +1507,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #specimen} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. One or more specimens that the diagnostic investigation is about.)
      */
-    public Specimen addSpecimenTarget() {
+    public Specimen addSpecimenTarget() { 
       Specimen r = new Specimen();
       if (this.specimenTarget == null)
         this.specimenTarget = new ArrayList<Specimen>();
@@ -1518,7 +1518,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #status} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DiagnosticOrderStatus> getStatusElement() {
+    public Enumeration<DiagnosticOrderStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.status");
@@ -1527,18 +1527,18 @@ public class DiagnosticOrder extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the order.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DiagnosticOrder setStatusElement(Enumeration<DiagnosticOrderStatus> value) {
+    public DiagnosticOrder setStatusElement(Enumeration<DiagnosticOrderStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1546,14 +1546,14 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return The status of the order.
      */
-    public DiagnosticOrderStatus getStatus() {
+    public DiagnosticOrderStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the order.
      */
-    public DiagnosticOrder setStatus(DiagnosticOrderStatus value) {
+    public DiagnosticOrder setStatus(DiagnosticOrderStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -1567,7 +1567,7 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #priority} (The clinical priority associated with this order.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public Enumeration<DiagnosticOrderPriority> getPriorityElement() {
+    public Enumeration<DiagnosticOrderPriority> getPriorityElement() { 
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DiagnosticOrder.priority");
@@ -1576,18 +1576,18 @@ public class DiagnosticOrder extends DomainResource {
       return this.priority;
     }
 
-    public boolean hasPriorityElement() {
+    public boolean hasPriorityElement() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
-    public boolean hasPriority() {
+    public boolean hasPriority() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
      * @param value {@link #priority} (The clinical priority associated with this order.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public DiagnosticOrder setPriorityElement(Enumeration<DiagnosticOrderPriority> value) {
+    public DiagnosticOrder setPriorityElement(Enumeration<DiagnosticOrderPriority> value) { 
       this.priority = value;
       return this;
     }
@@ -1595,14 +1595,14 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return The clinical priority associated with this order.
      */
-    public DiagnosticOrderPriority getPriority() {
+    public DiagnosticOrderPriority getPriority() { 
       return this.priority == null ? null : this.priority.getValue();
     }
 
     /**
      * @param value The clinical priority associated with this order.
      */
-    public DiagnosticOrder setPriority(DiagnosticOrderPriority value) {
+    public DiagnosticOrder setPriority(DiagnosticOrderPriority value) { 
       if (value == null)
         this.priority = null;
       else {
@@ -1616,13 +1616,13 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #event} (A summary of the events of interest that have occurred as the request is processed; e.g. when the order was made, various processing steps (specimens received), when it was completed.)
      */
-    public List<DiagnosticOrderEventComponent> getEvent() {
+    public List<DiagnosticOrderEventComponent> getEvent() { 
       if (this.event == null)
         this.event = new ArrayList<DiagnosticOrderEventComponent>();
       return this.event;
     }
 
-    public boolean hasEvent() {
+    public boolean hasEvent() { 
       if (this.event == null)
         return false;
       for (DiagnosticOrderEventComponent item : this.event)
@@ -1656,13 +1656,13 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #item} (The specific diagnostic investigations that are requested as part of this request. Sometimes, there can only be one item per request, but in most contexts, more than one investigation can be requested.)
      */
-    public List<DiagnosticOrderItemComponent> getItem() {
+    public List<DiagnosticOrderItemComponent> getItem() { 
       if (this.item == null)
         this.item = new ArrayList<DiagnosticOrderItemComponent>();
       return this.item;
     }
 
-    public boolean hasItem() {
+    public boolean hasItem() { 
       if (this.item == null)
         return false;
       for (DiagnosticOrderItemComponent item : this.item)
@@ -1696,13 +1696,13 @@ public class DiagnosticOrder extends DomainResource {
     /**
      * @return {@link #note} (Any other notes associated with this patient, specimen or order (e.g. "patient hates needles").)
      */
-    public List<Annotation> getNote() {
+    public List<Annotation> getNote() { 
       if (this.note == null)
         this.note = new ArrayList<Annotation>();
       return this.note;
     }
 
-    public boolean hasNote() {
+    public boolean hasNote() { 
       if (this.note == null)
         return false;
       for (Annotation item : this.note)

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 
 import org.hl7.fhir.dstu21.model.api.*;
@@ -37,7 +37,7 @@ import org.hl7.fhir.exceptions.FHIRException;
 
 public class Enumerations {
 
-// In here:
+// In here: 
 //   AdministrativeGender: The gender of a person used for administrative purposes.
 //   AgeUnits: A valueSet of UCUM codes for representing age value units.
 //   BindingStrength: Indication of the degree of conformance expectations associated with a binding.
@@ -59,19 +59,19 @@ public class Enumerations {
         /**
          * Male
          */
-        MALE,
+        MALE, 
         /**
          * Female
          */
-        FEMALE,
+        FEMALE, 
         /**
          * Other
          */
-        OTHER,
+        OTHER, 
         /**
          * Unknown
          */
-        UNKNOWN,
+        UNKNOWN, 
         /**
          * added to help the parsers
          */
@@ -175,27 +175,27 @@ public class Enumerations {
         /**
          * null
          */
-        MIN,
+        MIN, 
         /**
          * null
          */
-        H,
+        H, 
         /**
          * null
          */
-        D,
+        D, 
         /**
          * null
          */
-        WK,
+        WK, 
         /**
          * null
          */
-        MO,
+        MO, 
         /**
          * null
          */
-        A,
+        A, 
         /**
          * added to help the parsers
          */
@@ -323,19 +323,19 @@ public class Enumerations {
         /**
          * To be conformant, instances of this element SHALL include a code from the specified value set.
          */
-        REQUIRED,
+        REQUIRED, 
         /**
          * To be conformant, instances of this element SHALL include a code from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the valueset does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.
          */
-        EXTENSIBLE,
+        EXTENSIBLE, 
         /**
          * Instances are encouraged to draw from the specified codes for interoperability purposes but are not required to do so to be considered conformant.
          */
-        PREFERRED,
+        PREFERRED, 
         /**
          * Instances are not expected or even encouraged to draw from the specified value set.  The value set merely provides examples of the types of concepts intended to be included.
          */
-        EXAMPLE,
+        EXAMPLE, 
         /**
          * added to help the parsers
          */
@@ -439,39 +439,39 @@ public class Enumerations {
         /**
          * The definitions of the concepts mean the same thing (including when structural implications of meaning are considered) (i.e. extensionally identical).
          */
-        EQUIVALENT,
+        EQUIVALENT, 
         /**
          * The definitions of the concepts are exactly the same (i.e. only grammatical differences) and structural implications of meaning are identical or irrelevant (i.e. intentionally identical).
          */
-        EQUAL,
+        EQUAL, 
         /**
          * The target mapping is wider in meaning than the source concept.
          */
-        WIDER,
+        WIDER, 
         /**
          * The target mapping subsumes the meaning of the source concept (e.g. the source is-a target).
          */
-        SUBSUMES,
+        SUBSUMES, 
         /**
          * The target mapping is narrower in meaning that the source concept. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.
          */
-        NARROWER,
+        NARROWER, 
         /**
          * The target mapping specializes the meaning of the source concept (e.g. the target is-a source).
          */
-        SPECIALIZES,
+        SPECIALIZES, 
         /**
          * The target mapping overlaps with the source concept, but both source and target cover additional meaning, or the definitions are imprecise and it is uncertain whether they have the same boundaries to their meaning. The sense in which the mapping is narrower SHALL be described in the comments in this case, and applications should be careful when attempting to use these mappings operationally.
          */
-        INEXACT,
+        INEXACT, 
         /**
          * There is no match for this concept in the destination concept system.
          */
-        UNMATCHED,
+        UNMATCHED, 
         /**
          * This is an explicit assertion that there is no mapping between the source and target concept.
          */
-        DISJOINT,
+        DISJOINT, 
         /**
          * added to help the parsers
          */
@@ -635,15 +635,15 @@ public class Enumerations {
         /**
          * This resource is still under development.
          */
-        DRAFT,
+        DRAFT, 
         /**
          * This resource is ready for normal use.
          */
-        ACTIVE,
+        ACTIVE, 
         /**
          * This resource has been withdrawn or superseded and should no longer be used.
          */
-        RETIRED,
+        RETIRED, 
         /**
          * added to help the parsers
          */
@@ -735,39 +735,39 @@ public class Enumerations {
         /**
          * The value is not known.
          */
-        UNKNOWN,
+        UNKNOWN, 
         /**
          * The source human does not know the value.
          */
-        ASKED,
+        ASKED, 
         /**
          * There is reason to expect (from the workflow) that the value may become known.
          */
-        TEMP,
+        TEMP, 
         /**
          * The workflow didn't lead to this value being known.
          */
-        NOTASKED,
+        NOTASKED, 
         /**
          * The information is not available due to security, privacy or related reasons.
          */
-        MASKED,
+        MASKED, 
         /**
          * The source system wasn't capable of supporting this element.
          */
-        UNSUPPORTED,
+        UNSUPPORTED, 
         /**
          * The content of the data is represented in the resource narrative.
          */
-        ASTEXT,
+        ASTEXT, 
         /**
          * Some system or workflow process error means that the information is not available.
          */
-        ERROR,
+        ERROR, 
         /**
          * NaN, standing for not a number, is a numeric data type value representing an undefined or unrepresentable value.
          */
-        NAN,
+        NAN, 
         /**
          * added to help the parsers
          */
@@ -931,187 +931,187 @@ public class Enumerations {
         /**
          * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.
          */
-        ADDRESS,
+        ADDRESS, 
         /**
          * null
          */
-        AGE,
+        AGE, 
         /**
          * A  text note which also  contains information about who made the statement and when.
          */
-        ANNOTATION,
+        ANNOTATION, 
         /**
          * For referring to data content defined in other formats.
          */
-        ATTACHMENT,
+        ATTACHMENT, 
         /**
          * Base definition for all elements that are defined inside a resource - but not those in a data type.
          */
-        BACKBONEELEMENT,
+        BACKBONEELEMENT, 
         /**
          * A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.
          */
-        CODEABLECONCEPT,
+        CODEABLECONCEPT, 
         /**
          * A reference to a code defined by a terminology system.
          */
-        CODING,
+        CODING, 
         /**
          * Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
          */
-        CONTACTPOINT,
+        CONTACTPOINT, 
         /**
          * null
          */
-        COUNT,
+        COUNT, 
         /**
          * null
          */
-        DISTANCE,
+        DISTANCE, 
         /**
          * null
          */
-        DURATION,
+        DURATION, 
         /**
          * Base definition for all elements in a resource.
          */
-        ELEMENT,
+        ELEMENT, 
         /**
          * Captures constraints on each element within the resource, profile, or extension.
          */
-        ELEMENTDEFINITION,
+        ELEMENTDEFINITION, 
         /**
          * Optional Extensions Element - found in all resources.
          */
-        EXTENSION,
+        EXTENSION, 
         /**
          * A human's name with the ability to identify parts and usage.
          */
-        HUMANNAME,
+        HUMANNAME, 
         /**
          * A technical identifier - identifies some entity uniquely and unambiguously.
          */
-        IDENTIFIER,
+        IDENTIFIER, 
         /**
          * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
          */
-        META,
+        META, 
         /**
          * null
          */
-        MONEY,
+        MONEY, 
         /**
          * A human-readable formatted text, including images.
          */
-        NARRATIVE,
+        NARRATIVE, 
         /**
          * A time period defined by a start and end date and optionally time.
          */
-        PERIOD,
+        PERIOD, 
         /**
          * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
          */
-        QUANTITY,
+        QUANTITY, 
         /**
          * A set of ordered Quantities defined by a low and high limit.
          */
-        RANGE,
+        RANGE, 
         /**
          * A relationship of two Quantity values - expressed as a numerator and a denominator.
          */
-        RATIO,
+        RATIO, 
         /**
          * A reference from one resource to another.
          */
-        REFERENCE,
+        REFERENCE, 
         /**
          * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
          */
-        SAMPLEDDATA,
+        SAMPLEDDATA, 
         /**
          * A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities.
          */
-        SIGNATURE,
+        SIGNATURE, 
         /**
          * null
          */
-        SIMPLEQUANTITY,
+        SIMPLEQUANTITY, 
         /**
          * Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.
          */
-        TIMING,
+        TIMING, 
         /**
          * A stream of bytes
          */
-        BASE64BINARY,
+        BASE64BINARY, 
         /**
          * Value of "true" or "false"
          */
-        BOOLEAN,
+        BOOLEAN, 
         /**
          * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
          */
-        CODE,
+        CODE, 
         /**
          * A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.
          */
-        DATE,
+        DATE, 
         /**
          * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
          */
-        DATETIME,
+        DATETIME, 
         /**
          * A rational number with implicit precision
          */
-        DECIMAL,
+        DECIMAL, 
         /**
          * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
          */
-        ID,
+        ID, 
         /**
          * An instant in time - known at least to the second
          */
-        INSTANT,
+        INSTANT, 
         /**
          * A whole number
          */
-        INTEGER,
+        INTEGER, 
         /**
          * A string that may contain markdown syntax for optional processing by a mark down presentation engine
          */
-        MARKDOWN,
+        MARKDOWN, 
         /**
          * An oid represented as a URI
          */
-        OID,
+        OID, 
         /**
          * An integer with a value that is positive (e.g. >0)
          */
-        POSITIVEINT,
+        POSITIVEINT, 
         /**
          * A sequence of Unicode characters
          */
-        STRING,
+        STRING, 
         /**
          * A time during the day, with no date specified
          */
-        TIME,
+        TIME, 
         /**
          * An integer with a value that is not negative (e.g. >= 0)
          */
-        UNSIGNEDINT,
+        UNSIGNEDINT, 
         /**
          * String of characters used to identify a name or a resource
          */
-        URI,
+        URI, 
         /**
          * A UUID, represented as a URI
          */
-        UUID,
+        UUID, 
         /**
          * XHTML format, as defined by W3C, but restricted usage (mainly, no active content)
          */
-        XHTML,
+        XHTML, 
         /**
          * added to help the parsers
          */
@@ -1719,15 +1719,15 @@ public class Enumerations {
         /**
          * This is the current reference for this document.
          */
-        CURRENT,
+        CURRENT, 
         /**
          * This reference has been superseded by another reference.
          */
-        SUPERSEDED,
+        SUPERSEDED, 
         /**
          * This reference was created in error.
          */
-        ENTEREDINERROR,
+        ENTEREDINERROR, 
         /**
          * added to help the parsers
          */
@@ -1819,611 +1819,611 @@ public class Enumerations {
         /**
          * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.
          */
-        ADDRESS,
+        ADDRESS, 
         /**
          * null
          */
-        AGE,
+        AGE, 
         /**
          * A  text note which also  contains information about who made the statement and when.
          */
-        ANNOTATION,
+        ANNOTATION, 
         /**
          * For referring to data content defined in other formats.
          */
-        ATTACHMENT,
+        ATTACHMENT, 
         /**
          * Base definition for all elements that are defined inside a resource - but not those in a data type.
          */
-        BACKBONEELEMENT,
+        BACKBONEELEMENT, 
         /**
          * A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.
          */
-        CODEABLECONCEPT,
+        CODEABLECONCEPT, 
         /**
          * A reference to a code defined by a terminology system.
          */
-        CODING,
+        CODING, 
         /**
          * Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.
          */
-        CONTACTPOINT,
+        CONTACTPOINT, 
         /**
          * null
          */
-        COUNT,
+        COUNT, 
         /**
          * null
          */
-        DISTANCE,
+        DISTANCE, 
         /**
          * null
          */
-        DURATION,
+        DURATION, 
         /**
          * Base definition for all elements in a resource.
          */
-        ELEMENT,
+        ELEMENT, 
         /**
          * Captures constraints on each element within the resource, profile, or extension.
          */
-        ELEMENTDEFINITION,
+        ELEMENTDEFINITION, 
         /**
          * Optional Extensions Element - found in all resources.
          */
-        EXTENSION,
+        EXTENSION, 
         /**
          * A human's name with the ability to identify parts and usage.
          */
-        HUMANNAME,
+        HUMANNAME, 
         /**
          * A technical identifier - identifies some entity uniquely and unambiguously.
          */
-        IDENTIFIER,
+        IDENTIFIER, 
         /**
          * The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content may not always be associated with version changes to the resource.
          */
-        META,
+        META, 
         /**
          * null
          */
-        MONEY,
+        MONEY, 
         /**
          * A human-readable formatted text, including images.
          */
-        NARRATIVE,
+        NARRATIVE, 
         /**
          * A time period defined by a start and end date and optionally time.
          */
-        PERIOD,
+        PERIOD, 
         /**
          * A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.
          */
-        QUANTITY,
+        QUANTITY, 
         /**
          * A set of ordered Quantities defined by a low and high limit.
          */
-        RANGE,
+        RANGE, 
         /**
          * A relationship of two Quantity values - expressed as a numerator and a denominator.
          */
-        RATIO,
+        RATIO, 
         /**
          * A reference from one resource to another.
          */
-        REFERENCE,
+        REFERENCE, 
         /**
          * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
          */
-        SAMPLEDDATA,
+        SAMPLEDDATA, 
         /**
          * A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities.
          */
-        SIGNATURE,
+        SIGNATURE, 
         /**
          * null
          */
-        SIMPLEQUANTITY,
+        SIMPLEQUANTITY, 
         /**
          * Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.
          */
-        TIMING,
+        TIMING, 
         /**
          * A stream of bytes
          */
-        BASE64BINARY,
+        BASE64BINARY, 
         /**
          * Value of "true" or "false"
          */
-        BOOLEAN,
+        BOOLEAN, 
         /**
          * A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents
          */
-        CODE,
+        CODE, 
         /**
          * A date or partial date (e.g. just year or year + month). There is no time zone. The format is a union of the schema types gYear, gYearMonth and date.  Dates SHALL be valid dates.
          */
-        DATE,
+        DATE, 
         /**
          * A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates.
          */
-        DATETIME,
+        DATETIME, 
         /**
          * A rational number with implicit precision
          */
-        DECIMAL,
+        DECIMAL, 
         /**
          * Any combination of letters, numerals, "-" and ".", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive.
          */
-        ID,
+        ID, 
         /**
          * An instant in time - known at least to the second
          */
-        INSTANT,
+        INSTANT, 
         /**
          * A whole number
          */
-        INTEGER,
+        INTEGER, 
         /**
          * A string that may contain markdown syntax for optional processing by a mark down presentation engine
          */
-        MARKDOWN,
+        MARKDOWN, 
         /**
          * An oid represented as a URI
          */
-        OID,
+        OID, 
         /**
          * An integer with a value that is positive (e.g. >0)
          */
-        POSITIVEINT,
+        POSITIVEINT, 
         /**
          * A sequence of Unicode characters
          */
-        STRING,
+        STRING, 
         /**
          * A time during the day, with no date specified
          */
-        TIME,
+        TIME, 
         /**
          * An integer with a value that is not negative (e.g. >= 0)
          */
-        UNSIGNEDINT,
+        UNSIGNEDINT, 
         /**
          * String of characters used to identify a name or a resource
          */
-        URI,
+        URI, 
         /**
          * A UUID, represented as a URI
          */
-        UUID,
+        UUID, 
         /**
          * XHTML format, as defined by W3C, but restricted usage (mainly, no active content)
          */
-        XHTML,
+        XHTML, 
         /**
          * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.
          */
-        ACCOUNT,
+        ACCOUNT, 
         /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
-        ALLERGYINTOLERANCE,
+        ALLERGYINTOLERANCE, 
         /**
          * A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).
          */
-        APPOINTMENT,
+        APPOINTMENT, 
         /**
          * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
          */
-        APPOINTMENTRESPONSE,
+        APPOINTMENTRESPONSE, 
         /**
          * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
          */
-        AUDITEVENT,
+        AUDITEVENT, 
         /**
          * Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
          */
-        BASIC,
+        BASIC, 
         /**
          * A binary resource can contain any content, whether text, image, pdf, zip archive, etc.
          */
-        BINARY,
+        BINARY, 
         /**
          * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
          */
-        BODYSITE,
+        BODYSITE, 
         /**
          * A container for a collection of resources.
          */
-        BUNDLE,
+        BUNDLE, 
         /**
          * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
          */
-        CAREPLAN,
+        CAREPLAN, 
         /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
-        CLAIM,
+        CLAIM, 
         /**
          * This resource provides the adjudication details from the processing of a Claim resource.
          */
-        CLAIMRESPONSE,
+        CLAIMRESPONSE, 
         /**
          * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
          */
-        CLINICALIMPRESSION,
+        CLINICALIMPRESSION, 
         /**
          * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
          */
-        COMMUNICATION,
+        COMMUNICATION, 
         /**
          * A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
          */
-        COMMUNICATIONREQUEST,
+        COMMUNICATIONREQUEST, 
         /**
          * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.
          */
-        COMPOSITION,
+        COMPOSITION, 
         /**
          * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
          */
-        CONCEPTMAP,
+        CONCEPTMAP, 
         /**
          * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
          */
-        CONDITION,
+        CONDITION, 
         /**
          * A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
          */
-        CONFORMANCE,
+        CONFORMANCE, 
         /**
          * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
          */
-        CONTRACT,
+        CONTRACT, 
         /**
          * Financial instrument which may be used to pay for or reimburse health care products and services.
          */
-        COVERAGE,
+        COVERAGE, 
         /**
          * The formal description of a single piece of information that can be gathered and reported.
          */
-        DATAELEMENT,
+        DATAELEMENT, 
         /**
          * This resource defines a decision support rule of the form [on Event] if Condition then Action.
          */
-        DECISIONSUPPORTRULE,
+        DECISIONSUPPORTRULE, 
         /**
          * The DecisionSupportServiceModule resource describes decision support functionality that is available as a service.
          */
-        DECISIONSUPPORTSERVICEMODULE,
+        DECISIONSUPPORTSERVICEMODULE, 
         /**
          * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
          */
-        DETECTEDISSUE,
+        DETECTEDISSUE, 
         /**
          * This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
          */
-        DEVICE,
+        DEVICE, 
         /**
          * Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.
          */
-        DEVICECOMPONENT,
+        DEVICECOMPONENT, 
         /**
          * Describes a measurement, calculation or setting capability of a medical device.
          */
-        DEVICEMETRIC,
+        DEVICEMETRIC, 
         /**
          * Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
          */
-        DEVICEUSEREQUEST,
+        DEVICEUSEREQUEST, 
         /**
          * A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
          */
-        DEVICEUSESTATEMENT,
+        DEVICEUSESTATEMENT, 
         /**
          * A record of a request for a diagnostic investigation service to be performed.
          */
-        DIAGNOSTICORDER,
+        DIAGNOSTICORDER, 
         /**
          * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
          */
-        DIAGNOSTICREPORT,
+        DIAGNOSTICREPORT, 
         /**
          * A manifest that defines a set of documents.
          */
-        DOCUMENTMANIFEST,
+        DOCUMENTMANIFEST, 
         /**
          * A reference to a document .
          */
-        DOCUMENTREFERENCE,
+        DOCUMENTREFERENCE, 
         /**
          * --- Abstract Type! ---A resource that includes narrative, extensions, and contained resources.
          */
-        DOMAINRESOURCE,
+        DOMAINRESOURCE, 
         /**
          * This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
          */
-        ELIGIBILITYREQUEST,
+        ELIGIBILITYREQUEST, 
         /**
          * This resource provides eligibility and plan details from the processing of an Eligibility resource.
          */
-        ELIGIBILITYRESPONSE,
+        ELIGIBILITYRESPONSE, 
         /**
          * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
          */
-        ENCOUNTER,
+        ENCOUNTER, 
         /**
          * This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
          */
-        ENROLLMENTREQUEST,
+        ENROLLMENTREQUEST, 
         /**
          * This resource provides enrollment and plan details from the processing of an Enrollment resource.
          */
-        ENROLLMENTRESPONSE,
+        ENROLLMENTRESPONSE, 
         /**
          * An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
          */
-        EPISODEOFCARE,
+        EPISODEOFCARE, 
         /**
          * Resource to define constraints on the Expansion of a FHIR ValueSet.
          */
-        EXPANSIONPROFILE,
+        EXPANSIONPROFILE, 
         /**
          * This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
          */
-        EXPLANATIONOFBENEFIT,
+        EXPLANATIONOFBENEFIT, 
         /**
          * Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
          */
-        FAMILYMEMBERHISTORY,
+        FAMILYMEMBERHISTORY, 
         /**
          * Prospective warnings of potential issues when providing care to the patient.
          */
-        FLAG,
+        FLAG, 
         /**
          * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
          */
-        GOAL,
+        GOAL, 
         /**
          * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
          */
-        GROUP,
+        GROUP, 
         /**
          * A guidance request is a request to evaluate a particular knowledge module focused on decision support, providing information relevant to decision support such as workflow and user context.
          */
-        GUIDANCEREQUEST,
+        GUIDANCEREQUEST, 
         /**
          * A guidance response is the formal response to a previous guidance request. It is a derivative of the knowledge response that provides additional information relevant specifically to clinical decision support such as a description of any proposed actions to be taken.
          */
-        GUIDANCERESPONSE,
+        GUIDANCERESPONSE, 
         /**
          * The details of a healthcare service available at a location.
          */
-        HEALTHCARESERVICE,
+        HEALTHCARESERVICE, 
         /**
          * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
          */
-        IMAGINGOBJECTSELECTION,
+        IMAGINGOBJECTSELECTION, 
         /**
          * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
-        IMAGINGSTUDY,
+        IMAGINGSTUDY, 
         /**
          * Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.
          */
-        IMMUNIZATION,
+        IMMUNIZATION, 
         /**
          * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.
          */
-        IMMUNIZATIONRECOMMENDATION,
+        IMMUNIZATIONRECOMMENDATION, 
         /**
          * A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.
          */
-        IMPLEMENTATIONGUIDE,
+        IMPLEMENTATIONGUIDE, 
         /**
          * The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.
          */
-        LIBRARY,
+        LIBRARY, 
         /**
          * A set of information summarized from a list of other resources.
          */
-        LIST,
+        LIST, 
         /**
          * Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.
          */
-        LOCATION,
+        LOCATION, 
         /**
          * The Measure resource provides the definition of a quality measure.
          */
-        MEASURE,
+        MEASURE, 
         /**
          * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
          */
-        MEDIA,
+        MEDIA, 
         /**
          * This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
          */
-        MEDICATION,
+        MEDICATION, 
         /**
          * Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
          */
-        MEDICATIONADMINISTRATION,
+        MEDICATIONADMINISTRATION, 
         /**
          * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
          */
-        MEDICATIONDISPENSE,
+        MEDICATIONDISPENSE, 
         /**
          * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationOrder" rather than "MedicationPrescription" to generalize the use across inpatient and outpatient settings as well as for care plans, etc.
          */
-        MEDICATIONORDER,
+        MEDICATIONORDER, 
         /**
-         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintainsThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
+         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
          */
-        MEDICATIONSTATEMENT,
+        MEDICATIONSTATEMENT, 
         /**
          * The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
          */
-        MESSAGEHEADER,
+        MESSAGEHEADER, 
         /**
          * The ModuleDefinition resource defines the data requirements for a quality artifact.
          */
-        MODULEDEFINITION,
+        MODULEDEFINITION, 
         /**
          * The ModuleMetadata resource defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
          */
-        MODULEMETADATA,
+        MODULEMETADATA, 
         /**
          * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
          */
-        NAMINGSYSTEM,
+        NAMINGSYSTEM, 
         /**
          * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
          */
-        NUTRITIONORDER,
+        NUTRITIONORDER, 
         /**
          * Measurements and simple assertions made about a patient, device or other subject.
          */
-        OBSERVATION,
+        OBSERVATION, 
         /**
          * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
          */
-        OPERATIONDEFINITION,
+        OPERATIONDEFINITION, 
         /**
          * A collection of error, warning or information messages that result from a system action.
          */
-        OPERATIONOUTCOME,
+        OPERATIONOUTCOME, 
         /**
          * A request to perform an action.
          */
-        ORDER,
+        ORDER, 
         /**
          * A response to an order.
          */
-        ORDERRESPONSE,
+        ORDERRESPONSE, 
         /**
          * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
          */
-        ORDERSET,
+        ORDERSET, 
         /**
          * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
          */
-        ORGANIZATION,
+        ORGANIZATION, 
         /**
          * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
-        PARAMETERS,
+        PARAMETERS, 
         /**
          * Demographics and other administrative information about an individual or animal receiving care or other health-related services.
          */
-        PATIENT,
+        PATIENT, 
         /**
          * This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
          */
-        PAYMENTNOTICE,
+        PAYMENTNOTICE, 
         /**
          * This resource provides payment details and claim references supporting a bulk payment.
          */
-        PAYMENTRECONCILIATION,
+        PAYMENTRECONCILIATION, 
         /**
          * Demographics and administrative information about a person independent of a specific health-related context.
          */
-        PERSON,
+        PERSON, 
         /**
          * A person who is directly or indirectly involved in the provisioning of healthcare.
          */
-        PRACTITIONER,
+        PRACTITIONER, 
         /**
          * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
          */
-        PROCEDURE,
+        PROCEDURE, 
         /**
          * A request for a procedure to be performed. May be a proposal or an order.
          */
-        PROCEDUREREQUEST,
+        PROCEDUREREQUEST, 
         /**
          * This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
          */
-        PROCESSREQUEST,
+        PROCESSREQUEST, 
         /**
          * This resource provides processing status, errors and notes from the processing of a resource.
          */
-        PROCESSRESPONSE,
+        PROCESSRESPONSE, 
         /**
          * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
-        PROVENANCE,
+        PROVENANCE, 
         /**
          * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
          */
-        QUESTIONNAIRE,
+        QUESTIONNAIRE, 
         /**
          * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
          */
-        QUESTIONNAIRERESPONSE,
+        QUESTIONNAIRERESPONSE, 
         /**
          * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
          */
-        REFERRALREQUEST,
+        REFERRALREQUEST, 
         /**
          * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
          */
-        RELATEDPERSON,
+        RELATEDPERSON, 
         /**
          * --- Abstract Type! ---This is the base resource type for everything.
          */
-        RESOURCE,
+        RESOURCE, 
         /**
          * An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
          */
-        RISKASSESSMENT,
+        RISKASSESSMENT, 
         /**
          * A container for slot(s) of time that may be available for booking appointments.
          */
-        SCHEDULE,
+        SCHEDULE, 
         /**
          * A search parameter that defines a named search item that can be used to search/filter on a resource.
          */
-        SEARCHPARAMETER,
+        SEARCHPARAMETER, 
         /**
          * A slot of time on a schedule that may be available for booking appointments.
          */
-        SLOT,
+        SLOT, 
         /**
          * A sample to be used for analysis.
          */
-        SPECIMEN,
+        SPECIMEN, 
         /**
          * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
          */
-        STRUCTUREDEFINITION,
+        STRUCTUREDEFINITION, 
         /**
          * The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system is able to take an appropriate action.
          */
-        SUBSCRIPTION,
+        SUBSCRIPTION, 
         /**
          * A homogeneous material with a definite composition.
          */
-        SUBSTANCE,
+        SUBSTANCE, 
         /**
          * Record of delivery of what is supplied.
          */
-        SUPPLYDELIVERY,
+        SUPPLYDELIVERY, 
         /**
          * A record of a request for a medication, substance or device used in the healthcare setting.
          */
-        SUPPLYREQUEST,
+        SUPPLYREQUEST, 
         /**
          * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
          */
-        TESTSCRIPT,
+        TESTSCRIPT, 
         /**
          * A value set specifies a set of codes drawn from one or more code systems.
          */
-        VALUESET,
+        VALUESET, 
         /**
          * An authorization for the supply of glasses and/or contact lenses to a patient.
          */
-        VISIONPRESCRIPTION,
+        VISIONPRESCRIPTION, 
         /**
          * added to help the parsers
          */
@@ -4303,43 +4303,43 @@ public class Enumerations {
         /**
          * Change the status of a Medication Administration to show that it is complete.
          */
-        MEDICATIONADMINISTRATIONCOMPLETE,
+        MEDICATIONADMINISTRATIONCOMPLETE, 
         /**
          * Someone wishes to record that the record of administration of a medication is in error and should be ignored.
          */
-        MEDICATIONADMINISTRATIONNULLIFICATION,
+        MEDICATIONADMINISTRATIONNULLIFICATION, 
         /**
          * Indicates that a medication has been recorded against the patient's record.
          */
-        MEDICATIONADMINISTRATIONRECORDING,
+        MEDICATIONADMINISTRATIONRECORDING, 
         /**
          * Update a Medication Administration record.
          */
-        MEDICATIONADMINISTRATIONUPDATE,
+        MEDICATIONADMINISTRATIONUPDATE, 
         /**
          * Notification of a change to an administrative resource (either create or update). Note that there is no delete, though some administrative resources have status or period elements for this use.
          */
-        ADMINNOTIFY,
+        ADMINNOTIFY, 
         /**
          * Provide a diagnostic report, or update a previously provided diagnostic report.
          */
-        DIAGNOSTICREPORTPROVIDE,
+        DIAGNOSTICREPORTPROVIDE, 
         /**
          * Provide a simple observation or update a previously provided simple observation.
          */
-        OBSERVATIONPROVIDE,
+        OBSERVATIONPROVIDE, 
         /**
          * Notification that two patient records actually identify the same patient.
          */
-        PATIENTLINK,
+        PATIENTLINK, 
         /**
          * Notification that previous advice that two patient records concern the same patient is now considered incorrect.
          */
-        PATIENTUNLINK,
+        PATIENTUNLINK, 
         /**
          * The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation. An expanded value set will be returned, or an error message.
          */
-        VALUESETEXPAND,
+        VALUESETEXPAND, 
         /**
          * added to help the parsers
          */
@@ -4515,15 +4515,15 @@ public class Enumerations {
         /**
          * Display the note.
          */
-        DISPLAY,
+        DISPLAY, 
         /**
          * Print the note on the form.
          */
-        PRINT,
+        PRINT, 
         /**
          * Print the note for the operator.
          */
-        PRINTOPER,
+        PRINTOPER, 
         /**
          * added to help the parsers
          */
@@ -4615,11 +4615,11 @@ public class Enumerations {
         /**
          * The processing completed without errors.
          */
-        COMPLETE,
+        COMPLETE, 
         /**
          * The processing identified errors.
          */
-        ERROR,
+        ERROR, 
         /**
          * added to help the parsers
          */
@@ -4699,427 +4699,427 @@ public class Enumerations {
         /**
          * A financial tool for tracking value accrued for a particular purpose.  In the healthcare field, used to track charges for a patient, cost centres, etc.
          */
-        ACCOUNT,
+        ACCOUNT, 
         /**
          * Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
          */
-        ALLERGYINTOLERANCE,
+        ALLERGYINTOLERANCE, 
         /**
          * A booking of a healthcare event among patient(s), practitioner(s), related person(s) and/or device(s) for a specific date/time. This may result in one or more Encounter(s).
          */
-        APPOINTMENT,
+        APPOINTMENT, 
         /**
          * A reply to an appointment request for a patient and/or practitioner(s), such as a confirmation or rejection.
          */
-        APPOINTMENTRESPONSE,
+        APPOINTMENTRESPONSE, 
         /**
          * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
          */
-        AUDITEVENT,
+        AUDITEVENT, 
         /**
          * Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
          */
-        BASIC,
+        BASIC, 
         /**
          * A binary resource can contain any content, whether text, image, pdf, zip archive, etc.
          */
-        BINARY,
+        BINARY, 
         /**
          * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
          */
-        BODYSITE,
+        BODYSITE, 
         /**
          * A container for a collection of resources.
          */
-        BUNDLE,
+        BUNDLE, 
         /**
          * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
          */
-        CAREPLAN,
+        CAREPLAN, 
         /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
-        CLAIM,
+        CLAIM, 
         /**
          * This resource provides the adjudication details from the processing of a Claim resource.
          */
-        CLAIMRESPONSE,
+        CLAIMRESPONSE, 
         /**
          * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
          */
-        CLINICALIMPRESSION,
+        CLINICALIMPRESSION, 
         /**
          * An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.
          */
-        COMMUNICATION,
+        COMMUNICATION, 
         /**
          * A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.
          */
-        COMMUNICATIONREQUEST,
+        COMMUNICATIONREQUEST, 
         /**
          * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.
          */
-        COMPOSITION,
+        COMPOSITION, 
         /**
          * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
          */
-        CONCEPTMAP,
+        CONCEPTMAP, 
         /**
          * Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.
          */
-        CONDITION,
+        CONDITION, 
         /**
          * A conformance statement is a set of capabilities of a FHIR Server that may be used as a statement of actual server functionality or a statement of required or desired server implementation.
          */
-        CONFORMANCE,
+        CONFORMANCE, 
         /**
          * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
          */
-        CONTRACT,
+        CONTRACT, 
         /**
          * Financial instrument which may be used to pay for or reimburse health care products and services.
          */
-        COVERAGE,
+        COVERAGE, 
         /**
          * The formal description of a single piece of information that can be gathered and reported.
          */
-        DATAELEMENT,
+        DATAELEMENT, 
         /**
          * This resource defines a decision support rule of the form [on Event] if Condition then Action.
          */
-        DECISIONSUPPORTRULE,
+        DECISIONSUPPORTRULE, 
         /**
          * The DecisionSupportServiceModule resource describes decision support functionality that is available as a service.
          */
-        DECISIONSUPPORTSERVICEMODULE,
+        DECISIONSUPPORTSERVICEMODULE, 
         /**
          * Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.
          */
-        DETECTEDISSUE,
+        DETECTEDISSUE, 
         /**
          * This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
          */
-        DEVICE,
+        DEVICE, 
         /**
          * Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.
          */
-        DEVICECOMPONENT,
+        DEVICECOMPONENT, 
         /**
          * Describes a measurement, calculation or setting capability of a medical device.
          */
-        DEVICEMETRIC,
+        DEVICEMETRIC, 
         /**
          * Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.
          */
-        DEVICEUSEREQUEST,
+        DEVICEUSEREQUEST, 
         /**
          * A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.
          */
-        DEVICEUSESTATEMENT,
+        DEVICEUSESTATEMENT, 
         /**
          * A record of a request for a diagnostic investigation service to be performed.
          */
-        DIAGNOSTICORDER,
+        DIAGNOSTICORDER, 
         /**
          * The findings and interpretation of diagnostic  tests performed on patients, groups of patients, devices, and locations, and/or specimens derived from these. The report includes clinical context such as requesting and provider information, and some mix of atomic results, images, textual and coded interpretations, and formatted representation of diagnostic reports.
          */
-        DIAGNOSTICREPORT,
+        DIAGNOSTICREPORT, 
         /**
          * A manifest that defines a set of documents.
          */
-        DOCUMENTMANIFEST,
+        DOCUMENTMANIFEST, 
         /**
          * A reference to a document .
          */
-        DOCUMENTREFERENCE,
+        DOCUMENTREFERENCE, 
         /**
          * --- Abstract Type! ---A resource that includes narrative, extensions, and contained resources.
          */
-        DOMAINRESOURCE,
+        DOMAINRESOURCE, 
         /**
          * This resource provides the insurance eligibility details from the insurer regarding a specified coverage and optionally some class of service.
          */
-        ELIGIBILITYREQUEST,
+        ELIGIBILITYREQUEST, 
         /**
          * This resource provides eligibility and plan details from the processing of an Eligibility resource.
          */
-        ELIGIBILITYRESPONSE,
+        ELIGIBILITYRESPONSE, 
         /**
          * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
          */
-        ENCOUNTER,
+        ENCOUNTER, 
         /**
          * This resource provides the insurance enrollment details to the insurer regarding a specified coverage.
          */
-        ENROLLMENTREQUEST,
+        ENROLLMENTREQUEST, 
         /**
          * This resource provides enrollment and plan details from the processing of an Enrollment resource.
          */
-        ENROLLMENTRESPONSE,
+        ENROLLMENTRESPONSE, 
         /**
          * An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
          */
-        EPISODEOFCARE,
+        EPISODEOFCARE, 
         /**
          * Resource to define constraints on the Expansion of a FHIR ValueSet.
          */
-        EXPANSIONPROFILE,
+        EXPANSIONPROFILE, 
         /**
          * This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
          */
-        EXPLANATIONOFBENEFIT,
+        EXPLANATIONOFBENEFIT, 
         /**
          * Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
          */
-        FAMILYMEMBERHISTORY,
+        FAMILYMEMBERHISTORY, 
         /**
          * Prospective warnings of potential issues when providing care to the patient.
          */
-        FLAG,
+        FLAG, 
         /**
          * Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.
          */
-        GOAL,
+        GOAL, 
         /**
          * Represents a defined collection of entities that may be discussed or acted upon collectively but which are not expected to act collectively and are not formally or legally recognized; i.e. a collection of entities that isn't an Organization.
          */
-        GROUP,
+        GROUP, 
         /**
          * A guidance request is a request to evaluate a particular knowledge module focused on decision support, providing information relevant to decision support such as workflow and user context.
          */
-        GUIDANCEREQUEST,
+        GUIDANCEREQUEST, 
         /**
          * A guidance response is the formal response to a previous guidance request. It is a derivative of the knowledge response that provides additional information relevant specifically to clinical decision support such as a description of any proposed actions to be taken.
          */
-        GUIDANCERESPONSE,
+        GUIDANCERESPONSE, 
         /**
          * The details of a healthcare service available at a location.
          */
-        HEALTHCARESERVICE,
+        HEALTHCARESERVICE, 
         /**
          * A manifest of a set of DICOM Service-Object Pair Instances (SOP Instances).  The referenced SOP Instances (images or other content) are for a single patient, and may be from one or more studies. The referenced SOP Instances have been selected for a purpose, such as quality assurance, conference, or consult. Reflecting that range of purposes, typical ImagingObjectSelection resources may include all SOP Instances in a study (perhaps for sharing through a Health Information Exchange); key images from multiple studies (for reference by a referring or treating physician); a multi-frame ultrasound instance ("cine" video clip) and a set of measurements taken from that instance (for inclusion in a teaching file); and so on.
          */
-        IMAGINGOBJECTSELECTION,
+        IMAGINGOBJECTSELECTION, 
         /**
          * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
          */
-        IMAGINGSTUDY,
+        IMAGINGSTUDY, 
         /**
          * Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.
          */
-        IMMUNIZATION,
+        IMMUNIZATION, 
         /**
          * A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.
          */
-        IMMUNIZATIONRECOMMENDATION,
+        IMMUNIZATIONRECOMMENDATION, 
         /**
          * A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.
          */
-        IMPLEMENTATIONGUIDE,
+        IMPLEMENTATIONGUIDE, 
         /**
          * The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.
          */
-        LIBRARY,
+        LIBRARY, 
         /**
          * A set of information summarized from a list of other resources.
          */
-        LIST,
+        LIST, 
         /**
          * Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.
          */
-        LOCATION,
+        LOCATION, 
         /**
          * The Measure resource provides the definition of a quality measure.
          */
-        MEASURE,
+        MEASURE, 
         /**
          * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
          */
-        MEDIA,
+        MEDIA, 
         /**
          * This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
          */
-        MEDICATION,
+        MEDICATION, 
         /**
          * Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
          */
-        MEDICATIONADMINISTRATION,
+        MEDICATIONADMINISTRATION, 
         /**
          * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
          */
-        MEDICATIONDISPENSE,
+        MEDICATIONDISPENSE, 
         /**
          * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationOrder" rather than "MedicationPrescription" to generalize the use across inpatient and outpatient settings as well as for care plans, etc.
          */
-        MEDICATIONORDER,
+        MEDICATIONORDER, 
         /**
-         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintainsThe primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
+         * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
          */
-        MEDICATIONSTATEMENT,
+        MEDICATIONSTATEMENT, 
         /**
          * The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
          */
-        MESSAGEHEADER,
+        MESSAGEHEADER, 
         /**
          * The ModuleDefinition resource defines the data requirements for a quality artifact.
          */
-        MODULEDEFINITION,
+        MODULEDEFINITION, 
         /**
          * The ModuleMetadata resource defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.
          */
-        MODULEMETADATA,
+        MODULEMETADATA, 
         /**
          * A curated namespace that issues unique symbols within that namespace for the identification of concepts, people, devices, etc.  Represents a "System" used within the Identifier and Coding data types.
          */
-        NAMINGSYSTEM,
+        NAMINGSYSTEM, 
         /**
          * A request to supply a diet, formula feeding (enteral) or oral nutritional supplement to a patient/resident.
          */
-        NUTRITIONORDER,
+        NUTRITIONORDER, 
         /**
          * Measurements and simple assertions made about a patient, device or other subject.
          */
-        OBSERVATION,
+        OBSERVATION, 
         /**
          * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
          */
-        OPERATIONDEFINITION,
+        OPERATIONDEFINITION, 
         /**
          * A collection of error, warning or information messages that result from a system action.
          */
-        OPERATIONOUTCOME,
+        OPERATIONOUTCOME, 
         /**
          * A request to perform an action.
          */
-        ORDER,
+        ORDER, 
         /**
          * A response to an order.
          */
-        ORDERRESPONSE,
+        ORDERRESPONSE, 
         /**
          * This resource allows for the definition of an order set as a sharable, consumable, and executable artifact in support of clinical decision support.
          */
-        ORDERSET,
+        ORDERSET, 
         /**
          * A formally or informally recognized grouping of people or organizations formed for the purpose of achieving some form of collective action.  Includes companies, institutions, corporations, departments, community groups, healthcare practice groups, etc.
          */
-        ORGANIZATION,
+        ORGANIZATION, 
         /**
          * This special resource type is used to represent an operation request and response (operations.html). It has no other use, and there is no RESTful endpoint associated with it.
          */
-        PARAMETERS,
+        PARAMETERS, 
         /**
          * Demographics and other administrative information about an individual or animal receiving care or other health-related services.
          */
-        PATIENT,
+        PATIENT, 
         /**
          * This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
          */
-        PAYMENTNOTICE,
+        PAYMENTNOTICE, 
         /**
          * This resource provides payment details and claim references supporting a bulk payment.
          */
-        PAYMENTRECONCILIATION,
+        PAYMENTRECONCILIATION, 
         /**
          * Demographics and administrative information about a person independent of a specific health-related context.
          */
-        PERSON,
+        PERSON, 
         /**
          * A person who is directly or indirectly involved in the provisioning of healthcare.
          */
-        PRACTITIONER,
+        PRACTITIONER, 
         /**
          * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
          */
-        PROCEDURE,
+        PROCEDURE, 
         /**
          * A request for a procedure to be performed. May be a proposal or an order.
          */
-        PROCEDUREREQUEST,
+        PROCEDUREREQUEST, 
         /**
          * This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
          */
-        PROCESSREQUEST,
+        PROCESSREQUEST, 
         /**
          * This resource provides processing status, errors and notes from the processing of a resource.
          */
-        PROCESSRESPONSE,
+        PROCESSRESPONSE, 
         /**
          * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
-        PROVENANCE,
+        PROVENANCE, 
         /**
          * A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
          */
-        QUESTIONNAIRE,
+        QUESTIONNAIRE, 
         /**
          * A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.
          */
-        QUESTIONNAIRERESPONSE,
+        QUESTIONNAIRERESPONSE, 
         /**
          * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
          */
-        REFERRALREQUEST,
+        REFERRALREQUEST, 
         /**
          * Information about a person that is involved in the care for a patient, but who is not the target of healthcare, nor has a formal responsibility in the care process.
          */
-        RELATEDPERSON,
+        RELATEDPERSON, 
         /**
          * --- Abstract Type! ---This is the base resource type for everything.
          */
-        RESOURCE,
+        RESOURCE, 
         /**
          * An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
          */
-        RISKASSESSMENT,
+        RISKASSESSMENT, 
         /**
          * A container for slot(s) of time that may be available for booking appointments.
          */
-        SCHEDULE,
+        SCHEDULE, 
         /**
          * A search parameter that defines a named search item that can be used to search/filter on a resource.
          */
-        SEARCHPARAMETER,
+        SEARCHPARAMETER, 
         /**
          * A slot of time on a schedule that may be available for booking appointments.
          */
-        SLOT,
+        SLOT, 
         /**
          * A sample to be used for analysis.
          */
-        SPECIMEN,
+        SPECIMEN, 
         /**
          * A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.
          */
-        STRUCTUREDEFINITION,
+        STRUCTUREDEFINITION, 
         /**
          * The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system is able to take an appropriate action.
          */
-        SUBSCRIPTION,
+        SUBSCRIPTION, 
         /**
          * A homogeneous material with a definite composition.
          */
-        SUBSTANCE,
+        SUBSTANCE, 
         /**
          * Record of delivery of what is supplied.
          */
-        SUPPLYDELIVERY,
+        SUPPLYDELIVERY, 
         /**
          * A record of a request for a medication, substance or device used in the healthcare setting.
          */
-        SUPPLYREQUEST,
+        SUPPLYREQUEST, 
         /**
          * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
          */
-        TESTSCRIPT,
+        TESTSCRIPT, 
         /**
          * A value set specifies a set of codes drawn from one or more code systems.
          */
-        VALUESET,
+        VALUESET, 
         /**
          * An authorization for the supply of glasses and/or contact lenses to a patient.
          */
-        VISIONPRESCRIPTION,
+        VISIONPRESCRIPTION, 
         /**
          * added to help the parsers
          */
@@ -6447,35 +6447,35 @@ public class Enumerations {
         /**
          * Search parameter SHALL be a number (a whole number, or a decimal).
          */
-        NUMBER,
+        NUMBER, 
         /**
          * Search parameter is on a date/time. The date format is the standard XML format, though other formats may be supported.
          */
-        DATE,
+        DATE, 
         /**
          * Search parameter is a simple string, like a name part. Search is case-insensitive and accent-insensitive. May match just the start of a string. String parameters may contain spaces.
          */
-        STRING,
+        STRING, 
         /**
          * Search parameter on a coded element or identifier. May be used to search through the text, displayname, code and code/codesystem (for codes) and label, system and key (for identifier). Its value is either a string or a pair of namespace and value, separated by a "|", depending on the modifier used.
          */
-        TOKEN,
+        TOKEN, 
         /**
          * A reference to another resource.
          */
-        REFERENCE,
+        REFERENCE, 
         /**
          * A composite search parameter that combines a search on two values together.
          */
-        COMPOSITE,
+        COMPOSITE, 
         /**
          * A search parameter that searches on a quantity.
          */
-        QUANTITY,
+        QUANTITY, 
         /**
          * A search parameter that searches on a URI (RFC 3986).
          */
-        URI,
+        URI, 
         /**
          * added to help the parsers
          */
@@ -6627,27 +6627,27 @@ public class Enumerations {
         /**
          * Boolean true.
          */
-        TRUE,
+        TRUE, 
         /**
          * Boolean false.
          */
-        FALSE,
+        FALSE, 
         /**
          * The content is greater than zero, but too small to be quantified.
          */
-        TRACE,
+        TRACE, 
         /**
          * The specific quantity is not known, but is known to be non-zero and is not specified because it makes up the bulk of the material.
          */
-        SUFFICIENT,
+        SUFFICIENT, 
         /**
          * The value is no longer available.
          */
-        WITHDRAWN,
+        WITHDRAWN, 
         /**
          * The are no known applicable values in this context.
          */
-        NILKNOWN,
+        NILKNOWN, 
         /**
          * added to help the parsers
          */

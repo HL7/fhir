@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -105,13 +105,13 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @return {@link #type} (An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.)
      */
-    public List<Coding> getType() {
+    public List<Coding> getType() { 
       if (this.type == null)
         this.type = new ArrayList<Coding>();
       return this.type;
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       if (this.type == null)
         return false;
       for (Coding item : this.type)
@@ -145,7 +145,7 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @return {@link #when} (When the digital signature was signed.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
      */
-    public InstantType getWhenElement() {
+    public InstantType getWhenElement() { 
       if (this.when == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Signature.when");
@@ -154,18 +154,18 @@ public class Signature extends Type implements ICompositeType {
       return this.when;
     }
 
-    public boolean hasWhenElement() {
+    public boolean hasWhenElement() { 
       return this.when != null && !this.when.isEmpty();
     }
 
-    public boolean hasWhen() {
+    public boolean hasWhen() { 
       return this.when != null && !this.when.isEmpty();
     }
 
     /**
      * @param value {@link #when} (When the digital signature was signed.). This is the underlying object with id, value and extensions. The accessor "getWhen" gives direct access to the value
      */
-    public Signature setWhenElement(InstantType value) {
+    public Signature setWhenElement(InstantType value) { 
       this.when = value;
       return this;
     }
@@ -173,14 +173,14 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @return When the digital signature was signed.
      */
-    public Date getWhen() {
+    public Date getWhen() { 
       return this.when == null ? null : this.when.getValue();
     }
 
     /**
      * @param value When the digital signature was signed.
      */
-    public Signature setWhen(Date value) {
+    public Signature setWhen(Date value) { 
         if (this.when == null)
           this.when = new InstantType();
         this.when.setValue(value);
@@ -190,44 +190,44 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @return {@link #who} (A reference to an application-usable description of the person that signed the certificate (e.g. the signature used their private key).)
      */
-    public Type getWho() {
+    public Type getWho() { 
       return this.who;
     }
 
     /**
      * @return {@link #who} (A reference to an application-usable description of the person that signed the certificate (e.g. the signature used their private key).)
      */
-    public UriType getWhoUriType() throws FHIRException {
+    public UriType getWhoUriType() throws FHIRException { 
       if (!(this.who instanceof UriType))
         throw new FHIRException("Type mismatch: the type UriType was expected, but "+this.who.getClass().getName()+" was encountered");
       return (UriType) this.who;
     }
 
-    public boolean hasWhoUriType() {
+    public boolean hasWhoUriType() { 
       return this.who instanceof UriType;
     }
 
     /**
      * @return {@link #who} (A reference to an application-usable description of the person that signed the certificate (e.g. the signature used their private key).)
      */
-    public Reference getWhoReference() throws FHIRException {
+    public Reference getWhoReference() throws FHIRException { 
       if (!(this.who instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.who.getClass().getName()+" was encountered");
       return (Reference) this.who;
     }
 
-    public boolean hasWhoReference() {
+    public boolean hasWhoReference() { 
       return this.who instanceof Reference;
     }
 
-    public boolean hasWho() {
+    public boolean hasWho() { 
       return this.who != null && !this.who.isEmpty();
     }
 
     /**
      * @param value {@link #who} (A reference to an application-usable description of the person that signed the certificate (e.g. the signature used their private key).)
      */
-    public Signature setWho(Type value) {
+    public Signature setWho(Type value) { 
       this.who = value;
       return this;
     }
@@ -235,7 +235,7 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @return {@link #contentType} (A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
-    public CodeType getContentTypeElement() {
+    public CodeType getContentTypeElement() { 
       if (this.contentType == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Signature.contentType");
@@ -244,18 +244,18 @@ public class Signature extends Type implements ICompositeType {
       return this.contentType;
     }
 
-    public boolean hasContentTypeElement() {
+    public boolean hasContentTypeElement() { 
       return this.contentType != null && !this.contentType.isEmpty();
     }
 
-    public boolean hasContentType() {
+    public boolean hasContentType() { 
       return this.contentType != null && !this.contentType.isEmpty();
     }
 
     /**
      * @param value {@link #contentType} (A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature.). This is the underlying object with id, value and extensions. The accessor "getContentType" gives direct access to the value
      */
-    public Signature setContentTypeElement(CodeType value) {
+    public Signature setContentTypeElement(CodeType value) { 
       this.contentType = value;
       return this;
     }
@@ -263,14 +263,14 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @return A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature.
      */
-    public String getContentType() {
+    public String getContentType() { 
       return this.contentType == null ? null : this.contentType.getValue();
     }
 
     /**
      * @param value A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature.
      */
-    public Signature setContentType(String value) {
+    public Signature setContentType(String value) { 
         if (this.contentType == null)
           this.contentType = new CodeType();
         this.contentType.setValue(value);
@@ -280,7 +280,7 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @return {@link #blob} (The base64 encoding of the Signature content.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
      */
-    public Base64BinaryType getBlobElement() {
+    public Base64BinaryType getBlobElement() { 
       if (this.blob == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Signature.blob");
@@ -289,18 +289,18 @@ public class Signature extends Type implements ICompositeType {
       return this.blob;
     }
 
-    public boolean hasBlobElement() {
+    public boolean hasBlobElement() { 
       return this.blob != null && !this.blob.isEmpty();
     }
 
-    public boolean hasBlob() {
+    public boolean hasBlob() { 
       return this.blob != null && !this.blob.isEmpty();
     }
 
     /**
      * @param value {@link #blob} (The base64 encoding of the Signature content.). This is the underlying object with id, value and extensions. The accessor "getBlob" gives direct access to the value
      */
-    public Signature setBlobElement(Base64BinaryType value) {
+    public Signature setBlobElement(Base64BinaryType value) { 
       this.blob = value;
       return this;
     }
@@ -308,14 +308,14 @@ public class Signature extends Type implements ICompositeType {
     /**
      * @return The base64 encoding of the Signature content.
      */
-    public byte[] getBlob() {
+    public byte[] getBlob() { 
       return this.blob == null ? null : this.blob.getValue();
     }
 
     /**
      * @param value The base64 encoding of the Signature content.
      */
-    public Signature setBlob(byte[] value) {
+    public Signature setBlob(byte[] value) { 
         if (this.blob == null)
           this.blob = new Base64BinaryType();
         this.blob.setValue(value);

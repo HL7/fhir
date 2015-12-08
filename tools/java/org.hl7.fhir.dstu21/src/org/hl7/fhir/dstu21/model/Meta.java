@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -94,7 +94,7 @@ public class Meta extends Type implements IBaseMetaType {
     /**
      * @return {@link #versionId} (The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
      */
-    public IdType getVersionIdElement() {
+    public IdType getVersionIdElement() { 
       if (this.versionId == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Meta.versionId");
@@ -103,18 +103,18 @@ public class Meta extends Type implements IBaseMetaType {
       return this.versionId;
     }
 
-    public boolean hasVersionIdElement() {
+    public boolean hasVersionIdElement() { 
       return this.versionId != null && !this.versionId.isEmpty();
     }
 
-    public boolean hasVersionId() {
+    public boolean hasVersionId() { 
       return this.versionId != null && !this.versionId.isEmpty();
     }
 
     /**
      * @param value {@link #versionId} (The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.). This is the underlying object with id, value and extensions. The accessor "getVersionId" gives direct access to the value
      */
-    public Meta setVersionIdElement(IdType value) {
+    public Meta setVersionIdElement(IdType value) { 
       this.versionId = value;
       return this;
     }
@@ -122,14 +122,14 @@ public class Meta extends Type implements IBaseMetaType {
     /**
      * @return The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.
      */
-    public String getVersionId() {
+    public String getVersionId() { 
       return this.versionId == null ? null : this.versionId.getValue();
     }
 
     /**
      * @param value The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.
      */
-    public Meta setVersionId(String value) {
+    public Meta setVersionId(String value) { 
       if (Utilities.noString(value))
         this.versionId = null;
       else {
@@ -143,7 +143,7 @@ public class Meta extends Type implements IBaseMetaType {
     /**
      * @return {@link #lastUpdated} (When the resource last changed - e.g. when the version changed.). This is the underlying object with id, value and extensions. The accessor "getLastUpdated" gives direct access to the value
      */
-    public InstantType getLastUpdatedElement() {
+    public InstantType getLastUpdatedElement() { 
       if (this.lastUpdated == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Meta.lastUpdated");
@@ -152,18 +152,18 @@ public class Meta extends Type implements IBaseMetaType {
       return this.lastUpdated;
     }
 
-    public boolean hasLastUpdatedElement() {
+    public boolean hasLastUpdatedElement() { 
       return this.lastUpdated != null && !this.lastUpdated.isEmpty();
     }
 
-    public boolean hasLastUpdated() {
+    public boolean hasLastUpdated() { 
       return this.lastUpdated != null && !this.lastUpdated.isEmpty();
     }
 
     /**
      * @param value {@link #lastUpdated} (When the resource last changed - e.g. when the version changed.). This is the underlying object with id, value and extensions. The accessor "getLastUpdated" gives direct access to the value
      */
-    public Meta setLastUpdatedElement(InstantType value) {
+    public Meta setLastUpdatedElement(InstantType value) { 
       this.lastUpdated = value;
       return this;
     }
@@ -171,14 +171,14 @@ public class Meta extends Type implements IBaseMetaType {
     /**
      * @return When the resource last changed - e.g. when the version changed.
      */
-    public Date getLastUpdated() {
+    public Date getLastUpdated() { 
       return this.lastUpdated == null ? null : this.lastUpdated.getValue();
     }
 
     /**
      * @param value When the resource last changed - e.g. when the version changed.
      */
-    public Meta setLastUpdated(Date value) {
+    public Meta setLastUpdated(Date value) { 
       if (value == null)
         this.lastUpdated = null;
       else {
@@ -192,13 +192,13 @@ public class Meta extends Type implements IBaseMetaType {
     /**
      * @return {@link #profile} (A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].)
      */
-    public List<UriType> getProfile() {
+    public List<UriType> getProfile() { 
       if (this.profile == null)
         this.profile = new ArrayList<UriType>();
       return this.profile;
     }
 
-    public boolean hasProfile() {
+    public boolean hasProfile() { 
       if (this.profile == null)
         return false;
       for (UriType item : this.profile)
@@ -211,7 +211,7 @@ public class Meta extends Type implements IBaseMetaType {
      * @return {@link #profile} (A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].)
      */
     // syntactic sugar
-    public UriType addProfileElement() {//2
+    public UriType addProfileElement() {//2 
       UriType t = new UriType();
       if (this.profile == null)
         this.profile = new ArrayList<UriType>();
@@ -234,7 +234,7 @@ public class Meta extends Type implements IBaseMetaType {
     /**
      * @param value {@link #profile} (A list of profiles [[[StructureDefinition]]]s that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].)
      */
-    public boolean hasProfile(String value) {
+    public boolean hasProfile(String value) { 
       if (this.profile == null)
         return false;
       for (UriType v : this.profile)
@@ -246,13 +246,13 @@ public class Meta extends Type implements IBaseMetaType {
     /**
      * @return {@link #security} (Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.)
      */
-    public List<Coding> getSecurity() {
+    public List<Coding> getSecurity() { 
       if (this.security == null)
         this.security = new ArrayList<Coding>();
       return this.security;
     }
 
-    public boolean hasSecurity() {
+    public boolean hasSecurity() { 
       if (this.security == null)
         return false;
       for (Coding item : this.security)
@@ -286,13 +286,13 @@ public class Meta extends Type implements IBaseMetaType {
     /**
      * @return {@link #tag} (Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.)
      */
-    public List<Coding> getTag() {
+    public List<Coding> getTag() { 
       if (this.tag == null)
         this.tag = new ArrayList<Coding>();
       return this.tag;
     }
 
-    public boolean hasTag() {
+    public boolean hasTag() { 
       if (this.tag == null)
         return false;
       for (Coding item : this.tag)

@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,31 +51,31 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * An active record of a reaction to the identified Substance.
          */
-        ACTIVE,
+        ACTIVE, 
         /**
          * A low level of certainty about the propensity for a reaction to the identified Substance.
          */
-        UNCONFIRMED,
+        UNCONFIRMED, 
         /**
          * A high level of certainty about the propensity for a reaction to the identified Substance, which may include clinical evidence by testing or rechallenge.
          */
-        CONFIRMED,
+        CONFIRMED, 
         /**
          * An inactive record of a reaction to the identified Substance.
          */
-        INACTIVE,
+        INACTIVE, 
         /**
          * A reaction to the identified Substance has been clinically reassessed by testing or rechallenge and considered to be resolved.
          */
-        RESOLVED,
+        RESOLVED, 
         /**
          * A propensity for a reaction to the identified Substance has been disproven with a high level of clinical certainty, which may include testing or rechallenge, and is refuted.
          */
-        REFUTED,
+        REFUTED, 
         /**
          * The statement was entered in error and is not valid.
          */
-        ENTEREDINERROR,
+        ENTEREDINERROR, 
         /**
          * added to help the parsers
          */
@@ -215,15 +215,15 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * The potential clinical impact of a future reaction is estimated as low risk: exposure to substance is unlikely to result in a life threatening or organ system threatening outcome. Future exposure to the Substance is considered a relative contra-indication.
          */
-        CRITL,
+        CRITL, 
         /**
          * The potential clinical impact of a future reaction is estimated as high risk: exposure to substance may result in a life threatening or organ system threatening outcome. Future exposure to the Substance may be considered an absolute contra-indication.
          */
-        CRITH,
+        CRITH, 
         /**
          * Unable to assess the potential clinical impact with the information available.
          */
-        CRITU,
+        CRITU, 
         /**
          * added to help the parsers
          */
@@ -315,11 +315,11 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * A propensity for hypersensitivity reaction(s) to a substance.  These reactions are most typically type I hypersensitivity, plus other "allergy-like" reactions, including pseudoallergy.
          */
-        ALLERGY,
+        ALLERGY, 
         /**
          * A propensity for adverse reactions to a substance that is not judged to be allergic or "allergy-like".  These reactions are typically (but not necessarily) non-immune.  They are to some degree idiosyncratic and/or individually specific (i.e. are not a reaction that is expected to occur with most or all patients given similar circumstances).
          */
-        INTOLERANCE,
+        INTOLERANCE, 
         /**
          * added to help the parsers
          */
@@ -399,19 +399,19 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * Any substance consumed to provide nutritional support for the body.
          */
-        FOOD,
+        FOOD, 
         /**
          * Substances administered to achieve a physiological effect.
          */
-        MEDICATION,
+        MEDICATION, 
         /**
          * Substances that are encountered in the environment.
          */
-        ENVIRONMENT,
+        ENVIRONMENT, 
         /**
          * Other substances that are not covered by any other category.
          */
-        OTHER,
+        OTHER, 
         /**
          * added to help the parsers
          */
@@ -515,15 +515,15 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * There is a low level of clinical certainty that the reaction was caused by the identified Substance.
          */
-        UNLIKELY,
+        UNLIKELY, 
         /**
          * There is a high level of clinical certainty that the reaction was caused by the identified Substance.
          */
-        LIKELY,
+        LIKELY, 
         /**
          * There is a very high level of clinical certainty that the reaction was due to the identified Substance, which may include clinical evidence by testing or rechallenge.
          */
-        CONFIRMED,
+        CONFIRMED, 
         /**
          * added to help the parsers
          */
@@ -615,15 +615,15 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * Causes mild physiological effects.
          */
-        MILD,
+        MILD, 
         /**
          * Causes moderate physiological effects.
          */
-        MODERATE,
+        MODERATE, 
         /**
          * Causes severe physiological effects.
          */
-        SEVERE,
+        SEVERE, 
         /**
          * added to help the parsers
          */
@@ -781,7 +781,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return {@link #substance} (Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance.)
          */
-        public CodeableConcept getSubstance() {
+        public CodeableConcept getSubstance() { 
           if (this.substance == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AllergyIntoleranceReactionComponent.substance");
@@ -790,14 +790,14 @@ public class AllergyIntolerance extends DomainResource {
           return this.substance;
         }
 
-        public boolean hasSubstance() {
+        public boolean hasSubstance() { 
           return this.substance != null && !this.substance.isEmpty();
         }
 
         /**
          * @param value {@link #substance} (Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance.)
          */
-        public AllergyIntoleranceReactionComponent setSubstance(CodeableConcept value) {
+        public AllergyIntoleranceReactionComponent setSubstance(CodeableConcept value) { 
           this.substance = value;
           return this;
         }
@@ -805,7 +805,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return {@link #certainty} (Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.). This is the underlying object with id, value and extensions. The accessor "getCertainty" gives direct access to the value
          */
-        public Enumeration<AllergyIntoleranceCertainty> getCertaintyElement() {
+        public Enumeration<AllergyIntoleranceCertainty> getCertaintyElement() { 
           if (this.certainty == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AllergyIntoleranceReactionComponent.certainty");
@@ -814,18 +814,18 @@ public class AllergyIntolerance extends DomainResource {
           return this.certainty;
         }
 
-        public boolean hasCertaintyElement() {
+        public boolean hasCertaintyElement() { 
           return this.certainty != null && !this.certainty.isEmpty();
         }
 
-        public boolean hasCertainty() {
+        public boolean hasCertainty() { 
           return this.certainty != null && !this.certainty.isEmpty();
         }
 
         /**
          * @param value {@link #certainty} (Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.). This is the underlying object with id, value and extensions. The accessor "getCertainty" gives direct access to the value
          */
-        public AllergyIntoleranceReactionComponent setCertaintyElement(Enumeration<AllergyIntoleranceCertainty> value) {
+        public AllergyIntoleranceReactionComponent setCertaintyElement(Enumeration<AllergyIntoleranceCertainty> value) { 
           this.certainty = value;
           return this;
         }
@@ -833,14 +833,14 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.
          */
-        public AllergyIntoleranceCertainty getCertainty() {
+        public AllergyIntoleranceCertainty getCertainty() { 
           return this.certainty == null ? null : this.certainty.getValue();
         }
 
         /**
          * @param value Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.
          */
-        public AllergyIntoleranceReactionComponent setCertainty(AllergyIntoleranceCertainty value) {
+        public AllergyIntoleranceReactionComponent setCertainty(AllergyIntoleranceCertainty value) { 
           if (value == null)
             this.certainty = null;
           else {
@@ -854,13 +854,13 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return {@link #manifestation} (Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.)
          */
-        public List<CodeableConcept> getManifestation() {
+        public List<CodeableConcept> getManifestation() { 
           if (this.manifestation == null)
             this.manifestation = new ArrayList<CodeableConcept>();
           return this.manifestation;
         }
 
-        public boolean hasManifestation() {
+        public boolean hasManifestation() { 
           if (this.manifestation == null)
             return false;
           for (CodeableConcept item : this.manifestation)
@@ -894,7 +894,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return {@link #description} (Text description about the reaction as a whole, including details of the manifestation if required.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() {
+        public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AllergyIntoleranceReactionComponent.description");
@@ -903,18 +903,18 @@ public class AllergyIntolerance extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() {
+        public boolean hasDescriptionElement() { 
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() {
+        public boolean hasDescription() { 
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (Text description about the reaction as a whole, including details of the manifestation if required.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public AllergyIntoleranceReactionComponent setDescriptionElement(StringType value) {
+        public AllergyIntoleranceReactionComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -922,14 +922,14 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return Text description about the reaction as a whole, including details of the manifestation if required.
          */
-        public String getDescription() {
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value Text description about the reaction as a whole, including details of the manifestation if required.
          */
-        public AllergyIntoleranceReactionComponent setDescription(String value) {
+        public AllergyIntoleranceReactionComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -943,7 +943,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return {@link #onset} (Record of the date and/or time of the onset of the Reaction.). This is the underlying object with id, value and extensions. The accessor "getOnset" gives direct access to the value
          */
-        public DateTimeType getOnsetElement() {
+        public DateTimeType getOnsetElement() { 
           if (this.onset == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AllergyIntoleranceReactionComponent.onset");
@@ -952,18 +952,18 @@ public class AllergyIntolerance extends DomainResource {
           return this.onset;
         }
 
-        public boolean hasOnsetElement() {
+        public boolean hasOnsetElement() { 
           return this.onset != null && !this.onset.isEmpty();
         }
 
-        public boolean hasOnset() {
+        public boolean hasOnset() { 
           return this.onset != null && !this.onset.isEmpty();
         }
 
         /**
          * @param value {@link #onset} (Record of the date and/or time of the onset of the Reaction.). This is the underlying object with id, value and extensions. The accessor "getOnset" gives direct access to the value
          */
-        public AllergyIntoleranceReactionComponent setOnsetElement(DateTimeType value) {
+        public AllergyIntoleranceReactionComponent setOnsetElement(DateTimeType value) { 
           this.onset = value;
           return this;
         }
@@ -971,14 +971,14 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return Record of the date and/or time of the onset of the Reaction.
          */
-        public Date getOnset() {
+        public Date getOnset() { 
           return this.onset == null ? null : this.onset.getValue();
         }
 
         /**
          * @param value Record of the date and/or time of the onset of the Reaction.
          */
-        public AllergyIntoleranceReactionComponent setOnset(Date value) {
+        public AllergyIntoleranceReactionComponent setOnset(Date value) { 
           if (value == null)
             this.onset = null;
           else {
@@ -992,7 +992,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return {@link #severity} (Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public Enumeration<AllergyIntoleranceSeverity> getSeverityElement() {
+        public Enumeration<AllergyIntoleranceSeverity> getSeverityElement() { 
           if (this.severity == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AllergyIntoleranceReactionComponent.severity");
@@ -1001,18 +1001,18 @@ public class AllergyIntolerance extends DomainResource {
           return this.severity;
         }
 
-        public boolean hasSeverityElement() {
+        public boolean hasSeverityElement() { 
           return this.severity != null && !this.severity.isEmpty();
         }
 
-        public boolean hasSeverity() {
+        public boolean hasSeverity() { 
           return this.severity != null && !this.severity.isEmpty();
         }
 
         /**
          * @param value {@link #severity} (Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.). This is the underlying object with id, value and extensions. The accessor "getSeverity" gives direct access to the value
          */
-        public AllergyIntoleranceReactionComponent setSeverityElement(Enumeration<AllergyIntoleranceSeverity> value) {
+        public AllergyIntoleranceReactionComponent setSeverityElement(Enumeration<AllergyIntoleranceSeverity> value) { 
           this.severity = value;
           return this;
         }
@@ -1020,14 +1020,14 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
          */
-        public AllergyIntoleranceSeverity getSeverity() {
+        public AllergyIntoleranceSeverity getSeverity() { 
           return this.severity == null ? null : this.severity.getValue();
         }
 
         /**
          * @param value Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
          */
-        public AllergyIntoleranceReactionComponent setSeverity(AllergyIntoleranceSeverity value) {
+        public AllergyIntoleranceReactionComponent setSeverity(AllergyIntoleranceSeverity value) { 
           if (value == null)
             this.severity = null;
           else {
@@ -1041,7 +1041,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return {@link #exposureRoute} (Identification of the route by which the subject was exposed to the substance.)
          */
-        public CodeableConcept getExposureRoute() {
+        public CodeableConcept getExposureRoute() { 
           if (this.exposureRoute == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AllergyIntoleranceReactionComponent.exposureRoute");
@@ -1050,14 +1050,14 @@ public class AllergyIntolerance extends DomainResource {
           return this.exposureRoute;
         }
 
-        public boolean hasExposureRoute() {
+        public boolean hasExposureRoute() { 
           return this.exposureRoute != null && !this.exposureRoute.isEmpty();
         }
 
         /**
          * @param value {@link #exposureRoute} (Identification of the route by which the subject was exposed to the substance.)
          */
-        public AllergyIntoleranceReactionComponent setExposureRoute(CodeableConcept value) {
+        public AllergyIntoleranceReactionComponent setExposureRoute(CodeableConcept value) { 
           this.exposureRoute = value;
           return this;
         }
@@ -1065,7 +1065,7 @@ public class AllergyIntolerance extends DomainResource {
         /**
          * @return {@link #note} (Additional text about the adverse reaction event not captured in other fields.)
          */
-        public Annotation getNote() {
+        public Annotation getNote() { 
           if (this.note == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create AllergyIntoleranceReactionComponent.note");
@@ -1074,14 +1074,14 @@ public class AllergyIntolerance extends DomainResource {
           return this.note;
         }
 
-        public boolean hasNote() {
+        public boolean hasNote() { 
           return this.note != null && !this.note.isEmpty();
         }
 
         /**
          * @param value {@link #note} (Additional text about the adverse reaction event not captured in other fields.)
          */
-        public AllergyIntoleranceReactionComponent setNote(Annotation value) {
+        public AllergyIntoleranceReactionComponent setNote(Annotation value) { 
           this.note = value;
           return this;
         }
@@ -1342,13 +1342,13 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #identifier} (This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1382,7 +1382,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #onset} (Record of the date and/or time of the onset of the Allergy or Intolerance.). This is the underlying object with id, value and extensions. The accessor "getOnset" gives direct access to the value
      */
-    public DateTimeType getOnsetElement() {
+    public DateTimeType getOnsetElement() { 
       if (this.onset == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.onset");
@@ -1391,18 +1391,18 @@ public class AllergyIntolerance extends DomainResource {
       return this.onset;
     }
 
-    public boolean hasOnsetElement() {
+    public boolean hasOnsetElement() { 
       return this.onset != null && !this.onset.isEmpty();
     }
 
-    public boolean hasOnset() {
+    public boolean hasOnset() { 
       return this.onset != null && !this.onset.isEmpty();
     }
 
     /**
      * @param value {@link #onset} (Record of the date and/or time of the onset of the Allergy or Intolerance.). This is the underlying object with id, value and extensions. The accessor "getOnset" gives direct access to the value
      */
-    public AllergyIntolerance setOnsetElement(DateTimeType value) {
+    public AllergyIntolerance setOnsetElement(DateTimeType value) { 
       this.onset = value;
       return this;
     }
@@ -1410,14 +1410,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return Record of the date and/or time of the onset of the Allergy or Intolerance.
      */
-    public Date getOnset() {
+    public Date getOnset() { 
       return this.onset == null ? null : this.onset.getValue();
     }
 
     /**
      * @param value Record of the date and/or time of the onset of the Allergy or Intolerance.
      */
-    public AllergyIntolerance setOnset(Date value) {
+    public AllergyIntolerance setOnset(Date value) { 
       if (value == null)
         this.onset = null;
       else {
@@ -1431,7 +1431,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #recordedDate} (Date when the sensitivity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
-    public DateTimeType getRecordedDateElement() {
+    public DateTimeType getRecordedDateElement() { 
       if (this.recordedDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.recordedDate");
@@ -1440,18 +1440,18 @@ public class AllergyIntolerance extends DomainResource {
       return this.recordedDate;
     }
 
-    public boolean hasRecordedDateElement() {
+    public boolean hasRecordedDateElement() { 
       return this.recordedDate != null && !this.recordedDate.isEmpty();
     }
 
-    public boolean hasRecordedDate() {
+    public boolean hasRecordedDate() { 
       return this.recordedDate != null && !this.recordedDate.isEmpty();
     }
 
     /**
      * @param value {@link #recordedDate} (Date when the sensitivity was recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedDate" gives direct access to the value
      */
-    public AllergyIntolerance setRecordedDateElement(DateTimeType value) {
+    public AllergyIntolerance setRecordedDateElement(DateTimeType value) { 
       this.recordedDate = value;
       return this;
     }
@@ -1459,14 +1459,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return Date when the sensitivity was recorded.
      */
-    public Date getRecordedDate() {
+    public Date getRecordedDate() { 
       return this.recordedDate == null ? null : this.recordedDate.getValue();
     }
 
     /**
      * @param value Date when the sensitivity was recorded.
      */
-    public AllergyIntolerance setRecordedDate(Date value) {
+    public AllergyIntolerance setRecordedDate(Date value) { 
       if (value == null)
         this.recordedDate = null;
       else {
@@ -1480,7 +1480,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #recorder} (Individual who recorded the record and takes responsibility for its conten.)
      */
-    public Reference getRecorder() {
+    public Reference getRecorder() { 
       if (this.recorder == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.recorder");
@@ -1489,14 +1489,14 @@ public class AllergyIntolerance extends DomainResource {
       return this.recorder;
     }
 
-    public boolean hasRecorder() {
+    public boolean hasRecorder() { 
       return this.recorder != null && !this.recorder.isEmpty();
     }
 
     /**
      * @param value {@link #recorder} (Individual who recorded the record and takes responsibility for its conten.)
      */
-    public AllergyIntolerance setRecorder(Reference value) {
+    public AllergyIntolerance setRecorder(Reference value) { 
       this.recorder = value;
       return this;
     }
@@ -1504,14 +1504,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #recorder} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Individual who recorded the record and takes responsibility for its conten.)
      */
-    public Resource getRecorderTarget() {
+    public Resource getRecorderTarget() { 
       return this.recorderTarget;
     }
 
     /**
      * @param value {@link #recorder} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Individual who recorded the record and takes responsibility for its conten.)
      */
-    public AllergyIntolerance setRecorderTarget(Resource value) {
+    public AllergyIntolerance setRecorderTarget(Resource value) { 
       this.recorderTarget = value;
       return this;
     }
@@ -1519,7 +1519,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #patient} (The patient who has the allergy or intolerance.)
      */
-    public Reference getPatient() {
+    public Reference getPatient() { 
       if (this.patient == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.patient");
@@ -1528,14 +1528,14 @@ public class AllergyIntolerance extends DomainResource {
       return this.patient;
     }
 
-    public boolean hasPatient() {
+    public boolean hasPatient() { 
       return this.patient != null && !this.patient.isEmpty();
     }
 
     /**
      * @param value {@link #patient} (The patient who has the allergy or intolerance.)
      */
-    public AllergyIntolerance setPatient(Reference value) {
+    public AllergyIntolerance setPatient(Reference value) { 
       this.patient = value;
       return this;
     }
@@ -1543,7 +1543,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who has the allergy or intolerance.)
      */
-    public Patient getPatientTarget() {
+    public Patient getPatientTarget() { 
       if (this.patientTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.patient");
@@ -1555,7 +1555,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who has the allergy or intolerance.)
      */
-    public AllergyIntolerance setPatientTarget(Patient value) {
+    public AllergyIntolerance setPatientTarget(Patient value) { 
       this.patientTarget = value;
       return this;
     }
@@ -1563,7 +1563,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #reporter} (The source of the information about the allergy that is recorded.)
      */
-    public Reference getReporter() {
+    public Reference getReporter() { 
       if (this.reporter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.reporter");
@@ -1572,14 +1572,14 @@ public class AllergyIntolerance extends DomainResource {
       return this.reporter;
     }
 
-    public boolean hasReporter() {
+    public boolean hasReporter() { 
       return this.reporter != null && !this.reporter.isEmpty();
     }
 
     /**
      * @param value {@link #reporter} (The source of the information about the allergy that is recorded.)
      */
-    public AllergyIntolerance setReporter(Reference value) {
+    public AllergyIntolerance setReporter(Reference value) { 
       this.reporter = value;
       return this;
     }
@@ -1587,14 +1587,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #reporter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The source of the information about the allergy that is recorded.)
      */
-    public Resource getReporterTarget() {
+    public Resource getReporterTarget() { 
       return this.reporterTarget;
     }
 
     /**
      * @param value {@link #reporter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The source of the information about the allergy that is recorded.)
      */
-    public AllergyIntolerance setReporterTarget(Resource value) {
+    public AllergyIntolerance setReporterTarget(Resource value) { 
       this.reporterTarget = value;
       return this;
     }
@@ -1602,7 +1602,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #substance} (Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk.)
      */
-    public CodeableConcept getSubstance() {
+    public CodeableConcept getSubstance() { 
       if (this.substance == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.substance");
@@ -1611,14 +1611,14 @@ public class AllergyIntolerance extends DomainResource {
       return this.substance;
     }
 
-    public boolean hasSubstance() {
+    public boolean hasSubstance() { 
       return this.substance != null && !this.substance.isEmpty();
     }
 
     /**
      * @param value {@link #substance} (Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk.)
      */
-    public AllergyIntolerance setSubstance(CodeableConcept value) {
+    public AllergyIntolerance setSubstance(CodeableConcept value) { 
       this.substance = value;
       return this;
     }
@@ -1626,7 +1626,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #status} (Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<AllergyIntoleranceStatus> getStatusElement() {
+    public Enumeration<AllergyIntoleranceStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.status");
@@ -1635,18 +1635,18 @@ public class AllergyIntolerance extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public AllergyIntolerance setStatusElement(Enumeration<AllergyIntoleranceStatus> value) {
+    public AllergyIntolerance setStatusElement(Enumeration<AllergyIntoleranceStatus> value) { 
       this.status = value;
       return this;
     }
@@ -1654,14 +1654,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
      */
-    public AllergyIntoleranceStatus getStatus() {
+    public AllergyIntoleranceStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
      */
-    public AllergyIntolerance setStatus(AllergyIntoleranceStatus value) {
+    public AllergyIntolerance setStatus(AllergyIntoleranceStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -1675,7 +1675,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #criticality} (Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
-    public Enumeration<AllergyIntoleranceCriticality> getCriticalityElement() {
+    public Enumeration<AllergyIntoleranceCriticality> getCriticalityElement() { 
       if (this.criticality == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.criticality");
@@ -1684,18 +1684,18 @@ public class AllergyIntolerance extends DomainResource {
       return this.criticality;
     }
 
-    public boolean hasCriticalityElement() {
+    public boolean hasCriticalityElement() { 
       return this.criticality != null && !this.criticality.isEmpty();
     }
 
-    public boolean hasCriticality() {
+    public boolean hasCriticality() { 
       return this.criticality != null && !this.criticality.isEmpty();
     }
 
     /**
      * @param value {@link #criticality} (Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCriticality" gives direct access to the value
      */
-    public AllergyIntolerance setCriticalityElement(Enumeration<AllergyIntoleranceCriticality> value) {
+    public AllergyIntolerance setCriticalityElement(Enumeration<AllergyIntoleranceCriticality> value) { 
       this.criticality = value;
       return this;
     }
@@ -1703,14 +1703,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
      */
-    public AllergyIntoleranceCriticality getCriticality() {
+    public AllergyIntoleranceCriticality getCriticality() { 
       return this.criticality == null ? null : this.criticality.getValue();
     }
 
     /**
      * @param value Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
      */
-    public AllergyIntolerance setCriticality(AllergyIntoleranceCriticality value) {
+    public AllergyIntolerance setCriticality(AllergyIntoleranceCriticality value) { 
       if (value == null)
         this.criticality = null;
       else {
@@ -1724,7 +1724,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #type} (Identification of the underlying physiological mechanism for the reaction risk.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public Enumeration<AllergyIntoleranceType> getTypeElement() {
+    public Enumeration<AllergyIntoleranceType> getTypeElement() { 
       if (this.type == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.type");
@@ -1733,18 +1733,18 @@ public class AllergyIntolerance extends DomainResource {
       return this.type;
     }
 
-    public boolean hasTypeElement() {
+    public boolean hasTypeElement() { 
       return this.type != null && !this.type.isEmpty();
     }
 
-    public boolean hasType() {
+    public boolean hasType() { 
       return this.type != null && !this.type.isEmpty();
     }
 
     /**
      * @param value {@link #type} (Identification of the underlying physiological mechanism for the reaction risk.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
      */
-    public AllergyIntolerance setTypeElement(Enumeration<AllergyIntoleranceType> value) {
+    public AllergyIntolerance setTypeElement(Enumeration<AllergyIntoleranceType> value) { 
       this.type = value;
       return this;
     }
@@ -1752,14 +1752,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return Identification of the underlying physiological mechanism for the reaction risk.
      */
-    public AllergyIntoleranceType getType() {
+    public AllergyIntoleranceType getType() { 
       return this.type == null ? null : this.type.getValue();
     }
 
     /**
      * @param value Identification of the underlying physiological mechanism for the reaction risk.
      */
-    public AllergyIntolerance setType(AllergyIntoleranceType value) {
+    public AllergyIntolerance setType(AllergyIntoleranceType value) { 
       if (value == null)
         this.type = null;
       else {
@@ -1773,7 +1773,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #category} (Category of the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
-    public Enumeration<AllergyIntoleranceCategory> getCategoryElement() {
+    public Enumeration<AllergyIntoleranceCategory> getCategoryElement() { 
       if (this.category == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.category");
@@ -1782,18 +1782,18 @@ public class AllergyIntolerance extends DomainResource {
       return this.category;
     }
 
-    public boolean hasCategoryElement() {
+    public boolean hasCategoryElement() { 
       return this.category != null && !this.category.isEmpty();
     }
 
-    public boolean hasCategory() {
+    public boolean hasCategory() { 
       return this.category != null && !this.category.isEmpty();
     }
 
     /**
      * @param value {@link #category} (Category of the identified Substance.). This is the underlying object with id, value and extensions. The accessor "getCategory" gives direct access to the value
      */
-    public AllergyIntolerance setCategoryElement(Enumeration<AllergyIntoleranceCategory> value) {
+    public AllergyIntolerance setCategoryElement(Enumeration<AllergyIntoleranceCategory> value) { 
       this.category = value;
       return this;
     }
@@ -1801,14 +1801,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return Category of the identified Substance.
      */
-    public AllergyIntoleranceCategory getCategory() {
+    public AllergyIntoleranceCategory getCategory() { 
       return this.category == null ? null : this.category.getValue();
     }
 
     /**
      * @param value Category of the identified Substance.
      */
-    public AllergyIntolerance setCategory(AllergyIntoleranceCategory value) {
+    public AllergyIntolerance setCategory(AllergyIntoleranceCategory value) { 
       if (value == null)
         this.category = null;
       else {
@@ -1822,7 +1822,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #lastOccurence} (Represents the date and/or time of the last known occurrence of a reaction event.). This is the underlying object with id, value and extensions. The accessor "getLastOccurence" gives direct access to the value
      */
-    public DateTimeType getLastOccurenceElement() {
+    public DateTimeType getLastOccurenceElement() { 
       if (this.lastOccurence == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.lastOccurence");
@@ -1831,18 +1831,18 @@ public class AllergyIntolerance extends DomainResource {
       return this.lastOccurence;
     }
 
-    public boolean hasLastOccurenceElement() {
+    public boolean hasLastOccurenceElement() { 
       return this.lastOccurence != null && !this.lastOccurence.isEmpty();
     }
 
-    public boolean hasLastOccurence() {
+    public boolean hasLastOccurence() { 
       return this.lastOccurence != null && !this.lastOccurence.isEmpty();
     }
 
     /**
      * @param value {@link #lastOccurence} (Represents the date and/or time of the last known occurrence of a reaction event.). This is the underlying object with id, value and extensions. The accessor "getLastOccurence" gives direct access to the value
      */
-    public AllergyIntolerance setLastOccurenceElement(DateTimeType value) {
+    public AllergyIntolerance setLastOccurenceElement(DateTimeType value) { 
       this.lastOccurence = value;
       return this;
     }
@@ -1850,14 +1850,14 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return Represents the date and/or time of the last known occurrence of a reaction event.
      */
-    public Date getLastOccurence() {
+    public Date getLastOccurence() { 
       return this.lastOccurence == null ? null : this.lastOccurence.getValue();
     }
 
     /**
      * @param value Represents the date and/or time of the last known occurrence of a reaction event.
      */
-    public AllergyIntolerance setLastOccurence(Date value) {
+    public AllergyIntolerance setLastOccurence(Date value) { 
       if (value == null)
         this.lastOccurence = null;
       else {
@@ -1871,7 +1871,7 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #note} (Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.)
      */
-    public Annotation getNote() {
+    public Annotation getNote() { 
       if (this.note == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create AllergyIntolerance.note");
@@ -1880,14 +1880,14 @@ public class AllergyIntolerance extends DomainResource {
       return this.note;
     }
 
-    public boolean hasNote() {
+    public boolean hasNote() { 
       return this.note != null && !this.note.isEmpty();
     }
 
     /**
      * @param value {@link #note} (Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.)
      */
-    public AllergyIntolerance setNote(Annotation value) {
+    public AllergyIntolerance setNote(Annotation value) { 
       this.note = value;
       return this;
     }
@@ -1895,13 +1895,13 @@ public class AllergyIntolerance extends DomainResource {
     /**
      * @return {@link #reaction} (Details about each adverse reaction event linked to exposure to the identified Substance.)
      */
-    public List<AllergyIntoleranceReactionComponent> getReaction() {
+    public List<AllergyIntoleranceReactionComponent> getReaction() { 
       if (this.reaction == null)
         this.reaction = new ArrayList<AllergyIntoleranceReactionComponent>();
       return this.reaction;
     }
 
-    public boolean hasReaction() {
+    public boolean hasReaction() { 
       if (this.reaction == null)
         return false;
       for (AllergyIntoleranceReactionComponent item : this.reaction)

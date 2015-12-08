@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,43 +51,43 @@ public class DeviceUseRequest extends DomainResource {
         /**
          * The request has been proposed.
          */
-        PROPOSED,
+        PROPOSED, 
         /**
          * The request has been planned.
          */
-        PLANNED,
+        PLANNED, 
         /**
          * The request has been placed.
          */
-        REQUESTED,
+        REQUESTED, 
         /**
          * The receiving system has received the request but not yet decided whether it will be performed.
          */
-        RECEIVED,
+        RECEIVED, 
         /**
          * The receiving system has accepted the request but work has not yet commenced.
          */
-        ACCEPTED,
+        ACCEPTED, 
         /**
          * The work to fulfill the order is happening.
          */
-        INPROGRESS,
+        INPROGRESS, 
         /**
          * The work has been complete, the report(s) released, and no further work is planned.
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * The request has been held by originating system/user request.
          */
-        SUSPENDED,
+        SUSPENDED, 
         /**
          * The receiving system has declined to fulfill the request.
          */
-        REJECTED,
+        REJECTED, 
         /**
          * The request was attempted, but due to some procedural error, it could not be completed.
          */
-        ABORTED,
+        ABORTED, 
         /**
          * added to help the parsers
          */
@@ -263,19 +263,19 @@ public class DeviceUseRequest extends DomainResource {
         /**
          * The request has a normal priority.
          */
-        ROUTINE,
+        ROUTINE, 
         /**
          * The request should be done urgently.
          */
-        URGENT,
+        URGENT, 
         /**
          * The request is time-critical.
          */
-        STAT,
+        STAT, 
         /**
          * The request should be acted on as soon as possible.
          */
-        ASAP,
+        ASAP, 
         /**
          * added to help the parsers
          */
@@ -502,44 +502,44 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #bodySite} (Indicates the site on the subject's body where the device should be used ( i.e. the target site).)
      */
-    public Type getBodySite() {
+    public Type getBodySite() { 
       return this.bodySite;
     }
 
     /**
      * @return {@link #bodySite} (Indicates the site on the subject's body where the device should be used ( i.e. the target site).)
      */
-    public CodeableConcept getBodySiteCodeableConcept() throws FHIRException {
+    public CodeableConcept getBodySiteCodeableConcept() throws FHIRException { 
       if (!(this.bodySite instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.bodySite.getClass().getName()+" was encountered");
       return (CodeableConcept) this.bodySite;
     }
 
-    public boolean hasBodySiteCodeableConcept() {
+    public boolean hasBodySiteCodeableConcept() { 
       return this.bodySite instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #bodySite} (Indicates the site on the subject's body where the device should be used ( i.e. the target site).)
      */
-    public Reference getBodySiteReference() throws FHIRException {
+    public Reference getBodySiteReference() throws FHIRException { 
       if (!(this.bodySite instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.bodySite.getClass().getName()+" was encountered");
       return (Reference) this.bodySite;
     }
 
-    public boolean hasBodySiteReference() {
+    public boolean hasBodySiteReference() { 
       return this.bodySite instanceof Reference;
     }
 
-    public boolean hasBodySite() {
+    public boolean hasBodySite() { 
       return this.bodySite != null && !this.bodySite.isEmpty();
     }
 
     /**
      * @param value {@link #bodySite} (Indicates the site on the subject's body where the device should be used ( i.e. the target site).)
      */
-    public DeviceUseRequest setBodySite(Type value) {
+    public DeviceUseRequest setBodySite(Type value) { 
       this.bodySite = value;
       return this;
     }
@@ -547,7 +547,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #status} (The status of the request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<DeviceUseRequestStatus> getStatusElement() {
+    public Enumeration<DeviceUseRequestStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.status");
@@ -556,18 +556,18 @@ public class DeviceUseRequest extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (The status of the request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public DeviceUseRequest setStatusElement(Enumeration<DeviceUseRequestStatus> value) {
+    public DeviceUseRequest setStatusElement(Enumeration<DeviceUseRequestStatus> value) { 
       this.status = value;
       return this;
     }
@@ -575,14 +575,14 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return The status of the request.
      */
-    public DeviceUseRequestStatus getStatus() {
+    public DeviceUseRequestStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value The status of the request.
      */
-    public DeviceUseRequest setStatus(DeviceUseRequestStatus value) {
+    public DeviceUseRequest setStatus(DeviceUseRequestStatus value) { 
       if (value == null)
         this.status = null;
       else {
@@ -596,7 +596,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #device} (The details of the device  to be used.)
      */
-    public Reference getDevice() {
+    public Reference getDevice() { 
       if (this.device == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.device");
@@ -605,14 +605,14 @@ public class DeviceUseRequest extends DomainResource {
       return this.device;
     }
 
-    public boolean hasDevice() {
+    public boolean hasDevice() { 
       return this.device != null && !this.device.isEmpty();
     }
 
     /**
      * @param value {@link #device} (The details of the device  to be used.)
      */
-    public DeviceUseRequest setDevice(Reference value) {
+    public DeviceUseRequest setDevice(Reference value) { 
       this.device = value;
       return this;
     }
@@ -620,7 +620,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #device} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The details of the device  to be used.)
      */
-    public Device getDeviceTarget() {
+    public Device getDeviceTarget() { 
       if (this.deviceTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.device");
@@ -632,7 +632,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @param value {@link #device} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The details of the device  to be used.)
      */
-    public DeviceUseRequest setDeviceTarget(Device value) {
+    public DeviceUseRequest setDeviceTarget(Device value) { 
       this.deviceTarget = value;
       return this;
     }
@@ -640,7 +640,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #encounter} (An encounter that provides additional context in which this request is made.)
      */
-    public Reference getEncounter() {
+    public Reference getEncounter() { 
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.encounter");
@@ -649,14 +649,14 @@ public class DeviceUseRequest extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() {
+    public boolean hasEncounter() { 
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (An encounter that provides additional context in which this request is made.)
      */
-    public DeviceUseRequest setEncounter(Reference value) {
+    public DeviceUseRequest setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -664,7 +664,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (An encounter that provides additional context in which this request is made.)
      */
-    public Encounter getEncounterTarget() {
+    public Encounter getEncounterTarget() { 
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.encounter");
@@ -676,7 +676,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (An encounter that provides additional context in which this request is made.)
      */
-    public DeviceUseRequest setEncounterTarget(Encounter value) {
+    public DeviceUseRequest setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
       return this;
     }
@@ -684,13 +684,13 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #identifier} (Identifiers assigned to this order by the orderer or by the receiver.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -724,13 +724,13 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #indication} (Reason or justification for the use of this device.)
      */
-    public List<CodeableConcept> getIndication() {
+    public List<CodeableConcept> getIndication() { 
       if (this.indication == null)
         this.indication = new ArrayList<CodeableConcept>();
       return this.indication;
     }
 
-    public boolean hasIndication() {
+    public boolean hasIndication() { 
       if (this.indication == null)
         return false;
       for (CodeableConcept item : this.indication)
@@ -764,13 +764,13 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #notes} (Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.)
      */
-    public List<StringType> getNotes() {
+    public List<StringType> getNotes() { 
       if (this.notes == null)
         this.notes = new ArrayList<StringType>();
       return this.notes;
     }
 
-    public boolean hasNotes() {
+    public boolean hasNotes() { 
       if (this.notes == null)
         return false;
       for (StringType item : this.notes)
@@ -783,7 +783,7 @@ public class DeviceUseRequest extends DomainResource {
      * @return {@link #notes} (Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.)
      */
     // syntactic sugar
-    public StringType addNotesElement() {//2
+    public StringType addNotesElement() {//2 
       StringType t = new StringType();
       if (this.notes == null)
         this.notes = new ArrayList<StringType>();
@@ -806,7 +806,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @param value {@link #notes} (Details about this request that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.)
      */
-    public boolean hasNotes(String value) {
+    public boolean hasNotes(String value) { 
       if (this.notes == null)
         return false;
       for (StringType v : this.notes)
@@ -818,13 +818,13 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #prnReason} (The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%.)
      */
-    public List<CodeableConcept> getPrnReason() {
+    public List<CodeableConcept> getPrnReason() { 
       if (this.prnReason == null)
         this.prnReason = new ArrayList<CodeableConcept>();
       return this.prnReason;
     }
 
-    public boolean hasPrnReason() {
+    public boolean hasPrnReason() { 
       if (this.prnReason == null)
         return false;
       for (CodeableConcept item : this.prnReason)
@@ -858,7 +858,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #orderedOn} (The time when the request was made.). This is the underlying object with id, value and extensions. The accessor "getOrderedOn" gives direct access to the value
      */
-    public DateTimeType getOrderedOnElement() {
+    public DateTimeType getOrderedOnElement() { 
       if (this.orderedOn == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.orderedOn");
@@ -867,18 +867,18 @@ public class DeviceUseRequest extends DomainResource {
       return this.orderedOn;
     }
 
-    public boolean hasOrderedOnElement() {
+    public boolean hasOrderedOnElement() { 
       return this.orderedOn != null && !this.orderedOn.isEmpty();
     }
 
-    public boolean hasOrderedOn() {
+    public boolean hasOrderedOn() { 
       return this.orderedOn != null && !this.orderedOn.isEmpty();
     }
 
     /**
      * @param value {@link #orderedOn} (The time when the request was made.). This is the underlying object with id, value and extensions. The accessor "getOrderedOn" gives direct access to the value
      */
-    public DeviceUseRequest setOrderedOnElement(DateTimeType value) {
+    public DeviceUseRequest setOrderedOnElement(DateTimeType value) { 
       this.orderedOn = value;
       return this;
     }
@@ -886,14 +886,14 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return The time when the request was made.
      */
-    public Date getOrderedOn() {
+    public Date getOrderedOn() { 
       return this.orderedOn == null ? null : this.orderedOn.getValue();
     }
 
     /**
      * @param value The time when the request was made.
      */
-    public DeviceUseRequest setOrderedOn(Date value) {
+    public DeviceUseRequest setOrderedOn(Date value) { 
       if (value == null)
         this.orderedOn = null;
       else {
@@ -907,7 +907,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #recordedOn} (The time at which the request was made/recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedOn" gives direct access to the value
      */
-    public DateTimeType getRecordedOnElement() {
+    public DateTimeType getRecordedOnElement() { 
       if (this.recordedOn == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.recordedOn");
@@ -916,18 +916,18 @@ public class DeviceUseRequest extends DomainResource {
       return this.recordedOn;
     }
 
-    public boolean hasRecordedOnElement() {
+    public boolean hasRecordedOnElement() { 
       return this.recordedOn != null && !this.recordedOn.isEmpty();
     }
 
-    public boolean hasRecordedOn() {
+    public boolean hasRecordedOn() { 
       return this.recordedOn != null && !this.recordedOn.isEmpty();
     }
 
     /**
      * @param value {@link #recordedOn} (The time at which the request was made/recorded.). This is the underlying object with id, value and extensions. The accessor "getRecordedOn" gives direct access to the value
      */
-    public DeviceUseRequest setRecordedOnElement(DateTimeType value) {
+    public DeviceUseRequest setRecordedOnElement(DateTimeType value) { 
       this.recordedOn = value;
       return this;
     }
@@ -935,14 +935,14 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return The time at which the request was made/recorded.
      */
-    public Date getRecordedOn() {
+    public Date getRecordedOn() { 
       return this.recordedOn == null ? null : this.recordedOn.getValue();
     }
 
     /**
      * @param value The time at which the request was made/recorded.
      */
-    public DeviceUseRequest setRecordedOn(Date value) {
+    public DeviceUseRequest setRecordedOn(Date value) { 
       if (value == null)
         this.recordedOn = null;
       else {
@@ -956,7 +956,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #subject} (The patient who will use the device.)
      */
-    public Reference getSubject() {
+    public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.subject");
@@ -965,14 +965,14 @@ public class DeviceUseRequest extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() {
+    public boolean hasSubject() { 
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (The patient who will use the device.)
      */
-    public DeviceUseRequest setSubject(Reference value) {
+    public DeviceUseRequest setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -980,7 +980,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The patient who will use the device.)
      */
-    public Patient getSubjectTarget() {
+    public Patient getSubjectTarget() { 
       if (this.subjectTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.subject");
@@ -992,7 +992,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The patient who will use the device.)
      */
-    public DeviceUseRequest setSubjectTarget(Patient value) {
+    public DeviceUseRequest setSubjectTarget(Patient value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -1000,57 +1000,57 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #timing} (The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public Type getTiming() {
+    public Type getTiming() { 
       return this.timing;
     }
 
     /**
      * @return {@link #timing} (The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public Timing getTimingTiming() throws FHIRException {
+    public Timing getTimingTiming() throws FHIRException { 
       if (!(this.timing instanceof Timing))
         throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (Timing) this.timing;
     }
 
-    public boolean hasTimingTiming() {
+    public boolean hasTimingTiming() { 
       return this.timing instanceof Timing;
     }
 
     /**
      * @return {@link #timing} (The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public Period getTimingPeriod() throws FHIRException {
+    public Period getTimingPeriod() throws FHIRException { 
       if (!(this.timing instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (Period) this.timing;
     }
 
-    public boolean hasTimingPeriod() {
+    public boolean hasTimingPeriod() { 
       return this.timing instanceof Period;
     }
 
     /**
      * @return {@link #timing} (The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public DateTimeType getTimingDateTimeType() throws FHIRException {
+    public DateTimeType getTimingDateTimeType() throws FHIRException { 
       if (!(this.timing instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.timing.getClass().getName()+" was encountered");
       return (DateTimeType) this.timing;
     }
 
-    public boolean hasTimingDateTimeType() {
+    public boolean hasTimingDateTimeType() { 
       return this.timing instanceof DateTimeType;
     }
 
-    public boolean hasTiming() {
+    public boolean hasTiming() { 
       return this.timing != null && !this.timing.isEmpty();
     }
 
     /**
      * @param value {@link #timing} (The timing schedule for the use of the device The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".)
      */
-    public DeviceUseRequest setTiming(Type value) {
+    public DeviceUseRequest setTiming(Type value) { 
       this.timing = value;
       return this;
     }
@@ -1058,7 +1058,7 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return {@link #priority} (Characterizes how quickly the  use of device must be initiated. Includes concepts such as stat, urgent, routine.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public Enumeration<DeviceUseRequestPriority> getPriorityElement() {
+    public Enumeration<DeviceUseRequestPriority> getPriorityElement() { 
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DeviceUseRequest.priority");
@@ -1067,18 +1067,18 @@ public class DeviceUseRequest extends DomainResource {
       return this.priority;
     }
 
-    public boolean hasPriorityElement() {
+    public boolean hasPriorityElement() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
-    public boolean hasPriority() {
+    public boolean hasPriority() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
      * @param value {@link #priority} (Characterizes how quickly the  use of device must be initiated. Includes concepts such as stat, urgent, routine.). This is the underlying object with id, value and extensions. The accessor "getPriority" gives direct access to the value
      */
-    public DeviceUseRequest setPriorityElement(Enumeration<DeviceUseRequestPriority> value) {
+    public DeviceUseRequest setPriorityElement(Enumeration<DeviceUseRequestPriority> value) { 
       this.priority = value;
       return this;
     }
@@ -1086,14 +1086,14 @@ public class DeviceUseRequest extends DomainResource {
     /**
      * @return Characterizes how quickly the  use of device must be initiated. Includes concepts such as stat, urgent, routine.
      */
-    public DeviceUseRequestPriority getPriority() {
+    public DeviceUseRequestPriority getPriority() { 
       return this.priority == null ? null : this.priority.getValue();
     }
 
     /**
      * @param value Characterizes how quickly the  use of device must be initiated. Includes concepts such as stat, urgent, routine.
      */
-    public DeviceUseRequest setPriority(DeviceUseRequestPriority value) {
+    public DeviceUseRequest setPriority(DeviceUseRequestPriority value) { 
       if (value == null)
         this.priority = null;
       else {

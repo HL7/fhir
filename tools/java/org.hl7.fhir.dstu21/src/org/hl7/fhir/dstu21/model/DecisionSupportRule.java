@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,31 +51,31 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * The trigger occurs in response to a specific named event
          */
-        NAMEDEVENT,
+        NAMEDEVENT, 
         /**
          * The trigger occurs at a specific time or periodically as described by a timing or schedule
          */
-        PERIODIC,
+        PERIODIC, 
         /**
          * The trigger occurs whenever data of a particular type is added
          */
-        DATAADDED,
+        DATAADDED, 
         /**
          * The trigger occurs whenever data of a particular type is modified
          */
-        DATAMODIFIED,
+        DATAMODIFIED, 
         /**
          * The trigger occurs whenever data of a particular type is removed
          */
-        DATAREMOVED,
+        DATAREMOVED, 
         /**
          * The trigger occurs whenever data of a particular type is accessed
          */
-        DATAACCESSED,
+        DATAACCESSED, 
         /**
          * The trigger occurs whenever access to data of a particular type is completed
          */
-        DATAACCESSENDED,
+        DATAACCESSENDED, 
         /**
          * added to help the parsers
          */
@@ -215,19 +215,19 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * The participant is the patient under evaluation
          */
-        PATIENT,
+        PATIENT, 
         /**
          * The participant is a person
          */
-        PERSON,
+        PERSON, 
         /**
          * The participant is a practitioner involved in the patient's care
          */
-        PRACTITIONER,
+        PRACTITIONER, 
         /**
          * The participant is a person related to the patient
          */
-        RELATEDPERSON,
+        RELATEDPERSON, 
         /**
          * added to help the parsers
          */
@@ -331,19 +331,19 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * The action is to create a new resource
          */
-        CREATE,
+        CREATE, 
         /**
          * The action is to update an existing resource
          */
-        UPDATE,
+        UPDATE, 
         /**
          * The action is to remove an existing resource
          */
-        REMOVE,
+        REMOVE, 
         /**
          * The action is to fire a specific event
          */
-        FIREEVENT,
+        FIREEVENT, 
         /**
          * added to help the parsers
          */
@@ -486,7 +486,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #type} (The type of triggering event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<DecisionSupportRuleTriggerType> getTypeElement() {
+        public Enumeration<DecisionSupportRuleTriggerType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleTriggerComponent.type");
@@ -495,18 +495,18 @@ public class DecisionSupportRule extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() {
+        public boolean hasTypeElement() { 
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of triggering event.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public DecisionSupportRuleTriggerComponent setTypeElement(Enumeration<DecisionSupportRuleTriggerType> value) {
+        public DecisionSupportRuleTriggerComponent setTypeElement(Enumeration<DecisionSupportRuleTriggerType> value) { 
           this.type = value;
           return this;
         }
@@ -514,14 +514,14 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return The type of triggering event.
          */
-        public DecisionSupportRuleTriggerType getType() {
+        public DecisionSupportRuleTriggerType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of triggering event.
          */
-        public DecisionSupportRuleTriggerComponent setType(DecisionSupportRuleTriggerType value) {
+        public DecisionSupportRuleTriggerComponent setType(DecisionSupportRuleTriggerType value) { 
             if (this.type == null)
               this.type = new Enumeration<DecisionSupportRuleTriggerType>(new DecisionSupportRuleTriggerTypeEnumFactory());
             this.type.setValue(value);
@@ -531,7 +531,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #eventName} (The name of the event (if this is a named-event trigger).). This is the underlying object with id, value and extensions. The accessor "getEventName" gives direct access to the value
          */
-        public StringType getEventNameElement() {
+        public StringType getEventNameElement() { 
           if (this.eventName == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleTriggerComponent.eventName");
@@ -540,18 +540,18 @@ public class DecisionSupportRule extends DomainResource {
           return this.eventName;
         }
 
-        public boolean hasEventNameElement() {
+        public boolean hasEventNameElement() { 
           return this.eventName != null && !this.eventName.isEmpty();
         }
 
-        public boolean hasEventName() {
+        public boolean hasEventName() { 
           return this.eventName != null && !this.eventName.isEmpty();
         }
 
         /**
          * @param value {@link #eventName} (The name of the event (if this is a named-event trigger).). This is the underlying object with id, value and extensions. The accessor "getEventName" gives direct access to the value
          */
-        public DecisionSupportRuleTriggerComponent setEventNameElement(StringType value) {
+        public DecisionSupportRuleTriggerComponent setEventNameElement(StringType value) { 
           this.eventName = value;
           return this;
         }
@@ -559,14 +559,14 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return The name of the event (if this is a named-event trigger).
          */
-        public String getEventName() {
+        public String getEventName() { 
           return this.eventName == null ? null : this.eventName.getValue();
         }
 
         /**
          * @param value The name of the event (if this is a named-event trigger).
          */
-        public DecisionSupportRuleTriggerComponent setEventName(String value) {
+        public DecisionSupportRuleTriggerComponent setEventName(String value) { 
           if (Utilities.noString(value))
             this.eventName = null;
           else {
@@ -580,70 +580,70 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #eventTiming} (The timing of the event (if this is a period trigger).)
          */
-        public Type getEventTiming() {
+        public Type getEventTiming() { 
           return this.eventTiming;
         }
 
         /**
          * @return {@link #eventTiming} (The timing of the event (if this is a period trigger).)
          */
-        public Timing getEventTimingTiming() throws FHIRException {
+        public Timing getEventTimingTiming() throws FHIRException { 
           if (!(this.eventTiming instanceof Timing))
             throw new FHIRException("Type mismatch: the type Timing was expected, but "+this.eventTiming.getClass().getName()+" was encountered");
           return (Timing) this.eventTiming;
         }
 
-        public boolean hasEventTimingTiming() {
+        public boolean hasEventTimingTiming() { 
           return this.eventTiming instanceof Timing;
         }
 
         /**
          * @return {@link #eventTiming} (The timing of the event (if this is a period trigger).)
          */
-        public Reference getEventTimingReference() throws FHIRException {
+        public Reference getEventTimingReference() throws FHIRException { 
           if (!(this.eventTiming instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.eventTiming.getClass().getName()+" was encountered");
           return (Reference) this.eventTiming;
         }
 
-        public boolean hasEventTimingReference() {
+        public boolean hasEventTimingReference() { 
           return this.eventTiming instanceof Reference;
         }
 
         /**
          * @return {@link #eventTiming} (The timing of the event (if this is a period trigger).)
          */
-        public DateType getEventTimingDateType() throws FHIRException {
+        public DateType getEventTimingDateType() throws FHIRException { 
           if (!(this.eventTiming instanceof DateType))
             throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.eventTiming.getClass().getName()+" was encountered");
           return (DateType) this.eventTiming;
         }
 
-        public boolean hasEventTimingDateType() {
+        public boolean hasEventTimingDateType() { 
           return this.eventTiming instanceof DateType;
         }
 
         /**
          * @return {@link #eventTiming} (The timing of the event (if this is a period trigger).)
          */
-        public DateTimeType getEventTimingDateTimeType() throws FHIRException {
+        public DateTimeType getEventTimingDateTimeType() throws FHIRException { 
           if (!(this.eventTiming instanceof DateTimeType))
             throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.eventTiming.getClass().getName()+" was encountered");
           return (DateTimeType) this.eventTiming;
         }
 
-        public boolean hasEventTimingDateTimeType() {
+        public boolean hasEventTimingDateTimeType() { 
           return this.eventTiming instanceof DateTimeType;
         }
 
-        public boolean hasEventTiming() {
+        public boolean hasEventTiming() { 
           return this.eventTiming != null && !this.eventTiming.isEmpty();
         }
 
         /**
          * @param value {@link #eventTiming} (The timing of the event (if this is a period trigger).)
          */
-        public DecisionSupportRuleTriggerComponent setEventTiming(Type value) {
+        public DecisionSupportRuleTriggerComponent setEventTiming(Type value) { 
           this.eventTiming = value;
           return this;
         }
@@ -847,7 +847,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #actionIdentifier} (A unique identifier for the action.)
          */
-        public Identifier getActionIdentifier() {
+        public Identifier getActionIdentifier() { 
           if (this.actionIdentifier == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleActionComponent.actionIdentifier");
@@ -856,14 +856,14 @@ public class DecisionSupportRule extends DomainResource {
           return this.actionIdentifier;
         }
 
-        public boolean hasActionIdentifier() {
+        public boolean hasActionIdentifier() { 
           return this.actionIdentifier != null && !this.actionIdentifier.isEmpty();
         }
 
         /**
          * @param value {@link #actionIdentifier} (A unique identifier for the action.)
          */
-        public DecisionSupportRuleActionComponent setActionIdentifier(Identifier value) {
+        public DecisionSupportRuleActionComponent setActionIdentifier(Identifier value) { 
           this.actionIdentifier = value;
           return this;
         }
@@ -871,7 +871,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #number} (A user-visible number for the action.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public StringType getNumberElement() {
+        public StringType getNumberElement() { 
           if (this.number == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleActionComponent.number");
@@ -880,18 +880,18 @@ public class DecisionSupportRule extends DomainResource {
           return this.number;
         }
 
-        public boolean hasNumberElement() {
+        public boolean hasNumberElement() { 
           return this.number != null && !this.number.isEmpty();
         }
 
-        public boolean hasNumber() {
+        public boolean hasNumber() { 
           return this.number != null && !this.number.isEmpty();
         }
 
         /**
          * @param value {@link #number} (A user-visible number for the action.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
          */
-        public DecisionSupportRuleActionComponent setNumberElement(StringType value) {
+        public DecisionSupportRuleActionComponent setNumberElement(StringType value) { 
           this.number = value;
           return this;
         }
@@ -899,14 +899,14 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return A user-visible number for the action.
          */
-        public String getNumber() {
+        public String getNumber() { 
           return this.number == null ? null : this.number.getValue();
         }
 
         /**
          * @param value A user-visible number for the action.
          */
-        public DecisionSupportRuleActionComponent setNumber(String value) {
+        public DecisionSupportRuleActionComponent setNumber(String value) { 
           if (Utilities.noString(value))
             this.number = null;
           else {
@@ -920,13 +920,13 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #supportingEvidence} (Supporting evidence for the action.)
          */
-        public List<Attachment> getSupportingEvidence() {
+        public List<Attachment> getSupportingEvidence() { 
           if (this.supportingEvidence == null)
             this.supportingEvidence = new ArrayList<Attachment>();
           return this.supportingEvidence;
         }
 
-        public boolean hasSupportingEvidence() {
+        public boolean hasSupportingEvidence() { 
           if (this.supportingEvidence == null)
             return false;
           for (Attachment item : this.supportingEvidence)
@@ -960,13 +960,13 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #documentation} (Supporting documentation for the action.)
          */
-        public List<Attachment> getDocumentation() {
+        public List<Attachment> getDocumentation() { 
           if (this.documentation == null)
             this.documentation = new ArrayList<Attachment>();
           return this.documentation;
         }
 
-        public boolean hasDocumentation() {
+        public boolean hasDocumentation() { 
           if (this.documentation == null)
             return false;
           for (Attachment item : this.documentation)
@@ -1000,13 +1000,13 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #participantType} (The type of participant in the action.)
          */
-        public List<Enumeration<DecisionSupportRuleParticipantType>> getParticipantType() {
+        public List<Enumeration<DecisionSupportRuleParticipantType>> getParticipantType() { 
           if (this.participantType == null)
             this.participantType = new ArrayList<Enumeration<DecisionSupportRuleParticipantType>>();
           return this.participantType;
         }
 
-        public boolean hasParticipantType() {
+        public boolean hasParticipantType() { 
           if (this.participantType == null)
             return false;
           for (Enumeration<DecisionSupportRuleParticipantType> item : this.participantType)
@@ -1019,7 +1019,7 @@ public class DecisionSupportRule extends DomainResource {
          * @return {@link #participantType} (The type of participant in the action.)
          */
     // syntactic sugar
-        public Enumeration<DecisionSupportRuleParticipantType> addParticipantTypeElement() {//2
+        public Enumeration<DecisionSupportRuleParticipantType> addParticipantTypeElement() {//2 
           Enumeration<DecisionSupportRuleParticipantType> t = new Enumeration<DecisionSupportRuleParticipantType>(new DecisionSupportRuleParticipantTypeEnumFactory());
           if (this.participantType == null)
             this.participantType = new ArrayList<Enumeration<DecisionSupportRuleParticipantType>>();
@@ -1042,7 +1042,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @param value {@link #participantType} (The type of participant in the action.)
          */
-        public boolean hasParticipantType(DecisionSupportRuleParticipantType value) {
+        public boolean hasParticipantType(DecisionSupportRuleParticipantType value) { 
           if (this.participantType == null)
             return false;
           for (Enumeration<DecisionSupportRuleParticipantType> v : this.participantType)
@@ -1054,7 +1054,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #title} (The title of the action.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public StringType getTitleElement() {
+        public StringType getTitleElement() { 
           if (this.title == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleActionComponent.title");
@@ -1063,18 +1063,18 @@ public class DecisionSupportRule extends DomainResource {
           return this.title;
         }
 
-        public boolean hasTitleElement() {
+        public boolean hasTitleElement() { 
           return this.title != null && !this.title.isEmpty();
         }
 
-        public boolean hasTitle() {
+        public boolean hasTitle() { 
           return this.title != null && !this.title.isEmpty();
         }
 
         /**
          * @param value {@link #title} (The title of the action.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
          */
-        public DecisionSupportRuleActionComponent setTitleElement(StringType value) {
+        public DecisionSupportRuleActionComponent setTitleElement(StringType value) { 
           this.title = value;
           return this;
         }
@@ -1082,14 +1082,14 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return The title of the action.
          */
-        public String getTitle() {
+        public String getTitle() { 
           return this.title == null ? null : this.title.getValue();
         }
 
         /**
          * @param value The title of the action.
          */
-        public DecisionSupportRuleActionComponent setTitle(String value) {
+        public DecisionSupportRuleActionComponent setTitle(String value) { 
           if (Utilities.noString(value))
             this.title = null;
           else {
@@ -1103,7 +1103,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #description} (A short description of the action.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public StringType getDescriptionElement() {
+        public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleActionComponent.description");
@@ -1112,18 +1112,18 @@ public class DecisionSupportRule extends DomainResource {
           return this.description;
         }
 
-        public boolean hasDescriptionElement() {
+        public boolean hasDescriptionElement() { 
           return this.description != null && !this.description.isEmpty();
         }
 
-        public boolean hasDescription() {
+        public boolean hasDescription() { 
           return this.description != null && !this.description.isEmpty();
         }
 
         /**
          * @param value {@link #description} (A short description of the action.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public DecisionSupportRuleActionComponent setDescriptionElement(StringType value) {
+        public DecisionSupportRuleActionComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -1131,14 +1131,14 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return A short description of the action.
          */
-        public String getDescription() {
+        public String getDescription() { 
           return this.description == null ? null : this.description.getValue();
         }
 
         /**
          * @param value A short description of the action.
          */
-        public DecisionSupportRuleActionComponent setDescription(String value) {
+        public DecisionSupportRuleActionComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -1152,7 +1152,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #textEquivalent} (A text equivalent of the action to be performed.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
          */
-        public StringType getTextEquivalentElement() {
+        public StringType getTextEquivalentElement() { 
           if (this.textEquivalent == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleActionComponent.textEquivalent");
@@ -1161,18 +1161,18 @@ public class DecisionSupportRule extends DomainResource {
           return this.textEquivalent;
         }
 
-        public boolean hasTextEquivalentElement() {
+        public boolean hasTextEquivalentElement() { 
           return this.textEquivalent != null && !this.textEquivalent.isEmpty();
         }
 
-        public boolean hasTextEquivalent() {
+        public boolean hasTextEquivalent() { 
           return this.textEquivalent != null && !this.textEquivalent.isEmpty();
         }
 
         /**
          * @param value {@link #textEquivalent} (A text equivalent of the action to be performed.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
          */
-        public DecisionSupportRuleActionComponent setTextEquivalentElement(StringType value) {
+        public DecisionSupportRuleActionComponent setTextEquivalentElement(StringType value) { 
           this.textEquivalent = value;
           return this;
         }
@@ -1180,14 +1180,14 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return A text equivalent of the action to be performed.
          */
-        public String getTextEquivalent() {
+        public String getTextEquivalent() { 
           return this.textEquivalent == null ? null : this.textEquivalent.getValue();
         }
 
         /**
          * @param value A text equivalent of the action to be performed.
          */
-        public DecisionSupportRuleActionComponent setTextEquivalent(String value) {
+        public DecisionSupportRuleActionComponent setTextEquivalent(String value) { 
           if (Utilities.noString(value))
             this.textEquivalent = null;
           else {
@@ -1201,13 +1201,13 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #concept} (Concepts associated with the action.)
          */
-        public List<CodeableConcept> getConcept() {
+        public List<CodeableConcept> getConcept() { 
           if (this.concept == null)
             this.concept = new ArrayList<CodeableConcept>();
           return this.concept;
         }
 
-        public boolean hasConcept() {
+        public boolean hasConcept() { 
           if (this.concept == null)
             return false;
           for (CodeableConcept item : this.concept)
@@ -1241,7 +1241,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #type} (The type of action to perform (create, update, remove).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public Enumeration<DecisionSupportRuleActionType> getTypeElement() {
+        public Enumeration<DecisionSupportRuleActionType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleActionComponent.type");
@@ -1250,18 +1250,18 @@ public class DecisionSupportRule extends DomainResource {
           return this.type;
         }
 
-        public boolean hasTypeElement() {
+        public boolean hasTypeElement() { 
           return this.type != null && !this.type.isEmpty();
         }
 
-        public boolean hasType() {
+        public boolean hasType() { 
           return this.type != null && !this.type.isEmpty();
         }
 
         /**
          * @param value {@link #type} (The type of action to perform (create, update, remove).). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public DecisionSupportRuleActionComponent setTypeElement(Enumeration<DecisionSupportRuleActionType> value) {
+        public DecisionSupportRuleActionComponent setTypeElement(Enumeration<DecisionSupportRuleActionType> value) { 
           this.type = value;
           return this;
         }
@@ -1269,14 +1269,14 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return The type of action to perform (create, update, remove).
          */
-        public DecisionSupportRuleActionType getType() {
+        public DecisionSupportRuleActionType getType() { 
           return this.type == null ? null : this.type.getValue();
         }
 
         /**
          * @param value The type of action to perform (create, update, remove).
          */
-        public DecisionSupportRuleActionComponent setType(DecisionSupportRuleActionType value) {
+        public DecisionSupportRuleActionComponent setType(DecisionSupportRuleActionType value) { 
           if (value == null)
             this.type = null;
           else {
@@ -1290,7 +1290,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #resource} (The resource that is the target of the action (e.g. CommunicationRequest).)
          */
-        public Reference getResource() {
+        public Reference getResource() { 
           if (this.resource == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleActionComponent.resource");
@@ -1299,14 +1299,14 @@ public class DecisionSupportRule extends DomainResource {
           return this.resource;
         }
 
-        public boolean hasResource() {
+        public boolean hasResource() { 
           return this.resource != null && !this.resource.isEmpty();
         }
 
         /**
          * @param value {@link #resource} (The resource that is the target of the action (e.g. CommunicationRequest).)
          */
-        public DecisionSupportRuleActionComponent setResource(Reference value) {
+        public DecisionSupportRuleActionComponent setResource(Reference value) { 
           this.resource = value;
           return this;
         }
@@ -1314,14 +1314,14 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource that is the target of the action (e.g. CommunicationRequest).)
          */
-        public Resource getResourceTarget() {
+        public Resource getResourceTarget() { 
           return this.resourceTarget;
         }
 
         /**
          * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource that is the target of the action (e.g. CommunicationRequest).)
          */
-        public DecisionSupportRuleActionComponent setResourceTarget(Resource value) {
+        public DecisionSupportRuleActionComponent setResourceTarget(Resource value) { 
           this.resourceTarget = value;
           return this;
         }
@@ -1329,13 +1329,13 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #customization} (Customizations that should be applied to the statically defined resource.)
          */
-        public List<DecisionSupportRuleActionCustomizationComponent> getCustomization() {
+        public List<DecisionSupportRuleActionCustomizationComponent> getCustomization() { 
           if (this.customization == null)
             this.customization = new ArrayList<DecisionSupportRuleActionCustomizationComponent>();
           return this.customization;
         }
 
-        public boolean hasCustomization() {
+        public boolean hasCustomization() { 
           if (this.customization == null)
             return false;
           for (DecisionSupportRuleActionCustomizationComponent item : this.customization)
@@ -1369,13 +1369,13 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #actions} (Sub actions.)
          */
-        public List<DecisionSupportRuleActionComponent> getActions() {
+        public List<DecisionSupportRuleActionComponent> getActions() { 
           if (this.actions == null)
             this.actions = new ArrayList<DecisionSupportRuleActionComponent>();
           return this.actions;
         }
 
-        public boolean hasActions() {
+        public boolean hasActions() { 
           if (this.actions == null)
             return false;
           for (DecisionSupportRuleActionComponent item : this.actions)
@@ -1626,7 +1626,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #path} (The path to the element to be customized.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public StringType getPathElement() {
+        public StringType getPathElement() { 
           if (this.path == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleActionCustomizationComponent.path");
@@ -1635,18 +1635,18 @@ public class DecisionSupportRule extends DomainResource {
           return this.path;
         }
 
-        public boolean hasPathElement() {
+        public boolean hasPathElement() { 
           return this.path != null && !this.path.isEmpty();
         }
 
-        public boolean hasPath() {
+        public boolean hasPath() { 
           return this.path != null && !this.path.isEmpty();
         }
 
         /**
          * @param value {@link #path} (The path to the element to be customized.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
-        public DecisionSupportRuleActionCustomizationComponent setPathElement(StringType value) {
+        public DecisionSupportRuleActionCustomizationComponent setPathElement(StringType value) { 
           this.path = value;
           return this;
         }
@@ -1654,14 +1654,14 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return The path to the element to be customized.
          */
-        public String getPath() {
+        public String getPath() { 
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
          * @param value The path to the element to be customized.
          */
-        public DecisionSupportRuleActionCustomizationComponent setPath(String value) {
+        public DecisionSupportRuleActionCustomizationComponent setPath(String value) { 
             if (this.path == null)
               this.path = new StringType();
             this.path.setValue(value);
@@ -1671,7 +1671,7 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return {@link #expression} (An expression specifying the value of the customized element.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
-        public StringType getExpressionElement() {
+        public StringType getExpressionElement() { 
           if (this.expression == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create DecisionSupportRuleActionCustomizationComponent.expression");
@@ -1680,18 +1680,18 @@ public class DecisionSupportRule extends DomainResource {
           return this.expression;
         }
 
-        public boolean hasExpressionElement() {
+        public boolean hasExpressionElement() { 
           return this.expression != null && !this.expression.isEmpty();
         }
 
-        public boolean hasExpression() {
+        public boolean hasExpression() { 
           return this.expression != null && !this.expression.isEmpty();
         }
 
         /**
          * @param value {@link #expression} (An expression specifying the value of the customized element.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
          */
-        public DecisionSupportRuleActionCustomizationComponent setExpressionElement(StringType value) {
+        public DecisionSupportRuleActionCustomizationComponent setExpressionElement(StringType value) { 
           this.expression = value;
           return this;
         }
@@ -1699,14 +1699,14 @@ public class DecisionSupportRule extends DomainResource {
         /**
          * @return An expression specifying the value of the customized element.
          */
-        public String getExpression() {
+        public String getExpression() { 
           return this.expression == null ? null : this.expression.getValue();
         }
 
         /**
          * @param value An expression specifying the value of the customized element.
          */
-        public DecisionSupportRuleActionCustomizationComponent setExpression(String value) {
+        public DecisionSupportRuleActionCustomizationComponent setExpression(String value) { 
             if (this.expression == null)
               this.expression = new StringType();
             this.expression.setValue(value);
@@ -1852,13 +1852,13 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return {@link #identifier} (A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -1892,7 +1892,7 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public StringType getVersionElement() {
+    public StringType getVersionElement() { 
       if (this.version == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DecisionSupportRule.version");
@@ -1901,18 +1901,18 @@ public class DecisionSupportRule extends DomainResource {
       return this.version;
     }
 
-    public boolean hasVersionElement() {
+    public boolean hasVersionElement() { 
       return this.version != null && !this.version.isEmpty();
     }
 
-    public boolean hasVersion() {
+    public boolean hasVersion() { 
       return this.version != null && !this.version.isEmpty();
     }
 
     /**
      * @param value {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
      */
-    public DecisionSupportRule setVersionElement(StringType value) {
+    public DecisionSupportRule setVersionElement(StringType value) { 
       this.version = value;
       return this;
     }
@@ -1920,14 +1920,14 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public String getVersion() {
+    public String getVersion() { 
       return this.version == null ? null : this.version.getValue();
     }
 
     /**
      * @param value The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
      */
-    public DecisionSupportRule setVersion(String value) {
+    public DecisionSupportRule setVersion(String value) { 
       if (Utilities.noString(value))
         this.version = null;
       else {
@@ -1941,7 +1941,7 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return {@link #moduleMetadata} (A reference to a ModuleMetadata resource that provides metadata for the rule.)
      */
-    public Reference getModuleMetadata() {
+    public Reference getModuleMetadata() { 
       if (this.moduleMetadata == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DecisionSupportRule.moduleMetadata");
@@ -1950,14 +1950,14 @@ public class DecisionSupportRule extends DomainResource {
       return this.moduleMetadata;
     }
 
-    public boolean hasModuleMetadata() {
+    public boolean hasModuleMetadata() { 
       return this.moduleMetadata != null && !this.moduleMetadata.isEmpty();
     }
 
     /**
      * @param value {@link #moduleMetadata} (A reference to a ModuleMetadata resource that provides metadata for the rule.)
      */
-    public DecisionSupportRule setModuleMetadata(Reference value) {
+    public DecisionSupportRule setModuleMetadata(Reference value) { 
       this.moduleMetadata = value;
       return this;
     }
@@ -1965,7 +1965,7 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return {@link #moduleMetadata} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a ModuleMetadata resource that provides metadata for the rule.)
      */
-    public ModuleMetadata getModuleMetadataTarget() {
+    public ModuleMetadata getModuleMetadataTarget() { 
       if (this.moduleMetadataTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DecisionSupportRule.moduleMetadata");
@@ -1977,7 +1977,7 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @param value {@link #moduleMetadata} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a ModuleMetadata resource that provides metadata for the rule.)
      */
-    public DecisionSupportRule setModuleMetadataTarget(ModuleMetadata value) {
+    public DecisionSupportRule setModuleMetadataTarget(ModuleMetadata value) { 
       this.moduleMetadataTarget = value;
       return this;
     }
@@ -1985,13 +1985,13 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return {@link #library} (A reference to a Library containing the formal logic used by the rule.)
      */
-    public List<Reference> getLibrary() {
+    public List<Reference> getLibrary() { 
       if (this.library == null)
         this.library = new ArrayList<Reference>();
       return this.library;
     }
 
-    public boolean hasLibrary() {
+    public boolean hasLibrary() { 
       if (this.library == null)
         return false;
       for (Reference item : this.library)
@@ -2025,7 +2025,7 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return {@link #library} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. A reference to a Library containing the formal logic used by the rule.)
      */
-    public List<Library> getLibraryTarget() {
+    public List<Library> getLibraryTarget() { 
       if (this.libraryTarget == null)
         this.libraryTarget = new ArrayList<Library>();
       return this.libraryTarget;
@@ -2035,7 +2035,7 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return {@link #library} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. A reference to a Library containing the formal logic used by the rule.)
      */
-    public Library addLibraryTarget() {
+    public Library addLibraryTarget() { 
       Library r = new Library();
       if (this.libraryTarget == null)
         this.libraryTarget = new ArrayList<Library>();
@@ -2046,13 +2046,13 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return {@link #trigger} (A description of a triggering event.)
      */
-    public List<DecisionSupportRuleTriggerComponent> getTrigger() {
+    public List<DecisionSupportRuleTriggerComponent> getTrigger() { 
       if (this.trigger == null)
         this.trigger = new ArrayList<DecisionSupportRuleTriggerComponent>();
       return this.trigger;
     }
 
-    public boolean hasTrigger() {
+    public boolean hasTrigger() { 
       if (this.trigger == null)
         return false;
       for (DecisionSupportRuleTriggerComponent item : this.trigger)
@@ -2086,7 +2086,7 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return {@link #condition} (The condition for the artifact.). This is the underlying object with id, value and extensions. The accessor "getCondition" gives direct access to the value
      */
-    public StringType getConditionElement() {
+    public StringType getConditionElement() { 
       if (this.condition == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create DecisionSupportRule.condition");
@@ -2095,18 +2095,18 @@ public class DecisionSupportRule extends DomainResource {
       return this.condition;
     }
 
-    public boolean hasConditionElement() {
+    public boolean hasConditionElement() { 
       return this.condition != null && !this.condition.isEmpty();
     }
 
-    public boolean hasCondition() {
+    public boolean hasCondition() { 
       return this.condition != null && !this.condition.isEmpty();
     }
 
     /**
      * @param value {@link #condition} (The condition for the artifact.). This is the underlying object with id, value and extensions. The accessor "getCondition" gives direct access to the value
      */
-    public DecisionSupportRule setConditionElement(StringType value) {
+    public DecisionSupportRule setConditionElement(StringType value) { 
       this.condition = value;
       return this;
     }
@@ -2114,14 +2114,14 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return The condition for the artifact.
      */
-    public String getCondition() {
+    public String getCondition() { 
       return this.condition == null ? null : this.condition.getValue();
     }
 
     /**
      * @param value The condition for the artifact.
      */
-    public DecisionSupportRule setCondition(String value) {
+    public DecisionSupportRule setCondition(String value) { 
       if (Utilities.noString(value))
         this.condition = null;
       else {
@@ -2135,13 +2135,13 @@ public class DecisionSupportRule extends DomainResource {
     /**
      * @return {@link #action} (The definition of the actions that should be returned by evaluation of the artifact.)
      */
-    public List<DecisionSupportRuleActionComponent> getAction() {
+    public List<DecisionSupportRuleActionComponent> getAction() { 
       if (this.action == null)
         this.action = new ArrayList<DecisionSupportRuleActionComponent>();
       return this.action;
     }
 
-    public boolean hasAction() {
+    public boolean hasAction() { 
       if (this.action == null)
         return false;
       for (DecisionSupportRuleActionComponent item : this.action)

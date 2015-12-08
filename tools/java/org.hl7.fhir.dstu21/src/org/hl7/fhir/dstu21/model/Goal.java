@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,39 +51,39 @@ public class Goal extends DomainResource {
         /**
          * A goal is proposed for this patient
          */
-        PROPOSED,
+        PROPOSED, 
         /**
          * A goal is planned for this patient
          */
-        PLANNED,
+        PLANNED, 
         /**
          * A proposed goal was accepted
          */
-        ACCEPTED,
+        ACCEPTED, 
         /**
          * A proposed goal was rejected
          */
-        REJECTED,
+        REJECTED, 
         /**
          * The goal is being sought but has not yet been reached.  (Also applies if goal was reached in the past but there has been regression and goal is being sought again)
          */
-        INPROGRESS,
+        INPROGRESS, 
         /**
          * The goal has been met and no further action is needed
          */
-        ACHIEVED,
+        ACHIEVED, 
         /**
          * The goal has been met, but ongoing activity is needed to sustain the goal objective
          */
-        SUSTAINING,
+        SUSTAINING, 
         /**
          * The goal remains a long term objective but is no longer being actively pursued for a temporary period of time.
          */
-        ONHOLD,
+        ONHOLD, 
         /**
          * The goal is no longer being sought
          */
-        CANCELLED,
+        CANCELLED, 
         /**
          * added to help the parsers
          */
@@ -264,44 +264,44 @@ public class Goal extends DomainResource {
         /**
          * @return {@link #result} (Details of what's changed (or not changed).)
          */
-        public Type getResult() {
+        public Type getResult() { 
           return this.result;
         }
 
         /**
          * @return {@link #result} (Details of what's changed (or not changed).)
          */
-        public CodeableConcept getResultCodeableConcept() throws FHIRException {
+        public CodeableConcept getResultCodeableConcept() throws FHIRException { 
           if (!(this.result instanceof CodeableConcept))
             throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.result.getClass().getName()+" was encountered");
           return (CodeableConcept) this.result;
         }
 
-        public boolean hasResultCodeableConcept() {
+        public boolean hasResultCodeableConcept() { 
           return this.result instanceof CodeableConcept;
         }
 
         /**
          * @return {@link #result} (Details of what's changed (or not changed).)
          */
-        public Reference getResultReference() throws FHIRException {
+        public Reference getResultReference() throws FHIRException { 
           if (!(this.result instanceof Reference))
             throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.result.getClass().getName()+" was encountered");
           return (Reference) this.result;
         }
 
-        public boolean hasResultReference() {
+        public boolean hasResultReference() { 
           return this.result instanceof Reference;
         }
 
-        public boolean hasResult() {
+        public boolean hasResult() { 
           return this.result != null && !this.result.isEmpty();
         }
 
         /**
          * @param value {@link #result} (Details of what's changed (or not changed).)
          */
-        public GoalOutcomeComponent setResult(Type value) {
+        public GoalOutcomeComponent setResult(Type value) { 
           this.result = value;
           return this;
         }
@@ -505,13 +505,13 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #identifier} (This records identifiers associated with this care plan that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -545,7 +545,7 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #subject} (Identifies the patient, group or organization for whom the goal is being established.)
      */
-    public Reference getSubject() {
+    public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.subject");
@@ -554,14 +554,14 @@ public class Goal extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() {
+    public boolean hasSubject() { 
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (Identifies the patient, group or organization for whom the goal is being established.)
      */
-    public Goal setSubject(Reference value) {
+    public Goal setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -569,14 +569,14 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Identifies the patient, group or organization for whom the goal is being established.)
      */
-    public Resource getSubjectTarget() {
+    public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Identifies the patient, group or organization for whom the goal is being established.)
      */
-    public Goal setSubjectTarget(Resource value) {
+    public Goal setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -584,44 +584,44 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #start} (The date or event after which the goal should begin being pursued.)
      */
-    public Type getStart() {
+    public Type getStart() { 
       return this.start;
     }
 
     /**
      * @return {@link #start} (The date or event after which the goal should begin being pursued.)
      */
-    public DateType getStartDateType() throws FHIRException {
+    public DateType getStartDateType() throws FHIRException { 
       if (!(this.start instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.start.getClass().getName()+" was encountered");
       return (DateType) this.start;
     }
 
-    public boolean hasStartDateType() {
+    public boolean hasStartDateType() { 
       return this.start instanceof DateType;
     }
 
     /**
      * @return {@link #start} (The date or event after which the goal should begin being pursued.)
      */
-    public CodeableConcept getStartCodeableConcept() throws FHIRException {
+    public CodeableConcept getStartCodeableConcept() throws FHIRException { 
       if (!(this.start instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.start.getClass().getName()+" was encountered");
       return (CodeableConcept) this.start;
     }
 
-    public boolean hasStartCodeableConcept() {
+    public boolean hasStartCodeableConcept() { 
       return this.start instanceof CodeableConcept;
     }
 
-    public boolean hasStart() {
+    public boolean hasStart() { 
       return this.start != null && !this.start.isEmpty();
     }
 
     /**
      * @param value {@link #start} (The date or event after which the goal should begin being pursued.)
      */
-    public Goal setStart(Type value) {
+    public Goal setStart(Type value) { 
       this.start = value;
       return this;
     }
@@ -629,44 +629,44 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #target} (Indicates either the date or the duration after start by which the goal should be met.)
      */
-    public Type getTarget() {
+    public Type getTarget() { 
       return this.target;
     }
 
     /**
      * @return {@link #target} (Indicates either the date or the duration after start by which the goal should be met.)
      */
-    public DateType getTargetDateType() throws FHIRException {
+    public DateType getTargetDateType() throws FHIRException { 
       if (!(this.target instanceof DateType))
         throw new FHIRException("Type mismatch: the type DateType was expected, but "+this.target.getClass().getName()+" was encountered");
       return (DateType) this.target;
     }
 
-    public boolean hasTargetDateType() {
+    public boolean hasTargetDateType() { 
       return this.target instanceof DateType;
     }
 
     /**
      * @return {@link #target} (Indicates either the date or the duration after start by which the goal should be met.)
      */
-    public Duration getTargetDuration() throws FHIRException {
+    public Duration getTargetDuration() throws FHIRException { 
       if (!(this.target instanceof Duration))
         throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.target.getClass().getName()+" was encountered");
       return (Duration) this.target;
     }
 
-    public boolean hasTargetDuration() {
+    public boolean hasTargetDuration() { 
       return this.target instanceof Duration;
     }
 
-    public boolean hasTarget() {
+    public boolean hasTarget() { 
       return this.target != null && !this.target.isEmpty();
     }
 
     /**
      * @param value {@link #target} (Indicates either the date or the duration after start by which the goal should be met.)
      */
-    public Goal setTarget(Type value) {
+    public Goal setTarget(Type value) { 
       this.target = value;
       return this;
     }
@@ -674,13 +674,13 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #category} (Indicates a category the goal falls within.)
      */
-    public List<CodeableConcept> getCategory() {
+    public List<CodeableConcept> getCategory() { 
       if (this.category == null)
         this.category = new ArrayList<CodeableConcept>();
       return this.category;
     }
 
-    public boolean hasCategory() {
+    public boolean hasCategory() { 
       if (this.category == null)
         return false;
       for (CodeableConcept item : this.category)
@@ -714,7 +714,7 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #description} (Human-readable description of a specific desired objective of care.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public StringType getDescriptionElement() {
+    public StringType getDescriptionElement() { 
       if (this.description == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.description");
@@ -723,18 +723,18 @@ public class Goal extends DomainResource {
       return this.description;
     }
 
-    public boolean hasDescriptionElement() {
+    public boolean hasDescriptionElement() { 
       return this.description != null && !this.description.isEmpty();
     }
 
-    public boolean hasDescription() {
+    public boolean hasDescription() { 
       return this.description != null && !this.description.isEmpty();
     }
 
     /**
      * @param value {@link #description} (Human-readable description of a specific desired objective of care.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
-    public Goal setDescriptionElement(StringType value) {
+    public Goal setDescriptionElement(StringType value) { 
       this.description = value;
       return this;
     }
@@ -742,14 +742,14 @@ public class Goal extends DomainResource {
     /**
      * @return Human-readable description of a specific desired objective of care.
      */
-    public String getDescription() {
+    public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
      * @param value Human-readable description of a specific desired objective of care.
      */
-    public Goal setDescription(String value) {
+    public Goal setDescription(String value) { 
         if (this.description == null)
           this.description = new StringType();
         this.description.setValue(value);
@@ -759,7 +759,7 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #status} (Indicates whether the goal has been reached and is still considered relevant.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<GoalStatus> getStatusElement() {
+    public Enumeration<GoalStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.status");
@@ -768,18 +768,18 @@ public class Goal extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (Indicates whether the goal has been reached and is still considered relevant.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Goal setStatusElement(Enumeration<GoalStatus> value) {
+    public Goal setStatusElement(Enumeration<GoalStatus> value) { 
       this.status = value;
       return this;
     }
@@ -787,14 +787,14 @@ public class Goal extends DomainResource {
     /**
      * @return Indicates whether the goal has been reached and is still considered relevant.
      */
-    public GoalStatus getStatus() {
+    public GoalStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value Indicates whether the goal has been reached and is still considered relevant.
      */
-    public Goal setStatus(GoalStatus value) {
+    public Goal setStatus(GoalStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<GoalStatus>(new GoalStatusEnumFactory());
         this.status.setValue(value);
@@ -804,7 +804,7 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #statusDate} (Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.). This is the underlying object with id, value and extensions. The accessor "getStatusDate" gives direct access to the value
      */
-    public DateType getStatusDateElement() {
+    public DateType getStatusDateElement() { 
       if (this.statusDate == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.statusDate");
@@ -813,18 +813,18 @@ public class Goal extends DomainResource {
       return this.statusDate;
     }
 
-    public boolean hasStatusDateElement() {
+    public boolean hasStatusDateElement() { 
       return this.statusDate != null && !this.statusDate.isEmpty();
     }
 
-    public boolean hasStatusDate() {
+    public boolean hasStatusDate() { 
       return this.statusDate != null && !this.statusDate.isEmpty();
     }
 
     /**
      * @param value {@link #statusDate} (Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.). This is the underlying object with id, value and extensions. The accessor "getStatusDate" gives direct access to the value
      */
-    public Goal setStatusDateElement(DateType value) {
+    public Goal setStatusDateElement(DateType value) { 
       this.statusDate = value;
       return this;
     }
@@ -832,14 +832,14 @@ public class Goal extends DomainResource {
     /**
      * @return Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.
      */
-    public Date getStatusDate() {
+    public Date getStatusDate() { 
       return this.statusDate == null ? null : this.statusDate.getValue();
     }
 
     /**
      * @param value Identifies when the current status.  I.e. When initially created, when achieved, when cancelled, etc.
      */
-    public Goal setStatusDate(Date value) {
+    public Goal setStatusDate(Date value) { 
       if (value == null)
         this.statusDate = null;
       else {
@@ -853,7 +853,7 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #statusReason} (Captures the reason for the current status.)
      */
-    public CodeableConcept getStatusReason() {
+    public CodeableConcept getStatusReason() { 
       if (this.statusReason == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.statusReason");
@@ -862,14 +862,14 @@ public class Goal extends DomainResource {
       return this.statusReason;
     }
 
-    public boolean hasStatusReason() {
+    public boolean hasStatusReason() { 
       return this.statusReason != null && !this.statusReason.isEmpty();
     }
 
     /**
      * @param value {@link #statusReason} (Captures the reason for the current status.)
      */
-    public Goal setStatusReason(CodeableConcept value) {
+    public Goal setStatusReason(CodeableConcept value) { 
       this.statusReason = value;
       return this;
     }
@@ -877,7 +877,7 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #author} (Indicates whose goal this is - patient goal, practitioner goal, etc.)
      */
-    public Reference getAuthor() {
+    public Reference getAuthor() { 
       if (this.author == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.author");
@@ -886,14 +886,14 @@ public class Goal extends DomainResource {
       return this.author;
     }
 
-    public boolean hasAuthor() {
+    public boolean hasAuthor() { 
       return this.author != null && !this.author.isEmpty();
     }
 
     /**
      * @param value {@link #author} (Indicates whose goal this is - patient goal, practitioner goal, etc.)
      */
-    public Goal setAuthor(Reference value) {
+    public Goal setAuthor(Reference value) { 
       this.author = value;
       return this;
     }
@@ -901,14 +901,14 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates whose goal this is - patient goal, practitioner goal, etc.)
      */
-    public Resource getAuthorTarget() {
+    public Resource getAuthorTarget() { 
       return this.authorTarget;
     }
 
     /**
      * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates whose goal this is - patient goal, practitioner goal, etc.)
      */
-    public Goal setAuthorTarget(Resource value) {
+    public Goal setAuthorTarget(Resource value) { 
       this.authorTarget = value;
       return this;
     }
@@ -916,7 +916,7 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #priority} (Identifies the mutually agreed level of importance associated with reaching/sustaining the goal.)
      */
-    public CodeableConcept getPriority() {
+    public CodeableConcept getPriority() { 
       if (this.priority == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Goal.priority");
@@ -925,14 +925,14 @@ public class Goal extends DomainResource {
       return this.priority;
     }
 
-    public boolean hasPriority() {
+    public boolean hasPriority() { 
       return this.priority != null && !this.priority.isEmpty();
     }
 
     /**
      * @param value {@link #priority} (Identifies the mutually agreed level of importance associated with reaching/sustaining the goal.)
      */
-    public Goal setPriority(CodeableConcept value) {
+    public Goal setPriority(CodeableConcept value) { 
       this.priority = value;
       return this;
     }
@@ -940,13 +940,13 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #addresses} (The identified conditions and other health record elements that are intended to be addressed by the goal.)
      */
-    public List<Reference> getAddresses() {
+    public List<Reference> getAddresses() { 
       if (this.addresses == null)
         this.addresses = new ArrayList<Reference>();
       return this.addresses;
     }
 
-    public boolean hasAddresses() {
+    public boolean hasAddresses() { 
       if (this.addresses == null)
         return false;
       for (Reference item : this.addresses)
@@ -980,7 +980,7 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #addresses} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The identified conditions and other health record elements that are intended to be addressed by the goal.)
      */
-    public List<Resource> getAddressesTarget() {
+    public List<Resource> getAddressesTarget() { 
       if (this.addressesTarget == null)
         this.addressesTarget = new ArrayList<Resource>();
       return this.addressesTarget;
@@ -989,13 +989,13 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #note} (Any comments related to the goal.)
      */
-    public List<Annotation> getNote() {
+    public List<Annotation> getNote() { 
       if (this.note == null)
         this.note = new ArrayList<Annotation>();
       return this.note;
     }
 
-    public boolean hasNote() {
+    public boolean hasNote() { 
       if (this.note == null)
         return false;
       for (Annotation item : this.note)
@@ -1029,13 +1029,13 @@ public class Goal extends DomainResource {
     /**
      * @return {@link #outcome} (Identifies the change (or lack of change) at the point where the goal was deepmed to be cancelled or achieved.)
      */
-    public List<GoalOutcomeComponent> getOutcome() {
+    public List<GoalOutcomeComponent> getOutcome() { 
       if (this.outcome == null)
         this.outcome = new ArrayList<GoalOutcomeComponent>();
       return this.outcome;
     }
 
-    public boolean hasOutcome() {
+    public boolean hasOutcome() { 
       if (this.outcome == null)
         return false;
       for (GoalOutcomeComponent item : this.outcome)

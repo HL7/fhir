@@ -3,33 +3,33 @@ package org.hl7.fhir.dstu21.model;
 /*
   Copyright (c) 2011+, HL7, Inc.
   All rights reserved.
-
-  Redistribution and use in source and binary forms, with or without modification,
+  
+  Redistribution and use in source and binary forms, with or without modification, 
   are permitted provided that the following conditions are met:
-
-   * Redistributions of source code must retain the above copyright notice, this
+  
+   * Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
-   * Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+   * Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
-   * Neither the name of HL7 nor the names of its contributors may be used to
-     endorse or promote products derived from this software without specific
+   * Neither the name of HL7 nor the names of its contributors may be used to 
+     endorse or promote products derived from this software without specific 
      prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
-  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
   POSSIBILITY OF SUCH DAMAGE.
-
+  
 */
 
-// Generated on Thu, Dec 3, 2015 23:16-0500 for FHIR v1.1.0
+// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -51,19 +51,19 @@ public class Procedure extends DomainResource {
         /**
          * The procedure is still occurring.
          */
-        INPROGRESS,
+        INPROGRESS, 
         /**
          * The procedure was terminated without completing successfully.
          */
-        ABORTED,
+        ABORTED, 
         /**
          * All actions involved in the procedure have taken place.
          */
-        COMPLETED,
+        COMPLETED, 
         /**
          * The statement was entered in error and Is not valid.
          */
-        ENTEREDINERROR,
+        ENTEREDINERROR, 
         /**
          * added to help the parsers
          */
@@ -196,7 +196,7 @@ public class Procedure extends DomainResource {
         /**
          * @return {@link #actor} (The practitioner who was involved in the procedure.)
          */
-        public Reference getActor() {
+        public Reference getActor() { 
           if (this.actor == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProcedurePerformerComponent.actor");
@@ -205,14 +205,14 @@ public class Procedure extends DomainResource {
           return this.actor;
         }
 
-        public boolean hasActor() {
+        public boolean hasActor() { 
           return this.actor != null && !this.actor.isEmpty();
         }
 
         /**
          * @param value {@link #actor} (The practitioner who was involved in the procedure.)
          */
-        public ProcedurePerformerComponent setActor(Reference value) {
+        public ProcedurePerformerComponent setActor(Reference value) { 
           this.actor = value;
           return this;
         }
@@ -220,14 +220,14 @@ public class Procedure extends DomainResource {
         /**
          * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner who was involved in the procedure.)
          */
-        public Resource getActorTarget() {
+        public Resource getActorTarget() { 
           return this.actorTarget;
         }
 
         /**
          * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner who was involved in the procedure.)
          */
-        public ProcedurePerformerComponent setActorTarget(Resource value) {
+        public ProcedurePerformerComponent setActorTarget(Resource value) { 
           this.actorTarget = value;
           return this;
         }
@@ -235,7 +235,7 @@ public class Procedure extends DomainResource {
         /**
          * @return {@link #role} (For example: surgeon, anaethetist, endoscopist.)
          */
-        public CodeableConcept getRole() {
+        public CodeableConcept getRole() { 
           if (this.role == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProcedurePerformerComponent.role");
@@ -244,14 +244,14 @@ public class Procedure extends DomainResource {
           return this.role;
         }
 
-        public boolean hasRole() {
+        public boolean hasRole() { 
           return this.role != null && !this.role.isEmpty();
         }
 
         /**
          * @param value {@link #role} (For example: surgeon, anaethetist, endoscopist.)
          */
-        public ProcedurePerformerComponent setRole(CodeableConcept value) {
+        public ProcedurePerformerComponent setRole(CodeableConcept value) { 
           this.role = value;
           return this;
         }
@@ -367,7 +367,7 @@ public class Procedure extends DomainResource {
         /**
          * @return {@link #action} (The kind of change that happened to the device during the procedure.)
          */
-        public CodeableConcept getAction() {
+        public CodeableConcept getAction() { 
           if (this.action == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProcedureFocalDeviceComponent.action");
@@ -376,14 +376,14 @@ public class Procedure extends DomainResource {
           return this.action;
         }
 
-        public boolean hasAction() {
+        public boolean hasAction() { 
           return this.action != null && !this.action.isEmpty();
         }
 
         /**
          * @param value {@link #action} (The kind of change that happened to the device during the procedure.)
          */
-        public ProcedureFocalDeviceComponent setAction(CodeableConcept value) {
+        public ProcedureFocalDeviceComponent setAction(CodeableConcept value) { 
           this.action = value;
           return this;
         }
@@ -391,7 +391,7 @@ public class Procedure extends DomainResource {
         /**
          * @return {@link #manipulated} (The device that was manipulated (changed) during the procedure.)
          */
-        public Reference getManipulated() {
+        public Reference getManipulated() { 
           if (this.manipulated == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProcedureFocalDeviceComponent.manipulated");
@@ -400,14 +400,14 @@ public class Procedure extends DomainResource {
           return this.manipulated;
         }
 
-        public boolean hasManipulated() {
+        public boolean hasManipulated() { 
           return this.manipulated != null && !this.manipulated.isEmpty();
         }
 
         /**
          * @param value {@link #manipulated} (The device that was manipulated (changed) during the procedure.)
          */
-        public ProcedureFocalDeviceComponent setManipulated(Reference value) {
+        public ProcedureFocalDeviceComponent setManipulated(Reference value) { 
           this.manipulated = value;
           return this;
         }
@@ -415,7 +415,7 @@ public class Procedure extends DomainResource {
         /**
          * @return {@link #manipulated} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The device that was manipulated (changed) during the procedure.)
          */
-        public Device getManipulatedTarget() {
+        public Device getManipulatedTarget() { 
           if (this.manipulatedTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create ProcedureFocalDeviceComponent.manipulated");
@@ -427,7 +427,7 @@ public class Procedure extends DomainResource {
         /**
          * @param value {@link #manipulated} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The device that was manipulated (changed) during the procedure.)
          */
-        public ProcedureFocalDeviceComponent setManipulatedTarget(Device value) {
+        public ProcedureFocalDeviceComponent setManipulatedTarget(Device value) { 
           this.manipulatedTarget = value;
           return this;
         }
@@ -701,13 +701,13 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #identifier} (This records identifiers associated with this procedure that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).)
      */
-    public List<Identifier> getIdentifier() {
+    public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
         this.identifier = new ArrayList<Identifier>();
       return this.identifier;
     }
 
-    public boolean hasIdentifier() {
+    public boolean hasIdentifier() { 
       if (this.identifier == null)
         return false;
       for (Identifier item : this.identifier)
@@ -741,7 +741,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #subject} (The person, animal or group on which the procedure was performed.)
      */
-    public Reference getSubject() {
+    public Reference getSubject() { 
       if (this.subject == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.subject");
@@ -750,14 +750,14 @@ public class Procedure extends DomainResource {
       return this.subject;
     }
 
-    public boolean hasSubject() {
+    public boolean hasSubject() { 
       return this.subject != null && !this.subject.isEmpty();
     }
 
     /**
      * @param value {@link #subject} (The person, animal or group on which the procedure was performed.)
      */
-    public Procedure setSubject(Reference value) {
+    public Procedure setSubject(Reference value) { 
       this.subject = value;
       return this;
     }
@@ -765,14 +765,14 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The person, animal or group on which the procedure was performed.)
      */
-    public Resource getSubjectTarget() {
+    public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
      * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The person, animal or group on which the procedure was performed.)
      */
-    public Procedure setSubjectTarget(Resource value) {
+    public Procedure setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
       return this;
     }
@@ -780,7 +780,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #status} (A code specifying the state of the procedure. Generally this will be in-progress or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<ProcedureStatus> getStatusElement() {
+    public Enumeration<ProcedureStatus> getStatusElement() { 
       if (this.status == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.status");
@@ -789,18 +789,18 @@ public class Procedure extends DomainResource {
       return this.status;
     }
 
-    public boolean hasStatusElement() {
+    public boolean hasStatusElement() { 
       return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasStatus() {
+    public boolean hasStatus() { 
       return this.status != null && !this.status.isEmpty();
     }
 
     /**
      * @param value {@link #status} (A code specifying the state of the procedure. Generally this will be in-progress or completed state.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Procedure setStatusElement(Enumeration<ProcedureStatus> value) {
+    public Procedure setStatusElement(Enumeration<ProcedureStatus> value) { 
       this.status = value;
       return this;
     }
@@ -808,14 +808,14 @@ public class Procedure extends DomainResource {
     /**
      * @return A code specifying the state of the procedure. Generally this will be in-progress or completed state.
      */
-    public ProcedureStatus getStatus() {
+    public ProcedureStatus getStatus() { 
       return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value A code specifying the state of the procedure. Generally this will be in-progress or completed state.
      */
-    public Procedure setStatus(ProcedureStatus value) {
+    public Procedure setStatus(ProcedureStatus value) { 
         if (this.status == null)
           this.status = new Enumeration<ProcedureStatus>(new ProcedureStatusEnumFactory());
         this.status.setValue(value);
@@ -825,7 +825,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #category} (A code that classifies the procedure for searching, sorting and display purposes (e.g. "Surgical Procedure").)
      */
-    public CodeableConcept getCategory() {
+    public CodeableConcept getCategory() { 
       if (this.category == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.category");
@@ -834,14 +834,14 @@ public class Procedure extends DomainResource {
       return this.category;
     }
 
-    public boolean hasCategory() {
+    public boolean hasCategory() { 
       return this.category != null && !this.category.isEmpty();
     }
 
     /**
      * @param value {@link #category} (A code that classifies the procedure for searching, sorting and display purposes (e.g. "Surgical Procedure").)
      */
-    public Procedure setCategory(CodeableConcept value) {
+    public Procedure setCategory(CodeableConcept value) { 
       this.category = value;
       return this;
     }
@@ -849,7 +849,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #code} (The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. "Laparoscopic Appendectomy").)
      */
-    public CodeableConcept getCode() {
+    public CodeableConcept getCode() { 
       if (this.code == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.code");
@@ -858,14 +858,14 @@ public class Procedure extends DomainResource {
       return this.code;
     }
 
-    public boolean hasCode() {
+    public boolean hasCode() { 
       return this.code != null && !this.code.isEmpty();
     }
 
     /**
      * @param value {@link #code} (The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. "Laparoscopic Appendectomy").)
      */
-    public Procedure setCode(CodeableConcept value) {
+    public Procedure setCode(CodeableConcept value) { 
       this.code = value;
       return this;
     }
@@ -873,7 +873,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #notPerformed} (Set this to true if the record is saying that the procedure was NOT performed.). This is the underlying object with id, value and extensions. The accessor "getNotPerformed" gives direct access to the value
      */
-    public BooleanType getNotPerformedElement() {
+    public BooleanType getNotPerformedElement() { 
       if (this.notPerformed == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.notPerformed");
@@ -882,18 +882,18 @@ public class Procedure extends DomainResource {
       return this.notPerformed;
     }
 
-    public boolean hasNotPerformedElement() {
+    public boolean hasNotPerformedElement() { 
       return this.notPerformed != null && !this.notPerformed.isEmpty();
     }
 
-    public boolean hasNotPerformed() {
+    public boolean hasNotPerformed() { 
       return this.notPerformed != null && !this.notPerformed.isEmpty();
     }
 
     /**
      * @param value {@link #notPerformed} (Set this to true if the record is saying that the procedure was NOT performed.). This is the underlying object with id, value and extensions. The accessor "getNotPerformed" gives direct access to the value
      */
-    public Procedure setNotPerformedElement(BooleanType value) {
+    public Procedure setNotPerformedElement(BooleanType value) { 
       this.notPerformed = value;
       return this;
     }
@@ -901,14 +901,14 @@ public class Procedure extends DomainResource {
     /**
      * @return Set this to true if the record is saying that the procedure was NOT performed.
      */
-    public boolean getNotPerformed() {
+    public boolean getNotPerformed() { 
       return this.notPerformed == null || this.notPerformed.isEmpty() ? false : this.notPerformed.getValue();
     }
 
     /**
      * @param value Set this to true if the record is saying that the procedure was NOT performed.
      */
-    public Procedure setNotPerformed(boolean value) {
+    public Procedure setNotPerformed(boolean value) { 
         if (this.notPerformed == null)
           this.notPerformed = new BooleanType();
         this.notPerformed.setValue(value);
@@ -918,13 +918,13 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #reasonNotPerformed} (A code indicating why the procedure was not performed.)
      */
-    public List<CodeableConcept> getReasonNotPerformed() {
+    public List<CodeableConcept> getReasonNotPerformed() { 
       if (this.reasonNotPerformed == null)
         this.reasonNotPerformed = new ArrayList<CodeableConcept>();
       return this.reasonNotPerformed;
     }
 
-    public boolean hasReasonNotPerformed() {
+    public boolean hasReasonNotPerformed() { 
       if (this.reasonNotPerformed == null)
         return false;
       for (CodeableConcept item : this.reasonNotPerformed)
@@ -958,13 +958,13 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #bodySite} (Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.)
      */
-    public List<CodeableConcept> getBodySite() {
+    public List<CodeableConcept> getBodySite() { 
       if (this.bodySite == null)
         this.bodySite = new ArrayList<CodeableConcept>();
       return this.bodySite;
     }
 
-    public boolean hasBodySite() {
+    public boolean hasBodySite() { 
       if (this.bodySite == null)
         return false;
       for (CodeableConcept item : this.bodySite)
@@ -998,44 +998,44 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #reason} (The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.)
      */
-    public Type getReason() {
+    public Type getReason() { 
       return this.reason;
     }
 
     /**
      * @return {@link #reason} (The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.)
      */
-    public CodeableConcept getReasonCodeableConcept() throws FHIRException {
+    public CodeableConcept getReasonCodeableConcept() throws FHIRException { 
       if (!(this.reason instanceof CodeableConcept))
         throw new FHIRException("Type mismatch: the type CodeableConcept was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (CodeableConcept) this.reason;
     }
 
-    public boolean hasReasonCodeableConcept() {
+    public boolean hasReasonCodeableConcept() { 
       return this.reason instanceof CodeableConcept;
     }
 
     /**
      * @return {@link #reason} (The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.)
      */
-    public Reference getReasonReference() throws FHIRException {
+    public Reference getReasonReference() throws FHIRException { 
       if (!(this.reason instanceof Reference))
         throw new FHIRException("Type mismatch: the type Reference was expected, but "+this.reason.getClass().getName()+" was encountered");
       return (Reference) this.reason;
     }
 
-    public boolean hasReasonReference() {
+    public boolean hasReasonReference() { 
       return this.reason instanceof Reference;
     }
 
-    public boolean hasReason() {
+    public boolean hasReason() { 
       return this.reason != null && !this.reason.isEmpty();
     }
 
     /**
      * @param value {@link #reason} (The reason why the procedure was performed. This may be due to a Condition, may be coded entity of some type, or may simply be present as text.)
      */
-    public Procedure setReason(Type value) {
+    public Procedure setReason(Type value) { 
       this.reason = value;
       return this;
     }
@@ -1043,13 +1043,13 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #performer} (Limited to 'real' people rather than equipment.)
      */
-    public List<ProcedurePerformerComponent> getPerformer() {
+    public List<ProcedurePerformerComponent> getPerformer() { 
       if (this.performer == null)
         this.performer = new ArrayList<ProcedurePerformerComponent>();
       return this.performer;
     }
 
-    public boolean hasPerformer() {
+    public boolean hasPerformer() { 
       if (this.performer == null)
         return false;
       for (ProcedurePerformerComponent item : this.performer)
@@ -1083,44 +1083,44 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
-    public Type getPerformed() {
+    public Type getPerformed() { 
       return this.performed;
     }
 
     /**
      * @return {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
-    public DateTimeType getPerformedDateTimeType() throws FHIRException {
+    public DateTimeType getPerformedDateTimeType() throws FHIRException { 
       if (!(this.performed instanceof DateTimeType))
         throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (DateTimeType) this.performed;
     }
 
-    public boolean hasPerformedDateTimeType() {
+    public boolean hasPerformedDateTimeType() { 
       return this.performed instanceof DateTimeType;
     }
 
     /**
      * @return {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
-    public Period getPerformedPeriod() throws FHIRException {
+    public Period getPerformedPeriod() throws FHIRException { 
       if (!(this.performed instanceof Period))
         throw new FHIRException("Type mismatch: the type Period was expected, but "+this.performed.getClass().getName()+" was encountered");
       return (Period) this.performed;
     }
 
-    public boolean hasPerformedPeriod() {
+    public boolean hasPerformedPeriod() { 
       return this.performed instanceof Period;
     }
 
-    public boolean hasPerformed() {
+    public boolean hasPerformed() { 
       return this.performed != null && !this.performed.isEmpty();
     }
 
     /**
      * @param value {@link #performed} (The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.)
      */
-    public Procedure setPerformed(Type value) {
+    public Procedure setPerformed(Type value) { 
       this.performed = value;
       return this;
     }
@@ -1128,7 +1128,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #encounter} (The encounter during which the procedure was performed.)
      */
-    public Reference getEncounter() {
+    public Reference getEncounter() { 
       if (this.encounter == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.encounter");
@@ -1137,14 +1137,14 @@ public class Procedure extends DomainResource {
       return this.encounter;
     }
 
-    public boolean hasEncounter() {
+    public boolean hasEncounter() { 
       return this.encounter != null && !this.encounter.isEmpty();
     }
 
     /**
      * @param value {@link #encounter} (The encounter during which the procedure was performed.)
      */
-    public Procedure setEncounter(Reference value) {
+    public Procedure setEncounter(Reference value) { 
       this.encounter = value;
       return this;
     }
@@ -1152,7 +1152,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #encounter} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The encounter during which the procedure was performed.)
      */
-    public Encounter getEncounterTarget() {
+    public Encounter getEncounterTarget() { 
       if (this.encounterTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.encounter");
@@ -1164,7 +1164,7 @@ public class Procedure extends DomainResource {
     /**
      * @param value {@link #encounter} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The encounter during which the procedure was performed.)
      */
-    public Procedure setEncounterTarget(Encounter value) {
+    public Procedure setEncounterTarget(Encounter value) { 
       this.encounterTarget = value;
       return this;
     }
@@ -1172,7 +1172,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #location} (The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.)
      */
-    public Reference getLocation() {
+    public Reference getLocation() { 
       if (this.location == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.location");
@@ -1181,14 +1181,14 @@ public class Procedure extends DomainResource {
       return this.location;
     }
 
-    public boolean hasLocation() {
+    public boolean hasLocation() { 
       return this.location != null && !this.location.isEmpty();
     }
 
     /**
      * @param value {@link #location} (The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.)
      */
-    public Procedure setLocation(Reference value) {
+    public Procedure setLocation(Reference value) { 
       this.location = value;
       return this;
     }
@@ -1196,7 +1196,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.)
      */
-    public Location getLocationTarget() {
+    public Location getLocationTarget() { 
       if (this.locationTarget == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.location");
@@ -1208,7 +1208,7 @@ public class Procedure extends DomainResource {
     /**
      * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.)
      */
-    public Procedure setLocationTarget(Location value) {
+    public Procedure setLocationTarget(Location value) { 
       this.locationTarget = value;
       return this;
     }
@@ -1216,7 +1216,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #outcome} (The outcome of the procedure - did it resolve reasons for the procedure being performed?)
      */
-    public CodeableConcept getOutcome() {
+    public CodeableConcept getOutcome() { 
       if (this.outcome == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.outcome");
@@ -1225,14 +1225,14 @@ public class Procedure extends DomainResource {
       return this.outcome;
     }
 
-    public boolean hasOutcome() {
+    public boolean hasOutcome() { 
       return this.outcome != null && !this.outcome.isEmpty();
     }
 
     /**
      * @param value {@link #outcome} (The outcome of the procedure - did it resolve reasons for the procedure being performed?)
      */
-    public Procedure setOutcome(CodeableConcept value) {
+    public Procedure setOutcome(CodeableConcept value) { 
       this.outcome = value;
       return this;
     }
@@ -1240,13 +1240,13 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #report} (This could be a histology result, pathology report, surgical report, etc..)
      */
-    public List<Reference> getReport() {
+    public List<Reference> getReport() { 
       if (this.report == null)
         this.report = new ArrayList<Reference>();
       return this.report;
     }
 
-    public boolean hasReport() {
+    public boolean hasReport() { 
       if (this.report == null)
         return false;
       for (Reference item : this.report)
@@ -1280,7 +1280,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #report} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. This could be a histology result, pathology report, surgical report, etc..)
      */
-    public List<DiagnosticReport> getReportTarget() {
+    public List<DiagnosticReport> getReportTarget() { 
       if (this.reportTarget == null)
         this.reportTarget = new ArrayList<DiagnosticReport>();
       return this.reportTarget;
@@ -1290,7 +1290,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #report} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. This could be a histology result, pathology report, surgical report, etc..)
      */
-    public DiagnosticReport addReportTarget() {
+    public DiagnosticReport addReportTarget() { 
       DiagnosticReport r = new DiagnosticReport();
       if (this.reportTarget == null)
         this.reportTarget = new ArrayList<DiagnosticReport>();
@@ -1301,13 +1301,13 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #complication} (Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues.)
      */
-    public List<CodeableConcept> getComplication() {
+    public List<CodeableConcept> getComplication() { 
       if (this.complication == null)
         this.complication = new ArrayList<CodeableConcept>();
       return this.complication;
     }
 
-    public boolean hasComplication() {
+    public boolean hasComplication() { 
       if (this.complication == null)
         return false;
       for (CodeableConcept item : this.complication)
@@ -1341,13 +1341,13 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #followUp} (If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or could potentially be more complex in which case the CarePlan resource can be used.)
      */
-    public List<CodeableConcept> getFollowUp() {
+    public List<CodeableConcept> getFollowUp() { 
       if (this.followUp == null)
         this.followUp = new ArrayList<CodeableConcept>();
       return this.followUp;
     }
 
-    public boolean hasFollowUp() {
+    public boolean hasFollowUp() { 
       if (this.followUp == null)
         return false;
       for (CodeableConcept item : this.followUp)
@@ -1381,7 +1381,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #request} (A reference to a resource that contains details of the request for this procedure.)
      */
-    public Reference getRequest() {
+    public Reference getRequest() { 
       if (this.request == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Procedure.request");
@@ -1390,14 +1390,14 @@ public class Procedure extends DomainResource {
       return this.request;
     }
 
-    public boolean hasRequest() {
+    public boolean hasRequest() { 
       return this.request != null && !this.request.isEmpty();
     }
 
     /**
      * @param value {@link #request} (A reference to a resource that contains details of the request for this procedure.)
      */
-    public Procedure setRequest(Reference value) {
+    public Procedure setRequest(Reference value) { 
       this.request = value;
       return this;
     }
@@ -1405,14 +1405,14 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #request} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (A reference to a resource that contains details of the request for this procedure.)
      */
-    public Resource getRequestTarget() {
+    public Resource getRequestTarget() { 
       return this.requestTarget;
     }
 
     /**
      * @param value {@link #request} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A reference to a resource that contains details of the request for this procedure.)
      */
-    public Procedure setRequestTarget(Resource value) {
+    public Procedure setRequestTarget(Resource value) { 
       this.requestTarget = value;
       return this;
     }
@@ -1420,13 +1420,13 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #notes} (Any other notes about the procedure.  E.g. the operative notes.)
      */
-    public List<Annotation> getNotes() {
+    public List<Annotation> getNotes() { 
       if (this.notes == null)
         this.notes = new ArrayList<Annotation>();
       return this.notes;
     }
 
-    public boolean hasNotes() {
+    public boolean hasNotes() { 
       if (this.notes == null)
         return false;
       for (Annotation item : this.notes)
@@ -1460,13 +1460,13 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #focalDevice} (A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.)
      */
-    public List<ProcedureFocalDeviceComponent> getFocalDevice() {
+    public List<ProcedureFocalDeviceComponent> getFocalDevice() { 
       if (this.focalDevice == null)
         this.focalDevice = new ArrayList<ProcedureFocalDeviceComponent>();
       return this.focalDevice;
     }
 
-    public boolean hasFocalDevice() {
+    public boolean hasFocalDevice() { 
       if (this.focalDevice == null)
         return false;
       for (ProcedureFocalDeviceComponent item : this.focalDevice)
@@ -1500,13 +1500,13 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #used} (Identifies medications, devices and any other substance used as part of the procedure.)
      */
-    public List<Reference> getUsed() {
+    public List<Reference> getUsed() { 
       if (this.used == null)
         this.used = new ArrayList<Reference>();
       return this.used;
     }
 
-    public boolean hasUsed() {
+    public boolean hasUsed() { 
       if (this.used == null)
         return false;
       for (Reference item : this.used)
@@ -1540,7 +1540,7 @@ public class Procedure extends DomainResource {
     /**
      * @return {@link #used} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Identifies medications, devices and any other substance used as part of the procedure.)
      */
-    public List<Resource> getUsedTarget() {
+    public List<Resource> getUsedTarget() { 
       if (this.usedTarget == null)
         this.usedTarget = new ArrayList<Resource>();
       return this.usedTarget;
