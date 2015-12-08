@@ -2,49 +2,49 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = KnowledgeModuleResourceType
+  Binding Name = !KnowledgeModuleResourceType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/knowledge-module-resource-type
   Definition = The type of related resource for the module
   Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = KnowledgeModuleStatus
+  Binding Name = !KnowledgeModuleStatus
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/knowledge-module-status
   Definition = The status of the knowledge module
   Conformance = required
 
  -- Row 3 -----------------------------------
-  Binding Name = KnowledgeModuleContributorType
+  Binding Name = !KnowledgeModuleContributorType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/knowledge-module-contributor
   Definition = The type of contributor
   Conformance = required
 
  -- Row 4 -----------------------------------
-  Binding Name = KnowledgeModuleParameterType
+  Binding Name = !KnowledgeModuleParameterType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/operation-parameter-type
   Definition = The type of the parameter
   Conformance = required
 
  -- Row 5 -----------------------------------
-  Binding Name = KnowledgeModuleParameterUse
+  Binding Name = !KnowledgeModuleParameterUse
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/operation-parameter-use
   Definition = Whether the parameter is input or output
   Conformance = required
 
  -- Row 6 -----------------------------------
-  Binding Name = KnowledgeResponseStatus
+  Binding Name = !KnowledgeResponseStatus
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/knowledge-response-status
   Definition = The status of a knowledge response
   Conformance = required
 
  -- Row 7 -----------------------------------
-  Binding Name = KnowledgeModuleFocusType
+  Binding Name = !KnowledgeModuleFocusType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/knowledge-module-focus-type
   Definition = Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care)

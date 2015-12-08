@@ -53,13 +53,15 @@
  -- Row 5 -----------------------------------
   Element = DecisionSupportServiceModule.parameter
   Card. = 0..*
-  Definition = Parameters to the module
+  Short Label = Parameters to the module
+  Definition = The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse
 
  -- Row 6 -----------------------------------
   Element = DecisionSupportServiceModule.parameter.name
-  Card. = 1..1
+  Card. = 0..1
   Type = code
   Binding = !
+  Short Label = Parameter name
   Definition = The name of the parameter
 
  -- Row 7 -----------------------------------
@@ -73,7 +75,8 @@
   Element = DecisionSupportServiceModule.parameter.documentation
   Card. = 0..1
   Type = string
-  Definition = A brief description of the parameter
+  Short Label = A brief description of the parameter
+  Definition = A brief discussion of what the parameter is for and how it is used by the module
 
  -- Row 9 -----------------------------------
   Element = DecisionSupportServiceModule.parameter.type
@@ -86,7 +89,8 @@
   Element = DecisionSupportServiceModule.parameter.profile
   Card. = 0..1
   Type = Reference(StructureDefinition)
-  Definition = The profile of the parameter, if any
+  Short Label = The profile of the parameter, any
+  Definition = If specified, this indicates a profile that the input data must conform to, or that the output data will conform to
 
  -- Row 11 -----------------------------------
   Element = DecisionSupportServiceModule.parameter.mustSupport
@@ -98,7 +102,8 @@
  -- Row 12 -----------------------------------
   Element = DecisionSupportServiceModule.parameter.codeFilter
   Card. = 0..*
-  Definition = Code filters for the required data, if any
+  Short Label = Code filters for the required data, if any
+  Definition = Indicates that incoming data for this parameter is expected to match the given code filter. In other words, every instance should have a value for the path element that comes from the specified value set (or list of concepts)
 
  -- Row 13 -----------------------------------
   Element = DecisionSupportServiceModule.parameter.codeFilter.path
@@ -110,7 +115,7 @@
  -- Row 14 -----------------------------------
   Element = DecisionSupportServiceModule.parameter.codeFilter.valueSet[x]
   Card. = 0..1
-  Type = string|Reference(ValueSet)
+  Type = uri|Reference(ValueSet)
   Short Label = The valueset for the code filter
   Definition = The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset
 
@@ -124,7 +129,8 @@
  -- Row 16 -----------------------------------
   Element = DecisionSupportServiceModule.parameter.dateFilter
   Card. = 0..*
-  Definition = Date filters for the required data, if any
+  Short Label = Date filters for the required data, if any
+  Definition = Indicates that incoming data for this parameter is expected to match the given date filter. In other words, every instance should have a value for the path element that is equal to the given datetime (or within the given Period)
 
  -- Row 17 -----------------------------------
   Element = DecisionSupportServiceModule.parameter.dateFilter.path

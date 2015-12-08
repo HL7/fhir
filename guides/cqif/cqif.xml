@@ -12,35 +12,35 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-cqif-extensions-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+    <!--extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-knowledgemodule-cqif-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+    </extension-->
+    <!--extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-knowledgerequest-cqif-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+    </extension-->
+    <!--extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-knowledgeresponse-cqif-profile-spreadsheet.xml"/>
-    </extension>
+    </extension-->
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-cqif-guidance-extensions-spreadsheet.xml"/>
     </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+    <!--extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-guidancerequest-cqif-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+    </extension-->
+    <!--extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-guidanceresponse-cqif-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+    </extension-->
+    <!--extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="documentreference-evidence-cqif-profile-spreadsheet.xml"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+    </extension-->
+    <!--extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="basic-guidanceartifact-cqif-profile-spreadsheet.xml"/>
-    </extension>
+    </extension-->
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="questionnaire-cqif-profile-spreadsheet.xml"/>
     </extension>
     <name value="base"/>
-    <resource>
+    <!--resource>
       <purpose value="example"/>
       <name value="Knowledge Module - Stand-Alone Module"/>
       <description value="KnowledgeModule used to define a Guideline Appropriate Ordering module"/>
@@ -48,8 +48,8 @@
       <exampleFor>
         <reference value="StructureDefinition/cqif-knowledgemodule"/>
       </exampleFor>
-    </resource>
-    <resource>
+    </resource-->
+    <!--resource>
 		<purpose value="example"/>
 		<name value="Knowledge Module - Library"/>
 		<description value="KnowledgeModule used to expose a CQL library as a knowledge module"/>
@@ -57,8 +57,8 @@
 		<exampleFor>
 			<reference value="StructureDefinition/cqif-knowledgemodule"/>
 		</exampleFor>
-    </resource>
-	<resource>
+    </resource-->
+	<!--resource>
 		<purpose value="example"/>
 		<name value="Guidance Artifact - HeD Reference"/>
 		<description value="GuidanceArtifact used to expose an existing HeD artifact as a knowledge module"/>
@@ -66,8 +66,8 @@
 		<exampleFor>
 			<reference value="StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
-    </resource>
-    <resource>
+    </resource-->
+    <!--resource>
 		<purpose value="example"/>
 		<name value="Guidance Artifact - ECA Rule"/>
 		<description value="GuidanceArtifact used to define an ECA Rule"/>
@@ -75,8 +75,8 @@
 		<exampleFor>
 			<reference value="StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
-    </resource>
-    <resource>
+    </resource-->
+    <!--resource>
 		<purpose value="example"/>
 		<name value="Guidance Artifact - Documentation Template"/>
 		<description value="GuidanceArtifact used to define a Documentation Template"/>
@@ -84,8 +84,8 @@
 		<exampleFor>
 			<reference value="StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
-    </resource>
-    <resource>
+    </resource-->
+    <!--resource>
 		<purpose value="example"/>
 		<name value="Guidance Artifact - Order Set"/>
 		<description value="GuidanceArtifact used to define an Order Set"/>
@@ -93,8 +93,8 @@
 		<exampleFor>
 			<reference value="StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
-    </resource>
-    <resource>
+    </resource-->
+    <!--resource>
 		<purpose value="example"/>
 		<name value="Guidance Artifact - Suicide Risk Order Set"/>
 		<description value="GuidanceArtifact used to define a suicide risk management Order Set"/>
@@ -102,8 +102,8 @@
 		<exampleFor>
 			<reference value="StructureDefinition/cqif-guidanceartifact"/>
 		</exampleFor>
-    </resource>
-    <resource>
+    </resource-->
+    <!--resource>
 		<purpose value="example"/>
 		<name value="Questionnaire - PHQ-9"/>
 		<description value="Questionnaire used to define the questions involved in the PHQ-9 health questionnaire"/>
@@ -111,7 +111,7 @@
 		<exampleFor>
 			<reference value="StructureDefinition/cqif-questionnaire"/>
 		</exampleFor>
-    </resource>
+    </resource-->
 	<!--    
     <resource>
       <purpose value="example"/>
@@ -147,7 +147,7 @@
       <source value="cqif-common.html"/>
       <name value="Common Properties Page"/>
       <kind value="page"/>
-      <page>
+      <!--page>
 		  <source value="knowledgemodule-cqif.html"/>
 		  <name value="Knowledge Module"/>
 		  <kind value="page"/>
@@ -170,8 +170,8 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-      </page>
-      <page>
+      </page-->
+      <!--page>
 		  <source value="knowledgerequest-cqif.html"/>
 		  <name value="Knowledge Request"/>
 		  <kind value="page"/>
@@ -182,8 +182,8 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-      </page>
-      <page>
+      </page-->
+      <!--page>
 		  <source value="knowledgeresponse-cqif.html"/>
 		  <name value="Knowledge Response"/>
 		  <kind value="page"/>
@@ -194,13 +194,13 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-      </page>
+      </page-->
     </page>
     <page>
       <source value="cqif-cds-on-fhir.html"/>
       <name value="Clinical Decision Support API"/>
       <kind value="page"/>
-      <page>
+      <!--page>
 		  <source value="guidanceartifact-cqif.html"/>
 		  <name value="Guidance Artifact"/>
 		  <kind value="page"/>
@@ -241,7 +241,7 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-      </page>
+      </page-->
       <page>
 		  <source value="questionnaire-cqif.html"/>
 		  <name value="Questionnaire"/>
@@ -260,7 +260,7 @@
 			  <format value="generated"/>
 		  </page>
       </page>
-      <page>
+      <!--page>
 		  <source value="guidancerequest-cqif.html"/>
 		  <name value="Guidance Request"/>
 		  <kind value="page"/>
@@ -271,16 +271,14 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-		  <!--
 		  <page>
 			  <source value="guidance-operation-request-example-v2.html"/>
 			  <name value="Guidance Request - Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-		  -->
-      </page>
-      <page>
+      </page-->
+      <!--page>
 		  <source value="guidanceresponse-cqif.html"/>
 		  <name value="Guidance Response"/>
 		  <kind value="page"/>
@@ -291,21 +289,18 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-		  <!--
 		  <page>
 			  <source value="guidance-operation-response-example-v2.html"/>
 			  <name value="Guidance Response - Example"/>
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-		  -->
-      </page>
-      <page>
+      </page-->
+      <!--page>
   		  <source value="operation-guidancerequest-cqif-guidance.html"/>
 	  	  <name value="Guidance Operation"/>
 		    <kind value="page"/>
 		    <format value="generated"/>
-		  <!--
 		  <page>
 			  <source value="guidance-operation-request-example-v2.html"/>
 			  <name value="Guidance Operation - Request Example"/>
@@ -318,14 +313,13 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-		  -->
-      </page>
-      <page>
+      </page-->
+      <!--page>
   		  <source value="operation-guidancerequest-cqif-guidance-requirements.html"/>
 	  	  <name value="Guidance Operation (Requirements)"/>
 		    <kind value="page"/>
 		    <format value="generated"/>
-      </page>
+      </page-->
     </page>
     <page>
       <source value="cqif-evidence.html"/>

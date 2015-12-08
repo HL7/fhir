@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-08-20T18:37:50Z</LastSaved>
+  <LastSaved>2015-12-07T23:17:54Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8355</WindowHeight>
-  <WindowWidth>21570</WindowWidth>
+  <WindowHeight>13635</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>7</ActiveSheet>
@@ -4328,7 +4328,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Extensions!R1C1:R35C23"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="76" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="81" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s84" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="227.25"/>
    <Column ss:StyleID="s84" ss:Width="51"/>
@@ -4447,7 +4447,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><Data ss:Type="String">module</Data><NamedCell
+    <Cell ss:StyleID="s126"><Data ss:Type="String">!module</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4481,7 +4481,7 @@
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">evaluationSupported</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!evaluationSupported</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4515,7 +4515,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">inputParameters</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!inputParameters</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4548,7 +4548,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">outputParameters</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!outputParameters</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4581,7 +4581,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">responseStatus</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!responseStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4616,7 +4616,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">evaluationMessage</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!evaluationMessage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4649,7 +4649,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">requestId</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!requestId</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4682,7 +4682,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">requestDateTime</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!requestDateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4715,7 +4715,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">evaluateAtDateTime</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!evaluateAtDateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4748,7 +4748,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">moduleVersion</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!moduleVersion</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4781,7 +4781,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">title</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!title</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4813,7 +4813,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">description</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4845,7 +4845,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">purpose</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!purpose</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4877,7 +4877,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">usage</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!usage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4909,7 +4909,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">publicationDate</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!publicationDate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4941,7 +4941,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">lastReviewDate</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!lastReviewDate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4973,7 +4973,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">effectivePeriod</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!effectivePeriod</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5005,7 +5005,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">moduleStatus</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!moduleStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5161,7 +5161,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">topic</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!topic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5193,7 +5193,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">keyword</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!keyword</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5225,7 +5225,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">contributor</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!contributor</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5256,7 +5256,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">contributor.type</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!contributor.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5287,7 +5287,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">contributor.party</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!contributor.party</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5317,7 +5317,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">publisher</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!publisher</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5349,7 +5349,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">steward</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!steward</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5381,7 +5381,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">rightsDeclaration</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!rightsDeclaration</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5413,7 +5413,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">relatedResource</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!relatedResource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5444,7 +5444,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">relatedResource.type</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!relatedResource.type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5475,7 +5475,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">relatedResource.uri</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!relatedResource.uri</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5505,7 +5505,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">relatedResource.description</Data><NamedCell
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!relatedResource.description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5535,7 +5535,7 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">relatedResource.document</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!relatedResource.document</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">relatedResource.document</Data></Cell>
@@ -5560,7 +5560,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">model</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!model</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">model</Data></Cell>
@@ -5585,7 +5585,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">model.name</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!model.name</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">model.name</Data></Cell>
@@ -5610,7 +5610,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">model.id</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!model.id</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">model.id</Data></Cell>
@@ -5635,7 +5635,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">model.version</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!model.version</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">model.version</Data></Cell>
@@ -5660,7 +5660,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">library</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!library</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">library</Data></Cell>
@@ -5685,7 +5685,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">library.name</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!library.name</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">library.name</Data></Cell>
@@ -5710,7 +5710,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">library.id</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!library.id</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">library.id</Data></Cell>
@@ -5735,7 +5735,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">library.version</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!library.version</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">library.version</Data></Cell>
@@ -5760,7 +5760,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">library.document</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!library.document</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">library.document</Data></Cell>
@@ -5785,7 +5785,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">codeSystem</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!codeSystem</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">codeSystem</Data></Cell>
@@ -5810,7 +5810,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">codeSystem.name</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!codeSystem.name</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">codeSystem.name</Data></Cell>
@@ -5835,7 +5835,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">codeSystem.id</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!codeSystem.id</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">codeSystem.id</Data></Cell>
@@ -5860,7 +5860,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">codeSystem.version</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!codeSystem.version</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">codeSystem.version</Data></Cell>
@@ -5885,7 +5885,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">valueSet</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!valueSet</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">valueSet</Data></Cell>
@@ -5910,7 +5910,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">valueSet.name</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!valueSet.name</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">valueSet.name</Data></Cell>
@@ -5935,7 +5935,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">valueSet.id</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!valueSet.id</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">valueSet.id</Data></Cell>
@@ -5960,7 +5960,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">valueSet.version</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!valueSet.version</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">valueSet.version</Data></Cell>
@@ -5985,7 +5985,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">valueSet.codeSystem</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!valueSet.codeSystem</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">valueSet.codeSystem</Data></Cell>
@@ -6010,7 +6010,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">parameter</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!parameter</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">parameter</Data></Cell>
@@ -6035,7 +6035,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">parameter.name</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!parameter.name</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">parameter.name</Data></Cell>
@@ -6060,7 +6060,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">parameter.use</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!parameter.use</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">parameter.use</Data></Cell>
@@ -6085,7 +6085,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">parameter.documentation</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!parameter.documentation</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">parameter.documentation</Data></Cell>
@@ -6110,7 +6110,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">parameter.type</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!parameter.type</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">parameter.type</Data></Cell>
@@ -6135,7 +6135,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">parameter.profile</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!parameter.profile</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">parameter.profile</Data></Cell>
@@ -6160,7 +6160,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">data</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!data</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">data</Data></Cell>
@@ -6185,7 +6185,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">data.type</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!data.type</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">data.type</Data></Cell>
@@ -6210,7 +6210,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">data.profile</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!data.profile</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">data.profile</Data></Cell>
@@ -6235,7 +6235,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">data.mustSupport</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!data.mustSupport</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">data.mustSupport</Data></Cell>
@@ -6460,7 +6460,7 @@
     <Cell ss:StyleID="s110"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">content</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">!content</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Basic</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">content</Data></Cell>
@@ -6485,7 +6485,7 @@
     <Cell ss:StyleID="s106"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s105"><Data ss:Type="String">expression</Data></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">!expression</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">expression</Data></Cell>
@@ -6529,6 +6529,70 @@
     <Cell ss:Index="14"><Data ss:Type="String">The strength of the recommendation</Data></Cell>
     <Cell><Data ss:Type="String">The strength of the recommendation assigned to this reference. The code system specifies the scale used to grade the evidence source, while the code specifies the actual score (represented as a coded value) for the strength of the evidence</Data></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s127"><Data ss:Type="String">moduleMetadata</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">moduleMetadata</Data></Cell>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(ModuleMetadata)</Data></Cell>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Metadata for the artifact</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">A reference to a ModuleMetadata resource describing the metadata for the artifact</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s127"><Data ss:Type="String">library</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">*</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">library</Data></Cell>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(Library)</Data></Cell>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"/>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">A library containing logic used by the artifact</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">A reference to a Library containing the formal logic used by the artifact</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">condition</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">condition</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">A condition expression</Data></Cell>
+    <Cell><Data ss:Type="String">The name of a condition expression that determines the applicability of the item. For example, when appearing on a question in a questionnaire, if the expression evaluates to true, the question is applicable, otherwise, the question is not applicable</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">initialValue</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">initialValue</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">An initial value expression</Data></Cell>
+    <Cell><Data ss:Type="String">The name of an expression in a referenced library that determines an initial value</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">calculatedValue</Data></Cell>
+    <Cell><Data ss:Type="String">Resource</Data></Cell>
+    <Cell><Data ss:Type="String">*</Data></Cell>
+    <Cell><Data ss:Type="String">calculatedValue</Data></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">0..*</Data></Cell>
+    <Cell ss:Index="8"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:Index="14"><Data ss:Type="String">A calculated value</Data></Cell>
+    <Cell><Data ss:Type="String">The name of an expression in a referenced library that determines a calculated value</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -6545,7 +6609,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6562,16 +6626,123 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>31</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C6:R78C6</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;0..0,0..1,1..1,0..*,1..*,[n]..[m]&quot;</Value>
+   <ErrorHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C10:R78C10</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;Bindings!A2..A30&quot;</Value>
+   <ErrorHide/>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C9:R78C9</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;Y,N&quot;</Value>
+  </DataValidation>
+  <DataValidation xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C8:R78C8</Range>
+   <Type>List</Type>
+   <CellRangeList/>
+   <Value>&quot;*,Reference(A|B),boolean,string,code,id,oid,uuid,integer,decimal,date,dateTime,time,instant,uri,base64Binary,CodeableConcept,Coding,Identifier,Period,Timing,Range,Quantity,Age,Distance,Duration,Count,Money,Ratio,HumanName,Address,ContactPoint,SampledData&quot;</Value>
+   <ErrorHide/>
+  </DataValidation>
   <AutoFilter x:Range="R1C1:R35C23"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C14</Range>
+   <Condition>
+    <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:yellow'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C1:R77C15,R78C1:R78C13</Range>
+   <Condition>
+    <Value1>RC6=&quot;0..0&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
+   </Condition>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,RC1=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C1</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-1]C=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C2:R78C2</Range>
+   <Condition>
+    <Value1>AND(RC[-1]&lt;&gt;&quot;&quot;,ISERR(SEARCH(&quot;.&quot;,RC[-1])),RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C3:R78C3</Range>
+   <Condition>
+    <Value1>(RC[-1]=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C6:R78C6,R77C15</Range>
+   <Condition>
+    <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C11:R78C13</Range>
+   <Condition>
+    <Value1>AND(SEARCH(&quot;|&quot;,RC8)&lt;&gt;0,RC&lt;&gt;&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C13:R78C13</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,NOT(EXACT(LEFT(RC8,1),LOWER(LEFT(RC8,1)))))</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C14:R77C15</Range>
+   <Condition>
+    <Value1>AND(RC14&lt;&gt;&quot;&quot;,RC14=RC15)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R77C1:R77C15,R78C1:R78C13</Range>
+   <Condition>
+    <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>
+   </Condition>
+  </ConditionalFormatting>
+  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
+   <Range>R78C1</Range>
+   <Condition>
+    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
+    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
+   </Condition>
+  </ConditionalFormatting>
  </Worksheet>
  <Worksheet ss:Name="Search">
   <Names>
@@ -7549,7 +7720,7 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeModuleResourceType</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">!KnowledgeModuleResourceType</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The type of related resource for the module</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
@@ -7564,7 +7735,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeModuleStatus</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">!KnowledgeModuleStatus</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The status of the knowledge module</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
@@ -7579,7 +7750,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeModuleContributorType</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">!KnowledgeModuleContributorType</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The type of contributor</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
@@ -7594,7 +7765,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeModuleParameterType</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">!KnowledgeModuleParameterType</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The type of the parameter</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
@@ -7609,7 +7780,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeModuleParameterUse</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">!KnowledgeModuleParameterUse</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Whether the parameter is input or output</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
@@ -7624,7 +7795,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeResponseStatus</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">!KnowledgeResponseStatus</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">The status of a knowledge response</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">required</Data></Cell>
@@ -7640,7 +7811,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s103"><Data ss:Type="String">KnowledgeModuleFocusType</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">!KnowledgeModuleFocusType</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care)</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">extensible</Data></Cell>
@@ -8004,8 +8175,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
