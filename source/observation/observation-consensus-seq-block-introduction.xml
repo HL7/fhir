@@ -1,0 +1,8 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- content goes here -->
+<h3>Overview</h3>
+<p>
+Another profile is created for variants and consensus sequence in HLA typing report on top of the Observation resource. The variant extension referring to the Sequence resource has multiple values so this profile can support multi-variant.
+</p>
+</div>

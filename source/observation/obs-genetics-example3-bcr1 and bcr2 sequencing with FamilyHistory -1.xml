@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="ob-genetics-3-1"/>
+  <status value="final"/>
+  <code>
+      <coding>
+          <system value="http://loinc.org"/>
+          <code value="21636-6"/>
+          <display value="BRCA1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"/>
+      </coding>
+  </code>
+  <subject>
+      <reference value="Patient/example"/>
+      <display value="Marry Chalmers (MRN: 12345)"/>
+  </subject>
+  <effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
+  <valueCodeableConcept>
+      <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="260385009"/>
+          <display value="Negative"/>
+      </coding>
+  </valueCodeableConcept>
+  
+  <method>
+      <coding>
+          <system value="http://www.ncbi.nlm.nih.gov/gtr/"/>
+          <code value="GTR000521311.1"/>
+          <display value="BRACAnalysis CDx Offered by Myriad Genetic Laboratories, Inc"/>
+      </coding>
+  </method>
+  
+</Observation>

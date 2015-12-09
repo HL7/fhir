@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\sequence.xsd">
+  <id value="consensus-sequence-block-example-1"/>
+  <contained>
+      <Sequence>
+          <id value="variant-1"/>
+          <type value="DNA"/>
+          <coordinate>
+              <start value="29945809"/>
+              <end value="29942810"/>
+          </coordinate>
+          <observedAllele value="AT"/>
+          <referenceAllele value="C"/>
+      </Sequence>
+  </contained>
+  <contained>
+      <Sequence>
+          <id value="variant-2"/>
+          <type value="DNA"/>
+          <coordinate>
+              <start value="29942940"/>
+              <end value="29942942"/>
+          </coordinate>
+          <observedAllele value="G"/>
+          <referenceAllele value="CT"/>
+      </Sequence>
+  </contained>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-consensus-sequence-blockReferenceSeq">
+      <valueCodeableConcept>
+          <coding>
+              <system value="http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/"/>
+              <code value="ref1"/>
+          </coding>
+      </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-consensus-sequence-blockStart">
+      <valueInteger value="29942412"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-consensus-sequence-blockEnd">
+      <valueInteger value="29942852"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-consensus-sequence-blockPhaseSet">
+      <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-consensus-sequence-blockExpectedCopyNumber">
+      <valueInteger value="1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-consensus-sequence-blockContinuity">
+      <valueBoolean value="true"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-consensus-sequence-blockVariant">
+      <valueReference>
+          <reference value="#variant-1"/>
+      </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-consensus-sequence-blockVariant">
+      <valueReference>
+          <reference value="#variant-2"/>
+      </valueReference>
+  </extension>
+  
+  <status value="final"/>
+  <code>
+      <coding>
+          <system value="http://loinc.org"/>
+          <code value="13298-5"/>
+      </coding>
+  </code>
+</Observation>

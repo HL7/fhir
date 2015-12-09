@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="genetics-example2-mutationlist"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsConsensusSequenceBlock">
+      <valueReference>
+          <reference value="consensus-sequence-block-example-1"/>
+      </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleDatabase">
+      <text value="GRCh38.p1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleAsignment-date">
+      <date value="2014-10-22"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring">
+      <ValueText value="HLA-A*01:01:01+HLA-A*24:02:01"/>
+  </extension>
+
+  <status value="final"/>
+  <code>
+      <text value="HLA genotyping results"/>
+  </code>
+  <subject>
+    <reference value="Patient/genetics-example2"/>
+    <display value="Molecular Lab Patient ID: HOSP-23456"/>
+  </subject>
+  <performer>
+    <reference value="Practitioner/genetics-example2"/>
+    <display value="Molecular Diagnostic Laboratory"/>
+  </performer>
+  <specimen>
+    <reference value="Specimen/genetics-example2"/>
+    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
+
+</Observation>

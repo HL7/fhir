@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="ob-genetics-1"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+      <valueReference>
+          <reference value="Sequence/example"/>
+      </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSource">
+      <valueCodeableConcept>
+          <coding>
+              <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+              <code value="LA6684-0"/>
+              <display value="somatic"/>
+          </coding>
+      </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
+      <extension url="genomeBuild">
+          <valueCodeableConcept>
+              <text value="GRCh 38"/>
+          </valueCodeableConcept>
+      </extension>
+      <extension url="name">
+          <valueCodeableConcept>
+              <text value="NG_007726.3:g.146252T&gt;G"/>
+          </valueCodeableConcept>
+      </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+      <valueCodeableConcept>
+          <coding>
+              <system value="http://www.genenames.org"/>
+              <code value="3236"/>
+              <display value="EGFR"/>
+          </coding>
+      </valueCodeableConcept>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsRegion">
+      <valueCodeableConcept>
+          <text value="Exon 21"/>
+      </valueCodeableConcept>
+  </extension>
+  <status value="final"/>
+  <code>
+      <coding>
+          <system value="http://loinc.org"/>
+          <code value="55233-1"/>
+          <display value="Genetic analysis master panel"/>
+      </coding>
+  </code>
+  <subject>
+      <reference value="Patient/genetics-example1-somatic"/>
+      <display value="Molecular Lab Patient ID: HOSP-23456"/>
+  </subject>
+  <issued value="2013-03-11T10:28:00+01:00"/>
+  <performer>
+      <reference value="Practitioner/genetics-example1-somatic"/>
+      <display value="Molecular Diagnostic Laboratory"/>
+  </performer>
+  <valueCodeableConcept>
+      <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="10828004"/>
+          <display value="Positive"/>
+      </coding>
+  </valueCodeableConcept>
+  <specimen>
+      <reference value="Specimen/genetics-example1-somatic"/>
+      <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
+  <component>
+      <code>
+          <coding>
+              <system value="http://loinc.org"/>
+              <code value="51967-8"/>
+              <display value="Genetic disease assessed"/>
+          </coding>
+      </code>
+      <valueCodeableConcept>
+          <coding>
+              <system value="http://snomed.info/sct"/>
+              <code value="363358000"/>
+              <display value="Malignant tumor of lung (disorder)"/>
+          </coding>
+          <text value="Lung cancer"/>
+      </valueCodeableConcept>
+  </component>
+  <component>
+      <code>
+          <coding>
+              <system value="http://loinc.org"/>
+              <code value="53037-8"/>
+              <display value="Genetic disease sequence variation interpretation"/>
+          </coding>
+      </code>
+      <valueCodeableConcept>
+          <coding>
+              <code value="LA6669-1"/>
+              <display value="Pathogenic"/>
+          </coding>
+      </valueCodeableConcept>
+  </component>
+</Observation>

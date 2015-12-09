@@ -1,0 +1,58 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet HLAResult =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DiagnosticReport
+  Profile Name = HLAResult
+
+ -- Row 2 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = AlleleDatabase
+  Card. = 0..1
+  Type = Extension{#AlleleDatabase}
+  Short Label = Allele Database
+  Definition = Allele Database
+
+ -- Row 3 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = AlleleAsignmentDate
+  Card. = 0..1
+  Type = Extension{#AlleleAsignmentDate}
+  Short Label = AlleleAsignmentData
+  Definition = AlleleAsignmentData
+
+ -- Row 4 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = Glstring
+  Card. = 0..1
+  Type = Extension{#Glstring}
+  Short Label = Glstring
+  Definition = Glstring
+
+ -- Row 5 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = Haploid
+  Card. = 0..*
+  Type = Extension{#Haploid}
+  Short Label = Haploid
+  Definition = Haploid
+
+ -- Row 6 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = ConsensusSequenceBlock
+  Card. = 0..*
+  Type = Extension{#ConsensusSequenceBlock}
+  Short Label = ConsensusSequenceBlock
+  Definition = ConsensusSequenceBlock
+
+ -- Row 7 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = Method
+  Card. = 0..1
+  Type = Extension{#Method}
+  Short Label = The platform, methodology and software applied at the time of the\rgenotyping
+  Definition = The platform, methodology and software applied at the time of the\rgenotyping
+
+=== Sheet Search =====================================

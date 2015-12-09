@@ -1,0 +1,84 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = LOINC 53037-8 answerlist
+  Binding = code list
+  Reference = #LOINC-53037-8-answerlist
+  Definition = LOINC answer list for Genetic disease sequence variation interpretation
+  Conformance = example
+
+=== Sheet LOINC-53037-8-answerlist =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = LA6668-3
+  Display = Pathogenic
+  Definition = Pathogenic
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = LA6669-1
+  Display = Presumed pathogenic
+  Definition = Presumed pathogenic
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = LA6682-4
+  Display = Unknown significance
+  Definition = Unknown significance
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = LA6675-8
+  Display = Benign
+  Definition = Benign
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = LA6674-1
+  Display = Presumed benign
+  Definition = Presumed benign
+
+=== Sheet ReportForGenetics =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DiagnosticReport
+  Profile Name = ReportForGenetics
+
+ -- Row 2 -----------------------------------
+  Element = DiagnosticReport.codedDiagnosis
+  Card. = 0..0
+  Type = CodeableConcept
+
+ -- Row 3 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = AssessedCondition
+  Card. = 0..*
+  Type = Extension{#AssessedCondition}
+  Short Label = AssessedCondition
+  Definition = Used to denote condition context for genetic testing, which may influence reported variants and interpretation for large genomic testing panels e.g. lung cancer or familial breast cancer.
+
+ -- Row 4 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = FamilyMemberHistory
+  Card. = 0..*
+  Type = Extension{#FamilyMemberHistory}
+  Short Label = FamilyHistory
+  Definition = Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.
+
+ -- Row 5 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = Analysis
+  Card. = 0..*
+  Type = Extension{#Analysis}
+  Short Label = Analysis
+  Definition = Knowledge-based comments on the effect of the sequence on patient\'s condition/medication reaction
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = assessed-condition
+  Type = reference
+  Description = Condition assessed by genetic test
+  Path = DiagnosticReport.extension(AssessedCondition)

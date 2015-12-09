@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  lab report example: a CBC  -->
+<DiagnosticOrder>
+	<id value="og-example1"/>
+	<subject>
+		<reference value="Patient/example"/>
+	</subject>
+	<orderer>
+		<reference value="Practitioner/example"/>
+	</orderer>
+	<encounter>
+		<reference value="Encounter/example"/>
+	</encounter>
+	<status value="received"/>
+	<event>
+		<status value="requested"/>
+        <dateTime value="2014-05-12T16:16:00-07:00"/>
+		<actor>
+			<reference value="Practitioner/example"/>
+		</actor>
+	</event>
+	<item>
+		<code>
+			<coding>
+				<system value="http://loinc.org"/>
+				<code value="49874-1"/>
+			</coding>
+			<text value="ABCB4 gene mutation analysis"/>
+		</code>
+		<specimen>
+			<reference value="Specimen/example"/>
+		</specimen>
+	</item>
+</DiagnosticOrder>
+

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DiagnosticReport xmlns="http://hl7.org/fhir">
+  <id value="report"/>
+  <contained>
+      <Observation>
+          <id value="o1"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="26464-8"/>
+                  <display value="Leukocytes [#/volume] in Blood"/>
+              </coding>
+          </code>
+          <valueQuantity>
+              <value value="31.9"/>
+              <unit value="K/ul"/>
+          </valueQuantity>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o2"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="20570-8"/>
+                  <display value="Hematocrit [Volume Fraction] of Blood"/>
+              </coding>
+          </code>
+          <valueQuantity>
+              <value value="27"/>
+              <unit value="%"/>
+          </valueQuantity>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o3"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="26515-7"/>
+                  <display value="Platelets [#/volume] in Blood"/>
+              </coding>
+          </code>
+          <valueQuantity>
+              <value value="84"/>
+              <unit value="K/ul"/>
+          </valueQuantity>
+      </Observation>
+  </contained>
+  <contained>
+      
+      <Observation>
+          <id value="o4"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="75034-9"/>
+                  <display value="NPM1 gene mutations found [Identifier] in Bone marrow by Molecular genetics method Nominal"/>
+              </coding>
+          </code>
+          <valueCodeableConcept>
+              <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="10828004"/>
+                  <display value="Positive"/>
+              </coding>
+          </valueCodeableConcept>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o5"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="54447-8"/>
+                  <display value="FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative"/>
+              </coding>
+          </code>
+          <valueCodeableConcept>
+              <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="260385009"/>
+                  <display value="Negative"/>
+              </coding>
+          </valueCodeableConcept>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o6"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="55201-8"/>
+                  <display value="KIT gene mutation analysis in Bone marrow by Molecular genetics method Narrative"/>
+              </coding>
+          </code>
+          <valueCodeableConcept>
+              <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="260385009"/>
+                  <display value="Negative"/>
+              </coding>
+          </valueCodeableConcept>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o7"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="30444-4"/>
+                  <display value="Myeloblasts [#/volume] in Blood"/>
+              </coding>
+          </code>
+          <valueCodeableConcept>
+              <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="10828004"/>
+                  <display value="Positive"/>
+              </coding>
+          </valueCodeableConcept>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o8"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="47016-1"/>
+                  <display value="CD4 Ag [Presence] in Tissue by Immune stain"/>
+              </coding>
+          </code>
+          <valueCodeableConcept>
+              <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="10828004"/>
+                  <display value="Positive"/>
+              </coding>
+          </valueCodeableConcept>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o9"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="49464-1"/>
+                  <display value="CD13 Ag [Presence] in Tissue by Immune stain"/>
+              </coding>
+          </code>
+          <valueCodeableConcept>
+              <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="10828004"/>
+                  <display value="Positive"/>
+              </coding>
+          </valueCodeableConcept>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o10"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="49466-6"/>
+                  <display value="CD2 Ag [Presence] in Tissue by Immune stain"/>
+              </coding>
+          </code>
+          <valueCodeableConcept>
+              <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="260385009"/>
+                  <display value="Negative"/>
+              </coding>
+          </valueCodeableConcept>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o11"/>
+          <status value="final"/>
+          <code>
+              <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="33893-9"/>
+                  <display value="Karyotype [Identifier] in Bone marrow Nominal"/>
+              </coding>
+          </code>
+          <valueCodeableConcept>
+              <text value="46,XX[20]"/>
+          </valueCodeableConcept>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o12"/>
+          <status value="final"/>
+          <code>
+              <text value="MDS-associated genetic abnormalities"/>
+          </code>
+          <valueCodeableConcept>
+              <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="260385009"/>
+                  <display value="Negative"/>
+              </coding>
+          </valueCodeableConcept>
+      </Observation>
+  </contained>
+  <contained>
+      <Observation>
+          <id value="o13"/>
+          <status value="final"/>
+          <code>
+              <text value="AML-associated genetic abnormalities"/>
+          </code>
+          <valueCodeableConcept>
+              <coding>
+                  <system value="http://snomed.info/sct"/>
+                  <code value="260385009"/>
+                  <display value="Negative"/>
+              </coding>
+          </valueCodeableConcept>
+      </Observation>
+  </contained>
+  
+  <extension url="http://hl7.org/fhir/StructureDefinition/DiagnosticReport-geneticsAssessedCondition">
+      <valueReference>
+          <reference value="c1"/>
+      </valueReference>
+  </extension>
+
+
+  <status value="final"/>
+  <code>
+      <text value="comprehensive bone marrow report"/>
+  </code>
+  <subject>
+    <reference value="Patient/genetics-example1"/>
+    <display value="Everywoman, Eve A, MRN: 123456789"/>
+  </subject>
+  <effectiveDateTime value='2015-01-02T13:20:10+01:00'/>
+  <issued value='2015-01-06T13:20:10+01:00'/>
+  <performer>
+    <reference value="Practitioner/genetics-example1"/>
+    <display value="Molecular Diagnostic Laboratory"/>
+  </performer>
+  <specimen>
+    <reference value="Specimen/genetics-example1"/>
+    <display value="Bone marrow ID: MLD45-Z4-1234"/>
+  </specimen>
+  <result>
+      <reference value="#o1"/>
+  </result>
+  <result>
+      <reference value="#o2"/>
+  </result>
+  <result>
+      <reference value="#o3"/>
+  </result>
+  <result>
+      <reference value="#o4"/>
+  </result>
+  <result>
+      <reference value="#o5"/>
+  </result>
+  <result>
+      <reference value="#o6"/>
+  </result>
+  <result>
+      <reference value="#o7"/>
+  </result>
+  <result>
+      <reference value="#o8"/>
+  </result>
+  <result>
+      <reference value="#o9"/>
+  </result>
+  <result>
+      <reference value="#o10"/>
+  </result>
+  <result>
+      <reference value="#o11"/>
+  </result>
+  <result>
+      <reference value="#o12"/>
+  </result>
+  <result>
+      <reference value="#o13"/>
+  </result>
+
+</DiagnosticReport>
+
+

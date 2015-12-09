@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="ob-genetics-6-3"/>
+  <contained>
+      <Sequence>
+          <id value="g-3"/>
+          <type value="DNA"/>
+          <variationID>
+              <coding>
+                  <system value="http://www.ncbi.nlm.nih.gov/projects/SNP"/>
+                  <code value="28897672"/>
+              </coding>
+          </variationID>
+          <referenceSeq>
+              <coding>
+                  <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
+                  <code value="NM_007298.3"/>
+              </coding>
+          </referenceSeq>
+          <coordinate>
+              <chromosome>
+                  <coding>
+                      <code value="17"/>
+                  </coding>
+              </chromosome>
+              <start value="43106487"/>
+              <end value="43106488"/>
+              <genomeBuild>
+                  <text value="GRCh38.p2"/>
+              </genomeBuild>
+          </coordinate>
+          <observedAllele value="G"/>
+          <referenceAllele value="T"/>
+      </Sequence>
+  </contained>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+      <valueReference>
+          <reference value="#g-3"/>
+      </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
+      <extension url="genomeBuild">
+          <valueCodeableConcept>
+              <text value="GRCh 38"/>
+          </valueCodeableConcept>
+      </extension>
+      <extension url="name">
+          <valueCodeableConcept>
+              <text value="n.342T&gt;G"/>
+          </valueCodeableConcept>
+      </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsGene">
+      <valueCodeableConcept>
+          <coding>
+              <system value="http://www.genenames.org"/>
+              <code value="672"/>
+              <display value="BRCA1"/>
+          </coding>
+      </valueCodeableConcept>
+  </extension>
+  <status value="final"/>
+  <code>
+      <coding>
+          <system value="https://loinc.org/"/>
+          <code value="21636-6"/>
+          <display value="BRCA1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"/>
+      </coding>
+  </code>
+  <subject>
+      <reference value="Patient/genetics-example1-somatic"/>
+      <display value="Molecular Lab Patient ID: HOSP-23456"/>
+  </subject>
+  <issued value="2013-03-11T10:28:00+01:00"/>
+  <performer>
+      <reference value="Practitioner/genetics-example1-somatic"/>
+      <display value="Molecular Diagnostic Laboratory"/>
+  </performer>
+  <valueCodeableConcept>
+      <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="10828004"/>
+          <display value="Positive"/>
+      </coding>
+  </valueCodeableConcept>
+  <specimen>
+      <reference value="Specimen/genetics-example1-somatic"/>
+      <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
+
+</Observation>

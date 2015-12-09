@@ -1,0 +1,8 @@
+﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- content goes here -->
+<h3>Overview</h3>
+<p>
+Human leukocyte antigen (HLA) genotyping is fundamental for research and clinical practice in immune-genetics and histocompatibility. Pointers to external locations refer to registered methods, raw NGS reads, and reference standards can be conveyed in this profile. A separate component describing consensus sequences and variants is created specifically to accommodate NGS data (Consensus sequence block profile). Information about and allele assignment is stored in extensions. the NGS genotyping methods still require more work. The structure of HLA typing report in this profile is following: <a href="http://www.ncbi.nlm.nih.gov/pubmed/26319908">Histoimmunogenetics Markup Language 1.0: Reporting next generation sequencing-based HLA and KIR genotyping</a> and <a href="http://igdawg.org/pubs/20131111_NGS_Data_Standard_draft.pdf">HLA and KIR NGS Data Information Standard: Final Draft</a>.
+</p>
+</div>

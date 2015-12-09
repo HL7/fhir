@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DiagnosticReport xmlns="http://hl7.org/fhir">
+  <id value="hla-1"/>
+  
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsAlleleAsignmentDate">
+      <valueDate value="2014-10-22"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsGlstring">
+      <extension url="text" >
+          <valueString value="HLA-A*01:01:01+HLA-A*24:02:01"/>
+      </extension>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsConsensusSequenceBlock">
+      <valueReference>
+          <reference value="Observation/consensus-sequence-block-example-1"/>
+      </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/hla-genotyping-resultsConsensusSequenceBlock">
+      <valueReference>
+          <reference value="Observation/consensus-sequence-block-example-2"/>
+      </valueReference>
+  </extension>
+
+
+  <status value="final"/>
+  <code>
+      <text value="HLA genotyping results"/>
+  </code>
+  <subject>
+    <reference value="Patient/genetics-example2"/>
+    <display value="Molecular Lab Patient ID: HOSP-23456"/>
+  </subject>
+  <effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
+  <issued value="2015-05-26T15:30:10+01:00"/>
+  <performer>
+    <reference value="Practitioner/genetics-example2"/>
+    <display value="Molecular Diagnostic Laboratory"/>
+  </performer>
+
+  <specimen>
+    <reference value="Specimen/genetics-example2"/>
+    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
+
+</DiagnosticReport>

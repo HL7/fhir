@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DiagnosticReport xmlns="http://hl7.org/fhir">
+  <id value="dgf1"/>
+  
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="15220000"/>
+      <display value="Laboratory test"/>
+    </coding>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0074"/>
+      <code value="LAB"/>
+    </coding>
+  </category>
+  <code>
+      <coding>
+          <system value="http://loinc.org"/>
+          <code value="55233-1"/>
+          <display value="Genetic analysis master panel"/>
+      </coding>
+  </code>
+  <subject>
+      <reference value="pat1"/>
+      <display value="Patient Donald DUCK @ Acme Healthcare, Inc. MR = 654321"/>
+  </subject>
+  <effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
+  <issued value="2014-05-16T10:28:00+01:00"/>
+  <performer>
+      <reference value="Practitioner/genetics-example2"/>
+      <display value="Molecular Diagnostic Laboratory"/>
+  </performer>
+  <specimen>
+      <reference value="Specimen/genetics-example2"/>
+      <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+  </specimen>
+  <result>
+      <reference value="Observation/ob-genetics-2"/>
+      <display value="Genetic analysis for BRAC -1"/>
+  </result>
+  <result>
+      <reference value="Observation/ob-genetics-3"/>
+      <display value="Genetic analysis for BRAC -2"/>
+  </result>
+
+
+
+</DiagnosticReport>

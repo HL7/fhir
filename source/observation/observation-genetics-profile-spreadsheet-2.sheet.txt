@@ -1,0 +1,168 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = LOINC 48002-0 answerlist
+  Binding = code list
+  Reference = #LOINC-48002-0-answerlist
+  Definition = LOINC answer list for Genomic source class
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = LOINC 48019-4 answerlist
+  Binding = code list
+  Reference = #LOINC-48019-4-answerlist
+  Definition = LOINC answer list for Type of variation
+  Conformance = example
+
+=== Sheet LOINC-48002-0-answerlist =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = LA6683-2
+  Display = Germline
+  Definition = Germline
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = LA6684-0
+  Display = Somatic
+  Definition = Somatic
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = LA6685-7
+  Display = Prenatal
+  Definition = Prenatal
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = LA18194-3
+  Display = Likely Germline
+  Definition = Likely Germline
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = LA18195-0
+  Display = Likely Somatic
+  Definition = Likely Somatic
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = LA18196-8
+  Display = Likely Prenatal
+  Definition = Likely Prenatal
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = LA18197-6
+  Display = Unknown Genomic Origin
+  Definition = Unknown Genomic Origin
+
+=== Sheet LOINC-48019-4-answerlist =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = LA9658-1
+  Display = Wild type
+  Definition = Wild type
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = LA6692-3
+  Display = Deletion
+  Definition = Deletion
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = LA6686-5
+  Display = Duplication
+  Definition = Duplication
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = LA6687-3
+  Display = Insertion
+  Definition = Insertion
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = LA6688-1
+  Display = Insertion/Deletion
+  Definition = Insertion/Deletion
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = LA6689-9
+  Display = Inversion
+  Definition = Inversion
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = LA6690-7
+  Display = Substitution
+  Definition = Substitution
+
+=== Sheet ObservationForGenetics =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = ObservationForGenetics
+
+ -- Row 2 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Sequence
+  Card. = 0..1
+  Type = Extension{#Sequence}
+  Short Label = Sequence
+  Definition = Refer to the Sequence resource, representing genetics data
+
+ -- Row 3 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Source
+  Card. = 0..1
+  Type = Extension{#Source}
+  Short Label = Genomic source class means category of source of tissue sample used to determine the sequence: Germline / Somatic / Prenatal / Likely Germline / Likely Somatic / Likely Prenatal / Unknown Genomic Origin
+  Definition = Source of sample used to determine the sequence in sequencing lab -- germline, somatic, prenatal.
+
+ -- Row 4 -----------------------------------
+  Element = Observation.extension
+  Profile Name = VariationHGVS
+  Card. = 0..*
+  Type = Extension{#VariationHGVS}
+  Short Label = Amino acid / cDNA /RNA variant following HGVS nomenclature
+  Definition = Amino acid / cDNA / RNAvariant following HGVS nomenclature.
+
+ -- Row 5 -----------------------------------
+  Element = Observation.extension
+  Profile Name = VariationType
+  Card. = 0..1
+  Type = Extension{#VariationType}
+  Short Label = Type of variation expressed using Sequence Ontology or LOINC answer list: Wild type / Deletion / Duplication / Insertion / Insertion or Deletion / Inversion / Substitution
+  Definition = Type of variation expressed using Sequence Ontology or LOINC answer list 48006-1(for DNA) or 48006-1(for amino acid).
+
+ -- Row 6 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Gene
+  Card. = 0..1
+  Type = Extension{#Gene}
+  Short Label = Gene in which the sequence is found
+  Definition = Gene in which the sequence is found. Currently values from HGNC are supported. Other systems or genes not defined in HGNC (e.g. BCR-ABL fusion gene) can be added by using local extension.
+
+ -- Row 7 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Region
+  Card. = 0..1
+  Type = Extension{#Region}
+  Short Label = Details of exonic location of variant (e.g. Exon 1)
+  Definition = Gene region at which the region is mapped (e.g. \"exon19\").
+
+ -- Row 8 -----------------------------------
+  Element = Observation.extension
+  Profile Name = AminoAcidVariation
+  Card. = 0..1
+  Type = Extension{#AminoAcidVariation}
+  Short Label = HGVS nomenclature for amino acid change
+  Definition = HGVS nomenclature for amino acid change
+
+=== Sheet Search =====================================

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+    <id value="ob-genetics-7"/>
+    <status value="final"/>
+    <code>
+        <text value="PCR validation"/>
+    </code>
+    <subject>
+        <reference value="Patient/genetics-example1-somatic"/>
+    </subject>
+    <issued value="2013-03-14T10:28:00+01:00"/>
+    <performer>
+        <reference value="Practitioner/example"/>
+        <display value="Sequence Analysis Laboratory"/>
+    </performer>
+    <valueCodeableConcept>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="260385009"/>
+            <display value="Negative"/>
+        </coding>
+    </valueCodeableConcept>
+    <related>
+        <type value="sequel-to"/>
+        <target>
+            <reference value="Observation/ob-genetics-1"/>
+            <display value="observation for Sequence-example"/>
+        </target>
+    </related>
+</Observation>
+
+

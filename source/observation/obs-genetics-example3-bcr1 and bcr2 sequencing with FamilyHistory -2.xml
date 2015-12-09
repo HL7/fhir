@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="ob-genetics-3-2"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSequence">
+      <valueReference>
+          <reference value="#off2"/>
+      </valueReference>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsVariationHGVS">
+      <extension url="genomeBuild">
+          <valueCodeableConcept>
+              <text value="GRCh 38"/>
+          </valueCodeableConcept>
+      </extension>
+      <extension url="name">
+          <valueCodeableConcept>
+              <text value="185delAG"/>
+          </valueCodeableConcept>
+      </extension>
+  </extension>
+  
+  <status value="final"/>
+  <code>
+      <coding>
+          <system value="http://loinc.org"/>
+          <code value="38530-2"/>
+          <display value="BRCA2 gene mutation analysis"/>
+      </coding>
+  </code>
+  <subject>
+      <reference value="Patient/example"/>
+      <display value="Marry Chalmers(MRN: 12345)"/>
+  </subject>
+  <effectiveDateTime value="2015-05-26T15:30:10+01:00"/>
+  <valueCodeableConcept>
+      <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="10828004"/>
+          <display value="Positive"/>
+      </coding>
+  </valueCodeableConcept>
+  
+  <method>
+      <coding>
+          <system value="http://www.ncbi.nlm.nih.gov/gtr/"/>
+          <code value="GTR000521311.1"/>
+          <display value="BRACAnalysis CDx Offered by Myriad Genetic Laboratories, Inc"/>
+      </coding>
+  </method>
+  <component>
+      <code>
+          <coding>
+              <system value="http://loinc.org"/>
+              <code value="53037-8"/>
+              <display value="Genetic disease sequence variation interpretation"/>
+          </coding>
+      </code>
+      <valueCodeableConcept>
+          <coding>
+              <code value="LA6668-3"/>
+              <display value="Pathogenic"/>
+          </coding>
+      </valueCodeableConcept>
+  </component>
+</Observation>
+

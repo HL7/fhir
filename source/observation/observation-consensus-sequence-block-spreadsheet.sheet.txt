@@ -1,0 +1,83 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Consensus-sequence-block =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = Consensus-sequence-block
+  Card. = 1..1
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.value[x]
+  Card. = 0..1
+  Type = string
+  Short Label = Sequence
+  Definition = Sequence
+
+ -- Row 3 -----------------------------------
+  Element = Observation.extension
+  Profile Name = ReferenceSeq
+  Card. = 0..1
+  Type = Extension{#ReferenceSeq}
+  Short Label = Reference Sequence Id
+  Definition = Reference Sequence Id
+
+ -- Row 4 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Start
+  Card. = 0..1
+  Type = Extension{#Start}
+  Short Label = 0-based start position (inclusive) of the sequence
+  Definition = Inclusive 0-based nucleotide position for start of genomic finding on the positive (+) genomics strand.
+
+ -- Row 5 -----------------------------------
+  Element = Observation.extension
+  Profile Name = End
+  Card. = 0..1
+  Type = Extension{#End}
+  Short Label = 0-based end position (exclusive) of the sequence
+  Definition = Exclusive 0-based nucleotide position for end of genomic finding on the positive (+) genomic strand.
+
+ -- Row 6 -----------------------------------
+  Element = Observation.extension
+  Profile Name = PhaseSet
+  Card. = 0..1
+  Type = Extension{#PhaseSet}
+  Short Label = Phase Set
+  Definition = A phase set identifier to associate different consensussequence-blocks
+
+ -- Row 7 -----------------------------------
+  Element = Observation.extension
+  Profile Name = ExpectedCopyNumber
+  Card. = 0..1
+  Type = Extension{#ExpectedCopyNumber}
+  Short Label = Expected Copy Number
+  Definition = To indicated how many copies of the sequence block was expected
+
+ -- Row 8 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Continuity
+  Card. = 0..1
+  Type = Extension{#Continuity}
+  Short Label = Continuity
+  Definition = A continuity flag to indicate whether a gap exists between blocks
+
+ -- Row 9 -----------------------------------
+  Element = Observation.extension
+  Profile Name = Variant
+  Card. = 0..*
+  Type = Extension{#Variant}
+  Short Label = Variant info
+  Definition = Variant info
+
+ -- Row 10 -----------------------------------
+  Element = Observation.extension
+  Profile Name = SequenceQuality
+  Card. = 0..*
+  Type = Extension{#SequenceQuality}
+  Short Label = Sequence Quality
+  Definition = Quality metrics for sequence quality vary by platform reflecting differences in sequencing chemistry and digital processing.
+
+=== Sheet Search =====================================
