@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.formats;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Wed, Dec 9, 2015 14:10-0500 for FHIR v1.1.0
 
 import org.hl7.fhir.dstu21.model.MarkdownType;
 import org.hl7.fhir.dstu21.model.IntegerType;
@@ -10994,6 +10994,8 @@ public class XmlParser extends XmlParserBase {
     while (eventType != XmlPullParser.END_TAG) {
       if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("name")) {
         res.setNameElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("defaultValue")) {
+        res.setDefaultValueElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("headerField")) {
         res.setHeaderFieldElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("path")) {
@@ -24386,6 +24388,9 @@ public class XmlParser extends XmlParserBase {
       composeBackboneElements(element);
       if (element.hasNameElement()) {
         composeString("name", element.getNameElement());
+      }
+      if (element.hasDefaultValueElement()) {
+        composeString("defaultValue", element.getDefaultValueElement());
       }
       if (element.hasHeaderFieldElement()) {
         composeString("headerField", element.getHeaderFieldElement());

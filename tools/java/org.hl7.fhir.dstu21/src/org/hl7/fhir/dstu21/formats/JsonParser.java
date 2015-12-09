@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.formats;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Wed, Dec 9, 2015 14:10-0500 for FHIR v1.1.0
 
 import org.hl7.fhir.dstu21.model.MarkdownType;
 import org.hl7.fhir.dstu21.model.IntegerType;
@@ -12214,6 +12214,10 @@ public class JsonParser extends JsonParserBase {
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
       parseElementProperties(json.getAsJsonObject("_name"), res.getNameElement());
+    if (json.has("defaultValue"))
+      res.setDefaultValueElement(parseString(json.get("defaultValue").getAsString()));
+    if (json.has("_defaultValue"))
+      parseElementProperties(json.getAsJsonObject("_defaultValue"), res.getDefaultValueElement());
     if (json.has("headerField"))
       res.setHeaderFieldElement(parseString(json.get("headerField").getAsString()));
     if (json.has("_headerField"))
@@ -28868,6 +28872,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);
         composeStringExtras("name", element.getNameElement(), false);
+      }
+      if (element.hasDefaultValueElement()) {
+        composeStringCore("defaultValue", element.getDefaultValueElement(), false);
+        composeStringExtras("defaultValue", element.getDefaultValueElement(), false);
       }
       if (element.hasHeaderFieldElement()) {
         composeStringCore("headerField", element.getHeaderFieldElement(), false);

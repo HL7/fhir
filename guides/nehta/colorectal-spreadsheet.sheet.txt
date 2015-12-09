@@ -563,8 +563,8 @@
   Short Label = Who ordered the test
   Definition = The practitioner that holds legal responsibility for ordering the investigation
   Logical Mapping = !req := dr.request->DiagnosticOrder; req[orderer := $value]
-  RIM Mapping = participation[typeCode=AUT].role
   LOINC Code = 22027-7
+  RIM Mapping = participation[typeCode=AUT].role
   Snomed Code = 223366009
   To Do = Need to made cardinality [1..1] as the build initially gets errors with this setting.
 

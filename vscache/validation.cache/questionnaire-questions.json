@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/questionnaire-questions",
   "outcomes": [
     {
-      "hash": "|http://loinc.org|null|9270-0|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score verbal"
-      }
-    },
-    {
       "hash": "|http://loinc.org|null|54123-5|Gender family member [USSG-FHT]",
       "severity": null,
       "message": null,
@@ -24,14 +13,25 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|54115-1|Age range at onset of disease family member [USSG-FHT]",
+      "hash": "|http://loinc.org|null|9270-0|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Age range at onset of disease family member [USSG-FHT]"
+        "display": "Glasgow coma score verbal"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54112-8|Cause of death family member [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Cause of death family member [USSG-FHT]"
       }
     },
     {
@@ -46,14 +46,14 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|54112-8|Cause of death family member [USSG-FHT]",
+      "hash": "|http://loinc.org|null|54115-1|Age range at onset of disease family member [USSG-FHT]",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Cause of death family member [USSG-FHT]"
+        "display": "Age range at onset of disease family member [USSG-FHT]"
       }
     },
     {
@@ -90,6 +90,11 @@
       }
     },
     {
+      "hash": "|http://example.org/system/code/questions|null|STADPT|pT category",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
       "hash": "|http://loinc.org|null|9269-2|null",
       "severity": null,
       "message": null,
@@ -101,9 +106,15 @@
       }
     },
     {
-      "hash": "|http://example.org/system/code/questions|null|STADPT|pT category",
-      "severity": "error",
-      "message": "The code provided is not  valid"
+      "hash": "|http://loinc.org|null|54133-4|Ethnicity [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Ethnicity [USSG-FHT]"
+      }
     },
     {
       "hash": "|http://loinc.org|null|54141-7|Current age family member [USSG-FHT]",
@@ -114,17 +125,6 @@
         "code": null,
         "definition": null,
         "display": "Current age family member [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54133-4|Ethnicity [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Ethnicity [USSG-FHT]"
       }
     },
     {
@@ -253,11 +253,6 @@
       }
     },
     {
-      "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "|http://loinc.org|null|54117-7|Disease history panel [USSG-FHT]",
       "severity": null,
       "message": null,
@@ -267,6 +262,11 @@
         "definition": null,
         "display": "Diseases history panel [USSG-FHT] family member"
       }
+    },
+    {
+      "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
     },
     {
       "hash": "|http://loinc.org|null|39156-5|Body mass index",
@@ -291,14 +291,14 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|54116-9|History of diseases family member [USSG-FHT]",
+      "hash": "|http://loinc.org|null|54126-8|My health history [USSG-FHT]",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "History of diseases family member [USSG-FHT]"
+        "display": "My health history [USSG-FHT]"
       }
     },
     {
@@ -313,14 +313,14 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|54126-8|My health history [USSG-FHT]",
+      "hash": "|http://loinc.org|null|54116-9|History of diseases family member [USSG-FHT]",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "My health history [USSG-FHT]"
+        "display": "History of diseases family member [USSG-FHT]"
       }
     },
     {
@@ -335,11 +335,6 @@
       }
     },
     {
-      "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "|http://loinc.org|null|54113-6|Age range at death family member [USSG-FHT]",
       "severity": null,
       "message": null,
@@ -348,6 +343,22 @@
         "code": null,
         "definition": null,
         "display": "Age range at death family member [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "|http://loinc.org|null|54140-9|History of diseases [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "History of diseases [USSG-FHT]"
       }
     },
     {
@@ -362,23 +373,7 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|54140-9|History of diseases [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "History of diseases [USSG-FHT]"
-      }
-    },
-    {
       "hash": "|http://example.org/system/code/sections|null|CARDIAL|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|COMORBIDITY|null",
       "severity": "error",
       "message": "The code provided is not  valid"
     },
@@ -392,6 +387,11 @@
         "definition": null,
         "display": "Relationship to patient family member [USSG-FHT]"
       }
+    },
+    {
+      "hash": "|http://example.org/system/code/sections|null|COMORBIDITY|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
     },
     {
       "hash": "|http://loinc.org|null|54122-7|Adopted family member",

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Wed, Dec 9, 2015 14:10-0500 for FHIR v1.1.0
 
 import java.util.*;
 
@@ -2599,27 +2599,34 @@ public class TestScript extends DomainResource {
         protected StringType name;
 
         /**
+         * A default, hard-coded, or user-defined value for this variable.
+         */
+        @Child(name = "defaultValue", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Default value for this variable", formalDefinition="A default, hard-coded, or user-defined value for this variable." )
+        protected StringType defaultValue;
+
+        /**
          * Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.
          */
-        @Child(name = "headerField", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "headerField", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="HTTP header field name for source", formalDefinition="Will be used to grab the HTTP header field value from the headers that sourceId is pointing to." )
         protected StringType headerField;
 
         /**
          * XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.
          */
-        @Child(name = "path", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "path", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="XPath or JSONPath against the fixture body", formalDefinition="XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both." )
         protected StringType path;
 
         /**
          * Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.
          */
-        @Child(name = "sourceId", type = {IdType.class}, order=4, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "sourceId", type = {IdType.class}, order=5, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fixture Id of source expression or headerField within this variable", formalDefinition="Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable." )
         protected IdType sourceId;
 
-        private static final long serialVersionUID = 1128806685L;
+        private static final long serialVersionUID = 1821729272L;
 
     /*
      * Constructor
@@ -2678,6 +2685,55 @@ public class TestScript extends DomainResource {
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #defaultValue} (A default, hard-coded, or user-defined value for this variable.). This is the underlying object with id, value and extensions. The accessor "getDefaultValue" gives direct access to the value
+         */
+        public StringType getDefaultValueElement() { 
+          if (this.defaultValue == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptVariableComponent.defaultValue");
+            else if (Configuration.doAutoCreate())
+              this.defaultValue = new StringType(); // bb
+          return this.defaultValue;
+        }
+
+        public boolean hasDefaultValueElement() { 
+          return this.defaultValue != null && !this.defaultValue.isEmpty();
+        }
+
+        public boolean hasDefaultValue() { 
+          return this.defaultValue != null && !this.defaultValue.isEmpty();
+        }
+
+        /**
+         * @param value {@link #defaultValue} (A default, hard-coded, or user-defined value for this variable.). This is the underlying object with id, value and extensions. The accessor "getDefaultValue" gives direct access to the value
+         */
+        public TestScriptVariableComponent setDefaultValueElement(StringType value) { 
+          this.defaultValue = value;
+          return this;
+        }
+
+        /**
+         * @return A default, hard-coded, or user-defined value for this variable.
+         */
+        public String getDefaultValue() { 
+          return this.defaultValue == null ? null : this.defaultValue.getValue();
+        }
+
+        /**
+         * @param value A default, hard-coded, or user-defined value for this variable.
+         */
+        public TestScriptVariableComponent setDefaultValue(String value) { 
+          if (Utilities.noString(value))
+            this.defaultValue = null;
+          else {
+            if (this.defaultValue == null)
+              this.defaultValue = new StringType();
+            this.defaultValue.setValue(value);
+          }
           return this;
         }
 
@@ -2831,6 +2887,7 @@ public class TestScript extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("name", "string", "Descriptive name for this variable.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("defaultValue", "string", "A default, hard-coded, or user-defined value for this variable.", 0, java.lang.Integer.MAX_VALUE, defaultValue));
           childrenList.add(new Property("headerField", "string", "Will be used to grab the HTTP header field value from the headers that sourceId is pointing to.", 0, java.lang.Integer.MAX_VALUE, headerField));
           childrenList.add(new Property("path", "string", "XPath or JSONPath against the fixture body.  When variables are defined, either headerField must be specified or path, but not both.", 0, java.lang.Integer.MAX_VALUE, path));
           childrenList.add(new Property("sourceId", "id", "Fixture to evaluate the XPath/JSONPath expression or the headerField  against within this variable.", 0, java.lang.Integer.MAX_VALUE, sourceId));
@@ -2840,6 +2897,8 @@ public class TestScript extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("name"))
           this.name = castToString(value); // StringType
+        else if (name.equals("defaultValue"))
+          this.defaultValue = castToString(value); // StringType
         else if (name.equals("headerField"))
           this.headerField = castToString(value); // StringType
         else if (name.equals("path"))
@@ -2854,6 +2913,9 @@ public class TestScript extends DomainResource {
       public Base addChild(String name) throws FHIRException {
         if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.name");
+        }
+        else if (name.equals("defaultValue")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.defaultValue");
         }
         else if (name.equals("headerField")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.headerField");
@@ -2872,6 +2934,7 @@ public class TestScript extends DomainResource {
         TestScriptVariableComponent dst = new TestScriptVariableComponent();
         copyValues(dst);
         dst.name = name == null ? null : name.copy();
+        dst.defaultValue = defaultValue == null ? null : defaultValue.copy();
         dst.headerField = headerField == null ? null : headerField.copy();
         dst.path = path == null ? null : path.copy();
         dst.sourceId = sourceId == null ? null : sourceId.copy();
@@ -2885,8 +2948,8 @@ public class TestScript extends DomainResource {
         if (!(other instanceof TestScriptVariableComponent))
           return false;
         TestScriptVariableComponent o = (TestScriptVariableComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(headerField, o.headerField, true) && compareDeep(path, o.path, true)
-           && compareDeep(sourceId, o.sourceId, true);
+        return compareDeep(name, o.name, true) && compareDeep(defaultValue, o.defaultValue, true) && compareDeep(headerField, o.headerField, true)
+           && compareDeep(path, o.path, true) && compareDeep(sourceId, o.sourceId, true);
       }
 
       @Override
@@ -2896,13 +2959,14 @@ public class TestScript extends DomainResource {
         if (!(other instanceof TestScriptVariableComponent))
           return false;
         TestScriptVariableComponent o = (TestScriptVariableComponent) other;
-        return compareValues(name, o.name, true) && compareValues(headerField, o.headerField, true) && compareValues(path, o.path, true)
-           && compareValues(sourceId, o.sourceId, true);
+        return compareValues(name, o.name, true) && compareValues(defaultValue, o.defaultValue, true) && compareValues(headerField, o.headerField, true)
+           && compareValues(path, o.path, true) && compareValues(sourceId, o.sourceId, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (headerField == null || headerField.isEmpty())
-           && (path == null || path.isEmpty()) && (sourceId == null || sourceId.isEmpty());
+        return super.isEmpty() && (name == null || name.isEmpty()) && (defaultValue == null || defaultValue.isEmpty())
+           && (headerField == null || headerField.isEmpty()) && (path == null || path.isEmpty()) && (sourceId == null || sourceId.isEmpty())
+          ;
       }
 
   public String fhirType() {
