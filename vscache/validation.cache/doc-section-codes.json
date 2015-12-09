@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/doc-section-codes",
   "outcomes": [
     {
-      "hash": "#|http://loinc.org|null|11348-0|History of past illness Narrative",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "11348-0",
-        "definition": null,
-        "display": "History of past illness Narrative"
-      }
-    },
-    {
       "hash": "#|http://loinc.org|null|10157-6|History of family member diseases Narrative",
       "severity": null,
       "message": null,
@@ -24,14 +13,25 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|10183-2|Hospital discharge medications Narrative",
+      "hash": "#|http://loinc.org|null|11348-0|History of past illness Narrative",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "10183-2",
+        "code": "11348-0",
         "definition": null,
-        "display": "Hospital discharge medications Narrative"
+        "display": "History of past illness Narrative"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|48765-2|Allergies and adverse reactions Document",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "48765-2",
+        "definition": null,
+        "display": "Allergies and adverse reactions Document"
       }
     },
     {
@@ -46,14 +46,14 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|48765-2|Allergies and adverse reactions Document",
+      "hash": "#|http://loinc.org|null|10183-2|Hospital discharge medications Narrative",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "48765-2",
+        "code": "10183-2",
         "definition": null,
-        "display": "Allergies and adverse reactions Document"
+        "display": "Hospital discharge medications Narrative"
       }
     }
   ]

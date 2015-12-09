@@ -6,7 +6,7 @@
   Binding = value set
   Reference = valueset-sequence-species
   Definition = Species of the organism from which the sequence was extracted
-  Conformance = required
+  Conformance = example
 
  -- Row 2 -----------------------------------
   Binding Name = HGNC-geneIdentifiers
@@ -314,7 +314,6 @@
   Element = Sequence.species
   Card. = 0..1
   Type = CodeableConcept
-  Binding = sequenceSpecies
   Short Label = Supporting tests of human, viruses, and bacteria
   Definition = The organism from which sample of the sequence was extracted. Supporting tests of human, viruses, and bacteria.
 
