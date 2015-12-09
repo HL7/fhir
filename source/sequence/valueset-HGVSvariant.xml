@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="HGVS : Human Genome Variation Society"/>
+  <status value="draft"/>
+  <publisher value="FHIR Project team"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes all international curated set for variant naming in HGVS nomenclature"/>
+  <compose>
+    <include>
+      <system value="http://www.hgvs.org/mutnomen"/>
+    </include>
+  </compose>
+</ValueSet>

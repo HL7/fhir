@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Sequence>
+    <id value="seq2-4"/>
+    <type value="DNA"/>
+    <variationID>
+        <coding>
+            <system value="http://www.ncbi.nlm.nih.gov/projects/SNP"/>
+            <code value="58238565"/>
+        </coding>
+        <text value="rs58238565"/>
+    </variationID>
+
+</Sequence>
