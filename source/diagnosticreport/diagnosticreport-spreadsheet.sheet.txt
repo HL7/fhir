@@ -438,18 +438,6 @@
   Filename = diagnosticreport-extensions.xml
   Type = spreadsheet
 
- -- Row 3 -----------------------------------
-  Name = Diagnostic Report for Genetics
-  IG Name = core
-  Filename = diagnosticreport-genetics-profile-spreadsheet.xml
-  Type = spreadsheet
-
- -- Row 4 -----------------------------------
-  Name = Profile for HLA Genotyping Results
-  IG Name = core
-  Filename = diagnosticreport-hla-genotyping-results-spreadsheet.xml
-  Type = spreadsheet
-
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
@@ -518,33 +506,5 @@
   Identity = ghp
   Description = An Example of a report with multiple specimen and panels
   Filename = diagnosticreport-example-ghp.xml
-
- -- Row 12 -----------------------------------
-  Name = Genetics
-  Identity = dg1
-  Description = An example of a genetics test report
-  Filename = diagnosticreport-genetics-example-1.xml
-  Profile = Diagnostic Report for Genetics
-
- -- Row 13 -----------------------------------
-  Name = Genetics -with family
-  Identity = dg2
-  Description = An example of a genetics test report with Family member history
-  Filename = diagnosticreport-genetics-example-2 with familyhistory.xml
-  Profile = Diagnostic Report for Genetics
-
- -- Row 14 -----------------------------------
-  Name = HLA genotyping
-  Identity = hla-1
-  Description = An example of a HLA genotyping results report
-  Filename = diagnosticreport-hla-genetics-results-example.xml
-  Profile = Profile for HLA Genotyping Results
-
- -- Row 15 -----------------------------------
-  Name = Comprehensive report
-  Identity = report
-  Description = An example of a comprehensive bone marrow report
-  Filename = diagnosticreport-genetics-comprehensive-bone-marrow-report.xml
-  Profile = Diagnostic Report for Genetics
 
 === Sheet Examples =====================================

@@ -481,12 +481,6 @@
   Filename = diagnosticorder-extensions.xml
   Type = spreadsheet
 
- -- Row 2 -----------------------------------
-  Name = Diagnostic Order for Genetics
-  IG Name = core
-  Filename = diagnosticorder-genetics-profile.xml
-  Type = spreadsheet
-
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------
@@ -506,19 +500,5 @@
   Identity = ft4
   Description = Free T4 Add on Order
   Filename = diagnosticorder-example-ft4.xml
-
- -- Row 4 -----------------------------------
-  Name = Order-genetics-1
-  Identity = og-example1
-  Description = Order for ABCB4 gene mutation analysis
-  Filename = diagnosticorder-genetics-example-1.xml
-  Profile = Diagnostic Order for Genetics
-
- -- Row 5 -----------------------------------
-  Name = Order-genetics-2
-  Identity = og-example2
-  Description = Order for a specific variant
-  Filename = diagnosticorder-genetics-example-2.xml
-  Profile = Diagnostic Order for Genetics
 
 === Sheet Examples =====================================
