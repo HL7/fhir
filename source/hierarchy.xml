@@ -222,6 +222,7 @@ signatures.html
 			<page type="resource" resource="ImagingStudy"/>
 			<page type="resource" resource="ImagingObjectSelection"/>
 			<page type="resource" resource="Specimen"/>
+            <page type="resource" resource="Sequence"/>
 			<!--<page type="resource" resource="DeviceObservationReport"/>-->
 			<page type="resource" resource="Questionnaire"/>
 			<page type="resource" resource="QuestionnaireResponse"/>
