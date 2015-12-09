@@ -57,6 +57,7 @@
   Binding = code list
   Reference = #sequence-type
   Definition = Type if a sequence -- DNA, RNA, or amino acid sequence
+  Conformance = example
 
  -- Row 9 -----------------------------------
   Binding Name = sequenceVariation
