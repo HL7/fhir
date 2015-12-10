@@ -29,5 +29,6 @@
     <reference value="Organization/1"/>
   </requestOrganization>
  
-
+  <inforce value="true"/>
+  
 </EligibilityResponse>

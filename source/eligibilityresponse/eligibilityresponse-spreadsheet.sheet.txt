@@ -1,6 +1,48 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = BenefitCategory
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/benefit-category
+  Definition = Benefit categories such as: oral, medical, vision etc.
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = BenefitSubCategory
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/benefit-subcategory
+  Definition = Benefit subcategories such as: oral-basic, major, glasses
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = BenefitType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/benefit-type
+  Definition = Deductable, visits, co-pay, etc.
+  Conformance = example
+
+ -- Row 4 -----------------------------------
+  Binding Name = BenefitNetwork
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/benefit-network
+  Definition = Code to classify in or out of network services
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = BenefitUnit
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/benefit-unit
+  Definition = Unit covered/serviced - individual or family
+  Conformance = example
+
+ -- Row 6 -----------------------------------
+  Binding Name = BenefitTerm
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/benefit-term
+  Definition = Coverage unit - annual, lifetime
+  Conformance = example
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -91,25 +133,179 @@
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
+ -- Row 13 -----------------------------------
+  Element = EligibilityResponse.inforce
+  Card. = 0..1
+  Type = boolean
+  Short Label = Coverage inforce
+  Definition = Flag indicating if the coverage provided is inforce currently  if no service date(s) specified or for the whole duration of the service dates.
+
+ -- Row 14 -----------------------------------
+  Element = EligibilityResponse.contract
+  Card. = 0..1
+  Type = Reference(Contract)
+  Short Label = Contract details
+  Definition = The contract resource which may provide more detailed information.
+
+ -- Row 15 -----------------------------------
+  Element = EligibilityResponse.form
+  Card. = 0..1
+  UML = G42
+  Type = Coding
+  Binding = Forms
+  Short Label = Printed Form Identifier
+  Definition = The form to be used for printing the content.
+
+ -- Row 16 -----------------------------------
+  Element = !Plan Balance Information
+
+ -- Row 17 -----------------------------------
+  Element = EligibilityResponse.benefitBalance
+  Card. = 0..*
+  Type = =Benefits
+  Short Label = Benefits by Category
+  Definition = Benefits and optionally current balances by Category
+  Display Hint = 600;600
+
+ -- Row 18 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.category
+  Card. = 1..1
+  Type = Coding
+  Binding = BenefitCategory
+  Short Label = Benefit Category
+  Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
+
+ -- Row 19 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.subCategory
+  Card. = 0..1
+  Type = Coding
+  Binding = BenefitSubCategory
+  Short Label = Benefit SubCategory
+  Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
+
+ -- Row 20 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.network
+  Card. = 0..1
+  Type = Coding
+  Binding = BenefitNetwork
+  Short Label = In or out of network
+  Definition = Network designation
+
+ -- Row 21 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.unit
+  Card. = 0..1
+  Type = Coding
+  Binding = BenefitUnit
+  Short Label = Individual or family
+  Definition = Unit designation: individual or family
+
+ -- Row 22 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.term
+  Card. = 0..1
+  Type = Coding
+  Binding = BenefitTerm
+  Short Label = Annual or lifetime
+  Definition = The term or period of the values such as \'maximum lifetime benefit\' or \'maximum annual vistis\'.
+
+ -- Row 23 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.financial
+  Card. = 0..*
+  Type = =Benefit
+  Short Label = Benefit Summary
+  Definition = Benefits Used to date
+  Display Hint = 600;750
+
+ -- Row 24 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.financial.type
+  Card. = 1..1
+  Type = Coding
+  Binding = BenefitType
+  Short Label = Deductable, visits, benefit amount
+  Definition = Deductable, visits, benefit amount.
+
+ -- Row 25 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.financial.benefit[x]
+  Card. = 0..1
+  Type = unsignedInt|Money
+  Short Label = Benefits allowed
+  Definition = Benefits allowed
+
+ -- Row 26 -----------------------------------
+  Element = EligibilityResponse.benefitBalance.financial.benefitUsed[x]
+  Card. = 0..1
+  Type = unsignedInt|Money
+  Short Label = Benefits used
+  Definition = Benefits used
+
+ -- Row 27 -----------------------------------
+  Element = !Errors
+  Short Label = Processing errors
+
+ -- Row 28 -----------------------------------
+  Element = EligibilityResponse.error
+  Card. = 0..*
+  UML = 0;0
+  Type = =Errors
+  Short Label = Processing errors
+  Definition = Mutually exclusive with Services Provided (Item).
+
+ -- Row 29 -----------------------------------
+  Element = EligibilityResponse.error.code
+  Card. = 1..1
+  Type = Coding
+  Binding = AdjudicationError
+  Short Label = Error code detailing processing issues
+  Definition = An error code,from a specified code system, which details why the eligibility check could not be performed.
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
   Name = identifier
   Type = token
-  Description = The business identifier of the Explanation of Benefit
+  Description = The business identifier
   Path = EligibilityResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = !request
+  Name = request
   Type = reference
-  Description = The reference to the claim
+  Description = The EligibilityRequest reference
   Path = EligibilityResponse.request
 
  -- Row 3 -----------------------------------
-  Name = !organization
+  Name = organization
   Type = reference
-  Description = The organization who generated this resource
+  Description = The organization which generated this resource
   Path = EligibilityResponse.organization
+
+ -- Row 4 -----------------------------------
+  Name = outcome
+  Type = token
+  Description = The processing outcome
+  Path = EligibilityResponse.outcome
+
+ -- Row 5 -----------------------------------
+  Name = created
+  Type = date
+  Description = The creation date
+  Path = EligibilityResponse.created
+
+ -- Row 6 -----------------------------------
+  Name = disposition
+  Type = string
+  Description = The contents of the disposition message
+  Path = EligibilityResponse.disposition
+
+ -- Row 7 -----------------------------------
+  Name = requestprovider
+  Type = reference
+  Description = Reference to the EligibilityRequest provider
+  Path = EligibilityResponse.requestProvider
+
+ -- Row 8 -----------------------------------
+  Name = requestorganization
+  Type = reference
+  Description = Reference to the EligibilityRequest organization
+  Path = EligibilityResponse.requestOrganization
 
 === Sheet Profiles =====================================
 

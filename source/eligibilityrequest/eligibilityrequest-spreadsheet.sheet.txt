@@ -120,6 +120,7 @@
   Type = Reference(Patient)
   Short Label = The subject of the Products and Services
   Definition = Patient Resource
+  Comments = 1..1
   CDAnet v4 Mapping = C06,C07,C08, C05, C04
 
  -- Row 15 -----------------------------------
@@ -132,6 +133,7 @@
   Short Label = Insurance or medical plan
   Definition = Financial instrument by which payment information for health care
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
+  Comments = 1..1
 
  -- Row 17 -----------------------------------
   Element = EligibilityRequest.businessArrangement
@@ -148,6 +150,7 @@
   Short Label = Patient relationship to subscriber
   Definition = The relationship of the patient to the subscriber
   Requirements = To determine relationship between the patient and the subscriber
+  Comments = 1..1
   CDAnet v4 Mapping = C03
 
  -- Row 19 -----------------------------------
