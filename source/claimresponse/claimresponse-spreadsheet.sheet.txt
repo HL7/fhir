@@ -672,16 +672,40 @@
   Path = ClaimResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = !request
+  Name = request
   Type = reference
-  Description = The identity of the insurer
+  Description = The claim reference
   Path = ClaimResponse.request
 
  -- Row 3 -----------------------------------
-  Name = !organization
+  Name = organization
   Type = reference
   Description = The organization who generated this resource
   Path = ClaimResponse.organization
+
+ -- Row 4 -----------------------------------
+  Name = outcome
+  Type = string
+  Description = The processing outcome
+  Path = ClaimResponse.outcome
+
+ -- Row 5 -----------------------------------
+  Name = created
+  Type = date
+  Description = The creation date
+  Path = ClaimResponse.created
+
+ -- Row 6 -----------------------------------
+  Name = disposition
+  Type = string
+  Description = The contents of the disposition message
+  Path = ClaimResponse.disposition
+
+ -- Row 7 -----------------------------------
+  Name = paymentDate
+  Type = date
+  Description = The expected paymentDate
+  Path = ClaimResponse.paymentDate
 
 === Sheet Profiles =====================================
 
