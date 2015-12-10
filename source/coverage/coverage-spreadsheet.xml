@@ -4520,7 +4520,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s119"><Data ss:Type="String">Coverage.subscriber</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">reference to the subscriber</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Reference to the subscriber</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s118"/>
@@ -4684,7 +4684,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
+     <ActiveRow>14</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
