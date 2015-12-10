@@ -1039,14 +1039,38 @@
  -- Row 4 -----------------------------------
   Name = patient
   Type = reference
-  Description = Patient
+  Description = Patient receiveing the services
   Path = Claim.patient
 
  -- Row 5 -----------------------------------
   Name = provider
   Type = reference
-  Description = Provider responsible for the claim
+  Description = Provider responsible for the Claim
   Path = Claim.provider
+
+ -- Row 6 -----------------------------------
+  Name = created
+  Type = date
+  Description = The creation date for the Claim
+  Path = Claim.created
+
+ -- Row 7 -----------------------------------
+  Name = target
+  Type = reference
+  Description = The target payor/insurer for the Claim
+  Path = Claim.target
+
+ -- Row 8 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The reference to the providing organization
+  Path = Claim.organization
+
+ -- Row 9 -----------------------------------
+  Name = facility
+  Type = reference
+  Description = Facility responsible for the goods and services
+  Path = Claim.facility
 
 === Sheet Profiles =====================================
 
