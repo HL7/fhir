@@ -4905,7 +4905,7 @@
     <Cell ss:StyleID="s121"><Data ss:Type="String">The contents of the disposition message</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">paymentDate</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">paymentdate</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">date</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">ClaimResponse.paymentDate</Data></Cell>
@@ -5080,8 +5080,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
