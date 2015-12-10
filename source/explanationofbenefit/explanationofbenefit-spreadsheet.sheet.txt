@@ -1389,54 +1389,42 @@
   Path = ExplanationOfBenefit.identifier
 
  -- Row 2 -----------------------------------
-  Name = !request
-  Type = reference
-  Description = The reference to the claim
-  Path = ExplanationOfBenefit.request
-
- -- Row 3 -----------------------------------
-  Name = !organization
-  Type = reference
-  Description = The organization who generated this resource
-  Path = ExplanationOfBenefit.organization
-
- -- Row 4 -----------------------------------
   Name = patient
   Type = reference
   Description = The reference to the patient
   Path = ExplanationOfBenefit.patient
 
- -- Row 5 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = claim
   Type = reference
   Description = The reference to the claim
   Path = ExplanationOfBenefit.claim
 
- -- Row 6 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = created
   Type = date
   Description = The creation date for the EOB
   Path = ExplanationOfBenefit.created
 
- -- Row 7 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = disposition
   Type = string
   Description = The contents of the disposition message
   Path = ExplanationOfBenefit.disposition
 
- -- Row 8 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = provider
   Type = reference
   Description = The reference to the provider
   Path = ExplanationOfBenefit.provider
 
- -- Row 9 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = organization
   Type = reference
   Description = The reference to the providing organization
   Path = ExplanationOfBenefit.organization
 
- -- Row 10 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = facility
   Type = reference
   Description = Facility responsible for the goods and services
