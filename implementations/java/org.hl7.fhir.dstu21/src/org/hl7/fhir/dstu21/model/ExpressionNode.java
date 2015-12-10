@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.hl7.fhir.dstu21.model.ExpressionNode.Kind;
-import org.hl7.fhir.dstu21.model.ExpressionNode.SourceLocation;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ExpressionNode {

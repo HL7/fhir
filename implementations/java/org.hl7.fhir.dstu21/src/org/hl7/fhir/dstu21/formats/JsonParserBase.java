@@ -32,7 +32,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -42,9 +41,8 @@ import org.hl7.fhir.dstu21.model.IdType;
 import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.model.StringType;
 import org.hl7.fhir.dstu21.model.Type;
-import org.hl7.fhir.dstu21.model.api.IIdType;
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;

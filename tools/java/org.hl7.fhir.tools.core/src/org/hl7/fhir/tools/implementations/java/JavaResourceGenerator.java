@@ -31,11 +31,13 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.Validate;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -44,6 +46,8 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.dstu21.model.Extension;
+import org.hl7.fhir.instance.model.api.IBaseDatatype;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -120,17 +124,17 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           write("import org.hl7.fhir.dstu21.model.Enumerations.*;\r\n");
       }
       if (clss == JavaGenClass.Resource) {
-        write("import org.hl7.fhir.dstu21.model.annotations.ResourceDef;\r\n");
-        write("import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;\r\n");
+        write("import ca.uhn.fhir.model.api.annotation.ResourceDef;\r\n");
+        write("import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;\r\n");
       } 
-      write("import org.hl7.fhir.dstu21.model.annotations.Child;\r\n");
-      write("import org.hl7.fhir.dstu21.model.annotations.Description;\r\n");
+      write("import ca.uhn.fhir.model.api.annotation.Child;\r\n");
+      write("import ca.uhn.fhir.model.api.annotation.Description;\r\n");
     }
     if (clss != JavaGenClass.Resource) {
-      write("import org.hl7.fhir.dstu21.model.annotations.DatatypeDef;\r\n");
+      write("import ca.uhn.fhir.model.api.annotation.DatatypeDef;\r\n");
     }
-    write("import org.hl7.fhir.dstu21.model.annotations.Block;\r\n");
-    write("import org.hl7.fhir.dstu21.model.api.*;\r\n");
+    write("import ca.uhn.fhir.model.api.annotation.Block;\r\n");
+    write("import org.hl7.fhir.instance.model.api.*;\r\n");
     write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
     
 		jdoc("", root.getDefinition());
@@ -234,7 +238,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	    if (mandatory.size() > 0)
 	      generateConstructor(upFirst(name), mandatory, "  ");
 
-	    generateTypeSpecificConstructors(isRefType);
+	    generateTypeSpecificConstructors(upFirst(name));
 	    
 			for (ElementDefn e : root.getElements()) {
   			generateAccessors(root, e, "    ", upFirst(name));
@@ -277,9 +281,25 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		flush();
 	}
 
-  private void generateTypeSpecificConstructors(boolean isRefType) throws IOException {
+  private void generateTypeSpecificConstructors(String theName) throws IOException {
     //@formatter:off
-    if (isRefType) {
+    if ("Extension".equals(theName)) {
+      write("    /**\r\n" + 
+          "     * Constructor\r\n" + 
+          "     */\r\n" + 
+          "    public Extension(String theUrl) {\r\n" + 
+          "      setUrl(theUrl);\r\n" + 
+          "    }\r\n" + 
+          "\r\n" + 
+          "    /**\r\n" + 
+          "     * Constructor\r\n" + 
+          "     */\r\n" + 
+          "    public Extension(String theUrl, IBaseDatatype theValue) {\r\n" + 
+          "      setUrl(theUrl);\r\n" + 
+          "      setValue(theValue);\r\n" + 
+          "    }\r\n" + 
+          "\r\n");
+    } else if ("Reference".equals(theName)) {
       write("    /**\r\n" + 
           "     * Constructor\r\n" + 
           "     * \r\n" + 
@@ -312,6 +332,39 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   }
 
   private void generateTypeSpecificAccessors(String name, JavaGenClass clss) throws IOException {
+    //@formatter:off
+    if (upFirst(name).equals("DomainResource")) {
+      write("    /**\r\n" + 
+          "     * Returns a list of extensions from this element which have the given URL. Note that\r\n" + 
+          "     * this list may not be modified (you can not add or remove elements from it)\r\n" + 
+          "     */\r\n" + 
+          "    public List<Extension> getExtensionsByUrl(String theUrl) {\r\n" + 
+          "      org.apache.commons.lang3.Validate.notBlank(theUrl, \"theUrl must be provided with a value\");\r\n" + 
+          "      ArrayList<Extension> retVal = new ArrayList<Extension>();\r\n" + 
+          "      for (Extension next : getExtension()) {\r\n" + 
+          "        if (theUrl.equals(next.getUrl())) {\r\n" + 
+          "          retVal.add(next);\r\n" + 
+          "        }\r\n" + 
+          "      }\r\n" + 
+          "      return Collections.unmodifiableList(retVal);\r\n" + 
+          "    }\r\n" + 
+          "\r\n" + 
+          "    /**\r\n" + 
+          "     * Returns a list of modifier extensions from this element which have the given URL. Note that\r\n" + 
+          "     * this list may not be modified (you can not add or remove elements from it)\r\n" + 
+          "     */\r\n" + 
+          "    public List<Extension> getModifierExtensionsByUrl(String theUrl) {\r\n" + 
+          "      org.apache.commons.lang3.Validate.notBlank(theUrl, \"theUrl must be provided with a value\");\r\n" + 
+          "      ArrayList<Extension> retVal = new ArrayList<Extension>();\r\n" + 
+          "      for (Extension next : getModifierExtension()) {\r\n" + 
+          "        if (theUrl.equals(next.getUrl())) {\r\n" + 
+          "          retVal.add(next);\r\n" + 
+          "        }\r\n" + 
+          "      }\r\n" + 
+          "      return Collections.unmodifiableList(retVal);\r\n" + 
+          "    }\r\n" + 
+          "\r\n");
+    }
     if (upFirst(name).equals("Element")) {
       write("   /**\r\n" + 
           "    * Returns an unmodifiable list containing all extensions on this element which \r\n" + 
@@ -346,6 +399,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
       "    return ext.get(0).getValue().primitiveValue();\r\n"+
       "  }\r\n"+
       "\r\n");
+      //@formatter:on
       
     }
     if (clss == JavaGenClass.Resource && upFirst(name).equals("Bundle")) {
@@ -577,7 +631,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
   }
 
   private void generateConstructor(String className, List<ElementDefn> params, String indent) throws IOException {
-    write(indent+"/*\r\n");
+    write(indent+"/**\r\n");
     write(indent+" * Constructor\r\n");
     write(indent+" */\r\n");
     write(indent+"  public "+className+"(");
@@ -1237,7 +1291,8 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 
 		boolean isReferenceRefField = (root.getName().equals("Reference") && e.getName().equals("reference"));
 		
-		if (e.unbounded()) {
+		String simpleType = getSimpleType(tn);
+    if (e.unbounded()) {
 		  jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
 			if (tn == null && e.usesCompositeType()) {
 				write(indent+"public List<"+root.getName()+"> get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
@@ -1272,7 +1327,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"}\r\n");
         write("\r\n");
         jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
-        write(indent+"public "+className+" add"+getTitle(getElementName(e.getName(), false))+"("+getSimpleType(tn)+" value) { //1\r\n");
+        write(indent+"public "+className+" add"+getTitle(getElementName(e.getName(), false))+"("+simpleType+" value) { //1\r\n");
         write(indent+"  "+tn+" t = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+");\r\n");
         write(indent+"  t.setValue(value);\r\n");
         write(indent+"  if (this."+getElementName(e.getName(), true)+" == null)\r\n");
@@ -1282,7 +1337,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         write(indent+"}\r\n");
         write("\r\n");
         jdoc(indent, "@param value {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
-        write(indent+"public boolean has"+getTitle(getElementName(e.getName(), false))+"("+getSimpleType(tn)+" value) { \r\n");
+        write(indent+"public boolean has"+getTitle(getElementName(e.getName(), false))+"("+simpleType+" value) { \r\n");
         write(indent+"  if (this."+getElementName(e.getName(), true)+" == null)\r\n");
         write(indent+"    return false;\r\n");
         write(indent+"  for ("+tn+" v : this."+getElementName(e.getName(), true)+")\r\n");
@@ -1381,7 +1436,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	      write(indent+"}\r\n");
 	      write("\r\n");
 	      jdoc(indent, "@return "+e.getDefinition());
-	      write(indent+"public "+getSimpleType(tn)+" get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
+	      write(indent+"public "+simpleType+" get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
 	      if (e.typeCode().equals("boolean"))
           write(indent+"  return this."+getElementName(e.getName(), true)+" == null || this."+getElementName(e.getName(), true)+".isEmpty() ? false : this."+getElementName(e.getName(), true)+".getValue();\r\n");
 	      else if (e.typeCode().equals("integer") || e.typeCode().equals("unsignedInt") || e.typeCode().equals("positiveInt"))
@@ -1390,26 +1445,14 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 	        write(indent+"  return this."+getElementName(e.getName(), true)+" == null ? null : this."+getElementName(e.getName(), true)+".getValue();\r\n");
 	      write(indent+"}\r\n");
 	      write("\r\n");
-	      jdoc(indent, "@param value "+e.getDefinition());
-	      write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"("+getSimpleType(tn)+" value) { \r\n");
-	      if (e.getMinCardinality() == 0 && !tn.equals("IntegerType") && !tn.equals("PositiveIntType") && !tn.equals("UnsignedIntType") && !tn.equals("BooleanType")) {
-          if (isString(tn))
-            write(indent+"  if (Utilities.noString(value))\r\n");
-	        else
-	          write(indent+"  if (value == null)\r\n");
-	        write(indent+"    this."+getElementName(e.getName(), true)+" = null;\r\n");
-	        write(indent+"  else {\r\n");
+	      generateSetter(e, indent, className, tn, simpleType);
+
+	      // BigDecimal sugar methods 
+	      if (simpleType.equals("BigDecimal")) {
+          generateSetter(e, indent, className, tn, "long");
+	        generateSetter(e, indent, className, tn, "double");
 	      }
-	      write(indent+"    if (this."+getElementName(e.getName(), true)+" == null)\r\n");
-        write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+");\r\n");
-        write(indent+"    this."+getElementName(e.getName(), true)+".setValue(value);\r\n");
-        if (e.getMinCardinality() == 0 && !tn.equals("IntegerType") && !tn.equals("PositiveIntType") && !tn.equals("UnsignedIntType") && !tn.equals("BooleanType")) {
-          write(indent+"  }\r\n");
-        }
-        write(indent+"  return this;\r\n");
-        write(indent+"}\r\n");
-	      write("\r\n");
-			  
+	      
 			} else {
 			  jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+")");
 			  write(indent+"public "+tn+" get"+getTitle(getElementName(e.getName(), false))+"() { \r\n");
@@ -1479,6 +1522,33 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		}
 
 	}
+
+  private void generateSetter(ElementDefn e, String indent, String className, String tn, String simpleType) throws IOException {
+    jdoc(indent, "@param value "+e.getDefinition());
+    write(indent+"public "+className+" set"+getTitle(getElementName(e.getName(), false))+"("+simpleType+" value) { \r\n");
+    if ("long".equals(simpleType) || "double".equals(simpleType)) {
+      write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+");\r\n");
+      write(indent+"    this."+getElementName(e.getName(), true)+".setValue(value);\r\n");      
+    } else {
+      if (e.getMinCardinality() == 0 && !tn.equals("IntegerType") && !tn.equals("PositiveIntType") && !tn.equals("UnsignedIntType") && !tn.equals("BooleanType")) {
+        if (isString(tn))
+          write(indent+"  if (Utilities.noString(value))\r\n");
+        else
+          write(indent+"  if (value == null)\r\n");
+        write(indent+"    this."+getElementName(e.getName(), true)+" = null;\r\n");
+        write(indent+"  else {\r\n");
+      }
+      write(indent+"    if (this."+getElementName(e.getName(), true)+" == null)\r\n");
+      write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+");\r\n");
+      write(indent+"    this."+getElementName(e.getName(), true)+".setValue(value);\r\n");
+      if (e.getMinCardinality() == 0 && !tn.equals("IntegerType") && !tn.equals("PositiveIntType") && !tn.equals("UnsignedIntType") && !tn.equals("BooleanType")) {
+        write(indent+"  }\r\n");
+      }
+    }
+    write(indent+"  return this;\r\n");
+    write(indent+"}\r\n");
+    write("\r\n");
+  }
 
   private boolean isString(String tn) {
     return tn.equals("StringType") || tn.equals("CodeType") || tn.equals("IdType") || tn.equals("UriType") || tn.equals("OidType") || tn.equals("UuidType");

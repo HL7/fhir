@@ -1,7 +1,7 @@
 package org.hl7.fhir.dstu21.model;
 
 import org.apache.commons.lang3.StringUtils;
-import org.hl7.fhir.dstu21.model.api.INarrative;
+import org.hl7.fhir.instance.model.api.INarrative;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
 public abstract class BaseNarrative extends Type implements INarrative {

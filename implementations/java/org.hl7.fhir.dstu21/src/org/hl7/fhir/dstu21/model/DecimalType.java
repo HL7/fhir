@@ -35,8 +35,9 @@ import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 
-import org.hl7.fhir.dstu21.model.annotations.DatatypeDef;
-import org.hl7.fhir.dstu21.model.api.IBaseDecimalDatatype;
+import org.hl7.fhir.instance.model.api.IBaseDecimalDatatype;
+
+import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 
 /**
  * Primitive type "decimal" in FHIR: A rational number
@@ -150,6 +151,20 @@ public class DecimalType extends PrimitiveType<BigDecimal> implements Comparable
 		setValue(new BigDecimal(theValue));
 	}
 
+	/**
+	 * Sets a new value using a long
+	 */
+	public void setValue(long theValue) {
+		setValue(new BigDecimal(theValue));
+	}
+
+	/**
+	 * Sets a new value using a double
+	 */
+	public void setValue(double theValue) {
+		setValue(new BigDecimal(theValue));
+	}
+
 	@Override
 	public DecimalType copy() {
 		return new DecimalType(getValue());
@@ -158,4 +173,5 @@ public class DecimalType extends PrimitiveType<BigDecimal> implements Comparable
 	public String fhirType() {
 		return "decimal";		
 	}
+
 }

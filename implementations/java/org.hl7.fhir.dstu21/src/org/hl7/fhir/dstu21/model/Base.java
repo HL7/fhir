@@ -6,11 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.dstu21.model.api.IBase;
 import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.instance.model.api.IBase;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
-public abstract class Base implements Serializable, IBase {
+import ca.uhn.fhir.model.api.IElement;
+
+public abstract class Base implements Serializable, IBase, IElement {
 
   /**
    * User appended data items - allow users to add extra information to the class

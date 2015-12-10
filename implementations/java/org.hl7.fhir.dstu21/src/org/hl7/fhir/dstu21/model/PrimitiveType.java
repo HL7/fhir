@@ -3,10 +3,12 @@ package org.hl7.fhir.dstu21.model;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.hl7.fhir.dstu21.model.api.IBaseHasExtensions;
-import org.hl7.fhir.dstu21.model.api.IPrimitiveType;
+import org.hl7.fhir.instance.model.api.IBaseHasExtensions;
+import org.hl7.fhir.instance.model.api.IPrimitiveType;
 
-public abstract class PrimitiveType<T> extends Type implements IPrimitiveType<T>, IBaseHasExtensions {
+import ca.uhn.fhir.model.api.IElement;
+
+public abstract class PrimitiveType<T> extends Type implements IPrimitiveType<T>, IBaseHasExtensions, IElement {
 
 	private static final long serialVersionUID = 3L;
 

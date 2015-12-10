@@ -56,6 +56,7 @@ import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 
+import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
@@ -230,7 +231,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     TextFile.stringToFileNoPrefix(makeConstantsClass(version, svnRevision, genDate), implDir+"org.hl7.fhir.dstu21"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu21"+sl+"model"+sl+"Constants.java");
     ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
     zip.addFiles(implDir+"org.hl7.fhir.dstu21"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu21"+sl+"model"+sl, "org/hl7/fhir/instance/model/", ".java", null);
-    zip.addFiles(implDir+"org.hl7.fhir.dstu21"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu21"+sl+"model"+sl+"annotations"+sl, "org/hl7/fhir/instance/model/annotations/", ".java", null);
+//    zip.addFiles(implDir+"org.hl7.fhir.dstu21"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu21"+sl+"model"+sl+"annotations"+sl, "org/hl7/fhir/instance/model/annotations/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.dstu21"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu21"+sl+"formats"+sl, "org/hl7/fhir/instance/formats/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.rdf"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"rdf"+sl, "org/hl7/fhir/rdf/", ".java", null);
     zip.addFiles(implDir+"org.hl7.fhir.utilities"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"utilities"+sl, "org/hl7/fhir/utilities/", ".java", null);
@@ -248,6 +249,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     zip.addFileName("imports/commons-logging-api-1.1.jar", importsDir+sl+"commons-logging-api-1.1.jar", false);
     zip.addFileName("imports/httpclient-4.2.3.jar", importsDir+sl+"httpclient-4.2.3.jar", false);
     zip.addFileName("imports/httpcore-4.2.2.jar", importsDir+sl+"httpcore-4.2.2.jar", false);
+    zip.addFileName("imports/hapi-fhir-base-1.3.jar", importsDir+sl+"hapi-fhir-base-1.3.jar", false);
     
     zip.close();
     jParserGenX.close();
@@ -460,6 +462,7 @@ public boolean doesCompile() {
     AddJarToJar(jar, importsDir+sl+"commons-logging-api-1.1.jar", names);    
     AddJarToJar(jar, importsDir+sl+"httpclient-4.2.3.jar", names);
     AddJarToJar(jar, importsDir+sl+"httpcore-4.2.2.jar", names);
+    AddJarToJar(jar, importsDir+sl+"hapi-fhir-base-1.3.jar", names);
     
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.dstu21"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.dstu21"+sl+"src"+sl).length(), names);
@@ -488,7 +491,8 @@ public boolean doesCompile() {
     AddJarToJar(jar, importsDir+sl+"commons-logging-api-1.1.jar", names);    
     AddJarToJar(jar, importsDir+sl+"httpclient-4.2.3.jar", names);
     AddJarToJar(jar, importsDir+sl+"httpcore-4.2.2.jar", names);
-    
+    AddJarToJar(jar, importsDir+sl+"hapi-fhir-base-1.3.jar", names);
+
     // by adding source first, we add all the newly built classes, and these are not updated when the older stuff is included
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.dstu21"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.dstu21"+sl+"src"+sl).length(), names);
     AddToJar(jar, new File(rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src"), (rootDir+"implementations"+sl+"java"+sl+"org.hl7.fhir.utilities"+sl+"src"+sl).length(), names);
@@ -569,9 +573,12 @@ public boolean doesCompile() {
     src.close();
     List<JavaClass> list = new ArrayList<JavaGenerator.JavaClass>();
     for (String imp : imports) {
-      if (classes.containsKey(imp))
+      if (classes.containsKey(imp)) {
         list.add(classes.get(imp));
-      else if (imp.startsWith("org.hl7.fhir")) {
+      } else if (imp.startsWith("org.hl7.fhir.instance.model.api")) {
+        // This comes from the HAPI JAR because it's common across versions
+        continue;
+      } else if (imp.startsWith("org.hl7.fhir")) {
         boolean found = false;
         if (imp.endsWith(".*")) {
           String mask = imp.substring(0, imp.length()-1);
@@ -797,9 +804,11 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
     File filed = Utilities.createTempFile("temp", ".txt");
     if (filed.exists())
       filed.delete();
-    
+
+    String commandString;
     if (IN_PROCESS) {
       new ToolsHelper().executeFragments(new String[] {"fragments", file.getAbsolutePath(), filed.getAbsolutePath()}); 
+      commandString = "executeFragments(\"fragments\",\"" + file.getAbsolutePath() + "\",\"" + filed.getAbsolutePath() + "\"";
     } else {
       List<String> command = new ArrayList<String>();
       command.add("java");
@@ -808,15 +817,17 @@ public void loadAndSave(FolderManager folders, String sourceFile, String destFil
       command.add("fragments");
       command.add(file.getAbsolutePath());
       command.add(filed.getAbsolutePath());
-
+      commandString = new java.io.File( "." ).getCanonicalPath() + "  " + StringUtils.join(command, " ");
+      
       ProcessBuilder builder = new ProcessBuilder().inheritIO().command(command);
       builder.directory(new File(folders.dstDir));
 
       final Process process = builder.start();
       process.waitFor();
     }
-    if (!filed.exists())
-      return "Fragment processing failed completely";
+    if (!filed.exists()) {
+      return "Fragment processing failed completely while executing command: " + commandString;
+    }
     String s = TextFile.fileToString(filed.getAbsolutePath());
     if ("ok".equals(s))
       return null;
