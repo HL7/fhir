@@ -20,39 +20,9 @@
       <definition value="The text provides guidances on how to populate or use a portion of the questionnaire (or the questionnaire as a whole)."/>
     </concept>
     <concept>
-      <code value="units"/>
-      <display value="Units"/>
-      <definition value="The text indicates the units of measure associated with the parent question."/>
-    </concept>
-    <concept>
       <code value="security"/>
       <display value="Security"/>
       <definition value="The text provides guidance on how the information should be or will be handled from a security/confidentiality/access control perspective when completed"/>
-    </concept>
-    <concept>
-      <code value="lookup"/>
-      <display value="Lookup"/>
-      <definition value="A control where editing an item spawns a separate dialog box or screen permitting a user to navigate, filter or otherwise discover an appropriate match.  Useful for large choice sets where text matching is not an appropriate discovery mechanism.  Such screens must generally be tuned for the specific choice list structure."/>
-    </concept>
-    <concept>
-      <code value="radio-button"/>
-      <display value="Radio Button"/>
-      <definition value="A control where choices are listed with a button beside them.  The button can be toggled to select or de-select a given choice.  Selecting one item deselects all others."/>
-    </concept>
-    <concept>
-      <code value="slider"/>
-      <display value="Slider"/>
-      <definition value="A control where an axis is displayed between the high and low values and the control can be visually manipulated to select a value anywhere on the axis."/>
-    </concept>
-    <concept>
-      <code value="spinner"/>
-      <display value="Spinner"/>
-      <definition value="A control where a list of numeric or other ordered values can be scrolled through via arrows."/>
-    </concept>
-    <concept>
-      <code value="text-box"/>
-      <display value="Text Box"/>
-      <definition value="A control where a user can type in their answer freely."/>
     </concept>
   </codeSystem>
 </ValueSet>
