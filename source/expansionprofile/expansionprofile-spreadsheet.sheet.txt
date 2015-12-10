@@ -40,9 +40,9 @@
  -- Row 5 -----------------------------------
   Id = !5
   Context = ExpansionProfile
-  English = SHALL have at least one of\r– codeSystems.include\r– codeSystems.exclude\r– includeDesignations (as true)\r– excludeNested\r– excludeNotForUI\r– excludePostCoordinated\r– displayLanguage\r– limitedExpansion
-  XPath = exists(f:codeSystems.include) or exists(f:codeSystems.exclude) or (exists(f:includeDesignations) and f:includeDesignations=\'true\') or\rexists(f:codeSystems.excludeNested) or\rexists(f:codeSystems.excludeNotForUI) or\rexists(f:codeSystems.excludePostCoordinated) or\rexists(f:codeSystems.displayLanguage) or\rexists(f:codeSystems.limitedExpansion)
-  Expression = codeSystem.include\r.empty().not() or  codeSystem.exclude.empty().not()  or includeDesignations = true or excludeNested.empty().not() or excludeNotForUI.empty().not() or excludePostCoordinated\r.empty().not() or displayLanguage\r.empty().not() or  limitedExpansion.empty().not()
+  English = SHALL have at least one of\r– codeSystems.include\r– codeSystems.exclude\r– includeDesignations (as true)\r– includeInactive (as true)\r– excludeNested\r– excludeNotForUI\r– excludePostCoordinated\r– displayLanguage\r– limitedExpansion
+  XPath = exists(f:codeSystems.include) or exists(f:codeSystems.exclude) or \r(exists(f:includeInactive) and f:includeInactive=\'true\')\r(exists(f:includeDesignations) and f:includeDesignations=\'true\') or\rexists(f:codeSystems.excludeNested) or\rexists(f:codeSystems.excludeNotForUI) or\rexists(f:codeSystems.excludePostCoordinated) or\rexists(f:codeSystems.displayLanguage) or\rexists(f:codeSystems.limitedExpansion)
+  Expression = codeSystem.include\r.empty().not() or  codeSystem.exclude.empty().not()  or includeDesignations = true or includeInactive = true or excludeNested.empty().not() or excludeNotForUI.empty().not() or excludePostCoordinated\r.empty().not() or displayLanguage\r.empty().not() or  limitedExpansion.empty().not()
 
 === Sheet Data Elements =====================================
 
@@ -346,6 +346,15 @@
   Comments = The ValueSet defintion refers to all fields in the ValueSet definition apart from  ValueSet.contains. The definition is only included if includeDefinition is present and has a value of \"true\".
 
  -- Row 34 -----------------------------------
+  Element = ExpansionProfile.includeInactive
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = Include or exclude inactive concepts in the expansion
+  Definition = Controls whether inactive concepts are included or excluded in value set expansions.
+  Comments = Inactive codes are included if includeInactive is present and has a value of \"true\".
+
+ -- Row 35 -----------------------------------
   Element = ExpansionProfile.excludeNested
   Card. = 0..1
   Summary = y
@@ -354,7 +363,7 @@
   Definition = Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).
   Comments = Nested codes excluded if excludeNested is present and has a value of \"true\".
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ExpansionProfile.excludeNotForUI
   Card. = 0..1
   Summary = y
@@ -363,7 +372,7 @@
   Definition = Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces.
   Comments = Codes which cannot be used in user interfaces will be excluded if excludeNotForUI is present and has a value of \"true\".
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ExpansionProfile.excludePostCoordinated
   Card. = 0..1
   Summary = y
@@ -372,7 +381,7 @@
   Definition = Controls whether or not the value set expansion includes post coordinated codes.
   Comments = Post coordinated codes are excluded if excludePostCoordinated is present and has a value of \"true\".
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = ExpansionProfile.displayLanguage
   Card. = 0..1
   Summary = y
@@ -381,7 +390,7 @@
   Short Label = Specify the language for the display element of codes in the value set expansion
   Definition = Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ExpansionProfile.limitedExpansion
   Card. = 0..1
   Summary = y

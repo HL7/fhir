@@ -273,6 +273,17 @@
         "definition": null,
         "display": "grandfather"
       }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/familial-relationship|null|MTH|Mother",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MTH",
+        "definition": null,
+        "display": "mother"
+      }
     }
   ]
 }

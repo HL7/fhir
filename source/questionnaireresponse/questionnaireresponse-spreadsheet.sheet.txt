@@ -186,7 +186,7 @@
  -- Row 14 -----------------------------------
   Element = QuestionnaireResponse.item.answer
   Card. = 0..*
-  UML = 0;190
+  UML = 300;190
   Short Label = The response(s) to the question
   Definition = The respondent\'s answer(s) to the question
   Comments = The value is nested because we cannot have a repeating structure that has variable type

@@ -256,7 +256,7 @@
 
  -- Row 3 -----------------------------------
   Element = Sequence.variationID
-  Card. = 0..1
+  Card. = 0..*
   Type = CodeableConcept
   Binding = sequenceVariation
   Short Label = Identifier for variant and ClinVar, dbSNP or COSMIC identifier should be used

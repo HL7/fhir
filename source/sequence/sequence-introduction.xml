@@ -1,6 +1,6 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <div>
-
+    
 <h2>Overview</h2>
 <p>
     The Sequence resource is designed to describe a sequence variant or a sequence without variant information. Complete genetic sequence information, of which specific genetic variations are a part, is reported by reference to the GA4GH repository.  Thus, the FHIR Sequence resource avoids large genomic payloads in a manner analogous to how the FHIR ImagingStudy resource references large images maintained in other systems.
@@ -11,8 +11,6 @@
     <ul>
         <li>Variant Databases: <a href="http://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi">dbSNP</a> , <a href="http://www.ncbi.nlm.nih.gov/clinvar/">ClinVar</a>, and <a href="http://cancer.sanger.ac.uk/cosmic/">COSMIC</a> </li>
         <li>Reference Sequences: <a href="http://www.ncbi.nlm.nih.gov/refseq/">RefSeq</a> and <a href="http://www.ensembl.org/index.html">ENSEMBL</a> </li>
-        <li>Gene Symbols and Identifiers: <a href="http://www.genenames.org">HGNC</a> - Human Genee Nomenclature Committee</li>
-        <li>Locus: <a href="http://www.ncbi.nlm.nih.gov/gene">Gene</a></li>
     </ul>
 </p>
 </div>
