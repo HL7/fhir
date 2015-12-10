@@ -229,16 +229,46 @@
   Path = PaymentReconciliation.identifier
 
  -- Row 2 -----------------------------------
-  Name = !request
+  Name = request
   Type = reference
   Description = The reference to the claim
   Path = PaymentReconciliation.request
 
  -- Row 3 -----------------------------------
-  Name = !organization
+  Name = organization
   Type = reference
   Description = The organization who generated this resource
   Path = PaymentReconciliation.organization
+
+ -- Row 4 -----------------------------------
+  Name = outcome
+  Type = token
+  Description = The processing outcome
+  Path = PaymentReconciliation.outcome
+
+ -- Row 5 -----------------------------------
+  Name = created
+  Type = date
+  Description = The creation date
+  Path = PaymentReconciliation.created
+
+ -- Row 6 -----------------------------------
+  Name = disposition
+  Type = string
+  Description = The contents of the disposition message
+  Path = PaymentReconciliation.disposition
+
+ -- Row 7 -----------------------------------
+  Name = requestprovider
+  Type = reference
+  Description = The reference to the provider who sumbitted the claim
+  Path = PaymentReconciliation.requestProvider
+
+ -- Row 8 -----------------------------------
+  Name = requestorganization
+  Type = reference
+  Description = The organization who generated this resource
+  Path = PaymentReconciliation.requestOrganization
 
 === Sheet Profiles =====================================
 
