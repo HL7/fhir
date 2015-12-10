@@ -295,9 +295,6 @@ NOTE: while translations on Resources are possible they should be used for rende
 		<translation lang="es">GVFVariante</translation>
 		<translation lang="fr">GVFVariante</translation>
 	</item>
-	<item id="GuidanceRequest">
-		<translation lang="en">GuidanceRequest</translation>
-	</item>
 	<item id="GuidanceResponse">
 		<translation lang="en">GuidanceResponse</translation>
 	</item>
