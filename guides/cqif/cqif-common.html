@@ -25,58 +25,60 @@
 <a name="contents"></a>
 <h3>Contents</h3>
 
-<p>The following table lists the CQIF profiles that are part of the IG, and the underlying FHIR resources:</p>
+<p>The following table lists the resources and profiles that are involved in the IG:</p>
 
 <table class="list">
 	<thead>
 		<tr>
-			<th><b>CQIF FHIR Profile</b></th>
-			<th><b>Base FHIR Resource</b></th>
+			<th><b>Resource/Profile</b></th>
+			<th><b>Description</b></th>
 		</tr>
 	</thead>
 	<tbody>
-        <tr>
-			<td><a href="cqif-knowledgerequest.html">CQIF-KnowledgeRequest</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
+		<tr>
+			<td><a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a></td>
+			<td>Defines metadata for a quality artifact. This resource is used by specific aritfact definition resources such as DecisionSupportServiceModule, OrderSet, and Measure to specify common metadata.</td>
 		</tr>
 		<tr>
-			<td><a href="cqif-knowledgeresponse.html">CQIF-KnowledgeResponse</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
+			<td><a href="[%fhir-path%]moduledefinition.html">ModuleDefinition</a></td>
+			<td>Defines data requirements and model, library, and terminology components referenced by an artifact. This resource is used by specific artifact definition resources as a common facility for describing these aspects of an artifact.</td>
 		</tr>
 		<tr>
-			<td><a href="cqif-knowledgemodule.html">CQIF-KnowledgeModule</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
-		</tr>
-		<tr>
-			<td><a href="cqif-evidence.html">CQIF-Evidence</a></td>
-			<td><a href="[%fhir-path%]documentreference.html">DocumentReference</a></td>
+			<td><a href="[%fhir-path%]library.html">Library</a></td>
+			<td>Defines a library of CQL/ELM logic that can be shared and reused by various quality artifacts.</td>
 		</tr>
 	</tbody>
 </table>
 
 <a name="sharing"/>
 <h3>Sharing</h3>
-<p>The sharing use case is considered first, because it establishes structures that are then utilized by the other two use cases. Broadly, this use case involves enabling a Healthcare Delivery System such as an Electronic Health Record System or a Clinical Decision Support Service, to obtain a computable definition of a knowledge artifact, such as a quality measure, or a decision support rule. This section of the implementation guide defines the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure, which establishes the elements common to knowledge artifacts from both domains.</p>
+<p>The sharing use case is considered first, because it establishes structures that are then utilized by the other two use cases. Broadly, this use case involves enabling a Healthcare Delivery System such as an Electronic Health Record System or a Clinical Decision Support Service, to obtain a computable definition of a knowledge artifact, such as a quality measure, or a decision support rule. This section of the implementation guide uses the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> and <a href="[%fhir-path%]moduledefinition.html">ModuleDefinition</a> structures, which describe the elements common to knowledge artifacts from both domains.</p>
 
-<p>The <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure is then extended by the quality measurement and decision support domains to support the representation of domain specific modules and artifacts.</p>
+<p>The <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure is then used by the quality measurement and decision support domains to support the representation of domain specific modules and artifacts.</p>
 
-<p>At the common level, the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure contains the following general categories of elements:</p>
+<p>At the common level, the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure contains the following general categories of elements:</p>
 <ul>
 	<li>Module identity and versioning</li>
 	<li>Description and documentation</li>
 	<li>Publication and stewardship information</li>
-	<li>Data Requirements representation</li>
 	<li>Repository metadata</li>
-	<li>Content</li>
+</ul>
+
+<p>In addition, the <a href="[%fhir-path%]moduledefinition.html">ModuleDefinition</a> structure defines the following categories of elements:</p>
+<ul>
+	<li>Models - The models referenced by the artifact.</li>
+	<li>Libraries - The libraries referenced by the artifact.</li>
+	<li>Terminology - The code systems and value sets referenced by the artifact.</li>
+	<li>Data Requirements - The data requirements for the artifact.</li>
 </ul>
 
 <h4>Module Identity</h4>
 
-<p>As with any FHIR resource, the instance identity is specified by the <a href="[%fhir-path%]resource-definitions.html#Resource.id">id</a> element. In addition, modules may have logical identifiers based on the content or behavior they provide. For example, the CMS or NQF identifiers for measure content. These identifiers can be provided in the <a href="[%fhir-path%]basic-definitions.html#Basic.identifier">identifier</a> element.</p>
+<p>As with any FHIR resource, the instance identity is specified by the <a href="[%fhir-path%]resource-definitions.html#Resource.id">id</a> element. In addition, modules may have logical identifiers based on the content or behavior they provide. For example, the CMS or NQF identifiers for measure content. These identifiers can be provided in the <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.identifier">identifier</a> element.</p>
 
-<p>In addition to identity, the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure allows, but does not require, a <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.version">version</a> to be specified.</p>
+<p>In addition to identity, the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure allows, but does not require, a <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.version">version</a> to be specified.</p>
 
-<p>When using the <a href="[%fhir-path%]basic-definitions.html#Basic.identifier">identifier</a> element to provide the Entity Identifier for a module consistent with the Decision Support Service (DSS) specification, the following mappings apply:</p>
+<p>When using the <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.identifier">identifier</a> element to provide the Entity Identifier for a module consistent with the Decision Support Service (DSS) specification, the following mappings apply:</p>
 
 <table class="list">
 	<thead>
@@ -92,12 +94,12 @@
 <a name="documentation"/>
 <h4>Documentation</h4>
 
-<p>The <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure provides several elements related to documentation of the module, including <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.title">title</a>, <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.description">description</a>, <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.purpose">purpose</a>, and <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.usage">usage</a>. In addition to these elements, additional supporting documentation, citations, and evidence can be provided via the <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.relatedresource">relatedResource</a> element.</p>
+<p>The <a href="[%fhir-path%]modulemetadata.html">KnowledgeModule</a> structure provides several elements related to documentation of the module, including <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.title">title</a>, <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.description">description</a>, <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.purpose">purpose</a>, and <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.usage">usage</a>. In addition to these elements, additional supporting documentation, citations, and evidence can be provided via the <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.relatedresource">relatedResource</a> element.</p>
 
 <a name="publication-information"/>
 <h4>Publication Information</h4>
 
-The <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.status">status</a> element of the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure describes the lifecycle status of the module, indicating whether the module is a <i>draft</i>, <i>test</i>, <i>active</i>, or <i>retired</i> artifact. This representation is consistent with the states described by the Quality Metadata Conceptual Model. The following table provides a mapping from the states defined here, to the states as defined in the Clinical Decision Support Knowledge Artifact Specification (CDS KAS), as well as the Decision Support Services (DSS) standard:
+The <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.status">status</a> element of the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure describes the lifecycle status of the module, indicating whether the module is a <i>draft</i>, <i>test</i>, <i>active</i>, or <i>retired</i> artifact. This representation is consistent with the states described by the Quality Metadata Conceptual Model. The following table provides a mapping from the states defined here, to the states as defined in the Clinical Decision Support Knowledge Artifact Specification (CDS KAS), as well as the Decision Support Services (DSS) standard:
 
 <table class="list">
 	<thead>
@@ -111,7 +113,12 @@ The <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.status">
 	</tbody>
 </table>
 
-<p>In addition, the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure provides elements for tracking publication information including <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.contributor">contributor</a>, <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.publisher">publisher</a>, <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.steward">steward</a>, and <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.rightsdeclaration">rightsDeclaration</a>.</p>
+<p>In addition, the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure provides elements for tracking publication information including <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.contributor">contributor</a>, <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.publisher">publisher</a>, <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.steward">steward</a>, and <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.rightsdeclaration">rightsDeclaration</a>.</p>
+
+<a name="repository-metadata"/>
+<h4>Repository Metadata</h4>
+
+<p>To support the ability of a repository to allow searching for knowledge modules and artifacts, the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure defines the <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.topic">topic</a> and <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.keyword">keyword</a> elements. For more information on these elements, refer to the <a href="#distribution">Distribution</a> section.</p>
 
 <a name="data-requirements"/>
 <h4>Data Requirements</h4>
@@ -120,7 +127,7 @@ The <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.status">
 
 <p>In the scenario that an evaluation service is not colocated with the clinical information, the service has no general way of knowing whether or not a request has fulfilled the stated data requirements for a module. As such, this is a critical aspect of implementation, the service assumes the stated data requirements will be provided as part of a request, and requesters shall provide at least the data specified by the data requirements when requesting evaluation for a module.</p>
 
-<p>The <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure provides for the definition of two types of data requirements:</p>
+<p>The <a href="[%fhir-path%]moduledefinition.html">ModuleDefinition</a> structure provides for the definition of two types of data requirements:</p>
 
 <ol>
 	<li>Patient-independent information - Specified as named parameters</li>
@@ -131,37 +138,33 @@ The <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.status">
 
 <p>Patient-independent information consists of data that is not known based on the patient or population under evaluation. For example, an A1C control artifact may have as a parameter the threshold A1C level that is considered "poorly controlled." </p>
 
-<p>Within the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure, patient-independent data requirements are modeled using the <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.parameters">parameters</a> element. These elements are defined in the same way that parameters are defined for operation definitions within the FHIR infrastructure.</p>
+<p>Within the <a href="[%fhir-path%]moduledefinition.html">ModuleDefinition</a> structure, patient-independent data requirements are modeled using the <a href="[%fhir-path%]moduledefinition-definitions.html#ModuleDefinition.parameters">parameters</a> element. These elements are defined in the same way that parameters are defined for operation definitions within the FHIR infrastructure.</p>
 
 <h5>Data</h5>
 
-<p>Patient-dependent information consists of data that is related to the patient or population under evaluation, and is specified by the <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.data">data</a> element. The set of data of interest for a particular evaluation is specified by identifying the type of data, such as MedicationStatement or Encounter, an optional profile or profiles to which the data must conform, and optional filters for code- and/or date-valued attributes.</p>
+<p>Patient-dependent information consists of data that is related to the patient or population under evaluation, and is specified by the <a href="[%fhir-path%]moduledefinition-definitions.html#ModuleDefinition.data">data</a> element. The set of data of interest for a particular evaluation is specified by identifying the type of data, such as MedicationStatement or Encounter, an optional profile or profiles to which the data must conform, and optional filters for code- and/or date-valued attributes.</p>
 
 <p>Note that because this data is dynamically filtered, it cannot be completely described with profiles. In addition, the data requirements as specified here map directly to the way that patient-specific information is accessed within retrieve expressions in Clinical Quality Language (CQL), and are therefore not named the way that parameters are in order to be accessed.</p>
-
-<a name="repository-metadata"/>
-<h4>Repository Metadata</h4>
-
-<p>To support the ability of a repository to allow searching for knowledge modules and artifacts, the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure defines the <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.topic">topic</a> and <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.keyword">keyword</a> elements. For more information on these elements, refer to the <a name="#distribution">Distribution</a> section.</p>
-
-<a name="content"/>
-<h4>Content</h4>
-
-<p>In addition to being a description of the behavior of a quality service, the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure can be used to represent a knowledge artifact, which is defined as a shareable, computable definition of the behavior of a quality service. Most of the content actually contained within an artifact is defined by derived structures such as MeasureArtifact and GuidanceArtifact that define the content specific to the domain. However, some of the content definitions are common between both measurement and decision support, and are therefore modeled in the KnowledgeModule structure itself. Specifically, the <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.model">model</a> and <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.library">library</a> elements define the data models and libraries used within the content.</p>
 
 <a name="examples"/>
 <h4>Examples</h4>
 
-<p>The following examples illustrate the use of the knowledge module to define stand alone modules and libraries:</p>
+<p>The following examples illustrate the use of the ModuleMetadata, ModuleDefinition, and Library resources to define stand alone modules and libraries:</p>
 
 <ul>
-	<li><a href="knowledgemodule-example.html">Stand Alone Knowledge Module - Guideline Appropriate Ordering</a></li>
-	<li><a href="knowledgemodule-library-example.html">Library Knowledge Module - Chlamydia Screening Common</a></li>
+	<li><a href="[%fhir-path%]modulemetadata-example.html">ModuleMetadata Example: Chlamydia Screening Decision Support Rule</a></li>
+	<li><a href="[%fhir-path%]moduledefinition-example.html">ModuleDefinition Example: Module definition for Chlamydia Screening Common Library</a></li>
+	<li><a href="[%fhir-path%]library-example.html">Library Example - Chlamydia Screening Common Library</a></li>
 </ul>
 
 <a name="evaluation"/>
 <h3>Evaluation</h3>
 
+<p>Because evaluation is specific to the type of artifact being evaluated, the evaluation scenarios are described as operations against each type of artifact (when evaluation is an appropriate operation).</p>
+
+<!-- TODO: Link to evaluate operations where defined -->
+
+<!--
 <p>The evaluation use case enables the user of a system (such as a clinical workflow system) to receive clinical guidance for a particular patient. In addition, this use enables the ability of a health care system to automatically determine the need for clinical guidance based on clinical observations. In general, the use case involves a service requestor, and a service supplier. The Decision Support Service specification defines interfaces to enable this use case; this implementation guide provides a realization of that interface using FHIR as the service.</p>
 
 <p>Only the common aspects of an artifact evaluation request and response are considered here, measure- and decision-support-specific evaluation operations are defined in their respective sections.</p>
@@ -173,11 +176,12 @@ The <a href="cqif-knowledgemodule-definitions.html#cqif-knowledgemodule.status">
 <p>The <a href="cqif-knowledgerequest.html">KnowledgeRequest</a> structure captures the information required to request evaluation of a particular module, and the <a href="cqif-knowledgeresponse.html">KnowledgeResponse</a> structure describes the information returned by an evaluation.</p>
 
 <p>Each request instance specifies a single module to be evaluated, and results in a single response to describe the result of the evaluation. Note that the <a href="cqif-knowledgerequest-definitions.html#cqif-knowledgerequest.inputparameters">inputParameters</a> provided as part of the KnowledgeRequest are intended to provide patient-independent information to the evaluation. Patient-specific information, if required, is provided as part of the operation interaction.</p>
+-->
 
 <a name="distribution"/>
 <h3>Distribution</h3>
 
-<p>The distribution use case involves enabling knowledge artifacts to be distributed as documents via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure defines several search parameters to enable searching based on the various attributes of a knowledge module. The FHIR search interaction specifies that search results are returned in a Bundle, and the entries in that bundle allow a score to be specified, consistent with the Decision Support Service (DSS) relevance result. Note that the DSS score range is 1 to 100, while the FHIR score range is 0..1.</p>
+<p>The distribution use case involves enabling knowledge artifacts to be distributed as documents via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure defines several search parameters to enable searching based on the various attributes of a knowledge module. The FHIR search interaction specifies that search results are returned in a Bundle, and the entries in that bundle allow a score to be specified, consistent with the Decision Support Service (DSS) relevance result. Note that the DSS score range is 1 to 100, while the FHIR score range is 0..1.</p>
 
 <p>The following table lists the search criteria elements defined by the Decision Support Service (DSS) standard along with their appropriate representation in FHIR:</p>
 

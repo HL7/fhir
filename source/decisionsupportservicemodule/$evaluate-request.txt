@@ -1,0 +1,5 @@
+// Request guideline appropriate ordering assessment
+POST [base]/DecisionSupportServiceModule/example/$evaluate
+
+$include evaluate-operation-request-example.xml
+

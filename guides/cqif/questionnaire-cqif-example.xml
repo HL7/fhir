@@ -9,11 +9,10 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">PHQ-9 Questionnaire with dynamic logic</div>
   </text>
-  <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-content">
-    <valueAttachment>
-      <contentType value="application/x-elm+xml"/>
-      <url value="http://elmrepository.org/PHQ-9Logic.elm"/>
-    </valueAttachment>
+  <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-library">
+    <valueReference>
+      <reference value="Library/phq-9-logic"/>
+    </valueReference>
   </extension>
   <!-- Identifier -->
   <identifier>
@@ -134,11 +133,9 @@
     </options>
   </item>
   <item>
-    <!-- ValidationFailure: Element matches more than one source
-			<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-expression">
-				<valueString value="CalculateTotalScore"/>
-			</extension>
-			-->
+	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-calculatedValue">
+		<valueString value="CalculateTotalScore"/>
+	</extension>
     <linkId value="TotalScore"/>
     <concept>
       <system value="http://loinc.org"/>

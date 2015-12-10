@@ -159,6 +159,8 @@
   Use = Instance
   Documentation = The evaluate operation requests clinical decision support guidance based on a specific decision support module
   Type = operation
+  Example.Request = $evaluate-request.txt
+  Example.Response = $evaluate-response.txt
   Title = Evaluate
 
  -- Row 2 -----------------------------------
@@ -202,9 +204,9 @@
   Max = 1
 
  -- Row 7 -----------------------------------
-  Name = evaluate.response
+  Name = evaluate.return
   Use = out
-  Documentation = The results of the request(s)
+  Documentation = The result of the request as a GuidanceResponse resource. Output parameters, if any, will be contained in the parameters element of the response
   Type = GuidanceResponse
   Min = 1
-  Max = *
+  Max = 1

@@ -13,7 +13,21 @@
 <a name="cqif"/> 
 <h2>Clinical Quality Improvement Framework (CQIF) Implementation Guide</h2>
 
-<p><i>In September 2015, this FHIR Implementation Guide will undergo a comment-only ballot. The focus of the ballot is limited in scope to the IG, the profiles, operations, value sets, and conformance statements it defines. This implementation Guide will be balloted separately from the FHIR specification itself.</i></p>
+<p><i>This draft of the CQIF IG is part of a FHIR snapshot that will be used to support the January 2016 FHIR connect-a-thon. In particular, the CDS-on-FHIR track will use this guide and the new FHIR CQF-related resources to support various clinical quality improvement scenarios.</i></p>
+
+<h3>Overview</h3>
+
+<p>The following links provide quick access to specific implementation scenarios described by this guide:</p>
+
+<ul>
+	<li><a href="cqif-cds-on-fhir.html#evaluation">Guidance Request/Response ($evaluate operation)</a></li>
+	<li><a href="cqif-cds-on-fhir.html#service-modules">Defining a Decision Support Service Module</a></li>
+	<li><a href="[%fhir-path%]library-example.html">Representing a CQL/ELM Library</a></li>
+	<li><a href="cqif-cds-on-fhir.html#eca-rules">Representing a Decision Support Rule</a></li>
+	<li><a href="cqif-cds-on-fhir.html#documentation-templates">Representing a Documentation Template</a></li>
+	<li><a href="cqif-cds-on-fhir.html#order-sets">Representing an Order Set</a></li>
+	<li><a href="cqif-common.html#distribution">Searching for a Knowledge Artifact</a></li>
+</ul>
 
 <a name="toc"/>
 <h3>Table of Contents</h3>
@@ -46,7 +60,7 @@
 
 <p>And finally, the third component has resulted in the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=400">Clinical Quality Language Specification</a>, a harmonization of the expressive capabilities of the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=337">Clinical Decision Support Knowledge Artifact Specification (CDS KAS)</a> (produced by the Health eDecisions (HeD) S&amp;I Framework Initiative), and the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=97">Health Quality Measures Format (HQMF)</a>.</p>
 
-<p>As part of the CQF initiative Phase II Pilot efforts, these developing specifications are being used to support knowledge artifact sharing, as well as evaluation of knowledge artifacts as part of decision support request/response and measure evaluation.</p>
+<p>As part of the ongoing CQF initiative pilot efforts, these developing specifications are being used to support knowledge artifact sharing, as well as evaluation of knowledge artifacts as part of decision support request/response and measure evaluation.</p>
 
 <p>This implementation guide continues the harmonization of quality domain specifications by defining an approach to using a FHIR server as a component of a knowledge system in one of two roles:</p>
 
@@ -55,7 +69,7 @@
 	<li>Knowledge Service - As a knowledge service providing for the evaluation of knowledge modules such as decision support artifacts and quality measures.</li>
 </ol>
 
-<p>As such, this implementation guide defines profiles that support multiple use cases in the clinical quality improvement and measurement space. From the perspective of a Knowledge Author, this IG defines profiles to support the definition of knowledge artifacts, as well as profiles for exposing existing CDS KAS artifacts.</p>
+<p>As such, this implementation guide references resources in the base specification, as well as defines profiles that support multiple use cases in the clinical quality improvement and measurement space. From the perspective of a Knowledge Author, this IG specifies the approach to representing knowledge artifacts within FHIR.</p>
 
 <p>From the perspective of a Knowledge Content Provider, this IG defines search functionality for using a FHIR server as a knowledge artifact repository.</p>
 
@@ -73,7 +87,7 @@
 	<li><a href="cqif-cds-on-fhir.html">Decision Support-specific aspects of clinical quality</a></li>
 </ul>
 
-<p>The common aspects include profiles for defining quality evaluation request/response protocols, as well as representation of knowledge modules generally. The Decision Support-specific aspects then build on those profiles to define guidance request/response protocols, and representation of Decision Support-specific artifacts including rules, order sets, and documentation templates.</p>
+<p>The common aspects are concerned with the general representation of knowledge modules. The Decision Support-specific aspects then build on those profiles to define the guidance request/response operation, and representation of Decision Support-specific artifacts including rules, order sets, and documentation templates.</p>
 
 <p>This implementation guide focuses on several primary use cases:</p>
 
@@ -83,6 +97,7 @@
 	<li>Distribution - Functionality required to enable a searchable artifact repository</li>
 </ul>
 
+<!--
 <a name="ballot-objectives"/>
 <h3>Ballot Objectives</h3>
 
@@ -94,39 +109,7 @@
 	<li>The use of FHIR operations as the protocol for defining artifact evaluation requests and responses. In particular, the ability to bundle multiple requests into a single operation, as well as the use of a generic FHIR operation for any module evaluation, versus defining an evaluation specific to a given knowledge module.</li>
 	<li>The use of FHIR interactions in general as a mechanism for enabling knowledge module repository and distribution functionality.</li>
 </ul>
-
-<a name="known-issues"/>
-<h3>Known Issues</h3>
-
-<p>At the time of this ballot, there are several issues outstanding that prevented some material from being included. The following list details these known issues:</p>
-
-<table>
-	<thead>
-		<tr><th>Issue</th><th>Description</th></tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Coverage element</td>
-			<td>The KnowledgeModule structure should contain a "coverage" element that allows categorized topics to be represented in the same way that coverage is modeled within the Clinical Decision Support Knowledge Artifact Specification. There is an issue with the knowledge module profile definition that prevents it from being included. See the <a href="mmi-suiciderisk-orderset-example.html">Suicide Risk Order Set Example</a> for an example of coverage elements included in a knowledge module.</td>
-		</tr>
-		<tr>
-			<td>Data Requirements Filters</td>
-			<td>The data extension used to define data requirements within a knowledge module should contain a "codeFilter" element to allow the expression of terminology restrictions on data requirements, as well as a "dateFilter" element to allow the expression of date-based restrictions on data requirements. There is an issue with the knowledge module profile definition that prevents these elements from being included. See the <a href="knowledgemodule-library-example.html">Knowledge Module Library Example</a> for an example of a data requirement with a code filter applied.</td>
-		</tr>
-		<tr>
-			<td>Action Customization Expression</td>
-			<td>The action extension has a customization element that is supposed to contain a path and an expression, but only contains a path. For an example of an action with a customization expression defined, see the <a href="guidanceartifact-orderset-example.html">Respiratory Protocol Orderset Example</a>.</td>
-		</tr>
-		<tr>
-			<td>Action Subelements</td>
-			<td>The action extension is supposed to contain an "actions" element that allows each action to contain any number of sub-actions. For an example of actions with subelements defined, see the <a href="mmi-suiciderisk-orderset-example.html">Suicide Risk Order Set Example</a>.</td>
-		</tr>
-		<tr>
-			<td>Missing Examples</td>
-			<td>Several of the examples could not be included in the build because they will not validate for various reasons. Specifically, a Suicide Risk Order Set, and the Guidance Request/Response examples for the guidance operation.</td>
-		</tr>
-	</tbody>
-</table>
+-->
 
 <a name="copyright-information"/>
 <h3>Copyright Information</h3>

@@ -302,3 +302,58 @@
 === Sheet Examples =====================================
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = evaluate
+  Use = Instance
+  Documentation = The evaluate operation requests clinical decision support guidance based on a specific decision support module
+  Type = operation
+  Title = Evaluate
+
+ -- Row 2 -----------------------------------
+  Name = evaluate.requestId
+  Use = in
+  Documentation = An optional client-provided identifier to track the request
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = evaluate.evaluateAtDateTime
+  Use = in
+  Documentation = An optional date and time specifying that the evaluation should be performed as thought it was the given date and time. The most direct implication of this is that references to \"Now\" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the date and time of the request is assumed
+  Type = datetime
+  Min = 0
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = evaluate.inputParameters
+  Use = in
+  Documentation = The input parameters for a request, if any. These parameters are defined by the module that is the target of the evaluation, and supply the input information to the module.
+  Type = Parameters
+  Min = 0
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = evaluate.setting
+  Use = in
+  Documentation = The current setting of the request (inpatient, outpatient, etc)
+  Type = CodeableConcept
+  Min = 0
+  Max = 1
+
+ -- Row 6 -----------------------------------
+  Name = evaluate.settingContext
+  Use = in
+  Documentation = Additional detail about the setting of the request, if any
+  Type = CodeableConcept
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = evaluate.return
+  Use = out
+  Documentation = The result of the request as a GuidanceResponse resource. Output parameters, if any, will be contained in the parameters element of the response
+  Type = GuidanceResponse
+  Min = 1
+  Max = 1

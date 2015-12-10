@@ -401,6 +401,54 @@
 
 === Sheet Search =====================================
 
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Logical identifier for the module (e.g. CMS-143)
+  Path = ModuleMetadata.identifier
+
+ -- Row 2 -----------------------------------
+  Name = keyword
+  Type = string
+  Description = Keywords associated with the module
+  Path = ModuleMetadata.keyword
+
+ -- Row 3 -----------------------------------
+  Name = topic
+  Type = token
+  Description = Topics associated with the module
+  Path = ModuleMetadata.topic
+
+ -- Row 4 -----------------------------------
+  Name = title
+  Type = string
+  Description = Text search against the title
+  Path = ModuleMetadata.title
+
+ -- Row 5 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search against the description
+  Path = ModuleMetadata.description
+
+ -- Row 6 -----------------------------------
+  Name = version
+  Type = string
+  Description = Version of the module (e.g. 1.0.0)
+  Path = ModuleMetadata.version
+
+ -- Row 7 -----------------------------------
+  Name = status
+  Type = token
+  Description = Status of the module
+  Path = ModuleMetadata.status
+
+ -- Row 8 -----------------------------------
+  Name = !minScore
+  Type = number
+  Description = The minimum relevance score of any match that will be returned
+  Path = Bundle/entry/search/score
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

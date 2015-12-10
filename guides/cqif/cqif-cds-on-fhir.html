@@ -23,51 +23,72 @@
 <a name="contents"></a>
 <h3>Contents</h3>
 
-<p>The following table lists the CQIF profiles that are part of the IG, and the underlying FHIR resources:</p>
+<p>The following links provide quick access to specific implementation scenarios described by this guide:</p>
+
+<ul>
+	<li><a href="cqif-cds-on-fhir.html#evaluation">Guidance Request/Response ($evaluate operation)</a></li>
+	<li><a href="cqif-cds-on-fhir.html#service-modules">Defining a Decision Support Service Module</a></li>
+	<li><a href="cqif-cds-on-fhir.html#eca-rules">Representing a Decision Support Rule</a></li>
+	<li><a href="cqif-cds-on-fhir.html#documentation-templates">Representing a Documentation Template</a></li>
+	<li><a href="cqif-cds-on-fhir.html#order-sets">Representing an Order Set</a></li>
+</ul>
+
+<p>The following table lists the resources and profiles that are used within this IG:</p>
 
 <table class="grid">
 	<thead>
 		<tr>
-			<th>CQIF FHIR Profile</th>
-			<th>Base FHIR Resource</th>
+			<th>Resource/Profile</th>
+			<th>Description</th>
 		</tr>
 	</thead>
 	<tbody>
-        <tr>
-			<td><a href="cqif-guidancerequest.html">CQIF-GuidanceRequest</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
+		<tr>
+			<td><a href="[%fhir-path%]guidanceresponse.html">GuidanceResponse</a></td>
+			<td>Represents the response to a decision support guidance request, including any output parameters returned by the evaluation.</td>
 		</tr>
 		<tr>
-			<td><a href="cqif-guidanceresponse.html">CQIF-GuidanceResponse</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
+			<td><a href="[%fhir-path%]decisionsupportservicemodule.html">DecisionSupportServiceModule</a></td>
+			<td>Defines a decision support service module, such as immunization assessment, drug-drug interaction, or guideline appropriate ordering assessment.</td>
 		</tr>
 		<tr>
-			<td><a href="cqif-guidanceartifact.html">CQIF-GuidanceArtifact</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
+			<td><a href="[%fhir-path%]decisionsupportrule.html">DecisionSupportRule</a></td>
+			<td>Defines a decision support rule of the form [on Event] if Condition then Action.</td>
 		</tr>
 		<tr>
 			<td><a href="cqif-questionnaire.html">CQIF-Questionnaire</a></td>
-			<td><a href="[%fhir-path%]questionnaire.html">Questionnaire</a></td>
+			<td>Defines extensions to the base Questionnaire that allow it to be used as a DocumentationTemplate with behavior specified via logic in CQL libraries.</td>
+		</tr>
+		<tr>
+			<td><a href="[%fhir-path%]orderset.html">OrderSet</a></td>
+			<td>Represents an order set definition that can be applied to a specific patient to produce a orders for an evidence-based care plan.</td>
 		</tr>
 	</tbody>
 </table>
 
 <a name="sharing"/>
 <h3>Sharing</h3>
-<p>This implementation guide defines the following types of artifacts:</p>
+<p>In addition to the <a href="[%fhir-path%]library.html">Library</a> resource defined in the common section, the implementation guide provides mechanisms for representing the following types of artifacts:</p>
 
 <ul>
-	<li>Simple Rules</li>
+	<li>Service Modules</li>
 	<li>Event Condition Action (ECA) Rules</li>
 	<li>Documentation Templates</li>
 	<li>Order Sets</li>
-	<li>Libraries</li>
 </ul>
 
-<p>To represent these artifact types, this guide introduces the <a href="cqif-guidanceartifact.html">GuidanceArtifact</a> structure. This structure derives from the <a href="cqif-knowledgemodule.html">KnowledgeModule</a> structure defined in the common section, and introduces elements to enable representation of the structures involved in each of these artifact types.</p>
+<p>The following sections discuss the representation of each of these artifact types.</p>
 
-<p>The following sections discuss the use of the GuidanceArtifact structure to represent each of these artifact types.</p>
+<a name="service-modules"></a>
+<h4>Decision Support Service Modules</h4>
 
+<p>The <a href="[%fhir-path%]decisionsupportservicemodule.html">DecisionSupportServiceModule</a> structure provides a mechanism for describing the functionality made available by a particular service. For example, a service provide immunization modules, or drug-drug interaction checking. From the perspective of the consumer, how this functionality is performed is irrelevant, the only aspect of interest is a description of what the module does, and the inputs and outputs it requires.</p>
+
+<p>As such, this resource simply uses a <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> resource to define the common information relevant to all quality artifacts, and then defines the input and output data requirements as parameters, similar to the way operations are defined within the FHIR core. The main difference is that the parameters to a service module are allowed to define additional filters for code and date range, in the same way that data requirements are specified within a <a href="[%fhir-path%]moduledefinition.html">ModuleDefinition</a> resource. For more information on this aspect, see the <a href="cqif-common.html#data-requirements">Data Requirements</a> discussion.</p>
+
+<p>As an example, the functionality defined by the <a href="[%fhir-path%]gao/gao.html">Guideline Appropriate Ordering IG</a> can be expressed as a DecisionSupportServiceModule: <a href="[%fhir-path%]decisionsupportservicemodule-example.html">Decision Support Service Module Example</a>.</p>
+
+<!--
 <a name="simple-rules"/>
 <h4>Simple Rules</h4>
 
@@ -76,13 +97,13 @@
 <p>For example, a decision support service may support the evaluation of creatinine levels as part of assessing renal function. A Simple Rule allows an artifact to be defined that contains only the evaluation logic involved in determining creatinine level. This logic may then be shared independently from the larger Event-Condition-Action rule describing the overall renal function assessment.</p>
 
 <p>For simple rules, the rule element is used to define the logic involved in the rule, and the result of evaluating this expression is the result of the rule.</p>
-
+-->
 <!-- TODO: Provide a simple rule example -->
 
 <a name="eca-rules"/>
 <h4>Event Condition Action (ECA) Rules</h4>
 
-<p>As the name implies, ECA rules define actions that should be taken whenever some condition is met in response to a particular event. This implementation guide defines three types of events that can trigger the evaluation of an ECA rule:</p>
+<p>As the name implies, Event Condition Action (ECA) rules define actions that should be taken whenever some condition is met in response to a particular event. This implementation guide defines three types of events that can trigger the evaluation of an ECA rule:</p>
 
 <ul>
 	<li>Named Event</li>
@@ -94,7 +115,7 @@
 
 <p>An ECA rule may have any number of events that can trigger the rule. Note that this may also be zero, as the rule may be evaluated by direct request. Also note that because ECA rules are shareable artifacts, the definition of the triggering events must be utilized by the implementation environment to determine when to invoke the rule.</p>
 
-<p>Each ECA rule must have a single condition that is evaluated whenever any of the events occur. If this condition evaluates to true, the actions defined by the rule should be performed.</p>
+<p>Each ECA rule must have a single condition that is evaluated whenever any of the events occur. If this condition evaluates to true, the actions defined by the rule are returned as the result of the evaluation.</p>
 
 <p>And finally, each ECA rule defines actions that should be performed. This implementation guide defines the following types of actions:</p>
 
@@ -107,34 +128,37 @@
 
 <p>The Create, Update, and Remove actions indicate that particular resources should be created, updated, or removed, and the Fire Event action indicates that a particular named event should be triggered.</p>
 
-<p>To represent ECA Rules, the event element of the GuidanceArtifact is used to represent the triggering events for the artifact, the rule element is used to provide the expression for the condition of the rule, and the action element defines the actions to be performed.</p>
+<p>To represent ECA Rules, the <a href="[%fhir-path%]decisionsupportrule-definitions.html#DecisionSupportRule.trigger">trigger</a> element of the <a href="[%fhir-path%]decisionsupportrule.html">DecisionSupportRule</a> is used to represent the triggering events for the artifact, the <a href="[%fhir-path%]decisionsupportrule-definitions.html#DecisionSupportRule.condition">condition</a> element is used to provide the name of an expression that defines the condition of the rule, and the <a href="[%fhir-path%]decisionsupportrule-definitions.html#DecisionSupportRule.action">action</a> element defines the actions to be performed.</p>
 
-<p>The <a href="guidanceartifact-ecarule-example.html">Chlamydia Screening CDS</a> example illustrates the representation of a decision support event-condition-action rule; specifically, the example Chlamydia Screening CDS rule from the Clinical Quality Language specification.</p>
+<p>The <a href="[%fhir-path%]decisionsupportrule-example.html">Chlamydia Screening CDS</a> example illustrates the representation of a decision support event-condition-action rule; specifically, the example Chlamydia Screening CDS rule from the Clinical Quality Language specification.</p>
 
 <a name="documentation-templates"/>
 <h4>Documentation Templates</h4>
 
-<p>A documentation template is a structured form for recording information on a patient into a set of pre-defined data slots. These templates are used to guide structure data entry within an EHR or other clinical information system. Some examples of clinical documents that can be represented via documentation template artifacts are encounter summaries, procedure notes, patient-reported outcomes, and flowsheets.</p>
+<p>A documentation template is a structured template for recording information about a patient into a set of pre-defined data slots. These templates are used to guide structured data entry within an EHR or other clinical information system. Some examples of clinical documents that can be represented via documentation template artifacts are encounter summaries, procedure notes, patient-reported outcomes, and flowsheets.</p>
 
-<p>Within FHIR, the <a href="../questionnaire.html">Questionnaire</a> resource is available for modeling the structure of questionnaires. As such, a Documentation Template artifact is represented by using the content element of the GuidanceArtifact structure to refer to a particular <a href="../questionnaire.html">Questionnaire</a>.</p>
+<p>Within FHIR, the <a href="[%fhir-path%]questionnaire.html">Questionnaire</a> resource is available for modeling the structure of questionnaires. As such, a Documentation Template artifact is represented by defining extensions to allow the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> for the artifact to be specified, as well as to allow references to <a href="[%fhir-path%]library.html">Library</a> resources to introduce behavior to the documentation template.</p>
 
-<p>However, Documentation Templates as described by the Clinical Decision Support Knowledge Artifact Specification allow not only questions to be defined, but the behavior of the questionnaire as well. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this guide introduces a <a href="cqif-questionnaire.html">CQIF-Questionnaire</a> profile of the <a href="../questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
+<p>Documentation Templates often include not only a description of the data to be collected, but the behavior of the template during evaluation. For example, whether or not to display a particular question or group of questions based on answers to previously asked questions, or calculating the value of an answer based on other answers. The Questionnaire resource by itself does not provide this functionality, so this guide introduces a <a href="cqif-questionnaire.html">CQIF-Questionnaire</a> profile of the <a href="../questionnaire.html">Questionnaire</a> resource to allow this behavior to be modeled.</p>
 
 <p>As an example, the PHQ-9 Health Questionnaire contains a question that is answered by totaling the weights from the answers of each of the previous questions. The <a href="questionnaire-cqif-example.html">CQIF Questionnaire</a> example illustrates the representation of this questionnaire with the required logic for computation.</p>
-
-<p>The content of a documentation template artifact is then specified by referencing either a Questionnaire directly, or a CQIF-Questionnaire if behavioral functionality is required. For example, the <a href="guidanceartifact-documentationtemplate-example.html">PHQ-9 Documentation Template Module</a> illustrates a guidance artifact that references the CQIF Questionnaire defined above.</p>
 
 <a name="order-sets"/>
 <h4>Order Sets</h4>
 
 <p>An order set is a pre-defined and approved group of orders related to a particular clinical condition (e.g. hypertension treatment and monitoring) or stage of care (e.g. hospital admission to Coronary Care Unit). An order set is used as a checklist for the clinician when managing a patient with a specific condition. It is a structured collection of orders relevant to that condition and presented to the clinician in a computerized provider order entry system (CPOE).</p>
 
-<p>Within this implementation guide, order sets are represented using the action elements of the GuidanceArtifact structure. The action element provides the ability to define hierarchical groups of actions, where each specific action defines a specific orderable item, together with behaviors that determine how the orderable items are related to eachother.</p>
+<p>Within this implementation guide, order sets are represented using the <a href="[%fhir-path%]orderset.html">OrderSet</a> structure. The <a href="[%fhir-path%]orderset-definitions.html#OrderSet.item">item</a> element provides the ability to define hierarchical groups of items, where each specific item defines an orderable item, together with behaviors that determine how the orderable items are related to eachother.</p>
 
-<p>In general, each orderable is a template-level description of a specific FHIR resource, with the order set definition providing for additional behavioral components by defining expressions for the values of various components of the orderable that are evaluated in context when the order set is presented. This allows the general description of the order set to be presented structurally, while still allowing for maximum flexibility and customization of the contents based on the patient, encounter, and setting at the point-of-care.</p>
+<p>If the order set contains only static items (i.e. there are no context-dependent values that must be provided to complete the orderable), then the <a href="[%fhir-path%]orderset-definitions.html#OrderSet.item.resource">resource</a> element contains a reference to a complete resource instance representing the orderable.</p>
 
-<p>As an example, the Respiratory Protocol example order set from the Clinical Decision Support Knowledge Artifact Specification was represented using the knowledge module structure: <a href="guidanceartifact-orderset-example.html">Respiratory Protocol Example Order Set</a>.</p>
+<p>However, each orderable item usually needs to be completed with contextual information based on the particular patient that the order set is being used with. In this case, either the user completing the order set must provide a value, or the order set definition can provide an expression that provides the necessary value based on the patient in context. These expressions are defined for each item using the <a href="[%fhir-path%]orderset-definitions.html#OrderSet.item.customization">customization</a> element. Each customization specifies a <i>path</i> and the name of an <i>expression</i> that, when evaluated in context, provides a value for the element defined by the path.</p>
 
+<p>This mixture of static and dynamic description of each orderable allows the order set to be presented structurally in terms of native resources, while still allowing for complete flexibility and customization of the contents based on the patient, encounter, and setting at the point-of-care.</p>
+
+<p>As an example, the Low Suicide Risk example order set from the Clinical Decision Support Knowledge Artifact Specification was represented using the OrderSet structure: <a href="[%fhir-path%]orderset-example.html">Low Suicide Risk Example Order Set</a>.</p>
+
+<!--
 <a name="libraries"/>
 <h4>Libraries</h4>
 
@@ -146,20 +170,18 @@
 <p>In addition to representing these artifacts directly, the use of artifact definitions that are based on the existing Clinical Decision Support Knowledge Artifact Specification is supported by allowing the content element to contain a DocumentReference that points to the actual artifact. For example, the following example illustrates how to expose the PHQ-9 Documentation Template Example from the Clinical Decision Support Knowledge Artifact Specification as a guidance artifact: <a href="guidanceartifact-hedreference-example.html">Guidance Artirfact HeD Reference</a></p>
 
 <p>In this case, the information represented in the KnowledgeModule can be inferred from the referenced artifact, and potentially generated by a simple transform.</p>
+-->
 
 <a name="evaluation"/>
 <h3>Evaluation</h3>
 
-<p>For the evaluation use case, this implementation guide defines the <a href="cqif-guidancerequest.html">GuidanceRequest</a> and <a href="cqif-guidanceresponse.html">GuidanceResponse</a> structures, derived from <a href="cqif-knowledgerequest.html">KnowledgeRequest</a>, and <a href="cqif-knowledgeresponse.html">KnowledgeResponse</a>, respectively. These guidance-level structures introduce clinical decision support-specific information such as the requesting and recipient organizations and/or persons, as well as the workflow context.</p>
+<p>To support the evaluation use case, the DecisionSupportServiceModule and DecisionSupportRule resources both define an <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#evaluate">$evaluate</a> operation with the same signature. The operation allows for consistent invocation of decision support functionality across a broad range of decision support artifacts, allowing consumers to implement the request/response pipeline once to enable access to any decision support functionality provided by the service.</p>
 
-<p>In addition, the <a href="cqif-guidanceresponse.html">GuidanceResponse</a> structure introduces elements for representing the actions to be performed in response to a guidance evaluation request.</p>
+<p>In addition, the <a href="[%fhir-path%]guidanceresponse.html">GuidanceResponse</a> structure provides a general mechanism for representing the actions to be performed in response to a guidance evaluation request.</p>
 
-<p>These request response structures are then used to define the <a href="operation-guidancerequest-cqif-guidance.html">$guidance</a> operation to allow a FHIR server to provide clinical decision support evaluation services. For example, the following request and response structures provide an illustration of the use of the $guidance operation to invoke a Guideline Appropriate Ordering knowledge module:</p>
+<p>The $evaluate operation provides a complete example of a request and response using the Guideline Appropriate Ordering decision support service module: <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#4.10.8.1.1">$evaluate operation example</a></p>
 
-<ul>
-	<li><!--a href="guidance-operation-request-example-v2.html"-->Guidance Operation - Request Example<!--/a--></li>
-	<li><!--a href="guidance-operation-response-example-v2.html"-->Guidance Operation - Response Example<!--/a--></li>
-</ul>
+<p>The above example uses the profiles defined in the <a href="[%fhir-path%]gao/gao.html">Guideline Appropriate Ordering IG</a>.</p>
 
 <a name="distribution"/>
 <h3>Distribution</h3>

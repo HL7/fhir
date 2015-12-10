@@ -57,4 +57,25 @@
 			<reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
 		</profile>
 	</parameter>
+	
+	<!-- Order Output -->
+	<parameter>
+		<name value="order"/>
+		<use value="out"/>
+		<type value="Order"/>
+		<profile>
+			<reference value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
+		</profile>
+	</parameter>
+	
+	<!-- Result -->
+	<parameter>
+		<name value="result"/>
+		<use value="out"/>
+		<type value="Basic"/>
+		<profile>
+			<reference value="http://hl7.org/fhir/StructureDefinition/gao-result"/>
+		</profile>
+	</parameter>
+	
 </DecisionSupportServiceModule>
