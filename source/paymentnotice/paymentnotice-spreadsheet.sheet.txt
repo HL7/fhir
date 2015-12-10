@@ -97,19 +97,62 @@
   Short Label = Status of the payment
   Definition = The payment status, typically paid: payment sent, cleared: payment received.
 
+ -- Row 13 -----------------------------------
+  Element = PaymentNotice.statusDate
+  Card. = 0..1
+  Type = date
+  Short Label = Payment or clearing date
+  Definition = The date when the above payment action occurrred.
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
   Name = identifier
   Type = token
-  Description = The business identifier of the Eligibility
+  Description = The business identifier of the notice
   Path = PaymentNotice.identifier
 
  -- Row 2 -----------------------------------
-  Name = !organization
+  Name = organization
   Type = reference
   Description = The organization who generated this resource
   Path = PaymentNotice.organization
+
+ -- Row 3 -----------------------------------
+  Name = created
+  Type = date
+  Description = Creation date fro the notice
+  Path = PaymentNotice.created
+
+ -- Row 4 -----------------------------------
+  Name = provider
+  Type = reference
+  Description = The reference to the provider
+  Path = PaymentNotice.provider
+
+ -- Row 5 -----------------------------------
+  Name = request
+  Type = reference
+  Description = The Claim
+  Path = PaymentNotice.request
+
+ -- Row 6 -----------------------------------
+  Name = response
+  Type = reference
+  Description = The ClaimResponse
+  Path = PaymentNotice.response
+
+ -- Row 7 -----------------------------------
+  Name = paymentstatus
+  Type = token
+  Description = The type of payment notice
+  Path = PaymentNotice.paymentStatus
+
+ -- Row 8 -----------------------------------
+  Name = statusdate
+  Type = date
+  Description = The date of the payment action
+  Path = PaymentNotice.statusDate
 
 === Sheet Profiles =====================================
 
