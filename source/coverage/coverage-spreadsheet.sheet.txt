@@ -233,6 +233,12 @@
   Description = Covered party
   Path = Coverage.subject
 
+ -- Row 10 -----------------------------------
+  Name = subscriber
+  Type = reference
+  Description = reference to the subscriber
+  Path = Coverage.subscriber
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
