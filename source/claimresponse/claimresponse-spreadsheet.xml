@@ -4885,7 +4885,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"><Data ss:Type="String">outcome</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">string</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s120"><Data ss:Type="String">ClaimResponse.outcome</Data></Cell>
     <Cell ss:StyleID="s121"><Data ss:Type="String">The processing outcome</Data></Cell>
@@ -5081,7 +5081,6 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>9</ActiveRow>
-     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
