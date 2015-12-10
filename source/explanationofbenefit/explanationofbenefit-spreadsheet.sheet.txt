@@ -148,6 +148,27 @@
   Definition = Deductable, visits, co-pay, etc.
   Conformance = example
 
+ -- Row 22 -----------------------------------
+  Binding Name = BenefitNetwork
+  Binding = value set
+  Reference = valueset-benefit-network
+  Definition = Code to classify in or out of network services
+  Conformance = example
+
+ -- Row 23 -----------------------------------
+  Binding Name = BenefitUnit
+  Binding = value set
+  Reference = valueset-benefit-unit
+  Definition = Unit covered/serviced - individual or family
+  Conformance = example
+
+ -- Row 24 -----------------------------------
+  Binding Name = BenefitTerm
+  Binding = value set
+  Reference = valueset-benefit-term
+  Definition = Coverage unit - annual, lifetime
+  Conformance = example
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -331,7 +352,7 @@
  -- Row 26 -----------------------------------
   Element = ExplanationOfBenefit.diagnosis
   Card. = 0..*
-  UML = 340;120
+  UML = 350;130
   Type = =Diagnosis
   Short Label = Diagnosis
   Definition = Ordered list of patient diagnosis for which care is sought.
@@ -389,7 +410,7 @@
  -- Row 35 -----------------------------------
   Element = ExplanationOfBenefit.coverage
   Card. = 1..1
-  UML = 340;200
+  UML = 340;260
   Type = =Coverage
   Short Label = Insurance or medical plan
   Definition = Financial instrument by which payment information for health care
@@ -668,7 +689,7 @@
  -- Row 71 -----------------------------------
   Element = ExplanationOfBenefit.item.adjudication
   Card. = 0..*
-  UML = 270;650
+  UML = 300;650
   Type = =ItemAdjudication
   Short Label = Adjudication details
   Definition = The adjudications results.
@@ -709,7 +730,7 @@
  -- Row 77 -----------------------------------
   Element = ExplanationOfBenefit.item.detail
   Card. = 0..*
-  UML = 20;950
+  UML = 20;975
   Type = =Detail
   Short Label = Additional items
   Definition = Second tier of goods and services
@@ -795,7 +816,7 @@
  -- Row 87 -----------------------------------
   Element = ExplanationOfBenefit.item.detail.adjudication
   Card. = 0..*
-  UML = 270;950
+  UML = 300;975
   Type = =DetailAdjudication
   Short Label = Detail adjudication
   Definition = The adjudications results.
@@ -836,7 +857,7 @@
  -- Row 93 -----------------------------------
   Element = ExplanationOfBenefit.item.detail.subDetail
   Card. = 0..*
-  UML = 20;1150
+  UML = 20;1200
   Type = =SubDetail
   Short Label = Additional items
   Definition = Third tier of goods and services
@@ -921,7 +942,7 @@
  -- Row 103 -----------------------------------
   Element = ExplanationOfBenefit.item.detail.subDetail.adjudication
   Card. = 0..*
-  UML = 270;1150
+  UML = 300;1200
   Type = =SubDetailAdjudication
   Short Label = SubDetail adjudication
   Definition = The adjudications results.
@@ -963,7 +984,7 @@
  -- Row 109 -----------------------------------
   Element = ExplanationOfBenefit.addItem
   Card. = 0..*
-  UML = 500;120
+  UML = 600;120
   Type = =AddedItem
   Short Label = Insurer added line items
   Definition = The first tier service adjudications for payor added services.
@@ -1000,7 +1021,7 @@
  -- Row 114 -----------------------------------
   Element = ExplanationOfBenefit.addItem.adjudication
   Card. = 0..*
-  UML = 500;0
+  UML = 600;0
   Type = =AddedItemAdjudication
   Short Label = Added items adjudication
   Definition = The adjudications results.
@@ -1030,7 +1051,7 @@
  -- Row 118 -----------------------------------
   Element = ExplanationOfBenefit.addItem.detail
   Card. = 0..*
-  UML = 500;260
+  UML = 600;260
   Type = =AddedItemsDetail
   Short Label = Added items details
   Definition = The second tier service adjudications for payor added services.
@@ -1053,7 +1074,7 @@
  -- Row 121 -----------------------------------
   Element = ExplanationOfBenefit.addItem.detail.adjudication
   Card. = 0..*
-  UML = 500;370
+  UML = 600;370
   Type = =AddedItemDetailAdjudication
   Short Label = Added items detail adjudication
   Definition = The adjudications results.
@@ -1093,7 +1114,7 @@
  -- Row 127 -----------------------------------
   Element = ExplanationOfBenefit.item.prosthesis
   Card. = 0..1
-  UML = 270;640
+  UML = 300;770
   Type = =Prosthesis
   Short Label = Prosthetic details
   Definition = The materials and placement date of prior fixed prosthesis.
@@ -1132,7 +1153,7 @@
  -- Row 132 -----------------------------------
   Element = ExplanationOfBenefit.missingTeeth
   Card. = 0..*
-  UML = 280;360
+  UML = 340;360
   Type = =MissingTeeth
   Short Label = Only if type = oral
   Definition = A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
@@ -1172,7 +1193,7 @@
   Short Label = Financial Information
 
  -- Row 137 -----------------------------------
-  Element = ExplanationOfBenefit.totalCost
+  Element = !ExplanationOfBenefit.totalCost
   Card. = 0..1
   Type = Money
   Short Label = Total Cost of service from the Claim
@@ -1250,7 +1271,7 @@
  -- Row 147 -----------------------------------
   Element = ExplanationOfBenefit.note
   Card. = 0..*
-  UML = 20;110
+  UML = 340;480
   Type = =Notes
   Short Label = Processing notes
   Definition = Note text
@@ -1284,6 +1305,7 @@
  -- Row 152 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance
   Card. = 0..*
+  UML = 600;600
   Type = =BenefitBalance
   Short Label = Balance by Benefit Category
   Definition = Balance by Benefit Category
@@ -1305,28 +1327,33 @@
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
 
  -- Row 155 -----------------------------------
-  Element = !ExplanationOfBenefit.benefitBalance.network
+  Element = ExplanationOfBenefit.benefitBalance.network
   Card. = 0..1
   Type = Coding
+  Binding = BenefitNetwork
   Short Label = In or out of network
   Definition = Network designation
 
  -- Row 156 -----------------------------------
-  Element = !ExplanationOfBenefit.benefitBalance.unit
+  Element = ExplanationOfBenefit.benefitBalance.unit
   Card. = 0..1
   Type = Coding
+  Binding = BenefitUnit
   Short Label = Individual or family
   Definition = Unit designation: individual or family
 
  -- Row 157 -----------------------------------
-  Element = !ExplanationOfBenefit.benefitBalance.period
+  Element = ExplanationOfBenefit.benefitBalance.term
   Card. = 0..1
   Type = Coding
+  Binding = BenefitTerm
   Short Label = Annual or lifetime
+  Definition = The term or period of the values such as \'maximum lifetime benefit\' or \'maximum annual vistis\'.
 
  -- Row 158 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial
   Card. = 0..*
+  UML = 600;750
   Type = =Benefit
   Short Label = Benefit Summary
   Definition = Benefits Used to date
@@ -1378,6 +1405,42 @@
   Type = reference
   Description = The reference to the patient
   Path = ExplanationOfBenefit.patient
+
+ -- Row 5 -----------------------------------
+  Name = claim
+  Type = reference
+  Description = The reference to the claim
+  Path = ExplanationOfBenefit.claim
+
+ -- Row 6 -----------------------------------
+  Name = created
+  Type = date
+  Description = The creation date for the EOB
+  Path = ExplanationOfBenefit.created
+
+ -- Row 7 -----------------------------------
+  Name = disposition
+  Type = string
+  Description = The contents of the disposition message
+  Path = ExplanationOfBenefit.disposition
+
+ -- Row 8 -----------------------------------
+  Name = provider
+  Type = reference
+  Description = The reference to the provider
+  Path = ExplanationOfBenefit.provider
+
+ -- Row 9 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The reference to the providing organization
+  Path = ExplanationOfBenefit.organization
+
+ -- Row 10 -----------------------------------
+  Name = facility
+  Type = reference
+  Description = Facility responsible for the goods and services
+  Path = ExplanationOfBenefit.facility
 
 === Sheet Profiles =====================================
 
