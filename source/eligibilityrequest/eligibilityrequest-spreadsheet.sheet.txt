@@ -1,6 +1,27 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = BenefitCategory
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/benefit-category
+  Definition = Benefit categories such as: oral, medical, vision etc.
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = BenefitSubCategory
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/benefit-subcategory
+  Definition = Benefit subcategories such as: oral-basic, major, glasses
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = ProcessPriority
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/process-priority
+  Definition = The timeliness with which processing is required: STAT, normal, Deferred
+  Conformance = example
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -68,6 +89,91 @@
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
+ -- Row 10 -----------------------------------
+  Element = EligibilityRequest.priority
+  Card. = 0..1
+  Type = Coding
+  Binding = ProcessPriority
+  Short Label = Desired processing priority
+  Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
+
+ -- Row 11 -----------------------------------
+  Element = EligibilityRequest.enterer
+  Card. = 0..1
+  Type = Reference(Practitioner)
+  Short Label = Author
+  Definition = Person who created the invoice/claim/pre-determination or pre-authorization.
+
+ -- Row 12 -----------------------------------
+  Element = EligibilityRequest.facility
+  Card. = 0..1
+  Type = Reference(Location)
+  Short Label = Servicing Facility
+  Definition = Facility where the services were provided.
+
+ -- Row 13 -----------------------------------
+  Element = !Patient Information
+
+ -- Row 14 -----------------------------------
+  Element = EligibilityRequest.patient
+  Card. = 0..1
+  Type = Reference(Patient)
+  Short Label = The subject of the Products and Services
+  Definition = Patient Resource
+  CDAnet v4 Mapping = C06,C07,C08, C05, C04
+
+ -- Row 15 -----------------------------------
+  Element = !Insurance Information
+
+ -- Row 16 -----------------------------------
+  Element = EligibilityRequest.coverage
+  Card. = 0..1
+  Type = Reference(Coverage)
+  Short Label = Insurance or medical plan
+  Definition = Financial instrument by which payment information for health care
+  Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
+
+ -- Row 17 -----------------------------------
+  Element = EligibilityRequest.businessArrangement
+  Card. = 0..1
+  Type = string
+  Short Label = Business agreement
+  Definition = The contract number of a business agreement which describes the terms and conditions.
+
+ -- Row 18 -----------------------------------
+  Element = EligibilityRequest.relationship
+  Card. = 0..1
+  Type = Coding
+  Binding = Relationship
+  Short Label = Patient relationship to subscriber
+  Definition = The relationship of the patient to the subscriber
+  Requirements = To determine relationship between the patient and the subscriber
+  CDAnet v4 Mapping = C03
+
+ -- Row 19 -----------------------------------
+  Element = EligibilityRequest.serviced[x]
+  Card. = 0..1
+  Type = date|Period
+  Short Label = Estimated date or dates of Service
+  Definition = The date or dates when the enclosed suite of services were performed or completed
+  CDAnet v4 Mapping = F09
+
+ -- Row 20 -----------------------------------
+  Element = EligibilityRequest.benefitCategory
+  Card. = 0..1
+  Type = Coding
+  Binding = BenefitCategory
+  Short Label = Benefit Category
+  Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
+
+ -- Row 21 -----------------------------------
+  Element = EligibilityRequest.benefitSubCategory
+  Card. = 0..1
+  Type = Coding
+  Binding = BenefitSubCategory
+  Short Label = Benefit SubCategory
+  Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
@@ -77,10 +183,34 @@
   Path = EligibilityRequest.identifier
 
  -- Row 2 -----------------------------------
-  Name = !organization
+  Name = patient
   Type = reference
-  Description = The organization who generated this resource
+  Description = The reference to the patient
+  Path = EligibilityRequest.patient
+
+ -- Row 3 -----------------------------------
+  Name = created
+  Type = date
+  Description = The creation date for the EOB
+  Path = EligibilityRequest.created
+
+ -- Row 4 -----------------------------------
+  Name = provider
+  Type = reference
+  Description = The reference to the provider
+  Path = EligibilityRequest.provider
+
+ -- Row 5 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The reference to the providing organization
   Path = EligibilityRequest.organization
+
+ -- Row 6 -----------------------------------
+  Name = facility
+  Type = reference
+  Description = Facility responsible for the goods and services
+  Path = EligibilityRequest.facility
 
 === Sheet Profiles =====================================
 
