@@ -685,7 +685,7 @@
 
  -- Row 4 -----------------------------------
   Name = outcome
-  Type = string
+  Type = token
   Description = The processing outcome
   Path = ClaimResponse.outcome
 
@@ -702,7 +702,7 @@
   Path = ClaimResponse.disposition
 
  -- Row 7 -----------------------------------
-  Name = paymentDate
+  Name = paymentdate
   Type = date
   Description = The expected paymentDate
   Path = ClaimResponse.paymentDate
