@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Unit Type Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes a smattering of Unit type codes."/>
+  <copyright value="This is an example set."/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/benefit-unit"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="individual"/>
+      <display value="Individual"/>
+      <definition value="A single individual"/>
+    </concept>
+    <concept>
+      <code value="family"/>
+      <display value="Family"/>
+      <definition value="A family, typically includes self, spous(s) and children to a defined age"/>
+    </concept>
+  </codeSystem>
+</ValueSet>

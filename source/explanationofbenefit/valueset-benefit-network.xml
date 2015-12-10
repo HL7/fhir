@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Network Type Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes a smattering of Network type codes."/>
+  <copyright value="This is an example set."/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/benefit-network"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="in"/>
+      <display value="In Network"/>
+      <definition value="Services rendered by a Network provider"/>
+    </concept>
+    <concept>
+      <code value="out"/>
+      <display value="Out of Network"/>
+      <definition value="Services rendered by a provider who is not in the Network"/>
+    </concept>
+  </codeSystem>
+</ValueSet>

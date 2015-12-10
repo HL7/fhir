@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Benefit Term Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes a smattering of Benefit Term codes."/>
+  <copyright value="This is an example set."/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/benefit-term"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="annual"/>
+      <display value="Annual"/>
+      <definition value="Annual, renewing on the anniversary"/>
+    </concept>
+    <concept>
+      <code value="lifetime"/>
+      <display value="Lifetime"/>
+      <definition value="For the total term, lifetime, of the policy or coverage"/>
+    </concept>
+  </codeSystem>
+</ValueSet>
