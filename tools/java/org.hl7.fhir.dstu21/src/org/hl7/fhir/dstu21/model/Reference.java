@@ -29,16 +29,16 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.DatatypeDef;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.DatatypeDef;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A reference from one resource to another.
@@ -62,7 +62,7 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
 
     private static final long serialVersionUID = 22777321L;
 
-  /*
+  /**
    * Constructor
    */
     public Reference() {

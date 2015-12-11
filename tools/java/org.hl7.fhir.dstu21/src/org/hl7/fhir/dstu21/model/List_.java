@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A set of information summarized from a list of other resources.
@@ -284,14 +284,14 @@ public class List_ extends DomainResource {
 
         private static final long serialVersionUID = -758164425L;
 
-    /*
+    /**
      * Constructor
      */
       public ListEntryComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ListEntryComponent(Reference item) {
@@ -649,14 +649,14 @@ public class List_ extends DomainResource {
 
     private static final long serialVersionUID = 1819128642L;
 
-  /*
+  /**
    * Constructor
    */
     public List_() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public List_(Enumeration<ListStatus> status, Enumeration<ListMode> mode) {

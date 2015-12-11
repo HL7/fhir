@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A record of a request for a diagnostic investigation service to be performed.
@@ -460,14 +460,14 @@ public class DiagnosticOrder extends DomainResource {
 
         private static final long serialVersionUID = -370793723L;
 
-    /*
+    /**
      * Constructor
      */
       public DiagnosticOrderEventComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DiagnosticOrderEventComponent(Enumeration<DiagnosticOrderStatus> status, DateTimeType dateTime) {
@@ -758,14 +758,14 @@ public class DiagnosticOrder extends DomainResource {
 
         private static final long serialVersionUID = 381238192L;
 
-    /*
+    /**
      * Constructor
      */
       public DiagnosticOrderItemComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DiagnosticOrderItemComponent(CodeableConcept code) {
@@ -1183,14 +1183,14 @@ public class DiagnosticOrder extends DomainResource {
 
     private static final long serialVersionUID = 700891227L;
 
-  /*
+  /**
    * Constructor
    */
     public DiagnosticOrder() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public DiagnosticOrder(Reference subject) {

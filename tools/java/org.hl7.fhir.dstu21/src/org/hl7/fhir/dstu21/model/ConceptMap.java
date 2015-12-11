@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.
@@ -66,7 +66,7 @@ public class ConceptMap extends DomainResource {
 
         private static final long serialVersionUID = -1179697803L;
 
-    /*
+    /**
      * Constructor
      */
       public ConceptMapContactComponent() {
@@ -259,7 +259,7 @@ public class ConceptMap extends DomainResource {
 
         private static final long serialVersionUID = -458143877L;
 
-    /*
+    /**
      * Constructor
      */
       public SourceElementComponent() {
@@ -530,14 +530,14 @@ public class ConceptMap extends DomainResource {
 
         private static final long serialVersionUID = -804990059L;
 
-    /*
+    /**
      * Constructor
      */
       public TargetElementComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public TargetElementComponent(Enumeration<ConceptMapEquivalence> equivalence) {
@@ -950,14 +950,14 @@ public class ConceptMap extends DomainResource {
 
         private static final long serialVersionUID = 1488522448L;
 
-    /*
+    /**
      * Constructor
      */
       public OtherElementComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public OtherElementComponent(UriType element, UriType codeSystem, StringType code) {
@@ -1293,14 +1293,14 @@ public class ConceptMap extends DomainResource {
 
     private static final long serialVersionUID = 1687563642L;
 
-  /*
+  /**
    * Constructor
    */
     public ConceptMap() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public ConceptMap(Enumeration<ConformanceResourceStatus> status, Type source, Type target) {

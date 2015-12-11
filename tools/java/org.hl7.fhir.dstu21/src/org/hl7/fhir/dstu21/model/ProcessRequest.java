@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.
@@ -175,14 +175,14 @@ public class ProcessRequest extends DomainResource {
 
         private static final long serialVersionUID = -1598360600L;
 
-    /*
+    /**
      * Constructor
      */
       public ItemsComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ItemsComponent(IntegerType sequenceLinkId) {
@@ -434,14 +434,14 @@ public class ProcessRequest extends DomainResource {
 
     private static final long serialVersionUID = -1332331220L;
 
-  /*
+  /**
    * Constructor
    */
     public ProcessRequest() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public ProcessRequest(Enumeration<ActionList> action) {

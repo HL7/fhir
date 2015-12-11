@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.
@@ -478,7 +478,7 @@ public class ImplementationGuide extends DomainResource {
 
         private static final long serialVersionUID = -1179697803L;
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuideContactComponent() {
@@ -664,14 +664,14 @@ public class ImplementationGuide extends DomainResource {
 
         private static final long serialVersionUID = 162447098L;
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuideDependencyComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuideDependencyComponent(Enumeration<GuideDependencyType> type, UriType uri) {
@@ -863,14 +863,14 @@ public class ImplementationGuide extends DomainResource {
 
         private static final long serialVersionUID = -701846580L;
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuidePackageComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuidePackageComponent(StringType name) {
@@ -1143,14 +1143,14 @@ public class ImplementationGuide extends DomainResource {
 
         private static final long serialVersionUID = 428339533L;
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuidePackageResourceComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuidePackageResourceComponent(Enumeration<GuideResourcePurpose> purpose, Type source) {
@@ -1569,14 +1569,14 @@ public class ImplementationGuide extends DomainResource {
 
         private static final long serialVersionUID = 2011731959L;
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuideGlobalComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuideGlobalComponent(CodeType type, Reference profile) {
@@ -1796,14 +1796,14 @@ public class ImplementationGuide extends DomainResource {
 
         private static final long serialVersionUID = -1620890043L;
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuidePageComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ImplementationGuidePageComponent(UriType source, StringType name, Enumeration<GuidePageKind> kind) {
@@ -2386,14 +2386,14 @@ public class ImplementationGuide extends DomainResource {
 
     private static final long serialVersionUID = 1150122415L;
 
-  /*
+  /**
    * Constructor
    */
     public ImplementationGuide() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public ImplementationGuide(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status, ImplementationGuidePageComponent page) {

@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
@@ -213,14 +213,14 @@ public class EpisodeOfCare extends DomainResource {
 
         private static final long serialVersionUID = -1192432864L;
 
-    /*
+    /**
      * Constructor
      */
       public EpisodeOfCareStatusHistoryComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public EpisodeOfCareStatusHistoryComponent(Enumeration<EpisodeOfCareStatus> status, Period period) {
@@ -397,7 +397,7 @@ public class EpisodeOfCare extends DomainResource {
 
         private static final long serialVersionUID = -437303089L;
 
-    /*
+    /**
      * Constructor
      */
       public EpisodeOfCareCareTeamComponent() {
@@ -693,14 +693,14 @@ public class EpisodeOfCare extends DomainResource {
 
     private static final long serialVersionUID = 1652653406L;
 
-  /*
+  /**
    * Constructor
    */
     public EpisodeOfCare() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public EpisodeOfCare(Enumeration<EpisodeOfCareStatus> status, Reference patient) {

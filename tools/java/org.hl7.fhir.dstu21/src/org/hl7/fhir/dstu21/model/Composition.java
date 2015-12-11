@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.
@@ -309,7 +309,7 @@ public class Composition extends DomainResource {
 
         private static final long serialVersionUID = -436604745L;
 
-    /*
+    /**
      * Constructor
      */
       public CompositionAttesterComponent() {
@@ -569,7 +569,7 @@ public class Composition extends DomainResource {
 
         private static final long serialVersionUID = -1581379774L;
 
-    /*
+    /**
      * Constructor
      */
       public CompositionEventComponent() {
@@ -839,7 +839,7 @@ public class Composition extends DomainResource {
 
         private static final long serialVersionUID = -726390626L;
 
-    /*
+    /**
      * Constructor
      */
       public SectionComponent() {
@@ -1375,14 +1375,14 @@ public class Composition extends DomainResource {
 
     private static final long serialVersionUID = 2127852326L;
 
-  /*
+  /**
    * Constructor
    */
     public Composition() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public Composition(DateTimeType date, CodeableConcept type, StringType title, Enumeration<CompositionStatus> status, Reference subject) {

@@ -29,19 +29,19 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * This resource provides: the claim details; adjudication details from the processing of a Claim; and optionally account balance information, for informing the subscriber of the benefits provided.
@@ -96,7 +96,7 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = -503108488L;
 
-    /*
+    /**
      * Constructor
      */
       public PayeeComponent() {
@@ -365,14 +365,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = -795010186L;
 
-    /*
+    /**
      * Constructor
      */
       public DiagnosisComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DiagnosisComponent(PositiveIntType sequence, Coding diagnosis) {
@@ -549,14 +549,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = -59672683L;
 
-    /*
+    /**
      * Constructor
      */
       public CoverageComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public CoverageComponent(Reference coverage, Coding relationship) {
@@ -918,14 +918,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = 1380825950L;
 
-    /*
+    /**
      * Constructor
      */
       public ItemsComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ItemsComponent(PositiveIntType sequence, Coding type, Coding service) {
@@ -1293,6 +1293,24 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public ItemsComponent setFactor(long value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public ItemsComponent setFactor(double value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
@@ -1338,6 +1356,24 @@ public class ExplanationOfBenefit extends DomainResource {
               this.points = new DecimalType();
             this.points.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public ItemsComponent setPoints(long value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public ItemsComponent setPoints(double value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
           return this;
         }
 
@@ -1932,14 +1968,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = -1926987562L;
 
-    /*
+    /**
      * Constructor
      */
       public ItemAdjudicationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ItemAdjudicationComponent(Coding category) {
@@ -2065,6 +2101,24 @@ public class ExplanationOfBenefit extends DomainResource {
               this.value = new DecimalType();
             this.value.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public ItemAdjudicationComponent setValue(long value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public ItemAdjudicationComponent setValue(double value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
           return this;
         }
 
@@ -2235,14 +2289,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = 157913723L;
 
-    /*
+    /**
      * Constructor
      */
       public DetailComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DetailComponent(PositiveIntType sequence, Coding type, Coding service) {
@@ -2443,6 +2497,24 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public DetailComponent setFactor(long value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public DetailComponent setFactor(double value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
@@ -2488,6 +2560,24 @@ public class ExplanationOfBenefit extends DomainResource {
               this.points = new DecimalType();
             this.points.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public DetailComponent setPoints(long value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public DetailComponent setPoints(double value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
           return this;
         }
 
@@ -2804,14 +2894,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = 746807621L;
 
-    /*
+    /**
      * Constructor
      */
       public DetailAdjudicationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DetailAdjudicationComponent(Coding code) {
@@ -2937,6 +3027,24 @@ public class ExplanationOfBenefit extends DomainResource {
               this.value = new DecimalType();
             this.value.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public DetailAdjudicationComponent setValue(long value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public DetailAdjudicationComponent setValue(double value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
           return this;
         }
 
@@ -3100,14 +3208,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = 465609870L;
 
-    /*
+    /**
      * Constructor
      */
       public SubDetailComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public SubDetailComponent(PositiveIntType sequence, Coding type, Coding service) {
@@ -3308,6 +3416,24 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public SubDetailComponent setFactor(long value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public SubDetailComponent setFactor(double value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
@@ -3353,6 +3479,24 @@ public class ExplanationOfBenefit extends DomainResource {
               this.points = new DecimalType();
             this.points.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public SubDetailComponent setPoints(long value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public SubDetailComponent setPoints(double value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
           return this;
         }
 
@@ -3616,14 +3760,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = 746807621L;
 
-    /*
+    /**
      * Constructor
      */
       public SubDetailAdjudicationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public SubDetailAdjudicationComponent(Coding code) {
@@ -3752,6 +3896,24 @@ public class ExplanationOfBenefit extends DomainResource {
           return this;
         }
 
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public SubDetailAdjudicationComponent setValue(long value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public SubDetailAdjudicationComponent setValue(double value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -3863,7 +4025,7 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = 1739349641L;
 
-    /*
+    /**
      * Constructor
      */
       public ProsthesisComponent() {
@@ -4111,14 +4273,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = -1675935854L;
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemComponent(Coding service) {
@@ -4506,14 +4668,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = -949880587L;
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemAdjudicationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemAdjudicationComponent(Coding code) {
@@ -4615,6 +4777,24 @@ public class ExplanationOfBenefit extends DomainResource {
               this.value = new DecimalType();
             this.value.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public AddedItemAdjudicationComponent setValue(long value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public AddedItemAdjudicationComponent setValue(double value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
           return this;
         }
 
@@ -4721,14 +4901,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = -2104242020L;
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemsDetailComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemsDetailComponent(Coding service) {
@@ -4931,14 +5111,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = -949880587L;
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemDetailAdjudicationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemDetailAdjudicationComponent(Coding code) {
@@ -5040,6 +5220,24 @@ public class ExplanationOfBenefit extends DomainResource {
               this.value = new DecimalType();
             this.value.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public AddedItemDetailAdjudicationComponent setValue(long value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public AddedItemDetailAdjudicationComponent setValue(double value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
           return this;
         }
 
@@ -5146,14 +5344,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = 352913313L;
 
-    /*
+    /**
      * Constructor
      */
       public MissingTeethComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public MissingTeethComponent(Coding tooth) {
@@ -5361,7 +5559,7 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = 1768923951L;
 
-    /*
+    /**
      * Constructor
      */
       public NotesComponent() {
@@ -5580,22 +5778,43 @@ public class ExplanationOfBenefit extends DomainResource {
         protected Coding subCategory;
 
         /**
+         * Network designation.
+         */
+        @Child(name = "network", type = {Coding.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="In or out of network", formalDefinition="Network designation." )
+        protected Coding network;
+
+        /**
+         * Unit designation: individual or family.
+         */
+        @Child(name = "unit", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Individual or family", formalDefinition="Unit designation: individual or family." )
+        protected Coding unit;
+
+        /**
+         * The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.
+         */
+        @Child(name = "term", type = {Coding.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Annual or lifetime", formalDefinition="The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'." )
+        protected Coding term;
+
+        /**
          * Benefits Used to date.
          */
-        @Child(name = "financial", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "financial", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Benefit Summary", formalDefinition="Benefits Used to date." )
         protected List<BenefitComponent> financial;
 
-        private static final long serialVersionUID = -1084063877L;
+        private static final long serialVersionUID = 1708176773L;
 
-    /*
+    /**
      * Constructor
      */
       public BenefitBalanceComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public BenefitBalanceComponent(Coding category) {
@@ -5652,6 +5871,78 @@ public class ExplanationOfBenefit extends DomainResource {
         }
 
         /**
+         * @return {@link #network} (Network designation.)
+         */
+        public Coding getNetwork() { 
+          if (this.network == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BenefitBalanceComponent.network");
+            else if (Configuration.doAutoCreate())
+              this.network = new Coding(); // cc
+          return this.network;
+        }
+
+        public boolean hasNetwork() { 
+          return this.network != null && !this.network.isEmpty();
+        }
+
+        /**
+         * @param value {@link #network} (Network designation.)
+         */
+        public BenefitBalanceComponent setNetwork(Coding value) { 
+          this.network = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #unit} (Unit designation: individual or family.)
+         */
+        public Coding getUnit() { 
+          if (this.unit == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BenefitBalanceComponent.unit");
+            else if (Configuration.doAutoCreate())
+              this.unit = new Coding(); // cc
+          return this.unit;
+        }
+
+        public boolean hasUnit() { 
+          return this.unit != null && !this.unit.isEmpty();
+        }
+
+        /**
+         * @param value {@link #unit} (Unit designation: individual or family.)
+         */
+        public BenefitBalanceComponent setUnit(Coding value) { 
+          this.unit = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #term} (The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.)
+         */
+        public Coding getTerm() { 
+          if (this.term == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create BenefitBalanceComponent.term");
+            else if (Configuration.doAutoCreate())
+              this.term = new Coding(); // cc
+          return this.term;
+        }
+
+        public boolean hasTerm() { 
+          return this.term != null && !this.term.isEmpty();
+        }
+
+        /**
+         * @param value {@link #term} (The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.)
+         */
+        public BenefitBalanceComponent setTerm(Coding value) { 
+          this.term = value;
+          return this;
+        }
+
+        /**
          * @return {@link #financial} (Benefits Used to date.)
          */
         public List<BenefitComponent> getFinancial() { 
@@ -5695,6 +5986,9 @@ public class ExplanationOfBenefit extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("category", "Coding", "Dental, Vision, Medical, Pharmacy, Rehab etc.", 0, java.lang.Integer.MAX_VALUE, category));
           childrenList.add(new Property("subCategory", "Coding", "Dental: basic, major, ortho; Vision exam, glasses, contacts; etc.", 0, java.lang.Integer.MAX_VALUE, subCategory));
+          childrenList.add(new Property("network", "Coding", "Network designation.", 0, java.lang.Integer.MAX_VALUE, network));
+          childrenList.add(new Property("unit", "Coding", "Unit designation: individual or family.", 0, java.lang.Integer.MAX_VALUE, unit));
+          childrenList.add(new Property("term", "Coding", "The term or period of the values such as 'maximum lifetime benefit' or 'maximum annual vistis'.", 0, java.lang.Integer.MAX_VALUE, term));
           childrenList.add(new Property("financial", "", "Benefits Used to date.", 0, java.lang.Integer.MAX_VALUE, financial));
         }
 
@@ -5704,6 +5998,12 @@ public class ExplanationOfBenefit extends DomainResource {
           this.category = castToCoding(value); // Coding
         else if (name.equals("subCategory"))
           this.subCategory = castToCoding(value); // Coding
+        else if (name.equals("network"))
+          this.network = castToCoding(value); // Coding
+        else if (name.equals("unit"))
+          this.unit = castToCoding(value); // Coding
+        else if (name.equals("term"))
+          this.term = castToCoding(value); // Coding
         else if (name.equals("financial"))
           this.getFinancial().add((BenefitComponent) value);
         else
@@ -5720,6 +6020,18 @@ public class ExplanationOfBenefit extends DomainResource {
           this.subCategory = new Coding();
           return this.subCategory;
         }
+        else if (name.equals("network")) {
+          this.network = new Coding();
+          return this.network;
+        }
+        else if (name.equals("unit")) {
+          this.unit = new Coding();
+          return this.unit;
+        }
+        else if (name.equals("term")) {
+          this.term = new Coding();
+          return this.term;
+        }
         else if (name.equals("financial")) {
           return addFinancial();
         }
@@ -5732,6 +6044,9 @@ public class ExplanationOfBenefit extends DomainResource {
         copyValues(dst);
         dst.category = category == null ? null : category.copy();
         dst.subCategory = subCategory == null ? null : subCategory.copy();
+        dst.network = network == null ? null : network.copy();
+        dst.unit = unit == null ? null : unit.copy();
+        dst.term = term == null ? null : term.copy();
         if (financial != null) {
           dst.financial = new ArrayList<BenefitComponent>();
           for (BenefitComponent i : financial)
@@ -5748,6 +6063,7 @@ public class ExplanationOfBenefit extends DomainResource {
           return false;
         BenefitBalanceComponent o = (BenefitBalanceComponent) other;
         return compareDeep(category, o.category, true) && compareDeep(subCategory, o.subCategory, true)
+           && compareDeep(network, o.network, true) && compareDeep(unit, o.unit, true) && compareDeep(term, o.term, true)
            && compareDeep(financial, o.financial, true);
       }
 
@@ -5763,6 +6079,7 @@ public class ExplanationOfBenefit extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (category == null || category.isEmpty()) && (subCategory == null || subCategory.isEmpty())
+           && (network == null || network.isEmpty()) && (unit == null || unit.isEmpty()) && (term == null || term.isEmpty())
            && (financial == null || financial.isEmpty());
       }
 
@@ -5798,14 +6115,14 @@ public class ExplanationOfBenefit extends DomainResource {
 
         private static final long serialVersionUID = 1742418909L;
 
-    /*
+    /**
      * Constructor
      */
       public BenefitComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public BenefitComponent(Coding type) {
@@ -6303,99 +6620,92 @@ public class ExplanationOfBenefit extends DomainResource {
     protected List<MissingTeethComponent> missingTeeth;
 
     /**
-     * The total cost of the services reported.
-     */
-    @Child(name = "totalCost", type = {Money.class}, order=34, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Total Cost of service from the Claim", formalDefinition="The total cost of the services reported." )
-    protected Money totalCost;
-
-    /**
      * The amount of deductable applied which was not allocated to any particular service line.
      */
-    @Child(name = "unallocDeductable", type = {Money.class}, order=35, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "unallocDeductable", type = {Money.class}, order=34, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Unallocated deductable", formalDefinition="The amount of deductable applied which was not allocated to any particular service line." )
     protected Money unallocDeductable;
 
     /**
      * Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable).
      */
-    @Child(name = "totalBenefit", type = {Money.class}, order=36, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "totalBenefit", type = {Money.class}, order=35, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Total benefit payable for the Claim", formalDefinition="Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable)." )
     protected Money totalBenefit;
 
     /**
      * Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
      */
-    @Child(name = "paymentAdjustment", type = {Money.class}, order=37, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "paymentAdjustment", type = {Money.class}, order=36, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Payment adjustment for non-Claim issues", formalDefinition="Adjustment to the payment of this transaction which is not related to adjudication of this transaction." )
     protected Money paymentAdjustment;
 
     /**
      * Reason for the payment adjustment.
      */
-    @Child(name = "paymentAdjustmentReason", type = {Coding.class}, order=38, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "paymentAdjustmentReason", type = {Coding.class}, order=37, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Reason for Payment adjustment", formalDefinition="Reason for the payment adjustment." )
     protected Coding paymentAdjustmentReason;
 
     /**
      * Estimated payment data.
      */
-    @Child(name = "paymentDate", type = {DateType.class}, order=39, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "paymentDate", type = {DateType.class}, order=38, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Expected data of Payment", formalDefinition="Estimated payment data." )
     protected DateType paymentDate;
 
     /**
      * Payable less any payment adjustment.
      */
-    @Child(name = "paymentAmount", type = {Money.class}, order=40, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "paymentAmount", type = {Money.class}, order=39, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Payment amount", formalDefinition="Payable less any payment adjustment." )
     protected Money paymentAmount;
 
     /**
      * Payment identifer.
      */
-    @Child(name = "paymentRef", type = {Identifier.class}, order=41, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "paymentRef", type = {Identifier.class}, order=40, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Payment identifier", formalDefinition="Payment identifer." )
     protected Identifier paymentRef;
 
     /**
      * Status of funds reservation (For provider, for Patient, None).
      */
-    @Child(name = "reserved", type = {Coding.class}, order=42, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "reserved", type = {Coding.class}, order=41, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Funds reserved status", formalDefinition="Status of funds reservation (For provider, for Patient, None)." )
     protected Coding reserved;
 
     /**
      * The form to be used for printing the content.
      */
-    @Child(name = "form", type = {Coding.class}, order=43, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "form", type = {Coding.class}, order=42, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Printed Form Identifier", formalDefinition="The form to be used for printing the content." )
     protected Coding form;
 
     /**
      * Note text.
      */
-    @Child(name = "note", type = {}, order=44, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "note", type = {}, order=43, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Processing notes", formalDefinition="Note text." )
     protected List<NotesComponent> note;
 
     /**
      * Balance by Benefit Category.
      */
-    @Child(name = "benefitBalance", type = {}, order=45, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "benefitBalance", type = {}, order=44, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Balance by Benefit Category", formalDefinition="Balance by Benefit Category." )
     protected List<BenefitBalanceComponent> benefitBalance;
 
-    private static final long serialVersionUID = 813743068L;
+    private static final long serialVersionUID = -1647900445L;
 
-  /*
+  /**
    * Constructor
    */
     public ExplanationOfBenefit() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public ExplanationOfBenefit(Reference patient, CoverageComponent coverage) {
@@ -7737,30 +8047,6 @@ public class ExplanationOfBenefit extends DomainResource {
     }
 
     /**
-     * @return {@link #totalCost} (The total cost of the services reported.)
-     */
-    public Money getTotalCost() { 
-      if (this.totalCost == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ExplanationOfBenefit.totalCost");
-        else if (Configuration.doAutoCreate())
-          this.totalCost = new Money(); // cc
-      return this.totalCost;
-    }
-
-    public boolean hasTotalCost() { 
-      return this.totalCost != null && !this.totalCost.isEmpty();
-    }
-
-    /**
-     * @param value {@link #totalCost} (The total cost of the services reported.)
-     */
-    public ExplanationOfBenefit setTotalCost(Money value) { 
-      this.totalCost = value;
-      return this;
-    }
-
-    /**
      * @return {@link #unallocDeductable} (The amount of deductable applied which was not allocated to any particular service line.)
      */
     public Money getUnallocDeductable() { 
@@ -8117,7 +8403,6 @@ public class ExplanationOfBenefit extends DomainResource {
         childrenList.add(new Property("addItem", "", "The first tier service adjudications for payor added services.", 0, java.lang.Integer.MAX_VALUE, addItem));
         childrenList.add(new Property("claimTotal", "Money", "The total value of the claim.", 0, java.lang.Integer.MAX_VALUE, claimTotal));
         childrenList.add(new Property("missingTeeth", "", "A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.", 0, java.lang.Integer.MAX_VALUE, missingTeeth));
-        childrenList.add(new Property("totalCost", "Money", "The total cost of the services reported.", 0, java.lang.Integer.MAX_VALUE, totalCost));
         childrenList.add(new Property("unallocDeductable", "Money", "The amount of deductable applied which was not allocated to any particular service line.", 0, java.lang.Integer.MAX_VALUE, unallocDeductable));
         childrenList.add(new Property("totalBenefit", "Money", "Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable).", 0, java.lang.Integer.MAX_VALUE, totalBenefit));
         childrenList.add(new Property("paymentAdjustment", "Money", "Adjustment to the payment of this transaction which is not related to adjudication of this transaction.", 0, java.lang.Integer.MAX_VALUE, paymentAdjustment));
@@ -8201,8 +8486,6 @@ public class ExplanationOfBenefit extends DomainResource {
           this.claimTotal = castToMoney(value); // Money
         else if (name.equals("missingTeeth"))
           this.getMissingTeeth().add((MissingTeethComponent) value);
-        else if (name.equals("totalCost"))
-          this.totalCost = castToMoney(value); // Money
         else if (name.equals("unallocDeductable"))
           this.unallocDeductable = castToMoney(value); // Money
         else if (name.equals("totalBenefit"))
@@ -8365,10 +8648,6 @@ public class ExplanationOfBenefit extends DomainResource {
         else if (name.equals("missingTeeth")) {
           return addMissingTeeth();
         }
-        else if (name.equals("totalCost")) {
-          this.totalCost = new Money();
-          return this.totalCost;
-        }
         else if (name.equals("unallocDeductable")) {
           this.unallocDeductable = new Money();
           return this.unallocDeductable;
@@ -8492,7 +8771,6 @@ public class ExplanationOfBenefit extends DomainResource {
           for (MissingTeethComponent i : missingTeeth)
             dst.missingTeeth.add(i.copy());
         };
-        dst.totalCost = totalCost == null ? null : totalCost.copy();
         dst.unallocDeductable = unallocDeductable == null ? null : unallocDeductable.copy();
         dst.totalBenefit = totalBenefit == null ? null : totalBenefit.copy();
         dst.paymentAdjustment = paymentAdjustment == null ? null : paymentAdjustment.copy();
@@ -8539,12 +8817,12 @@ public class ExplanationOfBenefit extends DomainResource {
            && compareDeep(interventionException, o.interventionException, true) && compareDeep(onset, o.onset, true)
            && compareDeep(employmentImpacted, o.employmentImpacted, true) && compareDeep(hospitalization, o.hospitalization, true)
            && compareDeep(item, o.item, true) && compareDeep(addItem, o.addItem, true) && compareDeep(claimTotal, o.claimTotal, true)
-           && compareDeep(missingTeeth, o.missingTeeth, true) && compareDeep(totalCost, o.totalCost, true)
-           && compareDeep(unallocDeductable, o.unallocDeductable, true) && compareDeep(totalBenefit, o.totalBenefit, true)
-           && compareDeep(paymentAdjustment, o.paymentAdjustment, true) && compareDeep(paymentAdjustmentReason, o.paymentAdjustmentReason, true)
-           && compareDeep(paymentDate, o.paymentDate, true) && compareDeep(paymentAmount, o.paymentAmount, true)
-           && compareDeep(paymentRef, o.paymentRef, true) && compareDeep(reserved, o.reserved, true) && compareDeep(form, o.form, true)
-           && compareDeep(note, o.note, true) && compareDeep(benefitBalance, o.benefitBalance, true);
+           && compareDeep(missingTeeth, o.missingTeeth, true) && compareDeep(unallocDeductable, o.unallocDeductable, true)
+           && compareDeep(totalBenefit, o.totalBenefit, true) && compareDeep(paymentAdjustment, o.paymentAdjustment, true)
+           && compareDeep(paymentAdjustmentReason, o.paymentAdjustmentReason, true) && compareDeep(paymentDate, o.paymentDate, true)
+           && compareDeep(paymentAmount, o.paymentAmount, true) && compareDeep(paymentRef, o.paymentRef, true)
+           && compareDeep(reserved, o.reserved, true) && compareDeep(form, o.form, true) && compareDeep(note, o.note, true)
+           && compareDeep(benefitBalance, o.benefitBalance, true);
       }
 
       @Override
@@ -8575,13 +8853,12 @@ public class ExplanationOfBenefit extends DomainResource {
            && (interventionException == null || interventionException.isEmpty()) && (onset == null || onset.isEmpty())
            && (employmentImpacted == null || employmentImpacted.isEmpty()) && (hospitalization == null || hospitalization.isEmpty())
            && (item == null || item.isEmpty()) && (addItem == null || addItem.isEmpty()) && (claimTotal == null || claimTotal.isEmpty())
-           && (missingTeeth == null || missingTeeth.isEmpty()) && (totalCost == null || totalCost.isEmpty())
-           && (unallocDeductable == null || unallocDeductable.isEmpty()) && (totalBenefit == null || totalBenefit.isEmpty())
-           && (paymentAdjustment == null || paymentAdjustment.isEmpty()) && (paymentAdjustmentReason == null || paymentAdjustmentReason.isEmpty())
-           && (paymentDate == null || paymentDate.isEmpty()) && (paymentAmount == null || paymentAmount.isEmpty())
-           && (paymentRef == null || paymentRef.isEmpty()) && (reserved == null || reserved.isEmpty())
-           && (form == null || form.isEmpty()) && (note == null || note.isEmpty()) && (benefitBalance == null || benefitBalance.isEmpty())
-          ;
+           && (missingTeeth == null || missingTeeth.isEmpty()) && (unallocDeductable == null || unallocDeductable.isEmpty())
+           && (totalBenefit == null || totalBenefit.isEmpty()) && (paymentAdjustment == null || paymentAdjustment.isEmpty())
+           && (paymentAdjustmentReason == null || paymentAdjustmentReason.isEmpty()) && (paymentDate == null || paymentDate.isEmpty())
+           && (paymentAmount == null || paymentAmount.isEmpty()) && (paymentRef == null || paymentRef.isEmpty())
+           && (reserved == null || reserved.isEmpty()) && (form == null || form.isEmpty()) && (note == null || note.isEmpty())
+           && (benefitBalance == null || benefitBalance.isEmpty());
       }
 
   @Override
@@ -8589,10 +8866,22 @@ public class ExplanationOfBenefit extends DomainResource {
     return ResourceType.ExplanationOfBenefit;
    }
 
+  @SearchParamDefinition(name="organization", path="ExplanationOfBenefit.organization", description="The reference to the providing organization", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
   @SearchParamDefinition(name="patient", path="ExplanationOfBenefit.patient", description="The reference to the patient", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="facility", path="ExplanationOfBenefit.facility", description="Facility responsible for the goods and services", type="reference" )
+  public static final String SP_FACILITY = "facility";
+  @SearchParamDefinition(name="created", path="ExplanationOfBenefit.created", description="The creation date for the EOB", type="date" )
+  public static final String SP_CREATED = "created";
+  @SearchParamDefinition(name="provider", path="ExplanationOfBenefit.provider", description="The reference to the provider", type="reference" )
+  public static final String SP_PROVIDER = "provider";
+  @SearchParamDefinition(name="claim", path="ExplanationOfBenefit.claim", description="The reference to the claim", type="reference" )
+  public static final String SP_CLAIM = "claim";
   @SearchParamDefinition(name="identifier", path="ExplanationOfBenefit.identifier", description="The business identifier of the Explanation of Benefit", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="disposition", path="ExplanationOfBenefit.disposition", description="The contents of the disposition message", type="string" )
+  public static final String SP_DISPOSITION = "disposition";
 
 }
 

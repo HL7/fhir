@@ -29,16 +29,16 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A resource that includes narrative, extensions, and contained resources.
@@ -75,7 +75,7 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
 
     private static final long serialVersionUID = -970285559L;
 
-  /*
+  /**
    * Constructor
    */
     public DomainResource() {
@@ -205,6 +205,36 @@ public abstract class DomainResource extends Resource implements IBaseHasExtensi
         this.modifierExtension = new ArrayList<Extension>();
       this.modifierExtension.add(t);
       return this;
+    }
+
+    /**
+     * Returns a list of extensions from this element which have the given URL. Note that
+     * this list may not be modified (you can not add or remove elements from it)
+     */
+    public List<Extension> getExtensionsByUrl(String theUrl) {
+      org.apache.commons.lang3.Validate.notBlank(theUrl, "theUrl must be provided with a value");
+      ArrayList<Extension> retVal = new ArrayList<Extension>();
+      for (Extension next : getExtension()) {
+        if (theUrl.equals(next.getUrl())) {
+          retVal.add(next);
+        }
+      }
+      return Collections.unmodifiableList(retVal);
+    }
+
+    /**
+     * Returns a list of modifier extensions from this element which have the given URL. Note that
+     * this list may not be modified (you can not add or remove elements from it)
+     */
+    public List<Extension> getModifierExtensionsByUrl(String theUrl) {
+      org.apache.commons.lang3.Validate.notBlank(theUrl, "theUrl must be provided with a value");
+      ArrayList<Extension> retVal = new ArrayList<Extension>();
+      for (Extension next : getModifierExtension()) {
+        if (theUrl.equals(next.getUrl())) {
+          retVal.add(next);
+        }
+      }
+      return Collections.unmodifiableList(retVal);
     }
 
       protected void listChildren(List<Property> childrenList) {

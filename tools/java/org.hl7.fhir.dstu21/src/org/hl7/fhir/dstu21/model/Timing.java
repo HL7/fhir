@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.DatatypeDef;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.DatatypeDef;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.
@@ -568,7 +568,7 @@ public class Timing extends Type implements ICompositeType {
 
         private static final long serialVersionUID = -585686982L;
 
-    /*
+    /**
      * Constructor
      */
       public TimingRepeatComponent() {
@@ -728,6 +728,24 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
+         * @param value How long this thing happens for when it happens.
+         */
+        public TimingRepeatComponent setDuration(long value) { 
+              this.duration = new DecimalType();
+            this.duration.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value How long this thing happens for when it happens.
+         */
+        public TimingRepeatComponent setDuration(double value) { 
+              this.duration = new DecimalType();
+            this.duration.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #durationMax} (The upper limit of how long this thing happens for when it happens.). This is the underlying object with id, value and extensions. The accessor "getDurationMax" gives direct access to the value
          */
         public DecimalType getDurationMaxElement() { 
@@ -773,6 +791,24 @@ public class Timing extends Type implements ICompositeType {
               this.durationMax = new DecimalType();
             this.durationMax.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value The upper limit of how long this thing happens for when it happens.
+         */
+        public TimingRepeatComponent setDurationMax(long value) { 
+              this.durationMax = new DecimalType();
+            this.durationMax.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value The upper limit of how long this thing happens for when it happens.
+         */
+        public TimingRepeatComponent setDurationMax(double value) { 
+              this.durationMax = new DecimalType();
+            this.durationMax.setValue(value);
           return this;
         }
 
@@ -965,6 +1001,24 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
+         * @param value Indicates the duration of time over which repetitions are to occur; e.g. to express "3 times per day", 3 would be the frequency and "1 day" would be the period.
+         */
+        public TimingRepeatComponent setPeriod(long value) { 
+              this.period = new DecimalType();
+            this.period.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Indicates the duration of time over which repetitions are to occur; e.g. to express "3 times per day", 3 would be the frequency and "1 day" would be the period.
+         */
+        public TimingRepeatComponent setPeriod(double value) { 
+              this.period = new DecimalType();
+            this.period.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #periodMax} (If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as "do this once every 3-5 days.). This is the underlying object with id, value and extensions. The accessor "getPeriodMax" gives direct access to the value
          */
         public DecimalType getPeriodMaxElement() { 
@@ -1010,6 +1064,24 @@ public class Timing extends Type implements ICompositeType {
               this.periodMax = new DecimalType();
             this.periodMax.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as "do this once every 3-5 days.
+         */
+        public TimingRepeatComponent setPeriodMax(long value) { 
+              this.periodMax = new DecimalType();
+            this.periodMax.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as "do this once every 3-5 days.
+         */
+        public TimingRepeatComponent setPeriodMax(double value) { 
+              this.periodMax = new DecimalType();
+            this.periodMax.setValue(value);
           return this;
         }
 
@@ -1285,7 +1357,7 @@ public class Timing extends Type implements ICompositeType {
 
     private static final long serialVersionUID = 791565112L;
 
-  /*
+  /**
    * Constructor
    */
     public Timing() {

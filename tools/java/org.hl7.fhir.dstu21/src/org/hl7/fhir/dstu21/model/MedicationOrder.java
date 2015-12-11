@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An order for both supply of the medication and the instructions for administration of the medication to a patient. The resource is called "MedicationOrder" rather than "MedicationPrescription" to generalize the use across inpatient and outpatient settings as well as for care plans, etc.
@@ -269,7 +269,7 @@ public class MedicationOrder extends DomainResource {
 
         private static final long serialVersionUID = -1470136646L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationOrderDosageInstructionComponent() {
@@ -819,7 +819,7 @@ public class MedicationOrder extends DomainResource {
 
         private static final long serialVersionUID = -1690502728L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationOrderDispenseRequestComponent() {
@@ -1106,14 +1106,14 @@ public class MedicationOrder extends DomainResource {
 
         private static final long serialVersionUID = 1693602518L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationOrderSubstitutionComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public MedicationOrderSubstitutionComponent(CodeableConcept type) {
@@ -1366,14 +1366,14 @@ public class MedicationOrder extends DomainResource {
 
     private static final long serialVersionUID = 619326051L;
 
-  /*
+  /**
    * Constructor
    */
     public MedicationOrder() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public MedicationOrder(Type medication) {

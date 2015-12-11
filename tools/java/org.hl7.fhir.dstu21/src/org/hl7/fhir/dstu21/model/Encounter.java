@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
@@ -529,14 +529,14 @@ Not to be used when the patient is currently at the location
 
         private static final long serialVersionUID = 919229161L;
 
-    /*
+    /**
      * Constructor
      */
       public EncounterStatusHistoryComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public EncounterStatusHistoryComponent(Enumeration<EncounterState> status, Period period) {
@@ -713,7 +713,7 @@ Not to be used when the patient is currently at the location
 
         private static final long serialVersionUID = 317095765L;
 
-    /*
+    /**
      * Constructor
      */
       public EncounterParticipantComponent() {
@@ -1006,7 +1006,7 @@ Not to be used when the patient is currently at the location
 
         private static final long serialVersionUID = 164618034L;
 
-    /*
+    /**
      * Constructor
      */
       public EncounterHospitalizationComponent() {
@@ -1636,14 +1636,14 @@ Not to be used when the patient is currently at the location
 
         private static final long serialVersionUID = -322984880L;
 
-    /*
+    /**
      * Constructor
      */
       public EncounterLocationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public EncounterLocationComponent(Reference location) {
@@ -2016,14 +2016,14 @@ Not to be used when the patient is currently at the location
 
     private static final long serialVersionUID = 929562300L;
 
-  /*
+  /**
    * Constructor
    */
     public Encounter() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public Encounter(Enumeration<EncounterState> status) {

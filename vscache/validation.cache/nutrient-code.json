@@ -46,17 +46,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|256674009|Fat",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Fat"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|39972003|Sodium",
       "severity": null,
       "message": null,
@@ -65,6 +54,17 @@
         "code": null,
         "definition": null,
         "display": "Na - Sodium"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|256674009|Fat",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Fat"
       }
     }
   ]

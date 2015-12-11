@@ -340,7 +340,7 @@ public class ProfileUtilities {
             throw new DefinitionException("Adding wrong path");
           result.getElement().add(outcome);
           baseCursor++;
-        } else if (diffMatches.size() == 1 && (!diffMatches.get(0).hasSlicing() || slicingDone)) {// one matching element in the differential
+        } else if (diffMatches.size() == 1 && (slicingDone || (!diffMatches.get(0).hasSlicing() && !(isExtension(diffMatches.get(0)) && !diffMatches.get(0).hasName())))) {// one matching element in the differential
           ElementDefinition template = null;
           if (diffMatches.get(0).hasType() && diffMatches.get(0).getType().size() == 1 && diffMatches.get(0).getType().get(0).hasProfile() && !diffMatches.get(0).getType().get(0).getCode().equals("Reference")) {
             String p = diffMatches.get(0).getType().get(0).getProfile().get(0).asStringValue();
@@ -463,7 +463,7 @@ public class ProfileUtilities {
           while (baseCursor < base.getElement().size() && base.getElement().get(baseCursor).getPath().startsWith(path)) {
             ElementDefinition outcome = updateURLs(url, base.getElement().get(baseCursor).copy());
             if (!outcome.getPath().startsWith(resultPathBase))
-              throw new DefinitionException("Adding wrong path");
+              throw new DefinitionException("Adding wrong path: "+outcome.getPath()+" vs " + resultPathBase);
             result.getElement().add(outcome); // so we just copy it in
             baseCursor++;
           }

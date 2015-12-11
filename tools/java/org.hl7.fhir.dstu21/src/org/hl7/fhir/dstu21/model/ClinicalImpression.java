@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called "ClinicalImpression" rather than "ClinicalAssessment" to avoid confusion with the recording of assessment tools such as Apgar score.
@@ -170,14 +170,14 @@ public class ClinicalImpression extends DomainResource {
 
         private static final long serialVersionUID = -301363326L;
 
-    /*
+    /**
      * Constructor
      */
       public ClinicalImpressionInvestigationsComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ClinicalImpressionInvestigationsComponent(CodeableConcept code) {
@@ -349,14 +349,14 @@ public class ClinicalImpression extends DomainResource {
 
         private static final long serialVersionUID = -888590978L;
 
-    /*
+    /**
      * Constructor
      */
       public ClinicalImpressionFindingComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ClinicalImpressionFindingComponent(CodeableConcept item) {
@@ -524,14 +524,14 @@ public class ClinicalImpression extends DomainResource {
 
         private static final long serialVersionUID = -1001661243L;
 
-    /*
+    /**
      * Constructor
      */
       public ClinicalImpressionRuledOutComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ClinicalImpressionRuledOutComponent(CodeableConcept item) {
@@ -832,14 +832,14 @@ public class ClinicalImpression extends DomainResource {
 
     private static final long serialVersionUID = 1650458630L;
 
-  /*
+  /**
    * Constructor
    */
     public ClinicalImpression() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public ClinicalImpression(Reference patient, Enumeration<ClinicalImpressionStatus> status) {

@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * This resource provides payment details and claim references supporting a bulk payment.
@@ -121,14 +121,14 @@ public class PaymentReconciliation extends DomainResource {
 
         private static final long serialVersionUID = -1644048062L;
 
-    /*
+    /**
      * Constructor
      */
       public DetailsComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DetailsComponent(Coding type) {
@@ -530,7 +530,7 @@ public class PaymentReconciliation extends DomainResource {
 
         private static final long serialVersionUID = 129959202L;
 
-    /*
+    /**
      * Constructor
      */
       public NotesComponent() {
@@ -806,14 +806,14 @@ public class PaymentReconciliation extends DomainResource {
 
     private static final long serialVersionUID = 454328025L;
 
-  /*
+  /**
    * Constructor
    */
     public PaymentReconciliation() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public PaymentReconciliation(Money total) {
@@ -1582,8 +1582,22 @@ public class PaymentReconciliation extends DomainResource {
     return ResourceType.PaymentReconciliation;
    }
 
+  @SearchParamDefinition(name="organization", path="PaymentReconciliation.organization", description="The organization who generated this resource", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="requestprovider", path="PaymentReconciliation.requestProvider", description="The reference to the provider who sumbitted the claim", type="reference" )
+  public static final String SP_REQUESTPROVIDER = "requestprovider";
+  @SearchParamDefinition(name="created", path="PaymentReconciliation.created", description="The creation date", type="date" )
+  public static final String SP_CREATED = "created";
+  @SearchParamDefinition(name="request", path="PaymentReconciliation.request", description="The reference to the claim", type="reference" )
+  public static final String SP_REQUEST = "request";
+  @SearchParamDefinition(name="requestorganization", path="PaymentReconciliation.requestOrganization", description="The organization who generated this resource", type="reference" )
+  public static final String SP_REQUESTORGANIZATION = "requestorganization";
+  @SearchParamDefinition(name="outcome", path="PaymentReconciliation.outcome", description="The processing outcome", type="token" )
+  public static final String SP_OUTCOME = "outcome";
   @SearchParamDefinition(name="identifier", path="PaymentReconciliation.identifier", description="The business identifier of the Explanation of Benefit", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="disposition", path="PaymentReconciliation.disposition", description="The contents of the disposition message", type="string" )
+  public static final String SP_DISPOSITION = "disposition";
 
 }
 

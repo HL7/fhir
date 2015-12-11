@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An authorization for the supply of glasses and/or contact lenses to a patient.
@@ -357,14 +357,14 @@ public class VisionPrescription extends DomainResource {
 
         private static final long serialVersionUID = -1586392610L;
 
-    /*
+    /**
      * Constructor
      */
       public VisionPrescriptionDispenseComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public VisionPrescriptionDispenseComponent(Coding product) {
@@ -495,6 +495,24 @@ public class VisionPrescription extends DomainResource {
         }
 
         /**
+         * @param value Lens power measured in diopters (0.25 units).
+         */
+        public VisionPrescriptionDispenseComponent setSphere(long value) { 
+              this.sphere = new DecimalType();
+            this.sphere.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Lens power measured in diopters (0.25 units).
+         */
+        public VisionPrescriptionDispenseComponent setSphere(double value) { 
+              this.sphere = new DecimalType();
+            this.sphere.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #cylinder} (Power adjustment for astigmatism measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getCylinder" gives direct access to the value
          */
         public DecimalType getCylinderElement() { 
@@ -540,6 +558,24 @@ public class VisionPrescription extends DomainResource {
               this.cylinder = new DecimalType();
             this.cylinder.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value Power adjustment for astigmatism measured in diopters (0.25 units).
+         */
+        public VisionPrescriptionDispenseComponent setCylinder(long value) { 
+              this.cylinder = new DecimalType();
+            this.cylinder.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Power adjustment for astigmatism measured in diopters (0.25 units).
+         */
+        public VisionPrescriptionDispenseComponent setCylinder(double value) { 
+              this.cylinder = new DecimalType();
+            this.cylinder.setValue(value);
           return this;
         }
 
@@ -634,6 +670,24 @@ public class VisionPrescription extends DomainResource {
               this.prism = new DecimalType();
             this.prism.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value Amount of prism to compensate for eye alignment in fractional units.
+         */
+        public VisionPrescriptionDispenseComponent setPrism(long value) { 
+              this.prism = new DecimalType();
+            this.prism.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Amount of prism to compensate for eye alignment in fractional units.
+         */
+        public VisionPrescriptionDispenseComponent setPrism(double value) { 
+              this.prism = new DecimalType();
+            this.prism.setValue(value);
           return this;
         }
 
@@ -736,6 +790,24 @@ public class VisionPrescription extends DomainResource {
         }
 
         /**
+         * @param value Power adjustment for multifocal lenses measured in diopters (0.25 units).
+         */
+        public VisionPrescriptionDispenseComponent setAdd(long value) { 
+              this.add = new DecimalType();
+            this.add.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Power adjustment for multifocal lenses measured in diopters (0.25 units).
+         */
+        public VisionPrescriptionDispenseComponent setAdd(double value) { 
+              this.add = new DecimalType();
+            this.add.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #power} (Contact lens power measured in diopters (0.25 units).). This is the underlying object with id, value and extensions. The accessor "getPower" gives direct access to the value
          */
         public DecimalType getPowerElement() { 
@@ -781,6 +853,24 @@ public class VisionPrescription extends DomainResource {
               this.power = new DecimalType();
             this.power.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value Contact lens power measured in diopters (0.25 units).
+         */
+        public VisionPrescriptionDispenseComponent setPower(long value) { 
+              this.power = new DecimalType();
+            this.power.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Contact lens power measured in diopters (0.25 units).
+         */
+        public VisionPrescriptionDispenseComponent setPower(double value) { 
+              this.power = new DecimalType();
+            this.power.setValue(value);
           return this;
         }
 
@@ -834,6 +924,24 @@ public class VisionPrescription extends DomainResource {
         }
 
         /**
+         * @param value Back curvature measured in millimeters.
+         */
+        public VisionPrescriptionDispenseComponent setBackCurve(long value) { 
+              this.backCurve = new DecimalType();
+            this.backCurve.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Back curvature measured in millimeters.
+         */
+        public VisionPrescriptionDispenseComponent setBackCurve(double value) { 
+              this.backCurve = new DecimalType();
+            this.backCurve.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #diameter} (Contact lens diameter measured in millimeters.). This is the underlying object with id, value and extensions. The accessor "getDiameter" gives direct access to the value
          */
         public DecimalType getDiameterElement() { 
@@ -879,6 +987,24 @@ public class VisionPrescription extends DomainResource {
               this.diameter = new DecimalType();
             this.diameter.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value Contact lens diameter measured in millimeters.
+         */
+        public VisionPrescriptionDispenseComponent setDiameter(long value) { 
+              this.diameter = new DecimalType();
+            this.diameter.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Contact lens diameter measured in millimeters.
+         */
+        public VisionPrescriptionDispenseComponent setDiameter(double value) { 
+              this.diameter = new DecimalType();
+            this.diameter.setValue(value);
           return this;
         }
 
@@ -1293,7 +1419,7 @@ public class VisionPrescription extends DomainResource {
 
     private static final long serialVersionUID = -1108276057L;
 
-  /*
+  /**
    * Constructor
    */
     public VisionPrescription() {

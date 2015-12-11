@@ -1,7 +1,8 @@
 package org.hl7.fhir.dstu21.model;
 
-import org.hl7.fhir.dstu21.model.annotations.DatatypeDef;
-import org.hl7.fhir.dstu21.model.api.IBaseEnumeration;
+import org.hl7.fhir.instance.model.api.IBaseEnumeration;
+
+import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 
 /*
 Copyright (c) 2011+, HL7, Inc

@@ -29,19 +29,19 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
@@ -344,7 +344,7 @@ public class Claim extends DomainResource {
 
         private static final long serialVersionUID = -503108488L;
 
-    /*
+    /**
      * Constructor
      */
       public PayeeComponent() {
@@ -613,14 +613,14 @@ public class Claim extends DomainResource {
 
         private static final long serialVersionUID = -795010186L;
 
-    /*
+    /**
      * Constructor
      */
       public DiagnosisComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DiagnosisComponent(PositiveIntType sequence, Coding diagnosis) {
@@ -837,14 +837,14 @@ public class Claim extends DomainResource {
 
         private static final long serialVersionUID = 621250924L;
 
-    /*
+    /**
      * Constructor
      */
       public CoverageComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public CoverageComponent(PositiveIntType sequence, BooleanType focal, Reference coverage, Coding relationship) {
@@ -1444,14 +1444,14 @@ public class Claim extends DomainResource {
 
         private static final long serialVersionUID = -1914609123L;
 
-    /*
+    /**
      * Constructor
      */
       public ItemsComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ItemsComponent(PositiveIntType sequence, Coding type, Coding service) {
@@ -1819,6 +1819,24 @@ public class Claim extends DomainResource {
         }
 
         /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public ItemsComponent setFactor(long value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public ItemsComponent setFactor(double value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
@@ -1864,6 +1882,24 @@ public class Claim extends DomainResource {
               this.points = new DecimalType();
             this.points.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public ItemsComponent setPoints(long value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public ItemsComponent setPoints(double value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
           return this;
         }
 
@@ -2381,14 +2417,14 @@ public class Claim extends DomainResource {
 
         private static final long serialVersionUID = 5768017L;
 
-    /*
+    /**
      * Constructor
      */
       public DetailComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DetailComponent(PositiveIntType sequence, Coding type, Coding service) {
@@ -2589,6 +2625,24 @@ public class Claim extends DomainResource {
         }
 
         /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public DetailComponent setFactor(long value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public DetailComponent setFactor(double value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
@@ -2634,6 +2688,24 @@ public class Claim extends DomainResource {
               this.points = new DecimalType();
             this.points.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public DetailComponent setPoints(long value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public DetailComponent setPoints(double value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
           return this;
         }
 
@@ -2932,14 +3004,14 @@ public class Claim extends DomainResource {
 
         private static final long serialVersionUID = 623567568L;
 
-    /*
+    /**
      * Constructor
      */
       public SubDetailComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public SubDetailComponent(PositiveIntType sequence, Coding type, Coding service) {
@@ -3140,6 +3212,24 @@ public class Claim extends DomainResource {
         }
 
         /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public SubDetailComponent setFactor(long value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public SubDetailComponent setFactor(double value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
@@ -3185,6 +3275,24 @@ public class Claim extends DomainResource {
               this.points = new DecimalType();
             this.points.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public SubDetailComponent setPoints(long value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+         */
+        public SubDetailComponent setPoints(double value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
           return this;
         }
 
@@ -3390,7 +3498,7 @@ public class Claim extends DomainResource {
 
         private static final long serialVersionUID = 1739349641L;
 
-    /*
+    /**
      * Constructor
      */
       public ProsthesisComponent() {
@@ -3617,14 +3725,14 @@ public class Claim extends DomainResource {
 
         private static final long serialVersionUID = 352913313L;
 
-    /*
+    /**
      * Constructor
      */
       public MissingTeethComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public MissingTeethComponent(Coding tooth) {
@@ -4111,14 +4219,14 @@ public class Claim extends DomainResource {
 
     private static final long serialVersionUID = -763997683L;
 
-  /*
+  /**
    * Constructor
    */
     public Claim() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public Claim(Enumeration<ClaimType> type, Reference patient) {
@@ -5938,13 +6046,21 @@ public class Claim extends DomainResource {
     return ResourceType.Claim;
    }
 
-  @SearchParamDefinition(name="patient", path="Claim.patient", description="Patient", type="reference" )
+  @SearchParamDefinition(name="organization", path="Claim.organization", description="The reference to the providing organization", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="patient", path="Claim.patient", description="Patient receiveing the services", type="reference" )
   public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="facility", path="Claim.facility", description="Facility responsible for the goods and services", type="reference" )
+  public static final String SP_FACILITY = "facility";
+  @SearchParamDefinition(name="created", path="Claim.created", description="The creation date for the Claim", type="date" )
+  public static final String SP_CREATED = "created";
   @SearchParamDefinition(name="priority", path="Claim.priority", description="Processing priority requested", type="token" )
   public static final String SP_PRIORITY = "priority";
+  @SearchParamDefinition(name="target", path="Claim.target", description="The target payor/insurer for the Claim", type="reference" )
+  public static final String SP_TARGET = "target";
   @SearchParamDefinition(name="use", path="Claim.use", description="The kind of financial resource", type="token" )
   public static final String SP_USE = "use";
-  @SearchParamDefinition(name="provider", path="Claim.provider", description="Provider responsible for the claim", type="reference" )
+  @SearchParamDefinition(name="provider", path="Claim.provider", description="Provider responsible for the Claim", type="reference" )
   public static final String SP_PROVIDER = "provider";
   @SearchParamDefinition(name="identifier", path="Claim.identifier", description="The primary identifier of the financial resource", type="token" )
   public static final String SP_IDENTIFIER = "identifier";

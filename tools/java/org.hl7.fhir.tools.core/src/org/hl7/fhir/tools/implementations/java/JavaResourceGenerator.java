@@ -47,7 +47,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.dstu21.model.Extension;
-import org.hl7.fhir.instance.model.api.IBaseDatatype;
+import org.hl7.fhir.dstu21.model.api.IBaseDatatype;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
 

@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
@@ -200,14 +200,14 @@ public class Provenance extends DomainResource {
 
         private static final long serialVersionUID = 1792758952L;
 
-    /*
+    /**
      * Constructor
      */
       public ProvenanceAgentComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ProvenanceAgentComponent(Coding role) {
@@ -451,14 +451,14 @@ public class Provenance extends DomainResource {
 
         private static final long serialVersionUID = 794181198L;
 
-    /*
+    /**
      * Constructor
      */
       public ProvenanceAgentRelatedAgentComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ProvenanceAgentRelatedAgentComponent(CodeableConcept type, UriType target) {
@@ -644,14 +644,14 @@ public class Provenance extends DomainResource {
 
         private static final long serialVersionUID = 1533729633L;
 
-    /*
+    /**
      * Constructor
      */
       public ProvenanceEntityComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ProvenanceEntityComponent(Enumeration<ProvenanceEntityRole> role, Coding type, UriType reference) {
@@ -1024,14 +1024,14 @@ public class Provenance extends DomainResource {
 
     private static final long serialVersionUID = -1053458671L;
 
-  /*
+  /**
    * Constructor
    */
     public Provenance() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public Provenance(InstantType recorded) {

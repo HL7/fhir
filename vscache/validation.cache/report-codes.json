@@ -2,23 +2,7 @@
   "url": "http://hl7.org/fhir/ValueSet/report-codes",
   "outcomes": [
     {
-      "hash": "#|http://acme.com/labs/reports|null|142080|Rapid Plasma Reagin",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://loinc.org|null|5671-3|Lead [Mass/volume] in Blood#|urn:oid:2.16.840.1.113883.3.72.5.24|null|BLDLD|Blood Lead",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Lead [Mass/volume] in Blood"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count",
+      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count#|null|null|CBC|MASTER FULL BLOOD COUNT",
       "severity": null,
       "message": null,
       "definition": {
@@ -34,14 +18,79 @@
       "message": "The code provided is not  valid"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|429858000|Computed tomography (CT) of head and neck",
+      "hash": "#|http://snomed.info/sct|null|104177005|Blood culture for bacteria, including anaerobic screen",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Computed tomography of head and neck (procedure)"
+        "display": "Blood culture for bacteria, including anaerobic screen"
+      }
+    },
+    {
+      "hash": "#|http://acme.com/labs/reports|null|142080|Rapid Plasma Reagin",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Complete blood count (hemogram) panel - Blood by Automated count"
+      }
+    },
+    {
+      "hash": "#|http://acme.com/labs/reports|null|GHP|General Health Profile",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|45036003|Ultrasonography of abdomen",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "US abdominal scan"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|18769-0|Microbial susceptibility tests Set",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Microbial susceptibility tests Set"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|57698-3|Lipid panel with direct LDL - Serum or Plasma",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Lipid panel with direct LDL - Serum or Plasma"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|55233-1|Genetic analysis master panel",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Genetic analysis master panel - Blood or Tissue by Molecular genetics method"
       }
     },
     {
@@ -67,36 +116,15 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|104177005|Blood culture for bacteria, including anaerobic screen",
+      "hash": "#|http://loinc.org|null|5671-3|Lead [Mass/volume] in Blood#|urn:oid:2.16.840.1.113883.3.72.5.24|null|BLDLD|Blood Lead",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Blood culture for bacteria, including anaerobic screen"
+        "display": "Lead [Mass/volume] in Blood"
       }
-    },
-    {
-      "hash": "#|http://acme.com/labs/reports|null|25T|E/LFT (MASTER)",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count#|null|null|CBC|MASTER FULL BLOOD COUNT",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Complete blood count (hemogram) panel - Blood by Automated count"
-      }
-    },
-    {
-      "hash": "#|http://acme.com/labs/reports|null|GHP|General Health Profile",
-      "severity": "error",
-      "message": "The code provided is not  valid"
     },
     {
       "hash": "#|http://loinc.org|null|49874-1|ABCB4 gene mutation analysis",
@@ -110,48 +138,20 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|18769-0|Microbial susceptibility tests Set",
+      "hash": "#|http://snomed.info/sct|null|429858000|Computed tomography (CT) of head and neck",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Microbial susceptibility tests Set"
+        "display": "Computed tomography of head and neck (procedure)"
       }
     },
     {
-      "hash": "#|http://loinc.org|null|55233-1|Genetic analysis master panel",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Genetic analysis master panel - Blood or Tissue by Molecular genetics method"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|45036003|Ultrasonography of abdomen",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "US abdominal scan"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|57698-3|Lipid panel with direct LDL - Serum or Plasma",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Lipid panel with direct LDL - Serum or Plasma"
-      }
+      "hash": "#|http://acme.com/labs/reports|null|25T|E/LFT (MASTER)",
+      "severity": "error",
+      "message": "The code provided is not  valid"
     }
   ]
 }

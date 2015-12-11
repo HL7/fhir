@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Resource to define constraints on the Expansion of a FHIR ValueSet.
@@ -66,7 +66,7 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = -1179697803L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileContactComponent() {
@@ -252,7 +252,7 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = 141288544L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileCodeSystemComponent() {
@@ -388,7 +388,7 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = -676240849L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileCodeSystemIncludeComponent() {
@@ -517,14 +517,14 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = 1145288774L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileCodeSystemIncludeCodeSystemComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileCodeSystemIncludeCodeSystemComponent(UriType system) {
@@ -705,7 +705,7 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = 207363809L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileCodeSystemExcludeComponent() {
@@ -834,14 +834,14 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = 1145288774L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileCodeSystemExcludeCodeSystemComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileCodeSystemExcludeCodeSystemComponent(UriType system) {
@@ -1029,7 +1029,7 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = -1075298816L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileDesignationComponent() {
@@ -1165,7 +1165,7 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = 999939824L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileDesignationIncludeComponent() {
@@ -1294,7 +1294,7 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = 242239292L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileDesignationIncludeDesignationComponent() {
@@ -1454,7 +1454,7 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = -259508446L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileDesignationExcludeComponent() {
@@ -1583,7 +1583,7 @@ public class ExpansionProfile extends DomainResource {
 
         private static final long serialVersionUID = 242239292L;
 
-    /*
+    /**
      * Constructor
      */
       public ExpansionProfileDesignationExcludeDesignationComponent() {
@@ -1831,50 +1831,57 @@ public class ExpansionProfile extends DomainResource {
     protected BooleanType includeDefinition;
 
     /**
+     * Controls whether inactive concepts are included or excluded in value set expansions.
+     */
+    @Child(name = "includeInactive", type = {BooleanType.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Include or exclude inactive concepts in the expansion", formalDefinition="Controls whether inactive concepts are included or excluded in value set expansions." )
+    protected BooleanType includeInactive;
+
+    /**
      * Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).
      */
-    @Child(name = "excludeNested", type = {BooleanType.class}, order=14, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "excludeNested", type = {BooleanType.class}, order=15, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Include or exclude nested codes in the value set expansion", formalDefinition="Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains)." )
     protected BooleanType excludeNested;
 
     /**
      * Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces.
      */
-    @Child(name = "excludeNotForUI", type = {BooleanType.class}, order=15, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "excludeNotForUI", type = {BooleanType.class}, order=16, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Include or exclude codes which cannot be rendered in user interfaces in the value set expansion", formalDefinition="Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces." )
     protected BooleanType excludeNotForUI;
 
     /**
      * Controls whether or not the value set expansion includes post coordinated codes.
      */
-    @Child(name = "excludePostCoordinated", type = {BooleanType.class}, order=16, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "excludePostCoordinated", type = {BooleanType.class}, order=17, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Include or exclude codes which are post coordinated expressions in the value set expansion", formalDefinition="Controls whether or not the value set expansion includes post coordinated codes." )
     protected BooleanType excludePostCoordinated;
 
     /**
      * Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display.
      */
-    @Child(name = "displayLanguage", type = {CodeType.class}, order=17, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "displayLanguage", type = {CodeType.class}, order=18, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Specify the language for the display element of codes in the value set expansion", formalDefinition="Specifies the language to be used for description in the expansions i.e. the language to be used for ValueSet.expansion.contains.display." )
     protected CodeType displayLanguage;
 
     /**
      * If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete.
      */
-    @Child(name = "limitedExpansion", type = {BooleanType.class}, order=18, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "limitedExpansion", type = {BooleanType.class}, order=19, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Controls behaviour of the value set expand operation when value sets are too large to be completely expanded", formalDefinition="If the value set being expanded is incomplete (because it is too big to expand), return a limited expansion (a subset) with an indicator that expansion is incomplete." )
     protected BooleanType limitedExpansion;
 
-    private static final long serialVersionUID = -1199082034L;
+    private static final long serialVersionUID = -651123079L;
 
-  /*
+  /**
    * Constructor
    */
     public ExpansionProfile() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public ExpansionProfile(Enumeration<ConformanceResourceStatus> status) {
@@ -2469,6 +2476,51 @@ public class ExpansionProfile extends DomainResource {
     }
 
     /**
+     * @return {@link #includeInactive} (Controls whether inactive concepts are included or excluded in value set expansions.). This is the underlying object with id, value and extensions. The accessor "getIncludeInactive" gives direct access to the value
+     */
+    public BooleanType getIncludeInactiveElement() { 
+      if (this.includeInactive == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ExpansionProfile.includeInactive");
+        else if (Configuration.doAutoCreate())
+          this.includeInactive = new BooleanType(); // bb
+      return this.includeInactive;
+    }
+
+    public boolean hasIncludeInactiveElement() { 
+      return this.includeInactive != null && !this.includeInactive.isEmpty();
+    }
+
+    public boolean hasIncludeInactive() { 
+      return this.includeInactive != null && !this.includeInactive.isEmpty();
+    }
+
+    /**
+     * @param value {@link #includeInactive} (Controls whether inactive concepts are included or excluded in value set expansions.). This is the underlying object with id, value and extensions. The accessor "getIncludeInactive" gives direct access to the value
+     */
+    public ExpansionProfile setIncludeInactiveElement(BooleanType value) { 
+      this.includeInactive = value;
+      return this;
+    }
+
+    /**
+     * @return Controls whether inactive concepts are included or excluded in value set expansions.
+     */
+    public boolean getIncludeInactive() { 
+      return this.includeInactive == null || this.includeInactive.isEmpty() ? false : this.includeInactive.getValue();
+    }
+
+    /**
+     * @param value Controls whether inactive concepts are included or excluded in value set expansions.
+     */
+    public ExpansionProfile setIncludeInactive(boolean value) { 
+        if (this.includeInactive == null)
+          this.includeInactive = new BooleanType();
+        this.includeInactive.setValue(value);
+      return this;
+    }
+
+    /**
      * @return {@link #excludeNested} (Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).). This is the underlying object with id, value and extensions. The accessor "getExcludeNested" gives direct access to the value
      */
     public BooleanType getExcludeNestedElement() { 
@@ -2713,6 +2765,7 @@ public class ExpansionProfile extends DomainResource {
         childrenList.add(new Property("includeDesignations", "boolean", "Controls whether concept designations are to be included or excluded in value set expansions.", 0, java.lang.Integer.MAX_VALUE, includeDesignations));
         childrenList.add(new Property("designation", "", "A set of criteria that provide the constraints imposed on the value set expansion by including or excluding designations.", 0, java.lang.Integer.MAX_VALUE, designation));
         childrenList.add(new Property("includeDefinition", "boolean", "Controls whether the value set definition is included or excluded in value set expansions.", 0, java.lang.Integer.MAX_VALUE, includeDefinition));
+        childrenList.add(new Property("includeInactive", "boolean", "Controls whether inactive concepts are included or excluded in value set expansions.", 0, java.lang.Integer.MAX_VALUE, includeInactive));
         childrenList.add(new Property("excludeNested", "boolean", "Controls whether or not the value set expansion includes nested codes (i.e. ValueSet.expansion.contains.contains).", 0, java.lang.Integer.MAX_VALUE, excludeNested));
         childrenList.add(new Property("excludeNotForUI", "boolean", "Controls whether or not the value set expansion includes codes which cannot be displayed in user interfaces.", 0, java.lang.Integer.MAX_VALUE, excludeNotForUI));
         childrenList.add(new Property("excludePostCoordinated", "boolean", "Controls whether or not the value set expansion includes post coordinated codes.", 0, java.lang.Integer.MAX_VALUE, excludePostCoordinated));
@@ -2750,6 +2803,8 @@ public class ExpansionProfile extends DomainResource {
           this.designation = (ExpansionProfileDesignationComponent) value; // ExpansionProfileDesignationComponent
         else if (name.equals("includeDefinition"))
           this.includeDefinition = castToBoolean(value); // BooleanType
+        else if (name.equals("includeInactive"))
+          this.includeInactive = castToBoolean(value); // BooleanType
         else if (name.equals("excludeNested"))
           this.excludeNested = castToBoolean(value); // BooleanType
         else if (name.equals("excludeNotForUI"))
@@ -2811,6 +2866,9 @@ public class ExpansionProfile extends DomainResource {
         else if (name.equals("includeDefinition")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExpansionProfile.includeDefinition");
         }
+        else if (name.equals("includeInactive")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ExpansionProfile.includeInactive");
+        }
         else if (name.equals("excludeNested")) {
           throw new FHIRException("Cannot call addChild on a primitive type ExpansionProfile.excludeNested");
         }
@@ -2856,6 +2914,7 @@ public class ExpansionProfile extends DomainResource {
         dst.includeDesignations = includeDesignations == null ? null : includeDesignations.copy();
         dst.designation = designation == null ? null : designation.copy();
         dst.includeDefinition = includeDefinition == null ? null : includeDefinition.copy();
+        dst.includeInactive = includeInactive == null ? null : includeInactive.copy();
         dst.excludeNested = excludeNested == null ? null : excludeNested.copy();
         dst.excludeNotForUI = excludeNotForUI == null ? null : excludeNotForUI.copy();
         dst.excludePostCoordinated = excludePostCoordinated == null ? null : excludePostCoordinated.copy();
@@ -2880,10 +2939,10 @@ public class ExpansionProfile extends DomainResource {
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true)
            && compareDeep(description, o.description, true) && compareDeep(codeSystem, o.codeSystem, true)
            && compareDeep(includeDesignations, o.includeDesignations, true) && compareDeep(designation, o.designation, true)
-           && compareDeep(includeDefinition, o.includeDefinition, true) && compareDeep(excludeNested, o.excludeNested, true)
-           && compareDeep(excludeNotForUI, o.excludeNotForUI, true) && compareDeep(excludePostCoordinated, o.excludePostCoordinated, true)
-           && compareDeep(displayLanguage, o.displayLanguage, true) && compareDeep(limitedExpansion, o.limitedExpansion, true)
-          ;
+           && compareDeep(includeDefinition, o.includeDefinition, true) && compareDeep(includeInactive, o.includeInactive, true)
+           && compareDeep(excludeNested, o.excludeNested, true) && compareDeep(excludeNotForUI, o.excludeNotForUI, true)
+           && compareDeep(excludePostCoordinated, o.excludePostCoordinated, true) && compareDeep(displayLanguage, o.displayLanguage, true)
+           && compareDeep(limitedExpansion, o.limitedExpansion, true);
       }
 
       @Override
@@ -2896,10 +2955,10 @@ public class ExpansionProfile extends DomainResource {
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
            && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
            && compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(includeDesignations, o.includeDesignations, true)
-           && compareValues(includeDefinition, o.includeDefinition, true) && compareValues(excludeNested, o.excludeNested, true)
-           && compareValues(excludeNotForUI, o.excludeNotForUI, true) && compareValues(excludePostCoordinated, o.excludePostCoordinated, true)
-           && compareValues(displayLanguage, o.displayLanguage, true) && compareValues(limitedExpansion, o.limitedExpansion, true)
-          ;
+           && compareValues(includeDefinition, o.includeDefinition, true) && compareValues(includeInactive, o.includeInactive, true)
+           && compareValues(excludeNested, o.excludeNested, true) && compareValues(excludeNotForUI, o.excludeNotForUI, true)
+           && compareValues(excludePostCoordinated, o.excludePostCoordinated, true) && compareValues(displayLanguage, o.displayLanguage, true)
+           && compareValues(limitedExpansion, o.limitedExpansion, true);
       }
 
       public boolean isEmpty() {
@@ -2909,9 +2968,10 @@ public class ExpansionProfile extends DomainResource {
            && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty()) && (description == null || description.isEmpty())
            && (codeSystem == null || codeSystem.isEmpty()) && (includeDesignations == null || includeDesignations.isEmpty())
            && (designation == null || designation.isEmpty()) && (includeDefinition == null || includeDefinition.isEmpty())
-           && (excludeNested == null || excludeNested.isEmpty()) && (excludeNotForUI == null || excludeNotForUI.isEmpty())
-           && (excludePostCoordinated == null || excludePostCoordinated.isEmpty()) && (displayLanguage == null || displayLanguage.isEmpty())
-           && (limitedExpansion == null || limitedExpansion.isEmpty());
+           && (includeInactive == null || includeInactive.isEmpty()) && (excludeNested == null || excludeNested.isEmpty())
+           && (excludeNotForUI == null || excludeNotForUI.isEmpty()) && (excludePostCoordinated == null || excludePostCoordinated.isEmpty())
+           && (displayLanguage == null || displayLanguage.isEmpty()) && (limitedExpansion == null || limitedExpansion.isEmpty())
+          ;
       }
 
   @Override

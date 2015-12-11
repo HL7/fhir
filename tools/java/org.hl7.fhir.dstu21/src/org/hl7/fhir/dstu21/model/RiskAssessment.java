@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An assessment of the likely outcome(s) for a patient or other subject as well as the likelihood of each outcome.
@@ -87,14 +87,14 @@ public class RiskAssessment extends DomainResource {
 
         private static final long serialVersionUID = 647967428L;
 
-    /*
+    /**
      * Constructor
      */
       public RiskAssessmentPredictionComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public RiskAssessmentPredictionComponent(CodeableConcept outcome) {
@@ -230,6 +230,24 @@ public class RiskAssessment extends DomainResource {
               this.relativeRisk = new DecimalType();
             this.relativeRisk.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).
+         */
+        public RiskAssessmentPredictionComponent setRelativeRisk(long value) { 
+              this.relativeRisk = new DecimalType();
+            this.relativeRisk.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Indicates the risk for this particular subject (with their specific characteristics) divided by the risk of the population in general.  (Numbers greater than 1 = higher risk than the population, numbers less than 1 = lower risk.).
+         */
+        public RiskAssessmentPredictionComponent setRelativeRisk(double value) { 
+              this.relativeRisk = new DecimalType();
+            this.relativeRisk.setValue(value);
           return this;
         }
 
@@ -531,7 +549,7 @@ public class RiskAssessment extends DomainResource {
 
     private static final long serialVersionUID = 724306293L;
 
-  /*
+  /**
    * Constructor
    */
     public RiskAssessment() {

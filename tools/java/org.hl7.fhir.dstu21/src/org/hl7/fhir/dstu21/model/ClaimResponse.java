@@ -29,19 +29,19 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * This resource provides the adjudication details from the processing of a Claim resource.
@@ -81,14 +81,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -1917866697L;
 
-    /*
+    /**
      * Constructor
      */
       public ItemsComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ItemsComponent(PositiveIntType sequenceLinkId) {
@@ -397,14 +397,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -949880587L;
 
-    /*
+    /**
      * Constructor
      */
       public ItemAdjudicationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ItemAdjudicationComponent(Coding code) {
@@ -506,6 +506,24 @@ public class ClaimResponse extends DomainResource {
               this.value = new DecimalType();
             this.value.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public ItemAdjudicationComponent setValue(long value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public ItemAdjudicationComponent setValue(double value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
           return this;
         }
 
@@ -612,14 +630,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -1751018357L;
 
-    /*
+    /**
      * Constructor
      */
       public ItemDetailComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ItemDetailComponent(PositiveIntType sequenceLinkId) {
@@ -861,14 +879,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -949880587L;
 
-    /*
+    /**
      * Constructor
      */
       public DetailAdjudicationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DetailAdjudicationComponent(Coding code) {
@@ -973,6 +991,24 @@ public class ClaimResponse extends DomainResource {
           return this;
         }
 
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public DetailAdjudicationComponent setValue(long value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public DetailAdjudicationComponent setValue(double value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "Coding", "Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -1069,14 +1105,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = 1780202110L;
 
-    /*
+    /**
      * Constructor
      */
       public SubDetailComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public SubDetailComponent(PositiveIntType sequenceLinkId) {
@@ -1267,14 +1303,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -949880587L;
 
-    /*
+    /**
      * Constructor
      */
       public SubdetailAdjudicationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public SubdetailAdjudicationComponent(Coding code) {
@@ -1376,6 +1412,24 @@ public class ClaimResponse extends DomainResource {
               this.value = new DecimalType();
             this.value.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public SubdetailAdjudicationComponent setValue(long value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public SubdetailAdjudicationComponent setValue(double value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
           return this;
         }
 
@@ -1503,14 +1557,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -1675935854L;
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemComponent(Coding service) {
@@ -1898,14 +1952,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -949880587L;
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemAdjudicationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemAdjudicationComponent(Coding code) {
@@ -2007,6 +2061,24 @@ public class ClaimResponse extends DomainResource {
               this.value = new DecimalType();
             this.value.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public AddedItemAdjudicationComponent setValue(long value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public AddedItemAdjudicationComponent setValue(double value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
           return this;
         }
 
@@ -2113,14 +2185,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -2104242020L;
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemsDetailComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemsDetailComponent(Coding service) {
@@ -2323,14 +2395,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -949880587L;
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemDetailAdjudicationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AddedItemDetailAdjudicationComponent(Coding code) {
@@ -2432,6 +2504,24 @@ public class ClaimResponse extends DomainResource {
               this.value = new DecimalType();
             this.value.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public AddedItemDetailAdjudicationComponent setValue(long value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
+         */
+        public AddedItemDetailAdjudicationComponent setValue(double value) { 
+              this.value = new DecimalType();
+            this.value.setValue(value);
           return this;
         }
 
@@ -2545,14 +2635,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = -1893641175L;
 
-    /*
+    /**
      * Constructor
      */
       public ErrorsComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ErrorsComponent(Coding code) {
@@ -2831,7 +2921,7 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = 1768923951L;
 
-    /*
+    /**
      * Constructor
      */
       public NotesComponent() {
@@ -3103,14 +3193,14 @@ public class ClaimResponse extends DomainResource {
 
         private static final long serialVersionUID = 621250924L;
 
-    /*
+    /**
      * Constructor
      */
       public CoverageComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public CoverageComponent(PositiveIntType sequence, BooleanType focal, Reference coverage, Coding relationship) {
@@ -3779,7 +3869,7 @@ public class ClaimResponse extends DomainResource {
 
     private static final long serialVersionUID = 2021598689L;
 
-  /*
+  /**
    * Constructor
    */
     public ClaimResponse() {
@@ -4990,8 +5080,20 @@ public class ClaimResponse extends DomainResource {
     return ResourceType.ClaimResponse;
    }
 
+  @SearchParamDefinition(name="organization", path="ClaimResponse.organization", description="The organization who generated this resource", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="created", path="ClaimResponse.created", description="The creation date", type="date" )
+  public static final String SP_CREATED = "created";
+  @SearchParamDefinition(name="request", path="ClaimResponse.request", description="The claim reference", type="reference" )
+  public static final String SP_REQUEST = "request";
+  @SearchParamDefinition(name="paymentdate", path="ClaimResponse.paymentDate", description="The expected paymentDate", type="date" )
+  public static final String SP_PAYMENTDATE = "paymentdate";
+  @SearchParamDefinition(name="outcome", path="ClaimResponse.outcome", description="The processing outcome", type="token" )
+  public static final String SP_OUTCOME = "outcome";
   @SearchParamDefinition(name="identifier", path="ClaimResponse.identifier", description="The identity of the insurer", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="disposition", path="ClaimResponse.disposition", description="The contents of the disposition message", type="string" )
+  public static final String SP_DISPOSITION = "disposition";
 
 }
 

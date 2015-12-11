@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A container for a collection of resources.
@@ -478,14 +478,14 @@ public class Bundle extends Resource implements IBaseBundle {
 
         private static final long serialVersionUID = -1010386066L;
 
-    /*
+    /**
      * Constructor
      */
       public BundleLinkComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public BundleLinkComponent(StringType relation, UriType url) {
@@ -698,7 +698,7 @@ public class Bundle extends Resource implements IBaseBundle {
 
         private static final long serialVersionUID = 517783054L;
 
-    /*
+    /**
      * Constructor
      */
       public BundleEntryComponent() {
@@ -1009,7 +1009,7 @@ public class Bundle extends Resource implements IBaseBundle {
 
         private static final long serialVersionUID = 837739866L;
 
-    /*
+    /**
      * Constructor
      */
       public BundleEntrySearchComponent() {
@@ -1111,6 +1111,24 @@ public class Bundle extends Resource implements IBaseBundle {
               this.score = new DecimalType();
             this.score.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value When searching, the server's search ranking score for the entry.
+         */
+        public BundleEntrySearchComponent setScore(long value) { 
+              this.score = new DecimalType();
+            this.score.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value When searching, the server's search ranking score for the entry.
+         */
+        public BundleEntrySearchComponent setScore(double value) { 
+              this.score = new DecimalType();
+            this.score.setValue(value);
           return this;
         }
 
@@ -1228,14 +1246,14 @@ public class Bundle extends Resource implements IBaseBundle {
 
         private static final long serialVersionUID = -1349769744L;
 
-    /*
+    /**
      * Constructor
      */
       public BundleEntryRequestComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public BundleEntryRequestComponent(Enumeration<HTTPVerb> method, UriType url) {
@@ -1664,14 +1682,14 @@ public class Bundle extends Resource implements IBaseBundle {
 
         private static final long serialVersionUID = -1526413234L;
 
-    /*
+    /**
      * Constructor
      */
       public BundleEntryResponseComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public BundleEntryResponseComponent(StringType status) {
@@ -1992,14 +2010,14 @@ public class Bundle extends Resource implements IBaseBundle {
 
     private static final long serialVersionUID = -2041954721L;
 
-  /*
+  /**
    * Constructor
    */
     public Bundle() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public Bundle(Enumeration<BundleType> type) {

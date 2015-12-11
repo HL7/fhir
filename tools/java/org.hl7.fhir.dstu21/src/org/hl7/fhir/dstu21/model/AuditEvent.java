@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage.
@@ -481,14 +481,14 @@ public class AuditEvent extends DomainResource {
 
         private static final long serialVersionUID = 1916806397L;
 
-    /*
+    /**
      * Constructor
      */
       public AuditEventEventComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AuditEventEventComponent(Coding type, InstantType dateTime) {
@@ -1001,14 +1001,14 @@ public class AuditEvent extends DomainResource {
 
         private static final long serialVersionUID = -1783296995L;
 
-    /*
+    /**
      * Constructor
      */
       public AuditEventParticipantComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AuditEventParticipantComponent(BooleanType requestor) {
@@ -1621,7 +1621,7 @@ public class AuditEvent extends DomainResource {
 
         private static final long serialVersionUID = -1355220390L;
 
-    /*
+    /**
      * Constructor
      */
       public AuditEventParticipantNetworkComponent() {
@@ -1819,14 +1819,14 @@ public class AuditEvent extends DomainResource {
 
         private static final long serialVersionUID = -1562673890L;
 
-    /*
+    /**
      * Constructor
      */
       public AuditEventSourceComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AuditEventSourceComponent(Identifier identifier) {
@@ -2107,7 +2107,7 @@ public class AuditEvent extends DomainResource {
 
         private static final long serialVersionUID = 997591908L;
 
-    /*
+    /**
      * Constructor
      */
       public AuditEventObjectComponent() {
@@ -2638,14 +2638,14 @@ public class AuditEvent extends DomainResource {
 
         private static final long serialVersionUID = 11139504L;
 
-    /*
+    /**
      * Constructor
      */
       public AuditEventObjectDetailComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public AuditEventObjectDetailComponent(StringType type, Base64BinaryType value) {
@@ -2842,14 +2842,14 @@ public class AuditEvent extends DomainResource {
 
     private static final long serialVersionUID = -1495151000L;
 
-  /*
+  /**
    * Constructor
    */
     public AuditEvent() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public AuditEvent(AuditEventEventComponent event, AuditEventSourceComponent source) {

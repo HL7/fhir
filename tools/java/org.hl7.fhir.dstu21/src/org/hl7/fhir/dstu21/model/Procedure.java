@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * An action that is or was performed on a patient. This can be a physical intervention like an operation, or less invasive like counseling or hypnotherapy.
@@ -186,7 +186,7 @@ public class Procedure extends DomainResource {
 
         private static final long serialVersionUID = -843698327L;
 
-    /*
+    /**
      * Constructor
      */
       public ProcedurePerformerComponent() {
@@ -349,14 +349,14 @@ public class Procedure extends DomainResource {
 
         private static final long serialVersionUID = 1779937807L;
 
-    /*
+    /**
      * Constructor
      */
       public ProcedureFocalDeviceComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ProcedureFocalDeviceComponent(Reference manipulated) {
@@ -681,14 +681,14 @@ public class Procedure extends DomainResource {
 
     private static final long serialVersionUID = -489125036L;
 
-  /*
+  /**
    * Constructor
    */
     public Procedure() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public Procedure(Reference subject, Enumeration<ProcedureStatus> status, CodeableConcept code) {

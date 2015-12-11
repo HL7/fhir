@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A formal agreement between parties regarding the conduct of business, exchange of information or other matters.
@@ -71,14 +71,14 @@ public class Contract extends DomainResource {
 
         private static final long serialVersionUID = 1371245689L;
 
-    /*
+    /**
      * Constructor
      */
       public ActorComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ActorComponent(Reference entity) {
@@ -298,7 +298,7 @@ public class Contract extends DomainResource {
 
         private static final long serialVersionUID = 1782449516L;
 
-    /*
+    /**
      * Constructor
      */
       public ValuedItemComponent() {
@@ -521,6 +521,24 @@ public class Contract extends DomainResource {
         }
 
         /**
+         * @param value A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public ValuedItemComponent setFactor(long value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A real number that represents a multiplier used in determining the overall value of the Contract Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public ValuedItemComponent setFactor(double value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
@@ -566,6 +584,24 @@ public class Contract extends DomainResource {
               this.points = new DecimalType();
             this.points.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point.
+         */
+        public ValuedItemComponent setPoints(long value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Valued Item delivered. The concept of Points allows for assignment of point values for a Contract Valued Item, such that a monetary amount can be assigned to each point.
+         */
+        public ValuedItemComponent setPoints(double value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
           return this;
         }
 
@@ -747,14 +783,14 @@ public class Contract extends DomainResource {
 
         private static final long serialVersionUID = -1870392043L;
 
-    /*
+    /**
      * Constructor
      */
       public SignatoryComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public SignatoryComponent(Coding type, Reference party, StringType signature) {
@@ -1043,7 +1079,7 @@ public class Contract extends DomainResource {
 
         private static final long serialVersionUID = -1137577465L;
 
-    /*
+    /**
      * Constructor
      */
       public TermComponent() {
@@ -1676,14 +1712,14 @@ public class Contract extends DomainResource {
 
         private static final long serialVersionUID = 1371245689L;
 
-    /*
+    /**
      * Constructor
      */
       public TermActorComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public TermActorComponent(Reference entity) {
@@ -1903,7 +1939,7 @@ public class Contract extends DomainResource {
 
         private static final long serialVersionUID = 1782449516L;
 
-    /*
+    /**
      * Constructor
      */
       public TermValuedItemComponent() {
@@ -2126,6 +2162,24 @@ public class Contract extends DomainResource {
         }
 
         /**
+         * @param value A real number that represents a multiplier used in determining the overall value of the Contract Provision Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public TermValuedItemComponent setFactor(long value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value A real number that represents a multiplier used in determining the overall value of the Contract Provision Valued Item delivered. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+         */
+        public TermValuedItemComponent setFactor(double value) { 
+              this.factor = new DecimalType();
+            this.factor.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #points} (An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Provision Valued Item delivered. The concept of Points allows for assignment of point values for a Contract ProvisionValued Item, such that a monetary amount can be assigned to each point.). This is the underlying object with id, value and extensions. The accessor "getPoints" gives direct access to the value
          */
         public DecimalType getPointsElement() { 
@@ -2171,6 +2225,24 @@ public class Contract extends DomainResource {
               this.points = new DecimalType();
             this.points.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Provision Valued Item delivered. The concept of Points allows for assignment of point values for a Contract ProvisionValued Item, such that a monetary amount can be assigned to each point.
+         */
+        public TermValuedItemComponent setPoints(long value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the Contract Provision Valued Item delivered. The concept of Points allows for assignment of point values for a Contract ProvisionValued Item, such that a monetary amount can be assigned to each point.
+         */
+        public TermValuedItemComponent setPoints(double value) { 
+              this.points = new DecimalType();
+            this.points.setValue(value);
           return this;
         }
 
@@ -2333,14 +2405,14 @@ public class Contract extends DomainResource {
 
         private static final long serialVersionUID = -1763459053L;
 
-    /*
+    /**
      * Constructor
      */
       public FriendlyLanguageComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public FriendlyLanguageComponent(Type content) {
@@ -2469,14 +2541,14 @@ public class Contract extends DomainResource {
 
         private static final long serialVersionUID = -1763459053L;
 
-    /*
+    /**
      * Constructor
      */
       public LegalLanguageComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public LegalLanguageComponent(Type content) {
@@ -2605,14 +2677,14 @@ public class Contract extends DomainResource {
 
         private static final long serialVersionUID = -1763459053L;
 
-    /*
+    /**
      * Constructor
      */
       public ComputableLanguageComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ComputableLanguageComponent(Type content) {
@@ -2873,7 +2945,7 @@ public class Contract extends DomainResource {
 
     private static final long serialVersionUID = -1785608373L;
 
-  /*
+  /**
    * Constructor
    */
     public Contract() {

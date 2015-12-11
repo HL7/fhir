@@ -1,6 +1,6 @@
 package org.hl7.fhir.dstu21.model;
 
-import org.hl7.fhir.dstu21.model.api.IBaseBinary;
+import org.hl7.fhir.instance.model.api.IBaseBinary;
 
 public abstract class BaseBinary extends Resource implements IBaseBinary {
 

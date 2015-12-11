@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.
@@ -257,14 +257,14 @@ public class Location extends DomainResource {
 
         private static final long serialVersionUID = -74276134L;
 
-    /*
+    /**
      * Constructor
      */
       public LocationPositionComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public LocationPositionComponent(DecimalType longitude, DecimalType latitude) {
@@ -319,6 +319,24 @@ public class Location extends DomainResource {
         }
 
         /**
+         * @param value Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
+         */
+        public LocationPositionComponent setLongitude(long value) { 
+              this.longitude = new DecimalType();
+            this.longitude.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Longitude. The value domain and the interpretation are the same as for the text of the longitude element in KML (see notes below).
+         */
+        public LocationPositionComponent setLongitude(double value) { 
+              this.longitude = new DecimalType();
+            this.longitude.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #latitude} (Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).). This is the underlying object with id, value and extensions. The accessor "getLatitude" gives direct access to the value
          */
         public DecimalType getLatitudeElement() { 
@@ -358,6 +376,24 @@ public class Location extends DomainResource {
          */
         public LocationPositionComponent setLatitude(BigDecimal value) { 
             if (this.latitude == null)
+              this.latitude = new DecimalType();
+            this.latitude.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
+         */
+        public LocationPositionComponent setLatitude(long value) { 
+              this.latitude = new DecimalType();
+            this.latitude.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Latitude. The value domain and the interpretation are the same as for the text of the latitude element in KML (see notes below).
+         */
+        public LocationPositionComponent setLatitude(double value) { 
               this.latitude = new DecimalType();
             this.latitude.setValue(value);
           return this;
@@ -409,6 +445,24 @@ public class Location extends DomainResource {
               this.altitude = new DecimalType();
             this.altitude.setValue(value);
           }
+          return this;
+        }
+
+        /**
+         * @param value Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
+         */
+        public LocationPositionComponent setAltitude(long value) { 
+              this.altitude = new DecimalType();
+            this.altitude.setValue(value);
+          return this;
+        }
+
+        /**
+         * @param value Altitude. The value domain and the interpretation are the same as for the text of the altitude element in KML (see notes below).
+         */
+        public LocationPositionComponent setAltitude(double value) { 
+              this.altitude = new DecimalType();
+            this.altitude.setValue(value);
           return this;
         }
 
@@ -585,7 +639,7 @@ public class Location extends DomainResource {
 
     private static final long serialVersionUID = -2100435761L;
 
-  /*
+  /**
    * Constructor
    */
     public Location() {

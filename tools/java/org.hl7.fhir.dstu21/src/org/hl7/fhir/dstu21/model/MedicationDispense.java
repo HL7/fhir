@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.
@@ -255,7 +255,7 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
 
         private static final long serialVersionUID = -1470136646L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationDispenseDosageInstructionComponent() {
@@ -804,14 +804,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
 
         private static final long serialVersionUID = 1218245830L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationDispenseSubstitutionComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public MedicationDispenseSubstitutionComponent(CodeableConcept type) {
@@ -1168,14 +1168,14 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
 
     private static final long serialVersionUID = -2071218407L;
 
-  /*
+  /**
    * Constructor
    */
     public MedicationDispense() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public MedicationDispense(Type medication) {

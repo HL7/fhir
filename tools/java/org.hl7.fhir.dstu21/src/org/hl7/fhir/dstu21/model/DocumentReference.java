@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A reference to a document .
@@ -187,14 +187,14 @@ public class DocumentReference extends DomainResource {
 
         private static final long serialVersionUID = -347257495L;
 
-    /*
+    /**
      * Constructor
      */
       public DocumentReferenceRelatesToComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DocumentReferenceRelatesToComponent(Enumeration<DocumentRelationshipType> code, Reference target) {
@@ -379,14 +379,14 @@ public class DocumentReference extends DomainResource {
 
         private static final long serialVersionUID = -1412643085L;
 
-    /*
+    /**
      * Constructor
      */
       public DocumentReferenceContentComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public DocumentReferenceContentComponent(Attachment attachment) {
@@ -594,7 +594,7 @@ public class DocumentReference extends DomainResource {
 
         private static final long serialVersionUID = 994799273L;
 
-    /*
+    /**
      * Constructor
      */
       public DocumentReferenceContextComponent() {
@@ -985,7 +985,7 @@ public class DocumentReference extends DomainResource {
 
         private static final long serialVersionUID = -1670123330L;
 
-    /*
+    /**
      * Constructor
      */
       public DocumentReferenceContextRelatedComponent() {
@@ -1266,14 +1266,14 @@ public class DocumentReference extends DomainResource {
 
     private static final long serialVersionUID = -1009325322L;
 
-  /*
+  /**
    * Constructor
    */
     public DocumentReference() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public DocumentReference(CodeableConcept type, InstantType indexed, Enumeration<DocumentReferenceStatus> status) {

@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A formal computable definition of an operation (on the RESTful interface) or a named query (using the search interaction).
@@ -234,7 +234,7 @@ public class OperationDefinition extends DomainResource {
 
         private static final long serialVersionUID = -1179697803L;
 
-    /*
+    /**
      * Constructor
      */
       public OperationDefinitionContactComponent() {
@@ -474,14 +474,14 @@ public class OperationDefinition extends DomainResource {
 
         private static final long serialVersionUID = -1514145741L;
 
-    /*
+    /**
      * Constructor
      */
       public OperationDefinitionParameterComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public OperationDefinitionParameterComponent(CodeType name, Enumeration<OperationParameterUse> use, IntegerType min, StringType max) {
@@ -1026,14 +1026,14 @@ public class OperationDefinition extends DomainResource {
 
         private static final long serialVersionUID = 857140521L;
 
-    /*
+    /**
      * Constructor
      */
       public OperationDefinitionParameterBindingComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public OperationDefinitionParameterBindingComponent(Enumeration<BindingStrength> strength, Type valueSet) {
@@ -1345,14 +1345,14 @@ public class OperationDefinition extends DomainResource {
 
     private static final long serialVersionUID = 148203484L;
 
-  /*
+  /**
    * Constructor
    */
     public OperationDefinition() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public OperationDefinition(StringType name, Enumeration<ConformanceResourceStatus> status, Enumeration<OperationKind> kind, CodeType code, BooleanType system, BooleanType instance) {

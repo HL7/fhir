@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
@@ -225,7 +225,7 @@ public class MedicationAdministration extends DomainResource {
 
         private static final long serialVersionUID = -1772198879L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationAdministrationDosageComponent() {
@@ -680,14 +680,14 @@ public class MedicationAdministration extends DomainResource {
 
     private static final long serialVersionUID = -669616345L;
 
-  /*
+  /**
    * Constructor
    */
     public MedicationAdministration() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public MedicationAdministration(Enumeration<MedicationAdministrationStatus> status, Reference patient, Type effectiveTime, Type medication) {

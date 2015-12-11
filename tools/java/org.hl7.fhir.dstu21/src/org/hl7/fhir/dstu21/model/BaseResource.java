@@ -1,9 +1,11 @@
 package org.hl7.fhir.dstu21.model;
 
-import org.hl7.fhir.dstu21.model.api.IAnyResource;
-import org.hl7.fhir.dstu21.model.api.IIdType;
+import org.hl7.fhir.instance.model.api.IAnyResource;
+import org.hl7.fhir.instance.model.api.IIdType;
 
-public abstract class BaseResource extends Base implements IAnyResource {
+import ca.uhn.fhir.model.api.IElement;
+
+public abstract class BaseResource extends Base implements IAnyResource, IElement {
 
 	private static final long serialVersionUID = 1L;
 

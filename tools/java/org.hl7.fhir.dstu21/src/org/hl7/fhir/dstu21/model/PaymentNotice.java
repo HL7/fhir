@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * This resource provides the status of the payment for goods and services rendered, and the request and response resource references.
@@ -142,16 +142,23 @@ public class PaymentNotice extends DomainResource {
     @Description(shortDefinition="Status of the payment", formalDefinition="The payment status, typically paid: payment sent, cleared: payment received." )
     protected Coding paymentStatus;
 
-    private static final long serialVersionUID = -394826458L;
+    /**
+     * The date when the above payment action occurrred.
+     */
+    @Child(name = "statusDate", type = {DateType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Payment or clearing date", formalDefinition="The date when the above payment action occurrred." )
+    protected DateType statusDate;
 
-  /*
+    private static final long serialVersionUID = -1574998728L;
+
+  /**
    * Constructor
    */
     public PaymentNotice() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public PaymentNotice(Coding paymentStatus) {
@@ -530,6 +537,55 @@ public class PaymentNotice extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #statusDate} (The date when the above payment action occurrred.). This is the underlying object with id, value and extensions. The accessor "getStatusDate" gives direct access to the value
+     */
+    public DateType getStatusDateElement() { 
+      if (this.statusDate == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create PaymentNotice.statusDate");
+        else if (Configuration.doAutoCreate())
+          this.statusDate = new DateType(); // bb
+      return this.statusDate;
+    }
+
+    public boolean hasStatusDateElement() { 
+      return this.statusDate != null && !this.statusDate.isEmpty();
+    }
+
+    public boolean hasStatusDate() { 
+      return this.statusDate != null && !this.statusDate.isEmpty();
+    }
+
+    /**
+     * @param value {@link #statusDate} (The date when the above payment action occurrred.). This is the underlying object with id, value and extensions. The accessor "getStatusDate" gives direct access to the value
+     */
+    public PaymentNotice setStatusDateElement(DateType value) { 
+      this.statusDate = value;
+      return this;
+    }
+
+    /**
+     * @return The date when the above payment action occurrred.
+     */
+    public Date getStatusDate() { 
+      return this.statusDate == null ? null : this.statusDate.getValue();
+    }
+
+    /**
+     * @param value The date when the above payment action occurrred.
+     */
+    public PaymentNotice setStatusDate(Date value) { 
+      if (value == null)
+        this.statusDate = null;
+      else {
+        if (this.statusDate == null)
+          this.statusDate = new DateType();
+        this.statusDate.setValue(value);
+      }
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "The Response business identifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
@@ -542,6 +598,7 @@ public class PaymentNotice extends DomainResource {
         childrenList.add(new Property("request", "Reference(Any)", "Reference of resource to reverse.", 0, java.lang.Integer.MAX_VALUE, request));
         childrenList.add(new Property("response", "Reference(Any)", "Reference of response to resource to reverse.", 0, java.lang.Integer.MAX_VALUE, response));
         childrenList.add(new Property("paymentStatus", "Coding", "The payment status, typically paid: payment sent, cleared: payment received.", 0, java.lang.Integer.MAX_VALUE, paymentStatus));
+        childrenList.add(new Property("statusDate", "date", "The date when the above payment action occurrred.", 0, java.lang.Integer.MAX_VALUE, statusDate));
       }
 
       @Override
@@ -566,6 +623,8 @@ public class PaymentNotice extends DomainResource {
           this.response = castToReference(value); // Reference
         else if (name.equals("paymentStatus"))
           this.paymentStatus = castToCoding(value); // Coding
+        else if (name.equals("statusDate"))
+          this.statusDate = castToDate(value); // DateType
         else
           super.setProperty(name, value);
       }
@@ -610,6 +669,9 @@ public class PaymentNotice extends DomainResource {
           this.paymentStatus = new Coding();
           return this.paymentStatus;
         }
+        else if (name.equals("statusDate")) {
+          throw new FHIRException("Cannot call addChild on a primitive type PaymentNotice.statusDate");
+        }
         else
           return super.addChild(name);
       }
@@ -636,6 +698,7 @@ public class PaymentNotice extends DomainResource {
         dst.request = request == null ? null : request.copy();
         dst.response = response == null ? null : response.copy();
         dst.paymentStatus = paymentStatus == null ? null : paymentStatus.copy();
+        dst.statusDate = statusDate == null ? null : statusDate.copy();
         return dst;
       }
 
@@ -653,7 +716,8 @@ public class PaymentNotice extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(originalRuleset, o.originalRuleset, true)
            && compareDeep(created, o.created, true) && compareDeep(target, o.target, true) && compareDeep(provider, o.provider, true)
            && compareDeep(organization, o.organization, true) && compareDeep(request, o.request, true) && compareDeep(response, o.response, true)
-           && compareDeep(paymentStatus, o.paymentStatus, true);
+           && compareDeep(paymentStatus, o.paymentStatus, true) && compareDeep(statusDate, o.statusDate, true)
+          ;
       }
 
       @Override
@@ -663,7 +727,7 @@ public class PaymentNotice extends DomainResource {
         if (!(other instanceof PaymentNotice))
           return false;
         PaymentNotice o = (PaymentNotice) other;
-        return compareValues(created, o.created, true);
+        return compareValues(created, o.created, true) && compareValues(statusDate, o.statusDate, true);
       }
 
       public boolean isEmpty() {
@@ -671,7 +735,7 @@ public class PaymentNotice extends DomainResource {
            && (originalRuleset == null || originalRuleset.isEmpty()) && (created == null || created.isEmpty())
            && (target == null || target.isEmpty()) && (provider == null || provider.isEmpty()) && (organization == null || organization.isEmpty())
            && (request == null || request.isEmpty()) && (response == null || response.isEmpty()) && (paymentStatus == null || paymentStatus.isEmpty())
-          ;
+           && (statusDate == null || statusDate.isEmpty());
       }
 
   @Override
@@ -679,7 +743,21 @@ public class PaymentNotice extends DomainResource {
     return ResourceType.PaymentNotice;
    }
 
-  @SearchParamDefinition(name="identifier", path="PaymentNotice.identifier", description="The business identifier of the Eligibility", type="token" )
+  @SearchParamDefinition(name="response", path="PaymentNotice.response", description="The ClaimResponse", type="reference" )
+  public static final String SP_RESPONSE = "response";
+  @SearchParamDefinition(name="paymentstatus", path="PaymentNotice.paymentStatus", description="The type of payment notice", type="token" )
+  public static final String SP_PAYMENTSTATUS = "paymentstatus";
+  @SearchParamDefinition(name="organization", path="PaymentNotice.organization", description="The organization who generated this resource", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="statusdate", path="PaymentNotice.statusDate", description="The date of the payment action", type="date" )
+  public static final String SP_STATUSDATE = "statusdate";
+  @SearchParamDefinition(name="created", path="PaymentNotice.created", description="Creation date fro the notice", type="date" )
+  public static final String SP_CREATED = "created";
+  @SearchParamDefinition(name="request", path="PaymentNotice.request", description="The Claim", type="reference" )
+  public static final String SP_REQUEST = "request";
+  @SearchParamDefinition(name="provider", path="PaymentNotice.provider", description="The reference to the provider", type="reference" )
+  public static final String SP_PROVIDER = "provider";
+  @SearchParamDefinition(name="identifier", path="PaymentNotice.identifier", description="The business identifier of the notice", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 
 }

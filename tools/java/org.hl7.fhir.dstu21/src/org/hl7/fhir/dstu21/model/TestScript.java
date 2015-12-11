@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Wed, Dec 9, 2015 14:10-0500 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
@@ -890,7 +890,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = -1179697803L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptContactComponent() {
@@ -1076,7 +1076,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 745183328L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptMetadataComponent() {
@@ -1257,14 +1257,14 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 213372298L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptMetadataLinkComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptMetadataLinkComponent(UriType url) {
@@ -1492,14 +1492,14 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 500671983L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptMetadataCapabilityComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptMetadataCapabilityComponent(Reference conformance) {
@@ -1979,14 +1979,14 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = -1472818765L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptOriginComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptOriginComponent(IntegerType index, Enumeration<ProfileOriginType> profile) {
@@ -2171,14 +2171,14 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 399132503L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptDestinationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptDestinationComponent(IntegerType index, Enumeration<ProfileDestinationType> profile) {
@@ -2375,7 +2375,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 1110683307L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptFixtureComponent() {
@@ -2628,14 +2628,14 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 1821729272L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptVariableComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptVariableComponent(StringType name) {
@@ -2994,7 +2994,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = -1836543723L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptSetupComponent() {
@@ -3156,7 +3156,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 1411550037L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptSetupActionComponent() {
@@ -3390,7 +3390,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 808886214L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptSetupActionOperationComponent() {
@@ -4282,14 +4282,14 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 274395337L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptSetupActionOperationRequestHeaderComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptSetupActionOperationRequestHeaderComponent(StringType field, StringType value) {
@@ -4586,7 +4586,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = -607939856L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptSetupActionAssertComponent() {
@@ -5700,7 +5700,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 408339297L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptTestComponent() {
@@ -5975,7 +5975,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 1411550037L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptTestActionComponent() {
@@ -6111,7 +6111,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 1850225254L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptTeardownComponent() {
@@ -6233,7 +6233,7 @@ public class TestScript extends DomainResource {
 
         private static final long serialVersionUID = 1684092023L;
 
-    /*
+    /**
      * Constructor
      */
       public TestScriptTeardownActionComponent() {
@@ -6493,14 +6493,14 @@ public class TestScript extends DomainResource {
 
     private static final long serialVersionUID = -1185376163L;
 
-  /*
+  /**
    * Constructor
    */
     public TestScript() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public TestScript(UriType url, StringType name, Enumeration<ConformanceResourceStatus> status) {

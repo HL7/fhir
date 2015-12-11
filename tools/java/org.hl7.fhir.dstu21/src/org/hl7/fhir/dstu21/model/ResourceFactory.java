@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -154,6 +154,8 @@ public class ResourceFactory extends Factory {
             return new MedicationStatement();
         if ("AppointmentResponse".equals(name))
             return new AppointmentResponse();
+        if ("Sequence".equals(name))
+            return new Sequence();
         if ("ImplementationGuide".equals(name))
             return new ImplementationGuide();
         if ("Questionnaire".equals(name))
@@ -168,8 +170,6 @@ public class ResourceFactory extends Factory {
             return new Media();
         if ("Binary".equals(name))
             return new Binary();
-        if ("GuidanceRequest".equals(name))
-            return new GuidanceRequest();
         if ("VisionPrescription".equals(name))
             return new VisionPrescription();
         if ("DocumentReference".equals(name))

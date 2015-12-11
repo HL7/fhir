@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Representation of the content produced in a DICOM imaging study. A study comprises a set of series, each of which includes a set of Service-Object Pair Instances (SOP Instances - images or other data) acquired or produced in a common context.  A series is of only one modality (e.g. X-ray, CT, MR, ultrasound), but a study may have multiple series of different modalities.
@@ -244,14 +244,14 @@ public class ImagingStudy extends DomainResource {
 
         private static final long serialVersionUID = -1798366943L;
 
-    /*
+    /**
      * Constructor
      */
       public ImagingStudySeriesComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ImagingStudySeriesComponent(Coding modality, OidType uid, UnsignedIntType numberOfInstances) {
@@ -897,14 +897,14 @@ public class ImagingStudy extends DomainResource {
 
         private static final long serialVersionUID = -1450403705L;
 
-    /*
+    /**
      * Constructor
      */
       public ImagingStudySeriesInstanceComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ImagingStudySeriesInstanceComponent(OidType uid, OidType sopClass) {
@@ -1429,14 +1429,14 @@ public class ImagingStudy extends DomainResource {
 
     private static final long serialVersionUID = 1895046380L;
 
-  /*
+  /**
    * Constructor
    */
     public ImagingStudy() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public ImagingStudy(Reference patient, OidType uid, UnsignedIntType numberOfSeries, UnsignedIntType numberOfInstances) {

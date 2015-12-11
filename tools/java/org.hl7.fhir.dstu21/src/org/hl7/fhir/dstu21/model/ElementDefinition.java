@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.DatatypeDef;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.DatatypeDef;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Captures constraints on each element within the resource, profile, or extension.
@@ -431,14 +431,14 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         private static final long serialVersionUID = 233544215L;
 
-    /*
+    /**
      * Constructor
      */
       public ElementDefinitionSlicingComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ElementDefinitionSlicingComponent(Enumeration<SlicingRules> rules) {
@@ -752,14 +752,14 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         private static final long serialVersionUID = 232204455L;
 
-    /*
+    /**
      * Constructor
      */
       public ElementDefinitionBaseComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ElementDefinitionBaseComponent(StringType path, IntegerType min, StringType max) {
@@ -1006,14 +1006,14 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         private static final long serialVersionUID = -988693373L;
 
-    /*
+    /**
      * Constructor
      */
       public TypeRefComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public TypeRefComponent(CodeType code) {
@@ -1298,14 +1298,14 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         private static final long serialVersionUID = 854521265L;
 
-    /*
+    /**
      * Constructor
      */
       public ElementDefinitionConstraintComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ElementDefinitionConstraintComponent(IdType key, Enumeration<ConstraintSeverity> severity, StringType human, StringType xpath) {
@@ -1662,14 +1662,14 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         private static final long serialVersionUID = 1355538460L;
 
-    /*
+    /**
      * Constructor
      */
       public ElementDefinitionBindingComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ElementDefinitionBindingComponent(Enumeration<BindingStrength> strength) {
@@ -1923,14 +1923,14 @@ public class ElementDefinition extends Type implements ICompositeType {
 
         private static final long serialVersionUID = -669205371L;
 
-    /*
+    /**
      * Constructor
      */
       public ElementDefinitionMappingComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ElementDefinitionMappingComponent(IdType identity, StringType map) {
@@ -2374,14 +2374,14 @@ public class ElementDefinition extends Type implements ICompositeType {
 
     private static final long serialVersionUID = 529293980L;
 
-  /*
+  /**
    * Constructor
    */
     public ElementDefinition() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public ElementDefinition(StringType path) {

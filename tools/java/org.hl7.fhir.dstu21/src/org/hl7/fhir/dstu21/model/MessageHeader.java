@@ -29,18 +29,18 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu21.model.Enumerations.*;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * The header for a message exchange that is either requesting or responding to an action.  The reference(s) that are the subject of the action as well as other information related to the action are typically transmitted in a bundle in which the MessageHeader resource instance is the first resource in the bundle.
@@ -178,14 +178,14 @@ public class MessageHeader extends DomainResource {
 
         private static final long serialVersionUID = -1008716838L;
 
-    /*
+    /**
      * Constructor
      */
       public MessageHeaderResponseComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public MessageHeaderResponseComponent(IdType identifier, Enumeration<ResponseType> code) {
@@ -444,14 +444,14 @@ public class MessageHeader extends DomainResource {
 
         private static final long serialVersionUID = -115878196L;
 
-    /*
+    /**
      * Constructor
      */
       public MessageSourceComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public MessageSourceComponent(UriType endpoint) {
@@ -798,14 +798,14 @@ public class MessageHeader extends DomainResource {
 
         private static final long serialVersionUID = -2097633309L;
 
-    /*
+    /**
      * Constructor
      */
       public MessageDestinationComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public MessageDestinationComponent(UriType endpoint) {
@@ -1132,14 +1132,14 @@ public class MessageHeader extends DomainResource {
 
     private static final long serialVersionUID = 1429728517L;
 
-  /*
+  /**
    * Constructor
    */
     public MessageHeader() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public MessageHeader(InstantType timestamp, Coding event, MessageSourceComponent source) {

@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import java.math.*;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.DatatypeDef;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.DatatypeDef;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.
@@ -98,14 +98,14 @@ public class SampledData extends Type implements ICompositeType {
 
     private static final long serialVersionUID = -1763278368L;
 
-  /*
+  /**
    * Constructor
    */
     public SampledData() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public SampledData(SimpleQuantity origin, DecimalType period, PositiveIntType dimensions, StringType data) {
@@ -186,6 +186,24 @@ public class SampledData extends Type implements ICompositeType {
     }
 
     /**
+     * @param value The length of time between sampling times, measured in milliseconds.
+     */
+    public SampledData setPeriod(long value) { 
+          this.period = new DecimalType();
+        this.period.setValue(value);
+      return this;
+    }
+
+    /**
+     * @param value The length of time between sampling times, measured in milliseconds.
+     */
+    public SampledData setPeriod(double value) { 
+          this.period = new DecimalType();
+        this.period.setValue(value);
+      return this;
+    }
+
+    /**
      * @return {@link #factor} (A correction factor that is applied to the sampled data points before they are added to the origin.). This is the underlying object with id, value and extensions. The accessor "getFactor" gives direct access to the value
      */
     public DecimalType getFactorElement() { 
@@ -231,6 +249,24 @@ public class SampledData extends Type implements ICompositeType {
           this.factor = new DecimalType();
         this.factor.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @param value A correction factor that is applied to the sampled data points before they are added to the origin.
+     */
+    public SampledData setFactor(long value) { 
+          this.factor = new DecimalType();
+        this.factor.setValue(value);
+      return this;
+    }
+
+    /**
+     * @param value A correction factor that is applied to the sampled data points before they are added to the origin.
+     */
+    public SampledData setFactor(double value) { 
+          this.factor = new DecimalType();
+        this.factor.setValue(value);
       return this;
     }
 
@@ -284,6 +320,24 @@ public class SampledData extends Type implements ICompositeType {
     }
 
     /**
+     * @param value The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
+     */
+    public SampledData setLowerLimit(long value) { 
+          this.lowerLimit = new DecimalType();
+        this.lowerLimit.setValue(value);
+      return this;
+    }
+
+    /**
+     * @param value The lower limit of detection of the measured points. This is needed if any of the data points have the value "L" (lower than detection limit).
+     */
+    public SampledData setLowerLimit(double value) { 
+          this.lowerLimit = new DecimalType();
+        this.lowerLimit.setValue(value);
+      return this;
+    }
+
+    /**
      * @return {@link #upperLimit} (The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).). This is the underlying object with id, value and extensions. The accessor "getUpperLimit" gives direct access to the value
      */
     public DecimalType getUpperLimitElement() { 
@@ -329,6 +383,24 @@ public class SampledData extends Type implements ICompositeType {
           this.upperLimit = new DecimalType();
         this.upperLimit.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @param value The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
+     */
+    public SampledData setUpperLimit(long value) { 
+          this.upperLimit = new DecimalType();
+        this.upperLimit.setValue(value);
+      return this;
+    }
+
+    /**
+     * @param value The upper limit of detection of the measured points. This is needed if any of the data points have the value "U" (higher than detection limit).
+     */
+    public SampledData setUpperLimit(double value) { 
+          this.upperLimit = new DecimalType();
+        this.upperLimit.setValue(value);
       return this;
     }
 

@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * Measurements and simple assertions made about a patient, device or other subject.
@@ -398,7 +398,7 @@ public class Observation extends DomainResource {
 
         private static final long serialVersionUID = -238694788L;
 
-    /*
+    /**
      * Constructor
      */
       public ObservationReferenceRangeComponent() {
@@ -668,14 +668,14 @@ public class Observation extends DomainResource {
 
         private static final long serialVersionUID = 1541802577L;
 
-    /*
+    /**
      * Constructor
      */
       public ObservationRelatedComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ObservationRelatedComponent(Reference target) {
@@ -872,14 +872,14 @@ public class Observation extends DomainResource {
 
         private static final long serialVersionUID = 946602904L;
 
-    /*
+    /**
      * Constructor
      */
       public ObservationComponentComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public ObservationComponentComponent(CodeableConcept code) {
@@ -1418,14 +1418,14 @@ public class Observation extends DomainResource {
 
     private static final long serialVersionUID = -931593572L;
 
-  /*
+  /**
    * Constructor
    */
     public Observation() {
       super();
     }
 
-  /*
+  /**
    * Constructor
    */
     public Observation(Enumeration<ObservationStatus> status, CodeableConcept code) {

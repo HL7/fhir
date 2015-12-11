@@ -29,17 +29,17 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Tue, Dec 8, 2015 15:43+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
 
 import java.util.*;
 
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.dstu21.model.annotations.ResourceDef;
-import org.hl7.fhir.dstu21.model.annotations.SearchParamDefinition;
-import org.hl7.fhir.dstu21.model.annotations.Child;
-import org.hl7.fhir.dstu21.model.annotations.Description;
-import org.hl7.fhir.dstu21.model.annotations.Block;
-import org.hl7.fhir.dstu21.model.api.*;
+import ca.uhn.fhir.model.api.annotation.ResourceDef;
+import ca.uhn.fhir.model.api.annotation.SearchParamDefinition;
+import ca.uhn.fhir.model.api.annotation.Child;
+import ca.uhn.fhir.model.api.annotation.Description;
+import ca.uhn.fhir.model.api.annotation.Block;
+import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.exceptions.FHIRException;
 /**
  * This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.
@@ -72,7 +72,7 @@ public class Medication extends DomainResource {
 
         private static final long serialVersionUID = 1132853671L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationProductComponent() {
@@ -291,14 +291,14 @@ public class Medication extends DomainResource {
 
         private static final long serialVersionUID = -1217232889L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationProductIngredientComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public MedicationProductIngredientComponent(Reference item) {
@@ -457,7 +457,7 @@ public class Medication extends DomainResource {
 
         private static final long serialVersionUID = 1982738755L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationProductBatchComponent() {
@@ -650,7 +650,7 @@ public class Medication extends DomainResource {
 
         private static final long serialVersionUID = 503772472L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationPackageComponent() {
@@ -817,14 +817,14 @@ public class Medication extends DomainResource {
 
         private static final long serialVersionUID = -1150048030L;
 
-    /*
+    /**
      * Constructor
      */
       public MedicationPackageContentComponent() {
         super();
       }
 
-    /*
+    /**
      * Constructor
      */
       public MedicationPackageContentComponent(Reference item) {
@@ -1012,7 +1012,7 @@ public class Medication extends DomainResource {
 
     private static final long serialVersionUID = 859308699L;
 
-  /*
+  /**
    * Constructor
    */
     public Medication() {
