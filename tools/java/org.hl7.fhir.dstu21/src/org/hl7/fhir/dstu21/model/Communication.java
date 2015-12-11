@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 10:31+1100 for FHIR v1.1.0
+// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
 
 import java.util.*;
 
