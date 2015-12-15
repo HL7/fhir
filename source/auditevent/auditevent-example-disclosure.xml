@@ -4,7 +4,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Disclosure by some idiot, for marketing reasons, to places unknown, of a Poor Sap, data about Everthing important.</div>
   </text>    
-  <event>
+
     <type>
         <system value="http://nema.org/dicom/dicm"/>
         <code value="110106"/>
@@ -15,7 +15,7 @@
           <display value="HIPAA disclosure"/>
     </subtype>
     <action value="R"/>
-    <dateTime value="2013-09-22T00:08:00Z"/>
+    <recorded value="2013-09-22T00:08:00Z"/>
     <outcome value="0"/>
 	<outcomeDesc value="Successful  Disclosure"/>
 	<purposeOfEvent>
@@ -23,8 +23,8 @@
 		<code value="HMARKT"/>
 		<display value="healthcare marketing"/>
 	</purposeOfEvent>
-  </event>
-  <participant>
+
+  <agent>
   <!-- who disclosed the data -->
     <role>
       <coding>
@@ -47,8 +47,8 @@
       <address value="custodian.net"/>
       <type value="1"/>
     </network>
-    </participant>
-  <participant>
+  </agent>
+  <agent>
   <!-- who received the data -->
     <role>
       <coding>
@@ -73,7 +73,7 @@
 		<code value="HMARKT"/>
 		<display value="healthcare marketing"/>
 	</purposeOfUse>
-  </participant>
+  </agent>
   <source>
   <!-- what system detected this disclosure -->
 	<site value="Watcher"/>
@@ -86,7 +86,7 @@
         <display value="Application Server"/>
 	</type>
   </source>
-  <object>
+  <entity>
   <!-- patient whos data got disclosed -->
     <reference>
 	  <reference value="Patient/example"/>
@@ -101,8 +101,8 @@
 		<code value="1"/>
 		<display value="Patient"/>
 	</role>
-  </object>
-  <object>
+  </entity>
+  <entity>
   <!-- data that got disclosed -->
     <identifier>
       <value value="What.id"/>
@@ -142,5 +142,5 @@
 	</securityLabel>
     <name value="Namne of What"/>
 	<description value="data about Everthing important"/>
-  </object>
+  </entity>
 </AuditEvent>
