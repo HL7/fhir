@@ -274,7 +274,8 @@ public class SpreadsheetParser {
 		      else if (inv.getXpath().contains("\""))
 		        throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") contains a \" character");
           if (Utilities.noString(inv.getExpression())) {
-            throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no Expression statement (in FHIRPath format)");
+				// This has been disabled for now, per Lloyd McKenzie's request via Skype - jamesagnew
+            //throw new Exception("Type "+resource.getRoot().getName()+" Invariant "+inv.getId()+" ("+inv.getEnglish()+") has no Expression statement (in FHIRPath format)");
           } else {
             fpUsages.add(new FHIRPathUsage(inv.getContext(), isResource ? resource.getName() : null, inv.getContext(), null, inv.getExpression(), inv.getXpath()));
           }
