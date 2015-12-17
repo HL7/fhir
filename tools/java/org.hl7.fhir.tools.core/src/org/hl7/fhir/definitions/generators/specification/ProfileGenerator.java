@@ -849,7 +849,7 @@ public class ProfileGenerator {
       sp.setXpathUsage(spd.getxPathUsage());
     }
 
-    for(String target : spd.getTargets()) {
+    for(String target : spd.getWorkingTargets()) {
       if("Any".equals(target) == true) {   	  
         for(String resourceName : definitions.sortedResourceNames())
           sp.addTarget(resourceName);
