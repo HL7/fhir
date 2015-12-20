@@ -44,6 +44,8 @@ function minLoc(src1, src2 : TSourceLocation) : TSourceLocation;
 function maxLoc(src1, src2 : TSourceLocation) : TSourceLocation;
 function nullLoc : TSourceLocation;
 function isNullLoc(src : TSourceLocation) : boolean;
+function locLessOrEqual(src1, src2 : TSourceLocation) : boolean;
+function locGreatorOrEqual(src1, src2 : TSourceLocation) : boolean;
 
 type
   TXmlCanonicalisationMethod = (xcmCanonicalise, xcmComments, xcmTrimWhitespace, {xcmPrefixRewrite, } xcmQNameAware);
@@ -231,5 +233,26 @@ function isNullLoc(src : TSourceLocation) : boolean;
 begin
   result := (src.line = -1) and (src.col = -1);
 end;
+
+function locLessOrEqual(src1, src2 : TSourceLocation) : boolean;
+begin
+  if src1.line < src2.line then
+    result := true
+  else if src1.line > src2.line then
+    result := false
+  else
+    result := src1.col <= src2.col;
+end;
+
+function locGreatorOrEqual(src1, src2 : TSourceLocation) : boolean;
+begin
+  if src1.line > src2.line then
+    result := true
+  else if src1.line < src2.line then
+    result := false
+  else
+    result := src1.col >= src2.col;
+end;
+
 
 end.

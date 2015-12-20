@@ -439,6 +439,7 @@ var
   StartIndex: Integer;
   ByteCount: Integer;
   ByteBufLen: Integer;
+  ok : boolean;
 begin
   SetLength(LBuffer, FBufferSize + BufferPadding);
 
@@ -458,38 +459,17 @@ begin
 
   // Convert to string and calc byte count for the string
   ByteBufLen := BytesRead - StartIndex;
+  ok := false;
+  repeat
   try
   LString := FEncoding.GetString(LBuffer, StartIndex, ByteBufLen);
+      ok := true;
   except
-    on e : Exception do
-      raise Exception.Create(e.message + ' @~'+inttostr(FCursor));
-  end;
-  ByteCount := FEncoding.GetByteCount(LString);
-
-  // If byte count <> number of bytes read from the stream
-  // the buffer boundary is mid-character and additional bytes
-  // need to be read from the stream to complete the character
-  while ByteCount <> ByteBufLen do
-  begin
-    // Expand buffer if padding is used
-    if (StartIndex + ByteBufLen) = Length(LBuffer) then
       SetLength(LBuffer, Length(LBuffer) + BufferPadding);
-
-    // Read one more byte from the stream into the
-    // buffer padding and convert to string again
-    BytesRead := IntegerMin(FBufferSize, FStream.Readable);
-    if BytesRead = 0 then
-      // End of stream, append what's been read and discard remaining bytes
-      Break
-    Else
-    begin
-      FStream.Read(LBuffer[StartIndex + ByteBufLen], 1);
-      inc(FCursor, 1);
-    end;
-    Inc(ByteBufLen);
-    LString := FEncoding.GetString(LBuffer, StartIndex, ByteBufLen);
-    ByteCount := FEncoding.GetByteCount(LString);
+      FStream.Read(LBuffer[ByteBufLen], 1);
+      inc(ByteBufLen);
   end;
+  until ok;
 
   // Add string to character data buffer
   FBufferedData.Append(LString);

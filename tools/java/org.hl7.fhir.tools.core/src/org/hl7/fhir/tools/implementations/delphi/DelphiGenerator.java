@@ -458,8 +458,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     def.append("    function Clone : "+tn+"; overload;\r\n");
     def.append("    procedure setProperty(propName : string; propValue : TFHIRObject); override;\r\n");
     def.append("    function FhirType : string; override;\r\n");
-    def.append("    function equalsDeep(other : TFHIRObject) : boolean; override;\r\n");
-    def.append("    function equalsShallow(other : TFHIRObject) : boolean; override;\r\n");
+    def.append("    function equalsDeep(other : TFHIRBase) : boolean; override;\r\n");
+    def.append("    function equalsShallow(other : TFHIRBase) : boolean; override;\r\n");
     def.append("    {!script show}\r\n");
     def.append("  published\r\n");
     def.append(defPub.toString());
@@ -587,8 +587,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     def.append("    function Clone : "+tn+"; overload;\r\n");
     def.append("    procedure setProperty(propName : string; propValue : TFHIRObject); override;\r\n");
     def.append("    function FhirType : string; override;\r\n");
-    def.append("    function equalsDeep(other : TFHIRObject) : boolean; override;\r\n");
-    def.append("    function equalsShallow(other : TFHIRObject) : boolean; override;\r\n");
+    def.append("    function equalsDeep(other : TFHIRBase) : boolean; override;\r\n");
+    def.append("    function equalsShallow(other : TFHIRBase) : boolean; override;\r\n");
     def.append("    {!script show}\r\n");
     def.append("  published\r\n");
     if (isBase) {
@@ -789,8 +789,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     def.append("    function Clone : "+tn+"; overload;\r\n");
     def.append("    procedure setProperty(propName : string; propValue : TFHIRObject); override;\r\n");
     def.append("    function FhirType : string; override;\r\n");
-    def.append("    function equalsDeep(other : TFHIRObject) : boolean; override;\r\n");
-    def.append("    function equalsShallow(other : TFHIRObject) : boolean; override;\r\n");
+    def.append("    function equalsDeep(other : TFHIRBase) : boolean; override;\r\n");
+    def.append("    function equalsShallow(other : TFHIRBase) : boolean; override;\r\n");
     def.append("    {!script show}\r\n");
     def.append("  published\r\n");
     def.append(defPub.toString());
@@ -883,7 +883,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 
       con3.append("  CODES_"+tn+" : Array["+tn+"] of String = (");
       con1.append("  DESC_"+tn+" : Array["+tn+"] of String = (");
-      con4.append("  TYPES_"+tn+" : Array["+tn+"] of TFhirSearchParamType = (");
+      con4.append("  TYPES_"+tn+" : Array["+tn+"] of TFhirSearchParamTypeEnum = (");
       con2.append("//  CHECK_"+tn+" : Array["+tn+"] of "+tn+" = (");
       con6.append("  PATHS_"+tn+" : Array["+tn+"] of String = (");
       con7.append("  TARGETS_"+tn+" : Array["+tn+"] of TFhirResourceTypeSet = (");
@@ -996,7 +996,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     enumSizes.put(tn, ac.size());
 
 
-    String prefix = tn.substring(5);
+    String prefix = tn.substring(0, tn.length()-4).substring(5);
     if (!enumsDone.contains(prefix)) {
       enumsDone.add(prefix);
       StringBuilder def = new StringBuilder();
@@ -1005,6 +1005,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       def.append("    "+makeDocoSafe(cd.getDefinition())+"\r\n");
       def.append("  }\r\n");
       def.append("  "+tn+" = (\r\n");
+      int cl = 0;
       con.append("  CODES_"+tn+" : Array["+tn+"] of String = (");
       constants.add(tn);
 
@@ -1035,6 +1036,10 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
 	        codes.add(cc);
 	        
 	        cc = prefix + getTitle(cc);
+          if ((con.length() - cl) + c.getCode().length() > 1010) {
+            con.append("\r\n    ");
+            cl = con.length();
+          }
 	        if (i == l) {
 	          def.append("    "+cc+"); {@enum.value "+cc+" "+makeDocoSafe(c.getDefinition())+" }\r\n");
 	          con.append("'"+c.getCode()+"');");
@@ -1155,8 +1160,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     def.append("    function Clone : "+tn+"; overload;\r\n");
     def.append("    procedure setProperty(propName : string; propValue : TFHIRObject); override;\r\n");
     def.append("    function FhirType : string; override;\r\n");
-    def.append("    function equalsDeep(other : TFHIRObject) : boolean; override;\r\n");
-    def.append("    function equalsShallow(other : TFHIRObject) : boolean; override;\r\n");
+    def.append("    function equalsDeep(other : TFHIRBase) : boolean; override;\r\n");
+    def.append("    function equalsShallow(other : TFHIRBase) : boolean; override;\r\n");
     def.append("    {!script show}\r\n");
     def.append("  published\r\n");
     def.append(defPub.toString());
@@ -1228,7 +1233,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   private void generateEquals(ElementDefn e, String tn, StringBuilder b) throws IOException {
-    b.append("function "+tn+".equalsDeep(other : TFHIRObject) : boolean; \r\n");
+    b.append("function "+tn+".equalsDeep(other : TFHIRBase) : boolean; \r\n");
     b.append("var\r\n");
     b.append("  o : "+tn+";\r\n");
     b.append("begin\r\n");
@@ -1269,7 +1274,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     b.append("  end;\r\n");
     b.append("end;\r\n\r\n");
     
-    b.append("function "+tn+".equalsShallow(other : TFHIRObject) : boolean; \r\n");
+    b.append("function "+tn+".equalsShallow(other : TFHIRBase) : boolean; \r\n");
     b.append("var\r\n");
     b.append("  o : "+tn+";\r\n");
     b.append("begin\r\n");
@@ -1315,7 +1320,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
   
   private void generatePrimitiveEquals(DefinedCode t, String tn, StringBuilder b) throws IOException {
-    b.append("function "+tn+".equalsDeep(other : TFHIRObject) : boolean; \r\n");
+    b.append("function "+tn+".equalsDeep(other : TFHIRBase) : boolean; \r\n");
     b.append("var\r\n");
     b.append("  o : "+tn+";\r\n");
     b.append("begin\r\n");
@@ -1330,11 +1335,11 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     b.append("  end;\r\n");
     b.append("end;\r\n\r\n");
     
-    b.append("function "+tn+".equalsShallow(other : TFHIRObject) : boolean; \r\n");
+    b.append("function "+tn+".equalsShallow(other : TFHIRBase) : boolean; \r\n");
     b.append("var\r\n");
     b.append("  o : "+tn+";\r\n");
     b.append("begin\r\n");
-    b.append("  if (not inherited equalsDeep(other)) then\r\n");
+    b.append("  if (not inherited equalsShallow(other)) then\r\n");
     b.append("    result := false\r\n");
     b.append("  else if (not (other is "+tn+")) then\r\n");
     b.append("    result := false\r\n");
@@ -1524,7 +1529,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
     if (e.typeCode().equals("code") && e.hasBinding()) {
       BindingSpecification cd = e.getBinding();
       if (cd != null && (cd.getBinding() == BindingSpecification.BindingMethod.CodeList)) {
-        tn = "TFhir"+enumName(getTitle(getCodeList(cd.getReference()).substring(1)));
+        tn = "TFhir"+enumName(getTitle(getCodeList(cd.getReference()).substring(1)))+"Enum";
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
           enums.add(e);
@@ -1532,7 +1537,7 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
         typeNames.put(e,  tn);
       }
       if (cd != null && (cd.getBinding() == BindingSpecification.BindingMethod.ValueSet)) {
-        tn = "TFhir"+enumName(getTitle(getCodeList(urlTail(cd.getReference()))));
+        tn = "TFhir"+enumName(getTitle(getCodeList(urlTail(cd.getReference()))))+"Enum";
         if (!enumNames.contains(tn)) {
           enumNames.add(tn);
           enums.add(e);
@@ -2494,8 +2499,8 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
       def.append("    Procedure GetChildrenByName(child_name : string; list : "+listForm("TFHIRObject")+"); override;\r\n");
       def.append("    Procedure ListProperties(oList : "+listForm("TFHIRProperty")+"; bInheritedProperties, bPrimitiveValues : Boolean); Override;\r\n");
       def.append("    function AsStringValue : String; Override;\r\n");
-      def.append("    function equalsDeep(other : TFHIRObject) : boolean; override;\r\n");
-      def.append("    function equalsShallow(other : TFHIRObject) : boolean; override;\r\n");
+      def.append("    function equalsDeep(other : TFHIRBase) : boolean; override;\r\n");
+      def.append("    function equalsShallow(other : TFHIRBase) : boolean; override;\r\n");
     }
     def.append("  Public\r\n");
     def.append("    Constructor Create(value : "+pn+"); overload;\r\n");

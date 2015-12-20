@@ -198,19 +198,19 @@ type
 
   TFhirConformanceRestResourceHelper = class helper (TFHIRElementHelper) for TFhirConformanceRestResource
   public
-    function interaction(type_ : TFhirTypeRestfulInteraction) : TFhirConformanceRestResourceInteraction;
+    function interaction(type_ : TFhirTypeRestfulInteractionEnum) : TFhirConformanceRestResourceInteraction;
   end;
 
   TFHIRContactPointListHelper = class helper for TFhirContactPointList
   public
-    function system(type_ : TFhirContactPointSystem) : String;
-    procedure setSystem(type_ : TFhirContactPointSystem; value : String);
+    function system(type_ : TFhirContactPointSystemEnum) : String;
+    procedure setSystem(type_ : TFhirContactPointSystemEnum; value : String);
   end;
 
   TFhirValueSetContactListHelper = class helper for TFhirValueSetContactList
   public
-    function system(type_ : TFhirContactPointSystem) : String;
-    procedure setSystem(type_ : TFhirContactPointSystem; value : String);
+    function system(type_ : TFhirContactPointSystemEnum) : String;
+    procedure setSystem(type_ : TFhirContactPointSystemEnum; value : String);
   end;
 
   TFhirValueSetHelper = class helper for TFhirValueSet
@@ -221,10 +221,10 @@ type
 
   TFHIROperationOutcomeHelper = class helper (TFHIRDomainResourceHelper) for TFhirOperationOutcome
   public
-    function rule(level : TFhirIssueSeverity; source : String; typeCode : TFhirIssueType; path : string; test : boolean; msg : string) : boolean;
-    function error(source : String; typeCode : TFhirIssueType; path : string; test : boolean; msg : string) : boolean;
-    function warning(source : String; typeCode : TFhirIssueType; path : string; test : boolean; msg : string) : boolean;
-    function hint(source : String; typeCode : TFhirIssueType; path : string; test : boolean; msg : string) : boolean;
+    function rule(level : TFhirIssueSeverityEnum; source : String; typeCode : TFhirIssueTypeEnum; path : string; test : boolean; msg : string) : boolean;
+    function error(source : String; typeCode : TFhirIssueTypeEnum; path : string; test : boolean; msg : string) : boolean;
+    function warning(source : String; typeCode : TFhirIssueTypeEnum; path : string; test : boolean; msg : string) : boolean;
+    function hint(source : String; typeCode : TFhirIssueTypeEnum; path : string; test : boolean; msg : string) : boolean;
 
     function hasErrors : boolean;
   end;
@@ -249,7 +249,7 @@ type
   public
     property Links[s : string] : String read GetLinks;
     procedure deleteEntry(resource : TFHIRResource);
-    class function Create(aType : TFhirBundleType) : TFhirBundle; overload;
+    class function Create(aType : TFhirBundleTypeEnum) : TFhirBundle; overload;
   end;
 
   TFHIRCodingListHelper = class helper for TFHIRCodingList
@@ -279,9 +279,11 @@ type
     function GetNamedParameter(name: String): TFhirBase;
     function GetStringParameter(name: String): String;
     function GetBooleanParameter(name: String): boolean;
+    function GetResourceParameter(name: String): TFHIRResource;
   public
     function hasParameter(name : String):Boolean;
     Property NamedParameter[name : String] : TFhirBase read GetNamedParameter; default;
+    Property res[name : String] : TFHIRResource read GetResourceParameter;
     Property str[name : String] : String read GetStringParameter;
     Property bool[name : String] : boolean read GetBooleanParameter;
     procedure AddParameter(name: String; value: TFhirType); overload;
@@ -316,7 +318,7 @@ type
 
   TFhirOperationOutcomeIssueHelper = class helper for TFhirOperationOutcomeIssue
   public
-    constructor create(Severity : TFhirIssueSeverity; Code : TFhirIssueType; Diagnostics : string; location : String); overload;
+    constructor create(Severity : TFhirIssueSeverityEnum; Code : TFhirIssueTypeEnum; Diagnostics : string; location : String); overload;
     function summary : String;
   end;
 
@@ -550,22 +552,22 @@ begin
   try
     while iter.More do
     begin
-      if (iter.Current.list <> nil)  then
+      if (iter.Current.Values <> nil)  then
       begin
         if StringStartsWith(iter.Current.Type_, 'Reference(') then
       begin
-        for i := 0 to iter.Current.List.count - 1 do
-            if (iter.current.list[i] <> nil)  and not StringStartsWith(TFhirReference(iter.current.list[i]).reference, '#') then
-            list.add(iter.Current.list[i].Link)
+          for i := 0 to iter.Current.Values.count - 1 do
+            if (iter.current.Values[i] <> nil)  and not StringStartsWith(TFhirReference(iter.current.Values[i]).reference, '#') then
+              list.add(iter.Current.Values[i].Link)
       end
         else if (iter.Current.Type_ = 'Resource') then
       begin
-          for i := 0 to iter.Current.List.count - 1 do
-            iterateReferences(path+'/'+iter.Current.Name, TFhirReference(iter.current.list[i]), list)
+          for i := 0 to iter.Current.Values.count - 1 do
+            iterateReferences(path+'/'+iter.Current.Name, TFhirReference(iter.current.Values[i]), list)
         end
         else if not ((node is TFHIRPrimitiveType) and (iter.current.name = 'value')) then
-        for i := 0 to iter.Current.list.Count - 1 Do
-            iterateReferences(path+'/'+iter.Current.Name, iter.Current.list[i], list);
+          for i := 0 to iter.Current.Values.Count - 1 Do
+            iterateReferences(path+'/'+iter.Current.Name, iter.Current.Values[i], list);
       end;
       iter.Next;
     end;
@@ -588,12 +590,12 @@ begin
   try
     while iter.More do
     begin
-      if (iter.Current.List <> nil)  then
-        for i := 0 to iter.Current.List.Count - 1 do
+      if (iter.Current.Values <> nil)  then
+        for i := 0 to iter.Current.Values.Count - 1 do
           if (iter.Current.Type_ = 'Attachment') then
-            list.add(iter.Current.list[i].Link)
+            list.add(iter.Current.Values[i].Link)
           else if not ((node is TFHIRPrimitiveType) and (iter.current.name = 'value'))  then
-            iterateAttachments(path+'/'+iter.Current.Name, iter.Current.list[i], list);
+            iterateAttachments(path+'/'+iter.Current.Name, iter.Current.Values[i], list);
       iter.Next;
     end;
   finally
@@ -883,7 +885,7 @@ begin
   if obj.comparator = QuantityComparatorNull then
     result := obj.value
   else
-    result := CODES_TFhirQuantityComparator[obj.comparator]+obj.value;
+    result := CODES_TFhirQuantityComparatorEnum[obj.comparator]+obj.value;
   if obj.unit_ <> '' then
     result := result + ' '+obj.unit_
   else
@@ -965,7 +967,7 @@ begin
   if (obj = nil) then
     result := ''
   else
-    result := CODES_TFhirContactPointSystem[obj.system]+': '+obj.value;
+    result := CODES_TFhirContactPointSystemEnum[obj.system]+': '+obj.value;
 end;
 
 function gen(obj : TFhirTiming) : String;
@@ -1025,7 +1027,7 @@ begin
       begin
         issue := op.issueList[i];
         tr := tbl.addTag('tr');
-        tr.addTag('td').addText(CODES_TFhirIssueSeverity[issue.severity]);
+        tr.addTag('td').addText(CODES_TFhirIssueSeverityEnum[issue.severity]);
         td := tr.addTag('td');
         d := false;
         for j := 0 to issue.locationList.count -1 do
@@ -1039,7 +1041,7 @@ begin
         end;
         tr.addTag('td').addText(gen(issue.details));
         tr.addTag('td').addText(issue.diagnostics);
-        tr.addTag('td').addText(CODES_TFhirIssueType[issue.code]);
+        tr.addTag('td').addText(CODES_TFhirIssueTypeEnum[issue.code]);
         if (hasSource) then
           tr.addTag('td').addText(gen(getExtension(issue, 'http://hl7.org/fhir/tools#issue-source')));
       end;
@@ -1478,7 +1480,7 @@ end;
 { TFHIROperationOutcomeHelper }
 
 
-function TFHIROperationOutcomeHelper.error(source : String; typeCode : TFhirIssueType; path: string; test: boolean; msg: string): boolean;
+function TFHIROperationOutcomeHelper.error(source : String; typeCode : TFhirIssueTypeEnum; path: string; test: boolean; msg: string): boolean;
 var
   issue : TFhirOperationOutcomeIssue;
   ex : TFhirExtension;
@@ -1523,7 +1525,7 @@ begin
     result := result or (issueList[i].severity in [IssueSeverityFatal, IssueSeverityError]);
 end;
 
-function TFHIROperationOutcomeHelper.hint(source : String; typeCode : TFhirIssueType; path: string; test: boolean; msg: string): boolean;
+function TFHIROperationOutcomeHelper.hint(source : String; typeCode : TFhirIssueTypeEnum; path: string; test: boolean; msg: string): boolean;
 var
   issue : TFhirOperationOutcomeIssue;
   ex : TFhirExtension;
@@ -1551,7 +1553,7 @@ begin
   result := test;
 end;
 
-function TFHIROperationOutcomeHelper.rule(level: TFhirIssueSeverity; source : String; typeCode : TFhirIssueType; path: string; test: boolean; msg: string): boolean;
+function TFHIROperationOutcomeHelper.rule(level: TFhirIssueSeverityEnum; source : String; typeCode : TFhirIssueTypeEnum; path: string; test: boolean; msg: string): boolean;
 var
   issue : TFhirOperationOutcomeIssue;
   ex : TFhirExtension;
@@ -1579,7 +1581,7 @@ begin
   result := test;
 end;
 
-function TFHIROperationOutcomeHelper.warning(source : String; typeCode : TFhirIssueType; path: string; test: boolean; msg: string): boolean;
+function TFHIROperationOutcomeHelper.warning(source : String; typeCode : TFhirIssueTypeEnum; path: string; test: boolean; msg: string): boolean;
 var
   issue : TFhirOperationOutcomeIssue;
   ex : TFhirExtension;
@@ -1834,7 +1836,7 @@ end;
 
 { TFhirConformanceRestResourceHelper }
 
-function TFhirConformanceRestResourceHelper.interaction(type_: TFhirTypeRestfulInteraction): TFhirConformanceRestResourceInteraction;
+function TFhirConformanceRestResourceHelper.interaction(type_: TFhirTypeRestfulInteractionEnum): TFhirConformanceRestResourceInteraction;
 var
   i : integer;
 begin
@@ -1852,7 +1854,7 @@ end;
 
 { TFHIRContactPointListHelper }
 
-procedure TFHIRContactPointListHelper.setSystem(type_: TFhirContactPointSystem; value: String);
+procedure TFHIRContactPointListHelper.setSystem(type_: TFhirContactPointSystemEnum; value: String);
 var
   i : integer;
   c : TFhirContactPoint;
@@ -1868,7 +1870,7 @@ begin
   c.value := value;
 end;
 
-function TFHIRContactPointListHelper.system(type_: TFhirContactPointSystem): String;
+function TFHIRContactPointListHelper.system(type_: TFhirContactPointSystemEnum): String;
 var
   i : integer;
 begin
@@ -2040,7 +2042,7 @@ end;
 
 { TFHIRBundleHelper }
 
-class function TFHIRBundleHelper.Create(aType: TFhirBundleType): TFhirBundle;
+class function TFHIRBundleHelper.Create(aType: TFhirBundleTypeEnum): TFhirBundle;
 begin
   result := TFhirBundle.Create;
   result.type_ := aType;
@@ -2293,6 +2295,20 @@ begin
   result := nil;
 end;
 
+function TFhirParametersHelper.GetResourceParameter(name: String): TFHIRResource;
+var
+  i: Integer;
+begin
+  for i := 0 to parameterList.Count - 1 do
+    if (parameterList[i].name = name) then
+    begin
+      if parameterList[i].resourceElement <> nil then
+        result := parameterList[i].resourceElement;
+      exit;
+    end;
+  result := nil;
+end;
+
 function TFhirParametersHelper.GetStringParameter(name: String): String;
 var
   v : TFhirBase;
@@ -2524,7 +2540,7 @@ end;
 
 { TFhirValueSetContactListHelper }
 
-procedure TFhirValueSetContactListHelper.setSystem(type_: TFhirContactPointSystem; value: String);
+procedure TFhirValueSetContactListHelper.setSystem(type_: TFhirContactPointSystemEnum; value: String);
 var
   i : integer;
   c : TFhirContactPoint;
@@ -2542,7 +2558,7 @@ begin
   c.value := value;
 end;
 
-function TFhirValueSetContactListHelper.system(type_: TFhirContactPointSystem): String;
+function TFhirValueSetContactListHelper.system(type_: TFhirContactPointSystemEnum): String;
 var
   i, j : integer;
 begin
@@ -2841,7 +2857,7 @@ end;
 
 { TFhirOperationOutcomeIssueHelper }
 
-constructor TFhirOperationOutcomeIssueHelper.create(Severity: TFhirIssueSeverity; Code: TFhirIssueType; Diagnostics, location: String);
+constructor TFhirOperationOutcomeIssueHelper.create(Severity: TFhirIssueSeverityEnum; Code: TFhirIssueTypeEnum; Diagnostics, location: String);
 begin
   Create;
   self.severity := Severity;
@@ -3118,9 +3134,9 @@ end;
 function TFhirOperationOutcomeIssueHelper.summary: String;
 begin
   if details <> nil then
-    result := CODES_TFhirIssueSeverity[severity]+': '+details.text.Trim+' ('+CODES_TFhirIssueType[code]+') @ '+locationList.summary
+    result := CODES_TFhirIssueSeverityEnum[severity]+': '+details.text.Trim+' ('+CODES_TFhirIssueTypeEnum[code]+') @ '+locationList.summary
   else
-    result := CODES_TFhirIssueSeverity[severity]+': '+diagnostics.Trim+' ('+CODES_TFhirIssueType[code]+') @ '+locationList.summary;
+    result := CODES_TFhirIssueSeverityEnum[severity]+': '+diagnostics.Trim+' ('+CODES_TFhirIssueTypeEnum[code]+') @ '+locationList.summary;
 end;
 
 { TFhirOperationOutcomeIssueListHelper }
@@ -3153,7 +3169,7 @@ var
 begin
   result := false;
   for edt in type_List do
-    if edt.code = t then
+    if SameText(edt.code, t) then
     begin
       if edt.profileList.Count > 0 then
         profile := edt.profileList[0].value

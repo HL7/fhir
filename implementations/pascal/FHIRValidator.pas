@@ -39,7 +39,8 @@ Uses
 
   MsXml, XmlBuilder, MsXmlParser, AdvXmlEntities, AdvJSON,
 
-  FHIRBase, FHIRResources, FHIRTypes, FHIRParser, FHIRProfileUtilities, FHIRPath, AdvNameBuffers;
+  FHIRBase, FHIRResources, FHIRTypes, FHIRParser, FHIRProfileUtilities, FHIRPath
+  , AdvNameBuffers;
 
 Type
   TWrapperElement = class (TAdvObject)
@@ -85,6 +86,7 @@ Type
     childDefinitions: TFHIRElementDefinitionList;
     function getDefinition(name : String; var tn, tp : String) : TFhirElementDefinition;
     function IsAbstractType(pn: String): Boolean;
+    procedure log(msg : String);
   public
     Constructor Create(services : TValidatorServiceProvider; wrapper : TWrapperElement; profile: TFHIRStructureDefinition; definition : TFhirElementDefinition; TypeName, TypeProfile : String);
     Destructor Destroy; override;
@@ -92,6 +94,8 @@ Type
     function FhirType : string; override;
     function IsPrimitive : boolean; override;
     function primitiveValue : string; override;
+    function isMetaDataBased : boolean; override;
+    function equalsDeep(other : TFHIRBase) : boolean; override;
   end;
 
   TFHIRResourceOnWrapper = class (TFHIRResource)
@@ -115,7 +119,7 @@ Type
   private
     xml : boolean;
     parent : TNodeStack;
-    literalPath : String; // xpath format
+    literalPath: String; // fhir path format
     logicalPaths : TStringList; // dotted format, various entry points
     element : TWrapperElement;
     definition : TFHIRElementDefinition;
@@ -145,6 +149,7 @@ Type
   private
     parent : TWrapperElement;
     basePath : String;
+    lastName: String;
     lastCount : integer;
     child : TWrapperElement;
 
@@ -160,6 +165,7 @@ Type
 
   TBestPracticeWarningLevel = (bpwlIgnore, bpwlHint, bpwlWarning, bpwlError);
   TCheckDisplayOption = (cdoIgnore, cdopCheck, cdoCheckCaseAndSpace, cdoCheckCase, cdoCheckSpace);
+  TResourceIdStatus = (risOptional, risRequired, risProhibited);
 
   TFHIRValidator = class(TAdvObject)
   private
@@ -168,10 +174,10 @@ Type
     FCheckDisplay : TCheckDisplayOption;
     FBPWarnings : TBestPracticeWarningLevel;
     FSuppressLoincSnomedMessages : boolean;
-    FRequireResourceId : boolean;
+    FResourceIdRule: TResourceIdStatus;
     FIsAnyExtensionsAllowed : boolean;
     FExtensionDomains: TStringList;
-    FPathEvaluator : TFHIRPathEvaluator;
+    FPathEngine : TFHIRExpressionEngine;
     FCache : IXMLDOMSchemaCollection;
     Fowned : TAdvObjectList;
 
@@ -179,11 +185,11 @@ Type
     function LoadDoc(name: String; isFree: boolean = false): IXMLDomDocument2;
     function validateXml(source : TAdvBuffer; outcome : TFHIROperationOutcome) : boolean;
 
-    function rule(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueType; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean; overload;
-    function rule(errors : TFhirOperationOutcomeIssueList; t : TFhirIssueType; path : String; thePass : boolean; msg : String) : boolean; overload;
-    function warning(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueType; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean;
-    function hint(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueType; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean;
-    procedure bpCheck(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueType; locStart, locEnd: TSourceLocation; literalPath: String; test: boolean; message: String);
+    function rule(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueTypeEnum; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean; overload;
+    function rule(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueTypeEnum; path: String; thePass: boolean; msg: String): boolean; overload;
+    function warning(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueTypeEnum; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean;
+    function hint(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueTypeEnum; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean;
+    procedure bpCheck(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueTypeEnum; locStart, locEnd: TSourceLocation; literalPath: String; test: boolean; message: String);
 
     // --- first phase : work with the json or xml directly ---------------------------------------------------------------------------------------------------------
 
@@ -237,9 +243,10 @@ Type
     procedure checkCodeableConcept(errors : TFhirOperationOutcomeIssueList; path : String; element : TWrapperElement; profile : TFHIRStructureDefinition; context : TFHIRElementDefinition);
     procedure checkReference(errors : TFhirOperationOutcomeIssueList; path : String; element : TWrapperElement; profile : TFHIRStructureDefinition; container : TFHIRElementDefinition; parentType : String; stack : TNodeStack);
     function checkExtension(errors : TFhirOperationOutcomeIssueList; path : String; element : TWrapperElement; def : TFHIRElementDefinition; profile : TFHIRStructureDefinition; stack : TNodeStack) : TFHIRStructureDefinition;
-    procedure validateContains(errors : TFhirOperationOutcomeIssueList; path : String; child : TFHIRElementDefinition; context : TFHIRElementDefinition; element : TWrapperElement; stack : TNodeStack; needsId : boolean);
+    procedure validateContains(errors: TFhirOperationOutcomeIssueList; path: String; child: TFHIRElementDefinition; context: TFHIRElementDefinition; resource, element: TWrapperElement; stack: TNodeStack; idRule: TResourceIdStatus);
     function allowUnknownExtension(url : String) : boolean;
 
+    function idStatusForEntry(ep : TWrapperElement; ei : TElementInfo): TResourceIdStatus;
     procedure checkInvariants(errors: TFhirOperationOutcomeIssueList; path : String; profile: TFHIRStructureDefinition; ed: TFhirElementDefinition; typename, typeProfile : String; resource, element: TWrapperElement);
     procedure validateSections(errors : TFhirOperationOutcomeIssueList; entries : TAdvList<TWrapperElement>; focus : TWrapperElement; stack : TNodeStack; fullUrl, id : String);
     procedure validateBundleReference(errors : TFhirOperationOutcomeIssueList; entries : TAdvList<TWrapperElement>; ref : TWrapperElement; name : String; stack : TNodeStack; fullUrl, type_, id : String);
@@ -250,14 +257,14 @@ Type
     procedure validateObservation(errors : TFhirOperationOutcomeIssueList; element : TWrapperElement; stack : TNodeStack);
     procedure checkDeclaredProfiles(errors: TFhirOperationOutcomeIssueList; resource, element: TWrapperElement; stack: TNodeStack);
     procedure start(errors: TFhirOperationOutcomeIssueList; resource, element: TWrapperElement; profile: TFHIRStructureDefinition; stack: TNodeStack);
-    procedure validateResource(errors : TFhirOperationOutcomeIssueList; element : TWrapperElement; profile : TFHIRStructureDefinition; needsId :  boolean; stack : TNodeStack);
+    procedure validateResource(errors: TFhirOperationOutcomeIssueList; resource, element: TWrapperElement; profile: TFHIRStructureDefinition; idRule: TResourceIdStatus; stack: TNodeStack);
   public
     Constructor Create(context: TValidatorServiceProvider);
     Destructor Destroy; Override;
     Property CheckDisplay : TCheckDisplayOption read FCheckDisplay write FCheckDisplay;
     Property BPWarnings : TBestPracticeWarningLevel read FBPWarnings write FBPWarnings;
     Property SuppressLoincSnomedMessages : boolean read FSuppressLoincSnomedMessages write FSuppressLoincSnomedMessages;
-    Property RequireResourceId : boolean read FRequireResourceId write FRequireResourceId;
+    Property ResourceIdRule : TResourceIdStatus read FResourceIdRule write FResourceIdRule;
     Property IsAnyExtensionsAllowed : boolean read FIsAnyExtensionsAllowed write FIsAnyExtensionsAllowed;
     Property Context : TValidatorServiceProvider read FContext;
 
@@ -272,8 +279,8 @@ Type
     procedure validate(errors: TFhirOperationOutcomeIssueList; document: IXMLDOMDocument; profile: String); overload;
     procedure validate(errors: TFhirOperationOutcomeIssueList; document: IXMLDOMDocument; profile: TFHIRStructureDefinition); overload;
 
-    Function validateInstance(source : TAdvBuffer; format : TFHIRFormat; needId : boolean; opDesc : String; profile : TFHirStructureDefinition) : TFHIROperationOutcome; overload;
-    Function validateInstance(resource : TFhirResource; needId : boolean; opDesc : String; profile : TFHirStructureDefinition) : TFHIROperationOutcome; overload;
+    Function validateInstance(source : TAdvBuffer; format : TFHIRFormat; idRule : TResourceIdStatus; opDesc : String; profile : TFHirStructureDefinition) : TFHIROperationOutcome; overload;
+    Function validateInstance(resource : TFhirResource; idRule : TResourceIdStatus; opDesc : String; profile : TFHirStructureDefinition) : TFHIROperationOutcome; overload;
   end;
 
 (*  TFHIRBaseValidator = class (TValidatorServiceProvider)
@@ -596,15 +603,31 @@ begin
 end;
 
 function TDOMWrapperElement.locStart: TSourceLocation;
+var
+  i : integer;
+begin
+  i := StrToIntDef(Felement.getAttribute(MAP_ATTR_NAME), -1);
+  if i = -1 then
 begin
   result.line := -1;
   result.col := -1;
+  end
+  else
+    result := FLocations[i].locationStart;
 end;
 
 function TDOMWrapperElement.locEnd: TSourceLocation;
+var
+  i : integer;
+begin
+  i := StrToIntDef(Felement.getAttribute(MAP_ATTR_NAME), -1);
+  if i = -1 then
 begin
   result.line := -1;
   result.col := -1;
+  end
+  else
+    result := FLocations[i].locationEnd;
 end;
 
 type
@@ -829,6 +852,11 @@ begin
       result := ''
     else if (element is TJsonValue) then
       result := TJsonValue(element).value
+    else if (element is TJsonBoolean) then
+      if TJsonBoolean(element).value then
+        result := 'true'
+      else
+        result := 'false'
     else
       result := ''
   end
@@ -959,30 +987,22 @@ end;
 function TNodeStack.push(element : TWrapperElement; count : integer;  definition : TFHIRElementDefinition; type_ : TFHIRElementDefinition) : TNodeStack;
 var
   t, lp : String;
+  n : String;
 begin
   result := TNodeStack.Create(element.isXml());
   try
   result.parent := self;
   result.element := element;
   result.definition := definition;
-  if (element.isXml()) then
-  begin
-    if element.getNamespace() = XHTML_NS then
-      result.literalPath := literalPath + '/h:' + element.getName()
+    n := element.getName();
+    if n = '' then
+      n := element.getResourceType;
+    if LiteralPath = '' then
+      result.literalPath := n
     else
-      result.literalPath := literalPath + '/f:' +element.getName();
+      result.literalPath := literalPath + '.' + n;
     if (count > -1) then
-      result.literalPath := result.literalPath + '[' + integer.toString(count) + ']';
-  end 
-  else
-  begin
-    if (element.getName() = '') then
-      result.literalPath := ''
-    else
-      result.literalPath := literalPath + '/' +element.getName();
-    if (count > -1) then
-      result.literalPath := result.literalPath + '/'+inttostr(count);
-  end;
+      result.literalPath := result.literalPath + '.item(' + integer.toString(count-1) + ')';
   if (type_ <> nil) then
   begin
     // type will be bull if we on a stitching point of a contained resource, or if....
@@ -1017,37 +1037,19 @@ begin
   b := TStringBuilder.Create;
   try
     b.append(literalPath);
-    if (xml) then
-    begin
       for p in path do
       begin
         if (p.startsWith(':')) then
         begin
-          b.append('[');
+        b.append('.item(');
           b.append(p.substring(1));
-          b.append(']');
-        end
-        else 
-        begin
-          b.append('/f:');
-          b.append(p);
-        end
-      end
-    end
-    else
-    begin
-      for p in path do
-      begin
-        b.append('/');
-        if p.startsWith(':') then
-        begin
-          b.append(p.substring(1));
+        b.append(')');
         end 
         else
         begin
+        b.append('.');
           b.append(p);
         end
-      end
     end;
     result := b.toString();
   finally
@@ -1061,7 +1063,7 @@ constructor TFHIRValidator.Create(context: TValidatorServiceProvider);
 begin
   inherited Create;
   FContext := context;
-  FPathEvaluator := TFHIRPathEvaluator.create(FContext.link);
+  FPathEngine := TFHIRExpressionEngine.create(FContext.link);
   IsAnyExtensionsAllowed := true;
   FOwned := TAdvObjectList.create;
 end;
@@ -1069,7 +1071,7 @@ end;
 destructor TFHIRValidator.Destroy;
 begin
   FOwned.Free;
-  FPathEvaluator.Free;
+  FPathEngine.Free;
   FContext.Free;
   inherited;
 end;
@@ -1125,7 +1127,7 @@ var
 begin
   w := TDOMWrapperElement.create(nil, element);
   try
-    validateResource(errors, w, profile, FRequireResourceId, nil);
+    validateResource(errors, w, nil, profile, ResourceIdRule, nil);
   finally
     w.Free;
 end;
@@ -1137,7 +1139,7 @@ var
 begin
   w := TJsonWrapperElement.Create(obj.link);
   try
-    validateResource(errors, w, profile, FRequireResourceId, nil);
+    validateResource(errors, w, nil, profile, ResourceIdRule, nil);
   finally
     w.Free;
   end;
@@ -1202,7 +1204,7 @@ end;
 {
 * The actual base entry point
 }
-procedure TFHIRValidator.validateResource(errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; profile: TFHIRStructureDefinition; needsId: boolean; stack: TNodeStack);
+procedure TFHIRValidator.validateResource(errors: TFhirOperationOutcomeIssueList; resource, element: TWrapperElement; profile: TFHIRStructureDefinition; idRule: TResourceIdStatus; stack: TNodeStack);
 var
   resourceName : String;
   type_ : String;
@@ -1210,6 +1212,9 @@ var
   result : boolean;
   stack1 : TNodeStack;
 begin
+  if resource = nil then
+    resource := element;
+
   if (stack = nil) then
     stack := TNodeStack.Create(element.isXml())
   else
@@ -1245,7 +1250,7 @@ begin
         begin
           element := first;
           resourceName := element.getResourceType();
-          needsId := false;
+            idRule := risOptional; // why is this?
         end;
       end;
 
@@ -1257,9 +1262,11 @@ begin
   begin
         stack1 := stack.push(element, -1, profile.Snapshot.ElementList[0], profile.Snapshot.ElementList[0]);
         try
-    if (needsId) and ((element.getNamedChild('id') = nil)) then
-            rule(errors, IssueTypeINVALID, element.locStart(), element.locEnd(), stack1.literalPath, false, 'Resource has no id');
-          start(errors, element, element, profile, stack1); // root is both definition and type
+          if (idRule = risRequired) and ((element.getNamedChild('id') = nil)) then
+            rule(errors, IssueTypeINVALID, element.locStart(), element.locEnd(), stack1.literalPath, false, 'Resource requires an id, but none is present')
+          else if (idRule = risProhibited) and ((element.getNamedChild('id') <> nil)) then
+            rule(errors, IssueTypeINVALID, element.locStart(), element.locEnd(), stack1.literalPath, false, 'Resource has an id, but none is allowed');
+          start(errors, resource, element, profile, stack1); // root is both definition and type
         finally
           stack1.Free;
         end;
@@ -1535,7 +1542,7 @@ begin
     (element.getNamedChild('effectivePeriod') <> nil), 'All observations should have an effectiveDateTime or an effectivePeriod');
 end;
 
-procedure TFHIRValidator.bpCheck(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueType; locStart, locEnd: TSourceLocation; literalPath: String; test: boolean; message: String);
+procedure TFHIRValidator.bpCheck(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueTypeEnum; locStart, locEnd: TSourceLocation; literalPath: String; test: boolean; message: String);
 begin
   case BPWarnings of
     bpwlHint:
@@ -1607,7 +1614,7 @@ begin
       result := sd.Snapshot.ElementList[0];
   end;
 
-function TFHIRValidator.rule(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueType; path: String; thePass: boolean; msg: String): boolean;
+function TFHIRValidator.rule(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueTypeEnum; path: String; thePass: boolean; msg: String): boolean;
 var
   vm : TFhirOperationOutcomeIssue;
 begin
@@ -1624,7 +1631,7 @@ begin
   result := thePass;
 end;
 
-function TFHIRValidator.rule(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueType; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean;
+function TFHIRValidator.rule(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueTypeEnum; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean;
 var
   vm : TFhirOperationOutcomeIssue;
 begin
@@ -1649,13 +1656,16 @@ function isBundleEntry(path : String) : boolean;
 var
   parts : TArray<String>;
 begin
-  parts := path.split(['/']);
-  if (path.startsWith('/f:')) then
-    result := (length(parts) > 2) and (parts[length(parts) - 1].startsWith('f:resource')) and ((parts[length(parts) - 2] = 'f:entry')) or
-      (parts[length(parts) - 2].startsWith('f:entry['))
-  else
-    result := (length(parts) > 2) and (parts[length(parts) - 1] = 'resource') and (((length(parts) > 2) and (parts[length(parts) - 3] = 'entry'))) or
-      (parts[length(parts) - 2] = 'entry');
+  parts := path.split(['.']);
+  result := (length(parts) > 3) and (parts[length(parts) - 1].startsWith('resource')) and ((parts[length(parts) - 3] = 'entry')) or (parts[length(parts) - 2] = 'entry');
+end;
+
+function isParametersEntry(path: String): boolean;
+var
+  parts: TArray<String>;
+begin
+  parts := path.split(['.']);
+  result := (length(parts) > 2) and (parts[length(parts) - 1].startsWith('resource')) and ((parts[length(parts) - 2] = 'parameter')) or (parts[length(parts) - 2].startsWith('entry['));
 end;
 
 procedure TFHIRValidator.validateElement(errors: TFhirOperationOutcomeIssueList; profile: TFHIRStructureDefinition; definition: TFHIRElementDefinition;
@@ -1856,7 +1866,7 @@ begin
             if (t = 'Extension') then
               checkExtension(errors, ei.path, ei.element, ei.definition, profile, localStack)
             else if (t = 'Resource') then
-              validateContains(errors, ei.path, ei.definition, definition, ei.element, localStack, not isBundleEntry(ei.path))
+                validateContains(errors, ei.path, ei.definition, definition, resource, ei.element, localStack, idStatusForEntry(element, ei))
             else
             begin
               p := getProfileForType(t);
@@ -1930,7 +1940,7 @@ begin
   result := false;
 end;
 
-function TFHIRValidator.warning(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueType; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean;
+function TFHIRValidator.warning(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueTypeEnum; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean;
 var
   vm : TFhirOperationOutcomeIssue;
 begin
@@ -1956,7 +1966,7 @@ begin
   result := nil;
 end;
 
-function TFHIRValidator.hint(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueType; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean;
+function TFHIRValidator.hint(errors: TFhirOperationOutcomeIssueList; t: TFhirIssueTypeEnum; locStart, locEnd: TSourceLocation; path: String; thePass: boolean; msg: String): boolean;
 var
   vm : TFhirOperationOutcomeIssue;
 begin
@@ -1975,6 +1985,35 @@ begin
     vm.details.text := msg;
   end;
   result := thePass;
+end;
+
+function TFHIRValidator.idStatusForEntry(ep : TWrapperElement; ei: TElementInfo): TResourceIdStatus;
+var
+  e : TWrapperElement;
+  s : String;
+begin
+  if (isBundleEntry(ei.path)) then
+  begin
+		e := ep.getNamedChild('request');
+    if (e <> nil) then
+      e := e.getNamedChild('method');
+    if (e = nil) then
+      result := risRequired
+    else
+    begin
+      s := e.getAttribute('value');
+      if (s = 'PUT') then
+        result := risRequired
+      else if (s = 'POST') then
+        result := risProhibited
+      else // actually, we should never get to here; a bundle entry with method get/delete should not have a resource
+        result := risOptional;
+    end
+  end
+  else if (isParametersEntry(ei.path)) then
+		result := risOptional
+  else
+		result := risRequired;
 end;
 
 procedure TFHIRValidator.loadSchema;
@@ -2070,16 +2109,6 @@ begin
     childDefinitions.Free;
   end;
 end;
-
-//  private String mergePath(String path1, String path2) begin
-//    // path1 is xpath path
-//    // path2 is dotted path
-//    TArray<String> parts := path2.split('\\.');
-//    StringBuilder b := new StringBuilder(path1);
-//    for (int i := 1; i < parts.length -1; i++)
-//      b.append('/f:'+parts[i]);
-//    return b.toString();
-//  end;
 
 function TFHIRValidator.checkResourceType(ty: String): String;
 var
@@ -2564,8 +2593,7 @@ end;
 //  end;
 //end;
 
-procedure TFHIRValidator.validateContains(errors: TFhirOperationOutcomeIssueList; path: String; child: TFHIRElementDefinition; context: TFHIRElementDefinition;
-  element: TWrapperElement; stack: TNodeStack; needsId: boolean);
+procedure TFHIRValidator.validateContains(errors: TFhirOperationOutcomeIssueList; path: String; child: TFHIRElementDefinition; context: TFHIRElementDefinition; resource, element: TWrapperElement; stack: TNodeStack; idRule: TResourceIdStatus);
 var
   e : TWrapperElement;
   resourceName : String;
@@ -2580,7 +2608,7 @@ begin
   FOwned.add(profile);
   if (rule(errors, IssueTypeINVALID, element.locStart(), element.locEnd(), stack.addToLiteralPath(resourceName), profile <> nil,
     'No profile found for contained resource of type "' + resourceName + '"')) then
-    validateResource(errors, e, profile, needsId, stack);
+    validateResource(errors, resource, e, profile, idRule, stack);
 end;
 
 
@@ -3419,19 +3447,18 @@ begin
   for inv in ed.constraintList do
     if inv.hasExtension('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression') then
     begin
-      assert(resource.getResourceType = resource.profile.name);
       res := TFHIRResourceOnWrapper.create(FContext.link, resource.Link, resource.profile.Link);
       e := TFHIRBaseOnWrapper.create(FContext.link, element.Link, profile.Link, ed.Link, typename, typeProfile);
       try
-        ok := FPathEvaluator.evaluateToBoolean(nil, res, e, inv.getExtensionString('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression'));
+        ok := FPathEngine.evaluateToBoolean(nil, res, e, inv.getExtensionString('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression'));
       finally
         e.free;
         res.free;
       end;
       if not ok then
         case inv.severity of
-          ConstraintSeverityError: rule(errors, IssueTypeInvariant, element.LocStart, element.LocEnd, path, ok, inv.human+' ('+inv.getExtensionString('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression')+')');
-          ConstraintSeverityWarning: warning(errors, IssueTypeInvariant, element.LocStart, element.LocEnd, path, ok, inv.human+' ('+inv.getExtensionString('http://hl7.org/fhir/StructureDefinition/structuredefinition-expression')+')');
+          ConstraintSeverityError: rule(errors, IssueTypeInvariant, element.LocStart, element.LocEnd, path, ok, inv.human+FPathEngine.UseLog);
+          ConstraintSeverityWarning: warning(errors, IssueTypeInvariant, element.LocStart, element.LocEnd, path, ok, inv.human+FPathEngine.UseLog);
         end;
     end;
 end;
@@ -3601,7 +3628,7 @@ var
   n : TWrapperElement;
 begin
   n := child.getNextSibling();
-  if (n <> nil) and (n.getName() = child.getName()) then
+  if (lastName = child.getName()) or ((n <> nil) and (n.getName() = child.getName())) then
     result := lastCount+1
   else
     result := -1;
@@ -3618,13 +3645,12 @@ begin
 end;
 
 function TChildIterator.next: boolean;
-var
-  lastName : String;
 begin
   if (child = nil) then
   begin
     child := parent.getFirstChild();
     lastCount := 0;
+    lastName := '';
   end
   else
   begin
@@ -3640,27 +3666,16 @@ end;
 
 function TChildIterator.path: String;
 var
-  n : TWrapperElement;
+  n, p: TWrapperElement;
   sfx : String;
 begin
   n := child.getNextSibling();
-  if (parent.isXml()) then
-  begin
-    sfx := '';
-    if (n <> nil) and (n.getName() = child.getName()) then
-      sfx := '['+inttostr(lastCount+1)+']';
-    if (child.getNamespace = XHTML_NS) then
-      result := basePath+'/h:'+name()+sfx
+  if basePath = '' then
+    result := name()
+  else if (lastName = child.getName()) or (n <> nil) and (n.getName() = child.getName()) then
+    result := basePath + '.' + name() + '.item(' + inttostr(lastCount) + ')'
     else
-    result := basePath+'/f:'+name()+sfx;
-  end
-  else
-  begin
-    sfx := '';
-    if (n <> nil) and (n.getName() = child.getName()) then
-      sfx := '/' + integer.toString(lastCount + 1);
-    result := basePath+'/'+name()+sfx;
-  end;
+    result := basePath + '.' + name();
 end;
 
 function TFHIRValidator.validateXml(source : TAdvBuffer; outcome : TFHIROperationOutcome) : boolean;
@@ -3669,6 +3684,7 @@ var
   vcl : TVCLStream;
   dom : IXMLDomDocument2;
   LAdapter : Variant;
+  s, e : TSourceLocation;
 begin
   if FCache = nil then
     loadSchema;
@@ -3687,7 +3703,13 @@ begin
       LAdapter := TStreamAdapter.Create(vcl) As IStream;
       result := dom.load(LAdapter);
       if not result then
-        outcome.error('Schema', IssueTypeInvalid, 'line '+inttostr(dom.ParseError.line)+', Col '+inttostr(dom.ParseError.linepos), false, dom.ParseError.reason);
+      begin
+        s.line := dom.ParseError.line;
+        s.col := dom.ParseError.linepos;
+        e.line := dom.ParseError.line;
+        e.col := dom.ParseError.linepos;
+        rule(outcome.issueList, IssueTypeInvalid, s, e, 'line '+inttostr(dom.ParseError.line)+', Col '+inttostr(dom.ParseError.linepos), false, dom.ParseError.reason);
+      end;
               finally
                 vcl.free;
               end;
@@ -3696,7 +3718,7 @@ begin
             end;
           end;
 
-function TFHIRValidator.validateInstance(source: TAdvBuffer; format : TFHIRFormat; needId : boolean; opDesc : String; profile : TFHirStructureDefinition): TFHIROperationOutcome;
+function TFHIRValidator.validateInstance(source: TAdvBuffer; format : TFHIRFormat; idRule : TResourceIdStatus; opDesc : String; profile : TFHirStructureDefinition): TFHIROperationOutcome;
 var
   json : TJsonObject;
   wrapper : TWrapperElement;
@@ -3722,7 +3744,7 @@ begin
           wrapper := TDOMWrapperElement.Create(nil, dom.documentElement);
           try
             TDOMWrapperElement(wrapper).FLocations := locations;
-            validateResource(result.issueList, wrapper, profile, needId, nil);
+            validateResource(result.issueList, wrapper, wrapper, profile, idRule, nil);
           finally
             wrapper.Free;
           end;
@@ -3738,7 +3760,7 @@ begin
       try
         wrapper := TJsonWrapperElement.Create(json.link);
         try
-          validateResource(result.issueList, wrapper, profile, needId, nil);
+          validateResource(result.issueList, wrapper, wrapper, profile, idRule, nil);
         finally
           wrapper.Free;
         end;
@@ -3758,7 +3780,7 @@ end;
 //  FValidator.validate(op.issueList, elem, specifiedprofile);
 //end;
 
-function TFHIRValidator.validateInstance(resource: TFhirResource; needId : boolean; opDesc: String; profile: TFHirStructureDefinition): TFHIROperationOutcome;
+function TFHIRValidator.validateInstance(resource: TFhirResource; idRule : TResourceIdStatus; opDesc: String; profile: TFHirStructureDefinition): TFHIROperationOutcome;
 var
   x : TFHIRXmlComposer;
   b : TAdvBuffer;
@@ -3772,7 +3794,7 @@ begin
     finally
       x.Free;
     end;
-    validateInstance(b, ffXml, needId, opDesc, profile);
+    validateInstance(b, ffXml, idRule, opDesc, profile);
     finally
     b.Free;
   end;
@@ -3803,6 +3825,51 @@ begin
   inherited;
 end;
 
+function TFHIRBaseOnWrapper.equalsDeep(other: TFHIRBase): boolean;
+var
+  childList : TFHIRElementDefinitionList;
+  thisList, otherList : TFHIRBaseList;
+  ed : TFHIRElementDefinition;
+  n, tn, tp : String;
+begin
+  if (not inherited equalsDeep(other) or (fhirType() <> other.fhirType())) then
+    exit(false);
+  // make sure we have child definitions
+  getDefinition('xxxx', tn, tp);
+
+  childList := childDefinitions.Link; //
+  try
+  // there's a problem here - we're going to iterate by the definition, where as equality should - probably - be
+  // based on the underlying definitions. is it worth getting them? it's kind of complicated....
+    for ed in childList do
+    begin
+      n := tail(ed.path);
+      if (n = 'value') and isPrimitive then
+      begin
+        if primitiveValue <> other.primitiveValue then
+          exit(false);
+      end
+      else
+      begin
+        thisList := TFHIRBaseList.Create;
+        otherList := TFHIRBaseList.Create;
+        try
+          listChildrenByName(n, thisList);
+          other.listChildrenByName(n, otherList);
+          if (not compareDeep(thisList, otherList, true)) then
+            exit(false);
+        finally
+          thisList.Free;
+          otherList.Free;
+        end;
+      end;
+    end;
+    exit(true);
+  finally
+    childList.free;
+  end;
+end;
+
 function TFHIRBaseOnWrapper.FhirType: string;
 begin
   if FTypeName <> '' then
@@ -3824,8 +3891,9 @@ begin
     for child in children do
     begin
       definition := getDefinition(child.getName, tn, tp);
-      if (definition <> nil) then
-        if definition.hasType('Resource') and FWrapper.isXml then // special case for DomainResource.contained and Bundle.entry
+      if (definition = nil) then
+        log('no definition found for '+FDefinition.path+'.'+child_name+' (en= '+child.getName+')')
+      else if definition.hasType('Resource') and FWrapper.isXml then // special case for DomainResource.contained and Bundle.entry
           list.Add(TFHIRBaseOnWrapper.Create(FServices.link, child.getFirstChild.Link, Fprofile.Link, definition.Link, tn, tp))
         else
           list.Add(TFHIRBaseOnWrapper.Create(FServices.link, child.Link, Fprofile.Link, definition.Link, tn, tp));
@@ -3845,6 +3913,11 @@ begin
   finally
     p.free;
   end;
+end;
+
+function TFHIRBaseOnWrapper.isMetaDataBased: boolean;
+begin
+  result := true;
 end;
 
 function TFHIRBaseOnWrapper.getDefinition(name: String; var tn, tp: String): TFhirElementDefinition;
@@ -3868,7 +3941,7 @@ begin
       else
         pn := 'http://hl7.org/fhir/StructureDefinition/'+ FDefinition.type_List[0].code;
     end;
-    if (pn <> '') and IsAbstractType(pn) then
+    if (pn <> '') then
     begin
       profile := FServices.fetchResource(frtStructureDefinition, pn) as TFhirStructureDefinition;
       try
@@ -3902,6 +3975,11 @@ end;
 function TFHIRBaseOnWrapper.IsPrimitive: boolean;
 begin
   result := isPrimitiveType(fhirType);
+end;
+
+procedure TFHIRBaseOnWrapper.log(msg: String);
+begin
+
 end;
 
 function TFHIRBaseOnWrapper.primitiveValue: string;

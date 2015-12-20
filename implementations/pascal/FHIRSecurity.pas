@@ -238,6 +238,8 @@ begin
       FReadAllowed[a] := true
     else if scopes.IndexOf('patient/*.*') > -1 then
       FReadAllowed[a] := true
+    else if scopes.IndexOf('*.*') > -1 then
+      FReadAllowed[a] := true
     else if scopes.IndexOf('user/*.read') > -1 then
       FReadAllowed[a] := true
     else if scopes.IndexOf('patient/*.read') > -1 then
@@ -264,6 +266,8 @@ begin
       FWriteAllowed[a] := true
     else if scopes.IndexOf('patient/*.*') > -1 then
       FWriteAllowed[a] := true
+   else if scopes.IndexOf('*.*') > -1 then
+      FReadAllowed[a] := true
     else if scopes.IndexOf('user/*.write') > -1 then
       FWriteAllowed[a] := true
     else if scopes.IndexOf('patient/*.write') > -1 then

@@ -323,6 +323,7 @@ Type
     function contains(s : String) : boolean;
     function isEmpty : boolean;
     function ToString : String; override;
+    function AsString(sep : String = ', ') : String;
 
     type
       TAdvStringSetEnumerator = class(TEnumerator<string>)
@@ -1627,6 +1628,29 @@ var
 begin
   for s in collection.FItems do
     add(s);
+end;
+
+function TAdvStringSet.AsString(sep: String): String;
+var
+  b : TStringBuilder;
+  f : boolean;
+  s : string;
+begin
+  f := true;
+  b := TStringBuilder.Create;
+  try
+    for s in FItems do
+    begin
+      if f then
+        f := false
+      else
+        b.Append(sep);
+      b.Append(s)
+    end;
+    result := b.toString;
+  finally
+    b.Free;
+  end;
 end;
 
 function TAdvStringSet.contains(s: String): boolean;

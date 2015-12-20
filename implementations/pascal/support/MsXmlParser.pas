@@ -43,6 +43,7 @@ Type
   private
     FLocator : IVBSAXLocator;
     FLocation : TSourceLocation;
+    FExceptionMessage : String;
   protected
     FXmlComments : TAdvStringList;
     procedure startElement(sourceLocation : TSourceLocation; uri, localname : string; attrs : IVBSAXAttributes); overload; virtual;
@@ -51,6 +52,8 @@ Type
   public
     Constructor create;
     destructor Destroy; override;
+
+    property ExceptionMessage : String read FExceptionMessage;
     { SAX }
    // IDispatch
     function GetTypeInfoCount(out Count: Integer): HResult; stdcall;
@@ -318,6 +321,8 @@ begin
 
   v := TStreamAdapter.Create(oSource) As IStream;
   sax.parse(v);
+  if handler.ExceptionMessage <> '' then
+    raise Exception.create(handler.ExceptionMessage);
 end;
 
 class procedure TMsXmlParser.Parse(const sFilename: String; handler: TMsXmlSaxHandler);
@@ -476,16 +481,14 @@ begin
   // nothing
 end;
 
-procedure TMsXmlSaxHandler.error(const oLocator: IVBSAXLocator;
-  var strErrorMessage: WideString; nErrorCode: Integer);
+procedure TMsXmlSaxHandler.error(const oLocator: IVBSAXLocator; var strErrorMessage: WideString; nErrorCode: Integer);
 begin
-  raise Exception.Create('todo');
+  FExceptionMessage := strErrorMessage+' at line '+inttostr(oLocator.lineNumber);
 end;
 
-procedure TMsXmlSaxHandler.fatalError(const oLocator: IVBSAXLocator;
-  var strErrorMessage: WideString; nErrorCode: Integer);
+procedure TMsXmlSaxHandler.fatalError(const oLocator: IVBSAXLocator; var strErrorMessage: WideString; nErrorCode: Integer);
 begin
-  raise Exception.Create('todo');
+  FExceptionMessage := strErrorMessage+' at line '+inttostr(oLocator.lineNumber);
 end;
 
 function TMsXmlSaxHandler.GetIDsOfNames(const IID: TGUID; Names: Pointer; NameCount, LocaleID: Integer; DispIDs: Pointer): HResult;

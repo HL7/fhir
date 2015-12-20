@@ -47,14 +47,14 @@ Const
 type
   TValidationResult = class (TAdvObject)
   private
-    FSeverity : TFhirIssueSeverity;
+    FSeverity : TFhirIssueSeverityEnum;
     FMessage  : String;
     FDisplay: String;
   public
     constructor Create; overload; virtual;
-    constructor Create(Severity : TFhirIssueSeverity; Message : String); overload; virtual;
+    constructor Create(Severity : TFhirIssueSeverityEnum; Message : String); overload; virtual;
     constructor Create(display : String); overload; virtual;
-    Property Severity : TFhirIssueSeverity read FSeverity write FSeverity;
+    Property Severity : TFhirIssueSeverityEnum read FSeverity write FSeverity;
     Property Message : String read FMessage write FMessage;
     Property Display : String read FDisplay write FDisplay;
     function isOk : boolean;
@@ -171,13 +171,15 @@ Type
     function findEndOfElement(context : TFhirStructureDefinitionSnapshot; cursor : integer) : integer; overload;
     function orderMatches(diff, base : TFHIRBoolean) : boolean;
     function discriiminatorMatches(diff, base : TFhirStringList) : boolean;
-    function ruleMatches(diff, base : TFhirResourceSlicingRules) : boolean;
+    function ruleMatches(diff, base : TFhirResourceSlicingRulesEnum) : boolean;
     function summariseSlicing(slice : TFhirElementDefinitionSlicing) : String;
     procedure updateFromSlicing(dst, src : TFhirElementDefinitionSlicing);
     function getSiblings(list : TFhirElementDefinitionList; current : TFhirElementDefinition) : TAdvList<TFhirElementDefinition>;
     procedure processPaths(result, base : TFhirStructureDefinitionSnapshot; differential: TFhirStructureDefinitionDifferential; baseCursor, diffCursor, baseLimit, diffLimit : integer; url, profileName, contextPath : String; trimDifferential : boolean; contextName, resultPathBase : String; slicingHandled : boolean);
     function populate(profile: TFHIRStructureDefinition; item: TFHIRObject; definition: TFHIRElementDefinition; stack: TAdvList<TFhirElementDefinition>): TFHIRResource;
     function getFirstCode(ed: TFHIRElementDefinition): TFhirCoding;
+    function overWriteWithCurrent(profile,
+      usage: TFHIRElementDefinition): TFHIRElementDefinition;
   public
     Constructor create(context : TValidatorServiceProvider; messages : TFhirOperationOutcomeIssueList);
     Destructor Destroy; override;
@@ -248,6 +250,62 @@ begin
     result := '.' + s + '['+d.type_List[0].profileList[0].value+']';
 end;
 
+function TProfileUtilities.overWriteWithCurrent(profile, usage : TFHIRElementDefinition) : TFHIRElementDefinition;
+var
+  c : TFHIRCoding;
+  s : TFHIRString;
+  cc : TFhirElementDefinitionConstraint;
+begin
+  result := profile.Clone;
+  try
+    if (usage.NameElement <> nil) then
+      result.Name := usage.Name;
+    if (usage.Label_Element <> nil) then
+      result.Label_ := usage.Label_;
+    for c in usage.codeList do
+      result.Codelist.add(c.clone);
+
+    if (usage.DefinitionElement <> nil) then
+      result.Definition := usage.Definition;
+    if (usage.ShortElement <> nil) then
+      result.Short := usage.Short;
+    if (usage.CommentsElement <> nil) then
+      result.Comments := usage.Comments;
+    if (usage.RequirementsElement <> nil) then
+      result.Requirements := usage.Requirements;
+    for s in usage.aliasList do
+      result.aliasList.add(s.Clone);
+    if (usage.MinElement <> nil) then
+      result.Min := usage.Min;
+    if (usage.MaxElement <> nil) then
+      result.Max := usage.Max;
+
+    if (usage.FixedElement <> nil) then
+      result.Fixed := usage.Fixed;
+    if (usage.PatternElement <> nil) then
+      result.Pattern := usage.Pattern;
+    if (usage.ExampleElement <> nil) then
+      result.Example := usage.Example;
+    if (usage.MinValueElement <> nil) then
+      result.MinValue := usage.MinValue;
+    if (usage.MaxValueElement <> nil) then
+      result.MaxValue := usage.MaxValue;
+    if (usage.MaxLengthElement <> nil) then
+      result.MaxLength := usage.MaxLength;
+    if (usage.MustSupportElement <> nil) then
+      result.MustSupport := usage.MustSupport;
+    if (usage.BindingElement <> nil) then
+      result.Binding := usage.Binding.Clone;
+    for cc in usage.constraintList do
+      result.constraintList.add(c.clone);
+
+    result.link;
+    profile.free;
+  finally
+    result.free;
+  end;
+end;
+
 procedure TProfileUtilities.processPaths(result, base : TFhirStructureDefinitionSnapshot; differential: TFhirStructureDefinitionDifferential; baseCursor, diffCursor, baseLimit, diffLimit : integer;
       url, profileName, contextPath : String; trimDifferential : boolean; contextName, resultPathBase : String; slicingHandled : boolean);
 var
@@ -287,7 +345,7 @@ begin
         result.elementList.add(outcome);
         inc(baseCursor);
       end
-      else if (diffMatches.Count = 1) and (slicingHandled or (diffMatches[0].slicing = nil)) then
+      else if (diffMatches.Count = 1) and (slicingHandled or ((diffMatches[0].slicing = nil) and not (isExtension(diffMatches[0]) and (diffMatches[0].name = '')))) then
       begin // one matching element in the differential
         log(cpath+': single match in the differential at '+inttostr(diffCursor));
         template := nil;
@@ -311,7 +369,11 @@ begin
           end;
         end;
         if (template = nil) then
-          template := currentBase.Clone;
+          template := currentBase.Clone
+        else
+          // some of what's in currentBase overrides template
+          template := overWriteWithCurrent(template, currentBase);
+
         outcome := updateURLs(url, template);
         outcome.path := fixedPath(contextPath, outcome.path);
         updateFromBase(outcome, currentBase);
@@ -941,7 +1003,7 @@ begin
   end;
 end;
 
-function TProfileUtilities.ruleMatches(diff, base : TFhirResourceSlicingRules) : boolean;
+function TProfileUtilities.ruleMatches(diff, base : TFhirResourceSlicingRulesEnum) : boolean;
 begin
   result := (diff = ResourceSlicingRulesNull) or (base = ResourceSlicingRulesNull) or (diff = base) or (diff = ResourceSlicingRulesOPEN) or
         ((diff = ResourceSlicingRulesOPENATEND) and (base = ResourceSlicingRulesCLOSED));
@@ -1274,7 +1336,7 @@ begin
       if (not compareDeep(derived.binding, base.binding, false)) then
       begin
         if (base.binding <> nil ) and ( base.binding.strength = BindingStrengthREQUIRED ) and ( derived.binding.strength <> BindingStrengthREQUIRED) then
-          messages.add(TFhirOperationOutcomeIssue.create(IssueSeverityERROR, IssueTypeBUSINESSRULE, pn+'.'+derived.path, 'illegal attempt to change a binding from '+CODES_TFhirBindingStrength[base.binding.strength]+' to '+CODES_TFhirBindingStrength[derived.binding.strength]))
+          messages.add(TFhirOperationOutcomeIssue.create(IssueSeverityERROR, IssueTypeBUSINESSRULE, pn+'.'+derived.path, 'illegal attempt to change a binding from '+CODES_TFhirBindingStrengthEnum[base.binding.strength]+' to '+CODES_TFhirBindingStrengthEnum[derived.binding.strength]))
 //            raise Exception.create('StructureDefinition '+pn+' at '+derived.path+': illegal attempt to change a binding from '+base.binding.strength.toCode()+' to '+derived.binding.strength.toCode());
         else if (base.binding <> nil) and (derived.binding <> nil) and (base.binding.strength = BindingStrengthREQUIRED) then
         begin
@@ -1401,7 +1463,7 @@ end;
 
 { TValidationResult }
 
-constructor TValidationResult.Create(Severity: TFhirIssueSeverity; Message: String);
+constructor TValidationResult.Create(Severity: TFhirIssueSeverityEnum; Message: String);
 begin
   inherited create;
   FSeverity := Severity;

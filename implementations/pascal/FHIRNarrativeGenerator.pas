@@ -137,10 +137,10 @@ Type
     context: TValidatorServiceProvider;
     FBasePath: String;
     FTooCostlyNote: String;
-    function describeSystem(system: TFHIRContactPointSystem): String; overload;
+    function describeSystem(system: TFHIRContactPointSystemEnum): String; overload;
     function describeSystem(system: String): String; overload;
-    function displayTimeUnits(units: TFHIRUnitsOfTime): String;
-    function displayEventCode(when: TFHIREventTiming): String;
+    function displayTimeUnits(units: TFHIRUnitsOfTimeEnum): String;
+    function displayEventCode(when: TFHIREventTimingEnum): String;
 
     function displayCodeableConcept(cc: TFHIRCodeableConcept): String;
     function displayIdentifier(ii: TFHIRIdentifier): String;
@@ -202,7 +202,7 @@ Type
     procedure generateByProfile(res: TFHIRResource; profile: TFHIRStructureDefinition; e: TFHIRObject; allElements: TFHIRElementDefinitionList; defn: TFHIRElementDefinition;
       children: TAdvList<TFHIRElementDefinition>; x: TFHIRXhtmlNode; path: String; showCodeDetails: boolean); overload;
     procedure generateByProfile(r: TFHIRDomainResource; profile: TFHIRStructureDefinition; showCodeDetails: boolean); overload;
-    procedure inject(r: TFHIRDomainResource; x: TFHIRXhtmlNode; status: TFhirNarrativeStatus);
+    procedure inject(r: TFHIRDomainResource; x: TFHIRXhtmlNode; status: TFhirNarrativeStatusEnum);
   public
     Constructor create(cc: TValidatorServiceProvider);
     Destructor destroy; override;
@@ -250,7 +250,7 @@ begin
   if (FList = nil) then
   begin
     FList := TAdvList<TBaseWrapper>.create();
-    for b in FWrapped.list do
+    for b in FWrapped.Values do
       if b = nil then
         FList.add(nil)
       else
@@ -708,13 +708,13 @@ begin
                   if (url.startsWith('http://hl7.org/fhir')) then
                     raise Exception.create('unknown extension ' + url);
                   // writeln('unknown extension '+url);
-                  pe := TPropertyWrapperDirect.create(TFHIRProperty.create(p.getOwner(), p.getName() + '[' + url + ']', p.getTypeCode(), TFHIRExtension,
+                    pe := TPropertyWrapperDirect.create(TFHIRProperty.create(p.getOwner(), p.getName() + '[' + url + ']', p.getTypeCode(), true, TFHIRExtension,
                     { p.getDefinition(), p.getMinCardinality(), p.getMaxCardinality(), } ex));
                 end
                 else
                 begin
                   def := ed.snapshot.ElementList[0];
-                  pe := TPropertyWrapperDirect.create(TFHIRProperty.create(p.getOwner(), p.getName() + '[' + url + ']', 'Extension', TFHIRExtension,
+                    pe := TPropertyWrapperDirect.create(TFHIRProperty.create(p.getOwner(), p.getName() + '[' + url + ']', 'Extension', true, TFHIRExtension,
                     { def.getDefinition(), def.getMin(), def.getMax().equals('*') ? Integer.MAX_VALUE : Integer.parseInt(def.getMax()), } ex));
                   // TPropertyWrapperDirect(pe).Fwrapped.Structure := ed;
                 end;
@@ -1252,7 +1252,7 @@ begin
     result := true;
 end;
 
-procedure TFHIRNarrativeGenerator.inject(r: TFHIRDomainResource; x: TFHIRXhtmlNode; status: TFhirNarrativeStatus);
+procedure TFHIRNarrativeGenerator.inject(r: TFHIRDomainResource; x: TFHIRXhtmlNode; status: TFhirNarrativeStatusEnum);
 var
   n: TFHIRXhtmlNode;
 begin
@@ -1717,7 +1717,7 @@ begin
   result := sc;
 end;
 
-function TFHIRNarrativeGenerator.displayEventCode(when: TFHIREventTiming): String;
+function TFHIRNarrativeGenerator.displayEventCode(when: TFHIREventTimingEnum): String;
 begin
   case (when) of
     EventTimingC:
@@ -1753,7 +1753,7 @@ begin
   end;
 end;
 
-function TFHIRNarrativeGenerator.displayTimeUnits(units: TFHIRUnitsOfTime): String;
+function TFHIRNarrativeGenerator.displayTimeUnits(units: TFHIRUnitsOfTimeEnum): String;
 begin
   case units of
     UnitsOfTimeA:
@@ -1871,7 +1871,7 @@ begin
   end;
 end;
 
-function TFHIRNarrativeGenerator.describeSystem(system: TFHIRContactPointSystem): String;
+function TFHIRNarrativeGenerator.describeSystem(system: TFHIRContactPointSystemEnum): String;
 begin
   case (system) of
     ContactPointSystemPhone:

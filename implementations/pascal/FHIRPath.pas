@@ -3,12 +3,15 @@ unit FHIRPath;
 interface
 
 uses
-  SysUtils, Math, RegExpr, Generics.Collections, Character,
-  StringSupport,
+  SysUtils, Classes, Math, RegExpr, Generics.Collections, Character,
+  StringSupport, TextUtilities, SystemSupport,
   AdvObjects, AdvGenerics,
   XmlBuilder,
 
   FHIRBase, FHIRTypes, FHIRResources, FHIRUtilities, FHIRProfileUtilities;
+
+const
+  FHIR_TYPES_STRING : Array of String = ['string', 'uri', 'code', 'oid', 'id', 'uuid', 'sid', 'markdown', 'base64Binary'];
 
 type
   EFHIRPath = class (Exception)
@@ -53,7 +56,6 @@ type
     FCurrentStart : integer;
     FCurrentStartLocation : TSourceLocation;
     FId : integer;
-    function replaceFixedConstant(const s : String) : String;
   public
     constructor Create(path : String); overload;
     destructor Destroy; override;
@@ -99,20 +101,26 @@ type
     property outcome : TFHIRBaseList read Foutcome write Setoutcome;
   end;
 
-  TFHIRPathEvaluator = class;
+  TFHIRExpressionEngine = class;
 
-  TFHIRPathDebugEvent = procedure (source : TFHIRPathEvaluator; package : TFHIRPathDebugPackage) of object;
+  TFHIRPathDebugEvent = procedure (source : TFHIRExpressionEngine; package : TFHIRPathDebugPackage) of object;
 
-  TFHIRPathEvaluator = class (TAdvObject)
+  TFHIRExpressionEngine = class (TAdvObject)
   private
     worker : TValidatorServiceProvider;
     FOndebug : TFHIRPathDebugEvent;
+    FLog : TStringBuilder;
+    procedure log(name, value : String);
     function parseExpression(lexer: TFHIRPathLexer; proximal : boolean): TFHIRExpressionNode;
+    procedure organisePrecedence(lexer : TFHIRPathLexer; var node: TFHIRExpressionNode);
+    procedure gatherPrecedence(lexer : TFHIRPathLexer; var start: TFHIRExpressionNode; ops: TFHIRPathOperationSet);
+    function newGroup(lexer : TFHIRPathLexer; next: TFHIRExpressionNode): TFHIRExpressionNode;
     procedure checkParameters(lexer : TFHIRPathLexer; offset : Integer; exp : TFHIRExpressionNode);
 
     function execute(ctxt : TFHIRPathExecutionContext; focus : TFHIRBaseList; exp : TFHIRExpressionNode; atEntry : boolean) : TFHIRBaseList; overload;
     function execute(ctxt : TFHIRPathExecutionContext; item : TFHIRBase; exp : TFHIRExpressionNode; atEntry : boolean) : TFHIRBaseList; overload;
     procedure debug(ctxt : TFHIRPathExecutionContext; exp : TFHIRExpressionNode; op : boolean; input1, input2, outcome : TFHIRBaseList);
+    function replaceFixedConstant(const s : String) : String;
 
     function evaluateFunction(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
     function preOperate(left : TFHIRBaseList; op : TFHIRPathOperation) : TFHIRBaseList;
@@ -145,6 +153,7 @@ type
     function funcAsInteger(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcLength(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcDistinct(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
+    function funcLog(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcNot(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcResolve(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcContains(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
@@ -153,9 +162,11 @@ type
     function funcSubString(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
     function funcExtension(ctxt : TFHIRPathExecutionContext; context : TFHIRBaseList; exp : TFHIRExpressionNode) : TFHIRBaseList;
 
+    function equals(left, right : TFHIRBase) : boolean;
+
     function opEquals(left, right : TFHIRBaseList) : TFHIRBaseList;
     function opNotEquals(left, right : TFHIRBaseList) : TFHIRBaseList;
-    function opLessThen(left, right : TFHIRBaseList) : TFHIRBaseList;
+    function opLessThan(left, right : TFHIRBaseList) : TFHIRBaseList;
     function opGreater(left, right : TFHIRBaseList) : TFHIRBaseList;
     function opLessOrEqual(left, right : TFHIRBaseList) : TFHIRBaseList;
     function opGreaterOrEqual(left, right : TFHIRBaseList) : TFHIRBaseList;
@@ -171,9 +182,6 @@ type
     function opImplies(left, right : TFHIRBaseList) : TFHIRBaseList;
     function opConcatenate(left, right : TFHIRBaseList) : TFHIRBaseList;
     function areDistinct(a1, a2: array of TFHIRBaseList): boolean;
-    function organisePrecedence(lexer : TFHIRPathLexer; node: TFHIRExpressionNode) : TFHIRExpressionNode;
-    function gatherPrecedence(lexer : TFHIRPathLexer; node: TFHIRExpressionNode; ops: TFHIRPathOperationSet): TFHIRExpressionNode;
-    function newGroup(lexer : TFHIRPathLexer; next: TFHIRExpressionNode): TFHIRExpressionNode;
 
   public
     constructor create(context : TValidatorServiceProvider);
@@ -204,19 +212,25 @@ type
 
     // worker routine for converting a set of objects to a boolean representation
     function convertToBoolean(items : TFHIRBaseList) : boolean;
+
+    function UseLog : String;
   end;
 
   TFHIRPathTests = class (TAdvObject)
   private
-    class procedure test(expr : String);
+    FServices : TValidatorServiceProvider;
+    function FHIRPathTests : String;
+    procedure FHIRPathTest(b : TStringBuilder; s : String);
+    procedure test(expr : String);
   public
-    class procedure runTests;
+    destructor Destroy; override;
+    class function runTests(services : TValidatorServiceProvider) : String;
   end;
 implementation
 
 { TFHIRPathEvaluator }
 
-function TFHIRPathEvaluator.check(appInfo : TAdvObject; resourceType, context, path : String; expr : TFHIRExpressionNode; xPathStartsWithValueRef : boolean) : TAdvStringSet;
+function TFHIRExpressionEngine.check(appInfo : TAdvObject; resourceType, context, path : String; expr : TFHIRExpressionNode; xPathStartsWithValueRef : boolean) : TAdvStringSet;
 var
   types : TAdvStringSet;
   ctxt : TFHIRPathExecutionTypeContext;
@@ -238,7 +252,7 @@ begin
 
 end;
 
-procedure TFHIRPathEvaluator.checkParameters(lexer: TFHIRPathLexer; offset: Integer; exp: TFHIRExpressionNode);
+procedure TFHIRExpressionEngine.checkParameters(lexer: TFHIRPathLexer; offset: Integer; exp: TFHIRExpressionNode);
   procedure CheckNoParams;
   begin
     if exp.Parameters.Count > 0 then
@@ -274,11 +288,12 @@ begin
     pfResolve: CheckNoParams;
     pfContains: CheckParamCount(1);
     pfExtension: CheckParamCount(1);
+    pfLog: CheckParamCount(1);
     pfDistinct: {no chcek};
   end;
 end;
 
-function TFHIRPathEvaluator.convertToBoolean(items: TFHIRBaseList): boolean;
+function TFHIRExpressionEngine.convertToBoolean(items: TFHIRBaseList): boolean;
 begin
   if (items = nil) then
     result := false
@@ -288,7 +303,7 @@ begin
     result := items.count > 0;
 end;
 
-function TFHIRPathEvaluator.convertToString(item: TFHIRBase): String;
+function TFHIRExpressionEngine.convertToString(item: TFHIRBase): String;
 begin
   if item = nil then
     result := ''
@@ -300,13 +315,14 @@ begin
     result := '';
 end;
 
-constructor TFHIRPathEvaluator.create(context: TValidatorServiceProvider);
+constructor TFHIRExpressionEngine.create(context: TValidatorServiceProvider);
 begin
   inherited Create;
   worker := context;
+  FLog := TStringBuilder.Create;
 end;
 
-procedure TFHIRPathEvaluator.debug(ctxt: TFHIRPathExecutionContext; exp: TFHIRExpressionNode; op : boolean; input1, input2, outcome: TFHIRBaseList);
+procedure TFHIRExpressionEngine.debug(ctxt: TFHIRPathExecutionContext; exp: TFHIRExpressionNode; op : boolean; input1, input2, outcome: TFHIRBaseList);
 var
   pack : TFHIRPathDebugPackage;
 begin
@@ -337,13 +353,14 @@ begin
   end;
 end;
 
-destructor TFHIRPathEvaluator.destroy;
+destructor TFHIRExpressionEngine.destroy;
 begin
+  FLog.Free;
   worker.Free;
   inherited;
 end;
 
-function TFHIRPathEvaluator.convertToString(items: TFHIRBaseList): String;
+function TFHIRExpressionEngine.convertToString(items: TFHIRBaseList): String;
 var
   b : TStringBuilder;
   first : boolean;
@@ -366,12 +383,13 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.evaluate(appInfo : TAdvObject; base: TFHIRBase; path: String): TFHIRBaseList;
+function TFHIRExpressionEngine.evaluate(appInfo : TAdvObject; base: TFHIRBase; path: String): TFHIRBaseList;
 var
   exp : TFHIRExpressionNode;
   list : TFHIRBaseList;
   ctxt : TFHIRPathExecutionContext;
 begin
+  FLog.clear;
   exp := parse(path);
   try
     list := TFHIRBaseList.Create(base.Link);
@@ -390,11 +408,12 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.evaluate(appInfo : TAdvObject; base: TFHIRBase; expr : TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.evaluate(appInfo : TAdvObject; base: TFHIRBase; expr : TFHIRExpressionNode): TFHIRBaseList;
 var
   list : TFHIRBaseList;
   ctxt : TFHIRPathExecutionContext;
 begin
+  FLog.clear;
   list := TFHIRBaseList.Create(base.Link);
   try
     ctxt := TFHIRPathExecutionContext.Create(appInfo.Link, nil, base.Link);
@@ -408,12 +427,13 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.evaluate(appInfo : TAdvObject; resource : TFHIRResource; base: TFHIRBase; path: String): TFHIRBaseList;
+function TFHIRExpressionEngine.evaluate(appInfo : TAdvObject; resource : TFHIRResource; base: TFHIRBase; path: String): TFHIRBaseList;
 var
   exp : TFHIRExpressionNode;
   list : TFHIRBaseList;
   ctxt : TFHIRPathExecutionContext;
 begin
+  FLog.clear;
   exp := parse(path);
   try
     list := TFHIRBaseList.Create(base.Link);
@@ -432,11 +452,20 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.evaluate(appInfo : TAdvObject; resource : TFHIRResource; base: TFHIRBase; expr : TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.equals(left, right: TFHIRBase): boolean;
+begin
+  if (left.isPrimitive and right.isPrimitive) then
+    result := left.primitiveValue = right.primitiveValue
+  else
+    result := compareDeep(left, right, false);
+end;
+
+function TFHIRExpressionEngine.evaluate(appInfo : TAdvObject; resource : TFHIRResource; base: TFHIRBase; expr : TFHIRExpressionNode): TFHIRBaseList;
 var
   list : TFHIRBaseList;
   ctxt : TFHIRPathExecutionContext;
 begin
+  FLog.clear;
   list := TFHIRBaseList.Create(base.Link);
   try
     ctxt := TFHIRPathExecutionContext.Create(appInfo.Link, resource.Link, base.Link);
@@ -450,7 +479,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.evaluateToBoolean(appInfo : TAdvObject; resource : TFHIRResource; base: TFHIRBase; path: String): boolean;
+function TFHIRExpressionEngine.evaluateToBoolean(appInfo : TAdvObject; resource : TFHIRResource; base: TFHIRBase; path: String): boolean;
 var
   res : TFHIRBaseList;
 begin
@@ -462,7 +491,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.evaluateToString(appInfo : TAdvObject; base: TFHIRBase; path: String): string;
+function TFHIRExpressionEngine.evaluateToString(appInfo : TAdvObject; base: TFHIRBase; path: String): string;
 var
   res : TFHIRBaseList;
 begin
@@ -474,7 +503,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.execute(ctxt : TFHIRPathExecutionContext; item : TFHIRBase; exp : TFHIRExpressionNode; atEntry : boolean): TFHIRBaseList;
+function TFHIRExpressionEngine.execute(ctxt : TFHIRPathExecutionContext; item : TFHIRBase; exp : TFHIRExpressionNode; atEntry : boolean): TFHIRBaseList;
 begin
   result := TFHIRBaseList.Create;
   try
@@ -495,7 +524,7 @@ begin
   end;
 end;
 
-procedure TFHIRPathEvaluator.ListAllChildren(item : TFHIRBase; results : TFHIRBaseList; recurse : boolean);
+procedure TFHIRExpressionEngine.ListAllChildren(item : TFHIRBase; results : TFHIRBaseList; recurse : boolean);
 var
   pi : TFHIRPropertyIterator;
   b : TFHIRObject;
@@ -508,7 +537,7 @@ begin
     begin
       if pi.Current.hasValue then
       begin
-        for b in pi.Current.List do
+        for b in pi.Current.Values do
         begin
           results.Add(b.Link as TFhirBase);
           if (recurse) then
@@ -522,7 +551,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.executeType(ctxt: TFHIRPathExecutionTypeContext; focus: TAdvStringSet; exp: TFHIRExpressionNode; atEntry : boolean): TAdvStringSet;
+function TFHIRExpressionEngine.executeType(ctxt: TFHIRPathExecutionTypeContext; focus: TAdvStringSet; exp: TFHIRExpressionNode; atEntry : boolean): TAdvStringSet;
 var
   s : String;
   work, work2 : TAdvStringSet;
@@ -611,7 +640,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.funcAll(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcAll(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   item : TFHIRBase;
   pc, res : TFHIRBaseList;
@@ -642,7 +671,7 @@ begin
   result := TFHIRBaseList.Create(TFhirBoolean.Create(all));
 end;
 
-function TFHIRPathEvaluator.funcAny(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcAny(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   item : TFHIRBase;
   pc, res : TFHIRBaseList;
@@ -673,7 +702,7 @@ begin
   result := TFHIRBaseList.Create(TFHIRBoolean.Create(all));
 end;
 
-function TFHIRPathEvaluator.funcAsInteger(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcAsInteger(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   s : String;
 begin
@@ -683,17 +712,40 @@ begin
     result.Add(TFhirInteger.Create(s));
 end;
 
-function TFHIRPathEvaluator.funcContains(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcContains(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+var
+  item : TFHIRBase;
+  pc, res : TFHIRBaseList;
+  s, sw : String;
 begin
-  raise Exception.Create('The function '+exp.name+' is not done yet');
+  result := TFHIRBaseList.Create;
+  try
+    res := execute(ctxt, context, exp.Parameters[0], false);
+    try
+      sw := convertToString(res);
+    finally
+      res.free;
 end;
 
-function TFHIRPathEvaluator.funcCount(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+    for item in context do
+    begin
+      s := convertToString(item);
+      if (s.contains(sw)) then
+        result.Add(item.Link);
+    end;
+
+    result.Link;
+  finally
+    result.Free;
+  end;
+end;
+
+function TFHIRExpressionEngine.funcCount(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 begin
   result := TFHIRBaseList.Create(TFhirInteger.Create(inttostr(context.Count)));
 end;
 
-function TFHIRPathEvaluator.areDistinct(a1, a2 : array of TFHIRBaseList) : boolean;
+function TFHIRExpressionEngine.areDistinct(a1, a2 : array of TFHIRBaseList) : boolean;
 var
   i : integer;
   res : TFHIRBaseList;
@@ -714,7 +766,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.funcDistinct(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcDistinct(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   table : array of array of TFHIRBaseList;
   i, j : integer;
@@ -729,13 +781,14 @@ begin
       SetLength(table[i], exp.Parameters.Count);
       base := context[i];
       for j := 0 to exp.Parameters.Count - 1 do
-        table[i][j] := evaluate(ctxt, base, exp.Parameters[j]);
+        table[i][j] := execute(ctxt, base, exp.Parameters[j], false);
     end;
+    distinct := true;
     for i := 0 to context.Count - 1 do
       for j := i+1 to context.Count - 1 do
-        if areDistinct(table[i], table[j]) then
+        if not areDistinct(table[i], table[j]) then
         begin
-          distinct := true;
+          distinct := false;
           break;
         end;
   finally
@@ -746,19 +799,19 @@ begin
   result := TFHIRBaseList.Create(TFhirBoolean.Create(distinct));
 end;
 
-function TFHIRPathEvaluator.funcEmpty(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcEmpty(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 begin
   result := TFHIRBaseList.Create(TFhirBoolean.Create(context.Count = 0));
 end;
 
-function TFHIRPathEvaluator.funcFirst(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcFirst(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 begin
   result := TFHIRBaseList.Create;
   if context.Count > 0 then
     result.Add(context[0].Link);
 end;
 
-function TFHIRPathEvaluator.funcItem(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcItem(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   s : String;
   res : TFHIRBaseList;
@@ -774,14 +827,14 @@ begin
     result.Add(context[StrToInt(s)].Link);
 end;
 
-function TFHIRPathEvaluator.funcLast(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcLast(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 begin
   result := TFHIRBaseList.Create;
   if context.Count > 0 then
     result.Add(context[context.Count - 1].Link);
 end;
 
-function TFHIRPathEvaluator.funcLength(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcLength(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   item : TFHIRBase;
   pc, res : TFHIRBaseList;
@@ -797,7 +850,23 @@ begin
   result := TFHIRBaseList.Create(TFhirInteger.Create(inttostr(l)));
 end;
 
-function TFHIRPathEvaluator.funcMatches(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcLog(ctxt: TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+var
+  item : TFHIRBase;
+  n1 : TFHIRBaseList;
+  name : String;
+begin
+  n1 := execute(ctxt, context, exp.Parameters[0], false);
+  try
+    name := n1[0].primitiveValue;
+    log(name, convertToString(context));
+    result := context.Link;
+  finally
+    n1.Free;
+  end;
+end;
+
+function TFHIRExpressionEngine.funcMatches(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   item : TFHIRBase;
   pc, res : TFHIRBaseList;
@@ -830,17 +899,17 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.funcNot(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcNot(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 begin
   result := TFHIRBaseList.Create(TFhirBoolean.Create(not convertToBoolean(context)));
 end;
 
-function TFHIRPathEvaluator.funcResolve(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcResolve(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 begin
   raise Exception.Create('The function '+exp.name+' is not done yet');
 end;
 
-function TFHIRPathEvaluator.funcStartsWith(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcStartsWith(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   item : TFHIRBase;
   pc, res : TFHIRBaseList;
@@ -868,7 +937,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.funcSubString(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcSubString(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   item : TFHIRBase;
   pc, res : TFHIRBaseList;
@@ -907,7 +976,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.funcExtension(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcExtension(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   item, ex : TFHIRBase;
   pc, res, vl : TFHIRBaseList;
@@ -949,7 +1018,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.funcTail(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcTail(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
    i : integer;
 begin
@@ -958,7 +1027,7 @@ begin
     result.Add(context[i].Link);
 end;
 
-function TFHIRPathEvaluator.funcWhere(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.funcWhere(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 var
   item : TFHIRBase;
   pc, res : TFHIRBaseList;
@@ -989,7 +1058,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.preOperate(left: TFHIRBaseList; op: TFHIRPathOperation): TFHIRBaseList;
+function TFHIRExpressionEngine.preOperate(left: TFHIRBaseList; op: TFHIRPathOperation): TFHIRBaseList;
 begin
   result := nil;
   case op of
@@ -997,16 +1066,18 @@ begin
         result := TFHIRBaseList.Create(TFHIRBoolean.Create(false));
     poOr: if (convertToBoolean(left)) then
         result := TFHIRBaseList.Create(TFHIRBoolean.Create(true));
+    poImplies: if (not convertToBoolean(left)) then
+        result := TFHIRBaseList.Create(TFHIRBoolean.Create(true));
   end;
 end;
 
-function TFHIRPathEvaluator.operate(left: TFHIRBaseList; op: TFHIRPathOperation; right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.operate(left: TFHIRBaseList; op: TFHIRPathOperation; right: TFHIRBaseList): TFHIRBaseList;
 begin
   case op of
     opNull: raise Exception.create('An internal error has occurred');
     poEquals: result := opEquals(left, right);
     poNotEquals: result := opNotEquals(left, right);
-    poLessThen: result := opLessThen(left, right);
+    poLessThen: result := opLessThan(left, right);
     poGreater: result := opGreater(left, right);
     poLessOrEqual: result := opLessOrEqual(left, right);
     poGreaterOrEqual: result := opGreaterOrEqual(left, right);
@@ -1028,7 +1099,7 @@ begin
 end;
 
 
-function TFHIRPathEvaluator.operateTypes(left: TAdvStringSet; op: TFHIRPathOperation; right: TAdvStringSet): TAdvStringSet;
+function TFHIRExpressionEngine.operateTypes(left: TAdvStringSet; op: TFHIRPathOperation; right: TAdvStringSet): TAdvStringSet;
 begin
   case op of
     poEquals: result := TAdvStringSet.Create('boolean');
@@ -1053,20 +1124,32 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.opAnd(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opAnd(left, right: TFHIRBaseList): TFHIRBaseList;
 begin
   result := TFHIRBaseList.Create;
   result.Add(TFhirBoolean.Create(convertToBoolean(left) and convertToBoolean(right)));
 end;
 
-function TFHIRPathEvaluator.opConcatenate(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opConcatenate(left, right: TFHIRBaseList): TFHIRBaseList;
+var
+  l, r : TFHIRBase;
 begin
-  raise Exception.Create('The operation Multiply is not done yet');
+  result := TFHIRBaseList.create;
+  try
+    if (Left.Count = 1) and (right.count = 1) and (left[0].isPrimitive) and (right[0].isPrimitive) then
+    begin
+      l := left[0] as TFHIRBase;
+      r := right[0] as TFHIRBase;
+      result.Add(TFhirString.Create(l.primitiveValue + r.primitiveValue))
+    end;
+    result.Link;
+  finally
+    result.Free;
+  end;
 end;
 
-function TFHIRPathEvaluator.opEquals(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opEquals(left, right: TFHIRBaseList): TFHIRBaseList;
 var
-  sl, sr : String;
   res : boolean;
   i : integer;
 begin
@@ -1076,7 +1159,7 @@ begin
   begin
     res := true;
     for i := 0 to left.count - 1 do
-      if not compareDeep(left[i], right[i], false) then
+      if not equals(left[i], right[i]) then
       begin
         res := false;
         break;
@@ -1086,14 +1169,15 @@ begin
   result.Add(TFhirBoolean.Create(res));
 end;
 
-function TFHIRPathEvaluator.opEquivalent(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opEquivalent(left, right: TFHIRBaseList): TFHIRBaseList;
 begin
-  raise Exception.Create('The operation Multiply is not done yet');
+  raise Exception.Create('The operation Equivalent is not done yet');
 end;
 
-function TFHIRPathEvaluator.opGreater(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opGreater(left, right: TFHIRBaseList): TFHIRBaseList;
 var
   l, r : TFHIRBase;
+  lUnit, rUnit : TFHIRBaseList;
 begin
   result := TFHIRBaseList.create;
   try
@@ -1101,12 +1185,34 @@ begin
     begin
       l := left[0] as TFHIRBase;
       r := right[0] as TFHIRBase;
-      if (l is TFhirString) and (r is TFhirString) then
+      if (l.hasType(FHIR_TYPES_STRING) and r.hasType(FHIR_TYPES_STRING)) then
         result.Add(TFhirBoolean.Create(l.primitiveValue > r.primitiveValue))
       else if ((l is TFhirInteger) or (l.FhirType = 'decimal')) and ((r is TFhirInteger) or (r.FhirType = 'decimal')) then
         result.Add(TFhirBoolean.Create(StrToFloat(l.primitiveValue) > StrToFloat(r.primitiveValue)))
       else if ((l.FhirType = 'date') or (l.FhirType = 'dateTime') or (l.FhirType = 'instant')) and ((r.FhirType = 'date') or (r.FhirType = 'dateTime') or (r.FhirType = 'instant')) then
         result.Add(TFhirBoolean.Create(l.primitiveValue > r.primitiveValue))
+    end
+    else if (Left.Count = 1) and (right.count = 1) and left[0].hasType('Quantity') and right[0].hasType('Quantity') then
+    begin
+      lUnit := TFHIRBaseList.create;
+      rUnit := TFHIRBaseList.create;
+      try
+			  left[0].ListChildrenByName('unit', lUnit);
+			  right[0].ListChildrenByName('unit', rUnit);
+        if (compareDeep(lUnit, rUnit, true)) then
+        begin
+          lUnit.Clear;
+          rUnit.Clear;
+          left[0].ListChildrenByName('value', lUnit);
+          right[0].ListChildrenByName('value', rUnit);
+          result := opGreater(lUnit, rUnit);
+        end
+        else
+          raise Exception.create('Canonical Comparison isn"t done yet');
+      finally
+        lUnit.Free;
+        rUnit.Free;
+      end;
     end;
     result.Link;
   finally
@@ -1114,9 +1220,10 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.opGreaterOrEqual(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opGreaterOrEqual(left, right: TFHIRBaseList): TFHIRBaseList;
 var
   l, r : TFHIRBase;
+  lUnit, rUnit : TFHIRBaseList;
 begin
   result := TFHIRBaseList.create;
   try
@@ -1124,12 +1231,34 @@ begin
     begin
       l := left[0] as TFHIRBase;
       r := right[0] as TFHIRBase;
-      if (l.FhirType = 'string') and (r.FhirType = 'string') then
+      if (l.hasType(FHIR_TYPES_STRING) and r.hasType(FHIR_TYPES_STRING)) then
         result.Add(TFhirBoolean.Create(l.primitiveValue >= r.primitiveValue))
       else if ((l is TFhirInteger) or (l.FhirType = 'decimal')) and ((r is TFhirInteger) or (r.FhirType = 'decimal')) then
         result.Add(TFhirBoolean.Create(StrToFloat(l.primitiveValue) >= StrToFloat(r.primitiveValue)))
       else if ((l.FhirType = 'date') or (l.FhirType = 'dateTime') or (l.FhirType = 'instant')) and ((r.FhirType = 'date') or (r.FhirType = 'dateTime') or (r.FhirType = 'instant')) then
         result.Add(TFhirBoolean.Create(l.primitiveValue >= r.primitiveValue));
+    end
+    else if (Left.Count = 1) and (right.count = 1) and left[0].hasType('Quantity') and right[0].hasType('Quantity') then
+    begin
+      lUnit := TFHIRBaseList.create;
+      rUnit := TFHIRBaseList.create;
+      try
+			  left[0].ListChildrenByName('unit', lUnit);
+			  right[0].ListChildrenByName('unit', rUnit);
+        if (compareDeep(lUnit, rUnit, true)) then
+        begin
+          lUnit.Clear;
+          rUnit.Clear;
+          left[0].ListChildrenByName('value', lUnit);
+          right[0].ListChildrenByName('value', rUnit);
+          result := opGreaterOrEqual(lUnit, rUnit);
+        end
+        else
+          raise Exception.create('Canonical Comparison isn"t done yet');
+      finally
+        lUnit.Free;
+        rUnit.Free;
+      end;
     end;
     result.Link;
   finally
@@ -1137,7 +1266,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.opIn(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opIn(left, right: TFHIRBaseList): TFHIRBaseList;
 var
   ans, f : boolean;
   l, r : TFHIRBase;
@@ -1147,7 +1276,7 @@ begin
   begin
     f := false;
     for r in right do
-      if compareDeep(l, r, false) then
+      if equals(l, r) then
       begin
         f := true;
         break;
@@ -1162,9 +1291,10 @@ begin
   result.Add(TFhirBoolean.Create(ans));
 end;
 
-function TFHIRPathEvaluator.opLessOrEqual(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opLessOrEqual(left, right: TFHIRBaseList): TFHIRBaseList;
 var
   l, r : TFHIRBase;
+  lUnit, rUnit : TFHIRBaseList;
 begin
   result := TFHIRBaseList.create;
   try
@@ -1172,12 +1302,34 @@ begin
     begin
       l := left[0];
       r := right[0];
-      if (l.FhirType = 'string') and (r.FhirType = 'string') then
+      if (l.hasType(FHIR_TYPES_STRING) and r.hasType(FHIR_TYPES_STRING)) then
         result.Add(TFhirBoolean.Create(l.primitiveValue <= r.primitiveValue))
       else if ((l.FhirType = 'integer') or (l.FhirType = 'decimal')) and ((r.FhirType = 'integer') or (r.FhirType = 'decimal')) then
         result.Add(TFhirBoolean.Create(StrToFloat(l.primitiveValue) <= StrToFloat(r.primitiveValue)))
       else if ((l.FhirType = 'date') or (l.FhirType = 'dateTime') or (l.FhirType = 'instant')) and ((r.FhirType = 'date') or (l.FhirType = 'dateTime') or (r.FhirType = 'instant')) then
         result.Add(TFhirBoolean.Create(l.primitiveValue <= r.primitiveValue))
+    end
+    else if (Left.Count = 1) and (right.count = 1) and left[0].hasType('Quantity') and right[0].hasType('Quantity') then
+    begin
+      lUnit := TFHIRBaseList.create;
+      rUnit := TFHIRBaseList.create;
+      try
+			  left[0].ListChildrenByName('unit', lUnit);
+			  right[0].ListChildrenByName('unit', rUnit);
+        if (compareDeep(lUnit, rUnit, true)) then
+        begin
+          lUnit.Clear;
+          rUnit.Clear;
+          left[0].ListChildrenByName('value', lUnit);
+          right[0].ListChildrenByName('value', rUnit);
+          result := opLessOrEqual(lUnit, rUnit);
+        end
+        else
+          raise Exception.create('Canonical Comparison isn"t done yet (units =  '+lUnit[0].primitiveValue+'/'+rUnit[0].primitiveValue+')');
+      finally
+        lUnit.Free;
+        rUnit.Free;
+      end;
     end;
     result.Link;
   finally
@@ -1185,9 +1337,10 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.opLessThen(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opLessThan(left, right: TFHIRBaseList): TFHIRBaseList;
 var
   l, r : TFHIRBase;
+  lUnit, rUnit : TFHIRBaseList;
 begin
   result := TFHIRBaseList.create;
   try
@@ -1195,12 +1348,34 @@ begin
     begin
       l := left[0] as TFHIRBase;
       r := right[0] as TFHIRBase;
-      if (l.FhirType = 'string') and (r.FhirType = 'string') then
+      if (l.hasType(FHIR_TYPES_STRING) and r.hasType(FHIR_TYPES_STRING)) then
         result.Add(TFhirBoolean.Create(l.primitiveValue < r.primitiveValue))
       else if ((l.FhirType = 'integer') or (l.FhirType = 'decimal')) and ((r.FhirType = 'integer') or (r.FhirType = 'decimal')) then
         result.Add(TFhirBoolean.Create(StrToFloat(l.primitiveValue) < StrToFloat(r.primitiveValue)))
       else if ((l.FhirType = 'date') or (l.FhirType = 'dateTime') or (l.FhirType = 'instant')) and ((r.FhirType = 'date') or (r.FhirType = 'dateTime') or (r.FhirType = 'instant')) then
         result.Add(TFhirBoolean.Create(l.primitiveValue < r.primitiveValue))
+    end
+    else if (Left.Count = 1) and (right.count = 1) and left[0].hasType('Quantity') and right[0].hasType('Quantity') then
+    begin
+      lUnit := TFHIRBaseList.create;
+      rUnit := TFHIRBaseList.create;
+      try
+			  left[0].ListChildrenByName('unit', lUnit);
+			  right[0].ListChildrenByName('unit', rUnit);
+        if (compareDeep(lUnit, rUnit, true)) then
+        begin
+          lUnit.Clear;
+          rUnit.Clear;
+          left[0].ListChildrenByName('value', lUnit);
+          right[0].ListChildrenByName('value', rUnit);
+          result := opLessThan(lUnit, rUnit);
+        end
+        else
+          raise Exception.create('Canonical Comparison isn"t done yet');
+      finally
+        lUnit.Free;
+        rUnit.Free;
+      end;
     end;
     result.Link;
   finally
@@ -1208,40 +1383,44 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.opMinus(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opMinus(left, right: TFHIRBaseList): TFHIRBaseList;
 begin
   raise Exception.Create('The operation Minus is not done yet');
 end;
 
-function TFHIRPathEvaluator.opNotEquals(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opNotEquals(left, right: TFHIRBaseList): TFHIRBaseList;
 var
-  sl, sr : String;
-  found : boolean;
-  item : TFHIRBase;
+  res : boolean;
+  i : integer;
 begin
-  found := false;
-  sr := convertToString(right);
-  for item in left do
+  if left.count <> right.count then
+    res := true
+  else
   begin
-    sl := convertToString(item);
-    found := found or (sl = sr);
+    res := false;
+    for i := 0 to left.count - 1 do
+      if not equals(left[i], right[i]) then
+      begin
+        res := true;
+        break;
+      end;
   end;
   result := TFHIRBaseList.Create;
-  result.Add(TFhirBoolean.Create(not found));
+  result.Add(TFhirBoolean.Create(res));
 end;
 
-function TFHIRPathEvaluator.opNotEquivalent(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opNotEquivalent(left, right: TFHIRBaseList): TFHIRBaseList;
 begin
   raise Exception.Create('The operation Multiply is not done yet');
 end;
 
-function TFHIRPathEvaluator.opOr(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opOr(left, right: TFHIRBaseList): TFHIRBaseList;
 begin
   result := TFHIRBaseList.Create;
   result.Add(TFhirBoolean.Create(convertToBoolean(left) or convertToBoolean(right)));
 end;
 
-function TFHIRPathEvaluator.opPlus(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opPlus(left, right: TFHIRBaseList): TFHIRBaseList;
 var
   l, r : TFHIRBase;
 begin
@@ -1251,7 +1430,7 @@ begin
     begin
       l := left[0] as TFHIRBase;
       r := right[0] as TFHIRBase;
-      if (l.FhirType = 'string') and (r.FhirType = 'string') then
+      if (l.hasType(FHIR_TYPES_STRING) and r.hasType(FHIR_TYPES_STRING)) then
         result.Add(TFhirString.Create(l.primitiveValue + r.primitiveValue))
       else if ((l.FhirType = 'integer') or (l.FhirType = 'decimal')) and ((r.FhirType = 'integer') or (r.FhirType = 'decimal')) then
         if StringIsInteger32(l.primitiveValue) and StringIsInteger32(r.primitiveValue) then
@@ -1265,7 +1444,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.opUnion(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opUnion(left, right: TFHIRBaseList): TFHIRBaseList;
 begin
   result := TFHIRBaseList.create;
   try
@@ -1277,13 +1456,13 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.opXor(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opXor(left, right: TFHIRBaseList): TFHIRBaseList;
 begin
   result := TFHIRBaseList.Create;
   result.Add(TFhirBoolean.Create(convertToBoolean(left) xor convertToBoolean(right)));
 end;
 
-function TFHIRPathEvaluator.opImplies(left, right: TFHIRBaseList): TFHIRBaseList;
+function TFHIRExpressionEngine.opImplies(left, right: TFHIRBaseList): TFHIRBaseList;
 begin
   result := TFHIRBaseList.Create;
   if convertToBoolean(left) then
@@ -1292,7 +1471,7 @@ begin
     result.Add(TFhirBoolean.Create(true));
 end;
 
-function TFHIRPathEvaluator.execute(ctxt : TFHIRPathExecutionContext; focus: TFHIRBaseList; exp: TFHIRExpressionNode; atEntry : boolean): TFHIRBaseList;
+function TFHIRExpressionEngine.execute(ctxt : TFHIRPathExecutionContext; focus: TFHIRBaseList; exp: TFHIRExpressionNode; atEntry : boolean): TFHIRBaseList;
 var
   work, work2 : TFHIRBaseList;
   item, base : TFHIRBase;
@@ -1389,7 +1568,7 @@ end;
   end;
 end;
 
-function TFHIRPathEvaluator.executeType(focus: String; exp: TFHIRExpressionNode; atEntry : boolean): TAdvStringSet;
+function TFHIRExpressionEngine.executeType(focus: String; exp: TFHIRExpressionNode; atEntry : boolean): TAdvStringSet;
 begin
   result := TAdvStringSet.create;
   try
@@ -1407,7 +1586,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.evaluateFunction(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
+function TFHIRExpressionEngine.evaluateFunction(ctxt : TFHIRPathExecutionContext; context: TFHIRBaseList; exp: TFHIRExpressionNode): TFHIRBaseList;
 begin
   case exp.FunctionId of
     pfEmpty : result := funcEmpty(ctxt, context, exp);
@@ -1424,6 +1603,7 @@ begin
     pfLength : result := funcLength(ctxt, context, exp);
     pfMatches : result := funcMatches(ctxt, context, exp);
     pfDistinct : result := funcDistinct(ctxt, context, exp);
+    pfLog : result := funcLog(ctxt, context, exp);
     pfNot : result := funcNot(ctxt, context, exp);
     pfResolve : result := funcResolve(ctxt, context, exp);
     pfContains : result := funcContains(ctxt, context, exp);
@@ -1433,7 +1613,7 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.primitives(collection : TAdvStringSet) : TAdvStringSet;
+function TFHIRExpressionEngine.primitives(collection : TAdvStringSet) : TAdvStringSet;
 var
   s : String;
 begin
@@ -1448,13 +1628,13 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.isPrimitiveType(s : String) : boolean;
+function TFHIRExpressionEngine.isPrimitiveType(s : String) : boolean;
 begin
   result := (s = 'boolean') or (s = 'integer') or (s = 'decimal') or (s = 'base64Binary') or (s = 'instant') or (s = 'string') or (s = 'uri') or (s = 'date') or (s = 'dateTime') or (s = 'time') or (s = 'code') or (s = 'oid') or (s = 'id') or (s = 'unsignedInt') or (s = 'positiveInt') or (s = 'markdown');
 end;
 
 
-function TFHIRPathEvaluator.evaluateFunctionType(ctxt: TFHIRPathExecutionTypeContext; context: TAdvStringSet; exp: TFHIRExpressionNode): TAdvStringSet;
+function TFHIRExpressionEngine.evaluateFunctionType(ctxt: TFHIRPathExecutionTypeContext; context: TAdvStringSet; exp: TFHIRExpressionNode): TAdvStringSet;
 var
   expr : TFHIRExpressionNode;
 begin
@@ -1478,21 +1658,51 @@ begin
     pfContains : result := primitives(context);
     pfSubstring : result := TAdvStringSet.create('integer');
     pfDistinct : result := TAdvStringSet.create('boolean');
+    pfLog : result := context.Link;
     pfNot : result := TAdvStringSet.create('boolean');
     pfResolve : result := TAdvStringSet.create('DomainResource');
   end;
 end;
 
 
-function cleanConstant(s: String; lexer : TFHIRPathLexer) : String;
+procedure checkConstant(s: String; lexer : TFHIRPathLexer);
 var
-  b : TStringBuilder;
   e : boolean;
   i : integer;
   ch : char;
 begin
   if (s.StartsWith('"') and s.EndsWith('"')) then
   begin
+    e := false;
+    for i := 2 to length(s)-1 do
+    begin
+      ch := s[i];
+      if (e) then
+      begin
+        case ch of
+          't': e := false;
+          'r': e := false;
+          'n': e := false;
+          '\': e := false;
+          '''': e := false;
+          '"': e := false;
+        else
+          raise lexer.error('Unknown character escape \\'+ch);
+        end;
+      end
+      else if ch = '\' then
+        e := true;
+    end;
+  end;
+end;
+
+function processConstant(s: String) : String;
+var
+  b : TStringBuilder;
+  e : boolean;
+  i : integer;
+  ch : char;
+begin
     b := TStringBuilder.Create;
     try
       e := false;
@@ -1509,7 +1719,7 @@ begin
             '''': b.Append('''');
             '"': b.Append('"');
           else
-            raise lexer.error('Unknown character escape \\'+ch);
+          raise Exception.create('Unknown character escape \\'+ch);
           end;
         end
         else if ch = '\' then
@@ -1521,13 +1731,10 @@ begin
     finally
       b.Free;
     end;
-  end
-  else
-    result := s;
 end;
 
 
-function TFHIRPathEvaluator.parseExpression(lexer : TFHIRPathLexer; proximal : boolean): TFHIRExpressionNode;
+function TFHIRExpressionEngine.parseExpression(lexer : TFHIRPathLexer; proximal : boolean): TFHIRExpressionNode;
 var
   c : Integer;
   focus : TFHIRExpressionNode;
@@ -1538,7 +1745,8 @@ begin
     c := lexer.CurrentStart;
     if lexer.isConstant then
     begin
-      result.Constant := cleanConstant(lexer.take, lexer);
+      checkConstant(lexer.current, lexer);
+      result.Constant := lexer.take;
       result.kind := entConstant;
       result.SourceLocationEnd := lexer.FCurrentLocation;
     end
@@ -1598,9 +1806,7 @@ begin
         focus.opNext := parseExpression(lexer, false);
         focus := focus.OpNext;
       end;
-      focus := organisePrecedence(lexer, result).Link;
-      result.Free;
-      result := focus;
+      organisePrecedence(lexer, result);
     end;
     result.link;
   finally
@@ -1608,50 +1814,56 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.newGroup(lexer : TFHIRPathLexer; next : TFHIRExpressionNode) : TFHIRExpressionNode;
+function TFHIRExpressionEngine.newGroup(lexer : TFHIRPathLexer; next : TFHIRExpressionNode) : TFHIRExpressionNode;
 begin
   result := TFHIRExpressionNode.Create(lexer.nextId);
   try
     result.kind := entGroup;
     result.Group := next.Link;
+    result.Group.Proximal := true;
     result.link;
   finally
     result.free;
   end;
 end;
 
-function TFHIRPathEvaluator.gatherPrecedence(lexer : TFHIRPathLexer; node : TFHIRExpressionNode; ops : TFHIRPathOperationSet) : TFHIRExpressionNode;
+procedure TFHIRExpressionEngine.gatherPrecedence(lexer : TFHIRPathLexer; var start : TFHIRExpressionNode; ops : TFHIRPathOperationSet);
 var
   work : boolean;
-  focus, group : TFHIRExpressionNode;
+  focus, node, group : TFHIRExpressionNode;
 begin
+  assert(start.Proximal);
+
   // is there anything to do?
   work := false;
-  focus := node.OpNext;
-  if node.Operation in ops then
-    while (focus <> nil) do
+  focus := start.OpNext;
+  if start.Operation in ops then
+    while (focus <> nil) and (focus.operation <> opNull) do
     begin
-      work := work and not (focus.Operation in Ops);
+      work := work or not (focus.Operation in Ops);
       focus := focus.OpNext;
     end
   else
-    while (focus <> nil) do
+    while (focus <> nil) and (focus.operation <> opNull) do
     begin
       work := work or (focus.Operation in Ops);
       focus := focus.OpNext;
     end;
   if not work then
-    exit(node);
+    exit;
+
   // entry point: tricky
-  if node.Operation in ops then
+  if start.Operation in ops then
   begin
-    group := newGroup(lexer, node);
-    result := group;
-    focus := node;
+    group := newGroup(lexer, start);
+    group.proximal := true;
+    focus := start;
+    start.Free;
+    start := group;
   end
   else
   begin
-    result := node;
+    node := start;
     focus := node.OpNext;
     while not (focus.Operation in Ops) do
     begin
@@ -1662,9 +1874,9 @@ begin
     node.OpNext := group;
   end;
 
-  // now, at this point, group is the group we are adding to,
-  // and it already has a .group property filled out. focus points
-  // at the group.group
+  // now, at this point:
+  //   group is the group we are adding to, it already has a .group property filled out.
+  //   focus points at the group.group
   repeat
     // run until we find the end of the sequence
     while (focus.Operation in ops) do
@@ -1674,22 +1886,28 @@ begin
       group.Operation := focus.Operation;
       group.OpNext := focus.OpNext.Link;
       focus.Operation := opNull;
-      group.OpNext := nil;
+      focus.OpNext := nil;
       // now look for another sequence, and start it
       node := group;
       focus := group.OpNext;
-      while not (focus.Operation in Ops) do
+      if (focus <> nil) then
+      begin
+        while (focus <> nil) and not (focus.Operation in Ops) do
       begin
         node := focus;
         focus := focus.OpNext;
       end;
+        if (focus <> nil) { and (focus.Operation in Ops) - must be true } then
+        begin
       group := newGroup(lexer, focus);
       node.OpNext := group;
     end;
-  until (focus.Operation = opNull);
+      end;
+    end;
+  until (focus = nil) or (focus.Operation = opNull);
 end;
 
-function TFHIRPathEvaluator.organisePrecedence(lexer : TFHIRPathLexer; node : TFHIRExpressionNode) : TFHIRExpressionNode;
+procedure TFHIRExpressionEngine.organisePrecedence(lexer : TFHIRPathLexer; var node : TFHIRExpressionNode);
 begin
   // precedence:
   // #1 . (path/function invocation) - this has already been handled by the parsing
@@ -1697,21 +1915,14 @@ begin
   // #3: +, -, &, |
   // #4: =, ~, !=, !~, >, <, >=, <=, in
   // #5: and, xor, or, implies
-  result := node;
-  try
-//  result := gatherPrecedence(result, [opMultiply, opDivide]);
-    result := gatherPrecedence(lexer, result, [poPlus, poMinus, poConcatenate, poUnion]);
-    result := gatherPrecedence(lexer, result, [poEquals, poEquivalent, poNotEquals, poNotEquivalent, poLessThen, poGreater, poLessOrEqual, poGreaterOrEqual, poIn]);
-    result := gatherPrecedence(lexer, result, [poEquals, poEquivalent, poNotEquals, poNotEquivalent, poLessThen, poGreater, poLessOrEqual, poGreaterOrEqual, poIn]);
-    // which just leaves poAnd, poOr, poXor, poImplies
-    result.Link;
-  finally
-    result.Free;
-  end;
+
+//  we don't have these yet    gatherPrecedence(result, [opMultiply, opDivide]);
+  gatherPrecedence(lexer, node, [poPlus, poMinus, poConcatenate, poUnion]);
+  gatherPrecedence(lexer, node, [poEquals, poEquivalent, poNotEquals, poNotEquivalent, poLessThen, poGreater, poLessOrEqual, poGreaterOrEqual, poIn]);
 end;
 
 
-function TFHIRPathEvaluator.readConstant(constant: String): TFHIRType;
+function TFHIRExpressionEngine.readConstant(constant: String): TFHIRType;
 begin
   if (constant = 'true') then
     result := TFhirBoolean.Create(true)
@@ -1721,11 +1932,45 @@ begin
     result := TFhirInteger.Create(constant)
   else if IsNumericString(constant) then
     result := TFhirDecimal.Create(constant)
+  else if constant.StartsWith('"') then
+    result := TFhirString.Create(processConstant(constant))
+  else if constant.StartsWith('%') then
+    result := TFhirString.Create(replaceFixedConstant(constant))
   else
     result := TFhirString.Create(constant);
 end;
 
-function TFHIRPathEvaluator.readConstantType(appInfo : TAdvObject; constant: String): string;
+function TFHIRExpressionEngine.replaceFixedConstant(const s: String): String;
+begin
+  if s = '%sct' then
+    result := '"http://snomed.info/sct"'
+  else if s = '%loinc' then
+    result := '"http://loinc.org"'
+  else if s = '%ucum' then
+    result := '"http://unitsofmeasure.org"'
+  else if s = '%uz-zip' then
+    result := '"[0-9]{5}(-[0-9]{4}){0,1}"'
+  else if s.StartsWith('%vs-') then
+    result := '"http://hl7.org/fhir/ValueSet/'+s.Substring(4)+'"'
+  else if s.StartsWith('%ext-') then
+    result := '"http://hl7.org/fhir/StructureDefinition/'+s.Substring(5)+'"'
+  else
+    raise Exception.create('Unknown fixed constant '+s);
+end;
+
+
+function TFHIRExpressionEngine.UseLog: String;
+begin
+  if (FLog <> nil) and (FLog.Length > 0) then
+  begin
+    result := ' ('+FLog.ToString+')';
+    FLog.Clear;
+  end
+  else
+    result := '';
+end;
+
+function TFHIRExpressionEngine.readConstantType(appInfo : TAdvObject; constant: String): string;
 begin
   if (constant = 'true') then
     result := 'boolean'
@@ -1739,10 +1984,11 @@ begin
     result := 'string';
 end;
 
-function TFHIRPathEvaluator.parse(path: String): TFHIRExpressionNode;
+function TFHIRExpressionEngine.parse(path: String): TFHIRExpressionNode;
 var
   lexer : TFHIRPathLexer;
   focus : TFHIRExpressionNode;
+  msg : String;
 begin
   lexer := TFHIRPathLexer.Create(path);
   try
@@ -1752,6 +1998,9 @@ begin
     try
       if not lexer.done then
         raise lexer.error('Premature expression termination at unexpected token "'+lexer.current+'"');
+      if not result.check(msg, 0) then
+        raise Exception.Create('Error parsing "'+path+'": '+msg);
+
       result.Link;
     finally
       result.free;
@@ -1761,7 +2010,7 @@ begin
   end;
 end;
 
-procedure TFHIRPathEvaluator.ListChildTypesByName(item, name : String; result : TAdvStringSet);
+procedure TFHIRExpressionEngine.ListChildTypesByName(item, name : String; result : TAdvStringSet);
 var
   url, tail, specifiedType, path, tn : String;
   sd, dt, sdi : TFhirStructureDefinition;
@@ -1881,6 +2130,15 @@ begin
   end;
 end;
 
+procedure TFHIRExpressionEngine.log(name, value: String);
+begin
+  if (Flog.length > 0) then
+    Flog.append('; ');
+  Flog.append(name);
+  Flog.append(': ');
+  Flog.append(value);
+end;
+
 function hasType(ed : TFhirElementDefinition; s : String) : boolean;
 var
   t : TFhirElementDefinitionType;
@@ -1891,7 +2149,7 @@ begin
 			exit(true);
 end;
 
-function TFHIRPathEvaluator.getElementDefinition(sd : TFHIRStructureDefinition; path : String; var specifiedType : String) : TFHIRElementDefinition;
+function TFHIRExpressionEngine.getElementDefinition(sd : TFHIRStructureDefinition; path : String; var specifiedType : String) : TFHIRElementDefinition;
 var
   ed, m : TFhirElementDefinition;
 begin
@@ -1920,12 +2178,12 @@ begin
   end;
 end;
 
-function TFHIRPathEvaluator.hasDataType(ed : TFhirElementDefinition) : boolean;
+function TFHIRExpressionEngine.hasDataType(ed : TFhirElementDefinition) : boolean;
 begin
   result := (ed.type_List.Count > 0) and not (ed.type_list[0].code.equals('Element') or ed.type_list[0].code.equals('BackboneElement'));
 end;
 
-function TFHIRPathEvaluator.getElementDefinitionByName(sd : TFHIRStructureDefinition; name : String) : TFHIRElementDefinition;
+function TFHIRExpressionEngine.getElementDefinitionByName(sd : TFHIRStructureDefinition; name : String) : TFHIRElementDefinition;
 var
   ed : TFhirElementDefinition;
 begin
@@ -1993,7 +2251,10 @@ begin
       flast13 := false;
     end
     else
+    begin
       flast13 := false;
+      inc(FCurrentLocation.col);
+    end;
     inc(FCursor);
   end;
   FCurrentStart := FCursor;
@@ -2001,7 +2262,7 @@ begin
   if (FCursor <= FPath.Length) then
   begin
     ch := FPath[FCursor];
-    if charInSet(ch, ['!', '>', '<']) then
+    if charInSet(ch, ['!', '>', '<', ':']) then
     begin
       if (FCursor < FPath.Length) and (FPath[FCursor+1] = '=') then
         Grab(2)
@@ -2011,6 +2272,13 @@ begin
     else if ch = '*' then
     begin
       if (FCursor < FPath.Length) and (FPath[FCursor+1] = '*') then
+        Grab(2)
+      else
+        Grab(1);
+    end
+    else if ch = '-' then
+    begin
+      if (FCursor < FPath.Length) and (FPath[FCursor+1] = '>') then
         Grab(2)
       else
         Grab(1);
@@ -2032,7 +2300,7 @@ begin
       inc(FCursor);
       while (FCursor <= FPath.Length) and CharInSet(FPath[FCursor], ['A'..'Z', 'a'..'z', '0'..'9', ':', '-']) do
         inc(FCursor);
-      FCurrent := replaceFixedConstant(copy(FPath, FCurrentStart, FCursor-FCurrentStart));
+      FCurrent := copy(FPath, FCurrentStart, FCursor-FCurrentStart);
     end
     else if (ch = '$') then
     begin
@@ -2073,24 +2341,6 @@ function TFHIRPathLexer.nextId: integer;
 begin
   inc(FId);
   result := FId;
-end;
-
-function TFHIRPathLexer.replaceFixedConstant(const s: String): String;
-begin
-  if s = '%sct' then
-    result := '"http://snomed.info/sct"'
-  else if s = '%loinc' then
-    result := '"http://loinc.org"'
-  else if s = '%ucum' then
-    result := '"http://unitsofmeasure.org"'
-  else if s = '%uz-zip' then
-    result := '"[0-9]{5}(-[0-9]{4}){0,1}"'
-  else if s.StartsWith('%vs-') then
-    result := '"http://hl7.org/fhir/ValueSet/'+s.Substring(4)+'"'
-  else if s.StartsWith('%ext-') then
-    result := '"http://hl7.org/fhir/StructureDefinition/'+s.Substring(5)+'"'
-  else
-    raise error('Unknown fixed constant '+s);
 end;
 
 function TFHIRPathLexer.done: boolean;
@@ -2146,21 +2396,98 @@ end;
 
 { TFHIRPathTests }
 
-class procedure TFHIRPathTests.runTests;
+destructor TFHIRPathTests.Destroy;
 begin
-//  test('aggregation.empty() or (code = "Reference")');
-//  test('binding.empty() or type.code.empty() or type.any((code = ''code'') or (code = ''Coding'') or (code=''CodeableConcept'') or (code = ''Quantity'') or (code = ''Extension'') or (code = ''string'') or (code = ''uri''))');
-//  test('(low.empty() or ((low.code = "%") and (low.system = %ucum))) and (high.empty() or ((high.code = "%") and (high.system = %ucum)))');
-//  test('kind != ''root'' or uniqueId in (''uuid'' | ''ruid'')');
-  test('reference.startsWith("#").not() or $resource.contained.where(id = $context.reference.substring(1))');
-  test('(name.item(1).family | name.item(2).family).count() < 4');
+  FServices.Free;
+  inherited;
 end;
 
-class procedure TFHIRPathTests.test(expr: String);
+procedure TFHIRPathTests.FHIRPathTest(b : TStringBuilder; s: String);
 var
-  parser : TFHIRPathEvaluator;
+  l, r : String;
+  expr : TFHIRExpressionNode;
+  engine : TFHIRExpressionEngine;
 begin
-  parser := TFHIRPathEvaluator.create(nil);
+  StringSplit(s, ':', l, r);
+  r := r.trim;
+  if (r <> 'n/a') then
+  begin
+    engine := TFHIRExpressionEngine.create(FServices.link);
+    try
+      expr := engine.parse(r);
+      try
+        l := expr.Canonical;
+        if (l.replace(' ', '') <> r.replace(' ', '').replace('''', '"')) then
+        begin
+          b.Append('i: '+r);
+          b.Append(#13#10);
+          b.Append('o: '+l);
+          b.Append(#13#10);
+          b.Append(#13#10);
+        end;
+      finally
+        expr.free;
+      end;
+    finally
+      engine.free;
+    end;
+  end;
+end;
+
+function TFHIRPathTests.FHIRPathTests : String;
+var
+  ts : TStringList;
+  s : String;
+  b : TStringBuilder;
+begin
+  b := TStringBuilder.Create;
+  try
+    try
+      ts := TStringlist.create;
+      try
+        ts.LoadFromFile('C:\work\org.hl7.fhir\build\publish\fhirpaths.txt');
+        for s in ts do
+          FHIRPathTest(b, s);
+      finally
+        ts.Free;
+      end;
+    except
+      on e : Exception do
+      begin
+        b.Append('Exception processing '+s+': '+e.message);
+      end;
+    end;
+  finally
+    result := IncludeTrailingBackslash(SystemTemp)+'fpt-'+FormatDateTime('yyyymmddhhnnss', now)+'.txt';
+    StringToFile(b.ToString, result, TEncoding.UTF8);
+  end;
+end;
+
+class function TFHIRPathTests.runTests(services : TValidatorServiceProvider)  : String;
+var
+  this : TFHIRPathTests;
+begin
+  this := TFHIRPathTests.Create;
+  try
+    this.FServices := services.link;
+
+//  this.test('aggregation.empty() or (code = "Reference")');
+//  this.test('binding.empty() or type.code.empty() or type.any((code = ''code'') or (code = ''Coding'') or (code=''CodeableConcept'') or (code = ''Quantity'') or (code = ''Extension'') or (code = ''string'') or (code = ''uri''))');
+//  this.test('(low.empty() or ((low.code = "%") and (low.system = %ucum))) and (high.empty() or ((high.code = "%") and (high.system = %ucum)))');
+//  this.test('kind != ''root'' or uniqueId in (''uuid'' | ''ruid'')');
+    this.test('reference.startsWith("#").not() or $resource.contained.where(id = $context.reference.substring(1))');
+    this.test('(name.item(1).family | name.item(2).family).count() < 4');
+    result := this.FHIRPathTests;
+  finally
+    this.free;
+  end;
+end;
+
+procedure TFHIRPathTests.test(expr: String);
+var
+  parser : TFHIRExpressionEngine;
+begin
+  parser := TFHIRExpressionEngine.create(nil);
   try
     parser.parse(expr).Free;
   finally

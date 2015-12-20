@@ -153,7 +153,7 @@ Finalization
   Try
     Assert(gLiveMemorySize = 0);
   Except
-    MessageBox(0, PChar(StringFormat('Memory has not been properly released (%d bytes). Please check your usage of Memory Create/Destroy/Resize routines.', [gLiveMemorySize])), 'MemorySupport', MB_OK);
+    // MessageBox(0, PChar(StringFormat('Memory has not been properly released (%d bytes). Please check your usage of Memory Create/Destroy/Resize routines.', [gLiveMemorySize])), 'MemorySupport', MB_OK);
   End;
 
   gActiveMemoryTracking := False;
