@@ -54,7 +54,7 @@ public class SearchParameterDefn {
   private SearchType type;
   private SearchParameter.XPathUsageType xPathUsage;
   private List<String> paths = new ArrayList<String>();
-  private List<String> expressions = new ArrayList<String>();
+  private String expression;
   private List<String> composites = new ArrayList<String>();
   private Set<String> targets = new HashSet<String>();
   private Set<String> manualTargets = new HashSet<String>();
@@ -91,8 +91,12 @@ public class SearchParameterDefn {
     return paths;
   }
 
-  public List<String> getExpressions() {
-    return expressions;
+  public String getExpression() {
+    return expression;
+  }
+
+  public void setExpression(String expression) {
+    this.expression = expression;
   }
 
   public List<String> getComposites() {

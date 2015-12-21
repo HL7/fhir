@@ -44,9 +44,8 @@ public class XPathQueryGenerator {
         }
       } else 
         buildPath(b, path, path[path.length-1]);
-      return b.toString();
     }
-    return null;
+    return b.toString();
   }
 
   private String[] splitPath(String ppath) {

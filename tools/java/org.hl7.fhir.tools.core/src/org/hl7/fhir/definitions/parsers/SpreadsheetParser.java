@@ -952,10 +952,9 @@ public class SpreadsheetParser {
             sp = new SearchParameterDefn(n, d, t, pu);
             sp.getPaths().addAll(pn);
             if (Utilities.noString(sheet.getColumn(row, "Expression")))
-              sp.getExpressions().addAll(pn);
+              sp.setExpression(pipeSeparate(pn));
             else
-              for (String spp : sheet.getColumn(row, "Expression").split("\\^"))
-                sp.getExpressions().add(spp);
+              sp.setExpression(pipeSeparate(sheet.getColumn(row, "Expression").split("\\^")));
             if (!Utilities.noString(sheet.getColumn(row, "Target Types"))) {
               sp.setManualTypes(sheet.getColumn(row, "Target Types").split("\\,"));
             }
@@ -965,6 +964,32 @@ public class SpreadsheetParser {
       }
     }
 	}
+
+	private String pipeSeparate(String[] paths) {
+    StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (String p : paths) {
+      if (first)
+        first = false;
+      else
+        b.append(" | ");
+      b.append(p);
+    }
+    return b.toString();
+  }
+
+  private String pipeSeparate(List<String> paths) {
+	  StringBuilder b = new StringBuilder();
+    boolean first = true;
+    for (String p : paths) {
+      if (first)
+        first = false;
+      else
+        b.append(" | ");
+      b.append(p);
+    }
+    return b.toString();
+  }
 
 	private String trimIndexes(String p) {
     while (p.contains("("))
