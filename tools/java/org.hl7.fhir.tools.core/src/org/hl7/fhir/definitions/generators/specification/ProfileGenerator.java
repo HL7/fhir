@@ -439,7 +439,7 @@ public class ProfileGenerator {
     p.setId(t.getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ t.getName());
     p.setKind(StructureDefinitionKind.DATATYPE);
-    p.setAbstract(t.getName().equals("Element"));
+    p.setAbstract(t.getName().equals("Element") || t.getName().equals("BackboneElement") );
     p.setUserData("filename", t.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+t.getName());
     if (!Utilities.noString(t.typeCode()))
