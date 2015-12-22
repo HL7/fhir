@@ -6,10 +6,6 @@ public class FHIRFormatError extends FHIRException {
 		super();
 	}
 
-	public FHIRFormatError(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-	}
-
 	public FHIRFormatError(String message, Throwable cause) {
 		super(message, cause);
 	}

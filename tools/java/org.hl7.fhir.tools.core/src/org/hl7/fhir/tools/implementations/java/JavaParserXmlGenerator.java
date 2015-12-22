@@ -302,7 +302,7 @@ public class JavaParserXmlGenerator extends JavaBaseGenerator {
 
   private String javaClassName(String name) {
     if (name.equals("List"))
-      return "List_";
+      return "ListResource";
     else 
       return name;
   }

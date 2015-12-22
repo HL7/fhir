@@ -83,6 +83,10 @@ public class JavaValueSetFactoryGenerator extends JavaBaseGenerator {
     write("  }\r\n"); 
     write("\r\n");
 
+    write("    public String toSystem("+tns+" code) {\r\n");
+    write("      return code.getSystem();\r\n");
+    write("      }\r\n"); 
+    
     write("\r\n");
 		write("}\r\n");
 		write("\r\n");

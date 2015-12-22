@@ -206,7 +206,12 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 	      write("      if (code == "+tns+"."+cc+")\r\n        return \""+c.getCode()+"\";\r\n");
     }
     write("      return \"?\";\r\n"); 
+    write("      }\r\n");
+    
+    write("    public String toSystem("+tns+" code) {\r\n");
+    write("      return code.getSystem();\r\n");
     write("      }\r\n"); 
+
     write("    }\r\n"); 
     write("\r\n");
 	}

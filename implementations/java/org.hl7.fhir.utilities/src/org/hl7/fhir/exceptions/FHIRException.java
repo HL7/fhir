@@ -2,12 +2,10 @@ package org.hl7.fhir.exceptions;
 
 public class FHIRException extends Exception {
 
+	// Note that the 4-argument constructor has been removed as it is not JDK6 compatible
+	
 	public FHIRException() {
 		super();
-	}
-
-	public FHIRException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
 	}
 
 	public FHIRException(String message, Throwable cause) {

@@ -6,10 +6,6 @@ public class PathEngineException extends FHIRException {
 		super();
 	}
 
-	public PathEngineException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-	}
-
 	public PathEngineException(String message, Throwable cause) {
 		super(message, cause);
 	}

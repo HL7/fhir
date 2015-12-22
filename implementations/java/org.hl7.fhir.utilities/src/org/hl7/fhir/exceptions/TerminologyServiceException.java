@@ -6,11 +6,6 @@ public class TerminologyServiceException extends FHIRException {
 		super();
 	}
 
-	public TerminologyServiceException(String message, Throwable cause, boolean enableSuppression,
-			boolean writableStackTrace) {
-		super(message, cause, enableSuppression, writableStackTrace);
-	}
-
 	public TerminologyServiceException(String message, Throwable cause) {
 		super(message, cause);
 	}
