@@ -107,11 +107,16 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
             generateMgoModel(name, dirs.get("modelDir"), templateGroup, definitions);
         }
 
+        Map<String, ResourceDefn> baseResources = definitions.getBaseResources();
+        for (String name : baseResources.keySet()) {
+            generateMgoModel(name, dirs.get("modelDir"), templateGroup, definitions);
+        }
+
         Map<String, ResourceDefn> namesAndDefinitions = definitions.getResources();
         generateGoRouting(namesAndDefinitions, dirs.get("serverDir"));
 
         for (Map.Entry<String, ResourceDefn> entry : namesAndDefinitions.entrySet()) {
-            generateMgoModel(entry.getKey(), dirs.get("modelDir"), templateGroup, definitions, "encoding/json");
+            generateMgoModel(entry.getKey(), dirs.get("modelDir"), templateGroup, definitions);
         }
 
         generateGoUtil(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
@@ -142,9 +147,9 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         }
     }
 
-    private void generateMgoModel(String name, String modelDir, STGroup templateGroup, Definitions definitions, String... imports) throws Exception {
+    private void generateMgoModel(String name, String modelDir, STGroup templateGroup, Definitions definitions) throws Exception {
         File modelFile = new File(Utilities.path(modelDir, name.toLowerCase() + ".go"));
-        MgoModel model = new MgoModel(name, definitions, modelFile, templateGroup, imports);
+        MgoModel model = new MgoModel(name, definitions, modelFile, templateGroup);
         model.generate();
     }
 
