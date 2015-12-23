@@ -11,6 +11,7 @@ import (
 	"net/url"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/gorilla/context"
 	"github.com/gorilla/mux"
@@ -206,6 +207,7 @@ func (rc *ResourceController) CreateHandler(rw http.ResponseWriter, r *http.Requ
 	c := Database.C(models.PluralizeLowerResourceName(rc.Name))
 	i := bson.NewObjectId()
 	reflect.ValueOf(resource).Elem().FieldByName("Id").SetString(i.Hex())
+	UpdateLastUpdatedDate(resource)
 	err = c.Insert(resource)
 	if err != nil {
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
@@ -242,6 +244,7 @@ func (rc *ResourceController) UpdateHandler(rw http.ResponseWriter, r *http.Requ
 
 	c := Database.C(models.PluralizeLowerResourceName(rc.Name))
 	reflect.ValueOf(resource).Elem().FieldByName("Id").SetString(id.Hex())
+	UpdateLastUpdatedDate(resource)
 	err = c.Update(bson.M{"_id": id.Hex()}, resource)
 	if err != nil {
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
@@ -290,4 +293,14 @@ func responseURL(r *http.Request, paths ...string) *url.URL {
 	responseURL.Path = fmt.Sprintf("/%s", strings.Join(paths, "/"))
 
 	return &responseURL
+}
+
+func UpdateLastUpdatedDate(resource interface{}) {
+	m := reflect.ValueOf(resource).Elem().FieldByName("Meta")
+	if m.IsNil() {
+		newMeta := &models.Meta{}
+		m.Set(reflect.ValueOf(newMeta))
+	}
+	now := &models.FHIRDateTime{Time: time.Now(), Precision: models.Timestamp}
+	m.Elem().FieldByName("LastUpdated").Set(reflect.ValueOf(now))
 }

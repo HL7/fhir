@@ -57,9 +57,10 @@ func BatchHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc
 			ReferencedID: id.Hex(),
 			External:     new(bool),
 		}
-		// Update the entry with the new FullURL and Id
+		// Update the entry with the new FullURL, Id, and LastUpdated
 		entry.FullUrl = responseURL(r, entry.Request.Url, id.Hex()).String()
 		reflect.ValueOf(entry.Resource).Elem().FieldByName("Id").SetString(id.Hex())
+		UpdateLastUpdatedDate(entry.Resource)
 	}
 	// Update all the references to the entries (to reflect newly assigned IDs)
 	updateAllReferences(entries, refMap)
