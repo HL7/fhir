@@ -774,6 +774,7 @@
   Element = TestScript.setup.action
   Card. = 1..*
   UML = 50;380
+  Type = =SetupAction
   Short Label = A setup operation or assert to perform
   Definition = Action would contain either an operation or an assertion.
   Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
@@ -1116,6 +1117,7 @@
   Element = TestScript.test.action
   Card. = 1..*
   UML = 450;380
+  Type = =TestAction
   Short Label = A test operation or assert to perform
   Definition = Action would contain either an operation or an assertion.
   Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.
@@ -1146,6 +1148,7 @@
   Element = TestScript.teardown.action
   Card. = 1..*
   UML = 200;380
+  Type = =TeardownAction
   Short Label = One or more teardown operations to perform
   Definition = The teardown action will only contain an operation.
   Comments = An action should contain either an operation or an assertion but not both.  It can contain any number of variables.

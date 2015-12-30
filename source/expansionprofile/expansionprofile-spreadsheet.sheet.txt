@@ -127,7 +127,6 @@
   Element = ExpansionProfile.contact
   Card. = 0..*
   Summary = y
-  Type = BackboneElement
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number, etc.
@@ -173,7 +172,6 @@
   Element = ExpansionProfile.codeSystem
   Card. = 0..1
   Summary = y
-  Type = BackboneElement
   Short Label = When the expansion profile imposes code system contraints
   Definition = A set of criteria that provide the constraints imposed on the value set expansion by including or excluding codes from specific code systems (or versions)
 
@@ -181,7 +179,7 @@
   Element = ExpansionProfile.codeSystem.include
   Card. = 0..1
   Summary = y
-  Type = BackboneElement
+  Type = =CodeSystemInclude
   Short Label = Code systems to be included
   Definition = Code systems to be included in value set expansions
 
@@ -189,7 +187,7 @@
   Element = ExpansionProfile.codeSystem.include.codeSystem
   Card. = 1..*
   Summary = y
-  Type = BackboneElement
+  Type = =CodeSystemIncludeCodeSystem
   Short Label = The code systems to be included
   Definition = A data group for each code system to be included
 
@@ -215,7 +213,7 @@
   Element = ExpansionProfile.codeSystem.exclude
   Card. = 0..1
   Summary = y
-  Type = BackboneElement
+  Type = =CodeSystemExclude
   Short Label = Code systems to be excluded
   Definition = Code systems to be excluded from value set expansions
 
@@ -223,7 +221,7 @@
   Element = ExpansionProfile.codeSystem.exclude.codeSystem
   Card. = 1..*
   Summary = y
-  Type = BackboneElement
+  Type = =CodeSystemExcludeCodeSystem
   Short Label = The code systems to be excluded
   Definition = A data group for each code system to be excluded
 
@@ -258,7 +256,6 @@
   Element = ExpansionProfile.designation
   Card. = 0..1
   Summary = y
-  Type = BackboneElement
   Short Label = When the expansion profile imposes designation contraints
   Definition = A set of criteria that provide the constraints imposed on the value set expansion by including or excluding designations
 
@@ -266,7 +263,7 @@
   Element = ExpansionProfile.designation.include
   Card. = 0..1
   Summary = y
-  Type = BackboneElement
+  Type = =DesignationInclude
   Short Label = Designations to be included
   Definition = Designations to be included
 
@@ -274,7 +271,7 @@
   Element = ExpansionProfile.designation.include.designation
   Card. = 0..*
   Summary = y
-  Type = BackboneElement
+  Type = =DesignationIncludeDesignation
   Short Label = The designation to be included
   Definition = A data group for each designation to be included
   Comments = At least one of designation.language or designation.use must be provided for each include.designation element
@@ -303,7 +300,7 @@
   Element = ExpansionProfile.designation.exclude
   Card. = 0..1
   Summary = y
-  Type = BackboneElement
+  Type = =DesignationExclude
   Short Label = Designations to be excluded
   Definition = Designations to be excluded
 
@@ -311,7 +308,7 @@
   Element = ExpansionProfile.designation.exclude.designation
   Card. = 0..*
   Summary = y
-  Type = BackboneElement
+  Type = =DesignationExcludeDesignation
   Short Label = The designation to be excluded
   Definition = A data group for each designation to be excluded
   Comments = At least one of designation.language or designation.use must be provided for each exclude.designation element
