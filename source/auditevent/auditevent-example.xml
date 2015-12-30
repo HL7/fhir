@@ -5,7 +5,7 @@
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Application Start for under service login "Grahame" (id: Grahame's Test HL7Connect)</div>
   </text>
-
+  <event>
     <type>
         <system value="http://nema.org/dicom/dicm"/>
         <code value="110100"/>
@@ -17,9 +17,10 @@
         <display value="Application Start"/>
     </subtype>
     <action value="E"/>
-    <recorded value="2012-10-25T22:04:27+11:00"/>
+    <dateTime value="2012-10-25T22:04:27+11:00"/>
     <outcome value="0"/>
-  <agent>
+  </event>
+  <participant>
     <role>
       <text value="Service User (Logon)"/>
     </role>
@@ -31,7 +32,7 @@
       <address value="127.0.0.1"/>
       <type value="2"/>
     </network>
-  </agent>
+  </participant>
   <source>
     <site value="Development"/>
 	<identifier>
@@ -42,7 +43,7 @@
       <code value="1"/>
     </type>
   </source>
-  <entity>
+  <object>
     <identifier>
       <type>
         <coding>
@@ -69,5 +70,5 @@
 		<display value="Access / Use"/>
 	</lifecycle>
     <name value="Grahame's Laptop"/>
-  </entity>
+  </object>
 </AuditEvent>

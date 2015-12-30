@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
  <id value="example-search"/>
+  <event>
     <type>
         <system value="http://hl7.org/fhir/audit-event-type"/>
         <code value="rest"/>
@@ -12,16 +13,17 @@
         <display value="search"/>
     </subtype>
     <action value="E"/>
-    <recorded value="2015-08-22T23:42:24Z"/>
+    <dateTime value="2015-08-22T23:42:24Z"/>
     <outcome value="0"/>
-  <agent>
+  </event>
+  <participant>
 	<userId>
 		<value value="95"/>
 	</userId>
     <altId value="601847123"/>
     <name value="Grahame Grieve"/>
     <requestor value="true"/>
-  </agent>
+  </participant>
   <source>
     <site value="Cloud"/>
     <identifier>
@@ -33,7 +35,7 @@
       <display value="Web Server"/>
     </type>
   </source>
-  <entity>
+  <object>
   <!-- HTTP GET encoded in base64Binary -->
   <!-- orignal example encoded here is -->
   <!-- "http://fhir-dev.healthintersections.com.au/open/Encounter?participant=13" -->
@@ -48,5 +50,5 @@
 		<display value="Query"/>
 	</role>
     <query value="aHR0cDovL2ZoaXItZGV2LmhlYWx0aGludGVyc2VjdGlvbnMuY29tLmF1L29wZW4vRW5jb3VudGVyP3BhcnRpY2lwYW50PTEz"/>
-  </entity>
+  </object>
 </AuditEvent>

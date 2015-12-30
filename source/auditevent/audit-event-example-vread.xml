@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
  <id value="example-rest"/>
+  <event>
     <type>
         <system value="http://hl7.org/fhir/audit-event-type"/>
         <code value="rest"/>
@@ -12,17 +13,17 @@
         <display value="vread"/>
     </subtype>
     <action value="R"/>
-    <recorded value="2013-06-20T23:42:24Z"/>
+    <dateTime value="2013-06-20T23:42:24Z"/>
     <outcome value="0"/>
-  
-  <agent>
+  </event>
+  <participant>
 	<userId>
 		<value value="95"/>
 	</userId>
     <altId value="601847123"/>
     <name value="Grahame Grieve"/>
     <requestor value="true"/>
-  </agent>
+  </participant>
   <source>
     <site value="Cloud"/>
     <identifier>
@@ -34,7 +35,7 @@
       <display value="Web Server"/>
     </type>
   </source>
-  <entity>
+  <object>
     <reference>
       <reference value="Patient/example/_history/1"/>
     </reference>
@@ -48,5 +49,5 @@
 		<code value="6"/>
 		<display value="Access / Use"/>
 	</lifecycle>
-  </entity>
+  </object>
 </AuditEvent>

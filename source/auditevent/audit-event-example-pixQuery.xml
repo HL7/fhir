@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
  <id value="example-pixQuery"/>
-  
+  <event>
     <type>
         <system value="http://nema.org/dicom/dicm"/>
         <code value="110112"/>
@@ -13,10 +13,10 @@
         <display value="PIX Query"/>
     </subtype>
     <action value="E"/>
-    <recorded value="2015-08-26T23:42:24Z"/>
+    <dateTime value="2015-08-26T23:42:24Z"/>
     <outcome value="0"/>
-
-  <agent>
+  </event>
+  <participant>
   <!-- Source active participant, the software making the PIX query
   UserId - The identity of the Patient Identifier Cross-reference Consumer Actor facility and sending application from the HL7 message; 
   concatenated together, separated by the | character. 
@@ -38,8 +38,8 @@
       <address value="Workstation1.ehr.familyclinic.com"/>
       <type value="1"/>
     </network>	
-  </agent>
-  <agent>
+  </participant>
+  <participant>
   <!--  The Human using the software, if known  -->
 	<userId>
 		<value value="95"/>
@@ -47,13 +47,13 @@
     <altId value="601847123"/>
     <name value="Grahame Grieve"/>
     <requestor value="true"/>
-  </agent>
+  </participant>
   <source>
     <identifier>
 		<value value="hl7connect.healthintersections.com.au"/>
 	</identifier>
   </source>
-  <entity>
+  <object>
   <!--
   The Patient
   -->
@@ -70,8 +70,8 @@
 		<code value="1"/>
 		<display value="Patient"/>
 	</role>
-  </entity>
-  <entity>
+  </object>
+  <object>
   <!-- The PIX Query Parameters -->
     <type>
 		<system value="http://hl7.org/fhir/object-type"/>
@@ -90,5 +90,5 @@
 		<type value="MSH-10"/>
 		<value value="MS4yLjg0MC4xMTQzNTAuMS4xMy4wLjEuNy4xLjE="/>
 	</detail>
-  </entity>
+  </object>
 </AuditEvent>
