@@ -15,14 +15,18 @@
   </target>
   <recorded value="2015-08-27T08:39:24+10:00"/>
   <reason>
+    <coding>
 		<system value="http://hl7.org/fhir/v3/ActReason"/>
 		<code value="TREAT"/>
 		<display value="treatment"/>
+    </coding>
   </reason>
   <activity>
+    <coding>
       <system value="http://hl7.org/fhir/v3/DocumentCompletion"/>
       <code value="AU"/>
       <display value="authenticated"/>
+    </coding>
   </activity>
   
   <!-- signer = Harold Hippocrates -->
@@ -46,7 +50,7 @@
     <type>
 		<system value="http://hl7.org/fhir/valueset-signature-type"/>
 		<code value="1.2.840.10065.1.12.1.5"/>
-		<display value="Verification Signature"/>
+		<display value="Verification"/>
 	</type>
 	<when value="2015-08-27T08:39:24+10:00"/>
     <whoReference>
