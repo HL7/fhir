@@ -396,7 +396,7 @@ func (m *MongoSearcher) createTokenQueryObject(t *TokenParam) bson.M {
 			if !t.AnySystem {
 				criteria["use"] = ci(t.System)
 			}
-		case "code", "boolean", "string":
+		case "code", "boolean", "string", "id":
 			// criteria isn't a bson, so just return the right answer
 			return buildBSON(p.Path, ci(t.Code))
 		}

@@ -39,6 +39,7 @@ import java.io.Writer;
 import java.util.*;
 
 import org.hl7.fhir.definitions.model.*;
+import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.publisher.FolderManager;
@@ -51,6 +52,8 @@ import org.stringtemplate.v4.STGroup;
 import org.stringtemplate.v4.STRawGroupDir;
 
 public class GoGenerator extends BaseGenerator implements PlatformGenerator {
+
+    private static final List<String> UNSUPPORTED_SEARCH_PARAMS = Arrays.asList("_query", "_text", "_content");
 
     @Override
     public String getName() {
@@ -254,56 +257,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         ArrayList<ResourceSearchInfo> searchInfos = new ArrayList<ResourceSearchInfo>(definitions.getResources().size());
         for (ResourceDefn defn: definitions.getResources().values()) {
             ResourceSearchInfo searchInfo = new ResourceSearchInfo(defn.getName());
-            for (SearchParameterDefn p : defn.getSearchParams().values()) {
-                if (p.getPaths().isEmpty() && p.getComposites().isEmpty()) {
-                    System.err.println("No search paths or composites provided for " + defn.getName() + "/" + p.getCode());
-                    continue;
-                }
-
-                SearchParam param = new SearchParam(p.getCode(), p.getType());
-                for (String path: p.getPaths()) {
-                    try {
-                        ElementDefn el = defn.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path", true);
-                        path = enhancePath(definitions, defn, path);
-                        // Add each path and type
-                        for (TypeRef typeRef : el.getTypes()) {
-                            if (el.getTypes().size() > 1) {
-                                // There is a bug (at least I think it is a bug) in Observation that results in a
-                                // fixed path (like "valueDateTime") having multiple types ("Period" and "dateTime").
-                                // The following "if" block fixes that:
-                                if (!path.endsWith("[x]")) {
-                                    if (!path.toLowerCase().contains(typeRef.getName().toLowerCase())) {
-                                        continue;
-                                    }
-                                }
-
-                                if (searchParamTypeSupportsDataType(param.getType(), typeRef.getName())) {
-                                    String fixedPath = path.replace("[x]", Utilities.capitalize(typeRef.getName()));
-                                    param.addPath(new SearchPath(fixedPath, typeRef.getName()));
-                                }
-                            } else {
-                                String fixedPath = path.replace("[x]", "");
-                                param.addPath(new SearchPath(fixedPath, typeRef.getName()));
-                            }
-                        }
-                    } catch (Exception e) {
-                        System.err.println("Couldn't process search parameter " + p.getCode() + " path: " + path);
-                    }
-                }
-                param.sortPaths(); // Sort the path list so that the final result is deterministic
-
-                for (String comp : p.getComposites()) {
-                    param.addComposite(comp);
-                }
-                param.sortComposites();
-
-                for (String target : p.getWorkingTargets()) {
-                    param.addTarget(target);
-                }
-                param.sortTargets();
-
-                searchInfo.addSearchParam(param);
-            }
+            searchInfo.addAllSearchParams(getSearchParameterDefinitions(definitions, defn));
             searchInfo.sortSearchParams(); // Sort the param list so that the final result is deterministic
             searchInfos.add(searchInfo);
         }
@@ -324,6 +278,79 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         controllerWriter.write(utilTemplate.render());
         controllerWriter.flush();
         controllerWriter.close();
+    }
+
+    private List<SearchParam> getSearchParameterDefinitions(Definitions definitions, ResourceDefn resource) {
+        ArrayList<SearchParam> params = new ArrayList<SearchParam>();
+        for (TypeRef ref: resource.getRoot().getTypes()) {
+            if (definitions.getResources().containsKey(ref.getName())) {
+                params.addAll(getSearchParameterDefinitions(definitions, definitions.getResources().get(ref.getName())));
+            } else if (definitions.getBaseResources().containsKey(ref.getName())) {
+                params.addAll(getSearchParameterDefinitions(definitions, definitions.getBaseResources().get(ref.getName())));
+            }
+        }
+        for (SearchParameterDefn p : resource.getSearchParams().values()) {
+            if (p.getPaths().isEmpty() && p.getComposites().isEmpty()) {
+                // We know we don't support _query, _text, or _content, so don't make a big fuss
+                if (! UNSUPPORTED_SEARCH_PARAMS.contains(p.getCode())) {
+                    System.err.println("No search paths or composites provided for " + resource.getName() + "/" + p.getCode());
+                }
+                continue;
+            } else if ("_id".equals(p.getCode()) && ! SearchParameterDefn.SearchType.token.equals(p.getType())) {
+                // FHIR defines a string-based id search too... but it's for the "internal" id that we don't support right now.
+                // It also introduces a notion of multiple param definitions for the same named param -- which we also don't support.
+                // So, only allow the expected "token" form of the "_id" param through.
+                continue;
+            }
+
+            SearchParam param = new SearchParam(p.getCode(), p.getType());
+            for (String path: p.getPaths()) {
+                try {
+                    ElementDefn el = resource.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path", true);
+                    path = enhancePath(definitions, resource, path);
+                    // Special support for id since we store it as _id (TODO: this probably breaks the notion of the "internal" id)
+                    if ("_id".equals(param.getName())) {
+                        path = "_id";
+                    }
+                    // Add each path and type
+                    for (TypeRef typeRef : el.getTypes()) {
+                        if (el.getTypes().size() > 1) {
+                            // There is a bug (at least I think it is a bug) in Observation that results in a
+                            // fixed path (like "valueDateTime") having multiple types ("Period" and "dateTime").
+                            // The following "if" block fixes that:
+                            if (!path.endsWith("[x]")) {
+                                if (!path.toLowerCase().contains(typeRef.getName().toLowerCase())) {
+                                    continue;
+                                }
+                            }
+
+                            if (searchParamTypeSupportsDataType(param.getType(), typeRef.getName())) {
+                                String fixedPath = path.replace("[x]", Utilities.capitalize(typeRef.getName()));
+                                param.addPath(new SearchPath(fixedPath, typeRef.getName()));
+                            }
+                        } else {
+                            String fixedPath = path.replace("[x]", "");
+                            param.addPath(new SearchPath(fixedPath, typeRef.getName()));
+                        }
+                    }
+                } catch (Exception e) {
+                    System.err.println("Couldn't process search parameter " + p.getCode() + " path: " + path);
+                }
+            }
+            param.sortPaths(); // Sort the path list so that the final result is deterministic
+
+            for (String comp : p.getComposites()) {
+                param.addComposite(comp);
+            }
+            param.sortComposites();
+
+            for (String target : p.getWorkingTargets()) {
+                param.addTarget(target);
+            }
+            param.sortTargets();
+            params.add(param);
+        }
+        return params;
     }
 
     private String enhancePath(Definitions definitions, ResourceDefn resource, String path) {
@@ -357,13 +384,6 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         public ResourceSearchInfo(String name) {
             this.name = name;
             this.searchParams = new ArrayList<SearchParam>();
-            addDefaultSearchParams();
-        }
-
-        private void addDefaultSearchParams() {
-            SearchParam param = new SearchParam("_id", SearchParameterDefn.SearchType.string);
-            param.addPath(new SearchPath("_id", "string"));
-            searchParams.add(param);
         }
 
         public String getName() {
@@ -389,6 +409,10 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
 
         public void addSearchParam(SearchParam param) {
             searchParams.add(param);
+        }
+
+        public void addAllSearchParams(Collection<SearchParam> params) {
+            searchParams.addAll(params);
         }
     }
 
