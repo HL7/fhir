@@ -306,6 +306,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       return null;      
     }
       
+    if (class_ == Questionnaire.class)
+      return null;
     throw new Error("not done yet");
   }
 
