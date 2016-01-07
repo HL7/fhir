@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import java.util.*;
 
@@ -1927,7 +1927,7 @@ public class DiagnosticOrder extends DomainResource {
   public static final String SP_ITEMSTATUS = "item-status";
   @SearchParamDefinition(name="event-status", path="DiagnosticOrder.event.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", type="token" )
   public static final String SP_EVENTSTATUS = "event-status";
-  @SearchParamDefinition(name="actor", path="DiagnosticOrder.event.actor|DiagnosticOrder.item.event.actor", description="Who recorded or did this", type="reference" )
+  @SearchParamDefinition(name="actor", path="DiagnosticOrder.event.actor | DiagnosticOrder.item.event.actor", description="Who recorded or did this", type="reference" )
   public static final String SP_ACTOR = "actor";
   @SearchParamDefinition(name="code", path="DiagnosticOrder.item.code", description="Code to indicate the item (test or panel) being ordered", type="token" )
   public static final String SP_CODE = "code";
@@ -1941,15 +1941,15 @@ public class DiagnosticOrder extends DomainResource {
   public static final String SP_BODYSITE = "bodysite";
   @SearchParamDefinition(name="item-date", path="DiagnosticOrder.item.event.dateTime", description="The date at which the event happened", type="date" )
   public static final String SP_ITEMDATE = "item-date";
-  @SearchParamDefinition(name="specimen", path="DiagnosticOrder.specimen|DiagnosticOrder.item.specimen", description="If the whole order relates to specific specimens", type="reference" )
+  @SearchParamDefinition(name="specimen", path="DiagnosticOrder.specimen | DiagnosticOrder.item.specimen", description="If the whole order relates to specific specimens", type="reference" )
   public static final String SP_SPECIMEN = "specimen";
-  @SearchParamDefinition(name="event-status-date", path="", description="A combination of past-status and date", type="composite" )
+  @SearchParamDefinition(name="event-status-date", path="null", description="A combination of past-status and date", type="composite" )
   public static final String SP_EVENTSTATUSDATE = "event-status-date";
   @SearchParamDefinition(name="event-date", path="DiagnosticOrder.event.dateTime", description="The date at which the event happened", type="date" )
   public static final String SP_EVENTDATE = "event-date";
   @SearchParamDefinition(name="identifier", path="DiagnosticOrder.identifier", description="Identifiers assigned to this order", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="item-status-date", path="", description="A combination of item-past-status and item-date", type="composite" )
+  @SearchParamDefinition(name="item-status-date", path="null", description="A combination of item-past-status and item-date", type="composite" )
   public static final String SP_ITEMSTATUSDATE = "item-status-date";
 
 }

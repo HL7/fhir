@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import java.util.*;
 
@@ -2585,7 +2585,7 @@ public class Observation extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="component-value-quantity", path="Observation.component.valueQuantity", description="The value of the component observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
   public static final String SP_COMPONENTVALUEQUANTITY = "component-value-quantity";
-  @SearchParamDefinition(name="related", path="", description="Related Observations - search on related-type and related-target together", type="composite" )
+  @SearchParamDefinition(name="related", path="null", description="Related Observations - search on related-type and related-target together", type="composite" )
   public static final String SP_RELATED = "related";
   @SearchParamDefinition(name="patient", path="Observation.subject", description="The subject that the observation is about (if patient)", type="reference" )
   public static final String SP_PATIENT = "patient";
@@ -2593,11 +2593,11 @@ public class Observation extends DomainResource {
   public static final String SP_SPECIMEN = "specimen";
   @SearchParamDefinition(name="component-value-concept", path="Observation.component.valueCodeableConcept", description="The value of the component observation, if the value is a CodeableConcept", type="token" )
   public static final String SP_COMPONENTVALUECONCEPT = "component-value-concept";
-  @SearchParamDefinition(name="component-code-value-[x]", path="", description="Both component code and one of the component value parameters", type="composite" )
+  @SearchParamDefinition(name="component-code-value-[x]", path="null", description="Both component code and one of the component value parameters", type="composite" )
   public static final String SP_COMPONENTCODEVALUEX = "component-code-value-[x]";
   @SearchParamDefinition(name="value-quantity", path="Observation.valueQuantity", description="The value of the observation, if the value is a Quantity, or a SampledData (just search on the bounds of the values in sampled data)", type="quantity" )
   public static final String SP_VALUEQUANTITY = "value-quantity";
-  @SearchParamDefinition(name="value-date", path="Observation.valueDateTime|Observation.valuePeriod", description="The value of the observation, if the value is a date or period of time", type="date" )
+  @SearchParamDefinition(name="value-date", path="Observation.valueDateTime | Observation.valuePeriod", description="The value of the observation, if the value is a date or period of time", type="date" )
   public static final String SP_VALUEDATE = "value-date";
   @SearchParamDefinition(name="value-string", path="Observation.valueString", description="The value of the observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
   public static final String SP_VALUESTRING = "value-string";
@@ -2625,7 +2625,7 @@ public class Observation extends DomainResource {
   public static final String SP_PERFORMER = "performer";
   @SearchParamDefinition(name="identifier", path="Observation.identifier", description="The unique id for a particular observation", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
-  @SearchParamDefinition(name="code-value-[x]", path="", description="Both code and one of the value parameters", type="composite" )
+  @SearchParamDefinition(name="code-value-[x]", path="null", description="Both code and one of the value parameters", type="composite" )
   public static final String SP_CODEVALUEX = "code-value-[x]";
   @SearchParamDefinition(name="component-value-string", path="Observation.component.valueString", description="The value of the component observation, if the value is a string, and also searches in CodeableConcept.text", type="string" )
   public static final String SP_COMPONENTVALUESTRING = "component-value-string";

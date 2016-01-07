@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import java.util.*;
 
@@ -2263,7 +2263,7 @@ public class Sequence extends DomainResource {
   public static final String SP_SPECIES = "species";
   @SearchParamDefinition(name="variationid", path="Sequence.variationID", description="Identifier for variant", type="token" )
   public static final String SP_VARIATIONID = "variationid";
-  @SearchParamDefinition(name="coordinate", path="", description="Genomic coordinate of the sequence. For example, a search for sequence in region 1:123-345 can be represented as `coordinate=1$lt345$gt123`", type="composite" )
+  @SearchParamDefinition(name="coordinate", path="null", description="Genomic coordinate of the sequence. For example, a search for sequence in region 1:123-345 can be represented as `coordinate=1$lt345$gt123`", type="composite" )
   public static final String SP_COORDINATE = "coordinate";
   @SearchParamDefinition(name="start", path="Sequence.coordinate.start", description="Start position (0-based inclusive) of the sequence", type="number" )
   public static final String SP_START = "start";

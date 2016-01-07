@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import java.util.*;
 
@@ -1160,7 +1160,7 @@ public class DocumentManifest extends DomainResource {
   public static final String SP_CREATED = "created";
   @SearchParamDefinition(name="description", path="DocumentManifest.description", description="Human-readable description (title)", type="string" )
   public static final String SP_DESCRIPTION = "description";
-  @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier|DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
+  @SearchParamDefinition(name="identifier", path="DocumentManifest.masterIdentifier | DocumentManifest.identifier", description="Unique Identifier for the set of documents", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 
 }

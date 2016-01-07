@@ -39,6 +39,7 @@ import org.hl7.fhir.dstu21.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu21.model.Parameters.ParametersParameterComponent;
+import org.hl7.fhir.dstu21.model.Questionnaire;
 import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionDesignationComponent;
@@ -71,6 +72,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
 	// all maps are to the full URI
 	private Map<String, StructureDefinition> structures = new HashMap<String, StructureDefinition>();
+	private Questionnaire questionnaire;
 
 	// -- Initializations
 	/**
@@ -241,6 +243,9 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends Resource> T fetchResource(Class<T> class_, String uri) {
+	  if (class_ == Questionnaire.class)
+	    return (T) questionnaire;
+	  
 		if (class_ == StructureDefinition.class && !uri.contains("/"))
 			uri = "http://hl7.org/fhir/StructureDefinition/"+uri;
 
@@ -333,6 +338,14 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   @Override
   public String getLinkForProfile(StructureDefinition profile, String url) {
     return null;
+  }
+
+  public Questionnaire getQuestionnaire() {
+    return questionnaire;
+  }
+
+  public void setQuestionnaire(Questionnaire questionnaire) {
+    this.questionnaire = questionnaire;
   }
 
 

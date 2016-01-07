@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import java.util.*;
 
@@ -2188,11 +2188,11 @@ public class DocumentReference extends DomainResource {
   public static final String SP_PERIOD = "period";
   @SearchParamDefinition(name="authenticator", path="DocumentReference.authenticator", description="Who/what authenticated the document", type="reference" )
   public static final String SP_AUTHENTICATOR = "authenticator";
-  @SearchParamDefinition(name="relationship", path="", description="Combination of relation and relatesTo", type="composite" )
+  @SearchParamDefinition(name="relationship", path="null", description="Combination of relation and relatesTo", type="composite" )
   public static final String SP_RELATIONSHIP = "relationship";
   @SearchParamDefinition(name="language", path="DocumentReference.content.attachment.language", description="Human language of the content (BCP-47)", type="token" )
   public static final String SP_LANGUAGE = "language";
-  @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier|DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
+  @SearchParamDefinition(name="identifier", path="DocumentReference.masterIdentifier | DocumentReference.identifier", description="Master Version Specific Identifier", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
 
 }

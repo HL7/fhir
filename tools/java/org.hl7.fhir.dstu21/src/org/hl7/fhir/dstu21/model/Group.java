@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import java.util.*;
 
@@ -1276,7 +1276,7 @@ public class Group extends DomainResource {
 
   @SearchParamDefinition(name="member", path="Group.member.entity", description="Reference to the group member", type="reference" )
   public static final String SP_MEMBER = "member";
-  @SearchParamDefinition(name="characteristic-value", path="", description="A composite of both characteristic and value", type="composite" )
+  @SearchParamDefinition(name="characteristic-value", path="null", description="A composite of both characteristic and value", type="composite" )
   public static final String SP_CHARACTERISTICVALUE = "characteristic-value";
   @SearchParamDefinition(name="value", path="Group.characteristic.value[x]", description="Value held by characteristic", type="token" )
   public static final String SP_VALUE = "value";

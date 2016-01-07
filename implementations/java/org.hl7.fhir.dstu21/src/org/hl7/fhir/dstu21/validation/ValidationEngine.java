@@ -75,6 +75,7 @@ import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu21.model.Questionnaire;
 import org.hl7.fhir.dstu21.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu21.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu21.utils.SimpleWorkerContext;
@@ -105,6 +106,7 @@ public class ValidationEngine {
   private OperationOutcome outcome;
 	private boolean noSchematron;
 	private StructureDefinition profile;
+	private Questionnaire questionnaire;
 	private String profileURI;
 	private SimpleWorkerContext context;
 	private Schema schema;
@@ -193,6 +195,8 @@ public class ValidationEngine {
 
 		if (cache != null)
 		  context.setCache(cache);
+    context.setQuestionnaire(questionnaire);
+
 		InstanceValidator validator = new InstanceValidator(context);
 		validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
 		validator.getExtensionDomains().addAll(extensionDomains);
@@ -340,6 +344,14 @@ public class ValidationEngine {
     this.profile = profile;
   }
 
+  public Questionnaire getQuestionnaire() {
+    return questionnaire;
+  }
+
+  public void setQuestionnaire(Questionnaire questionnaire) {
+    this.questionnaire = questionnaire;
+  }
+
   public void init() throws SAXException, IOException, FHIRException {
 		context = SimpleWorkerContext.fromDefinitions(definitions);    
 		schema = readSchema();
@@ -427,7 +439,17 @@ public class ValidationEngine {
 			if (getContext().hasResource(StructureDefinition.class, profile))
 				setProfile(getContext().fetchResource(StructureDefinition.class, profile));
 			else
-				setProfile(readProfile(loadProfileCnt(profile)));
+				setProfile(readProfile(loadResourceCnt(profile, "profile")));
+		}
+	}
+
+  public void loadQuestionnaire(String questionnaire) throws DefinitionException, Exception {
+    if (!Utilities.noString(questionnaire)) { 
+      System.out.println("  .. load questionnaire "+questionnaire);
+      if (getContext().hasResource(Questionnaire.class, questionnaire))
+        setQuestionnaire(getContext().fetchResource(Questionnaire.class, questionnaire));
+      else
+        setQuestionnaire(readQuestionnaire(loadResourceCnt(questionnaire, "questionnaire")));
 		}
 	}
 
@@ -436,7 +458,12 @@ public class ValidationEngine {
 		return (StructureDefinition) xml.parse(new ByteArrayInputStream(content));
 	}
 
-	private byte[] loadProfileCnt(String profile) throws DefinitionException, IOException {
+  private Questionnaire readQuestionnaire(byte[] content) throws Exception {
+    IParser xml = context.newXmlParser();
+    return (Questionnaire) xml.parse(new ByteArrayInputStream(content));
+  }
+
+	private byte[] loadResourceCnt(String profile, String paramName) throws DefinitionException, IOException {
 		if (Utilities.noString(profile)) {
 			return null;
 		} else if (profile.startsWith("https:") || profile.startsWith("http:")) {
@@ -444,7 +471,7 @@ public class ValidationEngine {
 		} else if (new File(profile).exists()) {
 			return loadFromFile(profile);      
 		} else
-			throw new DefinitionException("Unable to find named profile (source = "+profile+")");
+			throw new DefinitionException("Unable to find named "+paramName+" (source = "+profile+")");
 	}
 
 	public void reset() {

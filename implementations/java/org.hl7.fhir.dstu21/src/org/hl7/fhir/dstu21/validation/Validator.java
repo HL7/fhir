@@ -73,7 +73,7 @@ public class Validator {
       System.out.println("");
       System.out.println("JSON is not supported at this time");
       System.out.println("");
-      System.out.println("Usage: org.hl7.fhir.validator.jar [source] (-defn [definitions]) (-folder [name])  (-profile [profile]) (-output [output]) (-tsserver [server])  (-noxslt) where: ");
+      System.out.println("Usage: org.hl7.fhir.validator.jar [source] (-defn [definitions]) (-folder [name])  (-profile [profile]) (-questionnaire [questionnaire]) (-output [output]) (-tsserver [server])  (-noxslt) where: ");
       System.out.println("* [source] is a file name or url of the resource or bundle feed to validate");
       System.out.println("* [definitions] is the file name or url of the validation pack (validation.zip). Default: get it from inside the jar file");
       System.out.println("* [folder] is the name of a folder containing additional structure definitions. No default value");
@@ -81,6 +81,8 @@ public class Validator {
       System.out.println("* [profile] is an optional filename or URL for a specific profile to validate a resource");
       System.out.println("    against. In the absence of this parameter, the resource will be checked against the ");
       System.out.println("    base specification using the definitions.");
+      System.out.println("* [questionnaire] is an optional filename or URL for a specific questionnaire to validate a ");
+      System.out.println("    QuestionnaireResponse against, if it is nominated in the response");
       System.out.println("* [output] is a filename for the results (OperationOutcome). Default: results are sent to the std out.");
       System.out.println("* -noxslt means not to run the schematrons (you really need to run these, but they need xslt2).");
       System.out.println("");
@@ -110,6 +112,8 @@ public class Validator {
             output = args[i+1];
           if (args[i].equals("-profile"))
             exe.setProfile(args[i+1]);
+          if (args[i].equals("-questionnaire"))
+            exe.setQuestionnaire(args[i+1]);
           if (args[i].equals("-txserver"))
             exe.setTsServer(args[i+1]);
           if (args[i].equals("-folder"))
@@ -155,6 +159,10 @@ public class Validator {
 	private void setProfile(String profile) {
 	  this.profile = profile;
   }
+
+  private void setQuestionnaire(String questionnaire) {
+    this.questionnaire = questionnaire;
+  }
 	private List<ValidationMessage> outputs() {
     return engine.getOutputs();
   }
@@ -178,6 +186,8 @@ public class Validator {
    */
   private String profile;
 
+  private String questionnaire;
+
   /**
    * The name of the resource/feed to validate. this can be the actual source as json or xml, a file name, a zip file, 
    * or a url. If the source identifies a collection of resources and/or feeds, they
@@ -194,6 +204,7 @@ public class Validator {
       engine.loadFromFolder(folder);
     engine.connectToTSServer(txServer == null ? "http://fhir2.healthintersections.com.au/open" : txServer);
     engine.loadProfile(profile);
+    engine.loadQuestionnaire(questionnaire);
     engine.setSource(loadSource());
     engine.process();
   }

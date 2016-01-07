@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import java.util.*;
 
@@ -2128,7 +2128,7 @@ public class AllergyIntolerance extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="reporter", path="AllergyIntolerance.reporter", description="Source of the information about the allergy", type="reference" )
   public static final String SP_REPORTER = "reporter";
-  @SearchParamDefinition(name="substance", path="AllergyIntolerance.substance|AllergyIntolerance.reaction.substance", description="Substance, (or class) considered to be responsible for risk", type="token" )
+  @SearchParamDefinition(name="substance", path="AllergyIntolerance.substance | AllergyIntolerance.reaction.substance", description="Substance, (or class) considered to be responsible for risk", type="token" )
   public static final String SP_SUBSTANCE = "substance";
   @SearchParamDefinition(name="criticality", path="AllergyIntolerance.criticality", description="CRITL | CRITH | CRITU", type="token" )
   public static final String SP_CRITICALITY = "criticality";

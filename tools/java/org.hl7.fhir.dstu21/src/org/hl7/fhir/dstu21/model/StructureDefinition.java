@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import java.util.*;
 
@@ -2634,7 +2634,7 @@ public class StructureDefinition extends DomainResource {
   public static final String SP_VERSION = "version";
   @SearchParamDefinition(name="publisher", path="StructureDefinition.publisher", description="Name of the publisher of the profile", type="string" )
   public static final String SP_PUBLISHER = "publisher";
-  @SearchParamDefinition(name="base-path", path="StructureDefinition.snapshot.element.base.path|StructureDefinition.differential.element.base.path", description="Path that identifies the base element", type="token" )
+  @SearchParamDefinition(name="base-path", path="StructureDefinition.snapshot.element.base.path | StructureDefinition.differential.element.base.path", description="Path that identifies the base element", type="token" )
   public static final String SP_BASEPATH = "base-path";
   @SearchParamDefinition(name="valueset", path="StructureDefinition.snapshot.element.binding.valueSet[x]", description="A vocabulary binding reference", type="reference" )
   public static final String SP_VALUESET = "valueset";
@@ -2648,7 +2648,7 @@ public class StructureDefinition extends DomainResource {
   public static final String SP_BASE = "base";
   @SearchParamDefinition(name="context", path="StructureDefinition.useContext", description="A use context assigned to the structure", type="token" )
   public static final String SP_CONTEXT = "context";
-  @SearchParamDefinition(name="path", path="StructureDefinition.snapshot.element.path|StructureDefinition.differential.element.path", description="A path that is constrained in the profile", type="token" )
+  @SearchParamDefinition(name="path", path="StructureDefinition.snapshot.element.path | StructureDefinition.differential.element.path", description="A path that is constrained in the profile", type="token" )
   public static final String SP_PATH = "path";
   @SearchParamDefinition(name="identifier", path="StructureDefinition.identifier", description="The identifier of the profile", type="token" )
   public static final String SP_IDENTIFIER = "identifier";

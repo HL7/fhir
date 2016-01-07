@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.formats;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import org.hl7.fhir.dstu21.model.MarkdownType;
 import org.hl7.fhir.dstu21.model.IntegerType;

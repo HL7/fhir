@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import java.util.*;
 
@@ -3140,7 +3140,7 @@ public class CarePlan extends DomainResource {
   public static final String SP_DATE = "date";
   @SearchParamDefinition(name="goal", path="CarePlan.goal", description="Desired outcome of plan", type="reference" )
   public static final String SP_GOAL = "goal";
-  @SearchParamDefinition(name="related", path="", description="A combination of the type of relationship and the related plan", type="composite" )
+  @SearchParamDefinition(name="related", path="null", description="A combination of the type of relationship and the related plan", type="composite" )
   public static final String SP_RELATED = "related";
   @SearchParamDefinition(name="relatedcode", path="CarePlan.relatedPlan.code", description="includes | replaces | fulfills", type="token" )
   public static final String SP_RELATEDCODE = "relatedcode";

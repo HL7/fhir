@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Fri, Dec 11, 2015 14:40+1100 for FHIR v1.2.0
+// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
 
 import java.util.*;
 
@@ -3098,7 +3098,7 @@ public class AuditEvent extends DomainResource {
   public static final String SP_REFERENCE = "reference";
   @SearchParamDefinition(name="identity", path="AuditEvent.object.identifier", description="Specific instance of object (e.g. versioned)", type="token" )
   public static final String SP_IDENTITY = "identity";
-  @SearchParamDefinition(name="patient", path="AuditEvent.participant.reference|AuditEvent.object.reference", description="Direct reference to resource", type="reference" )
+  @SearchParamDefinition(name="patient", path="AuditEvent.participant.reference | AuditEvent.object.reference", description="Direct reference to resource", type="reference" )
   public static final String SP_PATIENT = "patient";
   @SearchParamDefinition(name="altid", path="AuditEvent.participant.altId", description="Alternative User id e.g. authentication", type="token" )
   public static final String SP_ALTID = "altid";
