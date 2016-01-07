@@ -13,7 +13,7 @@
             <xd:p></xd:p>
             <xd:p>Call: java -jar ../../tools/java/imports/Saxon-HE-9.5.1-5.jar -s:source_nl.xml -xsl:propagate.xsl -o:source_nl_prop.xml</xd:p>
             <xd:p>Check missing item translations:</xd:p>
-            <xd:p>//*:table[not(@id=('0070','0033','0133','0141','0147','0153','0203','0258','0281','0317'))]/*:version[not(contains(@version,' '))]/*:item[not(@desc='')][not(*)]</xd:p>
+            <xd:p>//*:version[not(contains(@version,' '))]/*:item[not(@desc='')][not(*)]</xd:p>
         </xd:desc>
     </xd:doc>
     
@@ -62,7 +62,7 @@
     
     <xsl:template match="f:item">
         <xsl:param name="version"/>
-        <xsl:variable name="code" select="lower-case(@code)"/>
+        <xsl:variable name="code" select="@code"/>
         <xsl:variable name="desc" select="lower-case(@desc)"/>
         <xsl:variable name="comment" select="@comment"/>
         <xsl:copy>
@@ -75,24 +75,10 @@
                 <xsl:otherwise>
                     <xsl:choose>
                         <xsl:when test="@comments">
-                            <xsl:copy-of select="(ancestor::f:table/f:version/f:item[lower-case(@code) = $code][lower-case(@desc) = $desc][@comments]/f:desc)[last()]"/>
+                            <xsl:copy-of select="(ancestor::f:table/f:version/f:item[@code = $code][lower-case(@desc) = $desc][@comments]/f:desc)[last()]"/>
                         </xsl:when>
                         <xsl:otherwise>
-                            <xsl:variable name="t" select="(ancestor::f:table/f:version/f:item[lower-case(@code) = $code][lower-case(@desc) = $desc][not(@comments)]/f:desc)[last()]"/>
-                            <xsl:choose>
-                                <xsl:when test="$t">
-                                    <xsl:copy-of select="$t"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:variable name="t" select="(ancestor::f:table/f:version/f:item[lower-case(@code) = $code][lower-case(@desc) = $desc][@comments='*']/f:desc)[last()]"/>
-                                    <xsl:if test="$t">
-                                        <desc xmlns="http://hl7.org/fhir/dev">
-                                            <xsl:copy-of select="$t/(@* except @comments)"/>
-                                            <xsl:copy-of select="$t/*"/>
-                                        </desc>
-                                    </xsl:if>
-                                </xsl:otherwise>
-                            </xsl:choose>
+                            <xsl:copy-of select="(ancestor::f:table/f:version/f:item[@code = $code][lower-case(@desc) = $desc][not(@comments)]/f:desc)[last()]"/>
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:otherwise>
