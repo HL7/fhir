@@ -1,30 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
-1. We can have specific data elements such as "gender of family member" and "birth date of family member" - how do we ensure during pre-population that the date of birth populated corresponds to the same family member as the gender?
-2. The last group is shown horizontally and some groups aren't rendered at all - is this something we need to make explicit in the FHIR profiles?
-3. We don't have a way to identify a particular field as "calculated" or to convey what the calculation is
-4. LOINC's notion of "Related Names" seem more like "keywords" than "aliass".  Do we need a capability for those as well?
-5. LOINC FSN is probably best handled as a set of extensions.  It's highly LOINC-specific and you'd ideally want each axis captured separately to allow validation and searching.  If you wanted, you could also send it as an alternate name for registry use.
-6. Because I didn't bother including the LOINC Axis, I didn't include the translations either, though there are extensions that would make it straight-forward to do so.
-7. "Member of Panels" is something that would be determined by query, though at present we haven't exposed a search criteria to allow searching for questionnaires by data elements it references.  Is that something we'd need?
-8. I wasn't sure whether to handle the HL7 v2 Data Type as a mapping or an extension.  It's not really a mapping, so I landed on "custom extension".
-9. Common Lab Results Ranks and Order vs. Obs. are extensions too
-10. Units are given as example units rather than full list of allowed units, and mix UCUM and other, which we can't do in a value set.  Example units would need to be an extension too.
-11. Not sure how Cardinality can exist as an intrinsic property of a data element, as that would require context.  Is it something that's needed, and if so, what meaning does it have?
-12. LOINC doesn't actually have "definitions" for its codes - everything is driven from the formal properties and names, much as it is for SNOMED.  Should we drop definition as 1..1 and make it 0..1?
+This represents an implementation of the "US Surgeon General family health portrait" form found at https://lforms-demo.nlm.nih.gov
+It also contains data elements based on the data elements found in the LOINC specification
 -->
 <Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/bundle.xsd">
   <id value="questionnaire-sdc-profile-example-ussg-fht"/>
-  <type value="collection"/>
+  <type value="transaction"/>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54127-6"/>
+    <fullUrl value="http://54.226.90.249/open/ConceptMap/ussgfht-loincde"/>
+    <resource>
+      <ConceptMap>
+        <id value="ussgfht-loincde"/>
+        <status value="active"/>
+        <sourceUri value="http://54.226.90.249/open/Questionnaire/54127-6"/>
+        <targetUri value="http://54.226.90.249/open/DataElement"/>
+        <element>
+          <code value="1.1.1"/>
+          <target>
+            <code value="54125-0"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.1.2"/>
+          <target>
+            <code value="54131-8"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.1.3"/>
+          <target>
+            <code value="21112-8"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.1.4"/>
+          <target>
+            <code value="54132-6"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.1.5"/>
+          <target>
+            <code value="54128-4"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.1.6"/>
+          <target>
+            <code value="54135-9"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.1.7"/>
+          <target>
+            <code value="8302-2"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.1.8"/>
+          <target>
+            <code value="29463-7"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.1.10"/>
+          <target>
+            <code value="54134-2"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.1.11"/>
+          <target>
+            <code value="54133-4"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.2.1"/>
+          <target>
+            <code value="54140-9"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="1.2.2"/>
+          <target>
+            <code value="54130-0"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.1"/>
+          <target>
+            <code value="54136-7"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.2"/>
+          <target>
+            <code value="54138-3"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.3"/>
+          <target>
+            <code value="54123-5"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.4"/>
+          <target>
+            <code value="54139-1"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.4.1.1"/>
+          <target>
+            <code value="54112-8"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.4.1.2"/>
+          <target>
+            <code value="54113-6"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.4.2.1"/>
+          <target>
+            <code value="54124-3"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.4.2.2"/>
+          <target>
+            <code value="54141-7"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.5"/>
+          <target>
+            <code value="54121-9"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.6"/>
+          <target>
+            <code value="54122-7"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.7"/>
+          <target>
+            <code value="54119-3"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.1.8"/>
+          <target>
+            <code value="54120-1"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.2.1"/>
+          <target>
+            <code value="54116-9"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+        <element>
+          <code value="2.1.2.2"/>
+          <target>
+            <code value="54115-1"/>
+            <equivalence value="equivalent"/>
+          </target>
+        </element>
+      </ConceptMap>
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ConceptMap/ussgfht-loincde"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="http://54.226.90.249/open/Questionnaire/54127-6"/>
     <resource>
       <Questionnaire>
         <id value="54127-6"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-questionnaire"/>
+        </meta>
         <contained>
           <ValueSet>
             <id value="length"/>
+            <meta>
+              <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+            </meta>
+            <name value="Length Units"/>
             <status value="active"/>
+            <description value="Length units"/>
+            <immutable value="true"/>
+            <extensible value="false"/>
             <compose>
               <include>
                 <system value="http://unitsofmeasure.org"/>
@@ -43,7 +240,14 @@
         <contained>
           <ValueSet>
             <id value="weight"/>
+            <meta>
+              <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+            </meta>
+            <name value="Weight Units"/>
             <status value="active"/>
+            <description value="Weight units"/>
+            <immutable value="true"/>
+            <extensible value="false"/>
             <compose>
               <include>
                 <system value="http://unitsofmeasure.org"/>
@@ -60,6 +264,7 @@
           </ValueSet>
         </contained>
         <status value="published"/>
+        <date value="2015"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
         <title value="US Surgeon General - Family Health Portrait"/>
         <concept>
@@ -69,25 +274,35 @@
         <item>
           <linkId value="0"/>
           <type value="group"/>
+          <required value="false"/>
+          <repeats value="false"/>
           <item>
             <linkId value="0.1"/>
             <text value="Date Done"/>
             <type value="date"/>
+            <required value="false"/>
+            <repeats value="false"/>
           </item>
           <item>
             <linkId value="0.2"/>
             <text value="Time Done"/>
             <type value="time"/>
+            <required value="false"/>
+            <repeats value="false"/>
           </item>
           <item>
             <linkId value="0.3"/>
             <text value="Where Done"/>
             <type value="string"/>
+            <required value="false"/>
+            <repeats value="false"/>
           </item>
           <item>
             <linkId value="0.4"/>
             <text value="Comment"/>
             <type value="string"/>
+            <required value="false"/>
+            <repeats value="false"/>
           </item>
         </item>
         <item>
@@ -100,9 +315,12 @@
           <text value="Your health information"/>
           <type value="group"/>
           <required value="true"/>
+          <repeats value="false"/>
           <item>
             <linkId value="1.1"/>
             <type value="group"/>
+            <required value="false"/>
+            <repeats value="false"/>
             <item>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
@@ -117,6 +335,8 @@
               </concept>
               <text value="Name"/>
               <type value="string"/>
+              <required value="false"/>
+              <repeats value="false"/>
             </item>
             <item>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -128,19 +348,22 @@
               <concept>
                 <system value="http://loinc.org"/>
                 <code value="54131-8"/>
-                <display value="Gender [USSG-FHT]"/>
+                <display value="Sex [USSG-FHT]"/>
               </concept>
               <text value="Gender"/>
               <type value="choice"/>
               <required value="true"/>
+              <repeats value="false"/>
               <options>
-                <reference value="http://details.loinc.org/AnswerList/LL1-9"/>
+                <reference value="http://54.226.90.249/open/ValueSet/LL1-9"/>
                 <display value="Gender_M/F"/>
               </options>
               <item>
                 <linkId value="1.1.2.1.1"/>
                 <text value="Please specify"/>
                 <type value="string"/>
+                <required value="true"/>
+                <repeats value="false"/>
               </item>
             </item>
             <item>
@@ -153,10 +376,12 @@
               <concept>
                 <system value="http://loinc.org"/>
                 <code value="21112-8"/>
-                <display value="Birth date"/>
+                <display value="Birth Date"/>
               </concept>
               <text value="Date of Birth"/>
               <type value="date"/>
+              <required value="false"/>
+              <repeats value="false"/>
             </item>
             <item>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -172,8 +397,10 @@
               </concept>
               <text value="Were you born a twin?"/>
               <type value="choice"/>
+              <required value="false"/>
+              <repeats value="false"/>
               <options>
-                <reference value="http://details.loinc.org/AnswerList/LL623-0"/>
+                <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
                 <display value="USSG-FHT twin"/>
               </options>
             </item>
@@ -190,8 +417,10 @@
               </concept>
               <text value="Were you adopted?"/>
               <type value="choice"/>
+              <required value="false"/>
+              <repeats value="false"/>
               <options>
-                <reference value="http://details.loinc.org/AnswerList/LL361-7"/>
+                <reference value="http://54.226.90.249/open/ValueSet/LL361-7"/>
                 <display value="Y/N1"/>
               </options>
             </item>
@@ -209,8 +438,10 @@
               </concept>
               <text value="Are your parents related to each other in any way other than marriage?"/>
               <type value="choice"/>
+              <required value="false"/>
+              <repeats value="false"/>
               <options>
-                <reference value="http://details.loinc.org/AnswerList/LL361-7"/>
+                <reference value="http://54.226.90.249/open/ValueSet/LL361-7"/>
                 <display value="Y/N1"/>
               </options>
             </item>
@@ -229,10 +460,13 @@
               <text value="Height"/>
               <type value="decimal"/>
               <required value="true"/>
+              <repeats value="false"/>
               <item>
                 <linkId value="1.1.7.1.1"/>
                 <text value="Units"/>
                 <type value="choice"/>
+                <required value="false"/>
+                <repeats value="false"/>
                 <options>
                   <reference value="#length"/>
                 </options>
@@ -245,6 +479,8 @@
                 </concept>
                 <text value="Mock-up item: Shown when Height &gt;= 10"/>
                 <type value="string"/>
+                <required value="false"/>
+                <repeats value="false"/>
               </item>
             </item>
             <item>
@@ -261,10 +497,14 @@
               </concept>
               <text value="Weight"/>
               <type value="decimal"/>
+              <required value="false"/>
+              <repeats value="false"/>
               <item>
                 <linkId value="1.1.8.1.1"/>
                 <text value="Units"/>
                 <type value="choice"/>
+                <required value="false"/>
+                <repeats value="false"/>
                 <options>
                   <reference value="#weight"/>
                 </options>
@@ -276,10 +516,12 @@
               <concept>
                 <system value="http://loinc.org"/>
                 <code value="39156-5"/>
-                <display value="Body mass index"/>
+                <display value="Body mass index (BMI) [Ratio]"/>
               </concept>
               <text value="Body mass index (BMI) [Ratio]"/>
               <type value="decimal"/>
+              <required value="false"/>
+              <repeats value="false"/>
               <!-- No ability, right now, to indicate that this is read only or how to calculate it -->
             </item>
             <item>
@@ -296,9 +538,10 @@
               </concept>
               <text value="Race"/>
               <type value="choice"/>
-              <repeats value="true"/>
+              <required value="true"/>
+              <repeats value="false"/>
               <options>
-                <reference value="http://details.loinc.org/AnswerList/LL629-7"/>
+                <reference value="http://54.226.90.249/open/ValueSet/LL629-7"/>
                 <display value="USSG-FHT race"/>
               </options>
             </item>
@@ -316,9 +559,10 @@
               </concept>
               <text value="Ethnicity"/>
               <type value="choice"/>
+              <required value="false"/>
               <repeats value="true"/>
               <options>
-                <reference value="http://details.loinc.org/AnswerList/LL628-9"/>
+                <reference value="http://54.226.90.249/open/ValueSet/LL628-9"/>
                 <display value="USSG-FHT ethnicity"/>
               </options>
             </item>
@@ -332,6 +576,7 @@
             </concept>
             <text value="Your diseases history"/>
             <type value="group"/>
+            <required value="false"/>
             <repeats value="true"/>
             <item>
               <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -347,8 +592,10 @@
               </concept>
               <text value="Disease or Condition"/>
               <type value="choice"/>
+              <required value="false"/>
+              <repeats value="false"/>
               <options>
-                <reference value="http://details.loinc.org/AnswerList/LL626-3"/>
+                <reference value="http://54.226.90.249/open/ValueSet/LL626-3"/>
                 <display value="USSG-FHT diseases"/>
               </options>
             </item>
@@ -366,8 +613,10 @@
               </concept>
               <text value="Age at Diagnosis"/>
               <type value="choice"/>
+              <required value="false"/>
+              <repeats value="false"/>
               <options>
-                <reference value="http://details.loinc.org/AnswerList/LL619-8"/>
+                <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
                 <display value="USSG-FHT age"/>
               </options>
             </item>
@@ -382,13 +631,18 @@
           </concept>
           <text value="Family member health information"/>
           <type value="group"/>
+          <required value="false"/>
           <repeats value="true"/>
           <item>
             <linkId value="2.1"/>
             <type value="group"/>
+            <required value="false"/>
+            <repeats value="false"/>
             <item>
               <linkId value="2.1.1"/>
               <type value="group"/>
+              <required value="false"/>
+              <repeats value="false"/>
               <item>
                 <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
@@ -403,8 +657,10 @@
                 </concept>
                 <text value="Relationship to you"/>
                 <type value="choice"/>
+                <required value="false"/>
+                <repeats value="false"/>
                 <options>
-                  <reference value="http://details.loinc.org/AnswerList/LL621-4"/>
+                  <reference value="http://54.226.90.249/open/ValueSet/LL621-4"/>
                   <display value="USSG-FHT relationship"/>
                 </options>
               </item>
@@ -422,6 +678,8 @@
                 </concept>
                 <text value="Name"/>
                 <type value="string"/>
+                <required value="false"/>
+                <repeats value="false"/>
               </item>
               <item>
                 <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -433,18 +691,22 @@
                 <concept>
                   <system value="http://loinc.org"/>
                   <code value="54123-5"/>
-                  <display value="Gender family member [USSG-FHT]"/>
+                  <display value="Sex family member [USSG-FHT]"/>
                 </concept>
                 <text value="Gender"/>
                 <type value="choice"/>
+                <required value="false"/>
+                <repeats value="false"/>
                 <options>
-                  <reference value="http://details.loinc.org/AnswerList/LL1-9"/>
+                  <reference value="http://54.226.90.249/open/ValueSet/LL1-9"/>
                   <display value="Gender_M/F"/>
                 </options>
                 <item>
                   <linkId value="2.1.1.3.1.1"/>
                   <text value="Please specify"/>
                   <type value="string"/>
+                  <required value="true"/>
+                  <repeats value="false"/>
                 </item>
               </item>
               <item>
@@ -461,6 +723,8 @@
                 </concept>
                 <text value="Living?"/>
                 <type value="choice"/>
+                <required value="false"/>
+                <repeats value="false"/>
                 <options>
                   <reference value="LL361-7"/>
                   <display value="Y/N1"/>
@@ -480,6 +744,8 @@
                   </extension>
                   <linkId value="2.1.1.4.1"/>
                   <type value="group"/>
+                  <required value="false"/>
+                  <repeats value="false"/>
                   <item>
                     <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                       <valueReference>
@@ -494,12 +760,17 @@
                     </concept>
                     <text value="Cause of Death"/>
                     <type value="choice"/>
+                    <required value="false"/>
+                    <repeats value="false"/>
                     <options>
-                      <reference value="http://details.loinc.org/AnswerList/LL627-1"/>
+                      <reference value="http://54.226.90.249/open/ValueSet/LL627-1"/>
                     </options>
                     <item>
+                      <linkId value="2.1.1.4.1.1.1"/>
                       <text value="Please specify"/>
                       <type value="string"/>
+                      <required value="false"/>
+                      <repeats value="false"/>
                     </item>
                   </item>
                   <item>
@@ -516,8 +787,10 @@
                     </concept>
                     <text value="Age at Death"/>
                     <type value="choice"/>
+                    <required value="false"/>
+                    <repeats value="false"/>
                     <options>
-                      <reference value="http://details.loinc.org/AnswerList/LL619-8"/>
+                      <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
                       <display value="USSG-FHT age"/>
                     </options>
                   </item>
@@ -537,6 +810,8 @@
                   </extension>
                   <linkId value="2.1.1.4.2"/>
                   <type value="group"/>
+                  <required value="false"/>
+                  <repeats value="false"/>
                   <item>
                     <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                       <valueReference>
@@ -551,6 +826,8 @@
                     </concept>
                     <text value="Date of Birth"/>
                     <type value="date"/>
+                    <required value="false"/>
+                    <repeats value="false"/>
                   </item>
                   <item>
                     <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -566,6 +843,8 @@
                     </concept>
                     <text value="Age"/>
                     <type value="decimal"/>
+                    <required value="false"/>
+                    <repeats value="false"/>
                   </item>
                 </item>
               </item>
@@ -583,8 +862,10 @@
                 </concept>
                 <text value="Was this person born a twin?"/>
                 <type value="choice"/>
+                <required value="false"/>
+                <repeats value="false"/>
                 <options>
-                  <reference value="http://details.loinc.org/AnswerList/LL623-0"/>
+                  <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
                 </options>
               </item>
               <item>
@@ -601,8 +882,10 @@
                 </concept>
                 <text value="Was this person adopted?"/>
                 <type value="choice"/>
+                <required value="false"/>
+                <repeats value="false"/>
                 <options>
-                  <reference value="http://details.loinc.org/AnswerList/LL623-0"/>
+                  <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
                 </options>
               </item>
               <item>
@@ -619,9 +902,10 @@
                 </concept>
                 <text value="Race"/>
                 <type value="choice"/>
+                <required value="false"/>
                 <repeats value="true"/>
                 <options>
-                  <reference value="http://details.loinc.org/AnswerList/LL629-7"/>
+                  <reference value="http://54.226.90.249/open/ValueSet/LL629-7"/>
                   <display value="USSG-FHT race"/>
                 </options>
               </item>
@@ -639,9 +923,10 @@
                 </concept>
                 <text value="Ethnicity"/>
                 <type value="choice"/>
+                <required value="false"/>
                 <repeats value="true"/>
                 <options>
-                  <reference value="http://details.loinc.org/AnswerList/LL628-9"/>
+                  <reference value="http://54.226.90.249/open/ValueSet/LL628-9"/>
                   <display value="USSG-FHT ethnicity"/>
                 </options>
               </item>
@@ -651,10 +936,11 @@
               <concept>
                 <system value="http://loinc.org"/>
                 <code value="54117-7"/>
-                <display value="Disease history panel [USSG-FHT]"/>
+                <display value="Diseases history panel [USSG-FHT] family member"/>
               </concept>
               <text value="This family member's history of disease"/>
               <type value="group"/>
+              <required value="false"/>
               <repeats value="true"/>
               <item>
                 <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
@@ -671,8 +957,9 @@
                 <text value="Disease or Condition"/>
                 <type value="choice"/>
                 <required value="true"/>
+                <repeats value="false"/>
                 <options>
-                  <reference value="http://details.loinc.org/AnswerList/LL626-3"/>
+                  <reference value="http://54.226.90.249/open/ValueSet/LL626-3"/>
                   <display value="USSG-FHT diseases"/>
                 </options>
               </item>
@@ -690,8 +977,10 @@
                 </concept>
                 <text value="Age at Diagnosis"/>
                 <type value="choice"/>
+                <required value="false"/>
+                <repeats value="false"/>
                 <options>
-                  <reference value="http://details.loinc.org/AnswerList/LL619-8"/>
+                  <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
                   <display value="USSG-FHT age"/>
                 </options>
               </item>
@@ -699,34 +988,49 @@
                 <linkId value="2.1.2.3"/>
                 <text value="Mock-up item: Height"/>
                 <type value="decimal"/>
+                <required value="false"/>
+                <repeats value="false"/>
               </item>
               <item>
                 <linkId value="2.1.2.4"/>
                 <text value="Mock-up item: Weight"/>
                 <type value="decimal"/>
+                <required value="false"/>
+                <repeats value="false"/>
               </item>
               <item>
                 <linkId value="2.1.2.5"/>
                 <text value="Mock-up item: BMI"/>
                 <type value="decimal"/>
+                <required value="false"/>
+                <repeats value="false"/>
               </item>
             </item>
           </item>
         </item>
       </Questionnaire>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/Questionnaire/54127-6"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/AnswerList/LL1-9"/>
+    <fullUrl value="http://54.226.90.249/open/ValueSet/LL1-9"/>
     <resource>
       <ValueSet>
         <id value="LL1-9"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+        </meta>
         <url value="http://details.loinc.org/AnswerList/LL1-9"/>
         <name value="Gender_M/F"/>
         <status value="active"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
         <description value="Male=1, Female=2"/>
+        <immutable value="true"/>
         <copyright value="Refer to https://loinc.org/terms-of-use"/>
+        <extensible value="false"/>
         <compose>
           <include>
             <system value="http://loinc.org"/>
@@ -746,18 +1050,27 @@
         </compose>
       </ValueSet>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ValueSet/LL1-9"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/AnswerList/LL623-0"/>
+    <fullUrl value="http://54.226.90.249/open/ValueSet/LL623-0"/>
     <resource>
       <ValueSet>
         <id value="LL623-0"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+        </meta>
         <url value="http://details.loinc.org/AnswerList/LL623-0"/>
         <name value="USSG-FHT twin"/>
         <status value="active"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
         <description value="Family history tool twin"/>
+        <immutable value="true"/>
         <copyright value="Refer to https://loinc.org/terms-of-use"/>
+        <extensible value="false"/>
         <compose>
           <include>
             <system value="http://loinc.org"/>
@@ -777,18 +1090,27 @@
         </compose>
       </ValueSet>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ValueSet/LL623-0"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/AnswerList/LL361-7"/>
+    <fullUrl value="http://54.226.90.249/open/ValueSet/LL361-7"/>
     <resource>
       <ValueSet>
         <id value="LL361-7"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+        </meta>
         <url value="http://details.loinc.org/AnswerList/LL361-7"/>
         <name value="Y/N1"/>
         <status value="active"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
         <description value="Yes/No"/>
+        <immutable value="true"/>
         <copyright value="Refer to https://loinc.org/terms-of-use"/>
+        <extensible value="false"/>
         <compose>
           <include>
             <system value="http://loinc.org"/>
@@ -804,18 +1126,27 @@
         </compose>
       </ValueSet>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ValueSet/LL361-7"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/AnswerList/LL629-7"/>
+    <fullUrl value="http://54.226.90.249/open/ValueSet/LL629-7"/>
     <resource>
       <ValueSet>
         <id value="LL629-7"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+        </meta>
         <url value="http://details.loinc.org/AnswerList/LL629-7"/>
         <name value="USSG-FHT race"/>
         <status value="active"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
         <description value="Family history tool race"/>
+        <immutable value="true"/>
         <copyright value="Refer to https://loinc.org/terms-of-use"/>
+        <extensible value="false"/>
         <compose>
           <include>
             <system value="http://loinc.org"/>
@@ -895,18 +1226,27 @@
         </compose>
       </ValueSet>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ValueSet/LL629-7"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/AnswerList/LL628-9"/>
+    <fullUrl value="http://54.226.90.249/open/ValueSet/LL628-9"/>
     <resource>
       <ValueSet>
         <id value="LL628-9"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+        </meta>
         <url value="http://details.loinc.org/AnswerList/LL628-9"/>
         <name value="USSG-FHT ethnicity"/>
         <status value="active"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
         <description value="Family history tool ethnicity"/>
+        <immutable value="true"/>
         <copyright value="Refer to https://loinc.org/terms-of-use"/>
+        <extensible value="false"/>
         <compose>
           <include>
             <system value="http://loinc.org"/>
@@ -962,18 +1302,27 @@
         </compose>
       </ValueSet>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ValueSet/LL628-9"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/AnswerList/LL626-3"/>
+    <fullUrl value="http://54.226.90.249/open/ValueSet/LL626-3"/>
     <resource>
       <ValueSet>
         <id value="LL626-3"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+        </meta>
         <url value="http://details.loinc.org/AnswerList/LL626-3"/>
         <name value="USSG-FHT diseases"/>
         <status value="active"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
         <description value="Family history tool diseases"/>
+        <immutable value="true"/>
         <copyright value="Refer to https://loinc.org/terms-of-use"/>
+        <extensible value="false"/>
         <compose>
           <include>
             <system value="http://loinc.org"/>
@@ -1245,18 +1594,27 @@
         </compose>
       </ValueSet>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ValueSet/LL626-3"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/AnswerList/LL619-8"/>
+    <fullUrl value="http://54.226.90.249/open/ValueSet/LL619-8"/>
     <resource>
       <ValueSet>
         <id value="LL619-8"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+        </meta>
         <url value="http://details.loinc.org/AnswerList/LL619-8"/>
         <name value="USSG-FHT age"/>
         <status value="active"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
         <description value="Family history tool age range"/>
+        <immutable value="true"/>
         <copyright value="Refer to https://loinc.org/terms-of-use"/>
+        <extensible value="false"/>
         <compose>
           <include>
             <system value="http://loinc.org"/>
@@ -1308,18 +1666,27 @@
         </compose>
       </ValueSet>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ValueSet/LL619-8"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/AnswerList/LL621-4"/>
+    <fullUrl value="http://54.226.90.249/open/ValueSet/LL621-4"/>
     <resource>
       <ValueSet>
         <id value="LL621-4"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+        </meta>
         <url value="http://details.loinc.org/AnswerList/LL621-4"/>
         <name value="USSG-FHT relationship"/>
         <status value="active"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
         <description value="Family history tool relationship to patient"/>
+        <immutable value="true"/>
         <copyright value="Refer to https://loinc.org/terms-of-use"/>
+        <extensible value="false"/>
         <compose>
           <include>
             <system value="http://loinc.org"/>
@@ -1415,18 +1782,27 @@
         </compose>
       </ValueSet>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ValueSet/LL621-4"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/AnswerList/LL624-8"/>
+    <fullUrl value="http://54.226.90.249/open/ValueSet/LL624-8"/>
     <resource>
       <ValueSet>
         <id value="LL624-8"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+        </meta>
         <url value="http://details.loinc.org/AnswerList/LL624-8"/>
         <name value="USSG-FHT living"/>
         <status value="active"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
         <description value="Family history tool living"/>
+        <immutable value="true"/>
         <copyright value="Refer to https://loinc.org/terms-of-use"/>
+        <extensible value="false"/>
         <compose>
           <include>
             <system value="http://loinc.org"/>
@@ -1446,16 +1822,27 @@
         </compose>
       </ValueSet>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ValueSet/LL624-8"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/AnswerList/LL627-1"/>
+    <fullUrl value="http://54.226.90.249/open/ValueSet/LL627-1"/>
     <resource>
       <ValueSet>
         <id value="LL627-1"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-valueset"/>
+        </meta>
         <url value="http://details.loinc.org/AnswerList/LL627-1"/>
+        <name value="USSG-FHT diseases &amp; cause of death"/>
         <status value="active"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
+        <description value="Family history tool diseases and cause of death"/>
+        <immutable value="true"/>
         <copyright value="Refer to https://loinc.org/terms-of-use"/>
+        <extensible value="false"/>
         <compose>
           <include>
             <system value="http://loinc.org"/>
@@ -1744,14 +2131,22 @@
         </compose>
       </ValueSet>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/ValueSet/LL627-1"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54125-0"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54125-0"/>
     <resource>
       <DataElement>
         <id value="54125-0"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54125-0"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54125-0"/>
         </identifier>
         <name value="Name"/>
@@ -1769,9 +2164,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -1791,17 +2191,30 @@
             <identity value="v2"/>
             <map value="PID-5"/>
           </mapping>
+          <mapping>
+            <identity value="cda"/>
+            <language value="application/xquery"/>
+            <map value="return string-join(/ClinicalDocument/recordTarget/patientRole/patient/name/*, ' ')"/>
+          </mapping>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54125-0"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54131-8"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54131-8"/>
     <resource>
       <DataElement>
         <id value="54131-8"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54131-8"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54131-8"/>
         </identifier>
         <name value="54131-8"/>
@@ -1819,9 +2232,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -1840,7 +2258,7 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL1-9"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL1-9"/>
               <display value="Gender_M/F"/>
             </valueSetReference>
           </binding>
@@ -1848,17 +2266,30 @@
             <identity value="v2"/>
             <map value="PID-8"/>
           </mapping>
+          <mapping>
+            <identity value="cda"/>
+            <language value="application/xquery"/>
+            <map value="return /ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode/@code[.=('F', 'M')]"/>
+          </mapping>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54131-8"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/21112-8"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/21112-8"/>
     <resource>
       <DataElement>
         <id value="21112-8"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/21112-8"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="21112-8"/>
         </identifier>
         <name value="21112-8"/>
@@ -1876,9 +2307,14 @@
             <display value="Lab"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
@@ -1904,17 +2340,30 @@
             <identity value="v2"/>
             <map value="PID-7.1"/>
           </mapping>
+          <mapping>
+            <identity value="cda"/>
+            <language value="application/xquery"/>
+            <map value="for $time in /ClinicalDocument/recordTarget/patientRole/patient/birthTime/@value return if (string-length($time)=4) then $time else if (string-length($time)=6) then concat(substring($time,1,4), '-', substring($time, 5)) else concat(substring($time,1,4), '-', substring($time, 5,2), '-', substring($time,7))"/>
+          </mapping>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/21112-8"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54132-6"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54132-6"/>
     <resource>
       <DataElement>
         <id value="54132-6"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54132-6"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54132-6"/>
         </identifier>
         <name value="Twin"/>
@@ -1932,9 +2381,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -1952,7 +2406,7 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL623-0"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
               <display value="USSG-FHT twin"/>
             </valueSetReference>
           </binding>
@@ -1963,14 +2417,22 @@
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54132-6"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54128-4"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54128-4"/>
     <resource>
       <DataElement>
         <id value="54128-4"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54128-4"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54128-4"/>
         </identifier>
         <name value="Adopted"/>
@@ -1988,9 +2450,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2008,21 +2475,29 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL361-7"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL361-7"/>
               <display value="Y/N1"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54128-4"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54135-9"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54135-9"/>
     <resource>
       <DataElement>
         <id value="54135-9"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54135-9"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54135-9"/>
         </identifier>
         <name value="Parents related"/>
@@ -2040,6 +2515,7 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
         </mapping>
@@ -2059,21 +2535,29 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL361-7"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL361-7"/>
               <display value="Y/N1"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54135-9"/>
+    </request>
   </entry>
   <!--  <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/8302-2"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/8302-2"/>
     <resource>
       <DataElement>
         <id value="8302-2"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/8402-2"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="8302-2"/>
         </identifier>
         <name value="Body height"/>
@@ -2091,9 +2575,14 @@
             <display value="Clinical"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>          
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2115,12 +2604,16 @@
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/29463-7"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/29463-7"/>
     <resource>
       <DataElement>
         <id value="29463-7"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/29463-7"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="29463-7"/>
         </identifier>
         <name value="Weight"/>
@@ -2138,9 +2631,14 @@
             <display value="Clinical"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>          
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2161,12 +2659,16 @@
     </resource>
   </entry>-->
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54134-2"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54134-2"/>
     <resource>
       <DataElement>
         <id value="54134-2"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54134-2"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54134-2"/>
         </identifier>
         <name value="Race"/>
@@ -2184,9 +2686,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2205,7 +2712,7 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL629-7"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL629-7"/>
               <display value="USSG-FHT race"/>
             </valueSetReference>
           </binding>
@@ -2213,17 +2720,31 @@
             <identity value="v2"/>
             <map value="PID-10"/>
           </mapping>
+          <!-- No good way to define the mapping from the CDA value set to the LOINC value set
+          <mapping>
+            <identity value="cda"/>
+            <language value="application/xquery"/>
+            <map value="/ClinicalDocument/recordTarget/patientRole/patient/raceCode/@code"/>
+          </mapping>-->
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54134-2"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54123-4"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54123-4"/>
     <resource>
       <DataElement>
         <id value="54133-4"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54133-4"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54133-4"/>
         </identifier>
         <name value="Ethnicity"/>
@@ -2241,9 +2762,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2261,7 +2787,7 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL628-9"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL628-9"/>
               <display value="USSG-FHT ethnicity"/>
             </valueSetReference>
           </binding>
@@ -2269,17 +2795,31 @@
             <identity value="v2"/>
             <map value="PID-22"/>
           </mapping>
+          <!-- No easy way to translate CCDA code to LOINC code
+          <mapping>
+            <identity value="cda"/>
+            <language value="application/xquery"/>
+            <map value="/ClinicalDocument/recordTarget/patientRole/patient/ethnicGroupCode/@code"/>
+          </mapping>-->
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54123-4"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54140-9"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54140-9"/>
     <resource>
       <DataElement>
         <id value="54140-9"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54140-9"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54140-9"/>
         </identifier>
         <name value="History of diseases [USSG-FHT]"/>
@@ -2297,9 +2837,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2318,21 +2863,29 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL626-3"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL626-3"/>
               <display value="USSG-FHT diseases"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54140-9"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54130-0"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54130-0"/>
     <resource>
       <DataElement>
         <id value="54130-0"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54130-0"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54130-0"/>
         </identifier>
         <name value="Age at Diagnosis"/>
@@ -2350,9 +2903,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2370,21 +2928,29 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL619-8"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
               <display value="USSG-FHT age"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54130-0"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54136-7"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54136-7"/>
     <resource>
       <DataElement>
         <id value="54136-7"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54136-7"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54136-7"/>
         </identifier>
         <name value="Relationship to patient family member [USSG-FHT]"/>
@@ -2402,9 +2968,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2424,21 +2995,29 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL621-4"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL621-4"/>
               <display value="USSG-FHT relationship"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54136-7"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54138-3"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54138-3"/>
     <resource>
       <DataElement>
         <id value="54138-3"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54138-3"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54138-3"/>
         </identifier>
         <name value="Name family member"/>
@@ -2456,9 +3035,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2478,14 +3062,22 @@
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54138-3"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54123-5"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54123-5"/>
     <resource>
       <DataElement>
         <id value="54123-5"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54123-5"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54123-5"/>
         </identifier>
         <name value="Gender family member [USSG=FHT]"/>
@@ -2503,9 +3095,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2524,21 +3121,29 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL1-9"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL1-9"/>
               <display value="Gender_M/F"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54123-5"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54139-1"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54139-1"/>
     <resource>
       <DataElement>
         <id value="54139-1"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54139-1"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54139-1"/>
         </identifier>
         <name value="Living?"/>
@@ -2556,9 +3161,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2583,14 +3193,22 @@
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54139-1"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54112-8"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54112-8"/>
     <resource>
       <DataElement>
         <id value="54112-8"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54112-8"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54112-8"/>
         </identifier>
         <name value="Cause of death family member [USSG-FHT]"/>
@@ -2608,9 +3226,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2628,20 +3251,28 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL627-1"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL627-1"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54112-8"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54113-6"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54113-6"/>
     <resource>
       <DataElement>
         <id value="54113-6"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54113-6"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54113-6"/>
         </identifier>
         <name value="Age range at death family member [USSG-FHT]"/>
@@ -2659,9 +3290,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2679,21 +3315,29 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL619-8"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
               <display value="USSG-FHT age"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54113-6"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54124-3"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54124-3"/>
     <resource>
       <DataElement>
         <id value="54124-3"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54124-3"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54124-3"/>
         </identifier>
         <name value="Birth date family member"/>
@@ -2711,9 +3355,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2731,14 +3380,22 @@
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54124-3"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54141-7"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54141-7"/>
     <resource>
       <DataElement>
         <id value="54141-7"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54141-7"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54141-7"/>
         </identifier>
         <name value="Current age family member [USSG-FHT]"/>
@@ -2756,9 +3413,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2785,14 +3447,22 @@
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54141-7"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54121-9"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54121-9"/>
     <resource>
       <DataElement>
         <id value="54121-9"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54121-9"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54121-9"/>
         </identifier>
         <name value="Twin family member"/>
@@ -2810,9 +3480,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2830,7 +3505,7 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL623-0"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
             </valueSetReference>
           </binding>
           <mapping>
@@ -2841,14 +3516,22 @@
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54121-9"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54122-7"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54122-7"/>
     <resource>
       <DataElement>
         <id value="54122-7"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54122-7"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54122-7"/>
         </identifier>
         <name value="Adopted family member"/>
@@ -2866,9 +3549,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2886,20 +3574,28 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL623-0"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54122-7"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54119-3"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54119-3"/>
     <resource>
       <DataElement>
         <id value="54119-3"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54119-3"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54119-3"/>
         </identifier>
         <name value="Race family member [USSG-FHT]"/>
@@ -2917,9 +3613,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2938,7 +3639,7 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL629-7"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL629-7"/>
               <display value="USSG-FHT race"/>
             </valueSetReference>
           </binding>
@@ -2950,14 +3651,22 @@
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54119-3"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54120-1"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54120-1"/>
     <resource>
       <DataElement>
         <id value="54120-1"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54120-1"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54120-1"/>
         </identifier>
         <name value="Ethnicity family member [USSG-FHT]"/>
@@ -2975,9 +3684,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -2995,7 +3709,7 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL628-9"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL628-9"/>
               <display value="USSG-FHT ethnicity"/>
             </valueSetReference>
           </binding>
@@ -3007,14 +3721,22 @@
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54120-1"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54116-9"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54116-9"/>
     <resource>
       <DataElement>
         <id value="54116-9"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54116-9"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54116-9"/>
         </identifier>
         <name value="History of diseases family member [USSG-FHT]"/>
@@ -3032,9 +3754,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -3053,21 +3780,29 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL626-3"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL626-3"/>
               <display value="USSG-FHT diseases"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54116-9"/>
+    </request>
   </entry>
   <entry>
-    <fullUrl value="http://details.loinc.org/LOINC/54115-1"/>
+    <fullUrl value="http://54.226.90.249/open/DataElement/54115-1"/>
     <resource>
       <DataElement>
         <id value="54115-1"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/sdc-element"/>
+        </meta>
+        <url value="http://details.loinc.org/LOINC/54115-1"/>
         <identifier>
-          <system value="http://details.loinc.org/DataElement"/>
+          <system value="http://details.loinc.org"/>
           <value value="54115-1"/>
         </identifier>
         <name value="Age range at onset of disease family member [USSG-FHT]"/>
@@ -3085,9 +3820,14 @@
             <display value="Survey"/>
           </coding>
         </useContext>
+        <stringency value="fully-specified"/>
         <mapping>
           <identity value="v2"/>
           <uri value="http://hl7.org/v2"/>
+        </mapping>
+        <mapping>
+          <identity value="cda"/>
+          <uri value="http://hl7.org/cda"/>
         </mapping>
         <element>
           <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
@@ -3107,12 +3847,16 @@
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://details.loinc.org/AnswerList/LL619-8"/>
+              <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
               <display value="USSG-FHT age"/>
             </valueSetReference>
           </binding>
         </element>
       </DataElement>
     </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="http://54.226.90.249/open/DataElement/54115-1"/>
+    </request>
   </entry>
 </Bundle>
