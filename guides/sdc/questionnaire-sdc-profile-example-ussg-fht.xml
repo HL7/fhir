@@ -3,17 +3,17 @@
 This represents an implementation of the "US Surgeon General family health portrait" form found at https://lforms-demo.nlm.nih.gov
 It also contains data elements based on the data elements found in the LOINC specification
 -->
-<Bundle xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/bundle.xsd">
+<Bundle xmlns="http://hl7.org/fhir" xmlns:f="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/bundle.xsd">
   <id value="questionnaire-sdc-profile-example-ussg-fht"/>
   <type value="transaction"/>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ConceptMap/ussgfht-loincde"/>
+    <fullUrl value="http://hl7.org/fhir/ConceptMap/ussgfht-loincde"/>
     <resource>
       <ConceptMap>
         <id value="ussgfht-loincde"/>
         <status value="active"/>
-        <sourceUri value="http://54.226.90.249/open/Questionnaire/54127-6"/>
-        <targetUri value="http://54.226.90.249/open/DataElement"/>
+        <sourceUri value="http://hl7.org/fhir/Questionnaire/54127-6"/>
+        <targetUri value="http://hl7.org/fhir/DataElement"/>
         <element>
           <code value="1.1.1"/>
           <target>
@@ -200,11 +200,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ConceptMap/ussgfht-loincde"/>
+      <url value="http://hl7.org/fhir/ConceptMap/ussgfht-loincde"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/Questionnaire/54127-6"/>
+    <fullUrl value="http://hl7.org/fhir/Questionnaire/54127-6"/>
     <resource>
       <Questionnaire>
         <id value="54127-6"/>
@@ -322,11 +322,11 @@ It also contains data elements based on the data elements found in the LOINC spe
             <required value="false"/>
             <repeats value="false"/>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54125-0"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.1.1"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -339,11 +339,11 @@ It also contains data elements based on the data elements found in the LOINC spe
               <repeats value="false"/>
             </item>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54131-8"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.1.2"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -355,7 +355,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="true"/>
               <repeats value="false"/>
               <options>
-                <reference value="http://54.226.90.249/open/ValueSet/LL1-9"/>
+                <reference value="http://hl7.org/fhir/ValueSet/LL1-9"/>
                 <display value="Gender_M/F"/>
               </options>
               <item>
@@ -367,11 +367,11 @@ It also contains data elements based on the data elements found in the LOINC spe
               </item>
             </item>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="21112-8"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.1.3"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -384,11 +384,11 @@ It also contains data elements based on the data elements found in the LOINC spe
               <repeats value="false"/>
             </item>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54132-6"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.1.4"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -400,16 +400,16 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="false"/>
               <repeats value="false"/>
               <options>
-                <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
+                <reference value="http://hl7.org/fhir/ValueSet/LL623-0"/>
                 <display value="USSG-FHT twin"/>
               </options>
             </item>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54128-4"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.1.5"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -420,16 +420,16 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="false"/>
               <repeats value="false"/>
               <options>
-                <reference value="http://54.226.90.249/open/ValueSet/LL361-7"/>
+                <reference value="http://hl7.org/fhir/ValueSet/LL361-7"/>
                 <display value="Y/N1"/>
               </options>
             </item>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54135-9"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.1.6"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -441,16 +441,16 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="false"/>
               <repeats value="false"/>
               <options>
-                <reference value="http://54.226.90.249/open/ValueSet/LL361-7"/>
+                <reference value="http://hl7.org/fhir/ValueSet/LL361-7"/>
                 <display value="Y/N1"/>
               </options>
             </item>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="8302-2"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.1.7"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -484,11 +484,11 @@ It also contains data elements based on the data elements found in the LOINC spe
               </item>
             </item>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="29463-7"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.1.8"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -525,11 +525,11 @@ It also contains data elements based on the data elements found in the LOINC spe
               <!-- No ability, right now, to indicate that this is read only or how to calculate it -->
             </item>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54134-2"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.1.10"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -541,16 +541,16 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="true"/>
               <repeats value="false"/>
               <options>
-                <reference value="http://54.226.90.249/open/ValueSet/LL629-7"/>
+                <reference value="http://hl7.org/fhir/ValueSet/LL629-7"/>
                 <display value="USSG-FHT race"/>
               </options>
             </item>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54133-4"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.1.11"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -562,7 +562,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="false"/>
               <repeats value="true"/>
               <options>
-                <reference value="http://54.226.90.249/open/ValueSet/LL628-9"/>
+                <reference value="http://hl7.org/fhir/ValueSet/LL628-9"/>
                 <display value="USSG-FHT ethnicity"/>
               </options>
             </item>
@@ -579,11 +579,11 @@ It also contains data elements based on the data elements found in the LOINC spe
             <required value="false"/>
             <repeats value="true"/>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54140-9"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.2.1"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -595,16 +595,16 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="false"/>
               <repeats value="false"/>
               <options>
-                <reference value="http://54.226.90.249/open/ValueSet/LL626-3"/>
+                <reference value="http://hl7.org/fhir/ValueSet/LL626-3"/>
                 <display value="USSG-FHT diseases"/>
               </options>
             </item>
             <item>
-              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54130-0"/>
                 </valueReference>
-              </extension>
+              </extension>-->
               <linkId value="1.2.2"/>
               <concept>
                 <system value="http://loinc.org"/>
@@ -616,7 +616,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="false"/>
               <repeats value="false"/>
               <options>
-                <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
+                <reference value="http://hl7.org/fhir/ValueSet/LL619-8"/>
                 <display value="USSG-FHT age"/>
               </options>
             </item>
@@ -644,11 +644,11 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="false"/>
               <repeats value="false"/>
               <item>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54136-7"/>
                   </valueReference>
-                </extension>
+                </extension>-->
                 <linkId value="2.1.1.1"/>
                 <concept>
                   <system value="http://loinc.org"/>
@@ -660,16 +660,16 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <required value="false"/>
                 <repeats value="false"/>
                 <options>
-                  <reference value="http://54.226.90.249/open/ValueSet/LL621-4"/>
+                  <reference value="http://hl7.org/fhir/ValueSet/LL621-4"/>
                   <display value="USSG-FHT relationship"/>
                 </options>
               </item>
               <item>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54138-3"/>
                   </valueReference>
-                </extension>
+                </extension>-->
                 <linkId value="2.1.1.2"/>
                 <concept>
                   <system value="http://loinc.org"/>
@@ -682,11 +682,11 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <repeats value="false"/>
               </item>
               <item>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54123-5"/>
                   </valueReference>
-                </extension>
+                </extension>-->
                 <linkId value="2.1.1.3"/>
                 <concept>
                   <system value="http://loinc.org"/>
@@ -698,7 +698,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <required value="false"/>
                 <repeats value="false"/>
                 <options>
-                  <reference value="http://54.226.90.249/open/ValueSet/LL1-9"/>
+                  <reference value="http://hl7.org/fhir/ValueSet/LL1-9"/>
                   <display value="Gender_M/F"/>
                 </options>
                 <item>
@@ -710,11 +710,11 @@ It also contains data elements based on the data elements found in the LOINC spe
                 </item>
               </item>
               <item>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54139-1"/>
                   </valueReference>
-                </extension>
+                </extension>-->
                 <linkId value="2.1.1.4"/>
                 <concept>
                   <system value="http://loinc.org"/>
@@ -747,11 +747,11 @@ It also contains data elements based on the data elements found in the LOINC spe
                   <required value="false"/>
                   <repeats value="false"/>
                   <item>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                       <valueReference>
                         <reference value="54112-8"/>
                       </valueReference>
-                    </extension>
+                    </extension>-->
                     <linkId value="2.1.1.4.1.1"/>
                     <concept>
                       <system value="http://loinc.org"/>
@@ -763,7 +763,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                     <required value="false"/>
                     <repeats value="false"/>
                     <options>
-                      <reference value="http://54.226.90.249/open/ValueSet/LL627-1"/>
+                      <reference value="http://hl7.org/fhir/ValueSet/LL627-1"/>
                     </options>
                     <item>
                       <linkId value="2.1.1.4.1.1.1"/>
@@ -774,11 +774,11 @@ It also contains data elements based on the data elements found in the LOINC spe
                     </item>
                   </item>
                   <item>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                       <valueReference>
                         <reference value="54113-6"/>
                       </valueReference>
-                    </extension>
+                    </extension>-->
                     <linkId value="2.1.1.4.1.2"/>
                     <concept>
                       <system value="http://loinc.org"/>
@@ -790,7 +790,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                     <required value="false"/>
                     <repeats value="false"/>
                     <options>
-                      <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
+                      <reference value="http://hl7.org/fhir/ValueSet/LL619-8"/>
                       <display value="USSG-FHT age"/>
                     </options>
                   </item>
@@ -813,11 +813,11 @@ It also contains data elements based on the data elements found in the LOINC spe
                   <required value="false"/>
                   <repeats value="false"/>
                   <item>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                       <valueReference>
                         <reference value="54124-3"/>
                       </valueReference>
-                    </extension>
+                    </extension>-->
                     <linkId value="2.1.1.4.2.1"/>
                     <concept>
                       <system value="http://loinc.org"/>
@@ -830,11 +830,11 @@ It also contains data elements based on the data elements found in the LOINC spe
                     <repeats value="false"/>
                   </item>
                   <item>
-                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                       <valueReference>
                         <reference value="54141-7"/>
                       </valueReference>
-                    </extension>
+                    </extension>-->
                     <linkId value="2.1.1.4.2.2"/>
                     <concept>
                       <system value="http://loinc.org"/>
@@ -849,11 +849,11 @@ It also contains data elements based on the data elements found in the LOINC spe
                 </item>
               </item>
               <item>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54121-9"/>
                   </valueReference>
-                </extension>
+                </extension>-->
                 <linkId value="2.1.1.5"/>
                 <concept>
                   <system value="http://loinc.org"/>
@@ -865,15 +865,15 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <required value="false"/>
                 <repeats value="false"/>
                 <options>
-                  <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
+                  <reference value="http://hl7.org/fhir/ValueSet/LL623-0"/>
                 </options>
               </item>
               <item>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54122-7"/>
                   </valueReference>
-                </extension>
+                </extension>-->
                 <linkId value="2.1.1.6"/>
                 <concept>
                   <system value="http://loinc.org"/>
@@ -885,15 +885,15 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <required value="false"/>
                 <repeats value="false"/>
                 <options>
-                  <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
+                  <reference value="http://hl7.org/fhir/ValueSet/LL623-0"/>
                 </options>
               </item>
               <item>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54119-3"/>
                   </valueReference>
-                </extension>
+                </extension>-->
                 <linkId value="2.1.1.7"/>
                 <concept>
                   <system value="http://loinc.org"/>
@@ -905,16 +905,16 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <required value="false"/>
                 <repeats value="true"/>
                 <options>
-                  <reference value="http://54.226.90.249/open/ValueSet/LL629-7"/>
+                  <reference value="http://hl7.org/fhir/ValueSet/LL629-7"/>
                   <display value="USSG-FHT race"/>
                 </options>
               </item>
               <item>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54120-1"/>
                   </valueReference>
-                </extension>
+                </extension>-->
                 <linkId value="2.1.1.8"/>
                 <concept>
                   <system value="http://loinc.org"/>
@@ -926,7 +926,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <required value="false"/>
                 <repeats value="true"/>
                 <options>
-                  <reference value="http://54.226.90.249/open/ValueSet/LL628-9"/>
+                  <reference value="http://hl7.org/fhir/ValueSet/LL628-9"/>
                   <display value="USSG-FHT ethnicity"/>
                 </options>
               </item>
@@ -943,11 +943,11 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="false"/>
               <repeats value="true"/>
               <item>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54116-9"/>
                   </valueReference>
-                </extension>
+                </extension>-->
                 <linkId value="2.1.2.1"/>
                 <concept>
                   <system value="http://loinc.org"/>
@@ -959,16 +959,16 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <required value="true"/>
                 <repeats value="false"/>
                 <options>
-                  <reference value="http://54.226.90.249/open/ValueSet/LL626-3"/>
+                  <reference value="http://hl7.org/fhir/ValueSet/LL626-3"/>
                   <display value="USSG-FHT diseases"/>
                 </options>
               </item>
               <item>
-                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54115-1"/>
                   </valueReference>
-                </extension>
+                </extension>-->
                 <linkId value="2.1.2.2"/>
                 <concept>
                   <system value="http://loinc.org"/>
@@ -980,7 +980,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <required value="false"/>
                 <repeats value="false"/>
                 <options>
-                  <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
+                  <reference value="http://hl7.org/fhir/ValueSet/LL619-8"/>
                   <display value="USSG-FHT age"/>
                 </options>
               </item>
@@ -1012,11 +1012,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/Questionnaire/54127-6"/>
+      <url value="http://hl7.org/fhir/Questionnaire/54127-6"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ValueSet/LL1-9"/>
+    <fullUrl value="http://hl7.org/fhir/ValueSet/LL1-9"/>
     <resource>
       <ValueSet>
         <id value="LL1-9"/>
@@ -1052,11 +1052,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ValueSet/LL1-9"/>
+      <url value="http://hl7.org/fhir/ValueSet/LL1-9"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ValueSet/LL623-0"/>
+    <fullUrl value="http://hl7.org/fhir/ValueSet/LL623-0"/>
     <resource>
       <ValueSet>
         <id value="LL623-0"/>
@@ -1092,11 +1092,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ValueSet/LL623-0"/>
+      <url value="http://hl7.org/fhir/ValueSet/LL623-0"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ValueSet/LL361-7"/>
+    <fullUrl value="http://hl7.org/fhir/ValueSet/LL361-7"/>
     <resource>
       <ValueSet>
         <id value="LL361-7"/>
@@ -1128,11 +1128,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ValueSet/LL361-7"/>
+      <url value="http://hl7.org/fhir/ValueSet/LL361-7"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ValueSet/LL629-7"/>
+    <fullUrl value="http://hl7.org/fhir/ValueSet/LL629-7"/>
     <resource>
       <ValueSet>
         <id value="LL629-7"/>
@@ -1228,11 +1228,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ValueSet/LL629-7"/>
+      <url value="http://hl7.org/fhir/ValueSet/LL629-7"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ValueSet/LL628-9"/>
+    <fullUrl value="http://hl7.org/fhir/ValueSet/LL628-9"/>
     <resource>
       <ValueSet>
         <id value="LL628-9"/>
@@ -1304,11 +1304,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ValueSet/LL628-9"/>
+      <url value="http://hl7.org/fhir/ValueSet/LL628-9"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ValueSet/LL626-3"/>
+    <fullUrl value="http://hl7.org/fhir/ValueSet/LL626-3"/>
     <resource>
       <ValueSet>
         <id value="LL626-3"/>
@@ -1596,11 +1596,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ValueSet/LL626-3"/>
+      <url value="http://hl7.org/fhir/ValueSet/LL626-3"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ValueSet/LL619-8"/>
+    <fullUrl value="http://hl7.org/fhir/ValueSet/LL619-8"/>
     <resource>
       <ValueSet>
         <id value="LL619-8"/>
@@ -1668,11 +1668,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ValueSet/LL619-8"/>
+      <url value="http://hl7.org/fhir/ValueSet/LL619-8"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ValueSet/LL621-4"/>
+    <fullUrl value="http://hl7.org/fhir/ValueSet/LL621-4"/>
     <resource>
       <ValueSet>
         <id value="LL621-4"/>
@@ -1784,11 +1784,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ValueSet/LL621-4"/>
+      <url value="http://hl7.org/fhir/ValueSet/LL621-4"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ValueSet/LL624-8"/>
+    <fullUrl value="http://hl7.org/fhir/ValueSet/LL624-8"/>
     <resource>
       <ValueSet>
         <id value="LL624-8"/>
@@ -1824,11 +1824,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ValueSet/LL624-8"/>
+      <url value="http://hl7.org/fhir/ValueSet/LL624-8"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/ValueSet/LL627-1"/>
+    <fullUrl value="http://hl7.org/fhir/ValueSet/LL627-1"/>
     <resource>
       <ValueSet>
         <id value="LL627-1"/>
@@ -2133,11 +2133,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/ValueSet/LL627-1"/>
+      <url value="http://hl7.org/fhir/ValueSet/LL627-1"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54125-0"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54125-0"/>
     <resource>
       <DataElement>
         <id value="54125-0"/>
@@ -2201,11 +2201,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54125-0"/>
+      <url value="http://hl7.org/fhir/DataElement/54125-0"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54131-8"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54131-8"/>
     <resource>
       <DataElement>
         <id value="54131-8"/>
@@ -2258,7 +2258,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL1-9"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL1-9"/>
               <display value="Gender_M/F"/>
             </valueSetReference>
           </binding>
@@ -2276,11 +2276,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54131-8"/>
+      <url value="http://hl7.org/fhir/DataElement/54131-8"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/21112-8"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/21112-8"/>
     <resource>
       <DataElement>
         <id value="21112-8"/>
@@ -2350,11 +2350,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/21112-8"/>
+      <url value="http://hl7.org/fhir/DataElement/21112-8"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54132-6"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54132-6"/>
     <resource>
       <DataElement>
         <id value="54132-6"/>
@@ -2406,7 +2406,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL623-0"/>
               <display value="USSG-FHT twin"/>
             </valueSetReference>
           </binding>
@@ -2419,11 +2419,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54132-6"/>
+      <url value="http://hl7.org/fhir/DataElement/54132-6"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54128-4"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54128-4"/>
     <resource>
       <DataElement>
         <id value="54128-4"/>
@@ -2475,7 +2475,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL361-7"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL361-7"/>
               <display value="Y/N1"/>
             </valueSetReference>
           </binding>
@@ -2484,11 +2484,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54128-4"/>
+      <url value="http://hl7.org/fhir/DataElement/54128-4"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54135-9"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54135-9"/>
     <resource>
       <DataElement>
         <id value="54135-9"/>
@@ -2535,7 +2535,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL361-7"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL361-7"/>
               <display value="Y/N1"/>
             </valueSetReference>
           </binding>
@@ -2544,11 +2544,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54135-9"/>
+      <url value="http://hl7.org/fhir/DataElement/54135-9"/>
     </request>
   </entry>
   <!--  <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/8302-2"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/8302-2"/>
     <resource>
       <DataElement>
         <id value="8302-2"/>
@@ -2604,7 +2604,7 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/29463-7"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/29463-7"/>
     <resource>
       <DataElement>
         <id value="29463-7"/>
@@ -2659,7 +2659,7 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
   </entry>-->
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54134-2"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54134-2"/>
     <resource>
       <DataElement>
         <id value="54134-2"/>
@@ -2712,7 +2712,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL629-7"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL629-7"/>
               <display value="USSG-FHT race"/>
             </valueSetReference>
           </binding>
@@ -2731,11 +2731,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54134-2"/>
+      <url value="http://hl7.org/fhir/DataElement/54134-2"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54123-4"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54123-4"/>
     <resource>
       <DataElement>
         <id value="54133-4"/>
@@ -2787,7 +2787,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL628-9"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL628-9"/>
               <display value="USSG-FHT ethnicity"/>
             </valueSetReference>
           </binding>
@@ -2806,11 +2806,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54123-4"/>
+      <url value="http://hl7.org/fhir/DataElement/54123-4"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54140-9"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54140-9"/>
     <resource>
       <DataElement>
         <id value="54140-9"/>
@@ -2863,7 +2863,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL626-3"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL626-3"/>
               <display value="USSG-FHT diseases"/>
             </valueSetReference>
           </binding>
@@ -2872,11 +2872,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54140-9"/>
+      <url value="http://hl7.org/fhir/DataElement/54140-9"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54130-0"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54130-0"/>
     <resource>
       <DataElement>
         <id value="54130-0"/>
@@ -2928,7 +2928,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL619-8"/>
               <display value="USSG-FHT age"/>
             </valueSetReference>
           </binding>
@@ -2937,11 +2937,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54130-0"/>
+      <url value="http://hl7.org/fhir/DataElement/54130-0"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54136-7"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54136-7"/>
     <resource>
       <DataElement>
         <id value="54136-7"/>
@@ -2995,7 +2995,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL621-4"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL621-4"/>
               <display value="USSG-FHT relationship"/>
             </valueSetReference>
           </binding>
@@ -3004,11 +3004,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54136-7"/>
+      <url value="http://hl7.org/fhir/DataElement/54136-7"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54138-3"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54138-3"/>
     <resource>
       <DataElement>
         <id value="54138-3"/>
@@ -3064,11 +3064,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54138-3"/>
+      <url value="http://hl7.org/fhir/DataElement/54138-3"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54123-5"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54123-5"/>
     <resource>
       <DataElement>
         <id value="54123-5"/>
@@ -3121,7 +3121,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL1-9"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL1-9"/>
               <display value="Gender_M/F"/>
             </valueSetReference>
           </binding>
@@ -3130,11 +3130,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54123-5"/>
+      <url value="http://hl7.org/fhir/DataElement/54123-5"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54139-1"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54139-1"/>
     <resource>
       <DataElement>
         <id value="54139-1"/>
@@ -3195,11 +3195,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54139-1"/>
+      <url value="http://hl7.org/fhir/DataElement/54139-1"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54112-8"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54112-8"/>
     <resource>
       <DataElement>
         <id value="54112-8"/>
@@ -3251,7 +3251,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL627-1"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL627-1"/>
             </valueSetReference>
           </binding>
         </element>
@@ -3259,11 +3259,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54112-8"/>
+      <url value="http://hl7.org/fhir/DataElement/54112-8"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54113-6"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54113-6"/>
     <resource>
       <DataElement>
         <id value="54113-6"/>
@@ -3315,7 +3315,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL619-8"/>
               <display value="USSG-FHT age"/>
             </valueSetReference>
           </binding>
@@ -3324,11 +3324,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54113-6"/>
+      <url value="http://hl7.org/fhir/DataElement/54113-6"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54124-3"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54124-3"/>
     <resource>
       <DataElement>
         <id value="54124-3"/>
@@ -3382,11 +3382,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54124-3"/>
+      <url value="http://hl7.org/fhir/DataElement/54124-3"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54141-7"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54141-7"/>
     <resource>
       <DataElement>
         <id value="54141-7"/>
@@ -3449,11 +3449,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54141-7"/>
+      <url value="http://hl7.org/fhir/DataElement/54141-7"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54121-9"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54121-9"/>
     <resource>
       <DataElement>
         <id value="54121-9"/>
@@ -3505,7 +3505,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL623-0"/>
             </valueSetReference>
           </binding>
           <mapping>
@@ -3518,11 +3518,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54121-9"/>
+      <url value="http://hl7.org/fhir/DataElement/54121-9"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54122-7"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54122-7"/>
     <resource>
       <DataElement>
         <id value="54122-7"/>
@@ -3574,7 +3574,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL623-0"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL623-0"/>
             </valueSetReference>
           </binding>
         </element>
@@ -3582,11 +3582,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54122-7"/>
+      <url value="http://hl7.org/fhir/DataElement/54122-7"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54119-3"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54119-3"/>
     <resource>
       <DataElement>
         <id value="54119-3"/>
@@ -3639,7 +3639,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL629-7"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL629-7"/>
               <display value="USSG-FHT race"/>
             </valueSetReference>
           </binding>
@@ -3653,11 +3653,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54119-3"/>
+      <url value="http://hl7.org/fhir/DataElement/54119-3"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54120-1"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54120-1"/>
     <resource>
       <DataElement>
         <id value="54120-1"/>
@@ -3709,7 +3709,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL628-9"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL628-9"/>
               <display value="USSG-FHT ethnicity"/>
             </valueSetReference>
           </binding>
@@ -3723,11 +3723,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54120-1"/>
+      <url value="http://hl7.org/fhir/DataElement/54120-1"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54116-9"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54116-9"/>
     <resource>
       <DataElement>
         <id value="54116-9"/>
@@ -3780,7 +3780,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL626-3"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL626-3"/>
               <display value="USSG-FHT diseases"/>
             </valueSetReference>
           </binding>
@@ -3789,11 +3789,11 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54116-9"/>
+      <url value="http://hl7.org/fhir/DataElement/54116-9"/>
     </request>
   </entry>
   <entry>
-    <fullUrl value="http://54.226.90.249/open/DataElement/54115-1"/>
+    <fullUrl value="http://hl7.org/fhir/DataElement/54115-1"/>
     <resource>
       <DataElement>
         <id value="54115-1"/>
@@ -3847,7 +3847,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <binding>
             <strength value="required"/>
             <valueSetReference>
-              <reference value="http://54.226.90.249/open/ValueSet/LL619-8"/>
+              <reference value="http://hl7.org/fhir/ValueSet/LL619-8"/>
               <display value="USSG-FHT age"/>
             </valueSetReference>
           </binding>
@@ -3856,7 +3856,7 @@ It also contains data elements based on the data elements found in the LOINC spe
     </resource>
     <request>
       <method value="PUT"/>
-      <url value="http://54.226.90.249/open/DataElement/54115-1"/>
+      <url value="http://hl7.org/fhir/DataElement/54115-1"/>
     </request>
   </entry>
 </Bundle>
