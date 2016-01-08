@@ -730,7 +730,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                   <display value="Y/N1"/>
                 </options>
                 <item>
-                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+<!--                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
                     <extension url="question">
                       <valueString value="2.1.3"/>
                     </extension>
@@ -741,7 +741,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                         <display value="Yes"/>
                       </valueCoding>
                     </extension>
-                  </extension>
+                  </extension>-->
                   <linkId value="2.1.1.4.1"/>
                   <type value="group"/>
                   <required value="false"/>
@@ -796,7 +796,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                   </item>
                 </item>
                 <item>
-                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+<!--                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
                     <extension url="question">
                       <valueString value="2.1.3"/>
                     </extension>
@@ -807,7 +807,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                         <display value="No"/>
                       </valueCoding>
                     </extension>
-                  </extension>
+                  </extension>-->
                   <linkId value="2.1.1.4.2"/>
                   <type value="group"/>
                   <required value="false"/>
