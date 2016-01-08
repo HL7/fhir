@@ -1,24 +1,19 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 <div>
     
-<h2>Overview</h2>
+<h2>Scope and Usage</h2>
 <p>
     The Sequence resource is designed to describe a sequence variant or a sequence without variant information. Complete genetic sequence information, of which specific genetic variations are a part, is reported by reference to the GA4GH repository.  Thus, the FHIR Sequence resource avoids large genomic payloads in a manner analogous to how the FHIR ImagingStudy resource references large images maintained in other systems.
     This resource contextualizes well established standards from the field of clinical genetics into the standards of healthcare (e.g. HGNC - HUGO Gene Nomenclature Committee's international standard for gene names, symbols, and identifiers).
 </p>
-<p>
-    <h3>Genetic Standards and Resources include:</h3>
-    <ul>
-        <li>Variant Databases: <a href="http://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi">dbSNP</a> , <a href="http://www.ncbi.nlm.nih.gov/clinvar/">ClinVar</a>, and <a href="http://cancer.sanger.ac.uk/cosmic/">COSMIC</a> </li>
-        <li>Reference Sequences: <a href="http://www.ncbi.nlm.nih.gov/refseq/">RefSeq</a> and <a href="http://www.ensembl.org/index.html">ENSEMBL</a> </li>
-    </ul>
-</p>
-</div>
-<div>
-    
-<h2>Scope and Usage</h2>
+<h3>Genetic Standards and Resources include:</h3>
+<ul>
+    <li>Variant Databases: <a href="http://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi">dbSNP</a> , <a href="http://www.ncbi.nlm.nih.gov/clinvar/">ClinVar</a>, and <a href="http://cancer.sanger.ac.uk/cosmic/">COSMIC</a> </li>
+    <li>Reference Sequences: <a href="http://www.ncbi.nlm.nih.gov/refseq/">RefSeq</a> and <a href="http://www.ensembl.org/index.html">ENSEMBL</a> </li>
+</ul>
 <p>
     This resource is designed to describe a sequence variation with clinical significance with information such as:
+</p>
     <ul>
         <li>Name of the variation represented</li>
         <li>Type of the variation</li>
@@ -26,8 +21,6 @@
         <li>Name of the gene</li>
         <li>Tissue source used to determine genotype of the variation</li>
     </ul>
-    
-</p>
 <p>
     It is strongly encouraged to provide all available information in this resource for any reported variants, because receiving systems (e.g. discovery research, outcomes analysis, and public health reporting) may use this information to normalize variants over time or across sources.  However, these data should not be used to dynamically correct/change variant representations for clinical use outside of the laboratory, due to insufficient information.
 </p>
