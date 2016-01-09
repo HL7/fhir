@@ -2152,7 +2152,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				"The first entry in a document must be a composition")) {
 			// the composition subject and section references must resolve in the bundle
 			WrapperElement elem = composition.getNamedChild("subject");
-			if (rule(errors, IssueType.INVALID, composition.line(), composition.col(), stack.getLiteralPath(), elem == null, "A document composition must have a subject"))
+			if (rule(errors, IssueType.INVALID, composition.line(), composition.col(), stack.getLiteralPath(), elem != null, "A document composition must have a subject"))
         validateBundleReference(errors, entries, elem, "Composition Subject", stack.push(elem, -1, null, null), fullUrl, "Composition", id);
 			validateSections(errors, entries, composition, stack, fullUrl, id);
 		}
