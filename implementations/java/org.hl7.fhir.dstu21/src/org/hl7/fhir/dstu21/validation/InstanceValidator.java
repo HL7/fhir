@@ -1565,7 +1565,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	          validateQuestionnaireResponseItemType(errors, answer, ns, "string");
             break;
 	        case TEXT:          
-	          validateQuestionnaireResponseItemType(errors, answer, ns, "text");
+	          validateQuestionnaireResponseItemType(errors, answer, ns, "string");
             break;
 	        case URL:           
 	          validateQuestionnaireResponseItemType(errors, answer, ns, "uri");
