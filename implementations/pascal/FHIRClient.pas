@@ -51,7 +51,7 @@ Type
     property issue : TFhirOperationOutcome read FIssue;
   end;
 
-  TFHIRClientHTTPVerb = (get, post, put, delete);
+  TFHIRClientHTTPVerb = (get, post, put, delete, options);
 
   TFHIRClientStatusEvent = procedure (client : TObject; details : String) of Object;
 
@@ -60,10 +60,14 @@ Type
   private
     FUrl : String;
     FJson : Boolean;
-    client : TIdHTTP;
+    http : TAdvWinInetClient;
+    indy : TIdHTTP;
     ssl : TIdSSLIOHandlerSocketOpenSSL;
     FOnClientStatus : TFHIRClientStatusEvent;
     FSmartToken: TSmartOnFhirAccessToken;
+    FTimeout: cardinal;
+    FUseIndy: boolean;
+
 //    FLastUpdated : TDateAndTime;
     procedure status(msg : String);
     function serialise(resource : TFhirResource):TStream; overload;
@@ -74,6 +78,12 @@ Type
     function fetchResource(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TFhirResource;
     function makeMultipart(stream: TStream; streamName: string; params: TAdvStringMatch; var mp : TStream) : String;
     procedure SetSmartToken(const Value: TSmartOnFhirAccessToken);
+    procedure SetTimeout(const Value: cardinal);
+    procedure createClient;
+    procedure setHeader(name, value : String);
+    function GetHeader(name : String) : String;
+    function exchangeIndy(url: String; verb: TFHIRClientHTTPVerb; source: TStream; ct: String): TStream;
+    function exchangeHTTP(url: String; verb: TFHIRClientHTTPVerb; source: TStream; ct: String): TStream;
   public
     constructor Create(url : String; json : boolean); overload;
     destructor Destroy; override;
@@ -83,6 +93,8 @@ Type
 
     function link : TFHIRClient; overload;
     property smartToken : TSmartOnFhirAccessToken read FSmartToken write SetSmartToken;
+    property timeout : cardinal read FTimeout write SetTimeout;
+    property UseIndy : boolean read FUseIndy write FUseIndy; // set this to true for a service, but you may have problems with SSL
 
 //    procedure doRequest(request : TFHIRRequest; response : TFHIRResponse);
     procedure cancelOperation;
@@ -103,12 +115,56 @@ Type
 
   end;
 
+  TFHIRClientTests = class (TAdvObject)
+  private
+    class procedure testClient(client : TFhirClient);
+  public
+    class procedure tests(url : String);
+  end;
+
 implementation
 
 uses
   TextUtilities;
 
+{ EFHIRClientException }
+
+constructor EFHIRClientException.create(message: String; issue: TFhirOperationOutcome);
+begin
+  inherited create(message);
+  FIssue := issue;
+  end;
+
+destructor EFHIRClientException.destroy;
+begin
+  FIssue.Free;
+  inherited;
+end;
+
 { TFhirClient }
+
+constructor TFhirClient.create(url: String; json : boolean);
+begin
+  Create;
+  FUrl := URL;
+  FJson := json;
+
+end;
+
+destructor TFhirClient.destroy;
+begin
+  FSmartToken.Free;
+  ssl.Free;
+  indy.free;
+  http.Free;
+  inherited;
+end;
+
+
+function TFhirClient.link: TFHIRClient;
+begin
+  result := TFHIRClient(inherited Link);
+end;
 
 function TFhirClient.conformance(summary : boolean): TFhirConformance;
 var
@@ -123,27 +179,6 @@ begin
     params.Free;
   end;
 end;
-
-constructor TFhirClient.create(url: String; json : boolean);
-begin
-  Create;
-  FUrl := URL;
-  FJson := json;
-  client := TIdHTTP.create(nil);
-  client.HandleRedirects := true;
-  ssl := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
-  client.IOHandler := ssl;
-  ssl.SSLOptions.Mode := sslmClient;
-end;
-
-destructor TFhirClient.destroy;
-begin
-  FSmartToken.Free;
-  ssl.Free;
-  client.free;
-  inherited;
-end;
-
 
 
 function TFhirClient.transaction(bundle : TFHIRBundle) : TFHIRBundle;
@@ -178,7 +213,7 @@ begin
     result := nil;
     try
       result := fetchResource(MakeUrl(CODES_TFhirResourceType[resource.resourceType]), post, src);
-      id := readIdFromLocation(client.response.location);
+      id := getHeader('Location');
       result.link;
     finally
       result.free;
@@ -193,7 +228,7 @@ Var
   src : TStream;
 begin
   if (resource.meta <> nil) and (resource.meta.versionId <> '') then
-    client.Request.RawHeaders.Values['Content-Location'] := MakeUrlPath(CODES_TFhirResourceType[resource.resourceType]+'/'+resource.id+'/history/'+resource.meta.versionId);
+    SetHeader('Content-Location', MakeUrlPath(CODES_TFhirResourceType[resource.resourceType]+'/'+resource.id+'/history/'+resource.meta.versionId));
 
   src := serialise(resource);
   try
@@ -306,12 +341,6 @@ begin
     ct := makeMultipart(src, 'src', params, frm);
     try
       result := fetchResource(makeUrl(CODES_TFhirResourceType[aType])+'/_search', post, frm) as TFhirBundle;
-      try
-        result.id := copy(client.response.location, 1, pos('/history', client.response.location)-1);
-        result.link;
-      finally
-        result.free;
-      end;
     finally
       frm.Free;
     end;
@@ -323,154 +352,19 @@ end;
 
 function TFhirClient.operation(atype : TFhirResourceType; opName : String; params : TFhirParameters) : TFHIRResource;
 Var
-  src, frm : TStream;
-  ct : String;
+  src : TStream;
 begin
   src := serialise(params);
   try
     src.Position := 0;
+    if aType = frtNull then
+      result := fetchResource(makeUrl('$'+opName), post, src)
+    else
     result := fetchResource(makeUrl(CODES_TFhirResourceType[aType])+'/$'+opName, post, src);
   finally
     src.free;
   end;
 end;
-
-function TFhirClient.exchange(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TStream;
-var
-  comp : TFHIRParser;
-  ok : boolean;
-  cnt : String;
-  op : TFHIROperationOutcome;
-begin
-  if FJson then
-  begin
-    client.Request.ContentType := 'application/json+fhir; charset=utf-8';
-    client.Request.Accept := 'application/json+fhir; charset=utf-8';
-  end
-  else
-  begin
-    client.Request.ContentType := 'application/xml+fhir; charset=utf-8';
-    client.Request.Accept := 'application/xml+fhir; charset=utf-8';
-  end;
-  if ct <> '' then
-    client.Request.ContentType := ct;
-
-  ok := false;
-  result := TMemoryStream.create;
-  Try
-    Try
-      case verb of
-        get : client.Get(url, result);
-        post : client.Post(url, source, result);
-        put : client.Put(url, source, result);
-        delete : raise Exception.Create('to do'); // client.Delete(url);
-      end;
-
-      if (client.ResponseCode < 200) or (client.ResponseCode >= 300) Then
-        raise exception.create('unexpected condition');
-      ok := true;
-      if (result <> nil) then
-         result.Position := 0;
-    except
-      on E:EIdHTTPProtocolException do
-      begin
-        cnt := e.ErrorMessage;
-        if StringFind(cnt, 'OperationOutcome') > 0 then
-        begin
-          removeBom(cnt);
-          if FJson then
-            comp := TFHIRJsonParser.create('en')
-          else
-            comp := TFHIRXmlParser.create('en');
-          try
-            comp.source := TStringStream.create(cnt);
-            comp.Parse;
-            if (comp.resource <> nil) and (comp.resource.ResourceType = frtOperationOutcome) then
-            begin
-              op := TFhirOperationOutcome(comp.resource);
-              if (op.text <> nil) and (op.text.div_ <> nil) then
-                Raise EFHIRClientException.create(FhirHtmlToText(op.text.div_), comp.resource.link as TFhirOperationOutcome)
-              else if (op.issueList.Count > 0) and (op.issueList[0].diagnostics <> '') then
-                Raise EFHIRClientException.create(op.issueList[0].diagnostics, comp.resource.link as TFhirOperationOutcome)
-              else
-                raise exception.Create(cnt)
-            end
-            else
-              raise exception.Create(cnt)
-          finally
-            comp.source.free;
-            comp.Free;
-          end;
-        end
-        else
-          raise exception.Create(cnt)
-      end;
-      on e : exception do
-      begin
-        raise exception.Create(e.Message)
-      end;
-    end;
-  finally
-    if not ok then
-      result.free;
-  end;
-end;
-
-
-//procedure TFhirClient.doRequest(request: TFHIRRequest; response: TFHIRResponse);
-//begin
-//  if FUrl = '' then
-//    FUrl := request.baseUrl;
-//
-//  try
-//    case request.CommandType of
-//      fcmdUnknown : raise Exception.Create('to do');
-//      fcmdMailbox : raise Exception.Create('to do');
-//      fcmdRead : raise Exception.Create('to do');
-//      fcmdVersionRead : raise Exception.Create('to do');
-//      fcmdUpdate :
-//        begin
-//        entry := updateResource(request.id, request.Resource, request.categories);
-//        try
-//          response.HTTPCode := client.ResponseCode;
-//          response.Resource := entry.resource.link;
-//          response.ContentType := client.Response.ContentType;
-//          response.lastModifiedDate := client.Response.LastModified;
-//          response.Location := client.Response.Location;
-//          response.ContentLocation := client.Response.RawHeaders.Values['Content-Location'];
-//          response.categories.Assign(entry.categories);
-//        finally
-//          entry.free;
-//        end;
-//        end;
-//      fcmdDelete : raise Exception.Create('to do');
-//      fcmdHistoryInstance : raise Exception.Create('to do');
-//      fcmdCreate : raise Exception.Create('to do');
-//      fcmdSearch : raise Exception.Create('to do');
-//      fcmdHistoryType : raise Exception.Create('to do');
-//      fcmdValidate : raise Exception.Create('to do');
-//      fcmdConformanceStmt : raise Exception.Create('to do');
-//      fcmdTransaction : raise Exception.Create('to do');
-//      fcmdHistorySystem : raise Exception.Create('to do');
-//      fcmdUpload : raise Exception.Create('to do');
-//      fcmdGetTags : raise Exception.Create('to do');
-//      fcmdUpdateTags : raise Exception.Create('to do');
-//      fcmdDeleteTags : raise Exception.Create('to do');
-//    end;
-//  except
-//    on e:EFHIRClientException do
-//    begin
-//      response.HTTPCode := client.ResponseCode;
-//      response.message := e.Message;
-//      response.resource := e.Issue.link;
-//    end;
-//    on e:exception do
-//    begin
-//      response.HTTPCode := client.ResponseCode;
-//      response.Body := e.Message;
-//    end;
-//  end;
-//end;
 
 function TFhirClient.fetchResource(url: String; verb: TFHIRClientHTTPVerb; source: TStream; ct : String = ''): TFhirResource;
 var
@@ -575,25 +469,6 @@ begin
   result.source := stream;
 end;
 
-procedure TFhirClient.cancelOperation;
-begin
-  client.Disconnect;
-end;
-
-{ EFHIRClientException }
-
-constructor EFHIRClientException.create(message: String; issue: TFhirOperationOutcome);
-begin
-  inherited create(message);
-  FIssue := issue;
-end;
-
-destructor EFHIRClientException.destroy;
-begin
-  FIssue.Free;
-  inherited;
-end;
-
 function TFhirClient.historyType(atype: TFhirResourceType; allRecords: boolean; params: TAdvStringMatch): TFHIRBundle;
 var
   s : String;
@@ -626,9 +501,297 @@ begin
   end;
 end;
 
-function TFhirClient.link: TFHIRClient;
+procedure TFhirClient.createClient;
 begin
-  result := TFHIRClient(inherited Link);
+  if FUseIndy then
+  begin
+    if (indy = nil) then
+    begin
+      indy := TIdHTTP.create(nil);
+      indy.HandleRedirects := true;
+      ssl := TIdSSLIOHandlerSocketOpenSSL.Create(nil);
+      indy.IOHandler := ssl;
+      ssl.SSLOptions.Mode := sslmClient;
+      ssl.SSLOptions.SSLVersions := [sslvTLSv1_2]
+    end;
+  end
+  else
+  begin
+    http := TAdvWinInetClient.Create;
+    http.UseWindowsProxySettings := true;
+  end;
+end;
+
+procedure TFhirClient.setHeader(name, value: String);
+begin
+  createClient;
+  if FUseIndy then
+    indy.Request.RawHeaders.Values[name] := value
+  else
+    http.Headers[name] := value;
+end;
+
+function TFhirClient.GetHeader(name: String): String;
+begin
+  createClient;
+  if FUseIndy then
+    result := indy.Request.RawHeaders.Values[name]
+  else
+    result := http.getResponseHeader(name);
+end;
+
+
+function TFhirClient.exchange(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String = '') : TStream;
+begin
+  createClient;
+  if FUseIndy then
+    result := exchangeIndy(url, verb, source, ct)
+  else
+    result := exchangeHTTP(url, verb, source, ct)
+end;
+
+function TFhirClient.exchangeHTTP(url: String; verb: TFHIRClientHTTPVerb; source: TStream; ct: String): TStream;
+var
+  comp : TFHIRParser;
+  ok : boolean;
+  cnt : String;
+  op : TFHIROperationOutcome;
+  code : integer;
+begin
+  if FJson then
+begin
+    http.RequestType := 'application/json+fhir; charset=utf-8';
+    http.ResponseType := 'application/json+fhir; charset=utf-8';
+  end
+  else
+  begin
+    http.RequestType := 'application/xml+fhir; charset=utf-8';
+    http.ResponseType := 'application/xml+fhir; charset=utf-8';
+  end;
+  if ct <> '' then
+    http.RequestType := ct;
+
+  http.SetAddress(url);
+  ok := false;
+  Try
+    Try
+      case verb of
+        get :
+          begin
+          http.RequestType := 'GET';
+          end;
+        post :
+          begin
+          http.RequestType := 'POST';
+          http.Request := TADvBuffer.create;
+          http.Request.LoadFromStream(source);
+          end;
+        put :
+          begin
+          http.RequestType := 'PUT';
+          http.Request.LoadFromStream(source);
+          end;
+        delete : raise Exception.Create('to do'); // client.Delete(url);
+      end;
+
+      http.Response := TAdvBuffer.create;
+      http.Execute;
+
+      code := StrToInt(http.ResponseCode);
+      if (code < 200) or (code >= 300) Then
+        raise exception.create('unexpected condition');
+      ok := true;
+      result := TMemoryStream.Create;
+      http.Response.SaveToStream(result);
+      result.Position := 0;
+    except
+      on E:EIdHTTPProtocolException do
+      begin
+        cnt := e.ErrorMessage;
+        if StringFind(cnt, 'OperationOutcome') > 0 then
+        begin
+          removeBom(cnt);
+          if FJson then
+            comp := TFHIRJsonParser.create('en')
+          else
+            comp := TFHIRXmlParser.create('en');
+  try
+            comp.source := TStringStream.create(cnt);
+            comp.Parse;
+            if (comp.resource <> nil) and (comp.resource.ResourceType = frtOperationOutcome) then
+            begin
+              op := TFhirOperationOutcome(comp.resource);
+              if (op.text <> nil) and (op.text.div_ <> nil) then
+                Raise EFHIRClientException.create(FhirHtmlToText(op.text.div_), comp.resource.link as TFhirOperationOutcome)
+              else if (op.issueList.Count > 0) and (op.issueList[0].diagnostics <> '') then
+                Raise EFHIRClientException.create(op.issueList[0].diagnostics, comp.resource.link as TFhirOperationOutcome)
+              else
+                raise exception.Create(cnt)
+            end
+            else
+              raise exception.Create(cnt)
+          finally
+            comp.source.free;
+            comp.Free;
+          end;
+        end
+        else
+          raise exception.Create(cnt)
+      end;
+      on e : exception do
+      begin
+        raise exception.Create(e.Message)
+      end;
+    end;
+  finally
+    if not ok then
+      result.free;
+  end;
+  end;
+
+function TFhirClient.exchangeIndy(url : String; verb : TFHIRClientHTTPVerb; source : TStream; ct : String) : TStream;
+var
+  comp : TFHIRParser;
+  ok : boolean;
+  cnt : String;
+  op : TFHIROperationOutcome;
+begin
+  if FJson then
+  begin
+    indy.Request.ContentType := 'application/json+fhir; charset=utf-8';
+    indy.Request.Accept := 'application/json+fhir; charset=utf-8';
+  end
+  else
+  begin
+    indy.Request.ContentType := 'application/xml+fhir; charset=utf-8';
+    indy.Request.Accept := 'application/xml+fhir; charset=utf-8';
+  end;
+  if ct <> '' then
+    indy.Request.ContentType := ct;
+
+  ok := false;
+  result := TMemoryStream.create;
+  Try
+    Try
+      case verb of
+        get : indy.Get(url, result);
+        post : indy.Post(url, source, result);
+        put : indy.Put(url, source, result);
+        delete : raise Exception.Create('to do'); // client.Delete(url);
+      end;
+
+      if (indy.ResponseCode < 200) or (indy.ResponseCode >= 300) Then
+        raise exception.create('unexpected condition');
+      ok := true;
+      if (result <> nil) then
+         result.Position := 0;
+    except
+      on E:EIdHTTPProtocolException do
+      begin
+        cnt := e.ErrorMessage;
+        if StringFind(cnt, 'OperationOutcome') > 0 then
+        begin
+          removeBom(cnt);
+          if FJson then
+            comp := TFHIRJsonParser.create('en')
+          else
+            comp := TFHIRXmlParser.create('en');
+          try
+            comp.source := TStringStream.create(cnt);
+            comp.Parse;
+            if (comp.resource <> nil) and (comp.resource.ResourceType = frtOperationOutcome) then
+            begin
+              op := TFhirOperationOutcome(comp.resource);
+              if (op.text <> nil) and (op.text.div_ <> nil) then
+                Raise EFHIRClientException.create(FhirHtmlToText(op.text.div_), comp.resource.link as TFhirOperationOutcome)
+              else if (op.issueList.Count > 0) and (op.issueList[0].diagnostics <> '') then
+                Raise EFHIRClientException.create(op.issueList[0].diagnostics, comp.resource.link as TFhirOperationOutcome)
+              else
+                raise exception.Create(cnt)
+            end
+            else
+              raise exception.Create(cnt)
+          finally
+            comp.source.free;
+            comp.Free;
+          end;
+        end
+        else
+          raise exception.Create(cnt)
+      end;
+      on e : exception do
+      begin
+        raise exception.Create(e.Message)
+      end;
+    end;
+  finally
+    if not ok then
+      result.free;
+  end;
+end;
+
+procedure TFhirClient.SetTimeout(const Value: cardinal);
+begin
+  FTimeout := Value;
+  createClient;
+  if FUseIndy then
+  begin
+    indy.IOHandler.ReadTimeout := Value;
+    indy.ReadTimeout := Value;
+  end;
+end;
+
+procedure TFhirClient.cancelOperation;
+begin
+  if not FUseIndy then
+    raise Exception.Create('Cancel not supported')
+  else if indy <> nil then
+    indy.Disconnect;
+end;
+
+
+{ TFHIRClientTests }
+
+class procedure TFHIRClientTests.testClient(client: TFhirClient);
+var
+  conf : TFHIRConformance;
+begin
+  client.conformance(true).Free;
+  client.conformance(false).Free;
+end;
+
+class procedure TFHIRClientTests.tests(url: String);
+var
+  client : TFhirClient;
+begin
+  client := TFhirClient.Create(url, true);
+  try
+    client.UseIndy := true;
+    testClient(client);
+  finally
+    client.free;
+  end;
+  client := TFhirClient.Create(url, false);
+  try
+    client.UseIndy := true;
+    testClient(client);
+  finally
+    client.free;
+  end;
+  client := TFhirClient.Create(url, true);
+  try
+    client.UseIndy := false;
+    testClient(client);
+  finally
+    client.free;
+  end;
+  client := TFhirClient.Create(url, false);
+  try
+    client.UseIndy := false;
+    testClient(client);
+  finally
+    client.free;
+  end;
 end;
 
 end.

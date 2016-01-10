@@ -81,46 +81,101 @@ Using SMART on FHIR consists of 2 main phases:
 - note that the OAuth process in the browser could go wrong for many reasons that are not known to the
   Smart on FHIR client. In these cases, the user has no choice but to process cancel, so you should not
   assume that cancel means the user chose not to succeed - just that they already know it failed.
+
+3. CDS hooks Support
+
+ when registering a server, you can specify a list of CDS Hooks that it implements.
+ For further information, see CDSHooksUtilities.
 }
 
 interface
 
 uses
   SysUtils, Classes,
-  StringSupport, EncodeSupport, DateSupport, AdvObjects, AdvJson, JWT,
+  StringSupport, EncodeSupport, DateSupport, JWT,
+  AdvObjects, AdvJson, AdvGenerics,
   IdHTTP, IdSSLOpenSSL,
-  FHIRResources, FHIRTypes, FHIRUtilities;
+  FHIRBase, FHIRResources, FHIRTypes, FHIRUtilities;
 
 type
+  TRegisteredCDSHook = class (TAdvObject)
+  private
+    Fname: String;
+    FpreFetch: TStringList;
+    Factivity: TFHIRCoding;
+    procedure Setactivity(const Value: TFHIRCoding);
+  public
+    constructor Create; override;
+    Destructor Destroy; Override;
+    Function Link : TRegisteredCDSHook; overload;
+
+    property name : String read Fname write Fname;
+    property activity : TFHIRCoding read Factivity write Setactivity;
+    property preFetch : TStringList read FpreFetch;
+  end;
+
   // information about a server required to get SMART on FHIR working
-  TRegisteredServer = record
+  TRegisteredFHIRServer = class (TAdvObject)
+  private
+    Fname: String;
+    FfhirEndpoint: String;
+    FSmartOnFHIR: boolean;
+    Fclientid: String;
+    Fclientsecret: String;
+    FautoUseHooks: boolean;
+    Fcdshooks: TAdvList<TRegisteredCDSHook>;
+    Fredirectport: integer;
+    FtokenEndpoint: String;
+    FauthorizeEndpoint: String;
+    FFormat: TFHIRFormat;
+  public
+    constructor Create; override;
+    Destructor Destroy; Override;
+    Function Link : TRegisteredFHIRServer; overload;
+    procedure clear;
+    procedure writeToJson(o : TJsonObject);
+    procedure readFromJson(o : TJsonObject);
+
+    function addCdsHook(name : String; activity : TFHIRCoding) : TRegisteredCDSHook;
+    function cdshookSummary : String;
+    function doesHook(c : TFHIRCoding) : boolean;
+
     // user casual name for the server
-    name : String;
+    property name : String read Fname write Fname;
 
     // the FHIR Base endpoint for the server
-    fhirEndpoint : String;
+    property fhirEndpoint : String read FfhirEndpoint write FfhirEndpoint;
+
+    // as is, choose from the conformance statement at run time. Else XML or JSON
+    property format : TFHIRFormat read FFormat write FFormat;
 
     // whether the server needs SMART on FHIR
-    SmartOnFHIR: boolean;
+    property SmartOnFHIR: boolean read FSmartOnFHIR write FSmartOnFHIR;
 
     // you can get these 2 endpoints from the fhirEndPoint using usesSmartOnFHIR below:
 
     // where to point the browser to authorise a user
-    authorizeEndpoint : String;
+    property authorizeEndpoint : String read FauthorizeEndpoint write FauthorizeEndpoint;
 
     // where to get the access token after authorization has completed
-    tokenEndpoint : String;
+    property tokenEndpoint : String read FtokenEndpoint write FtokenEndpoint;
 
     // registered client id
-    clientid : String;
+    property clientid : String read Fclientid write Fclientid;
 
-    // client secret, if we're pretending we're a confidential application/
+    // client secret, if we're pretending we're a confidential application.
     // this is for testing purposes; the notepad++ plug-in is not a confidential app
     // (nor any other application using this library)
-    clientsecret : String;
+    property clientsecret : String read Fclientsecret write Fclientsecret;
 
     // the port for redirecting to this server
-    redirectport : integer;
+    property redirectport : integer read Fredirectport write Fredirectport;
+
+    // what CDS hooks are used on this server
+    property cdshooks : TAdvList<TRegisteredCDSHook> read Fcdshooks;
+
+    // whether to use hooks automatically, or only if the server is connected
+    property autoUseHooks : boolean read FautoUseHooks write FautoUseHooks;
   end;
 
   // result of a SMART on FHIR authorization
@@ -157,14 +212,14 @@ type
 function usesSmartOnFHIR(conf : TFhirConformance; var authorize, token: String): Boolean;
 
 // build the launch token (used by the form)
-function buildAuthUrl(server : TRegisteredServer; scopes, state : String) : String;
+function buildAuthUrl(server : TRegisteredFHIRServer; scopes, state : String) : String;
 
 // called after the authorization part finishes to get an actual access token
-function getSmartOnFhirAuthToken(server : TRegisteredServer; authcode : String) : TSmartOnFhirAccessToken;
+function getSmartOnFhirAuthToken(server : TRegisteredFHIRServer; authcode : String) : TSmartOnFhirAccessToken;
 
 implementation
 
-function buildAuthUrl(server : TRegisteredServer; scopes, state : String) : String;
+function buildAuthUrl(server : TRegisteredFHIRServer; scopes, state : String) : String;
 begin
   result := server.authorizeEndpoint+'?response_type=code&client_id='+server.clientid+'&redirect_uri=http://localhost:'+inttostr(server.redirectport)+'/done&scope='+EncodeMIME(scopes)+'&state='+state+'&aud='+server.fhirEndpoint;
 end;
@@ -199,7 +254,7 @@ begin
   result := (token <> '') and (authorize <> '');
 end;
 
-function getSmartOnFhirAuthToken(server : TRegisteredServer; authcode : String) : TSmartOnFhirAccessToken;
+function getSmartOnFhirAuthToken(server : TRegisteredFHIRServer; authcode : String) : TSmartOnFhirAccessToken;
 var
   http: TIdHTTP;
   ssl : TIdSSLIOHandlerSocketOpenSSL;
@@ -303,5 +358,186 @@ begin
   else
     result := idtoken.name
 end;
+
+{ TRegisteredFHIRServer }
+
+function TRegisteredFHIRServer.addCdsHook(name: String; activity: TFHIRCoding): TRegisteredCDSHook;
+begin
+  result := TRegisteredCDSHook.Create;
+  try
+    result.name := name;
+    result.activity := activity;
+    cdshooks.add(result.link);
+  finally
+    result.Free;
+  end;
+end;
+
+function TRegisteredFHIRServer.cdshookSummary: String;
+var
+  c : TRegisteredCDSHook;
+begin
+  result := '';
+  for c in cdshooks do
+    CommaAdd(result, c.name);
+end;
+
+procedure TRegisteredFHIRServer.clear;
+begin
+  Fname := '';
+  FfhirEndpoint := '';
+  FSmartOnFHIR := false;
+  Fclientid := '';
+  Fclientsecret := '';
+  FautoUseHooks := false;
+  Fcdshooks.clear;
+  Fredirectport := 0;
+  FtokenEndpoint := '';
+  FauthorizeEndpoint := '';
+end;
+
+constructor TRegisteredFHIRServer.Create;
+begin
+  inherited;
+  Fcdshooks := TAdvList<TRegisteredCDSHook>.create;
+end;
+
+destructor TRegisteredFHIRServer.Destroy;
+begin
+  Fcdshooks.Free;
+  inherited;
+end;
+
+function TRegisteredFHIRServer.doesHook(c: TFHIRCoding): boolean;
+var
+  h : TRegisteredCDSHook;
+begin
+  result := false;
+  for h in cdshooks do
+    if (c.system = h.activity.system) and (c.code = h.activity.code) then
+      exit(true);
+end;
+
+function TRegisteredFHIRServer.Link: TRegisteredFHIRServer;
+begin
+  result := TRegisteredFHIRServer(Inherited Link);
+end;
+
+procedure TRegisteredFHIRServer.readFromJson(o: TJsonObject);
+var
+  arr : TJsonArray;
+  n, n2 : TJsonNode;
+  o1 : TJsonObject;
+  c : TRegisteredCDSHook;
+begin
+  clear;
+
+  name := o.vStr['name'];
+  fhirEndpoint := o.vStr['fhir'];
+  SmartOnFHIR := o.bool['smart'];
+  if o.vStr['format']  = 'xml' then
+    format := ffXml
+  else if o.vStr['format']  = 'json' then
+    format := ffJson
+  else
+    format := ffAsIs;
+
+  if SmartOnFHIR then
+  begin
+    tokenEndpoint := o.vStr['token'];
+    authorizeEndpoint := o.vStr['authorize'];
+    clientid := o.vStr['clientid'];
+    redirectport := StrToInt(o.vStr['port']);
+    clientsecret := o.vStr['secret'];
+  end;
+  autoUseHooks := o.bool['auto-cds-hooks'];
+  arr := o.arr['cdshooks'];
+  if arr <> nil then
+    for n in arr do
+    begin
+      o1 := n as TJsonObject;
+      c := TRegisteredCDSHook.Create;
+      cdshooks.Add(c);
+      c.activity := TFhirCoding.Create;
+      c.activity.system := o1.vStr['system'];
+      c.activity.code := o1.vStr['code'];
+      c.name := o1.vStr['name'];
+      arr := o.arr['prefetch'];
+      if arr <> nil then
+        for n2 in arr do
+          c.preFetch.Add((n2 as TJsonString).value)
+    end;
+end;
+
+procedure TRegisteredFHIRServer.writeToJson(o: TJsonObject);
+var
+  arr, arr2 : TJsonArray;
+  c : TRegisteredCDSHook;
+  s : String;
+begin
+  o.clear;
+  o.vStr['name'] := name;
+  o.vStr['fhir'] := fhirEndpoint;
+  case format of
+    ffXml: o.vStr['format'] := 'xml';
+    ffJson: o.vStr['format'] := 'json';
+  else
+    o.vStr['format'] := 'either';
+  end;
+  o.bool['smart'] := SmartOnFHIR;
+  if SmartOnFHIR then
+  begin
+    o.vStr['token'] := tokenEndpoint;
+    o.vStr['authorize'] := authorizeEndpoint;
+    o.vStr['clientid'] := clientid;
+    o.vStr['port'] := inttostr(redirectport);
+    o.vStr['secret'] := clientsecret;
+  end;
+  o.bool['auto-cds-hooks'] := autoUseHooks;
+  if cdshooks.Count > 0 then
+  begin
+    arr := o.forceArr['cdshooks'];
+    for c in cdshooks do
+    begin
+      o := arr.addObject;
+      o.vStr['system'] := c.activity.system;
+      o.vStr['code'] := c.activity.code;
+      o.vStr['name'] := c.name;
+      if (c.preFetch.Count > 0) then
+      begin
+        arr := o.forceArr['prefetch'];
+        for s in c.preFetch do
+          arr2.add(s);
+      end;
+    end;
+  end;
+end;
+
+{ TRegisteredCDSHook }
+
+constructor TRegisteredCDSHook.Create;
+begin
+  inherited;
+  FpreFetch := TStringList.Create;
+end;
+
+destructor TRegisteredCDSHook.Destroy;
+begin
+  FPrefetch.Free;
+  Factivity.free;
+  inherited;
+end;
+
+function TRegisteredCDSHook.Link: TRegisteredCDSHook;
+begin
+  result := TRegisteredCDSHook(inherited Link);
+end;
+
+procedure TRegisteredCDSHook.Setactivity(const Value: TFHIRCoding);
+begin
+  Factivity.free;
+  Factivity := Value;
+end;
+
 
 end.

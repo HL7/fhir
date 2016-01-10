@@ -31,12 +31,10 @@ POSSIBILITY OF SUCH DAMAGE.
 Interface
 
 Uses
-  Windows,
-  SysUtils,
+  Windows, SysUtils, Generics.Collections,
   StringSupport,
-  AdvBuffers,
-  AdvMemories,
-  AdvObjects;
+  AdvBuffers, AdvMemories, AdvObjects;
+
 
 Type
   HInternet = pointer;
@@ -67,6 +65,7 @@ Type
       FUsername: String;
       FProxyPassword: String;
       FProxyUsername: String;
+      FHeaders : TDictionary<String, String>;
 
       FIgnoreContentTypeHeader : Boolean;
     FOnProgress: TProgressEvent;
@@ -99,6 +98,7 @@ Type
 
       Procedure Execute;
 
+      Property Headers : TDictionary<String, String> read FHeaders;
 
       Procedure SetAddress(Const Value : String);
 
@@ -128,6 +128,7 @@ Type
 
       Property IgnoreContentTypeHeader : Boolean Read FIgnoreContentTypeHeader Write FIgnoreContentTypeHeader;
       Property OnProgress : TProgressEvent read FOnProgress write FOnProgress;
+      function getResponseHeader(name : String) : String;
   End;
 
   EAdvWinInetClient = Class(EAdvException);
@@ -345,6 +346,7 @@ End;
 Constructor TAdvWinInetClient.Create;
 Begin
   Inherited;
+  FHeaders := TDictionary<String, String>.create;;
 
 {$IFDEF VER130}
   Check(@mInternetOpen <> Nil, 'TAdvWinInetClient.Create', RS_ERR_WININET_NO_ROUTINE, 'InternetOpenA', 0);
@@ -372,6 +374,7 @@ End;
 
 Destructor TAdvWinInetClient.Destroy;
 Begin
+  FHeaders.Free;
   Disconnect;
 
   FResponse.Free;
@@ -430,6 +433,8 @@ Begin
 
   If FRequestType <> '' Then
     sHeaders := sHeaders + 'Content-Type: '+ FRequestType +cReturn;
+  If FResponseType <> '' Then
+    sHeaders := sHeaders + 'Accept: '+ FResponseType +cReturn;
 
   If FSecure Then
     aReqHandle := mHttpOpenRequest(FConnection, PChar(FRequestMethod), PChar(FResource), Nil, Nil, Nil,
@@ -544,7 +549,7 @@ Begin
 
     If iSize <> 0 Then
     Begin
-      SetLength(Result, iSize);
+      SetLength(Result, iSize div sizeof(char));
       move(pData^, Result[1], iSize);
     End
     Else
@@ -556,6 +561,11 @@ Begin
   End;
 End;
 
+
+function TAdvWinInetClient.getResponseHeader(name: String): String;
+begin
+
+end;
 
 Procedure TAdvWinInetClient.Connect;
 Var

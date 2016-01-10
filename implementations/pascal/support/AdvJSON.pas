@@ -31,18 +31,10 @@ POSSIBILITY OF SUCH DAMAGE.
 Interface
 
 uses
-  SysUtils,
-  Classes,
-  AdvStreams,
-  AdvVCLStreams,
-  BytesSupport,
-  AdvObjects,
-  AdvTextFormatters,
-  AdvTextExtractors,
-  AdvStringObjectMatches,
-  AdvObjectLists,
-  AdvStringBuilders,
-  XMLBuilder;
+  Windows, SysUtils, Classes,
+  BytesSupport, StringSupport,
+  AdvObjects, AdvGenerics, AdvStreams, AdvVCLStreams, AdvTextFormatters, AdvTextExtractors, AdvObjectLists, AdvStringBuilders,
+  TextUtilities, XMLBuilder;
 
 Function JSONString(const value : String) : String;
 
@@ -55,6 +47,8 @@ Type
     FPath: String;
   protected
     function nodeType : String; virtual;
+    function compare(other : TJsonNode) : boolean; overload; virtual; abstract;
+    function evaluatePointer(path : String) : TJsonNode; virtual;
   public
     LocationStart : TSourceLocation;
     LocationEnd : TSourceLocation;
@@ -63,17 +57,8 @@ Type
     constructor create(path : String; locStart, locEnd : TSourceLocation); overload;
     Function Link : TJsonNode; Overload;
     property path : String read FPath write FPath;
-  end;
 
-  TJsonProperties = class (TAdvStringObjectMatch)
-  private
-    function GetProp(const aKey: String): TJsonNode;
-    procedure SetProp(const aKey: String; const Value: TJsonNode);
-  protected
-    Function ItemClass : TAdvObjectClass; override;
-  public
-    Function Link : TJsonProperties; Overload;
-    Property Prop[Const aKey : String] : TJsonNode Read GetProp Write SetProp; Default;
+    class function compare(n1, n2 : TJsonNode) : boolean; overload;
   end;
 
   TJsonArrayEnumerator = class (TAdvObject)
@@ -99,6 +84,8 @@ Type
     procedure SetValue(i: integer; const Value: String);
   protected
     function nodeType : String; override;
+    function compare(other : TJsonNode) : boolean; override;
+    function evaluatePointer(path : String) : TJsonNode; override;
   public
     constructor Create; override;
     destructor Destroy; override;
@@ -110,7 +97,7 @@ Type
     Property Value[i : integer] : String read GetValue write SetValue;
 
     function add(value : String): TJsonArray; overload;
-    function add(value : TJsonObject): TJsonArray; overload;
+    function add(value : TJsonNode): TJsonArray; overload;
     function addObject : TJsonObject; overload;
 
     procedure remove(index : integer);
@@ -119,13 +106,18 @@ Type
     function GetEnumerator : TJsonArrayEnumerator; // can only use this when the array members are objects
   end;
 
-  TJsonNull = class (TJsonNode);
+  TJsonNull = class (TJsonNode)
+  protected
+    function nodeType : String; override;
+    function compare(other : TJsonNode) : boolean; override;
+  end;
 
   TJsonBoolean = class (TJsonNode)
   private
     FValue: boolean;
   protected
     function nodeType : String; override;
+    function compare(other : TJsonNode) : boolean; override;
   public
     Constructor Create(path : String; value : boolean); overload;
     Constructor Create(path : String; locStart, locEnd : TSourceLocation; value : boolean); overload;
@@ -133,26 +125,42 @@ Type
     property value : boolean read FValue write FValue;
   end;
 
-  TJsonValue = class (TJsonNode)
+  TJsonString = class (TJsonNode)
   private
     FValue: String;
   protected
     function nodeType : String; override;
+    function compare(other : TJsonNode) : boolean; override;
   public
     Constructor Create(path : String; value : string); overload;
     Constructor Create(path : String; locStart, locEnd : TSourceLocation; value : string); overload;
-    Function Link : TJsonValue; Overload;
+    Function Link : TJsonString; Overload;
+    property value : String read FValue write FValue;
+  end;
+
+  TJsonNumber = class (TJsonNode)
+  private
+    FValue: String;
+  protected
+    function nodeType : String; override;
+    function compare(other : TJsonNode) : boolean; override;
+  public
+    Constructor Create(path : String; value : string); overload;
+    Constructor Create(path : String; locStart, locEnd : TSourceLocation; value : string); overload;
+    Function Link : TJsonNumber; Overload;
     property value : String read FValue write FValue;
   end;
 
   TJsonObject = class (TJsonNode)
   private
     FName : String;
-    FProperties : TJsonProperties;
+    FProperties : TAdvMap<TJsonNode>;
     function GetString(name: String): String;
+    function GetNumber(name: String): String;
     function GetArray(name: String): TJsonArray;
     function GetObject(name: String): TJsonObject;
     procedure SetString(name: String; const Value: String);
+    procedure SetNumber(name: String; const Value: String);
     function GetBool(name: String): boolean;
     procedure SetBool(name: String; const Value: boolean);
     function GetForcedObject(name: String): TJsonObject;
@@ -161,6 +169,8 @@ Type
     function GetForcedArray(name: String): TJsonArray;
   protected
     function nodeType : String; override;
+    function compare(other : TJsonNode) : boolean; override;
+    function evaluatePointer(path : String) : TJsonNode; override;
   public
     constructor Create; override;
     destructor Destroy; override;
@@ -170,11 +180,12 @@ Type
     Function isNull(name : String) : Boolean;
 
     Property str[name : String] : String read GetString write SetString; default;
+    Property num[name : String] : String read GetNumber write SetNumber;
     Property bool[name : String] : boolean read GetBool write SetBool;
     Property arr[name : String] : TJsonArray read GetArray write SetArray;
     Property obj[name : String] : TJsonObject read GetObject write SetObject;
 
-    // legacy, until the FHIR code is regenerated
+//    // legacy, until the FHIR code is regenerated
     Property vStr[name : String] : String read GetString write SetString;
     Property vBool[name : String] : boolean read GetBool write SetBool;
     Property vArr[name : String] : TJsonArray read GetArray write SetArray;
@@ -185,7 +196,41 @@ Type
     procedure clear(name : String = '');
 
     Property name : String read FName write FName;
-    Property properties : TJsonProperties read FProperties;
+    Property properties : TAdvMap<TJsonNode> read FProperties;
+  end;
+
+  TJsonPointerTerminalState = (tsNotFound, tsFound, tsAtEnd);
+
+  TJsonPointerMatch = class (TAdvObject)
+  private
+    FName: String;
+    FNode: TJsonNode;
+    procedure SetNode(const Value: TJsonNode);
+  public
+    Constructor Create(name : String; node : TJsonNode);
+    Destructor Destroy; Override;
+    property name : String read FName write FName;
+    property node : TJsonNode read FNode write SetNode;
+  end;
+
+  TJsonPointerQuery = class (TAdvObject)
+  private
+    FMatches : TAdvList<TJsonPointerMatch>;
+    FTerminalState: TJsonPointerTerminalState;
+    function GetLast: TJsonNode;
+    function GetLastName: String;
+    function GetSecondLast: TJsonNode;
+
+    function unescape(s : String) : String;
+  public
+    constructor Create;
+    Destructor Destroy; Override;
+    procedure execute(focus : TJsonNode; path : string; terminalExtensions : boolean);
+
+    property terminalState : TJsonPointerTerminalState read FTerminalState;
+    property last : TJsonNode read GetLast;
+    property lastName : String read GetLastName;
+    property secondLast : TJsonNode read GetSecondLast;
   end;
 
   TJSONWriter = class (TAdvTextFormatter)
@@ -269,7 +314,7 @@ Type
 
   End;
 
-  TJsonParserItemType = (jpitObject, jpitSimple, jpitBoolean, jpitArray, jpitEnd, jpitEof, jpitNull);
+  TJsonParserItemType = (jpitObject, jpitString, jpitNumber, jpitBoolean, jpitArray, jpitEnd, jpitEof, jpitNull);
 
   TJSONParser = class (TAdvObject)
   Private
@@ -281,13 +326,13 @@ Type
     FItemName: String;
     FItemValue: String;
     FItemType: TJsonParserItemType;
-    Procedure Start;
+    FTimeToAbort : cardinal;
     Procedure ParseProperty;
     Procedure SkipInner;
     function GetItemValue: String;
     function GetItemNull: boolean;
     procedure readObject(obj : TJsonObject; root : boolean);
-    procedure readArray(arr : TJsonArray);
+    procedure readArray(arr : TJsonArray; root : boolean);
   Public
     Constructor Create(oStream : TStream); Overload;
     Constructor Create(oStream : TAdvStream);  Overload;
@@ -300,14 +345,50 @@ Type
     Procedure Skip;
     Procedure JsonError(sMsg : String);
     Procedure CheckState(aState : TJsonParserItemType);
-    class Function Parse(stream : TAdvStream): TJsonObject; overload;
-    class Function Parse(stream : TStream): TJsonObject; overload;
-    class Function Parse(b : TBytes): TJsonObject; overload;
-    class Function Parse(s : String): TJsonObject; overload;
+    function readNode : TJsonNode;
+    class Function Parse(stream : TAdvStream; timeToAbort : cardinal = 0): TJsonObject; overload;
+    class Function Parse(stream : TStream; timeToAbort : cardinal = 0): TJsonObject; overload;
+    class Function Parse(b : TBytes; timeToAbort : cardinal = 0): TJsonObject; overload;
+    class Function Parse(s : String; timeToAbort : cardinal = 0): TJsonObject; overload;
+    class Function ParseNode(stream : TAdvStream; timeToAbort : cardinal = 0): TJsonNode; overload;
+    class Function ParseNode(stream : TStream; timeToAbort : cardinal = 0): TJsonNode; overload;
+    class Function ParseNode(b : TBytes; timeToAbort : cardinal = 0): TJsonNode; overload;
+    class Function ParseNode(s : String; timeToAbort : cardinal = 0): TJsonNode; overload;
   End;
 
+  TJsonPatchEngine = class (TAdvObject)
+  private
+    FPatch: TJsonArray;
+    FTarget: TJsonNode;
+    procedure SetPatch(const Value: TJsonArray);
+    procedure SetTarget(const Value: TJsonNode);
+    procedure applyPatchOperation(patchOp : TJsonObject);
+    procedure applyAdd(patchOp : TJsonObject; path : String);
+    procedure applyAddInner(path : String; value : TJsonNode);
+    procedure applyRemove(patchOp : TJsonObject; path : String);
+    procedure applyReplace(patchOp : TJsonObject; path : String);
+    procedure applyMove(patchOp : TJsonObject; path : String);
+    procedure applyCopy(patchOp : TJsonObject; path : String);
+    procedure applyTest(patchOp : TJsonObject; path : String);
+
+    class procedure runtest(test : TJsonObject);
+  public
+    constructor Create; override;
+    destructor Destroy; override;
+
+    property patch : TJsonArray read FPatch write SetPatch;
+    property target : TJsonNode read FTarget write SetTarget;
+
+    procedure execute;
+
+    class function applyPatch(target : TJsonObject; patch : TJsonArray) : TJsonObject;
+
+    // source for tests: https://github.com/json-patch/json-patch-tests/blob/master/spec_tests.json
+    class procedure tests(fileName : String);
+  end;
+
 Const
-  Codes_TJsonParserItemType : Array[TJsonParserItemType] of String = ('Object', 'Simple', 'Boolean', 'Array', 'End', 'EOF', 'Null');
+  Codes_TJsonParserItemType : Array[TJsonParserItemType] of String = ('Object', 'String', 'Number', 'Boolean', 'Array', 'End', 'EOF', 'Null');
   Codes_TJSONLexType : Array[TJSONLexType] of String = ('Open', 'Close', 'String', 'Number', 'Colon', 'Comma', 'OpenArray', 'CloseArray', 'Eof', 'Null', 'Boolean');
 
 function JsonBoolToString(b : boolean) : String;
@@ -524,8 +605,10 @@ begin
       WriteArray('', v as TJsonArray)
     else if v is TJsonNull then
       ValueNull('')
-    else if v is TJsonValue then
-      Value('', (v as TJsonValue).FValue)
+    else if v is TJsonString then
+      Value('', (v as TJsonString).FValue)
+    else if v is TJsonNumber then
+      Value('', (v as TJsonNumber).FValue)
     else // TJsonObject
       WriteObject('', v as TJsonObject);
   end;
@@ -535,14 +618,13 @@ end;
 procedure TJSONWriter.WriteObjectInner(obj: TJsonObject);
 var
   names : TStringList;
-  i : integer;
   n : String;
   v : TJsonNode;
 begin
   names := TStringList.Create;
   try
-    for i := 0 to obj.properties.Count - 1 do
-      names.add(obj.properties.Keys[i]);
+    for n in obj.properties.Keys do
+      names.add(n);
     names.sort;
     for n in names do
     begin
@@ -553,8 +635,10 @@ begin
         ValueNull(n)
       else if v is TJsonBoolean then
         Value(n, TJsonBoolean(v).FValue)
-      else if v is TJsonValue then
-        Value(n, (v as TJsonValue).FValue)
+      else if v is TJsonString then
+        Value(n, (v as TJsonString).FValue)
+      else if v is TJsonNumber then
+        ValueNumber(n, (v as TJsonNumber).FValue)
       else if v is  TJsonObject then
         WriteObject(n, v as TJsonObject)
       else
@@ -705,6 +789,7 @@ End;
 procedure TJSONLexer.Next;
 var
   ch : Char;
+  hex : String;
 begin
   FLastLocationBWS := FLocation;
   repeat
@@ -735,6 +820,15 @@ begin
             'n':FValue := FValue + #10;
             'r':FValue := FValue + #13;
             't':FValue := FValue + #09;
+            'u':
+              begin
+              setLength(hex, 4);
+              hex[1] := getNextChar;
+              hex[2] := getNextChar;
+              hex[3] := getNextChar;
+              hex[4] := getNextChar;
+              FValue := FValue + chr(StrToInt('$'+hex));
+              end
           Else
             JsonError('not supported: \'+ch);
           End;
@@ -850,7 +944,7 @@ begin
   Finally
     oVCLStream.Free;
   End;
-  Start;
+  FLex.Start;
 end;
 
 procedure TJSONParser.CheckState(aState: TJsonParserItemType);
@@ -863,7 +957,7 @@ constructor TJSONParser.Create(oStream: TAdvStream);
 begin
   inherited Create;
   FLex := TJSONLexer.Create(oStream.Link);
-  Start;
+  FLex.Start;
 end;
 
 function TJSONParser.GetItemNull: boolean;
@@ -873,7 +967,7 @@ end;
 
 function TJSONParser.GetItemValue: String;
 begin
-  if not (FItemType in [jpitBoolean, jpitSimple]) Then
+  if not (FItemType in [jpitBoolean, jpitString, jpitNumber]) Then
     FLex.JSONError('Attempt to read a simple value, but state is '+Codes_TJsonParserItemType[FItemType]);
 
   result := FItemValue;
@@ -886,6 +980,9 @@ end;
 
 procedure TJSONParser.Next;
 begin
+//  if (FTimeToAbort > 0) and (FTimeToAbort < GetTickCount) then
+//    abort;
+
   case FItemType of
     jpitObject :
       Begin
@@ -899,7 +996,7 @@ begin
       else
         ParseProperty;
       End;
-    jpitNull, jpitSimple, jpitEnd, jpitBoolean :
+    jpitNull, jpitString, jpitNumber, jpitEnd, jpitBoolean :
       Begin
       if FItemType = jpitEnd Then
         FLex.FStates.Delete(0);
@@ -936,14 +1033,24 @@ begin
   End;
 end;
 
-class function TJSONParser.Parse(stream: TAdvStream): TJsonObject;
+class function TJSONParser.Parse(stream: TAdvStream; timeToAbort : cardinal = 0): TJsonObject;
 var
   p : TJSONParser;
 begin
   p := TJSONParser.Create(stream);
   try
+    p.FtimeToAbort := timeToAbort;
     result := TJsonObject.Create('$');
     try
+      result.LocationStart := p.FLex.FLastLocationBWS;
+      if p.FLex.LexType = jltOpen Then
+      begin
+        p.FLex.Next;
+        p.FLex.FStates.InsertObject(0, '', nil);
+      End
+      Else
+        p.FLex.JsonError('Unexpected content at start of JSON: '+Codes_TJSONLexType[p.FLex.LexType]);
+
       p.readObject(result, true);
       result.Link;
     finally
@@ -954,15 +1061,23 @@ begin
   end;
 end;
 
-class function TJSONParser.Parse(stream: TStream): TJsonObject;
+class function TJSONParser.Parse(stream: TStream; timeToAbort : cardinal = 0): TJsonObject;
 var
   p : TJSONParser;
 begin
   p := TJSONParser.Create(stream);
   try
+    p.FtimeToAbort := timeToAbort;
     result := TJsonObject.Create('$');
     try
       result.LocationStart := p.FLex.FLastLocationBWS;
+      if p.FLex.LexType = jltOpen Then
+      begin
+        p.FLex.Next;
+        p.FLex.FStates.InsertObject(0, '', nil);
+      End
+      Else
+        p.FLex.JsonError('Unexpected content at start of JSON: '+Codes_TJSONLexType[p.FLex.LexType]);
       p.ParseProperty;
       p.readObject(result, true);
       result.Link;
@@ -974,9 +1089,52 @@ begin
   end;
 end;
 
-class function TJSONParser.Parse(s: String): TJsonObject;
+class function TJSONParser.Parse(s: String; timeToAbort : cardinal = 0): TJsonObject;
 begin
-  result := Parse(TEncoding.UTF8.GetBytes(s));
+  result := Parse(TEncoding.UTF8.GetBytes(s), timeToAbort);
+end;
+
+class function TJSONParser.ParseNode(stream: TAdvStream; timeToAbort : cardinal = 0): TJsonNode;
+var
+  p : TJSONParser;
+begin
+  p := TJSONParser.Create(stream);
+  try
+    p.FtimeToAbort := timeToAbort;
+    result := p.readNode;
+  finally
+    p.Free;
+  end;
+end;
+
+class function TJSONParser.ParseNode(stream: TStream; timeToAbort : cardinal = 0): TJsonNode;
+var
+  p : TJSONParser;
+begin
+  p := TJSONParser.Create(stream);
+  try
+    p.FtimeToAbort := timeToAbort;
+    result := p.readNode;
+  finally
+    p.Free;
+  end;
+end;
+
+class function TJSONParser.ParseNode(s: String; timeToAbort : cardinal = 0): TJsonNode;
+begin
+  result := ParseNode(TEncoding.UTF8.GetBytes(s), timeToAbort);
+end;
+
+class function TJSONParser.ParseNode(b: TBytes; timeToAbort : cardinal = 0): TJsonNode;
+var
+  s : TBytesStream;
+begin
+  s := TBytesStream.Create(b);
+  try
+    result := ParseNode(s, timeToAbort);
+  finally
+    s.Free;
+  end;
 end;
 
 procedure TJSONParser.ParseProperty;
@@ -1000,7 +1158,7 @@ Begin
       end;
     jltString :
       Begin
-      FItemType := jpitSimple;
+      FItemType := jpitString;
       FItemValue := FLex.FValue;
       FValueStart := FLex.FLastLocationAWS;
       FValueEnd := FLex.FLocation;
@@ -1016,7 +1174,7 @@ Begin
       End;
     jltNumber :
       Begin
-      FItemType := jpitSimple;
+      FItemType := jpitNumber;
       FItemValue := FLex.FValue;
       FValueStart := FLex.FLastLocationAWS;
       FValueEnd := FLex.FLocation;
@@ -1041,7 +1199,7 @@ Begin
 End;
 
 
-procedure TJSONParser.readArray(arr: TJsonArray);
+procedure TJSONParser.readArray(arr: TJsonArray; root : boolean);
 var
   obj : TJsonObject;
   child : TJsonArray;
@@ -1049,7 +1207,7 @@ var
 begin
   i := 0;
   obj := nil;
-  while (ItemType <> jpitEnd) do
+  while not ((ItemType = jpitEnd) or (root and (ItemType = jpitEof))) do
   begin
     case ItemType of
       jpitObject:
@@ -1060,17 +1218,19 @@ begin
           Next;
           readObject(obj, false);
         end;
-      jpitSimple:
-        arr.FItems.Add(TJsonValue.Create(arr.path+'['+inttostr(i)+']', FValueStart, FValueEnd, ItemValue));
+      jpitString:
+        arr.FItems.Add(TJsonString.Create(arr.path+'['+inttostr(i)+']', FValueStart, FValueEnd, ItemValue));
+      jpitNumber:
+        arr.FItems.Add(TJsonNumber.Create(arr.path+'['+inttostr(i)+']', FValueStart, FValueEnd, ItemValue));
       jpitNull :
         arr.FItems.Add(TJsonNull.Create(arr.path+'['+inttostr(i)+']', FValueStart, FValueEnd));
       jpitArray:
         begin
         child := TJsonArray.Create(arr.path+'['+inttostr(i)+']');
-        obj.FProperties.Add(ItemName, child);
+        arr.FItems.Add(child);
         child.LocationStart := FLex.FLocation;
         Next;
-        readArray(child);
+        readArray(child, false);
         end;
       jpitEof : raise Exception.Create('Unexpected End of File');
     end;
@@ -1080,13 +1240,59 @@ begin
   end;
 end;
 
+function TJSONParser.readNode: TJsonNode;
+begin
+  case FLex.LexType of
+    jltOpen : 
+      begin
+        FLex.Next;
+        FLex.FStates.InsertObject(0, '', nil);
+        result := TJsonObject.Create('$');
+        try
+          result.LocationStart := FLex.FLastLocationBWS;
+          readObject(result as TJsonObject, true);
+          result.link;
+        finally
+          result.Free;
+        end;
+      end;
+    jltString : raise Exception.Create('Not implemented yet');
+    jltNumber : raise Exception.Create('Not implemented yet');
+    jltOpenArray :
+      begin
+        FLex.Next;
+        result := TJsonArray.Create('$');
+        try
+          FLex.FStates.InsertObject(0, '', result);
+          result.LocationStart := FLex.FLastLocationBWS;
+          readArray(result as TJsonArray, true);
+          result.link;
+        finally
+          result.Free;
+        end;
+      end;
+    jltNull : raise Exception.Create('Not implemented yet');
+    jltBoolean : raise Exception.Create('Not implemented yet');
+  else
+    raise Exception.Create('Unexpected Token '+Codes_TJSONLexType[FLex.LexType]+' at start of Json Stream');  
+  end;
+end;
+
 procedure TJSONParser.readObject(obj: TJsonObject; root : boolean);
 var
   child : TJsonObject;
   arr : TJsonArray;
 begin
+  // this is a choice; in some senses, it's logical that the object ends where it actually ends.
+  // but this looks weird because all the inner content of an object is identified. So we call the object
+  // the area till it's properties start
+  obj.LocationEnd := FLex.FLocation;
+
   while not ((ItemType = jpitEnd) or (root and (ItemType = jpitEof))) do
   begin
+    if obj.FProperties.ContainsKey(itemName) then
+      raise Exception.Create('DuplicateKey: '+itemName);
+
     case ItemType of
       jpitObject:
         begin
@@ -1098,8 +1304,10 @@ begin
         end;
       jpitBoolean :
         obj.FProperties.Add(ItemName, TJsonBoolean.Create(obj.path+'.'+ItemName, FValueStart, FValueEnd, StrToBool(ItemValue)));
-      jpitSimple:
-        obj.FProperties.Add(ItemName, TJsonValue.Create(obj.path+'.'+ItemName, FValueStart, FValueEnd, ItemValue));
+      jpitString:
+        obj.FProperties.Add(ItemName, TJsonString.Create(obj.path+'.'+ItemName, FValueStart, FValueEnd, ItemValue));
+      jpitNumber:
+        obj.FProperties.Add(ItemName, TJsonNumber.Create(obj.path+'.'+ItemName, FValueStart, FValueEnd, ItemValue));
       jpitNull:
         obj.FProperties.Add(ItemName, TJsonNull.Create(obj.path+'.'+ItemName, FValueStart, FValueEnd));
       jpitArray:
@@ -1108,18 +1316,17 @@ begin
         obj.FProperties.Add(ItemName, arr);
         arr.LocationStart := FLex.FLocation;
         Next;
-        readArray(arr);
+        readArray(arr, false);
         end;
       jpitEof : raise Exception.Create('Unexpected End of File');
     end;
-    obj.LocationEnd := FLex.FLocation;
     next;
   end;
 end;
 
 procedure TJSONParser.Skip;
 begin
-  if ItemType = jpitSimple then
+  if ItemType in [jpitString, jpitNumber] then
     Next
   Else
     SkipInner;
@@ -1132,24 +1339,14 @@ begin
   Begin
     Case ItemType of
       jpitObject : SkipInner;
-      jpitSimple : Next;
+      jpitString : Next;
+      jpitNumber : Next;
       jpitArray : SkipInner;
     End;
   End;
   Next;
 end;
 
-Procedure TJSONParser.Start;
-begin
-  FLex.Start;
-  if FLex.LexType = jltOpen Then
-  begin
-    FLex.Next;
-    FLex.FStates.InsertObject(0, '', nil);
-  End
-  Else
-    FLex.JsonError('Unexpected content at start of JSON: '+Codes_TJSONLexType[FLex.LexType]);
-End;
 
 procedure TJSONWriter.ValueInArray(const value: String);
 begin
@@ -1265,13 +1462,13 @@ begin
 end;
 
 
-class function TJSONParser.Parse(b: TBytes): TJsonObject;
+class function TJSONParser.Parse(b: TBytes; timeToAbort : cardinal = 0): TJsonObject;
 var
   s : TBytesStream;
 begin
   s := TBytesStream.Create(b);
   try
-    result := Parse(s);
+    result := Parse(s, timeToAbort);
   finally
     s.Free;
   end;
@@ -1285,12 +1482,27 @@ begin
   self.path := path;
 end;
 
+class function TJsonNode.compare(n1, n2: TJsonNode): boolean;
+begin
+  if (n1 = nil)  and (n2 = nil) then
+    exit(true);
+  if (n1 = nil) or (n2 = nil) then
+    exit(false);
+
+  result := n1.compare(n2);
+end;
+
 constructor TJsonNode.create(path: String; locStart, locEnd: TSourceLocation);
 begin
   Create;
   self.path := path;
   LocationStart := locStart;
   LocationEnd := locEnd;
+end;
+
+function TJsonNode.evaluatePointer(path: String): TJsonNode;
+begin
+  result := nil;
 end;
 
 function TJsonNode.Link: TJsonNode;
@@ -1303,38 +1515,16 @@ begin
   result := copy(className, 6, $FF);
 end;
 
-{ TJsonProperties }
-
-function TJsonProperties.GetProp(const aKey: String): TJsonNode;
-begin
-  result := Matches[aKey] as TJsonNode;
-end;
-
-function TJsonProperties.ItemClass: TAdvObjectClass;
-begin
-  result := TJsonNode;
-end;
-
-function TJsonProperties.Link: TJsonProperties;
-begin
-  result := TJsonProperties(Inherited Link);
-end;
-
-procedure TJsonProperties.SetProp(const aKey: String; const Value: TJsonNode);
-begin
-  Matches[aKey] := Value;
-end;
-
 
 { TJsonArray }
 
 function TJsonArray.add(value: String): TJsonArray;
 begin
-  FItems.Add(TJsonValue.Create(path+'/'+inttostr(FItems.count), value));
+  FItems.Add(TJsonString.Create(path+'/'+inttostr(FItems.count), value));
   result := self;
 end;
 
-function TJsonArray.add(value: TJsonObject): TJsonArray;
+function TJsonArray.add(value: TJsonNode): TJsonArray;
 begin
   FItems.Add(value);
   result := self;
@@ -1344,6 +1534,25 @@ function TJsonArray.addObject: TJsonObject;
 begin
   result := TJsonObject.Create;
   add(result);
+end;
+
+function TJsonArray.compare(other: TJsonNode): boolean;
+var
+  o : TJsonArray;
+  i : integer;
+begin
+  if not (other is TJsonArray) then
+    exit(false);
+
+  o := other as TJsonArray;
+  if Count <> o.Count then
+    exit(false);
+
+  for i := 0 to Count -1 do
+    if not Item[i].compare(o.Item[i]) then
+      exit(false);
+
+  result := true;
 end;
 
 constructor TJsonArray.create;
@@ -1356,6 +1565,14 @@ destructor TJsonArray.destroy;
 begin
   FItems.Free;
   inherited;
+end;
+
+function TJsonArray.evaluatePointer(path: String): TJsonNode;
+begin
+  if StringIsInteger32(path) then
+    result := GetItem(StrToInt(path))
+  else
+    result := nil;
 end;
 
 function TJsonArray.GetCount: integer;
@@ -1397,8 +1614,10 @@ function TJsonArray.GetValue(i: integer): String;
 begin
   if (self = nil) or (i >= Count)  then
     result := ''
-  else if FItems[i] is TJsonValue then
-    result := (FItems[i] as TJsonValue).FValue
+  else if FItems[i] is TJsonString then
+    result := (FItems[i] as TJsonString).FValue
+  else if FItems[i] is TJsonNumber then
+    result := (FItems[i] as TJsonNumber).FValue
   else if FItems[i] is TJsonNull then
     result := ''
   else
@@ -1437,18 +1656,26 @@ end;
 
 procedure TJsonArray.SetValue(i: integer; const Value: String);
 begin
-  FItems[i] := TJsonValue.Create(Path+'['+inttostr(i)+']', Value);
+  FItems[i] := TJsonString.Create(Path+'['+inttostr(i)+']', Value);
 end;
 
-{ TJsonValue }
+{ TJsonString }
 
-constructor TJsonValue.Create(path, value: string);
+constructor TJsonString.Create(path, value: string);
 begin
   Create(path);
   self.value := value;
 end;
 
-constructor TJsonValue.Create(path: String; locStart, locEnd: TSourceLocation; value: string);
+function TJsonString.compare(other: TJsonNode): boolean;
+begin
+  if not (other is TJsonString) then
+    result := false
+  else
+    result := FValue = (other as TJsonString).FValue;
+end;
+
+constructor TJsonString.Create(path: String; locStart, locEnd: TSourceLocation; value: string);
 begin
   Create(path);
   self.value := value;
@@ -1456,14 +1683,48 @@ begin
   LocationEnd := locEnd;
 end;
 
-function TJsonValue.Link: TJsonValue;
+function TJsonString.Link: TJsonString;
 begin
-  result := TJsonValue(Inherited Link);
+  result := TJsonString(Inherited Link);
 end;
 
-function TJsonValue.nodeType: String;
+function TJsonString.nodeType: String;
 begin
-  result := 'string/number';
+  result := 'string';
+end;
+
+{ TJsonNumber }
+
+constructor TJsonNumber.Create(path, value: string);
+begin
+  Create(path);
+  self.value := value;
+end;
+
+function TJsonNumber.compare(other: TJsonNode): boolean;
+begin
+  if not (other is TJsonNumber) then
+    result := false
+  else
+    result := FValue = (other as TJsonNumber).FValue;
+end;
+
+constructor TJsonNumber.Create(path: String; locStart, locEnd: TSourceLocation; value: string);
+begin
+  Create(path);
+  self.value := value;
+  LocationStart := locStart;
+  LocationEnd := locEnd;
+end;
+
+function TJsonNumber.Link: TJsonNumber;
+begin
+  result := TJsonNumber(Inherited Link);
+end;
+
+function TJsonNumber.nodeType: String;
+begin
+  result := 'number';
 end;
 
 { TJsonObject }
@@ -1473,20 +1734,46 @@ begin
   if name = '' then
     FProperties.Clear
   else
-    FProperties.DeleteByKey(name);
+    FProperties.Remove(name);
+end;
+
+function TJsonObject.compare(other: TJsonNode): boolean;
+var
+  o : TJsonObject;
+  s : String;
+begin
+  if not (other is TJsonObject) then
+    exit(false);
+
+  o := other as TJsonObject;
+  if properties.Count <> o.properties.Count then
+    exit(false);
+
+  for s in properties.Keys do
+    if not TJsonNode.compare(properties[s], o.properties[s]) then
+      exit(false);
+
+  result := true;
 end;
 
 constructor TJsonObject.create;
 begin
   inherited Create;
-  FProperties := TJsonProperties.Create;
-  FProperties.Forced := true;
+  FProperties := TAdvMap<TJsonNode>.Create;
 end;
 
 destructor TJsonObject.destroy;
 begin
   FProperties.Free;
   inherited;
+end;
+
+function TJsonObject.evaluatePointer(path: String): TJsonNode;
+begin
+  if has(path) then
+    result := properties[path]
+  else
+    result := nil;
 end;
 
 function TJsonObject.GetArray(name: String): TJsonArray;
@@ -1527,16 +1814,46 @@ end;
 
 function TJsonObject.GetForcedArray(name: String): TJsonArray;
 begin
-  if not properties.ExistsByKey(name) or not (properties[name] is TJsonArray) then
+  if not properties.containsKey(name) or not (properties[name] is TJsonArray) then
     arr[name] := TJsonArray.Create;
   result := arr[name];
 end;
 
 function TJsonObject.GetForcedObject(name: String): TJsonObject;
 begin
-  if not properties.ExistsByKey(name) or not (properties[name] is TJsonObject) then
+  if not properties.containsKey(name) or not (properties[name] is TJsonObject) then
     obj[name] := TJsonObject.Create;
   result := obj[name];
+end;
+
+function TJsonObject.GetNumber(name: String): String;
+var
+  node : TJsonNode;
+begin
+  if self = nil then
+    result := ''
+  else
+  begin
+    if has(name) then
+    begin
+      node := FProperties[name];
+      if (node is TJsonString) and StringIsInteger32(TJsonString(node).FValue) then
+        result := TJsonString(node).FValue
+      else if node is TJsonNumber then
+        result := TJsonNumber(node).FValue
+      else if node is TJsonNull then
+        result := ''
+      else if node is TJsonBoolean then
+        if (node as TJsonBoolean).FValue then
+          result := '1'
+        else
+          result := '0'
+      else
+        raise Exception.Create('Found a property of type '+node.nodeType+' looking for a string at '+FPath+'.'+name);
+    end
+    else
+      result := '';
+  end;
 end;
 
 function TJsonObject.GetObject(name: String): TJsonObject;
@@ -1568,8 +1885,10 @@ begin
     if has(name) then
     begin
       node := FProperties[name];
-      if node is TJsonValue then
-        result := TJsonValue(node).FValue
+      if node is TJsonString then
+        result := TJsonString(node).FValue
+      else if node is TJsonNumber then
+        result := TJsonNumber(node).FValue
       else if node is TJsonNull then
         result := ''
       else if node is TJsonBoolean then
@@ -1587,12 +1906,12 @@ end;
 
 function TJsonObject.has(name: String): Boolean;
 begin
-  result := FProperties.ExistsByKey(name);
+  result := FProperties.containsKey(name);
 end;
 
 function TJsonObject.isNull(name: String): Boolean;
 begin
-  result := has(name) and (FProperties.Prop[name] is TJsonNull);
+  result := has(name) and (FProperties[name] is TJsonNull);
 end;
 
 function TJsonObject.Link: TJsonObject;
@@ -1607,7 +1926,7 @@ end;
 
 procedure TJsonObject.SetArray(name: String; const Value: TJsonArray);
 begin
-  properties.SetProp(name, value);
+  properties.AddOrSetValue(name, value);
 end;
 
 procedure TJsonObject.SetBool(name: String; const Value: boolean);
@@ -1616,7 +1935,7 @@ var
 begin
   v := TJsonBoolean.Create(path+'/'+name, Value);
   try
-    properties.SetProp(name, v.Link);
+    properties.AddOrSetValue(name, v.Link);
   finally
     v.Free;
   end;
@@ -1624,16 +1943,28 @@ end;
 
 procedure TJsonObject.SetObject(name: String; const Value: TJsonObject);
 begin
-  properties.SetProp(name, value);
+  properties.AddOrSetValue(name, value);
 end;
 
 procedure TJsonObject.SetString(name: String; const Value: String);
 var
-  v : TJsonValue;
+  v : TJsonString;
 begin
-  v := TJsonValue.Create(path+'/'+name, Value);
+  v := TJsonString.Create(path+'/'+name, Value);
   try
-    properties.SetProp(name, v.Link);
+    properties.AddOrSetValue(name, v.Link);
+  finally
+    v.Free;
+  end;
+end;
+
+procedure TJsonObject.SetNumber(name: String; const Value: String);
+var
+  v : TJsonNumber;
+begin
+  v := TJsonNumber.Create(path+'/'+name, Value);
+  try
+    properties.AddOrSetValue(name, v.Link);
   finally
     v.Free;
   end;
@@ -1645,6 +1976,14 @@ constructor TJsonBoolean.Create(path: String; value: boolean);
 begin
   create('path');
   FValue := value;
+end;
+
+function TJsonBoolean.compare(other: TJsonNode): boolean;
+begin
+  if not (other is TJsonBoolean) then
+    result := false
+  else
+    result := FValue = (other as TJsonBoolean).FValue;
 end;
 
 constructor TJsonBoolean.Create(path: String; locStart, locEnd: TSourceLocation; value: boolean);
@@ -1709,6 +2048,406 @@ begin
   result := cursor < FArray.GetCount;
 end;
 
+
+{ TJsonPatchEngine }
+
+class function TJsonPatchEngine.applyPatch(target: TJsonObject; patch: TJsonArray) : TJsonObject;
+var
+  this : TJsonPatchEngine;
+begin
+  this := TJsonPatchEngine.Create;
+  try
+    this.target := target.Link;
+    this.patch := patch.Link;
+    this.execute;
+    result := this.target.link as TJsonObject;
+  finally
+    this.free;
+  end;
+end;
+
+constructor TJsonPatchEngine.Create;
+begin
+  inherited;
+end;
+
+destructor TJsonPatchEngine.Destroy;
+begin
+  FPatch.free;
+  FTarget.Free;
+  inherited;
+end;
+
+procedure TJsonPatchEngine.SetPatch(const Value: TJsonArray);
+begin
+  FPatch.free;
+  FPatch := Value;
+end;
+
+procedure TJsonPatchEngine.SetTarget(const Value: TJsonNode);
+begin
+  FTarget.Free;
+  FTarget := Value;
+end;
+
+class procedure TJsonPatchEngine.runtest(test: TJsonObject);
+var
+  cmt : string;
+  outcome : TJsonObject;
+  ok : boolean;
+begin
+  cmt := test['comment'];
+  writeln('test: '+cmt);
+  if test.has('error') then
+  begin
+    ok := true;
+    try
+      applyPatch(test.obj['doc'], test.arr['patch']).Free;
+      ok := false;
+    except
+    end;
+    if not ok then
+      raise Exception.Create('Test failed: '+cmt);
+  end
+  else
+  begin
+    outcome := applyPatch(test.obj['doc'], test.arr['patch']);
+    try
+      if not TJsonNode.compare(outcome, test.obj['expected']) then
+        raise Exception.Create('Test failed: '+cmt);
+    finally
+      outcome.Free;
+    end;
+  end;
+end;
+
+class procedure TJsonPatchEngine.tests(fileName: String);
+var
+  tests : TJsonArray;
+  test : TJsonNode;
+begin
+  tests := TJSONParser.ParseNode(FileToBytes(filename)) as TJsonArray;
+  try
+    for test in tests do
+      runtest(test as TJsonObject);
+  finally
+    tests.free;
+  end;
+end;
+
+procedure TJsonPatchEngine.execute;
+var
+  op : TJsonNode;
+begin
+  assert(target <> nil);
+  assert(patch <> nil);
+  for op in patch do
+    if op is TJsonObject then
+      applyPatchOperation(op as TJsonObject)
+    else
+      raise Exception.Create('Unexpected JSON node type looking for operation: '+op.nodeType);
+end;
+
+procedure TJsonPatchEngine.applyPatchOperation(patchOp: TJsonObject);
+var
+  op, path : String;
+begin
+  op := patchOp['op'];
+  path := patchOp['path'];
+  if path = '' then
+    raise Exception.Create('No patch path parameter found');
+
+  if op = '' then
+    raise Exception.Create('No patch op parameter found')
+  else if op = 'add' then
+    applyAdd(patchOp, path)
+  else if op = 'remove' then
+    applyRemove(patchOp, path)
+  else if op = 'replace' then
+    applyReplace(patchOp, path)
+  else if op = 'move' then
+    applyMove(patchOp, path)
+  else if op = 'copy' then
+    applyCopy(patchOp, path)
+  else if op = 'test' then
+    applyTest(patchOp, path)
+  else
+    raise Exception.Create('Unknown patch operation "'+op+'"');
+end;
+
+procedure TJsonPatchEngine.applyAdd(patchOp: TJsonObject; path : String);
+var
+  value : TJsonNode;
+begin
+  value := patchOp.properties['value'];
+  if value = nil then
+    raise Exception.Create('No patch value parameter found in add');
+  applyAddInner(path, value);
+end;
+
+procedure TJsonPatchEngine.applyAddInner(path : String; value : TJsonNode);
+var
+  query : TJsonPointerQuery;
+  index : integer;
+begin
+  query := TJsonPointerQuery.create;
+  try
+    query.execute(target, path, true);
+    case query.terminalState of
+      tsNotFound :
+        if (query.secondLast is TJsonObject) then
+          (query.secondLast as TJsonObject).properties.add(query.lastName, value.Link)
+        else
+          raise Exception.Create('Unexpected target type '+query.last.nodeType);
+      tsFound :
+        begin
+        if (query.secondLast is TJsonArray) and StringIsInteger32(query.lastName) then
+          (query.secondLast as TJsonArray).FItems.Insert((query.secondLast as TJsonArray).FItems.IndexByReference(query.last), value.link)
+        else if query.secondlast is TJsonObject then
+          (query.secondlast as TJsonObject).FProperties.AddOrSetValue(query.lastName, value.link)
+        else
+          raise Exception.Create('Unexpected target type '+query.last.nodeType);
+        end;
+      tsAtEnd :
+        begin
+        if (query.secondlast is TJsonArray) then
+          (query.secondlast as TJsonArray).add(value.Link)
+        else
+          raise Exception.Create('Attempt to append content to a non-array ('+query.last.nodeType+')');
+        end;
+    end;
+  finally
+    query.free;
+  end;
+end;
+
+procedure TJsonPatchEngine.applyRemove(patchOp: TJsonObject; path : String);
+var
+  query : TJsonPointerQuery;
+begin
+  query := TJsonPointerQuery.create;
+  try
+    query.execute(target, path, false);
+    if (query.secondLast is TJsonArray) and StringIsInteger32(query.lastName) then
+      (query.secondLast as TJsonArray).FItems.DeleteByIndex((query.secondLast as TJsonArray).FItems.IndexByReference(query.last))
+    else if query.secondLast is TJsonObject then
+      (query.secondLast as TJsonObject).FProperties.Remove(query.lastName)
+    else
+      raise Exception.Create('Unexpected target type '+query.last.nodeType);
+  finally
+    query.free;
+  end;
+end;
+
+procedure TJsonPatchEngine.applyReplace(patchOp: TJsonObject; path : String);
+var
+  value : TJsonNode;
+  query : TJsonPointerQuery;
+  index : integer;
+begin
+  value := patchOp.properties['value'];
+  if value = nil then
+    raise Exception.Create('No patch value parameter found in add');
+  query := TJsonPointerQuery.create;
+  try
+    query.execute(target, path, false);
+    if (query.secondLast is TJsonArray) and StringIsInteger32(query.lastName) then
+      (query.secondLast as TJsonArray).FItems[(query.secondLast as TJsonArray).FItems.IndexByReference(query.last)] := value.link
+    else if query.secondLast is TJsonObject then
+      (query.secondLast as TJsonObject).FProperties[query.lastName] := value.link
+    else
+      raise Exception.Create('Unexpected target type '+query.last.nodeType);
+  finally
+    query.free;
+  end;
+end;
+
+procedure TJsonPatchEngine.applyTest(patchOp: TJsonObject; path : String);
+var
+  query : TJsonPointerQuery;
+  value : TJsonNode;
+begin
+  value := patchOp.properties['value'];
+  if value = nil then
+    raise Exception.Create('No patch value parameter found in add');
+
+  query := TJsonPointerQuery.create;
+  try
+    query.execute(target, path, false);
+    if not TJsonNode.compare(query.last, value) then
+      raise Exception.Create('Test Failed because nodes are not equal');
+  finally
+    query.free;
+  end;
+end;
+
+procedure TJsonPatchEngine.applyCopy(patchOp: TJsonObject; path : String);
+var
+  from : string;
+  qFrom, qPath : TJsonPointerQuery;
+begin
+  from := patchOp['from'];
+  if from = '' then
+    raise Exception.Create('No patch from parameter found');
+
+  qFrom := TJsonPointerQuery.create;
+  try
+    qFrom.execute(target, from, false);
+    applyAddInner(path, qFrom.last);
+  finally
+    qFrom.free;
+  end;
+end;
+
+procedure TJsonPatchEngine.applyMove(patchOp: TJsonObject; path : String);
+var
+  from : string;
+  qFrom, qPath : TJsonPointerQuery;
+  focus : TJsonNode;
+begin
+  from := patchOp['from'];
+  if from = '' then
+    raise Exception.Create('No patch from parameter found');
+
+  qFrom := TJsonPointerQuery.create;
+  try
+    qFrom.execute(target, from, false);
+    focus := qFrom.last.Link;
+    try
+      if (qFrom.secondLast is TJsonArray) and StringIsInteger32(qFrom.lastName) then
+        (qFrom.secondLast as TJsonArray).FItems.DeleteByIndex((qFrom.secondLast as TJsonArray).FItems.IndexByReference(qFrom.last))
+      else if qFrom.secondLast is TJsonObject then
+        (qFrom.secondLast as TJsonObject).FProperties.Remove(qFrom.lastName)
+      else
+        raise Exception.Create('Unexpected target type '+qFrom.last.nodeType);
+
+      applyAddInner(path, focus);
+    finally
+      focus.Free
+    end;
+
+  finally
+    qFrom.free;
+  end;
+end;
+
+
+{ TJsonPointerMatch }
+
+constructor TJsonPointerMatch.Create(name: String; node: TJsonNode);
+begin
+  inherited create;
+  self.Name := name;
+  self.Node := node;
+end;
+
+destructor TJsonPointerMatch.Destroy;
+begin
+  FNode.Free;
+  inherited;
+end;
+
+procedure TJsonPointerMatch.SetNode(const Value: TJsonNode);
+begin
+  FNode.Free;
+  FNode := Value;
+end;
+
+{ TJsonNull }
+
+function TJsonNull.compare(other: TJsonNode): boolean;
+begin
+  result := other is TJsonNull;
+end;
+
+function TJsonNull.nodeType: String;
+begin
+  result := 'null'
+end;
+
+{ TJsonPointerQuery }
+
+constructor TJsonPointerQuery.Create;
+begin
+  inherited Create;
+  FMatches := TAdvList<TJsonPointerMatch>.create;
+end;
+
+destructor TJsonPointerQuery.Destroy;
+begin
+  FMatches.Free;
+  inherited;
+end;
+
+procedure TJsonPointerQuery.execute(focus: TJsonNode; path: String; terminalExtensions: boolean);
+var
+  i : integer;
+  pl : TArray<String>;
+  p : String;
+begin
+  if (path.Trim = '') then
+    raise Exception.Create('Path cannot be blank');
+
+  FMatches.Add(TJsonPointerMatch.Create('$', focus.Link));
+  FTerminalState := tsFound;
+  pl  := path.Split(['/']);
+  for i := 1 to length(pl) - 1 do
+  begin
+    p := unescape(pl[i].Trim);
+    if terminalExtensions and (i = length(pl) - 1) then
+    begin
+      if (p = '-') and (focus is TJsonArray) then
+      begin
+        FTerminalState := tsAtEnd;
+        FMatches.Add(TJsonPointerMatch.Create(p, nil));
+      end
+      else
+      begin
+        focus := focus.evaluatePointer(p);
+        if focus = nil then
+        begin
+          if (last is TJsonArray) and StringIsInteger32(p) and (StrToInt(p) = (last as TJsonArray).count) then
+            FTerminalState := tsAtEnd
+          else
+            FTerminalState := tsNotFound;
+
+          FMatches.Add(TJsonPointerMatch.Create(p, nil));
+        end
+        else
+          FMatches.Add(TJsonPointerMatch.Create(p, focus.Link));
+      end;
+    end
+    else
+    begin
+      focus := focus.evaluatePointer(p);
+      if focus = nil then
+        raise Exception.Create('Pointer could not be resolved: "'+p+'"')
+      else
+        FMatches.Add(TJsonPointerMatch.Create(p, focus.Link));
+    end;
+  end;
+end;
+
+function TJsonPointerQuery.GetLast: TJsonNode;
+begin
+  result := FMatches[FMatches.Count - 1].FNode;
+end;
+
+function TJsonPointerQuery.GetLastName: String;
+begin
+  result := FMatches[FMatches.Count - 1].FName;
+end;
+
+function TJsonPointerQuery.GetSecondLast: TJsonNode;
+begin
+  result := FMatches[FMatches.Count - 2].FNode;
+
+end;
+
+function TJsonPointerQuery.unescape(s: String): String;
+begin
+  result := s.Replace('~1', '/').Replace('~0', '~');
+end;
 
 End.
 

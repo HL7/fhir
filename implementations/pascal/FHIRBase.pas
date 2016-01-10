@@ -69,11 +69,10 @@ Type
     fcmdTransaction, {@enum.value fcmdTransaction Update or create a set of resources}
     fcmdHistorySystem, {@enum.value fcmdUpdate get updates for the resource type}
     fcmdUpload, {@enum.value fcmdUpload Manual upload (Server extension)}
-    fcmdGetMeta, {@enum.value fcmdGetTags get a list of tags fixed to a resource version, resource, used with a resource type, or used on the system}
-    fcmdUpdateMeta, {@enum.value fcmdAddTags add to the list of tags attached to a resource or version}
-    fcmdDeleteMeta, {@enum.value fcmdDeleteTags delete from the list of tags attached to a resource or version}
 
     fcmdOperation, {@enum.value fcmdOperation operation, as defined in DSTU2}
+
+    fcmdPatch, {@enum.value fcmdPatch Patch (trial for Connectathon 11)}
 
     fcmdBatch, {@enum.value fcmdBatch batch as defined in DSTU2}
     fcmdWebUI, {@enum.value fcmdWebUI Special web interface operations - not a valid FHIR operation}
@@ -127,7 +126,7 @@ Type
 Const
   FHIR_NS = 'http://hl7.org/fhir';
   CODES_TFHIRCommandType : array [TFHIRCommandType] of String = (
-    'Unknown', 'Read', 'VersionRead', 'Update', 'Delete', 'HistoryInstance', 'Create', 'Search', 'HistoryType', 'Validate', 'ConformanceStmt', 'Transaction', 'HistorySystem', 'Upload', 'GetTags', 'UpdateTags', 'DeleteTags', 'Operation', 'Batch', 'WebUI', 'Null');
+    'Unknown', 'Read', 'VersionRead', 'Update', 'Delete', 'HistoryInstance', 'Create', 'Search', 'HistoryType', 'Validate', 'ConformanceStmt', 'Transaction', 'HistorySystem', 'Upload', 'Operation', 'Patch', 'Batch', 'WebUI', 'Null');
   CODES_TFHIRHtmlNodeType : array [TFHIRHtmlNodeType] of String = ('Element', 'Text', 'Comment', 'Document');
   CODES_TFHIRFormat : Array [TFHIRFormat] of String = ('AsIs', 'XML', 'JSON', 'XHTML');
   MIMETYPES_TFHIRFormat : Array [TFHIRFormat] of String = ('', 'text/xml+fhir', 'application/json+fhir', 'text/xhtml');
@@ -219,6 +218,7 @@ type
   public
     Constructor Create; override;
     Destructor Destroy; override;
+    function Link : TFHIRObject;
     function createIterator(bInheritedProperties, bPrimitiveValues : Boolean) : TFHIRPropertyIterator;
     function createPropertyList(bPrimitiveValues : boolean) : TFHIRPropertyList;
     procedure ListChildrenByName(name : string; list : TFHIRObjectList);
@@ -1233,6 +1233,11 @@ end;
 function TFHIRObject.HasTag(name: String): boolean;
 begin
   result := (FTags <> nil) and FTags.ContainsKey(name);
+end;
+
+function TFHIRObject.Link: TFHIRObject;
+begin
+  result := TFHIRObject(inherited Link);
 end;
 
 procedure TFHIRObject.ListChildrenByName(name: string; list: TFHIRObjectList);

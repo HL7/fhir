@@ -42,7 +42,7 @@ type
 
 
   public
-    class procedure runTests;
+    class procedure runTests(folder : String);
   end;
 
 implementation
@@ -134,13 +134,20 @@ begin
 end;
 
 
-class procedure TFHIRParserTests.runTests;
+class procedure TFHIRParserTests.runTests(folder : String);
 var
   this : TFHIRParserTests;
+  SR: TSearchRec;
 begin
+  writeln('FHIR Parser Tests');
   this := TFHIRParserTests.Create;
   try
-    this.Roundtrip('C:\work\org.hl7.fhir\build\publish\issue-type.xml', 'c:\temp\test.xml');
+    if FindFirst(IncludeTrailingPathDelimiter(folder) + 'example\*.xml', faAnyFile, SR) = 0 then
+    repeat
+      writeln(' ..'+sr.name);
+      this.Roundtrip(IncludeTrailingPathDelimiter(folder) + 'example\'+sr.name, 'c:\temp\'+sr.Name);
+    until FindNext(SR) <> 0;
+    FindClose(SR);
   finally
     this.Free;
   end;

@@ -80,7 +80,7 @@ type
   private
     { Private declarations }
     webserver : TIdHTTPServer;
-    FServer : TRegisteredServer;
+    FServer : TRegisteredFHIRServer;
     FLogoPath: String;
     FScopes: String;
     FErrorMessage: String;
@@ -93,11 +93,12 @@ type
     procedure DoDone(var Msg: TMessage); message UMSG;
     procedure DoCommandGet(AContext: TIdContext; ARequestInfo: TIdHTTPRequestInfo; AResponseInfo: TIdHTTPResponseInfo);
     procedure SetToken(const Value: TSmartOnFhirAccessToken);
+    procedure SetServer(const Value: TRegisteredFHIRServer);
   public
     { Public declarations }
     // in
     property logoPath : String read FLogoPath write FLogoPath;
-    property server : TRegisteredServer read FServer write FServer;
+    property server : TRegisteredFHIRServer read FServer write SetServer;
     property scopes : String read FScopes write FScopes;
     property handleError : boolean read FHandleError write FHandleError;
 
@@ -151,6 +152,7 @@ procedure TSmartOnFhirLoginForm.FormDestroy(Sender: TObject);
 begin
   inherited;
   FToken.Free;
+  FServer.Free;
 end;
 
 procedure TSmartOnFhirLoginForm.FormHide(Sender: TObject);
@@ -175,6 +177,12 @@ begin
   FInitialState := NewGuidId;
   url := buildAuthUrl(server, scopes, FInitialState);
   browser.Navigate(url);
+end;
+
+procedure TSmartOnFhirLoginForm.SetServer(const Value: TRegisteredFHIRServer);
+begin
+  FServer.Free;
+  FServer := Value;
 end;
 
 procedure TSmartOnFhirLoginForm.SetToken(const Value: TSmartOnFhirAccessToken);

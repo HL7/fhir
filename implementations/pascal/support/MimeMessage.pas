@@ -17,7 +17,7 @@ type
     function ReadBytes(AStream: TStream; AByteCount: Integer): AnsiString;
     function ReadToValue(AStream: TStream; AValue: AnsiString): AnsiString;
   public
-    constructor create;
+    constructor Create; override;
     destructor Destroy; override;
     property Headers : TIdHeaderList read FHeaders;
   end;
@@ -38,7 +38,7 @@ type
     function GetContentDisposition: String;
     procedure SetContentDisposition(const sValue: String);
   public
-    constructor create;
+    constructor Create; override;
     destructor Destroy; override;
     property Content : TAdvBuffer read FContent write SetContent;
     property Id : String read FId write SetId;
@@ -59,7 +59,7 @@ type
     function GetMainPart: TMimePart;
     procedure Validate;
   public
-    constructor create;
+    constructor Create; override;
     destructor Destroy; override;
     property Parts : TAdvList<TMimePart> read FParts;
     function AddPart(id: String) : TMimePart;
@@ -491,7 +491,7 @@ begin
       begin
       delete(r, length(r), 1);
       end;
-    if AnsiSameText(l, MIME_BOUNDARY) then
+    if AnsiSameText(string(l), string(MIME_BOUNDARY)) then
       begin
       FBoundary := r;
       end

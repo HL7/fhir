@@ -204,8 +204,8 @@ Type
     procedure generateByProfile(r: TFHIRDomainResource; profile: TFHIRStructureDefinition; showCodeDetails: boolean); overload;
     procedure inject(r: TFHIRDomainResource; x: TFHIRXhtmlNode; status: TFhirNarrativeStatusEnum);
   public
-    Constructor create(cc: TValidatorServiceProvider);
-    Destructor destroy; override;
+    Constructor Create(cc: TValidatorServiceProvider);
+    Destructor Destroy; override;
     procedure generate(r: TFHIRDomainResource); overload;
 
     property Prefix: String read FPrefix write FPrefix; // for links

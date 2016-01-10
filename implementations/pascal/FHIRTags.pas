@@ -54,10 +54,16 @@ type
   private
     FKey : integer;
     FCategory : TFHIRTagCategory;
+    FTransactionId: String;
+    FConfirmedStored: boolean;
   public
     function Link : TFHIRTag;
     property Key : integer read Fkey write FKey;
     property Category : TFHIRTagCategory read FCategory write FCategory;
+
+    // operational stuff to do with transaction scope management
+    property TransactionId : String read FTransactionId write FTransactionId;
+    property ConfirmedStored : boolean read FConfirmedStored write FConfirmedStored;
   end;
 
   TFHIRTagList = class (TAdvObject)
@@ -71,11 +77,15 @@ type
     function Link : TFHIRTagList;
     procedure readTags(meta : TFhirMeta);
     procedure writeTags(meta : TFhirMeta);
+    procedure deleteTags(meta : TFhirMeta);
+    procedure removeTags(meta : TFhirMeta);
     Property Count : Integer read GetCount;
     Property Tag[index : integer] : TFHIRTag read GetTag; default;
     function json : TArray<byte>;
-    function findTag(system, code : String) : TFHIRTag;
-    procedure addTag(key : integer; kind : TFHIRTagCategory; system, code, display : String);
+    function findTag(category : TFHIRTagCategory; system, code : String) : TFHIRTag;
+    procedure removeTag(category : TFHIRTagCategory; system, code : String);
+    function hasTag(category : TFHIRTagCategory; system, code : String) : boolean;
+    function addTag(key : integer; kind : TFHIRTagCategory; system, code, display : String) : TFHIRTag;
     procedure add(tag : TFHIRTag);
     function asHeader : String;
   end;
@@ -101,6 +111,18 @@ begin
 end;
 
 
+procedure TFHIRTagList.deleteTags(meta: TFhirMeta);
+var
+  t : TFHIRTag;
+begin
+  for t in FList do
+    case t.Category of
+      tcTag: meta.tagList.RemoveCoding(t.system, t.code);
+      tcSecurity: meta.securityList.RemoveCoding(t.system, t.code);
+      tcProfile: meta.profileList.removeUri(t.code);
+    end;
+end;
+
 Destructor TFHIRTagList.Destroy;
 begin
   FList.Free;
@@ -119,7 +141,7 @@ begin
   FList.Add(tag);
 end;
 
-procedure TFHIRTagList.addTag(key: integer; kind: TFHIRTagCategory; system, code, display: String);
+function TFHIRTagList.addTag(key: integer; kind: TFHIRTagCategory; system, code, display: String) : TFHIRTag;
 var
   tag : TFHIRTag;
 begin
@@ -131,6 +153,7 @@ begin
     tag.code := code;
     tag.display := display;
     FList.Add(tag.Link);
+    result := tag;
   finally
     tag.free;
   end;
@@ -146,13 +169,13 @@ begin
   result := FList.Count;
 end;
 
-function TFHIRTagList.findTag(system, code: String): TFHIRTag;
+function TFHIRTagList.findTag(category : TFHIRTagCategory; system, code: String): TFHIRTag;
 var
   t : TFHIRTag;
 begin
   result := nil;
   for t in FList do
-    if (t.system = system) and (t.code = code) then
+    if (t.Category = category) and (t.system = system) and (t.code = code) then
     begin
       result := t;
       exit;
@@ -162,6 +185,11 @@ end;
 function TFHIRTagList.GetTag(index: integer): TFHIRTag;
 begin
   result := FList[index];
+end;
+
+function TFHIRTagList.hasTag(category : TFHIRTagCategory; system, code: String): boolean;
+begin
+  result := findTag(category, system, code) <> nil;
 end;
 
 function TFHIRTagList.json: TArray<byte>;
@@ -212,11 +240,36 @@ var
   u : TFhirUri;
 begin
   for c in meta.tagList do
+    if not hasTag(tcTag, c.system, c.code) then
     addTag(0, tcTag, c.system, c.code, c.display);
   for c in meta.securityList do
+    if not hasTag(tcSecurity, c.system, c.code) then
     addTag(0, tcSecurity, c.system, c.code, c.display);
   for u in meta.profileList do
+    if not hasTag(tcProfile, 'urn:ietf:rfc:3986', u.value) then
     addTag(0, tcProfile, 'urn:ietf:rfc:3986', u.value, '');
+end;
+
+procedure TFHIRTagList.removeTag(category: TFHIRTagCategory; system, code: String);
+var
+  i : integer;
+begin
+  for i := FList.count - 1 downto 0 do
+    if (flist[i].Category = category) and (flist[i].system = system) and (flist[i].code = code) then
+      flist.Delete(i);
+end;
+
+procedure TFHIRTagList.removeTags(meta: TFhirMeta);
+var
+  c : TFHIRCoding;
+  u : TFhirUri;
+begin
+  for c in meta.tagList do
+    removeTag(tcTag, c.system, c.code);
+  for c in meta.securityList do
+    removeTag(tcSecurity, c.system, c.code);
+  for u in meta.profileList do
+    removeTag(tcProfile, 'urn:ietf:rfc:3986', u.value);
 end;
 
 procedure TFHIRTagList.writeTags(meta: TFhirMeta);

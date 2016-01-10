@@ -51,7 +51,7 @@ type
     FMessage  : String;
     FDisplay: String;
   public
-    constructor Create; overload; virtual;
+    constructor Create; overload; override;
     constructor Create(Severity : TFhirIssueSeverityEnum; Message : String); overload; virtual;
     constructor Create(display : String); overload; virtual;
     Property Severity : TFhirIssueSeverityEnum read FSeverity write FSeverity;
@@ -297,7 +297,7 @@ begin
     if (usage.BindingElement <> nil) then
       result.Binding := usage.Binding.Clone;
     for cc in usage.constraintList do
-      result.constraintList.add(c.clone);
+      result.constraintList.add(cc.clone);
 
     result.link;
     profile.free;
@@ -731,7 +731,7 @@ function TProfileUtilities.populate(profile: TFHIRStructureDefinition; item : TF
 var
   children : TFhirElementDefinitionList;
   ed : TFhirElementDefinition;
-  pn, t, pr : String;
+  t : String;
   props : TFHIRPropertyList;
   prop : TFHIRProperty;
   value : TFhirElement;
@@ -781,7 +781,8 @@ begin
                 else
                   value := CreateTypeByName(t);
                 try
-                  populate(profile, value, ed, stack);
+                  if value <> nil then
+                    populate(profile, value, ed, stack);
                   item.setProperty(prop.Name, value.Link);
                 finally
                   value.Free;
@@ -1483,7 +1484,7 @@ end;
 
 function TValidationResult.isOk: boolean;
 begin
-  result := message = '';
+  result := not (Severity in [IssueSeverityError, IssueSeverityFatal]);
 end;
 
 
@@ -1655,7 +1656,7 @@ var
 begin
   list := TStringList.Create;
   try
-    if FindFirst(IncludeTrailingBackslash(folder) + '*.*', faArchive, sr) = 0 then
+    if FindFirst(IncludeTrailingPathDelimiter(folder) + '*.*', faArchive, sr) = 0 then
     begin
       repeat
         list.Add(sr.Name); //Fill the list
@@ -1664,7 +1665,7 @@ begin
     end;
 
     for fn in list do
-      loadFromFile(IncludeTrailingBackslash(folder)+fn);
+      loadFromFile(IncludeTrailingPathDelimiter(folder)+fn);
   finally
     list.Free;
   end;
@@ -1674,7 +1675,6 @@ procedure TValidatorServiceProvider.Load(feed: TFHIRBundle);
 var
   i : integer;
   r : TFhirResource;
-  p : TFHirStructureDefinition;
 begin
   for i := 0 to feed.entryList.count - 1 do
   begin

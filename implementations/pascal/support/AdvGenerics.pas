@@ -192,6 +192,8 @@ Type
     procedure DoSetValue(Index: Integer; const Value: T);
     function DoRemove(const Key: String; HashCode: Integer; Notification: TCollectionNotification): T;
     function InCircularRange(Bottom, Item, TopInc: Integer): Boolean;
+  private
+    function GetEmpty: Boolean;
   protected
     function DoGetEnumerator: TEnumerator<TAdvPair<T>>; override;
     procedure KeyNotify(const Key: String; Action: TCollectionNotification); virtual;
@@ -213,6 +215,7 @@ Type
 
     property Items[const Key: String]: T read GetItem write SetItem; default;
     property Count: Integer read FCount;
+    property IsEmpty : Boolean read GetEmpty;
 
     type
       TAdvPairEnumerator = class(TEnumerator<TAdvPair<T>>)
@@ -1287,6 +1290,11 @@ begin
     if (FItems[i].HashCode <> EMPTY_HASH) and (FItems[i].Value = Value) then
       Exit(True);
   Result := False;
+end;
+
+function TAdvMap<T>.GetEmpty: Boolean;
+begin
+  result := Count = 0;
 end;
 
 function TAdvMap<T>.GetEnumerator: TAdvPairEnumerator;

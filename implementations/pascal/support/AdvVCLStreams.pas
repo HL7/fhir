@@ -261,7 +261,7 @@ End;
 Function TAdvIStreamAdapter.Read(pv: Pointer; cb: FixedUInt; pcbRead: PFixedUInt): HResult;
 
 Var
-  iReadable : LongInt;
+  iReadable : FixedUInt;
 Begin
   Try
     If pv = Nil Then
@@ -311,7 +311,7 @@ Var
   iNewPos: Integer;
 Begin
   Try
-    If (dwOrigin < STREAM_SEEK_SET) Or (dwOrigin > STREAM_SEEK_END) Then
+    If (dwOrigin > STREAM_SEEK_END) Then
     Begin
       Result := STG_E_INVALIDFUNCTION;
       Exit;

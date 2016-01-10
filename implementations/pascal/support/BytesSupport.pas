@@ -683,9 +683,12 @@ procedure TAdvBytesBuilder.AddString(val: String);
 Var
   s : TBytes;
 Begin
+  if val.length > 0 then
+  begin
   SetLength(s, val.Length*2);
   move(val[1], s[0], val.Length*2);
   Append(s);
+  end;
 end;
 
 procedure TAdvBytesBuilder.AddUInt64(val: UInt64);

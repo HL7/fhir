@@ -85,14 +85,14 @@ Type
     FTypeName, FTypeProfile : String;
     childDefinitions: TFHIRElementDefinitionList;
     function getDefinition(name : String; var tn, tp : String) : TFhirElementDefinition;
-    function IsAbstractType(pn: String): Boolean;
+//    function IsAbstractType(pn: String): Boolean;
     procedure log(msg : String);
   public
     Constructor Create(services : TValidatorServiceProvider; wrapper : TWrapperElement; profile: TFHIRStructureDefinition; definition : TFhirElementDefinition; TypeName, TypeProfile : String);
     Destructor Destroy; override;
     Procedure GetChildrenByName(child_name : string; list : TFHIRObjectList); override;
     function FhirType : string; override;
-    function IsPrimitive : boolean; override;
+    function isPrimitive : boolean; override;
     function primitiveValue : string; override;
     function isMetaDataBased : boolean; override;
     function equalsDeep(other : TFHIRBase) : boolean; override;
@@ -215,7 +215,7 @@ Type
 //    function getElementByPath(definition : TFHIRStructureDefinition; path : String) : TFHIRElementDefinition;
     function findElement(profile : TFHIRStructureDefinition; name : String) : TFHIRElementDefinition;
 //    function getDefinitionByTailNameChoice(children : TFHIRElementDefinitionList; name : String) : TFHIRElementDefinition;
-    function resolveBindingReference(reference : TFHIRType) : TFHIRValueSet;
+    function resolveBindingReference(context : TFHIRDomainResource; reference: TFHIRType): TFHIRValueSet;
     function getExtensionByUrl(extensions : TAdvList<TWrapperElement>; url : String) : TWrapperElement;
 
     procedure checkQuantityValue(errors : TFhirOperationOutcomeIssueList; path : String; focus : TWrapperElement; fixed : TFHIRQuantity);
@@ -235,9 +235,9 @@ Type
     procedure checkFixedValue(errors: TFhirOperationOutcomeIssueList; path: String; focus: TWrapperElement; fixed: TFhirElement; propName: String);
 
     function checkCode(errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; path: String; code, System, display: String): boolean;
-    procedure checkQuantity(errors : TFhirOperationOutcomeIssueList; path : String; element : TWrapperElement; context : TFHIRElementDefinition; b : boolean);
-    procedure checkPrimitiveBinding(errors : TFhirOperationOutcomeIssueList; path : String; ty : String;context : TFHIRElementDefinition; element : TWrapperElement);
-    procedure checkPrimitive(errors : TFhirOperationOutcomeIssueList; path, ty : String; context : TFHIRElementDefinition; e : TWrapperElement);
+    procedure checkQuantity(errors: TFhirOperationOutcomeIssueList; path: String; element: TWrapperElement; context: TFHIRElementDefinition);
+    procedure checkPrimitiveBinding(errors: TFhirOperationOutcomeIssueList; path: String; ty: String; context: TFHIRElementDefinition; element: TWrapperElement; profile : TFhirStructureDefinition);
+    procedure checkPrimitive(errors: TFhirOperationOutcomeIssueList; path, ty: String; context: TFHIRElementDefinition; e: TWrapperElement; profile : TFhirStructureDefinition);
     procedure checkIdentifier(errors : TFhirOperationOutcomeIssueList; path : String; element : TWrapperElement; context : TFHIRElementDefinition);
     procedure checkCoding(errors: TFhirOperationOutcomeIssueList; path: String; element: TWrapperElement; profile: TFHIRStructureDefinition; context: TFHIRElementDefinition; inCodeableConcept: boolean);
     procedure checkCodeableConcept(errors : TFhirOperationOutcomeIssueList; path : String; element : TWrapperElement; profile : TFHIRStructureDefinition; context : TFHIRElementDefinition);
@@ -255,6 +255,18 @@ Type
     procedure validateMessage(errors : TFhirOperationOutcomeIssueList; bundle : TWrapperElement);
     procedure validateBundle(errors : TFhirOperationOutcomeIssueList; bundle : TWrapperElement; stack : TNodeStack);
     procedure validateObservation(errors : TFhirOperationOutcomeIssueList; element : TWrapperElement; stack : TNodeStack);
+
+    function findQuestionnaireItem(qsrc : TFhirQuestionnaire; linkId : String; var qItem : TFhirQuestionnaireItem) : boolean;
+    procedure validateAnswerCode(errors: TFhirOperationOutcomeIssueList; value: TWrapperElement; stack: TNodeStack; optionList : TFhirCodingList); overload;
+    procedure validateAnswerCode(errors: TFhirOperationOutcomeIssueList; value: TWrapperElement; stack: TNodeStack; qSrc : TFhirQuestionnaire; vsRef : TFhirReference); overload;
+    procedure validateAnswerCode(errors: TFhirOperationOutcomeIssueList; answer: TWrapperElement; stack: TNodeStack; qSrc : TFhirQuestionnaire; qitem : TFhirQuestionnaireItem); overload;
+    procedure validateQuestionnaireResponseItemQuantity(errors: TFhirOperationOutcomeIssueList; answer: TWrapperElement; stack: TNodeStack);
+    function validateQuestionnaireResponseItemType(errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; stack: TNodeStack; types: array of String) : string;
+    procedure validateQuestionannaireResponseItem(qsrc : TFhirQuestionnaire; qItem : TFhirQuestionnaireItem; errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; stack: TNodeStack; inProgress : boolean); overload;
+    procedure validateQuestionannaireResponseItem(qsrc : TFhirQuestionnaire; qItem : TFhirQuestionnaireItem; errors: TFhirOperationOutcomeIssueList; elements: TAdvList<TWrapperElement>; stack: TNodeStack; inProgress : boolean); overload;
+    procedure validateQuestionannaireResponseItems(qsrc : TFhirQuestionnaire; qItems : TFhirQuestionnaireItemList; errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; stack: TNodeStack; inProgress : boolean);
+    procedure validateQuestionannaireResponse(errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; stack: TNodeStack);
+
     procedure checkDeclaredProfiles(errors: TFhirOperationOutcomeIssueList; resource, element: TWrapperElement; stack: TNodeStack);
     procedure start(errors: TFhirOperationOutcomeIssueList; resource, element: TWrapperElement; profile: TFHIRStructureDefinition; stack: TNodeStack);
     procedure validateResource(errors: TFhirOperationOutcomeIssueList; resource, element: TWrapperElement; profile: TFHIRStructureDefinition; idRule: TResourceIdStatus; stack: TNodeStack);
@@ -572,7 +584,7 @@ end;
 function TDOMWrapperElement.hasNamespace(s: String): boolean;
 var
   i : integer;
-  n, ns, t : String;
+  n, t: String;
 begin
   result := false;
   for i := 0 to FElement.attributes.length - 1 do
@@ -694,30 +706,30 @@ end;
 
 procedure TJsonWrapperElement.createChildren;
 var
-  i: integer;
   obj : TJsonObject;
+  n : string;
 begin
   children := TAdvList<TJsonWrapperElement>.create;
 	// we''re going to make this look like the XML
   if (element <> nil) then
   begin
 
-  if (element is TJsonValue) or (element is TJsonBoolean) then
+    if (element is TJsonString) or (element is TJsonNumber) or (element is TJsonBoolean) then
   begin
     // we may have an element_ too
     if (_element <> nil) and (_element is TJsonObject) then
     begin
       obj := TJsonObject(_element);
-        for i := 0 to obj.properties.count - 1 do
-          processChild(obj.properties.Keys[i], obj.properties[obj.properties.Keys[i]]);
+        for n in obj.properties.keys do
+          processChild(n, obj.properties[n]);
     end;
   end
   else if (element is TJsonObject) then
   begin
     obj := TJsonObject(element);
-      for i := 0 to obj.properties.count - 1 do
-      if obj.properties.Keys[i] <> 'resourceType' then
-          processChild(obj.properties.Keys[i], obj.properties[obj.properties.Keys[i]]);
+        for n in obj.properties.keys do
+          if n <> 'resourceType' then
+            processChild(n, obj.properties[n]);
   end
   else if (element is TJsonNull) then
   begin
@@ -756,7 +768,7 @@ begin
     if TJsonObject(element).has('_' + name) then
       _e := TJsonObject(element).properties['_' + name];
 
-  if (((e is TJsonValue) or (e is TJsonBoolean)) or ((e = nil) and (_e <> nil) and not(_e is TJsonArray))) then
+  if (((e is TJsonString) or (e is TJsonNumber) or (e is TJsonBoolean)) or ((e = nil) and (_e <> nil) and not(_e is TJsonArray))) then
   begin
     children.Add(TJsonWrapperElement.Create(FMap, path, name, e.link, _e.link, self, children.count));
   end
@@ -850,8 +862,10 @@ begin
   begin
     if (element = nil) then
       result := ''
-    else if (element is TJsonValue) then
-      result := TJsonValue(element).value
+    else if (element is TJsonString) then
+      result := TJsonString(element).value
+    else if (element is TJsonNumber) then
+      result := TJsonNumber(element).value
     else if (element is TJsonBoolean) then
       if TJsonBoolean(element).value then
         result := 'true'
@@ -899,7 +913,7 @@ begin
   begin
     if (element = nil) then
       result := false
-    else if (element is TJsonValue) then
+    else if (element is TJsonString) or (element is TJsonNumber) then
       result := true
     else
       result := false;
@@ -1177,6 +1191,357 @@ begin
   validate(errors, document.documentElement, profile);
 end;
 
+function describeReference(reference: TFHIRType): String;
+begin
+  if (reference = nil) then
+    result := 'nil'
+  else if (reference is TFHIRUri) then
+    result := TFHIRUri(reference).value
+  else if (reference is TFHIRReference) then
+    result := TFHIRReference(reference).reference
+  else
+    result := '??';
+end;
+
+function readAsCoding(item: TWrapperElement): TFHIRCoding;
+var
+  c: TFHIRCoding;
+begin
+  c := TFHIRCoding.Create;
+  try
+    c.System := item.getNamedChildValue('system');
+    c.Version := item.getNamedChildValue('version');
+    c.code := item.getNamedChildValue('code');
+    c.display := item.getNamedChildValue('display');
+    result := c.Link;
+  finally
+    c.Free;
+  end;
+end;
+
+function TFHIRValidator.findQuestionnaireItem(qsrc: TFhirQuestionnaire; linkId: String; var qItem: TFhirQuestionnaireItem): boolean;
+  procedure FindItem(list : TFhirQuestionnaireItemList);
+  var
+    item : TFhirQuestionnaireItem;
+  begin
+    for item in list do
+    begin
+      if item.linkId = linkId then
+      begin
+        result := true;
+        qItem := item;
+      end
+      else
+        FindItem(item.itemList);
+      if result then
+        break;
+    end;
+  end;
+begin
+  findItem(qsrc.itemList);
+end;
+
+procedure TFHIRValidator.validateAnswerCode(errors: TFhirOperationOutcomeIssueList; value: TWrapperElement; stack: TNodeStack; optionList: TFhirCodingList);
+var
+  system, code : String;
+  found : boolean;
+  c : TFhirCoding;
+begin
+  system := value.getNamedChildValue('system');
+  code := value.getNamedChildValue('code');
+  found := false;
+  for c in optionList do
+    if (c.system = system) and (c.code = code) then
+    begin
+      found := true;
+      break;
+    end;
+  rule(errors, IssueTypeStructure, value.locStart, value.locEnd, stack.literalPath, found, 'The code '+system+'::'+code+' is not a valid option');
+end;
+
+procedure TFHIRValidator.validateAnswerCode(errors: TFhirOperationOutcomeIssueList; value: TWrapperElement; stack: TNodeStack; qSrc : TFhirQuestionnaire; vsRef: TFhirReference);
+var
+  vs : TFhirValueSet;
+  c : TFHIRCoding;
+  res: TValidationResult;
+begin
+  vs := resolveBindingReference(qSrc, vsRef);
+  if (warning(errors, IssueTypeCODEINVALID, value.locStart(), value.locEnd(), stack.literalPath, vs <> nil, 'ValueSet ' + describeReference(vsRef) + ' not found')) then
+  begin
+    try
+      c := readAsCoding(value);
+      try
+        res := FContext.validateCode(c, vs);
+        try
+          if (not res.isOk()) then
+            rule(errors, IssueTypeCODEINVALID, value.locStart(), value.locEnd(), stack.literalPath, false, 'The value provided ('+c.system+'::'+c.code+') is not in the options value set in the questionnaire');
+        finally
+          res.free;
+        end;
+      finally
+        c.Free;
+      end;
+    except
+      on e: Exception do
+        warning(errors, IssueTypeCODEINVALID, value.locStart(), value.locEnd(), stack.literalPath, false, 'Error ' + e.message + ' validating Coding against Questionnaire Options');
+    end;
+  end;
+end;
+
+procedure TFHIRValidator.validateAnswerCode(errors: TFhirOperationOutcomeIssueList; answer: TWrapperElement; stack: TNodeStack; qSrc : TFhirQuestionnaire; qitem: TFhirQuestionnaireItem);
+var
+  v : TWrapperElement;
+  ns : TNodeStack;
+begin
+  v := answer.getNamedChild('valueCoding');
+  ns := stack.push(v, -1, nil, nil);
+  try
+    if qItem.optionList.Count > 0 then
+      validateAnswerCode(errors, v, stack, qitem.optionList)
+    else if qItem.options <> nil then
+      validateAnswerCode(errors, v, stack, qSrc, qitem.options)
+    else
+      hint(errors, IssueTypeStructure, v.locStart, v.locEnd, stack.literalPath, false, 'Cannot validate options because no option or options are provided');
+  finally
+    ns.free;
+  end;
+end;
+
+procedure TFHIRValidator.validateQuestionannaireResponse(errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; stack: TNodeStack);
+var
+  q : TWrapperElement;
+  qsrc : TFhirQuestionnaire;
+  inProgress : boolean;
+begin
+  q := element.getNamedChild('questionnaire');
+  if hint(errors, IssueTypeRequired, element.locStart, element.locEnd, stack.literalPath, q <> nil, 'No questionnaire is identified, so no validation can be performed against the base questionnaire') then
+  begin
+    qsrc := TFhirQuestionnaire(FContext.fetchResource(frtQuestionnaire, q.getNamedChildValue('reference')));
+    try
+      if warning(errors, IssueTypeRequired, q.locStart, q.locEnd, stack.literalPath, qsrc <> nil, 'The questionnaire could not be resolved, so no validation can be performed against the base questionnaire') then
+      begin
+        inProgress := element.getNamedChildValue('status') = 'in-progress';
+        validateQuestionannaireResponseItems(qsrc, qsrc.itemList, errors, element, stack, inProgress);
+      end;
+    finally
+      qsrc.free;
+    end;
+  end;
+end;
+
+procedure TFHIRValidator.validateQuestionannaireResponseItem(qsrc : TFhirQuestionnaire; qItem : TFhirQuestionnaireItem; errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; stack: TNodeStack; inProgress : boolean);
+var
+  answers, items : TAdvList<TWrapperElement>;
+  answer, item : TWrapperElement;
+  ns : TNodeStack;
+  text : String;
+begin
+  text := element.getNamedChildValue('text');
+  rule(errors, IssueTypeInvalid, element.locStart, element.locEnd, stack.literalPath, (text = '') or (text = qItem.text), 'If text exists, it must match the questionnaire definition for linkId '+qItem.linkId);
+
+  answers := TAdvList<TWrapperElement>.create;
+  try
+    element.getNamedChildren('answer', answers);
+    if inProgress then
+      warning(errors, IssueTypeRequired, element.locStart, element.locEnd, stack.literalPath, (answers.Count > 0) or not qItem.required, 'No response answer found for required item '+qItem.linkId)
+    else
+      rule(errors, IssueTypeRequired, element.locStart, element.locEnd, stack.literalPath, (answers.Count > 0) or not qItem.required, 'No response answer found for required item '+qItem.linkId);
+    if (answers.Count > 1) then
+      rule(errors, IssueTypeInvalid, answers[1].locStart, answers[1].locEnd, stack.literalPath, qItem.repeats, 'Only one response answer item with this linkId allowed');
+
+    for answer in answers do
+    begin
+      ns := stack.push(answer, -1, nil, nil);
+      try
+        case qitem.type_ of
+          ItemTypeGroup: rule(errors, IssueTypeStructure, answer.locStart, answer.locEnd, stack.literalPath, false, 'Items of type group should not have answers');
+          ItemTypeDisplay: ; // nothing
+          ItemTypeBoolean:       validateQuestionnaireResponseItemType(errors, answer, ns, ['boolean']);
+          ItemTypeDecimal:       validateQuestionnaireResponseItemType(errors, answer, ns, ['decimal']);
+          ItemTypeInteger:       validateQuestionnaireResponseItemType(errors, answer, ns, ['integer']);
+          ItemTypeDate:          validateQuestionnaireResponseItemType(errors, answer, ns, ['date']);
+          ItemTypeDateTime:      validateQuestionnaireResponseItemType(errors, answer, ns, ['dateTime']);
+          ItemTypeInstant:       validateQuestionnaireResponseItemType(errors, answer, ns, ['instant']);
+          ItemTypeTime:          validateQuestionnaireResponseItemType(errors, answer, ns, ['time']);
+          ItemTypeString:        validateQuestionnaireResponseItemType(errors, answer, ns, ['string']);
+          ItemTypeText:          validateQuestionnaireResponseItemType(errors, answer, ns, ['text']);
+          ItemTypeUrl:           validateQuestionnaireResponseItemType(errors, answer, ns, ['uri']);
+          ItemTypeAttachment:    validateQuestionnaireResponseItemType(errors, answer, ns, ['Attachment']);
+          ItemTypeReference:     validateQuestionnaireResponseItemType(errors, answer, ns, ['Reference']);
+          ItemTypeQuantity:   if validateQuestionnaireResponseItemType(errors, answer, ns, ['Quantity']) = 'Quantity' then
+            if qItem.hasExtension('???') then
+              validateQuestionnaireResponseItemQuantity(errors, answer, ns);
+          ItemTypeChoice:     if validateQuestionnaireResponseItemType(errors, answer, ns, ['Coding']) = 'Coding' then
+            validateAnswerCode(errors, answer, ns, qsrc, qitem);
+          ItemTypeOpenChoice: if validateQuestionnaireResponseItemType(errors, answer, ns, ['Coding', 'string']) = 'Coding' then
+            validateAnswerCode(errors, answer, ns, qsrc, qitem);
+        end;
+        validateQuestionannaireResponseItems(qsrc, qitem.itemList, errors, answer, stack, inProgress);
+      finally
+        ns.free;
+      end;
+    end;
+  finally
+    answers.Free;
+  end;
+  if qitem.type_ = ItemTypeGroup then
+    validateQuestionannaireResponseItems(qsrc, qitem.itemList, errors, element, stack, inProgress)
+  else
+  begin
+    items := TAdvList<TWrapperElement>.create;
+    try
+      element.getNamedChildren('item', items);
+      for item in items do
+      begin
+        ns := stack.push(item, -1, nil, nil);
+        try
+          rule(errors, IssueTypeStructure, item.locStart, item.locEnd, stack.literalPath, false, 'Items not of type group should not have items');
+        finally
+          ns.free;
+        end;
+      end;
+    finally
+      answers.Free;
+    end;
+  end;
+end;
+
+procedure TFHIRValidator.validateQuestionannaireResponseItem(qsrc: TFhirQuestionnaire; qItem: TFhirQuestionnaireItem; errors: TFhirOperationOutcomeIssueList; elements: TAdvList<TWrapperElement>; stack: TNodeStack; inProgress : boolean);
+var
+  ns : TNodeStack;
+  element : TWrapperElement;
+begin
+  if (elements.Count > 1) then
+    rule(errors, IssueTypeInvalid, elements[1].locStart, elements[1].locEnd, stack.literalPath, qItem.repeats, 'Only one response item with this linkId allowed');
+  for element in elements do
+  begin
+    ns := stack.push(element, -1, nil, nil);
+    try
+      validateQuestionannaireResponseItem(qsrc, qitem, errors, element, ns, inProgress);
+    finally
+      ns.free;
+    end;
+  end;
+end;
+
+procedure TFHIRValidator.validateQuestionannaireResponseItems(qsrc : TFhirQuestionnaire; qItems : TFhirQuestionnaireItemList; errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; stack: TNodeStack; inProgress : boolean);
+var
+  items, mapItem : TAdvList<TWrapperElement>;
+  map : TAdvMap<TAdvList<TWrapperElement>>;
+  index, lastIndex : integer;
+  item : TWrapperElement;
+  ns : TNodeStack;
+  linkId : String;
+  qItem : TFhirQuestionnaireItem;
+  function getLinkIdIndex(linkId : String) : integer;
+  var
+    i : integer;
+  begin
+    result := -1;
+    for i := 0 to qItems.Count -1 do
+      if (qItems[i].linkId = linkid) then
+        exit(i);
+  end;
+begin
+  items := TAdvList<TWrapperElement>.create;
+  try
+    element.getNamedChildren('item', items);
+    // now, sort into stacks
+    map := TAdvMap<TAdvList<TWrapperElement>>.create;
+    try
+      lastIndex := -1;
+      for item in items do
+      begin
+        linkId := item.getNamedChildValue('linkId');
+        if rule(errors, IssueTypeRequired, item.locStart, item.locEnd, stack.literalPath, linkId <> '', 'No LinkId, so can''t be validated') then
+        begin
+          index := getLinkIdIndex(linkId);
+          if index = -1 then
+          begin
+            if findQuestionnaireItem(qsrc, linkId, qitem) then
+            begin
+              rule(errors, IssueTypeStructure, item.locStart, item.locEnd, stack.literalPath, index > -1, 'Structural Error: item is in the wrong place');
+              ns := stack.push(item, -1, nil, nil);
+              try
+                validateQuestionannaireResponseItem(qsrc, qitem, errors, element, ns, inProgress);
+              finally
+                ns.free;
+              end;
+            end
+            else
+              rule(errors, IssueTypeNotFound, item.locStart, item.locEnd, stack.literalPath, index > -1, 'LinkId "'+linkId+'" not found in questionnaire');
+          end
+          else
+          begin
+            rule(errors, IssueTypeStructure, item.locStart, item.locEnd, stack.literalPath, index >= lastIndex, 'Structural Error: items are out of order');
+            lastIndex := index;
+            if not map.TryGetValue(linkId, mapItem) then
+            begin
+              mapItem := TAdvList<TWrapperElement>.create;
+              map.Add(linkId, mapitem);
+            end;
+            mapItem.Add(item.Link);
+          end;
+        end;
+      end;
+
+      // ok, now we have a list of known items, grouped by linkId. We've made an error for anything out of order
+      for qItem in qItems do
+      begin
+        if map.TryGetValue(qItem.linkId, mapItem) then
+          validateQuestionannaireResponseItem(qsrc, qItem, errors, mapItem, stack, inProgress)
+        else
+          rule(errors, IssueTypeRequired, element.locStart, element.locEnd, stack.literalPath, not qItem.required, 'No response found for required item '+qItem.linkId);
+      end;
+    finally
+      map.Free;
+    end;
+  finally
+    items.Free;
+  end;
+end;
+
+procedure TFHIRValidator.validateQuestionnaireResponseItemQuantity(errors: TFhirOperationOutcomeIssueList; answer: TWrapperElement; stack: TNodeStack);
+begin
+
+end;
+
+function TFHIRValidator.validateQuestionnaireResponseItemType(errors: TFhirOperationOutcomeIssueList; element: TWrapperElement; stack: TNodeStack; types: array of String) : string;
+var
+  values : TAdvList<TWrapperElement>;
+  ns : TNodeStack;
+  s, l : String;
+begin
+  result := '';
+  values := TAdvList<TWrapperElement>.create;
+  try
+    element.getNamedChildrenWithWildcard('value[x]', values);
+    if values.Count > 0 then
+    begin
+      ns := stack.push(values[0], -1, nil, nil);
+      try
+        l := '';
+        for s in types do
+        begin
+          commaAdd(l, s);
+          if values[0].getName = 'value'+capitalize(s) then
+          begin
+            result := s;
+            break;
+          end;
+        end;
+        if length(types) = 1 then
+          rule(errors, IssueTypeStructure, values[0].locStart, values[0].locEnd, ns.literalPath, result <> '', 'Answer value must be of type '+types[0])
+        else
+          rule(errors, IssueTypeStructure, values[0].locStart, values[0].locEnd, ns.literalPath, result <> '', 'Answer value must be one of the types '+l);
+      finally
+        ns.free;
+      end;
+    end;
+  finally
+    values.Free;
+  end;
+end;
 
 function getFirstEntry(bundle: TWrapperElement): TWrapperElement;
 var
@@ -1294,6 +1659,9 @@ begin
       validateBundle(errors, element, stack);
     if (element.getResourceType() = 'Observation') then
       validateObservation(errors, element, stack);
+    if (element.getResourceType() = 'QuestionnaireResponse') then
+      validateQuestionannaireResponse(errors, element, stack);
+
   end;
 end;
 
@@ -1406,13 +1774,17 @@ end;
 procedure TFHIRValidator.validateDocument(errors: TFhirOperationOutcomeIssueList; entries: TAdvList<TWrapperElement>; composition: TWrapperElement; stack: TNodeStack; fullUrl, id: String);
 var
   ns : TNodeStack;
+  elem : TWrapperElement;
 begin
   // first entry must be a composition
   if (rule(errors, IssueTypeINVALID, composition.locStart(), composition.locEnd(), stack.literalPath, composition.getResourceType() = 'Composition',
     'The first entry in a document must be a composition')) then
   begin
+    elem := composition.getNamedChild('subject');
+    if rule(errors, IssueTypeINVALID, composition.locStart(), composition.locEnd(), stack.literalPath, elem <> nil, 'In a document, a compsosition must have a subject') then
+    begin
     // the composition subject and section references must resolve in the bundle
-    ns := stack.push(composition.getNamedChild('subject'), -1, nil, nil);
+      ns := stack.push(elem, -1, nil, nil);
     try
       validateBundleReference(errors, entries, composition.getNamedChild('subject'), 'Composition Subject', ns, fullUrl, 'Composition', id);
     finally
@@ -1420,6 +1792,7 @@ begin
     end;
     validateSections(errors, entries, composition, stack, fullUrl, id);
   end;
+end;
 end;
 // rule(errors, IssueTypeINVALID, bundle.locStart(), bundle.locEnd(), 'Bundle', !'urn:guid:' = base), 'The base "urn:guid:" is not valid (use urn:uuid:)');
 // rule(errors, IssueTypeINVALID, entry.locStart(), entry.locEnd(), localStack.literalPath, !'urn:guid:' = ebase), 'The base "urn:guid:" is not valid');
@@ -1466,11 +1839,6 @@ begin
     rule(errors, IssueTypeINVALID, target.locStart(), target.locEnd(), stack.addToLiteralPath(['reference']), target <> nil,
       'Unable to resolve the target of the reference in the bundle (' + name + ')');
   end;
-end;
-
-function isAbsoluteUrl(s : String) : boolean;
-begin
-  result := false;
 end;
 
 Function TFHIRValidator.resolveInBundle(entries: TAdvList<TWrapperElement>; ref, fullUrl, type_, id: String): TWrapperElement;
@@ -1848,13 +2216,15 @@ begin
         if (t <> '') then
         begin
           if (isPrimitiveType(t)) then
-            checkPrimitive(errors, ei.path, t, ei.definition, ei.element)
+              checkPrimitive(errors, ei.path, t, ei.definition, ei.element, profile)
           else
           begin
             if (t = 'Identifier') then
               checkIdentifier(errors, ei.path, ei.element, ei.definition)
             else if (t = 'Coding') then
             checkCoding(errors, ei.path, ei.element, profile, ei.definition, inCodeableConcept)
+              else if (t = 'Quantity') then
+                checkQuantity(errors, ei.path, ei.element, ei.definition)
             else if (t = 'CodeableConcept') then
           begin
             checkCodeableConcept(errors, ei.path, ei.element, profile, ei.definition);
@@ -1915,7 +2285,7 @@ begin
     begin
       discriminator := s.value;
 	  	criteria := getCriteriaForDiscriminator(path, ed, discriminator, profile);
-      if (discriminator = 'url') and (criteria.path = 'Extension.url') then
+      if (discriminator = 'url') and criteria.path.endsWith('xtension.url') then
       begin
         if (element.getAttribute('url') <> TFHIRUri(criteria.fixed).value) then
         begin
@@ -2084,16 +2454,16 @@ begin
     FOwned.add(ty);
     Snapshot := ty.Snapshot.ElementList;
     ed := Snapshot[0];
+      index := 0;
   end
   else
   begin
-    Snapshot := profile.Snapshot.ElementList;
+      Snapshot := ChildDefinitions;
+      index := -1;
   end;
   originalPath := ed.path;
   goal := originalPath+'.'+discriminator;
 
-  index := Snapshot.indexOf(ed);
-  assert(index > -1);
   inc(index);
   while (index < Snapshot.count) and (Snapshot[index].path <> originalPath) do
   begin
@@ -2576,22 +2946,7 @@ begin
   end;
 end;
 
-// function TFHIRValidator.getDefinitionByTailNameChoice(children : TFHIRElementDefinitionList; name : String) : TFHIRElementDefinition;
-//var
-//  ed : TFHIRElementDefinition;
-//  n : string;
-//begin
-//  result := nil;
-//  for ed in children do
-//  begin
-//    n := tail(ed.Path);
-//    if (n.endsWith('[x]') ) and ( name.startsWith(n.substring(0, n.length-3))) then
-//    begin
-//      result := ed;
-//      exit;
-//    end;
-//  end;
-//end;
+
 
 procedure TFHIRValidator.validateContains(errors: TFhirOperationOutcomeIssueList; path: String; child: TFHIRElementDefinition; context: TFHIRElementDefinition; resource, element: TWrapperElement; stack: TNodeStack; idRule: TResourceIdStatus);
 var
@@ -2669,7 +3024,7 @@ begin
   result := fmt.contains('T');
 end;
 
-procedure TFHIRValidator.checkPrimitive(errors: TFhirOperationOutcomeIssueList; path: String; ty: String; context: TFHIRElementDefinition; e: TWrapperElement);
+procedure TFHIRValidator.checkPrimitive(errors: TFhirOperationOutcomeIssueList; path: String; ty: String; context: TFHIRElementDefinition; e: TWrapperElement; profile : TFhirStructureDefinition);
 var
   regex : TRegExpr;
 begin
@@ -2722,32 +3077,17 @@ begin
 
   if (context.Binding <> nil) then
   begin
-    checkPrimitiveBinding(errors, path, ty, context, e);
+    checkPrimitiveBinding(errors, path, ty, context, e, profile);
   end;
   // for nothing to check
 end;
 
-function describeReference(reference: TFHIRType): String;
-begin
-  if (reference = nil) then
-    result := 'nil'
-  else if (reference is TFHIRUri) then
-    result := TFHIRUri(reference).value
-  else if (reference is TFHIRReference) then
-    result := TFHIRReference(reference).reference
-  else
-    result := '??';
-end;
-
-
-
 // note that we don"t check the type here; it could be string, uri or code.
-procedure TFHIRValidator.checkPrimitiveBinding(errors: TFhirOperationOutcomeIssueList; path: String; ty: String; context: TFHIRElementDefinition; element: TWrapperElement);
+procedure TFHIRValidator.checkPrimitiveBinding(errors: TFhirOperationOutcomeIssueList; path: String; ty: String; context: TFHIRElementDefinition; element: TWrapperElement; profile : TFhirStructureDefinition);
 var
   value : String;
   Binding: TFhirElementDefinitionBinding;
   vs : TFHIRValueSet;
-  ok : boolean;
   res: TValidationResult;
 begin
   if (not element.hasAttribute('value')) then
@@ -2760,7 +3100,7 @@ begin
   Binding := context.Binding;
   if (Binding.ValueSet <> nil) and (Binding.ValueSet is TFHIRReference) then
   begin
-    vs := resolveBindingReference(Binding.ValueSet);
+    vs := resolveBindingReference(profile, Binding.ValueSet);
     if (warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, vs <> nil, 'ValueSet ' + describeReference(Binding.ValueSet) + ' not found')) then
     begin
       res := FContext.validateCode(SYSTEM_NOT_APPLICABLE, value, '', vs);
@@ -2768,13 +3108,13 @@ begin
       if (not res.isOk()) then
         begin
         if (Binding.Strength = BindingStrengthREQUIRED) then
-          warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided is not in the value set ' +
+            warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided ('+value+') is not in the value set ' +
             describeReference(Binding.ValueSet) + ' (' + vs.url + ', and a code is required from this value set')
         else if (Binding.Strength = BindingStrengthEXTENSIBLE) then
-          warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided is not in the value set ' +
+            warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided ('+value+') is not in the value set ' +
             describeReference(Binding.ValueSet) + ' (' + vs.url + ', and a code should come from this value set unless it has no suitable code')
         else if (Binding.Strength = BindingStrengthPREFERRED) then
-          hint(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided is not in the value set ' + describeReference(Binding.ValueSet)
+            hint(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided ('+value+') is not in the value set ' + describeReference(Binding.ValueSet)
             + ' (' + vs.url + ', and a code is recommended to come from this value set');
       end;
       finally
@@ -2783,7 +3123,7 @@ begin
     end;
   end
   else
-    hint(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'Binding has no source, so can''t be checked');
+    hint(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, ty <> 'code', 'Binding has no source, so can''t be checked');
 end;
 
 function isValidFHIRUrn(uri : String) : boolean;
@@ -2806,7 +3146,7 @@ begin
   rule(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, isAbsolute(System), 'Identifier.system must be an absolute reference, not a local reference');
 end;
 
-procedure TFHIRValidator.checkQuantity(errors: TFhirOperationOutcomeIssueList; path: String; element: TWrapperElement; context: TFHIRElementDefinition; b: boolean);
+procedure TFHIRValidator.checkQuantity(errors: TFhirOperationOutcomeIssueList; path: String; element: TWrapperElement; context: TFHIRElementDefinition);
 var
   code : String;
   System: String;
@@ -2818,22 +3158,6 @@ begin
 
   if (System <> '') and (code <> '') then
     checkCode(errors, element, path, code, System, units);
-end;
-
-function readAsCoding(item: TWrapperElement): TFHIRCoding;
-var
-  c: TFHIRCoding;
-begin
-  c := TFHIRCoding.Create;
-  try
-    c.System := item.getNamedChildValue('system');
-    c.Version := item.getNamedChildValue('version');
-    c.code := item.getNamedChildValue('code');
-    c.display := item.getNamedChildValue('display');
-    result := c.Link;
-  finally
-    c.Free;
-  end;
 end;
 
 procedure TFHIRValidator.checkCoding(errors: TFhirOperationOutcomeIssueList; path: String; element: TWrapperElement; profile: TFHIRStructureDefinition;
@@ -2861,9 +3185,9 @@ begin
         Binding := context.Binding;
         if (warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, Binding <> nil, 'Binding for ' + path + ' missing')) then
         begin
-          if (Binding.ValueSet <> nil) and (Binding.ValueSet is TFHIRReference) then
+          if (Binding.ValueSet <> nil) then
           begin
-            vs := resolveBindingReference(Binding.ValueSet);
+            vs := resolveBindingReference(profile, Binding.ValueSet);
             if (warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, vs <> nil, 'ValueSet ' + describeReference(Binding.ValueSet) + ' not found')) then
             begin
               try
@@ -2873,13 +3197,13 @@ begin
                 try
                 if (not res.isOk()) then
                   if (Binding.Strength = BindingStrengthREQUIRED) then
-                    warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided is not in the value set ' +
+                        warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided ('+c.system+'::'+c.code+') is not in the value set ' +
                       describeReference(Binding.ValueSet) + ' (' + vs.url + ', and a code is required from this value set')
                   else if (Binding.Strength = BindingStrengthEXTENSIBLE) then
-                    warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided is not in the value set ' +
+                        warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided ('+c.system+'::'+c.code+') is not in the value set ' +
                       describeReference(Binding.ValueSet) + ' (' + vs.url + ', and a code should come from this value set unless it has no suitable code')
                   else if (Binding.Strength = BindingStrengthPREFERRED) then
-                    hint(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided is not in the value set ' +
+                        hint(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, false, 'The value provided ('+c.system+'::'+c.code+') is not in the value set ' +
                       describeReference(Binding.ValueSet) + ' (' + vs.url + ', and a code is recommended to come from this value set');
                 finally
                   res.free;
@@ -2902,12 +3226,26 @@ begin
   end;
 end;
 
-function TFHIRValidator.resolveBindingReference(reference: TFHIRType): TFHIRValueSet;
+function TFHIRValidator.resolveBindingReference(context : TFHIRDomainResource; reference: TFHIRType): TFHIRValueSet;
+var
+  s : String;
+  c : TFHIRResource;
 begin
   if (reference is TFHIRUri) then
     result := TFHIRValueSet(FContext.fetchResource(frtValueSet, TFHIRUri(reference).value))
   else if (reference is TFHIRReference) then
-    result := TFHIRValueSet(FContext.fetchResource(frtValueSet, TFHIRReference(reference).reference))
+  begin
+    s := TFHIRReference(reference).reference;
+    if s.StartsWith('#') then
+    begin
+      for c in context.containedList do
+        if (c.id = s.Substring(1)) and (c is TFHIRValueSet) then
+          exit(TFHIRValueSet(c).link);
+      result := nil;
+    end
+    else
+      result := TFHIRValueSet(FContext.fetchResource(frtValueSet, s))
+  end
   else
     result := nil;
   FOwned.add(result);
@@ -2938,10 +3276,7 @@ procedure TFHIRValidator.checkCodeableConcept(errors: TFhirOperationOutcomeIssue
 var
   Binding: TFhirElementDefinitionBinding;
   vs : TFHIRValueSet;
-  found, any : boolean;
-  c : TWrapperElement;
   res : TValidationResult;
-  code, System, Version: string;
   cc: TFHIRCodeableConcept;
 begin
   if (context <> nil ) and ( context.Binding <> nil) then
@@ -2951,7 +3286,7 @@ begin
     begin
       if (Binding.ValueSet <> nil) and (Binding.ValueSet is TFHIRReference) then
       begin
-        vs := resolveBindingReference(Binding.ValueSet);
+        vs := resolveBindingReference(profile, Binding.ValueSet);
         if (warning(errors, IssueTypeCODEINVALID, element.locStart(), element.locEnd(), path, vs <> nil, 'ValueSet ' + describeReference(Binding.ValueSet) + ' not found')) then
         begin
           try
@@ -3666,8 +4001,7 @@ end;
 
 function TChildIterator.path: String;
 var
-  n, p: TWrapperElement;
-  sfx : String;
+  n: TWrapperElement;
 begin
   n := child.getNextSibling();
   if basePath = '' then
@@ -3726,19 +4060,17 @@ var
   locations : TAdvList<TSourceLocationObject>;
   ms : TMsXmlParser;
   dom : IXMLDOMDocument2;
-  s : String;
 begin
   result := TFhirOperationOutcome.create;
   try
     if (format = ffXml) then
     begin
       // we have to parse twice: once for the schema check, and once with line tracking
-      if validateXml(source, result) then
-        begin
+      validateXml(source, result);
         ms := TMsXmlParser.Create;
         locations := TAdvList<TSourceLocationObject>.create;
           try
-          sax := TFHIRSaxToDomParser.create(locations.Link); // no try...finally..., this is interface
+        sax := TFHIRSaxToDomParser.create(locations.Link, 0); // no try...finally..., this is interfaced
           dom := sax.DOM;
           ms.Parse(source, sax);
           wrapper := TDOMWrapperElement.Create(nil, dom.documentElement);
@@ -3752,7 +4084,6 @@ begin
           locations.Free;
           ms.Free;
         end;
-      end;
     end
     else if format = ffJson then
     begin
@@ -3784,7 +4115,6 @@ function TFHIRValidator.validateInstance(resource: TFhirResource; idRule : TReso
 var
   x : TFHIRXmlComposer;
   b : TAdvBuffer;
-  m : TAdvMemoryStream;
 begin
   b := TAdvBuffer.Create;
   try
@@ -3794,7 +4124,7 @@ begin
     finally
       x.Free;
     end;
-    validateInstance(b, ffXml, idRule, opDesc, profile);
+    result := validateInstance(b, ffXml, idRule, opDesc, profile);
     finally
     b.Free;
   end;
@@ -3903,18 +4233,18 @@ begin
   end;
 end;
 
-function TFHIRBaseOnWrapper.IsAbstractType(pn : String) : Boolean;
-var
-  p : TFhirStructureDefinition;
-begin
-  p := FServices.fetchResource(frtStructureDefinition, pn) as TFhirStructureDefinition;
-  try
-    result := (p <> nil) and (p.abstract);
-  finally
-    p.free;
-  end;
-end;
-
+//function TFHIRBaseOnWrapper.IsAbstractType(pn : String) : Boolean;
+//var
+//  p : TFhirStructureDefinition;
+//begin
+//  p := FServices.fetchResource(frtStructureDefinition, pn) as TFhirStructureDefinition;
+//  try
+//    result := (p <> nil) and (p.abstract);
+//  finally
+//    p.free;
+//  end;
+//end;
+//
 function TFHIRBaseOnWrapper.isMetaDataBased: boolean;
 begin
   result := true;

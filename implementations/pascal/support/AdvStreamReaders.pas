@@ -437,7 +437,6 @@ var
   LBuffer: TBytes;
   BytesRead: Integer;
   StartIndex: Integer;
-  ByteCount: Integer;
   ByteBufLen: Integer;
   ok : boolean;
 begin
