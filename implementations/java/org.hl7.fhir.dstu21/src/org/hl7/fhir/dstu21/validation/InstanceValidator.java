@@ -923,7 +923,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
       	}
       }
     } else
-      hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, false, "Binding has no source, so can't be checked");
+			hint(errors, IssueType.CODEINVALID, element.line(), element.col(), path, !type.equals("code"), "Binding has no source, so can't be checked");
   }
 
   private void checkQuantity(List<ValidationMessage> errors, String path, WrapperElement focus, Quantity fixed) {
@@ -1517,17 +1517,22 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  WrapperElement q = element.getNamedChild("questionnaire");
 	  if (hint(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), q != null, "No questionnaire is identified, so no validation can be performed against the base questionnaire")) {
 	    Questionnaire qsrc = context.fetchResource(Questionnaire.class, q.getNamedChildValue("reference"));
-      if (warning(errors, IssueType.REQUIRED, q.line(), q.col(), stack.getLiteralPath(), qsrc != null, "The questionnaire could not be resolved, so no validation can be performed against the base questionnaire"))
-	        validateQuestionannaireResponseItems(qsrc, qsrc.getItem(), errors, element, stack);
+      if (warning(errors, IssueType.REQUIRED, q.line(), q.col(), stack.getLiteralPath(), qsrc != null, "The questionnaire could not be resolved, so no validation can be performed against the base questionnaire")) {
+        boolean inProgress = "in-progress".equals(element.getNamedChildValue("status"));
+        validateQuestionannaireResponseItems(qsrc, qsrc.getItem(), errors, element, stack, inProgress);        
+      }
 	  }
 	}
 	
-	private void validateQuestionannaireResponseItem(Questionnaire qsrc, QuestionnaireItemComponent qItem, List<ValidationMessage> errors, WrapperElement element, NodeStack stack) {
+	private void validateQuestionannaireResponseItem(Questionnaire qsrc, QuestionnaireItemComponent qItem, List<ValidationMessage> errors, WrapperElement element, NodeStack stack, boolean inProgress) {
 	  String text = element.getNamedChildValue("text");
 	  rule(errors, IssueType.INVALID, element.line(), element.col(), stack.getLiteralPath(), Utilities.noString(text) || text.equals(qItem.getText()), "If text exists, it must match the questionnaire definition for linkId "+qItem.getLinkId());
 
 	  List<WrapperElement> answers = new ArrayList<InstanceValidator.WrapperElement>();
     element.getNamedChildren("answer", answers);
+    if (inProgress)
+      warning(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), (answers.size() > 0) || !qItem.getRequired(), "No response answer found for required item "+qItem.getLinkId());
+    else
     rule(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), (answers.size() > 0) || !qItem.getRequired(), "No response answer found for required item "+qItem.getLinkId());
     if (answers.size() > 1)
       rule(errors, IssueType.INVALID, answers.get(1).line(), answers.get(1).col(), stack.getLiteralPath(), qItem.getRepeats(), "Only one response answer item with this linkId allowed");
@@ -1590,10 +1595,10 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	            validateAnswerCode(errors, answer, ns, qsrc, qItem);
               break;
 	        }
-	        validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, answer, stack);
+	        validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, answer, stack, inProgress);
 	    }
 	  if (qItem.getType() == QuestionnaireItemType.GROUP)
-	    validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, element, stack);
+	    validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, element, stack, inProgress);
 	  else {
 	    List<WrapperElement> items = new ArrayList<InstanceValidator.WrapperElement>();
       element.getNamedChildren("item", items);
@@ -1604,12 +1609,12 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  }
 	}
 
-	private void validateQuestionannaireResponseItem(Questionnaire qsrc, QuestionnaireItemComponent qItem, List<ValidationMessage> errors, List<WrapperElement> elements, NodeStack stack) {
+	private void validateQuestionannaireResponseItem(Questionnaire qsrc, QuestionnaireItemComponent qItem, List<ValidationMessage> errors, List<WrapperElement> elements, NodeStack stack, boolean inProgress) {
 	  if (elements.size() > 1)
 	    rule(errors, IssueType.INVALID, elements.get(1).line(), elements.get(1).col(), stack.getLiteralPath(), qItem.getRepeats(), "Only one response item with this linkId allowed");
 	  for (WrapperElement element : elements) {
 	    NodeStack ns = stack.push(element, -1, null, null);
-	    validateQuestionannaireResponseItem(qsrc, qItem, errors, element, ns);
+	    validateQuestionannaireResponseItem(qsrc, qItem, errors, element, ns, inProgress);
 	  }
 	}
 
@@ -1621,7 +1626,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  return -1;
 	}
 
-	private void validateQuestionannaireResponseItems(Questionnaire qsrc, List<QuestionnaireItemComponent> qItems, List<ValidationMessage> errors, WrapperElement element, NodeStack stack) {
+	private void validateQuestionannaireResponseItems(Questionnaire qsrc, List<QuestionnaireItemComponent> qItems, List<ValidationMessage> errors, WrapperElement element, NodeStack stack, boolean inProgress) {
 	  List<WrapperElement> items = new ArrayList<WrapperElement>();
 	  element.getNamedChildren("item", items);
 	  // now, sort into stacks
@@ -1636,7 +1641,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	        if (qItem != null) {
 	          rule(errors, IssueType.STRUCTURE, item.line(), item.col(), stack.getLiteralPath(), index > -1, "Structural Error: item is in the wrong place");
 	          NodeStack ns = stack.push(item, -1, null, null);
-	          validateQuestionannaireResponseItem(qsrc, qItem, errors, element, ns);
+	          validateQuestionannaireResponseItem(qsrc, qItem, errors, element, ns, inProgress);
 	        }
 	        else
 	          rule(errors, IssueType.NOTFOUND, item.line(), item.col(), stack.getLiteralPath(), index > -1, "LinkId \""+linkId+"\" not found in questionnaire");
@@ -1659,7 +1664,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  for (QuestionnaireItemComponent qItem : qItems) {
 	    List<WrapperElement> mapItem = map.get(qItem.getLinkId());
 	    if (mapItem != null)
-	      validateQuestionannaireResponseItem(qsrc, qItem, errors, mapItem, stack);
+	      validateQuestionannaireResponseItem(qsrc, qItem, errors, mapItem, stack, inProgress);
 	    else
 	      rule(errors, IssueType.REQUIRED, element.line(), element.col(), stack.getLiteralPath(), !qItem.getRequired(), "No response found for required item "+qItem.getLinkId());
     }
@@ -1723,7 +1728,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	      Coding c = readAsCoding(value);
 	      ValidationResult res = context.validateCode(c, vs);
 	      if (!res.isOk())
-	        rule(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), false, "The value provided is not in the options value set in the questionnaire");
+	        rule(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), false, "The value provided ("+c.getSystem()+"::"+c.getCode()+") is not in the options value set in the questionnaire");
 	    } catch (Exception e) {
 	      warning(errors, IssueType.CODEINVALID, value.line(), value.col(), stack.getLiteralPath(), false, "Error " + e.getMessage() + " validating Coding against Questionnaire Options");
 	    }
@@ -2151,7 +2156,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
         "The first entry in a document must be a composition")) {
       // the composition subject and section references must resolve in the bundle
 			WrapperElement elem = composition.getNamedChild("subject");
-			if (rule(errors, IssueType.INVALID, composition.line(), composition.col(), stack.getLiteralPath(), elem == null, "A document composition must have a subject"))
+			if (rule(errors, IssueType.INVALID, composition.line(), composition.col(), stack.getLiteralPath(), elem != null, "A document composition must have a subject"))
         validateBundleReference(errors, entries, elem, "Composition Subject", stack.push(elem, -1, null, null), fullUrl, "Composition", id);
       validateSections(errors, entries, composition, stack, fullUrl, id);
     }
