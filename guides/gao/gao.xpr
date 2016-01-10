@@ -8,12 +8,28 @@
     <projectTree name="gao.xpr">
         <folder name="Conformance">
             <file name="Conformance/gao-decision-support-service.xml"/>
-            <file name="Conformance/gao-order-evaluation-requestor.xml"
+            <file name="Conformance/gao-order-evaluation-requester.xml"
             />
         </folder>
-        <folder name="Examples"/>
+        <folder name="Examples">
+            <file name="Example/example-gao-order.xml"/>
+            <file name="Example/example-gao-patient.xml"/>
+            <file name="Example/example-gao-practitioner.xml"/>
+            <file
+                name="Example/example-gao-request-parameters-CT-head.xml"/>
+            <file
+                name="Example/example-gao-request-parameters-MRI-head.xml"/>
+            <file
+                name="Example/example-gao-response-parameters-CT-Head-No-Guidelines.xml"/>
+            <file
+                name="Example/example-gao-response-parameters-CT-Head-Outside-Of-Guidelines.xml"/>
+            <file
+                name="Example/example-gao-response-parameters-CT-Head-Outside-w-Alt.xml"/>
+            <file name="Example/generate.xsl"/>
+        </folder>
         <folder name="OperationDefinition">
             <file name="OperationDefinition/gao-order-evaluate.xml"/>
+            <file name="OperationDefinition/generate.xsl"/>
         </folder>
         <folder name="StructureDefinition">
             <file name="StructureDefinition/gao-alternate.xml"/>
@@ -37,6 +53,7 @@
                 name="StructureDefinition/gao-questionnaireresponse.xml"/>
             <file name="StructureDefinition/gao-referralrequest.xml"/>
             <file name="StructureDefinition/gao-result.xml"/>
+            <file name="StructureDefinition/generate.xsl"/>
         </folder>
         <folder name="ValueSet">
             <file name="ValueSet/gao-answer-format.xml"/>
@@ -44,6 +61,8 @@
         </folder>
         <file name="gao.html"/>
         <file name="gao.xml"/>
+        <file name="gao2.html"/>
+        <file name="generate.xsl"/>
         <file name="switcheroo.xsl"/>
     </projectTree>
 </project>

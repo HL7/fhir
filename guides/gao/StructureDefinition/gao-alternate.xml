@@ -1,211 +1,222 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-<id value="gao-alternate"></id>
-  
-  
+  <id value="gao-alternate"/>
   <text>
-<status value="generated" />
-<div xmlns="http://www.w3.org/1999/xhtml">
-<h2>GAO Alternate</h2>
-<p>The alternate resource provides the results of an evaluation for alternative treatements that may be suggested by the decision support service.</p>
-<h3>Requirements</h3>
-<p>Similar to the result resource, the alternate resource enables the results of an evaluation to be returned.  However, because the alternate is suggested by the decision support service, the constraints on what may appear are slightly different.</p>
-</div>
-</text>
-<url value="http://hl7.org/fhir/StructureDefinition/gao-alternate"></url>
-  <name value="GAO Alternate"></name>
-  <status value="draft"></status>
-  <date value="2015-09-22T20:02:49+10:00"></date>
-  <description value="The alternate resource provides the results of an evaluation for alternative treatements that may be suggested by the decision support service."></description>
-  <requirements value="Similar to the result resource, the alternate resource enables the results of an evaluation to be returned.  However, because the alternate is suggested by the decision support service, the constraints on what may appear are slightly different."></requirements>
-  <fhirVersion value="1.1.0"></fhirVersion>
-  
-  
-  <kind value="resource"></kind>
-  <constrainedType value="Basic"></constrainedType>
-  <abstract value="false"></abstract>
-  <base value="http://hl7.org/fhir/StructureDefinition/Basic"></base>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <h2>GAO Alternate</h2>
+      <p>The alternate resource provides the results of an evaluation for alternative treatements
+        that may be suggested by the decision support service.</p>
+      <h3>Requirements</h3>
+      <p>Similar to the result resource, the alternate resource enables the results of an evaluation
+        to be returned. However, because the alternate is suggested by the decision support service,
+        the constraints on what may appear are slightly different.</p>
+    </div>
+  </text>
+  <url value="http://hl7.org/fhir/StructureDefinition/gao-alternate"/>
+  <name value="GAO Alternate"/>
+  <status value="draft"/>
+  <date value="2015-09-22T20:02:49+10:00"/>
+  <description
+    value="The alternate resource provides the results of an evaluation for alternative treatements that may be suggested by the decision support service."/>
+  <requirements
+    value="Similar to the result resource, the alternate resource enables the results of an evaluation to be returned.  However, because the alternate is suggested by the decision support service, the constraints on what may appear are slightly different."/>
+  <fhirVersion value="1.1.0"/>
+  <kind value="resource"/>
+  <constrainedType value="Basic"/>
+  <abstract value="false"/>
+  <base value="http://hl7.org/fhir/StructureDefinition/Basic"/>
   <differential>
     <element>
-      <path value="Basic"></path>
-      <short value="Resource for non-supported content"></short>
-      <definition value="Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification."></definition>
-      <alias value="Z-resource"></alias>
-      <alias value="Extension-resource"></alias>
-      <alias value="Custom-resource"></alias>
-      <min value="0"></min>
-      <max value="*"></max>
+      <path value="Basic"/>
+      <short value="Resource for non-supported content"/>
+      <definition
+        value="Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification."/>
+      <alias value="Z-resource"/>
+      <alias value="Extension-resource"/>
+      <alias value="Custom-resource"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
-        <code value="Basic"></code>
+        <code value="Basic"/>
       </type>
-      <isSummary value="true"></isSummary>
-      
-      
+      <isSummary value="true"/>
     </element>
     <element>
-      <path value="Basic.extension"></path>
+      <path value="Basic.extension"/>
       <slicing>
-        <discriminator value="url"></discriminator>
-        <rules value="openAtEnd"></rules>
+        <discriminator value="url"/>
+        <rules value="openAtEnd"/>
       </slicing>
     </element>
     <element>
-      <path value="Basic.extension"></path>
-      <name value="score"></name>
-      <label value="score"></label>
-      <definition value="An optional value which can be used to record a score associated with the evaluation process. "></definition>
-      <comments value="The interpretation of this value may vary depending upon guidelines and Decision Support Service actors used. "></comments>
-      <requirements value="This may be present to enable quality improvement efforts related to ordering."></requirements>
-      <min value="0"></min>
-      <max value="*"></max>
+      <path value="Basic.extension"/>
+      <name value="score"/>
+      <label value="score"/>
+      <definition
+        value="An optional value which can be used to record a score associated with the evaluation process. "/>
+      <comments
+        value="The interpretation of this value may vary depending upon guidelines and Decision Support Service actors used. "/>
+      <requirements
+        value="This may be present to enable quality improvement efforts related to ordering."/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
-        <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-score"></profile>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-score"/>
       </type>
-      <mustSupport value="true"></mustSupport>
+      <mustSupport value="true"/>
     </element>
     <element>
-      <path value="Basic.extension"></path>
-      <name value="period"></name>
-      <label value="period"></label>
-      <definition value="Indicates the period over which the evaluation is valid."></definition>
-      <comments value="Not required when manually issued, required otherwise."></comments>
-      <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional."></requirements>
-      <min value="0"></min>
-      <max value="1"></max>
+      <path value="Basic.extension"/>
+      <name value="period"/>
+      <label value="period"/>
+      <definition value="Indicates the period over which the evaluation is valid."/>
+      <comments value="Not required when manually issued, required otherwise."/>
+      <requirements
+        value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-period"></profile>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-period"/>
       </type>
-      <mustSupport value="true"></mustSupport>
+      <mustSupport value="true"/>
     </element>
     <element>
-      <path value="Basic.extension"></path>
-      <name value="item"></name>
-      <label value="item"></label>
-      <definition value="Describes the services ordered."></definition>
-      
-      <requirements value="The services that are to be ordered SHALL be provided."></requirements>
-      <min value="1"></min>
-      <max value="*"></max>
+      <path value="Basic.extension"/>
+      <name value="item"/>
+      <label value="item"/>
+      <definition value="Describes the services ordered."/>
+      <requirements value="The services that are to be ordered SHALL be provided."/>
+      <min value="1"/>
+      <max value="*"/>
       <type>
-        <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-item"></profile>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-item"/>
       </type>
-      <mustSupport value="true"></mustSupport>
+      <mustSupport value="true"/>
     </element>
     <element>
-      <path value="Basic.extension"></path>
-      <name value="guideline"></name>
-      <label value="guideline"></label>
-      <definition value="A reference to the guidelines or policies under which the evaluation was created."></definition>
-      
-      <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional"></requirements>
-      <min value="0"></min>
-      <max value="*"></max>
+      <path value="Basic.extension"/>
+      <name value="guideline"/>
+      <label value="guideline"/>
+      <definition
+        value="A reference to the guidelines or policies under which the evaluation was created."/>
+
+      <requirements
+        value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional"/>
+      <min value="0"/>
+      <max value="*"/>
       <type>
-        <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-guideline"></profile>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-guideline"/>
       </type>
-      <mustSupport value="true"></mustSupport>
+      <mustSupport value="true"/>
     </element>
     <element>
-      <path value="Basic.extension"></path>
-      <name value="device"></name>
-      <label value="device"></label>
-      <definition value="A reference to the Device resource describing the Decision Support Service Actor."></definition>
-      
-      <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional.  This SHALL be a reference to one of the Devices specified in the dss parameter."></requirements>
-      <min value="0"></min>
-      <max value="1"></max>
+      <path value="Basic.extension"/>
+      <name value="device"/>
+      <label value="device"/>
+      <definition
+        value="A reference to the Device resource describing the Decision Support Service Actor."/>
+
+      <requirements
+        value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional.  This SHALL be a reference to one of the Devices specified in the dss parameter."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-device"></profile>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-device"/>
       </type>
-      <mustSupport value="true"></mustSupport>
+      <mustSupport value="true"/>
     </element>
     <element>
-      <path value="Basic.extension"></path>
-      <name value="practitioner"></name>
-      <label value="practitioner"></label>
-      <definition value="An identifier representing the ordering practitioner."></definition>
-      
-      <requirements value="This SHALL be provided unless the evaluation was issued manually, in which case it is optional."></requirements>
-      <min value="0"></min>
-      <max value="1"></max>
+      <path value="Basic.extension"/>
+      <name value="practitioner"/>
+      <label value="practitioner"/>
+      <definition value="An identifier representing the ordering practitioner."/>
+
+      <requirements
+        value="This SHALL be provided unless the evaluation was issued manually, in which case it is optional."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-practitioner"></profile>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-practitioner"/>
       </type>
-      <mustSupport value="true"></mustSupport>
+      <mustSupport value="true"/>
     </element>
     <element>
-      <path value="Basic.extension"></path>
-      <name value="signature"></name>
-      <label value="signature"></label>
-      <definition value="A digital signature over this resource"></definition>
-      
-      <requirements value="This MAY be provided."></requirements>
-      <min value="0"></min>
-      <max value="1"></max>
+      <path value="Basic.extension"/>
+      <name value="signature"/>
+      <label value="signature"/>
+      <definition value="A digital signature over this resource"/>
+
+      <requirements value="This MAY be provided."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="Extension"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature"></profile>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-extension-signature"/>
       </type>
     </element>
     <element>
-      <path value="Basic.identifier"></path>
-      <short value="Business identifier"></short>
-      <definition value="Identifier assigned to the resource for business purposes, outside the context of FHIR."></definition>
-      <requirements value="This is a business identifier associated with the evaluation for the order. It is a unique identifier issued by the evaluator associated with this transaction. An identifier SHALL be provided unless the code is “incomplete”, “cannot be evaluated” or “not covered”. Note that this identifier may be associated with multiple evaluations. "></requirements>
-      <min value="0"></min>
-      <max value="1"></max>
+      <path value="Basic.identifier"/>
+      <short value="Business identifier"/>
+      <definition
+        value="Identifier assigned to the resource for business purposes, outside the context of FHIR."/>
+      <requirements
+        value="This is a business identifier associated with the evaluation for the order. It is a unique identifier issued by the evaluator associated with this transaction. An identifier SHALL be provided unless the code is “incomplete”, “cannot be evaluated” or “not covered”. Note that this identifier may be associated with multiple evaluations. "/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="Identifier"></code>
+        <code value="Identifier"/>
       </type>
-      <isSummary value="true"></isSummary>
-      
-      
+      <isSummary value="true"/>
+
+
     </element>
     <element>
-      <path value="Basic.code"></path>
-      <short value="Kind of Resource"></short>
-      <definition value="Identifies the 'type' of resource - equivalent to the resource name for other resources."></definition>
-      <comments value="Because resource references will only be able to indicate 'Basic', the type of reference will need to be specified in a Profile identified as part of the resource.  Refer to the resource notes section for information on appropriate terminologies for this code."></comments>
-      <requirements value="Must be able to distinguish different types of &quot;basic&quot; resources."></requirements>
-      <min value="1"></min>
-      <max value="1"></max>
+      <path value="Basic.code"/>
+      <short value="Kind of Resource"/>
+      <definition
+        value="Identifies the 'type' of resource - equivalent to the resource name for other resources."/>
+      <comments
+        value="Because resource references will only be able to indicate 'Basic', the type of reference will need to be specified in a Profile identified as part of the resource.  Refer to the resource notes section for information on appropriate terminologies for this code."/>
+      <requirements
+        value="Must be able to distinguish different types of &quot;basic&quot; resources."/>
+      <min value="1"/>
+      <max value="1"/>
       <type>
-        <code value="CodeableConcept"></code>
+        <code value="CodeableConcept"/>
       </type>
-      <isModifier value="true"></isModifier>
-      <isSummary value="true"></isSummary>
+      <isModifier value="true"/>
+      <isSummary value="true"/>
       <binding>
-        <strength value="example"></strength>
-        <description value="Codes for identifying types of resources not yet defined by FHIR"></description>
+        <strength value="example"/>
+        <description value="Codes for identifying types of resources not yet defined by FHIR"/>
         <valueSetReference>
-          <reference value="http://hl7.org/fhir/ValueSet/gao-result"></reference>
+          <reference value="http://hl7.org/fhir/ValueSet/gao-result"/>
         </valueSetReference>
       </binding>
-      
-      
     </element>
     <element>
-      <path value="Basic.subject"></path>
-      <short value="Identifies the focus of this resource"></short>
-      <definition value="Identifies the patient, practitioner, device or any other resource that is the &quot;focus&quot; of this resource."></definition>
-      <comments value="Optional as not all resources potential resources will have subjects.  Resources associated with multiple subjects can handle this via extension."></comments>
-      <requirements value="Needed for partitioning the resource by Patient."></requirements>
-      <min value="0"></min>
-      <max value="1"></max>
+      <path value="Basic.subject"/>
+      <short value="Identifies the focus of this resource"/>
+      <definition
+        value="Identifies the patient, practitioner, device or any other resource that is the &quot;focus&quot; of this resource."/>
+      <comments
+        value="Optional as not all resources potential resources will have subjects.  Resources associated with multiple subjects can handle this via extension."/>
+      <requirements value="Needed for partitioning the resource by Patient."/>
+      <min value="0"/>
+      <max value="1"/>
       <type>
-        <code value="Reference"></code>
-        <profile value="http://hl7.org/fhir/StructureDefinition/gao-order"></profile>
-        <aggregation value="contained"></aggregation>
+        <code value="Reference"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
+        <aggregation value="contained"/>
       </type>
-      <isSummary value="true"></isSummary>
-      
-      
+      <isSummary value="true"/>
     </element>
   </differential>
 </StructureDefinition>

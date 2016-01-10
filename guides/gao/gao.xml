@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><ImplementationGuide xmlns="http://hl7.org/fhir">
+<?xml version="1.0" encoding="utf-8"?>
+<ImplementationGuide xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/fhir-single.xsd" xmlns="http://hl7.org/fhir">
   <id value="gao"/>
   <language value="English"/>
   <url value="http://hl7.org/fhir/gao"/>
@@ -7,78 +9,97 @@
   <status value="draft"/>
   <publisher value="HL7"/>
   <date value="2015-11-11T22:41:03-05:00"/>
-  <description value="The purpose of this implementation guide is to support communication of decision support guidance on whether or not an order is appropriate from EHR, hospital or departmental information systems, and enable receivers to validate that decision support was used to determine the appropriateness of those orders according to guidelines."/>
+  <description
+    value="The purpose of this implementation guide is to support communication of decision support guidance on whether or not an order is appropriate from EHR, hospital or departmental information systems, and enable receivers to validate that decision support was used to determine the appropriateness of those orders according to guidelines.">
+    <extension url="http://hl7.org/fhir/StructureDefinition/headerHTML">
+      <valueUri value="gao-overview.html"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/footerHTML">
+      <valueUri value="gao-footer.html"/>
+    </extension>
+  </description>
   <fhirVersion value="1.0.2"/>
   <package>
     <name value="GAO Package"/>
-    <description value="Resource profiles and extensions necessary to support Guideline Appropriate Ordering."/>
+    <description
+      value="Resource profiles and extensions necessary to support Guideline Appropriate Ordering."/>
     <resource>
       <purpose value="example"/>
       <name value="GAO Evaluate Order"/>
-      <description value="The evaluate operation examines an order, comparing it against known guidelines for appropriate use and returns the result of that evaluation to the caller."/>
+      <description
+        value="The evaluate operation examines an order, comparing it against known guidelines for appropriate use and returns the result of that evaluation to the caller."/>
       <acronym value="gao-order-evaluate"/>
       <sourceUri value="OperationDefinition/gao-order-evaluate.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="Guideline Appropriate Order"/>
-      <description value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals), and is used to link the order details to the reason(s), date, patient and provider placing the order. "/>
+      <description
+        value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals), and is used to link the order details to the reason(s), date, patient and provider placing the order. "/>
       <acronym value="gao-order"/>
       <sourceUri value="StructureDefinition/gao-order.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Patient"/>
-      <description value="The patient resource is required to provide relevant demographics associated with the patient. Other details may be provided according to local implementation requirements. "/>
+      <description
+        value="The patient resource is required to provide relevant demographics associated with the patient. Other details may be provided according to local implementation requirements. "/>
       <acronym value="gao-patient"/>
       <sourceUri value="StructureDefinition/gao-patient.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Practitioner"/>
-      <description value="The practitioner resource is required to identify the provider placing the order. "/>
+      <description
+        value="The practitioner resource is required to identify the provider placing the order. "/>
       <acronym value="gao-practitioner"/>
       <sourceUri value="StructureDefinition/gao-practitioner.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Diagnostic Order"/>
-      <description value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
+      <description
+        value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
       <acronym value="gao-diagnosticorder"/>
       <sourceUri value="StructureDefinition/gao-diagnosticorder.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Referral Request"/>
-      <description value="The referral request resource is required to identify the referral service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
+      <description
+        value="The referral request resource is required to identify the referral service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
       <acronym value="gao-referralrequest"/>
       <sourceUri value="StructureDefinition/gao-referralrequest.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Medication Order"/>
-      <description value="The medication prescription resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
+      <description
+        value="The medication prescription resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
       <acronym value="gao-medicationorder"/>
       <sourceUri value="StructureDefinition/gao-medicationorder.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Procedure Request"/>
-      <description value="The procedure request resource is required to identify the procedures that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
+      <description
+        value="The procedure request resource is required to identify the procedures that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
       <acronym value="gao-procedurerequest"/>
       <sourceUri value="StructureDefinition/gao-procedurerequest.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Questionnaire"/>
-      <description value="The Questionnaire resource is used to support an interactive question/answer implementation driven by the client.  This interaction may result in a more favorable evaluation of the proposed order."/>
+      <description
+        value="The Questionnaire resource is used to support an interactive question/answer implementation driven by the client.  This interaction may result in a more favorable evaluation of the proposed order."/>
       <acronym value="gao-questionnaire"/>
       <sourceUri value="StructureDefinition/gao-questionnaire.xml"/>
     </resource>
     <resource>
       <purpose value="profile"/>
       <name value="GAO Questionnaire Response"/>
-      <description value="A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary."/>
+      <description
+        value="A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary."/>
       <acronym value="gao-questionnaireresponse"/>
       <sourceUri value="StructureDefinition/gao-questionnaireresponse.xml"/>
     </resource>
@@ -92,7 +113,8 @@
     <resource>
       <purpose value="profile"/>
       <name value="GAO Alternate"/>
-      <description value="The alternate resource is used to reflect evaluations of alternate services that may be suggested by the decision support service."/>
+      <description
+        value="The alternate resource is used to reflect evaluations of alternate services that may be suggested by the decision support service."/>
       <acronym value="gao-alternate"/>
       <sourceUri value="StructureDefinition/gao-alternate.xml"/>
     </resource>
@@ -105,25 +127,29 @@
     <resource>
       <purpose value="extension"/>
       <name value="GAO Device"/>
-      <description value="Supports identification of the decision support system used to evaluate the order."/>
+      <description
+        value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri value="StructureDefinition/gao-extension-device.xml"/>
     </resource>
     <resource>
       <purpose value="extension"/>
       <name value="GAO Guideline"/>
-      <description value="Supports identification of the decision support system used to evaluate the order."/>
+      <description
+        value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri value="StructureDefinition/gao-extension-guideline.xml"/>
     </resource>
     <resource>
       <purpose value="extension"/>
       <name value="GAO Item"/>
-      <description value="Supports identification of the decision support system used to evaluate the order."/>
+      <description
+        value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri value="StructureDefinition/gao-extension-item.xml"/>
     </resource>
     <resource>
       <purpose value="extension"/>
       <name value="GAO Period"/>
-      <description value="Supports identification of the decision support system used to evaluate the order."/>
+      <description
+        value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri value="StructureDefinition/gao-extension-period.xml"/>
     </resource>
     <resource>
@@ -135,7 +161,8 @@
     <resource>
       <purpose value="extension"/>
       <name value="GAO Signature"/>
-      <description value="Supports identification of the decision support system used to evaluate the order."/>
+      <description
+        value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri value="StructureDefinition/gao-extension-signature.xml"/>
     </resource>
     <resource>
@@ -148,14 +175,16 @@
     <resource>
       <purpose value="terminology"/>
       <name value="GAO Answer Format Codes"/>
-      <description value="The set of question types allowed in a questionnaire used for evaluation of orders."/>
+      <description
+        value="The set of question types allowed in a questionnaire used for evaluation of orders."/>
       <acronym value="gao-answer-format"/>
       <sourceUri value="ValueSet/gao-answer-format.xml"/>
     </resource>
     <resource>
       <purpose value="example"/>
       <name value="GAO Decision Support Service"/>
-      <description value="The Decision Support Service actor implements the $evaluate operation to determine 
+      <description
+        value="The Decision Support Service actor implements the $evaluate operation to determine 
         whether that an order is appropriate according to clinical guidelines."/>
       <acronym value="gao-decision-support-service"/>
       <sourceUri value="Conformance/gao-decision-support-service.xml"/>
@@ -163,10 +192,99 @@
     <resource>
       <purpose value="example"/>
       <name value="GAO Order Evaluation Requester"/>
-      <description value="The Order Evaluation Requester actor invokes the $evaluate operation to determine 
+      <description
+        value="The Order Evaluation Requester actor invokes the $evaluate operation to determine 
         whether an order is appropriate according to clinical guidelines."/>
       <acronym value="gao-order-evaluation-requester"/>
       <sourceUri value="Conformance/gao-order-evaluation-requester.xml"/>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="Example GAO response parameters CT head outside of guidelines"/>
+      <description
+        value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
+      <acronym value="example-gao-response-parameters-CT-Head-Outside-Of-Guidelines"/>
+      <sourceUri value="Example/example-gao-response-parameters-CT-Head-Outside-Of-Guidelines.xml"/>
+      <exampleFor>
+        <reference value="gao-order-evaluate"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="Example GAO response parameters CT head outside of guidelines with alternate"/>
+      <description
+        value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
+      <acronym value="example-gao-response-parameters-CT-Head-Outside-w-Alt"/>
+      <sourceUri
+        value="Example/example-gao-response-parameters-CT-Head-Outside-w-Alt.xml"
+      />
+      <exampleFor>
+        <reference value="gao-order-evaluate"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="Example GAO response parameters CT head no guidelines"/>
+      <description
+        value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
+      <acronym value="example-gao-response-parameters-CT-Head-No-Guidelines"/>
+      <sourceUri value="Example/example-gao-response-parameters-CT-Head-No-Guidelines.xml"/>
+      <exampleFor>
+        <reference value="gao-order-evaluate"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="Example GAO request parameters MRI head"/>
+      <description
+        value="A 50-year-old male is ordered an MRI of the the Head for his headache by an identified practitioner."/>
+      <acronym value="example-gao-request-parameters-MRI-head"/>
+      <sourceUri value="Example/example-gao-request-parameters-MRI-head.xml"/>
+      <exampleFor>
+        <reference value="gao-order-evaluate"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="Example GAO request CT head"/>
+      <description
+        value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
+      <acronym value="example-gao-request-parameters-CT-head"/>
+      <sourceUri value="Example/example-gao-request-parameters-CT-head.xml"/>
+      <exampleFor>
+        <reference value="gao-order-evaluate"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="Example GAO practitioner"/>
+      <description value="Identified Practitioner: 9999999999"/>
+      <acronym value="example-gao-practitioner"/>
+      <sourceUri value="Example/example-gao-practitioner.xml"/>
+      <exampleFor>
+        <reference value="gao-practitioner"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="Example GAO patient"/>
+      <description value="A 50-year-old male."/>
+      <acronym value="example-gao-patient"/>
+      <sourceUri value="Example/example-gao-patient.xml"/>
+      <exampleFor>
+        <reference value="gao-patient"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <purpose value="example"/>
+      <name value="Example GAO order"/>
+      <description
+        value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
+      <acronym value="example-gao-order"/>
+      <sourceUri value="Example/example-gao-order.xml"/>
+      <exampleFor>
+        <reference value="gao-order"/>
+      </exampleFor>
     </resource>
   </package>
   <page>
