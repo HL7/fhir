@@ -18,12 +18,9 @@
   </period>
   <recorded value="2015-06-27T08:39:24+10:00"/>
   <reason>
-    <coding>
       <system value="http://snomed.info/sct"/>
       <code value="3457005"/>
       <display value="Referral"/>
-    </coding>
-    <text value="Accepting a referral"/>
   </reason>
   <location>
     <reference value="Location/1"/>

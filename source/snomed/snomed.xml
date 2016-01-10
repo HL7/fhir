@@ -2440,6 +2440,11 @@
     <display value="Sitting"/>
     <display value="Sitting position (finding)"/>
   </concept>
+  <concept id="337915000" display="Homo sapiens (organism)">
+    <display value="Human"/>
+    <display value="Homo sapiens"/>
+    <display value="Homo sapiens (organism)"/>
+  </concept>
   <concept id="339008" display="Blistering">
     <display value="Blister"/>
     <display value="Bulla"/>
@@ -2603,6 +2608,12 @@
     <display value="Malignant tumour"/>
     <display value="Malignant tumor"/>
     <display value="Malignant tumor (disorder)"/>
+  </concept>
+  <concept id="363358000" display="Malignant tumor of lung (disorder)">
+    <display value="CA - Lung cancer"/>
+    <display value="Malignant tumor of lung"/>
+    <display value="Malignant tumour of lung"/>
+    <display value="Malignant tumor of lung (disorder)"/>
   </concept>
   <concept id="365722008" display="Finding of bicarbonate level (finding)">
     <display value="Finding of bicarbonate level"/>

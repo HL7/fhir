@@ -470,24 +470,24 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Context = AuditEvent.object
+  Context = AuditEvent.entity
   English = Either a name or a query (NOT both)
   XPath = not(exists(f:name)) or not(exists(f:query))
-  FHIRPath = name.empty() or query.empty()
+  Expression = name.empty() or query.empty()
 
  -- Row 2 -----------------------------------
   Id = !2
-  Context = AuditEvent.object
+  Context = AuditEvent.entity
   English = Either an identifier or a reference, (or both)
   XPath = exists(f:identifier) or exists(f:reference)
-  FHIRPath = identifier or reference
+  Expression = identifier or reference
 
  -- Row 3 -----------------------------------
   Id = !3
-  Context = AuditEvent.participant
+  Context = AuditEvent.agent
   English = Either a userId or a reference, (or both)
   XPath = exists(f:userId) or exists(f:reference)
-  FHIRPath = userId or reference
+  Expression = userId or reference
 
 === Sheet Data Elements =====================================
 
@@ -498,23 +498,23 @@
   Short Label = Event record kept for security purposes
   Definition = A record of an event made for purposes of maintaining a security log. Typical uses include detection of intrusion attempts and monitoring for inappropriate usage
   Comments = Based on ATNA (RFC 3881)
-  RIM Mapping = ControlAct[moodCode=EVN]
   DICOM Mapping = Message
+  RIM Mapping = ControlAct[moodCode=EVN]
   w5 = infrastructure.information
 
  -- Row 2 -----------------------------------
-  Element = AuditEvent.event
+  Element = !AuditEvent.event
   Card. = 1..1
   UML = 270;0
   Short Label = What was done
   Definition = Identifies the name, action type, time, and disposition of the audited event
   Requirements = The event must be identified
-  RIM Mapping = N/A (no nesting in v3)
-  DICOM Mapping = EventIdentification
   Prov Mapping = Activity
+  DICOM Mapping = EventIdentification
+  RIM Mapping = N/A (no nesting in v3)
 
  -- Row 3 -----------------------------------
-  Element = AuditEvent.event.type
+  Element = AuditEvent.type
   Card. = 1..1
   Summary = Y
   Type = Coding
@@ -522,12 +522,13 @@
   Short Label = Type/identifier of event
   Definition = Identifier for a family of the event.  For example, a menu item, program, rule, policy, function code, application name or URL. It identifies the performed function
   Requirements = This identifies the performed function. For \"Execute\" Event Action Code audit records, this identifies the application function performed.
-  RIM Mapping = .code (type, subtype and action are pre-coordinated or sent as translations)
+  Prov Mapping = Activity
   DICOM Mapping = EventId
+  RIM Mapping = .code (type, subtype and action are pre-coordinated or sent as translations)
   w5 = what
 
  -- Row 4 -----------------------------------
-  Element = AuditEvent.event.subtype
+  Element = AuditEvent.subtype
   Card. = 0..*
   Summary = Y
   Type = Coding
@@ -535,25 +536,25 @@
   Short Label = More specific type/id for the event
   Definition = Identifier for the category of event
   Requirements = This field enables queries of messages by implementation-defined event categories
-  RIM Mapping = .code (type, subtype and action are pre-coordinated or sent as translations)
   DICOM Mapping = EventTypeCode
+  RIM Mapping = .code (type, subtype and action are pre-coordinated or sent as translations)
   w5 = what
 
  -- Row 5 -----------------------------------
-  Element = AuditEvent.event.action
+  Element = AuditEvent.action
   Card. = 0..1
   Summary = Y
   Type = code
   Binding = AuditEventAction
   Short Label = Type of action performed during the event
   Definition = Indicator for type of action performed during the event that generated the audit
-  Requirements = This broadly indicates what kind of action was done on the Participant Object
-  RIM Mapping = .code (type, subtype and action are pre-coordinated or sent as translations)
+  Requirements = This broadly indicates what kind of action was done on the AuditEvent.entity by the AuditEvent.agent
   DICOM Mapping = EventActionCode
+  RIM Mapping = .code (type, subtype and action are pre-coordinated or sent as translations)
   w5 = what
 
  -- Row 6 -----------------------------------
-  Element = AuditEvent.event.dateTime
+  Element = AuditEvent.recorded
   Card. = 1..1
   Summary = Y
   Type = instant
@@ -561,14 +562,14 @@
   Definition = The time when the event occurred on the source
   Requirements = This ties an event to a specific date and time. Security audits typically require a consistent time base (e.g. UTC), to eliminate time-zone issues arising from geographical distribution
   Comments = In a distributed system, some sort of common time base (e.g. an NTP [RFC1305] server) is a good implementation tactic
-  RIM Mapping = .effectiveTime
-  DICOM Mapping = EventDateTime
-  Prov Mapping = Activity.when
   Provenance Mapping = Provenance.recorded
+  Prov Mapping = Activity.when
+  DICOM Mapping = EventDateTime
+  RIM Mapping = .effectiveTime
   w5 = when.recorded
 
  -- Row 7 -----------------------------------
-  Element = AuditEvent.event.outcome
+  Element = AuditEvent.outcome
   Card. = 0..1
   Summary = Y
   Type = code
@@ -576,78 +577,79 @@
   Short Label = Whether the event succeeded or failed
   Definition = Indicates whether the event succeeded or failed
   Comments = In some cases a \"success\" may be partial, for example, an incomplete or interrupted transfer of a radiological study. For the purpose of establishing accountability, these distinctions are not relevant
-  RIM Mapping = .actionNegationInd
   DICOM Mapping = EventOutcomeIndicator
+  RIM Mapping = .actionNegationInd
   w5 = what
 
  -- Row 8 -----------------------------------
-  Element = AuditEvent.event.outcomeDesc
+  Element = AuditEvent.outcomeDesc
   Card. = 0..1
   Summary = Y
   Type = string
   Short Label = Description of the event outcome
   Definition = A free text description of the outcome of the event
-  RIM Mapping = .outboundRelationship[typeCode=OUT].target.text
   DICOM Mapping = EventOutcomeDescription
+  RIM Mapping = .outboundRelationship[typeCode=OUT].target.text
   w5 = what
 
  -- Row 9 -----------------------------------
-  Element = AuditEvent.event.purposeOfEvent
+  Element = AuditEvent.purposeOfEvent
   Card. = 0..*
   Summary = Y
   Type = Coding
   Binding = AuditPurposeOfUse
   Short Label = The purposeOfUse of the event
   Definition = The purposeOfUse (reason) that was used during the event being recorded.
-  Comments = Use participant.purposeOfUse when you know that is specific to the participant, otherwise use event.purposeOfEvent. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why.
-  RIM Mapping = * .reasonCode [ControlActReason when Act.class = CACT Control Act]\n*.outboundRelationship[typeCode=RSON].target
-  DICOM Mapping = EventPurposeOfUse
-  Prov Mapping = Activity.Activity
+  Comments = Use AuditEvent.agent.purposeOfUse when you know that is specific to the agent, otherwise use AuditEvent.purposeOfEvent. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why.
   Provenance Mapping = Provenance.reason, Provenance.activity
+  Prov Mapping = Activity.Activity
+  DICOM Mapping = EventPurposeOfUse
+  RIM Mapping = * .reasonCode [ControlActReason when Act.class = CACT Control Act]\n*.outboundRelationship[typeCode=RSON].target
   w5 = why
 
  -- Row 10 -----------------------------------
-  Element = AuditEvent.participant
+  Element = AuditEvent.agent
   Card. = 1..*
+  Aliases = ActiveParticipant
   UML = 0;150
   Short Label = A person, a hardware device or software process
-  Requirements = The event has one or more active participants
+  Requirements = The event has one or more active agents
   Comments = There may be more than one user per event, for example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, or system process. However, only one user may be the initiator/requestor for the event
-  RIM Mapping = .participation
-  DICOM Mapping = ActiveParticipant
-  Prov Mapping = Agent
   Provenance Mapping = Provenance.agent
+  Prov Mapping = Agent
+  DICOM Mapping = ActiveParticipant
+  RIM Mapping = .participation
   w5 = who
 
  -- Row 11 -----------------------------------
-  Element = AuditEvent.participant.role
+  Element = AuditEvent.agent.role
   Card. = 0..*
   Type = CodeableConcept
   Binding = DICOMRoleId
   Short Label = User roles (e.g. local RBAC codes)
   Definition = Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context
   Requirements = This value ties an audited event to a user\'s role(s). It is an optional value that might be used to group events for analysis by user functional role categories
-  RIM Mapping = .typeCode and/or .functionCode
-  DICOM Mapping = RoleIdCode
-  Prov Mapping = Agent.Attribution
   Provenance Mapping = Provenance.agent.role
+  Prov Mapping = Agent.Attribution
+  DICOM Mapping = RoleIdCode
+  RIM Mapping = .typeCode and/or .functionCode
   w5 = who
 
  -- Row 12 -----------------------------------
-  Element = AuditEvent.participant.reference
+  Element = AuditEvent.agent.reference
   Card. = 0..1
   Summary = Y
   Type = Reference(Practitioner|Organization|Device|Patient|RelatedPerson)
   Short Label = Direct reference to resource
-  Definition = Direct reference to a resource that identifies the participant
+  Definition = Direct reference to a resource that identifies the agent
   Requirements = This field ties an audit event to a specific resource
-  RIM Mapping = .role
-  Prov Mapping = Agent.Identity
   Provenance Mapping = Provenance.agent.actor
+  Prov Mapping = Agent.Identity
+  RIM Mapping = .role
   w5 = who
 
  -- Row 13 -----------------------------------
-  Element = AuditEvent.participant.userId
+  Element = AuditEvent.agent.userId
   Card. = 0..1
   Summary = Y
   Type = Identifier
@@ -655,87 +657,87 @@
   Definition = Unique identifier for the user actively participating in the event
   Requirements = This field ties an audit event to a specific user
   Comments = a unique value within the Audit Source ID. For node-based authentication -- where only the system hardware or process, but not a human user, is identified -- User ID would be the node name
-  RIM Mapping = .id
-  DICOM Mapping = UserId
-  Prov Mapping = Agent.Identity
   Provenance Mapping = Provenance.agent.userId
+  Prov Mapping = Agent.Identity
+  DICOM Mapping = UserId
+  RIM Mapping = .id
   w5 = who
 
  -- Row 14 -----------------------------------
-  Element = AuditEvent.participant.altId
+  Element = AuditEvent.agent.altId
   Card. = 0..1
   Type = string
   Short Label = Alternative User id e.g. authentication
-  Definition = Alternative Participant Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available
+  Definition = Alternative agent Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available
   Requirements = In some situations a human user may authenticate with one identity but, to access a specific application system, may use a synonymous identify. For example, some \"single sign on\" implementations will do this. The alternative identifier would then be the original identify  used for authentication, and the User ID is the one known to and used by the application
-  RIM Mapping = .id (distinguish id type by root)
-  DICOM Mapping = AlternativeUserId
   Prov Mapping = Agent.Identity
+  DICOM Mapping = AlternativeUserId
+  RIM Mapping = .id (distinguish id type by root)
   w5 = who
 
  -- Row 15 -----------------------------------
-  Element = AuditEvent.participant.name
+  Element = AuditEvent.agent.name
   Card. = 0..1
   Type = string
   Short Label = Human-meaningful name for the user
   Definition = Human-meaningful name for the user
   Requirements = The User ID and Authorization User ID may be internal or otherwise obscure values. This field assists the auditor in identifying the actual user
-  RIM Mapping = .name
-  DICOM Mapping = UserName
   Prov Mapping = Agent.Identity
+  DICOM Mapping = UserName
+  RIM Mapping = .name
   w5 = who
 
  -- Row 16 -----------------------------------
-  Element = AuditEvent.participant.requestor
+  Element = AuditEvent.agent.requestor
   Card. = 1..1
   Type = boolean
   Short Label = Whether user is initiator
   Definition = Indicator that the user is or is not the requestor, or initiator, for the event being audited.
   Requirements = This value is used to distinguish between requestor-users and recipient-users. For example, one person may initiate a report-output to be sent to another user
-  Comments = There can only be one initiator. If the initiator is not clear, then do not choose any one participant as the initiator
-  RIM Mapping = If participation.typeCode was author, then true
+  Comments = There can only be one initiator. If the initiator is not clear, then do not choose any one agent as the initiator
   DICOM Mapping = UserIsRequestor
+  RIM Mapping = If participation.typeCode was author, then true
   w5 = who
 
  -- Row 17 -----------------------------------
-  Element = AuditEvent.participant.location
+  Element = AuditEvent.agent.location
   Card. = 0..1
   Type = Reference(Location)
   Short Label = Where
   Definition = Where the event occurred
-  RIM Mapping = * Role.Class =SDLOC\n*Role.Code = ServiceDeliveryLocationRoleType\n *Entity.Code  = PlaceEntityType = df.Types of places for  Entity.Class = PLC\n*EntityClass = PLC = df.A physical place or site with its containing structure. May be natural or man-made. The geographic position of a place may or may not be constant.
-  Prov Mapping = Activity.location
   Provenance Mapping = Provenance.location
+  Prov Mapping = Activity.location
+  RIM Mapping = * Role.Class =SDLOC\n*Role.Code = ServiceDeliveryLocationRoleType\n *Entity.Code  = PlaceEntityType = df.Types of places for  Entity.Class = PLC\n*EntityClass = PLC = df.A physical place or site with its containing structure. May be natural or man-made. The geographic position of a place may or may not be constant.
   w5 = where
 
  -- Row 18 -----------------------------------
-  Element = AuditEvent.participant.policy
+  Element = AuditEvent.agent.policy
   Card. = 0..*
   Type = uri
   Short Label = Policy that authorized event
   Definition = The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.
   Requirements = This value is used retrospectively to determine the authorization policies.
   Comments = For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element.
-  RIM Mapping = ActPolicyType
-  DICOM Mapping = ParticipantRoleIDCode
   Provenance Mapping = Provenance.policy
+  DICOM Mapping = ParticipantRoleIDCode
+  RIM Mapping = ActPolicyType
   w5 = why
 
  -- Row 19 -----------------------------------
-  Element = AuditEvent.participant.media
+  Element = AuditEvent.agent.media
   Card. = 0..1
   Type = Coding
   Binding = DICOMMediaType
   Short Label = Type of media
   Definition = Type of media involved. Used when the event is about exporting/importing onto media
   Requirements = Usually, this is used instead of specifying a network address. This field is not used for Media Id (i.e. the serial number of a CD)
-  RIM Mapping = .player.description.mediaType
   DICOM Mapping = MediaType
+  RIM Mapping = .player.description.mediaType
   To Do = Do we need an element for Media Id (as opposed to type)
   w5 = where
 
  -- Row 20 -----------------------------------
-  Element = AuditEvent.participant.network
+  Element = AuditEvent.agent.network
   Card. = 0..1
   UML = 0;0
   Short Label = Logical network location for application activity
@@ -744,40 +746,40 @@
   w5 = where
 
  -- Row 21 -----------------------------------
-  Element = AuditEvent.participant.network.address
+  Element = AuditEvent.agent.network.address
   Card. = 0..1
   Type = string
   Short Label = Identifier for the network access point of the user device
   Definition = An identifier for the network access point of the user device for the audit event
   Requirements = This datum identifies the user\'s network access point, which may be distinct from the server that performed the action. It is an optional value that may be used to group events recorded on separate servers for analysis of a specific network access point\'s data access across all servers
   Comments = This could be a device id, IP address or some other identifier associated with a device
-  RIM Mapping = pre-coordinated into URL
-  DICOM Mapping = NetworkAccessPointID
   Prov Mapping = Agent.Location
+  DICOM Mapping = NetworkAccessPointID
+  RIM Mapping = pre-coordinated into URL
   w5 = where
 
  -- Row 22 -----------------------------------
-  Element = AuditEvent.participant.network.type
+  Element = AuditEvent.agent.network.type
   Card. = 0..1
   Type = code
   Binding = AuditEventParticipantNetworkType
   Short Label = The type of network access point
   Definition = An identifier for the type of network access point that originated the audit event
   Requirements = This datum identifies the type of network access point identifier of the user device for the audit event. It is an optional value that may be used to group events recorded on separate servers for analysis of access according to a network access point\'s type
-  RIM Mapping = pre-coordinated into URL
   DICOM Mapping = NetworkAccessPointTypeCode
+  RIM Mapping = pre-coordinated into URL
   w5 = where
 
  -- Row 23 -----------------------------------
-  Element = AuditEvent.participant.purposeOfUse
+  Element = AuditEvent.agent.purposeOfUse
   Card. = 0..*
   Type = Coding
   Binding = AuditPurposeOfUse
   Short Label = Reason given for this user
-  Definition = The reason (purpose of use), specific to this participant, that was used during the event being recorded.
-  Comments = Use participant.purposeOfUse when you know that is specific to the participant, otherwise use event.purposeOfEvent. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why.
-  RIM Mapping = *.reasonCode [ActHealthInformationPurposeOfUseReason codes/v:PurposeOfUse\n(2.16.840.1.113883.1.11.20448)\n* .outboundRelationship[typeCode=RSON or SUBJ].target
+  Definition = The reason (purpose of use), specific to this agent, that was used during the event being recorded.
+  Comments = Use AuditEvent.agent.purposeOfUse when you know that is specific to the agent, otherwise use AuditEvent.purposeOfEvent. For example, during a machine-to-machine transfer it might not be obvious to the audit system who caused the event, but it does know why.
   Prov Mapping = Agent.Activity
+  RIM Mapping = *.reasonCode [ActHealthInformationPurposeOfUseReason codes/v:PurposeOfUse\n(2.16.840.1.113883.1.11.20448)\n* .outboundRelationship[typeCode=RSON or SUBJ].target
   w5 = why
 
  -- Row 24 -----------------------------------
@@ -787,8 +789,8 @@
   Short Label = Application systems and processes
   Requirements = The event is reported by one source
   Comments = Since multi-tier, distributed, or composite applications make source identification ambiguous, this collection of fields may repeat for each application or process actively involved in the event. For example, multiple value-sets can identify participating web servers, application processes, and database server threads in an n-tier distributed application. Passive event participants (e.g. low-level network transports) need not be identified
-  RIM Mapping = .participation[typeCode=INF].role[classCode=ASSIGN].player[classCode=DEV, determinerCode=INSTANCE]
   DICOM Mapping = AuditSourceIdentification
+  RIM Mapping = .participation[typeCode=INF].role[classCode=ASSIGN].player[classCode=DEV, determinerCode=INSTANCE]
   w5 = who.witness
 
  -- Row 25 -----------------------------------
@@ -796,8 +798,8 @@
   Card. = 1..1
   Type = Coding
   Binding = AuditEventSourceType
-  RIM Mapping = N/A
   DICOM Mapping = code
+  RIM Mapping = N/A
 
  -- Row 26 -----------------------------------
   Element = AuditEvent.source.site
@@ -806,8 +808,8 @@
   Short Label = Logical source location within the enterprise
   Definition = Logical source location within the healthcare enterprise network.  For example, a hospital or other provider location within a multi-entity provider group
   Requirements = This value differentiates among the sites in a multi-site enterprise health information system
-  RIM Mapping = .scopedRole[classCode=LOCE].player.desc
   DICOM Mapping = AuditEnterpriseSiteId
+  RIM Mapping = .scopedRole[classCode=LOCE].player.desc
   w5 = who.witness
 
  -- Row 27 -----------------------------------
@@ -818,8 +820,8 @@
   Short Label = The identity of source detecting the event
   Definition = Identifier of the source where the event was detected
   Requirements = This field ties the event to a specific source system. It may be used to group events for analysis according to where the event was detected
-  RIM Mapping = .id
   DICOM Mapping = AuditSourceId
+  RIM Mapping = .id
   w5 = who.witness
 
  -- Row 28 -----------------------------------
@@ -830,176 +832,178 @@
   Short Label = The type of source where event originated
   Definition = Code specifying the type of source where event originated
   Requirements = This field indicates which type of source is identified by the Audit Source ID. It is an optional value that may be used to group events for analysis according to the type of source where the event occurred
-  RIM Mapping = .code
   DICOM Mapping = AuditSourceTypeCode
+  RIM Mapping = .code
   w5 = who.witness
 
  -- Row 29 -----------------------------------
-  Element = AuditEvent.object
+  Element = AuditEvent.entity
   Card. = 0..*
+  Aliases = ParticipantObject
   UML = 340;300
   Short Label = Specific instances of data or objects that have been accessed
   Definition = Specific instances of data or objects that have been accessed
-  Requirements = The event may have other objects involved
-  Comments = Required unless the values for Event Identification, Active Participant Identification, and Audit Source Identification are sufficient to document the entire auditable event. Because events may have more than one participant object, this group can be a repeating set of values.
-  RIM Mapping = .outboundRelationship[typeCode=SUBJ].target  or  .participation[typeCode=SBJ].role
-  DICOM Mapping = ParticipantObjectIdentification
-  Prov Mapping = Entity
+  Requirements = The event may have other entities involved
+  Comments = Required unless the values for event identification, agent identification, and audit source identification are sufficient to document the entire auditable event. Because events may have more than one entity, this group can be a repeating set of values.
   Provenance Mapping = Provenance.target, Provenance.entity
+  Prov Mapping = Entity
+  DICOM Mapping = ParticipantObjectIdentification
+  RIM Mapping = .outboundRelationship[typeCode=SUBJ].target  or  .participation[typeCode=SBJ].role
   w5 = what
 
  -- Row 30 -----------------------------------
-  Element = AuditEvent.object.identifier
+  Element = AuditEvent.entity.identifier
   Card. = 0..1
   Summary = Y
   Type = Identifier
   Short Label = Specific instance of object (e.g. versioned)
-  Definition = Identifies a specific instance of the participant object. The reference should always be version specific
-  Comments = Identifier detail depends on object type
-  RIM Mapping = .id.extension
+  Definition = Identifies a specific instance of the entity. The reference should always be version specific
+  Comments = Identifier detail depends on entity type
   DICOM Mapping = ParticipantObjectID and ParticipantObjectIDTypeCode
+  RIM Mapping = .id.extension
   w5 = what
 
  -- Row 31 -----------------------------------
-  Element = AuditEvent.object.reference
+  Element = AuditEvent.entity.reference
   Card. = 0..1
   Summary = Y
   Type = Reference(Any)
   Short Label = Specific instance of resource (e.g. versioned)
-  Definition = Identifies a specific instance of the participant object. The reference should always be version specific
-  RIM Mapping = [self]
-  DICOM Mapping = ParticipantObjectID
+  Definition = Identifies a specific instance of the entity. The reference should always be version specific
   Provenance Mapping = Provenance.target, Provenance.entity.reference
+  DICOM Mapping = ParticipantObjectID
+  RIM Mapping = [self]
   w5 = what
 
  -- Row 32 -----------------------------------
-  Element = !AuditEvent.object.idType
+  Element = !AuditEvent.entity.idType
   Card. = 1..1
   Type = Coding
   Binding = DICOMObjectIdType
   Short Label = Describes the identifier
-  Definition = Describes the identifier that is contained in Participant Object ID
-  RIM Mapping = Mapped from .id.root
+  Definition = Describes the identifier that is contained in entity.identifier
   DICOM Mapping = ParticipantObjectIDTypeCode
+  RIM Mapping = Mapped from .id.root
 
  -- Row 33 -----------------------------------
-  Element = AuditEvent.object.type
+  Element = AuditEvent.entity.type
   Card. = 0..1
   Type = Coding
   Binding = AuditEventObjectType
   Short Label = Type of object involved
   Definition = The type of the object that was involved in this audit event.
   Requirements = To describe the object being acted upon. In addition to queries on the subject of the action in an auditable event, it is also important to be able to query on the object type for the action
-  Comments = This value is distinct from the user\'s role or any user relationship to the participant object
-  RIM Mapping = [self::Act].code or role.player.code
-  DICOM Mapping = ParticipantObjectTypeCode
-  Prov Mapping = Entity.type
+  Comments = This value is distinct from the user\'s role or any user relationship to the entity
   Provenance Mapping = Provenance.entity.type
+  Prov Mapping = Entity.type
+  DICOM Mapping = ParticipantObjectTypeCode
+  RIM Mapping = [self::Act].code or role.player.code
   w5 = what
 
  -- Row 34 -----------------------------------
-  Element = AuditEvent.object.role
+  Element = AuditEvent.entity.role
   Card. = 0..1
   Type = Coding
   Binding = AuditEventObjectRole
-  Short Label = What role the Object played
-  Definition = Code representing the functional application role of Participant Object being audited
-  Requirements = For some detailed audit analysis it may be necessary to indicate a more granular type of participant, based on the application role it serves
-  Comments = See RFC 3881 for rules concerning matches between role and type
-  RIM Mapping = role.code (not sure what this would mean for an Act)
-  DICOM Mapping = ParticipantObjectTypeCodeRole
+  Short Label = What role the entity played
+  Definition = Code representing the role the entity played in the event being audited
+  Requirements = For some detailed audit analysis it may be necessary to indicate a more granular type of entity, based on the application role it serves
   Prov Mapping = Entity.role
+  DICOM Mapping = ParticipantObjectTypeCodeRole
+  RIM Mapping = role.code (not sure what this would mean for an Act)
   w5 = context
 
  -- Row 35 -----------------------------------
-  Element = AuditEvent.object.lifecycle
+  Element = AuditEvent.entity.lifecycle
   Card. = 0..1
   Type = Coding
   Binding = AuditEventObjectLifecycle
   Short Label = Life-cycle stage for the object
-  Definition = Identifier for the data life-cycle stage for the participant object
+  Definition = Identifier for the data life-cycle stage for the entity
   Requirements = Institutional policies for privacy and security may optionally fall under different accountability rules based on data life cycle. This provides a differentiating value for those cases
   Comments = This can be used to provide an audit trail for data, over time, as it passes through the system
-  RIM Mapping = target of ObservationEvent[code=\"lifecycle\"].value
-  DICOM Mapping = ParticipantObjectDataLifeCycle
-  Prov Mapping = Entity.role
   Provenance Mapping = Provenance.entity.role
+  Prov Mapping = Entity.role
+  DICOM Mapping = ParticipantObjectDataLifeCycle
+  RIM Mapping = target of ObservationEvent[code=\"lifecycle\"].value
   w5 = context
 
  -- Row 36 -----------------------------------
-  Element = AuditEvent.object.securityLabel
+  Element = AuditEvent.entity.securityLabel
   Card. = 0..*
   Type = Coding
   Binding = SecurityLabels
   Short Label = Security labels applied to the object
-  Definition = Denotes security labels for the identified object.
+  Definition = Denotes security labels for the identified entity.
   Requirements = This field identifies the security labels for a specific instance of an object, such as a patient, to detect/track privacy and security issues
-  RIM Mapping = .confidentialityCode
   DICOM Mapping = ParticipantObjectSensitivity
+  RIM Mapping = .confidentialityCode
   w5 = context
 
  -- Row 37 -----------------------------------
-  Element = AuditEvent.object.name
+  Element = AuditEvent.entity.name
   Card. = 0..1
   Summary = Y
   Inv. = 1
   Type = string
-  Short Label = Instance-specific descriptor for Object
-  Definition = An instance-specific descriptor of the Participant Object ID audited, such as a person\'s name
-  Comments = This field may be used in a query/report to identify audit events for a specific person.  For example, where multiple synonymous Participant Object IDs (patient number, medical record number, encounter number, etc.) have been used
-  RIM Mapping = .title
-  DICOM Mapping = ParticipantObjectName
+  Short Label = Descriptor for entity
+  Definition = A name of the entity in the audit event.
+  Requirements = Use only where entity can\'t be identified with an identifier.
+  Comments = This field may be used in a query/report to identify audit events for a specific person.  For example, where multiple synonymous entity identifers (patient number, medical record number, encounter number, etc.) have been used
   Prov Mapping = Entity.Label
+  DICOM Mapping = ParticipantObjectName
+  RIM Mapping = .title
   w5 = context
 
  -- Row 38 -----------------------------------
-  Element = AuditEvent.object.description
+  Element = AuditEvent.entity.description
   Card. = 0..1
   Type = string
   Short Label = Descriptive text
-  Definition = Text that describes the object in more detail
-  RIM Mapping = .text
+  Definition = Text that describes the entity in more detail
+  Requirements = Use only where entity can\'t be identified with an identifier.
   DICOM Mapping = ParticipantObjectDescription
+  RIM Mapping = .text
   w5 = context
 
  -- Row 39 -----------------------------------
-  Element = AuditEvent.object.query
+  Element = AuditEvent.entity.query
   Card. = 0..1
   Summary = Y
   Inv. = 1
   Type = base64Binary
-  Short Label = Actual query for object
-  Definition = The actual query for a query-type participant object
+  Short Label = Query parameters
+  Definition = The query parameters for a query-type entities
   Requirements = For query events it may be necessary to capture the actual query input to the query process in order to identify the specific event. Because of differences among query implementations and data encoding for them, this is a base 64 encoded data blob. It may be subsequently decoded or interpreted by downstream audit analysis processing
-  RIM Mapping = No mapping
   DICOM Mapping = ParticipantObjectQuery
+  RIM Mapping = No mapping
   w5 = context
 
  -- Row 40 -----------------------------------
-  Element = AuditEvent.object.detail
+  Element = AuditEvent.entity.detail
   Card. = 0..*
   UML = 540;180
-  Short Label = Additional Information about the Object
-  RIM Mapping = .inboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]
+  Short Label = Additional Information about the entity
   DICOM Mapping = ParticipantObjectDetail
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN]
   w5 = context
 
  -- Row 41 -----------------------------------
-  Element = AuditEvent.object.detail.type
+  Element = AuditEvent.entity.detail.type
   Card. = 1..1
   Type = string
   Short Label = Name of the property
-  RIM Mapping = .code
   DICOM Mapping = ParticipantObjectDetail.type
+  RIM Mapping = .code
   w5 = context
 
  -- Row 42 -----------------------------------
-  Element = AuditEvent.object.detail.value
+  Element = AuditEvent.entity.detail.value
   Card. = 1..1
   Type = base64Binary
   Short Label = Property value
-  RIM Mapping = .value
   DICOM Mapping = ParticipantObjectDetail.value
+  RIM Mapping = .value
   w5 = context
 
 === Sheet Search =====================================
@@ -1007,37 +1011,37 @@
  -- Row 1 -----------------------------------
   Name = type
   Type = token
-  Path = AuditEvent.event.type
+  Path = AuditEvent.type
 
  -- Row 2 -----------------------------------
   Name = action
   Type = token
-  Path = AuditEvent.event.action
+  Path = AuditEvent.action
 
  -- Row 3 -----------------------------------
   Name = date
   Type = date
-  Path = AuditEvent.event.dateTime
+  Path = AuditEvent.recorded
 
  -- Row 4 -----------------------------------
   Name = subtype
   Type = token
-  Path = AuditEvent.event.subtype
+  Path = AuditEvent.subtype
 
  -- Row 5 -----------------------------------
   Name = user
   Type = token
-  Path = AuditEvent.participant.userId
+  Path = AuditEvent.agent.userId
 
  -- Row 6 -----------------------------------
   Name = name
   Type = string
-  Path = AuditEvent.participant.name
+  Path = AuditEvent.agent.name
 
  -- Row 7 -----------------------------------
   Name = address
   Type = token
-  Path = AuditEvent.participant.network.address
+  Path = AuditEvent.agent.network.address
 
  -- Row 8 -----------------------------------
   Name = source
@@ -1052,43 +1056,43 @@
  -- Row 10 -----------------------------------
   Name = object-type
   Type = token
-  Path = AuditEvent.object.type
+  Path = AuditEvent.entity.type
 
  -- Row 11 -----------------------------------
   Name = identity
   Type = token
-  Path = AuditEvent.object.identifier
+  Path = AuditEvent.entity.identifier
 
  -- Row 12 -----------------------------------
   Name = reference
   Type = reference
-  Path = AuditEvent.object.reference
+  Path = AuditEvent.entity.reference
 
  -- Row 13 -----------------------------------
   Name = desc
   Type = string
-  Path = AuditEvent.object.name
+  Path = AuditEvent.entity.name
 
  -- Row 14 -----------------------------------
   Name = patient
   Type = reference
-  Path = AuditEvent.participant.reference | AuditEvent.object.reference
+  Path = AuditEvent.agent.reference | AuditEvent.entity.reference
   Target Types = Patient
 
  -- Row 15 -----------------------------------
   Name = altid
   Type = token
-  Path = AuditEvent.participant.altId
+  Path = AuditEvent.agent.altId
 
  -- Row 16 -----------------------------------
   Name = participant
   Type = reference
-  Path = AuditEvent.participant.reference
+  Path = AuditEvent.agent.reference
 
  -- Row 17 -----------------------------------
   Name = policy
   Type = uri
-  Path = AuditEvent.participant.policy
+  Path = AuditEvent.agent.policy
 
 === Sheet Profiles =====================================
 

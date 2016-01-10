@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
  <id value="example-logout"/>
-  <event>
     <type>
         <system value="http://nema.org/dicom/dicm"/>
         <code value="110114"/>
@@ -13,10 +12,9 @@
         <display value="Logout"/>
     </subtype>
     <action value="E"/>
-    <dateTime value="2013-06-20T23:46:41Z"/>
+    <recorded value="2013-06-20T23:46:41Z"/>
     <outcome value="0"/>
-  </event>
-  <participant>
+  <agent>
    	<userId>
 		<value value="95"/>
 	</userId>
@@ -27,7 +25,7 @@
       <address value="127.0.0.1"/>
       <type value="2"/>
     </network>
-  </participant>
+  </agent>
   <source>
     <site value="Cloud"/>
     <identifier>

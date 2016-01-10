@@ -102,7 +102,7 @@
   Short Label = Target Reference(s) (usually version specific)
   Definition = The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity
   Comments = Target references are usually version specific, but may not be, if a version has not been assigned or if the provenance information is part of the set of resources being maintained (i.e. a document). When using the RESTful API, the identity of the resource may not be known (especially not the version specific one); the client may either submit the resource first, and then the provenance, or it may submit both using a single transaction. See the notes on transaction for further discussion
-  Auditevent Mapping = AuditEvent.object.reference
+  Auditevent Mapping = AuditEvent.entity.reference
   Prov Mapping = Entity Created/Updated
   RIM Mapping = ./outboundRelationship[isNormalActRelationship() and typeCode=SUBJ]/target  OR  ./participation[isNormalParticipation() and typeCode=SBJ]/role  OR  ./participation[isNormalParticipation() and typeCode=SBJ]/role[isNormalRole()]/player
   w5 = what
@@ -125,7 +125,7 @@
   Short Label = When the activity was recorded / updated
   Definition = The instant of time at which the activity was recorded
   Comments = This can be a little different from the time stamp on the resource if there is a delay between recording the event and updating the provenance and target resource
-  Auditevent Mapping = AuditEvent.event.dateTime
+  Auditevent Mapping = AuditEvent.recorded
   Prov Mapping = Activity.when
   RIM Mapping = unique(./participation[isNormalParticipation() and typeCode=AUT]/time[type=TS])
   w5 = when.recorded
@@ -133,11 +133,11 @@
  -- Row 5 -----------------------------------
   Element = Provenance.reason
   Card. = 0..*
-  Type = CodeableConcept
+  Type = Coding
   Binding = ProvenanceReason
   Short Label = Reason the activity is occurring
   Definition = The reason that the activity was taking place
-  Auditevent Mapping = AuditEvent.event.purposeOfEvent
+  Auditevent Mapping = AuditEvent.purposeOfEvent
   Prov Mapping = Activity.Activity
   RIM Mapping = unique(./reasonCode)
   w5 = why
@@ -145,11 +145,11 @@
  -- Row 6 -----------------------------------
   Element = Provenance.activity
   Card. = 0..1
-  Type = CodeableConcept
+  Type = Coding
   Binding = ProvenanceActivity
   Short Label = Activity that occurred
   Definition = An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities
-  Auditevent Mapping = AuditEvent.event.purposeOfEvent
+  Auditevent Mapping = AuditEvent.purposeOfEvent
   Prov Mapping = Activity.Activity
   RIM Mapping = Act.code
   w5 = why
@@ -160,7 +160,7 @@
   Type = Reference(Location)
   Short Label = Where the activity occurred, if relevant
   Definition = Where the activity occurred, if relevant
-  Auditevent Mapping = AuditEvent.participant.location
+  Auditevent Mapping = AuditEvent.agent.location
   Prov Mapping = Activity.location
   RIM Mapping = unique(./participation[isNormalParticipation() and typeCode=LOC]/role[isNormalRole() and subsumes(SDLOC, classCode)]/player[isNormalEntity and classCode=\"LOC\" and determinerCode=\"INST\"]
   w5 = where
@@ -172,17 +172,17 @@
   Short Label = Policy or plan the activity was defined by
   Definition = Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.
   Comments = For example: Where an OAuth token authorizes, the unique identifier from the OAuth token is placed into the policy element Where a policy engine (e.g. XACML) holds policy logic, the unique policy identifier is placed into the policy element.
-  Auditevent Mapping = AuditEvent.participant.policy
+  Auditevent Mapping = AuditEvent.agent.policy
   RIM Mapping = ./inboundRelationship[isNormalActRelationship() and typeCode=\"SUBJ\"]/source[isNormalAct and subsumes(POLICY, classCode) and moodCode=EVN]/text[typeCode=\'ED\'/tel
 
  -- Row 9 -----------------------------------
   Element = Provenance.agent
-  Card. = 0..*
+  Card. = 1..*
   UML = 0;200
   Short Label = Agents involved in creating resource
   Definition = An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility
   Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa
-  Auditevent Mapping = AuditEvent.pariticipant
+  Auditevent Mapping = AuditEvent.agent
   Prov Mapping = Agent
   RIM Mapping = ./participation[isNormalParticipation()]  OR  ./outboundRelationship[isNormalActRelationship() and typeCode=\'DRIV\']
   w5 = who
@@ -195,7 +195,7 @@
   Short Label = What the agents involvement was
   Definition = The function of the agent with respect to the activity.
   Comments = For example, author, performer, enterer, attester, etc.
-  Auditevent Mapping = AuditEvent.participant.role
+  Auditevent Mapping = AuditEvent.agent.role
   Prov Mapping = Agent.Attribution
   RIM Mapping = attester: .[self::participation]/typeCode=\'RESP\' author: .[self::participation]/typeCode=\'AUT\' cc: .[self::participation]/typeCode=\'IRCP\' enterer:  .[self::participation]/typeCode=\'ENT\' informant: .[self::participation]/typeCode=\'INF\' performer: .[self::participation]/typeCode=\'PRF\' verifier: .[self::participation]/typeCode=\'VRF\' source: .[self::outboundRelationship]/typeCode=\'\'
 
@@ -205,7 +205,7 @@
   Type = Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
   Short Label = Individual, device or organization playing role
   Definition = The individual, device or organization that participated in the event
-  Auditevent Mapping = AuditEvent.participant.reference
+  Auditevent Mapping = AuditEvent.agent.reference
   Prov Mapping = Agent.Identity
   RIM Mapping = Person, Practitioner, Organization, Device :* .role [classCode = RoleClassMutualRelationship; role.code and * .scopes[Role](classCode=IDENT) and *.plays [Role.Code]
   w5 = who.actor
@@ -216,7 +216,7 @@
   Type = Identifier
   Short Label = Authorization-system identifier for the agent
   Definition = The identity of the agent as known by the authorization system
-  Auditevent Mapping = AuditEvent.participant.userId
+  Auditevent Mapping = AuditEvent.agent.userId
   Prov Mapping = Agent.Identity
   RIM Mapping = person: .plays:Role(classCode=\'IDENT\').id\npractitioner: ./id
   w5 = who.actor
@@ -257,7 +257,7 @@
   Short Label = An entity used in this activity
   Definition = An entity used in this activity
   Comments = Multiple userIds may be associated with the same Practitioner or other individual across various appearances, each with distinct privileges
-  Auditevent Mapping = AuditEvent.object
+  Auditevent Mapping = AuditEvent.entity
   Prov Mapping = Entity
   RIM Mapping = ./subjectOf
 
@@ -268,7 +268,7 @@
   Binding = ProvenanceEntityRole
   Short Label = derivation | revision | quotation | source
   Definition = How the entity was used during the activity
-  Auditevent Mapping = AuditEvent.object.lifecycle
+  Auditevent Mapping = AuditEvent.entity.lifecycle
   Prov Mapping = Entity.role
   RIM Mapping = ./typeCode
   Committee Notes = No uses cases have been identified for extensibility for this role
@@ -281,7 +281,7 @@
   Short Label = The type of resource in this entity
   Definition = The type of the entity. If the entity is a resource, then this is a resource type
   Requirements = If the type is \"resource\" then the resource itself was the participant. If the type is a type of resource, then the entity identified by the resource is the participant
-  Auditevent Mapping = AuditEvent.object.type
+  Auditevent Mapping = AuditEvent.entity.type
   Prov Mapping = Entity.type
   RIM Mapping = ./target
 
@@ -292,7 +292,7 @@
   Short Label = Identity of entity
   Definition = Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative
   Comments = Identity may be a reference to a resource or to something else, depending on the type
-  Auditevent Mapping = AuditEvent.object.reference
+  Auditevent Mapping = AuditEvent.entity.reference
   Prov Mapping = Entity.Identity
   RIM Mapping = ./text/reference
 
@@ -302,7 +302,7 @@
   Type = string
   Short Label = Human description of entity
   Definition = Human-readable description of the entity
-  Auditevent Mapping = AuditEvent.object.description
+  Auditevent Mapping = AuditEvent.entity.description
   Prov Mapping = Entity.Label
   RIM Mapping = ./title
 
