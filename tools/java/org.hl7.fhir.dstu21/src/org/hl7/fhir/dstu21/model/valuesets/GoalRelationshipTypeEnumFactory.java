@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model.valuesets;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 
 import org.hl7.fhir.dstu21.model.EnumFactory;
@@ -66,6 +66,9 @@ public class GoalRelationshipTypeEnumFactory implements EnumFactory<GoalRelation
     return "?";
   }
 
+    public String toSystem(GoalRelationshipType code) {
+      return code.getSystem();
+      }
 
 }
 

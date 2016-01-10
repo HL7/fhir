@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -209,6 +209,9 @@ public class DecisionSupportRule extends DomainResource {
         return "data-access-ended";
       return "?";
       }
+    public String toSystem(DecisionSupportRuleTriggerType code) {
+      return code.getSystem();
+      }
     }
 
     public enum DecisionSupportRuleParticipantType {
@@ -325,6 +328,9 @@ public class DecisionSupportRule extends DomainResource {
         return "related-person";
       return "?";
       }
+    public String toSystem(DecisionSupportRuleParticipantType code) {
+      return code.getSystem();
+      }
     }
 
     public enum DecisionSupportRuleActionType {
@@ -440,6 +446,9 @@ public class DecisionSupportRule extends DomainResource {
       if (code == DecisionSupportRuleActionType.FIREEVENT)
         return "fire-event";
       return "?";
+      }
+    public String toSystem(DecisionSupportRuleActionType code) {
+      return code.getSystem();
       }
     }
 

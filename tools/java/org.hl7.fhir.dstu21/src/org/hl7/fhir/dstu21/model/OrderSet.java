@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -161,6 +161,9 @@ public class OrderSet extends DomainResource {
         return "related-person";
       return "?";
       }
+    public String toSystem(OrderSetParticipantType code) {
+      return code.getSystem();
+      }
     }
 
     public enum OrderSetItemType {
@@ -277,6 +280,9 @@ public class OrderSet extends DomainResource {
         return "fire-event";
       return "?";
       }
+    public String toSystem(OrderSetItemType code) {
+      return code.getSystem();
+      }
     }
 
     public enum OrderSetItemGroupingBehavior {
@@ -376,6 +382,9 @@ public class OrderSet extends DomainResource {
       if (code == OrderSetItemGroupingBehavior.SENTENCEGROUP)
         return "sentence-group";
       return "?";
+      }
+    public String toSystem(OrderSetItemGroupingBehavior code) {
+      return code.getSystem();
       }
     }
 
@@ -525,6 +534,9 @@ public class OrderSet extends DomainResource {
         return "one-or-more";
       return "?";
       }
+    public String toSystem(OrderSetItemSelectionBehavior code) {
+      return code.getSystem();
+      }
     }
 
     public enum OrderSetItemRequiredBehavior {
@@ -625,6 +637,9 @@ public class OrderSet extends DomainResource {
         return "must-unless-documented";
       return "?";
       }
+    public String toSystem(OrderSetItemRequiredBehavior code) {
+      return code.getSystem();
+      }
     }
 
     public enum OrderSetItemPrecheckBehavior {
@@ -709,6 +724,9 @@ public class OrderSet extends DomainResource {
         return "no";
       return "?";
       }
+    public String toSystem(OrderSetItemPrecheckBehavior code) {
+      return code.getSystem();
+      }
     }
 
     public enum OrderSetItemCardinalityBehavior {
@@ -792,6 +810,9 @@ public class OrderSet extends DomainResource {
       if (code == OrderSetItemCardinalityBehavior.MULTIPLE)
         return "multiple";
       return "?";
+      }
+    public String toSystem(OrderSetItemCardinalityBehavior code) {
+      return code.getSystem();
       }
     }
 

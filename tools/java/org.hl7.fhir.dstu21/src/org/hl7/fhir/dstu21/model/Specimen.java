@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -160,6 +160,9 @@ public class Specimen extends DomainResource {
       if (code == SpecimenStatus.ENTEREDINERROR)
         return "entered-in-error";
       return "?";
+      }
+    public String toSystem(SpecimenStatus code) {
+      return code.getSystem();
       }
     }
 
@@ -1814,28 +1817,250 @@ public class Specimen extends DomainResource {
     return ResourceType.Specimen;
    }
 
+ /**
+   * Search parameter: <b>collector</b>
+   * <p>
+   * Description: <b>Who collected the specimen</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.collection.collector</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="collector", path="Specimen.collection.collector", description="Who collected the specimen", type="reference" )
   public static final String SP_COLLECTOR = "collector";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>collector</b>
+   * <p>
+   * Description: <b>Who collected the specimen</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.collection.collector</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam COLLECTOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_COLLECTOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Specimen:collector</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_COLLECTOR = new ca.uhn.fhir.model.api.Include("Specimen:collector").toLocked();
+
+ /**
+   * Search parameter: <b>container-id</b>
+   * <p>
+   * Description: <b>The unique identifier associated with the specimen container</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.container.identifier</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="container-id", path="Specimen.container.identifier", description="The unique identifier associated with the specimen container", type="token" )
-  public static final String SP_CONTAINERID = "container-id";
+  public static final String SP_CONTAINER_ID = "container-id";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>container-id</b>
+   * <p>
+   * Description: <b>The unique identifier associated with the specimen container</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.container.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTAINER_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTAINER_ID);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The patient the specimen comes from</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.subject</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="patient", path="Specimen.subject", description="The patient the specimen comes from", type="reference" )
   public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The patient the specimen comes from</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Specimen:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Specimen:patient").toLocked();
+
+ /**
+   * Search parameter: <b>bodysite</b>
+   * <p>
+   * Description: <b>The code for the body site from where the specimen originated</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.collection.bodySite</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="bodysite", path="Specimen.collection.bodySite", description="The code for the body site from where the specimen originated", type="token" )
   public static final String SP_BODYSITE = "bodysite";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>bodysite</b>
+   * <p>
+   * Description: <b>The code for the body site from where the specimen originated</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.collection.bodySite</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam BODYSITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_BODYSITE);
+
+ /**
+   * Search parameter: <b>container</b>
+   * <p>
+   * Description: <b>The kind of specimen container</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.container.type</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="container", path="Specimen.container.type", description="The kind of specimen container", type="token" )
   public static final String SP_CONTAINER = "container";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>container</b>
+   * <p>
+   * Description: <b>The kind of specimen container</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.container.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTAINER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTAINER);
+
+ /**
+   * Search parameter: <b>collected</b>
+   * <p>
+   * Description: <b>The date the specimen was collected</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Specimen.collection.collected[x]</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="collected", path="Specimen.collection.collected[x]", description="The date the specimen was collected", type="date" )
   public static final String SP_COLLECTED = "collected";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>collected</b>
+   * <p>
+   * Description: <b>The date the specimen was collected</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Specimen.collection.collected[x]</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam COLLECTED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_COLLECTED);
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>The subject of the specimen</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.subject</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="subject", path="Specimen.subject", description="The subject of the specimen", type="reference" )
   public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>The subject of the specimen</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Specimen:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Specimen:subject").toLocked();
+
+ /**
+   * Search parameter: <b>accession</b>
+   * <p>
+   * Description: <b>The accession number associated with the specimen</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.accessionIdentifier</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="accession", path="Specimen.accessionIdentifier", description="The accession number associated with the specimen", type="token" )
   public static final String SP_ACCESSION = "accession";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>accession</b>
+   * <p>
+   * Description: <b>The accession number associated with the specimen</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.accessionIdentifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACCESSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACCESSION);
+
+ /**
+   * Search parameter: <b>parent</b>
+   * <p>
+   * Description: <b>The parent of the specimen</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.parent</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="parent", path="Specimen.parent", description="The parent of the specimen", type="reference" )
   public static final String SP_PARENT = "parent";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>parent</b>
+   * <p>
+   * Description: <b>The parent of the specimen</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Specimen.parent</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Specimen:parent</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARENT = new ca.uhn.fhir.model.api.Include("Specimen:parent").toLocked();
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>The specimen type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.type</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="type", path="Specimen.type", description="The specimen type", type="token" )
   public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>The specimen type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>The unique identifier associated with the specimen</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.identifier</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="identifier", path="Specimen.identifier", description="The unique identifier associated with the specimen", type="token" )
   public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>The unique identifier associated with the specimen</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Specimen.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
 
 }
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -160,6 +160,9 @@ public class Subscription extends DomainResource {
       if (code == SubscriptionStatus.OFF)
         return "off";
       return "?";
+      }
+    public String toSystem(SubscriptionStatus code) {
+      return code.getSystem();
       }
     }
 
@@ -292,6 +295,9 @@ public class Subscription extends DomainResource {
       if (code == SubscriptionChannelType.MESSAGE)
         return "message";
       return "?";
+      }
+    public String toSystem(SubscriptionChannelType code) {
+      return code.getSystem();
       }
     }
 
@@ -1159,20 +1165,146 @@ public class Subscription extends DomainResource {
     return ResourceType.Subscription;
    }
 
+ /**
+   * Search parameter: <b>criteria</b>
+   * <p>
+   * Description: <b>Rule for server push criteria</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Subscription.criteria</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="criteria", path="Subscription.criteria", description="Rule for server push criteria", type="string" )
   public static final String SP_CRITERIA = "criteria";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>criteria</b>
+   * <p>
+   * Description: <b>Rule for server push criteria</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Subscription.criteria</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam CRITERIA = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_CRITERIA);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>requested | active | error | off</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.status</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="status", path="Subscription.status", description="requested | active | error | off", type="token" )
   public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>requested | active | error | off</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+
+ /**
+   * Search parameter: <b>tag</b>
+   * <p>
+   * Description: <b>A tag to add to matching resources</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.tag</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="tag", path="Subscription.tag", description="A tag to add to matching resources", type="token" )
   public static final String SP_TAG = "tag";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>tag</b>
+   * <p>
+   * Description: <b>A tag to add to matching resources</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.tag</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TAG = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TAG);
+
+ /**
+   * Search parameter: <b>payload</b>
+   * <p>
+   * Description: <b>Mimetype to send, or blank for no payload</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Subscription.channel.payload</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="payload", path="Subscription.channel.payload", description="Mimetype to send, or blank for no payload", type="string" )
   public static final String SP_PAYLOAD = "payload";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>payload</b>
+   * <p>
+   * Description: <b>Mimetype to send, or blank for no payload</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Subscription.channel.payload</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PAYLOAD = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PAYLOAD);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>rest-hook | websocket | email | sms | message</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.channel.type</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="type", path="Subscription.channel.type", description="rest-hook | websocket | email | sms | message", type="token" )
   public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>rest-hook | websocket | email | sms | message</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.channel.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>contact</b>
+   * <p>
+   * Description: <b>Contact details for source (e.g. troubleshooting)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.contact</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="contact", path="Subscription.contact", description="Contact details for source (e.g. troubleshooting)", type="token" )
   public static final String SP_CONTACT = "contact";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>contact</b>
+   * <p>
+   * Description: <b>Contact details for source (e.g. troubleshooting)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.contact</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTACT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTACT);
+
+ /**
+   * Search parameter: <b>url</b>
+   * <p>
+   * Description: <b>Where the channel points to</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Subscription.channel.endpoint</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="url", path="Subscription.channel.endpoint", description="Where the channel points to", type="uri" )
   public static final String SP_URL = "url";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <p>
+   * Description: <b>Where the channel points to</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Subscription.channel.endpoint</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
 
 }
 

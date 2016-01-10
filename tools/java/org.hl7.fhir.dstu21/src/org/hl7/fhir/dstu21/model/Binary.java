@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -245,8 +245,26 @@ public class Binary extends BaseBinary implements IBaseBinary {
     return ResourceType.Binary;
    }
 
+ /**
+   * Search parameter: <b>contenttype</b>
+   * <p>
+   * Description: <b>MimeType of the binary content</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Binary.contentType</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="contenttype", path="Binary.contentType", description="MimeType of the binary content", type="token" )
   public static final String SP_CONTENTTYPE = "contenttype";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>contenttype</b>
+   * <p>
+   * Description: <b>MimeType of the binary content</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Binary.contentType</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTENTTYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTENTTYPE);
+
 
 }
 

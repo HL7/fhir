@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -90,6 +90,18 @@ public class Coding extends Type implements IBaseCoding, ICompositeType {
       super();
     }
 
+    /**
+     * Convenience constructor
+     * 
+     * @param theSystem The {@link #setSystem(String) code system}
+     * @param theCode The {@link #setCode(String) code}
+     * @param theDisplay The {@link #setDisplay(String) human readable display}
+     */
+      public Coding(String theSystem, String theCode, String theDisplay) {
+        setSystem(theSystem);
+        setCode(theCode);
+        setDisplay(theDisplay);
+      }
     /**
      * @return {@link #system} (The identification of the code system that defines the meaning of the symbol in the code.). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
      */

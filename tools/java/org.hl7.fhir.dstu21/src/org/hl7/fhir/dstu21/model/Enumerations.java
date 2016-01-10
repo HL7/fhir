@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -168,6 +168,9 @@ public class Enumerations {
       if (code == AdministrativeGender.UNKNOWN)
         return "unknown";
       return "?";
+      }
+    public String toSystem(AdministrativeGender code) {
+      return code.getSystem();
       }
     }
 
@@ -317,6 +320,9 @@ public class Enumerations {
         return "a";
       return "?";
       }
+    public String toSystem(AgeUnits code) {
+      return code.getSystem();
+      }
     }
 
     public enum BindingStrength {
@@ -432,6 +438,9 @@ public class Enumerations {
       if (code == BindingStrength.EXAMPLE)
         return "example";
       return "?";
+      }
+    public String toSystem(BindingStrength code) {
+      return code.getSystem();
       }
     }
 
@@ -629,6 +638,9 @@ public class Enumerations {
         return "disjoint";
       return "?";
       }
+    public String toSystem(ConceptMapEquivalence code) {
+      return code.getSystem();
+      }
     }
 
     public enum ConformanceResourceStatus {
@@ -728,6 +740,9 @@ public class Enumerations {
       if (code == ConformanceResourceStatus.RETIRED)
         return "retired";
       return "?";
+      }
+    public String toSystem(ConformanceResourceStatus code) {
+      return code.getSystem();
       }
     }
 
@@ -924,6 +939,9 @@ public class Enumerations {
       if (code == DataAbsentReason.NAN)
         return "NaN";
       return "?";
+      }
+    public String toSystem(DataAbsentReason code) {
+      return code.getSystem();
       }
     }
 
@@ -1713,6 +1731,9 @@ public class Enumerations {
         return "xhtml";
       return "?";
       }
+    public String toSystem(DataType code) {
+      return code.getSystem();
+      }
     }
 
     public enum DocumentReferenceStatus {
@@ -1812,6 +1833,9 @@ public class Enumerations {
       if (code == DocumentReferenceStatus.ENTEREDINERROR)
         return "entered-in-error";
       return "?";
+      }
+    public String toSystem(DocumentReferenceStatus code) {
+      return code.getSystem();
       }
     }
 
@@ -4297,6 +4321,9 @@ public class Enumerations {
         return "VisionPrescription";
       return "?";
       }
+    public String toSystem(FHIRDefinedType code) {
+      return code.getSystem();
+      }
     }
 
     public enum MessageEvent {
@@ -4509,6 +4536,9 @@ public class Enumerations {
         return "valueset-expand";
       return "?";
       }
+    public String toSystem(MessageEvent code) {
+      return code.getSystem();
+      }
     }
 
     public enum NoteType {
@@ -4609,6 +4639,9 @@ public class Enumerations {
         return "printoper";
       return "?";
       }
+    public String toSystem(NoteType code) {
+      return code.getSystem();
+      }
     }
 
     public enum RemittanceOutcome {
@@ -4692,6 +4725,9 @@ public class Enumerations {
       if (code == RemittanceOutcome.ERROR)
         return "error";
       return "?";
+      }
+    public String toSystem(RemittanceOutcome code) {
+      return code.getSystem();
       }
     }
 
@@ -6441,6 +6477,9 @@ public class Enumerations {
         return "VisionPrescription";
       return "?";
       }
+    public String toSystem(ResourceType code) {
+      return code.getSystem();
+      }
     }
 
     public enum SearchParamType {
@@ -6621,6 +6660,9 @@ public class Enumerations {
         return "uri";
       return "?";
       }
+    public String toSystem(SearchParamType code) {
+      return code.getSystem();
+      }
     }
 
     public enum SpecialValues {
@@ -6768,6 +6810,9 @@ public class Enumerations {
       if (code == SpecialValues.NILKNOWN)
         return "nil-known";
       return "?";
+      }
+    public String toSystem(SpecialValues code) {
+      return code.getSystem();
       }
     }
 

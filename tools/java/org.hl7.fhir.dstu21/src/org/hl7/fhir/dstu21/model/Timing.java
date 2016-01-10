@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -208,6 +208,9 @@ public class Timing extends Type implements ICompositeType {
       if (code == UnitsOfTime.A)
         return "a";
       return "?";
+      }
+    public String toSystem(UnitsOfTime code) {
+      return code.getSystem();
       }
     }
 
@@ -484,6 +487,9 @@ public class Timing extends Type implements ICompositeType {
       if (code == EventTiming.PCV)
         return "PCV";
       return "?";
+      }
+    public String toSystem(EventTiming code) {
+      return code.getSystem();
       }
     }
 

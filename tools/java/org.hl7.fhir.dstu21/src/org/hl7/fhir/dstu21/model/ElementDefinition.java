@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -112,6 +112,9 @@ public class ElementDefinition extends Type implements ICompositeType {
       if (code == PropertyRepresentation.XMLATTR)
         return "xmlAttr";
       return "?";
+      }
+    public String toSystem(PropertyRepresentation code) {
+      return code.getSystem();
       }
     }
 
@@ -213,6 +216,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         return "openAtEnd";
       return "?";
       }
+    public String toSystem(SlicingRules code) {
+      return code.getSystem();
+      }
     }
 
     public enum AggregationMode {
@@ -313,6 +319,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         return "bundled";
       return "?";
       }
+    public String toSystem(AggregationMode code) {
+      return code.getSystem();
+      }
     }
 
     public enum ConstraintSeverity {
@@ -396,6 +405,9 @@ public class ElementDefinition extends Type implements ICompositeType {
       if (code == ConstraintSeverity.WARNING)
         return "warning";
       return "?";
+      }
+    public String toSystem(ConstraintSeverity code) {
+      return code.getSystem();
       }
     }
 

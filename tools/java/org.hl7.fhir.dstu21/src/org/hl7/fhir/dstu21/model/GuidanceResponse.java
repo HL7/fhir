@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -177,6 +177,9 @@ public class GuidanceResponse extends DomainResource {
         return "failure";
       return "?";
       }
+    public String toSystem(GuidanceResponseStatus code) {
+      return code.getSystem();
+      }
     }
 
     public enum GuidanceResponseActionType {
@@ -292,6 +295,9 @@ public class GuidanceResponse extends DomainResource {
       if (code == GuidanceResponseActionType.FIREEVENT)
         return "fire-event";
       return "?";
+      }
+    public String toSystem(GuidanceResponseActionType code) {
+      return code.getSystem();
       }
     }
 

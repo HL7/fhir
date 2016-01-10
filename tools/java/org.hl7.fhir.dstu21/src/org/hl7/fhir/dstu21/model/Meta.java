@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -323,6 +323,55 @@ public class Meta extends Type implements IBaseMetaType {
       return this;
     }
 
+    /**
+     * Convenience method which adds a tag
+     * 
+     * @param theSystem The code system
+     * @param theCode The code
+     * @param theDisplay The display name
+     * @return Returns a reference to <code>this</code> for easy chaining
+     */
+    public Meta addTag(String theSystem, String theCode, String theDisplay) {
+     addTag().setSystem(theSystem).setCode(theCode).setDisplay(theDisplay);
+     return this;
+    }
+    /**
+     * Convenience method which adds a security tag
+     * 
+     * @param theSystem The code system
+     * @param theCode The code
+     * @param theDisplay The display name
+     * @return Returns a reference to <code>this</code> for easy chaining
+     */
+    public Meta addSecurity(String theSystem, String theCode, String theDisplay) {
+     addSecurity().setSystem(theSystem).setCode(theCode).setDisplay(theDisplay);
+     return this;
+    }
+   /**
+   * Returns the first tag (if any) that has the given system and code, or returns
+   * <code>null</code> if none
+   */
+  public Coding getTag(String theSystem, String theCode) {
+    for (Coding next : getTag()) {
+      if (ca.uhn.fhir.util.ObjectUtil.equals(next.getSystem(), theSystem) && ca.uhn.fhir.util.ObjectUtil.equals(next.getCode(), theCode)) {
+        return next;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Returns the first security label (if any) that has the given system and code, or returns
+   * <code>null</code> if none
+   */
+  public Coding getSecurity(String theSystem, String theCode) {
+    for (Coding next : getTag()) {
+      if (ca.uhn.fhir.util.ObjectUtil.equals(next.getSystem(), theSystem) && ca.uhn.fhir.util.ObjectUtil.equals(next.getCode(), theCode)) {
+        return next;
+      }
+    }
+    return null;
+  }
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("versionId", "id", "The version specific identifier, as it appears in the version portion of the URL. This values changes when the resource is created, updated, or deleted.", 0, java.lang.Integer.MAX_VALUE, versionId));

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -160,6 +160,9 @@ public class Provenance extends DomainResource {
       if (code == ProvenanceEntityRole.SOURCE)
         return "source";
       return "?";
+      }
+    public String toSystem(ProvenanceEntityRole code) {
+      return code.getSystem();
       }
     }
 
@@ -971,16 +974,16 @@ public class Provenance extends DomainResource {
     /**
      * The reason that the activity was taking place.
      */
-    @Child(name = "reason", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "reason", type = {Coding.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Reason the activity is occurring", formalDefinition="The reason that the activity was taking place." )
-    protected List<CodeableConcept> reason;
+    protected List<Coding> reason;
 
     /**
      * An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.
      */
-    @Child(name = "activity", type = {CodeableConcept.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "activity", type = {Coding.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Activity that occurred", formalDefinition="An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities." )
-    protected CodeableConcept activity;
+    protected Coding activity;
 
     /**
      * Where the activity occurred, if relevant.
@@ -1004,7 +1007,7 @@ public class Provenance extends DomainResource {
     /**
      * An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.
      */
-    @Child(name = "agent", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "agent", type = {}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Agents involved in creating resource", formalDefinition="An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility." )
     protected List<ProvenanceAgentComponent> agent;
 
@@ -1022,7 +1025,7 @@ public class Provenance extends DomainResource {
     @Description(shortDefinition="Signature on target", formalDefinition="A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated." )
     protected List<Signature> signature;
 
-    private static final long serialVersionUID = -1053458671L;
+    private static final long serialVersionUID = -436783145L;
 
   /**
    * Constructor
@@ -1160,16 +1163,16 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #reason} (The reason that the activity was taking place.)
      */
-    public List<CodeableConcept> getReason() { 
+    public List<Coding> getReason() { 
       if (this.reason == null)
-        this.reason = new ArrayList<CodeableConcept>();
+        this.reason = new ArrayList<Coding>();
       return this.reason;
     }
 
     public boolean hasReason() { 
       if (this.reason == null)
         return false;
-      for (CodeableConcept item : this.reason)
+      for (Coding item : this.reason)
         if (!item.isEmpty())
           return true;
       return false;
@@ -1179,20 +1182,20 @@ public class Provenance extends DomainResource {
      * @return {@link #reason} (The reason that the activity was taking place.)
      */
     // syntactic sugar
-    public CodeableConcept addReason() { //3
-      CodeableConcept t = new CodeableConcept();
+    public Coding addReason() { //3
+      Coding t = new Coding();
       if (this.reason == null)
-        this.reason = new ArrayList<CodeableConcept>();
+        this.reason = new ArrayList<Coding>();
       this.reason.add(t);
       return t;
     }
 
     // syntactic sugar
-    public Provenance addReason(CodeableConcept t) { //3
+    public Provenance addReason(Coding t) { //3
       if (t == null)
         return this;
       if (this.reason == null)
-        this.reason = new ArrayList<CodeableConcept>();
+        this.reason = new ArrayList<Coding>();
       this.reason.add(t);
       return this;
     }
@@ -1200,12 +1203,12 @@ public class Provenance extends DomainResource {
     /**
      * @return {@link #activity} (An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.)
      */
-    public CodeableConcept getActivity() { 
+    public Coding getActivity() { 
       if (this.activity == null)
         if (Configuration.errorOnAutoCreate())
           throw new Error("Attempt to auto-create Provenance.activity");
         else if (Configuration.doAutoCreate())
-          this.activity = new CodeableConcept(); // cc
+          this.activity = new Coding(); // cc
       return this.activity;
     }
 
@@ -1216,7 +1219,7 @@ public class Provenance extends DomainResource {
     /**
      * @param value {@link #activity} (An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.)
      */
-    public Provenance setActivity(CodeableConcept value) { 
+    public Provenance setActivity(Coding value) { 
       this.activity = value;
       return this;
     }
@@ -1444,8 +1447,8 @@ public class Provenance extends DomainResource {
         childrenList.add(new Property("target", "Reference(Any)", "The Reference(s) that were generated or updated by  the activity described in this resource. A provenance can point to more than one target if multiple resources were created/updated by the same activity.", 0, java.lang.Integer.MAX_VALUE, target));
         childrenList.add(new Property("period", "Period", "The period during which the activity occurred.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("recorded", "instant", "The instant of time at which the activity was recorded.", 0, java.lang.Integer.MAX_VALUE, recorded));
-        childrenList.add(new Property("reason", "CodeableConcept", "The reason that the activity was taking place.", 0, java.lang.Integer.MAX_VALUE, reason));
-        childrenList.add(new Property("activity", "CodeableConcept", "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.", 0, java.lang.Integer.MAX_VALUE, activity));
+        childrenList.add(new Property("reason", "Coding", "The reason that the activity was taking place.", 0, java.lang.Integer.MAX_VALUE, reason));
+        childrenList.add(new Property("activity", "Coding", "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.", 0, java.lang.Integer.MAX_VALUE, activity));
         childrenList.add(new Property("location", "Reference(Location)", "Where the activity occurred, if relevant.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy));
         childrenList.add(new Property("agent", "", "An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.", 0, java.lang.Integer.MAX_VALUE, agent));
@@ -1462,9 +1465,9 @@ public class Provenance extends DomainResource {
         else if (name.equals("recorded"))
           this.recorded = castToInstant(value); // InstantType
         else if (name.equals("reason"))
-          this.getReason().add(castToCodeableConcept(value));
+          this.getReason().add(castToCoding(value));
         else if (name.equals("activity"))
-          this.activity = castToCodeableConcept(value); // CodeableConcept
+          this.activity = castToCoding(value); // Coding
         else if (name.equals("location"))
           this.location = castToReference(value); // Reference
         else if (name.equals("policy"))
@@ -1495,7 +1498,7 @@ public class Provenance extends DomainResource {
           return addReason();
         }
         else if (name.equals("activity")) {
-          this.activity = new CodeableConcept();
+          this.activity = new Coding();
           return this.activity;
         }
         else if (name.equals("location")) {
@@ -1534,8 +1537,8 @@ public class Provenance extends DomainResource {
         dst.period = period == null ? null : period.copy();
         dst.recorded = recorded == null ? null : recorded.copy();
         if (reason != null) {
-          dst.reason = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : reason)
+          dst.reason = new ArrayList<Coding>();
+          for (Coding i : reason)
             dst.reason.add(i.copy());
         };
         dst.activity = activity == null ? null : activity.copy();
@@ -1602,26 +1605,230 @@ public class Provenance extends DomainResource {
     return ResourceType.Provenance;
    }
 
+ /**
+   * Search parameter: <b>sigtype</b>
+   * <p>
+   * Description: <b>Indication of the reason the entity signed the object(s)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.signature.type</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="sigtype", path="Provenance.signature.type", description="Indication of the reason the entity signed the object(s)", type="token" )
   public static final String SP_SIGTYPE = "sigtype";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>sigtype</b>
+   * <p>
+   * Description: <b>Indication of the reason the entity signed the object(s)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.signature.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SIGTYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SIGTYPE);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Target Reference(s) (usually version specific)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.target</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="patient", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
   public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Target Reference(s) (usually version specific)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.target</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Provenance:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Provenance:patient").toLocked();
+
+ /**
+   * Search parameter: <b>location</b>
+   * <p>
+   * Description: <b>Where the activity occurred, if relevant</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.location</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="location", path="Provenance.location", description="Where the activity occurred, if relevant", type="reference" )
   public static final String SP_LOCATION = "location";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>location</b>
+   * <p>
+   * Description: <b>Where the activity occurred, if relevant</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.location</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Provenance:location</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Provenance:location").toLocked();
+
+ /**
+   * Search parameter: <b>start</b>
+   * <p>
+   * Description: <b>Starting time with inclusive boundary</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Provenance.period.start</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="start", path="Provenance.period.start", description="Starting time with inclusive boundary", type="date" )
   public static final String SP_START = "start";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>start</b>
+   * <p>
+   * Description: <b>Starting time with inclusive boundary</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Provenance.period.start</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam START = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_START);
+
+ /**
+   * Search parameter: <b>entity</b>
+   * <p>
+   * Description: <b>Identity of entity</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Provenance.entity.reference</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="entity", path="Provenance.entity.reference", description="Identity of entity", type="uri" )
   public static final String SP_ENTITY = "entity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>entity</b>
+   * <p>
+   * Description: <b>Identity of entity</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Provenance.entity.reference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam ENTITY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_ENTITY);
+
+ /**
+   * Search parameter: <b>userid</b>
+   * <p>
+   * Description: <b>Authorization-system identifier for the agent</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.agent.userId</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="userid", path="Provenance.agent.userId", description="Authorization-system identifier for the agent", type="token" )
   public static final String SP_USERID = "userid";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>userid</b>
+   * <p>
+   * Description: <b>Authorization-system identifier for the agent</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.agent.userId</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam USERID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_USERID);
+
+ /**
+   * Search parameter: <b>target</b>
+   * <p>
+   * Description: <b>Target Reference(s) (usually version specific)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.target</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="target", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
   public static final String SP_TARGET = "target";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>target</b>
+   * <p>
+   * Description: <b>Target Reference(s) (usually version specific)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.target</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TARGET = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TARGET);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Provenance:target</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TARGET = new ca.uhn.fhir.model.api.Include("Provenance:target").toLocked();
+
+ /**
+   * Search parameter: <b>agent</b>
+   * <p>
+   * Description: <b>Individual, device or organization playing role</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.agent.actor</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="agent", path="Provenance.agent.actor", description="Individual, device or organization playing role", type="reference" )
   public static final String SP_AGENT = "agent";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>agent</b>
+   * <p>
+   * Description: <b>Individual, device or organization playing role</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.agent.actor</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Provenance:agent</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Provenance:agent").toLocked();
+
+ /**
+   * Search parameter: <b>entitytype</b>
+   * <p>
+   * Description: <b>The type of resource in this entity</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.entity.type</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="entitytype", path="Provenance.entity.type", description="The type of resource in this entity", type="token" )
   public static final String SP_ENTITYTYPE = "entitytype";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>entitytype</b>
+   * <p>
+   * Description: <b>The type of resource in this entity</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.entity.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ENTITYTYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ENTITYTYPE);
+
+ /**
+   * Search parameter: <b>end</b>
+   * <p>
+   * Description: <b>End time with inclusive boundary, if not ongoing</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Provenance.period.end</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="end", path="Provenance.period.end", description="End time with inclusive boundary, if not ongoing", type="date" )
   public static final String SP_END = "end";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>end</b>
+   * <p>
+   * Description: <b>End time with inclusive boundary, if not ongoing</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Provenance.period.end</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam END = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_END);
+
 
 }
 

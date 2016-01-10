@@ -2,14 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/operation-parameter-type",
   "outcomes": [
     {
-      "hash": "|null|null|Questionnaire|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7a4b5b02\" in system \"null\": null"
-    },
-    {
       "hash": "|null|null|DomainResource|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@404f24e0\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|Questionnaire|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7a4b5b02\" in system \"null\": null"
     },
     {
       "hash": "|null|null|Condition|null",
@@ -132,14 +132,14 @@
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@ffd9339\" in system \"null\": null"
     },
     {
-      "hash": "|null|null|Reference|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@3f2ef65a\" in system \"null\": null"
-    },
-    {
       "hash": "|null|null|ValueSet|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@3ed2437b\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|Reference|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@3f2ef65a\" in system \"null\": null"
     },
     {
       "hash": "|null|null|date|null",
@@ -147,19 +147,19 @@
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@48cb2165\" in system \"null\": null"
     },
     {
-      "hash": "|null|null|id|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@243233e4\" in system \"null\": null"
-    },
-    {
       "hash": "|null|null|dateTime|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@6850d1b0\" in system \"null\": null"
     },
     {
-      "hash": "|null|null|string|null",
+      "hash": "|null|null|id|null",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@5e4c6075\" in system \"null\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@243233e4\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|Device|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@4dde09b5\" in system \"null\": null"
     },
     {
       "hash": "|null|null|boolean|null",
@@ -167,9 +167,9 @@
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@610fbeb\" in system \"null\": null"
     },
     {
-      "hash": "|null|null|Device|null",
+      "hash": "|null|null|string|null",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@4dde09b5\" in system \"null\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@5e4c6075\" in system \"null\": null"
     }
   ]
 }

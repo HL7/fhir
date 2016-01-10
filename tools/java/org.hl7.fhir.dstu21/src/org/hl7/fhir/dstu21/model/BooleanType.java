@@ -62,15 +62,19 @@ public class BooleanType extends PrimitiveType<Boolean> implements IBaseBooleanD
 		setValueAsString(value);  
 	}
 	
-	protected Boolean parse(String theValue) {
-		String value = theValue.trim();
-		if ("true".equals(value)) {
-			return Boolean.TRUE;
-		} else if ("false".equals(value)) {
-			return Boolean.FALSE;
-		} else {
-			throw new IllegalArgumentException("Invalid boolean string: '" + theValue + "'");
+	/**
+	 * Returns the value of this type as a primitive boolean.
+	 * 
+	 * @return Returns the value of this type as a primitive boolean.
+	 * @throws NullPointerException
+	 *            If the value is not set
+	 */
+	public boolean booleanValue() {
+		return getValue().booleanValue();
 	}
+
+	public BooleanType copy() {
+		return new BooleanType(getValue());
 	}
 
 	protected String encode(Boolean theValue) {
@@ -81,10 +85,18 @@ public class BooleanType extends PrimitiveType<Boolean> implements IBaseBooleanD
   }
 	}
 
-	public BooleanType copy() {
-		return new BooleanType(getValue());
-	}
 	public String fhirType() {
 		return "boolean";		
+	}
+
+	protected Boolean parse(String theValue) {
+		String value = theValue.trim();
+		if ("true".equals(value)) {
+			return Boolean.TRUE;
+		} else if ("false".equals(value)) {
+			return Boolean.FALSE;
+		} else {
+			throw new IllegalArgumentException("Invalid boolean string: '" + theValue + "'");
+		}
 	}
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -242,6 +242,9 @@ public class Bundle extends Resource implements IBaseBundle {
         return "collection";
       return "?";
       }
+    public String toSystem(BundleType code) {
+      return code.getSystem();
+      }
     }
 
     public enum SearchEntryMode {
@@ -341,6 +344,9 @@ public class Bundle extends Resource implements IBaseBundle {
       if (code == SearchEntryMode.OUTCOME)
         return "outcome";
       return "?";
+      }
+    public String toSystem(SearchEntryMode code) {
+      return code.getSystem();
       }
     }
 
@@ -457,6 +463,9 @@ public class Bundle extends Resource implements IBaseBundle {
       if (code == HTTPVerb.DELETE)
         return "DELETE";
       return "?";
+      }
+    public String toSystem(HTTPVerb code) {
+      return code.getSystem();
       }
     }
 
@@ -885,6 +894,53 @@ public class Bundle extends Resource implements IBaseBundle {
           return this;
         }
 
+ /**
+   * Returns the {@link #getLink() link} which matches a given {@link BundleLinkComponent#getRelation() relation}. 
+   * If no link is found which matches the given relation, returns <code>null</code>. If more than one
+   * link is found which matches the given relation, returns the first matching BundleLinkComponent.
+   * 
+   * @param theRelation
+   *            The relation, such as "next", or "self. See the constants such as {@link IBaseBundle#LINK_SELF} and {@link IBaseBundle#LINK_NEXT}.
+   * @return Returns a matching BundleLinkComponent, or <code>null</code>
+   * @see IBaseBundle#LINK_NEXT
+   * @see IBaseBundle#LINK_PREV
+   * @see IBaseBundle#LINK_SELF
+   */
+  public BundleLinkComponent getLink(String theRelation) {
+    org.apache.commons.lang3.Validate.notBlank(theRelation, "theRelation may not be null or empty");
+    for (BundleLinkComponent next : getLink()) {
+      if (theRelation.equals(next.getRelation())) {
+        return next;
+      }
+    }
+    return null;
+  }
+
+  /**
+   * Returns the {@link #getLink() link} which matches a given {@link BundleLinkComponent#getRelation() relation}. 
+   * If no link is found which matches the given relation, creates a new BundleLinkComponent with the
+   * given relation and adds it to this Bundle. If more than one
+   * link is found which matches the given relation, returns the first matching BundleLinkComponent.
+   * 
+   * @param theRelation
+   *            The relation, such as "next", or "self. See the constants such as {@link IBaseBundle#LINK_SELF} and {@link IBaseBundle#LINK_NEXT}.
+   * @return Returns a matching BundleLinkComponent, or <code>null</code>
+   * @see IBaseBundle#LINK_NEXT
+   * @see IBaseBundle#LINK_PREV
+   * @see IBaseBundle#LINK_SELF
+   */
+  public BundleLinkComponent getLinkOrCreate(String theRelation) {
+    org.apache.commons.lang3.Validate.notBlank(theRelation, "theRelation may not be null or empty");
+    for (BundleLinkComponent next : getLink()) {
+      if (theRelation.equals(next.getRelation())) {
+        return next;
+      }
+    }
+    BundleLinkComponent retVal = new BundleLinkComponent();
+    retVal.setRelation(theRelation);
+    getLink().add(retVal);
+    return retVal;
+  }
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("link", "@Bundle.link", "A series of links that provide context to this entry.", 0, java.lang.Integer.MAX_VALUE, link));
@@ -2373,12 +2429,78 @@ public class Bundle extends Resource implements IBaseBundle {
     return ResourceType.Bundle;
    }
 
+ /**
+   * Search parameter: <b>message</b>
+   * <p>
+   * Description: <b>The first resource in the bundle, if the bundle type is "message" - this is a message header, and this parameter provides access to search its contents</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Bundle.entry.resource(0)</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="message", path="Bundle.entry.resource.item(0)", description="The first resource in the bundle, if the bundle type is \"message\" - this is a message header, and this parameter provides access to search its contents", type="reference" )
   public static final String SP_MESSAGE = "message";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>message</b>
+   * <p>
+   * Description: <b>The first resource in the bundle, if the bundle type is "message" - this is a message header, and this parameter provides access to search its contents</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Bundle.entry.resource(0)</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MESSAGE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MESSAGE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Bundle:message</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MESSAGE = new ca.uhn.fhir.model.api.Include("Bundle:message").toLocked();
+
+ /**
+   * Search parameter: <b>composition</b>
+   * <p>
+   * Description: <b>The first resource in the bundle, if the bundle type is "document" - this is a composition, and this parameter provides access to searches its contents</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Bundle.entry.resource(0)</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="composition", path="Bundle.entry.resource.item(0)", description="The first resource in the bundle, if the bundle type is \"document\" - this is a composition, and this parameter provides access to searches its contents", type="reference" )
   public static final String SP_COMPOSITION = "composition";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>composition</b>
+   * <p>
+   * Description: <b>The first resource in the bundle, if the bundle type is "document" - this is a composition, and this parameter provides access to searches its contents</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Bundle.entry.resource(0)</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam COMPOSITION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_COMPOSITION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Bundle:composition</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_COMPOSITION = new ca.uhn.fhir.model.api.Include("Bundle:composition").toLocked();
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Bundle.type</b><br>
+   * </p>
+   */
   @SearchParamDefinition(name="type", path="Bundle.type", description="document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection", type="token" )
   public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>document | message | transaction | transaction-response | batch | batch-response | history | searchset | collection</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Bundle.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
 
 }
 

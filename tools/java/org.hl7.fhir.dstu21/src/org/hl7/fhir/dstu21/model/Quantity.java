@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -161,6 +161,9 @@ public class Quantity extends Type implements ICompositeType {
         return ">";
       return "?";
       }
+    public String toSystem(QuantityComparator code) {
+      return code.getSystem();
+      }
     }
 
     /**
@@ -207,6 +210,57 @@ public class Quantity extends Type implements ICompositeType {
       super();
     }
 
+ /**
+   * Convenience constructor
+   * 
+   * @param theValue The {@link #setValue(double) value}
+   */
+  public Quantity(double theValue) {
+    setValue(theValue);
+  }
+
+  /**
+   * Convenience constructor
+   * 
+   * @param theValue The {@link #setValue(long) value}
+   */
+  public Quantity(long theValue) {
+    setValue(theValue);
+  }
+  
+  /**
+   * Convenience constructor
+   * 
+   * @param theComparator The {@link #setComparator(QuantityComparator) comparator}
+   * @param theValue The {@link #setValue(BigDecimal) value}
+   * @param theSystem The {@link #setSystem(String)} (the code system for the units}
+   * @param theCode The {@link #setCode(String)} (the code for the units}
+   * @param theUnit The {@link #setUnit(String)} (the human readable display name for the units}
+   */
+  public Quantity(QuantityComparator theComparator, double theValue, String theSystem, String theCode, String theUnit) {
+    setValue(theValue);
+    setComparator(theComparator);
+    setSystem(theSystem);
+    setCode(theCode);
+    setUnit(theUnit);
+  }
+
+  /**
+   * Convenience constructor
+   * 
+   * @param theComparator The {@link #setComparator(QuantityComparator) comparator}
+   * @param theValue The {@link #setValue(BigDecimal) value}
+   * @param theSystem The {@link #setSystem(String)} (the code system for the units}
+   * @param theCode The {@link #setCode(String)} (the code for the units}
+   * @param theUnit The {@link #setUnit(String)} (the human readable display name for the units}
+   */
+  public Quantity(QuantityComparator theComparator, long theValue, String theSystem, String theCode, String theUnit) {
+    setValue(theValue);
+    setComparator(theComparator);
+    setSystem(theSystem);
+    setCode(theCode);
+    setUnit(theUnit);
+  }
     /**
      * @return {@link #value} (The value of the measured amount. The value includes an implicit precision in the presentation of the value.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
      */

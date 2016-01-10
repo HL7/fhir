@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.exceptions.FHIRException;
 
@@ -211,7 +211,7 @@ public class ResourceFactory extends Factory {
         if ("Encounter".equals(name))
             return new Encounter();
         if ("List".equals(name))
-            return new List_();
+            return new ListResource();
         if ("DeviceUseStatement".equals(name))
             return new DeviceUseStatement();
         if ("Goal".equals(name))

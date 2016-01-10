@@ -41,7 +41,7 @@ POSSIBILITY OF SUCH DAMAGE.
 public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements IBaseEnumeration<T> {
 
 	private static final long serialVersionUID = 1L;
-	private EnumFactory<T> myEnumFactory;
+	private final EnumFactory<T> myEnumFactory;
   
 	/**
 	 * Constructor
@@ -55,16 +55,6 @@ public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements 
   /**
 	 * Constructor
    */
-	public Enumeration(EnumFactory<T> theEnumFactory, T theValue) {
-		if (theEnumFactory == null)
-			throw new IllegalArgumentException("An enumeration factory must be provided");
-		myEnumFactory = theEnumFactory;
-		setValue(theValue);
-  }
-  
-  /**
-	 * Constructor
-   */
 	public Enumeration(EnumFactory<T> theEnumFactory, String theValue) {
 		if (theEnumFactory == null)
 			throw new IllegalArgumentException("An enumeration factory must be provided");
@@ -72,12 +62,19 @@ public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements 
 		setValueAsString(theValue);
   }
   
-	@Override
-	protected T parse(String theValue) {
-		if (myEnumFactory != null) {
-			return myEnumFactory.fromCode(theValue);
+  /**
+	 * Constructor
+   */
+	public Enumeration(EnumFactory<T> theEnumFactory, T theValue) {
+		if (theEnumFactory == null)
+			throw new IllegalArgumentException("An enumeration factory must be provided");
+		myEnumFactory = theEnumFactory;
+		setValue(theValue);
   }
-		return null;
+  
+	@Override
+	public Enumeration<T> copy() {
+		return new Enumeration<T>(myEnumFactory, getValue());
 	}
 
 	@Override
@@ -85,13 +82,22 @@ public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements 
 		return myEnumFactory.toCode(theValue);
   }
 
-  @Override
-	public Enumeration<T> copy() {
-		return new Enumeration<T>(myEnumFactory, getValue());
+	public String fhirType() {
+		return "code";
 	}
 	
+	/**
+	 * Provides the enum factory which binds this enumeration to a specific ValueSet
+	 */
+	public EnumFactory<T> getEnumFactory() {
+		return myEnumFactory;
+	}
 
-	public String fhirType() {
-		return "code";		
+	@Override
+	protected T parse(String theValue) {
+		if (myEnumFactory != null) {
+			return myEnumFactory.fromCode(theValue);
+		}
+		return null;
 	}
 }

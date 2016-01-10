@@ -139,20 +139,15 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|54128-4|null",
+      "hash": "|http://loinc.org|null|54117-7|Diseases history panel [USSG-FHT] family member",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Adopted"
+        "display": "Diseases history panel [USSG-FHT] family member"
       }
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|ABDOMINAL|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
     },
     {
       "hash": "|http://loinc.org|null|44255-8|null",
@@ -163,6 +158,22 @@
         "code": null,
         "definition": null,
         "display": "Feeling down, depressed, or hopeless in last 2 weeks [Reported.PHQ]"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/sections|null|ABDOMINAL|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "|http://loinc.org|null|54128-4|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Adopted"
       }
     },
     {
@@ -177,9 +188,26 @@
       }
     },
     {
-      "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
+      "hash": "|http://loinc.org|null|21112-8|Birth Date",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Birth Date"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54123-5|Sex family member [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Sex family member [USSG-FHT]"
+      }
     },
     {
       "hash": "|http://loinc.org|null|54117-7|Disease history panel [USSG-FHT]",
@@ -193,6 +221,11 @@
       }
     },
     {
+      "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
       "hash": "|http://loinc.org|null|39156-5|Body mass index",
       "severity": null,
       "message": null,
@@ -201,17 +234,6 @@
         "code": null,
         "definition": null,
         "display": "Body mass index (BMI) [Ratio]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54116-9|History of diseases family member [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "History of diseases family member [USSG-FHT]"
       }
     },
     {
@@ -226,6 +248,22 @@
       }
     },
     {
+      "hash": "|http://loinc.org|null|54116-9|History of diseases family member [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "History of diseases family member [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
       "hash": "|http://loinc.org|null|54113-6|Age range at death family member [USSG-FHT]",
       "severity": null,
       "message": null,
@@ -235,11 +273,6 @@
         "definition": null,
         "display": "Age range at death family member [USSG-FHT]"
       }
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
     },
     {
       "hash": "|http://loinc.org|null|44252-5|null",
@@ -411,6 +444,17 @@
       }
     },
     {
+      "hash": "|http://loinc.org|null|54131-8|Sex [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Sex [USSG-FHT]"
+      }
+    },
+    {
       "hash": "|http://loinc.org|null|54139-1|Living family member",
       "severity": null,
       "message": null,
@@ -493,6 +537,17 @@
       "message": "The code provided is not  valid"
     },
     {
+      "hash": "|http://loinc.org|null|44258-2|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down in last 2 weeks [Reported.PHQ]"
+      }
+    },
+    {
       "hash": "|http://loinc.org|null|54136-7|Relationship to patient family member [USSG-FHT]",
       "severity": null,
       "message": null,
@@ -504,14 +559,14 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|44258-2|null",
+      "hash": "|http://loinc.org|null|39156-5|Body mass index (BMI) [Ratio]",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down in last 2 weeks [Reported.PHQ]"
+        "display": "Body mass index (BMI) [Ratio]"
       }
     },
     {
@@ -553,17 +608,6 @@
       }
     },
     {
-      "hash": "|http://snomed.info/sct|null|194828000|Angina (disorder)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Angina"
-      }
-    },
-    {
       "hash": "|http://loinc.org|null|44251-7|null",
       "severity": null,
       "message": null,
@@ -572,6 +616,17 @@
         "code": null,
         "definition": null,
         "display": "Poor appetite or overeating in last 2 weeks [Reported.PHQ]"
+      }
+    },
+    {
+      "hash": "|http://snomed.info/sct|null|194828000|Angina (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Angina"
       }
     },
     {

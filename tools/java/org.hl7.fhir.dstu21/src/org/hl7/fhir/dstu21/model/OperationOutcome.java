@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -160,6 +160,9 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       if (code == IssueSeverity.INFORMATION)
         return "information";
       return "?";
+      }
+    public String toSystem(IssueSeverity code) {
+      return code.getSystem();
       }
     }
 
@@ -676,6 +679,9 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
       if (code == IssueType.INFORMATIONAL)
         return "informational";
       return "?";
+      }
+    public String toSystem(IssueType code) {
+      return code.getSystem();
       }
     }
 

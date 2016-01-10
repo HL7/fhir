@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Thu, Dec 31, 2015 10:35+1100 for FHIR v1.2.0
+// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -83,7 +83,7 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
      * 
      * @param theReference The given reference as an IdType (e.g. "Patient/123" or "http://example.com/Patient/123")
      */
-    public Reference(IdType theReference) {
+    public Reference(IIdType theReference) {
       super(theReference);
     }
 
@@ -185,6 +185,22 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
       return this;
     }
 
+ /**
+   * Convenience setter which sets the reference to the complete {@link IIdType#getValue() value} of the given
+   * reference.
+   *
+   * @param theReference The reference, or <code>null</code>
+   * @return 
+   * @return Returns a reference to this
+   */
+  public Reference setReferenceElement(IIdType theReference) {
+    if (theReference != null) {
+      setReference(theReference.getValue());
+    } else {
+      setReference(null);
+    }
+    return this;
+  }
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("reference", "string", "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.", 0, java.lang.Integer.MAX_VALUE, reference));
