@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Practitioner xmlns="http://hl7.org/fhir">
+  <id value="example-gao-practitioner"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/gao-practitioner"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>Identified Practitioner: 9999999999</p>
+    </div>
+  </text>
+  <identifier>
+    <system value="http://hl7.org/fhir/sid/us-npi"/>
+    <value value="9999999999"/>
+  </identifier>
+</Practitioner>

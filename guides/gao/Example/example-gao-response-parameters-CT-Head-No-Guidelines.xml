@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Parameters xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir file:/C:/hl7/FHIR/current/build/schema/fhir-single.xsd">
+  <id value="example-gao-response-parameters-CT-Head-No-Guidelines"/>
+  <parameter>
+    <name value="order"/>
+    <resource>
+      <Order>
+        <id value="order"/>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/gao-order"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner.</p>
+          </div>
+        </text>
+        <contained>
+          <Patient>
+            <id value="patient"/>
+            <meta>
+              <profile value="http://hl7.org/fhir/StructureDefinition/gao-patient"/>
+            </meta>
+            <gender value="male"/>
+            <birthDate value="1965-11-20"/>
+          </Patient>
+        </contained>
+        <contained>
+          <Practitioner>
+            <id value="practitioner"/>
+            <meta>
+              <profile value="http://hl7.org/fhir/StructureDefinition/gao-practitioner"/>
+            </meta>
+            <identifier>
+              <system value="http://hl7.org/fhir/sid/us-npi"/>
+              <value value="9999999999"/>
+            </identifier>
+          </Practitioner>
+        </contained>
+        <contained>
+          <DiagnosticOrder>
+            <id value="diagnosticorder"/>
+            <meta>
+              <profile value="http://hl7.org/fhir/StructureDefinition/gao-diagnosticorder"/>
+            </meta>
+            <subject>
+              <reference value="order#patient"/>
+            </subject>
+            <orderer>
+              <reference value="order#practitioner"/>
+            </orderer>
+            <item>
+              <code>
+                <coding>
+                  <system value="http://loinc.org"/>
+                  <code value="30799-1"/>
+                  <display value="Head CT WO contrast"/>
+                </coding>
+                <text value="CT Head without contrast"/>
+              </code>
+            </item>
+          </DiagnosticOrder>
+        </contained>
+        <identifier>
+          <system value="http://example.com/OrderIdentifier"/>
+          <value value="123"/>
+        </identifier>
+        <date value="2015-11-20"/>
+        <subject>
+          <reference value="#patient"/>
+        </subject>  
+        <source>
+          <reference value="#practitioner"/>
+        </source>   
+        <reasonCodeableConcept>
+          <coding>
+            <system value="http://example.com"/>
+            <code value="x"/>
+          </coding>
+          <text value="Headache"/>
+        </reasonCodeableConcept>        
+        <detail>
+          <reference value="#diagnosticorder"/>
+        </detail>
+      </Order>
+    </resource>
+  </parameter>
+  <parameter>
+    <name value="result"/>
+    <resource>
+      <Basic>
+        <meta>
+          <profile value="http://hl7.org/fhir/StructureDefinition/gao-result"/>
+        </meta>
+        <text>
+          <status value="extensions"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">
+            <p>No guidelines apply to Brain MRI.</p>
+          </div>
+        </text>
+        <extension url="http://hl7.org/fhir/StructureDefinition/gao-extension-item">
+          <extension url="code">
+            <valueCodeableConcept>
+              <coding>
+                <system value="http://loinc.org"/>
+                <code value="24590-2"/>
+                <display value="Brain MRI"/>
+              </coding>
+              <text value="Brain MRI"/>
+            </valueCodeableConcept>
+          </extension>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/gao-extension-device">
+          <valueReference>
+            <reference value="dss"/>
+          </valueReference>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/gao-extension-practitioner">
+          <valueReference>
+            <reference value="order#practitioner"/>
+          </valueReference>
+        </extension>
+        <code>
+          <coding>
+            <system value="http://hl7.org/fhir/evaluation-result-code"/>
+            <code value="noguidelines"/>
+            <display value="No Guidelines Apply"/>
+          </coding>
+        </code>
+        <subject>
+          <reference value="order"/>
+        </subject>
+      </Basic>
+    </resource>
+  </parameter>
+  <parameter>
+    <name value="dss"/>
+    <resource>
+      <Device>
+        <id value="dss"/>
+        <identifier>
+          <system value="http://example.com/RegisteredDecisionSupportId"/>
+          <value value="456"/>
+        </identifier>
+        <type>
+          <coding>
+            <system value="http://ncimeta.nci.nih.gov"/>
+            <code value="C1961478"/>
+            <display value="Information Systems, Decision Support, Clinical"/>
+          </coding>
+        </type>
+      </Device>
+    </resource>
+  </parameter>
+</Parameters>

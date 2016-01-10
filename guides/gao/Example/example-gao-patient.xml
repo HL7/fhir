@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir">
+    <id value="example-gao-patient"/>
+    <meta>
+      <profile value="http://hl7.org/fhir/StructureDefinition/gao-patient"/>
+    </meta>
+    <text>
+      <status value="generated"/>
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        <p>A 50-year-old male.</p>
+      </div>
+    </text>
+    <gender value="male"/>
+    <birthDate value="1965-11-20"/>
+</Patient>
