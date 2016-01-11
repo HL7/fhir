@@ -62,12 +62,12 @@
 		 <display value="Withhold all data authored by specified actor entity."/>
 	   </coding>
 	 </type>
-	 <actor>
+	 <party>
        <entity>
     	   <reference value="Organization/2.16.840.1.113883.19.5"/>
            <display value="Good Health Clinic"/>
 		</entity>
-	 </actor>
+	 </party>
      
 	 <text value="Withhold all data authored by Good Health provider."/>
    </term>
