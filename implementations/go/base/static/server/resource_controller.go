@@ -4,7 +4,6 @@ package server
 // for every resource controller.
 
 import (
-	"encoding/json"
 	"errors"
 	"fmt"
 	"net/http"
@@ -13,10 +12,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gorilla/context"
-	"github.com/gorilla/mux"
 	"github.com/intervention-engine/fhir/models"
 	"github.com/intervention-engine/fhir/search"
+	"github.com/labstack/echo"
 	"gopkg.in/mgo.v2/bson"
 )
 
@@ -24,15 +22,12 @@ type ResourceController struct {
 	Name string
 }
 
-func (rc *ResourceController) IndexHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
-	defer func() {
+func (rc *ResourceController) IndexHandler(c *echo.Context) error {
+	defer func() error {
 		if r := recover(); r != nil {
-			rw.Header().Set("Content-Type", "application/json; charset=utf-8")
 			switch x := r.(type) {
 			case search.Error:
-				rw.WriteHeader(x.HTTPStatus)
-				json.NewEncoder(rw).Encode(x.OperationOutcome)
-				return
+				return c.JSON(x.HTTPStatus, x.OperationOutcome)
 			default:
 				outcome := &models.OperationOutcome{
 					Issue: []models.OperationOutcomeIssueComponent{
@@ -42,17 +37,17 @@ func (rc *ResourceController) IndexHandler(rw http.ResponseWriter, r *http.Reque
 						},
 					},
 				}
-				rw.WriteHeader(http.StatusInternalServerError)
-				json.NewEncoder(rw).Encode(outcome)
+				return c.JSON(http.StatusInternalServerError, outcome)
 			}
 		}
+		return nil
 	}()
 
 	result := models.NewSliceForResourceName(rc.Name, 0, 0)
 
 	// Create and execute the Mongo query based on the http query params
 	searcher := search.NewMongoSearcher(Database)
-	searchQuery := search.Query{Resource: rc.Name, Query: r.URL.RawQuery}
+	searchQuery := search.Query{Resource: rc.Name, Query: c.Request().URL.RawQuery}
 	mgoQuery := searcher.CreateQuery(searchQuery)
 
 	// Horrible, horrible hack (for now) to ensure patients are sorted by name.  This is needed by
@@ -66,7 +61,7 @@ func (rc *ResourceController) IndexHandler(rw http.ResponseWriter, r *http.Reque
 
 	err := mgoQuery.All(result)
 	if err != nil {
-		http.Error(rw, err.Error(), http.StatusInternalServerError)
+		return err
 	}
 
 	var entryList []models.BundleEntryComponent
@@ -90,7 +85,7 @@ func (rc *ResourceController) IndexHandler(rw http.ResponseWriter, r *http.Reque
 		// Need to get total count from the server, since there may be more or the offset was too high
 		intTotal, err := searcher.CreateQueryWithoutOptions(searchQuery).Count()
 		if err != nil {
-			http.Error(rw, err.Error(), http.StatusInternalServerError)
+			return err
 		}
 		total = uint32(intTotal)
 	} else {
@@ -100,15 +95,14 @@ func (rc *ResourceController) IndexHandler(rw http.ResponseWriter, r *http.Reque
 	bundle.Total = &total
 
 	// Add links for paging
-	bundle.Link = generatePagingLinks(r, searchQuery, total)
+	bundle.Link = generatePagingLinks(c.Request(), searchQuery, total)
 
-	context.Set(r, rc.Name, reflect.ValueOf(result).Elem().Interface())
-	context.Set(r, "Resource", rc.Name)
-	context.Set(r, "Action", "search")
+	c.Set(rc.Name, reflect.ValueOf(result).Elem().Interface())
+	c.Set("Resource", rc.Name)
+	c.Set("Action", "search")
 
-	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
-	rw.Header().Set("Access-Control-Allow-Origin", "*")
-	json.NewEncoder(rw).Encode(&bundle)
+	c.Response().Header().Set("Access-Control-Allow-Origin", "*")
+	return c.JSON(http.StatusOK, bundle)
 }
 
 func generatePagingLinks(r *http.Request, query search.Query, total uint32) []models.BundleLinkComponent {
@@ -163,123 +157,119 @@ func newLink(relation string, baseURL *url.URL, values url.Values, count uint32,
 	return models.BundleLinkComponent{Relation: relation, Url: baseURL.String()}
 }
 
-func (rc *ResourceController) LoadResource(r *http.Request) (interface{}, error) {
+func (rc *ResourceController) LoadResource(c *echo.Context) (interface{}, error) {
 	var id bson.ObjectId
 
-	idString := mux.Vars(r)["id"]
+	idString := c.Param("id")
 	if bson.IsObjectIdHex(idString) {
 		id = bson.ObjectIdHex(idString)
 	} else {
 		return nil, errors.New("Invalid id")
 	}
 
-	c := Database.C(models.PluralizeLowerResourceName(rc.Name))
+	collection := Database.C(models.PluralizeLowerResourceName(rc.Name))
 	result := models.NewStructForResourceName(rc.Name)
-	err := c.Find(bson.M{"_id": id.Hex()}).One(result)
+	err := collection.Find(bson.M{"_id": id.Hex()}).One(result)
 	if err != nil {
 		return nil, err
 	}
 
-	context.Set(r, rc.Name, result)
-	context.Set(r, "Resource", rc.Name)
+	c.Set(rc.Name, result)
+	c.Set("Resource", rc.Name)
 	return result, nil
 }
 
-func (rc *ResourceController) ShowHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
-	context.Set(r, "Action", "read")
-	_, err := rc.LoadResource(r)
+func (rc *ResourceController) ShowHandler(c *echo.Context) error {
+	c.Set("Action", "read")
+	_, err := rc.LoadResource(c)
 	if err != nil {
-		http.Error(rw, err.Error(), http.StatusInternalServerError)
+		return err
 	}
-	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
-	rw.Header().Set("Access-Control-Allow-Origin", "*")
-	json.NewEncoder(rw).Encode(context.Get(r, rc.Name))
+
+	c.Response().Header().Set("Access-Control-Allow-Origin", "*")
+	return c.JSON(http.StatusOK, c.Get(rc.Name))
 }
 
-func (rc *ResourceController) CreateHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
-	decoder := json.NewDecoder(r.Body)
+func (rc *ResourceController) CreateHandler(c *echo.Context) error {
 	resource := models.NewStructForResourceName(rc.Name)
-	err := decoder.Decode(resource)
+	err := c.Bind(resource)
 	if err != nil {
-		http.Error(rw, err.Error(), http.StatusInternalServerError)
+		return err
 	}
 
-	c := Database.C(models.PluralizeLowerResourceName(rc.Name))
+	collection := Database.C(models.PluralizeLowerResourceName(rc.Name))
 	i := bson.NewObjectId()
 	reflect.ValueOf(resource).Elem().FieldByName("Id").SetString(i.Hex())
 	UpdateLastUpdatedDate(resource)
-	err = c.Insert(resource)
+	err = collection.Insert(resource)
 	if err != nil {
-		http.Error(rw, err.Error(), http.StatusInternalServerError)
+		return err
 	}
 
-	context.Set(r, rc.Name, resource)
-	context.Set(r, "Resource", rc.Name)
-	context.Set(r, "Action", "create")
+	c.Set(rc.Name, resource)
+	c.Set("Resource", rc.Name)
+	c.Set("Action", "create")
 
-	rw.Header().Add("Location", responseURL(r, rc.Name, i.Hex()).String())
-	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
-	rw.Header().Set("Access-Control-Allow-Origin", "*")
-	rw.WriteHeader(http.StatusCreated)
-	json.NewEncoder(rw).Encode(resource)
+	c.Response().Header().Add("Location", responseURL(c.Request(), rc.Name, i.Hex()).String())
+	c.Response().Header().Set("Access-Control-Allow-Origin", "*")
+
+	return c.JSON(http.StatusCreated, resource)
 }
 
-func (rc *ResourceController) UpdateHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+func (rc *ResourceController) UpdateHandler(c *echo.Context) error {
 
 	var id bson.ObjectId
 
-	idString := mux.Vars(r)["id"]
+	idString := c.Param("id")
 	if bson.IsObjectIdHex(idString) {
 		id = bson.ObjectIdHex(idString)
 	} else {
-		http.Error(rw, "Invalid id", http.StatusBadRequest)
+		return errors.New("Invalid id")
 	}
 
-	decoder := json.NewDecoder(r.Body)
 	resource := models.NewStructForResourceName(rc.Name)
-	err := decoder.Decode(resource)
+	err := c.Bind(resource)
 	if err != nil {
-		http.Error(rw, err.Error(), http.StatusInternalServerError)
+		return err
 	}
 
-	c := Database.C(models.PluralizeLowerResourceName(rc.Name))
+	collection := Database.C(models.PluralizeLowerResourceName(rc.Name))
 	reflect.ValueOf(resource).Elem().FieldByName("Id").SetString(id.Hex())
 	UpdateLastUpdatedDate(resource)
-	err = c.Update(bson.M{"_id": id.Hex()}, resource)
+	err = collection.Update(bson.M{"_id": id.Hex()}, resource)
 	if err != nil {
-		http.Error(rw, err.Error(), http.StatusInternalServerError)
+		return err
 	}
 
-	context.Set(r, rc.Name, resource)
-	context.Set(r, "Resource", rc.Name)
-	context.Set(r, "Action", "update")
+	c.Set(rc.Name, resource)
+	c.Set("Resource", rc.Name)
+	c.Set("Action", "update")
 
-	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
-	rw.Header().Set("Access-Control-Allow-Origin", "*")
-	json.NewEncoder(rw).Encode(resource)
+	c.Response().Header().Set("Access-Control-Allow-Origin", "*")
+	return c.JSON(http.StatusOK, resource)
 }
 
-func (rc *ResourceController) DeleteHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+func (rc *ResourceController) DeleteHandler(c *echo.Context) error {
 	var id bson.ObjectId
 
-	idString := mux.Vars(r)["id"]
+	idString := c.Param("id")
 	if bson.IsObjectIdHex(idString) {
 		id = bson.ObjectIdHex(idString)
 	} else {
-		http.Error(rw, "Invalid id", http.StatusBadRequest)
+		return errors.New("Invalid id")
 	}
 
-	c := Database.C(models.PluralizeLowerResourceName(rc.Name))
+	collection := Database.C(models.PluralizeLowerResourceName(rc.Name))
 
-	err := c.Remove(bson.M{"_id": id.Hex()})
+	err := collection.Remove(bson.M{"_id": id.Hex()})
 	if err != nil {
-		http.Error(rw, err.Error(), http.StatusInternalServerError)
-		return
+		return err
 	}
 
-	context.Set(r, rc.Name, id.Hex())
-	context.Set(r, "Resource", rc.Name)
-	context.Set(r, "Action", "delete")
+	c.Set(rc.Name, id.Hex())
+	c.Set("Resource", rc.Name)
+	c.Set("Action", "delete")
+	return nil
 }
 
 func responseURL(r *http.Request, paths ...string) *url.URL {

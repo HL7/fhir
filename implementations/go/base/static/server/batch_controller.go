@@ -1,7 +1,7 @@
 package server
 
 import (
-	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 	"reflect"
@@ -11,16 +11,15 @@ import (
 
 	"gopkg.in/mgo.v2/bson"
 
-	"github.com/gorilla/context"
 	"github.com/intervention-engine/fhir/models"
+	"github.com/labstack/echo"
 )
 
-func BatchHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
-	decoder := json.NewDecoder(r.Body)
+func BatchHandler(c *echo.Context) error {
 	bundle := &models.Bundle{}
-	err := decoder.Decode(&bundle)
+	err := c.Bind(bundle)
 	if err != nil {
-		http.Error(rw, err.Error(), http.StatusInternalServerError)
+		return err
 	}
 
 	// TODO: If type is batch, ensure there are no interdendent resources
@@ -29,16 +28,16 @@ func BatchHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc
 	for i := range bundle.Entry {
 		if bundle.Entry[i].Request == nil {
 			// TODO: Use correct response code
-			http.Error(rw, "Entries in a batch operation require a request", http.StatusInternalServerError)
+			return errors.New("Entries in a batch operation require a request")
 		} else if bundle.Entry[i].Request.Method != "POST" {
 			// TODO: Use correct response code
-			http.Error(rw, "Only POST requests are currently supported", http.StatusInternalServerError)
+			return errors.New("Only POST requests are currently supported")
 		} else if strings.Contains(bundle.Entry[i].Request.Url, "/") {
 			// TODO: Use correct response code
-			http.Error(rw, "Updating resources is not currently allowed", http.StatusInternalServerError)
+			return errors.New("Updating resources is not currently allowed")
 		} else if bundle.Entry[i].Resource == nil {
 			// TODO: Use correct response code
-			http.Error(rw, "Batch POST must have a resource body", http.StatusInternalServerError)
+			return errors.New("Batch POST must have a resource body")
 		}
 		entries[i] = &bundle.Entry[i]
 	}
@@ -58,7 +57,7 @@ func BatchHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc
 			External:     new(bool),
 		}
 		// Update the entry with the new FullURL, Id, and LastUpdated
-		entry.FullUrl = responseURL(r, entry.Request.Url, id.Hex()).String()
+		entry.FullUrl = responseURL(c.Request(), entry.Request.Url, id.Hex()).String()
 		reflect.ValueOf(entry.Resource).Elem().FieldByName("Id").SetString(id.Hex())
 		UpdateLastUpdatedDate(entry.Resource)
 	}
@@ -70,7 +69,7 @@ func BatchHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc
 		c := Database.C(models.PluralizeLowerResourceName(entry.Request.Url))
 		err = c.Insert(entry.Resource)
 		if err != nil {
-			http.Error(rw, err.Error(), http.StatusInternalServerError)
+			return err
 		}
 
 		entry.Request = nil
@@ -88,15 +87,14 @@ func BatchHandler(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc
 	bundle.Total = &total
 	bundle.Type = fmt.Sprintf("%s-response", bundle.Type)
 
-	context.Set(r, "Bundle", bundle)
-	context.Set(r, "Resource", "Bundle")
-	context.Set(r, "Action", "create")
+	c.Set("Bundle", bundle)
+	c.Set("Resource", "Bundle")
+	c.Set("Action", "create")
 
 	// Send the response
-	rw.Header().Set("Content-Type", "application/json; charset=utf-8")
-	rw.Header().Set("Access-Control-Allow-Origin", "*")
-	rw.WriteHeader(http.StatusOK)
-	json.NewEncoder(rw).Encode(bundle)
+
+	c.Response().Header().Set("Access-Control-Allow-Origin", "*")
+	return c.JSON(http.StatusOK, bundle)
 }
 
 func updateAllReferences(entries []*models.BundleEntryComponent, refMap map[string]models.Reference) {

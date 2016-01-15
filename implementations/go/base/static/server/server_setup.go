@@ -3,26 +3,23 @@ package server
 import (
 	"log"
 
-	"github.com/codegangsta/negroni"
-	"github.com/gorilla/mux"
+	"github.com/labstack/echo"
 	"gopkg.in/mgo.v2"
 )
 
 type FHIRServer struct {
 	DatabaseHost     string
-	Router           *mux.Router
-	MiddlewareConfig map[string][]negroni.Handler
+	Echo             *echo.Echo
+	MiddlewareConfig map[string][]echo.Middleware
 }
 
-func (f *FHIRServer) AddMiddleware(key string, middleware negroni.Handler) {
+func (f *FHIRServer) AddMiddleware(key string, middleware echo.Middleware) {
 	f.MiddlewareConfig[key] = append(f.MiddlewareConfig[key], middleware)
 }
 
 func NewServer(databaseHost string) *FHIRServer {
-	server := &FHIRServer{DatabaseHost: databaseHost, MiddlewareConfig: make(map[string][]negroni.Handler)}
-	server.Router = mux.NewRouter()
-	server.Router.StrictSlash(true)
-	server.Router.KeepContext = true
+	server := &FHIRServer{DatabaseHost: databaseHost, MiddlewareConfig: make(map[string][]echo.Middleware)}
+	server.Echo = echo.New()
 	return server
 }
 
@@ -38,12 +35,7 @@ func (f *FHIRServer) Run() {
 
 	Database = MongoSession.DB("fhir")
 
-	RegisterRoutes(f.Router, f.MiddlewareConfig)
+	RegisterRoutes(f.Echo, f.MiddlewareConfig)
 
-	n := negroni.Classic()
-	// for _, m := range f.Middleware {
-	// 	n.Use(m)
-	// }
-	n.UseHandler(f.Router)
-	n.Run(":3001")
+	f.Echo.Run(":3001")
 }
