@@ -2,11 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/condition-severity",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|6736007|Moderate",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|371923003|Mild to moderate",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
@@ -18,6 +13,11 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|255604002|Mild",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|6736007|Moderate",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },

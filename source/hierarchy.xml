@@ -238,6 +238,7 @@ signatures.html
 			<page type="resource" resource="Account"/>
 			<page type="resource" resource="ProcessRequest"/>
 			<page type="resource" resource="ProcessResponse"/>
+			<page type="resource" resource="Linkage"/>
 			<page type="resource" resource="Device"/>
 			<page type="resource" resource="DeviceComponent"/>
 			<page type="resource" resource="DeviceMetric"/>

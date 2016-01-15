@@ -2,6 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/supplement-type",
   "outcomes": [
     {
+      "hash": "#|http://snomed.info/sct|null|442971000124100|Adult high energy formula#|http://goodhealthhospital.org/supplement-type-codes|null|1040|Adult high energy pudding",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "442971000124100",
+        "definition": null,
+        "display": "Adult high energy formula"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|442991000124104|Adult high protein formula#|http://goodhealthhospital.org/supplement-type-codes|null|1000|High Protein Powder",
       "severity": null,
       "message": null,
@@ -10,17 +21,6 @@
         "code": "442991000124104",
         "definition": null,
         "display": "Adult high protein formula"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|442971000124100|Adult high energy formula#|http://goodhealthhospital.org/supplement-type-codes|null|1010|Adult high energy drink",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "442971000124100",
-        "definition": null,
-        "display": "Adult high energy formula"
       }
     },
     {
@@ -35,7 +35,7 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|442971000124100|Adult high energy formula#|http://goodhealthhospital.org/supplement-type-codes|null|1040|Adult high energy pudding",
+      "hash": "#|http://snomed.info/sct|null|442971000124100|Adult high energy formula#|http://goodhealthhospital.org/supplement-type-codes|null|1010|Adult high energy drink",
       "severity": null,
       "message": null,
       "definition": {

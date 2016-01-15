@@ -2,80 +2,9 @@
   "url": "http://hl7.org/fhir/ValueSet/v3-FamilyMember",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NFTH|natural father",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "NFTH",
-        "definition": null,
-        "display": "natural father"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MAUNT|maternal aunt",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "MAUNT",
-        "definition": null,
-        "display": "maternal aunt"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/familial-relationship|null|mother|null",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/familial-relationship|null|MTH|Mother",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "MTH",
-        "definition": null,
-        "display": "mother"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|38048003|Uncle",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NMTH|natural mother",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "NMTH",
-        "definition": null,
-        "display": "natural mother"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|FATHER",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "FTH",
-        "definition": null,
-        "display": "father"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRFTH|maternal grandfather",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "MGRFTH",
-        "definition": null,
-        "display": "maternal grandfather"
-      }
     },
     {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PUNCLE|paternal uncle",
@@ -86,44 +15,6 @@
         "code": "PUNCLE",
         "definition": null,
         "display": "paternal uncle"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|72705000|Mother",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRMTH|maternal grandmother",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "MGRMTH",
-        "definition": null,
-        "display": "maternal grandmother"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRFTH|paternal grandfather",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "PGRFTH",
-        "definition": null,
-        "display": "paternal grandfather"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PAUNT|paternal aunt",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "PAUNT",
-        "definition": null,
-        "display": "paternal aunt"
       }
     },
     {
@@ -138,58 +29,52 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NBRO|natural brother",
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MUNCLE|maternal uncle",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "NBRO",
+        "code": "MUNCLE",
         "definition": null,
-        "display": "natural brother"
+        "display": "maternal uncle"
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|DAU|natural daughter",
+      "hash": "#|http://hl7.org/fhir/familial-relationship|null|father|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MCOUSN|maternal cousin",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "DAU",
+        "code": "MCOUSN",
         "definition": null,
-        "display": "natural daughter"
+        "display": "maternal cousin"
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|SIGOTHR|significant other",
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NMTH|natural mother",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "SIGOTHR",
+        "code": "NMTH",
         "definition": null,
-        "display": "significant other"
+        "display": "natural mother"
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|GRFTH|grandfather",
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MAUNT|maternal aunt",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "GRFTH",
+        "code": "MAUNT",
         "definition": null,
-        "display": "grandfather"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|EXT|extended family member",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "EXT",
-        "definition": null,
-        "display": "extended family member"
+        "display": "maternal aunt"
       }
     },
     {
@@ -204,6 +89,22 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|38048003|Uncle",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PAUNT|paternal aunt",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "PAUNT",
+        "definition": null,
+        "display": "paternal aunt"
+      }
+    },
+    {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NIECE|niece",
       "severity": null,
       "message": null,
@@ -212,17 +113,6 @@
         "code": "NIECE",
         "definition": null,
         "display": "niece"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|father",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "FTH",
-        "definition": null,
-        "display": "father"
       }
     },
     {
@@ -237,6 +127,28 @@
       }
     },
     {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|father",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "FTH",
+        "definition": null,
+        "display": "father"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|DAU|natural daughter",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DAU",
+        "definition": null,
+        "display": "natural daughter"
+      }
+    },
+    {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NEPHEW|Nephew",
       "severity": null,
       "message": null,
@@ -248,14 +160,30 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MUNCLE|maternal uncle",
+      "hash": "#|http://snomed.info/sct|null|72705000|Mother",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRFTH|paternal grandfather",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "MUNCLE",
+        "code": "PGRFTH",
         "definition": null,
-        "display": "maternal uncle"
+        "display": "paternal grandfather"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NBRO|natural brother",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "NBRO",
+        "definition": null,
+        "display": "natural brother"
       }
     },
     {
@@ -270,20 +198,92 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MCOUSN|maternal cousin",
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRFTH|maternal grandfather",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "MCOUSN",
+        "code": "MGRFTH",
         "definition": null,
-        "display": "maternal cousin"
+        "display": "maternal grandfather"
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/familial-relationship|null|father|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|SIGOTHR|significant other",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "SIGOTHR",
+        "definition": null,
+        "display": "significant other"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|EXT|extended family member",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "EXT",
+        "definition": null,
+        "display": "extended family member"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NFTH|natural father",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "NFTH",
+        "definition": null,
+        "display": "natural father"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRMTH|maternal grandmother",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MGRMTH",
+        "definition": null,
+        "display": "maternal grandmother"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|FATHER",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "FTH",
+        "definition": null,
+        "display": "father"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|GRFTH|grandfather",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "GRFTH",
+        "definition": null,
+        "display": "grandfather"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/familial-relationship|null|MTH|Mother",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MTH",
+        "definition": null,
+        "display": "mother"
+      }
     }
   ]
 }

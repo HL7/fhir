@@ -2,26 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/type-restful-interaction",
   "outcomes": [
     {
-      "hash": "|null|null|history-instance|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7fae6e43\" in system \"null\": null"
-    },
-    {
-      "hash": "|null|null|create|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@14c93232\" in system \"null\": null"
-    },
-    {
-      "hash": "|null|null|read|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@1bab9ce\" in system \"null\": null"
-    },
-    {
-      "hash": "|null|null|search-type|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@20c1556a\" in system \"null\": null"
-    },
-    {
       "hash": "|null|null|history-type|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@24fe7b47\" in system \"null\": null"
@@ -37,9 +17,29 @@
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@9fc8445\" in system \"null\": null"
     },
     {
+      "hash": "|null|null|search-type|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@20c1556a\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|history-instance|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7fae6e43\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|create|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@14c93232\" in system \"null\": null"
+    },
+    {
       "hash": "|null|null|update|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@214fd322\" in system \"null\": null"
+    },
+    {
+      "hash": "|null|null|read|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@1bab9ce\" in system \"null\": null"
     },
     {
       "hash": "|null|null|validate|null",

@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/v3-PurposeOfUse",
   "outcomes": [
     {
+      "hash": "#|http://snomed.info/sct|null|3457005|Referral",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "|http://snomed.info/sct|null|3457005|Referral",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@ab47079\" in system \"http://snomed.info/sct\": null"
@@ -16,11 +21,6 @@
         "definition": null,
         "display": "treatment"
       }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|3457005|Referral",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
     }
   ]
 }

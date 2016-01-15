@@ -31,10 +31,6 @@
           only, and not in the URI, as XML node name, or JSON label.
     -->
     <!-- Resources -->
-    <item id="Bundle">
-        <translation lang="en">Bundle</translation>
-        <translation lang="fr">Paquet</translation>
-    </item>
     <item id="Account">
         <translation lang="en">Account</translation>
     </item>
@@ -79,6 +75,10 @@
         <translation lang="zh">身体部位</translation>
         <translation lang="es">SitioDelCuerpo</translation>
         <translation lang="fr">SiteDeCorps</translation>
+    </item>
+    <item id="Bundle">
+        <translation lang="en">Bundle</translation>
+        <translation lang="fr">Paquet</translation>
     </item>
     <item id="NewBundle">
         <translation lang="en">NewBundle</translation>
@@ -337,6 +337,9 @@
     </item>
     <item id="Library">
         <translation lang="en">Library</translation>
+    </item>
+    <item id="Linkage">
+        <translation lang="en">Linkage</translation>
     </item>
     <item id="List">
         <translation lang="en">List</translation>
