@@ -1,0 +1,98 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = LinkageType
+  Binding = code list
+  Reference = #linkage-type
+  Definition = Used to distinguish different roles a resource can play within a set of linked resources
+  Conformance = required
+
+=== Sheet linkage-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = source
+  Display = Source of truth
+  Definition = The record represents the \"source of truth\" (from the perspective of this Linkage resource) for the underlying event/condition/etc.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = alternate
+  Display = Alternate record
+  Definition = The record represents the alternative view of the underlying event/condition/etc.  The record may still be actively maintained, even though it is not considered to be the source of truth.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = historical
+  Display = Historical/obsolete record
+  Definition = The record represents an obsolete record of the underlyng event/condition/etc.  It is not expected to be actively maintained.
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Linkage
+  Type = DomainResource
+  Short Label = Links records for \'same\' item
+  Definition = Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\"
+  RIM Mapping = N/A - RIM doesn\'t know how to do this
+  w5 = infrastructure.structure
+
+ -- Row 2 -----------------------------------
+  Element = Linkage.author
+  Card. = 0..1
+  Type = Reference(Practitioner|Organization)
+  Short Label = Who is responsible for linkages
+  Definition = Identifies the user or organization responsible for asserting the linkages and who establishes the context for evaluating the nature of each linkage.
+  Requirements = \"Primary\" for the same set of linked resources may be different from different user\'s/organization\'s perspectives
+  w5 = who.author
+
+ -- Row 3 -----------------------------------
+  Element = Linkage.item
+  Card. = 1..*
+  Short Label = Item to be linked
+  Definition = Identifies one of the records that is considered to refer to the same real-world occurrence as well as how the items hould be evaluated within the collection of linked items.
+  To Do = Make this 2..*
+
+ -- Row 4 -----------------------------------
+  Element = Linkage.item.type
+  Card. = 1..1
+  Type = code
+  Binding = LinkageType
+  Short Label = source | alternate | historical
+  Definition = Distinguishes which item is \"source of truth\" (if any) and which items are no longer considered to be current representations
+
+ -- Row 5 -----------------------------------
+  Element = Linkage.item.resource
+  Card. = 1..1
+  Type = Reference
+  Short Label = Resource being linked
+  Definition = The resource instance being linked as part of the group
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = author
+  Type = reference
+  Description = Author of the Linkage
+  Path = Linkage.author
+
+ -- Row 2 -----------------------------------
+  Name = item
+  Type = reference
+  Description = Matches on any item in the Linkage
+  Path = Linkage.item.resource
+
+ -- Row 3 -----------------------------------
+  Name = source
+  Type = reference
+  Description = Matches on any item in the Linkage with a type of \'source\'
+  Path = Linkage.item.resource
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

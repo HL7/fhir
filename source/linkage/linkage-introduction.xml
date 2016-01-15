@@ -1,0 +1,37 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"> </a>
+<h2>Scope and Usage</h2>
+<p>
+This resource allows the assertion of linkages between multiple resource instances (generally of the same type) that are referring to the same underlying business objects.  For example, multiple Condition records that refer to the same underlying problem/issue for a particular Patient; multiple AllergyIntolerance records that refer to the same reaction susceptibility; multiple Patient, Practioner and/or RelatedPerson records that refer to the same human being or animal.
+</p>
+<p>
+FHIR supports a process for sharing electronic records.  It is common for multiple records to exist that deal with the same real-world phenomenon.  This can result from information being captured by different systems, information being captured within a single system by different users (either deliberately to represent distinct perspectives or accidentally when a new record is created rather than updating an existing record).  These multiple records may be referred to as "duplicate" records, but in practice they aren't often actually "duplicate" in that the data represented (and the history of the records) will be at least somewhat distinct.
+</p>
+<p>
+In some cases, the solution upon identifying duplicates is to deprecate one of the records (e.g. by changing the status to "entered in error") and move all relevant information to the surviving record.  In other cases, the resource may support the ability to establish a linkage directly between the resources.  However, in some cases, both records may need to survive or there's a desire to have both resources continue to be maintained, perhaps because the resources
+live on different servers or have different 'owners'.  The <b>Linkage</b> resource is intended to satisfy this use-case.
+</p>
+
+</div>
+
+<!-- (recommended): 
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+</p>
+</div>
+-->
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used
+</p>
+</div>
+-->
+
+</div>
