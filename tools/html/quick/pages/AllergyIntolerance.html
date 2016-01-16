@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <title>AllergyIntolerance</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='icon' type='image/ico' href='../resources/favicon.ico' />
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+    <link rel='stylesheet' type='text/css' href='../font-awesome/css/font-awesome.min.css' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/AllergyIntolerance.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='AllergyIntolerance.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <h2 title='Class AllergyIntolerance' class='title'>AllergyIntolerance</h2>
+    </div>
+    <div class='contentContainer'>
+      <div class='description'>
+        <ul class='blockList'>
+          <li class='blockList' style='font-size:115%;'>Allergy or Intolerance (generally: Risk Of Adverse reaction to a substance)
+            <p />Profile of AllergyIntolerance for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.
+          </li>
+        </ul>
+      </div>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='category'>category</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>code</code>
+                    <blockquote>
+                      <div class='block'>Category of the identified Substance.
+<p>Binding: <a title="Category of an identified Substance." href="http://hl7.org/fhir/DSTU2/valueset-allergy-intolerance-category.html">AllergyIntoleranceCategory</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='criticality'>criticality</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>code</code>
+                    <blockquote>
+                      <div class='block'>Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance.
+<p>Binding: <a title="Estimate of the potential clinical harm, or seriousness, of a reaction to an identified Substance." href="http://hl7.org/fhir/DSTU2/valueset-allergy-intolerance-criticality.html">AllergyIntoleranceCriticality</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='identifier'>identifier</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Identifier.html'>Identifier</a>></code>
+                    <blockquote>
+                      <div class='block'>This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation).</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='lastOccurence'>lastOccurence</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>DateTime</code>
+                    <blockquote>
+                      <div class='block'>Represents the date and/or time of the last known occurrence of a reaction event.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='note'>note</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Annotation.html'>Annotation</a></code>
+                    <blockquote>
+                      <div class='block'>Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='onset'>onset</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>DateTime</code>
+                    <blockquote>
+                      <div class='block'>Record of the date and/or time of the onset of the Allergy or Intolerance.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='patient'>patient</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Patient.html'>Patient</a></code>
+                    <blockquote>
+                      <div class='block'>The patient who has the allergy or intolerance.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='reaction'>reaction</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='todo.html'>Reaction</a>&gt; (TBD)</code>
+                    <blockquote>
+                      <div class='block'>Details about each adverse reaction event linked to exposure to the identified Substance.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='reasonRefuted'>reasonRefuted</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>A code capturing the explanation of why the allergy or intolerance has been refuted. Should be specified only if the status is refuted.
+<p>Binding: <a title="The value set to instantiate this attribute should be drawn from a terminologically robust code system for reasons of refuting an allergy or intolerance. This value set is provided as a suggestive example." href="http://hl7.org/fhir/DSTU2/qicore/valueset-qicore-allergyintolerance-reason-refuted.html">Reasons for refuting allergy or intolerance codes</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='recordedDate'>recordedDate</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>DateTime</code>
+                    <blockquote>
+                      <div class='block'>Date when the sensitivity was recorded.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='recorder'>recorder</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='Patient.html'>Patient</a></code>
+                    <blockquote>
+                      <div class='block'>Individual who recorded the record and takes responsibility for its conten.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='reporter'>reporter</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Practitioner.html'>Practitioner</a></code>
+                    <blockquote>
+                      <div class='block'>The source of the information about the allergy that is recorded.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='resolutionAge'>resolutionAge</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Quantity.html'>Quantity</a></code>
+                    <blockquote>
+                      <div class='block'>The estimated patient age at which the allergy or intolerance resolved. Should be specified only if the status is resolved.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
+                    <strong>
+                      <a name='status'>status</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>code</code>
+                    <blockquote>
+                      <div class='block'>Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance.
+<p>Binding: <a title="Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified Substance." href="http://hl7.org/fhir/DSTU2/valueset-allergy-intolerance-status.html">AllergyIntoleranceStatus</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='substance'>substance</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk.
+<p>Binding: <a title="A substance or other type of agent (e.g., sunshine) that may be associated with an intolerance reaction event or a propensity to such an event. These concepts are expected to be at a more general level of abstraction (ingredients versus more specific formulations). This value set is quite general and includes concepts that may never cause an adverse event, particularly the included SNOMED CT concepts. The code system-specific value sets in this grouping value set are intended to provide broad coverage of all kinds of agents, but the expectation for use is that the chosen concept identifier for a substance should be appropriately specific and drawn from the available code systems in the following priority order: NDFRT, then RXNORM, then UNII, then SNOMED CT. This overarching grouping value set is intended to support identification of drug classes, individual medication ingredients, foods, general substances and environmental entities" href="http://hl7.org/fhir/DSTU2/daf/valueset-daf-substance.html">DAF Substance-Reactant for Intolerance and Negation Codes</a> (Preferred)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='type'>type</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>code</code>
+                    <blockquote>
+                      <div class='block'>Identification of the underlying physiological mechanism for the reaction risk.
+<p>Binding: <a title="Identification of the underlying physiological mechanism for a Reaction Risk." href="http://hl7.org/fhir/DSTU2/valueset-allergy-intolerance-type.html">AllergyIntoleranceType</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr></table>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Sat, Jan 16, 2016 10:59AM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+  </body>
+</html>
