@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema" exclude-result-prefixes="xs">
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+  <xsl:variable name="wgs" as="element(wg)*" select="/warnings/wg"/>
 	<xsl:variable name="allmessages" as="element(message)*">
     <xsl:apply-templates mode="fix" select="/warnings/message"/>
 	</xsl:variable>
@@ -81,7 +82,7 @@
   </xsl:template>
   <xsl:template match="/">
     <warnings>
-      <xsl:variable name="matchedMessages" as="element(group)*">
+      <xsl:variable name="matchedGroups" as="element(group)*">
         <xsl:for-each select="distinct-values($groups/@name)">
           <xsl:sort select="."/>
           <xsl:variable name="resources" as="element(resource)*">
@@ -100,23 +101,64 @@
               </xsl:if>
             </xsl:for-each>
           </xsl:variable>
-          <xsl:if test="$resources">
-            <group name="{.}">
-              <xsl:copy-of select="$resources"/>
-            </group>
+          <group name="{.}">
+            <xsl:copy-of select="$resources"/>
+          </group>
+        </xsl:for-each>
+      </xsl:variable>
+      <xsl:variable name="unmatchedMessages" as="element(message)*">
+        <xsl:for-each select="$messages[not(@id = $matchedGroups//message/@id)]">
+          <xsl:if test="contains(@location, ':')">
+            <xsl:variable name="wg" select="substring-before(@location, ':')"/>
+            <xsl:copy>
+              <xsl:copy-of select="@*"/>
+              <xsl:choose>
+                <xsl:when test="$wgs[@code=$wg]">
+                  <xsl:attribute name="wg" select="$wgs[@code=$wg]/@name"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:attribute name="wg" select="'HL7 FHIR Standard'"/>
+                </xsl:otherwise>
+              </xsl:choose>
+              <xsl:copy-of select="node()"/>
+            </xsl:copy>
           </xsl:if>
         </xsl:for-each>
       </xsl:variable>
-      <xsl:copy-of select="$matchedMessages"/>
-      <xsl:variable name="unmatchedMessages" as="element(message)*" select="$messages[not(@id = $matchedMessages//message/@id)]"/>
-      <xsl:if test="$unmatchedMessages">
-        <group name="Unowned">
-          <xsl:for-each select="$unmatchedMessages">
-            <xsl:sort select="@display"/>
-            <xsl:copy-of select="."/>
+      <xsl:variable name="finalGroups" as="element(group)*">
+        <xsl:for-each select="$matchedGroups">
+          <xsl:variable name="uncategorizedMessages" as="element(message)*" select="$unmatchedMessages[@wg=current()/@name]"/>
+          <xsl:if test="*|$uncategorizedMessages">
+            <xsl:copy>
+              <xsl:copy-of select="@*|node()"/>
+              <xsl:for-each select="$uncategorizedMessages">
+                <xsl:sort select="@display"/>
+                <xsl:copy-of select="."/>
+              </xsl:for-each>
+            </xsl:copy>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:variable>
+      <xsl:variable name="uncategorizedMessages" as="element(message)*" select="$unmatchedMessages[not(@id = $finalGroups//message/@id)]"/>
+      <xsl:variable name="groups" as="element(group)*">
+        <xsl:copy-of select="$finalGroups"/>
+        <xsl:if test="$uncategorizedMessages">
+          <xsl:for-each select="distinct-values($uncategorizedMessages/@wg)">
+            <group name="{.}">
+              <xsl:copy-of select="$uncategorizedMessages[@wg=current()]"/>
+            </group>
           </xsl:for-each>
-        </group>
-      </xsl:if>
+          <xsl:if test="$uncategorizedMessages[not(@wg)]">
+            <group name="_Uncategorized">
+              <xsl:copy-of select="$uncategorizedMessages[not(@wg)]"/>
+            </group>
+          </xsl:if>
+        </xsl:if>
+      </xsl:variable>
+      <xsl:for-each select="$groups">
+        <xsl:sort select="@name"/>
+        <xsl:copy-of select="."/>
+      </xsl:for-each>
     </warnings>
   </xsl:template>
 </xsl:stylesheet>
