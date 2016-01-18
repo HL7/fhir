@@ -62,7 +62,7 @@
     </container>
     <content>
       <item>
-        <reference value="MedicationExample14"></reference>
+        <reference value="Medication/medexample014"></reference>
       </item>
       <amount>
         <value value="7.5"/>
