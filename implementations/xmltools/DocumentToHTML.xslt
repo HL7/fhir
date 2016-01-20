@@ -81,7 +81,8 @@
           <xsl:value-of select="$subject-heading"/>
         </h2>
         <xsl:apply-templates mode="reference" select="fhir:subject"/>
-  
+		<!-- RG: per https://www.hl7.org/fhir/documents.html it should only present Composition, subject reference, and section.text, so all the other info should be part of the Composition narrative -->
+		  <!--
         <h2>
           <xsl:value-of select="$author-heading"/>
         </h2>
@@ -91,7 +92,7 @@
           <xsl:value-of select="$encounter-heading"/>
         </h2>
         <xsl:apply-templates mode="reference" select="fhir:encounter"/>
-        
+        -->
         <xsl:apply-templates select="fhir:section"/>
       </body>
     </html>
@@ -165,7 +166,7 @@
             <!-- We've got a reference to a resource that's not in the bundle, which isn't legal inside a document.  
               - We *could* use document(@value) to try to retrieve the remote resource, but seeing as the
               - document's obviously non-conformant, we'll raise an error instead. -->
-            <xsl:message terminate="yes">
+            <xsl:message terminate="no">
               <xsl:value-of select="concat('Error: The document composition includes a reference to a resource not contained inside the document bundle: ', @value)"/>
             </xsl:message>
           </xsl:when>
@@ -310,6 +311,13 @@
     <xsl:element name="{$heading-tag}">
       <xsl:copy-of select="@*|node()"/>
     </xsl:element>
+  </xsl:template>
+  
+  <xsl:template match="fhir:text">
+	<xsl:param name="nesting-depth"/>
+	<xsl:apply-templates select="xhtml:*">
+		<xsl:with-param name="nesting-depth" select="$nesting-depth"/>
+	</xsl:apply-templates>
   </xsl:template>
   
   <xsl:template match="xhtml:*">
