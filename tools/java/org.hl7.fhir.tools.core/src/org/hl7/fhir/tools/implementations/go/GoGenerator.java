@@ -193,7 +193,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.newLine();
         serverWriter.write("\tif len(m) > 0 {");
         serverWriter.newLine();
-        serverWriter.write("\t\trcBase.Use(m)");
+        serverWriter.write("\t\trcBase.Use(m...)");
         serverWriter.newLine();
         serverWriter.write("\t}");
         serverWriter.newLine();
