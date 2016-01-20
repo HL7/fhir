@@ -61,7 +61,7 @@ public class JavaEnumerationsGenerator extends JavaBaseGenerator {
 		write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     write("\r\n");
     write("import org.hl7.fhir.instance.model.api.*;\r\n");
-    write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
+    write("import org.hl7.fhir.dstu21.exceptions.FHIRException;\r\n");
     write("\r\n");
 
     write("public class Enumerations {\r\n");

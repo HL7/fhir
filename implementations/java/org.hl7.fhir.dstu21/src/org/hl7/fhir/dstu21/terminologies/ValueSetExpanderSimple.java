@@ -38,6 +38,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.NotImplementedException;
+import org.hl7.fhir.dstu21.exceptions.TerminologyServiceException;
 import org.hl7.fhir.dstu21.model.DateTimeType;
 import org.hl7.fhir.dstu21.model.Factory;
 import org.hl7.fhir.dstu21.model.PrimitiveType;
@@ -55,7 +56,6 @@ import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionParameterComponent;
 import org.hl7.fhir.dstu21.utils.IWorkerContext;
 import org.hl7.fhir.dstu21.utils.ToolingExtensions;
-import org.hl7.fhir.exceptions.TerminologyServiceException;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ValueSetExpanderSimple implements ValueSetExpander {
@@ -92,6 +92,10 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
         }
       }
       return new ValueSetExpansionOutcome(focus, null);
+    } catch (RuntimeException e) {
+   	 // TODO: we should put something more specific instead of just Exception below, since
+   	 // it swallows bugs.. what would be expected to be caught there?
+   	 throw e;
     } catch (Exception e) {
       // well, we couldn't expand, so we'll return an interface to a checker that can check membership of the set
       // that might fail too, but it might not, later.

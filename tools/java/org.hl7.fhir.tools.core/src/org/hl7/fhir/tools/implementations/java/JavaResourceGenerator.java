@@ -1,4 +1,6 @@
 package org.hl7.fhir.tools.implementations.java;
+import static org.apache.commons.lang3.StringUtils.defaultString;
+
 /*
 Copyright (c) 2011+, HL7, Inc
 All rights reserved.
@@ -36,6 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.Validate;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.DefinedCode;
@@ -128,7 +131,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     }
     write("import ca.uhn.fhir.model.api.annotation.Block;\r\n");
     write("import org.hl7.fhir.instance.model.api.*;\r\n");
-    write("import org.hl7.fhir.exceptions.FHIRException;\r\n");
+    write("import org.hl7.fhir.dstu21.exceptions.FHIRException;\r\n");
     
 		jdoc("", root.getDefinition());
 		classname = upFirst(name);
@@ -268,29 +271,53 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		    
 		    String code = sp.getCode();
         
-        // If code is something like "component-code-value-[x]" we want to 
-        // match all of the "value[x]" and create corresponding entries 
-        if (code.endsWith("-[x]") && sp.getType() == SearchType.composite) {
+        /* 
+         * For composite codes we want to find the two param this is a composite
+		     * of. We generate search parameter constants which reference the 
+		     * component parts of the composite.  
+		     */
+        if (sp.getType() == SearchType.composite) {
           
-          // partialCode will have "value" in this example
-          String partialCode = code.substring(0, code.length() - 4);
-          partialCode = partialCode.substring(partialCode.lastIndexOf('-') + 1);
+          if (code.endsWith("-[x]")) {
+            // partialCode will have "value" in this example
+            String partialCode = code.substring(0, code.length() - 4);
+            partialCode = partialCode.substring(partialCode.lastIndexOf('-') + 1);
           
-          // rootCode will have "component-code"
-          String rootCode = code.substring(0, code.indexOf("-" + partialCode));
+            // rootCode will have "component-code"
+            String rootCode = code.substring(0, code.indexOf("-" + partialCode));
           
-          // Look for all the "value" search parameters
-          for (SearchParameterDefn nextCandidate : nameToSearchParamDef.values()) {
-            if (nextCandidate.getCode().startsWith(partialCode)) {
-              String nextCompositeCode = rootCode + "-" + nextCandidate.getCode();
-              String[] compositeOf = new String[] { rootCode, nextCandidate.getCode() };
-              writeSearchParameterField(name, clss, isAbstract, sp, nextCompositeCode, compositeOf);
+            /*
+             * If the composite has the form "foo-bar[x]" we expand this to create 
+             * a constant for each of the possible [x] values, so that client have
+             * static binding to the individual possibilities. AFAIK this is only
+             * used right now in Observation (e.g. for code-value-[x]) 
+             */
+            for (SearchParameterDefn nextCandidate : nameToSearchParamDef.values()) {
+              if (nextCandidate.getCode().startsWith(partialCode)) {
+                String nextCompositeCode = rootCode + "-" + nextCandidate.getCode();
+                String[] compositeOf = new String[] { rootCode, nextCandidate.getCode() };
+                writeSearchParameterField(name, clss, isAbstract, sp, nextCompositeCode, compositeOf, nameToSearchParamDef);
+              }
             }
+          } else {
+            String code0 = sp.getComposites().get(0);
+            String code1 = sp.getComposites().get(1);
+            SearchParameterDefn comp0 = nameToSearchParamDef.get(code0);
+            SearchParameterDefn comp1 = nameToSearchParamDef.get(code1);
+            Validate.notNull(comp0, "Couldn't find composite component " + code0 + " - Values are: " + nameToSearchParamDef.keySet());
+            Validate.notNull(comp1, "Couldn't find composite component " + code1 + " - Values are: " + nameToSearchParamDef.keySet());
+            String[] compositeOf = new String[] { code0, code1 };
+            writeSearchParameterField(name, clss, isAbstract, sp, sp.getCode(), compositeOf, nameToSearchParamDef);
           }
+  
         } else if (code.contains("[x]")) {
+          /*
+           * We only know how to handle search parameters with [x] in the name
+           * where it's a composite, and the [x] comes last. Are there other possibilities?
+           */
           throw new Exception("Unable to generate constant for search parameter: " + code);
         } else {
-          writeSearchParameterField(name, clss, isAbstract, sp, code, null);
+          writeSearchParameterField(name, clss, isAbstract, sp, code, null, nameToSearchParamDef);
         }
 		    
 		  }
@@ -304,7 +331,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		flush();
 	}
 
-  private void writeSearchParameterField(String name, JavaGenClass clss, boolean isAbstract, SearchParameterDefn sp, String code, String[] theCompositeOf) throws IOException {
+  private void writeSearchParameterField(String name, JavaGenClass clss, boolean isAbstract, SearchParameterDefn sp, String code, String[] theCompositeOf, Map<String, SearchParameterDefn> theNameToSearchParamDef) throws IOException {
     String constName = cleanSpName(code).toUpperCase();
     
     /*
@@ -318,7 +345,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("   * Path: <b>" + sp.getPathSummary() + "</b><br>\r\n"); 
     write("   * </p>\r\n");
     write("   */\r\n");
-    write("  @SearchParamDefinition(name=\""+code+"\", path=\""+sp.getExpression()+"\", description=\""+Utilities.escapeJava(sp.getDescription())+"\", type=\""+sp.getType().toString() + "\"");
+    write("  @SearchParamDefinition(name=\"" + code + "\", path=\"" + defaultString(sp.getExpression()) + "\", description=\""+Utilities.escapeJava(sp.getDescription())+"\", type=\""+sp.getType().toString() + "\"");
     if (theCompositeOf != null && theCompositeOf.length > 0) {
       write(", compositeOf={");
       for (int i = 0; i < theCompositeOf.length; i++) {
@@ -331,6 +358,13 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     }
     write(" )\r\n");
     write("  public static final String SP_"+constName+" = \""+code+"\";\r\n");
+
+    String genericTypes = "";
+    if (theCompositeOf != null && theCompositeOf.length > 0) {
+      SearchParameterDefn typeDef0 = theNameToSearchParamDef.get(theCompositeOf[0]);
+      SearchParameterDefn typeDef1 = theNameToSearchParamDef.get(theCompositeOf[1]);
+      genericTypes = "<ca.uhn.fhir.rest.gclient." + upFirst(typeDef0.getType().name()) + "ClientParam" + ", ca.uhn.fhir.rest.gclient." + upFirst(typeDef1.getType().name()) + "ClientParam>";
+    }
     
     /*
      * Client parameter ([name])
@@ -343,7 +377,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     write("   * Path: <b>" + sp.getPathSummary() + "</b><br>\r\n"); 
     write("   * </p>\r\n");
     write("   */\r\n");
-    write("  public static final ca.uhn.fhir.rest.gclient." + upFirst(sp.getType().name()) + "ClientParam " + constName + " = new ca.uhn.fhir.rest.gclient." + upFirst(sp.getType().name()) + "ClientParam(SP_" + constName + ");\r\n\r\n"); 
+    write("  public static final ca.uhn.fhir.rest.gclient." + upFirst(sp.getType().name()) + "ClientParam" + genericTypes + " " + constName + " = new ca.uhn.fhir.rest.gclient." + upFirst(sp.getType().name()) + "ClientParam" + genericTypes + "(SP_" + constName + ");\r\n\r\n"); 
     
     if (sp.getType() == SearchType.reference && clss == JavaGenClass.Resource && !isAbstract) {
       String incName = upFirst(name) + ":" + code;

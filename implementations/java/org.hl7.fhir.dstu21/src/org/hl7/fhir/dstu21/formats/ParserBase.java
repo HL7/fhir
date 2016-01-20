@@ -34,16 +34,15 @@ package org.hl7.fhir.dstu21.formats;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.model.Type;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 
 public abstract class ParserBase extends FormatUtilities implements IParser {

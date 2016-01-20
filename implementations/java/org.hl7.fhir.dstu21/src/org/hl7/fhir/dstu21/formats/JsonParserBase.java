@@ -35,13 +35,14 @@ import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.model.DomainResource;
 import org.hl7.fhir.dstu21.model.Element;
 import org.hl7.fhir.dstu21.model.IdType;
 import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.model.StringType;
 import org.hl7.fhir.dstu21.model.Type;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -178,7 +179,11 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
   
   protected XhtmlNode parseXhtml(String value) throws IOException, FHIRFormatError {
     XhtmlParser prsr = new XhtmlParser();
-    return prsr.parse(value, "div").getChildNodes().get(0);
+    try {
+		return prsr.parse(value, "div").getChildNodes().get(0);
+	} catch (org.hl7.fhir.exceptions.FHIRFormatError e) {
+		throw new FHIRFormatError(e.getMessage(), e);
+	}
   }
   
   protected DomainResource parseDomainResource(JsonObject json) throws FHIRFormatError, IOException {

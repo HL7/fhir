@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 import org.hl7.fhir.dstu21.formats.FormatUtilities;
 import org.hl7.fhir.dstu21.model.Address;
 import org.hl7.fhir.dstu21.model.Attachment;
@@ -15,9 +17,16 @@ import org.hl7.fhir.dstu21.model.Coding;
 import org.hl7.fhir.dstu21.model.ContactPoint;
 import org.hl7.fhir.dstu21.model.DomainResource;
 import org.hl7.fhir.dstu21.model.ElementDefinition;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ConstraintSeverity;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu21.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu21.model.Extension;
 import org.hl7.fhir.dstu21.model.HumanName;
 import org.hl7.fhir.dstu21.model.Identifier;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu21.model.Period;
 import org.hl7.fhir.dstu21.model.Property;
 import org.hl7.fhir.dstu21.model.Quantity;
@@ -32,37 +41,21 @@ import org.hl7.fhir.dstu21.model.ResourceType;
 import org.hl7.fhir.dstu21.model.SampledData;
 import org.hl7.fhir.dstu21.model.StringType;
 import org.hl7.fhir.dstu21.model.StructureDefinition;
+import org.hl7.fhir.dstu21.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.dstu21.model.Timing;
 import org.hl7.fhir.dstu21.model.Type;
 import org.hl7.fhir.dstu21.model.UriType;
 import org.hl7.fhir.dstu21.model.ValueSet;
-import org.hl7.fhir.dstu21.model.ElementDefinition.ConstraintSeverity;
-import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu21.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
-import org.hl7.fhir.dstu21.model.StructureDefinition.ExtensionContext;
-import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionKind;
-import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionSnapshotComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.dstu21.terminologies.ValueSetExpanderFactory;
-import org.hl7.fhir.dstu21.terminologies.ValueSetExpansionCache;
-import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ETooCostly;
-import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu21.utils.EOperationOutcome;
 import org.hl7.fhir.dstu21.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu21.utils.IWorkerContext;
-import org.hl7.fhir.dstu21.utils.ProfileUtilities;
 import org.hl7.fhir.dstu21.utils.IWorkerContext.ValidationResult;
-import org.hl7.fhir.dstu21.validation.InstanceValidator.ResourceOnWrapper;
 import org.hl7.fhir.dstu21.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -115,7 +108,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 		private ElementDefinitionOutcome getDefinition(String name) throws DefinitionException {
 			if (childDefinitions == null) 
-				childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
+				childDefinitions = getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
 			for (ElementDefinition ed : childDefinitions) {
 				String tail = ed.getPath().substring(ed.getPath().lastIndexOf('.')+1);
 				if (tail.equals(name)) {
@@ -217,7 +210,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 		private ElementDefinitionOutcome getDefinition(String name) throws DefinitionException {
 			if (childDefinitions == null) 
-				childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
+				childDefinitions = getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
 
 			if (childDefinitions.size() == 0) {
 				String pn = typeProfile;
@@ -233,7 +226,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 					StructureDefinition profile = services.fetchResource(StructureDefinition.class, pn);
 					if (profile != null) {
 						this.profile = profile;
-						childDefinitions = ProfileUtilities.getChildMap(profile, null, profile.getSnapshot().getElement().get(0).getPath(), null);
+						childDefinitions = getChildMap(profile, null, profile.getSnapshot().getElement().get(0).getPath(), null);
 					}
 				}
 			}
@@ -1163,7 +1156,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
   }
 
 	private ElementDefinition getCriteriaForDiscriminator(String path, ElementDefinition ed, String discriminator, StructureDefinition profile) throws DefinitionException {
-    List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(profile, ed);
+    List<ElementDefinition> childDefinitions = getChildMap(profile, ed);
     List<ElementDefinition> snapshot = null;
     int index;
     if (childDefinitions.isEmpty()) {
@@ -2186,7 +2179,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		checkInvariants(errors, stack.getLiteralPath(), profile, definition, null, null, resource, element);
 
     // get the list of direct defined children, including slices
-    List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
+    List<ElementDefinition> childDefinitions = getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
 
     // 1. List the children, and remember their exact path (convenience)
     List<ElementInfo> children = new ArrayList<InstanceValidator.ElementInfo>();
@@ -3080,4 +3073,72 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     public abstract int line();
   }
 
+  
+  /**
+   * Given a Structure, navigate to the element given by the path and return the direct children of that element
+   *
+   * @param structure The structure to navigate into
+   * @param path The path of the element within the structure to get the children for
+   * @return A Map containing the name of the element child (not the path) and the child itself (an Element)
+   * @throws DefinitionException 
+   * @throws Exception
+   */
+  // Note/todo: this was copied out of ProfileUtilities because that class has a number of dependencies- Maybe we could split it in 2?
+    public static List<ElementDefinition> getChildMap(StructureDefinition profile, String name, String path, String nameReference) throws DefinitionException {
+      List<ElementDefinition> res = new ArrayList<ElementDefinition>();
+
+      // if we have a name reference, we have to find it, and iterate it's children
+      if (nameReference != null) {
+      	boolean found = false;
+        for (ElementDefinition e : profile.getSnapshot().getElement()) {
+        	if (nameReference.equals(e.getName())) {
+        		found = true;
+        		path = e.getPath();
+        	}
+        }
+        if (!found)
+        	throw new DefinitionException("Unable to resolve name reference "+nameReference+" at path "+path);
+      }
+
+      for (ElementDefinition e : profile.getSnapshot().getElement())
+      {
+        String p = e.getPath();
+
+        if (path != null && !Utilities.noString(e.getNameReference()) && path.startsWith(p))
+        {
+      	/* The path we are navigating to is on or below this element, but the element defers its definition to another named part of the
+      	 * structure.
+      	 */
+          if (path.length() > p.length())
+          {
+            // The path navigates further into the referenced element, so go ahead along the path over there
+            return getChildMap(profile, name, e.getNameReference()+"."+path.substring(p.length()+1), null);
+          }
+          else
+          {
+            // The path we are looking for is actually this element, but since it defers it definition, go get the referenced element
+            return getChildMap(profile, name, e.getNameReference(), null);
+          }
+        }
+        else if (p.startsWith(path+"."))
+        {
+      	  // The path of the element is a child of the path we're looking for (i.e. the parent),
+      	  // so add this element to the result.
+            String tail = p.substring(path.length()+1);
+
+            // Only add direct children, not any deeper paths
+            if (!tail.contains(".")) {
+              res.add(e);
+            }
+          }
+        }
+
+      return res;
+    }
+
+  public static List<ElementDefinition> getChildMap(StructureDefinition profile, ElementDefinition element) throws DefinitionException {
+	  	return getChildMap(profile, element.getName(), element.getPath(), null);
+ }
+
+  
 }

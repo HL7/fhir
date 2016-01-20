@@ -41,10 +41,10 @@ import org.hl7.fhir.dstu21.model.Bundle;
 import org.hl7.fhir.dstu21.model.Conformance;
 import org.hl7.fhir.dstu21.model.OperationOutcome;
 import org.hl7.fhir.dstu21.model.Parameters;
+import org.hl7.fhir.dstu21.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.dstu21.model.PrimitiveType;
 import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.model.ValueSet;
-import org.hl7.fhir.dstu21.model.Parameters.ParametersParameterComponent;
 import org.hl7.fhir.utilities.Utilities;
 
 /**

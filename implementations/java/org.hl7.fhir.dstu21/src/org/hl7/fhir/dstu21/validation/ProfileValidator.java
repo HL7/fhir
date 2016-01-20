@@ -1,15 +1,14 @@
 package org.hl7.fhir.dstu21.validation;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.hl7.fhir.dstu21.model.ElementDefinition;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu21.model.Extension;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu21.model.StringType;
 import org.hl7.fhir.dstu21.model.StructureDefinition;
-import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu21.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu21.utils.IWorkerContext;
 import org.hl7.fhir.dstu21.utils.ToolingExtensions;

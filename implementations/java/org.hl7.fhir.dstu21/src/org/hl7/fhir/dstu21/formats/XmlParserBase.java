@@ -37,13 +37,14 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.model.Base;
 import org.hl7.fhir.dstu21.model.DomainResource;
 import org.hl7.fhir.dstu21.model.Element;
 import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.model.StringType;
 import org.hl7.fhir.dstu21.model.Type;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.NodeType;
@@ -268,7 +269,11 @@ public abstract class XmlParserBase extends ParserBase implements IParser {
 
 	protected XhtmlNode parseXhtml(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError {
 		XhtmlParser prsr = new XhtmlParser();
-		return prsr.parseHtmlNode(xpp);
+		try {
+			return prsr.parseHtmlNode(xpp);
+		} catch (org.hl7.fhir.exceptions.FHIRFormatError e) {
+			throw new FHIRFormatError(e.getMessage(), e);
+		}
 	}
 
 	private String parseString(XmlPullParser xpp) throws XmlPullParserException, FHIRFormatError, IOException {

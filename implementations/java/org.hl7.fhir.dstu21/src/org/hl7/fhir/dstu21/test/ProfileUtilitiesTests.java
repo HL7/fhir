@@ -7,29 +7,27 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.management.modelmbean.RequiredModelMBean;
-
-import org.hl7.fhir.dstu21.formats.XmlParser;
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu21.formats.XmlParser;
 import org.hl7.fhir.dstu21.model.Base;
 import org.hl7.fhir.dstu21.model.CodeType;
 import org.hl7.fhir.dstu21.model.ElementDefinition;
-import org.hl7.fhir.dstu21.model.Reference;
-import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu21.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu21.model.Reference;
+import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.utils.EOperationOutcome;
 import org.hl7.fhir.dstu21.utils.ProfileComparer;
+import org.hl7.fhir.dstu21.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.dstu21.utils.ProfileUtilities;
 import org.hl7.fhir.dstu21.utils.SimpleWorkerContext;
-import org.hl7.fhir.dstu21.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.dstu21.validation.ValidationMessage;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 
 public class ProfileUtilitiesTests {
 

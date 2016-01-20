@@ -9,21 +9,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 import org.hl7.fhir.dstu21.formats.IParser;
 import org.hl7.fhir.dstu21.model.Base;
 import org.hl7.fhir.dstu21.model.BooleanType;
 import org.hl7.fhir.dstu21.model.Coding;
 import org.hl7.fhir.dstu21.model.Element;
 import org.hl7.fhir.dstu21.model.ElementDefinition;
-import org.hl7.fhir.dstu21.model.IntegerType;
-import org.hl7.fhir.dstu21.model.PrimitiveType;
-import org.hl7.fhir.dstu21.model.Reference;
-import org.hl7.fhir.dstu21.model.Resource;
-import org.hl7.fhir.dstu21.model.StringType;
-import org.hl7.fhir.dstu21.model.StructureDefinition;
-import org.hl7.fhir.dstu21.model.Type;
-import org.hl7.fhir.dstu21.model.UriType;
-import org.hl7.fhir.dstu21.model.ValueSet;
 import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -31,22 +24,27 @@ import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionSlicingCompo
 import org.hl7.fhir.dstu21.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu21.model.Enumerations.BindingStrength;
+import org.hl7.fhir.dstu21.model.IntegerType;
 import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu21.model.PrimitiveType;
+import org.hl7.fhir.dstu21.model.Reference;
+import org.hl7.fhir.dstu21.model.Resource;
+import org.hl7.fhir.dstu21.model.StringType;
+import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionSnapshotComponent;
+import org.hl7.fhir.dstu21.model.Type;
+import org.hl7.fhir.dstu21.model.UriType;
+import org.hl7.fhir.dstu21.model.ValueSet;
 import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu21.utils.ProfileUtilities.ExtensionContext;
 import org.hl7.fhir.dstu21.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.dstu21.validation.ValidationMessage;
 import org.hl7.fhir.dstu21.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
-import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Cell;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Piece;
@@ -54,7 +52,6 @@ import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xml.SchematronWriter;
-import org.hl7.fhir.utilities.xml.SchematronWriter.Assert;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
 import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
@@ -1201,7 +1198,11 @@ public class ProfileUtilities {
     r.getCells().add(c);
 
 
-    return gen.generate(model, corePath);
+    try {
+		return gen.generate(model, corePath);
+	} catch (org.hl7.fhir.exceptions.FHIRException e) {
+		throw new FHIRException(e.getMessage(), e);
+	}
     }
 
   private ElementDefinition getUrlFor(StructureDefinition ed, ElementDefinition c) {
@@ -1407,7 +1408,11 @@ public class ProfileUtilities {
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     profiles.add(profile);
     genElement(defFile == null ? null : defFile+"#"+profile.getId()+".", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath);
-    return gen.generate(model, corePath);
+    try {
+		return gen.generate(model, corePath);
+	} catch (org.hl7.fhir.exceptions.FHIRException e) {
+		throw new FHIRException(e.getMessage(), e);
+	}
   }
 
   private void genElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot, String corePath) throws IOException {

@@ -3,10 +3,10 @@ package org.hl7.fhir.dstu21.test;
 import java.io.File;
 import java.io.FileInputStream;
 
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 import org.hl7.fhir.dstu21.formats.XmlParser;
 import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.utils.QuestionnaireBuilder;
-import org.hl7.fhir.exceptions.FHIRException;
 
 public class QuestionnaireBuilderTester {
 

@@ -8,31 +8,30 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.utilities.Table;
-import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.PathEngineException;
 import org.hl7.fhir.dstu21.model.Base;
 import org.hl7.fhir.dstu21.model.BooleanType;
 import org.hl7.fhir.dstu21.model.Bundle;
 import org.hl7.fhir.dstu21.model.DecimalType;
 import org.hl7.fhir.dstu21.model.Element;
 import org.hl7.fhir.dstu21.model.ElementDefinition;
+import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu21.model.ExpressionNode;
+import org.hl7.fhir.dstu21.model.ExpressionNode.Function;
+import org.hl7.fhir.dstu21.model.ExpressionNode.Kind;
+import org.hl7.fhir.dstu21.model.ExpressionNode.Operation;
+import org.hl7.fhir.dstu21.model.ExpressionNode.SourceLocation;
 import org.hl7.fhir.dstu21.model.Factory;
 import org.hl7.fhir.dstu21.model.IntegerType;
-import org.hl7.fhir.dstu21.model.PrimitiveType;
 import org.hl7.fhir.dstu21.model.Reference;
 import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.model.StringType;
 import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.model.Type;
-import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu21.model.ExpressionNode.Function;
-import org.hl7.fhir.dstu21.model.ExpressionNode.Kind;
-import org.hl7.fhir.dstu21.model.ExpressionNode.Operation;
-import org.hl7.fhir.dstu21.model.ExpressionNode.SourceLocation;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.PathEngineException;
+import org.hl7.fhir.utilities.Table;
+import org.hl7.fhir.utilities.Utilities;
 
 /**
  * 

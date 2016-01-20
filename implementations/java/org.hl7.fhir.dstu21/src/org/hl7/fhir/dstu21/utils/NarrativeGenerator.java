@@ -42,6 +42,9 @@ import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.NotImplementedException;
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.formats.FormatUtilities;
 import org.hl7.fhir.dstu21.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu21.model.Address;
@@ -55,23 +58,41 @@ import org.hl7.fhir.dstu21.model.CodeType;
 import org.hl7.fhir.dstu21.model.CodeableConcept;
 import org.hl7.fhir.dstu21.model.Coding;
 import org.hl7.fhir.dstu21.model.Composition;
+import org.hl7.fhir.dstu21.model.Composition.SectionComponent;
 import org.hl7.fhir.dstu21.model.ConceptMap;
+import org.hl7.fhir.dstu21.model.ConceptMap.ConceptMapContactComponent;
+import org.hl7.fhir.dstu21.model.ConceptMap.OtherElementComponent;
+import org.hl7.fhir.dstu21.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.dstu21.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.dstu21.model.Conformance;
+import org.hl7.fhir.dstu21.model.Conformance.ConformanceRestComponent;
+import org.hl7.fhir.dstu21.model.Conformance.ConformanceRestResourceComponent;
+import org.hl7.fhir.dstu21.model.Conformance.ResourceInteractionComponent;
+import org.hl7.fhir.dstu21.model.Conformance.SystemInteractionComponent;
+import org.hl7.fhir.dstu21.model.Conformance.SystemRestfulInteraction;
+import org.hl7.fhir.dstu21.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.dstu21.model.ContactPoint;
+import org.hl7.fhir.dstu21.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu21.model.DateTimeType;
 import org.hl7.fhir.dstu21.model.DomainResource;
 import org.hl7.fhir.dstu21.model.ElementDefinition;
+import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu21.model.Enumeration;
 import org.hl7.fhir.dstu21.model.Extension;
 import org.hl7.fhir.dstu21.model.ExtensionHelper;
 import org.hl7.fhir.dstu21.model.HumanName;
+import org.hl7.fhir.dstu21.model.HumanName.NameUse;
 import org.hl7.fhir.dstu21.model.IdType;
 import org.hl7.fhir.dstu21.model.Identifier;
 import org.hl7.fhir.dstu21.model.InstantType;
 import org.hl7.fhir.dstu21.model.Meta;
 import org.hl7.fhir.dstu21.model.Narrative;
+import org.hl7.fhir.dstu21.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu21.model.OperationDefinition;
+import org.hl7.fhir.dstu21.model.OperationDefinition.OperationDefinitionParameterComponent;
 import org.hl7.fhir.dstu21.model.OperationOutcome;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu21.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.dstu21.model.Period;
 import org.hl7.fhir.dstu21.model.PrimitiveType;
 import org.hl7.fhir.dstu21.model.Property;
@@ -84,29 +105,11 @@ import org.hl7.fhir.dstu21.model.SampledData;
 import org.hl7.fhir.dstu21.model.StringType;
 import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.model.Timing;
-import org.hl7.fhir.dstu21.model.UriType;
-import org.hl7.fhir.dstu21.model.ValueSet;
-import org.hl7.fhir.dstu21.model.Composition.SectionComponent;
-import org.hl7.fhir.dstu21.model.ConceptMap.ConceptMapContactComponent;
-import org.hl7.fhir.dstu21.model.ConceptMap.OtherElementComponent;
-import org.hl7.fhir.dstu21.model.ConceptMap.SourceElementComponent;
-import org.hl7.fhir.dstu21.model.ConceptMap.TargetElementComponent;
-import org.hl7.fhir.dstu21.model.Conformance.ConformanceRestComponent;
-import org.hl7.fhir.dstu21.model.Conformance.ConformanceRestResourceComponent;
-import org.hl7.fhir.dstu21.model.Conformance.ResourceInteractionComponent;
-import org.hl7.fhir.dstu21.model.Conformance.SystemInteractionComponent;
-import org.hl7.fhir.dstu21.model.Conformance.SystemRestfulInteraction;
-import org.hl7.fhir.dstu21.model.Conformance.TypeRestfulInteraction;
-import org.hl7.fhir.dstu21.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu21.model.HumanName.NameUse;
-import org.hl7.fhir.dstu21.model.Narrative.NarrativeStatus;
-import org.hl7.fhir.dstu21.model.OperationDefinition.OperationDefinitionParameterComponent;
-import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu21.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.dstu21.model.Timing.EventTiming;
 import org.hl7.fhir.dstu21.model.Timing.TimingRepeatComponent;
 import org.hl7.fhir.dstu21.model.Timing.UnitsOfTime;
+import org.hl7.fhir.dstu21.model.UriType;
+import org.hl7.fhir.dstu21.model.ValueSet;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptReferenceComponent;
@@ -118,9 +121,6 @@ import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ValueSetExpansionOutco
 import org.hl7.fhir.dstu21.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.xhtml.NodeType;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
@@ -178,7 +178,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (type == null || type.equals("Resource") || type.equals("BackboneElement") || type.equals("Element"))
         return null;
 
-      String xml = new XmlGenerator().generate(element);
+      String xml;
+		try {
+			xml = new XmlGenerator().generate(element);
+		} catch (org.hl7.fhir.exceptions.FHIRException e) {
+			throw new FHIRException(e.getMessage(), e);
+		}
       return context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).parseType(xml, type);
     }
 
@@ -328,7 +333,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
       Element div = XMLUtil.getNamedChild(txt, "div");
       if (div == null)
         return null;
-      return new XhtmlParser().parse(new XmlGenerator().generate(div), "div");
+      try {
+			return new XhtmlParser().parse(new XmlGenerator().generate(div), "div");
+		} catch (org.hl7.fhir.exceptions.FHIRFormatError e) {
+			throw new FHIRFormatError(e.getMessage(), e);
+		} catch (org.hl7.fhir.exceptions.FHIRException e) {
+			throw new FHIRException(e.getMessage(), e);
+		}
     }
 
     @Override
@@ -2801,7 +2812,12 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	    // 2. markdown
 	    String s = Processor.process(Utilities.escapeXml(text));
 	    XhtmlParser p = new XhtmlParser();
-	    XhtmlNode m = p.parse("<div>"+s+"</div>", "div");
+	    XhtmlNode m;
+		try {
+			m = p.parse("<div>"+s+"</div>", "div");
+		} catch (org.hl7.fhir.exceptions.FHIRFormatError e) {
+			throw new FHIRFormatError(e.getMessage(), e);
+		}
 	    x.getChildNodes().addAll(m.getChildNodes());
 	  }
   }
