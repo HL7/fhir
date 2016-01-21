@@ -102,7 +102,7 @@ func (rc *ResourceController) IndexHandler(c *echo.Context) error {
 	c.Set("Action", "search")
 
 	c.Response().Header().Set("Access-Control-Allow-Origin", "*")
-	return c.JSON(http.StatusOK, bundle)
+	return c.JSON(http.StatusOK, &bundle)
 }
 
 func generatePagingLinks(r *http.Request, query search.Query, total uint32) []models.BundleLinkComponent {
