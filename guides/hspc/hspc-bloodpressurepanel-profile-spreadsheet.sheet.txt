@@ -6,7 +6,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Blood Pressure Panel
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -15,33 +15,23 @@
 
  -- Row 3 -----------------------------------
   Element = Observation.component
-  Profile Name = Systolic pressure
-  Discriminator = observation.component|true|closed
-  Slice Description = Systolic
 
  -- Row 4 -----------------------------------
-  Element = Observation.component.code
-  Type = CodeableConcept
-  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"8480-6\"/><display value=\"Systolic blood pressure\"/></coding></code>
+  Element = Observation.component.extension
+  Profile Name = Systolic pressure
+  Slice Description = Systolic
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-systolicbp}
 
  -- Row 5 -----------------------------------
-  Element = Observation.component
+  Element = Observation.component.extension
   Profile Name = Diastolic pressure
   Slice Description = Diastolic
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-diastolicbp}
 
  -- Row 6 -----------------------------------
-  Element = Observation.component.code
-  Type = CodeableConcept
-  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"8462-4\"/><display value=\"Diastolic blood pressure\"/></coding></code>
-
- -- Row 7 -----------------------------------
-  Element = Observation.component
+  Element = Observation.component.extension
   Profile Name = Mean Arterial Pressure
   Slice Description = Mean Arterial Pressure
-
- -- Row 8 -----------------------------------
-  Element = Observation.component.code
-  Type = CodeableConcept
-  Value = <code><coding><system value=\"http://loinc.org\"/><code value=\"8478-0\"/><display value=\"Mean blood pressure\"/></coding></code>
+  Type = Reference{http://hl7.org/fhir/StructureDefinition/hspc-meanarterialpressure}
 
 === Sheet Search =====================================

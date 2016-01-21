@@ -9,32 +9,32 @@
   Conformance = preferred
 
  -- Row 2 -----------------------------------
-  Binding Name = abnIntNumNom
-  Binding = value set
-  Reference = valueset-abnInt-NumericNom
-  Definition = A set of codes used as interpretations for abnormal numeric values
-  Conformance = preferred
-
- -- Row 3 -----------------------------------
   Binding Name = HeightMeasMethodDevice
   Binding = value set
   Reference = valueset-observation-heightMeasMethodDevice
   Definition = A set of codes that describe the method or device used to measure an individual\'s height
   Conformance = preferred
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = BodyPosition
   Binding = value set
   Reference = valueset-observation-bodyPosition
   Definition = The position that a patient is in when measurements are taken or procedures are performed
   Conformance = preferred
 
- -- Row 5 -----------------------------------
+ -- Row 4 -----------------------------------
   Binding Name = dataOriginationModeVS
   Binding = value set
   Reference = valueset-observation-dataOriginationMode
   Definition = The description of how the data came into being
   Conformance = preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = hspc-DeltaFlag
+  Binding = value set
+  Reference = valueset-deltaFlag-numericNom
+  Definition = Indicates that the data value in the containing model is a change from a previous instance of the same model
+  Conformance = required
 
  -- Row 6 -----------------------------------
   Binding Name = HeightMeasAssociatedPrecondition
@@ -43,20 +43,13 @@
   Definition = The conditions during which an individual\'s height was measured
   Conformance = preferred
 
- -- Row 7 -----------------------------------
-  Binding Name = hspc-DeltaFlag
-  Binding = value set
-  Reference = valueset-deltaFlag-numericNom
-  Definition = Indicates that the data value in the containing model is a change from a previous instance of the same model
-  Conformance = required
-
-=== Sheet hspc-height =====================================
+=== Sheet hspc-Height =====================================
 
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Height
   Aliases = HSPC Body Length
-  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  Type = Resource
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -66,10 +59,11 @@
  -- Row 3 -----------------------------------
   Element = Observation.valueQuantity
   Card. = 1..1
+  Type = Quantity
 
  -- Row 4 -----------------------------------
   Element = Observation.valueQuantity.system
-  Type = string
+  Type = uri
   Value = http://unitsofmeasure.org
 
  -- Row 5 -----------------------------------
@@ -94,29 +88,35 @@
 
  -- Row 10 -----------------------------------
   Element = Observation.performer
-  Profile Name = Performer
-  Card. = 0..1
+  Card. = 0..*
   Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/hspc-provpract}|Reference(Organization){http://hl7.org/fhir/StructureDefinition/hspc-organization}|Reference(Patient){http://hl7.org/fhir/StructureDefinition/hspc-patient}|Reference(RelatedPerson)
 
  -- Row 11 -----------------------------------
-  Element = Observation.extension
-  Profile Name = DeltaFlag
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeltaFlag}
-  Binding = hspc-DeltaFlag
-
- -- Row 12 -----------------------------------
   Element = Observation.extension
   Profile Name = Data Origination Mode
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdataOriginationMode}
   Binding = dataOriginationModeVS
 
+ -- Row 12 -----------------------------------
+  Element = Observation.extension
+  Profile Name = DeltaFlag
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdeltaFlag}
+  Binding = hspc-DeltaFlag
+
  -- Row 13 -----------------------------------
   Element = Observation.extension
   Profile Name = AssociatedPrecondition
-  Card. = 0..*
+  Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsassociatedPrecondition}
   Binding = HeightMeasAssociatedPrecondition
+
+ -- Row 14 -----------------------------------
+  Element = Observation.observation-bodyPosition
+  Profile Name = BodyPosition
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsbodyPosition}
+  Binding = BodyPosition
 
 === Sheet Search =====================================

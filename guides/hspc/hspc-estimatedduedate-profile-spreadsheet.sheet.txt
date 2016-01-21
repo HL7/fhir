@@ -37,7 +37,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Estimated Due Date
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
 
  -- Row 2 -----------------------------------
   Element = Observation.code

@@ -44,7 +44,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Body Mass Index
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
 
  -- Row 2 -----------------------------------
   Element = Observation.code

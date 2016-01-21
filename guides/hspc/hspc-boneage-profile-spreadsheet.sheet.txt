@@ -44,7 +44,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Bone Age
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -110,5 +110,9 @@
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsdataOriginationMode}
   Binding = dataOriginationModeVS
+
+ -- Row 17 -----------------------------------
+  Element = Observation.observation-bodyPosition
+  Card. = 0..0
 
 === Sheet Search =====================================

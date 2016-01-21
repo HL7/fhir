@@ -41,7 +41,7 @@
       <valueUri value="observation-hspc-age-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
-      <valueUri value="observation-hspc-height-profile-spreadsheet.xml"/>
+      <valueUri value="hspc-height-profile-spreadsheet.xml"/>
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="observation-hspc-standardlabobscoded-spreadsheet.xml"/>
@@ -99,6 +99,9 @@
     </extension>
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-bloodpressurepanel-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="hspc-meanarterialpressure-profile-spreadsheet.xml"/>
     </extension>
     <extension url ="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-logicalassert-profile-spreadsheet.xml"/>
@@ -168,6 +171,18 @@
     </extension>
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="hspc-vqscanraddose-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="encounter-hspc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="encounter-hspc-ip-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="encounter-hspc-op-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="encounter-hspc-emergency-profile-spreadsheet.xml"/>
     </extension>
     <name value="base"/>
     <resource>

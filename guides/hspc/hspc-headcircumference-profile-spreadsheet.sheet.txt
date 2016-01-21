@@ -37,7 +37,7 @@
  -- Row 1 -----------------------------------
   Element = Observation
   Profile Name = HSPC Head Occipital Frontal Circumference by Tape measure
-  Type = Resource
+  Type = {http://hl7.org/fhir/StructureDefinition/qicore-observation}
 
  -- Row 2 -----------------------------------
   Element = Observation.code
