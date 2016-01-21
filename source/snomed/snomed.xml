@@ -1404,6 +1404,10 @@
     <display value="Venereal disease clinic"/>
     <display value="Sexually transmitted disease clinic (environment)"/>
   </concept>
+  <concept id="257250006" display="Pedestrian conveyance (physical object)">
+    <display value="Pedestrian conveyance (physical object)"/>
+    <display value="Pedestrian conveyance"/>
+  </concept>
   <concept id="257351008" display="Shunt (physical object)">
     <display value="Shunt"/>
     <display value="Shunt (physical object)"/>
@@ -2842,6 +2846,14 @@
   <concept id="38549000" display="Carcinoma, undifferentiated (morphologic abnormality)">
     <display value="Carcinoma, undifferentiated"/>
   </concept>
+  <concept id="385647007" display="Rejected by performer (qualifier value)">
+    <display value="Rejected by performer (qualifier value)"/>
+    <display value="Rejected by performer"/>
+  </concept>
+  <concept id="385648002" display="Rejected by recipient (qualifier value)">
+    <display value="Rejected by recipient (qualifier value)"/>
+    <display value="Rejected by recipient"/>
+  </concept>
   <concept id="385669000" display="Successful (qualifier value)">
     <display value="Successful (qualifier value)"/>
     <display value="Successful"/>
@@ -3632,6 +3644,18 @@
     <display value="Assess physical therapist service"/>
     <display value="Physical therapy assessment (procedure)"/>
   </concept>
+  <concept id="410528005" display="Not wanted (qualifier value)">
+    <display value="Not wanted (qualifier value)"/>
+    <display value="Not wanted"/>
+  </concept>
+  <concept id="410529002" display="Not needed (qualifier value)">
+    <display value="Not needed (qualifier value)"/>
+    <display value="Not needed"/>
+  </concept>
+  <concept id="410530007" display="Not offered (qualifier value)">
+    <display value="Not offered (qualifier value)"/>
+    <display value="Not offered"/>
+  </concept>
   <concept id="410590009" display="Known possible (qualifier value)">
     <display value="Known possible (qualifier value)"/>
     <display value="Known possible"/>
@@ -4215,6 +4239,10 @@
     <display value="Ground food"/>
     <display value="Regular table foods ground into a soft, fine texture, using a baby food grinder or food chopper. Crispy or crunchy foods are not acceptable. Minimal chewing is required (Source: Academy of Nutrition and Dietetics Nutrition Informatics Committee 2013)."/>
   </concept>
+  <concept id="441889009" display="Denied (qualifier value)">
+    <display value="Denied (qualifier value)"/>
+    <display value="Denied"/>
+  </concept>
   <concept id="442137000" display="Completion time of procedure (observable entity)">
     <display value="Completion time of procedure"/>
     <display value="Procedure end time"/>
@@ -4312,6 +4340,10 @@
   <concept id="443361000124100" display="Pediatric formula">
     <display value="Pediatric formula (product)"/>
     <display value="Pediatric formula"/>
+  </concept>
+  <concept id="443390004" display="Refused (qualifier value)">
+    <display value="Refused (qualifier value)"/>
+    <display value="Refused"/>
   </concept>
   <concept id="443391000124108" display="Pediatric clear liquid supplement (product)">
     <display value="Pediatric clear liquid supplement (product)"/>
@@ -4451,6 +4483,12 @@
     <display value="Windpipe"/>
     <display value="Tracheal structure (body structure)"/>
   </concept>
+  <concept id="44613004" display="Ground transport ambulance, device (physical object)">
+    <display value="Ground transport ambulance, device (physical object)"/>
+    <display value="Ground transport ambulance, device"/>
+    <display value="Ground transport ambulance"/>
+    <display value="Ambulance"/>
+  </concept>
   <concept id="446277003" display="Urine specimen obtained from nephrostomy tube after percutaneous insertion (specimen)">
     <display value="Urine specimen obtained from nephrostomy tube after percutaneous insertion (specimen)"/>
     <display value="Urine specimen obtained from nephrostomy tube after percutaneous insertion"/>
@@ -4570,6 +4608,10 @@
     <display value="Cardiovascular monitoring by ECG"/>
     <display value="Electrocardiographic monitoring (procedure)"/>
   </concept>
+  <concept id="469233002" display="Helicopter ambulance (physical object)">
+    <display value="Helicopter ambulance (physical object)"/>
+    <display value="Helicopter ambulance"/>
+  </concept>
   <concept id="46947000" display="Chiropractic manipulation (procedure)">
     <display value="Chiropractic manipulation"/>
     <display value="Chiropractic manipulation, NOS"/>
@@ -4657,6 +4699,11 @@
     <display value="Anxiousness"/>
     <display value="Feeling anxious"/>
   </concept>
+  <concept id="49122002" display="Ambulance, device (physical object)">
+    <display value="Ambulance, device (physical object)"/>
+    <display value="Ambulance, device"/>
+    <display value="Ambulance"/>
+  </concept>
   <concept id="49370004" display="Lateral (qualifier value)">
     <display value="Lateral (qualifier value)"/>
     <display value="Lateral"/>
@@ -4672,6 +4719,11 @@
     <display value="Structure of rectosigmoid junction (body structure)"/>
     <display value="Rectosigmoid junction"/>
     <display value="Rectosigmoid"/>
+  </concept>
+  <concept id="49890001" display="Hospital cart, device (physical object)">
+    <display value="Hospital cart, device (physical object)"/>
+    <display value="Hospital cart, device"/>
+    <display value="Hospital cart"/>
   </concept>
   <concept id="50569004" display="Hospital-based outpatient urology clinic (environment)">
     <display value="Hospital-based outpatient urology clinic (environment)"/>
@@ -4700,6 +4752,11 @@
     <display value="Present (qualifier value)"/>
     <display value="Present"/>
     <display value="Presence of"/>
+  </concept>
+  <concept id="52387005" display="Taxi, device (physical object)">
+    <display value="Taxi, device (physical object)"/>
+    <display value="Taxi, device"/>
+    <display value="Taxi"/>
   </concept>
   <concept id="52668009" display="Hospital-based birthing center (environment)">
     <display value="Hospital-based birthing center"/>
@@ -4833,6 +4890,13 @@
   <concept id="58790005" display="T0 category (finding)">
     <display value="T0 category"/>
   </concept>
+  <concept id="58938008" display="Wheel chair, device (physical object)">
+    <display value="Wheel chair, device (physical object)"/>
+    <display value="Wheel chair, device"/>
+    <display value="Wheel chair"/>
+    <display value="WC - Wheelchair"/>
+    <display value="Wch - Wheelchair"/>
+  </concept>
   <concept id="59126009" display="Entire right upper arm (body structure)">
     <display value="Right upper arm"/>
     <display value="Entire right upper arm"/>
@@ -4867,6 +4931,10 @@
     <display value="Sigmoid colon structure"/>
     <display value="Sigmoid colon structure (body structure)"/>
     <display value="Sigmoid colon"/>
+  </concept>
+  <concept id="609589008" display="Refused by parents of subject (qualifier value)">
+    <display value="Refused by parents of subject (qualifier value)"/>
+    <display value="Refused by parents of subject"/>
   </concept>
   <concept id="62455006" display="N0 category (finding)">
     <display value="N0 category (finding)"/>
@@ -5084,6 +5152,12 @@
     <display value="Soreness"/>
     <display value="Sore pain"/>
   </concept>
+  <concept id="71783008" display="Automobile, device (physical object)">
+    <display value="Automobile, device (physical object)"/>
+    <display value="Automobile, device"/>
+    <display value="Automobile"/>
+    <display value="Car"/>
+  </concept>
   <concept id="71878006" display="Calcium measurement (procedure)">
     <display value="Calcium measurement"/>
     <display value="Calcium measurement, NOS"/>
@@ -5141,6 +5215,12 @@
     <display value="Hospital-based outpatient emergency room"/>
     <display value="Hospital-based outpatient emergency care center"/>
     <display value="Hospital-based outpatient emergency care center (environment)"/>
+  </concept>
+  <concept id="73957001" display="Air transport ambulance, device (physical object)">
+    <display value="Air transport ambulance, device (physical object)"/>
+    <display value="Air transport ambulance, device"/>
+    <display value="Air transport ambulance"/>
+    <display value="Air ambulance"/>
   </concept>
   <concept id="74040009" display="Protein measurement (procedure)">
     <display value="Protein measurement"/>
@@ -5438,6 +5518,11 @@
     <display value="Urinary bladder structure"/>
     <display value="Urinary bladder structure (body structure)"/>
   </concept>
+  <concept id="89925002" display="Canceled (qualifier value)">
+    <display value="Canceled (qualifier value)"/>
+    <display value="Canceled"/>
+    <display value="Cancelled"/>
+  </concept>
   <concept id="89972002" display="Hospital-based outpatient oncology clinic (environment)">
     <display value="Hospital-based outpatient oncology clinic"/>
     <display value="Hospital-based outpatient oncology clinic (environment)"/>
@@ -5470,6 +5555,11 @@
     <display value="Free-standing birthing center"/>
     <display value="Free-standing birthing center"/>
     <display value="Free-standing birthing center (environment)"/>
+  </concept>
+  <concept id="91537007" display="Hospital bed, device (physical object)">
+    <display value="Hospital bed, device (physical object)"/>
+    <display value="Hospital bed, device"/>
+    <display value="Hospital bed"/>
   </concept>
   <concept id="9454009" display="Structure of subclavian vein (body structure)">
     <display value="Subclavian vein"/>
