@@ -99,7 +99,7 @@ signatures.html
 				<page title="Concept Maps" filename="terminologies-conceptmaps.html"/>
 				<page title="identifier Registry" filename="identifier-registry.html"/>
 			</page>
-      
+
 			<page title="Comparison" filename="comparison.html">
 				<page title="v2 Messaging" filename="comparison-v2.html"/>
 				<page title="v3 Messaging" filename="comparison-v3.html"/>
@@ -111,10 +111,10 @@ signatures.html
 			<page title="Status Code Map" filename="sc.html"/>
 			<page title="W5 Map" filename="w5.html"/>
 			<page title="Namespace List" filename="ns.html"/>
-      
+
 <!--			<page title="Ballot Intro" filename="ballot-intro.html"/> -->
 		</page>
-    
+
 		<page title="Implementation" filename="implementation.html">
 			<page title="RESTful API" filename="http.html">
 				<page title="Search" filename="search.html"/>
@@ -193,6 +193,7 @@ signatures.html
 			<page type="resource" resource="Condition"/>
 			<page type="resource" resource="CarePlan"/>
 			<page type="resource" resource="Goal"/>
+			<page type="resource" resource="Protocol"/>
 			<page type="resource" resource="ClinicalImpression"/>
 			<page type="resource" resource="ReferralRequest"/>
 			<page type="resource" resource="Procedure"/>
@@ -253,7 +254,7 @@ signatures.html
 			<page type="resource" resource="Communication"/>
 			<page type="resource" resource="CommunicationRequest"/>
 			<page type="resource" resource="SupplyDelivery"/>
-			<page type="resource" resource="SupplyRequest"/>			
+			<page type="resource" resource="SupplyRequest"/>
 			<page type="resource" resource="Order"/>
 			<page type="resource" resource="OrderResponse"/>
 			<page type="resource" resource="Appointment"/>
