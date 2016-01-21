@@ -42,8 +42,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
+import org.hl7.fhir.definitions.ecore.fhir.SearchType;
 import org.hl7.fhir.definitions.model.*;
 import org.hl7.fhir.tools.implementations.GenBlock;
+import org.hl7.fhir.utilities.Utilities;
 import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STGroup;
 
@@ -67,6 +70,7 @@ public class MgoModel {
         generateResourceStruct(fileBlock);
         generateCustomMarshallersAndUnMarshallers(fileBlock);
         generateComponentStructs(fileBlock);
+        generateResourcePlusStruct(fileBlock);
 
         outputFile.createNewFile();
         Writer modelFile = new BufferedWriter(new FileWriter(outputFile));
@@ -294,6 +298,133 @@ public class MgoModel {
 
     }
 
+    private void generateResourcePlusStruct(GenBlock fileBlock) {
+        ResourceDefn resource = definitions.getResources().get(name);
+        if (resource == null) {
+            return;
+        }
+
+        ArrayList<ResourcePlusIncludeInfo> includeInfos = new ArrayList<ResourcePlusIncludeInfo>();
+        for (SearchParameterDefn p : resource.getSearchParams().values()) {
+            if (SearchParameterDefn.SearchType.reference.equals(p.getType())) {
+                for (String target : p.getWorkingTargets()) {
+                    // TODO: Someday support Any, but with a collection-per-resource and mongo, this isn't feasible today
+                    if ("Any".equals(target)) {
+                        continue;
+                    }
+                    for (int i=0; i < p.getPaths().size(); i++) {
+                        String paramName = p.getCode().replaceAll("-", "");
+                        StringBuilder fieldBuf = new StringBuilder("Included").append(capitalize(paramName));
+                        if (p.getWorkingTargets().size() > 1) {
+                            fieldBuf.append(target);
+                        }
+                        if (p.getPaths().size() > 1) {
+                            fieldBuf.append("Path").append(i + 1);
+                        }
+                        fieldBuf.append("Resources");
+
+                        boolean multipleCardinality = false;
+                        try {
+                            ElementDefn el = resource.getRoot().getElementForPath(p.getPaths().get(i), definitions, "resolving search parameter path", true);
+                            if (el.getMaxCardinality() > 1) {
+                                multipleCardinality = true;
+                            }
+                        } catch (Exception e) {
+                            System.err.println("Couldn't determine cardinality for parameter " + p.getCode() + " path: " + p.getPaths().get(i));
+                        }
+
+                        includeInfos.add(new ResourcePlusIncludeInfo(fieldBuf.toString(), target, multipleCardinality));
+                    }
+                }
+            }
+        }
+
+        fileBlock.ln();
+        fileBlock.bs(String.format("type %sPlus struct {", name));
+        fileBlock.ln(String.format("%s `bson:\",inline\"`", name));
+        fileBlock.ln(String.format("%sPlusIncludes `bson:\",inline\"`", name));
+        fileBlock.es("}");
+
+        fileBlock.ln();
+        fileBlock.bs(String.format("type %sPlusIncludes struct {", name));
+        for (ResourcePlusIncludeInfo info : includeInfos) {
+            fileBlock.ln(String.format("%s *[]%s `bson:\"%s,omitempty\"`", info.getField(), info.getTarget(), info.getMongoField()));
+        }
+        fileBlock.es("}");
+
+        String alias = name.toLowerCase().substring(0,1);
+        for (ResourcePlusIncludeInfo info : includeInfos) {
+            fileBlock.ln();
+            if (info.isMultipleCardinality()) {
+                fileBlock.bs(String.format("func (%s *%sPlusIncludes) Get%s() (%s []%s, err error) {", alias, name, info.getField(), Utilities.pluralizeMe(lowercase(info.getTarget())), info.getTarget()));
+                fileBlock.bs(String.format("if %s.%s == nil {", alias, info.getField()));
+                fileBlock.ln(String.format("err = errors.New(\"Included %s not requested\")", Utilities.pluralizeMe(lowercase(info.getTarget()))));
+                fileBlock.es("} else {");
+                fileBlock.bs();
+                fileBlock.ln(String.format("%s = *%s.%s", Utilities.pluralizeMe(lowercase(info.getTarget())), alias, info.getField()));
+                fileBlock.es("}");
+                fileBlock.ln("return");
+                fileBlock.es("}");
+            } else {
+                String singular = info.getField().substring(0, info.getField().length() - 1);
+                fileBlock.bs(String.format("func (%s *%sPlusIncludes) Get%s() (%s *%s, err error) {", alias, name, singular, lowercase(info.getTarget()), info.getTarget()));
+                fileBlock.bs(String.format("if %s.%s == nil {", alias, info.getField()));
+                fileBlock.ln(String.format("err = errors.New(\"Included %s not requested\")", Utilities.pluralizeMe(info.getTarget().toLowerCase())));
+                fileBlock.es(String.format("} else if len(*%s.%s) > 1 {", alias, info.getField()));
+                fileBlock.bs();
+                fileBlock.ln(String.format("err = fmt.Errorf(\"Expected 0 or 1 %s, but found %s\", len(*%s.%s))", lowercase(info.getTarget()), "%d", alias, info.getField()));
+                fileBlock.es(String.format("} else if len(*%s.%s) == 1 {", alias, info.getField()));
+                fileBlock.bs();
+                fileBlock.ln(String.format("%s = &(*%s.%s)[0]", lowercase(info.getTarget()), alias, info.getField()));
+                fileBlock.es("}");
+                fileBlock.ln("return");
+                fileBlock.es("}");
+            }
+        }
+
+        fileBlock.ln();
+        fileBlock.bs(String.format("func (%s *%sPlusIncludes) GetIncludedResources() map[string]interface{} {", alias, name));
+        fileBlock.ln("resourceMap := make(map[string]interface{})");
+        for (ResourcePlusIncludeInfo info : includeInfos) {
+            fileBlock.bs(String.format("if %s.%s != nil {", alias, info.getField()));
+            fileBlock.bs(String.format("for _, r := range *%s.%s {", alias, info.getField()));
+            fileBlock.ln("resourceMap[r.Id] = &r");
+            fileBlock.es("}");
+            fileBlock.es("}");
+        }
+        fileBlock.ln("return resourceMap");
+        fileBlock.es("}");
+
+    }
+
+    private class ResourcePlusIncludeInfo {
+        private final String field;
+        private final String target;
+        private final boolean multipleCardinality;
+
+        public ResourcePlusIncludeInfo(String field, String target, boolean multipleCardinality) {
+            this.field = field;
+            this.target = target;
+            this.multipleCardinality = multipleCardinality;
+        }
+
+        public String getField() {
+            return field;
+        }
+
+        public String getTarget() {
+            return target;
+        }
+
+        public boolean isMultipleCardinality() {
+            return multipleCardinality;
+        }
+
+        public String getMongoField() {
+            return "_" + lowercase(field);
+        }
+    }
+
     /**
      * Current only discovers encoding/json, as that's the only one we need
      */
@@ -315,6 +446,21 @@ public class MgoModel {
                         if ("Resource".equals(typeRef.getName()) || "Resource".equals(typeRef.getResolvedTypeName())) {
                             imports.add("encoding/json");
                         }
+                    }
+                }
+            }
+        }
+
+        // If it has search parameters that are reference types, it will need fmt and errors too
+        if (definitions.getResources().containsKey(elementDefn.getName())) {
+            ResourceDefn resource = definitions.getResources().get(elementDefn.getName());
+            for (SearchParameterDefn p : resource.getSearchParams().values()) {
+                if (SearchParameterDefn.SearchType.reference.equals(p.getType()) && ! p.getPaths().isEmpty() && !p.getWorkingTargets().isEmpty()) {
+                    // NOTE: We don't support _include on params that are Any
+                    if (!p.getWorkingTargets().contains("Any")) {
+                        imports.add("errors");
+                        imports.add("fmt");
+                        break;
                     }
                 }
             }

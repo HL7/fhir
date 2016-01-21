@@ -33,6 +33,28 @@ func StructForResourceName(name string) interface{} {
 	}
 }
 
+func SlicePlusForResourceName(name string, len int, cap int) interface{} {
+	rType := reflect.TypeOf(StructPlusForResourceName(name))
+	return reflect.MakeSlice(reflect.SliceOf(rType), len, cap).Interface()
+}
+
+func NewSlicePlusForResourceName(name string, len int, cap int) interface{} {
+	rSlice := SlicePlusForResourceName(name, len, cap)
+	rSlicePtr := reflect.New(reflect.TypeOf(rSlice))
+	rSlicePtr.Elem().Set(reflect.ValueOf(rSlice))
+	return rSlicePtr.Interface()
+}
+
+func StructPlusForResourceName(name string) interface{} {
+	switch name {
+	<Resources:{r |	case "<r>":
+	return <r>Plus<\u007B><\u007D>
+	}>
+	default:
+		return nil
+	}
+}
+
 func PluralizeLowerResourceName(name string) string {
 	switch name {
 	<Resources:{r |	case "<r>":

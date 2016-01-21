@@ -101,13 +101,9 @@ func (q *Query) Options() *QueryOptions {
 			continue
 		}
 
-		if len(values) != 1 {
-			panic(createInvalidSearchError("MSG_PARAM_NO_REPEAT", fmt.Sprintf("Parameter \"%s\" is not allowed to repeat", param)))
-		}
-		value := values[0]
-
 		switch param {
 		case CountParam:
+			value := getSingletonParamValue(param, values)
 			count, err := strconv.Atoi(value)
 			if err != nil {
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_count\" content is invalid"))
@@ -116,6 +112,7 @@ func (q *Query) Options() *QueryOptions {
 				options.Count = count
 			}
 		case OffsetParam:
+			value := getSingletonParamValue(param, values)
 			offset, err := strconv.Atoi(value)
 			if err != nil {
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_offset\" content is invalid"))
@@ -123,11 +120,30 @@ func (q *Query) Options() *QueryOptions {
 			if offset >= 0 {
 				options.Offset = offset
 			}
+		case IncludeParam:
+			for _, value := range values {
+				incls := strings.Split(value, ":")
+				if len(incls) != 2 {
+					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
+				}
+				inclParam, ok := SearchParameterDictionary[incls[0]][incls[1]]
+				if !ok {
+					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
+				}
+				options.Include = append(options.Include, IncludeOption{Resource: incls[0], Parameter: inclParam})
+			}
 		default:
 			panic(createUnsupportedSearchError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", param)))
 		}
 	}
 	return options
+}
+
+func getSingletonParamValue(param string, values []string) string {
+	if len(values) != 1 {
+		panic(createInvalidSearchError("MSG_PARAM_NO_REPEAT", fmt.Sprintf("Parameter \"%s\" is not allowed to repeat", param)))
+	}
+	return values[0]
 }
 
 // NormalizedQueryValues reconstructs the URL-encoded query based on parsed
@@ -145,7 +161,9 @@ func (q *Query) NormalizedQueryValues(withOptions bool) url.Values {
 	if withOptions {
 		oValues := q.Options().QueryValues()
 		for k, v := range oValues {
-			values.Set(k, v[0])
+			for _, v2 := range v {
+				values.Add(k, v2)
+			}
 		}
 	}
 
@@ -154,12 +172,14 @@ func (q *Query) NormalizedQueryValues(withOptions bool) url.Values {
 
 // QueryOptions contains option values such as count and offset.
 type QueryOptions struct {
-	Count  int
-	Offset int
+	Count   int
+	Offset  int
+	Include []IncludeOption
 }
 
+// NewQueryOptions constructs a new QueryOptions with default values (offset = 0, Count = 100)
 func NewQueryOptions() *QueryOptions {
-	return &QueryOptions{Offset: 0, Count: 100}
+	return &QueryOptions{Offset: 0, Count: 100, Include: make([]IncludeOption, 0)}
 }
 
 // QueryValues returns values representing the query options.
@@ -167,8 +187,16 @@ func (o *QueryOptions) QueryValues() url.Values {
 	values := url.Values{}
 	values.Set(CountParam, strconv.Itoa(o.Count))
 	values.Set(OffsetParam, strconv.Itoa(o.Offset))
-
+	for _, incl := range o.Include {
+		values.Add(IncludeParam, fmt.Sprintf("%s:%s", incl.Resource, incl.Parameter.Name))
+	}
 	return values
+}
+
+// IncludeOption describes the data that should be included in query results
+type IncludeOption struct {
+	Resource  string
+	Parameter SearchParamInfo
 }
 
 // SearchParam is an interface for all search parameter classes that exposes

@@ -22,6 +22,10 @@ type ResourceController struct {
 	Name string
 }
 
+type ResourcePlusIncludes interface {
+	GetIncludedResources() map[string]interface{}
+}
+
 func (rc *ResourceController) IndexHandler(c *echo.Context) error {
 	defer func() error {
 		if r := recover(); r != nil {
@@ -43,33 +47,51 @@ func (rc *ResourceController) IndexHandler(c *echo.Context) error {
 		return nil
 	}()
 
-	result := models.NewSliceForResourceName(rc.Name, 0, 0)
-
 	// Create and execute the Mongo query based on the http query params
 	searcher := search.NewMongoSearcher(Database)
 	searchQuery := search.Query{Resource: rc.Name, Query: c.Request().URL.RawQuery}
-	mgoQuery := searcher.CreateQuery(searchQuery)
 
-	// Horrible, horrible hack (for now) to ensure patients are sorted by name.  This is needed by
-	// the frontend, else paging won't work correctly.  This should be removed when the general
-	// sorting feature is implemented.
-	if rc.Name == "Patient" {
-		// To add insult to injury, mongo will not let us sort by family *and* given name:
-		// Executor error: BadValue cannot sort with keys that are parallel arrays
-		mgoQuery = mgoQuery.Sort("name.0.family.0" /*", name.0.given.0"*/, "_id")
+	var result interface{}
+	var err error
+	usesIncludes := len(searchQuery.Options().Include) > 0
+	// Only use (slower) pipeline if it is needed
+	if usesIncludes {
+		result = models.NewSlicePlusForResourceName(rc.Name, 0, 0)
+		err = searcher.CreatePipeline(searchQuery).All(result)
+	} else {
+		result = models.NewSliceForResourceName(rc.Name, 0, 0)
+		err = searcher.CreateQuery(searchQuery).All(result)
 	}
-
-	err := mgoQuery.All(result)
 	if err != nil {
 		return err
 	}
 
+	includesMap := make(map[string]interface{})
 	var entryList []models.BundleEntryComponent
 	resultVal := reflect.ValueOf(result).Elem()
 	for i := 0; i < resultVal.Len(); i++ {
 		var entry models.BundleEntryComponent
 		entry.Resource = resultVal.Index(i).Addr().Interface()
+		entry.Search = &models.BundleEntrySearchComponent{Mode: "match"}
 		entryList = append(entryList, entry)
+
+		if usesIncludes {
+			rpi, ok := entry.Resource.(ResourcePlusIncludes)
+			if ok {
+				for k, v := range rpi.GetIncludedResources() {
+					includesMap[k] = v
+				}
+			}
+		}
+	}
+
+	if usesIncludes {
+		for _, v := range includesMap {
+			var entry models.BundleEntryComponent
+			entry.Resource = v
+			entry.Search = &models.BundleEntrySearchComponent{Mode: "include"}
+			entryList = append(entryList, entry)
+		}
 	}
 
 	var bundle models.Bundle
@@ -109,51 +131,55 @@ func generatePagingLinks(r *http.Request, query search.Query, total uint32) []mo
 	links := make([]models.BundleLinkComponent, 0, 5)
 	values := query.NormalizedQueryValues(false)
 	options := query.Options()
-	count := uint32(options.Count)
-	offset := uint32(options.Offset)
 
 	// First create the base URL for paging
 	baseURL := responseURL(r, query.Resource)
 
 	// Self link
-	links = append(links, newLink("self", baseURL, values, count, offset))
+	links = append(links, newLink("self", baseURL, values, *options))
 
 	// First link
-	links = append(links, newLink("first", baseURL, values, count, uint32(0)))
+	firstOptions := *options
+	firstOptions.Offset = 0
+	links = append(links, newLink("first", baseURL, values, firstOptions))
 
 	// Previous link
-	if offset > uint32(0) {
-		newOffset := offset - count
+	if options.Offset > 0 {
+		previousOptions := *options
+		previousOptions.Offset = options.Offset - options.Count
 		// Handle case where paging is uneven (e.g., count=10&offset=5)
-		if count > offset {
-			newOffset = uint32(0)
+		if previousOptions.Count > previousOptions.Offset {
+			previousOptions.Offset = 0
 		}
-		links = append(links, newLink("previous", baseURL, values, offset-newOffset, newOffset))
+		previousOptions.Count = options.Offset - previousOptions.Offset
+		links = append(links, newLink("previous", baseURL, values, previousOptions))
 	}
 
 	// Next Link
-	if total > (offset + count) {
-		links = append(links, newLink("next", baseURL, values, count, offset+count))
+	if total > uint32(options.Offset+options.Count) {
+		nextOptions := *options
+		nextOptions.Offset = options.Offset + options.Count
+		links = append(links, newLink("next", baseURL, values, nextOptions))
 	}
 
 	// Last Link
-	remainder := (total - offset) % count
-	if total < offset {
-		remainder = uint32(0)
+	lastOptions := *options
+	remainder := (int(total) - options.Offset) % options.Count
+	if int(total) < options.Offset {
+		remainder = 0
 	}
-	newOffset := total - remainder
-	if remainder == uint32(0) && total > count {
-		newOffset = total - count
+	newOffset := int(total) - remainder
+	if remainder == 0 && int(total) > options.Count {
+		newOffset = int(total) - options.Count
 	}
-	links = append(links, newLink("last", baseURL, values, count, newOffset))
+	lastOptions.Offset = newOffset
+	links = append(links, newLink("last", baseURL, values, lastOptions))
 
 	return links
 }
 
-func newLink(relation string, baseURL *url.URL, values url.Values, count uint32, offset uint32) models.BundleLinkComponent {
-	values.Set(search.CountParam, fmt.Sprint(count))
-	values.Set(search.OffsetParam, fmt.Sprint(offset))
-	baseURL.RawQuery = values.Encode()
+func newLink(relation string, baseURL *url.URL, values url.Values, options search.QueryOptions) models.BundleLinkComponent {
+	baseURL.RawQuery = options.QueryValues().Encode()
 	return models.BundleLinkComponent{Relation: relation, Url: baseURL.String()}
 }
 

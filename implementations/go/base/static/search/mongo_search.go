@@ -28,6 +28,9 @@ func NewMongoSearcher(db *mgo.Database) *MongoSearcher {
 // also use default options when none are passed in (e.g., count = 100).
 // The caller is responsible for executing the returned query (allowing
 // additional flexibility in how results are returned).
+//
+// CreateQuery CANNOT be used when the _include and _revinclude options
+// are used (since CreateQuery can't support joins).
 func (m *MongoSearcher) CreateQuery(query Query) *mgo.Query {
 	return m.createQuery(query, true)
 }
@@ -45,6 +48,16 @@ func (m *MongoSearcher) createQuery(query Query, withOptions bool) *mgo.Query {
 	c := m.db.C(models.PluralizeLowerResourceName(query.Resource))
 	q := m.createQueryObject(query)
 	mgoQuery := c.Find(q)
+
+	// Horrible, horrible hack (for now) to ensure patients are sorted by name.  This is needed by
+	// the frontend, else paging won't work correctly.  This should be removed when the general
+	// sorting feature is implemented.
+	if query.Resource == "Patient" {
+		// To add insult to injury, mongo will not let us sort by family *and* given name:
+		// Executor error: BadValue cannot sort with keys that are parallel arrays
+		mgoQuery = mgoQuery.Sort("name.0.family.0" /*", name.0.given.0"*/, "_id")
+	}
+
 	if withOptions {
 		o := query.Options()
 		if o.Offset > 0 {
@@ -53,6 +66,71 @@ func (m *MongoSearcher) createQuery(query Query, withOptions bool) *mgo.Query {
 		mgoQuery = mgoQuery.Limit(o.Count)
 	}
 	return mgoQuery
+}
+
+// CreatePipeline takes a FHIR-based Query and returns a pointer to the
+// corresponding mgo.Pipe.  The returned mgo.Pipe will obey any options
+// passed in through the query string (such as _count and _offset) and will
+// also use default options when none are passed in (e.g., count = 100).
+// The caller is responsible for executing the returned pipe (allowing
+// additional flexibility in how results are returned).
+//
+// CreatePipeline must be used when the _include and _revinclude options
+// are used (since CreateQuery can't support joins).
+func (m *MongoSearcher) CreatePipeline(query Query) *mgo.Pipe {
+	c := m.db.C(models.PluralizeLowerResourceName(query.Resource))
+	p := []bson.M{{"$match": m.createQueryObject(query)}}
+
+	// Horrible, horrible hack (for now) to ensure patients are sorted by name.  This is needed by
+	// the frontend, else paging won't work correctly.  This should be removed when the general
+	// sorting feature is implemented.
+	if query.Resource == "Patient" {
+		// To add insult to injury, mongo will not let us sort by family *and* given name:
+		// Executor error: BadValue cannot sort with keys that are parallel arrays
+		p = append(p, bson.M{"$sort": bson.M{"name.0.family.0": 1, "_id": 1}})
+	}
+
+	o := query.Options()
+	// support for _offset
+	if o.Offset > 0 {
+		p = append(p, bson.M{"$skip": o.Offset})
+	}
+	// support for _count
+	p = append(p, bson.M{"$limit": o.Count})
+
+	// support for _include
+	if len(o.Include) > 0 {
+		for _, incl := range o.Include {
+			for _, inclPath := range incl.Parameter.Paths {
+				if inclPath.Type != "Reference" {
+					continue
+				}
+				// Mongo paths shouldn't have the array indicators, so remove them
+				localField := strings.Replace(inclPath.Path, "[]", "", -1) + ".referenceid"
+				for _, inclTarget := range incl.Parameter.Targets {
+					if inclTarget == "Any" {
+						continue
+					}
+					from := models.PluralizeLowerResourceName(inclTarget)
+					as := "_included" + strings.Title(incl.Parameter.Name)
+					// If there are multiple targets, we need to store each type separately
+					if len(incl.Parameter.Targets) > 1 {
+						as += inclTarget
+					}
+					as += "Resources"
+
+					p = append(p, bson.M{"$lookup": bson.M{
+						"from":         from,
+						"localField":   localField,
+						"foreignField": "_id",
+						"as":           as,
+					}})
+				}
+			}
+		}
+	}
+
+	return c.Pipe(p)
 }
 
 func (m *MongoSearcher) createQueryObject(query Query) bson.M {
