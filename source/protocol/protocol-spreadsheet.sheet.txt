@@ -1,0 +1,540 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ProtocolStatus
+  Binding = code list
+  Reference = #protocol-status
+  Definition = The lifecycle status of a Protocol
+
+ -- Row 2 -----------------------------------
+  Binding Name = ProtocolType
+  Binding = code list
+  Reference = #protocol-type
+  Definition = High-level categorization of the protocol
+
+ -- Row 3 -----------------------------------
+  Binding Name = ConditionType
+  Binding = unbound
+  Definition = Type of observation used as basis for conditional execution of one or more activities
+
+ -- Row 4 -----------------------------------
+  Binding Name = !ConditionValue
+  Binding = unbound
+  Definition = Value of observation used as basis for conditional execution of one or more activities
+
+ -- Row 5 -----------------------------------
+  Binding Name = ActivityDefinitionCategory
+  Binding = code list
+  Reference = #activity-definition-category
+  Definition = High-level categorization of the type of activity in a protocol.
+
+ -- Row 6 -----------------------------------
+  Binding Name = ActivityDefinitionType
+  Binding = unbound
+  Definition = Detailed type of planned activity; e.g. CBC
+
+ -- Row 7 -----------------------------------
+  Binding Name = ActivityTiming
+  Binding = unbound
+  Definition = Code describing the timing of an activity; e.g. BID, QD
+
+=== Sheet protocol-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = draft
+  Display = Draft
+  Definition = This protocol is still under development
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = testing
+  Display = Testing
+  Definition = This protocol was authored for testing purposes (or education/evaluation/marketing)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = review
+  Display = Review
+  Definition = This protocol is undergoing review to check that it is ready for production use
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = active
+  Display = Active
+  Definition = This protocol is ready for use in production systems
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = withdrawn
+  Display = Withdrawn
+  Definition = This protocol has been withdrawn and should no longer be used
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = superseded
+  Display = Superseded
+  Definition = This protocol has been replaced and a different protocol should be used in its place
+
+=== Sheet protocol-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = condition
+  Display = Condition
+  Definition = The protocol describes the steps to manage a particular health condition including monitoring, treatment, mitigation and/or follow-up
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = device
+  Display = Device
+  Definition = The protocol describes the appropriate use of a particular device (medical device, software, etc.)
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = drug
+  Display = Drug
+  Definition = The protocol describes the appropriate use of a particular medication including indications for use, dosages, treatment cycles, etc.
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = study
+  Display = Study
+  Definition = The protocol describes the set of steps to occur for study subjects enrolled in an interventional study
+
+=== Sheet activity-definition-category =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = diet
+  Definition = To consume food of a specified nature
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = drug
+  Definition = To consume/receive a drug, vaccine or other product
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = encounter
+  Definition = To meet or communicate with the patient (in-patient, out-patient, phone call, etc.)
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = observation
+  Definition = To capture information about a patient (vitals, labs, diagnostic images, etc.)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = procedure
+  Definition = To modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = supply
+  Definition = To provide something to the patient (medication, medical supply, etc.)
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = other
+  Definition = Some other form of action
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = Protocol.step.precondition
+  English = Only one of condition, intersection, union or exclude may be present
+  XPath = (count(f:condition) + count(f:intersection[1]) + count(f:union[1]) + count(f:exclude[1])) <= 1
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Protocol
+  Type = DomainResource
+  Short Label = Contextual set of behaviors
+  Definition = A definition of behaviors to be taken in particular circumstances, often including conditions, options and other decision points
+  w5 = clinical.careprovision
+
+ -- Row 2 -----------------------------------
+  Element = Protocol.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Unique Id for this particular protocol
+  Definition = A unique identifier for the protocol instance.
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = Protocol.title
+  Card. = 0..1
+  Type = string
+  Short Label = Name of protocol
+  w5 = id
+
+ -- Row 4 -----------------------------------
+  Element = Protocol.status
+  Card. = 1..1
+  Is Modifier = Y
+  Type = code
+  Binding = ProtocolStatus
+  Short Label = draft | testing | review | active | withdrawn | superseded
+  Definition = The status of the protocol.
+  Requirements = Allow for filtering of Protocols that are appropriate for use in production.
+  Committee Notes = Do we need status date?
+  w5 = status
+
+ -- Row 5 -----------------------------------
+  Element = Protocol.type
+  Card. = 1..1
+  Is Modifier = Y
+  Type = code
+  Binding = ProtocolType
+  Short Label = condition | device | drug | study
+  Definition = A code that classifies the general type of context to which these behavior definitions apply.  This is used for searching, sorting and display purposes.
+  w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = Protocol.subject
+  Card. = 0..1
+  Is Modifier = Y
+  Type = Reference(Condition|Device|Medication)
+  Short Label = What does protocol deal with?
+  w5 = what
+
+ -- Row 7 -----------------------------------
+  Element = Protocol.group
+  Card. = 0..1
+  Is Modifier = Y
+  Type = Reference(Group)
+  Short Label = To whom does Protocol apply?
+  w5 = who.focus
+
+ -- Row 8 -----------------------------------
+  Element = Protocol.purpose
+  Card. = 1..1
+  Type = string
+  Short Label = When is protocol to be used?
+  w5 = context
+
+ -- Row 9 -----------------------------------
+  Element = Protocol.author
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Who wrote protocol?
+  w5 = who.author
+
+ -- Row 10 -----------------------------------
+  Element = Protocol.step
+  Card. = 0..*
+  Aliases = item
+  Short Label = What\'s done as part of protocol
+
+ -- Row 11 -----------------------------------
+  Element = Protocol.step.name
+  Card. = 0..1
+  Type = string
+  Short Label = Label for step
+
+ -- Row 12 -----------------------------------
+  Element = Protocol.step.description
+  Card. = 0..1
+  Type = string
+  Short Label = Human description of activity
+
+ -- Row 13 -----------------------------------
+  Element = Protocol.step.duration
+  Card. = 0..1
+  Type = Duration
+  Short Label = How long does step last?
+
+ -- Row 14 -----------------------------------
+  Element = Protocol.step.precondition
+  Card. = 0..1
+  Is Modifier = Y
+  Short Label = Rules prior to execution
+
+ -- Row 15 -----------------------------------
+  Element = Protocol.step.precondition.description
+  Card. = 0..1
+  Type = string
+  Short Label = Description of condition
+  Definition = Human-readable description of the condition
+
+ -- Row 16 -----------------------------------
+  Element = Protocol.step.precondition.condition
+  Card. = 0..1
+  UML = left
+  Inv. = 1
+  Short Label = Condition evaluated
+  Definition = Defines the name/value pair that must hold for the condition to be met.
+  Committee Notes = 10/7/2015 EH: where is the name, only have type = category?
+
+ -- Row 17 -----------------------------------
+  Element = Protocol.step.precondition.condition.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = ConditionType
+  Short Label = Observation / test / assertion
+  Definition = The type of observation, test or other assertion being evaluated by the condition.
+
+ -- Row 18 -----------------------------------
+  Element = Protocol.step.precondition.condition.value[x]
+  Card. = 1..1
+  Type = CodeableConcept | boolean | SimpleQuantity | Range
+  Short Label = Value needed to satisfy condition
+  Definition = Indicates what value the observation/test/assertion must have in order for the condition to be considered to be satisfied.
+  Comments = If the value is an interval, the condition matches if the value falls within the interval.   The binding of .condition.valueCodeableConcept is unbound and is a coded value of an  observation used as basis for conditional execution of one or more activities
+
+ -- Row 19 -----------------------------------
+  Element = Protocol.step.precondition.intersection
+  Card. = 0..*
+  Inv. = 1
+  Type = @Protocol.step.precondition
+  Short Label = And conditions
+  Definition = Lists a set of conditions that must all be met
+
+ -- Row 20 -----------------------------------
+  Element = Protocol.step.precondition.union
+  Card. = 0..*
+  Inv. = 1
+  Type = @Protocol.step.precondition
+  Short Label = Or conditions
+  Definition = Lists alternative conditions, at least one of must be met
+
+ -- Row 21 -----------------------------------
+  Element = Protocol.step.precondition.exclude
+  Card. = 0..*
+  Inv. = 1
+  Type = @Protocol.step.precondition
+  Short Label = Not conditions
+  Definition = Lists conditions of which none must be met
+
+ -- Row 22 -----------------------------------
+  Element = Protocol.step.exit
+  Card. = 0..1
+  Is Modifier = Y
+  Type = @Protocol.step.precondition
+  Short Label = Rules prior to completion
+  Definition = Indicates the conditions that must be met for activities that are part of this time point to terminate.
+  Comments = If not specified, activities end based on occurrence and duration information specified in the activity.  Conditions specified here may be used to allow exception handling as well as to ensure certain conditions are met while activities are proceeding.
+
+ -- Row 23 -----------------------------------
+  Element = Protocol.step.firstActivity
+  Card. = 0..1
+  Is Modifier = Y
+  Type = uri
+  Short Label = First activity within timepoint
+  Comments = Multiple activities are assumed to start in parallel
+
+ -- Row 24 -----------------------------------
+  Element = Protocol.step.activity
+  Card. = 0..*
+  Is Modifier = Y
+  UML = down
+  Short Label = Activities that occur within timepoint
+  Comments = We send them as a collection because a single activity may be referenced multiple times; e.g. Activity C may be a follow-on activity to both A and B which happen in parallel.
+
+ -- Row 25 -----------------------------------
+  Element = Protocol.step.activity.alternative
+  Card. = 0..*
+  Is Modifier = Y
+  Type = uri
+  Short Label = What can be done instead?
+
+ -- Row 26 -----------------------------------
+  Element = Protocol.step.activity.component
+  Card. = 0..*
+  UML = up
+  Short Label = Activities that are part of this activity
+
+ -- Row 27 -----------------------------------
+  Element = Protocol.step.activity.component.sequence
+  Card. = 0..1
+  Is Modifier = Y
+  Type = integer
+  Short Label = Order of occurrence
+  Comments = Equivalent values happen in parallel
+
+ -- Row 28 -----------------------------------
+  Element = Protocol.step.activity.component.activity
+  Card. = 1..1
+  Type = uri
+  Short Label = Component activity
+
+ -- Row 29 -----------------------------------
+  Element = Protocol.step.activity.following
+  Card. = 0..*
+  Is Modifier = Y
+  Type = uri
+  Short Label = What happens next
+  Comments = Multiple activities are assumed to start in parallel
+
+ -- Row 30 -----------------------------------
+  Element = Protocol.step.activity.wait
+  Card. = 0..1
+  Is Modifier = Y
+  Type = Duration
+  Short Label = Pause before start
+  Definition = Indicates the length of time to wait between the conditions being satisfied for the activity to start and the actual start of the activity.
+
+ -- Row 31 -----------------------------------
+  Element = Protocol.step.activity.detail
+  Card. = 1..1
+  Is Modifier = Y
+  Short Label = Details of activity
+  Definition = Information about the nature of the activity, including type, timing and other qualifiers
+  To Do = 10/7/2015 EH: there is an \'activityDefinition Datatype that I converted to inline until I understand where else it would be used.  Careplan activity details are different.
+  Committee Notes = Should this be an HL7-defined code?  Do we need more (e.g. accommodation)
+
+ -- Row 32 -----------------------------------
+  Element = Protocol.step.activity.detail.category
+  Card. = 0..1
+  Type = code
+  Binding = ActivityDefinitionCategory
+  Short Label = diet | drug | encounter | observation +
+  Definition = High-level categorization of the type of activity.
+  Requirements = May determine what types of extensions are permitted
+  RIM Mapping = .classCode
+  Committee Notes = Should this be an HL7-defined code?  Do we need more (e.g. accomodation)
+
+ -- Row 33 -----------------------------------
+  Element = Protocol.step.activity.detail.code
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = ActivityDefinitionType
+  Short Label = Detail type of activity
+  Definition = Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.
+  Requirements = Allows matching performed to planned as well as validation against protocols
+  Comments = Tends to be less relevant for activities involving particular products.
+  RIM Mapping = .code
+
+ -- Row 34 -----------------------------------
+  Element = Protocol.step.activity.detail.timing[x]
+  Card. = 0..1
+  Type = CodeableConcept | Timing
+  Binding = ActivityTiming
+  Short Label = When activity is to occur
+  Definition = The period, timing or frequency upon which the described activity is to occur.
+  Requirements = Allows prompting for activities and detection of missed planned activities.
+  RIM Mapping = .effectiveTime
+  To Do = Add constraint prohibiting event (once it won\'t raise an error on the name timingSchedule)
+
+ -- Row 35 -----------------------------------
+  Element = Protocol.step.activity.detail.location
+  Card. = 0..1
+  Aliases = facility
+  Type = Reference(Location)
+  Short Label = Where it should happen
+  Definition = Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.
+  Requirements = Helps in planning of activity
+  Comments = May reference a specific clinical location or may just identify a type of location.
+
+ -- Row 36 -----------------------------------
+  Element = Protocol.step.activity.detail.performer
+  Card. = 0..*
+  Type = Reference(Practitioner|Organization|RelatedPerson|Patient)
+  Short Label = Who\'s responsible?
+  Definition = Identifies who\'s expected to be involved in the activity.
+  Requirements = Helps in planning of activity
+
+ -- Row 37 -----------------------------------
+  Element = Protocol.step.activity.detail.product
+  Card. = 0..1
+  Type = Reference(Medication|Substance)
+  Short Label = What\'s administered/supplied
+  Definition = Identifies the food, drug or other product being consumed or supplied in the activity.
+
+ -- Row 38 -----------------------------------
+  Element = Protocol.step.activity.detail.quantity
+  Card. = 0..1
+  Aliases = dose
+  Type = SimpleQuantity
+  Short Label = How much is administered/consumed/supplied
+  Definition = Identifies the quantity expected to be consumed at once (per dose, per meal, etc.)
+
+ -- Row 39 -----------------------------------
+  Element = Protocol.step.activity.detail.description
+  Card. = 0..1
+  Type = string
+  Short Label = Extra info on activity occurrence
+  Definition = This provides a textual description of constraints on the activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.
+
+ -- Row 40 -----------------------------------
+  Element = Protocol.step.next
+  Card. = 0..*
+  Short Label = What happens next?
+
+ -- Row 41 -----------------------------------
+  Element = Protocol.step.next.description
+  Card. = 0..1
+  Type = string
+  Short Label = Description of what happens next
+
+ -- Row 42 -----------------------------------
+  Element = Protocol.step.next.reference
+  Card. = 0..1
+  Type = uri
+  Short Label = Id of following step
+
+ -- Row 43 -----------------------------------
+  Element = Protocol.step.next.condition
+  Card. = 0..1
+  Type = @Protocol.step.precondition
+  Short Label = Condition in which next step is executed
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = Protocols with specified subject
+  Path = Protocol.subject
+
+ -- Row 2 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The unique id for a particular protocol
+  Path = Protocol.identifier
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !Study Protocol
+  Filename = protocol-study-profile-spreadsheet.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General
+  Identity = example
+  Description = General Protocol Example
+  Filename = protocol-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = !CDISC1
+  Identity = ad-4833pnfp-341
+  Description = CDISC example1
+  Filename = protocol-cdisc-example1.xml
+
+ -- Row 3 -----------------------------------
+  Name = !CDISC2
+  Identity = 048
+  Description = CDISC example2
+  Filename = protocol-cdisc-example2.xml
+
+ -- Row 4 -----------------------------------
+  Name = !CDISC3
+  Identity = efc10262
+  Description = CDISC example3
+  Filename = protocol-cdisc-example3.xml
+
+ -- Row 5 -----------------------------------
+  Name = !Study
+  Identity = study
+  Description = Study protocol example
+  Filename = protocol-study-profile-example.xml
+  Profile = Study Protocol
+
+=== Sheet Examples =====================================
