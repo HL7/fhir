@@ -50,6 +50,7 @@
     </Practitioner>
   </contained>
   <contained>
+  
     <Observation>
       <id value="obs.pt-category"/>
       <status value="final"/>
