@@ -2,7 +2,7 @@
 <Protocol xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://Mac/Home/Documents/FHIRBuild/schema/protocol.xsd">
 	<id value="example"/>
 	<text>
-		<!--The status of the protocol.draft | testing | review | active | withdrawn | superseded-->
+		
 		<status value="generated"/>
 		<div xmlns="http://www.w3.org/1999/xhtml">
 			<p>id: example, </p>
@@ -20,6 +20,7 @@
 		<value value="example-1"/>
 	</identifier>
 	<title value="Obesity Assessment Protocol"/>
+<!--The status of the protocol.draft | testing | review | active | withdrawn | superseded-->	
 	<status value="draft"/>
 	<!--A code that classifies the general type of context to which these behavior definitions apply. This is used for searching, sorting and display purposes.-->
 	<type value="condition"/>
