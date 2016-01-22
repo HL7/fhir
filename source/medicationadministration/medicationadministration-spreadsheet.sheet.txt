@@ -242,8 +242,8 @@
 
  -- Row 14 -----------------------------------
   Element = MedicationAdministration.note
-  Card. = 0..1
-  Type = string
+  Card. = 0..*
+  Type = Annotation
   Short Label = Information about the administration
   Definition = Extra information about the medication administration that is not conveyed by the other attributes.
 

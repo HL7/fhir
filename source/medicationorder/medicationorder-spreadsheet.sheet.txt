@@ -146,7 +146,6 @@
   Definition = The date (and perhaps time) when the prescription was written
   v2 Mapping = RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction
   RIM Mapping = author.time
-  To Do = Consider changing to \"date\"
   w5 = when.recorded
 
  -- Row 4 -----------------------------------
@@ -220,8 +219,8 @@
 
  -- Row 11 -----------------------------------
   Element = MedicationOrder.note
-  Card. = 0..1
-  Type = string
+  Card. = 0..*
+  Type = Annotation
   Short Label = Information about the prescription
   Definition = Extra information about the prescription that could not be conveyed by the other attributes.
 
@@ -372,7 +371,6 @@
   Requirements = Indicates when the Prescription becomes valid, and when it ceases to be a dispensable Prescription.
   Comments = It reflects the prescriber perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations.
   RIM Mapping = effectiveTime
-  To Do = Check v2 mapping
 
  -- Row 27 -----------------------------------
   Element = MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
@@ -383,7 +381,6 @@
   Comments = If displaying \"number of authorized refills\", subtract 1 from this number.
   v2 Mapping = RXE-12-Number of Refills
   RIM Mapping = repeatNumber
-  To Do = Can this name be shortened?
 
  -- Row 28 -----------------------------------
   Element = MedicationOrder.dispenseRequest.quantity
