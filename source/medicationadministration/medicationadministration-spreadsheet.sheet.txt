@@ -254,7 +254,6 @@
   Short Label = Details of how medication was taken
   Definition = Describes the medication dosage information details e.g. dose, rate, site, route, etc.
   RIM Mapping = component->SubstanceAdministrationEvent
-  To Do = The RMIM has priority code on the act relationship.  How do we handle this?
 
  -- Row 16 -----------------------------------
   Element = MedicationAdministration.dosage.text
