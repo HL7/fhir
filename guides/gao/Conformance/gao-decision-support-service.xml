@@ -6,8 +6,8 @@
   <name value="GAO Decision Support Service"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <publisher value="HL7"/>
   <date value="2015-11-19"/>
+  <publisher value="HL7"/>
   <description value="The Decision Support Service actor implements the $evaluate operation to determine 
     whether that an order is appropriate according to clinical guidelines."/>
   <requirements value="A Decision Support actor must implement the requirements expressed in this conformance resource."/>

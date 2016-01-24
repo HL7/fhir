@@ -118,6 +118,30 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = List.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ListStatus
+  Short Label = current | retired | entered-in-error
+  Definition = Indicates the current state of this list
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = List.mode
+  Card. = 1..1
+  Is Modifier = y
+  Summary = Y
+  Type = code
+  Binding = ListMode
+  Short Label = working | snapshot | changes
+  Definition = How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted
+  Requirements = Lists are used in various ways, and it must be known in what way it is safe to use them
+  RIM Mapping = .outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value
+  w5 = class
+
+ -- Row 5 -----------------------------------
   Element = List.title
   Card. = 0..1
   Summary = Y
@@ -127,7 +151,7 @@
   Requirements = Allows customization beyond just the code identifying the kind of list
   Example = Dr. Jane\'s Patients
 
- -- Row 4 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = List.code
   Card. = 0..1
   Summary = Y
@@ -140,7 +164,7 @@
   RIM Mapping = .code
   w5 = what
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = List.subject
   Card. = 0..1
   Summary = Y
@@ -152,20 +176,7 @@
   RIM Mapping = .participation[typeCode<SUB].role (and sometimes .player)
   w5 = who.focus
 
- -- Row 6 -----------------------------------
-  Element = List.source
-  Card. = 0..1
-  Aliases = Author
-  Summary = Y
-  Type = Reference(Practitioner|Patient|Device)
-  Short Label = Who and/or what defined the list contents (aka Author)
-  Definition = The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list
-  Requirements = Allows follow-up as well as context
-  Comments = The primary source is the entity that made the decisions what items are in the list. This may be software or user
-  RIM Mapping = .participation[typeCode<AUT].role[classCode=REL].player[classCode=PSN,determinerCode=INST] or .participation[typeCode<AUT].role[classCode=REL].player[classCode=DEV,determinerCode=INST]
-  w5 = who.author
-
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = List.encounter
   Card. = 0..1
   Type = Reference(Encounter)
@@ -173,17 +184,6 @@
   Definition = The encounter that is the context in which this list was created
   RIM Mapping = inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
   w5 = context
-
- -- Row 8 -----------------------------------
-  Element = List.status
-  Card. = 1..1
-  Is Modifier = Y
-  Summary = Y
-  Type = code
-  Binding = ListStatus
-  Short Label = current | retired | entered-in-error
-  Definition = Indicates the current state of this list
-  w5 = status
 
  -- Row 9 -----------------------------------
   Element = List.date
@@ -198,6 +198,19 @@
   w5 = when.recorded
 
  -- Row 10 -----------------------------------
+  Element = List.source
+  Card. = 0..1
+  Aliases = Author
+  Summary = Y
+  Type = Reference(Practitioner|Patient|Device)
+  Short Label = Who and/or what defined the list contents (aka Author)
+  Definition = The entity responsible for deciding what the contents of the list were. Where the list was created by a human, this is the same as the author of the list
+  Requirements = Allows follow-up as well as context
+  Comments = The primary source is the entity that made the decisions what items are in the list. This may be software or user
+  RIM Mapping = .participation[typeCode<AUT].role[classCode=REL].player[classCode=PSN,determinerCode=INST] or .participation[typeCode<AUT].role[classCode=REL].player[classCode=DEV,determinerCode=INST]
+  w5 = who.author
+
+ -- Row 11 -----------------------------------
   Element = List.orderedBy
   Card. = 0..1
   Type = CodeableConcept
@@ -208,23 +221,10 @@
   Comments = Applications SHOULD render ordered lists in the order provided, but MAY allow users to re-order based on their own preferences as well. If there is no order specified, the order is unknown, though there may still be some order
   RIM Mapping = .outboundRelationship[typeCode=COMP].sequenceNumber > 1
 
- -- Row 11 -----------------------------------
-  Element = List.mode
-  Card. = 1..1
-  Is Modifier = y
-  Summary = Y
-  Type = code
-  Binding = ListMode
-  Short Label = working | snapshot | changes
-  Definition = How this list was prepared - whether it is a working list that is suitable for being maintained on an ongoing basis, or if it represents a snapshot of a list of items from another source, or whether it is a prepared list where items may be marked as added, modified or deleted
-  Requirements = Lists are used in various ways, and it must be known in what way it is safe to use them
-  RIM Mapping = .outBoundRelationship[typeCode=COMP].target[classCode=OBS\"].value
-  w5 = class
-
  -- Row 12 -----------------------------------
   Element = List.note
-  Card. = 0..1
-  Type = string
+  Card. = 0..*
+  Type = Annotation
   Short Label = Comments about the list
   Definition = Comments that apply to the overall list
 
@@ -349,6 +349,11 @@
   Name = encounter
   Type = reference
   Path = List.encounter
+
+ -- Row 12 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = List.identifier
 
 === Sheet Profiles =====================================
 

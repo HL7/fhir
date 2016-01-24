@@ -90,6 +90,18 @@
   w5 = infrastructure.structure
 
  -- Row 2 -----------------------------------
+  Element = Media.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = Identifier(s) for the image
+  Definition = Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers
+  Comments = The identifier label and use can be used to determine what kind of identifier it is
+  RIM Mapping = .id
+  DICOM Mapping = 0008,0018 | ~0008,0050 | 0020,000D | 0020,000E
+  w5 = id
+
+ -- Row 3 -----------------------------------
   Element = Media.type
   Card. = 1..1
   Summary = y
@@ -100,7 +112,7 @@
   RIM Mapping = .code
   w5 = class
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = Media.subtype
   Card. = 0..1
   Summary = y
@@ -108,57 +120,11 @@
   Binding = DigitalMediaSubtype
   Short Label = The type of acquisition equipment/process
   Definition = Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality
-  DICOM Mapping = 0008,0060 | 0008,1032
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"LIST\", moodCode=\"EVN\"].code
+  DICOM Mapping = 0008,0060 | 0008,1032
   w5 = class
 
- -- Row 4 -----------------------------------
-  Element = Media.identifier
-  Card. = 0..*
-  Summary = y
-  Type = Identifier
-  Short Label = Identifier(s) for the image
-  Definition = Identifiers associated with the image - these may include identifiers for the image itself, identifiers for the context of its collection (e.g. series ids) and context ids such as accession numbers or other workflow identifiers
-  Comments = The identifier label and use can be used to determine what kind of identifier it is
-  DICOM Mapping = 0008,0018 | ~0008,0050 | 0020,000D | 0020,000E
-  RIM Mapping = .id
-  w5 = id
-
  -- Row 5 -----------------------------------
-  Element = Media.subject
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Patient|Practitioner|Group|Device|Specimen)
-  Short Label = Who/What this Media is a record of
-  Definition = Who/What this Media is a record of
-  DICOM Mapping = ~0010,0020
-  RIM Mapping = .participation[typeCode=\"SUBJ\"]???
-  w5 = who.focus
-
- -- Row 6 -----------------------------------
-  Element = !Media.requester
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Practitioner)
-  Short Label = Who asked that this image be collected
-  Definition = Who requested that this image be collected
-  Comments = Helps connect to workflow etc.
-  DICOM Mapping = 0008,0090
-  RIM Mapping = .participation[typeCode=\"REFB\"]???
-  w5 = who.init
-
- -- Row 7 -----------------------------------
-  Element = Media.operator
-  Card. = 0..1
-  Summary = y
-  Type = Reference(Practitioner)
-  Short Label = The person who generated the image
-  Definition = The person who administered the collection of the image
-  DICOM Mapping = 0008,1060?
-  RIM Mapping = .participation[typeCode=\"PERF\"]???
-  w5 = who.actor
-
- -- Row 8 -----------------------------------
   Element = Media.view
   Card. = 0..1
   Summary = y
@@ -169,6 +135,40 @@
   RIM Mapping = DiagnosticImage.subjectOrientationCode
   w5 = class
 
+ -- Row 6 -----------------------------------
+  Element = Media.subject
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Patient|Practitioner|Group|Device|Specimen)
+  Short Label = Who/What this Media is a record of
+  Definition = Who/What this Media is a record of
+  RIM Mapping = .participation[typeCode=\"SUBJ\"]???
+  DICOM Mapping = ~0010,0020
+  w5 = who.focus
+
+ -- Row 7 -----------------------------------
+  Element = !Media.requester
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Practitioner)
+  Short Label = Who asked that this image be collected
+  Definition = Who requested that this image be collected
+  Comments = Helps connect to workflow etc.
+  RIM Mapping = .participation[typeCode=\"REFB\"]???
+  DICOM Mapping = 0008,0090
+  w5 = who.init
+
+ -- Row 8 -----------------------------------
+  Element = Media.operator
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Practitioner)
+  Short Label = The person who generated the image
+  Definition = The person who administered the collection of the image
+  RIM Mapping = .participation[typeCode=\"PERF\"]???
+  DICOM Mapping = 0008,1060?
+  w5 = who.actor
+
  -- Row 9 -----------------------------------
   Element = Media.deviceName
   Card. = 0..1
@@ -176,8 +176,8 @@
   Type = string
   Short Label = Name of the device/manufacturer
   Definition = The name of the device / manufacturer of the device  that was used to make the recording
-  DICOM Mapping = 0008,0070
   RIM Mapping = .participation[typeCode=\"DEV\"].role.player.Entity[classCode=\"DEV\"].name
+  DICOM Mapping = 0008,0070
 
  -- Row 10 -----------------------------------
   Element = Media.height
@@ -187,8 +187,8 @@
   Type = positiveInt
   Short Label = Height of the image in pixels (photo/video)
   Definition = Height of the image in pixels (photo/video)
-  DICOM Mapping = 0028,0010
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
+  DICOM Mapping = 0028,0010
 
  -- Row 11 -----------------------------------
   Element = Media.width
@@ -198,8 +198,8 @@
   Type = positiveInt
   Short Label = Width of the image in pixels (photo/video)
   Definition = Width of the image in pixels (photo/video)
-  DICOM Mapping = 0028,0011
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
+  DICOM Mapping = 0028,0011
 
  -- Row 12 -----------------------------------
   Element = Media.frames
@@ -220,8 +220,8 @@
   Type = unsignedInt
   Short Label = Length in seconds (audio / video)
   Definition = The duration of the recording in seconds - for audio and video
-  DICOM Mapping = ~0028,0002
   RIM Mapping = .outboundRelationship[typeCode=\"COMP].target[classCode=\"OBS\", moodCode=\"EVN\",code=\"<CODE>\"].value
+  DICOM Mapping = ~0028,0002
 
  -- Row 14 -----------------------------------
   Element = Media.content

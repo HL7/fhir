@@ -1256,9 +1256,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     conf.setName("Base FHIR Conformance Statement " + (full ? "(Full)" : "(Empty)"));
     conf.setStatus(ConformanceResourceStatus.DRAFT);
     conf.setExperimental(true);
+    conf.setDate(page.getGenDate().getTime());
     conf.setPublisher("FHIR Project Team");
     conf.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
-    conf.setDate(page.getGenDate().getTime());
     conf.setKind(ConformanceStatementKind.CAPABILITY);
     conf.getSoftware().setName("Insert your softwware name here...");
     conf.setFhirVersion(page.getVersion());

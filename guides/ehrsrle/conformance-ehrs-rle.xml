@@ -264,6 +264,7 @@
   </text>
   <name value="Record Lifecycle-conformant Electronic Health Record System"/>
   <status value="draft"/>
+  <date value="2014-12-06"/>
   <publisher value="Health Level Seven, Int&#39;l - Electronic Health Record work group"/>
   <contact>
     <telecom>
@@ -271,7 +272,6 @@
       <value value="http://hl7.org/special/committees/ehr.htm"/>
     </telecom>
   </contact>
-  <date value="2014-12-06"/>
   <description value="This profile defines the expected capabilities of an &#39;&#39;Electronic Health Record System&#39;&#39; when conforming to the EHRS functional model&#39;s Record Lifecycle specification."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.0"/>

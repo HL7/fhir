@@ -6,8 +6,8 @@
   <name value="GAO Order Evaluation Requester"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <publisher value="HL7"/>
   <date value="2015-11-19"/>
+  <publisher value="HL7"/>
   <description value="The Order Evaluation Requester actor invokes the $evaluate operation to determine 
     whether an order is appropriate according to clinical guidelines."/>
   <requirements value="An Order Evaluation Requestor actor must implement the requirements expressed in this conformance resource."/>

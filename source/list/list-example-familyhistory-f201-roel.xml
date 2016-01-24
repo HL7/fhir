@@ -64,6 +64,8 @@
       </condition>
     </FamilyMemberHistory>
   </contained>
+  <status value="current"/>
+  <mode value="snapshot"/>
   <code>
     <coding>
       <system value="http://loinc.org"/>
@@ -75,9 +77,9 @@
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
-  <status value="current"/>
-  <mode value="snapshot"/>
-  <note value="Both parents, both brothers and both children (twin) are still alive."/>
+  <note>
+    <text value="Both parents, both brothers and both children (twin) are still alive."/>
+  </note>
   <!--Other relatives-->
   <entry>
     <item>

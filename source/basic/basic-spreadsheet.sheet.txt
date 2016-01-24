@@ -57,16 +57,6 @@
   w5 = who.focus
 
  -- Row 5 -----------------------------------
-  Element = Basic.author
-  Card. = 0..1
-  Type = Reference(Practitioner|Patient|RelatedPerson)
-  Short Label = Who created
-  Definition = Indicates who was responsible for creating the resource instance
-  Requirements = Needed for partitioning the resource
-  RIM Mapping = ./participation[typeCode=\'SUB\'] (possibly through a ControlAct and Role)
-  w5 = who.author
-
- -- Row 6 -----------------------------------
   Element = Basic.created
   Card. = 0..1
   Type = date
@@ -75,6 +65,16 @@
   Requirements = Allows ordering resource instances by time
   RIM Mapping = ./participation[typeCode=\'AUT\']/time (possibly through a ControlAct and Role)
   w5 = when.recorded
+
+ -- Row 6 -----------------------------------
+  Element = Basic.author
+  Card. = 0..1
+  Type = Reference(Practitioner|Patient|RelatedPerson)
+  Short Label = Who created
+  Definition = Indicates who was responsible for creating the resource instance
+  Requirements = Needed for partitioning the resource
+  RIM Mapping = ./participation[typeCode=\'SUB\'] (possibly through a ControlAct and Role)
+  w5 = who.author
 
 === Sheet Search =====================================
 

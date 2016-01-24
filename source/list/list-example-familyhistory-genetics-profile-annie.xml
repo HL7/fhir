@@ -1016,6 +1016,8 @@
       </ageQuantity>
     </FamilyMemberHistory>
   </contained>
+  <status value="current"/>
+  <mode value="snapshot"/>
   <code>
     <coding>
       <system value="http://loinc.org"/>
@@ -1028,8 +1030,6 @@
     <display value="Annie Proband, female, born 1966"/>
        <!--Age said 33, but diagram shows 42, so adjusted DOB -->
   </subject>
-  <status value="current"/>
-  <mode value="snapshot"/>
   <entry>
     <item>
       <reference value="#2"/>

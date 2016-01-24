@@ -67,15 +67,15 @@
 		</ul>
 		</div>
 	</text>
+  <status value="current"/>
+	<mode value="working"/>
 	<code>
 		<text value="List of Value Sets created for the USLabOrder and USLabResult Implementation"/>
 	</code>
+	<date value="2014-11-29"/>
 	<!--Published by:  HL7 Orders and Observations Workgroup"
 -Primary Author/Editor:  Eric M Haas, Health eData Inc"-->
 	<!-- This list contains all the USLabReport specific bindings-->
-  <status value="current"/>
-	<date value="2014-11-29"/>
-	<mode value="working"/>
 	<entry>
 		<deleted value="false"/>
 		<date value="2014-11-29"/>

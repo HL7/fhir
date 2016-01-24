@@ -329,6 +329,7 @@
   
   <name value="SDC Form Archiver"/>
   <status value="draft"/>
+  <date value="2015-09-03"/>
   <publisher value="U.S. Office of the National Coordinator (ONC)"/>
   <contact>
       <telecom>
@@ -336,7 +337,6 @@
          <value value="http://wiki.siframework.org/Structured+Data+Capture+Initiative"/>
       </telecom>
   </contact>
-  <date value="2015-09-03"/>
   <description value="This profile defines the expected capabilities of the ''SDC Form Archiver'' role when conforming to the S&amp;I Framework's [[sdc.html|Structured Data Capture FHIR implementation guide]].  This role is responsible for persisting (archiving) completed or partially completed forms ([[QuestionnaireResponse]] resource instances).  These instances may be submitted individually or in a bundle together with [[Provenance]] information providing details about the completion of the questionnaire response.  In some cases [[Binary]] or [[DocumentReference]] resources might also be submitted to convey source information used in the population of the questionnaire response.&lt;br&gt;The focus of this role is on consuming form instances.  Examples might be applications accepting insurance coverage forms, research forms, etc.  There is no expectation that submitted form data is subsequently made available for retrieval (at least not in the same format)."/>
   <kind value="requirements"/>
   <fhirVersion value="1.0.0"/>

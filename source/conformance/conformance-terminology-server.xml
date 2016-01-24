@@ -16,6 +16,7 @@
   <url value="http://hl7.org/fhir/terminology-server"/>
   <name value="Terminology Service Conformance Statement"/>
   <status value="draft"/>
+  <date value="2015-07-05"/>
   <publisher value="HL7, Inc"/>
   <contact>
     <name value="FHIR Project"/>
@@ -24,7 +25,6 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <date value="2015-07-05"/>
   <description value="Basic conformance statement for a Terminology Server. A server can support more fucntionality than defined here, but this is the minimum amount"/>
   <kind value="capability"/>
   <software>

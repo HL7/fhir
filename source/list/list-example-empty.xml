@@ -7,6 +7,8 @@
       <p>The patient is not on any medications</p>
     </div>
   </text>
+  <status value="current"/>
+  <mode value="snapshot"/>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -15,12 +17,10 @@
     </coding>
     <text value="Medication Review"/>
   </code>
+  <date value="2012-11-26T07:30:23+11:00"/>
   <source>
     <reference value="Patient/example"/>
   </source>
-  <status value="current"/>
-  <date value="2012-11-26T07:30:23+11:00"/>
-  <mode value="snapshot"/>
 
   <emptyReason>
     <coding>

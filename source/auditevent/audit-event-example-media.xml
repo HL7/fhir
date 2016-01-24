@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AuditEvent xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/auditevent.xsd">
- <id value="example-media"/>
+  <id value="example-media"/>
   
-    <type>
-        <system value="http://nema.org/dicom/dicm"/>
-        <code value="110106"/>
-        <display value="Export"/>
-    </type>
-    <subtype>
-        <system value="urn:oid:1.3.6.1.4.1.19376.1.2"/>
-        <code value="ITI-32"/>
-        <display value="Distribute Document Set on Media"/>
-    </subtype>
-    <action value="R"/>
-    <recorded value="2015-08-27T23:42:24Z"/>
-    <outcome value="0"/>
+  <type>
+      <system value="http://nema.org/dicom/dicm"/>
+      <code value="110106"/>
+      <display value="Export"/>
+  </type>
+  <subtype>
+      <system value="urn:oid:1.3.6.1.4.1.19376.1.2"/>
+      <code value="ITI-32"/>
+      <display value="Distribute Document Set on Media"/>
+  </subtype>
+  <action value="R"/>
+  <recorded value="2015-08-27T23:42:24Z"/>
+  <outcome value="0"/>
   
   <agent>
   <!-- Source active participant, the software making the PIX query

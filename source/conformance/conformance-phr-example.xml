@@ -25,6 +25,7 @@
     </div>
   </text>
   <name value="PHR Template"/>
+  <date value="2013-06-18"/>
   <publisher value="FHIR Project"/>
   <contact>
     <telecom>
@@ -32,7 +33,6 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <date value="2013-06-18"/>
   <description value="Prototype Conformance Statement for September 2013 Connectathon"/>
   <kind value="capability"/>
   <software>

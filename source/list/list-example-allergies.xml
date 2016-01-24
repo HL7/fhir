@@ -11,6 +11,8 @@
       </ul>
     </div>
   </text>
+  <status value="current"/>
+  <mode value="working"/>
   <title value="Current Allergy List"/>
   <code>
     <coding>
@@ -20,18 +22,16 @@
     </coding>
     <text value="Current Allergy List"/>
   </code>
+  <date value="2015-07-14T23:10:23+11:00"/>
   <source>
     <reference value="Patient/example"/>
   </source>
-  <status value="current"/>
-  <date value="2015-07-14T23:10:23+11:00"/>
   <orderedBy>
     <coding>
       <system value="http://hl7.org/fhir/list-order"/>
       <code value="entry-date"/>
     </coding>
   </orderedBy>
-  <mode value="working"/>
   <entry>
     <item> 
       <reference value="AllergyIntolerance/example"/>

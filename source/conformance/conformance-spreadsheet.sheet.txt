@@ -572,43 +572,6 @@
   w5 = class
 
  -- Row 7 -----------------------------------
-  Element = Conformance.publisher
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Label = Name of the publisher (Organization or individual)
-  Definition = The name of the individual or organization that published the conformance
-  Requirements = Helps establish the \"authority/credibility\" of the conformance.  May also allow for contact
-  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
-  w5 = who.witness
-
- -- Row 8 -----------------------------------
-  Element = Conformance.contact
-  Card. = 0..*
-  Summary = y
-  UML = 70;0
-  Short Label = Contact details of the publisher
-  Definition = Contacts to assist a user in finding and communicating with the publisher
-  Comments = May be a web site, an email address, a telephone number (tel:), etc.
-
- -- Row 9 -----------------------------------
-  Element = Conformance.contact.name
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Label = Name of a individual to contact
-  Definition = The name of an individual to contact regarding the conformance
-  Comments = If there is no named individual, the telecom is for the organization as a whole
-
- -- Row 10 -----------------------------------
-  Element = Conformance.contact.telecom
-  Card. = 0..*
-  Summary = Y
-  Type = ContactPoint
-  Short Label = Contact details for individual or publisher
-  Definition = Contact details for individual (if a name was provided) or the publisher
-
- -- Row 11 -----------------------------------
   Element = Conformance.date
   Card. = 1..1
   Summary = y
@@ -617,6 +580,43 @@
   Definition = The date  (and optionally time) when the conformance statement was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the conformance statement changes
   Comments = Additional specific dates may be added as extensions
   w5 = when.recorded
+
+ -- Row 8 -----------------------------------
+  Element = Conformance.publisher
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Name of the publisher (Organization or individual)
+  Definition = The name of the individual or organization that published the conformance
+  Requirements = Helps establish the \"authority/credibility\" of the conformance.  May also allow for contact
+  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
+  w5 = who.author
+
+ -- Row 9 -----------------------------------
+  Element = Conformance.contact
+  Card. = 0..*
+  Summary = y
+  UML = 70;0
+  Short Label = Contact details of the publisher
+  Definition = Contacts to assist a user in finding and communicating with the publisher
+  Comments = May be a web site, an email address, a telephone number (tel:), etc.
+
+ -- Row 10 -----------------------------------
+  Element = Conformance.contact.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Name of a individual to contact
+  Definition = The name of an individual to contact regarding the conformance
+  Comments = If there is no named individual, the telecom is for the organization as a whole
+
+ -- Row 11 -----------------------------------
+  Element = Conformance.contact.telecom
+  Card. = 0..*
+  Summary = Y
+  Type = ContactPoint
+  Short Label = Contact details for individual or publisher
+  Definition = Contact details for individual (if a name was provided) or the publisher
 
  -- Row 12 -----------------------------------
   Element = Conformance.description
@@ -1093,7 +1093,7 @@
   Card. = 0..*
   Aliases = 3
   UML = 0;330
-  Short Label = A messaging service end-point
+  Short Label = Where messages should be sent
   Definition = An endpoint (network accessible address) to which messages and/or replies are to be sent.
 
  -- Row 70 -----------------------------------
@@ -1296,7 +1296,7 @@
   Path = Conformance.rest.mode
 
  -- Row 13 -----------------------------------
-  Name = profile
+  Name = resourceprofile
   Type = reference
   Description = A profile id invoked in a conformance statement
   Path = Conformance.rest.resource.profile
@@ -1307,7 +1307,7 @@
   Path = Conformance.format
 
  -- Row 15 -----------------------------------
-  Name = security
+  Name = securityservice
   Type = token
   Path = Conformance.rest.security.service
 

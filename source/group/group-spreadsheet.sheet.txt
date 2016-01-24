@@ -67,7 +67,7 @@
   Context = Group
   English = Can only have members if group is \"actual\"
   XPath = f:actual/@value=true() or not(exists(f:member))
-  FHIRPath = member.empty() or actual
+  Expression = member.empty() or actual
 
 === Sheet Data Elements =====================================
 
@@ -116,8 +116,21 @@
   Definition = If true, indicates that the resource refers to a specific group of real individuals.  If false, the group defines a set of intended individuals
   Requirements = There are use-cases for groups that define specific collections of individuals, and other groups that define \"types\" of intended individuals.  The requirements for both kinds of groups are similar, so we use a single resource, distinguished by this flag.
   RIM Mapping = true: ./determinerCode=\"GRP\"  false: ./determinerCode=\"GRP_KIND\"
+  w5 = class
 
  -- Row 5 -----------------------------------
+  Element = Group.active
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = Whether this group\'s record is in active use
+  Definition = Indicates whether the record for the group is available for use or is merely being retained for historical purposes
+  Requirements = Need to be able to mark a group record as not to be used because it was created in error or is otherwise no longer available (e.g. a herd that no longer exists)
+  RIM Mapping = ./statusCode
+  Default Value = True
+  w5 = status
+
+ -- Row 6 -----------------------------------
   Element = Group.code
   Card. = 0..1
   Summary = y
@@ -127,8 +140,9 @@
   Definition = Provides a specific type of resource the group includes; e.g. \"cow\", \"syringe\", etc.
   Comments = This would generally be omitted for Person resources
   RIM Mapping = ./code
+  w5 = what
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Group.name
   Card. = 0..1
   Summary = y
@@ -138,7 +152,7 @@
   Requirements = Used to identify the group in human communication
   RIM Mapping = ./name[type=\"ST\"]
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Group.quantity
   Card. = 0..1
   Summary = y
@@ -149,7 +163,7 @@
   Comments = Note that the quantity may be less than the number of members if some of the members are not active
   RIM Mapping = ./quantity
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Group.characteristic
   Card. = 0..*
   UML = 300;0
@@ -159,7 +173,7 @@
   Comments = All the identified characteristics must be true for an entity to a member of the group
   RIM Mapping = ./playedRole[isNormalRole()]/participation[isNormalParticipation() and typeCode=\"SBJ\"]/act[isNormalAct and classCode=\"OBS\" and moodCode=\"EVN\"]
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Group.characteristic.code
   Card. = 1..1
   Type = CodeableConcept
@@ -169,7 +183,7 @@
   Requirements = Need a formal way of identifying the characteristic being described
   RIM Mapping = ./code
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Group.characteristic.value[x]
   Card. = 1..1
   Type = CodeableConcept|boolean|Quantity|Range
@@ -180,7 +194,7 @@
   Comments = For Range, it means members of the group have a value that falls somewhere within the specified range.
   RIM Mapping = ./value
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Group.characteristic.exclude
   Card. = 1..1
   Is Modifier = y
@@ -191,14 +205,14 @@
   Comments = This is labeled as \"Is Modifier\" because applications cannot wrongly include excluded members as included or vice versa
   RIM Mapping = ./valueNegationInd
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Group.characteristic.period
   Card. = 0..1
   Type = Period
   Short Label = Period over which characteristic is tested
   Definition = The period over which the characteristic is tested; e.g. the patient had an operation during the month of June
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Group.member
   Card. = 0..*
   UML = 200;180
@@ -209,14 +223,14 @@
   RIM Mapping = ./scopedRole[isNormalRole() and classCode=\"MBR\"]/player
   Committee Notes = Is \"group of groups\" in the 80%?
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Group.member.entity
   Card. = 1..1
   Type = Reference(Patient|Practitioner|Device|Medication|Substance)
   Short Label = Reference to the group member
   Definition = A reference to the entity that is a member of the group. Must be consistent with Group.type
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Group.member.period
   Card. = 0..1
   Type = Period
@@ -225,7 +239,7 @@
   Requirements = Need to track who was in a group at a  particular time
   Missing Meaning = The member is in the group at this time
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Group.member.inactive
   Card. = 0..1
   Type = boolean

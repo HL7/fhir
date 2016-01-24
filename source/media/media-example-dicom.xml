@@ -30,15 +30,6 @@
     <valueUri value="urn:oid:1.2.840.10008.1.2.1"/>
   </extension>  
 
-  <type value="photo"/>
-
-  <subtype>
-    <coding>
-      <system value="http://nema.org/dicom/dicm"/>
-      <code value="US"/>
-    </coding>
-  </subtype>
-
   <identifier>
     <use value="official"/>
     <type><text value="InstanceUID"/></type>
@@ -62,10 +53,15 @@
     <value value="urn:oid:1.2.840.113619.2.21.3408.700.0.757923840.3.0"/>
   </identifier>  
 
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
- 
+  <type value="photo"/>
+
+  <subtype>
+    <coding>
+      <system value="http://nema.org/dicom/dicm"/>
+      <code value="US"/>
+    </coding>
+  </subtype>
+
   <view>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -74,6 +70,10 @@
     </coding>
   </view>
   
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+ 
   
   <deviceName value="G.E. Medical Systems"/>
   <height value="480"/>

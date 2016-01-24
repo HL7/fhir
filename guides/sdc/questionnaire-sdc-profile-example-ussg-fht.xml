@@ -2,6 +2,8 @@
 <!-- 
 This represents an implementation of the "US Surgeon General family health portrait" form found at https://lforms-demo.nlm.nih.gov
 It also contains data elements based on the data elements found in the LOINC specification
+
+Note: The URLs used for LOINC objects have not been approved by the LOINC organization.  If/when LOINC begins officially exposing their content as FHIR objects, the URLs may differ
 -->
 <Bundle xmlns="http://hl7.org/fhir" xmlns:f="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../publish/bundle.xsd">
   <id value="questionnaire-sdc-profile-example-ussg-fht"/>
@@ -263,6 +265,10 @@ It also contains data elements based on the data elements found in the LOINC spe
             </compose>
           </ValueSet>
         </contained>
+        <identifier>
+          <system value="http://example.org/panel-id"/>
+          <value value="54127-6"/>
+        </identifier>
         <status value="published"/>
         <date value="2015"/>
         <publisher value="Regenstrief Institute, Inc and the LOINC Committee"/>
@@ -322,7 +328,7 @@ It also contains data elements based on the data elements found in the LOINC spe
             <required value="false"/>
             <repeats value="false"/>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54125-0"/>
                 </valueReference>
@@ -339,7 +345,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               <repeats value="false"/>
             </item>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54131-8"/>
                 </valueReference>
@@ -359,6 +365,18 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <display value="Gender_M/F"/>
               </options>
               <item>
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+                  <extension url="question">
+                    <valueString value="1.1.2"/>
+                  </extension>
+                  <extension url="answer">
+                    <valueCoding>
+                      <system value="http://loinc.org"/>
+                      <code value="LA33-6"/>
+                      <display value="Yes"/>
+                    </valueCoding>
+                  </extension>
+                </extension>-->
                 <linkId value="1.1.2.1.1"/>
                 <text value="Please specify"/>
                 <type value="string"/>
@@ -367,7 +385,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               </item>
             </item>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="21112-8"/>
                 </valueReference>
@@ -384,7 +402,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               <repeats value="false"/>
             </item>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54132-6"/>
                 </valueReference>
@@ -405,7 +423,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               </options>
             </item>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54128-4"/>
                 </valueReference>
@@ -425,7 +443,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               </options>
             </item>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54135-9"/>
                 </valueReference>
@@ -446,7 +464,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               </options>
             </item>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="8302-2"/>
                 </valueReference>
@@ -484,7 +502,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               </item>
             </item>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="29463-7"/>
                 </valueReference>
@@ -525,7 +543,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               <!-- No ability, right now, to indicate that this is read only or how to calculate it -->
             </item>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54134-2"/>
                 </valueReference>
@@ -546,7 +564,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               </options>
             </item>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54133-4"/>
                 </valueReference>
@@ -579,7 +597,7 @@ It also contains data elements based on the data elements found in the LOINC spe
             <required value="false"/>
             <repeats value="true"/>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54140-9"/>
                 </valueReference>
@@ -600,7 +618,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               </options>
             </item>
             <item>
-<!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+              <!--              <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                 <valueReference>
                   <reference value="54130-0"/>
                 </valueReference>
@@ -644,7 +662,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="false"/>
               <repeats value="false"/>
               <item>
-<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54136-7"/>
                   </valueReference>
@@ -665,7 +683,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 </options>
               </item>
               <item>
-<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54138-3"/>
                   </valueReference>
@@ -682,7 +700,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 <repeats value="false"/>
               </item>
               <item>
-<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54123-5"/>
                   </valueReference>
@@ -710,7 +728,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 </item>
               </item>
               <item>
-<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54139-1"/>
                   </valueReference>
@@ -730,7 +748,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                   <display value="Y/N1"/>
                 </options>
                 <item>
-<!--                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+                  <!--                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
                     <extension url="question">
                       <valueString value="2.1.3"/>
                     </extension>
@@ -747,7 +765,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                   <required value="false"/>
                   <repeats value="false"/>
                   <item>
-<!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                    <!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                       <valueReference>
                         <reference value="54112-8"/>
                       </valueReference>
@@ -774,7 +792,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                     </item>
                   </item>
                   <item>
-<!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                    <!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                       <valueReference>
                         <reference value="54113-6"/>
                       </valueReference>
@@ -796,7 +814,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                   </item>
                 </item>
                 <item>
-<!--                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
+                  <!--                  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
                     <extension url="question">
                       <valueString value="2.1.3"/>
                     </extension>
@@ -813,7 +831,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                   <required value="false"/>
                   <repeats value="false"/>
                   <item>
-<!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                    <!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                       <valueReference>
                         <reference value="54124-3"/>
                       </valueReference>
@@ -830,7 +848,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                     <repeats value="false"/>
                   </item>
                   <item>
-<!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                    <!--                    <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                       <valueReference>
                         <reference value="54141-7"/>
                       </valueReference>
@@ -849,7 +867,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 </item>
               </item>
               <item>
-<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54121-9"/>
                   </valueReference>
@@ -869,7 +887,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 </options>
               </item>
               <item>
-<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54122-7"/>
                   </valueReference>
@@ -889,7 +907,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 </options>
               </item>
               <item>
-<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54119-3"/>
                   </valueReference>
@@ -910,7 +928,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 </options>
               </item>
               <item>
-<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54120-1"/>
                   </valueReference>
@@ -943,7 +961,7 @@ It also contains data elements based on the data elements found in the LOINC spe
               <required value="false"/>
               <repeats value="true"/>
               <item>
-<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54116-9"/>
                   </valueReference>
@@ -964,7 +982,7 @@ It also contains data elements based on the data elements found in the LOINC spe
                 </options>
               </item>
               <item>
-<!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
+                <!--                <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
                   <valueReference>
                     <reference value="54115-1"/>
                   </valueReference>
@@ -2269,7 +2287,7 @@ It also contains data elements based on the data elements found in the LOINC spe
           <mapping>
             <identity value="cda"/>
             <language value="application/xquery"/>
-            <map value="return /ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode/@code[.=('F', 'M')]"/>
+            <map value="for $gender in /ClinicalDocument/recordTarget/patientRole/patient/administrativeGenderCode/@code[.=('F', 'M')] return if ($gender='F') then 'LA3-6' else if ($gender='M') then 'LA2-8' else 'LA46-8'"/>
           </mapping>
         </element>
       </DataElement>

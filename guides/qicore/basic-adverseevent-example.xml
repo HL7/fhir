@@ -41,8 +41,8 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
+  <created value="2015-09-16"/>
   <author>
     <reference value="Practitioner/example"/>
   </author>
-  <created value="2015-09-16"/>
 </Basic>

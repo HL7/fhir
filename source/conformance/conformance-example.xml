@@ -29,6 +29,7 @@
   <name value="ACME EHR Conformance statement"/>
   <status value="draft"/>
   <experimental value="true"/>
+  <date value="2012-01-04"/>
   <publisher value="ACME Corporation"/>
   <contact>
     <name value="System Administrator"/>
@@ -37,7 +38,6 @@
       <value value="wile@acme.org"/>
     </telecom>
   </contact>
-  <date value="2012-01-04"/>
   <description value="This is the FHIR conformance statement for the main EHR at ACME for the private interface - it does not describe the public interface"/>
   <requirements value="Main EHR conformance statement, published for contracting and operational support"/>
   <copyright value="Copyright © Acme Healthcare and GoodCorp EHR Systems"/>

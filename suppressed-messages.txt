@@ -6,6 +6,7 @@ INFORMATION @ MedicationDispense.dispense: Name of child (dispense) overlaps wit
 INFORMATION @ ResourceReference.reference: Name of child (reference) overlaps with name of parent (ResourceReference) (src = ResourceValidator)
 INFORMATION @ SampledData.data: Name of child (data) overlaps with name of parent (SampledData) (src = ResourceValidator)
 WARNING @ AuditEvent: All resources should have an identifier (src = ResourceValidator)
+WARNING @ Basic: A resource must have an 'entered in error' status
 WARNING @ Conformance: RIM Mapping is required (src = ResourceValidator)
 WARNING @ Medication: All resources should have an identifier (src = ResourceValidator)
 WARNING @ Namespace: All resources should have an identifier (src = ResourceValidator)

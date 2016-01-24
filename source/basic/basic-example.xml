@@ -60,8 +60,8 @@ in a future version (todo).
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </subject>
+  <created value="2013-05-14"/>
   <author>
     <reference value="Practitioner/example"/>
   </author>
-  <created value="2013-05-14"/>
 </Basic>
