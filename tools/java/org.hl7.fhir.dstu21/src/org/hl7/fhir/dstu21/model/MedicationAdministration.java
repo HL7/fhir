@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.
  */
@@ -670,9 +670,9 @@ public class MedicationAdministration extends DomainResource {
     /**
      * Extra information about the medication administration that is not conveyed by the other attributes.
      */
-    @Child(name = "note", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "note", type = {Annotation.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Information about the administration", formalDefinition="Extra information about the medication administration that is not conveyed by the other attributes." )
-    protected StringType note;
+    protected List<Annotation> note;
 
     /**
      * Describes the medication dosage information details e.g. dose, rate, site, route, etc.
@@ -681,7 +681,7 @@ public class MedicationAdministration extends DomainResource {
     @Description(shortDefinition="Details of how medication was taken", formalDefinition="Describes the medication dosage information details e.g. dose, rate, site, route, etc." )
     protected MedicationAdministrationDosageComponent dosage;
 
-    private static final long serialVersionUID = -669616345L;
+    private static final long serialVersionUID = -166219103L;
 
   /**
    * Constructor
@@ -1234,51 +1234,42 @@ public class MedicationAdministration extends DomainResource {
     }
 
     /**
-     * @return {@link #note} (Extra information about the medication administration that is not conveyed by the other attributes.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
+     * @return {@link #note} (Extra information about the medication administration that is not conveyed by the other attributes.)
      */
-    public StringType getNoteElement() { 
+    public List<Annotation> getNote() { 
       if (this.note == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create MedicationAdministration.note");
-        else if (Configuration.doAutoCreate())
-          this.note = new StringType(); // bb
+        this.note = new ArrayList<Annotation>();
       return this.note;
     }
 
-    public boolean hasNoteElement() { 
-      return this.note != null && !this.note.isEmpty();
-    }
-
     public boolean hasNote() { 
-      return this.note != null && !this.note.isEmpty();
+      if (this.note == null)
+        return false;
+      for (Annotation item : this.note)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #note} (Extra information about the medication administration that is not conveyed by the other attributes.). This is the underlying object with id, value and extensions. The accessor "getNote" gives direct access to the value
+     * @return {@link #note} (Extra information about the medication administration that is not conveyed by the other attributes.)
      */
-    public MedicationAdministration setNoteElement(StringType value) { 
-      this.note = value;
-      return this;
+    // syntactic sugar
+    public Annotation addNote() { //3
+      Annotation t = new Annotation();
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
+      return t;
     }
 
-    /**
-     * @return Extra information about the medication administration that is not conveyed by the other attributes.
-     */
-    public String getNote() { 
-      return this.note == null ? null : this.note.getValue();
-    }
-
-    /**
-     * @param value Extra information about the medication administration that is not conveyed by the other attributes.
-     */
-    public MedicationAdministration setNote(String value) { 
-      if (Utilities.noString(value))
-        this.note = null;
-      else {
-        if (this.note == null)
-          this.note = new StringType();
-        this.note.setValue(value);
-      }
+    // syntactic sugar
+    public MedicationAdministration addNote(Annotation t) { //3
+      if (t == null)
+        return this;
+      if (this.note == null)
+        this.note = new ArrayList<Annotation>();
+      this.note.add(t);
       return this;
     }
 
@@ -1320,7 +1311,7 @@ public class MedicationAdministration extends DomainResource {
         childrenList.add(new Property("effectiveTime[x]", "dateTime|Period", "A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.", 0, java.lang.Integer.MAX_VALUE, effectiveTime));
         childrenList.add(new Property("medication[x]", "CodeableConcept|Reference(Medication)", "Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.", 0, java.lang.Integer.MAX_VALUE, medication));
         childrenList.add(new Property("device", "Reference(Device)", "The device used in administering the medication to the patient.  For example, a particular infusion pump.", 0, java.lang.Integer.MAX_VALUE, device));
-        childrenList.add(new Property("note", "string", "Extra information about the medication administration that is not conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
+        childrenList.add(new Property("note", "Annotation", "Extra information about the medication administration that is not conveyed by the other attributes.", 0, java.lang.Integer.MAX_VALUE, note));
         childrenList.add(new Property("dosage", "", "Describes the medication dosage information details e.g. dose, rate, site, route, etc.", 0, java.lang.Integer.MAX_VALUE, dosage));
       }
 
@@ -1351,7 +1342,7 @@ public class MedicationAdministration extends DomainResource {
         else if (name.equals("device"))
           this.getDevice().add(castToReference(value));
         else if (name.equals("note"))
-          this.note = castToString(value); // StringType
+          this.getNote().add(castToAnnotation(value));
         else if (name.equals("dosage"))
           this.dosage = (MedicationAdministrationDosageComponent) value; // MedicationAdministrationDosageComponent
         else
@@ -1411,7 +1402,7 @@ public class MedicationAdministration extends DomainResource {
           return addDevice();
         }
         else if (name.equals("note")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MedicationAdministration.note");
+          return addNote();
         }
         else if (name.equals("dosage")) {
           this.dosage = new MedicationAdministrationDosageComponent();
@@ -1457,7 +1448,11 @@ public class MedicationAdministration extends DomainResource {
           for (Reference i : device)
             dst.device.add(i.copy());
         };
-        dst.note = note == null ? null : note.copy();
+        if (note != null) {
+          dst.note = new ArrayList<Annotation>();
+          for (Annotation i : note)
+            dst.note.add(i.copy());
+        };
         dst.dosage = dosage == null ? null : dosage.copy();
         return dst;
       }
@@ -1489,8 +1484,7 @@ public class MedicationAdministration extends DomainResource {
         if (!(other instanceof MedicationAdministration))
           return false;
         MedicationAdministration o = (MedicationAdministration) other;
-        return compareValues(status, o.status, true) && compareValues(wasNotGiven, o.wasNotGiven, true) && compareValues(note, o.note, true)
-          ;
+        return compareValues(status, o.status, true) && compareValues(wasNotGiven, o.wasNotGiven, true);
       }
 
       public boolean isEmpty() {
@@ -1509,30 +1503,70 @@ public class MedicationAdministration extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>medication</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Return administrations of this medication resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.medicationReference</b><br>
+   * Description: <b>Return administrations with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationAdministration.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="medication", path="MedicationAdministration.medicationReference", description="Return administrations of this medication resource", type="reference" )
-  public static final String SP_MEDICATION = "medication";
+  @SearchParamDefinition(name="identifier", path="MedicationAdministration.identifier", description="Return administrations with this external identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>medication</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Return administrations of this medication resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.medicationReference</b><br>
+   * Description: <b>Return administrations with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationAdministration.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MEDICATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MEDICATION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>Return administrations of this medication code</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationAdministration.medicationCodeableConcept</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="MedicationAdministration.medicationCodeableConcept", description="Return administrations of this medication code", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>Return administrations of this medication code</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationAdministration.medicationCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
+   * Search parameter: <b>prescription</b>
+   * <p>
+   * Description: <b>The identity of a prescription to list administrations from</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.prescription</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="prescription", path="MedicationAdministration.prescription", description="The identity of a prescription to list administrations from", type="reference" )
+  public static final String SP_PRESCRIPTION = "prescription";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>prescription</b>
+   * <p>
+   * Description: <b>The identity of a prescription to list administrations from</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.prescription</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRESCRIPTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRESCRIPTION);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationAdministration:medication</b>".
+   * the path value of "<b>MedicationAdministration:prescription</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationAdministration:medication").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIPTION = new ca.uhn.fhir.model.api.Include("MedicationAdministration:prescription").toLocked();
 
  /**
    * Search parameter: <b>effectivetime</b>
@@ -1553,32 +1587,6 @@ public class MedicationAdministration extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVETIME = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVETIME);
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The identity of a patient to list administrations  for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="MedicationAdministration.patient", description="The identity of a patient to list administrations  for", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The identity of a patient to list administrations  for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationAdministration:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationAdministration:patient").toLocked();
 
  /**
    * Search parameter: <b>practitioner</b>
@@ -1607,50 +1615,82 @@ public class MedicationAdministration extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("MedicationAdministration:practitioner").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>MedicationAdministration event status (for example one of active/paused/completed/nullified)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationAdministration.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="MedicationAdministration.status", description="MedicationAdministration event status (for example one of active/paused/completed/nullified)", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>MedicationAdministration event status (for example one of active/paused/completed/nullified)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationAdministration.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>prescription</b>
-   * <p>
-   * Description: <b>The identity of a prescription to list administrations from</b><br>
+   * Description: <b>The identity of a patient to list administrations  for</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.prescription</b><br>
+   * Path: <b>MedicationAdministration.patient</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="prescription", path="MedicationAdministration.prescription", description="The identity of a prescription to list administrations from", type="reference" )
-  public static final String SP_PRESCRIPTION = "prescription";
+  @SearchParamDefinition(name="patient", path="MedicationAdministration.patient", description="The identity of a patient to list administrations  for", type="reference" )
+  public static final String SP_PATIENT = "patient";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>prescription</b>
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>The identity of a prescription to list administrations from</b><br>
+   * Description: <b>The identity of a patient to list administrations  for</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.prescription</b><br>
+   * Path: <b>MedicationAdministration.patient</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRESCRIPTION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRESCRIPTION);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationAdministration:prescription</b>".
+   * the path value of "<b>MedicationAdministration:patient</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIPTION = new ca.uhn.fhir.model.api.Include("MedicationAdministration:prescription").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationAdministration:patient").toLocked();
+
+ /**
+   * Search parameter: <b>medication</b>
+   * <p>
+   * Description: <b>Return administrations of this medication resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.medicationReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="medication", path="MedicationAdministration.medicationReference", description="Return administrations of this medication resource", type="reference" )
+  public static final String SP_MEDICATION = "medication";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>medication</b>
+   * <p>
+   * Description: <b>Return administrations of this medication resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.medicationReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MEDICATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MEDICATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationAdministration:medication</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationAdministration:medication").toLocked();
+
+ /**
+   * Search parameter: <b>encounter</b>
+   * <p>
+   * Description: <b>Return administrations that share this encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.encounter</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="encounter", path="MedicationAdministration.encounter", description="Return administrations that share this encounter", type="reference" )
+  public static final String SP_ENCOUNTER = "encounter";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
+   * <p>
+   * Description: <b>Return administrations that share this encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationAdministration.encounter</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationAdministration:encounter</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("MedicationAdministration:encounter").toLocked();
 
  /**
    * Search parameter: <b>device</b>
@@ -1699,70 +1739,24 @@ public class MedicationAdministration extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam NOTGIVEN = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_NOTGIVEN);
 
  /**
-   * Search parameter: <b>code</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Return administrations of this medication code</b><br>
+   * Description: <b>MedicationAdministration event status (for example one of active/paused/completed/nullified)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationAdministration.medicationCodeableConcept</b><br>
+   * Path: <b>MedicationAdministration.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="MedicationAdministration.medicationCodeableConcept", description="Return administrations of this medication code", type="token" )
-  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="status", path="MedicationAdministration.status", description="MedicationAdministration event status (for example one of active/paused/completed/nullified)", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>Return administrations of this medication code</b><br>
+   * Description: <b>MedicationAdministration event status (for example one of active/paused/completed/nullified)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>MedicationAdministration.medicationCodeableConcept</b><br>
+   * Path: <b>MedicationAdministration.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>encounter</b>
-   * <p>
-   * Description: <b>Return administrations that share this encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.encounter</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="encounter", path="MedicationAdministration.encounter", description="Return administrations that share this encounter", type="reference" )
-  public static final String SP_ENCOUNTER = "encounter";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>encounter</b>
-   * <p>
-   * Description: <b>Return administrations that share this encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationAdministration.encounter</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENCOUNTER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENCOUNTER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationAdministration:encounter</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("MedicationAdministration:encounter").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Return administrations with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationAdministration.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="MedicationAdministration.identifier", description="Return administrations with this external identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Return administrations with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationAdministration.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

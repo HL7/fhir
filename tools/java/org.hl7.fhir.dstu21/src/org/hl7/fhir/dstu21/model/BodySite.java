@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.
  */
@@ -469,6 +469,46 @@ public class BodySite extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Identifier for this instance of the anatomical location</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>BodySite.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="BodySite.identifier", description="Identifier for this instance of the anatomical location", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Identifier for this instance of the anatomical location</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>BodySite.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>Named anatomical location</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>BodySite.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="BodySite.code", description="Named anatomical location", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>Named anatomical location</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>BodySite.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
    * Search parameter: <b>patient</b>
    * <p>
    * Description: <b>Patient to whom bodysite belongs</b><br>
@@ -493,46 +533,6 @@ public class BodySite extends DomainResource {
    * the path value of "<b>BodySite:patient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("BodySite:patient").toLocked();
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>Named anatomical location</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>BodySite.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="BodySite.code", description="Named anatomical location", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>Named anatomical location</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>BodySite.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier for this instance of the anatomical location</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>BodySite.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="BodySite.identifier", description="Identifier for this instance of the anatomical location", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier for this instance of the anatomical location</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>BodySite.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

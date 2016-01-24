@@ -29,11 +29,11 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 
 public class Enumerations {
 
@@ -2245,6 +2245,10 @@ public class Enumerations {
          */
         LIBRARY, 
         /**
+         * Identifies two or more records (resource instances) that are referring to the same real-world "occurrence".
+         */
+        LINKAGE, 
+        /**
          * A set of information summarized from a list of other resources.
          */
         LIST, 
@@ -2368,6 +2372,10 @@ public class Enumerations {
          * This resource provides processing status, errors and notes from the processing of a resource.
          */
         PROCESSRESPONSE, 
+        /**
+         * A definition of behaviors to be taken in particular circumstances, often including conditions, options and other decision points.
+         */
+        PROTOCOL, 
         /**
          * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
@@ -2657,6 +2665,8 @@ public class Enumerations {
           return IMPLEMENTATIONGUIDE;
         if ("Library".equals(codeString))
           return LIBRARY;
+        if ("Linkage".equals(codeString))
+          return LINKAGE;
         if ("List".equals(codeString))
           return LIST;
         if ("Location".equals(codeString))
@@ -2719,6 +2729,8 @@ public class Enumerations {
           return PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return PROCESSRESPONSE;
+        if ("Protocol".equals(codeString))
+          return PROTOCOL;
         if ("Provenance".equals(codeString))
           return PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -2864,6 +2876,7 @@ public class Enumerations {
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case LIBRARY: return "Library";
+            case LINKAGE: return "Linkage";
             case LIST: return "List";
             case LOCATION: return "Location";
             case MEASURE: return "Measure";
@@ -2895,6 +2908,7 @@ public class Enumerations {
             case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PROTOCOL: return "Protocol";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -3021,6 +3035,7 @@ public class Enumerations {
             case IMMUNIZATIONRECOMMENDATION: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDE: return "http://hl7.org/fhir/resource-types";
             case LIBRARY: return "http://hl7.org/fhir/resource-types";
+            case LINKAGE: return "http://hl7.org/fhir/resource-types";
             case LIST: return "http://hl7.org/fhir/resource-types";
             case LOCATION: return "http://hl7.org/fhir/resource-types";
             case MEASURE: return "http://hl7.org/fhir/resource-types";
@@ -3052,6 +3067,7 @@ public class Enumerations {
             case PROCEDUREREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSRESPONSE: return "http://hl7.org/fhir/resource-types";
+            case PROTOCOL: return "http://hl7.org/fhir/resource-types";
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -3178,6 +3194,7 @@ public class Enumerations {
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.";
             case LIBRARY: return "The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.";
+            case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
             case MEASURE: return "The Measure resource provides the definition of a quality measure.";
@@ -3209,6 +3226,7 @@ public class Enumerations {
             case PROCEDUREREQUEST: return "A request for a procedure to be performed. May be a proposal or an order.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
+            case PROTOCOL: return "A definition of behaviors to be taken in particular circumstances, often including conditions, options and other decision points.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
@@ -3335,6 +3353,7 @@ public class Enumerations {
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case LIBRARY: return "Library";
+            case LINKAGE: return "Linkage";
             case LIST: return "List";
             case LOCATION: return "Location";
             case MEASURE: return "Measure";
@@ -3366,6 +3385,7 @@ public class Enumerations {
             case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PROTOCOL: return "Protocol";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -3598,6 +3618,8 @@ public class Enumerations {
           return FHIRDefinedType.IMPLEMENTATIONGUIDE;
         if ("Library".equals(codeString))
           return FHIRDefinedType.LIBRARY;
+        if ("Linkage".equals(codeString))
+          return FHIRDefinedType.LINKAGE;
         if ("List".equals(codeString))
           return FHIRDefinedType.LIST;
         if ("Location".equals(codeString))
@@ -3660,6 +3682,8 @@ public class Enumerations {
           return FHIRDefinedType.PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return FHIRDefinedType.PROCESSRESPONSE;
+        if ("Protocol".equals(codeString))
+          return FHIRDefinedType.PROTOCOL;
         if ("Provenance".equals(codeString))
           return FHIRDefinedType.PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -3910,6 +3934,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.IMPLEMENTATIONGUIDE);
         if ("Library".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.LIBRARY);
+        if ("Linkage".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.LINKAGE);
         if ("List".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.LIST);
         if ("Location".equals(codeString))
@@ -3972,6 +3998,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PROCESSREQUEST);
         if ("ProcessResponse".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PROCESSRESPONSE);
+        if ("Protocol".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PROTOCOL);
         if ("Provenance".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PROVENANCE);
         if ("Questionnaire".equals(codeString))
@@ -4217,6 +4245,8 @@ public class Enumerations {
         return "ImplementationGuide";
       if (code == FHIRDefinedType.LIBRARY)
         return "Library";
+      if (code == FHIRDefinedType.LINKAGE)
+        return "Linkage";
       if (code == FHIRDefinedType.LIST)
         return "List";
       if (code == FHIRDefinedType.LOCATION)
@@ -4279,6 +4309,8 @@ public class Enumerations {
         return "ProcessRequest";
       if (code == FHIRDefinedType.PROCESSRESPONSE)
         return "ProcessResponse";
+      if (code == FHIRDefinedType.PROTOCOL)
+        return "Protocol";
       if (code == FHIRDefinedType.PROVENANCE)
         return "Provenance";
       if (code == FHIRDefinedType.QUESTIONNAIRE)
@@ -4953,6 +4985,10 @@ public class Enumerations {
          */
         LIBRARY, 
         /**
+         * Identifies two or more records (resource instances) that are referring to the same real-world "occurrence".
+         */
+        LINKAGE, 
+        /**
          * A set of information summarized from a list of other resources.
          */
         LIST, 
@@ -5076,6 +5112,10 @@ public class Enumerations {
          * This resource provides processing status, errors and notes from the processing of a resource.
          */
         PROCESSRESPONSE, 
+        /**
+         * A definition of behaviors to be taken in particular circumstances, often including conditions, options and other decision points.
+         */
+        PROTOCOL, 
         /**
          * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
          */
@@ -5273,6 +5313,8 @@ public class Enumerations {
           return IMPLEMENTATIONGUIDE;
         if ("Library".equals(codeString))
           return LIBRARY;
+        if ("Linkage".equals(codeString))
+          return LINKAGE;
         if ("List".equals(codeString))
           return LIST;
         if ("Location".equals(codeString))
@@ -5335,6 +5377,8 @@ public class Enumerations {
           return PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return PROCESSRESPONSE;
+        if ("Protocol".equals(codeString))
+          return PROTOCOL;
         if ("Provenance".equals(codeString))
           return PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -5434,6 +5478,7 @@ public class Enumerations {
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case LIBRARY: return "Library";
+            case LINKAGE: return "Linkage";
             case LIST: return "List";
             case LOCATION: return "Location";
             case MEASURE: return "Measure";
@@ -5465,6 +5510,7 @@ public class Enumerations {
             case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PROTOCOL: return "Protocol";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -5545,6 +5591,7 @@ public class Enumerations {
             case IMMUNIZATIONRECOMMENDATION: return "http://hl7.org/fhir/resource-types";
             case IMPLEMENTATIONGUIDE: return "http://hl7.org/fhir/resource-types";
             case LIBRARY: return "http://hl7.org/fhir/resource-types";
+            case LINKAGE: return "http://hl7.org/fhir/resource-types";
             case LIST: return "http://hl7.org/fhir/resource-types";
             case LOCATION: return "http://hl7.org/fhir/resource-types";
             case MEASURE: return "http://hl7.org/fhir/resource-types";
@@ -5576,6 +5623,7 @@ public class Enumerations {
             case PROCEDUREREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSREQUEST: return "http://hl7.org/fhir/resource-types";
             case PROCESSRESPONSE: return "http://hl7.org/fhir/resource-types";
+            case PROTOCOL: return "http://hl7.org/fhir/resource-types";
             case PROVENANCE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRE: return "http://hl7.org/fhir/resource-types";
             case QUESTIONNAIRERESPONSE: return "http://hl7.org/fhir/resource-types";
@@ -5656,6 +5704,7 @@ public class Enumerations {
             case IMMUNIZATIONRECOMMENDATION: return "A patient's point-in-time immunization and recommendation (i.e. forecasting a patient's immunization eligibility according to a published schedule) with optional supporting justification.";
             case IMPLEMENTATIONGUIDE: return "A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.";
             case LIBRARY: return "The Library resource provides a representation container for knowledge artifact component definitions. It is effectively an exposure of the header information for a CQL/ELM library.";
+            case LINKAGE: return "Identifies two or more records (resource instances) that are referring to the same real-world \"occurrence\".";
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
             case MEASURE: return "The Measure resource provides the definition of a quality measure.";
@@ -5687,6 +5736,7 @@ public class Enumerations {
             case PROCEDUREREQUEST: return "A request for a procedure to be performed. May be a proposal or an order.";
             case PROCESSREQUEST: return "This resource provides the target, request and response, and action details for an action to be performed by the target on or about existing resources.";
             case PROCESSRESPONSE: return "This resource provides processing status, errors and notes from the processing of a resource.";
+            case PROTOCOL: return "A definition of behaviors to be taken in particular circumstances, often including conditions, options and other decision points.";
             case PROVENANCE: return "Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.";
             case QUESTIONNAIRE: return "A structured set of questions intended to guide the collection of answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
             case QUESTIONNAIRERESPONSE: return "A structured set of questions and their answers. The questions are ordered and grouped into coherent subsets, corresponding to the structure of the grouping of the underlying questions.";
@@ -5767,6 +5817,7 @@ public class Enumerations {
             case IMMUNIZATIONRECOMMENDATION: return "ImmunizationRecommendation";
             case IMPLEMENTATIONGUIDE: return "ImplementationGuide";
             case LIBRARY: return "Library";
+            case LINKAGE: return "Linkage";
             case LIST: return "List";
             case LOCATION: return "Location";
             case MEASURE: return "Measure";
@@ -5798,6 +5849,7 @@ public class Enumerations {
             case PROCEDUREREQUEST: return "ProcedureRequest";
             case PROCESSREQUEST: return "ProcessRequest";
             case PROCESSRESPONSE: return "ProcessResponse";
+            case PROTOCOL: return "Protocol";
             case PROVENANCE: return "Provenance";
             case QUESTIONNAIRE: return "Questionnaire";
             case QUESTIONNAIRERESPONSE: return "QuestionnaireResponse";
@@ -5938,6 +5990,8 @@ public class Enumerations {
           return ResourceType.IMPLEMENTATIONGUIDE;
         if ("Library".equals(codeString))
           return ResourceType.LIBRARY;
+        if ("Linkage".equals(codeString))
+          return ResourceType.LINKAGE;
         if ("List".equals(codeString))
           return ResourceType.LIST;
         if ("Location".equals(codeString))
@@ -6000,6 +6054,8 @@ public class Enumerations {
           return ResourceType.PROCESSREQUEST;
         if ("ProcessResponse".equals(codeString))
           return ResourceType.PROCESSRESPONSE;
+        if ("Protocol".equals(codeString))
+          return ResourceType.PROTOCOL;
         if ("Provenance".equals(codeString))
           return ResourceType.PROVENANCE;
         if ("Questionnaire".equals(codeString))
@@ -6158,6 +6214,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.IMPLEMENTATIONGUIDE);
         if ("Library".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.LIBRARY);
+        if ("Linkage".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.LINKAGE);
         if ("List".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.LIST);
         if ("Location".equals(codeString))
@@ -6220,6 +6278,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.PROCESSREQUEST);
         if ("ProcessResponse".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.PROCESSRESPONSE);
+        if ("Protocol".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.PROTOCOL);
         if ("Provenance".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.PROVENANCE);
         if ("Questionnaire".equals(codeString))
@@ -6373,6 +6433,8 @@ public class Enumerations {
         return "ImplementationGuide";
       if (code == ResourceType.LIBRARY)
         return "Library";
+      if (code == ResourceType.LINKAGE)
+        return "Linkage";
       if (code == ResourceType.LIST)
         return "List";
       if (code == ResourceType.LOCATION)
@@ -6435,6 +6497,8 @@ public class Enumerations {
         return "ProcessRequest";
       if (code == ResourceType.PROCESSRESPONSE)
         return "ProcessResponse";
+      if (code == ResourceType.PROTOCOL)
+        return "Protocol";
       if (code == ResourceType.PROVENANCE)
         return "Provenance";
       if (code == ResourceType.QUESTIONNAIRE)

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.
  */
@@ -1098,32 +1098,6 @@ public class DeviceComponent extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>source</b>
-   * <p>
-   * Description: <b>The device source</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceComponent.source</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="source", path="DeviceComponent.source", description="The device source", type="reference" )
-  public static final String SP_SOURCE = "source";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>source</b>
-   * <p>
-   * Description: <b>The device source</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>DeviceComponent.source</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SOURCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SOURCE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>DeviceComponent:source</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("DeviceComponent:source").toLocked();
-
- /**
    * Search parameter: <b>parent</b>
    * <p>
    * Description: <b>The parent DeviceComponent resource</b><br>
@@ -1148,6 +1122,32 @@ public class DeviceComponent extends DomainResource {
    * the path value of "<b>DeviceComponent:parent</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PARENT = new ca.uhn.fhir.model.api.Include("DeviceComponent:parent").toLocked();
+
+ /**
+   * Search parameter: <b>source</b>
+   * <p>
+   * Description: <b>The device source</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceComponent.source</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="source", path="DeviceComponent.source", description="The device source", type="reference" )
+  public static final String SP_SOURCE = "source";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>source</b>
+   * <p>
+   * Description: <b>The device source</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>DeviceComponent.source</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SOURCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SOURCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>DeviceComponent:source</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("DeviceComponent:source").toLocked();
 
  /**
    * Search parameter: <b>type</b>

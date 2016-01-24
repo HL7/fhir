@@ -9,7 +9,7 @@ public abstract class BaseResource extends Base implements IAnyResource, IElemen
 
 	private static final long serialVersionUID = 1L;
 
-    /**
+	/**
      * @param value The logical id of the resource, as used in the url for the resoure. Once assigned, this value never changes.
      */
     public BaseResource setId(IIdType value) {

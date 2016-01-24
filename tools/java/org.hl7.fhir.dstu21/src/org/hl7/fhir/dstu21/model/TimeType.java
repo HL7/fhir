@@ -39,32 +39,32 @@ import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 public class TimeType extends PrimitiveType<String> {
 
 	private static final long serialVersionUID = 3L;
-  
+
 	/**
 	 * Constructor
 	 */
-  public TimeType() {
+	public TimeType() {
 		// nothing
-  }
-
-  /**
+	}
+	
+	/**
 	 * Constructor
 	 */
 	public TimeType(String theValue) {
 		setValue(theValue);
 	}
-	
+
 	@Override
 	protected String parse(String theValue) {
 		return theValue;
 	}
-	
+
 	@Override
 	protected String encode(String theValue) {
 		return theValue;
 	}
 
-  @Override
+	@Override
 	public TimeType copy() {
 		return new TimeType(getValue());
 	}

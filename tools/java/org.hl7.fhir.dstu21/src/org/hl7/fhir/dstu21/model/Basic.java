@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -39,7 +39,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * Basic is used for handling concepts not yet defined in FHIR, narrative-only resources that don't map to an existing resource, and custom resources not appropriate for inclusion in the FHIR specification.
  */
@@ -73,9 +73,16 @@ public class Basic extends DomainResource {
     protected Resource subjectTarget;
 
     /**
+     * Identifies when the resource was first created.
+     */
+    @Child(name = "created", type = {DateType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="When created", formalDefinition="Identifies when the resource was first created." )
+    protected DateType created;
+
+    /**
      * Indicates who was responsible for creating the resource instance.
      */
-    @Child(name = "author", type = {Practitioner.class, Patient.class, RelatedPerson.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "author", type = {Practitioner.class, Patient.class, RelatedPerson.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Who created", formalDefinition="Indicates who was responsible for creating the resource instance." )
     protected Reference author;
 
@@ -84,14 +91,7 @@ public class Basic extends DomainResource {
      */
     protected Resource authorTarget;
 
-    /**
-     * Identifies when the resource was first created.
-     */
-    @Child(name = "created", type = {DateType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="When created", formalDefinition="Identifies when the resource was first created." )
-    protected DateType created;
-
-    private static final long serialVersionUID = 916539354L;
+    private static final long serialVersionUID = 650756402L;
 
   /**
    * Constructor
@@ -212,45 +212,6 @@ public class Basic extends DomainResource {
     }
 
     /**
-     * @return {@link #author} (Indicates who was responsible for creating the resource instance.)
-     */
-    public Reference getAuthor() { 
-      if (this.author == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Basic.author");
-        else if (Configuration.doAutoCreate())
-          this.author = new Reference(); // cc
-      return this.author;
-    }
-
-    public boolean hasAuthor() { 
-      return this.author != null && !this.author.isEmpty();
-    }
-
-    /**
-     * @param value {@link #author} (Indicates who was responsible for creating the resource instance.)
-     */
-    public Basic setAuthor(Reference value) { 
-      this.author = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates who was responsible for creating the resource instance.)
-     */
-    public Resource getAuthorTarget() { 
-      return this.authorTarget;
-    }
-
-    /**
-     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates who was responsible for creating the resource instance.)
-     */
-    public Basic setAuthorTarget(Resource value) { 
-      this.authorTarget = value;
-      return this;
-    }
-
-    /**
      * @return {@link #created} (Identifies when the resource was first created.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
      */
     public DateType getCreatedElement() { 
@@ -299,13 +260,52 @@ public class Basic extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #author} (Indicates who was responsible for creating the resource instance.)
+     */
+    public Reference getAuthor() { 
+      if (this.author == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Basic.author");
+        else if (Configuration.doAutoCreate())
+          this.author = new Reference(); // cc
+      return this.author;
+    }
+
+    public boolean hasAuthor() { 
+      return this.author != null && !this.author.isEmpty();
+    }
+
+    /**
+     * @param value {@link #author} (Indicates who was responsible for creating the resource instance.)
+     */
+    public Basic setAuthor(Reference value) { 
+      this.author = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Indicates who was responsible for creating the resource instance.)
+     */
+    public Resource getAuthorTarget() { 
+      return this.authorTarget;
+    }
+
+    /**
+     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Indicates who was responsible for creating the resource instance.)
+     */
+    public Basic setAuthorTarget(Resource value) { 
+      this.authorTarget = value;
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("identifier", "Identifier", "Identifier assigned to the resource for business purposes, outside the context of FHIR.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("code", "CodeableConcept", "Identifies the 'type' of resource - equivalent to the resource name for other resources.", 0, java.lang.Integer.MAX_VALUE, code));
         childrenList.add(new Property("subject", "Reference(Any)", "Identifies the patient, practitioner, device or any other resource that is the \"focus\" of this resource.", 0, java.lang.Integer.MAX_VALUE, subject));
-        childrenList.add(new Property("author", "Reference(Practitioner|Patient|RelatedPerson)", "Indicates who was responsible for creating the resource instance.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("created", "date", "Identifies when the resource was first created.", 0, java.lang.Integer.MAX_VALUE, created));
+        childrenList.add(new Property("author", "Reference(Practitioner|Patient|RelatedPerson)", "Indicates who was responsible for creating the resource instance.", 0, java.lang.Integer.MAX_VALUE, author));
       }
 
       @Override
@@ -316,10 +316,10 @@ public class Basic extends DomainResource {
           this.code = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("subject"))
           this.subject = castToReference(value); // Reference
-        else if (name.equals("author"))
-          this.author = castToReference(value); // Reference
         else if (name.equals("created"))
           this.created = castToDate(value); // DateType
+        else if (name.equals("author"))
+          this.author = castToReference(value); // Reference
         else
           super.setProperty(name, value);
       }
@@ -337,12 +337,12 @@ public class Basic extends DomainResource {
           this.subject = new Reference();
           return this.subject;
         }
+        else if (name.equals("created")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Basic.created");
+        }
         else if (name.equals("author")) {
           this.author = new Reference();
           return this.author;
-        }
-        else if (name.equals("created")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Basic.created");
         }
         else
           return super.addChild(name);
@@ -363,8 +363,8 @@ public class Basic extends DomainResource {
         };
         dst.code = code == null ? null : code.copy();
         dst.subject = subject == null ? null : subject.copy();
-        dst.author = author == null ? null : author.copy();
         dst.created = created == null ? null : created.copy();
+        dst.author = author == null ? null : author.copy();
         return dst;
       }
 
@@ -380,7 +380,7 @@ public class Basic extends DomainResource {
           return false;
         Basic o = (Basic) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(code, o.code, true) && compareDeep(subject, o.subject, true)
-           && compareDeep(author, o.author, true) && compareDeep(created, o.created, true);
+           && compareDeep(created, o.created, true) && compareDeep(author, o.author, true);
       }
 
       @Override
@@ -395,7 +395,7 @@ public class Basic extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (code == null || code.isEmpty())
-           && (subject == null || subject.isEmpty()) && (author == null || author.isEmpty()) && (created == null || created.isEmpty())
+           && (subject == null || subject.isEmpty()) && (created == null || created.isEmpty()) && (author == null || author.isEmpty())
           ;
       }
 
@@ -405,76 +405,44 @@ public class Basic extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>author</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Who created</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Basic.author</b><br>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Basic.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="author", path="Basic.author", description="Who created", type="reference" )
-  public static final String SP_AUTHOR = "author";
+  @SearchParamDefinition(name="identifier", path="Basic.identifier", description="Business identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>author</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Who created</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Basic.author</b><br>
+   * Description: <b>Business identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Basic.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Basic:author</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("Basic:author").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>code</b>
    * <p>
-   * Description: <b>Identifies the focus of this resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Basic.subject</b><br>
+   * Description: <b>Kind of Resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Basic.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Basic.subject", description="Identifies the focus of this resource", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="code", path="Basic.code", description="Kind of Resource", type="token" )
+  public static final String SP_CODE = "code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
    * <p>
-   * Description: <b>Identifies the focus of this resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Basic.subject</b><br>
+   * Description: <b>Kind of Resource</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Basic.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Basic:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Basic:patient").toLocked();
-
- /**
-   * Search parameter: <b>created</b>
-   * <p>
-   * Description: <b>When created</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Basic.created</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="created", path="Basic.created", description="When created", type="date" )
-  public static final String SP_CREATED = "created";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>created</b>
-   * <p>
-   * Description: <b>When created</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Basic.created</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>subject</b>
@@ -503,44 +471,76 @@ public class Basic extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Basic:subject").toLocked();
 
  /**
-   * Search parameter: <b>code</b>
+   * Search parameter: <b>created</b>
    * <p>
-   * Description: <b>Kind of Resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Basic.code</b><br>
+   * Description: <b>When created</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Basic.created</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="code", path="Basic.code", description="Kind of Resource", type="token" )
-  public static final String SP_CODE = "code";
+  @SearchParamDefinition(name="created", path="Basic.created", description="When created", type="date" )
+  public static final String SP_CREATED = "created";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <b>Fluent Client</b> search parameter constant for <b>created</b>
    * <p>
-   * Description: <b>Kind of Resource</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Basic.code</b><br>
+   * Description: <b>When created</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Basic.created</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam CREATED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_CREATED);
 
  /**
-   * Search parameter: <b>identifier</b>
+   * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Basic.identifier</b><br>
+   * Description: <b>Identifies the focus of this resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Basic.subject</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Basic.identifier", description="Business identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="patient", path="Basic.subject", description="Identifies the focus of this resource", type="reference" )
+  public static final String SP_PATIENT = "patient";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>Business identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Basic.identifier</b><br>
+   * Description: <b>Identifies the focus of this resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Basic.subject</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Basic:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Basic:patient").toLocked();
+
+ /**
+   * Search parameter: <b>author</b>
+   * <p>
+   * Description: <b>Who created</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Basic.author</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="author", path="Basic.author", description="Who created", type="reference" )
+  public static final String SP_AUTHOR = "author";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>author</b>
+   * <p>
+   * Description: <b>Who created</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Basic.author</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHOR = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHOR);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Basic:author</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHOR = new ca.uhn.fhir.model.api.Include("Basic:author").toLocked();
 
 
 }

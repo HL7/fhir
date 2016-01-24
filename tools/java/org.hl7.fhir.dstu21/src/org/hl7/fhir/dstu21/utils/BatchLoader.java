@@ -8,18 +8,16 @@ import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 import org.hl7.fhir.dstu21.formats.IParser;
 import org.hl7.fhir.dstu21.formats.JsonParser;
-import org.hl7.fhir.dstu21.formats.XmlParser;
 import org.hl7.fhir.dstu21.model.Bundle;
-import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu21.model.Bundle.BundleType;
 import org.hl7.fhir.dstu21.model.Bundle.HTTPVerb;
+import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.utils.client.FHIRToolingClient;
-import org.hl7.fhir.utilities.IniFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.FHIRException;
 
 public class BatchLoader {
 
@@ -64,8 +62,8 @@ public class BatchLoader {
 //	  LoadZipFile(server, Utilities.path(file, "List-res.json.zip"), p, size, 0, -1);
 //	  LoadZipFile(server, Utilities.path(file, "List-vs.json.zip"), p, size, 0, -1);
   }
-    
 
+	
   private static void LoadZipFile(String server, String file, IParser p, int size, int start, int end) throws IOException, Exception {
 		System.out.println("Load Zip file "+file);
 	 	Bundle b = new Bundle();
@@ -76,8 +74,8 @@ public class BatchLoader {
     while((entry = zip.getNextEntry())!=null)
     {
     	try {
-    	Resource r = p.parse(zip);
-    	b.addEntry().setResource(r);
+    	  Resource r = p.parse(zip);
+    	  b.addEntry().setResource(r);
     	} catch (Exception e) {
     		throw new Exception("Error parsing "+entry.getName()+": "+e.getMessage(), e);
     	}

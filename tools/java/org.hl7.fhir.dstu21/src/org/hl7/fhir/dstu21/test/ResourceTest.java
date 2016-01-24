@@ -34,13 +34,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.formats.IParser;
+import org.hl7.fhir.dstu21.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu21.formats.JsonParser;
 import org.hl7.fhir.dstu21.formats.XmlParser;
-import org.hl7.fhir.dstu21.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu21.model.Resource;
-import org.hl7.fhir.exceptions.FHIRFormatError;
-import org.xmlpull.v1.XmlPullParserException;
 
 public class ResourceTest {
 

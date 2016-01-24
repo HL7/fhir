@@ -44,18 +44,18 @@ public class StringType extends PrimitiveType<String> {
 	/**
 	 * Create a new String
 	 */
-  public StringType() {
+	public StringType() {
 		super();
-  }
+	}
 
 	/**
 	 * Create a new String
 	 */
 	public StringType(String theValue) {
 		setValue(theValue);
-  }
+	}
 
-  /**
+	/**
 	 * Returns the value of this StringType, or an empty string ("") if the
 	 * value is <code>null</code>. This method is provided as a convenience to
 	 * users of this API.
@@ -72,16 +72,16 @@ public class StringType extends PrimitiveType<String> {
 	public String toString() {
 		return getValue();
 	}
-	
+
 	@Override
 	protected String parse(String theValue) {
 		return theValue;
 	}
 
-  @Override
+	@Override
 	protected String encode(String theValue) {
 		return theValue;
-  }
+	}
 
 	@Override
 	public StringType copy() {

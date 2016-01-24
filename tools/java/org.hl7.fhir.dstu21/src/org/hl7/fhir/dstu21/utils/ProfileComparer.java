@@ -8,11 +8,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
 import org.hl7.fhir.dstu21.formats.IParser;
 import org.hl7.fhir.dstu21.model.Base;
 import org.hl7.fhir.dstu21.model.Coding;
 import org.hl7.fhir.dstu21.model.ElementDefinition;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionConstraintComponent;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionMappingComponent;
+import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu21.model.Enumerations.BindingStrength;
+import org.hl7.fhir.dstu21.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu21.model.IntegerType;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu21.model.PrimitiveType;
 import org.hl7.fhir.dstu21.model.Reference;
 import org.hl7.fhir.dstu21.model.StringType;
@@ -20,14 +29,6 @@ import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.model.Type;
 import org.hl7.fhir.dstu21.model.UriType;
 import org.hl7.fhir.dstu21.model.ValueSet;
-import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
-import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionConstraintComponent;
-import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionMappingComponent;
-import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu21.model.Enumerations.BindingStrength;
-import org.hl7.fhir.dstu21.model.Enumerations.ConformanceResourceStatus;
-import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionContainsComponent;
@@ -36,7 +37,6 @@ import org.hl7.fhir.dstu21.validation.ValidationMessage;
 import org.hl7.fhir.dstu21.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.DefinitionException;
 
 /**
  * A engine that generates difference analysis between two sets of structure 

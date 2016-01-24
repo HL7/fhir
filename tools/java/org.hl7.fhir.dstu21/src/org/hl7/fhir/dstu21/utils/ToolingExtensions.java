@@ -35,6 +35,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.model.BooleanType;
 import org.hl7.fhir.dstu21.model.CodeType;
 import org.hl7.fhir.dstu21.model.CodeableConcept;
@@ -50,18 +52,15 @@ import org.hl7.fhir.dstu21.model.Identifier;
 import org.hl7.fhir.dstu21.model.IntegerType;
 import org.hl7.fhir.dstu21.model.MarkdownType;
 import org.hl7.fhir.dstu21.model.PrimitiveType;
-import org.hl7.fhir.dstu21.model.Reference;
+import org.hl7.fhir.dstu21.model.Questionnaire.QuestionnaireItemComponent;
+import org.hl7.fhir.dstu21.model.Questionnaire.QuestionnaireItemType;
 import org.hl7.fhir.dstu21.model.StringType;
 import org.hl7.fhir.dstu21.model.Type;
 import org.hl7.fhir.dstu21.model.UriType;
 import org.hl7.fhir.dstu21.model.ValueSet;
-import org.hl7.fhir.dstu21.model.Questionnaire.QuestionnaireItemComponent;
-import org.hl7.fhir.dstu21.model.Questionnaire.QuestionnaireItemType;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.dstu21.validation.ValidationMessage.Source;
-import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 
 
 public class ToolingExtensions {
@@ -124,7 +123,7 @@ public class ToolingExtensions {
   }
 
   public static void addStringExtension(DomainResource dr, String url, String content) {
-    if (!Utilities.noString(content)) {
+    if (!StringUtils.isBlank(content)) {
       Extension ex = getExtension(dr, url);
       if (ex != null)
         ex.setValue(new StringType(content));
@@ -134,7 +133,7 @@ public class ToolingExtensions {
   }
 
   public static void addStringExtension(Element e, String url, String content) {
-    if (!Utilities.noString(content)) {
+    if (!StringUtils.isBlank(content)) {
       Extension ex = getExtension(e, url);
       if (ex != null)
         ex.setValue(new StringType(content));
@@ -152,7 +151,7 @@ public class ToolingExtensions {
   }
 
   public static void addComment(Element nc, String comment) {
-    if (!Utilities.noString(comment))
+    if (!StringUtils.isBlank(comment))
       nc.getExtension().add(Factory.newExtension(EXT_COMMENT, Factory.newString_(comment), true));   
   }
 
@@ -165,12 +164,12 @@ public class ToolingExtensions {
   }
 
   public static void addDefinition(Element nc, String definition) {
-    if (!Utilities.noString(definition))
+    if (!StringUtils.isBlank(definition))
       nc.getExtension().add(Factory.newExtension(EXT_DEFINITION, Factory.newString_(definition), true));   
   }
 
   public static void addDisplayHint(Element def, String hint) {
-    if (!Utilities.noString(hint))
+    if (!StringUtils.isBlank(hint))
       def.getExtension().add(Factory.newExtension(EXT_DISPLAY_HINT, Factory.newString_(hint), true));   
   }
 
@@ -216,7 +215,7 @@ public class ToolingExtensions {
       return false;
     if (!(ex.getValue() instanceof StringType))
       return false;
-    return !Utilities.noString(((StringType) ex.getValue()).getValue());
+    return !StringUtils.isBlank(((StringType) ex.getValue()).getValue());
   }
 
   public static Boolean readBooleanExtension(Element c, String uri) {
@@ -264,7 +263,7 @@ public class ToolingExtensions {
   }
 
   public static void addFlyOver(QuestionnaireItemComponent item, String text){
-    if (!Utilities.noString(text)) {
+    if (!StringUtils.isBlank(text)) {
     	QuestionnaireItemComponent display = item.addItem();
     	display.setType(QuestionnaireItemType.DISPLAY);
     	display.setText(text);
@@ -275,11 +274,11 @@ public class ToolingExtensions {
   public static void addMin(QuestionnaireItemComponent item, int min) {
     item.getExtension().add(Factory.newExtension(EXT_MINOCCURS, Factory.newInteger(min), true));
   }
-
+  
   public static void addMax(QuestionnaireItemComponent item, int max) {
     item.getExtension().add(Factory.newExtension(EXT_MAXOCCURS, Factory.newInteger(max), true));
   }
-
+  
   public static void addFhirType(QuestionnaireItemComponent group, String value) {
     group.getExtension().add(Factory.newExtension(EXT_FHIRTYPE, Factory.newString_(value), true));       
   }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * A set of rules or how FHIR is used to solve a particular problem. This resource is used to gather all the parts of an implementation guide into a logical whole, and to publish a computable definition of all the parts.
  */
@@ -3385,6 +3385,26 @@ public class ImplementationGuide extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>The implementation guide publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImplementationGuide.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="ImplementationGuide.date", description="The implementation guide publication date", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>The implementation guide publication date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ImplementationGuide.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
    * Search parameter: <b>dependency</b>
    * <p>
    * Description: <b>Where to find dependency</b><br>
@@ -3403,46 +3423,6 @@ public class ImplementationGuide extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam DEPENDENCY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_DEPENDENCY);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>The current status of the implementation guide</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImplementationGuide.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="ImplementationGuide.status", description="The current status of the implementation guide", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>The current status of the implementation guide</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ImplementationGuide.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="ImplementationGuide.description", description="Text search in the description of the implementation guide", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search in the description of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
 
  /**
    * Search parameter: <b>name</b>
@@ -3485,6 +3465,46 @@ public class ImplementationGuide extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="ImplementationGuide.publisher", description="Name of the publisher of the implementation guide", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="ImplementationGuide.description", description="Text search in the description of the implementation guide", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search in the description of the implementation guide</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>ImplementationGuide.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
    * Search parameter: <b>experimental</b>
    * <p>
    * Description: <b>If for testing purposes, not real usage</b><br>
@@ -3505,24 +3525,24 @@ public class ImplementationGuide extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam EXPERIMENTAL = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_EXPERIMENTAL);
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>The implementation guide publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImplementationGuide.date</b><br>
+   * Description: <b>The version identifier of the implementation guide</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImplementationGuide.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="ImplementationGuide.date", description="The implementation guide publication date", type="date" )
-  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="version", path="ImplementationGuide.version", description="The version identifier of the implementation guide", type="token" )
+  public static final String SP_VERSION = "version";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>The implementation guide publication date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ImplementationGuide.date</b><br>
+   * Description: <b>The version identifier of the implementation guide</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ImplementationGuide.version</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
  /**
    * Search parameter: <b>url</b>
@@ -3545,44 +3565,24 @@ public class ImplementationGuide extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
-   * Search parameter: <b>publisher</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Name of the publisher of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.publisher</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="publisher", path="ImplementationGuide.publisher", description="Name of the publisher of the implementation guide", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher of the implementation guide</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>ImplementationGuide.publisher</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
-
- /**
-   * Search parameter: <b>version</b>
-   * <p>
-   * Description: <b>The version identifier of the implementation guide</b><br>
+   * Description: <b>The current status of the implementation guide</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ImplementationGuide.version</b><br>
+   * Path: <b>ImplementationGuide.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="ImplementationGuide.version", description="The version identifier of the implementation guide", type="token" )
-  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="status", path="ImplementationGuide.status", description="The current status of the implementation guide", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>The version identifier of the implementation guide</b><br>
+   * Description: <b>The current status of the implementation guide</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>ImplementationGuide.version</b><br>
+   * Path: <b>ImplementationGuide.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

@@ -25,7 +25,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 package org.hl7.fhir.dstu21.model;
 
 import static org.apache.commons.lang3.StringUtils.defaultString;
@@ -42,34 +42,34 @@ public class CodeType extends StringType implements Comparable<CodeType>  {
 
 	public CodeType() {
 		super();
-  }
+	}
 
 	public CodeType(String theCode) {
 		setValue(theCode);
-  }
+	}
 
 	public int compareTo(CodeType theCode) {
 		if (theCode == null) {
 			return 1;
-	}
+		}
 		return defaultString(getValue()).compareTo(defaultString(theCode.getValue()));
-	}
-	
+	}	
+
 	@Override
 	protected String parse(String theValue) {
 		return theValue.trim();
 	}
-	
+
 	@Override
 	protected String encode(String theValue) {
 		return theValue;
 	}
 
-  @Override
+	@Override
 	public CodeType copy() {
 		return new CodeType(getValue());
 	}
-	
+
 	public String fhirType() {
 		return "code";		
 	}

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system is able to take an appropriate action.
  */
@@ -1166,66 +1166,6 @@ public class Subscription extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>criteria</b>
-   * <p>
-   * Description: <b>Rule for server push criteria</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Subscription.criteria</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="criteria", path="Subscription.criteria", description="Rule for server push criteria", type="string" )
-  public static final String SP_CRITERIA = "criteria";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>criteria</b>
-   * <p>
-   * Description: <b>Rule for server push criteria</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>Subscription.criteria</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam CRITERIA = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_CRITERIA);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>requested | active | error | off</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="Subscription.status", description="requested | active | error | off", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>requested | active | error | off</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>tag</b>
-   * <p>
-   * Description: <b>A tag to add to matching resources</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.tag</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="tag", path="Subscription.tag", description="A tag to add to matching resources", type="token" )
-  public static final String SP_TAG = "tag";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>tag</b>
-   * <p>
-   * Description: <b>A tag to add to matching resources</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.tag</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TAG = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TAG);
-
- /**
    * Search parameter: <b>payload</b>
    * <p>
    * Description: <b>Mimetype to send, or blank for no payload</b><br>
@@ -1246,24 +1186,24 @@ public class Subscription extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PAYLOAD = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PAYLOAD);
 
  /**
-   * Search parameter: <b>type</b>
+   * Search parameter: <b>criteria</b>
    * <p>
-   * Description: <b>rest-hook | websocket | email | sms | message</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.channel.type</b><br>
+   * Description: <b>Rule for server push criteria</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Subscription.criteria</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="Subscription.channel.type", description="rest-hook | websocket | email | sms | message", type="token" )
-  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="criteria", path="Subscription.criteria", description="Rule for server push criteria", type="string" )
+  public static final String SP_CRITERIA = "criteria";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <b>Fluent Client</b> search parameter constant for <b>criteria</b>
    * <p>
-   * Description: <b>rest-hook | websocket | email | sms | message</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Subscription.channel.type</b><br>
+   * Description: <b>Rule for server push criteria</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Subscription.criteria</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam CRITERIA = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_CRITERIA);
 
  /**
    * Search parameter: <b>contact</b>
@@ -1286,6 +1226,46 @@ public class Subscription extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTACT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTACT);
 
  /**
+   * Search parameter: <b>tag</b>
+   * <p>
+   * Description: <b>A tag to add to matching resources</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.tag</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="tag", path="Subscription.tag", description="A tag to add to matching resources", type="token" )
+  public static final String SP_TAG = "tag";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>tag</b>
+   * <p>
+   * Description: <b>A tag to add to matching resources</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.tag</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TAG = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TAG);
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>rest-hook | websocket | email | sms | message</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.channel.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="Subscription.channel.type", description="rest-hook | websocket | email | sms | message", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>rest-hook | websocket | email | sms | message</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.channel.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
    * Search parameter: <b>url</b>
    * <p>
    * Description: <b>Where the channel points to</b><br>
@@ -1304,6 +1284,26 @@ public class Subscription extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>requested | active | error | off</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Subscription.status", description="requested | active | error | off", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>requested | active | error | off</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Subscription.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

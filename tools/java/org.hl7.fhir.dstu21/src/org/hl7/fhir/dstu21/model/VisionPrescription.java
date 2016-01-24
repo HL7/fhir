@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -41,7 +41,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * An authorization for the supply of glasses and/or contact lenses to a patient.
  */
@@ -1869,24 +1869,50 @@ public class VisionPrescription extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>datewritten</b>
+   * Search parameter: <b>prescriber</b>
    * <p>
-   * Description: <b>Return prescriptions written on this date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>VisionPrescription.dateWritten</b><br>
+   * Description: <b>Who authorizes the vision product</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>VisionPrescription.prescriber</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="datewritten", path="VisionPrescription.dateWritten", description="Return prescriptions written on this date", type="date" )
-  public static final String SP_DATEWRITTEN = "datewritten";
+  @SearchParamDefinition(name="prescriber", path="VisionPrescription.prescriber", description="Who authorizes the vision product", type="reference" )
+  public static final String SP_PRESCRIBER = "prescriber";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>datewritten</b>
+   * <b>Fluent Client</b> search parameter constant for <b>prescriber</b>
    * <p>
-   * Description: <b>Return prescriptions written on this date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>VisionPrescription.dateWritten</b><br>
+   * Description: <b>Who authorizes the vision product</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>VisionPrescription.prescriber</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATEWRITTEN = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATEWRITTEN);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRESCRIBER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRESCRIBER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>VisionPrescription:prescriber</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIBER = new ca.uhn.fhir.model.api.Include("VisionPrescription:prescriber").toLocked();
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Return prescriptions with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>VisionPrescription.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="VisionPrescription.identifier", description="Return prescriptions with this external identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Return prescriptions with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>VisionPrescription.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>patient</b>
@@ -1915,30 +1941,24 @@ public class VisionPrescription extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("VisionPrescription:patient").toLocked();
 
  /**
-   * Search parameter: <b>prescriber</b>
+   * Search parameter: <b>datewritten</b>
    * <p>
-   * Description: <b>Who authorizes the vision product</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>VisionPrescription.prescriber</b><br>
+   * Description: <b>Return prescriptions written on this date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>VisionPrescription.dateWritten</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="prescriber", path="VisionPrescription.prescriber", description="Who authorizes the vision product", type="reference" )
-  public static final String SP_PRESCRIBER = "prescriber";
+  @SearchParamDefinition(name="datewritten", path="VisionPrescription.dateWritten", description="Return prescriptions written on this date", type="date" )
+  public static final String SP_DATEWRITTEN = "datewritten";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>prescriber</b>
+   * <b>Fluent Client</b> search parameter constant for <b>datewritten</b>
    * <p>
-   * Description: <b>Who authorizes the vision product</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>VisionPrescription.prescriber</b><br>
+   * Description: <b>Return prescriptions written on this date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>VisionPrescription.dateWritten</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRESCRIBER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRESCRIBER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>VisionPrescription:prescriber</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRESCRIBER = new ca.uhn.fhir.model.api.Include("VisionPrescription:prescriber").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATEWRITTEN = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATEWRITTEN);
 
  /**
    * Search parameter: <b>encounter</b>
@@ -1965,26 +1985,6 @@ public class VisionPrescription extends DomainResource {
    * the path value of "<b>VisionPrescription:encounter</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ENCOUNTER = new ca.uhn.fhir.model.api.Include("VisionPrescription:encounter").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Return prescriptions with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>VisionPrescription.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="VisionPrescription.identifier", description="Return prescriptions with this external identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Return prescriptions with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>VisionPrescription.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
 
 }

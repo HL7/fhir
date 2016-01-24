@@ -37,12 +37,12 @@ POSSIBILITY OF SUCH DAMAGE.
  * Primitive type "code" in FHIR, where the code is tied to an enumerated list of possible values
  * 
  */
-@DatatypeDef(name="code", isSpecialization=true) 
+@DatatypeDef(name = "code", isSpecialization = true)
 public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements IBaseEnumeration<T> {
 
 	private static final long serialVersionUID = 1L;
 	private final EnumFactory<T> myEnumFactory;
-  
+
 	/**
 	 * Constructor
 	 */
@@ -50,28 +50,28 @@ public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements 
 		if (theEnumFactory == null)
 			throw new IllegalArgumentException("An enumeration factory must be provided");
 		myEnumFactory = theEnumFactory;
-  }
-  
-  /**
+	}
+
+	/**
 	 * Constructor
-   */
+	 */
 	public Enumeration(EnumFactory<T> theEnumFactory, String theValue) {
 		if (theEnumFactory == null)
 			throw new IllegalArgumentException("An enumeration factory must be provided");
 		myEnumFactory = theEnumFactory;
 		setValueAsString(theValue);
-  }
-  
-  /**
+	}
+
+	/**
 	 * Constructor
-   */
+	 */
 	public Enumeration(EnumFactory<T> theEnumFactory, T theValue) {
 		if (theEnumFactory == null)
 			throw new IllegalArgumentException("An enumeration factory must be provided");
 		myEnumFactory = theEnumFactory;
 		setValue(theValue);
-  }
-  
+	}
+
 	@Override
 	public Enumeration<T> copy() {
 		return new Enumeration<T>(myEnumFactory, getValue());
@@ -80,12 +80,12 @@ public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements 
 	@Override
 	protected String encode(T theValue) {
 		return myEnumFactory.toCode(theValue);
-  }
+	}
 
 	public String fhirType() {
 		return "code";
 	}
-	
+
 	/**
 	 * Provides the enum factory which binds this enumeration to a specific ValueSet
 	 */

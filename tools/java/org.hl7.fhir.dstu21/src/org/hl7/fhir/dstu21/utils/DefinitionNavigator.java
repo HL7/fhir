@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
 import org.hl7.fhir.dstu21.model.ElementDefinition;
-import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.dstu21.model.StructureDefinition;
 
 public class DefinitionNavigator {
 

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.
  */
@@ -3138,98 +3138,6 @@ public class CarePlan extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>activitycode</b>
-   * <p>
-   * Description: <b>Detail type of activity</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CarePlan.activity.detail.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="activitycode", path="CarePlan.activity.detail.code", description="Detail type of activity", type="token" )
-  public static final String SP_ACTIVITYCODE = "activitycode";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>activitycode</b>
-   * <p>
-   * Description: <b>Detail type of activity</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>CarePlan.activity.detail.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTIVITYCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTIVITYCODE);
-
- /**
-   * Search parameter: <b>condition</b>
-   * <p>
-   * Description: <b>Health issues this plan addresses</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.addresses</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="condition", path="CarePlan.addresses", description="Health issues this plan addresses", type="reference" )
-  public static final String SP_CONDITION = "condition";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>condition</b>
-   * <p>
-   * Description: <b>Health issues this plan addresses</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.addresses</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONDITION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONDITION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:condition</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONDITION = new ca.uhn.fhir.model.api.Include("CarePlan:condition").toLocked();
-
- /**
-   * Search parameter: <b>subject</b>
-   * <p>
-   * Description: <b>Who care plan is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.subject</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subject", path="CarePlan.subject", description="Who care plan is for", type="reference" )
-  public static final String SP_SUBJECT = "subject";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
-   * <p>
-   * Description: <b>Who care plan is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.subject</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:subject</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("CarePlan:subject").toLocked();
-
- /**
-   * Search parameter: <b>activitydate</b>
-   * <p>
-   * Description: <b>Specified date occurs within period specified by CarePlan.activity.timingSchedule</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="activitydate", path="CarePlan.activity.detail.scheduled[x]", description="Specified date occurs within period specified by CarePlan.activity.timingSchedule", type="date" )
-  public static final String SP_ACTIVITYDATE = "activitydate";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>activitydate</b>
-   * <p>
-   * Description: <b>Specified date occurs within period specified by CarePlan.activity.timingSchedule</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam ACTIVITYDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ACTIVITYDATE);
-
- /**
    * Search parameter: <b>date</b>
    * <p>
    * Description: <b>Time period plan covers</b><br>
@@ -3250,148 +3158,44 @@ public class CarePlan extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>goal</b>
+   * Search parameter: <b>activitycode</b>
    * <p>
-   * Description: <b>Desired outcome of plan</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.goal</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="goal", path="CarePlan.goal", description="Desired outcome of plan", type="reference" )
-  public static final String SP_GOAL = "goal";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>goal</b>
-   * <p>
-   * Description: <b>Desired outcome of plan</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.goal</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam GOAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_GOAL);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:goal</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_GOAL = new ca.uhn.fhir.model.api.Include("CarePlan:goal").toLocked();
-
- /**
-   * Search parameter: <b>related</b>
-   * <p>
-   * Description: <b>A combination of the type of relationship and the related plan</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="related", path="null", description="A combination of the type of relationship and the related plan", type="composite" )
-  public static final String SP_RELATED = "related";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>related</b>
-   * <p>
-   * Description: <b>A combination of the type of relationship and the related plan</b><br>
-   * Type: <b>composite</b><br>
-   * Path: <b></b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam RELATED = new ca.uhn.fhir.rest.gclient.CompositeClientParam(SP_RELATED);
-
- /**
-   * Search parameter: <b>relatedcode</b>
-   * <p>
-   * Description: <b>includes | replaces | fulfills</b><br>
+   * Description: <b>Detail type of activity</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CarePlan.relatedPlan.code</b><br>
+   * Path: <b>CarePlan.activity.detail.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="relatedcode", path="CarePlan.relatedPlan.code", description="includes | replaces | fulfills", type="token" )
-  public static final String SP_RELATEDCODE = "relatedcode";
+  @SearchParamDefinition(name="activitycode", path="CarePlan.activity.detail.code", description="Detail type of activity", type="token" )
+  public static final String SP_ACTIVITYCODE = "activitycode";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>relatedcode</b>
+   * <b>Fluent Client</b> search parameter constant for <b>activitycode</b>
    * <p>
-   * Description: <b>includes | replaces | fulfills</b><br>
+   * Description: <b>Detail type of activity</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>CarePlan.relatedPlan.code</b><br>
+   * Path: <b>CarePlan.activity.detail.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATEDCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATEDCODE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTIVITYCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTIVITYCODE);
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>activitydate</b>
    * <p>
-   * Description: <b>Who care plan is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.subject</b><br>
+   * Description: <b>Specified date occurs within period specified by CarePlan.activity.timingSchedule</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="CarePlan.subject", description="Who care plan is for", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="activitydate", path="CarePlan.activity.detail.scheduled[x]", description="Specified date occurs within period specified by CarePlan.activity.timingSchedule", type="date" )
+  public static final String SP_ACTIVITYDATE = "activitydate";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>activitydate</b>
    * <p>
-   * Description: <b>Who care plan is for</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.subject</b><br>
+   * Description: <b>Specified date occurs within period specified by CarePlan.activity.timingSchedule</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>CarePlan.activity.detail.scheduled[x]</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("CarePlan:patient").toLocked();
-
- /**
-   * Search parameter: <b>participant</b>
-   * <p>
-   * Description: <b>Who is involved</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.participant.member</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="participant", path="CarePlan.participant.member", description="Who is involved", type="reference" )
-  public static final String SP_PARTICIPANT = "participant";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>participant</b>
-   * <p>
-   * Description: <b>Who is involved</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.participant.member</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPANT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPANT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:participant</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("CarePlan:participant").toLocked();
-
- /**
-   * Search parameter: <b>performer</b>
-   * <p>
-   * Description: <b>Matches if the practitioner is listed as a performer in any of the "simple" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.activity.detail.performer</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="performer", path="CarePlan.activity.detail.performer", description="Matches if the practitioner is listed as a performer in any of the \"simple\" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)", type="reference" )
-  public static final String SP_PERFORMER = "performer";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
-   * <p>
-   * Description: <b>Matches if the practitioner is listed as a performer in any of the "simple" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>CarePlan.activity.detail.performer</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>CarePlan:performer</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("CarePlan:performer").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam ACTIVITYDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ACTIVITYDATE);
 
  /**
    * Search parameter: <b>activityreference</b>
@@ -3420,6 +3224,130 @@ public class CarePlan extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_ACTIVITYREFERENCE = new ca.uhn.fhir.model.api.Include("CarePlan:activityreference").toLocked();
 
  /**
+   * Search parameter: <b>performer</b>
+   * <p>
+   * Description: <b>Matches if the practitioner is listed as a performer in any of the "simple" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.activity.detail.performer</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="performer", path="CarePlan.activity.detail.performer", description="Matches if the practitioner is listed as a performer in any of the \"simple\" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)", type="reference" )
+  public static final String SP_PERFORMER = "performer";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>performer</b>
+   * <p>
+   * Description: <b>Matches if the practitioner is listed as a performer in any of the "simple" activities.  (For performers of the detailed activities, chain through the activitydetail search parameter.)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.activity.detail.performer</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PERFORMER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PERFORMER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:performer</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PERFORMER = new ca.uhn.fhir.model.api.Include("CarePlan:performer").toLocked();
+
+ /**
+   * Search parameter: <b>goal</b>
+   * <p>
+   * Description: <b>Desired outcome of plan</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.goal</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="goal", path="CarePlan.goal", description="Desired outcome of plan", type="reference" )
+  public static final String SP_GOAL = "goal";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>goal</b>
+   * <p>
+   * Description: <b>Desired outcome of plan</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.goal</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam GOAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_GOAL);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:goal</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_GOAL = new ca.uhn.fhir.model.api.Include("CarePlan:goal").toLocked();
+
+ /**
+   * Search parameter: <b>subject</b>
+   * <p>
+   * Description: <b>Who care plan is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="subject", path="CarePlan.subject", description="Who care plan is for", type="reference" )
+  public static final String SP_SUBJECT = "subject";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <p>
+   * Description: <b>Who care plan is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:subject</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("CarePlan:subject").toLocked();
+
+ /**
+   * Search parameter: <b>relatedcode</b>
+   * <p>
+   * Description: <b>includes | replaces | fulfills</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CarePlan.relatedPlan.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="relatedcode", path="CarePlan.relatedPlan.code", description="includes | replaces | fulfills", type="token" )
+  public static final String SP_RELATEDCODE = "relatedcode";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>relatedcode</b>
+   * <p>
+   * Description: <b>includes | replaces | fulfills</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>CarePlan.relatedPlan.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam RELATEDCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_RELATEDCODE);
+
+ /**
+   * Search parameter: <b>participant</b>
+   * <p>
+   * Description: <b>Who is involved</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.participant.member</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="participant", path="CarePlan.participant.member", description="Who is involved", type="reference" )
+  public static final String SP_PARTICIPANT = "participant";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>participant</b>
+   * <p>
+   * Description: <b>Who is involved</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.participant.member</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPANT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPANT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:participant</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("CarePlan:participant").toLocked();
+
+ /**
    * Search parameter: <b>relatedplan</b>
    * <p>
    * Description: <b>Plan relationship exists with</b><br>
@@ -3444,6 +3372,78 @@ public class CarePlan extends DomainResource {
    * the path value of "<b>CarePlan:relatedplan</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RELATEDPLAN = new ca.uhn.fhir.model.api.Include("CarePlan:relatedplan").toLocked();
+
+ /**
+   * Search parameter: <b>condition</b>
+   * <p>
+   * Description: <b>Health issues this plan addresses</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.addresses</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="condition", path="CarePlan.addresses", description="Health issues this plan addresses", type="reference" )
+  public static final String SP_CONDITION = "condition";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>condition</b>
+   * <p>
+   * Description: <b>Health issues this plan addresses</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.addresses</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam CONDITION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_CONDITION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:condition</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_CONDITION = new ca.uhn.fhir.model.api.Include("CarePlan:condition").toLocked();
+
+ /**
+   * Search parameter: <b>related</b>
+   * <p>
+   * Description: <b>A combination of the type of relationship and the related plan</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="related", path="", description="A combination of the type of relationship and the related plan", type="composite", compositeOf={"relatedcode", "relatedplan"} )
+  public static final String SP_RELATED = "related";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>related</b>
+   * <p>
+   * Description: <b>A combination of the type of relationship and the related plan</b><br>
+   * Type: <b>composite</b><br>
+   * Path: <b></b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.ReferenceClientParam> RELATED = new ca.uhn.fhir.rest.gclient.CompositeClientParam<ca.uhn.fhir.rest.gclient.TokenClientParam, ca.uhn.fhir.rest.gclient.ReferenceClientParam>(SP_RELATED);
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Who care plan is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.subject</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="CarePlan.subject", description="Who care plan is for", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Who care plan is for</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>CarePlan.subject</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>CarePlan:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("CarePlan:patient").toLocked();
 
 
 }

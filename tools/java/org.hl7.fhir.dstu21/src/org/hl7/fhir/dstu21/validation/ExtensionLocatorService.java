@@ -1,7 +1,7 @@
 package org.hl7.fhir.dstu21.validation;
 
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
 import org.hl7.fhir.dstu21.model.StructureDefinition;
-import org.hl7.fhir.exceptions.DefinitionException;
 
 
 

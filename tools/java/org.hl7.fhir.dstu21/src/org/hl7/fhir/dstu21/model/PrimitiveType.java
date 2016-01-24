@@ -10,11 +10,11 @@ import ca.uhn.fhir.model.api.IElement;
 
 public abstract class PrimitiveType<T> extends Type implements IPrimitiveType<T>, IBaseHasExtensions, IElement {
 
-  private static final long serialVersionUID = 3L;
+	private static final long serialVersionUID = 3L;
 
-  private T myCoercedValue;
-  private String myStringValue;
-  
+	private T myCoercedValue;
+	private String myStringValue;
+
 	public T getValue() {
 		return myCoercedValue;
 	}
@@ -92,21 +92,21 @@ public abstract class PrimitiveType<T> extends Type implements IPrimitiveType<T>
 	public boolean hasValue() {
   	  return !StringUtils.isBlank(getValueAsString());
 	}
-	
+
 	public String getValueAsString() {
 		return asStringValue();
 	}
-	
+
 	public void setValueAsString(String theValue) {
 		fromStringValue(theValue);
 	}
-	
+
 	protected Type typedCopy() {
 		return copy();
 	}
 
 	public abstract Type copy();
-  
+
 	@Override
 	public boolean equalsDeep(Base obj) {
 		if (!super.equalsDeep(obj))
@@ -125,20 +125,20 @@ public abstract class PrimitiveType<T> extends Type implements IPrimitiveType<T>
 		return b.isEquals();
 	}
 
-	 @Override
-	  public boolean equalsShallow(Base obj) {
-	    if (obj == null) {
-	      return false;
-	    }
-	    if (!(obj.getClass() == getClass())) {
-	      return false;
-	    }
+	@Override
+	public boolean equalsShallow(Base obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (!(obj.getClass() == getClass())) {
+			return false;
+		}
 
-	    PrimitiveType<?> o = (PrimitiveType<?>) obj;
+		PrimitiveType<?> o = (PrimitiveType<?>) obj;
 
-	    EqualsBuilder b = new EqualsBuilder();
-	    b.append(getValue(), o.getValue());
-	    return b.isEquals();
-	  }
+		EqualsBuilder b = new EqualsBuilder();
+		b.append(getValue(), o.getValue());
+		return b.isEquals();
+	}
 
 }

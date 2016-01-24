@@ -39,14 +39,14 @@ public class UuidType extends UriType {
 	 */
 	public UuidType() {
 		super();
-  }
+	}
 
 	/**
 	 * Constructor
 	 */
 	public UuidType(String theValue) {
 		super(theValue);
-  }
+	}
 
 	/**
 	 * Constructor

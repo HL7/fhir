@@ -25,7 +25,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 /**
  * 
  */
@@ -38,14 +38,14 @@ import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 /**
  * Primitive type "boolean" in FHIR "true" or "false"
  */
-@DatatypeDef(name="boolean")
+@DatatypeDef(name = "boolean")
 public class BooleanType extends PrimitiveType<Boolean> implements IBaseBooleanDatatype {
 
 	private static final long serialVersionUID = 3L;
 
-  public BooleanType() {
+	public BooleanType() {
 		super();
-  }
+	}
 
 	public BooleanType(boolean theBoolean) {
 		super();
@@ -59,9 +59,9 @@ public class BooleanType extends PrimitiveType<Boolean> implements IBaseBooleanD
 
 	public BooleanType(String value) {
 		super();
-		setValueAsString(value);  
+		setValueAsString(value);
 	}
-	
+
 	/**
 	 * Returns the value of this type as a primitive boolean.
 	 * 
@@ -82,11 +82,11 @@ public class BooleanType extends PrimitiveType<Boolean> implements IBaseBooleanD
 			return "true";
 		} else {
 			return "false";
-  }
+		}
 	}
 
 	public String fhirType() {
-		return "boolean";		
+		return "boolean";
 	}
 
 	protected Boolean parse(String theValue) {

@@ -9,21 +9,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 import org.hl7.fhir.dstu21.formats.IParser;
 import org.hl7.fhir.dstu21.model.Base;
 import org.hl7.fhir.dstu21.model.BooleanType;
 import org.hl7.fhir.dstu21.model.Coding;
 import org.hl7.fhir.dstu21.model.Element;
 import org.hl7.fhir.dstu21.model.ElementDefinition;
-import org.hl7.fhir.dstu21.model.IntegerType;
-import org.hl7.fhir.dstu21.model.PrimitiveType;
-import org.hl7.fhir.dstu21.model.Reference;
-import org.hl7.fhir.dstu21.model.Resource;
-import org.hl7.fhir.dstu21.model.StringType;
-import org.hl7.fhir.dstu21.model.StructureDefinition;
-import org.hl7.fhir.dstu21.model.Type;
-import org.hl7.fhir.dstu21.model.UriType;
-import org.hl7.fhir.dstu21.model.ValueSet;
 import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionConstraintComponent;
 import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionMappingComponent;
@@ -31,22 +24,27 @@ import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionSlicingCompo
 import org.hl7.fhir.dstu21.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu21.model.Enumerations.BindingStrength;
+import org.hl7.fhir.dstu21.model.IntegerType;
 import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu21.model.PrimitiveType;
+import org.hl7.fhir.dstu21.model.Reference;
+import org.hl7.fhir.dstu21.model.Resource;
+import org.hl7.fhir.dstu21.model.StringType;
+import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionDifferentialComponent;
 import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionSnapshotComponent;
+import org.hl7.fhir.dstu21.model.Type;
+import org.hl7.fhir.dstu21.model.UriType;
+import org.hl7.fhir.dstu21.model.ValueSet;
 import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu21.utils.ProfileUtilities.ExtensionContext;
 import org.hl7.fhir.dstu21.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.dstu21.validation.ValidationMessage;
 import org.hl7.fhir.dstu21.validation.ValidationMessage.Source;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
-import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Cell;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Piece;
@@ -54,7 +52,6 @@ import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.Row;
 import org.hl7.fhir.utilities.xhtml.HierarchicalTableGenerator.TableModel;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xml.SchematronWriter;
-import org.hl7.fhir.utilities.xml.SchematronWriter.Assert;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Rule;
 import org.hl7.fhir.utilities.xml.SchematronWriter.SchematronType;
 import org.hl7.fhir.utilities.xml.SchematronWriter.Section;
@@ -369,7 +366,7 @@ public class ProfileUtilities {
           outcome.setPath(fixedPath(contextPath, outcome.getPath()));
           updateFromBase(outcome, currentBase);
           if (diffMatches.get(0).hasName())
-            outcome.setName(diffMatches.get(0).getName());
+          outcome.setName(diffMatches.get(0).getName());
           outcome.setSlicing(null);
           updateFromDefinition(outcome, diffMatches.get(0), profileName, trimDifferential, url);
           if (outcome.getPath().endsWith("[x]") && outcome.getType().size() == 1 && !outcome.getType().get(0).getCode().equals("*")) // if the base profile allows multiple types, but the profile only allows one, rename it
@@ -474,7 +471,7 @@ public class ProfileUtilities {
           boolean isExtension = cpath.endsWith(".extension") || cpath.endsWith(".modifierExtension");
           if (diffMatches.get(0).hasSlicing()) { // it might be null if the differential doesn't want to say anything about slicing
             if (!isExtension)
-              diffpos++; // if there's a slice on the first, we'll ignore any content it has
+            diffpos++; // if there's a slice on the first, we'll ignore any content it has
             ElementDefinitionSlicingComponent dSlice = diffMatches.get(0).getSlicing();
             ElementDefinitionSlicingComponent bSlice = currentBase.getSlicing();
             if (!orderMatches(dSlice.getOrderedElement(), bSlice.getOrderedElement()))
@@ -1201,7 +1198,11 @@ public class ProfileUtilities {
     r.getCells().add(c);
 
 
-    return gen.generate(model, corePath);
+    try {
+		return gen.generate(model, corePath);
+	} catch (org.hl7.fhir.exceptions.FHIRException e) {
+		throw new FHIRException(e.getMessage(), e);
+	}
     }
 
   private ElementDefinition getUrlFor(StructureDefinition ed, ElementDefinition c) {
@@ -1238,17 +1239,17 @@ public class ProfileUtilities {
           c.getPieces().add(gen.new Piece("#"+ed.getPath(), "See "+ed.getPath(), null));
         return c;
       } else {
-        ElementDefinition d = (ElementDefinition) e.getUserData(DERIVATION_POINTER);
-        if (d != null && d.hasType()) {
-          types = new ArrayList<ElementDefinition.TypeRefComponent>();
-          for (TypeRefComponent tr : d.getType()) {
-            TypeRefComponent tt = tr.copy();
-            tt.setUserData(DERIVATION_EQUALS, true);
-            types.add(tt);
-          }
-        } else
-          return c;
-      }
+      ElementDefinition d = (ElementDefinition) e.getUserData(DERIVATION_POINTER);
+      if (d != null && d.hasType()) {
+        types = new ArrayList<ElementDefinition.TypeRefComponent>();
+        for (TypeRefComponent tr : d.getType()) {
+          TypeRefComponent tt = tr.copy();
+          tt.setUserData(DERIVATION_EQUALS, true);
+          types.add(tt);
+        }
+      } else
+        return c;
+    }
     }
 
     boolean first = true;
@@ -1407,7 +1408,11 @@ public class ProfileUtilities {
     List<StructureDefinition> profiles = new ArrayList<StructureDefinition>();
     profiles.add(profile);
     genElement(defFile == null ? null : defFile+"#"+profile.getId()+".", gen, model.getRows(), list.get(0), list, profiles, diff, profileBaseFileName, null, snapshot, corePath);
-    return gen.generate(model, corePath);
+    try {
+		return gen.generate(model, corePath);
+	} catch (org.hl7.fhir.exceptions.FHIRException e) {
+		throw new FHIRException(e.getMessage(), e);
+	}
   }
 
   private void genElement(String defPath, HierarchicalTableGenerator gen, List<Row> rows, ElementDefinition element, List<ElementDefinition> all, List<StructureDefinition> profiles, boolean showMissing, String profileBaseFileName, Boolean extensions, boolean snapshot, String corePath) throws IOException {
@@ -1561,8 +1566,8 @@ public class ProfileUtilities {
   private boolean extensionIsComplex(String value) {
     if (value.contains("#")) {
       StructureDefinition ext = context.fetchResource(StructureDefinition.class, value.substring(0, value.indexOf("#")));
-      if (ext == null)
-        return false;
+    if (ext == null)
+      return false;
       String tail = value.substring(value.indexOf("#")+1);
       ElementDefinition ed = null;
       for (ElementDefinition ted : ext.getSnapshot().getElement()) {
@@ -1606,7 +1611,7 @@ public class ProfileUtilities {
       return path;
 
   }
-  
+
   private boolean standardExtensionSlicing(ElementDefinition element) {
     String t = tail(element.getPath());
     return (t.equals("extension") || t.equals("modifierExtension"))
@@ -2093,9 +2098,9 @@ public class ProfileUtilities {
             r.assrt("count(f:"+name+slicer.criteria+") >= "+Integer.toString(child.getMin()), name+slicer.name+": minimum cardinality of '"+name+"' is "+Integer.toString(child.getMin()));
           if (doMax) 
             r.assrt("count(f:"+name+slicer.criteria+") <= "+child.getMax(), name+slicer.name+": maximum cardinality of '"+name+"' is "+child.getMax());
+          }
         }
       }
-    }
     for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
       if (inv.hasXpath()) {
         Section s = sch.section(ed.getPath());

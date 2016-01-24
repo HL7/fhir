@@ -8,32 +8,26 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.formats.IParser;
 import org.hl7.fhir.dstu21.formats.JsonParser;
 import org.hl7.fhir.dstu21.formats.ParserType;
 import org.hl7.fhir.dstu21.formats.XmlParser;
-import org.hl7.fhir.dstu21.model.BooleanType;
 import org.hl7.fhir.dstu21.model.Bundle;
-import org.hl7.fhir.dstu21.model.CodeableConcept;
-import org.hl7.fhir.dstu21.model.Coding;
+import org.hl7.fhir.dstu21.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu21.model.ConceptMap;
-import org.hl7.fhir.dstu21.model.Conformance;
-import org.hl7.fhir.dstu21.model.DataElement;
-import org.hl7.fhir.dstu21.model.Extension;
-import org.hl7.fhir.dstu21.model.Parameters;
-import org.hl7.fhir.dstu21.model.Reference;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu21.model.Resource;
-import org.hl7.fhir.dstu21.model.SearchParameter;
-import org.hl7.fhir.dstu21.model.StringType;
 import org.hl7.fhir.dstu21.model.StructureDefinition;
-import org.hl7.fhir.dstu21.model.UriType;
+import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu21.model.ValueSet;
 import org.hl7.fhir.dstu21.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
@@ -49,18 +43,13 @@ import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu21.terminologies.ValueSetExpanderFactory;
 import org.hl7.fhir.dstu21.terminologies.ValueSetExpansionCache;
-import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu21.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu21.utils.client.FHIRToolingClient;
 import org.hl7.fhir.dstu21.validation.IResourceValidator;
 import org.hl7.fhir.dstu21.validation.InstanceValidator;
 import org.hl7.fhir.dstu21.validation.ValidationMessage;
 import org.hl7.fhir.utilities.CSFileInputStream;
-import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 
 /*
  * This is a stand alone implementation of worker context for use inside a tool.
@@ -114,7 +103,12 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 
 	private void loadFromFile(InputStream stream, String name) throws IOException, FHIRException {
 		XmlParser xml = new XmlParser();
-		Bundle f = (Bundle) xml.parse(stream);
+		Bundle f;
+		try {
+			f = (Bundle) xml.parse(stream);
+		} catch (FHIRFormatError e1) {
+			throw new org.hl7.fhir.dstu21.exceptions.FHIRFormatError(e1.getMessage(), e1);
+		}
 		for (BundleEntryComponent e : f.getEntry()) {
 
 			if (e.getFullUrl() == null) {

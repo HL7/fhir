@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.
  */
@@ -1195,6 +1195,26 @@ public class ReferralRequest extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>Creation or activation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ReferralRequest.date</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="date", path="ReferralRequest.date", description="Creation or activation date", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>Creation or activation date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>ReferralRequest.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
    * Search parameter: <b>requester</b>
    * <p>
    * Description: <b>Requester of referral / transfer of care</b><br>
@@ -1219,6 +1239,26 @@ public class ReferralRequest extends DomainResource {
    * the path value of "<b>ReferralRequest:requester</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_REQUESTER = new ca.uhn.fhir.model.api.Include("ReferralRequest:requester").toLocked();
+
+ /**
+   * Search parameter: <b>specialty</b>
+   * <p>
+   * Description: <b>The specialty that the referral is for</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ReferralRequest.specialty</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="specialty", path="ReferralRequest.specialty", description="The specialty that the referral is for", type="token" )
+  public static final String SP_SPECIALTY = "specialty";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>specialty</b>
+   * <p>
+   * Description: <b>The specialty that the referral is for</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ReferralRequest.specialty</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIALTY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIALTY);
 
  /**
    * Search parameter: <b>patient</b>
@@ -1247,106 +1287,6 @@ public class ReferralRequest extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("ReferralRequest:patient").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>The status of the referral</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ReferralRequest.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="ReferralRequest.status", description="The status of the referral", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>The status of the referral</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ReferralRequest.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>priority</b>
-   * <p>
-   * Description: <b>The priority assigned to the referral</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ReferralRequest.priority</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="priority", path="ReferralRequest.priority", description="The priority assigned to the referral", type="token" )
-  public static final String SP_PRIORITY = "priority";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>priority</b>
-   * <p>
-   * Description: <b>The priority assigned to the referral</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ReferralRequest.priority</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>The type of the referral</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ReferralRequest.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="ReferralRequest.type", description="The type of the referral", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>The type of the referral</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ReferralRequest.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>Creation or activation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ReferralRequest.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="ReferralRequest.date", description="Creation or activation date", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Creation or activation date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>ReferralRequest.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>specialty</b>
-   * <p>
-   * Description: <b>The specialty that the referral is for</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ReferralRequest.specialty</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="specialty", path="ReferralRequest.specialty", description="The specialty that the referral is for", type="token" )
-  public static final String SP_SPECIALTY = "specialty";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>specialty</b>
-   * <p>
-   * Description: <b>The specialty that the referral is for</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ReferralRequest.specialty</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIALTY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIALTY);
-
- /**
    * Search parameter: <b>recipient</b>
    * <p>
    * Description: <b>The person that the referral was sent to</b><br>
@@ -1371,6 +1311,66 @@ public class ReferralRequest extends DomainResource {
    * the path value of "<b>ReferralRequest:recipient</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_RECIPIENT = new ca.uhn.fhir.model.api.Include("ReferralRequest:recipient").toLocked();
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>The type of the referral</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ReferralRequest.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="ReferralRequest.type", description="The type of the referral", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>The type of the referral</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ReferralRequest.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>priority</b>
+   * <p>
+   * Description: <b>The priority assigned to the referral</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ReferralRequest.priority</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="priority", path="ReferralRequest.priority", description="The priority assigned to the referral", type="token" )
+  public static final String SP_PRIORITY = "priority";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>priority</b>
+   * <p>
+   * Description: <b>The priority assigned to the referral</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ReferralRequest.priority</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PRIORITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PRIORITY);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The status of the referral</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ReferralRequest.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="ReferralRequest.status", description="The status of the referral", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The status of the referral</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ReferralRequest.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

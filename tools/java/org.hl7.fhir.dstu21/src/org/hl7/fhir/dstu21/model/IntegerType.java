@@ -25,7 +25,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 /**
  * 
  */
@@ -36,7 +36,7 @@ import org.hl7.fhir.instance.model.api.IBaseIntegerDatatype;
 import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 
 /**
- * Primitive type "integer" in FHIR: A signed 32-bit integer 
+ * Primitive type "integer" in FHIR: A signed 32-bit integer
  */
 @DatatypeDef(name = "integer")
 public class IntegerType extends PrimitiveType<Integer> implements IBaseIntegerDatatype {
@@ -46,11 +46,11 @@ public class IntegerType extends PrimitiveType<Integer> implements IBaseIntegerD
 	/**
 	 * Constructor
 	 */
-  public IntegerType() {
+	public IntegerType() {
 		// nothing
-  }
+	}
 
-  /**
+	/**
 	 * Constructor
 	 */
 	public IntegerType(int theInteger) {
@@ -79,22 +79,22 @@ public class IntegerType extends PrimitiveType<Integer> implements IBaseIntegerD
 	    if (theValue < java.lang.Integer.MIN_VALUE || theValue > java.lang.Integer.MAX_VALUE) {
 	        throw new IllegalArgumentException
 	            (theValue + " cannot be cast to int without changing its value.");
-  }
+	    }
 	    if(theValue!=null) {
 	    	setValue((int)theValue.longValue());
-  } 
+	    }
 	}
-	
+
 	@Override
 	protected Integer parse(String theValue) {
 		try {
 			return Integer.parseInt(theValue);
 		} catch (NumberFormatException e) {
 			throw new IllegalArgumentException(e);
+		}
 	}
-  }
 
-  @Override
+	@Override
 	protected String encode(Integer theValue) {
 		return Integer.toString(theValue);
 	}
@@ -102,7 +102,7 @@ public class IntegerType extends PrimitiveType<Integer> implements IBaseIntegerD
 	@Override
 	public IntegerType copy() {
 		return new IntegerType(getValue());
-  }
+	}
 
 	public String fhirType() {
 		return "integer";		

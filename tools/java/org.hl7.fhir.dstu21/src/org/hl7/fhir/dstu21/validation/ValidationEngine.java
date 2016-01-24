@@ -61,20 +61,20 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
 import org.apache.commons.io.IOUtils;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.hl7.fhir.dstu21.exceptions.DefinitionException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.formats.IParser;
 import org.hl7.fhir.dstu21.formats.JsonParser;
 import org.hl7.fhir.dstu21.formats.XmlParser;
 import org.hl7.fhir.dstu21.model.Bundle;
+import org.hl7.fhir.dstu21.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu21.model.OperationOutcome;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.model.ResourceType;
 import org.hl7.fhir.dstu21.model.StructureDefinition;
-import org.hl7.fhir.dstu21.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu21.model.Questionnaire;
 import org.hl7.fhir.dstu21.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu21.utils.NarrativeGenerator;
@@ -197,7 +197,7 @@ public class ValidationEngine {
 		  context.setCache(cache);
     context.setQuestionnaire(questionnaire);
 
-    InstanceValidator validator = new InstanceValidator(context);
+		InstanceValidator validator = new InstanceValidator(context);
 		validator.setAnyExtensionsAllowed(anyExtensionsAllowed);
 		validator.getExtensionDomains().addAll(extensionDomains);
 
@@ -450,8 +450,8 @@ public class ValidationEngine {
         setQuestionnaire(getContext().fetchResource(Questionnaire.class, questionnaire));
       else
         setQuestionnaire(readQuestionnaire(loadResourceCnt(questionnaire, "questionnaire")));
-    }
-  }
+		}
+	}
 
 	private StructureDefinition readProfile(byte[] content) throws Exception {
 		IParser xml = context.newXmlParser();

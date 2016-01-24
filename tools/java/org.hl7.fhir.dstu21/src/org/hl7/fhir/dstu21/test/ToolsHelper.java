@@ -33,7 +33,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -48,9 +47,11 @@ import java.util.zip.ZipInputStream;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.NotImplementedException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
+import org.hl7.fhir.dstu21.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu21.formats.JsonParser;
 import org.hl7.fhir.dstu21.formats.XmlParser;
-import org.hl7.fhir.dstu21.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu21.model.Constants;
 import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.utils.SimpleWorkerContext;
@@ -58,8 +59,6 @@ import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
-import org.hl7.fhir.exceptions.FHIRException;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -84,7 +83,7 @@ public class ToolsHelper {
       else if (args[0].equals("version")) 
         self.executeVersion(args);
       else if (args[0].equals("fragments")) 
-        self.executeFragments(args);
+          self.executeFragments(args);
       else if (args[0].equals("snapshot-maker")) 
         self.generateSnapshots(args);
       else 
@@ -264,11 +263,11 @@ public class ToolsHelper {
   }
 
   public void executeRoundTrip(String[] args) throws IOException, FHIRException {
-    FileInputStream in;
-    File source = new CSFile(args[1]);
+	FileInputStream in;
+	File source = new CSFile(args[1]);
     File dest = new CSFile(args[2]);
     if (args.length >= 4) {
-      Utilities.copyFile(args[1], args[3]);
+    	Utilities.copyFile(args[1], args[3]);
     }
 
     if (!source.exists())        
@@ -340,27 +339,27 @@ public class ToolsHelper {
   public void processExamples(String rootDir, Collection<String> list) throws FHIRException  {
     for (String n : list) {
       try {
-        String filename = rootDir + n + ".xml";
-        // 1. produce canonical XML
-        CSFileInputStream source = new CSFileInputStream(filename);
-        FileOutputStream dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.xml"));
-        XmlParser p = new XmlParser();
-        Resource r = p.parse(source);
-        XmlParser cxml = new XmlParser();
-        cxml.setOutputStyle(OutputStyle.CANONICAL);
-        cxml.compose(dest, r);
+      String filename = rootDir + n + ".xml";
+      // 1. produce canonical XML
+      CSFileInputStream source = new CSFileInputStream(filename);
+      FileOutputStream dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.xml"));
+      XmlParser p = new XmlParser();
+      Resource r = p.parse(source);
+      XmlParser cxml = new XmlParser();
+      cxml.setOutputStyle(OutputStyle.CANONICAL);
+      cxml.compose(dest, r);
 
-        // 2. produce JSON
-        source = new CSFileInputStream(filename);
-        dest = new FileOutputStream(Utilities.changeFileExt(filename, ".json"));
-        r = p.parse(source);
-        JsonParser json = new JsonParser();
-        json.setOutputStyle(OutputStyle.PRETTY);
-        json.compose(dest, r);
-        json = new JsonParser();
-        json.setOutputStyle(OutputStyle.CANONICAL);
-        dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.json"));
-        json.compose(dest, r);
+      // 2. produce JSON
+      source = new CSFileInputStream(filename);
+      dest = new FileOutputStream(Utilities.changeFileExt(filename, ".json"));
+      r = p.parse(source);
+      JsonParser json = new JsonParser();
+      json.setOutputStyle(OutputStyle.PRETTY);
+      json.compose(dest, r);
+      json = new JsonParser();
+      json.setOutputStyle(OutputStyle.CANONICAL);
+      dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.json"));
+      json.compose(dest, r);
       } catch (Exception e) {
         e.printStackTrace();
         throw new FHIRException("Error Processing "+n+".xml: "+e.getMessage(), e);
@@ -404,7 +403,7 @@ public class ToolsHelper {
 		} catch (Throwable e) {
 			System.err.println("Error: "+e.getMessage());
 			throw e;
-    }
+	  }
   }
 
   private void executeTest(String[] args) throws Throwable {

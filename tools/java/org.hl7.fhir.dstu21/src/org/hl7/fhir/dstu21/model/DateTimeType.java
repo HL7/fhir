@@ -58,9 +58,9 @@ public class DateTimeType extends BaseDateTimeType {
 	 */
 	public static final TemporalPrecisionEnum DEFAULT_PRECISION = TemporalPrecisionEnum.SECOND;
 
-/**
+	/**
 	 * Constructor
- */
+	 */
 	public DateTimeType() {
 		super();
 	}
@@ -87,7 +87,7 @@ public class DateTimeType extends BaseDateTimeType {
 	 */
 	public DateTimeType(Date theDate, TemporalPrecisionEnum thePrecision) {
 		super(theDate, thePrecision, TimeZone.getDefault());
-  }
+	}
 
 	/**
 	 * Create a new instance using a string date/time
@@ -97,9 +97,9 @@ public class DateTimeType extends BaseDateTimeType {
 	 */
 	public DateTimeType(String theValue) {
 		super(theValue);
-  }
+	}
 
-  /**
+	/**
 	 * Constructor which accepts a date value, precision value, and time zone. Valid precisions values for this type
 	 * are:
 	 * <ul>
@@ -124,7 +124,7 @@ public class DateTimeType extends BaseDateTimeType {
 			setTimeZone(theCalendar.getTimeZone());
 		}
 	}
-	
+
 	@Override
 	boolean isPrecisionAllowed(TemporalPrecisionEnum thePrecision) {
 		switch (thePrecision) {
@@ -146,7 +146,7 @@ public class DateTimeType extends BaseDateTimeType {
 	public static DateTimeType now() {
 		return new DateTimeType(new Date(), TemporalPrecisionEnum.SECOND, TimeZone.getDefault());
 	}
-	
+
 	/**
 	 * Returns the default precision for this datatype
 	 * 
@@ -157,7 +157,7 @@ public class DateTimeType extends BaseDateTimeType {
 		return DEFAULT_PRECISION;
 	}
 
-  @Override
+	@Override
 	public DateTimeType copy() {
 		return new DateTimeType(getValueAsString());
 	}
@@ -179,7 +179,7 @@ public class DateTimeType extends BaseDateTimeType {
 
 	public boolean getTzSign() {
 		return getTimeZone().getRawOffset() >= 0;
-  }
+	}
 
 	public int getTzHour() {
 		return (int) (getTimeZone().getRawOffset() / DateUtils.MILLIS_PER_MINUTE) / 60;

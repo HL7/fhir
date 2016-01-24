@@ -5,9 +5,9 @@ import java.net.URISyntaxException;
 import java.text.ParseException;
 import java.util.UUID;
 
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 import org.hl7.fhir.dstu21.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu21.model.Narrative.NarrativeStatus;
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlParser;
 
@@ -138,30 +138,34 @@ public class Factory {
 	  Reference rr = new Reference();
 	  rr.setReference(url);
 	  return rr;
-  }
-  
+	}
+
 	public static Narrative newNarrative(NarrativeStatus status, String html) throws IOException, FHIRException {
-    Narrative n = new Narrative();
-    n.setStatus(status);
-    n.setDiv(new XhtmlParser().parseFragment("<div>"+Utilities.escapeXml(html)+"</div>"));
-    return n;
- }
+		Narrative n = new Narrative();
+		n.setStatus(status);
+		try {
+			n.setDiv(new XhtmlParser().parseFragment("<div>"+Utilities.escapeXml(html)+"</div>"));
+		} catch (org.hl7.fhir.exceptions.FHIRException e) {
+			throw new FHIRException(e.getMessage(), e);
+		}
+		return n;
+	}
 
 	public static Coding makeCoding(String code) throws FHIRException {
-  String[] parts = code.split("\\|");
-  Coding c = new Coding();
-  if (parts.length == 2) {
-    c.setSystem(parts[0]);
-    c.setCode(parts[1]);
-  } else if (parts.length == 3) {
-    c.setSystem(parts[0]);
-    c.setCode(parts[1]);
-    c.setDisplay(parts[2]);
-  } else 
+		String[] parts = code.split("\\|");
+		Coding c = new Coding();
+		if (parts.length == 2) {
+			c.setSystem(parts[0]);
+			c.setCode(parts[1]);
+		} else if (parts.length == 3) {
+			c.setSystem(parts[0]);
+			c.setCode(parts[1]);
+			c.setDisplay(parts[2]);
+		} else 
 			throw new FHIRException("Unable to understand the code '"+code+"'. Use the format system|code(|display)");
-  return c;
-}
- 
+		return c;
+	}
+
 	public static Reference makeReference(String url, String text) {
 		Reference rr = new Reference();
 		rr.setReference(url);

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
  */
@@ -1370,56 +1370,44 @@ public class EpisodeOfCare extends DomainResource {
    }
 
  /**
-   * Search parameter: <b>organization</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>The organization that has assumed the specific responsibilities of this EpisodeOfCare</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.managingOrganization</b><br>
+   * Description: <b>The provided date search value falls within the episode of care's period</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>EpisodeOfCare.period</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="organization", path="EpisodeOfCare.managingOrganization", description="The organization that has assumed the specific responsibilities of this EpisodeOfCare", type="reference" )
-  public static final String SP_ORGANIZATION = "organization";
+  @SearchParamDefinition(name="date", path="EpisodeOfCare.period", description="The provided date search value falls within the episode of care's period", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>The organization that has assumed the specific responsibilities of this EpisodeOfCare</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.managingOrganization</b><br>
+   * Description: <b>The provided date search value falls within the episode of care's period</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>EpisodeOfCare.period</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EpisodeOfCare:organization</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:organization").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>patient</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Patient for this episode of care</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.patient</b><br>
+   * Description: <b>Identifier(s) for the EpisodeOfCare</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EpisodeOfCare.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="EpisodeOfCare.patient", description="Patient for this episode of care", type="reference" )
-  public static final String SP_PATIENT = "patient";
+  @SearchParamDefinition(name="identifier", path="EpisodeOfCare.identifier", description="Identifier(s) for the EpisodeOfCare", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Patient for this episode of care</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.patient</b><br>
+   * Description: <b>Identifier(s) for the EpisodeOfCare</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EpisodeOfCare.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EpisodeOfCare:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:patient").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
    * Search parameter: <b>condition</b>
@@ -1448,24 +1436,128 @@ public class EpisodeOfCare extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CONDITION = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:condition").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>incomingreferral</b>
    * <p>
-   * Description: <b>The current status of the Episode of Care as provided (does not check the status history collection)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.status</b><br>
+   * Description: <b>Incoming Referral Request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.referralRequest</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="EpisodeOfCare.status", description="The current status of the Episode of Care as provided (does not check the status history collection)", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference" )
+  public static final String SP_INCOMINGREFERRAL = "incomingreferral";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
    * <p>
-   * Description: <b>The current status of the Episode of Care as provided (does not check the status history collection)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.status</b><br>
+   * Description: <b>Incoming Referral Request</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.referralRequest</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INCOMINGREFERRAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INCOMINGREFERRAL);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EpisodeOfCare:incomingreferral</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INCOMINGREFERRAL = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:incomingreferral").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Patient for this episode of care</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="EpisodeOfCare.patient", description="Patient for this episode of care", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Patient for this episode of care</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EpisodeOfCare:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:patient").toLocked();
+
+ /**
+   * Search parameter: <b>organization</b>
+   * <p>
+   * Description: <b>The organization that has assumed the specific responsibilities of this EpisodeOfCare</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.managingOrganization</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="organization", path="EpisodeOfCare.managingOrganization", description="The organization that has assumed the specific responsibilities of this EpisodeOfCare", type="reference" )
+  public static final String SP_ORGANIZATION = "organization";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>organization</b>
+   * <p>
+   * Description: <b>The organization that has assumed the specific responsibilities of this EpisodeOfCare</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.managingOrganization</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ORGANIZATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ORGANIZATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EpisodeOfCare:organization</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ORGANIZATION = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:organization").toLocked();
+
+ /**
+   * Search parameter: <b>team-member</b>
+   * <p>
+   * Description: <b>A Practitioner or Organization allocated to the care team for this EpisodeOfCare</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.careTeam.member</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="team-member", path="EpisodeOfCare.careTeam.member", description="A Practitioner or Organization allocated to the care team for this EpisodeOfCare", type="reference" )
+  public static final String SP_TEAM_MEMBER = "team-member";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>team-member</b>
+   * <p>
+   * Description: <b>A Practitioner or Organization allocated to the care team for this EpisodeOfCare</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>EpisodeOfCare.careTeam.member</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TEAM_MEMBER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TEAM_MEMBER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>EpisodeOfCare:team-member</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TEAM_MEMBER = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:team-member").toLocked();
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Type/class  - e.g. specialist referral, disease management</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EpisodeOfCare.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="EpisodeOfCare.type", description="Type/class  - e.g. specialist referral, disease management", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Type/class  - e.g. specialist referral, disease management</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>EpisodeOfCare.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
    * Search parameter: <b>care-manager</b>
@@ -1494,116 +1586,24 @@ public class EpisodeOfCare extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CARE_MANAGER = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:care-manager").toLocked();
 
  /**
-   * Search parameter: <b>type</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Type/class  - e.g. specialist referral, disease management</b><br>
+   * Description: <b>The current status of the Episode of Care as provided (does not check the status history collection)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.type</b><br>
+   * Path: <b>EpisodeOfCare.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="EpisodeOfCare.type", description="Type/class  - e.g. specialist referral, disease management", type="token" )
-  public static final String SP_TYPE = "type";
+  @SearchParamDefinition(name="status", path="EpisodeOfCare.status", description="The current status of the Episode of Care as provided (does not check the status history collection)", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>Type/class  - e.g. specialist referral, disease management</b><br>
+   * Description: <b>The current status of the Episode of Care as provided (does not check the status history collection)</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.type</b><br>
+   * Path: <b>EpisodeOfCare.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>The provided date search value falls within the episode of care's period</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>EpisodeOfCare.period</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="EpisodeOfCare.period", description="The provided date search value falls within the episode of care's period", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>The provided date search value falls within the episode of care's period</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>EpisodeOfCare.period</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>incomingreferral</b>
-   * <p>
-   * Description: <b>Incoming Referral Request</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.referralRequest</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="incomingreferral", path="EpisodeOfCare.referralRequest", description="Incoming Referral Request", type="reference" )
-  public static final String SP_INCOMINGREFERRAL = "incomingreferral";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
-   * <p>
-   * Description: <b>Incoming Referral Request</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.referralRequest</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INCOMINGREFERRAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INCOMINGREFERRAL);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EpisodeOfCare:incomingreferral</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INCOMINGREFERRAL = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:incomingreferral").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier(s) for the EpisodeOfCare</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="EpisodeOfCare.identifier", description="Identifier(s) for the EpisodeOfCare", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier(s) for the EpisodeOfCare</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>EpisodeOfCare.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>team-member</b>
-   * <p>
-   * Description: <b>A Practitioner or Organization allocated to the care team for this EpisodeOfCare</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.careTeam.member</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="team-member", path="EpisodeOfCare.careTeam.member", description="A Practitioner or Organization allocated to the care team for this EpisodeOfCare", type="reference" )
-  public static final String SP_TEAM_MEMBER = "team-member";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>team-member</b>
-   * <p>
-   * Description: <b>A Practitioner or Organization allocated to the care team for this EpisodeOfCare</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>EpisodeOfCare.careTeam.member</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TEAM_MEMBER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TEAM_MEMBER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>EpisodeOfCare:team-member</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TEAM_MEMBER = new ca.uhn.fhir.model.api.Include("EpisodeOfCare:team-member").toLocked();
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

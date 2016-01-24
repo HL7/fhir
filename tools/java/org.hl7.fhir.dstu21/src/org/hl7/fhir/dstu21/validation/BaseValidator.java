@@ -290,7 +290,7 @@ public class BaseValidator {
    * @return Returns <code>thePass</code> (in other words, returns <code>true</code> if the rule did not fail validation)
    */
   protected boolean warning(List<ValidationMessage> errors, IssueType type, int line, int col, String path, boolean thePass, String msg, Object... theMessageArguments) {
-    if (!thePass) { 
+    if (!thePass) {
       msg = formatMessage(msg, theMessageArguments);
       errors.add(new ValidationMessage(source, type, line, col, path, msg, IssueSeverity.WARNING));
     }

@@ -61,16 +61,16 @@ public class DateType extends BaseDateTimeType {
 	 */
 	public DateType() {
 		super();
-  }
+	}
 
 	/**
 	 * Constructor which accepts a date value and uses the {@link #DEFAULT_PRECISION} for this type
 	 */
 	public DateType(Date theDate) {
 		super(theDate, DEFAULT_PRECISION);
-  }
+	}
 
-  /**
+	/**
 	 * Constructor which accepts a date value and a precision value. Valid precisions values for this type are:
 	 * <ul>
 	 * <li>{@link ca.uhn.fhir.model.api.TemporalPrecisionEnum#YEAR}
@@ -94,7 +94,7 @@ public class DateType extends BaseDateTimeType {
 	public DateType(String theDate) {
 		super(theDate);
 	}
-	
+
 	@Override
 	boolean isPrecisionAllowed(TemporalPrecisionEnum thePrecision) {
 		switch (thePrecision) {
@@ -117,11 +117,11 @@ public class DateType extends BaseDateTimeType {
 		return DEFAULT_PRECISION;
 	}
 
-  @Override
+	@Override
 	public DateType copy() {
-		return new DateType(getValue());
-  }
-
+		return new DateType(getValueAsString());
+	}
+	
 	public static InstantType today() {
 		return new InstantType(new Date(), TemporalPrecisionEnum.DAY, TimeZone.getDefault());
 	}
@@ -134,7 +134,7 @@ public class DateType extends BaseDateTimeType {
 		retVal.setValueAsV3String(theV3String);
 		return retVal;
 	}
-	
+
 	public String fhirType() {
 		return "date";		
 	}

@@ -25,7 +25,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 package org.hl7.fhir.dstu21.model;
 
 import org.apache.commons.codec.binary.Base64;
@@ -43,33 +43,33 @@ public class Base64BinaryType extends PrimitiveType<byte[]> {
 	/**
 	 * Constructor
 	 */
-  public Base64BinaryType() {
+	public Base64BinaryType() {
 		super();
-  }
+	}
 
 	public Base64BinaryType(byte[] theBytes) {
 		super();
 		setValue(theBytes);
 	}
-	
+
 	public Base64BinaryType(String theValue) {
 		super();
 		setValueAsString(theValue);
 	}
-	
+
 	protected byte[] parse(String theValue) {
 		return Base64.decodeBase64(theValue);
 	}
 
 	protected String encode(byte[] theValue) {
 		return Base64.encodeBase64String(theValue);
-  }
+	}
 
-  @Override
+	@Override
 	public Base64BinaryType copy() {
 		return new Base64BinaryType(getValue());
 	}
-	
+
 	public String fhirType() {
 		return "base64Binary";
 	}

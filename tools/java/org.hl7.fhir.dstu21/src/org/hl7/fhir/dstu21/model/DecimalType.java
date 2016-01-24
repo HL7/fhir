@@ -53,13 +53,13 @@ public class DecimalType extends PrimitiveType<BigDecimal> implements Comparable
 	public DecimalType() {
 		super();
 	}
-  
-  /**
+
+	/**
 	 * Constructor
-   */
+	 */
 	public DecimalType(BigDecimal theValue) {
 		setValue(theValue);
-  }
+	}
 
 	/**
 	 * Constructor
@@ -68,21 +68,21 @@ public class DecimalType extends PrimitiveType<BigDecimal> implements Comparable
 		// Use the valueOf here because the constructor gives wacky precision
 		// changes due to the floating point conversion
 		setValue(BigDecimal.valueOf(theValue));
-  }
+	}
 
-  /**
+	/**
 	 * Constructor
-   */
+	 */
 	public DecimalType(long theValue) {
 		setValue(new BigDecimal(theValue));
-  }
+	}
 
-  /**
+	/**
 	 * Constructor
-   */
+	 */
 	public DecimalType(String theValue) {
 		setValue(new BigDecimal(theValue));
-  } 
+	}
 
 	@Override
 	public int compareTo(DecimalType theObj) {
@@ -101,14 +101,14 @@ public class DecimalType extends PrimitiveType<BigDecimal> implements Comparable
 	@Override
 	protected String encode(BigDecimal theValue) {
 		return getValue().toPlainString();
-  }
+	}
 
-  /**
+	/**
 	 * Gets the value as an integer, using {@link BigDecimal#intValue()}
-   */
+	 */
 	public int getValueAsInteger() {
 		return getValue().intValue();
-  } 
+	}
 
 	public Number getValueAsNumber() {
 		return getValue();
@@ -129,7 +129,7 @@ public class DecimalType extends PrimitiveType<BigDecimal> implements Comparable
 			BigDecimal newValue = getValue().round(new MathContext(thePrecision));
 			setValue(newValue);
 		}
-  }
+	}
 
 	/**
 	 * Rounds the value to the given prevision
@@ -168,8 +168,8 @@ public class DecimalType extends PrimitiveType<BigDecimal> implements Comparable
 	@Override
 	public DecimalType copy() {
 		return new DecimalType(getValue());
-  }
-	
+	}
+
 	public String fhirType() {
 		return "decimal";		
 	}

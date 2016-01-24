@@ -9,7 +9,6 @@ import org.hl7.fhir.dstu21.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ETooCostly;
 import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu21.utils.EOperationOutcome;
 import org.hl7.fhir.dstu21.utils.IWorkerContext;

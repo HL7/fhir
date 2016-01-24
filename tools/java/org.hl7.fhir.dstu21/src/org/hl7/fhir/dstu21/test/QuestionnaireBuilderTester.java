@@ -3,10 +3,10 @@ package org.hl7.fhir.dstu21.test;
 import java.io.File;
 import java.io.FileInputStream;
 
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 import org.hl7.fhir.dstu21.formats.XmlParser;
 import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.utils.QuestionnaireBuilder;
-import org.hl7.fhir.exceptions.FHIRException;
 
 public class QuestionnaireBuilderTester {
 
@@ -20,8 +20,8 @@ public class QuestionnaireBuilderTester {
 				System.out.println("process "+f);
 				try {
 					StructureDefinition p = (StructureDefinition) new XmlParser().parse(new FileInputStream(TEST_PROFILE_DIR+"\\"+f));
-//						Questionnaire q = b.buildQuestionnaire(p);
-//						new XmlComposer().compose(new FileOutputStream(TEST_DEST+f), q, true);
+//					Questionnaire q = b.buildQuestionnaire(p);
+//					new XmlComposer().compose(new FileOutputStream(TEST_DEST+f), q, true);
 					  throw new FHIRException("test");
         } catch (Exception e) {
 	        e.printStackTrace();

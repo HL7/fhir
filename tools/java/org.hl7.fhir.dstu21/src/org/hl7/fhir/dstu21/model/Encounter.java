@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.
  */
@@ -3070,24 +3070,64 @@ Not to be used when the patient is currently at the location
    }
 
  /**
-   * Search parameter: <b>participant-type</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Role of participant in encounter</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Encounter.participant.type</b><br>
+   * Description: <b>A date within the period the Encounter lasted</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Encounter.period</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="participant-type", path="Encounter.participant.type", description="Role of participant in encounter", type="token" )
-  public static final String SP_PARTICIPANT_TYPE = "participant-type";
+  @SearchParamDefinition(name="date", path="Encounter.period", description="A date within the period the Encounter lasted", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>participant-type</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Role of participant in encounter</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Encounter.participant.type</b><br>
+   * Description: <b>A date within the period the Encounter lasted</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Encounter.period</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PARTICIPANT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PARTICIPANT_TYPE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Identifier(s) by which this encounter is known</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Encounter.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Encounter.identifier", description="Identifier(s) by which this encounter is known", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Identifier(s) by which this encounter is known</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Encounter.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>reason</b>
+   * <p>
+   * Description: <b>Reason the encounter takes place (code)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Encounter.reason</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="reason", path="Encounter.reason", description="Reason the encounter takes place (code)", type="token" )
+  public static final String SP_REASON = "reason";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>reason</b>
+   * <p>
+   * Description: <b>Reason the encounter takes place (code)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Encounter.reason</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REASON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REASON);
 
  /**
    * Search parameter: <b>episodeofcare</b>
@@ -3116,44 +3156,220 @@ Not to be used when the patient is currently at the location
   public static final ca.uhn.fhir.model.api.Include INCLUDE_EPISODEOFCARE = new ca.uhn.fhir.model.api.Include("Encounter:episodeofcare").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
+   * Search parameter: <b>participant-type</b>
    * <p>
-   * Description: <b>planned | arrived | in-progress | onleave | finished | cancelled</b><br>
+   * Description: <b>Role of participant in encounter</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Encounter.status</b><br>
+   * Path: <b>Encounter.participant.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="Encounter.status", description="planned | arrived | in-progress | onleave | finished | cancelled", type="token" )
-  public static final String SP_STATUS = "status";
+  @SearchParamDefinition(name="participant-type", path="Encounter.participant.type", description="Role of participant in encounter", type="token" )
+  public static final String SP_PARTICIPANT_TYPE = "participant-type";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <b>Fluent Client</b> search parameter constant for <b>participant-type</b>
    * <p>
-   * Description: <b>planned | arrived | in-progress | onleave | finished | cancelled</b><br>
+   * Description: <b>Role of participant in encounter</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Encounter.status</b><br>
+   * Path: <b>Encounter.participant.type</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam PARTICIPANT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_PARTICIPANT_TYPE);
 
  /**
-   * Search parameter: <b>reason</b>
+   * Search parameter: <b>incomingreferral</b>
    * <p>
-   * Description: <b>Reason the encounter takes place (code)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Encounter.reason</b><br>
+   * Description: <b>The ReferralRequest that initiated this encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.incomingReferral</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="reason", path="Encounter.reason", description="Reason the encounter takes place (code)", type="token" )
-  public static final String SP_REASON = "reason";
+  @SearchParamDefinition(name="incomingreferral", path="Encounter.incomingReferral", description="The ReferralRequest that initiated this encounter", type="reference" )
+  public static final String SP_INCOMINGREFERRAL = "incomingreferral";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>reason</b>
+   * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
    * <p>
-   * Description: <b>Reason the encounter takes place (code)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Encounter.reason</b><br>
+   * Description: <b>The ReferralRequest that initiated this encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.incomingReferral</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam REASON = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_REASON);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INCOMINGREFERRAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INCOMINGREFERRAL);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Encounter:incomingreferral</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_INCOMINGREFERRAL = new ca.uhn.fhir.model.api.Include("Encounter:incomingreferral").toLocked();
+
+ /**
+   * Search parameter: <b>practitioner</b>
+   * <p>
+   * Description: <b>Persons involved in the encounter other than the patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.participant.individual</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="practitioner", path="Encounter.participant.individual", description="Persons involved in the encounter other than the patient", type="reference" )
+  public static final String SP_PRACTITIONER = "practitioner";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
+   * <p>
+   * Description: <b>Persons involved in the encounter other than the patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.participant.individual</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRACTITIONER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRACTITIONER);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Encounter:practitioner</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("Encounter:practitioner").toLocked();
+
+ /**
+   * Search parameter: <b>length</b>
+   * <p>
+   * Description: <b>Length of encounter in days</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>Encounter.length</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="length", path="Encounter.length", description="Length of encounter in days", type="number" )
+  public static final String SP_LENGTH = "length";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>length</b>
+   * <p>
+   * Description: <b>Length of encounter in days</b><br>
+   * Type: <b>number</b><br>
+   * Path: <b>Encounter.length</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.NumberClientParam LENGTH = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_LENGTH);
+
+ /**
+   * Search parameter: <b>appointment</b>
+   * <p>
+   * Description: <b>The appointment that scheduled this encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.appointment</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="appointment", path="Encounter.appointment", description="The appointment that scheduled this encounter", type="reference" )
+  public static final String SP_APPOINTMENT = "appointment";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>appointment</b>
+   * <p>
+   * Description: <b>The appointment that scheduled this encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.appointment</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam APPOINTMENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_APPOINTMENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Encounter:appointment</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_APPOINTMENT = new ca.uhn.fhir.model.api.Include("Encounter:appointment").toLocked();
+
+ /**
+   * Search parameter: <b>part-of</b>
+   * <p>
+   * Description: <b>Another Encounter this encounter is part of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.partOf</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="part-of", path="Encounter.partOf", description="Another Encounter this encounter is part of", type="reference" )
+  public static final String SP_PART_OF = "part-of";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>part-of</b>
+   * <p>
+   * Description: <b>Another Encounter this encounter is part of</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.partOf</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PART_OF = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PART_OF);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Encounter:part-of</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PART_OF = new ca.uhn.fhir.model.api.Include("Encounter:part-of").toLocked();
+
+ /**
+   * Search parameter: <b>procedure</b>
+   * <p>
+   * Description: <b>Reason the encounter takes place (resource)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.indication</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="procedure", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference" )
+  public static final String SP_PROCEDURE = "procedure";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>procedure</b>
+   * <p>
+   * Description: <b>Reason the encounter takes place (resource)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.indication</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROCEDURE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROCEDURE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Encounter:procedure</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROCEDURE = new ca.uhn.fhir.model.api.Include("Encounter:procedure").toLocked();
+
+ /**
+   * Search parameter: <b>type</b>
+   * <p>
+   * Description: <b>Specific type of encounter</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Encounter.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="type", path="Encounter.type", description="Specific type of encounter", type="token" )
+  public static final String SP_TYPE = "type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
+   * <p>
+   * Description: <b>Specific type of encounter</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Encounter.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
+
+ /**
+   * Search parameter: <b>participant</b>
+   * <p>
+   * Description: <b>Persons involved in the encounter other than the patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.participant.individual</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="participant", path="Encounter.participant.individual", description="Persons involved in the encounter other than the patient", type="reference" )
+  public static final String SP_PARTICIPANT = "participant";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>participant</b>
+   * <p>
+   * Description: <b>Persons involved in the encounter other than the patient</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.participant.individual</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPANT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPANT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Encounter:participant</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("Encounter:participant").toLocked();
 
  /**
    * Search parameter: <b>condition</b>
@@ -3180,6 +3396,52 @@ Not to be used when the patient is currently at the location
    * the path value of "<b>Encounter:condition</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CONDITION = new ca.uhn.fhir.model.api.Include("Encounter:condition").toLocked();
+
+ /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>The patient present at the encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.patient</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Encounter.patient", description="The patient present at the encounter", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>The patient present at the encounter</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Encounter.patient</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Encounter:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Encounter:patient").toLocked();
+
+ /**
+   * Search parameter: <b>location-period</b>
+   * <p>
+   * Description: <b>Time period during which the patient was present at the location</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Encounter.location.period</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="location-period", path="Encounter.location.period", description="Time period during which the patient was present at the location", type="date" )
+  public static final String SP_LOCATION_PERIOD = "location-period";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>location-period</b>
+   * <p>
+   * Description: <b>Time period during which the patient was present at the location</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Encounter.location.period</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam LOCATION_PERIOD = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_LOCATION_PERIOD);
 
  /**
    * Search parameter: <b>location</b>
@@ -3234,46 +3496,6 @@ Not to be used when the patient is currently at the location
   public static final ca.uhn.fhir.model.api.Include INCLUDE_INDICATION = new ca.uhn.fhir.model.api.Include("Encounter:indication").toLocked();
 
  /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Specific type of encounter</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Encounter.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="Encounter.type", description="Specific type of encounter", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Specific type of encounter</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Encounter.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>A date within the period the Encounter lasted</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Encounter.period</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="Encounter.period", description="A date within the period the Encounter lasted", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>A date within the period the Encounter lasted</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Encounter.period</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
    * Search parameter: <b>special-arrangement</b>
    * <p>
    * Description: <b>Wheelchair, translator, stretcher, etc.</b><br>
@@ -3294,246 +3516,24 @@ Not to be used when the patient is currently at the location
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SPECIAL_ARRANGEMENT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SPECIAL_ARRANGEMENT);
 
  /**
-   * Search parameter: <b>part-of</b>
+   * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>Another Encounter this encounter is part of</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.partOf</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="part-of", path="Encounter.partOf", description="Another Encounter this encounter is part of", type="reference" )
-  public static final String SP_PART_OF = "part-of";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>part-of</b>
-   * <p>
-   * Description: <b>Another Encounter this encounter is part of</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.partOf</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PART_OF = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PART_OF);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Encounter:part-of</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PART_OF = new ca.uhn.fhir.model.api.Include("Encounter:part-of").toLocked();
-
- /**
-   * Search parameter: <b>appointment</b>
-   * <p>
-   * Description: <b>The appointment that scheduled this encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.appointment</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="appointment", path="Encounter.appointment", description="The appointment that scheduled this encounter", type="reference" )
-  public static final String SP_APPOINTMENT = "appointment";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>appointment</b>
-   * <p>
-   * Description: <b>The appointment that scheduled this encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.appointment</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam APPOINTMENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_APPOINTMENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Encounter:appointment</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_APPOINTMENT = new ca.uhn.fhir.model.api.Include("Encounter:appointment").toLocked();
-
- /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>The patient present at the encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.patient</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="Encounter.patient", description="The patient present at the encounter", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>The patient present at the encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.patient</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Encounter:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Encounter:patient").toLocked();
-
- /**
-   * Search parameter: <b>practitioner</b>
-   * <p>
-   * Description: <b>Persons involved in the encounter other than the patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.participant.individual</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="practitioner", path="Encounter.participant.individual", description="Persons involved in the encounter other than the patient", type="reference" )
-  public static final String SP_PRACTITIONER = "practitioner";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>practitioner</b>
-   * <p>
-   * Description: <b>Persons involved in the encounter other than the patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.participant.individual</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PRACTITIONER = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PRACTITIONER);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Encounter:practitioner</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PRACTITIONER = new ca.uhn.fhir.model.api.Include("Encounter:practitioner").toLocked();
-
- /**
-   * Search parameter: <b>length</b>
-   * <p>
-   * Description: <b>Length of encounter in days</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>Encounter.length</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="length", path="Encounter.length", description="Length of encounter in days", type="number" )
-  public static final String SP_LENGTH = "length";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>length</b>
-   * <p>
-   * Description: <b>Length of encounter in days</b><br>
-   * Type: <b>number</b><br>
-   * Path: <b>Encounter.length</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.NumberClientParam LENGTH = new ca.uhn.fhir.rest.gclient.NumberClientParam(SP_LENGTH);
-
- /**
-   * Search parameter: <b>participant</b>
-   * <p>
-   * Description: <b>Persons involved in the encounter other than the patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.participant.individual</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="participant", path="Encounter.participant.individual", description="Persons involved in the encounter other than the patient", type="reference" )
-  public static final String SP_PARTICIPANT = "participant";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>participant</b>
-   * <p>
-   * Description: <b>Persons involved in the encounter other than the patient</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.participant.individual</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPANT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPANT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Encounter:participant</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("Encounter:participant").toLocked();
-
- /**
-   * Search parameter: <b>incomingreferral</b>
-   * <p>
-   * Description: <b>The ReferralRequest that initiated this encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.incomingReferral</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="incomingreferral", path="Encounter.incomingReferral", description="The ReferralRequest that initiated this encounter", type="reference" )
-  public static final String SP_INCOMINGREFERRAL = "incomingreferral";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>incomingreferral</b>
-   * <p>
-   * Description: <b>The ReferralRequest that initiated this encounter</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.incomingReferral</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam INCOMINGREFERRAL = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_INCOMINGREFERRAL);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Encounter:incomingreferral</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_INCOMINGREFERRAL = new ca.uhn.fhir.model.api.Include("Encounter:incomingreferral").toLocked();
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Identifier(s) by which this encounter is known</b><br>
+   * Description: <b>planned | arrived | in-progress | onleave | finished | cancelled</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Encounter.identifier</b><br>
+   * Path: <b>Encounter.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identifier", path="Encounter.identifier", description="Identifier(s) by which this encounter is known", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
+  @SearchParamDefinition(name="status", path="Encounter.status", description="planned | arrived | in-progress | onleave | finished | cancelled", type="token" )
+  public static final String SP_STATUS = "status";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>Identifier(s) by which this encounter is known</b><br>
+   * Description: <b>planned | arrived | in-progress | onleave | finished | cancelled</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>Encounter.identifier</b><br>
+   * Path: <b>Encounter.status</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>procedure</b>
-   * <p>
-   * Description: <b>Reason the encounter takes place (resource)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.indication</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="procedure", path="Encounter.indication", description="Reason the encounter takes place (resource)", type="reference" )
-  public static final String SP_PROCEDURE = "procedure";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>procedure</b>
-   * <p>
-   * Description: <b>Reason the encounter takes place (resource)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Encounter.indication</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROCEDURE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROCEDURE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Encounter:procedure</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROCEDURE = new ca.uhn.fhir.model.api.Include("Encounter:procedure").toLocked();
-
- /**
-   * Search parameter: <b>location-period</b>
-   * <p>
-   * Description: <b>Time period during which the patient was present at the location</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Encounter.location.period</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="location-period", path="Encounter.location.period", description="Time period during which the patient was present at the location", type="date" )
-  public static final String SP_LOCATION_PERIOD = "location-period";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>location-period</b>
-   * <p>
-   * Description: <b>Time period during which the patient was present at the location</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Encounter.location.period</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam LOCATION_PERIOD = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_LOCATION_PERIOD);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

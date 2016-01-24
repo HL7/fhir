@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * A record of a medication that is being consumed by a patient.   A MedicationStatement may indicate that the patient may be taking the medication now, or has taken the medication in the past or will be taking the medication in the future.  The source of this information can be the patient, significant other (such as a family member or spouse), or a clinician.  A common scenario where this information is captured is during the history taking process during a patient visit or stay.   The medication information may come from e.g. the patient's memory, from a prescription bottle,  or from a list of medications the patient, clinician or other party maintains The primary difference between a medication statement and a medication administration is that the medication administration has complete administration information and is based on actual administration information from the person who administered the medication.  A medication statement is often, if not always, less specific.  There is no required date/time when the medication was administered, in fact we only know that a source has reported the patient is taking this medication, where details such as time, quantity, or rate or even medication product may be incomplete or missing or less precise.  As stated earlier, the medication statement information may come from the patient's memory, from a prescription bottle or from a list of medications the patient, clinician or other party maintains.  Medication administration is more formal and is not missing detailed information.
  */
@@ -1616,30 +1616,44 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
    }
 
  /**
-   * Search parameter: <b>medication</b>
+   * Search parameter: <b>identifier</b>
    * <p>
-   * Description: <b>Return administrations of this medication reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationStatement.medicationReference</b><br>
+   * Description: <b>Return statements with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationStatement.identifier</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="medication", path="MedicationStatement.medicationReference", description="Return administrations of this medication reference", type="reference" )
-  public static final String SP_MEDICATION = "medication";
+  @SearchParamDefinition(name="identifier", path="MedicationStatement.identifier", description="Return statements with this external identifier", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>medication</b>
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
    * <p>
-   * Description: <b>Return administrations of this medication reference</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>MedicationStatement.medicationReference</b><br>
+   * Description: <b>Return statements with this external identifier</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationStatement.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MEDICATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MEDICATION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>MedicationStatement:medication</b>".
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>Return administrations of this medication code</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationStatement.medicationCodeableConcept</b><br>
+   * </p>
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationStatement:medication").toLocked();
+  @SearchParamDefinition(name="code", path="MedicationStatement.medicationCodeableConcept", description="Return administrations of this medication code", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>Return administrations of this medication code</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationStatement.medicationCodeableConcept</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
    * Search parameter: <b>patient</b>
@@ -1668,6 +1682,32 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("MedicationStatement:patient").toLocked();
 
  /**
+   * Search parameter: <b>medication</b>
+   * <p>
+   * Description: <b>Return administrations of this medication reference</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationStatement.medicationReference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="medication", path="MedicationStatement.medicationReference", description="Return administrations of this medication reference", type="reference" )
+  public static final String SP_MEDICATION = "medication";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>medication</b>
+   * <p>
+   * Description: <b>Return administrations of this medication reference</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>MedicationStatement.medicationReference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam MEDICATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_MEDICATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>MedicationStatement:medication</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_MEDICATION = new ca.uhn.fhir.model.api.Include("MedicationStatement:medication").toLocked();
+
+ /**
    * Search parameter: <b>source</b>
    * <p>
    * Description: <b>Who the information in the statement came from</b><br>
@@ -1694,66 +1734,6 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE = new ca.uhn.fhir.model.api.Include("MedicationStatement:source").toLocked();
 
  /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Return statements that match the given status</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationStatement.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="MedicationStatement.status", description="Return statements that match the given status", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Return statements that match the given status</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationStatement.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>Return administrations of this medication code</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationStatement.medicationCodeableConcept</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="MedicationStatement.medicationCodeableConcept", description="Return administrations of this medication code", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>Return administrations of this medication code</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationStatement.medicationCodeableConcept</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Return statements with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationStatement.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="MedicationStatement.identifier", description="Return statements with this external identifier", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Return statements with this external identifier</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>MedicationStatement.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
    * Search parameter: <b>effectivedate</b>
    * <p>
    * Description: <b>Date when patient was taking (or not taking) the medication</b><br>
@@ -1772,6 +1752,26 @@ Specifically if 'boolean' datatype is selected, then the following logic applies
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam EFFECTIVEDATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_EFFECTIVEDATE);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Return statements that match the given status</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationStatement.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="MedicationStatement.status", description="Return statements that match the given status", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Return statements that match the given status</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>MedicationStatement.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
 
 }

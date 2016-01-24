@@ -31,22 +31,20 @@ POSSIBILITY OF SUCH DAMAGE.
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu21.model.OperationOutcome;
 import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.model.ValueSet;
 import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu21.utils.EOperationOutcome;
 import org.hl7.fhir.dstu21.utils.IWorkerContext;
 import org.hl7.fhir.dstu21.utils.ToolingExtensions;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 
@@ -62,10 +60,10 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	  	ValueSetExpansionOutcome vso = vse.expand(source);
 	  	if (vso.getError() != null) {
 	  	  // well, we'll see if the designated server can expand it, and if it can, we'll cache it locally
-	  	    vso = context.expandVS(source, false);
-	  	    FileOutputStream s = new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getUrl())));
-	  	    context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, vso.getValueset());
-	  	    s.close();
+	  		vso = context.expandVS(source, false);
+	  		FileOutputStream s = new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getUrl())));
+	  		context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, vso.getValueset());
+	  		s.close();
 	  	}
 	  	expansions.put(source.getUrl(), vso);
 	  	return vso;

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -40,7 +40,7 @@ import ca.uhn.fhir.model.api.annotation.Child;
 import ca.uhn.fhir.model.api.annotation.Description;
 import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 /**
  * Provenance of a resource is a record that describes entities and processes involved in producing and delivering or otherwise influencing that resource. Provenance provides a critical foundation for assessing authenticity, enabling trust, and allowing reproducibility. Provenance assertions are a form of contextual metadata and can themselves become important records with their own provenance. Provenance statement indicates clinical significance in terms of confidence in authenticity, reliability, and trustworthiness, integrity, and stage in lifecycle (e.g. Document Completion - has the artifact been legally authenticated), all of which may impact security, privacy, and trust policies.
  */
@@ -1626,144 +1626,6 @@ public class Provenance extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SIGTYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SIGTYPE);
 
  /**
-   * Search parameter: <b>patient</b>
-   * <p>
-   * Description: <b>Target Reference(s) (usually version specific)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Provenance.target</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="patient", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
-  public static final String SP_PATIENT = "patient";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
-   * <p>
-   * Description: <b>Target Reference(s) (usually version specific)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Provenance.target</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Provenance:patient</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Provenance:patient").toLocked();
-
- /**
-   * Search parameter: <b>location</b>
-   * <p>
-   * Description: <b>Where the activity occurred, if relevant</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Provenance.location</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="location", path="Provenance.location", description="Where the activity occurred, if relevant", type="reference" )
-  public static final String SP_LOCATION = "location";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>location</b>
-   * <p>
-   * Description: <b>Where the activity occurred, if relevant</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Provenance.location</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Provenance:location</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Provenance:location").toLocked();
-
- /**
-   * Search parameter: <b>start</b>
-   * <p>
-   * Description: <b>Starting time with inclusive boundary</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Provenance.period.start</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="start", path="Provenance.period.start", description="Starting time with inclusive boundary", type="date" )
-  public static final String SP_START = "start";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>start</b>
-   * <p>
-   * Description: <b>Starting time with inclusive boundary</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Provenance.period.start</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam START = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_START);
-
- /**
-   * Search parameter: <b>entity</b>
-   * <p>
-   * Description: <b>Identity of entity</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>Provenance.entity.reference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="entity", path="Provenance.entity.reference", description="Identity of entity", type="uri" )
-  public static final String SP_ENTITY = "entity";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>entity</b>
-   * <p>
-   * Description: <b>Identity of entity</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>Provenance.entity.reference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam ENTITY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_ENTITY);
-
- /**
-   * Search parameter: <b>userid</b>
-   * <p>
-   * Description: <b>Authorization-system identifier for the agent</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Provenance.agent.userId</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="userid", path="Provenance.agent.userId", description="Authorization-system identifier for the agent", type="token" )
-  public static final String SP_USERID = "userid";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>userid</b>
-   * <p>
-   * Description: <b>Authorization-system identifier for the agent</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Provenance.agent.userId</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam USERID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_USERID);
-
- /**
-   * Search parameter: <b>target</b>
-   * <p>
-   * Description: <b>Target Reference(s) (usually version specific)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Provenance.target</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="target", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
-  public static final String SP_TARGET = "target";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>target</b>
-   * <p>
-   * Description: <b>Target Reference(s) (usually version specific)</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Provenance.target</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TARGET = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TARGET);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Provenance:target</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_TARGET = new ca.uhn.fhir.model.api.Include("Provenance:target").toLocked();
-
- /**
    * Search parameter: <b>agent</b>
    * <p>
    * Description: <b>Individual, device or organization playing role</b><br>
@@ -1810,6 +1672,52 @@ public class Provenance extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ENTITYTYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ENTITYTYPE);
 
  /**
+   * Search parameter: <b>patient</b>
+   * <p>
+   * Description: <b>Target Reference(s) (usually version specific)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.target</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="patient", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
+  public static final String SP_PATIENT = "patient";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>patient</b>
+   * <p>
+   * Description: <b>Target Reference(s) (usually version specific)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.target</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Provenance:patient</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Provenance:patient").toLocked();
+
+ /**
+   * Search parameter: <b>start</b>
+   * <p>
+   * Description: <b>Starting time with inclusive boundary</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Provenance.period.start</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="start", path="Provenance.period.start", description="Starting time with inclusive boundary", type="date" )
+  public static final String SP_START = "start";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>start</b>
+   * <p>
+   * Description: <b>Starting time with inclusive boundary</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Provenance.period.start</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam START = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_START);
+
+ /**
    * Search parameter: <b>end</b>
    * <p>
    * Description: <b>End time with inclusive boundary, if not ongoing</b><br>
@@ -1828,6 +1736,98 @@ public class Provenance extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.DateClientParam END = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_END);
+
+ /**
+   * Search parameter: <b>location</b>
+   * <p>
+   * Description: <b>Where the activity occurred, if relevant</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.location</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="location", path="Provenance.location", description="Where the activity occurred, if relevant", type="reference" )
+  public static final String SP_LOCATION = "location";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>location</b>
+   * <p>
+   * Description: <b>Where the activity occurred, if relevant</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.location</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam LOCATION = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_LOCATION);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Provenance:location</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_LOCATION = new ca.uhn.fhir.model.api.Include("Provenance:location").toLocked();
+
+ /**
+   * Search parameter: <b>userid</b>
+   * <p>
+   * Description: <b>Authorization-system identifier for the agent</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.agent.userId</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="userid", path="Provenance.agent.userId", description="Authorization-system identifier for the agent", type="token" )
+  public static final String SP_USERID = "userid";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>userid</b>
+   * <p>
+   * Description: <b>Authorization-system identifier for the agent</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Provenance.agent.userId</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam USERID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_USERID);
+
+ /**
+   * Search parameter: <b>entity</b>
+   * <p>
+   * Description: <b>Identity of entity</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Provenance.entity.reference</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="entity", path="Provenance.entity.reference", description="Identity of entity", type="uri" )
+  public static final String SP_ENTITY = "entity";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>entity</b>
+   * <p>
+   * Description: <b>Identity of entity</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>Provenance.entity.reference</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam ENTITY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_ENTITY);
+
+ /**
+   * Search parameter: <b>target</b>
+   * <p>
+   * Description: <b>Target Reference(s) (usually version specific)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.target</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="target", path="Provenance.target", description="Target Reference(s) (usually version specific)", type="reference" )
+  public static final String SP_TARGET = "target";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>target</b>
+   * <p>
+   * Description: <b>Target Reference(s) (usually version specific)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Provenance.target</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TARGET = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TARGET);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Provenance:target</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TARGET = new ca.uhn.fhir.model.api.Include("Provenance:target").toLocked();
 
 
 }

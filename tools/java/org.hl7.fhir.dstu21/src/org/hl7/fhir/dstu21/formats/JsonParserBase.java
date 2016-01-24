@@ -35,13 +35,14 @@ import java.io.OutputStreamWriter;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu21.model.DomainResource;
 import org.hl7.fhir.dstu21.model.Element;
 import org.hl7.fhir.dstu21.model.IdType;
 import org.hl7.fhir.dstu21.model.Resource;
 import org.hl7.fhir.dstu21.model.StringType;
 import org.hl7.fhir.dstu21.model.Type;
-import org.hl7.fhir.exceptions.FHIRFormatError;
 import org.hl7.fhir.instance.model.api.IIdType;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
@@ -65,10 +66,10 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
 	  return ParserType.JSON;
   }
 
-  private static com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
+	private static com.google.gson.JsonParser  parser = new com.google.gson.JsonParser();
 
   // -- in descendent generated code --------------------------------------
-
+  
   abstract protected Resource parseResource(JsonObject json) throws IOException, FHIRFormatError;
   abstract protected Type parseType(JsonObject json, String type) throws IOException, FHIRFormatError;
   abstract protected Type parseType(String prefix, JsonObject json) throws IOException, FHIRFormatError;
@@ -77,7 +78,7 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
   abstract protected void composeTypeInner(Type type) throws IOException;
 
   /* -- entry points --------------------------------------------------- */
-  
+
   /**
    * @throws FHIRFormatError 
    * Parse content that is known to be a resource
@@ -175,12 +176,16 @@ public abstract class JsonParserBase extends ParserBase implements IParser {
       }
     }
   }
-
+  
   protected XhtmlNode parseXhtml(String value) throws IOException, FHIRFormatError {
     XhtmlParser prsr = new XhtmlParser();
-    return prsr.parse(value, "div").getChildNodes().get(0);
+    try {
+		return prsr.parse(value, "div").getChildNodes().get(0);
+	} catch (org.hl7.fhir.exceptions.FHIRFormatError e) {
+		throw new FHIRFormatError(e.getMessage(), e);
+	}
   }
-
+  
   protected DomainResource parseDomainResource(JsonObject json) throws FHIRFormatError, IOException {
 	  return (DomainResource) parseResource(json);
   }

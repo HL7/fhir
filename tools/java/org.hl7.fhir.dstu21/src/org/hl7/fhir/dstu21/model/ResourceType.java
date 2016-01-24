@@ -1,8 +1,8 @@
 package org.hl7.fhir.dstu21.model;
 
-import org.hl7.fhir.exceptions.FHIRException;
+import org.hl7.fhir.dstu21.exceptions.FHIRException;
 
-// Generated on Mon, Jan 11, 2016 03:02+1100 for FHIR v1.3.0
+// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
 
 public enum ResourceType {
     Account,
@@ -59,6 +59,7 @@ public enum ResourceType {
     ImmunizationRecommendation,
     ImplementationGuide,
     Library,
+    Linkage,
     List,
     Location,
     Measure,
@@ -90,6 +91,7 @@ public enum ResourceType {
     ProcedureRequest,
     ProcessRequest,
     ProcessResponse,
+    Protocol,
     Provenance,
     Questionnaire,
     QuestionnaireResponse,
@@ -221,6 +223,8 @@ public enum ResourceType {
       return "implementationguide";
     case Library:
       return "library";
+    case Linkage:
+      return "linkage";
     case List:
       return "list";
     case Location:
@@ -283,6 +287,8 @@ public enum ResourceType {
       return "processrequest";
     case ProcessResponse:
       return "processresponse";
+    case Protocol:
+      return "protocol";
     case Provenance:
       return "provenance";
     case Questionnaire:
@@ -435,6 +441,8 @@ public enum ResourceType {
       return ImplementationGuide;
     if ("Library".equals(code))
       return Library;
+    if ("Linkage".equals(code))
+      return Linkage;
     if ("List".equals(code))
       return List;
     if ("Location".equals(code))
@@ -497,6 +505,8 @@ public enum ResourceType {
       return ProcessRequest;
     if ("ProcessResponse".equals(code))
       return ProcessResponse;
+    if ("Protocol".equals(code))
+      return Protocol;
     if ("Provenance".equals(code))
       return Provenance;
     if ("Questionnaire".equals(code))

@@ -68,7 +68,7 @@ public class InstantType extends BaseDateTimeType {
 		super();
 	}
 
-/**
+	/**
 	 * Create a new DateTimeDt
 	 */
 	public InstantType(Calendar theCalendar) {
@@ -77,7 +77,7 @@ public class InstantType extends BaseDateTimeType {
 
 	/**
 	 * Create a new instance using the given date, precision level, and time zone
- *
+	 * 
 	 * @throws DataFormatException
 	 *             If the specified precision is not allowed for this type
 	 */
@@ -91,7 +91,7 @@ public class InstantType extends BaseDateTimeType {
 	 * as it may create more precision than warranted (since for example it is possible to pass in
 	 * a DateTime with only a year, and this constructor will convert to an InstantDt with 
 	 * milliseconds precision).
- */
+	 */
 	public InstantType(BaseDateTimeType theDateTime) {
 		// Do not call super(foo) here, we don't want to trigger a DataFormatException
 		setValue(theDateTime.getValue());
@@ -118,7 +118,7 @@ public class InstantType extends BaseDateTimeType {
 		setValue(theDate);
 		setPrecision(thePrecision);
 		setTimeZone(TimeZone.getDefault());
-  }
+	}
 
 	/**
 	 * Create a new InstantDt from a string value
@@ -141,9 +141,9 @@ public class InstantType extends BaseDateTimeType {
 	 */
 	public boolean after(Date theDate) {
 		return getValue().after(theDate);
-  }
+	}
 
-  /**
+	/**
 	 * Invokes {@link Date#before(Date)} on the contained Date against the given
 	 * date
 	 * 
@@ -163,7 +163,7 @@ public class InstantType extends BaseDateTimeType {
 	public void setToCurrentTimeInLocalTimeZone() {
 		setValue(new Date());
 		setTimeZone(TimeZone.getDefault());
-	} 
+	}
 
 	@Override
 	boolean isPrecisionAllowed(TemporalPrecisionEnum thePrecision) {
@@ -195,10 +195,10 @@ public class InstantType extends BaseDateTimeType {
 	}
 
 
-  @Override
+	@Override
 	public InstantType copy() {
-		return new InstantType(getValue());
-  }
+		return new InstantType(getValueAsString());
+	}
 
 	/**
 	 * Returns a new instance of DateTimeType with the current system time and MILLI precision and the system local time
@@ -216,7 +216,7 @@ public class InstantType extends BaseDateTimeType {
 		retVal.setValueAsV3String(theV3String);
 		return retVal;
 	}
-	
+
 	public String fhirType() {
 		return "instant";
 	}

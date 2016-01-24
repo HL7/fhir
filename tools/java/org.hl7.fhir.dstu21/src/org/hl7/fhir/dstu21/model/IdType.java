@@ -84,160 +84,160 @@ import ca.uhn.fhir.model.api.annotation.DatatypeDef;
  */
 @DatatypeDef(name = "id", profileOf=StringType.class)
 public final class IdType extends UriType implements IPrimitiveType<String>, IIdType {
-	/**
-	 * This is the maximum length for the ID 
-	 */
-	public static final int MAX_LENGTH = 64; // maximum length
-	
-	private static final long serialVersionUID = 2L;
-	private String myBaseUrl;
-	private boolean myHaveComponentParts;
-	private String myResourceType;
-	private String myUnqualifiedId;
-	private String myUnqualifiedVersionId;
+  /**
+   * This is the maximum length for the ID
+   */
+  public static final int MAX_LENGTH = 64; // maximum length
 
-	/**
-	 * Create a new empty ID
-	 */
-	public IdType() {
-		super();
-	}
+  private static final long serialVersionUID = 2L;
+  private String myBaseUrl;
+  private boolean myHaveComponentParts;
+  private String myResourceType;
+  private String myUnqualifiedId;
+  private String myUnqualifiedVersionId;
 
-	/**
+  /**
+   * Create a new empty ID
+   */
+  public IdType() {
+    super();
+  }
+
+  /**
    * Create a new ID, using a BigDecimal input. Uses
    * {@link BigDecimal#toPlainString()} to generate the string representation.
-	 */
-	public IdType(BigDecimal thePid) {
-		if (thePid != null) {
-			setValue(toPlainStringWithNpeThrowIfNeeded(thePid));
-		} else {
-			setValue(null);
-		}
-	}
+   */
+  public IdType(BigDecimal thePid) {
+    if (thePid != null) {
+      setValue(toPlainStringWithNpeThrowIfNeeded(thePid));
+    } else {
+      setValue(null);
+    }
+  }
 
-	/**
-	 * Create a new ID using a long
-	 */
-	public IdType(long theId) {
-		setValue(Long.toString(theId));
-	}
+  /**
+   * Create a new ID using a long
+   */
+  public IdType(long theId) {
+    setValue(Long.toString(theId));
+  }
 
-	/**
+  /**
    * Create a new ID using a string. This String may contain a simple ID (e.g.
    * "1234") or it may contain a complete URL
    * (http://example.com/fhir/Patient/1234).
-	 * 
-	 * <p>
+   * 
+   * <p>
    * <b>Description</b>: A whole number in the range 0 to 2^64-1 (optionally
    * represented in hex), a uuid, an oid, or any other combination of lowercase
    * letters, numerals, "-" and ".", with a length limit of 36 characters.
-	 * </p>
-	 * <p>
-	 * regex: [a-z0-9\-\.]{1,36}
-	 * </p>
-	 */
-	public IdType(String theValue) {
-		setValue(theValue);
-	}
+   * </p>
+   * <p>
+   * regex: [a-z0-9\-\.]{1,36}
+   * </p>
+   */
+  public IdType(String theValue) {
+    setValue(theValue);
+  }
 
-	/**
-	 * Constructor
-	 * 
-	 * @param theResourceType
-	 *            The resource type (e.g. "Patient")
-	 * @param theIdPart
-	 *            The ID (e.g. "123")
-	 */
-	public IdType(String theResourceType, BigDecimal theIdPart) {
-		this(theResourceType, toPlainStringWithNpeThrowIfNeeded(theIdPart));
-	}
+  /**
+   * Constructor
+   * 
+   * @param theResourceType
+   *          The resource type (e.g. "Patient")
+   * @param theIdPart
+   *          The ID (e.g. "123")
+   */
+  public IdType(String theResourceType, BigDecimal theIdPart) {
+    this(theResourceType, toPlainStringWithNpeThrowIfNeeded(theIdPart));
+  }
 
-	/**
-	 * Constructor
-	 * 
-	 * @param theResourceType
-	 *            The resource type (e.g. "Patient")
-	 * @param theIdPart
-	 *            The ID (e.g. "123")
-	 */
-	public IdType(String theResourceType, Long theIdPart) {
-		this(theResourceType, toPlainStringWithNpeThrowIfNeeded(theIdPart));
-	}
+  /**
+   * Constructor
+   * 
+   * @param theResourceType
+   *          The resource type (e.g. "Patient")
+   * @param theIdPart
+   *          The ID (e.g. "123")
+   */
+  public IdType(String theResourceType, Long theIdPart) {
+    this(theResourceType, toPlainStringWithNpeThrowIfNeeded(theIdPart));
+  }
 
-	/**
-	 * Constructor
-	 *
-	 * @param theResourceType
-	 *            The resource type (e.g. "Patient")
-	 * @param theId
-	 *            The ID (e.g. "123")
-	 */
-	public IdType(String theResourceType, String theId) {
-		this(theResourceType, theId, null);
-	}
+  /**
+   * Constructor
+   *
+   * @param theResourceType
+   *          The resource type (e.g. "Patient")
+   * @param theId
+   *          The ID (e.g. "123")
+   */
+  public IdType(String theResourceType, String theId) {
+    this(theResourceType, theId, null);
+  }
 
-	/**
-	 * Constructor
-	 * 
-	 * @param theResourceType
-	 *            The resource type (e.g. "Patient")
-	 * @param theId
-	 *            The ID (e.g. "123")
-	 * @param theVersionId
-	 *            The version ID ("e.g. "456")
-	 */
-	public IdType(String theResourceType, String theId, String theVersionId) {
-		this(null, theResourceType, theId, theVersionId);
-	}
+  /**
+   * Constructor
+   * 
+   * @param theResourceType
+   *          The resource type (e.g. "Patient")
+   * @param theId
+   *          The ID (e.g. "123")
+   * @param theVersionId
+   *          The version ID ("e.g. "456")
+   */
+  public IdType(String theResourceType, String theId, String theVersionId) {
+    this(null, theResourceType, theId, theVersionId);
+  }
 
-	/**
-	 * Constructor
-	 * 
-	 * @param theBaseUrl
-	 *            The server base URL (e.g. "http://example.com/fhir")
-	 * @param theResourceType
-	 *            The resource type (e.g. "Patient")
-	 * @param theId
-	 *            The ID (e.g. "123")
-	 * @param theVersionId
-	 *            The version ID ("e.g. "456")
-	 */
-	public IdType(String theBaseUrl, String theResourceType, String theId, String theVersionId) {
-		myBaseUrl = theBaseUrl;
-		myResourceType = theResourceType;
-		myUnqualifiedId = theId;
-		myUnqualifiedVersionId = StringUtils.defaultIfBlank(theVersionId, null);
-		myHaveComponentParts = true;
-	}
+  /**
+   * Constructor
+   * 
+   * @param theBaseUrl
+   *          The server base URL (e.g. "http://example.com/fhir")
+   * @param theResourceType
+   *          The resource type (e.g. "Patient")
+   * @param theId
+   *          The ID (e.g. "123")
+   * @param theVersionId
+   *          The version ID ("e.g. "456")
+   */
+  public IdType(String theBaseUrl, String theResourceType, String theId, String theVersionId) {
+    myBaseUrl = theBaseUrl;
+    myResourceType = theResourceType;
+    myUnqualifiedId = theId;
+    myUnqualifiedVersionId = StringUtils.defaultIfBlank(theVersionId, null);
+    myHaveComponentParts = true;
+  }
 
-	/**
-	 * Creates an ID based on a given URL
-	 */
-	public IdType(UriType theUrl) {
-		setValue(theUrl.getValueAsString());
-	}
+  /**
+   * Creates an ID based on a given URL
+   */
+  public IdType(UriType theUrl) {
+    setValue(theUrl.getValueAsString());
+  }
 
-	public void applyTo(IBaseResource theResouce) {
-		if (theResouce == null) {
-			throw new NullPointerException("theResource can not be null");
-		} else {
-			theResouce.setId(new IdType(getValue()));
-		}
-	}
+  public void applyTo(IBaseResource theResouce) {
+    if (theResouce == null) {
+      throw new NullPointerException("theResource can not be null");
+    } else {
+      theResouce.setId(new IdType(getValue()));
+    }
+  }
 
-	/**
+  /**
    * @deprecated Use {@link #getIdPartAsBigDecimal()} instead (this method was
    *             deprocated because its name is ambiguous)
-	 */
-	@Deprecated
-	public BigDecimal asBigDecimal() {
-		return getIdPartAsBigDecimal();
-	}
+   */
+  @Deprecated
+  public BigDecimal asBigDecimal() {
+    return getIdPartAsBigDecimal();
+  }
 
-	@Override
-	public IdType copy() {
-		return new IdType(getValue());
-	}
+  @Override
+  public IdType copy() {
+    return new IdType(getValue());
+  }
 
   private String determineLocalPrefix(String theValue) {
     if (theValue == null || theValue.isEmpty()) {
@@ -267,202 +267,202 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
     }
   }
 
-	@Override
-	public boolean equals(Object theArg0) {
-		if (!(theArg0 instanceof IdType)) {
-			return false;
-		}
-		IdType id = (IdType) theArg0;
-		return StringUtils.equals(getValueAsString(), id.getValueAsString());
-	}
+  @Override
+  public boolean equals(Object theArg0) {
+    if (!(theArg0 instanceof IdType)) {
+      return false;
+    }
+    IdType id = (IdType) theArg0;
+    return StringUtils.equals(getValueAsString(), id.getValueAsString());
+  }
 
-	/**
+  /**
    * Returns true if this IdType matches the given IdType in terms of resource
    * type and ID, but ignores the URL base
-	 */
-	@SuppressWarnings("deprecation")
-	public boolean equalsIgnoreBase(IdType theId) {
-		if (theId == null) {
-			return false;
-		}
-		if (theId.isEmpty()) {
-			return isEmpty();
-		}
+   */
+  @SuppressWarnings("deprecation")
+  public boolean equalsIgnoreBase(IdType theId) {
+    if (theId == null) {
+      return false;
+    }
+    if (theId.isEmpty()) {
+      return isEmpty();
+    }
     return ObjectUtils.equals(getResourceType(), theId.getResourceType())
         && ObjectUtils.equals(getIdPart(), theId.getIdPart())
         && ObjectUtils.equals(getVersionIdPart(), theId.getVersionIdPart());
-	}
+  }
 
-	/**
+  /**
    * Returns the portion of this resource ID which corresponds to the server
    * base URL. For example given the resource ID
    * <code>http://example.com/fhir/Patient/123</code> the base URL would be
-	 * <code>http://example.com/fhir</code>.
-	 * <p>
-	 * This method may return null if the ID contains no base (e.g. "Patient/123")
-	 * </p>
-	 */
-	@Override
-	public String getBaseUrl() {
-		return myBaseUrl;
-	}
+   * <code>http://example.com/fhir</code>.
+   * <p>
+   * This method may return null if the ID contains no base (e.g. "Patient/123")
+   * </p>
+   */
+  @Override
+  public String getBaseUrl() {
+    return myBaseUrl;
+  }
 
-	/**
+  /**
    * Returns only the logical ID part of this ID. For example, given the ID
    * "http://example,.com/fhir/Patient/123/_history/456", this method would
    * return "123".
-	 */
-	@Override
-	public String getIdPart() {
-		return myUnqualifiedId;
-	}
+   */
+  @Override
+  public String getIdPart() {
+    return myUnqualifiedId;
+  }
 
-	/**
+  /**
    * Returns the unqualified portion of this ID as a big decimal, or
    * <code>null</code> if the value is null
-	 * 
-	 * @throws NumberFormatException
-	 *             If the value is not a valid BigDecimal
-	 */
-	public BigDecimal getIdPartAsBigDecimal() {
-		String val = getIdPart();
-		if (isBlank(val)) {
-			return null;
-		}
-		return new BigDecimal(val);
-	}
+   * 
+   * @throws NumberFormatException
+   *           If the value is not a valid BigDecimal
+   */
+  public BigDecimal getIdPartAsBigDecimal() {
+    String val = getIdPart();
+    if (isBlank(val)) {
+      return null;
+    }
+    return new BigDecimal(val);
+  }
 
-	/**
+  /**
    * Returns the unqualified portion of this ID as a {@link Long}, or
    * <code>null</code> if the value is null
-	 * 
-	 * @throws NumberFormatException
-	 *             If the value is not a valid Long
-	 */
-	@Override
-	public Long getIdPartAsLong() {
-		String val = getIdPart();
-		if (isBlank(val)) {
-			return null;
-		}
-		return Long.parseLong(val);
-	}
+   * 
+   * @throws NumberFormatException
+   *           If the value is not a valid Long
+   */
+  @Override
+  public Long getIdPartAsLong() {
+    String val = getIdPart();
+    if (isBlank(val)) {
+      return null;
+    }
+    return Long.parseLong(val);
+  }
 
-	@Override
-	public String getResourceType() {
-		return myResourceType;
-	}
+  @Override
+  public String getResourceType() {
+    return myResourceType;
+  }
 
-	/**
+  /**
    * Returns the value of this ID. Note that this value may be a fully qualified
    * URL, a relative/partial URL, or a simple ID. Use {@link #getIdPart()} to
    * get just the ID portion.
-	 * 
-	 * @see #getIdPart()
-	 */
-	@Override
-	public String getValue() {
-		String retVal = super.getValue();
-		if (retVal == null && myHaveComponentParts) {
+   * 
+   * @see #getIdPart()
+   */
+  @Override
+  public String getValue() {
+    String retVal = super.getValue();
+    if (retVal == null && myHaveComponentParts) {
 
-			if (determineLocalPrefix(myBaseUrl) != null && myResourceType == null && myUnqualifiedVersionId == null) {
-				return myBaseUrl + myUnqualifiedId;
-			}
+      if (determineLocalPrefix(myBaseUrl) != null && myResourceType == null && myUnqualifiedVersionId == null) {
+        return myBaseUrl + myUnqualifiedId;
+      }
 
-			StringBuilder b = new StringBuilder();
-			if (isNotBlank(myBaseUrl)) {
-				b.append(myBaseUrl);
-				if (myBaseUrl.charAt(myBaseUrl.length() - 1) != '/') {
-					b.append('/');
-				}
-			}
+      StringBuilder b = new StringBuilder();
+      if (isNotBlank(myBaseUrl)) {
+        b.append(myBaseUrl);
+        if (myBaseUrl.charAt(myBaseUrl.length() - 1) != '/') {
+          b.append('/');
+        }
+      }
 
-			if (isNotBlank(myResourceType)) {
-				b.append(myResourceType);
-			}
+      if (isNotBlank(myResourceType)) {
+        b.append(myResourceType);
+      }
 
-			if (b.length() > 0) {
-				b.append('/');
-			}
+      if (b.length() > 0) {
+        b.append('/');
+      }
 
-			b.append(myUnqualifiedId);
-			if (isNotBlank(myUnqualifiedVersionId)) {
-				b.append('/');
-				b.append("_history");
-				b.append('/');
-				b.append(myUnqualifiedVersionId);
-			}
-			retVal = b.toString();
-			super.setValue(retVal);
-		}
-		return retVal;
-	}
+      b.append(myUnqualifiedId);
+      if (isNotBlank(myUnqualifiedVersionId)) {
+        b.append('/');
+        b.append("_history");
+        b.append('/');
+        b.append(myUnqualifiedVersionId);
+      }
+      retVal = b.toString();
+      super.setValue(retVal);
+    }
+    return retVal;
+  }
 
-	@Override
-	public String getValueAsString() {
-		return getValue();
-	}
+  @Override
+  public String getValueAsString() {
+    return getValue();
+  }
 
-	@Override
-	public String getVersionIdPart() {
-		return myUnqualifiedVersionId;
-	}
+  @Override
+  public String getVersionIdPart() {
+    return myUnqualifiedVersionId;
+  }
 
-	public Long getVersionIdPartAsLong() {
-		if (!hasVersionIdPart()) {
-			return null;
-		} else {
-			return Long.parseLong(getVersionIdPart());
-		}
-	}
+  public Long getVersionIdPartAsLong() {
+    if (!hasVersionIdPart()) {
+      return null;
+    } else {
+      return Long.parseLong(getVersionIdPart());
+    }
+  }
 
-	/**
-	 * Returns true if this ID has a base url
-	 * 
-	 * @see #getBaseUrl()
-	 */
-	public boolean hasBaseUrl() {
-		return isNotBlank(myBaseUrl);
-	}
+  /**
+   * Returns true if this ID has a base url
+   * 
+   * @see #getBaseUrl()
+   */
+  public boolean hasBaseUrl() {
+    return isNotBlank(myBaseUrl);
+  }
 
-	@Override
-	public int hashCode() {
-		HashCodeBuilder b = new HashCodeBuilder();
-		b.append(getValueAsString());
-		return b.toHashCode();
-	}
+  @Override
+  public int hashCode() {
+    HashCodeBuilder b = new HashCodeBuilder();
+    b.append(getValueAsString());
+    return b.toHashCode();
+  }
 
-	@Override
-	public boolean hasIdPart() {
-		return isNotBlank(getIdPart());
-	}
+  @Override
+  public boolean hasIdPart() {
+    return isNotBlank(getIdPart());
+  }
 
-	@Override
-	public boolean hasResourceType() {
-		return isNotBlank(myResourceType);
-	}
+  @Override
+  public boolean hasResourceType() {
+    return isNotBlank(myResourceType);
+  }
 
-	@Override
-	public boolean hasVersionIdPart() {
-		return isNotBlank(getVersionIdPart());
-	}
+  @Override
+  public boolean hasVersionIdPart() {
+    return isNotBlank(getVersionIdPart());
+  }
 
-	/**
+  /**
    * Returns <code>true</code> if this ID contains an absolute URL (in other
    * words, a URL starting with "http://" or "https://"
-	 */
-	@Override
-	public boolean isAbsolute() {
-		if (StringUtils.isBlank(getValue())) {
-			return false;
-		}
-		return isUrlAbsolute(getValue());
-	}
+   */
+  @Override
+  public boolean isAbsolute() {
+    if (StringUtils.isBlank(getValue())) {
+      return false;
+    }
+    return isUrlAbsolute(getValue());
+  }
 
-	@Override
-	public boolean isEmpty() {
-		return isBlank(getValue());
-	}
+  @Override
+  public boolean isEmpty() {
+    return isBlank(getValue());
+  }
 
   @Override
   public boolean isIdPartValid() {
@@ -496,191 +496,191 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
    * Returns <code>true</code> if the unqualified ID is a valid {@link Long}
    * value (in other words, it consists only of digits)
 	 */
-	@Override
-	public boolean isIdPartValidLong() {
+  @Override
+  public boolean isIdPartValidLong() {
     return isValidLong(getIdPart());
-	}
+  }
 
-	/**
+  /**
    * Returns <code>true</code> if the ID is a local reference (in other words,
    * it begins with the '#' character)
-	 */
-	@Override
-	public boolean isLocal() {
-		return "#".equals(myBaseUrl);
-	}
+   */
+  @Override
+  public boolean isLocal() {
+    return "#".equals(myBaseUrl);
+  }
 
   @Override
   public boolean isVersionIdPartValidLong() {
     return isValidLong(getVersionIdPart());
   }
 
-	/**
-	 * Set the value
-	 * 
-	 * <p>
+  /**
+   * Set the value
+   * 
+   * <p>
    * <b>Description</b>: A whole number in the range 0 to 2^64-1 (optionally
    * represented in hex), a uuid, an oid, or any other combination of lowercase
    * letters, numerals, "-" and ".", with a length limit of 36 characters.
-	 * </p>
-	 * <p>
-	 * regex: [a-z0-9\-\.]{1,36}
-	 * </p>
-	 */
-	@Override
-	public IdType setValue(String theValue) {
-		// TODO: add validation
-		super.setValue(theValue);
-		myHaveComponentParts = false;
-		
-		String localPrefix = determineLocalPrefix(theValue);
-		
-		if (StringUtils.isBlank(theValue)) {
-			myBaseUrl = null;
-			super.setValue(null);
-			myUnqualifiedId = null;
-			myUnqualifiedVersionId = null;
-			myResourceType = null;
-		} else if (theValue.charAt(0) == '#' && theValue.length() > 1) {
-			super.setValue(theValue);
-			myBaseUrl = "#";
-			myUnqualifiedId = theValue.substring(1);
-			myUnqualifiedVersionId = null;
-			myResourceType = null;
-			myHaveComponentParts = true;
-		} else if (localPrefix != null) {
-			myBaseUrl = localPrefix;
-			myUnqualifiedId = theValue.substring(localPrefix.length());
-		} else {
-			int vidIndex = theValue.indexOf("/_history/");
-			int idIndex;
-			if (vidIndex != -1) {
-				myUnqualifiedVersionId = theValue.substring(vidIndex + "/_history/".length());
-				idIndex = theValue.lastIndexOf('/', vidIndex - 1);
-				myUnqualifiedId = theValue.substring(idIndex + 1, vidIndex);
-			} else {
-				idIndex = theValue.lastIndexOf('/');
-				myUnqualifiedId = theValue.substring(idIndex + 1);
-				myUnqualifiedVersionId = null;
-			}
+   * </p>
+   * <p>
+   * regex: [a-z0-9\-\.]{1,36}
+   * </p>
+   */
+  @Override
+  public IdType setValue(String theValue) {
+    // TODO: add validation
+    super.setValue(theValue);
+    myHaveComponentParts = false;
 
-			myBaseUrl = null;
-			if (idIndex <= 0) {
-				myResourceType = null;
-			} else {
-				int typeIndex = theValue.lastIndexOf('/', idIndex - 1);
-				if (typeIndex == -1) {
-					myResourceType = theValue.substring(0, idIndex);
-				} else {
-					myResourceType = theValue.substring(typeIndex + 1, idIndex);
+    String localPrefix = determineLocalPrefix(theValue);
 
-					if (typeIndex > 4) {
-						myBaseUrl = theValue.substring(0, typeIndex);
-					}
+    if (StringUtils.isBlank(theValue)) {
+      myBaseUrl = null;
+      super.setValue(null);
+      myUnqualifiedId = null;
+      myUnqualifiedVersionId = null;
+      myResourceType = null;
+    } else if (theValue.charAt(0) == '#' && theValue.length() > 1) {
+      super.setValue(theValue);
+      myBaseUrl = "#";
+      myUnqualifiedId = theValue.substring(1);
+      myUnqualifiedVersionId = null;
+      myResourceType = null;
+      myHaveComponentParts = true;
+    } else if (localPrefix != null) {
+      myBaseUrl = localPrefix;
+      myUnqualifiedId = theValue.substring(localPrefix.length());
+    } else {
+      int vidIndex = theValue.indexOf("/_history/");
+      int idIndex;
+      if (vidIndex != -1) {
+        myUnqualifiedVersionId = theValue.substring(vidIndex + "/_history/".length());
+        idIndex = theValue.lastIndexOf('/', vidIndex - 1);
+        myUnqualifiedId = theValue.substring(idIndex + 1, vidIndex);
+      } else {
+        idIndex = theValue.lastIndexOf('/');
+        myUnqualifiedId = theValue.substring(idIndex + 1);
+        myUnqualifiedVersionId = null;
+      }
 
-				}
-			}
+      myBaseUrl = null;
+      if (idIndex <= 0) {
+        myResourceType = null;
+      } else {
+        int typeIndex = theValue.lastIndexOf('/', idIndex - 1);
+        if (typeIndex == -1) {
+          myResourceType = theValue.substring(0, idIndex);
+        } else {
+          myResourceType = theValue.substring(typeIndex + 1, idIndex);
 
-		}
-		return this;
-	}
+          if (typeIndex > 4) {
+            myBaseUrl = theValue.substring(0, typeIndex);
+          }
 
-	/**
-	 * Set the value
-	 * 
-	 * <p>
+        }
+      }
+
+    }
+    return this;
+  }
+
+  /**
+   * Set the value
+   * 
+   * <p>
    * <b>Description</b>: A whole number in the range 0 to 2^64-1 (optionally
    * represented in hex), a uuid, an oid, or any other combination of lowercase
    * letters, numerals, "-" and ".", with a length limit of 36 characters.
-	 * </p>
-	 * <p>
-	 * regex: [a-z0-9\-\.]{1,36}
-	 * </p>
-	 */
-	@Override
-	public void setValueAsString(String theValue) {
-		setValue(theValue);
-	}
+   * </p>
+   * <p>
+   * regex: [a-z0-9\-\.]{1,36}
+   * </p>
+   */
+  @Override
+  public void setValueAsString(String theValue) {
+    setValue(theValue);
+  }
 
-	@Override
-	public String toString() {
-		return getValue();
-	}
+  @Override
+  public String toString() {
+    return getValue();
+  }
 
-	/**
+  /**
    * Returns a new IdType containing this IdType's values but with no server
    * base URL if one is present in this IdType. For example, if this IdType
    * contains the ID "http://foo/Patient/1", this method will return a new
    * IdType containing ID "Patient/1".
-	 */
-	@Override
-	public IdType toUnqualified() {
-		return new IdType(getResourceType(), getIdPart(), getVersionIdPart());
-	}
+   */
+  @Override
+  public IdType toUnqualified() {
+    return new IdType(getResourceType(), getIdPart(), getVersionIdPart());
+  }
 
-	@Override
-	public IdType toUnqualifiedVersionless() {
-		return new IdType(getResourceType(), getIdPart());
-	}
+  @Override
+  public IdType toUnqualifiedVersionless() {
+    return new IdType(getResourceType(), getIdPart());
+  }
 
-	@Override
-	public IdType toVersionless() {
-		return new IdType(getBaseUrl(), getResourceType(), getIdPart(), null);
-	}
+  @Override
+  public IdType toVersionless() {
+    return new IdType(getBaseUrl(), getResourceType(), getIdPart(), null);
+  }
 
-	@Override
-	public IdType withResourceType(String theResourceName) {
-		return new IdType(theResourceName, getIdPart(), getVersionIdPart());
-	}
+  @Override
+  public IdType withResourceType(String theResourceName) {
+    return new IdType(theResourceName, getIdPart(), getVersionIdPart());
+  }
 
-	/**
+  /**
    * Returns a view of this ID as a fully qualified URL, given a server base and
    * resource name (which will only be used if the ID does not already contain
    * those respective parts). Essentially, because IdType can contain either a
    * complete URL or a partial one (or even jut a simple ID), this method may be
    * used to translate into a complete URL.
-	 * 
-	 * @param theServerBase
-	 *            The server base (e.g. "http://example.com/fhir")
-	 * @param theResourceType
-	 *            The resource name (e.g. "Patient")
+   * 
+   * @param theServerBase
+   *          The server base (e.g. "http://example.com/fhir")
+   * @param theResourceType
+   *          The resource name (e.g. "Patient")
    * @return A fully qualified URL for this ID (e.g.
    *         "http://example.com/fhir/Patient/1")
-	 */
-	@Override
-	public IdType withServerBase(String theServerBase, String theResourceType) {
-		return new IdType(theServerBase, theResourceType, getIdPart(), getVersionIdPart());
-	}
+   */
+  @Override
+  public IdType withServerBase(String theServerBase, String theResourceType) {
+    return new IdType(theServerBase, theResourceType, getIdPart(), getVersionIdPart());
+  }
 
-	/**
+  /**
    * Creates a new instance of this ID which is identical, but refers to the
    * specific version of this resource ID noted by theVersion.
-	 * 
-	 * @param theVersion
-	 *            The actual version string, e.g. "1"
+   * 
+   * @param theVersion
+   *          The actual version string, e.g. "1"
    * @return A new instance of IdType which is identical, but refers to the
    *         specific version of this resource ID noted by theVersion.
-	 */
-	public IdType withVersion(String theVersion) {
-		Validate.notBlank(theVersion, "Version may not be null or empty");
+   */
+  public IdType withVersion(String theVersion) {
+    Validate.notBlank(theVersion, "Version may not be null or empty");
 
-		String existingValue = getValue();
+    String existingValue = getValue();
 
-		int i = existingValue.indexOf("_history");
-		String value;
-		if (i > 1) {
-			value = existingValue.substring(0, i - 1);
-		} else {
-			value = existingValue;
-		}
+    int i = existingValue.indexOf("_history");
+    String value;
+    if (i > 1) {
+      value = existingValue.substring(0, i - 1);
+    } else {
+      value = existingValue;
+    }
 
-		return new IdType(value + '/' + "_history" + '/' + theVersion);
-	}
+    return new IdType(value + '/' + "_history" + '/' + theVersion);
+  }
 
-	private static boolean isUrlAbsolute(String theValue) {
-		String value = theValue.toLowerCase();
-		return value.startsWith("http://") || value.startsWith("https://");
-	}
+  private static boolean isUrlAbsolute(String theValue) {
+    String value = theValue.toLowerCase();
+    return value.startsWith("http://") || value.startsWith("https://");
+  }
 
   private static boolean isValidLong(String id) {
     if (StringUtils.isBlank(id)) {
@@ -694,7 +694,7 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
     return true;
   }
 
-	/**
+  /**
    * Construct a new ID with with form "urn:uuid:[UUID]" where [UUID] is a new,
    * randomly created UUID generated by {@link UUID#randomUUID()}
    */
@@ -703,36 +703,36 @@ public final class IdType extends UriType implements IPrimitiveType<String>, IId
   }
 
   /**
-	 * Retrieves the ID from the given resource instance
-	 */
-	public static IdType of(IBaseResource theResouce) {
-		if (theResouce == null) {
-			throw new NullPointerException("theResource can not be null");
-		} else {
-			IIdType retVal = theResouce.getIdElement();
-			if (retVal == null) {
-				return null;
-			} else if (retVal instanceof IdType) {
-				return (IdType) retVal;
-			} else {
-				return new IdType(retVal.getValue());
-			}
-		}
-	}
+   * Retrieves the ID from the given resource instance
+   */
+  public static IdType of(IBaseResource theResouce) {
+    if (theResouce == null) {
+      throw new NullPointerException("theResource can not be null");
+    } else {
+      IIdType retVal = theResouce.getIdElement();
+      if (retVal == null) {
+        return null;
+      } else if (retVal instanceof IdType) {
+        return (IdType) retVal;
+      } else {
+        return new IdType(retVal.getValue());
+      }
+    }
+  }
 
-	private static String toPlainStringWithNpeThrowIfNeeded(BigDecimal theIdPart) {
-		if (theIdPart == null) {
-			throw new NullPointerException("BigDecimal ID can not be null");
-		}
-		return theIdPart.toPlainString();
-	}
-	
-	private static String toPlainStringWithNpeThrowIfNeeded(Long theIdPart) {
-		if (theIdPart == null) {
-			throw new NullPointerException("Long ID can not be null");
-		}
-		return theIdPart.toString();
-	}
+  private static String toPlainStringWithNpeThrowIfNeeded(BigDecimal theIdPart) {
+    if (theIdPart == null) {
+      throw new NullPointerException("BigDecimal ID can not be null");
+    }
+    return theIdPart.toPlainString();
+  }
+
+  private static String toPlainStringWithNpeThrowIfNeeded(Long theIdPart) {
+    if (theIdPart == null) {
+      throw new NullPointerException("Long ID can not be null");
+    }
+    return theIdPart.toString();
+  }
 
 	public String fhirType() {
 		return "id";

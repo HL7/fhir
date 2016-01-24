@@ -42,15 +42,15 @@ import ca.uhn.fhir.model.api.annotation.DatatypeDef;
 public class UriType extends PrimitiveType<String> {
 
 	private static final long serialVersionUID = 3L;
-	
+
 	/**
 	 * Constructor
 	 */
-  public UriType() {
+	public UriType() {
 		// nothing
-  }
+	}
 
-  /**
+	/**
 	 * Constructor
 	 */
 	public UriType(String theValue) {
@@ -63,9 +63,9 @@ public class UriType extends PrimitiveType<String> {
 	public UriType(URI theValue) {
 		setValue(theValue.toString());
 	}
-	
+
 	@Override
-  public UriType copy() {
+	public UriType copy() {
 		return new UriType(getValue());
 	}
 
@@ -73,7 +73,7 @@ public class UriType extends PrimitiveType<String> {
 	protected String encode(String theValue) {
 		return theValue;
 	}
-	
+
 	/**
 	 * Compares the given string to the string representation of this URI. In many cases it is preferable to use this
 	 * instead of the standard {@link #equals(Object)} method, since that method returns <code>false</code> unless it is
@@ -83,7 +83,7 @@ public class UriType extends PrimitiveType<String> {
 		return StringUtils.equals(getValueAsString(), theString);
 	}
 
-  @Override
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -109,7 +109,7 @@ public class UriType extends PrimitiveType<String> {
 			// ourLog.debug("Failed to normalize URL '{}', message was: {}", urlString, e.toString());
 			return theValue;
 		}
-  }
+	}
 
 	@Override
 	protected String parse(String theValue) {
@@ -131,7 +131,7 @@ public class UriType extends PrimitiveType<String> {
 		}
 		return new OidType("urn:oid:" + theOid);
 	}
-	
+
 	 @Override
    public boolean equalsDeep(Base obj) {
      if (!super.equalsDeep(obj))

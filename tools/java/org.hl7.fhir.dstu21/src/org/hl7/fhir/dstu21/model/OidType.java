@@ -25,7 +25,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWIS
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
 POSSIBILITY OF SUCH DAMAGE.
 
-*/
+ */
 package org.hl7.fhir.dstu21.model;
 
 import java.net.URI;
@@ -45,14 +45,14 @@ public class OidType extends UriType {
 	 */
 	public OidType() {
 		super();
-  }
+	}
 
 	/**
 	 * Constructor
 	 */
 	public OidType(String theValue) {
 		super(theValue);
-  }
+	}
 
 	/**
 	 * Constructor
@@ -60,15 +60,15 @@ public class OidType extends UriType {
 	public OidType(URI theValue) {
 		super(theValue);
 	}
-	
+
 	/**
 	 * Constructor
 	 */
 	@Override
-  public OidType copy() {
+	public OidType copy() {
 		return new OidType(getValue());
 	}
-	
+
 	public String fhirType() {
 		return "oid";		
 	}
