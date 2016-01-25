@@ -126,6 +126,12 @@
   Display = Failed
   Definition = The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.
 
+ -- Row 14 -----------------------------------
+  Id = 14
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The request was entered in error and voided.
+
 === Sheet diagnostic-order-priority =====================================
 
  -- Row 1 -----------------------------------
@@ -246,7 +252,7 @@
   Summary = Y
   Type = code
   Binding = DiagnosticOrderStatus
-  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed
+  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error
   Definition = The status of the order
   Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled
   RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
@@ -280,7 +286,7 @@
   Summary = Y
   Type = code
   Binding = DiagnosticOrderStatus
-  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed
+  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed  | entered-in-error
   Definition = The status for the event
   RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
   Committee Notes = [#3720]
@@ -359,7 +365,7 @@
   Summary = Y
   Type = code
   Binding = DiagnosticOrderStatus
-  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed
+  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error
   Definition = The status of this individual item within the order
   Comments = If the request has multiple items that have their own life cycles, then the items will have their own status while the overall diagnostic order is (usually) \"in-progress\"
   RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists

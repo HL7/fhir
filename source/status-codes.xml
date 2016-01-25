@@ -19,7 +19,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16820</WindowHeight>
+  <WindowHeight>15380</WindowHeight>
   <WindowWidth>28160</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>460</WindowTopY>
@@ -636,7 +636,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder.event.status</Data></Cell>
-    <Cell ss:StyleID="s62"/>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">draft</Data></Cell>
@@ -656,7 +656,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder.item.status</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">requested</Data></Cell>
@@ -674,7 +675,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">DiagnosticOrder.status</Data></Cell>
-    <Cell ss:Index="3"><Data ss:Type="String">proposed</Data></Cell>
+    <Cell ss:StyleID="s69"><Data ss:Type="String">entered-in-error</Data></Cell>
+    <Cell><Data ss:Type="String">proposed</Data></Cell>
     <Cell><Data ss:Type="String">planned</Data></Cell>
     <Cell ss:StyleID="s33"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s69"><Data ss:Type="String">requested</Data></Cell>
@@ -1570,9 +1572,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>42</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>10</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1580,7 +1582,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -1588,8 +1589,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>57</ActiveRow>
-     <ActiveCol>17</ActiveCol>
+     <ActiveRow>24</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

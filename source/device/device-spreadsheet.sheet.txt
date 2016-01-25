@@ -122,7 +122,7 @@
   Element = Device.manufactureDate
   Card. = 0..1
   Type = dateTime
-  Short Label = Manufacture date
+  Short Label = Date when the device was made
   Definition = The date and time when the device was manufactured.
   RIM Mapping = .existenceTime.low
 

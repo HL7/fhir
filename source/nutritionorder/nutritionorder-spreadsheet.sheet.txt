@@ -135,6 +135,12 @@
   Display = Cancelled
   Definition = The request has been withdrawn and is no longer actionable.
 
+ -- Row 9 -----------------------------------
+  Id = 13
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = The request was entered in error and voided.
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -213,7 +219,7 @@
   Summary = Y
   Type = code
   Binding = NutritionOrderStatus
-  Short Label = proposed | draft | planned | requested | active | on-hold | completed | cancelled
+  Short Label = proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
   Definition = The workflow status of the nutrition order/request.
   Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.
   RIM Mapping = .statusCode

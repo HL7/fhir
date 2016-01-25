@@ -531,10 +531,9 @@
   Filename = protocol-cdisc-example3.xml
 
  -- Row 5 -----------------------------------
-  Name = !Study
+  Name = Study
   Identity = study
   Description = Study protocol example
   Filename = protocol-study-profile-example.xml
-  Profile = Study Protocol
 
 === Sheet Examples =====================================
