@@ -165,7 +165,7 @@
   Element = Medication.package.content.item
   Card. = 1..1
   Type = Reference(Medication)
-  Short Label = A product in the package
+  Short Label = The Item in the package
   Definition = Identifies one of the items in the package
   RIM Mapping = .player
 
@@ -205,7 +205,7 @@
   Path = Medication.package.container
 
  -- Row 6 -----------------------------------
-  Name = content
+  Name = packageitem
   Type = reference
   Path = Medication.package.content.item
 
