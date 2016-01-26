@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationorder.xsd">
   <id value="f201"/>
-  <!--No identifier could be provided-->
-  <dateWritten value="2013-03-11"/>
+  <!--No identifier could be provided-->  
   <status value="active"/>
+  <medicationReference>
+    <reference value="Medication/f201"/>
+    <display value="25ug Salmeterol + 250ug Fluticasone"/>
+  </medicationReference>
   <patient>
     <reference value="Patient/f201"/>
     <display value="Roel"/>
   </patient>
+  <dateWritten value="2013-03-11"/>
   <prescriber>
     <reference value="Practitioner/f201"/>
     <display value="Dokter Bonsig"/>
@@ -16,10 +20,6 @@
     <reference value="Condition/f201"/>
     <display value="fever"/>
   </reasonReference>
-  <medicationReference>
-    <reference value="Medication/f201"/>
-    <display value="25ug Salmeterol + 250ug Fluticasone"/>
-  </medicationReference>
   <dosageInstruction>
     <text value="aerosol 25/250ug/do 120do 2x - 1 dose - daily"/>
     <timing>

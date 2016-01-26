@@ -8,21 +8,25 @@
         <use value="official"/>
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="12345"/>
-    </identifier>
-    <dateWritten value="2015-01-15"/>
+    </identifier>    
     <status value="active"/>
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+        <reference value="Medication/MedicationExample6"/>
+        <display value="prescribed medication"/>
+    </medicationReference>
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/f001"/>
         <display value="Eve Everywoman"/>         
     </patient>
-    <prescriber> <!-- Linked to the practitioner who treats patient -->
-        <reference value="Practitioner/f007"/>
-        <display value="Patrick Pump"/>
-    </prescriber>
     <encounter> <!-- Linked to a resource Encounter between patient and practitioner-->
         <reference value="Encounter/f002"/>
         <display value="encounter who leads to this priscription"/>
     </encounter>
+    <dateWritten value="2015-01-15"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f007"/>
+        <display value="Patrick Pump"/>
+    </prescriber>
     <reasonCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -30,10 +34,6 @@
             <display value="Otitis Media"/>
         </coding>
     </reasonCodeableConcept>
-    <medicationReference> <!-- Linked to a RESOURCE Medication -->
-        <reference value="Medication/MedicationExample6"/>
-        <display value="prescribed medication"/>
-    </medicationReference>
     <dosageInstruction>
         <text value="Take two capsules to start" />
         <additionalInstructions>

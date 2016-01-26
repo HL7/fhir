@@ -5,22 +5,26 @@
         <use value="official"/>
         <system value="http://www.bmc/portal/prescriptions"/>
         <value value="order9837293"/>
-    </identifier>
-    <dateWritten value="2013-05-25T19:32:52+01:00"/>
+    </identifier>    
     <status value="active" />
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+        <reference value="Medication/f001"/>
+        <display value="prescribed medication"/>
+    </medicationReference> 
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/f001"/>
         <display value="P. van den Heuvel"/>         
     </patient>
-    <prescriber> <!-- Linked to the practitioner who treats patient -->
-        <reference value="Practitioner/f006"/>
-        <display value="R.A. van den Berk"/>
-    </prescriber>
     <encounter> <!-- Linked to a resource Visit between patient and practitioner-->
         <!-- TODO: Camiel nog correcte verwijzing (@f001 bestond nog niet) -->
         <reference value="Encounter/f001"/>
         <display value="visit who leads to this priscription"/>
     </encounter>
+    <dateWritten value="2013-05-25T19:32:52+01:00"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f006"/>
+        <display value="R.A. van den Berk"/>
+    </prescriber>
     <reasonCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -28,10 +32,6 @@
             <display value="Chronic obstructive pulmonary disease"/>
         </coding>
     </reasonCodeableConcept>
-    <medicationReference> <!-- Linked to a RESOURCE Medication -->
-        <reference value="Medication/f001"/>
-        <display value="prescribed medication"/>
-    </medicationReference> 
     <dosageInstruction>
         <text value="3 tot 4 maal daags 1 flacon"/>
         <additionalInstructions>

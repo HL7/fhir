@@ -139,16 +139,6 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = MedicationOrder.dateWritten
-  Card. = 0..1
-  Type = dateTime
-  Short Label = When prescription was authorized
-  Definition = The date (and perhaps time) when the prescription was written
-  v2 Mapping = RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction
-  RIM Mapping = author.time
-  w5 = when.recorded
-
- -- Row 4 -----------------------------------
   Element = MedicationOrder.status
   Card. = 0..1
   Is Modifier = Y
@@ -159,22 +149,18 @@
   RIM Mapping = statusCode
   w5 = status
 
+ -- Row 4 -----------------------------------
+  Element = MedicationOrder.medication[x]
+  Card. = 1..1
+  Type = CodeableConcept|Reference(Medication)
+  Short Label = Medication to be taken
+  Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
+  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used
+  v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code
+  RIM Mapping = consumable.administrableMedication
+  w5 = what
+
  -- Row 5 -----------------------------------
-  Element = MedicationOrder.dateEnded
-  Card. = 0..1
-  Type = dateTime
-  Short Label = When prescription was stopped
-  Definition = The date (and perhaps time) when the prescription was stopped
-
- -- Row 6 -----------------------------------
-  Element = MedicationOrder.reasonEnded
-  Card. = 0..1
-  Type = CodeableConcept
-  Binding = EndReason
-  Short Label = Why prescription was stopped
-  Definition = The reason why the prescription was stopped, if it was
-
- -- Row 7 -----------------------------------
   Element = MedicationOrder.patient
   Card. = 0..1
   Type = Reference(Patient)
@@ -184,6 +170,27 @@
   v2 Mapping = PID-3-Patient ID List
   RIM Mapping = subject.role
   w5 = who.focus
+
+ -- Row 6 -----------------------------------
+  Element = MedicationOrder.encounter
+  Card. = 0..1
+  Type = Reference(Encounter)
+  Short Label = Created during encounter/admission/stay
+  Definition = A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
+  Comments = SubstanceAdministration->component->EncounterEvent
+  v2 Mapping = PV1-19-Visit Number
+  RIM Mapping = componentOf.patientEncounter
+  w5 = context
+
+ -- Row 7 -----------------------------------
+  Element = MedicationOrder.dateWritten
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When prescription was authorized
+  Definition = The date (and perhaps time) when the prescription was written
+  v2 Mapping = RXE-32-Original Order Date/Time / ORC-9-Date/Time of Transaction
+  RIM Mapping = author.time
+  w5 = when.recorded
 
  -- Row 8 -----------------------------------
   Element = MedicationOrder.prescriber
@@ -196,17 +203,6 @@
   w5 = who.actor
 
  -- Row 9 -----------------------------------
-  Element = MedicationOrder.encounter
-  Card. = 0..1
-  Type = Reference(Encounter)
-  Short Label = Created during encounter/admission/stay
-  Definition = A link to a resource that identifies the particular occurrence of contact between patient and health care provider.
-  Comments = SubstanceAdministration->component->EncounterEvent
-  v2 Mapping = PV1-19-Visit Number
-  RIM Mapping = componentOf.patientEncounter
-  w5 = context
-
- -- Row 10 -----------------------------------
   Element = MedicationOrder.reason[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Condition)
@@ -217,23 +213,27 @@
   RIM Mapping = reason.observation or reason.observation[code=ASSERTION].value
   w5 = why
 
+ -- Row 10 -----------------------------------
+  Element = MedicationOrder.dateEnded
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When prescription was stopped
+  Definition = The date (and perhaps time) when the prescription was stopped
+
  -- Row 11 -----------------------------------
+  Element = MedicationOrder.reasonEnded
+  Card. = 0..1
+  Type = CodeableConcept
+  Binding = EndReason
+  Short Label = Why prescription was stopped
+  Definition = The reason why the prescription was stopped, if it was
+
+ -- Row 12 -----------------------------------
   Element = MedicationOrder.note
   Card. = 0..*
   Type = Annotation
   Short Label = Information about the prescription
   Definition = Extra information about the prescription that could not be conveyed by the other attributes.
-
- -- Row 12 -----------------------------------
-  Element = MedicationOrder.medication[x]
-  Card. = 1..1
-  Type = CodeableConcept|Reference(Medication)
-  Short Label = Medication to be taken
-  Definition = Identifies the medication being administered. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.
-  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the prescribed medication. When the only available information is a text description of the medication, Medication.code.text should be used
-  v2 Mapping = RXE-2-Give Code / RXO-1-Requested Give Code / RXC-2-Component Code
-  RIM Mapping = consumable.administrableMedication
-  w5 = what
 
  -- Row 13 -----------------------------------
   Element = MedicationOrder.dosageInstruction

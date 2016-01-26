@@ -37,12 +37,12 @@
       <MedicationOrder>
         <id value="3123"/>
         <!-- snip -->
+	<medicationReference>
+          <reference value="Medication/example"/>
+        </medicationReference>
         <patient>
           <reference value="Patient/347"/>
         </patient>
-        <medicationReference>
-          <reference value="Medication/example"/>
-        </medicationReference>
         <!-- snip -->
       </MedicationOrder>
     </resource>

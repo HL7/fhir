@@ -165,7 +165,7 @@
   Element = Medication.package.content.item
   Card. = 1..1
   Type = Reference(Medication)
-  Short Label = The Item in the package
+  Short Label = The item in the package
   Definition = Identifies one of the items in the package
   RIM Mapping = .player
 

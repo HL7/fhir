@@ -2,27 +2,27 @@
 <MedicationOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/medicationorder.xsd">
   <id value="f203"/>
  <!--No identifier could be provided-->
- <dateWritten value="2013-04-04"/>
-  <status value="active"/> 
- <patient>
-    <reference value="Patient/f201"/>
-    <display value="Roel"/>
- </patient>
- <prescriber>
-    <reference value="Practitioner/f201"/>
- </prescriber>
- <encounter><!--TODO <encounter> is not expected...-->
-    <reference value="Encounter/f201"/>
-    <display value="Roel's encounter on April fourth 2013"/>
- </encounter>
- <reasonReference>
-   <reference value="Condition/f201"/>
-   <display value="fever"/>
- </reasonReference> 
+ <status value="active"/> 
  <medicationReference>
     <reference value="Medication/f203"/>
     <display value="Paracetamol"/>
  </medicationReference>
+ <patient>
+    <reference value="Patient/f201"/>
+    <display value="Roel"/>
+ </patient>
+ <encounter><!--TODO <encounter> is not expected...-->
+    <reference value="Encounter/f201"/>
+    <display value="Roel's encounter on April fourth 2013"/>
+ </encounter>
+ <dateWritten value="2013-04-04"/>
+ <prescriber>
+    <reference value="Practitioner/f201"/>
+ </prescriber>
+ <reasonReference>
+   <reference value="Condition/f201"/>
+   <display value="fever"/>
+ </reasonReference> 
  <dosageInstruction>  
   <text value="Paracetamol 3xdaags 1000mg"/>
   <!--No defined schedule (<timing>)-->

@@ -7,16 +7,16 @@
   <patient>
     <reference value="Patient/example"/>
   </patient>
-  <practitioner>
+ <effectiveTimePeriod>
+  <start value="2015-01-15T14:30:00+01:00"/>
+  <end value="2015-01-15T14:30:00+01:00"/>
+</effectiveTimePeriod>  <practitioner>
     <reference value="Practitioner/example"/>
   </practitioner>
   <prescription>
     <reference value="MedicationOrder/medrx005"/>
   </prescription>
-  <effectiveTimePeriod>
-  <start value="2015-01-15T14:30:00+01:00"/>
-  <end value="2015-01-15T14:30:00+01:00"/>
-</effectiveTimePeriod>
+
   <medicationReference>
     <reference value="Medication/medicationexample6"/> 
   </medicationReference>

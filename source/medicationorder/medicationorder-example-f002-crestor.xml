@@ -6,20 +6,24 @@
         <system value="http://www.bmc.nl/portal/prescriptions"/>
         <value value="order9837343"/>
     </identifier>
-    <dateWritten value="2013-04-08"/>
     <status value="active"/>
+    <medicationReference> <!-- Linked to a RESOURCE Medication -->
+        <reference value="Medication/f002"/>
+        <display value="prescribed medication"/>
+    </medicationReference>     
     <patient> <!-- Linked to the resource patient who needs the medication -->
         <reference value="Patient/f001"/>
         <display value="P. van den Heuvel"/>         
     </patient>
-    <prescriber> <!-- Linked to the practitioner who treats patient -->
-        <reference value="Practitioner/f006"/>
-        <display value="R.A. van den Berk"/>
-    </prescriber>
     <encounter> <!-- Linked to a resource Visit between patient and practitioner-->
         <reference value="Encounter/f001"/>
         <display value="encounter who leads to this priscription"/>
     </encounter>
+    <dateWritten value="2013-04-08"/>
+    <prescriber> <!-- Linked to the practitioner who treats patient -->
+        <reference value="Practitioner/f006"/>
+        <display value="R.A. van den Berk"/>
+    </prescriber>
     <reasonCodeableConcept>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -27,10 +31,6 @@
             <display value="High density lipoprotein cholesterol level"/>
         </coding>
     </reasonCodeableConcept>
-    <medicationReference> <!-- Linked to a RESOURCE Medication -->
-        <reference value="Medication/f002"/>
-        <display value="prescribed medication"/>
-    </medicationReference> 
     <dosageInstruction>
         <timing>
             <repeat>

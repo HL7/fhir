@@ -17,13 +17,13 @@
       <valueCode value='pending'/>
     </extension>
   </status>
+ <medicationReference>
+    <reference value="Medication/MedicationExample15"/>
+  </medicationReference>
   <patient>
     <reference value="Patient/f001"/>
   </patient>
-  <medicationReference>
-    <reference value="Medication/MedicationExample15"/>
-  </medicationReference>
-  <dosageInstruction>
+   <dosageInstruction>
     <text value="Capecitabine 1000 mg/m^2 PO twice daily D1-14"/>
     <timing>
       <repeat>

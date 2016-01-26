@@ -14,18 +14,17 @@
       <p>by doctor X</p>
     </div>
   </text>
-  <dateWritten value="2015-03-25T19:32:52-05:00"/>
   <status value="active" />
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
-  <prescriber>
-    <reference value="Practitioner/example"/>
-  </prescriber>
   <medicationReference>
     <reference value="Medication/example"/>
   </medicationReference>
-
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <dateWritten value="2015-03-25T19:32:52-05:00"/>
+  <prescriber>
+    <reference value="Practitioner/example"/>
+  </prescriber>
   <dosageInstruction>
     <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType" >
       <valueCodeableConcept>

@@ -150,16 +150,6 @@
   w5 = who.focus
 
  -- Row 5 -----------------------------------
-  Element = MedicationAdministration.practitioner
-  Card. = 0..1
-  Type = Reference(Practitioner | Patient | RelatedPerson)
-  Short Label = Who administered substance
-  Definition = The individual who was responsible for giving the medication to the patient.
-  v2 Mapping = RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=\'AP\' (RXA-10 is deprecated)
-  RIM Mapping = performer->Role
-  w5 = who.actor
-
- -- Row 6 -----------------------------------
   Element = MedicationAdministration.encounter
   Card. = 0..1
   Type = Reference(Encounter)
@@ -169,7 +159,28 @@
   RIM Mapping = component->EncounterEvent
   w5 = context
 
+ -- Row 6 -----------------------------------
+  Element = MedicationAdministration.effectiveTime[x]
+  Card. = 1..1
+  Type = dateTime|Period
+  Short Label = Start and end time of administration
+  Definition = A specific date/time or interval of time during which the administration took place (or did not take place, when the \'notGiven\' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
+  v2 Mapping = RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration
+  RIM Mapping = effectiveTime
+  Committee Notes = 2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime
+  w5 = when.done
+
  -- Row 7 -----------------------------------
+  Element = MedicationAdministration.practitioner
+  Card. = 0..1
+  Type = Reference(Practitioner | Patient | RelatedPerson)
+  Short Label = Who administered substance
+  Definition = The individual who was responsible for giving the medication to the patient.
+  v2 Mapping = RXA-10-Administering Provider / PRT-5-Participation Person: PRT-4-Participation=\'AP\' (RXA-10 is deprecated)
+  RIM Mapping = performer->Role
+  w5 = who.actor
+
+ -- Row 8 -----------------------------------
   Element = MedicationAdministration.prescription
   Card. = 0..1
   Type = Reference(MedicationOrder)
@@ -178,7 +189,7 @@
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = InFullfillmentOf->SubstanceAdministration
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationAdministration.wasNotGiven
   Card. = 0..1
   Is Modifier = Y
@@ -189,7 +200,7 @@
   RIM Mapping = actionNegationInd
   Missing Meaning = If this is missing, then the medication was administered
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationAdministration.reasonNotGiven
   Card. = 0..*
   Inv. = 2
@@ -200,7 +211,7 @@
   v2 Mapping = RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason
   RIM Mapping = Reason->Observation->Value
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationAdministration.reasonGiven
   Card. = 0..*
   Inv. = 3
@@ -209,17 +220,6 @@
   Short Label = Reason administration performed
   Definition = A code indicating why the medication was given.
   v2 Mapping = RXE-27 Give Indication
-
- -- Row 11 -----------------------------------
-  Element = MedicationAdministration.effectiveTime[x]
-  Card. = 1..1
-  Type = dateTime|Period
-  Short Label = Start and end time of administration
-  Definition = A specific date/time or interval of time during which the administration took place (or did not take place, when the \'notGiven\' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.
-  v2 Mapping = RXA-3-Date/Time Start of Administration / RXA-4-Date/Time End of Administration
-  RIM Mapping = effectiveTime
-  Committee Notes = 2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime
-  w5 = when.done
 
  -- Row 12 -----------------------------------
   Element = MedicationAdministration.medication[x]

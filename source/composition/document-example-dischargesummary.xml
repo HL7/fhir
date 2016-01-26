@@ -364,7 +364,14 @@
         </text>
       <!--   The patient details will generally be in the Document resource in the Document bundle, but could just as easily
         point to a patient resource on a server  -->
-        <patient>
+      <medicationCodeableConcept>
+          <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="66493003"/>
+          </coding>
+          <text value="Theophylline 200mg"/>
+        </medicationCodeableConcept>
+     <patient>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Peter Patient"/>
         </patient>
@@ -378,14 +385,7 @@
         </reasonCodeableConcept>
       <!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
-        <medicationCodeableConcept>
-          <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="66493003"/>
-          </coding>
-          <text value="Theophylline 200mg"/>
-        </medicationCodeableConcept>
-        <dosageInstruction>
+             <dosageInstruction>
           <additionalInstructions>
             <text value="Take with Food"/>
           </additionalInstructions>
