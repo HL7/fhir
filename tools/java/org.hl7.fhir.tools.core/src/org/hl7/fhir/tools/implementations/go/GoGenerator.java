@@ -164,11 +164,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.write("package server");
         serverWriter.newLine();
         serverWriter.newLine();
-        serverWriter.write("import (");
-        serverWriter.newLine();
-        serverWriter.write("\t\"github.com/labstack/echo\"");
-        serverWriter.newLine();
-        serverWriter.write(")");
+        serverWriter.write("import \"github.com/labstack/echo\"");
         serverWriter.newLine();
         serverWriter.newLine();
         serverWriter.write("func RegisterController(name string, e *echo.Echo, m []echo.Middleware) {");
