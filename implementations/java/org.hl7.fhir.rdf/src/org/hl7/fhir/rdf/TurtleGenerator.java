@@ -116,6 +116,7 @@ public class TurtleGenerator {
       Predicate p = new Predicate();
       p.predicate = predicate;
       p.object = object;
+      p.comment = comment;
       predicates.add(p);
       return p;
     }

@@ -104,6 +104,9 @@
         <translation lang="en">ClinicalImpression</translation>
         <translation lang="fr">ImpressionClinique</translation>
     </item>
+    <item id="CodeSystem">
+        <translation lang="en">CodeSystem</translation>
+    </item>
     <item id="Communication">
         <translation lang="en">Communication</translation>
         <translation lang="fr">Communication</translation>
