@@ -52,6 +52,8 @@ public class ElementDefinition extends Type implements ICompositeType {
          * In XML, this property is represented as an attribute not an element.
          */
         XMLATTR, 
+        XMLTEXT,
+        TYPEATTR,
         /**
          * added to help the parsers
          */
@@ -59,20 +61,25 @@ public class ElementDefinition extends Type implements ICompositeType {
         public static PropertyRepresentation fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("xmlAttr".equals(codeString))
-          return XMLATTR;
+            if ("xmlAttr".equals(codeString))
+              return XMLATTR;
+            if ("xmlText".equals(codeString))
+              return XMLTEXT;
+            if ("typeAttr".equals(codeString))
+              return TYPEATTR;
         throw new FHIRException("Unknown PropertyRepresentation code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case XMLATTR: return "xmlAttr";
+          case XMLATTR: return "xmlAttr";
+          case XMLTEXT: return "xmlText";
+          case TYPEATTR: return "typeAttr";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case XMLATTR: return "http://hl7.org/fhir/property-representation";
-            default: return "?";
+            default: return "http://hl7.org/fhir/property-representation";
           }
         }
         public String getDefinition() {
@@ -96,6 +103,10 @@ public class ElementDefinition extends Type implements ICompositeType {
                 return null;
         if ("xmlAttr".equals(codeString))
           return PropertyRepresentation.XMLATTR;
+        if ("xmlText".equals(codeString))
+          return PropertyRepresentation.XMLTEXT;
+        if ("typeAttr".equals(codeString))
+          return PropertyRepresentation.TYPEATTR;
         throw new IllegalArgumentException("Unknown PropertyRepresentation code '"+codeString+"'");
         }
         public Enumeration<PropertyRepresentation> fromType(Base code) throws FHIRException {
@@ -106,11 +117,17 @@ public class ElementDefinition extends Type implements ICompositeType {
             return null;
         if ("xmlAttr".equals(codeString))
           return new Enumeration<PropertyRepresentation>(this, PropertyRepresentation.XMLATTR);
+        if ("xmlText".equals(codeString))
+          return new Enumeration<PropertyRepresentation>(this, PropertyRepresentation.XMLTEXT);
+        if ("typeAttr".equals(codeString))
+          return new Enumeration<PropertyRepresentation>(this, PropertyRepresentation.TYPEATTR);
         throw new FHIRException("Unknown PropertyRepresentation code '"+codeString+"'");
         }
     public String toCode(PropertyRepresentation code) {
       if (code == PropertyRepresentation.XMLATTR)
         return "xmlAttr";
+      if (code == PropertyRepresentation.XMLTEXT) return "xmlText";
+      if (code == PropertyRepresentation.TYPEATTR) return "typeAttr";
       return "?";
       }
     public String toSystem(PropertyRepresentation code) {
