@@ -1,0 +1,561 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = FilterOperator
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/filter-operator
+  Definition = The kind of operation to perform as a part of a property based filter.
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = ConceptDesignationUse
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/designation-use
+  Definition = Details of how a designation would be used.
+  Conformance = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = PropertyType
+  Binding = code list
+  Reference = #concept-property-type
+  Definition = The type of a property value
+  Conformance = required
+
+ -- Row 4 -----------------------------------
+  Binding Name = CodeSystemContentMode
+  Binding = code list
+  Reference = #codesystem-content-mode
+  Definition = How much of the content of the code system - the concepts and codes it defines - are represented in a code system resource
+  Conformance = required
+
+=== Sheet concept-property-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = code
+  Display = code (internal reference)
+  Definition = The property value is a code that identifies a concept defined in the code system
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = Coding
+  Display = Coding (external reference)
+  Definition = The property  value is a code defined in an external code system. This may be used for translations, but is not the intent
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = string
+  Display = string
+  Definition = The property value is a string
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = integer
+  Display = integer
+  Definition = The property value is a string (often used to assign ranking values to concepts for supporting score assessments)
+
+=== Sheet codesystem-content-mode =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = not-present
+  Display = Not Present
+  Definition = None of the concepts defined by the code system are included in the code system resource
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = examplar
+  Display = Examplar
+  Definition = A few representative concepts are included in the code system resource
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = fragment
+  Display = Fragment
+  Definition = A subset of the code system concepts are included in the code system resource
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = complete
+  Display = Complete
+  Definition = All the concepts defined by the code system are included in the code system resource
+
+=== Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Context = CodeSystem
+  English = Within a code system definition, all the codes SHALL be unique
+  XPath = count(distinct-values(descendant::f:concept/f:code/@value))=count(descendant::f:concept)
+  Expression = concept.code*.distinct()
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = CodeSystem
+  UML = 0;0
+  Type = DomainResource
+  Short Label = A set of codes drawn from one or more code systems
+  Definition = A code system specifies a set of codes drawn from one or more code systems.
+  RIM Mapping = N/A
+  w5 = conformance.terminology
+
+ -- Row 2 -----------------------------------
+  Element = CodeSystem.url
+  Card. = 0..1
+  Summary = y
+  Type = uri
+  Short Label = Globally unique logical identifier for  code system (Coding.system)
+  Definition = An absolute URL that is used to identify this code system when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this code system is (or will be) published. This is used in [Coding]{datatypes.html#Coding}.system
+  RIM Mapping = N/A
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = CodeSystem.identifier
+  Card. = 0..1
+  Summary = y
+  Type = Identifier
+  Short Label = Additional identifier for the code system (e.g. HL7 v2 / CDA)
+  Definition = Formal identifier that is used to identify this code system when it is represented in other formats, or referenced in a specification, model, design or an instance.
+  Comments = Typically, this is used for values that can go in an HL7 v3 II data type
+  CDISC Define.xml 2.0 Mapping = Identifier part
+  w5 = id
+
+ -- Row 4 -----------------------------------
+  Element = CodeSystem.version
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Logical identifier for this version (Coding.version)
+  Definition = Used to identify this version of the code system when it is referenced in a specification, model, design or instance (e.g. Coding.version). This is an arbitrary value managed by the profile author manually and the value should be a timestamp. This is used in [Coding]{datatypes.html#Coding}.version
+  Comments = There may be multiple resource versions of the code system that have the same identifier
+  RIM Mapping = N/A
+  w5 = id.version
+
+ -- Row 5 -----------------------------------
+  Element = CodeSystem.name
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Informal name for this code system
+  Definition = A free text natural language name describing the code system
+  Requirements = Support human navigation
+  Comments = The name is not expected to be unique. A name should be provided unless the code system is a contained resource (e.g. an anonymous code system in a profile). Most registries will require a name
+  RIM Mapping = N/A
+
+ -- Row 6 -----------------------------------
+  Element = CodeSystem.status
+  Card. = 1..1
+  Is Modifier = Yes
+  Summary = y
+  Type = code
+  Binding = ConformanceResourceStatus
+  Short Label = draft | active | retired
+  Definition = The status of the code system
+  Requirements = Identify when/if the code system should be used.
+  Comments = Allows filtering of code system instances that are appropriate (or not) for use
+  RIM Mapping = N/A
+  w5 = status
+
+ -- Row 7 -----------------------------------
+  Element = CodeSystem.experimental
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = If for testing purposes, not real usage
+  Definition = This CodeSystem was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage
+  Comments = Allows filtering of code systems that are appropriate for use vs. not
+  w5 = class
+
+ -- Row 8 -----------------------------------
+  Element = CodeSystem.publisher
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Name of the publisher (organization or individual)
+  Definition = The name of the individual or organization that published the code system
+  Requirements = Helps establish the \"authority/credibility\" of the code system.  May also allow for contact
+  Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
+  w5 = who.witness
+
+ -- Row 9 -----------------------------------
+  Element = CodeSystem.contact
+  Card. = 0..*
+  Summary = y
+  Short Label = Contact details of the publisher
+  Definition = Contacts to assist a user in finding and communicating with the publisher
+  Comments = May be a web site, an email address, a telephone number, etc.
+
+ -- Row 10 -----------------------------------
+  Element = CodeSystem.contact.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Name of an individual to contact
+  Definition = The name of an individual to contact regarding the code system
+  Comments = If there is no named individual, the telecom is for the organization as a whole
+
+ -- Row 11 -----------------------------------
+  Element = CodeSystem.contact.telecom
+  Card. = 0..*
+  Summary = Y
+  Type = ContactPoint
+  Short Label = Contact details for individual or publisher
+  Definition = Contact details for individual (if a name was provided) or the publisher
+
+ -- Row 12 -----------------------------------
+  Element = CodeSystem.date
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = Date for given status
+  Definition = The date that the code system status was last changed. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes (e.g. the \'content logical definition\')
+  Requirements = Need to know when a code system was first legal for use or became withdrawn or replaced.
+  Comments = Note that this is not the same as the resource last-modified-date, since the resource may be a secondary representation of the code system. Additional specific dates may be added as extensions
+  RIM Mapping = N/A
+  w5 = when.recorded
+
+ -- Row 13 -----------------------------------
+  Element = CodeSystem.description
+  Card. = 0..1
+  Aliases = Scope; Purpose
+  Summary = y
+  Type = string
+  Short Label = Human language description of the code system
+  Definition = A free text natural language description of the use of the code system - reason for definition, \"the semantic space\" to be included in the code system, conditions of use, etc. The description may include a list of expected usages for the code system and can also describe the approach taken to build the code system.
+  Requirements = Human understandability
+  Comments = The description is not intended to describe the semantics of the Code System - there are no intrinsic semantics separate from the codes contained in its expansion. The description should capture its intended use, which is needed for ensuring integrity for its use in models across future changes. A description should be provided unless the code system is a contained resource (e.g. an anonymous code system in a profile). Most registries will require a description
+  RIM Mapping = N/A
+
+ -- Row 14 -----------------------------------
+  Element = CodeSystem.useContext
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = ConformanceUseContext
+  Short Label = Content intends to support these contexts
+  Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of code system definitions.
+  Requirements = Assist in searching for appropriate content
+  CDISC Define.xml 2.0 Mapping = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
+
+ -- Row 15 -----------------------------------
+  Element = CodeSystem.requirements
+  Card. = 0..1
+  Type = string
+  Short Label = Why needed
+  Definition = Explains why this code system is needed and why it has been constrained as it has
+  Comments = This element does not describe the usage of the code system (that is done in comments), rather it\'s for traceability of \'\'why\'\' the element is either needed or \'\'why\'\' the constraints exist as they do.  This may be used to point to source materials or specifications that drove the structure of this data element
+
+ -- Row 16 -----------------------------------
+  Element = CodeSystem.copyright
+  Card. = 0..1
+  Aliases = License,Restrictions
+  Type = string
+  Short Label = Use and/or publishing restrictions
+  Definition = A copyright statement relating to the code system and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the code system
+  Comments = Frequently, the copyright differs between the code system and the codes that are included. The copyright statement should clearly differentiate between these when required
+
+ -- Row 17 -----------------------------------
+  Element = CodeSystem.caseSensitive
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = If code comparison is case sensitive
+  Definition = If code comparison is case sensitive when codes within this system are compared to each other
+  Comments = If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel\'s law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software
+
+ -- Row 18 -----------------------------------
+  Element = CodeSystem.compositional
+  Card. = 0..1
+  Aliases = grammar
+  Summary = Y
+  Type = boolean
+  Short Label = If code system defines a post-composition grammar
+  Definition = True If code system defines a post-composition grammar
+  Comments = Note that the code system resource does not define what the compositional grammar is, only whether or not there is one
+
+ -- Row 19 -----------------------------------
+  Element = CodeSystem.versionNeeded
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = If definitions are not stable
+  Definition = This flag is used to signify that the code system has not (or does not) maintain the definitions, and a version must be specified when referencing this code system
+  Comments = Best practice is that code systems do not redefine concepts, or that if concepts are redefined, a new code system definition is created. But this is not always possible, so some code systems may be defined as \'versionNeeded\'
+
+ -- Row 20 -----------------------------------
+  Element = CodeSystem.content
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = CodeSystemContentMode
+  Short Label = not-present | examplar | fragment | complete
+  Definition = How much of the content of the code system - the concepts and codes it defines - are represented in this resource
+
+ -- Row 21 -----------------------------------
+  Element = CodeSystem.count
+  Card. = 0..1
+  Summary = Y
+  Type = unsignedInt
+  Short Label = Total concepts in the code system
+  Definition = The total number of concepts defined by the code system. Where the code system has a compositional grammar, the count refers to the number of base (primitive) concepts
+  Comments = The count of concepts defined in this resource cannot be more than this value, but may be less for several reasons - see the content value
+
+ -- Row 22 -----------------------------------
+  Element = CodeSystem.filter
+  Card. = 0..*
+  Summary = Y
+  Short Label = Filter that can be used in a value set
+  Definition = A filter that can be used in a value set compose statement when selecting concepts using a filter
+
+ -- Row 23 -----------------------------------
+  Element = CodeSystem.filter.code
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = !
+  Short Label = Code that identifies the filter
+  Definition = The code that identifies thise filter when it is used in the instance
+
+ -- Row 24 -----------------------------------
+  Element = CodeSystem.filter.description
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = How or why the filter is used
+  Definition = A description of how or why the filter is used
+
+ -- Row 25 -----------------------------------
+  Element = CodeSystem.filter.operator
+  Card. = 1..*
+  Summary = y
+  Type = code
+  Binding = FilterOperator
+  Short Label = Operators that can be used with filter
+  Definition = A list of operators that can be used with the filter
+
+ -- Row 26 -----------------------------------
+  Element = CodeSystem.filter.value
+  Card. = 1..1
+  Summary = y
+  Type = string
+  Short Label = What to use for the value
+  Definition = A description of what the value for the filter should be
+
+ -- Row 27 -----------------------------------
+  Element = CodeSystem.property
+  Card. = 0..*
+  Summary = y
+  Short Label = Additional information supplied about each concept
+  Definition = A property defines an additional slot through which additional information can be provided about a concept
+
+ -- Row 28 -----------------------------------
+  Element = CodeSystem.property.code
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = !
+  Short Label = Identifies the property, both internally and externally
+  Definition = A code that is used to identify the property. The code is used internally (in CodeSystem.concept.property.code) and also externally, such as in property filters
+
+ -- Row 29 -----------------------------------
+  Element = CodeSystem.property.description
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Why the property is defined, and/or what it conveys
+  Definition = A description of the property- why it is defined, and how it\'s value might be used
+
+ -- Row 30 -----------------------------------
+  Element = CodeSystem.property.type
+  Card. = 1..1
+  Summary = y
+  Type = code
+  Binding = PropertyType
+  Short Label = code | Coding | string | integer
+  Definition = The type of the property value
+
+ -- Row 31 -----------------------------------
+  Element = CodeSystem.concept
+  Card. = 0..*
+  UML = -190;140
+  Type = =ConceptDefinition
+  Short Label = Concepts in the code system
+  Definition = Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are
+  Comments = If this is empty, it means that the code system resource does not represent the content of the code system
+
+ -- Row 32 -----------------------------------
+  Element = CodeSystem.concept.code
+  Card. = 1..1
+  Type = code
+  Binding = !
+  Short Label = Code that identifies concept
+  Definition = A code - a text symbol - that uniquely identifies the concept within the code system
+
+ -- Row 33 -----------------------------------
+  Element = CodeSystem.concept.display
+  Card. = 0..1
+  Type = string
+  Short Label = Text to display to the user
+  Definition = A human readable string that is the recommended default way to present this concept to a user
+
+ -- Row 34 -----------------------------------
+  Element = CodeSystem.concept.definition
+  Card. = 0..1
+  Type = string
+  Short Label = Formal definition
+  Definition = The formal definition of the concept. The code system resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept
+
+ -- Row 35 -----------------------------------
+  Element = CodeSystem.concept.designation
+  Card. = 0..*
+  UML = -190;280
+  Short Label = Additional representations for the concept
+  Definition = Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
+  Requirements = Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes
+
+ -- Row 36 -----------------------------------
+  Element = CodeSystem.concept.designation.language
+  Card. = 0..1
+  Type = code
+  Binding = Language
+  Short Label = Human language of the designation
+  Definition = The language this designation is defined for
+  Comments = In the absence of a language, the resource language applies
+
+ -- Row 37 -----------------------------------
+  Element = CodeSystem.concept.designation.use
+  Card. = 0..1
+  Type = Coding
+  Binding = ConceptDesignationUse
+  Short Label = Details how this designation would be used
+  Definition = A code that details how this designation would be used
+  Comments = If no use is provided, the designation can be assumed to be suitable for general display to a human user
+
+ -- Row 38 -----------------------------------
+  Element = CodeSystem.concept.designation.value
+  Card. = 1..1
+  Type = string
+  Short Label = The text value for this designation
+  Definition = The text value for this designation
+
+ -- Row 39 -----------------------------------
+  Element = CodeSystem.concept.property
+  Card. = 0..*
+  Short Label = Property value for the concept
+  Definition = A property value for this concept
+
+ -- Row 40 -----------------------------------
+  Element = CodeSystem.concept.property.code
+  Card. = 1..1
+  Type = code
+  Binding = !
+  Short Label = Reference to CodeSystem.property.code
+  Definition = A code that is a reference to CodeSystem.property.code
+
+ -- Row 41 -----------------------------------
+  Element = CodeSystem.concept.property.value[x]
+  Card. = 1..1
+  Type = code | Coding | string | integer
+  Short Label = Value of the property for this concept
+  Definition = The value of this property
+
+ -- Row 42 -----------------------------------
+  Element = CodeSystem.concept.concept
+  Card. = 0..*
+  Type = @CodeSystem.concept
+  Short Label = Child Concepts (is-a/contains/categorizes)
+  Definition = Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = url
+  Type = uri
+  Description = The logical URL for the code system
+  Path = CodeSystem.url
+
+ -- Row 2 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The identifier for the code system
+  Path = CodeSystem.identifier
+
+ -- Row 3 -----------------------------------
+  Name = version
+  Type = token
+  Description = The version identifier of the code system
+  Path = CodeSystem.version
+
+ -- Row 4 -----------------------------------
+  Name = name
+  Type = string
+  Description = The name of the code system
+  Path = CodeSystem.name
+
+ -- Row 5 -----------------------------------
+  Name = publisher
+  Type = string
+  Description = Name of the publisher of the code system
+  Path = CodeSystem.publisher
+
+ -- Row 6 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search in the description of the code system
+  Path = CodeSystem.description
+
+ -- Row 7 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the code system
+  Path = CodeSystem.status
+
+ -- Row 8 -----------------------------------
+  Name = date
+  Type = date
+  Description = The code system publication date
+  Path = CodeSystem.date
+
+ -- Row 9 -----------------------------------
+  Name = system
+  Type = uri
+  Description = The system for any codes defined by this code system (same as \'url\')
+  Path = CodeSystem.url
+
+ -- Row 10 -----------------------------------
+  Name = code
+  Type = token
+  Description = A code defined in the code system
+  Path = CodeSystem.concept.code
+
+ -- Row 11 -----------------------------------
+  Name = context
+  Type = token
+  Description = A use context assigned to the code system
+  Path = CodeSystem.useContext
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = CodeSystem Extensions
+  IG Name = core
+  Filename = codesystem-extensions.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = Shareable Code System
+  IG Name = core
+  Filename = codesystem-shareable.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Simple
+  Identity = example
+  Description = Simple Code System
+  Filename = codesystem-example.xml
+
+=== Sheet Examples =====================================

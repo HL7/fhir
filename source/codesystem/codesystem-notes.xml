@@ -1,0 +1,13 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<a name="identification"> </a>
+<h2>Identifier and Version</h2>
+<p>
+The <i>identifier</i> and <i>version</i> elements may be used to reference this code system in a value set, or a 
+<a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=7">CDA</a> template or <a href="https://www.hl7.org/implement/standards/product_brief.cfm?product_id=186">HL7 v3</a> message 
+(in the CD data type codeSystem and codeSystemVersion properties). These different contexts may make additional restrictions 
+on the possible values of these elements.  These elements are generally not needed when using code systems with FHIR
+implementations, as they can make use of the innate identifier and versioning mechanism associated with the resource.
+</p>
+
+</div>

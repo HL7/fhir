@@ -1,0 +1,44 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = CodeSystemCategory
+  Binding = unbound
+  Definition = Classifications for value sets.  Can include such concepts as \"demographics\", \"lab\", \"clinical research\".  Might also be used to tie a value set to particular usage projects
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !othername
+  Type = string
+  Path = #otherName.name
+
+ -- Row 2 -----------------------------------
+  Name = keyword
+  Type = string
+  Path = #keyWord
+
+ -- Row 3 -----------------------------------
+  Name = !user
+  Type = string
+  Path = #usage.user
+
+ -- Row 4 -----------------------------------
+  Name = workflow
+  Type = token
+  Path = #workflowStatus
+
+ -- Row 5 -----------------------------------
+  Name = effective
+  Type = date
+  Path = #effectiveDate
+
+ -- Row 6 -----------------------------------
+  Name = end
+  Type = date
+  Path = #expirationDate
+
+ -- Row 7 -----------------------------------
+  Name = author
+  Type = string
+  Path = #author
