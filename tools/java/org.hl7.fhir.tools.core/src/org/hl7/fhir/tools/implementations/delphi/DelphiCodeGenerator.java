@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hl7.fhir.definitions.Config;
+import org.hl7.fhir.utilities.Utilities;
 
 public class DelphiCodeGenerator extends OutputStreamWriter {
 
@@ -61,6 +62,9 @@ public class DelphiCodeGenerator extends OutputStreamWriter {
 	}
 
 	public String escape(String v) {
+	  if (Utilities.noString(v))
+	    return "";
+	  
 	  StringBuilder s = new StringBuilder();
 	  for (char c : v.toCharArray())
 	    if (c == '\'')
