@@ -33,14 +33,7 @@ func (rc *ResourceController) IndexHandler(c *echo.Context) error {
 			case search.Error:
 				return c.JSON(x.HTTPStatus, x.OperationOutcome)
 			default:
-				outcome := &models.OperationOutcome{
-					Issue: []models.OperationOutcomeIssueComponent{
-						models.OperationOutcomeIssueComponent{
-							Severity: "fatal",
-							Code:     "exception",
-						},
-					},
-				}
+				outcome := models.NewOperationOutcome("fatal", "exception", "")
 				return c.JSON(http.StatusInternalServerError, outcome)
 			}
 		}
@@ -220,7 +213,8 @@ func (rc *ResourceController) CreateHandler(c *echo.Context) error {
 	resource := models.NewStructForResourceName(rc.Name)
 	err := c.Bind(resource)
 	if err != nil {
-		return err
+		oo := models.NewOperationOutcome("fatal", "exception", err.Error())
+		return c.JSON(http.StatusBadRequest, oo)
 	}
 
 	collection := Database.C(models.PluralizeLowerResourceName(rc.Name))
@@ -256,7 +250,8 @@ func (rc *ResourceController) UpdateHandler(c *echo.Context) error {
 	resource := models.NewStructForResourceName(rc.Name)
 	err := c.Bind(resource)
 	if err != nil {
-		return err
+		oo := models.NewOperationOutcome("fatal", "exception", err.Error())
+		return c.JSON(http.StatusBadRequest, oo)
 	}
 
 	collection := Database.C(models.PluralizeLowerResourceName(rc.Name))

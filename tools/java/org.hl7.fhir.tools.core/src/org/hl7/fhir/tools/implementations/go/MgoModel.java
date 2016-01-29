@@ -100,6 +100,9 @@ public class MgoModel {
 
     private void generateResourceStruct(GenBlock fileBlock) {
         fileBlock.bs("type " + name + " struct {");
+        if (name.equals("Resource")) {
+          fileBlock.ln(getFieldDefinition("ResourceType", "string"));
+        }
         if (definitions.getResources().get(name) != null) {
             for (TypeRef ref: getRootDefinition().getTypes()) {
                 fileBlock.ln(String.format("%s `bson:\",inline\"`", ref.getName()));
@@ -131,7 +134,7 @@ public class MgoModel {
         // Do NOT generate unmarshaller for base resources, because it causes the container resource to fail
         // unmarshalling.  See: http://www.scriptscoop.net/t/d2ea1a251aa8/json-unmarshal-fails-when-embedded-type-has-unmarshaljson.html
         // So... instead, we must embed the base resource's custom unmarshalling into the specific (container) resource.
-        if (! definitions.getBaseResources().containsKey(name)) {
+        if (isResource(name)) {
             generateCustomUnmarshaller(name, getRootDefinition(), fileBlock);
         }
     }
@@ -140,15 +143,19 @@ public class MgoModel {
         List<String> resourceFields = new ArrayList<String>();
         Map<String, Boolean> fieldSliceIndicators = new HashMap<String, Boolean>();
         populateFieldNameAndSliceIndicatorsForUnmarshaller(elementDefn, resourceFields, fieldSliceIndicators);
-
-        if (!resourceFields.isEmpty()) {
-            ST st = templateGroup.getInstanceOf("generic_resource_unmarshaller.go");
-            st.add("Name", structName);
-            st.add("LowerName", lowercase(structName));
-            st.add("Fields", resourceFields);
-            st.add("FieldSliceIndicators", fieldSliceIndicators);
-            fileBlock.ln(st.render());
+        
+        if(!resourceFields.isEmpty() || isResource(structName)) {
+          ST st = templateGroup.getInstanceOf("generic_resource_unmarshaller.go");
+          st.add("Name", structName);
+          st.add("LowerName", lowercase(structName));
+          if (!resourceFields.isEmpty()) {
+              st.add("Fields", resourceFields);
+              st.add("FieldSliceIndicators", fieldSliceIndicators);
+          }
+          st.add("IsResource", isResource(structName));
+          fileBlock.ln(st.render());
         }
+
     }
 
     private void populateFieldNameAndSliceIndicatorsForUnmarshaller(ElementDefn elementDefn, List<String> resourceFields, Map<String, Boolean> fieldSliceIndicator) {
@@ -426,7 +433,8 @@ public class MgoModel {
     }
 
     /**
-     * Current only discovers encoding/json, as that's the only one we need
+     * Discovers the needed imports for a file depending on the elements
+     * going into it.
      */
     private Set<String> discoverImports(ElementDefn elementDefn) {
         Set<String> imports = new HashSet<String>();
@@ -465,6 +473,12 @@ public class MgoModel {
                 }
             }
         }
+        
+        if (isResource(name)) {
+          imports.add("gopkg.in/mgo.v2/bson");
+          imports.add("errors");
+          imports.add("fmt");
+        }
 
         return imports;
     }
@@ -494,6 +508,20 @@ public class MgoModel {
                 el =  definitions.getStructures().get(name);
         }
         return el;
+    }
+    
+    // Check to see if this resource is a Resource or DomainResource
+    private boolean isResource(String rName) {
+      if (definitions.getResources().get(rName) != null) {
+        for (TypeRef ref: getRootDefinition().getTypes()) {
+          if ((ref.getName().equals("Resource") || ref.getName().equals("DomainResource")) &&
+              !rName.equals("DomainResource")) {
+            return true;
+          }
+        }
+      }
+
+      return false;
     }
 
     private static final String COPYRIGHT =
