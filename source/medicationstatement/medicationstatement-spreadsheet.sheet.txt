@@ -319,7 +319,7 @@
   Path = MedicationStatement.patient
 
  -- Row 5 -----------------------------------
-  Name = effectivedate
+  Name = effective
   Type = date
   Description = Date when patient was taking (or not taking) the medication
   Path = MedicationStatement.effective[x]

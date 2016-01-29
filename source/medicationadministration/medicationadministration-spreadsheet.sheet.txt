@@ -347,7 +347,7 @@
   Path = MedicationAdministration.medicationCodeableConcept
 
  -- Row 6 -----------------------------------
-  Name = notgiven
+  Name = wasnotgiven
   Type = token
   Description = Administrations that were not made
   Path = MedicationAdministration.wasNotGiven
