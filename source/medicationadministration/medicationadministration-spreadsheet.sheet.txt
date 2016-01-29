@@ -140,6 +140,17 @@
   w5 = status
 
  -- Row 4 -----------------------------------
+  Element = MedicationAdministration.medication[x]
+  Card. = 1..1
+  Type = CodeableConcept|Reference(Medication)
+  Short Label = What was administered
+  Definition = Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
+  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the administered medication. When the only available information is a text description of the medication, Medication.code.text should be used
+  v2 Mapping = RXA-5-Administered Code
+  RIM Mapping = Consumeable->AdministerableMedication
+  w5 = what
+
+ -- Row 5 -----------------------------------
   Element = MedicationAdministration.patient
   Card. = 1..1
   Type = Reference(Patient)
@@ -149,7 +160,7 @@
   RIM Mapping = subject->Patient
   w5 = who.focus
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = MedicationAdministration.encounter
   Card. = 0..1
   Type = Reference(Encounter)
@@ -159,7 +170,7 @@
   RIM Mapping = component->EncounterEvent
   w5 = context
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = MedicationAdministration.effectiveTime[x]
   Card. = 1..1
   Type = dateTime|Period
@@ -170,7 +181,7 @@
   Committee Notes = 2014-0917 HG: Chjanged name from whenGiven to effectiveTime and made datatype choice of period or dataTime
   w5 = when.done
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = MedicationAdministration.practitioner
   Card. = 0..1
   Type = Reference(Practitioner | Patient | RelatedPerson)
@@ -180,7 +191,7 @@
   RIM Mapping = performer->Role
   w5 = who.actor
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationAdministration.prescription
   Card. = 0..1
   Type = Reference(MedicationOrder)
@@ -189,7 +200,7 @@
   v2 Mapping = ORC-2-Placer Order Number / ORC-3-Filler Order Number
   RIM Mapping = InFullfillmentOf->SubstanceAdministration
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationAdministration.wasNotGiven
   Card. = 0..1
   Is Modifier = Y
@@ -200,7 +211,7 @@
   RIM Mapping = actionNegationInd
   Missing Meaning = If this is missing, then the medication was administered
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationAdministration.reasonNotGiven
   Card. = 0..*
   Inv. = 2
@@ -211,7 +222,7 @@
   v2 Mapping = RXA-9-Administration Notes / RXA-18 Substance/Treatment Refusal Reason
   RIM Mapping = Reason->Observation->Value
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationAdministration.reasonGiven
   Card. = 0..*
   Inv. = 3
@@ -220,16 +231,6 @@
   Short Label = Reason administration performed
   Definition = A code indicating why the medication was given.
   v2 Mapping = RXE-27 Give Indication
-
- -- Row 12 -----------------------------------
-  Element = MedicationAdministration.medication[x]
-  Card. = 1..1
-  Type = CodeableConcept|Reference(Medication)
-  Short Label = What was administered
-  Definition = Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
-  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the administered medication. When the only available information is a text description of the medication, Medication.code.text should be used
-  v2 Mapping = RXA-5-Administered Code
-  RIM Mapping = Consumeable->AdministerableMedication
 
  -- Row 13 -----------------------------------
   Element = MedicationAdministration.device

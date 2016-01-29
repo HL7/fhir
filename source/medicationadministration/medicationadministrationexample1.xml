@@ -4,6 +4,9 @@
  xmlns="http://hl7.org/fhir"> 
   <id value="medadminexample01"/>
   <status value="completed"/>
+  <medicationReference>
+    <reference value="Medication/medicationexample6"/> 
+  </medicationReference>
   <patient>
     <reference value="Patient/example"/>
   </patient>
@@ -17,9 +20,6 @@
     <reference value="MedicationOrder/medrx005"/>
   </prescription>
 
-  <medicationReference>
-    <reference value="Medication/medicationexample6"/> 
-  </medicationReference>
   <dosage>
     <route>
       <coding>

@@ -112,6 +112,26 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = MedicationStatement.status
+  Card. = 1..1
+  Is Modifier = Y
+  Type = code
+  Binding = MedicationStatementStatus
+  Short Label = active | completed | entered-in-error | intended
+  Definition = A code representing the patient or other source\'s judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = MedicationStatement.medication[x]
+  Card. = 1..1
+  Type = CodeableConcept|Reference(Medication)
+  Short Label = What medication was taken
+  Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
+  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the medication this statement concerns. When the only available information is a text description of the medication, Medication.code.text should be used
+  RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest.consumable
+  w5 = what
+
+ -- Row 5 -----------------------------------
   Element = MedicationStatement.patient
   Card. = 1..1
   Type = Reference(Patient)
@@ -121,58 +141,7 @@
   RIM Mapping = SubstanceAdministration->subject->Patient
   w5 = who.focus
 
- -- Row 4 -----------------------------------
-  Element = MedicationStatement.informationSource
-  Card. = 0..1
-  Type = Reference(Patient | Practitioner | RelatedPerson)
-  Definition = The person who provided the information about the taking of this medication.
-  w5 = who.source
-
- -- Row 5 -----------------------------------
-  Element = MedicationStatement.dateAsserted
-  Card. = 0..1
-  Type = dateTime
-  Short Label = When the statement was asserted?
-  Definition = The date when the medication statement was asserted by the information source.
-
  -- Row 6 -----------------------------------
-  Element = MedicationStatement.status
-  Card. = 1..1
-  Is Modifier = Y
-  Type = code
-  Binding = MedicationStatementStatus
-  Short Label = active | completed | entered-in-error | intended
-  Definition = A code representing the patient or other source\'s judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
-
- -- Row 7 -----------------------------------
-  Element = MedicationStatement.wasNotTaken
-  Card. = 0..1
-  Is Modifier = Y
-  Type = boolean
-  Short Label = True if medication is/was not being taken
-  Definition = Set this to true if the record is saying that the medication was NOT taken.
-  RIM Mapping = SubstanceAdministration.actionNegationInd
-  Missing Meaning = If this is missing, then the medication was taken
-  w5 = status
-
- -- Row 8 -----------------------------------
-  Element = MedicationStatement.reasonNotTaken
-  Card. = 0..*
-  Inv. = 1
-  Type = CodeableConcept
-  Binding = MedicationAdministrationNegationReason
-  Short Label = True if asserting medication was not given
-  Definition = A code indicating why the medication was not taken.
-  RIM Mapping = SubstanceAdministration->Reason->Observation->Value
-
- -- Row 9 -----------------------------------
-  Element = MedicationStatement.reasonForUse[x]
-  Card. = 0..1
-  Type = CodeableConcept | Reference(Condition)
-  Binding = MedicationReason
-  Definition = A reason for why the medication is being/was taken.
-
- -- Row 10 -----------------------------------
   Element = MedicationStatement.effective[x]
   Card. = 0..1
   Type = dateTime | Period
@@ -182,30 +151,61 @@
   RIM Mapping = SubstanceAdministration.effectiveTime
   w5 = when.done
 
- -- Row 11 -----------------------------------
-  Element = MedicationStatement.note
+ -- Row 7 -----------------------------------
+  Element = MedicationStatement.informationSource
   Card. = 0..1
-  Type = string
+  Type = Reference(Patient | Practitioner | RelatedPerson)
+  Definition = The person who provided the information about the taking of this medication.
+  w5 = who.source
+
+ -- Row 8 -----------------------------------
+  Element = MedicationStatement.dateAsserted
+  Card. = 0..1
+  Type = dateTime
+  Short Label = When the statement was asserted?
+  Definition = The date when the medication statement was asserted by the information source.
+
+ -- Row 9 -----------------------------------
+  Element = MedicationStatement.wasNotTaken
+  Card. = 0..1
+  Is Modifier = Y
+  Type = boolean
+  Short Label = True if medication is/was not being taken
+  Definition = Set this to true if the record is saying that the medication was NOT taken.
+  RIM Mapping = SubstanceAdministration.actionNegationInd
+  Missing Meaning = If this is missing, then the medication was taken
+
+ -- Row 10 -----------------------------------
+  Element = MedicationStatement.reasonNotTaken
+  Card. = 0..*
+  Inv. = 1
+  Type = CodeableConcept
+  Binding = MedicationAdministrationNegationReason
+  Short Label = True if asserting medication was not given
+  Definition = A code indicating why the medication was not taken.
+  RIM Mapping = SubstanceAdministration->Reason->Observation->Value
+
+ -- Row 11 -----------------------------------
+  Element = MedicationStatement.reasonForUse[x]
+  Card. = 0..1
+  Type = CodeableConcept | Reference(Condition)
+  Binding = MedicationReason
+  Definition = A reason for why the medication is being/was taken.
+
+ -- Row 12 -----------------------------------
+  Element = MedicationStatement.note
+  Card. = 0..*
+  Type = Annotation
   Short Label = Further information about the statement
   Definition = Provides extra information about the medication statement that is not conveyed by the other attributes.
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationStatement.supportingInformation
   Card. = 0..*
   Type = Reference(Any)
   Short Label = Additional supporting information
   Definition = Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports the MedicationStatement.
   Comments = Likely references would be to MedicationOrder, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
-
- -- Row 13 -----------------------------------
-  Element = MedicationStatement.medication[x]
-  Card. = 1..1
-  Type = CodeableConcept|Reference(Medication)
-  Short Label = What medication was taken
-  Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
-  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the medication this statement concerns. When the only available information is a text description of the medication, Medication.code.text should be used
-  RIM Mapping = SubstanceAdministration>Component>SubstanceAdministrationRequest.consumable
-  w5 = what
 
  -- Row 14 -----------------------------------
   Element = MedicationStatement.dosage

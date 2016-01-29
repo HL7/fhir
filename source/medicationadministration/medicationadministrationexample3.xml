@@ -4,7 +4,11 @@
  xmlns="http://hl7.org/fhir"> 
   <id value="medadminexample03"/>
   <status value="on-hold" />
-  <patient>
+  <medicationReference>
+    <!-- references medication 6 -->
+    <reference value="Medication/medicationexample17"/> 
+  </medicationReference>
+ <patient>
     <reference value="Patient/example"/>
   </patient>
  <effectiveTimePeriod>
@@ -17,11 +21,7 @@
   <prescription>
     <reference value="MedicationOrder/medrx008"/>
   </prescription>
-  <medicationReference>
-    <!-- references medication 6 -->
-    <reference value="Medication/medicationexample17"/> 
-  </medicationReference>
-  <dosage>
+   <dosage>
     <route>
       <coding>
         <system value="http://snomed.info/sct"/>

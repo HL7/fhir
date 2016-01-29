@@ -9,14 +9,14 @@
     </div>
   </text>
   <!--  -->
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
   <status value="completed"/>
-  <effectiveDateTime value="2012-06-01T14:30:00+14:00"/>
   <medicationReference>
     <reference value="Medication/example"/>
   </medicationReference>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <effectiveDateTime value="2012-06-01T14:30:00+14:00"/>
   <dosage>
     <route>
       <coding>

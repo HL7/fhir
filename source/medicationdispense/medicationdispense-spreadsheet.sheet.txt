@@ -142,6 +142,17 @@
   w5 = status
 
  -- Row 4 -----------------------------------
+  Element = MedicationDispense.medication[x]
+  Card. = 1..1
+  Type = CodeableConcept|Reference(Medication)
+  Short Label = What medication was supplied
+  Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
+  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the dispensed medication. When the only available information is a text description of the medication, Medication.code.text should be used
+  v2 Mapping = RXD-2-Dispense/Give Code
+  RIM Mapping = .participation[typeCode=PRD].role
+  w5 = what
+
+ -- Row 5 -----------------------------------
   Element = MedicationDispense.patient
   Card. = 0..1
   Type = Reference(Patient)
@@ -152,7 +163,7 @@
   RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
   w5 = who.focus
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = MedicationDispense.dispenser
   Card. = 0..1
   Type = Reference(Practitioner)
@@ -162,7 +173,7 @@
   RIM Mapping = .participation[typeCode=PFM].role[classCode=ASSIGN]
   w5 = who.actor
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = MedicationDispense.authorizingPrescription
   Card. = 0..*
   Type = Reference(MedicationOrder)
@@ -171,7 +182,7 @@
   v2 Mapping = ORC-2 Placer Order Number
   RIM Mapping = .outboundRelationship[typeCode=FLFS].target[moodCode=RQO]
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = MedicationDispense.type
   Card. = 0..1
   Type = CodeableConcept
@@ -181,7 +192,7 @@
   v2 Mapping = RXD-33-Dispense Type
   RIM Mapping = .code
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = MedicationDispense.quantity
   Card. = 0..1
   Type = SimpleQuantity
@@ -190,22 +201,12 @@
   v2 Mapping = RXD-4-Actual Dispense Amount / RXD-5.1-Actual Dispense Units.code / RXD-5.3-Actual Dispense Units.name of coding system
   RIM Mapping = .quantity
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationDispense.daysSupply
   Card. = 0..1
   Type = SimpleQuantity
   Short Label = Amount of medication expressed as a timing amount
   Definition = The amount of medication expressed as a timing amount.
-
- -- Row 10 -----------------------------------
-  Element = MedicationDispense.medication[x]
-  Card. = 1..1
-  Type = CodeableConcept|Reference(Medication)
-  Short Label = What medication was supplied
-  Definition = Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
-  Comments = If only a code is specified, then it needs to be a code for a specific product.  If more information is required, then the use of the medication resource is recommended.  Note: do not use Medication.name to describe the dispensed medication. When the only available information is a text description of the medication, Medication.code.text should be used
-  v2 Mapping = RXD-2-Dispense/Give Code
-  RIM Mapping = .participation[typeCode=PRD].role
 
  -- Row 11 -----------------------------------
   Element = MedicationDispense.whenPrepared
@@ -268,7 +269,7 @@
   Element = MedicationDispense.dosageInstruction.text
   Card. = 0..1
   Type = string
-  Short Label = Dosage Instructions
+  Short Label = Free text dosage instructions e.g. SIG
   Definition = Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
 
  -- Row 18 -----------------------------------

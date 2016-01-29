@@ -431,22 +431,22 @@
         </text>
       <!--   The patient details will generally be in the Document resource in the Document bundle, but could just as easily
         point to a patient resource on a server  -->
-        <patient>
-          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
-          <display value="Peter Patient"/>
-        </patient>
-        <dateAsserted value="2013-05-05T16:13:03Z"/>
-        <status value="completed"/>
-        <wasNotTaken value="true"/>
-        <reasonNotTaken>
-          <text value="Management of Asthma"/>
-        </reasonNotTaken>
-      <!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
+		<status value="completed"/>
+	<!--   a reference to the medication being prescribed. As described earlier, this could be contained (as is the example here), separately
         within the document bundle or simply a reference to a remote server. See comment in the contained resource  -->
         <medicationCodeableConcept>
           <text value="Ventolin Inhaler"/>
         </medicationCodeableConcept>
-      </MedicationStatement>
+	<patient>
+          <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
+          <display value="Peter Patient"/>
+        </patient>
+        <dateAsserted value="2013-05-05T16:13:03Z"/>
+        <wasNotTaken value="true"/>
+        <reasonNotTaken>
+          <text value="Management of Asthma"/>
+        </reasonNotTaken>
+       </MedicationStatement>
     </resource>
   </entry>
 <!--   The Allergy.  -->

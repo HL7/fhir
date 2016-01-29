@@ -17,6 +17,9 @@
 		</div>
 	</text>
 	<status value="completed"/>
+	<medicationReference>
+		<reference value="Medication/f001"/>
+	</medicationReference>
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>
@@ -26,10 +29,7 @@
 	<authorizingPrescription>
 		<reference value="MedicationOrder/medrx006"/>
 	</authorizingPrescription>
-	<medicationReference>
-		<reference value="Medication/f001"/>
-	</medicationReference>
-	<dosageInstruction>
+		<dosageInstruction>
 		<timing>
 			<repeat>
 				<frequency value="2"/>

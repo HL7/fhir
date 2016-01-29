@@ -10,27 +10,29 @@
       <p>Tylenol No 1 tablet - Taking 1 tablet four times daily as needed for pain</p>
     </div>
   </text>
+  <status value="completed" />  
+  <medicationReference> <!-- Linked to a RESOURCE Medication -->
+    <reference value="Medication/MedicationExample7"/>
+  </medicationReference> 
   <patient>
     <reference value="Patient/pat1"/>
   </patient>
+  <effectiveDateTime value="2015-01-23"></effectiveDateTime>
   <informationSource>
     <reference value="Patient/pat2" />
   </informationSource>
   <dateAsserted value="2015-02-22"/>
-  <status value="completed" />
   <wasNotTaken value="false"/>
-<reasonForUseCodeableConcept>
-  <coding>
-    <system value="http://snomed.info/sct"/>
-    <code value="22253000"/>
-    <display value="Pain"/>
-  </coding>
-</reasonForUseCodeableConcept>
-<effectiveDateTime value="2015-01-23"></effectiveDateTime>
-  <note value="Patient indicates they miss the occasional dose" />
-  <medicationReference> <!-- Linked to a RESOURCE Medication -->
-    <reference value="Medication/MedicationExample7"/>
-  </medicationReference> 
+  <reasonForUseCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="22253000"/>
+      <display value="Pain"/>
+    </coding>
+  </reasonForUseCodeableConcept>
+  <note>
+    <text value="Patient indicates they miss the occasional dose" />
+  </note>
   <dosage>
     <text value="one tablet four times daily as needed for pain" />
     <timing>

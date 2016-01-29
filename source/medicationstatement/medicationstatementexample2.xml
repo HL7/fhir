@@ -10,14 +10,18 @@
       <p>Tylenol No. 1 Caplet</p>
     </div>
   </text>
+  <status value="completed" />
+  <medicationReference> <!-- Linked to a RESOURCE Medication -->
+    <reference value="Medication/MedicationExample7"/>
+  </medicationReference>
   <patient>
     <reference value="Patient/example"/>
   </patient>
+  <effectiveDateTime value="2015-01-23"></effectiveDateTime>
   <informationSource>
     <reference value="Patient/f001" />
   </informationSource>
   <dateAsserted value="2015-02-22"/>
-  <status value="completed" />
   <wasNotTaken value="true"/>
   <reasonNotTaken>
     <coding>
@@ -26,9 +30,7 @@
     <display value="Liver enzymes abnormal"/>
     </coding>
   </reasonNotTaken>
-<effectiveDateTime value="2015-01-23"></effectiveDateTime>
-  <note value="Patient can not take acetaminophen as per Dr instructions" />
-  <medicationReference> <!-- Linked to a RESOURCE Medication -->
-    <reference value="Medication/MedicationExample7"/>
-  </medicationReference> 
+  <note>
+    <text value="Patient can not take acetaminophen as per Dr instructions" />
+  </note>  
 </MedicationStatement>

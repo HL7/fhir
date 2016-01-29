@@ -10,14 +10,18 @@
       <p>Amoxicillin 250mg capsule - one capsule three times daily</p>
     </div>
   </text>
+  <status value="completed" />  
+  <medicationReference> <!-- Linked to a RESOURCE Medication -->
+    <reference value="Medication/MedicationExample6"/>
+  </medicationReference>  
   <patient>
     <reference value="Patient/example"/>
   </patient>
+  <effectiveDateTime value="2014-01-23"></effectiveDateTime>
   <informationSource>
     <reference value="Patient/example" />
   </informationSource>
   <dateAsserted value="2015-02-22"/>
-  <status value="completed" />
   <wasNotTaken value="false"/>
   <reasonForUseCodeableConcept>
     <coding>
@@ -26,11 +30,9 @@
       <display value="Otitis Media"/>
     </coding>
   </reasonForUseCodeableConcept>
-  <effectiveDateTime value="2014-01-23"></effectiveDateTime>
-  <note value="Patient indicates they miss the occasional dose" />
-  <medicationReference> <!-- Linked to a RESOURCE Medication -->
-    <reference value="Medication/MedicationExample6"/>
-  </medicationReference>  
+  <note>
+    <text value="Patient indicates they miss the occasional dose" />
+  </note>
   <dosage>
     <text value="one capsule three times daily" />
     <timing>
