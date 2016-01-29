@@ -26,9 +26,7 @@
               </chromosome>
               <start value="43106487"/>
               <end value="43106488"/>
-              <genomeBuild>
-                  <text value="GRCh38.p2"/>
-              </genomeBuild>
+              <genomeBuild value="GRCh38.p2"/>
           </coordinate>
           <observedAllele value="G"/>
           <referenceAllele value="T"/>
