@@ -79,7 +79,7 @@
   Binding Name = chromosome-human
   Binding = code list
   Reference = #chromosome-human
-  Definition = chromosome number for human
+  Definition = Chromosome number for human
   Description = The chromosome containing the genetic finding
   Conformance = example
 

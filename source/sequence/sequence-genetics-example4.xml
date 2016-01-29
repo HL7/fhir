@@ -25,9 +25,7 @@
         </chromosome>
         <start value="87627621"/>
         <end value="87642522"/>
-        <genomeBuild>
-            <text value="GRCh38"/>
-        </genomeBuild>
+        <genomeBuild value="GRCh38"/>
     </coordinate>
     <species>
         <coding>

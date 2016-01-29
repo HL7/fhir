@@ -18,13 +18,13 @@
     </referenceSeq>
     <coordinate>
         <chromosome>
-            <text value="7"/>
+            <coding>
+                <code value="7"/>
+            </coding>
         </chromosome>
         <start value="55227976"/>
         <end value="55227977"/>
-        <genomeBuild>
-            <text value="GRCh37"/>
-        </genomeBuild>
+        <genomeBuild value="GRCh37"/>
     </coordinate>
     <species>
         <coding>

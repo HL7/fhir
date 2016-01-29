@@ -17,12 +17,12 @@
   <PixelsPerInch>96</PixelsPerInch>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8620</WindowHeight>
-  <WindowWidth>20940</WindowWidth>
-  <WindowTopX>5520</WindowTopX>
+  <WindowHeight>9320</WindowHeight>
+  <WindowWidth>21080</WindowWidth>
+  <WindowTopX>5380</WindowTopX>
   <WindowTopY>1480</WindowTopY>
   <TabRatio>801</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <DoNotCalculateBeforeSave/>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3168,13 +3168,12 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>12</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3182,11 +3181,9 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
@@ -5855,7 +5852,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">chromosome-human</Data></Cell>
-    <Cell><Data ss:Type="String">chromosome number for human</Data></Cell>
+    <Cell><Data ss:Type="String">Chromosome number for human</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="Default"><Data ss:Type="String">example</Data></Cell>
     <Cell><Data ss:Type="String">#chromosome-human</Data></Cell>
@@ -5920,6 +5917,7 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <PageLayoutZoom>0</PageLayoutZoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5939,8 +5937,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>13</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8010,7 +8007,7 @@
  <Worksheet ss:Name="copy-number-event">
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="4" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="14">
-   <Row ss:Height="29">
+   <Row ss:AutoFitHeight="0" ss:Height="29">
     <Cell ss:StyleID="s109"><Data ss:Type="String">Code</Data><Comment ss:Author=""><Data>        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000"
         xmlns="http://www.w3.org/TR/REC-html40">The code to be sent over the wire</Font>       </Data></Comment></Cell>
@@ -8044,19 +8041,19 @@
         html:Size="8" html:Color="#000000"
         xmlns="http://www.w3.org/TR/REC-html40">Additional notes about the code.  Not published</Font>       </Data></Comment></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">amp</Data></Cell>
     <Cell><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">amplificaiton</Data></Cell>
     <Cell><Data ss:Type="String">amplificaiton</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">del</Data></Cell>
     <Cell><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">deletion</Data></Cell>
     <Cell><Data ss:Type="String">deletion</Data></Cell>
    </Row>
-   <Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">lof</Data></Cell>
     <Cell><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">loss of function</Data></Cell>
@@ -8064,6 +8061,7 @@
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
    <Print>
     <ValidPrinterInfo/>
     <PaperSizeIndex>11</PaperSizeIndex>
