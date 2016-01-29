@@ -20,7 +20,7 @@
   <WindowWidth>24000</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1537,7 +1537,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Dosage Instructions</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Dosage Instructions </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3849,10 +3849,11 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>80</Zoom>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>3</TopRowBottomPane>
+   <TopRowBottomPane>11</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3869,8 +3870,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4676,7 +4677,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
