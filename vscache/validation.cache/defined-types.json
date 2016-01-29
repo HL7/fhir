@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/defined-types",
   "outcomes": [
     {
+      "hash": "|null|null|CodeSystem|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@6bc0184e\" in system \"null\": null"
+    },
+    {
       "hash": "|null|null|dateTime|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@54b89167\" in system \"null\": null"

@@ -75,6 +75,22 @@
   Description = Reference identifier
   Conformance = example
 
+ -- Row 11 -----------------------------------
+  Binding Name = chromosome-human
+  Binding = code list
+  Reference = #chromosome-human
+  Definition = chromosome number for human
+  Description = The chromosome containing the genetic finding
+  Conformance = example
+
+ -- Row 12 -----------------------------------
+  Binding Name = CopyNumberEvent
+  Binding = code list
+  Reference = #copy-number-event
+  Definition = Copy Number Event
+  Description = Copy Number Even
+  Conformance = example
+
 === Sheet LOINC-48019-4-answerlist =====================================
 
  -- Row 1 -----------------------------------
@@ -235,6 +251,172 @@
   Display = RNA Sequence
   Definition = RNA Sequence
 
+=== Sheet chromosome-human =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = 1
+  Display = chromsome 1
+  Definition = chromsome 1
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = 2
+  Display = chromsome 2
+  Definition = chromsome 2
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = 3
+  Display = chromsome 3
+  Definition = chromsome 3
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = 4
+  Display = chromsome 4
+  Definition = chromsome 4
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = 5
+  Display = chromsome 5
+  Definition = chromsome 5
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = 6
+  Display = chromsome 6
+  Definition = chromsome 6
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = 7
+  Display = chromsome 7
+  Definition = chromsome 7
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = 8
+  Display = chromsome 8
+  Definition = chromsome 8
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Code = 9
+  Display = chromsome 9
+  Definition = chromsome 9
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Code = 10
+  Display = chromsome 10
+  Definition = chromsome 10
+
+ -- Row 11 -----------------------------------
+  Id = 11
+  Code = 11
+  Display = chromsome 11
+  Definition = chromsome 11
+
+ -- Row 12 -----------------------------------
+  Id = 12
+  Code = 12
+  Display = chromsome 12
+  Definition = chromsome 12
+
+ -- Row 13 -----------------------------------
+  Id = 13
+  Code = 13
+  Display = chromsome 13
+  Definition = chromsome 13
+
+ -- Row 14 -----------------------------------
+  Id = 14
+  Code = 14
+  Display = chromsome 14
+  Definition = chromsome 14
+
+ -- Row 15 -----------------------------------
+  Id = 15
+  Code = 15
+  Display = chromsome 15
+  Definition = chromsome 15
+
+ -- Row 16 -----------------------------------
+  Id = 16
+  Code = 16
+  Display = chromsome 16
+  Definition = chromsome 16
+
+ -- Row 17 -----------------------------------
+  Id = 17
+  Code = 17
+  Display = chromsome 17
+  Definition = chromsome 17
+
+ -- Row 18 -----------------------------------
+  Id = 18
+  Code = 18
+  Display = chromsome 18
+  Definition = chromsome 18
+
+ -- Row 19 -----------------------------------
+  Id = 19
+  Code = 19
+  Display = chromsome 19
+  Definition = chromsome 19
+
+ -- Row 20 -----------------------------------
+  Id = 20
+  Code = 20
+  Display = chromsome 20
+  Definition = chromsome 20
+
+ -- Row 21 -----------------------------------
+  Id = 21
+  Code = 21
+  Display = chromsome 21
+  Definition = chromsome 21
+
+ -- Row 22 -----------------------------------
+  Id = 22
+  Code = 22
+  Display = chromsome 22
+  Definition = chromsome 22
+
+ -- Row 23 -----------------------------------
+  Id = 23
+  Code = X
+  Display = chromsome X
+  Definition = chromsome X
+
+ -- Row 24 -----------------------------------
+  Id = 24
+  Code = Y
+  Display = chromsome Y
+  Definition = chromsome Y
+
+=== Sheet copy-number-event =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = amp
+  Display = amplificaiton
+  Definition = amplificaiton
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = del
+  Display = deletion
+  Definition = deletion
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = lof
+  Display = loss of function
+  Definition = loss of function
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -287,6 +469,7 @@
   Element = Sequence.coordinate.chromosome
   Card. = 0..1
   Type = CodeableConcept
+  Binding = chromosome-human
   Short Label = The chromosome containing the genetic finding
   Definition = The chromosome containing the genetic finding. The value set will be 1-22, X, Y when the species is human without chromosome abnormality. Otherwise,  NCBI-Gene code system should be used.
 
@@ -307,7 +490,7 @@
  -- Row 10 -----------------------------------
   Element = Sequence.coordinate.genomeBuild
   Card. = 0..1
-  Type = CodeableConcept
+  Type = string
   Short Label = The Genome Build used for reference, following GRCh build versions e.g. \'GRCh 37\'
   Definition = The Genome Build used for reference, following GRCh build versions e.g. \'GRCh 37\'.  Version number must be included if a versioned release of a primary build was used.
 
@@ -315,6 +498,7 @@
   Element = Sequence.species
   Card. = 0..1
   Type = CodeableConcept
+  Binding = sequenceSpecies
   Short Label = Supporting tests of human, viruses, and bacteria
   Definition = The organism from which sample of the sequence was extracted. Supporting tests of human, viruses, and bacteria.
 
@@ -369,7 +553,7 @@
  -- Row 19 -----------------------------------
   Element = Sequence.quality.platform
   Card. = 0..1
-  Type = CodeableConcept
+  Type = string
   Short Label = Platform
   Definition = Platform
 
@@ -392,6 +576,7 @@
   Element = Sequence.copyNumberEvent
   Card. = 0..1
   Type = CodeableConcept
+  Binding = CopyNumberEvent
   Short Label = Copy Number Event: Values: amplificaiton / deletion / LOH
   Definition = Values: amplificaiton / deletion / LOH.
 
