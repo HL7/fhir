@@ -132,6 +132,18 @@ func (q *Query) Options() *QueryOptions {
 				}
 				options.Include = append(options.Include, IncludeOption{Resource: incls[0], Parameter: inclParam})
 			}
+		case RevIncludeParam:
+			for _, value := range values {
+				incls := strings.Split(value, ":")
+				if len(incls) != 2 {
+					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+				}
+				revInclParam, ok := SearchParameterDictionary[incls[0]][incls[1]]
+				if !ok {
+					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+				}
+				options.RevInclude = append(options.RevInclude, RevIncludeOption{Resource: incls[0], Parameter: revInclParam})
+			}
 		default:
 			panic(createUnsupportedSearchError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", param)))
 		}
@@ -172,9 +184,10 @@ func (q *Query) NormalizedQueryValues(withOptions bool) url.Values {
 
 // QueryOptions contains option values such as count and offset.
 type QueryOptions struct {
-	Count   int
-	Offset  int
-	Include []IncludeOption
+	Count      int
+	Offset     int
+	Include    []IncludeOption
+	RevInclude []RevIncludeOption
 }
 
 // NewQueryOptions constructs a new QueryOptions with default values (offset = 0, Count = 100)
@@ -190,11 +203,20 @@ func (o *QueryOptions) QueryValues() url.Values {
 	for _, incl := range o.Include {
 		values.Add(IncludeParam, fmt.Sprintf("%s:%s", incl.Resource, incl.Parameter.Name))
 	}
+	for _, incl := range o.RevInclude {
+		values.Add(RevIncludeParam, fmt.Sprintf("%s:%s", incl.Resource, incl.Parameter.Name))
+	}
 	return values
 }
 
 // IncludeOption describes the data that should be included in query results
 type IncludeOption struct {
+	Resource  string
+	Parameter SearchParamInfo
+}
+
+// RevIncludeOption describes the data that should be included in query results
+type RevIncludeOption struct {
 	Resource  string
 	Parameter SearchParamInfo
 }
@@ -209,6 +231,7 @@ type SearchParam interface {
 // SearchParamInfo contains information about a FHIR search parameter,
 // including its name, type, and paths or composites.
 type SearchParamInfo struct {
+	Resource   string
 	Name       string
 	Type       string
 	Paths      []SearchParamPath

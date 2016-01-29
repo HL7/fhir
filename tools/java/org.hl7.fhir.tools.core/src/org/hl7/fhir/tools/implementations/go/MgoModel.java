@@ -42,8 +42,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hl7.fhir.definitions.ecore.fhir.SearchParameter;
-import org.hl7.fhir.definitions.ecore.fhir.SearchType;
 import org.hl7.fhir.definitions.model.*;
 import org.hl7.fhir.tools.implementations.GenBlock;
 import org.hl7.fhir.utilities.Utilities;
@@ -311,6 +309,7 @@ public class MgoModel {
             return;
         }
 
+        // First find all the possible resources to include
         ArrayList<ResourcePlusIncludeInfo> includeInfos = new ArrayList<ResourcePlusIncludeInfo>();
         for (SearchParameterDefn p : resource.getSearchParams().values()) {
             if (SearchParameterDefn.SearchType.reference.equals(p.getType())) {
@@ -321,14 +320,10 @@ public class MgoModel {
                     }
                     for (int i=0; i < p.getPaths().size(); i++) {
                         String paramName = p.getCode().replaceAll("-", "");
-                        StringBuilder fieldBuf = new StringBuilder("Included").append(capitalize(paramName));
-                        if (p.getWorkingTargets().size() > 1) {
-                            fieldBuf.append(target);
-                        }
+                        StringBuilder fieldBuf = new StringBuilder("Included").append(target).append("ResourcesReferencedBy").append(capitalize(paramName));
                         if (p.getPaths().size() > 1) {
                             fieldBuf.append("Path").append(i + 1);
                         }
-                        fieldBuf.append("Resources");
 
                         boolean multipleCardinality = false;
                         try {
@@ -346,16 +341,45 @@ public class MgoModel {
             }
         }
 
+        // Then find all the possible resources to revinclude
+        ArrayList<ResourcePlusRevIncludeInfo> revIncludeInfos = new ArrayList<ResourcePlusRevIncludeInfo>();
+        for (ResourceDefn other : definitions.getResources().values()) {
+            for (SearchParameterDefn p : other.getSearchParams().values()) {
+                if (SearchParameterDefn.SearchType.reference.equals(p.getType())) {
+                    boolean targetsResource = false;
+                    for (String target : p.getWorkingTargets()) {
+                        if (resource.getName().equals(target) || "Any".equals(target)) {
+                            targetsResource = true;
+                            break;
+                        }
+                    }
+                    if (targetsResource) {
+                        for (int i = 0; i < p.getPaths().size(); i++) {
+                            String paramName = p.getCode().replaceAll("-", "");
+                            StringBuilder fieldBuf = new StringBuilder("RevIncluded").append(other.getName()).append("ResourcesReferencing").append(capitalize(paramName));
+                            if (p.getPaths().size() > 1) {
+                                fieldBuf.append("Path").append(i + 1);
+                            }
+                            revIncludeInfos.add(new ResourcePlusRevIncludeInfo(other.getName(), fieldBuf.toString()));
+                        }
+                    }
+                }
+            }
+        }
+
         fileBlock.ln();
         fileBlock.bs(String.format("type %sPlus struct {", name));
         fileBlock.ln(String.format("%s `bson:\",inline\"`", name));
-        fileBlock.ln(String.format("%sPlusIncludes `bson:\",inline\"`", name));
+        fileBlock.ln(String.format("%sPlusRelatedResources `bson:\",inline\"`", name));
         fileBlock.es("}");
 
         fileBlock.ln();
-        fileBlock.bs(String.format("type %sPlusIncludes struct {", name));
+        fileBlock.bs(String.format("type %sPlusRelatedResources struct {", name));
         for (ResourcePlusIncludeInfo info : includeInfos) {
             fileBlock.ln(String.format("%s *[]%s `bson:\"%s,omitempty\"`", info.getField(), info.getTarget(), info.getMongoField()));
+        }
+        for (ResourcePlusRevIncludeInfo info : revIncludeInfos) {
+            fileBlock.ln(String.format("%s *[]%s `bson:\"%s,omitempty\"`", info.getField(), info.getResource(), info.getMongoField()));
         }
         fileBlock.es("}");
 
@@ -363,7 +387,7 @@ public class MgoModel {
         for (ResourcePlusIncludeInfo info : includeInfos) {
             fileBlock.ln();
             if (info.isMultipleCardinality()) {
-                fileBlock.bs(String.format("func (%s *%sPlusIncludes) Get%s() (%s []%s, err error) {", alias, name, info.getField(), Utilities.pluralizeMe(lowercase(info.getTarget())), info.getTarget()));
+                fileBlock.bs(String.format("func (%s *%sPlusRelatedResources) Get%s() (%s []%s, err error) {", alias, name, info.getField(), Utilities.pluralizeMe(lowercase(info.getTarget())), info.getTarget()));
                 fileBlock.bs(String.format("if %s.%s == nil {", alias, info.getField()));
                 fileBlock.ln(String.format("err = errors.New(\"Included %s not requested\")", Utilities.pluralizeMe(lowercase(info.getTarget()))));
                 fileBlock.es("} else {");
@@ -373,8 +397,8 @@ public class MgoModel {
                 fileBlock.ln("return");
                 fileBlock.es("}");
             } else {
-                String singular = info.getField().substring(0, info.getField().length() - 1);
-                fileBlock.bs(String.format("func (%s *%sPlusIncludes) Get%s() (%s *%s, err error) {", alias, name, singular, lowercase(info.getTarget()), info.getTarget()));
+                String singular = info.getField().replaceFirst("Resources", "Resource");
+                fileBlock.bs(String.format("func (%s *%sPlusRelatedResources) Get%s() (%s *%s, err error) {", alias, name, singular, lowercase(info.getTarget()), info.getTarget()));
                 fileBlock.bs(String.format("if %s.%s == nil {", alias, info.getField()));
                 fileBlock.ln(String.format("err = errors.New(\"Included %s not requested\")", Utilities.pluralizeMe(info.getTarget().toLowerCase())));
                 fileBlock.es(String.format("} else if len(*%s.%s) > 1 {", alias, info.getField()));
@@ -389,10 +413,56 @@ public class MgoModel {
             }
         }
 
+        for (ResourcePlusRevIncludeInfo info : revIncludeInfos) {
+            fileBlock.ln();
+            fileBlock.bs(String.format("func (%s *%sPlusRelatedResources) Get%s() (%s []%s, err error) {", alias, name, info.getField(), Utilities.pluralizeMe(lowercase(info.getResource())), info.getResource()));
+            fileBlock.bs(String.format("if %s.%s == nil {", alias, info.getField()));
+            fileBlock.ln(String.format("err = errors.New(\"RevIncluded %s not requested\")", Utilities.pluralizeMe(lowercase(info.getResource()))));
+            fileBlock.es("} else {");
+            fileBlock.bs();
+            fileBlock.ln(String.format("%s = *%s.%s", Utilities.pluralizeMe(lowercase(info.getResource())), alias, info.getField()));
+            fileBlock.es("}");
+            fileBlock.ln("return");
+            fileBlock.es("}");
+        }
+
         fileBlock.ln();
-        fileBlock.bs(String.format("func (%s *%sPlusIncludes) GetIncludedResources() map[string]interface{} {", alias, name));
+        fileBlock.bs(String.format("func (%s *%sPlusRelatedResources) GetIncludedResources() map[string]interface{} {", alias, name));
         fileBlock.ln("resourceMap := make(map[string]interface{})");
         for (ResourcePlusIncludeInfo info : includeInfos) {
+            fileBlock.bs(String.format("if %s.%s != nil {", alias, info.getField()));
+            fileBlock.bs(String.format("for _, r := range *%s.%s {", alias, info.getField()));
+            fileBlock.ln("resourceMap[r.Id] = &r");
+            fileBlock.es("}");
+            fileBlock.es("}");
+        }
+        fileBlock.ln("return resourceMap");
+        fileBlock.es("}");
+
+        fileBlock.ln();
+        fileBlock.bs(String.format("func (%s *%sPlusRelatedResources) GetRevIncludedResources() map[string]interface{} {", alias, name));
+        fileBlock.ln("resourceMap := make(map[string]interface{})");
+        for (ResourcePlusRevIncludeInfo info : revIncludeInfos) {
+            fileBlock.bs(String.format("if %s.%s != nil {", alias, info.getField()));
+            fileBlock.bs(String.format("for _, r := range *%s.%s {", alias, info.getField()));
+            fileBlock.ln("resourceMap[r.Id] = &r");
+            fileBlock.es("}");
+            fileBlock.es("}");
+        }
+        fileBlock.ln("return resourceMap");
+        fileBlock.es("}");
+
+        fileBlock.ln();
+        fileBlock.bs(String.format("func (%s *%sPlusRelatedResources) GetIncludedAndRevIncludedResources() map[string]interface{} {", alias, name));
+        fileBlock.ln("resourceMap := make(map[string]interface{})");
+        for (ResourcePlusIncludeInfo info : includeInfos) {
+            fileBlock.bs(String.format("if %s.%s != nil {", alias, info.getField()));
+            fileBlock.bs(String.format("for _, r := range *%s.%s {", alias, info.getField()));
+            fileBlock.ln("resourceMap[r.Id] = &r");
+            fileBlock.es("}");
+            fileBlock.es("}");
+        }
+        for (ResourcePlusRevIncludeInfo info : revIncludeInfos) {
             fileBlock.bs(String.format("if %s.%s != nil {", alias, info.getField()));
             fileBlock.bs(String.format("for _, r := range *%s.%s {", alias, info.getField()));
             fileBlock.ln("resourceMap[r.Id] = &r");
@@ -432,6 +502,29 @@ public class MgoModel {
         }
     }
 
+    private class ResourcePlusRevIncludeInfo {
+        private final String resource;
+        private final String field;
+
+        public ResourcePlusRevIncludeInfo(String resource, String field) {
+            this.resource = resource;
+            this.field = field;
+        }
+
+        public String getResource() {
+            return resource;
+        }
+
+        public String getField() {
+            return field;
+        }
+
+        public String getMongoField() {
+            return "_" + lowercase(field);
+        }
+    }
+
+
     /**
      * Discovers the needed imports for a file depending on the elements
      * going into it.
@@ -459,7 +552,7 @@ public class MgoModel {
             }
         }
 
-        // If it has search parameters that are reference types, it will need fmt and errors too
+        // If it supports _includes, it will need fmt and errors too
         if (definitions.getResources().containsKey(elementDefn.getName())) {
             ResourceDefn resource = definitions.getResources().get(elementDefn.getName());
             for (SearchParameterDefn p : resource.getSearchParams().values()) {
@@ -477,6 +570,21 @@ public class MgoModel {
         if (isResource(name)) {
           imports.add("errors");
           imports.add("fmt");
+        }
+
+        // If it supports _revincludes, it will need errors too
+        if (definitions.getResources().containsKey(elementDefn.getName())) {
+            ResourceDefn resource = definitions.getResources().get(elementDefn.getName());
+            for (ResourceDefn other : definitions.getResources().values()) {
+                for (SearchParameterDefn p : other.getSearchParams().values()) {
+                    if (SearchParameterDefn.SearchType.reference.equals(p.getType()) && !p.getPaths().isEmpty() && !p.getWorkingTargets().isEmpty()) {
+                        if (p.getWorkingTargets().contains(resource.getName()) || p.getWorkingTargets().contains("Any")) {
+                            imports.add("errors");
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         return imports;

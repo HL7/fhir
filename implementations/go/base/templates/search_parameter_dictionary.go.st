@@ -10,6 +10,7 @@ var SearchParameterDictionary = map[string]map[string]SearchParamInfo{
 	"<r.name>": map[string]SearchParamInfo<\u007B>
 <r.searchParams: {s |
 		"<s.name>": SearchParamInfo<\u007B>
+			Resource: "<r.name>",
 			Name: "<s.name>",
 			Type: "<s.type>",
 <if(s.paths)>

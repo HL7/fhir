@@ -107,17 +107,16 @@ func (m *MongoSearcher) CreatePipeline(query Query) *mgo.Pipe {
 				}
 				// Mongo paths shouldn't have the array indicators, so remove them
 				localField := strings.Replace(inclPath.Path, "[]", "", -1) + ".referenceid"
-				for _, inclTarget := range incl.Parameter.Targets {
+				for i, inclTarget := range incl.Parameter.Targets {
 					if inclTarget == "Any" {
 						continue
 					}
 					from := models.PluralizeLowerResourceName(inclTarget)
-					as := "_included" + strings.Title(incl.Parameter.Name)
-					// If there are multiple targets, we need to store each type separately
-					if len(incl.Parameter.Targets) > 1 {
-						as += inclTarget
+					as := fmt.Sprintf("_included%sResourcesReferencedBy%s", inclTarget, strings.Title(incl.Parameter.Name))
+					// If there are multiple paths, we need to store each path separately
+					if len(incl.Parameter.Paths) > 1 {
+						as += fmt.Sprintf("Path%d", i+1)
 					}
-					as += "Resources"
 
 					p = append(p, bson.M{"$lookup": bson.M{
 						"from":         from,
@@ -126,6 +125,46 @@ func (m *MongoSearcher) CreatePipeline(query Query) *mgo.Pipe {
 						"as":           as,
 					}})
 				}
+			}
+		}
+	}
+
+	// support for _revinclude
+	if len(o.RevInclude) > 0 {
+		for _, incl := range o.RevInclude {
+			// we only want parameters that have the search resource as their target
+			targetsSearchResource := false
+			for _, inclTarget := range incl.Parameter.Targets {
+				if inclTarget == query.Resource || inclTarget == "Any" {
+					targetsSearchResource = true
+					break
+				}
+			}
+			if !targetsSearchResource {
+				continue
+			}
+			// it comes from the other resource collection
+			from := models.PluralizeLowerResourceName(incl.Parameter.Resource)
+			// iterate through the paths, adding a join to the pipeline for each one
+			for i, inclPath := range incl.Parameter.Paths {
+				if inclPath.Type != "Reference" {
+					continue
+				}
+				// Mongo paths shouldn't have the array indicators, so remove them
+				foreignField := strings.Replace(inclPath.Path, "[]", "", -1) + ".referenceid"
+				as := fmt.Sprintf("_revIncluded%sResourcesReferencing%s", incl.Parameter.Resource, strings.Title(incl.Parameter.Name))
+				// If there are multiple paths, we need to store each path separately
+				if len(incl.Parameter.Paths) > 1 {
+					as += fmt.Sprintf("Path%d", i+1)
+				}
+
+				p = append(p, bson.M{"$lookup": bson.M{
+					"from":         from,
+					"localField":   "_id",
+					"foreignField": foreignField,
+					"as":           as,
+				}})
+
 			}
 		}
 	}

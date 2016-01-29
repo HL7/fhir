@@ -22,10 +22,6 @@ type ResourceController struct {
 	Name string
 }
 
-type ResourcePlusIncludes interface {
-	GetIncludedResources() map[string]interface{}
-}
-
 func (rc *ResourceController) IndexHandler(c *echo.Context) error {
 	defer func() error {
 		if r := recover(); r != nil {
@@ -47,8 +43,9 @@ func (rc *ResourceController) IndexHandler(c *echo.Context) error {
 	var result interface{}
 	var err error
 	usesIncludes := len(searchQuery.Options().Include) > 0
+	usesRevIncludes := len(searchQuery.Options().RevInclude) > 0
 	// Only use (slower) pipeline if it is needed
-	if usesIncludes {
+	if usesIncludes || usesRevIncludes {
 		result = models.NewSlicePlusForResourceName(rc.Name, 0, 0)
 		err = searcher.CreatePipeline(searchQuery).All(result)
 	} else {
@@ -68,23 +65,21 @@ func (rc *ResourceController) IndexHandler(c *echo.Context) error {
 		entry.Search = &models.BundleEntrySearchComponent{Mode: "match"}
 		entryList = append(entryList, entry)
 
-		if usesIncludes {
-			rpi, ok := entry.Resource.(ResourcePlusIncludes)
+		if usesIncludes || usesRevIncludes {
+			rpi, ok := entry.Resource.(ResourcePlusRelatedResources)
 			if ok {
-				for k, v := range rpi.GetIncludedResources() {
+				for k, v := range rpi.GetIncludedAndRevIncludedResources() {
 					includesMap[k] = v
 				}
 			}
 		}
 	}
 
-	if usesIncludes {
-		for _, v := range includesMap {
-			var entry models.BundleEntryComponent
-			entry.Resource = v
-			entry.Search = &models.BundleEntrySearchComponent{Mode: "include"}
-			entryList = append(entryList, entry)
-		}
+	for _, v := range includesMap {
+		var entry models.BundleEntryComponent
+		entry.Resource = v
+		entry.Search = &models.BundleEntrySearchComponent{Mode: "include"}
+		entryList = append(entryList, entry)
 	}
 
 	var bundle models.Bundle
@@ -291,6 +286,12 @@ func (rc *ResourceController) DeleteHandler(c *echo.Context) error {
 	c.Set("Resource", rc.Name)
 	c.Set("Action", "delete")
 	return nil
+}
+
+type ResourcePlusRelatedResources interface {
+	GetIncludedAndRevIncludedResources() map[string]interface{}
+	GetIncludedResources() map[string]interface{}
+	GetRevIncludedResources() map[string]interface{}
 }
 
 func responseURL(r *http.Request, paths ...string) *url.URL {
