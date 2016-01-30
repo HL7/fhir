@@ -286,7 +286,7 @@
   Summary = Y
   Type = code
   Binding = DiagnosticOrderStatus
-  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed  | entered-in-error
+  Short Label = proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error
   Definition = The status for the event
   RIM Mapping = .statusCode also influenced by whether a ControlAct fulfillment requeste exists, whether a promise exists, status of the review component, whether a fulfilling observation exists, whether a refusal exists
   Committee Notes = [#3720]

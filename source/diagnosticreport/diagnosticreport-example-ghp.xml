@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticReport xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticreport.xsd" xmlns="http://hl7.org/fhir">
+<DiagnosticReport xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir //Mac/Home/Documents/FHIRBuild/schema/diagnosticreport.xsd" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="ghp"/>
 	<meta>
 		<lastUpdated value="2015-08-16T10:35:23Z"/>
 	</meta>
-	<!-- ************** CBC observation panel************************-->
 	<contained>
 		<Specimen>
 			<id value="rtt"/>
+			<accessionIdentifier>
+				<system value="http://acme.com/labs/accession-ids"/>
+				<value value="20150816-00124"/>
+			</accessionIdentifier>
 			<type>
 				<coding>
 					<system value="http://snomed.info/sct"/>
@@ -18,10 +21,6 @@
 			<subject>
 				<reference value="Patient/pat2"/>
 			</subject>
-			<accessionIdentifier>
-				<system value="http://acme.com/labs/accession-ids"/>
-				<value value="20150816-00124"/>
-			</accessionIdentifier>
 			<collection>
 				<collector>
 					<reference value="Practitioner/f202"/>
@@ -30,11 +29,11 @@
 			</collection>
 			<container>
 				<type>
-				<coding>
-					<system value="http://acme.com/labs"/>
-					<code value="SST"/>
-					<display value="Serum Separator Tube"/>
-				</coding>
+					<coding>
+						<system value="http://acme.com/labs"/>
+						<code value="SST"/>
+						<display value="Serum Separator Tube"/>
+					</coding>
 				</type>
 			</container>
 		</Specimen>
@@ -42,6 +41,10 @@
 	<contained>
 		<Specimen>
 			<id value="ltt"/>
+			<accessionIdentifier>
+				<system value="http://acme.com/labs/accession-ids"/>
+				<value value="20150816-00124"/>
+			</accessionIdentifier>
 			<type>
 				<coding>
 					<system value="http://snomed.info/sct"/>
@@ -52,10 +55,6 @@
 			<subject>
 				<reference value="Patient/pat2"/>
 			</subject>
-			<accessionIdentifier>
-				<system value="http://acme.com/labs/accession-ids"/>
-				<value value="20150816-00124"/>
-			</accessionIdentifier>
 			<collection>
 				<collector>
 					<reference value="Practitioner/f202"/>
@@ -64,11 +63,11 @@
 			</collection>
 			<container>
 				<type>
-				<coding>
-					<system value="http://acme.com/labs"/>
-					<code value="LTT"/>
-					<display value="Lavender Top Tube"/>
-				</coding>
+					<coding>
+						<system value="http://acme.com/labs"/>
+						<code value="LTT"/>
+						<display value="Lavender Top Tube"/>
+					</coding>
 				</type>
 			</container>
 		</Specimen>
@@ -76,6 +75,10 @@
 	<contained>
 		<Specimen>
 			<id value="urine"/>
+			<accessionIdentifier>
+				<system value="http://acme.com/labs/accession-ids"/>
+				<value value="20150816-00124"/>
+			</accessionIdentifier>
 			<type>
 				<coding>
 					<system value="http://snomed.info/sct"/>
@@ -86,10 +89,6 @@
 			<subject>
 				<reference value="Patient/pat2"/>
 			</subject>
-			<accessionIdentifier>
-				<system value="http://acme.com/labs/accession-ids"/>
-				<value value="20150816-00124"/>
-			</accessionIdentifier>
 			<collection>
 				<collector>
 					<reference value="Practitioner/f202"/>
@@ -98,11 +97,11 @@
 			</collection>
 			<container>
 				<type>
-				<coding>
-					<system value="http://acme.com/labs"/>
-					<code value="UCUP"/>
-					<display value="100mL sterile cup"/>
-				</coding>
+					<coding>
+						<system value="http://acme.com/labs"/>
+						<code value="UCUP"/>
+						<display value="100mL sterile cup"/>
+					</coding>
 				</type>
 			</container>
 		</Specimen>
@@ -110,7 +109,7 @@
 	<contained>
 		<Observation>
 			<id value="p2"/>
-						<status value="final"/>
+			<status value="final"/>
 			<code>
 				<coding>
 					<system value="http://loinc.org"/>
@@ -232,674 +231,661 @@
 			</related>
 		</Observation>
 	</contained>
-			
-			<contained>
-				<Observation>
-					<!--  
-  all the data items (= Observations) are contained
-  in this diagnostic report. It would be equally
-    valid - and normal - for them to be separate trackable
-    items. However for the purposes of this example, it's
-  more convenient to have them here. For more discussion,
-  see under"Contained Resources" on the Resource Definitions
-  topic page    -->
-					<!--    for users steeped in v2, each observation roughly corresponds with an
-    OBX, and the Diagnostic Report with an ORU_R01 message    -->
-					<id value="r1"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="718-7"/>
-							<display value="Hemoglobin [Mass/volume] in Blood"/>
-						</coding>
-						<text value="Haemoglobin"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="176"/>
-						<unit value="g/L"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="g/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="135"/>
-							<unit value="g/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="g/L"/>
-						</low>
-						<high>
-							<value value="180"/>
-							<unit value="g/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="g/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r2"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="789-8"/>
-							<display value="Erythrocytes [#/volume] in Blood by Automated count"/>
-						</coding>
-						<text value="Red Cell Count"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="5.9"/>
-						<unit value="x10*12/L"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="10*12/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="4.2"/>
-							<unit value="x10*12/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*12/L"/>
-						</low>
-						<high>
-							<value value="6.0"/>
-							<unit value="x10*12/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*12/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r3"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="4544-3"/>
-							<display value="Hematocrit [Volume Fraction] of Blood by Automated count"/>
-						</coding>
-						<text value="Haematocrit"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="55"/>
-						<unit value="%"/>
-					</valueQuantity>
-					<interpretation>
-						<coding>
-							<system value="http://hl7.org/fhir/v2/0078"/>
-							<code value="H"/>
-						</coding>
-					</interpretation>
-					<referenceRange>
-						<low>
-							<value value="38"/>
-							<unit value="%"/>
-						</low>
-						<high>
-							<value value="52"/>
-							<unit value="%"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r4"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="787-2"/>
-							<display value="Erythrocyte mean corpuscular volume [Entitic volume] by Automated count"/>
-						</coding>
-						<text value="Mean Cell Volume"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="99"/>
-						<unit value="fL"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="fL"/>
-					</valueQuantity>
-					<interpretation>
-						<coding>
-							<system value="http://hl7.org/fhir/v2/0078"/>
-							<code value="H"/>
-						</coding>
-					</interpretation>
-					<referenceRange>
-						<low>
-							<value value="80"/>
-							<unit value="fL"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="fL"/>
-						</low>
-						<high>
-							<value value="98"/>
-							<unit value="fL"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="fL"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r5"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="785-6"/>
-							<display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
-						</coding>
-						<text value="Mean Cell Haemoglobin"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="36"/>
-						<unit value="pg"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="pg"/>
-					</valueQuantity>
-					<interpretation>
-						<coding>
-							<system value="http://hl7.org/fhir/v2/0078"/>
-							<code value="H"/>
-						</coding>
-					</interpretation>
-					<referenceRange>
-						<low>
-							<value value="27"/>
-							<unit value="pg"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="pg"/>
-						</low>
-						<high>
-							<value value="35"/>
-							<unit value="pg"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="pg"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r6"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="777-3"/>
-							<display value="Platelets [#/volume] in Blood by Automated count"/>
-						</coding>
-						<text value="Platelet Count"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="444"/>
-						<unit value="x10*9/L"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="10*9/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="150"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</low>
-						<high>
-							<value value="450"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r7"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="6690-2"/>
-							<display value="Leukocytes [#/volume] in Blood by Automated count"/>
-						</coding>
-						<text value="White Cell Count"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="4.6"/>
-						<unit value="x10*9/L"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="10*9/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="4.0"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</low>
-						<high>
-							<value value="11.0"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r8"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="770-8"/>
-							<display value="Neutrophils/100 leukocytes in Blood by Automated count"/>
-						</coding>
-						<text value="Neutrophils"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="20"/>
-						<unit value="%"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="%"/>
-					</valueQuantity>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r9"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="751-8"/>
-							<display value="Neutrophils [#/volume] in Blood by Automated count"/>
-						</coding>
-						<text value="Neutrophils"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="0.9"/>
-						<unit value="x10*9/L"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="10*9/L"/>
-					</valueQuantity>
-					<interpretation>
-						<coding>
-							<system value="http://hl7.org/fhir/v2/0078"/>
-							<code value="LL"/>
-						</coding>
-					</interpretation>
-					<referenceRange>
-						<low>
-							<value value="2.0"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</low>
-						<high>
-							<value value="7.5"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r10"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="736-9"/>
-							<display value="Lymphocytes/100 leukocytes in Blood by Automated count"/>
-						</coding>
-						<text value="Lymphocytes"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="20"/>
-						<unit value="%"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="%"/>
-					</valueQuantity>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r11"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="731-0"/>
-							<display value="Lymphocytes [#/volume] in Blood by Automated count"/>
-						</coding>
-						<text value="Lymphocytes"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="0.9"/>
-						<unit value="x10*9/L"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="10*9/L"/>
-					</valueQuantity>
-					<interpretation>
-						<coding>
-							<system value="http://hl7.org/fhir/v2/0078"/>
-							<code value="L"/>
-						</coding>
-					</interpretation>
-					<referenceRange>
-						<low>
-							<value value="1.1"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</low>
-						<high>
-							<value value="4.0"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r12"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="5905-5"/>
-							<display value="Monocytes/100 leukocytes in Blood by Automated count"/>
-						</coding>
-						<text value="Monocytes"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="20"/>
-						<unit value="%"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="%"/>
-					</valueQuantity>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r13"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="742-7"/>
-							<display value="Monocytes [#/volume] in Blood by Automated count"/>
-						</coding>
-						<text value="Monocytes"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="0.9"/>
-						<unit value="x10*9/L"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="10*9/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="0.2"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</low>
-						<high>
-							<value value="1.0"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r14"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="713-8"/>
-							<display value="Eosinophils/100 leukocytes in Blood by Automated count"/>
-						</coding>
-						<text value="Eosinophils"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="20"/>
-						<unit value="%"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="%"/>
-					</valueQuantity>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r15"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="711-2"/>
-							<display value="Eosinophils [#/volume] in Blood by Automated count"/>
-						</coding>
-						<text value="Eosinophils"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="0.92"/>
-						<unit value="x10*9/L"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="10*9/L"/>
-					</valueQuantity>
-					<interpretation>
-						<coding>
-							<system value="http://hl7.org/fhir/v2/0078"/>
-							<code value="HH"/>
-						</coding>
-					</interpretation>
-					<referenceRange>
-						<low>
-							<value value="0.04"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</low>
-						<high>
-							<value value="0.40"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r16"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="706-2"/>
-							<display value="Basophils/100 leukocytes in Blood by Automated count"/>
-						</coding>
-						<text value="Basophils"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="20"/>
-						<unit value="%"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="%"/>
-					</valueQuantity>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="r17"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="704-7"/>
-							<display value="Basophils [#/volume] in Blood by Automated count"/>
-						</coding>
-						<text value="Basophils"/>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="0.92"/>
-						<unit value="x10*9/L"/>
-						<system value="http://unitsofmeasure.org"/>
-						<code value="10*9/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<high>
-							<value value="0.21"/>
-							<unit value="x10*9/L"/>
-							<system value="http://unitsofmeasure.org"/>
-							<code value="10*9/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-
-	<!-- ******************CHEM PANEL observations **************************-->
+	<contained>
+		<Observation>
+			<id value="r1"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="718-7"/>
+					<display value="Hemoglobin [Mass/volume] in Blood"/>
+				</coding>
+				<text value="Haemoglobin"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="176"/>
+				<unit value="g/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="g/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="135"/>
+					<unit value="g/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="g/L"/>
+				</low>
+				<high>
+					<value value="180"/>
+					<unit value="g/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="g/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r2"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="789-8"/>
+					<display value="Erythrocytes [#/volume] in Blood by Automated count"/>
+				</coding>
+				<text value="Red Cell Count"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="5.9"/>
+				<unit value="x10*12/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="10*12/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="4.2"/>
+					<unit value="x10*12/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*12/L"/>
+				</low>
+				<high>
+					<value value="6.0"/>
+					<unit value="x10*12/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*12/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r3"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="4544-3"/>
+					<display value="Hematocrit [Volume Fraction] of Blood by Automated count"/>
+				</coding>
+				<text value="Haematocrit"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="55"/>
+				<unit value="%"/>
+			</valueQuantity>
+			<interpretation>
+				<coding>
+					<system value="http://hl7.org/fhir/v2/0078"/>
+					<code value="H"/>
+				</coding>
+			</interpretation>
+			<referenceRange>
+				<low>
+					<value value="38"/>
+					<unit value="%"/>
+				</low>
+				<high>
+					<value value="52"/>
+					<unit value="%"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r4"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="787-2"/>
+					<display value="Erythrocyte mean corpuscular volume [Entitic volume] by Automated count"/>
+				</coding>
+				<text value="Mean Cell Volume"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="99"/>
+				<unit value="fL"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="fL"/>
+			</valueQuantity>
+			<interpretation>
+				<coding>
+					<system value="http://hl7.org/fhir/v2/0078"/>
+					<code value="H"/>
+				</coding>
+			</interpretation>
+			<referenceRange>
+				<low>
+					<value value="80"/>
+					<unit value="fL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="fL"/>
+				</low>
+				<high>
+					<value value="98"/>
+					<unit value="fL"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="fL"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r5"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="785-6"/>
+					<display value="Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"/>
+				</coding>
+				<text value="Mean Cell Haemoglobin"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="36"/>
+				<unit value="pg"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="pg"/>
+			</valueQuantity>
+			<interpretation>
+				<coding>
+					<system value="http://hl7.org/fhir/v2/0078"/>
+					<code value="H"/>
+				</coding>
+			</interpretation>
+			<referenceRange>
+				<low>
+					<value value="27"/>
+					<unit value="pg"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="pg"/>
+				</low>
+				<high>
+					<value value="35"/>
+					<unit value="pg"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="pg"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r6"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="777-3"/>
+					<display value="Platelets [#/volume] in Blood by Automated count"/>
+				</coding>
+				<text value="Platelet Count"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="444"/>
+				<unit value="x10*9/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="10*9/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="150"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</low>
+				<high>
+					<value value="450"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r7"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="6690-2"/>
+					<display value="Leukocytes [#/volume] in Blood by Automated count"/>
+				</coding>
+				<text value="White Cell Count"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="4.6"/>
+				<unit value="x10*9/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="10*9/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="4.0"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</low>
+				<high>
+					<value value="11.0"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r8"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="770-8"/>
+					<display value="Neutrophils/100 leukocytes in Blood by Automated count"/>
+				</coding>
+				<text value="Neutrophils"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="20"/>
+				<unit value="%"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="%"/>
+			</valueQuantity>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r9"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="751-8"/>
+					<display value="Neutrophils [#/volume] in Blood by Automated count"/>
+				</coding>
+				<text value="Neutrophils"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="0.9"/>
+				<unit value="x10*9/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="10*9/L"/>
+			</valueQuantity>
+			<interpretation>
+				<coding>
+					<system value="http://hl7.org/fhir/v2/0078"/>
+					<code value="LL"/>
+				</coding>
+			</interpretation>
+			<referenceRange>
+				<low>
+					<value value="2.0"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</low>
+				<high>
+					<value value="7.5"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r10"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="736-9"/>
+					<display value="Lymphocytes/100 leukocytes in Blood by Automated count"/>
+				</coding>
+				<text value="Lymphocytes"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="20"/>
+				<unit value="%"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="%"/>
+			</valueQuantity>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r11"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="731-0"/>
+					<display value="Lymphocytes [#/volume] in Blood by Automated count"/>
+				</coding>
+				<text value="Lymphocytes"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="0.9"/>
+				<unit value="x10*9/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="10*9/L"/>
+			</valueQuantity>
+			<interpretation>
+				<coding>
+					<system value="http://hl7.org/fhir/v2/0078"/>
+					<code value="L"/>
+				</coding>
+			</interpretation>
+			<referenceRange>
+				<low>
+					<value value="1.1"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</low>
+				<high>
+					<value value="4.0"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r12"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="5905-5"/>
+					<display value="Monocytes/100 leukocytes in Blood by Automated count"/>
+				</coding>
+				<text value="Monocytes"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="20"/>
+				<unit value="%"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="%"/>
+			</valueQuantity>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r13"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="742-7"/>
+					<display value="Monocytes [#/volume] in Blood by Automated count"/>
+				</coding>
+				<text value="Monocytes"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="0.9"/>
+				<unit value="x10*9/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="10*9/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="0.2"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</low>
+				<high>
+					<value value="1.0"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r14"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="713-8"/>
+					<display value="Eosinophils/100 leukocytes in Blood by Automated count"/>
+				</coding>
+				<text value="Eosinophils"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="20"/>
+				<unit value="%"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="%"/>
+			</valueQuantity>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r15"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="711-2"/>
+					<display value="Eosinophils [#/volume] in Blood by Automated count"/>
+				</coding>
+				<text value="Eosinophils"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="0.92"/>
+				<unit value="x10*9/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="10*9/L"/>
+			</valueQuantity>
+			<interpretation>
+				<coding>
+					<system value="http://hl7.org/fhir/v2/0078"/>
+					<code value="HH"/>
+				</coding>
+			</interpretation>
+			<referenceRange>
+				<low>
+					<value value="0.04"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</low>
+				<high>
+					<value value="0.40"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r16"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="706-2"/>
+					<display value="Basophils/100 leukocytes in Blood by Automated count"/>
+				</coding>
+				<text value="Basophils"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="20"/>
+				<unit value="%"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="%"/>
+			</valueQuantity>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="r17"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="704-7"/>
+					<display value="Basophils [#/volume] in Blood by Automated count"/>
+				</coding>
+				<text value="Basophils"/>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="0.92"/>
+				<unit value="x10*9/L"/>
+				<system value="http://unitsofmeasure.org"/>
+				<code value="10*9/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<high>
+					<value value="0.21"/>
+					<unit value="x10*9/L"/>
+					<system value="http://unitsofmeasure.org"/>
+					<code value="10*9/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
 	<contained>
 		<Observation>
 			<id value="p1"/>
-						<status value="final"/>
+			<status value="final"/>
 			<code>
 				<coding>
 					<system value="http://loinc.org"/>
@@ -1051,860 +1037,858 @@
 			</related>
 		</Observation>
 	</contained>
-			<contained>
-				<Observation>
-					<id value="o1"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2951-2"/>
-							<display value="Sodium [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="104934005"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="140"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="137"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="147"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o2"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2823-3"/>
-							<display value="Potassium [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="59573005"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="4.2"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="3.5"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="5.0"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o3"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2075-0"/>
-							<display value="Chloride [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="46511006"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="105"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="96"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="109"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o4"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="1963-8"/>
-							<display value="Bicarbonate [Moles/volume] in Serum"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="88645003"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="26"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="25"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="33"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o5"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="1863-0"/>
-							<display value="Anion gap 4 in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="271057005"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="13"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="4"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="17"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o6"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="14749-6"/>
-							<display value="Glucose [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="36048009"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="7.4"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="3.0"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="7.7"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o7"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="14937-7"/>
-							<display value="Urea nitrogen [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="273967009"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="4.7"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="2.0"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="7.0"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o8"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="14682-9"/>
-							<display value="Creatinine [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="70901006"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="0.09"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="0.04"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="0.11"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o9"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="14933-6"/>
-							<display value="Urate [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="86228006"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="0.39"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<interpretation>
-						<coding>
-							<system value="http://hl7.org/fhir/v2/0078"/>
-							<code value="H"/>
-						</coding>
-					</interpretation>
-					<referenceRange>
-						<low>
-							<value value="0.14"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="0.35"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o10"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="14631-6"/>
-							<display value="Bilirubin.total [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="27171005"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="7"/>
-						<unit value="umol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="2"/>
-							<unit value="umol/L"/>
-						</low>
-						<high>
-							<value value="20"/>
-							<unit value="umol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o11"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="14629-0"/>
-							<display value="Bilirubin.direct [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="39748002"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="3"/>
-						<unit value="umol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="0"/>
-							<unit value="umol/L"/>
-						</low>
-						<high>
-							<value value="8"/>
-							<unit value="umol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o12"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="6768-6"/>
-							<display value="Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="88810008"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="108"/>
-						<unit value="U/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="30"/>
-							<unit value="U/L"/>
-						</low>
-						<high>
-							<value value="115"/>
-							<unit value="U/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o13"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2324-2"/>
-							<display value="Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="69480007"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="35"/>
-						<unit value="U/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="0"/>
-							<unit value="U/L"/>
-						</low>
-						<high>
-							<value value="45"/>
-							<unit value="U/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o14"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="1742-6"/>
-							<display value="Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="34608000"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="54"/>
-						<unit value="U/L"/>
-					</valueQuantity>
-					<interpretation>
-						<coding>
-							<system value="http://hl7.org/fhir/v2/0078"/>
-							<code value="H"/>
-						</coding>
-					</interpretation>
-					<referenceRange>
-						<low>
-							<value value="0"/>
-							<unit value="U/L"/>
-						</low>
-						<high>
-							<value value="45"/>
-							<unit value="U/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o15"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="1920-8"/>
-							<display value="Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="45896001"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="30"/>
-						<unit value="U/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="0"/>
-							<unit value="U/L"/>
-						</low>
-						<high>
-							<value value="41"/>
-							<unit value="U/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o16"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2532-0"/>
-							<display value="Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="11274001"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="131"/>
-						<unit value="U/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="80"/>
-							<unit value="U/L"/>
-						</low>
-						<high>
-							<value value="250"/>
-							<unit value="U/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o17"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2000-8"/>
-							<display value="Calcium [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="71878006"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="2.38"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="2.25"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="2.65"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o18"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="13959-2"/>
-							<display value="Calcium.ionized [Moles/volume] in Serum or Plasma by calculation"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="166708003"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="2.39"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="2.25"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="2.65"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o19"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="14879-1"/>
-							<display value="Phosphate [Moles/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="104866001"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="1.5"/>
-						<unit value="mmol/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="0.8"/>
-							<unit value="mmol/L"/>
-						</low>
-						<high>
-							<value value="1.5"/>
-							<unit value="mmol/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o20"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2885-2"/>
-							<display value="Protein [Mass/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="74040009"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="67"/>
-						<unit value="g/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="60"/>
-							<unit value="g/L"/>
-						</low>
-						<high>
-							<value value="82"/>
-							<unit value="g/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o21"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="1751-7"/>
-							<display value="Albumin [Mass/volume] in Serum or Plasma"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="104485008"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="42"/>
-						<unit value="g/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="35"/>
-							<unit value="g/L"/>
-						</low>
-						<high>
-							<value value="50"/>
-							<unit value="g/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="o22"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="10834-0"/>
-							<display value="Globulin [Mass/volume] in Serum by calculation"/>
-						</coding>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="104979009"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="25"/>
-						<unit value="g/L"/>
-					</valueQuantity>
-					<referenceRange>
-						<low>
-							<value value="20"/>
-							<unit value="g/L"/>
-						</low>
-						<high>
-							<value value="40"/>
-							<unit value="g/L"/>
-						</high>
-					</referenceRange>
-				</Observation>
-			</contained>
-
-	<!-- ******************UA observations ************************** -->
+	<contained>
+		<Observation>
+			<id value="o1"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2951-2"/>
+					<display value="Sodium [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="104934005"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="140"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="137"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="147"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o2"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2823-3"/>
+					<display value="Potassium [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="59573005"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="4.2"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="3.5"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="5.0"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o3"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2075-0"/>
+					<display value="Chloride [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="46511006"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="105"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="96"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="109"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o4"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="1963-8"/>
+					<display value="Bicarbonate [Moles/volume] in Serum"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="88645003"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="26"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="25"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="33"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o5"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="1863-0"/>
+					<display value="Anion gap 4 in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="271057005"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="13"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="4"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="17"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o6"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="14749-6"/>
+					<display value="Glucose [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="36048009"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="7.4"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="3.0"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="7.7"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o7"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="14937-7"/>
+					<display value="Urea nitrogen [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="273967009"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="4.7"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="2.0"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="7.0"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o8"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="14682-9"/>
+					<display value="Creatinine [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="70901006"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="0.09"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="0.04"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="0.11"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o9"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="14933-6"/>
+					<display value="Urate [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="86228006"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="0.39"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<interpretation>
+				<coding>
+					<system value="http://hl7.org/fhir/v2/0078"/>
+					<code value="H"/>
+				</coding>
+			</interpretation>
+			<referenceRange>
+				<low>
+					<value value="0.14"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="0.35"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o10"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="14631-6"/>
+					<display value="Bilirubin.total [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="27171005"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="7"/>
+				<unit value="umol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="2"/>
+					<unit value="umol/L"/>
+				</low>
+				<high>
+					<value value="20"/>
+					<unit value="umol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o11"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="14629-0"/>
+					<display value="Bilirubin.direct [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="39748002"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="3"/>
+				<unit value="umol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="0"/>
+					<unit value="umol/L"/>
+				</low>
+				<high>
+					<value value="8"/>
+					<unit value="umol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o12"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="6768-6"/>
+					<display value="Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="88810008"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="108"/>
+				<unit value="U/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="30"/>
+					<unit value="U/L"/>
+				</low>
+				<high>
+					<value value="115"/>
+					<unit value="U/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o13"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2324-2"/>
+					<display value="Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="69480007"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="35"/>
+				<unit value="U/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="0"/>
+					<unit value="U/L"/>
+				</low>
+				<high>
+					<value value="45"/>
+					<unit value="U/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o14"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="1742-6"/>
+					<display value="Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="34608000"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="54"/>
+				<unit value="U/L"/>
+			</valueQuantity>
+			<interpretation>
+				<coding>
+					<system value="http://hl7.org/fhir/v2/0078"/>
+					<code value="H"/>
+				</coding>
+			</interpretation>
+			<referenceRange>
+				<low>
+					<value value="0"/>
+					<unit value="U/L"/>
+				</low>
+				<high>
+					<value value="45"/>
+					<unit value="U/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o15"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="1920-8"/>
+					<display value="Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="45896001"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="30"/>
+				<unit value="U/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="0"/>
+					<unit value="U/L"/>
+				</low>
+				<high>
+					<value value="41"/>
+					<unit value="U/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o16"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2532-0"/>
+					<display value="Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="11274001"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="131"/>
+				<unit value="U/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="80"/>
+					<unit value="U/L"/>
+				</low>
+				<high>
+					<value value="250"/>
+					<unit value="U/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o17"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2000-8"/>
+					<display value="Calcium [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="71878006"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="2.38"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="2.25"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="2.65"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o18"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="13959-2"/>
+					<display value="Calcium.ionized [Moles/volume] in Serum or Plasma by calculation"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="166708003"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="2.39"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="2.25"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="2.65"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o19"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="14879-1"/>
+					<display value="Phosphate [Moles/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="104866001"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="1.5"/>
+				<unit value="mmol/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="0.8"/>
+					<unit value="mmol/L"/>
+				</low>
+				<high>
+					<value value="1.5"/>
+					<unit value="mmol/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o20"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2885-2"/>
+					<display value="Protein [Mass/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="74040009"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="67"/>
+				<unit value="g/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="60"/>
+					<unit value="g/L"/>
+				</low>
+				<high>
+					<value value="82"/>
+					<unit value="g/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o21"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="1751-7"/>
+					<display value="Albumin [Mass/volume] in Serum or Plasma"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="104485008"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="42"/>
+				<unit value="g/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="35"/>
+					<unit value="g/L"/>
+				</low>
+				<high>
+					<value value="50"/>
+					<unit value="g/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="o22"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="10834-0"/>
+					<display value="Globulin [Mass/volume] in Serum by calculation"/>
+				</coding>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="104979009"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="25"/>
+				<unit value="g/L"/>
+			</valueQuantity>
+			<referenceRange>
+				<low>
+					<value value="20"/>
+					<unit value="g/L"/>
+				</low>
+				<high>
+					<value value="40"/>
+					<unit value="g/L"/>
+				</high>
+			</referenceRange>
+		</Observation>
+	</contained>
 	<contained>
 		<Observation>
 			<id value="p3"/>
-						<status value="final"/>
+			<status value="final"/>
 			<code>
 				<coding>
 					<system value="http://loinc.org"/>
@@ -1978,291 +1962,289 @@
 			</related>
 		</Observation>
 	</contained>
-			<contained>
-				<Observation>
-					<id value="u1"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2756-5"/>
-							<display value="pH of Urine"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<effectiveDateTime value="2015-08-16T06:40:17Z"/>
-					<issued value="2015-08-17T06:40:17Z"/>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="5.0"/>
-						<unit value="pH"/>
-					</valueQuantity>
-					<specimen>
-						<reference value="#urine"/>
-						<display value="Urine Sample"/>
-					</specimen>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="u2"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2887-8"/>
-							<display value="Protein [Presence] in Urine"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<effectiveDateTime value="2015-08-16T06:40:17Z"/>
-					<issued value="2015-08-17T06:40:17Z"/>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueCodeableConcept>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="260385009"/>
-							<display value="Negative"/>
-						</coding>
-					</valueCodeableConcept>
-					<specimen>
-						<reference value="#urine"/>
-						<display value="Urine Sample"/>
-					</specimen>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="u3"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2965-2"/>
-							<display value="Specific gravity of Urine"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<effectiveDateTime value="2015-08-16T06:40:17Z"/>
-					<issued value="2015-08-17T06:40:17Z"/>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="1.009"/>
-					</valueQuantity>
-					<specimen>
-						<reference value="#urine"/>
-						<display value="Urine Sample"/>
-					</specimen>
-				</Observation>
-			</contained>
-
-			<contained>
-				<Observation>
-					<id value="u4"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="33051-4"/>
-							<display value="Erythrocytes [Presence] in Urine"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<effectiveDateTime value="2015-08-16T06:40:17Z"/>
-					<issued value="2015-08-17T06:40:17Z"/>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueCodeableConcept>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="260385009"/>
-							<display value="Negative"/>
-						</coding>
-					</valueCodeableConcept>
-					<specimen>
-						<reference value="#urine"/>
-						<display value="Urine Sample"/>
-					</specimen>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="u5"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="2349-9"/>
-							<display value="Glucose [Presence] in Urine"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<effectiveDateTime value="2015-08-16T06:40:17Z"/>
-					<issued value="2015-08-17T06:40:17Z"/>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueCodeableConcept>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="260385009"/>
-							<display value="Negative"/>
-						</coding>
-					</valueCodeableConcept>
-					<specimen>
-						<reference value="#urine"/>
-						<display value="Urine Sample"/>
-					</specimen>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="u6"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="33052-2"/>
-							<display value="Leukocytes [Presence] in Urine"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<effectiveDateTime value="2015-08-16T06:40:17Z"/>
-					<issued value="2015-08-17T06:40:17Z"/>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueCodeableConcept>
-						<coding>
-							<system value="http://snomed.info/sct"/>
-							<code value="260385009"/>
-							<display value="Negative"/>
-						</coding>
-					</valueCodeableConcept>
-					<specimen>
-						<reference value="#urine"/>
-						<display value="Urine Sample"/>
-					</specimen>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="u7"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="30405-5"/>
-							<display value="Leukocytes [#/volume] in Urine"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<effectiveDateTime value="2015-08-16T06:40:17Z"/>
-					<issued value="2015-08-17T06:40:17Z"/>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="1"/>
-						<unit value="/uL"/>
-					</valueQuantity>
-					<specimen>
-						<reference value="#urine"/>
-						<display value="Urine Sample"/>
-					</specimen>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="u8"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="30391-7"/>
-							<display value="Erythocytes [#/volume] in Urine"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<effectiveDateTime value="2015-08-16T06:40:17Z"/>
-					<issued value="2015-08-17T06:40:17Z"/>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="1"/>
-						<comparator value="&lt;"/>
-						<unit value="/uL"/>
-					</valueQuantity>
-					<specimen>
-						<reference value="#urine"/>
-						<display value="Urine Sample"/>
-					</specimen>
-				</Observation>
-			</contained>
-			<contained>
-				<Observation>
-					<id value="u9"/>
-					<status value="final"/>
-					<code>
-						<coding>
-							<system value="http://loinc.org"/>
-							<code value="13654-9"/>
-							<display value="Epithelial cells.squamous [#/volume] in Urine sediment"/>
-						</coding>
-					</code>
-					<subject>
-						<reference value="Patient/pat2"/>
-					</subject>
-					<effectiveDateTime value="2015-08-16T06:40:17Z"/>
-					<issued value="2015-08-17T06:40:17Z"/>
-					<performer>
-						<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
-						<display value="Acme Laboratory, Inc"/>
-					</performer>
-					<valueQuantity>
-						<value value="1"/>
-						<comparator value="&lt;"/>
-						<unit value="/mL"/>
-					</valueQuantity>
-					<specimen>
-						<reference value="#urine"/>
-						<display value="Urine Sample"/>
-					</specimen>
-				</Observation>
-			</contained>
-
+	<contained>
+		<Observation>
+			<id value="u1"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2756-5"/>
+					<display value="pH of Urine"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<effectiveDateTime value="2015-08-16T06:40:17Z"/>
+			<issued value="2015-08-17T06:40:17Z"/>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="5.0"/>
+				<unit value="pH"/>
+			</valueQuantity>
+			<specimen>
+				<reference value="#urine"/>
+				<display value="Urine Sample"/>
+			</specimen>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="u2"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2887-8"/>
+					<display value="Protein [Presence] in Urine"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<effectiveDateTime value="2015-08-16T06:40:17Z"/>
+			<issued value="2015-08-17T06:40:17Z"/>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260385009"/>
+					<display value="Negative"/>
+				</coding>
+			</valueCodeableConcept>
+			<specimen>
+				<reference value="#urine"/>
+				<display value="Urine Sample"/>
+			</specimen>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="u3"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2965-2"/>
+					<display value="Specific gravity of Urine"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<effectiveDateTime value="2015-08-16T06:40:17Z"/>
+			<issued value="2015-08-17T06:40:17Z"/>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="1.009"/>
+			</valueQuantity>
+			<specimen>
+				<reference value="#urine"/>
+				<display value="Urine Sample"/>
+			</specimen>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="u4"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="33051-4"/>
+					<display value="Erythrocytes [Presence] in Urine"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<effectiveDateTime value="2015-08-16T06:40:17Z"/>
+			<issued value="2015-08-17T06:40:17Z"/>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260385009"/>
+					<display value="Negative"/>
+				</coding>
+			</valueCodeableConcept>
+			<specimen>
+				<reference value="#urine"/>
+				<display value="Urine Sample"/>
+			</specimen>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="u5"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="2349-9"/>
+					<display value="Glucose [Presence] in Urine"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<effectiveDateTime value="2015-08-16T06:40:17Z"/>
+			<issued value="2015-08-17T06:40:17Z"/>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260385009"/>
+					<display value="Negative"/>
+				</coding>
+			</valueCodeableConcept>
+			<specimen>
+				<reference value="#urine"/>
+				<display value="Urine Sample"/>
+			</specimen>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="u6"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="33052-2"/>
+					<display value="Leukocytes [Presence] in Urine"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<effectiveDateTime value="2015-08-16T06:40:17Z"/>
+			<issued value="2015-08-17T06:40:17Z"/>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueCodeableConcept>
+				<coding>
+					<system value="http://snomed.info/sct"/>
+					<code value="260385009"/>
+					<display value="Negative"/>
+				</coding>
+			</valueCodeableConcept>
+			<specimen>
+				<reference value="#urine"/>
+				<display value="Urine Sample"/>
+			</specimen>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="u7"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="30405-5"/>
+					<display value="Leukocytes [#/volume] in Urine"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<effectiveDateTime value="2015-08-16T06:40:17Z"/>
+			<issued value="2015-08-17T06:40:17Z"/>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="1"/>
+				<unit value="/uL"/>
+			</valueQuantity>
+			<specimen>
+				<reference value="#urine"/>
+				<display value="Urine Sample"/>
+			</specimen>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="u8"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="30391-7"/>
+					<display value="Erythocytes [#/volume] in Urine"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<effectiveDateTime value="2015-08-16T06:40:17Z"/>
+			<issued value="2015-08-17T06:40:17Z"/>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="1"/>
+				<comparator value="&lt;"/>
+				<unit value="/uL"/>
+			</valueQuantity>
+			<specimen>
+				<reference value="#urine"/>
+				<display value="Urine Sample"/>
+			</specimen>
+		</Observation>
+	</contained>
+	<contained>
+		<Observation>
+			<id value="u9"/>
+			<status value="final"/>
+			<code>
+				<coding>
+					<system value="http://loinc.org"/>
+					<code value="13654-9"/>
+					<display value="Epithelial cells.squamous [#/volume] in Urine sediment"/>
+				</coding>
+			</code>
+			<subject>
+				<reference value="Patient/pat2"/>
+			</subject>
+			<effectiveDateTime value="2015-08-16T06:40:17Z"/>
+			<issued value="2015-08-17T06:40:17Z"/>
+			<performer>
+				<reference value="Organization/1832473e-2fe0-452d-abe9-3cdb9879522f"/>
+				<display value="Acme Laboratory, Inc"/>
+			</performer>
+			<valueQuantity>
+				<value value="1"/>
+				<comparator value="&lt;"/>
+				<unit value="/mL"/>
+			</valueQuantity>
+			<specimen>
+				<reference value="#urine"/>
+				<display value="Urine Sample"/>
+			</specimen>
+		</Observation>
+	</contained>
 	<identifier>
 		<system value="http://acme.com/lab/reports"/>
 		<value value="ghp-example"/>
@@ -2304,10 +2286,8 @@
 		<reference value="#p2"/>
 		<display value="CBC"/>
 	</result>
-
 	<result>
 		<reference value="#p3"/>
 		<display value="Urinalysis"/>
 	</result>
-
 </DiagnosticReport>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/specimen.xsd">
+<Specimen xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir">
 	<id value="101"/>
-	<!--text>
+		<!--text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
   </text>-->
@@ -16,25 +16,28 @@
 			</code>
 		</Substance>
 	</contained>
-	<!-- a specimen identifier - e.g. assigned when the specimen was taken
+
+	<identifier>	<!-- a specimen identifier - e.g. assigned when the specimen was taken
      this is often not done -->
-	<identifier>
 		<system value="http://ehr.acme.org/identifiers/collections"/>
 		<value value="23234352356"/>
 	</identifier>
-	<!--status is really about the specimen availability and includes the concepts available - The physical specimen is present and in good condition entered-in-error - The specimen was entered in error and therefore nullified. unavailable - There is no physical specimen because it is either lost, destroyed or consumed. unsatisfactory - The specimen cannot be used because of either a quality issue such as a broken container, contamination, or too old.-->
-	<status value="available"></status>
-	<!--
+	<accessionIdentifier>
+		<system value="http://lab.acme.org/specimens/2011"/>
+		<value value="X352356"/>
+	</accessionIdentifier>
+	<status value="available"/>
+	<type><!--
    Type is a loosely defined field because there is such a lot of variation in how it is used.
-   The principal variation is how much information that could be represented elsewhere is also 
+   The principal variation is how much information that could be represented elsewhere is also
    represented here. For instance, here's some possible types:
      lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)
-     transfusion bag of blood (+ container.type) 
+     transfusion bag of blood (+ container.type)
      Peritoneal lavage        (+ collection.bodySite)
    If the type includes other fields, it would be normal not to populate the other fields
 
    Note that this practice is so widespread that it's pointless to try and stop it -->
-	<type>
+	
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="122555007"/>
@@ -45,22 +48,17 @@
 		<reference value="Patient/example"/>
 		<display value="Peter Patient"/>
 	</subject>
-	<!-- accession identifier - e.g. assigned by the labaratory when it is received.
-     This is common, unlike specimen identifier -->
-	<accessionIdentifier>
-		<system value="http://lab.acme.org/specimens/2011"/>
-		<value value="X352356"/>
-	</accessionIdentifier>
 	<receivedTime value="2011-03-04T07:03:00Z"/>
 	<collection>
 		<collector>
 			<!-- in practice, collecter is almost always recorded -->
 			<reference value="Practitioner/example"/>
 		</collector>
-		<comment value="Specimen is grossly lipemic"></comment>
+		<comment value="Specimen is grossly lipemic"/>
 		<!-- the time of collection is usually required. Usually a point in time, but can be a period 
       (collectedPeriod) if it's a timed collection (e.g. a 24 hour urine) -->
-		<collectedDateTime value="2011-05-30T06:15:00Z"/>
+		<collectedDateTime value="2011-05-30T06:15:00Z"/>		
+
 		<quantity>
 			<value value="6"/>
 			<unit value="mL"/>

@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Specimen xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/specimen.xsd">
+<Specimen xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="vma-urine"/>
-	<!--text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
-  </text>-->
-	<!--
+	<accessionIdentifier>
+		<!-- accession identifier - e.g. assigned by the labaratory when it is received.
+     This is common, unlike specimen identifier -->
+		<system value="http://lab.acme.org/specimens/2015"/>
+		<value value="X352356"/>
+	</accessionIdentifier>
+	<status value="available"/>
+	<type>
+		<!--
    Type is a loosely defined field because there is such a lot of variation in how it is used.
-   The principal variation is how much information that could be represented elsewhere is also 
+   The principal variation is how much information that could be represented elsewhere is also
    represented here. For instance, here's some possible types:
      lithium heparin plasma   (+ .container.additive) (e.g. SNOMED CT 446272009)
-     transfusion bag of blood (+ container.type) 
+     transfusion bag of blood (+ container.type)
      Peritoneal lavage        (+ collection.bodySite)
    If the type includes other fields, it would be normal not to populate the other fields
 
-   Note that this practice is so widespread that it's pointless to try and stop it -->
-	<status value="available"></status>
-	<type>
+   Note that this practice is so widespread that it's pointless to try and stop it
+ -->
 		<coding>
 			<system value="http://hl7.org/fhir/v2/0487"/>
 			<code value="RANDU"/>
@@ -26,12 +29,6 @@
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
-	<!-- accession identifier - e.g. assigned by the labaratory when it is received.
-     This is common, unlike specimen identifier -->
-	<accessionIdentifier>
-		<system value="http://lab.acme.org/specimens/2015"/>
-		<value value="X352356"/>
-	</accessionIdentifier>
 	<receivedTime value="2015-08-18T07:03:00Z"/>
 	<collection>
 		<collector>

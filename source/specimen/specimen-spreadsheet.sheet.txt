@@ -106,6 +106,17 @@
   w5 = id
 
  -- Row 3 -----------------------------------
+  Element = Specimen.accessionIdentifier
+  Card. = 0..1
+  Summary = Y
+  Type = Identifier
+  Short Label = Identifier assigned by the lab
+  Definition = The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.
+  v2 Mapping = SPM-30 (v2.7+)
+  RIM Mapping = .participation[typeCode=SBJ].act[classCode=ACSN, moodCode=EVN].id
+  w5 = id
+
+ -- Row 4 -----------------------------------
   Element = Specimen.status
   Card. = 0..1
   Is Modifier = Y
@@ -119,7 +130,7 @@
   Committee Notes = [#5829}
   w5 = status
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Specimen.type
   Card. = 0..1
   Summary = Y
@@ -130,37 +141,9 @@
   Comments = The type can change the way that a specimen is handled, and drives what kind of analyses can properly be performed on the specimen. It is frequently used in diagnostic work flow decision making systems.
   v2 Mapping = SPM-4 and possibly SPM-5
   RIM Mapping = .code
-  w5 = class
-
- -- Row 5 -----------------------------------
-  Element = Specimen.parent
-  Card. = 0..*
-  Type = Reference(Specimen)
-  Short Label = Specimen from which this specimen originated
-  Definition = Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.
-  Comments = The parent specimen could be the source from which the current specimen is derived by some processing step (e.g. an aliquot or isolate or extracted nucleic acids from clinical samples) or one of many specimens that were combined to create a pooled sample.
-  RIM Mapping = .scoper (if parent) .player.scopesRole[classCode=SPEC].player (if child)
-  Committee Notes = [#3862]
+  w5 = what
 
  -- Row 6 -----------------------------------
-  Element = !Specimen.source.relationship
-  Card. = 1..1
-  Type = code
-  Binding = HierarchicalRelationshipType
-  Short Label = parent | child
-  Definition = Whether this relationship is to a parent or to a child
-  v2 Mapping = not explicit in v2.x SPM segment, but can be derived as child,if SPM-3 Specimen parent ID is filled in
-  RIM Mapping = as above
-
- -- Row 7 -----------------------------------
-  Element = !Specimen.source.target
-  Card. = 0..*
-  Type = Reference(Specimen)
-  Short Label = The subject of the relationship
-  Definition = The specimen resource that is the target of this relationship
-  RIM Mapping = [self]
-
- -- Row 8 -----------------------------------
   Element = Specimen.subject
   Card. = 1..1
   Summary = Y
@@ -170,18 +153,7 @@
   RIM Mapping = .scoper  or  .scoper.playsRole
   w5 = who.focus
 
- -- Row 9 -----------------------------------
-  Element = Specimen.accessionIdentifier
-  Card. = 0..1
-  Summary = Y
-  Type = Identifier
-  Short Label = Identifier assigned by the lab
-  Definition = The identifier assigned by the lab when accessioning specimen(s). This is not necessarily the same as the specimen identifier, depending on local lab procedures.
-  v2 Mapping = SPM-30 (v2.7+)
-  RIM Mapping = .participation[typeCode=SBJ].act[classCode=ACSN, moodCode=EVN].id
-  w5 = id
-
- -- Row 10 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Specimen.receivedTime
   Card. = 0..1
   Summary = Y
@@ -191,6 +163,34 @@
   v2 Mapping = SPM-18
   RIM Mapping = .participation[typeCode=SBJ].act[code=SPCREC, moodCode=EVN].effectiveTime
   w5 = when.done
+
+ -- Row 8 -----------------------------------
+  Element = Specimen.parent
+  Card. = 0..*
+  Type = Reference(Specimen)
+  Short Label = Specimen from which this specimen originated
+  Definition = Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.
+  Comments = The parent specimen could be the source from which the current specimen is derived by some processing step (e.g. an aliquot or isolate or extracted nucleic acids from clinical samples) or one of many specimens that were combined to create a pooled sample.
+  RIM Mapping = .scoper (if parent) .player.scopesRole[classCode=SPEC].player (if child)
+  Committee Notes = [#3862]
+
+ -- Row 9 -----------------------------------
+  Element = !Specimen.source.relationship
+  Card. = 1..1
+  Type = code
+  Binding = HierarchicalRelationshipType
+  Short Label = parent | child
+  Definition = Whether this relationship is to a parent or to a child
+  v2 Mapping = not explicit in v2.x SPM segment, but can be derived as child,if SPM-3 Specimen parent ID is filled in
+  RIM Mapping = as above
+
+ -- Row 10 -----------------------------------
+  Element = !Specimen.source.target
+  Card. = 0..*
+  Type = Reference(Specimen)
+  Short Label = The subject of the relationship
+  Definition = The specimen resource that is the target of this relationship
+  RIM Mapping = [self]
 
  -- Row 11 -----------------------------------
   Element = Specimen.collection
@@ -210,6 +210,7 @@
   Definition = Person who collected the specimen
   v2 Mapping = PRT
   RIM Mapping = .participation[typeCode=PFM].role
+  w5 = who.actor
 
  -- Row 13 -----------------------------------
   Element = Specimen.collection.comment

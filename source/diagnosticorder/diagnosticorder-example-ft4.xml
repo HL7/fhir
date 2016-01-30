@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Diagnostic order example - Free T4 add-on to existing serum sample-->
-<!-- This example idemonstrate use of the DO.specimen element-->
-<DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/diagnosticorder.xsd">
+<DiagnosticOrder xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir //Mac/Home/Documents/FHIRBuild/schema/diagnosticorder.xsd" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<id value="ft4"/>
 	<contained>
 		<Specimen>
 			<id value="rtt"/>
+			<accessionIdentifier>
+				<system value="http://acme.com/labs/accession-ids"/>
+				<value value="20150816-00124"/>
+			</accessionIdentifier>
 			<type>
 				<coding>
 					<system value="http://snomed.info/sct"/>
@@ -16,10 +18,6 @@
 			<subject>
 				<reference value="Patient/pat2"/>
 			</subject>
-			<accessionIdentifier>
-				<system value="http://acme.com/labs/accession-ids"/>
-				<value value="20150816-00124"/>
-			</accessionIdentifier>
 			<collection>
 				<collector>
 					<reference value="Practitioner/f202"/>
