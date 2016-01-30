@@ -164,6 +164,29 @@
   w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------
+  Element = NutritionOrder.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Identifiers assigned to this order
+  Definition = Identifiers assigned to this order by the order sender or by the order receiver
+  RIM Mapping = .id
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = NutritionOrder.status
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = NutritionOrderStatus
+  Short Label = proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
+  Definition = The workflow status of the nutrition order/request.
+  Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.
+  RIM Mapping = .statusCode
+  Committee Notes = [#3720]
+  w5 = status
+
+ -- Row 4 -----------------------------------
   Element = NutritionOrder.patient
   Card. = 1..1
   Summary = Y
@@ -173,25 +196,6 @@
   RIM Mapping = .participation[typeCode=SBJ].role
   Committee Notes = 2/4/2015 EH: [#3707] change subject to patient
   w5 = who.focus
-
- -- Row 3 -----------------------------------
-  Element = NutritionOrder.orderer
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Practitioner)
-  Short Label = Who ordered the diet, formula or nutritional supplement
-  Definition = The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
-  RIM Mapping = .participation[typeCode=AUT].role
-  w5 = who.author
-
- -- Row 4 -----------------------------------
-  Element = NutritionOrder.identifier
-  Card. = 0..*
-  Type = Identifier
-  Short Label = Identifiers assigned to this order
-  Definition = Identifiers assigned to this order by the order sender or by the order receiver
-  RIM Mapping = .id
-  w5 = id
 
  -- Row 5 -----------------------------------
   Element = NutritionOrder.encounter
@@ -213,18 +217,14 @@
   w5 = when.recorded
 
  -- Row 7 -----------------------------------
-  Element = NutritionOrder.status
+  Element = NutritionOrder.orderer
   Card. = 0..1
-  Is Modifier = Y
   Summary = Y
-  Type = code
-  Binding = NutritionOrderStatus
-  Short Label = proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error
-  Definition = The workflow status of the nutrition order/request.
-  Comments = Typically the system placing the order sets the status to \"requested\". Thereafter, the order is maintained by the receiver that updates the status as the request is handled.
-  RIM Mapping = .statusCode
-  Committee Notes = [#3720]
-  w5 = status
+  Type = Reference(Practitioner)
+  Short Label = Who ordered the diet, formula or nutritional supplement
+  Definition = The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.author
 
  -- Row 8 -----------------------------------
   Element = NutritionOrder.allergyIntolerance
@@ -302,6 +302,7 @@
   Definition = The kind of diet or dietary restriction such as fiber restricted diet or diabetic diet.
   RIM Mapping = .code
   Committee Notes = renamed from .code to .type for consistency
+  w5 = what
 
  -- Row 16 -----------------------------------
   Element = NutritionOrder.oralDiet.schedule
@@ -329,6 +330,7 @@
   Short Label = Type of nutrient that is being modified
   Definition = The nutrient that is being modified such as carbohydrate or sodium.
   RIM Mapping = .code
+  w5 = what
 
  -- Row 19 -----------------------------------
   Element = NutritionOrder.oralDiet.nutrient.amount
@@ -404,6 +406,7 @@
   Short Label = Type of supplement product requested
   Definition = The kind of nutritional supplement product required such as a high protein or pediatric clear liquid supplement
   RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind; .code (NutritionalSupplementType)
+  w5 = what
 
  -- Row 27 -----------------------------------
   Element = NutritionOrder.supplement.productName
@@ -461,6 +464,7 @@
   Short Label = Type of enteral or infant formula
   Definition = The type of enteral or infant formula such as an adult standard formula with fiber or a soy-based infant formula.
   RIM Mapping = .participation{typeCode=PRD].role{classCode=MANU), manufacturedFoodKind; .code (NutritionalFormulaType)
+  w5 = what
 
  -- Row 33 -----------------------------------
   Element = NutritionOrder.enteralFormula.baseFormulaProductName
@@ -479,6 +483,7 @@
   Short Label = Type of modular component to add to the feeding
   Definition = Indicates the type of modular component such as protein, carbohydrate, fat or fiber to be provided in addition to or mixed with the base formula.
   RIM Mapping = N/A (not differentiated from NutritionalFormulaType in HL7 v3)
+  w5 = what
 
  -- Row 35 -----------------------------------
   Element = NutritionOrder.enteralFormula.additiveProductName
