@@ -17,8 +17,7 @@
 		</Substance>
 	</contained>
 
-	<identifier>	<!-- a specimen identifier - e.g. assigned when the specimen was taken
-     this is often not done -->
+	<identifier>	<!-- a specimen identifier - e.g. assigned when the specimen was taken this is often not done -->
 		<system value="http://ehr.acme.org/identifiers/collections"/>
 		<value value="23234352356"/>
 	</identifier>
