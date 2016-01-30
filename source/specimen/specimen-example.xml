@@ -36,7 +36,6 @@
    If the type includes other fields, it would be normal not to populate the other fields
 
    Note that this practice is so widespread that it's pointless to try and stop it -->
-	
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="122555007"/>
