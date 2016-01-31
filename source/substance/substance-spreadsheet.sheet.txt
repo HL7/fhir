@@ -46,6 +46,7 @@
   Comments = This identifier is associated with the kind of substance in contrast to the  Substance.instance.identifier which is associated with the package/container.
   RIM Mapping = .id
   Committee Notes = 6/17/2015 in Reponse to Build warning QA task
+  w5 = id
 
  -- Row 3 -----------------------------------
   Element = Substance.category
@@ -93,7 +94,6 @@
   RIM Mapping = .player.determinerCode
   Committee Notes = #5666
   Missing Meaning = If this element is not present, then the substance resource describes a kind of substance
-  w5 = class
 
  -- Row 7 -----------------------------------
   Element = Substance.instance.identifier
