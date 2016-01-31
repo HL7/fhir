@@ -12,9 +12,9 @@
 			<display value="Performance pace maker for high octane patients"/>
 		</coding>
 	</type>
+	<lotNumber value="1234-5678"/>
 	<manufacturer value="Acme Devices, Inc"/>
 	<model value="PM/Octane 2014"/>
-	<lotNumber value="1234-5678"/>
 	<patient>
 		<reference value="Patient/example"/>
 	</patient>

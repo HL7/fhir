@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/schema/device.xsd">
 	<id value="f001"/>
-	<identifier><system value="http:/goodhealthhospital/identifier/devices"></system><value value="12345"></value></identifier>
+	<identifier>
+		<system value="http:/goodhealthhospital/identifier/devices"/>
+		<value value="12345"/>
+	</identifier>
+	<udiCarrier>
+		<system value="urn:oid:2.16.840.1.113883.3.3719"/>
+		<!-- FDA UDI root - urn:oid:2.16.840.1.113883.3.3719  Add following udi system URN to fhir identifier registry :-->
+		<value value="(01)00000123000017(10)ABC123(17)120415"/>
+		<!-- this udi is fictitious and will be updated when more information and better examples of UDI's become available  -->
+	</udiCarrier>
+	<status value="available"/>
 	<type>
 		<coding>
 			<system value="http://snomed.info/sct"/>
@@ -9,11 +19,12 @@
 			<display value="Feeding tube, device"/>
 		</coding>
 	</type>
-		<status value="available"/>
-	<manufactureDate value="2015-08-08"></manufactureDate>
-	<expiry value="2020-08-08"></expiry>
-	<!-- this udi is fictitious and will be updated when more information and better examples of UDI's become available  -->
-	<udi value="(01)00000123000017(10)ABC123(17)120415"></udi>
-	<owner><reference value="Organization/2.16.840.1.113883.19.5"></reference></owner>
-	<location><display value="Central Supply"></display></location>
+	<manufactureDate value="2015-08-08"/>
+	<expirationDate value="2020-08-08"/>
+	<owner>
+		<reference value="Organization/2.16.840.1.113883.19.5"/>
+	</owner>
+	<location>
+		<display value="Central Supply"/>
+	</location>
 </Device>

@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd">
-  <id value="example"/>
-  <!--text>
+<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/device.xsd"><!--text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
       <p>example</p>
     </div>
-  </text-->
-  <identifier>
+  </text--><id value="example"/>
+	<identifier>
     <system value="http://goodcare.org/devices/id"/>
     <value value="345675"/>
   </identifier>
-  <identifier>
+	<identifier>
     <type>
       <coding>
         <system value="http://hl7.org/fhir/identifier-type"/>
@@ -21,7 +19,8 @@
     </type>
     <value value="AMID-342135-8464"/>
   </identifier>
-  <type>
+	<status value="available"/>
+	<type>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="86184003"/>
@@ -29,6 +28,13 @@
     </coding>
     <text value="ECG"/>
   </type>
+	<lotNumber value="43453424"/>
+	<manufacturer value="Acme Devices, Inc"/>
+	<model value="AB 45-J"/>
+	<contact>
+    <system value="phone"/>
+    <value value="ext 4352"/>
+  </contact>
 	<note>
 	  <authorReference>
 		  <reference value="Practitioner/xcda-author"/>
@@ -36,12 +42,4 @@
 		<time value="2015-06-28T14:03:32+10:00"/>
 		<text value="QA Checked"/>
 	</note>
-  <status value="available"/>
-  <manufacturer value="Acme Devices, Inc"/>
-  <model value="AB 45-J"/>
-  <lotNumber value="43453424"/>
-  <contact>
-    <system value="phone"/>
-    <value value="ext 4352"/>
-  </contact>
 </Device>

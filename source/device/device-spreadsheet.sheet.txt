@@ -44,8 +44,8 @@
  -- Row 1 -----------------------------------
   Element = Device
   Type = DomainResource
-  Short Label = An instance of a manufactured te that is used in the provision of healthcare
-  Definition = This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
+  Short Label = Item used in healthcare
+  Definition = This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
   Requirements = Allows institutions to track their devices.
   RIM Mapping = Device
   Committee Notes = 6209
@@ -54,34 +54,28 @@
  -- Row 2 -----------------------------------
   Element = Device.identifier
   Card. = 0..*
+  Aliases = Serial Number
   Type = Identifier
   Short Label = Instance id from manufacturer, owner, and others
   Definition = Unique instance identifiers assigned to a device by organizations like manufacturers or owners. If the identifier identifies the type of device, Device.type should be used.
-  Comments = Often fixed to the device as a barcode and may include names given to the device in local usage.  Note that some of the barcodes affixed to the device identify its type, not its instance.  For the FDA mandated Unique Device Identifier (UDI) use  the Device.udi element.
+  Comments = Often fixed to the device as a barcode and may include names given to the device in local usage.  Note that some of the barcodes affixed to the device identify its type, not its instance.  For the FDA mandated Unique Device Identifier (UDI) use the Device.udiCarrier element.
   RIM Mapping = .id
+  Committee Notes = 7662
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Device.type
-  Card. = 1..1
-  Type = CodeableConcept
-  Binding = DeviceKind
-  Short Label = What kind of device this is
-  Definition = Code or identifier to identify a kind of device.
-  Comments = For the FDA mandated Unique Device Identifier (UDI) use  the Device.udi element.
-  RIM Mapping = .code
-  Committee Notes = 7590
-  w5 = class
+  Element = Device.udiCarrier
+  Card. = 0..1
+  Aliases = UDI,  Barcode String
+  Type = Identifier
+  Short Label = Unique Device Identifier (UDI) Barcode string
+  Definition = United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm
+  Comments = The unique identifier may identify an instance of a device uniquely, or it may only identify the type of the device. A portion of the UDI - the DI part - can be extracted from the UDI when required, and used to look up information about the device through the GUDID.
+  RIM Mapping = .id[where root is root for UDI]
+  Committee Notes = #7662
+  w5 = id
 
  -- Row 4 -----------------------------------
-  Element = Device.note
-  Card. = 0..*
-  Type = Annotation
-  Short Label = Device notes and comments
-  Definition = Descriptive information, usage information or implantation information that is not captured in an existing element.
-  RIM Mapping = .text
-
- -- Row 5 -----------------------------------
   Element = Device.status
   Card. = 0..1
   Is Modifier = Y
@@ -93,59 +87,19 @@
   RIM Mapping = .statusCode
   w5 = status
 
- -- Row 6 -----------------------------------
-  Element = Device.manufacturer
-  Card. = 0..1
-  Type = string
-  Short Label = Name of device manufacturer
-  Definition = A name of the manufacturer
-  RIM Mapping = .playedRole[typeCode=MANU].scoper.name
-
- -- Row 7 -----------------------------------
-  Element = Device.model
-  Card. = 0..1
-  Type = string
-  Short Label = Model id assigned by the manufacturer
-  Definition = The \"model\" is an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
-  RIM Mapping = .playedRole[typeCode=MANU].code
+ -- Row 5 -----------------------------------
+  Element = Device.type
+  Card. = 1..1
+  Type = CodeableConcept
+  Binding = DeviceKind
+  Short Label = What kind of device this is
+  Definition = Code or identifier to identify a kind of device.
+  Comments = For the FDA mandated Unique Device Identifier (UDI) use  the Device.udiCarrier element.
+  RIM Mapping = .code
+  Committee Notes = #7590,#7662
   w5 = what
 
- -- Row 8 -----------------------------------
-  Element = Device.version
-  Card. = 0..1
-  Type = string
-  Short Label = Version number (i.e. software)
-  Definition = The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.
-  RIM Mapping = .softwareName (included as part)
-
- -- Row 9 -----------------------------------
-  Element = Device.manufactureDate
-  Card. = 0..1
-  Type = dateTime
-  Short Label = Date when the device was made
-  Definition = The date and time when the device was manufactured.
-  RIM Mapping = .existenceTime.low
-
- -- Row 10 -----------------------------------
-  Element = Device.expiry
-  Card. = 0..1
-  Type = dateTime
-  Short Label = Date and time of expiry of this device (if applicable)
-  Definition = The date and time beyond which this device is no longer valid or should not be used (if applicable)
-  RIM Mapping = .expirationTime
-  w5 = when.done
-
- -- Row 11 -----------------------------------
-  Element = Device.udi
-  Card. = 0..1
-  Type = string
-  Short Label = FDA mandated Unique Device Identifier
-  Definition = United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm
-  Comments = The unique identifier may identify an instance of a device uniquely, or it may only identify the type of the device. A portion of the UDI - the DI part - can be extracted from the UDI when required, and used to look up information about the device through the GUDID.
-  RIM Mapping = .id[where root is root for UDI]
-  w5 = id
-
- -- Row 12 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Device.lotNumber
   Card. = 0..1
   Type = string
@@ -153,8 +107,59 @@
   Definition = Lot number assigned by the manufacturer
   Comments = Alphanumeric Maximum 20
   RIM Mapping = .lotNumberText
+  Committee Notes = W5 note what = what.productidentification
+  w5 = what
 
- -- Row 13 -----------------------------------
+ -- Row 7 -----------------------------------
+  Element = Device.manufacturer
+  Card. = 0..1
+  Type = string
+  Short Label = Name of device manufacturer
+  Definition = A name of the manufacturer
+  RIM Mapping = .playedRole[typeCode=MANU].scoper.name
+  w5 = what
+
+ -- Row 8 -----------------------------------
+  Element = Device.manufactureDate
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Date when the device was made
+  Definition = The date and time when the device was manufactured.
+  RIM Mapping = .existenceTime.low
+  Committee Notes = W5 note what = what.productidentification
+  w5 = what
+
+ -- Row 9 -----------------------------------
+  Element = Device.expirationDate
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Date and time of expiry of this device (if applicable)
+  Definition = The date and time beyond which this device is no longer valid or should not be used (if applicable)
+  RIM Mapping = .expirationTime
+  Committee Notes = W5 note what = what.productidentification
+  w5 = what
+
+ -- Row 10 -----------------------------------
+  Element = Device.model
+  Card. = 0..1
+  Type = string
+  Short Label = Model id assigned by the manufacturer
+  Definition = The \"model\" is an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
+  RIM Mapping = .playedRole[typeCode=MANU].code
+  Committee Notes = W5 note what = what.productidentification
+  w5 = what
+
+ -- Row 11 -----------------------------------
+  Element = Device.version
+  Card. = 0..1
+  Type = string
+  Short Label = Version number (i.e. software)
+  Definition = The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.
+  RIM Mapping = .softwareName (included as part)
+  Committee Notes = W5 note what = what.productidentification
+  w5 = what
+
+ -- Row 12 -----------------------------------
   Element = !Device.serialNumber
   Card. = 0..1
   Type = string
@@ -162,6 +167,17 @@
   Definition = The serial number assigned by the organization when the device was manufactured
   Comments = Alphanumeric Maximum 20
   RIM Mapping = .playedRole[typeCode=MANU].id
+  Committee Notes = W5 note what = what.productidentification
+  w5 = what
+
+ -- Row 13 -----------------------------------
+  Element = Device.patient
+  Card. = 0..1
+  Type = Reference(Patient)
+  Short Label = If the resource is affixed to a person
+  Definition = Patient information, if the resource is affixed to a person
+  RIM Mapping = .playedRole[typeCode=USED].scoper.playedRole[typeCode=PAT]
+  w5 = who.focus
 
  -- Row 14 -----------------------------------
   Element = Device.owner
@@ -170,8 +186,19 @@
   Short Label = Organization responsible for device
   Definition = An organization that is responsible for the provision and ongoing maintenance of the device.
   RIM Mapping = .playedRole[typeCode=OWN].scoper
+  w5 = who.source
 
  -- Row 15 -----------------------------------
+  Element = Device.contact
+  Card. = 0..*
+  Type = ContactPoint
+  Short Label = Details for human/organization for support
+  Definition = Contact details for an organization or a particular human that is responsible for the device
+  Comments = used for troubleshooting etc.
+  RIM Mapping = .scopedRole[typeCode=CON].player
+  w5 = who.source
+
+ -- Row 16 -----------------------------------
   Element = Device.location
   Card. = 0..1
   Type = Reference(Location)
@@ -181,25 +208,7 @@
   Committee Notes = #7418
   w5 = where
 
- -- Row 16 -----------------------------------
-  Element = Device.patient
-  Card. = 0..1
-  Type = Reference(Patient)
-  Short Label = If the resource is affixed to a person
-  Definition = Patient information, if the resource is affixed to a person
-  RIM Mapping = .playedRole[typeCode=USED].scoper.playedRole[typeCode=PAT]
-  w5 = who.focus
-
  -- Row 17 -----------------------------------
-  Element = Device.contact
-  Card. = 0..*
-  Type = ContactPoint
-  Short Label = Details for human/organization for support
-  Definition = Contact details for an organization or a particular human that is responsible for the device
-  Comments = used for troubleshooting etc.
-  RIM Mapping = .scopedRole[typeCode=CON].player
-
- -- Row 18 -----------------------------------
   Element = Device.url
   Card. = 0..1
   Type = uri
@@ -207,6 +216,15 @@
   Definition = A network address on which the device may be contacted directly
   Comments = If the device is running a FHIR server, the network address should  be the root URL from which a conformance statement may be retrieved.
   RIM Mapping = .telecom
+  w5 = where
+
+ -- Row 18 -----------------------------------
+  Element = Device.note
+  Card. = 0..*
+  Type = Annotation
+  Short Label = Device notes and comments
+  Definition = Descriptive information, usage information or implantation information that is not captured in an existing element.
+  RIM Mapping = .text
 
 === Sheet Search =====================================
 
@@ -253,10 +271,10 @@
   Path = Device.patient
 
  -- Row 8 -----------------------------------
-  Name = udi
-  Type = string
-  Description = FDA mandated Unique Device Identifier
-  Path = Device.udi
+  Name = udicarrier
+  Type = token
+  Description = Barcode string (udi)
+  Path = Device.udiCarrier
 
  -- Row 9 -----------------------------------
   Name = url
