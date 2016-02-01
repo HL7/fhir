@@ -25,16 +25,6 @@ func (x *<Name>) UnmarshalJSON(data []byte) (err error) {
 }
 
 <if(IsResource)>
-func (x *<Name>) SetBSON(raw bson.Raw) error {
-	x2 := <LowerName>{}
-	err := raw.Unmarshal(&x2)
-	if err != nil {
-		return err
-	}
-	*x = <Name>(x2)
-	return x.checkResourceType()
-}
-
 func (x *<Name>) checkResourceType() error {
 	if x.ResourceType == "" {
 		x.ResourceType = "<Name>"

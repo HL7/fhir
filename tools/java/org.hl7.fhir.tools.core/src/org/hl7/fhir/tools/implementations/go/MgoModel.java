@@ -475,7 +475,6 @@ public class MgoModel {
         }
         
         if (isResource(name)) {
-          imports.add("gopkg.in/mgo.v2/bson");
           imports.add("errors");
           imports.add("fmt");
         }
