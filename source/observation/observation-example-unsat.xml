@@ -37,7 +37,7 @@
       <display value="Specimen unsatisfactory for evaluation"/>
     </coding>
   </dataAbsentReason>
-  <comments value="Tube broken in transit and sample leaked"/>
+  <comment value="Tube broken in transit and sample leaked"/>
   <referenceRange>
     <low>
       <value value="3.1"/>

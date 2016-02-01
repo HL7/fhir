@@ -154,7 +154,7 @@
   To Do = subset this list
 
  -- Row 10 -----------------------------------
-  Element = Observation.comments
+  Element = Observation.comment
   Card. = 0..1
   Must Support = Y
   Type = string
@@ -231,7 +231,7 @@
   To Do = subset this list
 
  -- Row 5 -----------------------------------
-  Element = Observation.comments
+  Element = Observation.comment
   Card. = 0..1
   Must Support = Y
   Type = string
@@ -306,7 +306,7 @@
   To Do = subset this list
 
  -- Row 5 -----------------------------------
-  Element = Observation.comments
+  Element = Observation.comment
   Card. = 0..1
   Must Support = Y
   Type = string
@@ -392,7 +392,7 @@
   To Do = subset this list
 
  -- Row 6 -----------------------------------
-  Element = Observation.comments
+  Element = Observation.comment
   Card. = 0..1
   Must Support = Y
   Type = string

@@ -43,7 +43,7 @@
   Binding = CEM_Ordinal_And_Abnormal
 
  -- Row 4 -----------------------------------
-  Element = Observation.comments
+  Element = Observation.comment
   Comments = In the CEM, there are multiple comments. Here, they are collapsed into a single string field. TODO: is that a problem?
 
  -- Row 5 -----------------------------------

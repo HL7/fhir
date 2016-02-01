@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="f001"/>
   <contained>
     <DiagnosticOrder>
-      <id value="req"/>
-      <subject>
-        <reference value="Patient/f001"/>
-        <display value="P. van den Heuvel"/>
-      </subject>
-      <orderer>
-        <reference value="Practitioner/f001"/>
-        <display value="E.van den Broek"/>
-      </orderer>
-      <identifier>
+			<id value="req"/>
+			<identifier>
         <use value="official"/>
         <system value="http://www.bmc.nl/zorgportal/identifiers/labresults"/>
         <value value="L2381"/>
       </identifier>
-      <encounter>
+			<subject>
+        <reference value="Patient/f001"/>
+        <display value="P. van den Heuvel"/>
+      </subject>
+			<encounter>
         <reference value="Encounter/f001"/>
       <!-- TODO Correcte verwijzing -->
-      </encounter>
-      <reason>
+      </encounter><orderer>
+        <reference value="Practitioner/f001"/>
+        <display value="E.van den Broek"/>
+      </orderer>
+			<reason>
         <text value="patient almost fainted during procedure"/>
       </reason>
-      <item>
+			<item>
         <code>
           <coding>
             <system value="http://loinc.org"/>
@@ -42,7 +40,7 @@
           </coding>
         </bodySite>
       </item>
-    </DiagnosticOrder>
+		</DiagnosticOrder>
   </contained>
   <identifier>
     <use value="official"/>

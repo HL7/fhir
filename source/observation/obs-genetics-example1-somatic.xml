@@ -135,7 +135,7 @@
         </coding>
         <text value="positive"/>
     </interpretation>
-    <comments value="The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/>
+    <comment value="The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/>
     <specimen>
         <reference value="Specimen/genetics-example1-somatic"/>
         <display value="Molecular Specimen ID: MLD45-Z4-1234"/>

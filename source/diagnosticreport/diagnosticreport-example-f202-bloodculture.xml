@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="f202"/>
   <contained>
     <DiagnosticOrder>
-      <id value="req"/>
-      <subject>
+			<id value="req"/>
+			<subject>
         <reference value="Patient/f201"/>
         <display value="Roel"/>
       </subject>
-      <orderer>
+			<encounter>
+        <reference value="Encounter/f203"/>
+        <display value="Roel's encounter on March eleventh 2013"/>
+      </encounter>
+			<orderer>
         <reference value="Practitioner/f201"/>
         <display value="Dokter Bronsig"/>
       </orderer>
-      <encounter>
-        <reference value="Encounter/f203"/>
-        <display value="Roel&#39;s encounter on March eleventh 2013"/>
-      </encounter>
-    </DiagnosticOrder>
+		</DiagnosticOrder>
   </contained>
   <status value="final"/>
   <category>
@@ -55,7 +54,7 @@
   </request>
   <result>
     <reference value="Observation/f206"/>
-    <display value="Results for staphylococcus analysis on Roel&#39;s blood culture"/>
+    <display value="Results for staphylococcus analysis on Roel's blood culture"/>
   </result>
   <conclusion value="Blood culture tested positive on staphylococcus aureus"/>
   <codedDiagnosis>

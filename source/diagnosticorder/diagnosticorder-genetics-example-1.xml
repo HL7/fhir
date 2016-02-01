@@ -1,17 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--  lab report example: a CBC  -->
-<DiagnosticOrder>
+<?xml version="1.0" encoding="UTF-8"?><!--  lab report example: a CBC  --><DiagnosticOrder xmlns="http://hl7.org/fhir">
 	<id value="og-example1"/>
+	<status value="received"/>
 	<subject>
 		<reference value="Patient/example"/>
 	</subject>
-	<orderer>
-		<reference value="Practitioner/example"/>
-	</orderer>
 	<encounter>
 		<reference value="Encounter/example"/>
 	</encounter>
-	<status value="received"/>
+	<orderer>
+		<reference value="Practitioner/example"/>
+	</orderer>
 	<event>
 		<status value="requested"/>
         <dateTime value="2014-05-12T16:16:00-07:00"/>
@@ -32,4 +30,3 @@
 		</specimen>
 	</item>
 </DiagnosticOrder>
-

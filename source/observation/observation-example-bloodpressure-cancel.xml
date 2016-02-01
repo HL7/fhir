@@ -65,7 +65,7 @@
 		</coding>
 		<text value="Below low normal"/>
 	</interpretation>
-	<comments value="In this example, the blood pressure measurements are not available due to cancellation of the order.  Data absent reason is present for each component"/>
+	<comment value="In this example, the blood pressure measurements are not available due to cancellation of the order.  Data absent reason is present for each component"/>
 	<!-- for an observation with components, these cannot disagree with the flags on the components -->
 	<bodySite>
 		<coding>

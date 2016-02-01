@@ -29,7 +29,7 @@
 	<interpretation>
 		<text value="interpretation of results should be assigned based upon the level of kindey function"/>
 	</interpretation>
-	<comments value="GFR estimating equations developed by the Modification of Diet in Renal Disease (MDRD) Study Group and the Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI)...."/>
+	<comment value="GFR estimating equations developed by the Modification of Diet in Renal Disease (MDRD) Study Group and the Chronic Kidney Disease Epidemiology Collaboration (CKD-EPI)...."/>
 	<!--  The observation is complete  -->
 	<!--  No reliability concerns  -->
 	<method>

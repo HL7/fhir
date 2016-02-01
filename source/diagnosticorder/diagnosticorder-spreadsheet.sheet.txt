@@ -172,26 +172,6 @@
   w5 = clinical.diagnostics
 
  -- Row 2 -----------------------------------
-  Element = DiagnosticOrder.subject
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Patient|Group|Location|Device)
-  Short Label = Who and/or what test is about
-  Definition = Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)
-  RIM Mapping = .participation[typeCode=SBJ].role
-  w5 = who.focus
-
- -- Row 3 -----------------------------------
-  Element = DiagnosticOrder.orderer
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Practitioner)
-  Short Label = Who ordered the test
-  Definition = The practitioner that holds legal responsibility for ordering the investigation
-  RIM Mapping = .participation[typeCode=AUT].role
-  w5 = who.actor
-
- -- Row 4 -----------------------------------
   Element = DiagnosticOrder.identifier
   Card. = 0..*
   Summary = Y
@@ -203,49 +183,7 @@
   Committee Notes = 7331
   w5 = id
 
- -- Row 5 -----------------------------------
-  Element = DiagnosticOrder.encounter
-  Card. = 0..1
-  Summary = Y
-  Type = Reference(Encounter)
-  Short Label = The encounter that this diagnostic order is associated with
-  Definition = An encounter that provides additional information about the healthcare context in which this request is made
-  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
-  w5 = context
-
- -- Row 6 -----------------------------------
-  Element = DiagnosticOrder.reason
-  Card. = 0..*
-  Type = CodeableConcept
-  Binding = DiagnosticOrderReason
-  Short Label = Explanation/Justification for test
-  Definition = An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
-  Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](diagnosticorder-example-di.html).
-  RIM Mapping = .reasonCode
-  Committee Notes = 7134
-
- -- Row 7 -----------------------------------
-  Element = DiagnosticOrder.supportingInformation
-  Card. = 0..*
-  Aliases = Ask at order entry question, AOE
-  Type = Reference(Observation|Condition|DocumentReference)
-  Short Label = Additional clinical information
-  Definition = Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.
-  Comments = This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\". Examples include reporting the amount of inspired oxygen for blood gasses, the point in the menstrual cycle for cervical pap tests, and other conditions that influence test interpretations.
-  v2 Mapping = OBR-13
-  RIM Mapping = outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]
-  Committee Notes = [#3113][#3739]
-
- -- Row 8 -----------------------------------
-  Element = DiagnosticOrder.specimen
-  Card. = 0..*
-  Type = Reference(Specimen)
-  Short Label = If the whole order relates to specific specimens
-  Definition = One or more specimens that the diagnostic investigation is about
-  Comments = Many investigation requests will create a need for specimens, but the request itself is not actually about the specimens. This is provided for when the diagnostic investigation is requested on already existing specimens
-  RIM Mapping = .participation[typeCode=SPC].role
-
- -- Row 9 -----------------------------------
+ -- Row 3 -----------------------------------
   Element = DiagnosticOrder.status
   Card. = 0..1
   Is Modifier = Y
@@ -259,7 +197,7 @@
   Committee Notes = [#3720]
   w5 = status
 
- -- Row 10 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = DiagnosticOrder.priority
   Card. = 0..1
   Summary = Y
@@ -270,6 +208,68 @@
   Comments = The Order resource also has a priority. Generally, these should be the same, but they can be different. For instance, where the clinician indicates the order is urgent, but the subsequent workflow process overrules the priority for some reason. The effective default value is \"normal\"
   RIM Mapping = .priorityCode
   w5 = grade
+
+ -- Row 5 -----------------------------------
+  Element = DiagnosticOrder.subject
+  Card. = 1..1
+  Summary = Y
+  Type = Reference(Patient|Group|Location|Device)
+  Short Label = Who and/or what test is about
+  Definition = On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)
+  RIM Mapping = .participation[typeCode=SBJ].role
+  w5 = who.focus
+
+ -- Row 6 -----------------------------------
+  Element = DiagnosticOrder.encounter
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Encounter)
+  Short Label = The encounter that this diagnostic order is associated with
+  Definition = An encounter that provides additional information about the healthcare context in which this request is made
+  RIM Mapping = .inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]
+  w5 = context
+
+ -- Row 7 -----------------------------------
+  Element = DiagnosticOrder.orderer
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner)
+  Short Label = Who ordered the test
+  Definition = The practitioner that holds legal responsibility for ordering the investigation
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.actor
+
+ -- Row 8 -----------------------------------
+  Element = DiagnosticOrder.reason
+  Card. = 0..*
+  Type = CodeableConcept
+  Binding = DiagnosticOrderReason
+  Short Label = Explanation/Justification for test
+  Definition = An explanation or justification for why this diagnostic investigation is being requested.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+  Comments = This may be used to decide how the diagnostic investigation will be performed, or even if it will be performed at all.   Use CodeableConcept text element if the data is free (uncoded) text as shown in the [CT Scan example](diagnosticorder-example-di.html).
+  RIM Mapping = .reasonCode
+  Committee Notes = 7134
+
+ -- Row 9 -----------------------------------
+  Element = DiagnosticOrder.supportingInformation
+  Card. = 0..*
+  Aliases = Ask at order entry question, AOE
+  Type = Reference(Observation|Condition|DocumentReference)
+  Short Label = Additional clinical information
+  Definition = Additional clinical information about the patient or specimen that may influence test interpretations.  This includes observations explicitly requested by the producer(filler) to provide context or supporting information needed to complete the order.
+  Comments = This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as \"ask at order entry questions (AOEs)\". Examples include reporting the amount of inspired oxygen for blood gasses, the point in the menstrual cycle for cervical pap tests, and other conditions that influence test interpretations.
+  v2 Mapping = OBR-13
+  RIM Mapping = outboundRelationship[typeCode=SPRT]/target[classCode=ACT, moodCode=EVN]
+  Committee Notes = [#3113][#3739]
+
+ -- Row 10 -----------------------------------
+  Element = DiagnosticOrder.specimen
+  Card. = 0..*
+  Type = Reference(Specimen)
+  Short Label = If the whole order relates to specific specimens
+  Definition = One or more specimens that the diagnostic investigation is about
+  Comments = Many investigation requests will create a need for specimens, but the request itself is not actually about the specimens. This is provided for when the diagnostic investigation is requested on already existing specimens
+  RIM Mapping = .participation[typeCode=SPC].role
 
  -- Row 11 -----------------------------------
   Element = DiagnosticOrder.event
@@ -388,143 +388,3 @@
   Definition = Any other notes associated with this patient, specimen or order (e.g. \"patient hates needles\")
   RIM Mapping = .inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=\"annotation\"].value
   Committee Notes = 7134,8147
-
-=== Sheet Search =====================================
-
- -- Row 1 -----------------------------------
-  Name = actor
-  Type = reference
-  Path = DiagnosticOrder.event.actor | DiagnosticOrder.item.event.actor
-
- -- Row 2 -----------------------------------
-  Name = bodysite
-  Type = token
-  Path = DiagnosticOrder.item.bodySite
-
- -- Row 3 -----------------------------------
-  Name = code
-  Type = token
-  Path = DiagnosticOrder.item.code
-
- -- Row 4 -----------------------------------
-  Name = event-date
-  Type = date
-  Path = DiagnosticOrder.event.dateTime
-
- -- Row 5 -----------------------------------
-  Name = encounter
-  Type = reference
-  Path = DiagnosticOrder.encounter
-
- -- Row 6 -----------------------------------
-  Name = identifier
-  Type = token
-  Path = DiagnosticOrder.identifier
-
- -- Row 7 -----------------------------------
-  Name = item-date
-  Type = date
-  Path = DiagnosticOrder.item.event.dateTime
-
- -- Row 8 -----------------------------------
-  Name = item-past-status
-  Type = token
-  Path = DiagnosticOrder.item.event.status
-
- -- Row 9 -----------------------------------
-  Name = item-status
-  Type = token
-  Path = DiagnosticOrder.item.status
-
- -- Row 10 -----------------------------------
-  Name = item-status-date
-  Type = composite
-  Description = A combination of item-past-status and item-date
-  Path = item-past-status & item-date
-
- -- Row 11 -----------------------------------
-  Name = orderer
-  Type = reference
-  Path = DiagnosticOrder.orderer
-
- -- Row 12 -----------------------------------
-  Name = event-status
-  Type = token
-  Path = DiagnosticOrder.event.status
-
- -- Row 13 -----------------------------------
-  Name = specimen
-  Type = reference
-  Path = DiagnosticOrder.specimen | DiagnosticOrder.item.specimen
-
- -- Row 14 -----------------------------------
-  Name = status
-  Type = token
-  Path = DiagnosticOrder.status
-
- -- Row 15 -----------------------------------
-  Name = event-status-date
-  Type = composite
-  Description = A combination of past-status and date
-  Path = event-status & event-date
-
- -- Row 16 -----------------------------------
-  Name = subject
-  Type = reference
-  Path = DiagnosticOrder.subject
-
- -- Row 17 -----------------------------------
-  Name = patient
-  Type = reference
-  Path = DiagnosticOrder.subject
-  Target Types = Patient
-
-=== Sheet Profiles =====================================
-
- -- Row 1 -----------------------------------
-  Name = diagnosticorder-extensions
-  IG Name = core
-  Filename = diagnosticorder-extensions.xml
-  Type = spreadsheet
-
- -- Row 2 -----------------------------------
-  Name = Diagnostic Order for Genetics
-  IG Name = core
-  Filename = diagnosticorder-genetics-profile.xml
-  Type = spreadsheet
-
-=== Sheet Examples =====================================
-
- -- Row 1 -----------------------------------
-  Name = Lipids
-  Identity = example
-  Description = Lipid Panel Order
-  Filename = diagnosticorder-example.xml
-
- -- Row 2 -----------------------------------
-  Name = DI Order
-  Identity = di
-  Description = CT Scan order
-  Filename = diagnosticorder-example-di.xml
-
- -- Row 3 -----------------------------------
-  Name = Free T4
-  Identity = ft4
-  Description = Free T4 Add on Order
-  Filename = diagnosticorder-example-ft4.xml
-
- -- Row 4 -----------------------------------
-  Name = Order-genetics-1
-  Identity = og-example1
-  Description = Order for ABCB4 gene mutation analysis
-  Filename = diagnosticorder-genetics-example-1.xml
-  Profile = Diagnostic Order for Genetics
-
- -- Row 5 -----------------------------------
-  Name = Order-genetics-2
-  Identity = og-example2
-  Description = Order for a specific variant
-  Filename = diagnosticorder-genetics-example-2.xml
-  Profile = Diagnostic Order for Genetics
-
-=== Sheet Examples =====================================

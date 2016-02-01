@@ -347,7 +347,7 @@
   RIM Mapping = interpretationCode
 
  -- Row 14 -----------------------------------
-  Element = Observation.comments
+  Element = Observation.comment
   Card. = 0..1
   Type = string
   Short Label = Comments about result

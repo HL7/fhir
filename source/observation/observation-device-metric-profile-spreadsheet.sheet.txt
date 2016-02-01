@@ -33,7 +33,7 @@
   Type = CodeableConcept
 
  -- Row 6 -----------------------------------
-  Element = Observation.comments
+  Element = Observation.comment
   Card. = 0..1
   Must Support = N
   Type = string

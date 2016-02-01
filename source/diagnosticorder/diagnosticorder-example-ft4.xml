@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<DiagnosticOrder xmlns:xhtml="http://www.w3.org/1999/xhtml" xsi:schemaLocation="http://hl7.org/fhir //Mac/Home/Documents/FHIRBuild/schema/diagnosticorder.xsd" xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<DiagnosticOrder xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir //Mac/Home/Documents/FHIRBuild/schema/diagnosticorder.xsd">
 	<id value="ft4"/>
 	<contained>
 		<Specimen>
@@ -35,6 +35,7 @@
 			</container>
 		</Specimen>
 	</contained>
+	<status value="requested"/>
 	<subject>
 		<reference value="Patient/pat2"/>
 	</subject>
@@ -45,7 +46,6 @@
 		<reference value="#rtt"/>
 		<display value="Red Top Tube"/>
 	</specimen>
-	<status value="requested"/>
 	<event>
 		<status value="requested"/>
 		<dateTime value="2015-08-27T09:33:27+07:00"/>

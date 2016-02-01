@@ -214,7 +214,7 @@
 
  -- Row 13 -----------------------------------
   Element = Specimen.collection.comment
-  Card. = 0..*
+  Card. = 0..1
   Type = string
   Short Label = Collector comments
   Definition = To communicate any details or issues encountered during the specimen collection procedure.

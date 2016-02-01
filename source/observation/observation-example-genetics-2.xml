@@ -14,7 +14,7 @@
         <reference value="Practitioner/example"/>
         <display value="Sequence Analysis Laboratory"/>
     </performer>
-    <comments value="The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/>
+    <comment value="The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/>
     <related>
         <type value="derived-from"/>
         <target>

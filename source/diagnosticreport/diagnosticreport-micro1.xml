@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <DiagnosticReport xmlns="http://hl7.org/fhir">
   <id value="micro"/>
   <contained>
@@ -946,15 +945,14 @@ OBX|2|ST|60036^Oxacillin Screen&KB Interp|1|Susceptible|||SUSCEPT||A~S|F||Y|||^9
   <contained>
   <!--   ORC information   -->
     <DiagnosticOrder>
-      <id value="req"/>
-      <subject>
-        <reference value="Patient/example"/>
-      <!--   patient chosen at random   -->
-      </subject>
-      <identifier>
+			<id value="req"/>
+			<identifier>
         <value value="255337816"/>
       </identifier>
-    </DiagnosticOrder>
+			<subject>
+        <reference value="Patient/example"/>
+      <!--   patient chosen at random   -->
+      </subject></DiagnosticOrder>
   </contained>
   <identifier>
     <system value="http://hnam.org/identifiers/orders"/>

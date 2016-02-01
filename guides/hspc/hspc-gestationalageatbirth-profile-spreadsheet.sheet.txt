@@ -73,7 +73,7 @@
   Card. = 0..0
 
  -- Row 8 -----------------------------------
-  Element = Observation.comments
+  Element = Observation.comment
   Card. = 0..0
 
  -- Row 9 -----------------------------------
