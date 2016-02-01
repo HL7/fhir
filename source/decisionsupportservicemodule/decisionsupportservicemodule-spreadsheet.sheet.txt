@@ -27,7 +27,7 @@
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = DecisionSupportServiceModule.identifier
+  Element = !DecisionSupportServiceModule.identifier
   Card. = 0..*
   Summary = Y
   Type = Identifier
@@ -36,7 +36,7 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = DecisionSupportServiceModule.version
+  Element = !DecisionSupportServiceModule.version
   Card. = 0..1
   Summary = Y
   Type = string
@@ -46,7 +46,7 @@
  -- Row 4 -----------------------------------
   Element = DecisionSupportServiceModule.moduleMetadata
   Card. = 0..1
-  Type = Reference(ModuleMetadata)
+  Type = ModuleMetadata
   Short Label = Metadata for the service module
   Definition = A reference to a ModuleMetadata resource describing the metadata for the decision support service module
 

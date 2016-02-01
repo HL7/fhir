@@ -71,6 +71,11 @@ signatures.html
 				<page title="ElementDefinition Detailed Descriptions" filename="elementdefinition-definitions.html"/>
 				<page title="ElementDefinition Mappings" filename="elementdefinition-mappings.html"/>
 			</page>
+			<page title="ModuleMetadata" filename="modulemetadata.html">
+				<page title="ModuleMetadata Examples" filename="modulemetadata-examples.html"/>
+				<page title="ModuleMetadata Detailed Descriptions" filename="modulemetadata-definitions.html"/>
+				<page title="ModuleMetadata Mappings" filename="modulemetadata-mappings.html"/>
+			</page>
 			<page title="Ontology" filename="ontology.html"/>
 
 			<page title="Using Codes" filename="terminologies.html">

@@ -11,7 +11,7 @@
   <LastAuthor>Bryn</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
   <LastSaved>2015-11-17T21:49:24Z</LastSaved>
-  <Version>16.00</Version>
+  <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">747a3dc3-14ba-4528-94a7-b06f9d606003</WorkbookGuid>
@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13800</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>8370</WindowHeight>
+  <WindowWidth>21570</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -623,7 +623,7 @@
     <Cell><Data ss:Type="String">GuidanceResponse</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell><Data ss:Type="String">ModuleMetadata</Data></Cell>
+    <Cell><Data ss:Type="String">!ModuleMetadata</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ModuleDefinition</Data></Cell>
@@ -664,7 +664,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>91</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -672,7 +672,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>15</ActiveRow>
+     <ActiveRow>100</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

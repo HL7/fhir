@@ -32,7 +32,7 @@
  -- Row 4 -----------------------------------
   Element = Library.moduleMetadata
   Card. = 0..1
-  Type = Reference(ModuleMetadata)
+  Type = ModuleMetadata
   Short Label = The metadata information for the library
   Definition = A reference to a ModuleMetadata resource containing publication, description, and supporting information for the library
 

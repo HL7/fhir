@@ -95,7 +95,7 @@
  -- Row 4 -----------------------------------
   Element = Measure.moduleMetadata
   Card. = 0..1
-  Type = Reference(ModuleMetadata)
+  Type = ModuleMetadata
   Short Label = Metadata for the measure
   Definition = A reference to a ModuleMetadata resource that describes the metadata for the measure
 

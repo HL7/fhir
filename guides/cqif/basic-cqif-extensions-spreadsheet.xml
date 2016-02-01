@@ -20,11 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13635</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>8370</WindowHeight>
+  <WindowWidth>21570</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -6530,14 +6530,14 @@
     <Cell><Data ss:Type="String">The strength of the recommendation assigned to this reference. The code system specifies the scale used to grade the evidence source, while the code specifies the actual score (represented as a coded value) for the strength of the evidence</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s127"><Data ss:Type="String">moduleMetadata</Data></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">!moduleMetadata</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">Resource</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">*</Data></Cell>
     <Cell ss:StyleID="s106"><Data ss:Type="String">moduleMetadata</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"><Data ss:Type="String">0..1</Data></Cell>
     <Cell ss:StyleID="s106"/>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Reference(ModuleMetadata)</Data></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">ModuleMetadata</Data></Cell>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
     <Cell ss:StyleID="s106"/>
@@ -6606,10 +6606,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>7</TopRowBottomPane>
+   <TopRowBottomPane>70</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6626,6 +6627,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>77</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -8155,7 +8157,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

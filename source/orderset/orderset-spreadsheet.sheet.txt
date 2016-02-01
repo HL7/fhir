@@ -220,7 +220,7 @@
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = OrderSet.identifier
+  Element = !OrderSet.identifier
   Card. = 0..*
   Summary = Y
   Type = Identifier
@@ -229,7 +229,7 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = OrderSet.version
+  Element = !OrderSet.version
   Card. = 0..1
   Summary = Y
   Type = string
@@ -239,7 +239,7 @@
  -- Row 4 -----------------------------------
   Element = OrderSet.moduleMetadata
   Card. = 0..1
-  Type = Reference(ModuleMetadata)
+  Type = ModuleMetadata
   Short Label = The metadata for the orderset
   Definition = A reference to a ModuleMetadata resource containing metadata for the orderset
 

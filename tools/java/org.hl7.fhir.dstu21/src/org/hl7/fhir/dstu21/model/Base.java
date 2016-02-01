@@ -515,7 +515,14 @@ private Map<String, Object> userData;
 		else
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a ElementDefinition");
 	}
-	
+
+	public ModuleMetadata castToModuleMetadata(Base b) throws FHIRException {
+		if (b instanceof ModuleMetadata)
+			return (ModuleMetadata) b;
+		else
+			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a ModuleMetadata");
+	}
+
 	protected boolean isMetadataBased() {
   	return false;
 	}

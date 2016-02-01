@@ -130,7 +130,7 @@
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = DecisionSupportRule.identifier
+  Element = !DecisionSupportRule.identifier
   Card. = 0..*
   Summary = Y
   Type = Identifier
@@ -139,7 +139,7 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = DecisionSupportRule.version
+  Element = !DecisionSupportRule.version
   Card. = 0..1
   Summary = Y
   Type = string
@@ -149,7 +149,7 @@
  -- Row 4 -----------------------------------
   Element = DecisionSupportRule.moduleMetadata
   Card. = 0..1
-  Type = Reference(ModuleMetadata)
+  Type = ModuleMetadata
   Short Label = Module information for the rule
   Definition = A reference to a ModuleMetadata resource that provides metadata for the rule
 

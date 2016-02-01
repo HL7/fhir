@@ -6,34 +6,23 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Guideline Appropriate Ordering Module</div>
   </text>
   
-  <contained>
-    <ModuleMetadata>
-		<id value="example-module-metadata"/>
-		<identifier>
-          <use value="official"/>
-          <value value="guildeline-appropriate-ordering"/>
-		</identifier>
-		<version value="1.0.0"/>
-		<title value="Guideline Appropriate Ordering Module"/>
-		<type value="module"/>
-		<status value="draft"/>
-		<description value="Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications."/>
-		<publicationDate value="2015-07-22"/>
-		<topic>
-			<text value="Guideline Appropriate Ordering"/>
-		</topic>
-		<keyword value="Appropriate Use Criteria"/>
-    </ModuleMetadata>
-  </contained>
-  
-  <identifier>
-		<use value="official"/>
-		<value value="guideline-appropriate-ordering"/>
-  </identifier>
-  <version value="2.0.0"/>
-  
   <moduleMetadata>
-    <reference value="#example-module-metadata"/>
+	<identifier>
+	  <use value="official"/>
+	  <value value="guildeline-appropriate-ordering"/>
+	</identifier>
+	<version value="1.0.0"/>
+	<title value="Guideline Appropriate Ordering Module"/>
+	<type value="module"/>
+	<status value="draft"/>
+	<description value="Guideline appropriate ordering is used to assess appropriateness of an order given a patient, a proposed order, and a set of clinical indications."/>
+	<publicationDate value="2015-07-22"/>
+	<topic>
+		<text value="Guideline Appropriate Ordering"/>
+	</topic>
+	<topic>
+		<text value="Appropriate Use Criteria"/>
+	</topic>
   </moduleMetadata>
   
 	<!-- Patient Data Requirement -->

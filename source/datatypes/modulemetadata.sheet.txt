@@ -1,0 +1,497 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ModuleMetadataType
+  Binding = code list
+  Reference = #module-metadata-type
+  Definition = The type of knowledge module being described
+  Conformance = extensible
+
+ -- Row 2 -----------------------------------
+  Binding Name = ModuleMetadataStatus
+  Binding = code list
+  Reference = #module-metadata-status
+  Definition = The status of the knowledge module
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = ModuleMetadataFocusType
+  Binding = code list
+  Reference = #module-metadata-focus-type
+  Definition = Specifies clinical metadata that can be used to retrieve, index and/or categorize the knowledge artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care)
+  Conformance = extensible
+
+ -- Row 4 -----------------------------------
+  Binding Name = ModuleMetadataContributorType
+  Binding = code list
+  Reference = #module-metadata-contributor
+  Definition = The type of contributor
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = ModuleMetadataResourceType
+  Binding = code list
+  Reference = #module-metadata-resource-type
+  Definition = The type of related resource for the module
+  Conformance = required
+
+=== Sheet module-metadata-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = module
+  Display = Module
+  Definition = The resource is a description of a knowledge module
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = library
+  Display = Library
+  Definition = The resource is a shareable library of formalized knowledge
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = decision-support-rule
+  Display = Decision Support Rule
+  Definition = An Event-Condition-Action Rule Artifact
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = documentation-template
+  Display = Documentation Template
+  Definition = A Documentation Template Artifact
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = order-set
+  Display = Order Set
+  Definition = An Order Set Artifact
+
+=== Sheet module-metadata-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = draft
+  Display = Draft
+  Definition = The module is in draft state
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = active
+  Display = Active
+  Definition = The module is active
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = inactive
+  Display = Inactive
+  Definition = The module is inactive, either rejected before publication, or retired after publication
+
+=== Sheet module-metadata-focus-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = patient-gender
+  Display = Patient Gender
+  Definition = The gender of the patient. For this item type, use HL7 administrative gender codes (OID: 2.16.840.1.113883.1.11.1)
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = patient-age-group
+  Display = Patient Age Group
+  Definition = A patient demographic category for which this artifact is applicable. Allows specification of age groups using coded values originating from the MeSH Code system (OID: 2.16.840.1.113883.6.177). More specifically, only codes from the AgeGroupObservationValue value set are valid for this field  [2.16.840.1.113883.11.75]
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = clinical-focus
+  Display = Clinical Focus
+  Definition = The clinical concept(s) addressed by the artifact.  For example, disease, diagnostic test interpretation, medication ordering. Please refer to the implementation guide on which code system and codes to use
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = target-user
+  Display = Target User
+  Definition = The user types to which an artifact is targeted.  For example, PCP, Patient, Cardiologist, Behavioral Professional, Oral Health Professional, Prescriber, etc... taken from the NUCC Health Care provider taxonomyCode system (OID: 2.16.840.1.113883.6.101)
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = workflow-setting
+  Display = Workflow Setting
+  Definition = The settings in which the artifact is intended for use.  For example, admission, pre-op, etc
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = workflow-task
+  Display = Workflow Task
+  Definition = The context for the clinical task(s) represented by this artifact. Can be any task context represented by the HL7 ActTaskCode value set (OID: 2.16.840.1.113883.1.11.19846). General categories include: order entry, patient documentation and patient information review
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = clinical-venue
+  Display = Clinical Venue
+  Definition = The venue in which an artifact could be used.  For example, Outpatient, Inpatient, Home, Nursing home. The code value may originate from either the HL7 ActEncounter (OID: 2.16.840.1.113883.1.11.13955) or NUCC non-individual provider codes OID: 2.16.840.1.113883.1.11.19465
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = jurisdiction
+  Display = Jurisdiction
+  Definition = The jurisdiction in which the artifact is intended to be used
+
+=== Sheet module-metadata-contributor =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = author
+  Display = Author
+  Definition = An author of the content of the module
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = editor
+  Display = Editor
+  Definition = An editor of the content of the module
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = reviewer
+  Display = Reviewer
+  Definition = A reviewer of the content of the module
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = endorser
+  Display = Endorser
+  Definition = An endorser of the content of the module
+
+=== Sheet module-metadata-resource-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = documentation
+  Display = Documentation
+  Definition = Additional documentation for the module. This would include additional instructions on usage as well additional information on clinical context or appropriateness
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = justification
+  Display = Justification
+  Definition = A summary of the justification for the artifact including supporting evidence, relevant guidelines, or other clinically important information. This information is intended to provide a way to make the justification for the module available to the consumer of interventions or results produced by the artifact
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = citation
+  Display = Citation
+  Definition = Bibliographic citation for papers, references, or other relevant material for the module. This is intended to allow for citation of related material, but that was not necessarily specifically prepared in connection with this module
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = predecessor
+  Display = Predecessor
+  Definition = The previous version of the module
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = successor
+  Display = Successor
+  Definition = The next version of the module
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = derived-from
+  Display = Derived From
+  Definition = The module is derived from the resource. This is intended to capture the relationship when a particular module is based on the content of another module, but is modified to capture either a different set of overall requirements, or a more specific set of requirements such as those involved in a particular institution or clinical setting
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ModuleMetadata
+  Type = Type
+  Short Label = Defines common metadata used by quality artifacts
+  Definition = The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information
+  Requirements = Captures primary requirements for representing relevant metadata associated with a knowledge module, regardless of the type of module or content it contains
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = ModuleMetadata.url
+  Card. = 0..1
+  Summary = Y
+  Type = uri
+  Short Label = Logical URL to reference this module
+  Definition = An absolute URL that is used to identify this module when it is referenced. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this module definition is (or will be) published
+  Requirements = Allows the module to be referenced by a single globally unique identifier
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = ModuleMetadata.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = Logical identifier(s) for the module
+  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
+  Requirements = Allows external business identifiers to be easily associated with the module
+  w5 = id
+
+ -- Row 4 -----------------------------------
+  Element = ModuleMetadata.version
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = The version of the module, if any
+  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification. Note that the version is required for non-experimental published artifact
+  Requirements = Allows for versioning of the content of the module
+
+ -- Row 5 -----------------------------------
+  Element = ModuleMetadata.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = A machine-friendly name for the module
+  Definition = A machine-friendly name for the module. This name should be usable as an identifier for the module by machine processing applications such as code generation
+  Requirements = Simplifies machine-processing tasks related to the module such as code-generation or logging
+  Comments = This identifier for the module should be unique within the intended scope of use, and should conform to the traditional syntactic definition of an identifier within most programming languages. regex: ([A-Za-z_][A-Za-z0-9_]*)
+
+ -- Row 6 -----------------------------------
+  Element = ModuleMetadata.title
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = A user-friendly title for the module
+  Definition = A short, descriptive, user-friendly title for the module
+
+ -- Row 7 -----------------------------------
+  Element = ModuleMetadata.type
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ModuleMetadataType
+  Short Label = module | library | decision-support-rule | documentation-template | order-set
+  Definition = Identifies the type of knowledge module, such as a rule, library, documentation template, or measure
+  w5 = what
+
+ -- Row 8 -----------------------------------
+  Element = ModuleMetadata.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ModuleMetadataStatus
+  Short Label = draft | active | inactive
+  Definition = The status of the module
+  Requirements = Enables tracking the life-cycle of the content of the module
+
+ -- Row 9 -----------------------------------
+  Element = ModuleMetadata.experimental
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = boolean
+  Short Label = If for testing purposes, not real usage
+  Definition = Determines whether the module was developed for testing purposes (or education/evaluation/marketing), and is not intended to be used in production environments
+  Requirements = Enables experimental content to be developed following the same life-cycle as a production-level module would
+
+ -- Row 10 -----------------------------------
+  Element = ModuleMetadata.description
+  Card. = 0..1
+  Type = string
+  Short Label = Natural language description of the module
+  Definition = A free text natural language description of the module from the consumer\'s perspective
+  Comments = This description can be used to capture details such as why the module was built, comments about misuse, instructions for clinical use and interpretation, literature references, examples from the paper world, etc. It is not a rendering of the module as conveyed in the text field of the resource itself. This item SHOULD be populated unless the information is available from context
+
+ -- Row 11 -----------------------------------
+  Element = ModuleMetadata.purpose
+  Card. = 0..1
+  Type = string
+  Short Label = Describes the purpose of the module
+  Definition = A brief description of the purpose of the module
+  Comments = This description should address the question of why this module was built, though not necessarily in as much detail as the justification, rationale, or clinical recommendation statement of a measure would. That information would typically be provided in the related resource element
+
+ -- Row 12 -----------------------------------
+  Element = ModuleMetadata.usage
+  Card. = 0..1
+  Type = string
+  Short Label = Describes the clinical usage of the module
+  Definition = A detailed description of how the module is used from a clinical perspective
+
+ -- Row 13 -----------------------------------
+  Element = ModuleMetadata.publicationDate
+  Card. = 0..1
+  Type = date
+  Short Label = Publication date for this version of the module
+  Definition = The date on which the module was published
+
+ -- Row 14 -----------------------------------
+  Element = ModuleMetadata.lastReviewDate
+  Card. = 0..1
+  Type = date
+  Short Label = Last review date for the module
+  Definition = The date on which the module content was last reviewed
+
+ -- Row 15 -----------------------------------
+  Element = ModuleMetadata.effectivePeriod
+  Card. = 0..1
+  Type = Period
+  Short Label = The effective date range for the module
+  Definition = The period during which the module content is effective
+  Comments = The effective period for a module determines when the content is applicable for usage and is independent of publication and review dates. For example, a measure intended to be used for the year 2016 would be published in 2015
+
+ -- Row 16 -----------------------------------
+  Element = ModuleMetadata.coverage
+  Card. = 0..*
+  Short Label = Describes the context of use for this module
+  Definition = Specifies various attributes of the patient population for whom and/or environment of care in which, the knowledge module is applicable
+  Requirements = Consumers of the module must be able to determine the intended applicability for the module. Ideally, this information would be used programmatically to determine when and how it should be incorporated or exposed
+
+ -- Row 17 -----------------------------------
+  Element = ModuleMetadata.coverage.focus
+  Card. = 1..1
+  Type = Coding
+  Binding = ModuleMetadataFocusType
+  Short Label = patient-gender | patient-age-group | clinical-focus | target-user | workflow-setting | workflow-task | clinical-venue | jurisdiction
+  Definition = Specifies the focus of the coverage attribute
+
+ -- Row 18 -----------------------------------
+  Element = ModuleMetadata.coverage.value
+  Card. = 1..1
+  Type = CodeableConcept
+  Short Label = Value of the coverage attribute
+  Definition = Provides a value for the coverage attribute. Different values are appropriate in different focus areas, as specified in the description of values for focus
+
+ -- Row 19 -----------------------------------
+  Element = ModuleMetadata.topic
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = Descriptional topics for the module
+  Definition = Clinical topics related to the content of the module
+  Requirements = Repositories must be able to determine how to categorize the module so that it can be found by topical searches
+
+ -- Row 20 -----------------------------------
+  Element = ModuleMetadata.contributor
+  Card. = 0..*
+  Short Label = A content contributor
+  Definition = A contributor to the content of the module, including authors, editors, reviewers, and endorsers
+  Requirements = Consumers of the content must be able to quickly determine who contributed to the content of the knowledge module
+
+ -- Row 21 -----------------------------------
+  Element = ModuleMetadata.contributor.type
+  Card. = 1..1
+  Type = code
+  Binding = ModuleMetadataContributorType
+  Short Label = author | editor | reviewer | endorser
+  Definition = The type of contributor
+
+ -- Row 22 -----------------------------------
+  Element = ModuleMetadata.contributor.name
+  Card. = 1..1
+  Type = string
+  Short Label = Name of the contributor
+  Definition = The name of the individual or organization responsible for the contribution
+
+ -- Row 23 -----------------------------------
+  Element = ModuleMetadata.contributor.contact
+  Card. = 0..*
+  Short Label = Contact details of the contributor
+  Definition = Contacts to assist a user in finding and communicating with the contributor
+
+ -- Row 24 -----------------------------------
+  Element = ModuleMetadata.contributor.contact.name
+  Card. = 0..1
+  Type = string
+  Short Label = Name of an individual to contact
+  Definition = The name of an individual to contact regarding the contribution
+
+ -- Row 25 -----------------------------------
+  Element = ModuleMetadata.contributor.contact.telecom
+  Card. = 1..1
+  Type = ContactPoint
+  Short Label = Contact details for an individual or contributor
+  Definition = Contact details for the individual (if a name was provided) or the contributor
+
+ -- Row 26 -----------------------------------
+  Element = !ModuleMetadata.contributor.party
+  Card. = 1..1
+  Type = Reference(Person|Organization)
+  Definition = The contributor
+
+ -- Row 27 -----------------------------------
+  Element = !ModuleMetadata.publisher
+  Card. = 0..1
+  Type = Reference(Organization)
+  Definition = The organization responsible for publishing the module
+
+ -- Row 28 -----------------------------------
+  Element = !ModuleMetadata.steward
+  Card. = 0..1
+  Type = Reference(Organization)
+  Definition = The organization responsible for stewardship of the module content
+
+ -- Row 29 -----------------------------------
+  Element = ModuleMetadata.publisher
+  Card. = 0..1
+  Type = string
+  Short Label = Name of the publisher (Organization or individual)
+  Definition = The name of the individual or organization that published the module (also known as the steward for the module). This information is required for non-experimental published artifacts
+  Requirements = Consumers of the module must be able to determine where to obtain support in the use of this module, as well as where to direct questions and concerns about the content
+  Comments = The publisher (or steward) of the module is the organization or individual primarily responsible for the maintenance and upkeep of the module. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the module
+
+ -- Row 30 -----------------------------------
+  Element = ModuleMetadata.contact
+  Card. = 0..*
+  Short Label = Contact details of the publisher
+  Definition = Contacts to assist a user in finding and communicating with the publisher
+
+ -- Row 31 -----------------------------------
+  Element = ModuleMetadata.contact.name
+  Card. = 0..1
+  Type = string
+  Short Label = Name of an individual to contact
+  Definition = The name of an individual to contact regarding the module
+
+ -- Row 32 -----------------------------------
+  Element = ModuleMetadata.contact.telecom
+  Card. = 0..*
+  Type = ContactPoint
+  Short Label = Contact details for an individual or publisher
+  Definition = Contact details for the individual (if a name was provided) or the publisher
+
+ -- Row 33 -----------------------------------
+  Element = ModuleMetadata.copyright
+  Card. = 0..1
+  Type = string
+  Short Label = Use and/or publishing restrictions
+  Definition = A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module
+  Requirements = Consumers of the module must be able to determine any legal restrictions on the use of the module and/or its content
+
+ -- Row 34 -----------------------------------
+  Element = ModuleMetadata.relatedResource
+  Card. = 0..*
+  Short Label = Related resources for the module
+  Definition = Related resources such as additional documentation, justification, or bibliographic references
+  Requirements = Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
+  Comments = Each related resource is either an attachment, or a reference to another resource, but not both
+
+ -- Row 35 -----------------------------------
+  Element = ModuleMetadata.relatedResource.type
+  Card. = 1..1
+  Type = code
+  Binding = ModuleMetadataResourceType
+  Short Label = documentation | justification | citation | predecessor | successor | derived-from
+  Definition = The type of related resource
+
+ -- Row 36 -----------------------------------
+  Element = ModuleMetadata.relatedResource.document
+  Card. = 0..1
+  Type = Attachment
+  Short Label = The related document
+  Definition = The document being referenced, represented as an attachment. This is exclusive with the resource element
+
+ -- Row 37 -----------------------------------
+  Element = ModuleMetadata.relatedResource.resource
+  Card. = 0..1
+  Type = Reference(Any)
+  Short Label = The related resource
+  Definition = The related resource, such as a library, value set, profile, or other module
+  Comments = If the type is predecessor, this is a reference to the succeeding module. If the type is successor, this is a reference to the prior module

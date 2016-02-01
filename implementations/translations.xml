@@ -406,9 +406,9 @@
         <translation lang="es">Microarray</translation>
         <translation lang="fr">Microarray</translation>
     </item>
-    <item id="ModuleMetadata">
+<!--    <item id="ModuleMetadata">
         <translation lang="en">ModuleMetadata</translation>
-    </item>
+    </item> -->
     <item id="ModuleDefinition">
         <translation lang="en">ModuleDefinition</translation>
     </item>
