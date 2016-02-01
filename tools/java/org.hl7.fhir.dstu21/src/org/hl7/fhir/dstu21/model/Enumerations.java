@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
+// Generated on Sun, Jan 31, 2016 18:56-0800 for FHIR v1.3.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2125,7 +2125,7 @@ public class Enumerations {
          */
         DETECTEDISSUE, 
         /**
-         * This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
+         * This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
          */
         DEVICE, 
         /**
@@ -3164,7 +3164,7 @@ public class Enumerations {
             case DECISIONSUPPORTRULE: return "This resource defines a decision support rule of the form [on Event] if Condition then Action.";
             case DECISIONSUPPORTSERVICEMODULE: return "The DecisionSupportServiceModule resource describes decision support functionality that is available as a service.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
-            case DEVICE: return "This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
+            case DEVICE: return "This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
             case DEVICECOMPONENT: return "Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.";
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEUSEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";
@@ -4865,7 +4865,7 @@ public class Enumerations {
          */
         DETECTEDISSUE, 
         /**
-         * This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
+         * This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
          */
         DEVICE, 
         /**
@@ -5674,7 +5674,7 @@ public class Enumerations {
             case DECISIONSUPPORTRULE: return "This resource defines a decision support rule of the form [on Event] if Condition then Action.";
             case DECISIONSUPPORTSERVICEMODULE: return "The DecisionSupportServiceModule resource describes decision support functionality that is available as a service.";
             case DETECTEDISSUE: return "Indicates an actual or potential clinical issue with or between one or more active or proposed clinical actions for a patient; e.g. Drug-drug interaction, Ineffective treatment frequency, Procedure-condition conflict, etc.";
-            case DEVICE: return "This resource identifies an instance of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
+            case DEVICE: return "This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.";
             case DEVICECOMPONENT: return "Describes the characteristics, operational status and capabilities of a medical-related component of a medical device.";
             case DEVICEMETRIC: return "Describes a measurement, calculation or setting capability of a medical device.";
             case DEVICEUSEREQUEST: return "Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.";

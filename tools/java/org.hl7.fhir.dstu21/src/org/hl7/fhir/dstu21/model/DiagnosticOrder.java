@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
+// Generated on Sun, Jan 31, 2016 18:56-0800 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -101,6 +101,10 @@ public class DiagnosticOrder extends DomainResource {
          */
         FAILED, 
         /**
+         * The request was entered in error and voided.
+         */
+        ENTEREDINERROR, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -133,6 +137,8 @@ public class DiagnosticOrder extends DomainResource {
           return REJECTED;
         if ("failed".equals(codeString))
           return FAILED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
         throw new FHIRException("Unknown DiagnosticOrderStatus code '"+codeString+"'");
         }
         public String toCode() {
@@ -150,6 +156,7 @@ public class DiagnosticOrder extends DomainResource {
             case SUSPENDED: return "suspended";
             case REJECTED: return "rejected";
             case FAILED: return "failed";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -168,6 +175,7 @@ public class DiagnosticOrder extends DomainResource {
             case SUSPENDED: return "http://hl7.org/fhir/diagnostic-order-status";
             case REJECTED: return "http://hl7.org/fhir/diagnostic-order-status";
             case FAILED: return "http://hl7.org/fhir/diagnostic-order-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/diagnostic-order-status";
             default: return "?";
           }
         }
@@ -186,6 +194,7 @@ public class DiagnosticOrder extends DomainResource {
             case SUSPENDED: return "The request has been held by originating system/user request.";
             case REJECTED: return "The receiving system has declined to fulfill the request.";
             case FAILED: return "The diagnostic investigation was attempted, but due to some procedural error, it could not be completed.";
+            case ENTEREDINERROR: return "The request was entered in error and voided.";
             default: return "?";
           }
         }
@@ -204,6 +213,7 @@ public class DiagnosticOrder extends DomainResource {
             case SUSPENDED: return "Suspended";
             case REJECTED: return "Rejected";
             case FAILED: return "Failed";
+            case ENTEREDINERROR: return "Entered in Error";
             default: return "?";
           }
         }
@@ -240,6 +250,8 @@ public class DiagnosticOrder extends DomainResource {
           return DiagnosticOrderStatus.REJECTED;
         if ("failed".equals(codeString))
           return DiagnosticOrderStatus.FAILED;
+        if ("entered-in-error".equals(codeString))
+          return DiagnosticOrderStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown DiagnosticOrderStatus code '"+codeString+"'");
         }
         public Enumeration<DiagnosticOrderStatus> fromType(Base code) throws FHIRException {
@@ -274,6 +286,8 @@ public class DiagnosticOrder extends DomainResource {
           return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.REJECTED);
         if ("failed".equals(codeString))
           return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.FAILED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<DiagnosticOrderStatus>(this, DiagnosticOrderStatus.ENTEREDINERROR);
         throw new FHIRException("Unknown DiagnosticOrderStatus code '"+codeString+"'");
         }
     public String toCode(DiagnosticOrderStatus code) {
@@ -303,6 +317,8 @@ public class DiagnosticOrder extends DomainResource {
         return "rejected";
       if (code == DiagnosticOrderStatus.FAILED)
         return "failed";
+      if (code == DiagnosticOrderStatus.ENTEREDINERROR)
+        return "entered-in-error";
       return "?";
       }
     public String toSystem(DiagnosticOrderStatus code) {
@@ -435,7 +451,7 @@ public class DiagnosticOrder extends DomainResource {
          * The status for the event.
          */
         @Child(name = "status", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", formalDefinition="The status for the event." )
+        @Description(shortDefinition="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error", formalDefinition="The status for the event." )
         protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
@@ -752,7 +768,7 @@ public class DiagnosticOrder extends DomainResource {
          * The status of this individual item within the order.
          */
         @Child(name = "status", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", formalDefinition="The status of this individual item within the order." )
+        @Description(shortDefinition="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error", formalDefinition="The status of this individual item within the order." )
         protected Enumeration<DiagnosticOrderStatus> status;
 
         /**
@@ -1079,14 +1095,14 @@ public class DiagnosticOrder extends DomainResource {
   }
 
     /**
-     * Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
+     * On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).
      */
     @Child(name = "subject", type = {Patient.class, Group.class, Location.class, Device.class}, order=0, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who and/or what test is about", formalDefinition="Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)." )
+    @Description(shortDefinition="Who and/or what test is about", formalDefinition="On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans)." )
     protected Reference subject;
 
     /**
-     * The actual object that is the target of the reference (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * The actual object that is the target of the reference (On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
     protected Resource subjectTarget;
 
@@ -1156,7 +1172,7 @@ public class DiagnosticOrder extends DomainResource {
      * The status of the order.
      */
     @Child(name = "status", type = {CodeType.class}, order=7, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", formalDefinition="The status of the order." )
+    @Description(shortDefinition="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error", formalDefinition="The status of the order." )
     protected Enumeration<DiagnosticOrderStatus> status;
 
     /**
@@ -1205,7 +1221,7 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * @return {@link #subject} (On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
     public Reference getSubject() { 
       if (this.subject == null)
@@ -1221,7 +1237,7 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @param value {@link #subject} (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * @param value {@link #subject} (On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
     public DiagnosticOrder setSubject(Reference value) { 
       this.subject = value;
@@ -1229,14 +1245,14 @@ public class DiagnosticOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
     public Resource getSubjectTarget() { 
       return this.subjectTarget;
     }
 
     /**
-     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
+     * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).)
      */
     public DiagnosticOrder setSubjectTarget(Resource value) { 
       this.subjectTarget = value;
@@ -1741,7 +1757,7 @@ public class DiagnosticOrder extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("subject", "Reference(Patient|Group|Location|Device)", "Who or what the investigation is to be performed on. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("subject", "Reference(Patient|Group|Location|Device)", "On whom or what the investigation is to be performed. This is usually a human patient, but diagnostic tests can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("orderer", "Reference(Practitioner)", "The practitioner that holds legal responsibility for ordering the investigation.", 0, java.lang.Integer.MAX_VALUE, orderer));
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order instance by the orderer and/or  the receiver and/or order fulfiller.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "An encounter that provides additional information about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
@@ -1926,17 +1942,17 @@ public class DiagnosticOrder extends DomainResource {
  /**
    * Search parameter: <b>item-past-status</b>
    * <p>
-   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed</b><br>
+   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DiagnosticOrder.item.event.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="item-past-status", path="DiagnosticOrder.item.event.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="item-past-status", path="DiagnosticOrder.item.event.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error", type="token" )
   public static final String SP_ITEM_PAST_STATUS = "item-past-status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>item-past-status</b>
    * <p>
-   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed</b><br>
+   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DiagnosticOrder.item.event.status</b><br>
    * </p>
@@ -2164,17 +2180,17 @@ public class DiagnosticOrder extends DomainResource {
  /**
    * Search parameter: <b>event-status</b>
    * <p>
-   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed</b><br>
+   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DiagnosticOrder.event.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="event-status", path="DiagnosticOrder.event.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="event-status", path="DiagnosticOrder.event.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error", type="token" )
   public static final String SP_EVENT_STATUS = "event-status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>event-status</b>
    * <p>
-   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed</b><br>
+   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DiagnosticOrder.event.status</b><br>
    * </p>
@@ -2184,17 +2200,17 @@ public class DiagnosticOrder extends DomainResource {
  /**
    * Search parameter: <b>item-status</b>
    * <p>
-   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed</b><br>
+   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DiagnosticOrder.item.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="item-status", path="DiagnosticOrder.item.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="item-status", path="DiagnosticOrder.item.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error", type="token" )
   public static final String SP_ITEM_STATUS = "item-status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>item-status</b>
    * <p>
-   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed</b><br>
+   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DiagnosticOrder.item.status</b><br>
    * </p>
@@ -2282,17 +2298,17 @@ public class DiagnosticOrder extends DomainResource {
  /**
    * Search parameter: <b>status</b>
    * <p>
-   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed</b><br>
+   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DiagnosticOrder.status</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="status", path="DiagnosticOrder.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed", type="token" )
+  @SearchParamDefinition(name="status", path="DiagnosticOrder.status", description="proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error", type="token" )
   public static final String SP_STATUS = "status";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>status</b>
    * <p>
-   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed</b><br>
+   * Description: <b>proposed | draft | planned | requested | received | accepted | in-progress | review | completed | cancelled | suspended | rejected | failed | entered-in-error</b><br>
    * Type: <b>token</b><br>
    * Path: <b>DiagnosticOrder.status</b><br>
    * </p>

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu21.model;
   
 */
 
-// Generated on Sat, Jan 23, 2016 23:37-0700 for FHIR v1.3.0
+// Generated on Sun, Jan 31, 2016 18:56-0800 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -81,6 +81,10 @@ public class NutritionOrder extends DomainResource {
          */
         CANCELLED, 
         /**
+         * The request was entered in error and voided.
+         */
+        ENTEREDINERROR, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -103,6 +107,8 @@ public class NutritionOrder extends DomainResource {
           return COMPLETED;
         if ("cancelled".equals(codeString))
           return CANCELLED;
+        if ("entered-in-error".equals(codeString))
+          return ENTEREDINERROR;
         throw new FHIRException("Unknown NutritionOrderStatus code '"+codeString+"'");
         }
         public String toCode() {
@@ -115,6 +121,7 @@ public class NutritionOrder extends DomainResource {
             case ONHOLD: return "on-hold";
             case COMPLETED: return "completed";
             case CANCELLED: return "cancelled";
+            case ENTEREDINERROR: return "entered-in-error";
             default: return "?";
           }
         }
@@ -128,6 +135,7 @@ public class NutritionOrder extends DomainResource {
             case ONHOLD: return "http://hl7.org/fhir/nutrition-order-status";
             case COMPLETED: return "http://hl7.org/fhir/nutrition-order-status";
             case CANCELLED: return "http://hl7.org/fhir/nutrition-order-status";
+            case ENTEREDINERROR: return "http://hl7.org/fhir/nutrition-order-status";
             default: return "?";
           }
         }
@@ -141,6 +149,7 @@ public class NutritionOrder extends DomainResource {
             case ONHOLD: return "Actions implied by the request have been temporarily halted, but are expected to continue later. May also be called \"suspended\".";
             case COMPLETED: return "All actions that are implied by the order have occurred and no continuation is planned (this will rarely be made explicit).";
             case CANCELLED: return "The request has been withdrawn and is no longer actionable.";
+            case ENTEREDINERROR: return "The request was entered in error and voided.";
             default: return "?";
           }
         }
@@ -154,6 +163,7 @@ public class NutritionOrder extends DomainResource {
             case ONHOLD: return "On-Hold";
             case COMPLETED: return "Completed";
             case CANCELLED: return "Cancelled";
+            case ENTEREDINERROR: return "Entered in Error";
             default: return "?";
           }
         }
@@ -180,6 +190,8 @@ public class NutritionOrder extends DomainResource {
           return NutritionOrderStatus.COMPLETED;
         if ("cancelled".equals(codeString))
           return NutritionOrderStatus.CANCELLED;
+        if ("entered-in-error".equals(codeString))
+          return NutritionOrderStatus.ENTEREDINERROR;
         throw new IllegalArgumentException("Unknown NutritionOrderStatus code '"+codeString+"'");
         }
         public Enumeration<NutritionOrderStatus> fromType(Base code) throws FHIRException {
@@ -204,6 +216,8 @@ public class NutritionOrder extends DomainResource {
           return new Enumeration<NutritionOrderStatus>(this, NutritionOrderStatus.COMPLETED);
         if ("cancelled".equals(codeString))
           return new Enumeration<NutritionOrderStatus>(this, NutritionOrderStatus.CANCELLED);
+        if ("entered-in-error".equals(codeString))
+          return new Enumeration<NutritionOrderStatus>(this, NutritionOrderStatus.ENTEREDINERROR);
         throw new FHIRException("Unknown NutritionOrderStatus code '"+codeString+"'");
         }
     public String toCode(NutritionOrderStatus code) {
@@ -223,6 +237,8 @@ public class NutritionOrder extends DomainResource {
         return "completed";
       if (code == NutritionOrderStatus.CANCELLED)
         return "cancelled";
+      if (code == NutritionOrderStatus.ENTEREDINERROR)
+        return "entered-in-error";
       return "?";
       }
     public String toSystem(NutritionOrderStatus code) {
@@ -1991,9 +2007,23 @@ public class NutritionOrder extends DomainResource {
   }
 
     /**
+     * Identifiers assigned to this order by the order sender or by the order receiver.
+     */
+    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Identifiers assigned to this order", formalDefinition="Identifiers assigned to this order by the order sender or by the order receiver." )
+    protected List<Identifier> identifier;
+
+    /**
+     * The workflow status of the nutrition order/request.
+     */
+    @Child(name = "status", type = {CodeType.class}, order=1, min=0, max=1, modifier=true, summary=true)
+    @Description(shortDefinition="proposed | draft | planned | requested | active | on-hold | completed | cancelled | entered-in-error", formalDefinition="The workflow status of the nutrition order/request." )
+    protected Enumeration<NutritionOrderStatus> status;
+
+    /**
      * The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.
      */
-    @Child(name = "patient", type = {Patient.class}, order=0, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=2, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="The person who requires the diet, formula or nutritional supplement", formalDefinition="The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding." )
     protected Reference patient;
 
@@ -2001,25 +2031,6 @@ public class NutritionOrder extends DomainResource {
      * The actual object that is the target of the reference (The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.)
      */
     protected Patient patientTarget;
-
-    /**
-     * The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
-     */
-    @Child(name = "orderer", type = {Practitioner.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who ordered the diet, formula or nutritional supplement", formalDefinition="The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings." )
-    protected Reference orderer;
-
-    /**
-     * The actual object that is the target of the reference (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
-     */
-    protected Practitioner ordererTarget;
-
-    /**
-     * Identifiers assigned to this order by the order sender or by the order receiver.
-     */
-    @Child(name = "identifier", type = {Identifier.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Identifiers assigned to this order", formalDefinition="Identifiers assigned to this order by the order sender or by the order receiver." )
-    protected List<Identifier> identifier;
 
     /**
      * An encounter that provides additional information about the healthcare context in which this request is made.
@@ -2041,11 +2052,16 @@ public class NutritionOrder extends DomainResource {
     protected DateTimeType dateTime;
 
     /**
-     * The workflow status of the nutrition order/request.
+     * The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.
      */
-    @Child(name = "status", type = {CodeType.class}, order=5, min=0, max=1, modifier=true, summary=true)
-    @Description(shortDefinition="proposed | draft | planned | requested | active | on-hold | completed | cancelled", formalDefinition="The workflow status of the nutrition order/request." )
-    protected Enumeration<NutritionOrderStatus> status;
+    @Child(name = "orderer", type = {Practitioner.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Who ordered the diet, formula or nutritional supplement", formalDefinition="The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings." )
+    protected Reference orderer;
+
+    /**
+     * The actual object that is the target of the reference (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
+     */
+    protected Practitioner ordererTarget;
 
     /**
      * A link to a record of allergies or intolerances  which should be included in the nutrition order.
@@ -2094,7 +2110,7 @@ public class NutritionOrder extends DomainResource {
     @Description(shortDefinition="Enteral formula components", formalDefinition="Feeding provided through the gastrointestinal tract via a tube, catheter, or stoma that delivers nutrition distal to the oral cavity." )
     protected NutritionOrderEnteralFormulaComponent enteralFormula;
 
-    private static final long serialVersionUID = 1139624085L;
+    private static final long serialVersionUID = 1429947433L;
 
   /**
    * Constructor
@@ -2110,6 +2126,95 @@ public class NutritionOrder extends DomainResource {
       super();
       this.patient = patient;
       this.dateTime = dateTime;
+    }
+
+    /**
+     * @return {@link #identifier} (Identifiers assigned to this order by the order sender or by the order receiver.)
+     */
+    public List<Identifier> getIdentifier() { 
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      return this.identifier;
+    }
+
+    public boolean hasIdentifier() { 
+      if (this.identifier == null)
+        return false;
+      for (Identifier item : this.identifier)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #identifier} (Identifiers assigned to this order by the order sender or by the order receiver.)
+     */
+    // syntactic sugar
+    public Identifier addIdentifier() { //3
+      Identifier t = new Identifier();
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public NutritionOrder addIdentifier(Identifier t) { //3
+      if (t == null)
+        return this;
+      if (this.identifier == null)
+        this.identifier = new ArrayList<Identifier>();
+      this.identifier.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public Enumeration<NutritionOrderStatus> getStatusElement() { 
+      if (this.status == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create NutritionOrder.status");
+        else if (Configuration.doAutoCreate())
+          this.status = new Enumeration<NutritionOrderStatus>(new NutritionOrderStatusEnumFactory()); // bb
+      return this.status;
+    }
+
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
+    }
+
+    /**
+     * @param value {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     */
+    public NutritionOrder setStatusElement(Enumeration<NutritionOrderStatus> value) { 
+      this.status = value;
+      return this;
+    }
+
+    /**
+     * @return The workflow status of the nutrition order/request.
+     */
+    public NutritionOrderStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
+    }
+
+    /**
+     * @param value The workflow status of the nutrition order/request.
+     */
+    public NutritionOrder setStatus(NutritionOrderStatus value) { 
+      if (value == null)
+        this.status = null;
+      else {
+        if (this.status == null)
+          this.status = new Enumeration<NutritionOrderStatus>(new NutritionOrderStatusEnumFactory());
+        this.status.setValue(value);
+      }
+      return this;
     }
 
     /**
@@ -2153,90 +2258,6 @@ public class NutritionOrder extends DomainResource {
      */
     public NutritionOrder setPatientTarget(Patient value) { 
       this.patientTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #orderer} (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
-     */
-    public Reference getOrderer() { 
-      if (this.orderer == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create NutritionOrder.orderer");
-        else if (Configuration.doAutoCreate())
-          this.orderer = new Reference(); // cc
-      return this.orderer;
-    }
-
-    public boolean hasOrderer() { 
-      return this.orderer != null && !this.orderer.isEmpty();
-    }
-
-    /**
-     * @param value {@link #orderer} (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
-     */
-    public NutritionOrder setOrderer(Reference value) { 
-      this.orderer = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #orderer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
-     */
-    public Practitioner getOrdererTarget() { 
-      if (this.ordererTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create NutritionOrder.orderer");
-        else if (Configuration.doAutoCreate())
-          this.ordererTarget = new Practitioner(); // aa
-      return this.ordererTarget;
-    }
-
-    /**
-     * @param value {@link #orderer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
-     */
-    public NutritionOrder setOrdererTarget(Practitioner value) { 
-      this.ordererTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #identifier} (Identifiers assigned to this order by the order sender or by the order receiver.)
-     */
-    public List<Identifier> getIdentifier() { 
-      if (this.identifier == null)
-        this.identifier = new ArrayList<Identifier>();
-      return this.identifier;
-    }
-
-    public boolean hasIdentifier() { 
-      if (this.identifier == null)
-        return false;
-      for (Identifier item : this.identifier)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #identifier} (Identifiers assigned to this order by the order sender or by the order receiver.)
-     */
-    // syntactic sugar
-    public Identifier addIdentifier() { //3
-      Identifier t = new Identifier();
-      if (this.identifier == null)
-        this.identifier = new ArrayList<Identifier>();
-      this.identifier.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public NutritionOrder addIdentifier(Identifier t) { //3
-      if (t == null)
-        return this;
-      if (this.identifier == null)
-        this.identifier = new ArrayList<Identifier>();
-      this.identifier.add(t);
       return this;
     }
 
@@ -2330,51 +2351,46 @@ public class NutritionOrder extends DomainResource {
     }
 
     /**
-     * @return {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @return {@link #orderer} (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
-    public Enumeration<NutritionOrderStatus> getStatusElement() { 
-      if (this.status == null)
+    public Reference getOrderer() { 
+      if (this.orderer == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create NutritionOrder.status");
+          throw new Error("Attempt to auto-create NutritionOrder.orderer");
         else if (Configuration.doAutoCreate())
-          this.status = new Enumeration<NutritionOrderStatus>(new NutritionOrderStatusEnumFactory()); // bb
-      return this.status;
+          this.orderer = new Reference(); // cc
+      return this.orderer;
     }
 
-    public boolean hasStatusElement() { 
-      return this.status != null && !this.status.isEmpty();
-    }
-
-    public boolean hasStatus() { 
-      return this.status != null && !this.status.isEmpty();
+    public boolean hasOrderer() { 
+      return this.orderer != null && !this.orderer.isEmpty();
     }
 
     /**
-     * @param value {@link #status} (The workflow status of the nutrition order/request.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
+     * @param value {@link #orderer} (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
-    public NutritionOrder setStatusElement(Enumeration<NutritionOrderStatus> value) { 
-      this.status = value;
+    public NutritionOrder setOrderer(Reference value) { 
+      this.orderer = value;
       return this;
     }
 
     /**
-     * @return The workflow status of the nutrition order/request.
+     * @return {@link #orderer} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
-    public NutritionOrderStatus getStatus() { 
-      return this.status == null ? null : this.status.getValue();
+    public Practitioner getOrdererTarget() { 
+      if (this.ordererTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create NutritionOrder.orderer");
+        else if (Configuration.doAutoCreate())
+          this.ordererTarget = new Practitioner(); // aa
+      return this.ordererTarget;
     }
 
     /**
-     * @param value The workflow status of the nutrition order/request.
+     * @param value {@link #orderer} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.)
      */
-    public NutritionOrder setStatus(NutritionOrderStatus value) { 
-      if (value == null)
-        this.status = null;
-      else {
-        if (this.status == null)
-          this.status = new Enumeration<NutritionOrderStatus>(new NutritionOrderStatusEnumFactory());
-        this.status.setValue(value);
-      }
+    public NutritionOrder setOrdererTarget(Practitioner value) { 
+      this.ordererTarget = value;
       return this;
     }
 
@@ -2609,12 +2625,12 @@ public class NutritionOrder extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("patient", "Reference(Patient)", "The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.", 0, java.lang.Integer.MAX_VALUE, patient));
-        childrenList.add(new Property("orderer", "Reference(Practitioner)", "The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.", 0, java.lang.Integer.MAX_VALUE, orderer));
         childrenList.add(new Property("identifier", "Identifier", "Identifiers assigned to this order by the order sender or by the order receiver.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("status", "code", "The workflow status of the nutrition order/request.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("patient", "Reference(Patient)", "The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("encounter", "Reference(Encounter)", "An encounter that provides additional information about the healthcare context in which this request is made.", 0, java.lang.Integer.MAX_VALUE, encounter));
         childrenList.add(new Property("dateTime", "dateTime", "The date and time that this nutrition order was requested.", 0, java.lang.Integer.MAX_VALUE, dateTime));
-        childrenList.add(new Property("status", "code", "The workflow status of the nutrition order/request.", 0, java.lang.Integer.MAX_VALUE, status));
+        childrenList.add(new Property("orderer", "Reference(Practitioner)", "The practitioner that holds legal responsibility for ordering the diet, nutritional supplement, or formula feedings.", 0, java.lang.Integer.MAX_VALUE, orderer));
         childrenList.add(new Property("allergyIntolerance", "Reference(AllergyIntolerance)", "A link to a record of allergies or intolerances  which should be included in the nutrition order.", 0, java.lang.Integer.MAX_VALUE, allergyIntolerance));
         childrenList.add(new Property("foodPreferenceModifier", "CodeableConcept", "This modifier is used to convey order-specific modifiers about the type of food that should be given. These can be derived from patient allergies, intolerances, or preferences such as Halal, Vegan or Kosher. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.", 0, java.lang.Integer.MAX_VALUE, foodPreferenceModifier));
         childrenList.add(new Property("excludeFoodModifier", "CodeableConcept", "This modifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or  Gluten-Free.  While it should not be necessary to repeat allergy or intolerance information captured in the referenced allergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason.  This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.", 0, java.lang.Integer.MAX_VALUE, excludeFoodModifier));
@@ -2625,18 +2641,18 @@ public class NutritionOrder extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("patient"))
-          this.patient = castToReference(value); // Reference
-        else if (name.equals("orderer"))
-          this.orderer = castToReference(value); // Reference
-        else if (name.equals("identifier"))
+        if (name.equals("identifier"))
           this.getIdentifier().add(castToIdentifier(value));
+        else if (name.equals("status"))
+          this.status = new NutritionOrderStatusEnumFactory().fromType(value); // Enumeration<NutritionOrderStatus>
+        else if (name.equals("patient"))
+          this.patient = castToReference(value); // Reference
         else if (name.equals("encounter"))
           this.encounter = castToReference(value); // Reference
         else if (name.equals("dateTime"))
           this.dateTime = castToDateTime(value); // DateTimeType
-        else if (name.equals("status"))
-          this.status = new NutritionOrderStatusEnumFactory().fromType(value); // Enumeration<NutritionOrderStatus>
+        else if (name.equals("orderer"))
+          this.orderer = castToReference(value); // Reference
         else if (name.equals("allergyIntolerance"))
           this.getAllergyIntolerance().add(castToReference(value));
         else if (name.equals("foodPreferenceModifier"))
@@ -2655,16 +2671,15 @@ public class NutritionOrder extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("patient")) {
+        if (name.equals("identifier")) {
+          return addIdentifier();
+        }
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type NutritionOrder.status");
+        }
+        else if (name.equals("patient")) {
           this.patient = new Reference();
           return this.patient;
-        }
-        else if (name.equals("orderer")) {
-          this.orderer = new Reference();
-          return this.orderer;
-        }
-        else if (name.equals("identifier")) {
-          return addIdentifier();
         }
         else if (name.equals("encounter")) {
           this.encounter = new Reference();
@@ -2673,8 +2688,9 @@ public class NutritionOrder extends DomainResource {
         else if (name.equals("dateTime")) {
           throw new FHIRException("Cannot call addChild on a primitive type NutritionOrder.dateTime");
         }
-        else if (name.equals("status")) {
-          throw new FHIRException("Cannot call addChild on a primitive type NutritionOrder.status");
+        else if (name.equals("orderer")) {
+          this.orderer = new Reference();
+          return this.orderer;
         }
         else if (name.equals("allergyIntolerance")) {
           return addAllergyIntolerance();
@@ -2708,16 +2724,16 @@ public class NutritionOrder extends DomainResource {
       public NutritionOrder copy() {
         NutritionOrder dst = new NutritionOrder();
         copyValues(dst);
-        dst.patient = patient == null ? null : patient.copy();
-        dst.orderer = orderer == null ? null : orderer.copy();
         if (identifier != null) {
           dst.identifier = new ArrayList<Identifier>();
           for (Identifier i : identifier)
             dst.identifier.add(i.copy());
         };
+        dst.status = status == null ? null : status.copy();
+        dst.patient = patient == null ? null : patient.copy();
         dst.encounter = encounter == null ? null : encounter.copy();
         dst.dateTime = dateTime == null ? null : dateTime.copy();
-        dst.status = status == null ? null : status.copy();
+        dst.orderer = orderer == null ? null : orderer.copy();
         if (allergyIntolerance != null) {
           dst.allergyIntolerance = new ArrayList<Reference>();
           for (Reference i : allergyIntolerance)
@@ -2754,8 +2770,8 @@ public class NutritionOrder extends DomainResource {
         if (!(other instanceof NutritionOrder))
           return false;
         NutritionOrder o = (NutritionOrder) other;
-        return compareDeep(patient, o.patient, true) && compareDeep(orderer, o.orderer, true) && compareDeep(identifier, o.identifier, true)
-           && compareDeep(encounter, o.encounter, true) && compareDeep(dateTime, o.dateTime, true) && compareDeep(status, o.status, true)
+        return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(patient, o.patient, true)
+           && compareDeep(encounter, o.encounter, true) && compareDeep(dateTime, o.dateTime, true) && compareDeep(orderer, o.orderer, true)
            && compareDeep(allergyIntolerance, o.allergyIntolerance, true) && compareDeep(foodPreferenceModifier, o.foodPreferenceModifier, true)
            && compareDeep(excludeFoodModifier, o.excludeFoodModifier, true) && compareDeep(oralDiet, o.oralDiet, true)
            && compareDeep(supplement, o.supplement, true) && compareDeep(enteralFormula, o.enteralFormula, true)
@@ -2769,13 +2785,13 @@ public class NutritionOrder extends DomainResource {
         if (!(other instanceof NutritionOrder))
           return false;
         NutritionOrder o = (NutritionOrder) other;
-        return compareValues(dateTime, o.dateTime, true) && compareValues(status, o.status, true);
+        return compareValues(status, o.status, true) && compareValues(dateTime, o.dateTime, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (patient == null || patient.isEmpty()) && (orderer == null || orderer.isEmpty())
-           && (identifier == null || identifier.isEmpty()) && (encounter == null || encounter.isEmpty())
-           && (dateTime == null || dateTime.isEmpty()) && (status == null || status.isEmpty()) && (allergyIntolerance == null || allergyIntolerance.isEmpty())
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (status == null || status.isEmpty())
+           && (patient == null || patient.isEmpty()) && (encounter == null || encounter.isEmpty()) && (dateTime == null || dateTime.isEmpty())
+           && (orderer == null || orderer.isEmpty()) && (allergyIntolerance == null || allergyIntolerance.isEmpty())
            && (foodPreferenceModifier == null || foodPreferenceModifier.isEmpty()) && (excludeFoodModifier == null || excludeFoodModifier.isEmpty())
            && (oralDiet == null || oralDiet.isEmpty()) && (supplement == null || supplement.isEmpty())
            && (enteralFormula == null || enteralFormula.isEmpty());
