@@ -1,4 +1,4 @@
-﻿
+
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
@@ -122,7 +122,7 @@
   Type = !string
 
  -- Row 20 -----------------------------------
-  Element = DataElement.mapping.comments
+  Element = DataElement.mapping.comment
   Card. = !0..1
   Must Support = Y
   Type = !string
@@ -219,7 +219,7 @@
   Type = !string
 
  -- Row 36 -----------------------------------
-  Element = DataElement.element.comments
+  Element = DataElement.element.comment
   Card. = !0..1
   Must Support = Y
   Type = !string

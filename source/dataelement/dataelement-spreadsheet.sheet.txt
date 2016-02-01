@@ -103,10 +103,10 @@
   Definition = Formal identifier that is used to identify this data element when it is represented in other formats, or referenced in a specification, model, design or an instance.
   Comments = Typically, this is used for values that can go in a v3 II data type
   IHE DEX mapping = id
-  LOINC Code = LOINC_NUM (the code is the identifier)
   v2 Mapping = OM1.2
   RIM Mapping = ./id[use=BUS]
   11179 Mapping = (Identified_Item).identifier
+  LOINC Code = LOINC_NUM (the code is the identifier)
   w5 = id
 
  -- Row 4 -----------------------------------
@@ -119,27 +119,13 @@
   Requirements = There may be multiple resource versions of the data element that have this same identifier. The resource version id will change for technical reasons, whereas the stated version number needs to be under the author\'s control
   Comments = N/A
   IHE DEX mapping = version
-  LOINC Code = N/A
   v2 Mapping = N/A
   RIM Mapping = ./id[use=VER]
   11179 Mapping = (Identified_Item).identifier.version
+  LOINC Code = N/A
   w5 = id.version
 
  -- Row 5 -----------------------------------
-  Element = DataElement.name
-  Card. = 0..1
-  Summary = y
-  Type = string
-  Short Label = Descriptive label for this element definition
-  Definition = The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
-  Comments = This may be similar to the question used to prompt someone for a data element value, but the purpose is communicating about the data element, not asking the question.  (Refer to the \'question\' element for the latter.)
-  IHE DEX mapping = displayName
-  LOINC Code = LONG_COMMON_NAME
-  v2 Mapping = OM1.11
-  RIM Mapping = ./title
-  11179 Mapping = (Designatable_Item).designation.sign  acceptability=preferred in default context
-
- -- Row 6 -----------------------------------
   Element = DataElement.status
   Card. = 1..1
   Is Modifier = yes
@@ -149,13 +135,13 @@
   Short Label = draft | active | retired
   Definition = The status of the data element
   Requirements = Allows filtering of data elements that are appropriate for use
-  LOINC Code = STATUS
   v2 Mapping = MFE.1
   RIM Mapping = ./status (draft = new  active = active  retired = aborted)
   11179 Mapping = (Administered_item).registration.state  new = Incomplete, Candidate, Recorded, Qualified  active = Standard, Preferred Standard, Application  retired = Retired, Superseded, Historical
+  LOINC Code = STATUS
   w5 = status
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = DataElement.experimental
   Card. = 0..1
   Summary = y
@@ -166,7 +152,7 @@
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"experimental\"].value[type=BL]
   w5 = class
 
- -- Row 8 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = DataElement.publisher
   Card. = 0..1
   Summary = y
@@ -176,13 +162,42 @@
   Requirements = Helps establish the \"authority/credibility\" of the data element.  May also allow for contact
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
   IHE DEX mapping = registrationAuthority
-  LOINC Code = Fixed to Regenstrief or SOURCE
   v2 Mapping = OM1.16
   RIM Mapping = ./participation[typeCode=AUT]/role[classCode=ASSIGN]/scoper[classCode=ORG,determinerCode=INSTANCE]/name
   11179 Mapping = (Administered_Item).stewardship_record.organization.name
+  LOINC Code = Fixed to Regenstrief or SOURCE
   w5 = who.witness
 
+ -- Row 8 -----------------------------------
+  Element = DataElement.date
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = Date for this version of the data element
+  Definition = The date this version of the data element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element  changes
+  Comments = This refers to the \"business\" version, the DataElement.version which changes based on business processes.  It does not refer to the date of the RESTful version which is part of the resource metadata. Additional specific dates may be added as extensions
+  IHE DEX mapping = revisionDate
+  v2 Mapping = OM1.21
+  RIM Mapping = ./participation[typeCode=AUT]/time
+  11179 Mapping = (Administered_item).last_change_date
+  LOINC Code = DATE_LAST_CHANGED
+  w5 = when.recorded
+
  -- Row 9 -----------------------------------
+  Element = DataElement.name
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Descriptive label for this element definition
+  Definition = The term used by humans to refer to the data element.  Should ideally be unique within the context in which the data element is expected to be used.
+  Comments = This may be similar to the question used to prompt someone for a data element value, but the purpose is communicating about the data element, not asking the question.  (Refer to the \'question\' element for the latter.)
+  IHE DEX mapping = displayName
+  v2 Mapping = OM1.11
+  RIM Mapping = ./title
+  11179 Mapping = (Designatable_Item).designation.sign  acceptability=preferred in default context
+  LOINC Code = LONG_COMMON_NAME
+
+ -- Row 10 -----------------------------------
   Element = DataElement.contact
   Card. = 0..*
   Summary = y
@@ -190,12 +205,12 @@
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
-  LOINC Code = N/A
   v2 Mapping = OM1.17
   RIM Mapping = ./participation[typeCode=AUT]/role[classCode=ASSIGN]/scoper[classCode=ORG,determinerCode=INSTANCE]
   11179 Mapping = (Administered_Item).stewardship_record.organization.[email_address, phone_number, uri]
+  LOINC Code = N/A
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = DataElement.contact.name
   Card. = 0..1
   Summary = Y
@@ -205,7 +220,7 @@
   Comments = If there is no named individual, the telecom is for the organization as a whole
   RIM Mapping = ./name
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = DataElement.contact.telecom
   Card. = 0..*
   Summary = Y
@@ -213,21 +228,6 @@
   Short Label = Contact details for individual or publisher
   Definition = Contact details for individual (if a name was provided) or the publisher
   RIM Mapping = ./telecom
-
- -- Row 12 -----------------------------------
-  Element = DataElement.date
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Label = Date for this version of the data element
-  Definition = The date this version of the data element was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the data element  changes
-  Comments = This refers to the \"business\" version, the DataElement.version which changes based on business processes.  It does not refer to the date of the RESTful version which is part of the resource metadata. Additional specific dates may be added as extensions
-  IHE DEX mapping = revisionDate
-  LOINC Code = DATE_LAST_CHANGED
-  v2 Mapping = OM1.21
-  RIM Mapping = ./participation[typeCode=AUT]/time
-  11179 Mapping = (Administered_item).last_change_date
-  w5 = when.recorded
 
  -- Row 13 -----------------------------------
   Element = DataElement.useContext
@@ -237,10 +237,10 @@
   Binding = ConformanceUseContext
   Short Label = Content intends to support these contexts
   Definition = The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of data element definitions.
-  LOINC Code = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
   v2 Mapping = OM1.18, OM1.42, OM1.46, OM7.3
   RIM Mapping = ./inboundRelationship[typeCode=SUBJ]/source[classCode=LIST, moodCode=EVN]/code
   11179 Mapping = (Classifiable_Item).classifier
+  LOINC Code = COMPONENT, PROPERTY, TIME_ASPCT, SYSTEM, SCALE_TYP, METHOD_TYP, CLASS, CLASSTYPE, ORDER_OBS, DOCUMENT_SECTION, HL7_ATTACHMENT_STRUCTURE
 
  -- Row 14 -----------------------------------
   Element = DataElement.copyright
@@ -301,7 +301,7 @@
   RIM Mapping = N/A (MIF)
 
  -- Row 20 -----------------------------------
-  Element = DataElement.mapping.comments
+  Element = DataElement.mapping.comment
   Card. = 0..1
   Type = string
   Short Label = Versions, Issues, Scope limitations etc.

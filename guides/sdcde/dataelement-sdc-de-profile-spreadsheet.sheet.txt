@@ -247,7 +247,7 @@
   Type = !string
 
  -- Row 28 -----------------------------------
-  Element = DataElement.mapping.comments
+  Element = DataElement.mapping.comment
   Card. = !0..1
   Must Support = Y
   Type = !string
@@ -277,7 +277,7 @@
   Type = !string
 
  -- Row 33 -----------------------------------
-  Element = DataElement.mapping.comments
+  Element = DataElement.mapping.comment
   Card. = !0..1
   Must Support = Y
   Type = !string
@@ -382,7 +382,7 @@
   11179 Mapping = (Designatable_Item).definition.text
 
  -- Row 47 -----------------------------------
-  Element = DataElement.element.comments
+  Element = DataElement.element.comment
   Card. = !0..1
   Must Support = Y
   Type = !string

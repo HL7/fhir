@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <DataElement xmlns="http://hl7.org/fhir">
-  <id value="dataelement-sdc-profile-example-de"/>
-  <text>
+	<id value="dataelement-sdc-profile-example-de"/>
+	<text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">TODO</div>
   </text>
-  <contained>
+	<contained>
     <ValueSet>
       <id value="vm-valueset"/>
       <identifier>
@@ -62,7 +61,7 @@
       </compose>
     </ValueSet>
   </contained>
-  <contained>
+	<contained>
     <ValueSet>
       <id value="pv-valueset"/>
     <!--     
@@ -100,7 +99,7 @@
       </compose>
     </ValueSet>
   </contained>
-  <contained>
+	<contained>
     <ConceptMap>
       <id value="pv-conceptmap"/>
       <status value="draft"/>
@@ -135,7 +134,7 @@
       </element>
     </ConceptMap>
   </contained>
-  <contained>
+	<contained>
     <Organization>
       <id value="sub-org"/>
       <name value="Agency for Healthcare Research and Quality (AHRQ) Center for Patient Safety and Quality"/>
@@ -153,30 +152,16 @@
       </contact>
     </Organization>
   </contained>
-  <extension url="http://hl7.org/fhir/StructureDefinition/11179-de-document-reference">
-    <valueReference>
-      <reference value="#doc"/>
-    </valueReference>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/11179-de-effective-period">
-    <valuePeriod>
-      <start value="2010-03-31"/>
-    </valuePeriod>
-  </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/11179-de-submitter-org">
-    <valueReference>
-      <reference value="#sub-org"/>
-    </valueReference>
-  </extension>
-  <identifier>
+	<identifier>
     <system value="http://nlm.nih.gov/some_other_text/data_element_identifier"/>
     <value value="DE42AHRQ"/>
   </identifier>
-  <version value="1.2"/>
-  <name value="Patient Gender"/>
-  <status value="draft"/>
-  <publisher value="Agency for Healthcare Research and Quality (AHRQ) Center for Patient Safety and Quality"/>
-  <contact>
+	<version value="1.2"/>
+	<status value="draft"/>
+	<publisher value="Agency for Healthcare Research and Quality (AHRQ) Center for Patient Safety and Quality"/>
+	<date value="2010-03-31"/>
+	<name value="Patient Gender"/>
+	<contact>
     <extension url="http://hl7.org/fhir/StructureDefinition/11179-de-contact-address">
       <valueAddress>
         <text value="540 Gaither Rd Rockville MD 20850"/>
@@ -188,22 +173,21 @@
       <value value="william.munier@ahrq.hhs.gov"/>
     </telecom>
   </contact>
-  <date value="2010-03-31"/>
-  <useContext>
+	<useContext>
     <coding>
       <code value="Healthcare Event Reporting Form"/>
     <!--      Wasn't clear if the above was a code      -->
       <display value="Patient safety event report - hospital: healthcare event reporting form"/>
     </coding>
   </useContext>
-  <mapping>
+	<mapping>
     <identity value="objclass"/>
     <uri value="http://healthit.gov/sdc/objectclassproperty"/>
     <name value="Structured Data Capture ObjectClass/Property"/>
   </mapping>
-  <element>
+	<element>
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
-      <valueString value="Patient&#39;s Gender"/>
+      <valueString value="Patient's Gender"/>
     </extension>
     <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-question">
       <valueString value="Patient-Gender,CD"/>
@@ -216,7 +200,7 @@
       <system value="http://loinc.org"/>
       <code value="74698-2"/>
     </code>
-    <definition value="The patient&#39;s documented gender on arrival at the hospital."/>
+    <definition value="The patient's documented gender on arrival at the hospital."/>
     <type>
       <code value="CodeableConcept"/>
     </type>
