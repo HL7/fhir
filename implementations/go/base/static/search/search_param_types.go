@@ -123,23 +123,51 @@ func (q *Query) Options() *QueryOptions {
 		case IncludeParam:
 			for _, value := range values {
 				incls := strings.Split(value, ":")
-				if len(incls) != 2 {
+				if len(incls) < 2 || len(incls) > 3 {
 					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
 				}
 				inclParam, ok := SearchParameterDictionary[incls[0]][incls[1]]
 				if !ok {
 					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
 				}
+				// Only reference paramaters count, so verify it is a reference parameter
+				if inclParam.Type != "reference" {
+					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
+				}
+				if len(incls) == 3 {
+					if isValidTarget(incls[2], inclParam) {
+						// Modify the targets to include only the one noted
+						inclParam.Targets = []string{incls[2]}
+					} else {
+						panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
+					}
+				}
 				options.Include = append(options.Include, IncludeOption{Resource: incls[0], Parameter: inclParam})
 			}
 		case RevIncludeParam:
 			for _, value := range values {
 				incls := strings.Split(value, ":")
-				if len(incls) != 2 {
+				if len(incls) < 2 || len(incls) > 3 {
 					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
 				}
 				revInclParam, ok := SearchParameterDictionary[incls[0]][incls[1]]
 				if !ok {
+					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+				}
+				// Only reference paramaters count, so verify it is a reference parameter
+				if revInclParam.Type != "reference" {
+					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+				}
+				// Only the currently searched on resource is a valid target (or "Any")
+				target := q.Resource
+				if len(incls) == 3 && incls[2] != target && incls[2] != "Any" {
+					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+				}
+				// Make sure the selected param actually supports the intended target
+				if isValidTarget(target, revInclParam) {
+					// Modify the targets to include only the resource we're searching on
+					revInclParam.Targets = []string{target}
+				} else {
 					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
 				}
 				options.RevInclude = append(options.RevInclude, RevIncludeOption{Resource: incls[0], Parameter: revInclParam})
@@ -156,6 +184,15 @@ func getSingletonParamValue(param string, values []string) string {
 		panic(createInvalidSearchError("MSG_PARAM_NO_REPEAT", fmt.Sprintf("Parameter \"%s\" is not allowed to repeat", param)))
 	}
 	return values[0]
+}
+
+func isValidTarget(target string, param SearchParamInfo) bool {
+	for _, pTarget := range param.Targets {
+		if pTarget == target || pTarget == "Any" {
+			return true
+		}
+	}
+	return false
 }
 
 // NormalizedQueryValues reconstructs the URL-encoded query based on parsed
