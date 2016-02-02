@@ -95,7 +95,6 @@
   Definition = Identifies a particular constituent of interest in the product
   Comments = The ingredients need not be a complete list; usually only active ingredients are listed
   RIM Mapping = .scopesRole[typeCode=INGR]
-  To Do = Should have an indicator distinguishing active & inactive
 
  -- Row 8 -----------------------------------
   Element = Medication.product.ingredient.item
@@ -205,7 +204,7 @@
   Path = Medication.package.container
 
  -- Row 6 -----------------------------------
-  Name = packageitem
+  Name = package-item
   Type = reference
   Path = Medication.package.content.item
 
