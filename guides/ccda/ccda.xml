@@ -11,6 +11,14 @@
   <package>
     <name value="CCDA Package"/>
     <description value="Resource profiles and extensions necessary to support C-CDA on FHIR."/>
+    <resource>
+      <purpose value="profile"/>
+      <name value="C-CDA on FHIR US-Realm Header"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-us-realm-header-composition"/>
+      <sourceUri value="StructureDefinition/ccda-us-realm-header-composition.xml"/>
+    </resource>
   </package>
   <page>
     <source value="ccda.html"/>
