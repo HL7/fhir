@@ -418,6 +418,9 @@ func (m *MongoSearcher) createQuantityQueryObject(q *QuantityParam) bson.M {
 
 func (m *MongoSearcher) createReferenceQueryObject(r *ReferenceParam) bson.M {
 	single := func(p SearchParamPath) bson.M {
+		if p.Type == "Resource" {
+			return m.createInlinedReferenceQueryObject(r, p)
+		}
 		criteria := bson.M{}
 		switch ref := r.Reference.(type) {
 		case LocalReference:
@@ -431,6 +434,7 @@ func (m *MongoSearcher) createReferenceQueryObject(r *ReferenceParam) bson.M {
 			// Since MongoDB does not support cross-collection searches, we must break this into two:
 			// (1) perform search against referenced collection using chained search Query
 			// (2) use ID results from first query to build second query
+			// TODO: Investigate if new Mongo 3.2 $lookup pipeline feature might be an improvement
 			var idObjs []struct {
 				ID string `bson:"_id"`
 			}
@@ -449,6 +453,25 @@ func (m *MongoSearcher) createReferenceQueryObject(r *ReferenceParam) bson.M {
 	}
 
 	return orPaths(single, r.Paths)
+}
+
+func (m *MongoSearcher) createInlinedReferenceQueryObject(r *ReferenceParam, p SearchParamPath) bson.M {
+	criteria := bson.M{}
+	switch ref := r.Reference.(type) {
+	case LocalReference:
+		if ref.Type != "" {
+			criteria["resourceType"] = ref.Type
+		}
+		criteria["_id"] = ci(ref.ID)
+	case ChainedQueryReference:
+		criteria = m.createQueryObject(ref.ChainedQuery)
+		if ref.Type != "" {
+			criteria["resourceType"] = ref.Type
+		}
+	case ExternalReference:
+		panic(createUnsupportedSearchError("MSG_PARAM_INVALID", fmt.Sprintf("Parameter \"%s\" content is invalid", r.Name)))
+	}
+	return buildBSON(p.Path, criteria)
 }
 
 func (m *MongoSearcher) createStringQueryObject(s *StringParam) bson.M {
@@ -593,11 +616,14 @@ func createInternalServerError(code, display string) *Error {
 func buildBSON(path string, criteria interface{}) bson.M {
 	result := bson.M{}
 
-	normalizedPath := strings.Replace(path, "[]", "", -1)
+	// First fix the indexers so "[0]entry.resource" becomes "entry.0.resource"
+	re := regexp.MustCompile("\\[(\\d+)\\]([^\\.]+)")
+	indexedPath := re.ReplaceAllString(path, "$2.$1")
+	normalizedPath := strings.Replace(indexedPath, "[]", "", -1)
 	bCriteria, ok := criteria.(bson.M)
 	if ok {
 		pathRegex := regexp.MustCompile("(.*\\[\\][^\\.]*)\\.?([^\\[\\]]*)")
-		if m := pathRegex.FindStringSubmatch(path); m != nil && len(bCriteria) > 1 {
+		if m := pathRegex.FindStringSubmatch(indexedPath); m != nil && len(bCriteria) > 1 {
 			// Need to use an $elemMatch because there is an array in the path
 			// and the search criteria is a composite
 			left := strings.Replace(m[1], "[]", "", -1)
@@ -622,7 +648,7 @@ func buildBSON(path string, criteria interface{}) bson.M {
 			for k, v := range bCriteria {
 				// Pull out the $or and process it separately as top level condition
 				if isQueryOperator(k) {
-					processQueryOperatorCriteria(path, k, v, result)
+					processQueryOperatorCriteria(indexedPath, k, v, result)
 				} else {
 					result[fmt.Sprintf("%s.%s", normalizedPath, k)] = v
 				}

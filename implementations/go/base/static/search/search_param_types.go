@@ -310,7 +310,8 @@ func (s SearchParamInfo) CreateSearchParam(paramStr string) SearchParam {
 // SearchParamPath indicates a dot-separated path to the property that should
 // be searched, as well as the FHIR type of that property (e.g., "dateTime").
 // The path indicates elements that are arrays by prefixing the element name
-// with "[]" (e.g., "order.[]item.name").
+// with "[]" (e.g., "order.[]item.name").  In the rare case that the search
+// path has an indexer, it will be in the brackets (e.g.,"[0]item.entry")
 type SearchParamPath struct {
 	Path string
 	Type string
@@ -708,17 +709,20 @@ func (r *ReferenceParam) getQueryParamAndValue() (string, string) {
 // ParseReferenceParam parses a reference-based query string and returns a
 // pointer to a ReferenceParam based on the query and the parameter definition.
 func ParseReferenceParam(paramStr string, info SearchParamInfo) *ReferenceParam {
-	ref := unescape(paramStr)
-	re := regexp.MustCompile("\\/?(([^\\/]+)\\/)?([^\\/]+)$")
-	if m := re.FindStringSubmatch(ref); m != nil {
-		typ := findReferencedType(m[2], info)
-		if info.Postfix != "" {
-			q := Query{Resource: typ, Query: info.Postfix + "=" + paramStr}
-			return &ReferenceParam{info, ChainedQueryReference{Type: typ, ChainedQuery: q}}
-		} else if u, e := url.Parse(ref); e == nil && u.IsAbs() {
-			return &ReferenceParam{info, ExternalReference{Type: typ, URL: ref}}
-		} else {
-			return &ReferenceParam{info, LocalReference{Type: typ, ID: m[3]}}
+	if info.Postfix != "" {
+		typ := findReferencedType("", info)
+		q := Query{Resource: typ, Query: info.Postfix + "=" + paramStr}
+		return &ReferenceParam{info, ChainedQueryReference{Type: typ, ChainedQuery: q}}
+	} else {
+		ref := unescape(paramStr)
+		re := regexp.MustCompile("\\/?(([^\\/]+)\\/)?([^\\/]+)$")
+		if m := re.FindStringSubmatch(ref); m != nil {
+			typ := findReferencedType(m[2], info)
+			if u, e := url.Parse(ref); e == nil && u.IsAbs() {
+				return &ReferenceParam{info, ExternalReference{Type: typ, URL: ref}}
+			} else {
+				return &ReferenceParam{info, LocalReference{Type: typ, ID: m[3]}}
+			}
 		}
 	}
 	return &ReferenceParam{info, nil}
