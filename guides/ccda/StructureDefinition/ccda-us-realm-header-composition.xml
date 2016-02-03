@@ -1,0 +1,119 @@
+<StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/rickg/OD/Lantana/projects/HL7/FHIR/Schemas/Developmental/fhir-all-xsd/structuredefinition.xsd">
+	<id value="ccda-us-realm-header-composition"/>
+	<url value="http://hl7.org/fhir/StructureDefinition/ccda-us-realm-header-composition"/>
+	<name value="C-CDA on FHIR US Realm Header"/>
+	<status value="draft"/>
+	<contact>
+		<name value="Rick Geimer"/>
+		<telecom>
+			<system value="email"/>
+			<value value="rick.geimer@lantanagroup.com"/>
+			<use value="work"/>
+		</telecom>
+	</contact>
+	<kind value="resource"/>
+	<constrainedType value="Composition"/>
+	<abstract value="false"/>
+	<base value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+	<differential>
+		<element>
+			<path value="Composition"/>
+		</element>
+		<element>
+			<path value="Composition.language"/>
+			<short value="language"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.identifier"/>
+			<short value="identifier"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.date"/>
+			<short value="date"/>
+			<comments value="US Realm Datetime"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.type"/>
+			<label value="Document Type"/>
+			<short value="type"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.title"/>
+			<label value="Document Title"/>
+			<short value="title"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.status"/>
+			<short value="status"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.confidentiality"/>
+			<short value="confidentiality"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.subject"/>
+			<short value="subject"/>
+			<comments value="US Realm Patient"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.author"/>
+			<short value="author"/>
+			<comments value="US Realm Author"/>
+			<min value="1"/>
+			<max value="*"/>
+		</element>
+		<element>
+			<path value="Composition.custodian"/>
+			<short value="custodian"/>
+			<comments value="US Realm Custodian"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.event"/>
+			<short value="event"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.event.period"/>
+			<short value="period"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.event.period.start"/>
+			<short value="start"/>
+			<min value="1"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.encounter"/>
+			<short value="encounter"/>
+			<min value="0"/>
+			<max value="1"/>
+		</element>
+		<element>
+			<path value="Composition.section"/>
+			<short value="section"/>
+			<min value="1"/>
+			<max value="*"/>
+		</element>
+	</differential>
+</StructureDefinition>
