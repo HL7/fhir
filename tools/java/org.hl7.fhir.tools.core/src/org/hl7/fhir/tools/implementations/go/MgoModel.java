@@ -319,6 +319,7 @@ public class MgoModel {
                         continue;
                     }
                     for (int i=0; i < p.getPaths().size(); i++) {
+                        String path = p.getPaths().get(i);
                         String paramName = p.getCode().replaceAll("-", "");
                         StringBuilder fieldBuf = new StringBuilder("Included").append(target).append("ResourcesReferencedBy").append(capitalize(paramName));
                         if (p.getPaths().size() > 1) {
@@ -326,13 +327,15 @@ public class MgoModel {
                         }
 
                         boolean multipleCardinality = false;
-                        try {
-                            ElementDefn el = resource.getRoot().getElementForPath(p.getPaths().get(i), definitions, "resolving search parameter path", true);
-                            if (el.getMaxCardinality() > 1) {
-                                multipleCardinality = true;
+                        if (! path.endsWith("(0)")) {
+                            try {
+                                ElementDefn el = resource.getRoot().getElementForPath(path, definitions, "resolving search parameter path", true);
+                                if (el.getMaxCardinality() > 1) {
+                                    multipleCardinality = true;
+                                }
+                            } catch (Exception e) {
+                                System.err.println("Couldn't determine cardinality for parameter " + p.getCode() + " path: " + p.getPaths().get(i));
                             }
-                        } catch (Exception e) {
-                            System.err.println("Couldn't determine cardinality for parameter " + p.getCode() + " path: " + p.getPaths().get(i));
                         }
 
                         includeInfos.add(new ResourcePlusIncludeInfo(fieldBuf.toString(), target, multipleCardinality));

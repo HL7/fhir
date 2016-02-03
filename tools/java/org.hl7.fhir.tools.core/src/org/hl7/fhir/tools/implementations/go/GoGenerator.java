@@ -310,8 +310,16 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
             SearchParam param = new SearchParam(p.getCode(), p.getType());
             for (String path: p.getPaths()) {
                 try {
+                    // Some paths (in bundle parameters) have an indexer at the end.  In that case, we only support
+                    // index 0 (which, lucky for us, is all that is needed in DSTU2).  Still, we need to strip the
+                    // indexer for the rest of this to work.
+                    boolean zeroIndexer = false;
+                    if (path.endsWith("(0)")) {
+                        path = path.substring(0, path.length() - 3);
+                        zeroIndexer = true;
+                    }
                     ElementDefn el = resource.getRoot().getElementForPath(path, definitions, "Resolving Search Parameter Path", true);
-                    path = enhancePath(definitions, resource, path);
+                    path = enhancePath(definitions, resource, path, zeroIndexer);
                     // Special support for id since we store it as _id (TODO: this probably breaks the notion of the "internal" id)
                     if ("_id".equals(param.getName())) {
                         path = "_id";
@@ -357,7 +365,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         return params;
     }
 
-    private String enhancePath(Definitions definitions, ResourceDefn resource, String path) {
+    private String enhancePath(Definitions definitions, ResourceDefn resource, String path, boolean zeroIndexer) {
         StringBuilder newPath = new StringBuilder();
 
         String[] parts = path.split("\\.");
@@ -367,7 +375,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
                 String partialPath = String.join(".", Arrays.copyOfRange(parts, 0, i+1));
                 ElementDefn el = resource.getRoot().getElementForPath(partialPath, definitions, "resolving search parameter path", true);
                 if (el.getMaxCardinality() > 1) {
-                    newPath.append("[]");
+                    newPath.append(zeroIndexer ? "[0]" : "[]");
                 }
                 newPath.append(parts[i]).append(".");
             } catch (Exception e) {
