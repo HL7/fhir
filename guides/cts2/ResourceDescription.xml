@@ -1,0 +1,146 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="ResourceDescription"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}ResourceDescription"/>
+   <name value="ResourceDescription"/>
+   <display value="CTS2.ResourceDescription"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="ResourceDescription represents the shared characteristics common to both abstract and resource version descriptions. ResourceDescription is an abstract type and, as such, cannot be directly&#xa;&#x9;&#x9;&#x9;&#x9;created. Resource descriptions are Changeable, meaning that they have identity and can be created, updated and deleted."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}Changeable"/>
+   <snapshot>
+      <element>
+         <path value="ResourceDescription"/>
+         <short value="ResourceDescription"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="ResourceDescription.about"/>
+         <name value="about"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="ExternalURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.formalName"/>
+         <name value="formalName"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="String"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.keyword"/>
+         <name value="keyword"/>
+         <definition value="additional identifiers that are used to index and locatethe resource"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="String"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.resourceType"/>
+         <name value="resourceType"/>
+         <definition value="the class(es) that this resource instantiates"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="URIAndEntityName"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.resourceSynopsis"/>
+         <name value="resourceSynopsis"/>
+         <definition value="a textual summary of the resource - what it is, what it is for, etc."/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="EntryDescription"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.additionalDocumentation"/>
+         <name value="additionalDocumentation"/>
+         <definition value="a reference to a document thatprovide additional information about the resource"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="PersistentURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.sourceAndRole"/>
+         <name value="sourceAndRole"/>
+         <definition value="a reference to an individual, organization of bibliographic reference that participated in the creation, validation, review, dissemination of this resource and therole(s) they&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;played"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="SourceAndRoleReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.rights"/>
+         <name value="rights"/>
+         <definition value="copyright and IP information. Note that rights applies to the source resource, not the CTS2 rendering."/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="OpaqueData"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.note"/>
+         <name value="note"/>
+         <definition value="an additional note or comment about the resource"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="Comment"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.property"/>
+         <name value="property"/>
+         <definition value="additional information about the resource that doesnot fit into any of the attributes described above"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="Property"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.alternateID"/>
+         <name value="alternateID"/>
+         <definition value="an alternative identifier that uniquely names this resource in other environments as contexts. As an example, if a resource had both an ISO Object Identifier and a DNS name, the DNS name might&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;be assigned as the entryID of the resource by one service while the ISO OID would be recorded as an alternateURI using the &quot;urn:oid&quot; prefix. Note that alternateIds can be added or removed&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;during resource updates."/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="ExternalURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescription.sourceStatements"/>
+         <name value="sourceStatements"/>
+         <definition value="a DirectoryURI that references the set of statements that were used to construct the containing resource. This attribute must (may?) be present if and only if the service supports the&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Statement profile "/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="StatementDirectoryURI"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

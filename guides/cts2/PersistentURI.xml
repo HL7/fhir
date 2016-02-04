@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="PersistentURI"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}PersistentURI"/>
+   <name value="PersistentURI"/>
+   <display value="CTS2.PersistentURI"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="a Universal Resource Identifier (URI) that persists across service instances. Persistent URI's have enduring reference and meaning."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}URI"/>
+   <snapshot>
+      <element>
+         <path value="PersistentURI"/>
+         <short value="PersistentURI"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

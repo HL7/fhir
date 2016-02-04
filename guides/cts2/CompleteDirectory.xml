@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="CompleteDirectory"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}CompleteDirectory"/>
+   <name value="CompleteDirectory"/>
+   <display value="CTS2.CompleteDirectory"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="An indicator that determines whether a Directory contains all of the qualifying entries or only some."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}Enumeration"/>
+   <snapshot>
+      <element>
+         <path value="CompleteDirectory"/>
+         <short value="CompleteDirectory"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

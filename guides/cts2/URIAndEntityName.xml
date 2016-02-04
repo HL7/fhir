@@ -1,0 +1,75 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="URIAndEntityName"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}URIAndEntityName"/>
+   <name value="URIAndEntityName"/>
+   <display value="CTS2.URIAndEntityName"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="The combination of a URI and an optional ScopedEntityName and an optional designation for a resource. "/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="URIAndEntityName"/>
+         <short value="URIAndEntityName"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="URIAndEntityName.uri"/>
+         <name value="uri"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="ExternalURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="URIAndEntityName.href"/>
+         <name value="href"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="RenderingURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="URIAndEntityName.namespace"/>
+         <name value="namespace"/>
+         <definition value="an identifier that references a unique namespace URI within the context of the service"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="NamespaceIdentifier"/>
+         </type>
+      </element>
+      <element>
+         <path value="URIAndEntityName.name"/>
+         <name value="name"/>
+         <definition value="the local entity name within the context of the namespace. What is chosen for the entity name is service specific"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="String"/>
+         </type>
+      </element>
+      <element>
+         <path value="URIAndEntityName.designation"/>
+         <name value="designation"/>
+         <definition value="a designation considered appropriate for the entity in the specific context of use"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="String"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

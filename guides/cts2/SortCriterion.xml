@@ -1,0 +1,53 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="SortCriterion"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}SortCriterion"/>
+   <name value="SortCriterion"/>
+   <display value="CTS2.SortCriterion"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="The particular attribute, property or special element to be sorted along with the sort direction"/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="SortCriterion"/>
+         <short value="SortCriterion"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="SortCriterion.entryOrder"/>
+         <name value="entryOrder"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="positiveInt"/>
+         </type>
+      </element>
+      <element>
+         <path value="SortCriterion.sortDirection"/>
+         <name value="sortDirection"/>
+         <type>
+            <code value="SortDirection"/>
+         </type>
+      </element>
+      <element>
+         <path value="SortCriterion.sortElement"/>
+         <name value="sortElement"/>
+         <definition value="the type and name of the attribute, property or special element to be sorted"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="ComponentReference"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

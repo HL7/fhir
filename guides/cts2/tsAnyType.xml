@@ -1,0 +1,27 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="tsAnyType"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}tsAnyType"/>
+   <name value="tsAnyType"/>
+   <display value="CTS2.tsAnyType"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="An opaque inner type that can contain any well-formed, but arbitrary information."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="tsAnyType"/>
+         <short value="tsAnyType"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

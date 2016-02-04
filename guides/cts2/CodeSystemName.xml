@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="CodeSystemName"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}CodeSystemName"/>
+   <name value="CodeSystemName"/>
+   <display value="CTS2.CodeSystemName"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="a local identifier for a CodeSystem"/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}LocalIdentifier"/>
+   <snapshot>
+      <element>
+         <path value="CodeSystemName"/>
+         <short value="CodeSystemName"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

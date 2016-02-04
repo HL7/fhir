@@ -1,0 +1,67 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="RESTResource"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}RESTResource"/>
+   <name value="RESTResource"/>
+   <display value="CTS2.RESTResource"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="The header information for any REST resource retrieval"/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="RESTResource"/>
+         <short value="RESTResource"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="RESTResource.resourceRoot"/>
+         <name value="resourceRoot"/>
+         <definition value="The URI of the REST service.  As an example, if the resource URI&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;was &quot;http://informatics.mayo.edu/cts2/rest/codesystems&quot;, the resourceRoot would be&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&quot;http://informatics.mayo.edu/cts2/rest/&quot;"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="ServiceURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="RESTResource.resourceURI"/>
+         <name value="resourceURI"/>
+         <definition value="The relative URI of the resource with respect to the resourceRoot.  As an example,&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;if the resource URI was &quot;http://informatics.mayo.edu/cts2/rest/codesystems&quot;, the resourceURI would&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;be &quot;codesystems&quot;.  Fragment and query identifiers should also be included."/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="RenderingURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="RESTResource.parameter"/>
+         <name value="parameter"/>
+         <definition value="The paramaters that were used in executing the query. This carries all of the parameters that&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;are needed to reconstruct the complete query in either a RESTful or procedural environment. The service provider&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;may or may not include non-CTS2 related parameters such as security tokens, routing requests, etc."/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="Parameter"/>
+         </type>
+      </element>
+      <element>
+         <path value="RESTResource.accessDate"/>
+         <name value="accessDate"/>
+         <definition value="The date and time that the resource was accessed."/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="DateAndTime"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="String"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}String"/>
+   <name value="String"/>
+   <display value="CTS2.String"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="a non-empty sequence of characters. As terminological resourcesare often multilingual, it is expected that most CTS2 Platform SpecificModels (PSMs) will require that the String implementation&#xa;&#x9;&#x9;&#x9;&#x9;supportinternational character sets."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="http://hl7.org/fhir/StructureDefinition/string"/>
+   <snapshot>
+      <element>
+         <path value="String"/>
+         <short value="String"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

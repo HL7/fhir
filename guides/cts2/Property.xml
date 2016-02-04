@@ -1,0 +1,66 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="Property"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}Property"/>
+   <name value="Property"/>
+   <display value="CTS2.Property"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="A tag/value pair that does not have a corresponding model attribute. Property represent any statement about a resource (e.g. CodeSystem, Entity, etc.) that does not have a corresponding attribute in the&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;CTS2 model. As an example, the NCI Thesaurus uses a tag named BioCarta_ID (C43677) to associate appropriate thesaurus entities with Bio Carta pathway references. This would be represented by a property,&#xa;&#x9;&#x9;&#x9;&#x9;whose predicate is the URI for C436777 and the value is the actual id."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="Property"/>
+         <short value="Property"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="Property.correspondingStatement"/>
+         <name value="correspondingStatement"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="RenderingURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="Property.predicate"/>
+         <name value="predicate"/>
+         <definition value="the name and URI of the property predicate"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="PredicateReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="Property.value"/>
+         <name value="value"/>
+         <definition value="the target(s) of the property. Note that this can only represent the literal format of the property. The details about the original property will be found in the correspondingStatement if the&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;CTS2 implementation supports the Statement profile."/>
+         <min value="1"/>
+         <max value="*"/>
+         <type>
+            <code value="StatementTarget"/>
+         </type>
+      </element>
+      <element>
+         <path value="Property.propertyQualifier"/>
+         <name value="propertyQualifier"/>
+         <definition value="an assertion whose subject is the assertion in the property instead of the property subject"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="Property"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

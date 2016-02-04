@@ -1,0 +1,54 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="DirectoryEntry"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}DirectoryEntry"/>
+   <name value="DirectoryEntry"/>
+   <display value="CTS2.DirectoryEntry"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="an entry in a directory. DirectoryEntry is a mixin that identifies the attributes that must or may be present in any element that can be represented as an entry in a Directory."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="DirectoryEntry"/>
+         <short value="DirectoryEntry"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="DirectoryEntry.href"/>
+         <name value="href"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="RenderingURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="DirectoryEntry.resourceName"/>
+         <name value="resourceName"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="LocalIdentifier"/>
+         </type>
+      </element>
+      <element>
+         <path value="DirectoryEntry.matchStrength"/>
+         <name value="matchStrength"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="MatchStrength"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

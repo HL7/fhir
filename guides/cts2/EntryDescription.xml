@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="EntryDescription"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}EntryDescription"/>
+   <name value="EntryDescription"/>
+   <display value="CTS2.EntryDescription"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="EntryDescription is a subclass of OpaqueData. The purpose behind this is that there are certain textual fields that some CTS2 service implementations may want constrain. As an example,&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;Designation text is of type \\ EntryDescription, but implementations may want to restrict the OpaqueData&#xa;&#x9;&#x9;&#x9;&#x9;value attribute to a simple string rather than xs:anyType. When OpaqueData appears directly as a model element, implementations must be able to support the full OpaqueData model. EntryDescription,&#xa;&#x9;&#x9;&#x9;&#x9;however, may be constrained by implementations or specialized PSMs."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}OpaqueData"/>
+   <snapshot>
+      <element>
+         <path value="EntryDescription"/>
+         <short value="EntryDescription"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

@@ -1,0 +1,56 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="ResourceDescriptionDirectoryEntry"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}ResourceDescriptionDirectoryEntry"/>
+   <name value="ResourceDescriptionDirectoryEntry"/>
+   <display value="CTS2.ResourceDescriptionDirectoryEntry"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="A&#xa;&#x9;&#x9;&#x9;&#x9;DirectoryEntry that identifies the elements of a resource description that appear in every directory of resources of a particular type. ResourceDescriptionDirectoryEntry is an abstract type and is realized in&#xa;&#x9;&#x9;&#x9;&#x9;the implementing subtypes listed in CTS2ResourceType"/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}DirectoryEntry"/>
+   <snapshot>
+      <element>
+         <path value="ResourceDescriptionDirectoryEntry"/>
+         <short value="ResourceDescriptionDirectoryEntry"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="ResourceDescriptionDirectoryEntry.about"/>
+         <name value="about"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="ExternalURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescriptionDirectoryEntry.formalName"/>
+         <name value="formalName"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="String"/>
+         </type>
+      </element>
+      <element>
+         <path value="ResourceDescriptionDirectoryEntry.resourceSynopsis"/>
+         <name value="resourceSynopsis"/>
+         <definition value="a textual summary of the resource - what it is, what it is for, etc."/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="EntryDescription"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

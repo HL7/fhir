@@ -1,0 +1,37 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="Message"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}Message"/>
+   <name value="Message"/>
+   <display value="CTS2.Message"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="Message header that wraps all returns."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="Message"/>
+         <short value="Message"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="Message.heading"/>
+         <name value="heading"/>
+         <definition value="TODO: Description"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="RESTResource"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

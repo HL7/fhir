@@ -1,0 +1,84 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="Directory"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}Directory"/>
+   <name value="Directory"/>
+   <display value="CTS2.Directory"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="Provides a directory or list of resources that match a specific filter and are ordered in a specified order. A directory is read-only and is not necessarily immutable.Note that the name of the link to&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;DirectoryEntry is called &quot;entries&quot; rather than &quot;entry&quot;. This allows subclasses to use &quot;entry&quot; without type collisions in the Z."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}Message"/>
+   <snapshot>
+      <element>
+         <path value="Directory"/>
+         <short value="Directory"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="Directory.complete"/>
+         <name value="complete"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="CompleteDirectory"/>
+         </type>
+      </element>
+      <element>
+         <path value="Directory.numEntries"/>
+         <name value="numEntries"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="NaturalNumber"/>
+         </type>
+      </element>
+      <element>
+         <path value="Directory.prev"/>
+         <name value="prev"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="DirectoryURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="Directory.next"/>
+         <name value="next"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="DirectoryURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="Directory.directoryFilter"/>
+         <name value="directoryFilter"/>
+         <definition value="the filter(s) that were applied to generate this directory"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="Filter"/>
+         </type>
+      </element>
+      <element>
+         <path value="Directory.sortCriteria"/>
+         <name value="sortCriteria"/>
+         <definition value="the sort criteria used in the directory. When this is left as optional, there is the possibility that some directories may not be ordered. Some PSMs may chose to make sortCriteria&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;mandatory, meaning that all directory listings must reflect some sort order."/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="SortCriteria"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

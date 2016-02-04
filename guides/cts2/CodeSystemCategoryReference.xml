@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="CodeSystemCategoryReference"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}CodeSystemCategoryReference"/>
+   <name value="CodeSystemCategoryReference"/>
+   <display value="CTS2.CodeSystemCategoryReference"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="a reference to information about a paradigm model used to create an ontology (aka. knowledge representation paradigm"/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}NameAndMeaningReference"/>
+   <snapshot>
+      <element>
+         <path value="CodeSystemCategoryReference"/>
+         <short value="CodeSystemCategoryReference"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

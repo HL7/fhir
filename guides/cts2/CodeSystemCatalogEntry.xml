@@ -1,0 +1,127 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="CodeSystemCatalogEntry"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/CodeSystem}CodeSystemCatalogEntry"/>
+   <name value="CodeSystemCatalogEntry"/>
+   <display value="CTS2.CodeSystemCatalogEntry"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="Metadata and access information about a code system."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}AbstractResourceDescription"/>
+   <snapshot>
+      <element>
+         <path value="CodeSystemCatalogEntry"/>
+         <short value="CodeSystemCatalogEntry"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntry.codeSystemName"/>
+         <name value="codeSystemName"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="CodeSystemName"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntry.codeSystemCategory"/>
+         <name value="codeSystemCategory"/>
+         <definition value="the category or type of resource that the code system represents."/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="CodeSystemCategoryReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntry.ontologyDomain"/>
+         <name value="ontologyDomain"/>
+         <definition value="the subject domain of the ontology"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="OntologyDomainReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntry.ontologyType"/>
+         <name value="ontologyType"/>
+         <definition value="the nature of the content of the ontology"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="OntologyTypeReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntry.designedForOntologyTask"/>
+         <name value="designedForOntologyTask"/>
+         <definition value="the purpose for which the ontology was originally designed"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="OntologyTaskReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntry.hasOntologyLanguage"/>
+         <name value="hasOntologyLanguage"/>
+         <definition value="the formal ontology language"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="OntologyLanguageReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntry.includes"/>
+         <name value="includes"/>
+         <definition value="a reference to an external code system that is included as a component of the referenced code system. The Wine Ontology,&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;as an example, includes the Food Ontology as one of its components.  Similarly, the US Edition of SNOMED-CT includes the international edition.&#x9;&#x9;&#x9;&#x9;&#x9;&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="CodeSystemReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntry.versions"/>
+         <name value="versions"/>
+         <definition value="a DirectoryURI that references the known versions of this code system. "/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="CodeSystemVersionCatalogEntryDirectoryURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntry.currentVersion"/>
+         <name value="currentVersion"/>
+         <definition value="a reference to the code system version marked as CURRENT in the service instance."/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="CodeSystemVersionReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntry.usedOntologyEngineeringTool"/>
+         <name value="usedOntologyEngineeringTool"/>
+         <definition value="information about a tool used to create the ontology"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="OntologyEngineeringToolReference"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

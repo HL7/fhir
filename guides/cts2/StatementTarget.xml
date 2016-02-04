@@ -1,0 +1,76 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="StatementTarget"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}StatementTarget"/>
+   <name value="StatementTarget"/>
+   <display value="CTS2.StatementTarget"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="the target of a Statement. StatementTarget represents one of a literal value, a reference to a non-entity type resource, an entity,  or an anonymous blank BNODE."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="StatementTarget"/>
+         <short value="StatementTarget"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="StatementTarget.externalIdentifier"/>
+         <name value="externalIdentifier"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="String"/>
+         </type>
+      </element>
+      <element>
+         <path value="StatementTarget.entity"/>
+         <name value="entity"/>
+         <definition value="the URI and optional namespace/name when the target type is ENTITY"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="URIAndEntityName"/>
+         </type>
+      </element>
+      <element>
+         <path value="StatementTarget.literal"/>
+         <name value="literal"/>
+         <definition value="the literal target when the statement type is LITERAL."/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="OpaqueData"/>
+         </type>
+      </element>
+      <element>
+         <path value="StatementTarget.resource"/>
+         <name value="resource"/>
+         <definition value="the resource URI when the statement type is RESOURCE"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="ExternalURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="StatementTarget.bnode"/>
+         <name value="bnode"/>
+         <definition value="a collection of statements about an anonymous subject"/>
+         <min value="1"/>
+         <max value="*"/>
+         <type>
+            <code value="AnonymousStatement"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

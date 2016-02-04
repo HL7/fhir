@@ -1,0 +1,55 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="Note"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}Note"/>
+   <name value="Note"/>
+   <display value="CTS2.Note"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="Note corresponds to the target of skos:note. It contains an attributed literal that may include a language, format and, when appropriate,&#xa;&#x9;&#x9;&#x9;&#x9;schema. "/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}EntryDescription"/>
+   <snapshot>
+      <element>
+         <path value="Note"/>
+         <short value="Note"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="Note.assertedInCodeSystemVersion"/>
+         <name value="assertedInCodeSystemVersion"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="CodeSystemVersionName"/>
+         </type>
+      </element>
+      <element>
+         <path value="Note.correspondingStatement"/>
+         <name value="correspondingStatement"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="RenderingURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="Note.externalIdentifier"/>
+         <name value="externalIdentifier"/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="String"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

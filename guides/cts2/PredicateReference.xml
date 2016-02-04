@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="PredicateReference"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}PredicateReference"/>
+   <name value="PredicateReference"/>
+   <display value="CTS2.PredicateReference"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="An EntityReference that serves the role of predicate. Note that this varies slightly from the base class of NameAndMeaningReference because the name attribute is a namespace/name&#xa;&#x9;&#x9;&#x9;&#x9;combination rather than a simple name scoped exclusively by the domain."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}URIAndEntityName"/>
+   <snapshot>
+      <element>
+         <path value="PredicateReference"/>
+         <short value="PredicateReference"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

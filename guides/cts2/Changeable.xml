@@ -1,0 +1,34 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="Changeable"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}Changeable"/>
+   <name value="Changeable"/>
+   <display value="CTS2.Changeable"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="An element that can evolve over time. All Changeable elements must have identity."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="Changeable"/>
+         <short value="Changeable"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="Changeable.entryState"/>
+         <name value="entryState"/>
+         <type>
+            <code value="EntryState"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

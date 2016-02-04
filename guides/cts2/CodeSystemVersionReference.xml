@@ -1,0 +1,47 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="CodeSystemVersionReference"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}CodeSystemVersionReference"/>
+   <name value="CodeSystemVersionReference"/>
+   <display value="CTS2.CodeSystemVersionReference"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="a reference to a specific version of code system and, if known, the code system which it is a version of"/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="CodeSystemVersionReference"/>
+         <short value="CodeSystemVersionReference"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="CodeSystemVersionReference.version"/>
+         <name value="version"/>
+         <definition value="TODO: Description"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="NameAndMeaningReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemVersionReference.codeSystem"/>
+         <name value="codeSystem"/>
+         <definition value="A reference to the code system that the version is a version of. Must be present if this information is known to the CTS2 service implementation."/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="CodeSystemReference"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

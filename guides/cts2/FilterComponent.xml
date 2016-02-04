@@ -1,0 +1,48 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="FilterComponent"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}FilterComponent"/>
+   <name value="FilterComponent"/>
+   <display value="CTS2.FilterComponent"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="A restriction on an attribute, property or special field"/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}ComponentReference"/>
+   <snapshot>
+      <element>
+         <path value="FilterComponent"/>
+         <short value="FilterComponent"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="FilterComponent.matchAlgorithm"/>
+         <name value="matchAlgorithm"/>
+         <definition value="the algorithm to be used for testing the referenced component. Examples might include &quot;starts with&quot;, &quot;regular expression match&quot;, &quot;exists&quot;, &quot;inRange&quot;, etc. NOTE: The CTS2 specification&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;needs to establish a core set of match algorithms that all compliant implementations must support."/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="MatchAlgorithmReference"/>
+         </type>
+      </element>
+      <element>
+         <path value="FilterComponent.matchValue"/>
+         <name value="matchValue"/>
+         <definition value="the value to be used in comparison. The structure and format of matchValue depends on the specific matchAlgorithm. As an example, a &quot;startsWith&quot; algorithm would be plain text, a&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&quot;regularExpression&quot; algorithm would have a regular expression while an &quot;exists&quot; algorithm would have nothing in the matchValue attribute."/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="String"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

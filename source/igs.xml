@@ -21,5 +21,5 @@
   <ig code="ccda" name="C-CDA on FHIR" brief="CCDA" source="\guides\ccda\ccda.xml" committeereview="0" committee="sd" ballot="draft" fmm="0" section="M"/>
   <ig code="pcd"      name="Privacy Consent Directive on FHIR" brief="PCD" source="\guides\pcd\pcd.xml" committeereview="0" committee="cbcc" ballot="draft" fmm="0" section="M"/>
   <!--<ig code="hl7nl"    name="HL7 Netherlands Basic Components" brief="HL7NL" source="\guides\hl7nl\hl7nl.xml" committeereview="0" committee="fhir" ballot="draft" fmm="0" section="N"/>-->
-
+  <ig code="cts2" name="Common Terminology Services 2" brief="CTS2" source="guides\cts2\cts2.xml" committeereview="0" committee="fhir" ballot="draf" fmm="0" section="O"/>
 </igs>

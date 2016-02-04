@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="DateAndTime"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}DateAndTime"/>
+   <name value="DateAndTime"/>
+   <display value="CTS2.DateAndTime"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="represents an &quot;Instant&quot; as defined in the OWL Time Specification.CTS2 implementations must be able to support temporal units of second,&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;minute, hour, day, month, and year, and be able to represent and compare instances represented in any of these units. DateAndTime can only provide a partial ordering and, as a&#xa;&#x9;&#x9;&#x9;&#x9;consequence, is never used as an index, unique identifier or to sequence data or events."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="http://hl7.org/fhir/StructureDefinition/dateTime"/>
+   <snapshot>
+      <element>
+         <path value="DateAndTime"/>
+         <short value="DateAndTime"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

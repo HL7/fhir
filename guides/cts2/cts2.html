@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+[%settitle CTS2 Implementation Guide%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        [%file newheader%]
+    </head>
+    <body>
+        [%file newnavbar%]
+        <div class="col-9">
+            
+            <h2>CTS2 Implementation Guide</h2>
+            <p>This implementation guide is prepared in collaboration with the Mayo Clinic and the Object Management Group in order to explore options for expressing CTS2 in FHIR.</p>
+            <p>Contents:</p>
+            <ul>
+				<li>AbstractResourceDescription: <a href="abstractresourcedescription.html">Logical Model</a></li>
+				<li>AbstractResourceDescriptionDirectoryEntry: <a href="abstractresourcedescriptiondirectoryentry.html">Logical Model</a></li>
+				<li>AnonymousStatement: <a href="anonymousstatement.html">Logical Model</a></li>
+				<li>Changeable: <a href="changeable.html">Logical Model</a></li>
+				<li>CodeSystemCatalogEntry: <a href="codesystemcatalogentry.html">Logical Model</a></li>
+				<li>CodeSystemCatalogEntryDirectory: <a href="codesystemcatalogentrydirectory.html">Logical Model</a></li>
+				<li>CodeSystemCatalogEntryList: <a href="codesystemcatalogentrylist.html">Logical Model</a></li>
+				<li>CodeSystemCatalogEntryListEntry: <a href="codesystemcatalogentrylistentry.html">Logical Model</a></li>
+				<li>CodeSystemCatalogEntryMsg: <a href="codesystemcatalogentrymsg.html">Logical Model</a></li>
+				<li>CodeSystemCatalogEntrySummary: <a href="codesystemcatalogentrysummary.html">Logical Model</a></li>
+				<li>CodeSystemCategoryReference: <a href="codesystemcategoryreference.html">Logical Model</a></li>
+				<li>CodeSystemName: <a href="codesystemname.html">Logical Model</a></li>
+				<li>CodeSystemReference: <a href="codesystemreference.html">Logical Model</a></li>
+				<li>CodeSystemVersionCatalogEntryDirectoryURI: <a href="codesystemversioncatalogentrydirectoryuri.html">Logical Model</a></li>
+				<li>CodeSystemVersionName: <a href="codesystemversionname.html">Logical Model</a></li>
+				<li>CodeSystemVersionReference: <a href="codesystemversionreference.html">Logical Model</a></li>
+				<li>Comment: <a href="comment.html">Logical Model</a></li>
+				<li>CompleteDirectory: <a href="completedirectory.html">Logical Model</a></li>
+				<li>ComponentReference: <a href="componentreference.html">Logical Model</a></li>
+				<li>DateAndTime: <a href="dateandtime.html">Logical Model</a></li>
+				<li>Directory: <a href="directory.html">Logical Model</a></li>
+				<li>DirectoryEntry: <a href="directoryentry.html">Logical Model</a></li>
+				<li>DirectoryURI: <a href="directoryuri.html">Logical Model</a></li>
+				<li>DocumentURI: <a href="documenturi.html">Logical Model</a></li>
+				<li>EntryDescription: <a href="entrydescription.html">Logical Model</a></li>
+				<li>EntryState: <a href="entrystate.html">Logical Model</a></li>
+				<li>Enumeration: <a href="enumeration.html">Logical Model</a></li>
+				<li>ExternalURI: <a href="externaluri.html">Logical Model</a></li>
+				<li>Filter: <a href="filter.html">Logical Model</a></li>
+				<li>FilterComponent: <a href="filtercomponent.html">Logical Model</a></li>
+				<li>FormatReference: <a href="formatreference.html">Logical Model</a></li>
+				<li>LanguageReference: <a href="languagereference.html">Logical Model</a></li>
+				<li>LocalIdentifier: <a href="localidentifier.html">Logical Model</a></li>
+				<li>LocalURI: <a href="localuri.html">Logical Model</a></li>
+				<li>MatchAlgorithmReference: <a href="matchalgorithmreference.html">Logical Model</a></li>
+				<li>MatchStrength: <a href="matchstrength.html">Logical Model</a></li>
+				<li>Message: <a href="message.html">Logical Model</a></li>
+				<li>NameAndMeaningReference: <a href="nameandmeaningreference.html">Logical Model</a></li>
+				<li>NamespaceIdentifier: <a href="namespaceidentifier.html">Logical Model</a></li>
+				<li>NaturalNumber: <a href="naturalnumber.html">Logical Model</a></li>
+				<li>Note: <a href="note.html">Logical Model</a></li>
+				<li>NoteType: <a href="notetype.html">Logical Model</a></li>
+				<li>OntologyDomainReference: <a href="ontologydomainreference.html">Logical Model</a></li>
+				<li>OntologyEngineeringToolReference: <a href="ontologyengineeringtoolreference.html">Logical Model</a></li>
+				<li>OntologyLanguageReference: <a href="ontologylanguagereference.html">Logical Model</a></li>
+				<li>OntologySyntaxReference: <a href="ontologysyntaxreference.html">Logical Model</a></li>
+				<li>OntologyTaskReference: <a href="ontologytaskreference.html">Logical Model</a></li>
+				<li>OntologyTypeReference: <a href="ontologytypereference.html">Logical Model</a></li>
+				<li>OpaqueData: <a href="opaquedata.html">Logical Model</a></li>
+				<li>Parameter: <a href="parameter.html">Logical Model</a></li>
+				<li>PersistentURI: <a href="persistenturi.html">Logical Model</a></li>
+				<li>PredicateReference: <a href="predicatereference.html">Logical Model</a></li>
+				<li>Property: <a href="property.html">Logical Model</a></li>
+				<li>RESTResource: <a href="restresource.html">Logical Model</a></li>
+				<li>RenderingURI: <a href="renderinguri.html">Logical Model</a></li>
+				<li>ResourceDescription: <a href="resourcedescription.html">Logical Model</a></li>
+				<li>ResourceDescriptionDirectoryEntry: <a href="resourcedescriptiondirectoryentry.html">Logical Model</a></li>
+				<li>RoleReference: <a href="rolereference.html">Logical Model</a></li>
+				<li>ServiceURI: <a href="serviceuri.html">Logical Model</a></li>
+				<li>SortCriteria: <a href="sortcriteria.html">Logical Model</a></li>
+				<li>SortCriterion: <a href="sortcriterion.html">Logical Model</a></li>
+				<li>SortDirection: <a href="sortdirection.html">Logical Model</a></li>
+				<li>SourceAndNotation: <a href="sourceandnotation.html">Logical Model</a></li>
+				<li>SourceAndRoleReference: <a href="sourceandrolereference.html">Logical Model</a></li>
+				<li>SourceReference: <a href="sourcereference.html">Logical Model</a></li>
+				<li>StatementDirectoryURI: <a href="statementdirectoryuri.html">Logical Model</a></li>
+				<li>StatementTarget: <a href="statementtarget.html">Logical Model</a></li>
+				<li>String: <a href="string.html">Logical Model</a></li>
+				<li>URI: <a href="uri.html">Logical Model</a></li>
+				<li>URIAndEntityName: <a href="uriandentityname.html">Logical Model</a></li>
+				<li>tsAnyType: <a href="tsanytype.html">Logical Model</a></li>
+			</ul>
+        </div>
+        [%file newfooter%]
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="CodeSystemCatalogEntryDirectory"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/CodeSystem}CodeSystemCatalogEntryDirectory"/>
+   <name value="CodeSystemCatalogEntryDirectory"/>
+   <display value="CTS2.CodeSystemCatalogEntryDirectory"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="A directory that summarizes a set of catalog entries."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}Directory"/>
+   <snapshot>
+      <element>
+         <path value="CodeSystemCatalogEntryDirectory"/>
+         <short value="CodeSystemCatalogEntryDirectory"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntryDirectory.entry"/>
+         <name value="entry"/>
+         <definition value="TODO: Description"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="CodeSystemCatalogEntrySummary"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

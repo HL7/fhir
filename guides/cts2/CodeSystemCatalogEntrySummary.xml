@@ -1,0 +1,57 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="CodeSystemCatalogEntrySummary"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/CodeSystem}CodeSystemCatalogEntrySummary"/>
+   <name value="CodeSystemCatalogEntrySummary"/>
+   <display value="CTS2.CodeSystemCatalogEntrySummary"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="A synopsis of a CodeSystem along with information about how to access the complete resource."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}AbstractResourceDescriptionDirectoryEntry"/>
+   <snapshot>
+      <element>
+         <path value="CodeSystemCatalogEntrySummary"/>
+         <short value="CodeSystemCatalogEntrySummary"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntrySummary.codeSystemName"/>
+         <name value="codeSystemName"/>
+         <min value="1"/>
+         <max value="1"/>
+         <type>
+            <code value="CodeSystemName"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntrySummary.versions"/>
+         <name value="versions"/>
+         <definition value="a directory URI that resolves to an ordered list of code system versions associated with this code system. versions may only be present if the service supports the CodeSystemVersion&#xa;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Query profile."/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="CodeSystemVersionCatalogEntryDirectoryURI"/>
+         </type>
+      </element>
+      <element>
+         <path value="CodeSystemCatalogEntrySummary.currentVersion"/>
+         <name value="currentVersion"/>
+         <definition value="a reference to the code system version marked as CURRENT in the service instance."/>
+         <min value="0"/>
+         <max value="1"/>
+         <type>
+            <code value="CodeSystemVersionReference"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

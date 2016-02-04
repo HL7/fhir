@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="RenderingURI"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}RenderingURI"/>
+   <name value="RenderingURI"/>
+   <display value="CTS2.RenderingURI"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="a URI or handle that is directly readable by a specific instance of a CTS2 service implementation. RenderingURI must resolve to Changeable CTS2 element. "/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}LocalURI"/>
+   <snapshot>
+      <element>
+         <path value="RenderingURI"/>
+         <short value="RenderingURI"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

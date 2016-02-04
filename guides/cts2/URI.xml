@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="URI"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}URI"/>
+   <name value="URI"/>
+   <display value="CTS2.URI"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="a Universal Resource Identifier (URI) as defined in IETF RFC 3986. CTS2 implementations are encouraged to consider implementing this data type&#xa;&#x9;&#x9;&#x9;&#x9;using the IRI (RFC3987) specification."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="http://hl7.org/fhir/StructureDefinition/uri"/>
+   <snapshot>
+      <element>
+         <path value="URI"/>
+         <short value="URI"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

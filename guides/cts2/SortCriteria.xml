@@ -1,0 +1,37 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="SortCriteria"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}SortCriteria"/>
+   <name value="SortCriteria"/>
+   <display value="CTS2.SortCriteria"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="An ordered list of sort criterion. The first entry in the list identifies the primary sort order, the second entry the sub sort order, etc. "/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <snapshot>
+      <element>
+         <path value="SortCriteria"/>
+         <short value="SortCriteria"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+      <element>
+         <path value="SortCriteria.entry"/>
+         <name value="entry"/>
+         <definition value="TODO: Description"/>
+         <min value="0"/>
+         <max value="*"/>
+         <type>
+            <code value="SortCriterion"/>
+         </type>
+      </element>
+   </snapshot>
+</StructureDefinition>

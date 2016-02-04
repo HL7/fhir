@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="LocalURI"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}LocalURI"/>
+   <name value="LocalURI"/>
+   <display value="CTS2.LocalURI"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="a URI or handle whose scope is local to the implementing service. LocalURI cannot be used as a permanent identifier in a message or a data record."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}URI"/>
+   <snapshot>
+      <element>
+         <path value="LocalURI"/>
+         <short value="LocalURI"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

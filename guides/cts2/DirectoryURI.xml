@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="DirectoryURI"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}DirectoryURI"/>
+   <name value="DirectoryURI"/>
+   <display value="CTS2.DirectoryURI"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="the unique name of a query that, when executed results in a list of resources that, in the context of a given service, satisfy the query."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}LocalURI"/>
+   <snapshot>
+      <element>
+         <path value="DirectoryURI"/>
+         <short value="DirectoryURI"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>

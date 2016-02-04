@@ -1,0 +1,28 @@
+<StructureDefinition xmlns="http://hl7.org/fhir">
+   <id value="MatchStrength"/>
+   <url value="{http://www.omg.org/spec/CTS2/1.1/Core}MatchStrength"/>
+   <name value="MatchStrength"/>
+   <display value="CTS2.MatchStrength"/>
+   <status value="draft"/>
+   <publisher value="TODO: Publisher"/>
+   <contact>
+      <name value="TODO: Contact"/>
+      <telecom>
+         <system value="other"/>
+         <value value="http://hl7.org/fhir"/>
+      </telecom>
+   </contact>
+   <date value="2016-01-19T11:19:00-07:00"/>
+   <description value="represents the relative strength of the result of a search. Represented as a real number $\mathbb{R}$ such that $0.0 &amp;lt; MatchStrength \leq 1.0$."/>
+   <kind value="logical"/>
+   <abstract value="false"/>
+   <base value="http://hl7.org/fhir/StructureDefinition/decimal"/>
+   <snapshot>
+      <element>
+         <path value="MatchStrength"/>
+         <short value="MatchStrength"/>
+         <min value="0"/>
+         <max value="*"/>
+      </element>
+   </snapshot>
+</StructureDefinition>
