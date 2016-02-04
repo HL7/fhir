@@ -64,6 +64,7 @@
 			<min value="1"/>
 			<max value="1"/>
 		</element>
+		<!-- Need to turn this into a slice, then add another slice pointing to a Group allowing only DAF-Patient's -->
 		<element>
 			<path value="Composition.subject"/>
 			<short value="subject"/>
