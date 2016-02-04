@@ -231,12 +231,11 @@
 				<value value="415-362-4007"/>
 				<use value="work"/>
 			</telecom>
-
-			<!--telecom>
+			<telecom>
 				<system value="email"/>
 				<value value="info@motivemi.com"/>
 				<use value="work"/>
-			</telecom-->
+			</telecom>
 		</contact>
 	</moduleMetadata>
 	

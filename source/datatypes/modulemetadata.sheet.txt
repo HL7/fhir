@@ -405,13 +405,13 @@
 
  -- Row 25 -----------------------------------
   Element = ModuleMetadata.contributor.contact.telecom
-  Card. = 1..1
+  Card. = 0..*
   Type = ContactPoint
   Short Label = Contact details for an individual or contributor
   Definition = Contact details for the individual (if a name was provided) or the contributor
 
  -- Row 26 -----------------------------------
-  Element = !ModuleMetadata.contributor.party
+  Element = ModuleMetadata.contributor.party
   Card. = 1..1
   Type = Reference(Person|Organization)
   Definition = The contributor
