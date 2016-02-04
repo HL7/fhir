@@ -244,3 +244,263 @@
   Title = Resulting meta for the resource
   Min = 1
   Max = 1
+
+ -- Row 14 -----------------------------------
+  Name = cds-hook
+  Use = System
+  Documentation = It represents an outbound call from the EHR, in the context of a user session, and in the context of a specific activity within that user sesssion (e.g. opening a patient record; prescribing a new med; or reviewing orders before signing them).
+  Type = operation
+  Title = The CDS Hook operation is the core API request for CDS Hooks
+  Min = 1
+  Max = 1
+
+ -- Row 15 -----------------------------------
+  Name = cds-hook.activity
+  Use = in
+  Documentation = Name of the Activity (expressed as a coding, preferably drawn from SMART\'s activity catalog) that the user is performing in the EHR, and for which this hook was triggered (e.g. patient-view, or medication-prescribe)
+  Type = Coding
+  Title = Activity that the user is performing
+  Min = 1
+  Max = 1
+
+ -- Row 16 -----------------------------------
+  Name = cds-hook.activityInstance
+  Use = in
+  Documentation = While working in the EHR, a user can perform multiple activities in series or in parallel. For example, a clinician might prescribe two drugs in a row; each prescription activity would be assigned a unique activityInstance. The activity catalog provides a description of what events should initiate and terminate a given activity. This allows an external service to associate requests with activity state, which is necessary to support the following app-centric decision sequence, where the steps are tied together by a common activityInstance:\n\nEHR invokes CDS hook\nCDS service returns app link card\nUser clicks app link and interacts with app\nFlow returns to EHR, which re-invokes CDS hook\nCDS service returns decision with user\'s choice\nNote: the activityInstance is globally unique and should contain enough entropy to be un-guessable.
+  Type = string
+  Title = links multiple cds-hook calls together
+  Min = 1
+  Max = 1
+
+ -- Row 17 -----------------------------------
+  Name = cds-hook.fhirServer
+  Use = in
+  Documentation = Base URL for the calling EHR\'s FHIR server. The scheme should be https
+  Type = uri
+  Title = Base URL for the calling EHR\'s FHIR server
+  Min = 0
+  Max = 1
+
+ -- Row 18 -----------------------------------
+  Name = cds-hook.oauth
+  Use = in
+  Documentation = Security details allowing the CDS service to connect to the EHR\'s FHIR server. These fields allow the CDS service to access EHR data in a context limited by the current user\'s privileges
+  Type = Tuple
+  Title = Allow the CDS service to connect to the EHR\'s FHIR server
+  Min = 0
+  Max = 1
+
+ -- Row 19 -----------------------------------
+  Name = cds-hook.oauth.token
+  Documentation = is a bearer token to be presented with any API calls the CDS service makes to the EHR, by including it in an Authorization header like:\n\nAuthorization: Bearer {{token}}
+  Type = string
+  Title = a bearer token to be presented by the CDS service to the EHR
+  Min = 1
+  Max = 1
+
+ -- Row 20 -----------------------------------
+  Name = cds-hook.oauth.scope
+  Documentation = Represents the set of scopes assigned to this token (see SMART on FHIR scopes)
+  Type = string
+  Title = Represents the set of scopes assigned to this token (see SMART on FHIR scopes)
+  Min = 1
+  Max = 1
+
+ -- Row 21 -----------------------------------
+  Name = cds-hook.oauth.expires
+  Documentation = Expresses the token lifetime as an integer number of seconds
+  Type = integer
+  Title = Expresses the token lifetime as an integer number of seconds
+  Min = 1
+  Max = 1
+
+ -- Row 22 -----------------------------------
+  Name = cds-hook.redirect
+  Use = in
+  Documentation = This field is only used by services that will return an app link card: when a user clicks the card\'s link to launch an app, it becomes the app\'s job to send the user to this redirect URL upon completion of user interaction. (Design note: this field is supplied up-front, as part of the initial request, to avoid requiring the EHR to append any content to app launch links. This helps support an important \"degenerate\" use case for app link cards: pointing to static content. See below for details.)
+  Type = uri
+  Title = Used by services that will return an app link card
+  Min = 1
+  Max = 1
+
+ -- Row 23 -----------------------------------
+  Name = cds-hook.user
+  Use = in
+  Type = string
+  Title = The FHIR resource type + id representing the current user
+  Min = 0
+  Max = 1
+
+ -- Row 24 -----------------------------------
+  Name = cds-hook.patient
+  Use = in
+  Documentation = The FHIR resource id of the current patient. For example, 123.
+  Type = id
+  Title = The FHIR resource id of the current patient
+  Min = 0
+  Max = 1
+
+ -- Row 25 -----------------------------------
+  Name = cds-hook.encounter
+  Use = in
+  Documentation = The FHIR resource id of the current encounter. For example, 123
+  Type = id
+  Title = The FHIR resource id of the current encounter
+  Min = 0
+  Max = 1
+
+ -- Row 26 -----------------------------------
+  Name = cds-hook.context
+  Use = in
+  Documentation = activity-specific contextual data (see Activity) that an external service needs. (For exampe, with the order-review activity this will include MedicationOrder and Diagnostic resources, among others)
+  Type = Any
+  Title = activity-specific contextual data that an external service needs
+  Min = 0
+  Max = *
+
+ -- Row 27 -----------------------------------
+  Name = cds-hook.preFetchData
+  Use = in
+  Documentation = as a performance tweak, the EHR may pass along data according to the service\'s Prefetch-Template. This helps provide the service with all the data it needs to efficiently compute a set of recommendations. (Note that in the absence of preFetchData, an external service can always execute FHIR REST API calls against the EHR server to obtain additional data ad-hoc.)
+  Type = Bundle
+  Title = prefetch data per config
+  Min = 0
+  Max = 1
+
+ -- Row 28 -----------------------------------
+  Name = cds-hook.card
+  Use = in
+  Documentation = one CDS result for the EHR to present to the user. Cards can provide a combination of information (for reading), suggested actions (to be applied if a user selects them), and links (to launch an app if the user selects them). The EHR decides how to display cards, but we recommend displaying suggestions using buttons, and links using underlined text.
+  Type = Tuple
+  Title = one CDS result for the EHR to present to the user
+  Min = 1
+  Max = 1
+
+ -- Row 29 -----------------------------------
+  Name = cds-hook.card.summary
+  Documentation = one-sentence, <140-character summary message for display to the user inside of this card.
+  Type = string
+  Title = one-sentence, <140-character summary message for display to the user inside of this card.
+  Min = 1
+  Max = 1
+
+ -- Row 30 -----------------------------------
+  Name = cds-hook.card.detail
+  Documentation = optional detailed information to display, represented in Markdown. (For non-urgent cards, the EHR may hide these details until the user clicks a link like \"view more details...\".)
+  Type = string
+  Title = optional detailed information to display, represented in Markdown
+  Min = 0
+  Max = 1
+
+ -- Row 31 -----------------------------------
+  Name = cds-hook.card.indicator
+  Documentation = Urgency/importance of what this card conveys. Allowed values, in order of increasing urgency, are: success, info, warning, hard-stop. The EHR can use this field to help make UI display decisions such as sort order or coloring. The value hard-stop indicates that the workflow should not be allowed to proceed.R[-12]C
+  Type = Code
+  Title = Urgency/importance of what this card conveys.
+  Min = 1
+  Max = 1
+
+ -- Row 32 -----------------------------------
+  Name = cds-hook.card.source
+  Documentation = grouping structure for a short, human-readable description (in source.label) of the source of the information displayed on this card, with an optional link (in source.url) where the user can learn more about the organization or data set that provided the information on this card. Note that source.url should not be used to supply a context-specific \"drill-down\" view of the information on this card. For that, use link.url instead.
+  Type = Tuple
+  Title = grouping structure for a short, human-readable description
+  Min = 1
+  Max = 1
+
+ -- Row 33 -----------------------------------
+  Name = cds-hook.card.source.label
+  Documentation = human-readable description (in source.label) of the source of the information displayed on this card
+  Type = string
+  Title = human-readable description (in source.label) of the source of the information displayed on this card
+  Min = 1
+  Max = 1
+
+ -- Row 34 -----------------------------------
+  Name = cds-hook.card.source.url
+  Documentation = Link (in source.url) where the user can learn more about the organization or data set that provided the information on this card
+  Type = uri
+  Title = Link (in source.url) where the user can learn more about the organization or data set that provided the information on this card
+  Min = 0
+  Max = 1
+
+ -- Row 35 -----------------------------------
+  Name = cds-hook.card.suggestion
+  Documentation = grouping structure for suggestion cards, which allow a service to suggest a set of changes in the context of the current activity (e.g. changing the dose of the medication currently being prescribed, for the medication-prescribe activity)
+  Type = Tuple
+  Title = grouping structure for suggestion cards, which allow a service to suggest a set of changes in the context of the current activity (e.g. changing the dose of the medication currently being prescribed, for the medication-prescribe activity)
+  Min = 0
+  Max = *
+
+ -- Row 36 -----------------------------------
+  Name = cds-hook.card.suggestion.label
+  Documentation = human-readable label to display for this suggestion (e.g. the EHR might render this as the text on a button tied to this suggestion).
+  Type = string
+  Title = human-readable label to display for this suggestion (e.g. the EHR might render this as the text on a button tied to this suggestion).
+  Min = 0
+  Max = 1
+
+ -- Row 37 -----------------------------------
+  Name = cds-hook.card.suggestion.create
+  Documentation = new resource(s) that this suggestion applies within the current activity (e.g. for medication-prescribe, this holds the updated prescription as proposed by the suggestion).
+  Type = Resource
+  Title = new resource(s) that this suggestion applies within the current activity (e.g. for medication-prescribe, this holds the updated prescription as proposed by the suggestion).
+  Min = 0
+  Max = *
+
+ -- Row 38 -----------------------------------
+  Name = cds-hook.card.suggestion.delete
+  Documentation = id(s) of any resources to remove from the current activity (e.g. for the order-review activity, this would provide a way to remove orders from the pending list). In activities like medication-prescribe where only one \"content\" resource is ever relevant, this field may be omitted
+  Type = id
+  Title = id(s) of any resources to remove from the current activity (e.g. for the order-review activity, this would provide a way to remove orders from the pending list). In activities like medication-prescribe where only one \"content\" resource is ever relevant, this field may be omitted
+  Min = 0
+  Max = *
+
+ -- Row 39 -----------------------------------
+  Name = cds-hook.card.link
+  Documentation = grouping structure for a link to an app that the user might want to run for additional information or to help guide a decision
+  Type = Tuple
+  Title = grouping structure for a link to an app that the user might want to run for additional information or to help guide a decision
+  Min = 0
+  Max = *
+
+ -- Row 40 -----------------------------------
+  Name = cds-hook.card.link.label
+  Documentation = human-readable label to display for this link (e.g. the EHR might render this as the underlined text of a clickable link)
+  Type = string
+  Title = human-readable label to display for this link (e.g. the EHR might render this as the underlined text of a clickable link)
+  Min = 0
+  Max = 1
+
+ -- Row 41 -----------------------------------
+  Name = cds-hook.card.link.url
+  Documentation = URL to load when a user clicks on this link. Note that this may be a \"deep link\" with context embedded in path segments, query parameters, or a hash. In general this URL should embed enough context for the app to determine the activityInstance, and redirect url upon downstream launch, because the EHR will simply use this url as-is, without appending any parameters at launch time.
+  Type = uri
+  Title = URL to load when a user clicks on this link
+  Min = 0
+  Max = 1
+
+ -- Row 42 -----------------------------------
+  Name = cds-hook.decision
+  Use = out
+  Documentation = grouping structure representing a decision to be applied directly to the user session. Note that a CDS service may only return a decision after interacting with the user through an app link. Decisions are designed to convey any choices the user made in an app session
+  Type = Tuple
+  Title = Grouping structure representing a decision to be applied directly to the user session
+  Min = 0
+  Max = *
+
+ -- Row 43 -----------------------------------
+  Name = cds-hook.decision.create
+  Documentation = new resource(s) that the EHR should create within the current activity (e.g. for medication-prescribe, this would be the updated prescription that a user had authored in an app session).
+  Type = Resource
+  Title = new resource(s) that the EHR should create within the current activity (e.g. for medication-prescribe, this would be the updated prescription that a user had authored in an app session).
+  Min = 0
+  Max = *
+
+ -- Row 44 -----------------------------------
+  Name = cds-hook.decision.delete
+  Documentation = id(s) of any resources to remove from the current activity (e.g. for the order-review activity, this would provide a way to remove orders from the pending list). In activities like medication-prescribe where only one \"content\" resource is ever relevant, this field may be omitted
+  Type = id
+  Title = id(s) of any resources to remove from the current activity (e.g. for the order-review activity, this would provide a way to remove orders from the pending list)
+  Min = 0
+  Max = *
