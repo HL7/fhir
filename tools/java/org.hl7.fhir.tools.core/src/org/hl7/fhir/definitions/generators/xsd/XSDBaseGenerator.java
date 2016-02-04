@@ -725,6 +725,11 @@ public class XSDBaseGenerator {
         write("<xs:element name=\"" + e.getName() + "\" type=\"" + rtn + "\" ");
       } else if (types.size() == 0 && e.getElements().size() > 0) {
         String tn = root.getName() + "." + Utilities.capitalize(e.getName());
+        int i = 0;
+        while (structures.containsKey(tn)) {
+          i++;
+          tn = root.getName() + "." + Utilities.capitalize(e.getName())+Integer.toString(i);
+        }
         write("<xs:element name=\"" + e.getName() + "\" type=\"" + tn + "\" ");
         structures.put(tn, e);
         this.types.put(e, tn);
