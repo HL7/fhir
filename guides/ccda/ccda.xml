@@ -25,7 +25,7 @@
       <description
         value="TBD"/>
       <acronym value="basic-confidentiality-kind"/>
-      <sourceUri value="ValueSet/basic-confidentiality-kind.xml"/>
+      <sourceUri value="ValueSet/2.16.840.1.113883.1.11.16926.xml"/>
     </resource>
   </package>
   <page>

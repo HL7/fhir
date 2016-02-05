@@ -64,14 +64,13 @@
 			<short value="confidentiality"/>
 			<min value="1"/>
 			<max value="1"/>
-			<!--
 			<binding>
 				<strength value="required"/>
-				<valueSetUri value="urn:oid:2.16.840.1.113883.1.11.16926"/>
+				<valueSetReference>
+					<reference value="http://hl7.org/fhir/ValueSet/2.16.840.1.113883.1.11.16926"/>
+				</valueSetReference>
 			</binding>
-			-->
 		</element>
-		<!-- Need to turn this into a slice, then add another slice pointing to a Group allowing only DAF-Patient's -->
 		<element>
 			<path value="Composition.subject"/>
 			<short value="subject"/>
@@ -82,6 +81,7 @@
 				<code value="Reference"/>
 				<profile value="http://hl7.org/fhir/StructureDefinition/daf-patient"/>
 			</type>
+			<!-- Need to add a second type pointing to a Group allowing only DAF-Patients -->
 		</element>
 		<element>
 			<path value="Composition.author"/>
