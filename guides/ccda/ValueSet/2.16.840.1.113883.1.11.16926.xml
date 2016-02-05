@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+	<url value="http://hl7.org/fhir/ValueSet/2.16.840.1.113883.1.11.16926" />
+	<name value="HL7 BasicConfidentialityKind"/>
+	<status value="active" />
+	<description value="A value set of HL7 Code indication the level of confidentiality an act." />
+	<compose>
+		<include>
+			<system value="http://hl7.org/fhir/ValueSet/v3-Confidentiality"/>
+			<concept>
+				<code value="N"/>
+			</concept>
+			<concept>
+				<code value="R"/>
+			</concept>
+			<concept>
+				<code value="V"/>
+			</concept>
+		</include>
+	</compose>
+</ValueSet>
