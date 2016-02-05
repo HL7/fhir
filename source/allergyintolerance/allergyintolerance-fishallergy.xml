@@ -16,18 +16,11 @@
     <value value="49476535"/>
   </identifier>
 
-  <!-- the date that this entry was recorded -->  
-  <recordedDate value="2015-08-06T15:37:31-06:00"/>
-  
-  <!-- who made the record / last updated it -->
-  <recorder>
-    <reference value="Practitioner/example"/>
-  </recorder>
-  
-  <!-- the patient that actually has the risk of adverse reaction -->
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
+  <!-- this categorisation is implied by "cashew nut" and therefore basically 
+    redundant, but many systems collect this field anyway, since it's either 
+    useful when the substance is not coded, or it's quicker to sort/filter on
+    than using terminology based reasoning -->
+  <category value="food"/>
 
   <!-- subtance - either coded, or text. A few times, 
     there's a full description of a complex substance - in these caes, use the
@@ -41,9 +34,16 @@
     <text value="Allergic to fresh fish. Tolerates canned fish"/>
   </substance>
 
-  <!-- this categorisation is implied by "cashew nut" and therefore basically 
-    redundant, but many systems collect this field anyway, since it's either 
-    useful when the substance is not coded, or it's quicker to sort/filter on
-    than using terminology based reasoning -->
-  <category value="food"/>
+  <!-- the patient that actually has the risk of adverse reaction -->
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+
+  <!-- the date that this entry was recorded -->  
+  <recordedDate value="2015-08-06T15:37:31-06:00"/>
+  
+  <!-- who made the record / last updated it -->
+  <recorder>
+    <reference value="Practitioner/example"/>
+  </recorder>  
 </AllergyIntolerance>

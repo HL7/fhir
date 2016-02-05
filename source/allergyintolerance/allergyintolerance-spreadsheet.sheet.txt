@@ -247,73 +247,6 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = AllergyIntolerance.onset
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Label = Date(/time) when manifestations showed
-  Definition = Record of the date and/or time of the onset of the Allergy or Intolerance
-
- -- Row 4 -----------------------------------
-  Element = AllergyIntolerance.recordedDate
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Label = When recorded
-  Definition = Date when the sensitivity was recorded
-  v2 Mapping = IAM-20
-  RIM Mapping = .participation[typeCode=AUT].time
-  w5 = when.recorded
-
- -- Row 5 -----------------------------------
-  Element = AllergyIntolerance.recorder
-  Card. = 0..1
-  Aliases = Author
-  Summary = y
-  Type = Reference(Practitioner|Patient)
-  Short Label = Who recorded the sensitivity
-  Definition = Individual who recorded the record and takes responsibility for its conten
-  RIM Mapping = .participation[typeCode=AUT].role
-  w5 = who.author
-
- -- Row 6 -----------------------------------
-  Element = AllergyIntolerance.patient
-  Card. = 1..1
-  Aliases = Patient
-  Summary = y
-  Type = Reference(Patient)
-  Short Label = Who the sensitivity is for
-  Definition = The patient who has the allergy or intolerance
-  v2 Mapping = (PID-3)
-  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
-  w5 = who.focus
-
- -- Row 7 -----------------------------------
-  Element = AllergyIntolerance.reporter
-  Card. = 0..1
-  Aliases = Source; Informant
-  Summary = Y
-  Type = Reference(Patient | RelatedPerson | Practitioner)
-  Short Label = Source of the information about the allergy
-  Definition = The source of the information about the allergy that is recorded
-  Comments = The recorder takes repsonsibility for the content, but can reference the source from where they got it
-  v2 Mapping = IAM-14 (if patient) / IAM-18 (if practitioner)
-  w5 = who.source
-
- -- Row 8 -----------------------------------
-  Element = AllergyIntolerance.substance
-  Card. = 1..1
-  Aliases = Agent
-  Summary = Y
-  Type = CodeableConcept
-  Binding = AllergyIntoleranceSubstance
-  Short Label = Substance, (or class) considered to be responsible for risk
-  Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk
-  Comments = It is strongly recommended that the substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
-  v2 Mapping = AL1-3 / IAM-3
-  w5 = what
-
- -- Row 9 -----------------------------------
   Element = AllergyIntolerance.status
   Card. = 0..1
   Aliases = State
@@ -327,19 +260,7 @@
   v2 Mapping = IAM-17
   w5 = status
 
- -- Row 10 -----------------------------------
-  Element = AllergyIntolerance.criticality
-  Card. = 0..1
-  Aliases = Severity; Seriousness; Contra-indication; Risk
-  Summary = Y
-  Type = code
-  Binding = AllergyIntoleranceCriticality
-  Short Label = CRITL | CRITH | CRITU
-  Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance
-  Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
-  w5 = grade
-
- -- Row 11 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = AllergyIntolerance.type
   Card. = 0..1
   Aliases = Category; Class
@@ -352,7 +273,7 @@
   v2 Mapping = IAM-9
   w5 = class
 
- -- Row 12 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = AllergyIntolerance.category
   Card. = 0..1
   Aliases = Category; Type; Reaction Type; Class
@@ -363,6 +284,85 @@
   Definition = Category of the identified Substance
   Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the Substance where coding systems are used, and is effectively redundant in that situation.
   w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = AllergyIntolerance.criticality
+  Card. = 0..1
+  Aliases = Severity; Seriousness; Contra-indication; Risk
+  Summary = Y
+  Type = code
+  Binding = AllergyIntoleranceCriticality
+  Short Label = CRITL | CRITH | CRITU
+  Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance
+  Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
+  w5 = grade
+
+ -- Row 7 -----------------------------------
+  Element = AllergyIntolerance.substance
+  Card. = 1..1
+  Aliases = Agent
+  Summary = Y
+  Type = CodeableConcept
+  Binding = AllergyIntoleranceSubstance
+  Short Label = Substance, (or class) considered to be responsible for risk
+  Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk
+  Comments = It is strongly recommended that the substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
+  v2 Mapping = AL1-3 / IAM-3
+  w5 = what
+
+ -- Row 8 -----------------------------------
+  Element = AllergyIntolerance.patient
+  Card. = 1..1
+  Aliases = Patient
+  Summary = y
+  Type = Reference(Patient)
+  Short Label = Who the sensitivity is for
+  Definition = The patient who has the allergy or intolerance
+  v2 Mapping = (PID-3)
+  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
+  w5 = who.focus
+
+ -- Row 9 -----------------------------------
+  Element = AllergyIntolerance.recordedDate
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = When recorded
+  Definition = Date when the sensitivity was recorded
+  v2 Mapping = IAM-20
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
+
+ -- Row 10 -----------------------------------
+  Element = AllergyIntolerance.recorder
+  Card. = 0..1
+  Aliases = Author
+  Summary = y
+  Type = Reference(Practitioner|Patient)
+  Short Label = Who recorded the sensitivity
+  Definition = Individual who recorded the record and takes responsibility for its conten
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.author
+
+ -- Row 11 -----------------------------------
+  Element = AllergyIntolerance.reporter
+  Card. = 0..1
+  Aliases = Source; Informant
+  Summary = Y
+  Type = Reference(Patient | RelatedPerson | Practitioner)
+  Short Label = Source of the information about the allergy
+  Definition = The source of the information about the allergy that is recorded
+  Comments = The recorder takes repsonsibility for the content, but can reference the source from where they got it
+  v2 Mapping = IAM-14 (if patient) / IAM-18 (if practitioner)
+  w5 = who.source
+
+ -- Row 12 -----------------------------------
+  Element = AllergyIntolerance.onset
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = Date(/time) when manifestations showed
+  Definition = Record of the date and/or time of the onset of the Allergy or Intolerance
 
  -- Row 13 -----------------------------------
   Element = AllergyIntolerance.lastOccurence
@@ -375,7 +375,7 @@
 
  -- Row 14 -----------------------------------
   Element = AllergyIntolerance.note
-  Card. = 0..1
+  Card. = 0..*
   Type = Annotation
   Short Label = Additional text not captured in other fields
   Definition = Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
@@ -458,7 +458,7 @@
 
  -- Row 23 -----------------------------------
   Element = AllergyIntolerance.reaction.note
-  Card. = 0..1
+  Card. = 0..*
   Type = Annotation
   Short Label = Text about event not captured in other fields
   Definition = Additional text about the adverse reaction event not captured in other fields

@@ -2,18 +2,11 @@
 <AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
   <id value="medication"/>
   
-  <!-- the date that this entry was recorded -->  
-  <recordedDate value="2010-03-01"/>
+  <status value="unconfirmed"/>
+
+  <category value="medication"/>
   
-  <!-- who made the record / last updated it -->
-  <recorder>
-    <reference value="Practitioner/13"/>
-  </recorder>
-  
-  <!-- the patient that actually has the risk of adverse reaction -->
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
+  <criticality value="CRITH"/> 
 
   <!-- subtance, coded from RxNorm -->
   <substance>
@@ -24,9 +17,18 @@
     </coding>
   </substance>
  
-  <status value="unconfirmed"/>
-  <criticality value="CRITH"/> 
-  <category value="medication"/>
+  <!-- the patient that actually has the risk of adverse reaction -->
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+
+  <!-- the date that this entry was recorded -->  
+  <recordedDate value="2010-03-01"/>
+  
+  <!-- who made the record / last updated it -->
+  <recorder>
+    <reference value="Practitioner/13"/>
+  </recorder>
   
   <reaction> 
     <manifestation>
