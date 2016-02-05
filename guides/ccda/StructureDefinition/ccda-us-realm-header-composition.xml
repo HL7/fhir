@@ -71,12 +71,10 @@
 			<comments value="US Realm Patient"/>
 			<min value="1"/>
 			<max value="1"/>
-			<!--
 			<type>
-				<code value="Patient"/>
+				<code value="Reference"/>
 				<profile value="http://hl7.org/fhir/StructureDefinition/daf-patient"/>
 			</type>
-			-->
 		</element>
 		<element>
 			<path value="Composition.author"/>
