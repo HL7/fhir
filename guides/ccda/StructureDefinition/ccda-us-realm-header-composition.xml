@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/rickg/OD/Lantana/projects/HL7/FHIR/Schemas/Developmental/fhir-all-xsd/structuredefinition.xsd">
 	<id value="ccda-us-realm-header-composition"/>
 	<url value="http://hl7.org/fhir/StructureDefinition/ccda-us-realm-header-composition"/>
@@ -63,6 +64,12 @@
 			<short value="confidentiality"/>
 			<min value="1"/>
 			<max value="1"/>
+			<!--
+			<binding>
+				<strength value="required"/>
+				<valueSetUri value="urn:oid:2.16.840.1.113883.1.11.16926"/>
+			</binding>
+			-->
 		</element>
 		<!-- Need to turn this into a slice, then add another slice pointing to a Group allowing only DAF-Patient's -->
 		<element>
