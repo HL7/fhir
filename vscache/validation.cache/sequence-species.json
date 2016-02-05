@@ -1,0 +1,10 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/sequence-species",
+  "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|null|337915000|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}

@@ -1181,7 +1181,7 @@
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">ModuleMetadata.status</Data></Cell>
     <Cell ss:StyleID="s69"/>
-    <Cell ss:StyleID="s62"><Data ss:Type="String">test</Data></Cell>
+    <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"/>
     <Cell ss:StyleID="s62"><Data ss:Type="String">draft</Data></Cell>
     <Cell ss:StyleID="s62"/>

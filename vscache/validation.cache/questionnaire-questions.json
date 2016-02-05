@@ -2,91 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/questionnaire-questions",
   "outcomes": [
     {
-      "hash": "|http://loinc.org|null|54120-1|Ethnicity family member [USSG-FHT]",
+      "hash": "|http://loinc.org|null|44249-1|PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Ethnicity family member [USSG-FHT]"
+        "display": "PHQ-9 quick depression assessment panel [Reported.PHQ]"
       }
     },
     {
-      "hash": "|http://loinc.org|null|54136-7|Relationship to patient family member [USSG-FHT]",
+      "hash": "|http://loinc.org|null|54123-5|Gender family member [USSG-FHT]",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Relationship to patient family member [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|21112-8|Birth Date",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Birth Date"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54137-5|Diseases history panel [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Diseases history panel [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|9268-4|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score motor"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|29463-7|Body weight",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Body weight"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|44250-9|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Little interest or pleasure in doing things in last 2 weeks [Reported.PHQ]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|44252-5|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Trouble concentrating on things, such as reading the newspaper or watching television in last 2 weeks [Reported.PHQ]"
+        "display": "Sex family member [USSG-FHT]"
       }
     },
     {
@@ -101,229 +35,6 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|54124-3|Birth date family member",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Birth date family member"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54128-4|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Adopted"
-      }
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|CARDIAL|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "|http://loinc.org|null|54123-5|Gender family member [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Sex family member [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54119-3|Race family member [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Race family member [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|39156-5|Body mass index (BMI) [Ratio]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Body mass index (BMI) [Ratio]"
-      }
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|COMORBIDITY|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "|http://loinc.org|null|44258-2|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down in last 2 weeks [Reported.PHQ]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|44249-1|PHQ-9 quick depression assessment panel:-:Pt:^Patient:-:Report.PHQ-9",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "PHQ-9 quick depression assessment panel [Reported.PHQ]"
-      }
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|ABDOMINAL|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMCAR00|Angina Pectoris",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "|http://loinc.org|null|44261-6|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54134-2|Race [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Race [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54116-9|History of diseases family member [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "History of diseases family member [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54140-9|History of diseases [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "History of diseases [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54139-1|Living family member",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Living family member"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|39156-5|Body mass index",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Body mass index (BMI) [Ratio]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|9269-2|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score total"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|44251-7|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Poor appetite or overeating in last 2 weeks [Reported.PHQ]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54132-6|Twin",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Twin"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54141-7|Current age family member [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Current age family member [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|44254-1|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Feeling tired or having little energy in last 2 weeks [Reported.PHQ]"
-      }
-    },
-    {
       "hash": "|http://loinc.org|null|54112-8|Cause of death family member [USSG-FHT]",
       "severity": null,
       "message": null,
@@ -332,137 +43,6 @@
         "code": null,
         "definition": null,
         "display": "Cause of death family member [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54130-0|Age range at onset of disease [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Age range at onset of disease [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMORB|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "|http://loinc.org|null|9267-6|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glasgow coma score eye opening"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|44259-0|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Trouble falling or staying asleep, or sleeping too much in last 2 weeks [Reported.PHQ]"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54114-4|Family member health history [USSG-FHT] family member",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Family member health history [USSG-FHT] family member"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|44256-6|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Perceived difficulty in last 2 weeks [Reported.PHQ]"
-      }
-    },
-    {
-      "hash": "|http://snomed.info/sct|null|22298006|Myocardial infarction (disorder)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "MI - Myocardial infarction"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54133-4|Ethnicity [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Ethnicity [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "|http://loinc.org|null|8302-2|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Body height"
-      }
-    },
-    {
-      "hash": "|http://snomed.info/sct|null|194828000|Angina (disorder)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Angina"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54125-0|Name",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Name"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54131-8|Gender [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Sex [USSG-FHT]"
       }
     },
     {
@@ -477,63 +57,85 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|54121-9|Twin family member",
+      "hash": "|http://loinc.org|null|54134-2|Race [USSG-FHT]",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Twin family member"
+        "display": "Race [USSG-FHT]"
       }
     },
     {
-      "hash": "|http://loinc.org|null|54113-6|Age range at death family member [USSG-FHT]",
+      "hash": "|http://loinc.org|null|54125-0|Name",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Age range at death family member [USSG-FHT]"
+        "display": "Name"
       }
     },
     {
-      "hash": "|http://example.org/system/code/questions|null|STADPT|pT category",
+      "hash": "|http://loinc.org|null|54119-3|Race family member [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Race family member [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54141-7|Current age family member [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Current age family member [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54133-4|Ethnicity [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Ethnicity [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/questions|null|COMCAR00|Angina Pectoris",
       "severity": "error",
       "message": "The code provided is not  valid"
     },
     {
-      "hash": "|http://loinc.org|null|44255-8|null",
+      "hash": "|http://loinc.org|null|44259-0|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Feeling down, depressed, or hopeless in last 2 weeks [Reported.PHQ]"
+        "display": "Trouble falling or staying asleep, or sleeping too much in last 2 weeks [Reported.PHQ]"
       }
     },
     {
-      "hash": "|http://loinc.org|null|8302-2|Body height",
+      "hash": "|http://loinc.org|null|44256-6|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Body height"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54122-7|Adopted family member",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Adopted family member"
+        "display": "Perceived difficulty in last 2 weeks [Reported.PHQ]"
       }
     },
     {
@@ -548,41 +150,52 @@
       }
     },
     {
-      "hash": "|http://example.org/system/code/lifelines/nl|null|VL 1-1, 18-65_1.2.2|Lifelines Questionnaire 1 part 1",
+      "hash": "|http://loinc.org|null|44255-8|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Feeling down, depressed, or hopeless in last 2 weeks [Reported.PHQ]"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/sections|null|ABDOMINAL|null",
       "severity": "error",
       "message": "The code provided is not  valid"
     },
     {
-      "hash": "|http://loinc.org|null|54123-5|Sex family member [USSG-FHT]",
+      "hash": "|http://loinc.org|null|54128-4|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Sex family member [USSG-FHT]"
+        "display": "Adopted"
       }
     },
     {
-      "hash": "|http://loinc.org|null|54126-8|My health history [USSG-FHT]",
+      "hash": "|http://loinc.org|null|54137-5|Diseases history panel [USSG-FHT]",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "My health history [USSG-FHT]"
+        "display": "Diseases history panel [USSG-FHT]"
       }
     },
     {
-      "hash": "|http://loinc.org|null|44253-3|null",
+      "hash": "|http://loinc.org|null|21112-8|Birth Date",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Moving or speaking so slowly that other people could have noticed. Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual in last 2 weeks [Reported.PHQ]"
+        "display": "Birth Date"
       }
     },
     {
@@ -597,18 +210,181 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|21112-8|Birth date",
+      "hash": "|http://loinc.org|null|54123-5|Sex family member [USSG-FHT]",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Birth Date"
+        "display": "Sex family member [USSG-FHT]"
       }
     },
     {
-      "hash": "|http://loinc.org|null|54131-8|Sex [USSG-FHT]",
+      "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "|http://loinc.org|null|39156-5|Body mass index",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Body mass index (BMI) [Ratio]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54126-8|My health history [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "My health history [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54116-9|History of diseases family member [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "History of diseases family member [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54113-6|Age range at death family member [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Age range at death family member [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "|http://loinc.org|null|44252-5|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Trouble concentrating on things, such as reading the newspaper or watching television in last 2 weeks [Reported.PHQ]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|44254-1|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Feeling tired or having little energy in last 2 weeks [Reported.PHQ]"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/sections|null|COMORBIDITY|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "|http://loinc.org|null|54122-7|Adopted family member",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Adopted family member"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|44253-3|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Moving or speaking so slowly that other people could have noticed. Or the opposite - being so fidgety or restless that you have been moving around a lot more than usual in last 2 weeks [Reported.PHQ]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|44250-9|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Little interest or pleasure in doing things in last 2 weeks [Reported.PHQ]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|29463-7|Body weight",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Body weight"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/questions|null|STADPT|pT category",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "|http://loinc.org|null|9269-2|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Glasgow coma score total"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54120-1|Ethnicity family member [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Ethnicity family member [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|44261-6|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54131-8|Gender [USSG-FHT]",
       "severity": null,
       "message": null,
       "definition": {
@@ -630,6 +406,186 @@
       }
     },
     {
+      "hash": "|http://loinc.org|null|54132-6|Twin",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Twin"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/lifelines/nl|null|VL 1-1, 18-65_1.2.2|Lifelines Questionnaire 1 part 1",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "|http://loinc.org|null|9267-6|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Glasgow coma score eye opening"
+      }
+    },
+    {
+      "hash": "|http://snomed.info/sct|null|22298006|Myocardial infarction (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "MI - Myocardial infarction"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54131-8|Sex [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Sex [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54139-1|Living family member",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Living family member"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|8302-2|Body height",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Body height"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|9268-4|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Glasgow coma score motor"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54121-9|Twin family member",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Twin family member"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54130-0|Age range at onset of disease [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Age range at onset of disease [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54140-9|History of diseases [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "History of diseases [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|8302-2|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Body height"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/sections|null|CARDIAL|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "|http://loinc.org|null|44258-2|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down in last 2 weeks [Reported.PHQ]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54136-7|Relationship to patient family member [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Relationship to patient family member [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|39156-5|Body mass index (BMI) [Ratio]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Body mass index (BMI) [Ratio]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54124-3|Birth date family member",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Birth date family member"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/questions|null|COMORB|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
       "hash": "|http://loinc.org|null|54138-3|Name family member",
       "severity": null,
       "message": null,
@@ -638,6 +594,50 @@
         "code": null,
         "definition": null,
         "display": "Name family member"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|54114-4|Family member health history [USSG-FHT] family member",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Family member health history [USSG-FHT] family member"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|44251-7|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Poor appetite or overeating in last 2 weeks [Reported.PHQ]"
+      }
+    },
+    {
+      "hash": "|http://snomed.info/sct|null|194828000|Angina (disorder)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Angina"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|21112-8|Birth date",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Birth Date"
       }
     }
   ]

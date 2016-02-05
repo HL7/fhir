@@ -22,7 +22,7 @@
   Context = DomainResource
   English = If the resource is contained in another resource, it SHALL be referred to from elsewhere in the resource
   XPath = not(exists(for $id in f:contained/*/@id return $id[not(ancestor::f:contained/parent::*/descendant::f:reference/@value=concat(\'#\', $id))]))
-  Expression = contained.all(\"#\"+id in **.reference)
+  Expression = contained.all(\"#\"+id in $context.**.reference)
 
  -- Row 4 -----------------------------------
   Id = 4

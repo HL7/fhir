@@ -2,14 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/tooth",
   "outcomes": [
     {
-      "hash": "|http://fdi.org/fhir/oraltoothcodes|null|36|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@65a59dbc\" in system \"http://fdi.org/fhir/oraltoothcodes\": null"
-    },
-    {
       "hash": "|http://fdi.org/fhir/oraltoothcodes|null|21|null",
       "severity": "fatal",
       "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@17a73346\" in system \"http://fdi.org/fhir/oraltoothcodes\": null"
+    },
+    {
+      "hash": "|http://fdi.org/fhir/oraltoothcodes|null|36|null",
+      "severity": "fatal",
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@65a59dbc\" in system \"http://fdi.org/fhir/oraltoothcodes\": null"
     }
   ]
 }
