@@ -68,6 +68,7 @@ public class Validator {
       System.out.println("* [profile] is an optional filename or URL for a specific profile to validate a resource");
       System.out.println("    against. In the absence of this parameter, the resource will be checked against the ");
       System.out.println("    base specification using the definitions.");
+      System.out.println("* [logical] is an optional filename or URL for a logical model set (bundle) to use instead of a resource");
       System.out.println("* [questionnaire] is an optional filename or URL for a specific questionnaire to validate a ");
       System.out.println("    QuestionnaireResponse against, if it is nominated in the response");
       System.out.println("* [output] is a filename for the results (OperationOutcome). Default: results are sent to the std out.");
@@ -101,6 +102,8 @@ public class Validator {
             exe.setProfile(args[i+1]);
           if (args[i].equals("-questionnaire"))
             exe.setQuestionnaire(args[i+1]);
+          if (args[i].equals("-logical"))
+            exe.setLogical(args[i+1]);
           if (args[i].equals("-txserver"))
             exe.setTsServer(args[i+1]);
           if (args[i].equals("-folder"))
@@ -150,7 +153,20 @@ public class Validator {
   private void setQuestionnaire(String questionnaire) {
     this.questionnaire = questionnaire;
   }
-	private List<ValidationMessage> outputs() {
+  
+	public String getLogical() {
+    return logical;
+  }
+
+
+
+  public void setLogical(String logical) {
+    this.logical = logical;
+  }
+
+
+
+  private List<ValidationMessage> outputs() {
     return engine.getOutputs();
   }
 
@@ -174,6 +190,7 @@ public class Validator {
   private String profile;
 
   private String questionnaire;
+  private String logical;
 
   /**
    * The name of the resource/feed to validate. this can be the actual source as json or xml, a file name, a zip file, 
@@ -192,6 +209,7 @@ public class Validator {
     engine.connectToTSServer(txServer == null ? "http://fhir2.healthintersections.com.au/open" : txServer);
     engine.loadProfile(profile);
     engine.loadQuestionnaire(questionnaire);
+    engine.loadLogical(logical);
     engine.setSource(loadSource());
     engine.process();
   }

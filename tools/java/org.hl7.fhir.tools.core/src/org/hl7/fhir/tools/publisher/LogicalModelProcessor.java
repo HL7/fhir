@@ -1,28 +1,36 @@
 package org.hl7.fhir.tools.publisher;
 
+import java.util.List;
 import java.util.Map;
 
 import org.hl7.fhir.definitions.generators.specification.SvgGenerator;
 import org.hl7.fhir.definitions.model.ImplementationGuideDefn;
+import org.hl7.fhir.definitions.model.LogicalModel;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.dstu21.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu21.model.StructureDefinition;
 import org.hl7.fhir.dstu21.utils.ProfileUtilities;
+import org.hl7.fhir.dstu21.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.utilities.xhtml.XhtmlComposer;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 
-public class LogicalModelProcessor extends BuildToolScriptedPageProcessor {
+public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implements ProfileKnowledgeProvider {
 
   StructureDefinition definition;
   String tx;
   String dict;
   private Map<String, String> examples;
+  private List<LogicalModel> logicalModelSet;
+  private ImplementationGuideDefn guide;
   
-  public LogicalModelProcessor(String title, PageProcessor page, ImplementationGuideDefn ig, String name, String type, String pagePath, StructureDefinition definition, String tx, String dict, Map<String, String> examples) {
+  public LogicalModelProcessor(String title, PageProcessor page, ImplementationGuideDefn ig, String name, String type, String pagePath, StructureDefinition definition, String tx, String dict, Map<String, String> examples, List<LogicalModel> logicalModelSet) {
     super(title, ig.getLevel(), page, ig, name, type, pagePath);
+    this.guide = ig;
     this.definition = definition;
     this.tx = tx;
     this.dict = dict;
     this.examples = examples;
+    this.logicalModelSet = logicalModelSet;
     }
 
   @Override
@@ -84,7 +92,7 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor {
   }
 
   private String genLogicalModelTable(StructureDefinition sd, String prefix) throws Exception {
-    ProfileUtilities pu = new ProfileUtilities(page.getWorkerContext(), null, page);
+    ProfileUtilities pu = new ProfileUtilities(page.getWorkerContext(), null, this);
     XhtmlNode x = pu.generateTable(sd.getId()+"-definitions.html", sd, false, page.getFolders().dstDir, false, sd.getId(), true, prefix);
     return new XhtmlComposer().compose(x);
   }
@@ -97,6 +105,44 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor {
   @Override
   protected String getDescription() {
     return definition.getDescription();
+  }
+
+  // pkp redirection
+  @Override
+  public boolean isDatatype(String typeSimple) {
+    return page.isDatatype(typeSimple);
+  }
+
+  @Override
+  public boolean isResource(String typeSimple) {
+    return page.isResource(typeSimple);  }
+
+  @Override
+  public boolean hasLinkFor(String typeSimple) {
+    for (LogicalModel lm : logicalModelSet) {
+      if (lm.getId().equals(typeSimple))
+        return true;
+    }
+    return page.hasLinkFor(typeSimple);
+  }
+
+  @Override
+  public String getLinkFor(String typeSimple) {
+    for (LogicalModel lm : logicalModelSet) {
+      if (lm.getId().equals(typeSimple))
+        return guide.getPrefix()+lm.getId()+".html";
+    }
+    return page.getLinkFor(typeSimple);
+  }
+
+  @Override
+  public BindingResolution resolveBinding(ElementDefinitionBindingComponent binding) {
+    return page.resolveBinding(binding);
+  }
+
+  @Override
+  public String getLinkForProfile(StructureDefinition profile, String url) {
+    return page.getLinkForProfile(profile, url);
   }
 
 }

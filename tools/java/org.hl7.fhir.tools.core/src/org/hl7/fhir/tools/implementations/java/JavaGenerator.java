@@ -42,6 +42,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.jar.Attributes;
 import java.util.jar.JarEntry;
 import java.util.jar.JarOutputStream;
@@ -58,10 +59,12 @@ import javax.tools.ToolProvider;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.definitions.Config;
+import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
+import org.hl7.fhir.definitions.model.TypeDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.dstu21.model.Constants;
 import org.hl7.fhir.dstu21.model.ValueSet;
@@ -228,6 +231,10 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jParserGenJ.generateComposer();
     jParserGenJ.finish();
     jFactoryGen.generate(version, genDate);
+    JavaConverterGenerator jConv = new JavaConverterGenerator(new FileOutputStream(implDir+"org.hl7.fhir.convertors"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"convertors"+sl+"VersionConvertor.javat"));
+    jConv.generate(definitions, version, genDate);
+    jConv.flush();
+    jConv.close();
     TextFile.stringToFileNoPrefix(makeConstantsClass(version, svnRevision, genDate), implDir+"org.hl7.fhir.dstu21"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu21"+sl+"model"+sl+"Constants.java");
     ZipGenerator zip = new ZipGenerator(destDir+getReference(version));
     zip.addFiles(implDir+"org.hl7.fhir.dstu21"+sl+"src"+ sl+"org"+sl+"hl7"+sl+"fhir"+sl+"dstu21"+sl+"model"+sl, "org/hl7/fhir/instance/model/", ".java", null);
@@ -256,6 +263,8 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     jParserGenJ.close();
     jFactoryGen.close();
   }
+
+
 
   private String tokenize(String id) {
     StringBuilder b = new StringBuilder();

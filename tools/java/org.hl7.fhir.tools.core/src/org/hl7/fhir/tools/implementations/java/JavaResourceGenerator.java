@@ -1723,6 +1723,17 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
           write(indent+"  return this;\r\n");
           write(indent+"}\r\n");
           write("\r\n");
+        } else {
+          write("    // syntactic sugar\r\n");
+          write(indent+"public "+className+" add"+getTitle(getElementName(e.getName(), false))+"("+tn+" t) { //3\r\n");
+          write(indent+"  if (t == null)\r\n");
+          write(indent+"    return this;\r\n");
+          write(indent+"  if (this."+getElementName(e.getName(), true)+" == null)\r\n");
+          write(indent+"    this."+getElementName(e.getName(), true)+" = new ArrayList<"+tn+">();\r\n");
+          write(indent+"  this."+getElementName(e.getName(), true)+".add(t);\r\n");
+          write(indent+"  return this;\r\n");
+          write(indent+"}\r\n");
+          write("\r\n");          
         }
 
         if (e.getTypes().size() == 1 && e.typeCode().startsWith("Reference(")) {

@@ -371,8 +371,7 @@ public class BindingSpecification {
     if (allCodes == null || allCodes.size() == 0 || wantComplete) {
       allCodes = new ArrayList<DefinedCode>();
       if (valueSet != null) {
-        if (wantComplete)
-          valueSet.setUserData(ToolResourceUtilities.NAME_VS_USE_MARKER, true);
+        valueSet.setUserData(ToolResourceUtilities.NAME_VS_USE_MARKER, true);
         getAllCodesForValueSet(codeSystems, valueSets, wantComplete, valueSet);
       }   
     }

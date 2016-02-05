@@ -674,6 +674,8 @@ public class Utilities {
 
 
   public static boolean existsInList(String value, String... array) {
+    if (value == null)
+      return false;
     for (String s : array)
       if (value.equals(s))
           return true;
