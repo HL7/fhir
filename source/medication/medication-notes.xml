@@ -1,5 +1,9 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- some content goes here -->
+<a name="bp"> </a>
+<h2>Best practices for using 'Medication'</h2>
+<p>
+Medications that are entered in error should simply be deleted.
+</p>
 
 </div>
