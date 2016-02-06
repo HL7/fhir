@@ -462,17 +462,17 @@
           <div xmlns="http://www.w3.org/1999/xhtml">Sensitivity to Doxycycline :
                         Hives</div>
         </text>
-        <status value="confirmed"/>
-        <type value="allergy"/>
-        <criticality value="CRITH"/>
-        <substance>
-          <text value="Doxycycline"/>
-        </substance>
+        <recordedDate value="2012-09-17"/>
         <patient>
           <reference value="http://fhir.healthintersections.com.au/open/Patient/d1"/>
           <display value="Eve Everywoman"/>
         </patient>
-        <recordedDate value="2012-09-17"/>
+        <substance>
+          <text value="Doxycycline"/>
+        </substance>
+        <status value="confirmed"/>
+        <criticality value="CRITH"/>
+        <type value="allergy"/>
         <reaction>
           <manifestation>
             <coding>
