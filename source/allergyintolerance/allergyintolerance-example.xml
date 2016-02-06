@@ -2,7 +2,6 @@
 <AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
   <id value="example"/>
 
-
   <!-- an identifier used for this Adverse Reaction Risk -->
   <identifier>
     <system value="http://acme.com/ids/patients/risks"/>
