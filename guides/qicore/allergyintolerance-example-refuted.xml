@@ -19,19 +19,15 @@
     <value value="49476534"/>
   </identifier>
 
-  <!-- the date that this entry was recorded -->
-  <recordedDate value="2014-10-09T14:58:00+11:00"/>
+  <!-- allergy is tested to be negative -->
+  <status value="refuted"/>  
 
-  <!-- who made the record / last updated it -->
-  <recorder>
-    <reference value="Practitioner/example"/>
-  </recorder>
-
-  <!-- the patient that actually has the risk of adverse reaction -->
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
-
+  <!-- this categorisation is implied by "cashew nut" and therefore basically
+    redundant, but many systems collect this field anyway, since it's either
+    useful when the substance is not coded, or it's quicker to sort/filter on
+    than using terminology based reasoning -->
+  <category value="food"/>
+  
   <!-- substance - either coded, or text. A few times,
     there's a full description of a complex substance - in these caes, use the
     extension [url] to refer to a Substance resource -->
@@ -43,13 +39,16 @@
     </coding>
   </substance>
 
-  <!-- allergy is tested to be negative -->
-  <status value="refuted"/>  
+  <!-- the patient that actually has the risk of adverse reaction -->
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
 
-  <!-- this categorisation is implied by "cashew nut" and therefore basically
-    redundant, but many systems collect this field anyway, since it's either
-    useful when the substance is not coded, or it's quicker to sort/filter on
-    than using terminology based reasoning -->
-  <category value="food"/>
-  
+  <!-- the date that this entry was recorded -->
+  <recordedDate value="2014-10-09T14:58:00+11:00"/>
+
+  <!-- who made the record / last updated it -->
+  <recorder>
+    <reference value="Practitioner/example"/>
+  </recorder>
 </AllergyIntolerance>

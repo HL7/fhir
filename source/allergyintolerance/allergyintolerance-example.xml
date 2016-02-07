@@ -2,26 +2,28 @@
 <AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/allergyintolerance.xsd">
   <id value="example"/>
 
-  <!-- an identifier used for this Adverse Reaction Risk -->
+  <!-- an identifier used for this allergic propensity (adverse reaction risk) -->
   <identifier>
     <system value="http://acme.com/ids/patients/risks"/>
     <value value="49476534"/>
   </identifier>
 
-  <!-- the date that this entry was recorded -->  
-  <recordedDate value="2014-10-09T14:58:00+11:00"/>
-  
-  <!-- who made the record / last updated it -->
-  <recorder>
-    <reference value="Practitioner/example"/>
-  </recorder>
-  
-  <!-- the patient that actually has the risk of adverse reaction -->
-  <patient>
-    <reference value="Patient/example"/>
-  </patient>
+  <!-- this individual has had several reactions --> 
+  <status value="confirmed"/>
 
-  <!-- subtance - either coded, or text. A few times, 
+  <!-- note: it's often unknown whether an allergy is mediated by an immune response, and not as significant as once thought -->
+  <type value="allergy"/>
+  
+  <!-- this categorisation is implied by "cashew nut" and therefore basically 
+    redundant, but many systems collect this field anyway, since it's either 
+    useful when the substance is not coded, or it's quicker to sort/filter on
+    than using terminology based reasoning -->
+  <category value="food"/>
+  
+  <!-- there is no question that the allergy is real and serious --> 
+  <criticality value="CRITH"/>
+  
+  <!-- substance - either coded, or text. A few times, 
     there's a full description of a complex substance - in these caes, use the
     extension [url] to refer to a Substance resource -->
   <substance>
@@ -32,23 +34,35 @@
     </coding>
   </substance>
  
-  <!-- this individual has had several reactions, and there is no 
-    question that the allergy is real and serious --> 
-  <status value="confirmed"/>
-  <criticality value="CRITH"/>
+  <!-- the patient that actually has the risk of adverse reaction -->
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+
+  <!-- the date that this entry was recorded -->  
+  <recordedDate value="2014-10-09T14:58:00+11:00"/>
   
-  <!-- note: it's often unknown whether an allergy is mediated by an immune response, and not as significant as once thought -->
-  <type value="allergy"/>
+  <!-- who made the record / last updated it -->
+  <recorder>
+    <reference value="Practitioner/example"/>
+  </recorder>
   
-  <!-- this categorisation is implied by "cashew nut" and therefore basically 
-    redundant, but many systems collect this field anyway, since it's either 
-    useful when the substance is not coded, or it's quicker to sort/filter on
-    than using terminology based reasoning -->
-  <category value="food"/>
-  
+  <!-- the patient is the reporter in this case -->
+  <reporter>
+    <reference value="Patient/example"/>
+  </reporter>
+
+  <!-- when the allergy was first noted (in this case the same as reaction.onset of the first occurrence) --> 
+  <onset value="2004"/>
+
   <!-- last happened June 2012. Typically, systems either track lastOccurence,
      or a list of events. -->
   <lastOccurence value="2012-06"/>
+  
+  <!-- an additional note about the allergy propensity by the recorder -->
+  <note>
+    <text value="The criticality is high becasue of the observed anaphylactic reaction when challenged with cashew extract."/>
+  </note>  
   
   <!-- past events. There's no claim that this is all the events, and 
      that should not be assumed -->
@@ -68,7 +82,7 @@
         <display value="cashew nut allergenic extract Injectable Product"/>
       </coding>  
     </substance>
-    
+    <certainty value="confirmed"/>
     <manifestation>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -76,12 +90,20 @@
         <display value="Anaphylactic reaction"/>
       </coding>
     </manifestation>
-    <description value="Challenge Protocol. Severe Reaction to 1/8 cashew. Epinephrine administered"/>
+    <description value="Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered"/>
     <onset value="2012-06-12"/>
     <severity value="severe"/>
+    <exposureRoute>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="34206005"/>
+        <display value="Subcutaneous route"/>
+      </coding>
+    </exposureRoute>
   </reaction>
+
+  <!-- this was the first occurrence -->
   <reaction> 
-    <!-- this was the first occurrence -->
     <certainty value="likely"/>
     <manifestation>
       <coding>
@@ -92,5 +114,10 @@
     </manifestation>
     <onset value="2004"/>
     <severity value="moderate"/>
+    <!-- an additional note about the reaction by the recorder -->
+    <note>
+      <text value="The patient reports that the onset of urticaria was within 15 minutes of eating cashews."/>
+    </note>  
   </reaction>
+  
 </AllergyIntolerance>

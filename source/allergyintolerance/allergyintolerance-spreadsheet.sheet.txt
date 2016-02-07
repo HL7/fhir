@@ -233,6 +233,7 @@
   Definition = Risk of harmful or undesirable, physiological response which is unique to an individual and associated with exposure to a substance.
   Requirements = To record a clinical assessment of a propensity, or potential risk to an individual, of an adverse reaction upon future exposure to the specified substance, or class of substance.
   Comments = Substances include, but are not limited to: a therapeutic substance administered correctly at an appropriate dosage for the individual; food; material derived from plants or animals; or venom from insect stings.
+  RIM Mapping = Observation[classCode=OBS, moodCode=EVN]
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
@@ -243,77 +244,10 @@
   Short Label = External ids for this item
   Definition = This records identifiers associated with this allergy/intolerance concern that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   v2 Mapping = IAM-7
-  RIM Mapping = .id
+  RIM Mapping = id
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = AllergyIntolerance.onset
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Label = Date(/time) when manifestations showed
-  Definition = Record of the date and/or time of the onset of the Allergy or Intolerance
-
- -- Row 4 -----------------------------------
-  Element = AllergyIntolerance.recordedDate
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Label = When recorded
-  Definition = Date when the sensitivity was recorded
-  v2 Mapping = IAM-20
-  RIM Mapping = .participation[typeCode=AUT].time
-  w5 = when.recorded
-
- -- Row 5 -----------------------------------
-  Element = AllergyIntolerance.recorder
-  Card. = 0..1
-  Aliases = Author
-  Summary = y
-  Type = Reference(Practitioner|Patient)
-  Short Label = Who recorded the sensitivity
-  Definition = Individual who recorded the record and takes responsibility for its conten
-  RIM Mapping = .participation[typeCode=AUT].role
-  w5 = who.author
-
- -- Row 6 -----------------------------------
-  Element = AllergyIntolerance.patient
-  Card. = 1..1
-  Aliases = Patient
-  Summary = y
-  Type = Reference(Patient)
-  Short Label = Who the sensitivity is for
-  Definition = The patient who has the allergy or intolerance
-  v2 Mapping = (PID-3)
-  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
-  w5 = who.focus
-
- -- Row 7 -----------------------------------
-  Element = AllergyIntolerance.reporter
-  Card. = 0..1
-  Aliases = Source; Informant
-  Summary = Y
-  Type = Reference(Patient | RelatedPerson | Practitioner)
-  Short Label = Source of the information about the allergy
-  Definition = The source of the information about the allergy that is recorded
-  Comments = The recorder takes repsonsibility for the content, but can reference the source from where they got it
-  v2 Mapping = IAM-14 (if patient) / IAM-18 (if practitioner)
-  w5 = who.source
-
- -- Row 8 -----------------------------------
-  Element = AllergyIntolerance.substance
-  Card. = 1..1
-  Aliases = Agent
-  Summary = Y
-  Type = CodeableConcept
-  Binding = AllergyIntoleranceSubstance
-  Short Label = Substance, (or class) considered to be responsible for risk
-  Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk
-  Comments = It is strongly recommended that the substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
-  v2 Mapping = AL1-3 / IAM-3
-  w5 = what
-
- -- Row 9 -----------------------------------
   Element = AllergyIntolerance.status
   Card. = 0..1
   Aliases = State
@@ -325,21 +259,10 @@
   Definition = Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified Substance
   Comments = Decision support would typically raise alerts for \'Unconfirmed\', \'Confirmed\', and \'Resolved\' and ignore a \'Refuted\' reaction. In particular, \'Refuted\' may be useful for reconciliation of the Adverse Reaction List. Some implementations may choose to make this field mandatory.
   v2 Mapping = IAM-17
+  RIM Mapping = statusCode
   w5 = status
 
- -- Row 10 -----------------------------------
-  Element = AllergyIntolerance.criticality
-  Card. = 0..1
-  Aliases = Severity; Seriousness; Contra-indication; Risk
-  Summary = Y
-  Type = code
-  Binding = AllergyIntoleranceCriticality
-  Short Label = CRITL | CRITH | CRITU
-  Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance
-  Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
-  w5 = grade
-
- -- Row 11 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = AllergyIntolerance.type
   Card. = 0..1
   Aliases = Category; Class
@@ -350,9 +273,10 @@
   Definition = Identification of the underlying physiological mechanism for the reaction risk.
   Comments = Allergic (typically immune-mediated) reactions have been traditionally regarded as an indicator for potential escalation to significant future risk. Contemporary knowledge suggests that some reactions previously thought to be immune-mediated are, in fact, non-immune, but in some cases can still pose a life threatening risk. It is acknowledged that many clinicians may not be in a position to distinguish the mechanism of a particular reaction. Often the term \"allergy\" is used rather generically and may overlap with the use of \"intolerance\" - in practice the boundaries between these two concepts may not be well-defined or understood. This data element is included nevertheless, because many legacy systems have captured this attribute. Immunologic testing may provide supporting evidence for the basis of the reaction and the causative substance, but no tests are 100% sensitive or specific for sensitivity to a particular substance. If, as is commonly the case, it is unclear whether the reaction is due to an allergy or an intolerance, then the type element should be omitted from the resource.
   v2 Mapping = IAM-9
+  RIM Mapping = code
   w5 = class
 
- -- Row 12 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = AllergyIntolerance.category
   Card. = 0..1
   Aliases = Category; Type; Reaction Type; Class
@@ -362,7 +286,91 @@
   Short Label = food | medication | environment | other - Category of Substance
   Definition = Category of the identified Substance
   Comments = This data element has been included because it is currently being captured in some clinical systems. This data can be derived from the Substance where coding systems are used, and is effectively redundant in that situation.
+  RIM Mapping = value < IntoleranceValue (Agent)
   w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = AllergyIntolerance.criticality
+  Card. = 0..1
+  Aliases = Severity; Seriousness; Contra-indication; Risk
+  Summary = Y
+  Type = code
+  Binding = AllergyIntoleranceCriticality
+  Short Label = CRITL | CRITH | CRITU
+  Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance
+  Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
+  RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value <= SeverityObservation (Severity Level)]
+  w5 = grade
+
+ -- Row 7 -----------------------------------
+  Element = AllergyIntolerance.substance
+  Card. = 1..1
+  Aliases = Agent
+  Summary = Y
+  Type = CodeableConcept
+  Binding = AllergyIntoleranceSubstance
+  Short Label = Substance, (or class) considered to be responsible for risk
+  Definition = Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk
+  Comments = It is strongly recommended that the substance be coded with a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNI, ATC and CPT. Plain text should only be used if there is no appropriate terminology available. Additional details about a substance can be specified in the text.
+  v2 Mapping = AL1-3 / IAM-3
+  RIM Mapping = .participation[typeCode=CAGNT].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]
+  w5 = what
+
+ -- Row 8 -----------------------------------
+  Element = AllergyIntolerance.patient
+  Card. = 1..1
+  Aliases = Patient
+  Summary = y
+  Type = Reference(Patient)
+  Short Label = Who the sensitivity is for
+  Definition = The patient who has the allergy or intolerance
+  v2 Mapping = (PID-3)
+  RIM Mapping = .participation[typeCode=SBJ].role[classCode=PAT]
+  w5 = who.focus
+
+ -- Row 9 -----------------------------------
+  Element = AllergyIntolerance.recordedDate
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = When recorded
+  Definition = Date when the sensitivity was recorded
+  v2 Mapping = IAM-20
+  RIM Mapping = .participation[typeCode=AUT].time
+  w5 = when.recorded
+
+ -- Row 10 -----------------------------------
+  Element = AllergyIntolerance.recorder
+  Card. = 0..1
+  Aliases = Author
+  Summary = y
+  Type = Reference(Practitioner|Patient)
+  Short Label = Who recorded the sensitivity
+  Definition = Individual who recorded the record and takes responsibility for its conten
+  RIM Mapping = .participation[typeCode=AUT].role
+  w5 = who.author
+
+ -- Row 11 -----------------------------------
+  Element = AllergyIntolerance.reporter
+  Card. = 0..1
+  Aliases = Source; Informant
+  Summary = Y
+  Type = Reference(Patient | RelatedPerson | Practitioner)
+  Short Label = Source of the information about the allergy
+  Definition = The source of the information about the allergy that is recorded
+  Comments = The recorder takes repsonsibility for the content, but can reference the source from where they got it
+  v2 Mapping = IAM-14 (if patient) / IAM-18 (if practitioner)
+  RIM Mapping = .participation[typeCode=INF].role
+  w5 = who.source
+
+ -- Row 12 -----------------------------------
+  Element = AllergyIntolerance.onset
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = Date(/time) when manifestations showed
+  Definition = Record of the date and/or time of the onset of the Allergy or Intolerance
+  RIM Mapping = effectiveTime.low
 
  -- Row 13 -----------------------------------
   Element = AllergyIntolerance.lastOccurence
@@ -372,14 +380,16 @@
   Short Label = Date(/time) of last known occurrence of a reaction
   Definition = Represents the date and/or time of the last known occurrence of a reaction event
   Comments = This date may be replicated by one of the Onset of Reaction dates. Where a textual representation of the date of last occurrence is required e.g. \'In Childhood, \'10 years ago\' the Comment element should be used.
+  RIM Mapping = outBoundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN, code <= CommonClinicalObservationType, value <= ObservationValue (Reaction Type)].effectiveTime
 
  -- Row 14 -----------------------------------
   Element = AllergyIntolerance.note
-  Card. = 0..1
+  Card. = 0..*
   Type = Annotation
   Short Label = Additional text not captured in other fields
   Definition = Additional narrative about the propensity for the Adverse Reaction, not captured in other fields.
   Comments = For example: including reason for flagging a seriousness of \'High Risk\'; and instructions related to future exposure or administration of the Substance, such as administration within an Intensive Care Unit or under corticosteroid cover. The notes should be related to an allergy or intolerance as a condition in general and not related to any particular episode of it. For episode notes and descriptions, use AllergyIntolerance.event.description and  AllergyIntolerance.event.notes.
+  RIM Mapping = subjectOf.observationEvent[code=\"annotation\"].value
 
  -- Row 15 -----------------------------------
   Element = AllergyIntolerance.reaction
@@ -387,6 +397,7 @@
   UML = right
   Short Label = Adverse Reaction Events linked to exposure to substance
   Definition = Details about each adverse reaction event linked to exposure to the identified Substance
+  RIM Mapping = outBoundRelationship[typeCode=SUBJ].target[classCode=OBS, moodCode=EVN, code <= CommonClinicalObservationType, value <= ObservationValue (Reaction Type)]
 
  -- Row 16 -----------------------------------
   Element = AllergyIntolerance.reaction.substance
@@ -397,6 +408,7 @@
   Short Label = Specific substance considered to be responsible for event
   Definition = Identification of the specific substance considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different to the substance identified as the cause of the risk, but must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite substance that includes the identified substance. It must be clinically safe to only process the AllergyIntolerance.substance and ignore the AllergyIntolerance.event.substance
   Comments = Coding of the specific substance with a terminology capable of triggering decision support should be used wherever possible.  The substance field allows for the use of a specific substance or a group or class of substances, for example \"Penicillins\". The specific substance field could be used for Amoxycillin. Duplication is acceptable when a specific substance has been recorded in the \'substance\' field.
+  RIM Mapping = outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code <= ExposureCode].participation[typeCode=CSM].role[classCode=ADMM].player[classCode=MAT, determinerCode=KIND, code <= ExposureAgentEntityType]
 
  -- Row 17 -----------------------------------
   Element = AllergyIntolerance.reaction.certainty
@@ -407,6 +419,7 @@
   Binding = AllergyIntoleranceCertainty
   Short Label = unlikely | likely | confirmed - clinical certainty about the specific substance
   Definition = Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event
+  RIM Mapping = uncertaintyCode
 
  -- Row 18 -----------------------------------
   Element = AllergyIntolerance.reaction.manifestation
@@ -418,6 +431,7 @@
   Short Label = Clinical symptoms/signs associated with the Event
   Definition = Clinical symptoms and/or signs that are observed or associated with the adverse reaction event
   Comments = Manifestation can be expressed as a single word, phrase or brief description. For example: nausea, rash or no reaction. It is preferable that manifestation should be coded with a terminology, where possible. The values entered here may be used to display on an application screen as part of a list of adverse reactions, as recommended in the UK NHS CUI guidelines.  Terminologies commonly used include, but are not limited to, SNOMED CT or ICD10.
+  RIM Mapping = code
 
  -- Row 19 -----------------------------------
   Element = AllergyIntolerance.reaction.description
@@ -427,6 +441,7 @@
   Short Label = Description of the event as a whole
   Definition = Text description about the reaction as a whole, including details of the manifestation if required
   Comments = Use the description to provide any details of a particular event of the occurred reaction such as circumstances, reaction specifics, what happened before/after. Information, related to the event, but not describing a particular care should be captured in the comment field. For example: at the age of four, the patient was given penicillin for strep throat and subsequently developed severe hives.
+  RIM Mapping = text
 
  -- Row 20 -----------------------------------
   Element = AllergyIntolerance.reaction.onset
@@ -435,6 +450,7 @@
   Type = dateTime
   Short Label = Date(/time) when manifestations showed
   Definition = Record of the date and/or time of the onset of the Reaction
+  RIM Mapping = effectiveTime.low
 
  -- Row 21 -----------------------------------
   Element = AllergyIntolerance.reaction.severity
@@ -445,6 +461,7 @@
   Short Label = mild | moderate | severe (of event as a whole)
   Definition = Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations
   Comments = It is acknowledged that this assessment is very subjective. There may be some some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions
+  RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value <= SeverityObservation (Severity Level)]
 
  -- Row 22 -----------------------------------
   Element = AllergyIntolerance.reaction.exposureRoute
@@ -455,14 +472,16 @@
   Short Label = How the subject was exposed to the substance
   Definition = Identification of the route by which the subject was exposed to the substance.
   Comments = Coding of the route of exposure with a terminology should be used wherever possible.
+  RIM Mapping = outBoundRelationship[typeCode=SAS].target[classCode=SBADM, code <= ExposureCode].routeCode
 
  -- Row 23 -----------------------------------
   Element = AllergyIntolerance.reaction.note
-  Card. = 0..1
+  Card. = 0..*
   Type = Annotation
   Short Label = Text about event not captured in other fields
   Definition = Additional text about the adverse reaction event not captured in other fields
   Comments = Use this field to record information indirectly related to a particular event and not captured in the description. For example: Clinical records are no longer available, recorded based on information provided to the patient by her mother and her mother is deceased.
+  RIM Mapping = subjectOf.observationEvent[code=\"annotation\"].value
 
 === Sheet Search =====================================
 
