@@ -22,7 +22,7 @@
   <category value="food"/>
 
   <!-- there is no question that the allergy is real and serious -->
-  <criticality value="CRITH"/>
+  <criticality value="high"/>
 
   <!-- subtance - either coded, or text. A few times,
     there's a full description of a complex substance - in these caes, use the

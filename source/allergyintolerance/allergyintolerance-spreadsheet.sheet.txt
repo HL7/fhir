@@ -125,21 +125,24 @@
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = CRITL
+  Code = low
   Display = Low Risk
-  Definition = The potential clinical impact of a future reaction is estimated as low risk: exposure to substance is unlikely to result in a life threatening or organ system threatening outcome. Future exposure to the Substance is considered a relative contra-indication.
+  Definition = Worst case result of a future exposure is not assessed to be life-threatening or having high potential for organ system failure.
+  v3 = =_CriticalityObservationValue.CRITL
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = CRITH
+  Code = high
   Display = High Risk
-  Definition = The potential clinical impact of a future reaction is estimated as high risk: exposure to substance may result in a life threatening or organ system threatening outcome. Future exposure to the Substance may be considered an absolute contra-indication.
+  Definition = Worst case result of a future exposure is assessed to be life-threatening or having high potential for organ system failure.
+  v3 = =_CriticalityObservationValue.CRITH
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = CRITU
-  Display = Unable to determine
-  Definition = Unable to assess the potential clinical impact with the information available.
+  Code = unable-to-assess
+  Display = Unable to Assess Risk
+  Definition = Unable to assess the worst case result of a future exposure.
+  v3 = =_CriticalityObservationValue.CRITU
 
 === Sheet allergy-intolerance-type =====================================
 

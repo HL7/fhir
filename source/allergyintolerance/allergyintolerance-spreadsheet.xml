@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Rob Hausam</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-02-07T01:42:11Z</LastSaved>
+  <LastSaved>2016-02-07T23:29:55Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,6 +20,8 @@
   <WindowWidth>21300</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
+  <ActiveSheet>10</ActiveSheet>
+  <FirstVisibleSheet>7</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -842,6 +844,12 @@
    <NumberFormat/>
    <Protection/>
   </Style>
+  <Style ss:ID="s159">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat ss:Format="@"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -883,11 +891,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>8</ActiveRow>
+     <ActiveRow>5</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7583,36 +7590,36 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s139"><Data ss:Type="String">CRITL</Data></Cell>
+    <Cell ss:StyleID="s139"><Data ss:Type="String">low</Data></Cell>
     <Cell ss:StyleID="s128"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s115"/>
     <Cell ss:StyleID="s157"/>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Low Risk</Data></Cell>
-    <Cell ss:StyleID="s157"><Data ss:Type="String">The potential clinical impact of a future reaction is estimated as low risk: exposure to substance is unlikely to result in a life threatening or organ system threatening outcome. Future exposure to the Substance is considered a relative contra-indication.</Data></Cell>
+    <Cell ss:StyleID="s157"><Data ss:Type="String">Worst case result of a future exposure is not assessed to be life-threatening or having high potential for organ system failure.</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">=_CriticalityObservationValue.CRITL</Data></Cell>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">CRITH</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">high</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="Number">2</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"><Data ss:Type="String">High Risk</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">The potential clinical impact of a future reaction is estimated as high risk: exposure to substance may result in a life threatening or organ system threatening outcome. Future exposure to the Substance may be considered an absolute contra-indication.</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">Worst case result of a future exposure is assessed to be life-threatening or having high potential for organ system failure.</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">=_CriticalityObservationValue.CRITH</Data></Cell>
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s141"><Data ss:Type="String">CRITU</Data></Cell>
+    <Cell ss:StyleID="s141"><Data ss:Type="String">unable-to-assess</Data></Cell>
     <Cell ss:StyleID="s131"><Data ss:Type="Number">3</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s155"/>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">Unable to determine</Data></Cell>
-    <Cell ss:StyleID="s155"><Data ss:Type="String">Unable to assess the potential clinical impact with the information available.</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">Unable to Assess Risk</Data></Cell>
+    <Cell ss:StyleID="s155"><Data ss:Type="String">Unable to assess the worst case result of a future exposure.</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s159"><Data ss:Type="String">=_CriticalityObservationValue.CRITU</Data></Cell>
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -8130,6 +8137,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8150,7 +8158,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

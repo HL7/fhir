@@ -6,7 +6,7 @@
 
   <category value="medication"/>
   
-  <criticality value="CRITH"/> 
+  <criticality value="high"/> 
 
   <!-- subtance, coded from RxNorm -->
   <substance>
