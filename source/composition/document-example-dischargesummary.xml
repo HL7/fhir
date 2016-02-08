@@ -464,7 +464,7 @@
         </text>
         <status value="confirmed"/>
         <type value="allergy"/>
-        <criticality value="CRITH"/>
+        <criticality value="high"/>
         <substance>
           <text value="Doxycycline"/>
         </substance>

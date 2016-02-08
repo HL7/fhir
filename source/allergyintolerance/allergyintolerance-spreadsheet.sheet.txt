@@ -299,7 +299,7 @@
   Summary = Y
   Type = code
   Binding = AllergyIntoleranceCriticality
-  Short Label = CRITL | CRITH | CRITU
+  Short Label = low | high | unable-to-assess
   Definition = Estimate of the potential clinical harm, or seriousness, of the reaction to the identified Substance
   Comments = The default criticality value for any propensity to an adverse reaction should be \'Low Risk\', indicating at the very least a relative contraindication to deliberate or voluntary exposure to the Substance. \'High Risk\' is flagged if the clinician has identified a propensity for a more serious or potentially life-threatening reaction, such as anaphylaxis, and implies an absolute contraindication to deliberate or voluntary exposure to the substance. If this element is missing, the criticality is unknown (though it may be known elsewhere)
   RIM Mapping = inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value <= SeverityObservation (Severity Level)]
