@@ -23,6 +23,11 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|34206005|Subcutaneous route",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|394899003|oral administration of treatment",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
