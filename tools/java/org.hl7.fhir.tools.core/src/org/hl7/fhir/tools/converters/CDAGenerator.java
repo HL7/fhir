@@ -34,6 +34,7 @@ import org.hl7.fhir.dstu21.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu21.model.Type;
 import org.hl7.fhir.dstu21.model.UriType;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
+import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
@@ -59,13 +60,13 @@ public class CDAGenerator {
     ELEMENT
   }
 
-  public static void main(String[] args) throws FileNotFoundException, ParserConfigurationException, SAXException, IOException {
-    new CDAGenerator().execute("C:\\work\\org.hl7.fhir\\build\\source\\cda", "C:\\temp");
+  public static void main(String[] args) throws Exception {
+    new CDAGenerator().execute("C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\CDA", "C:\\work\\org.hl7.fhir\\build\\guides\\ccda\\cda");
     System.out.println("Done");
   }
 
-  public void execute(String src, String dst) throws FileNotFoundException, ParserConfigurationException, SAXException, IOException {
-    target = Utilities.path(dst, "cda-fhir");
+  public void execute(String src, String dst) throws Exception {
+    target = dst;
     start();
     processDataTypes(Utilities.path(src, "datatypes.mif"));
     processCDA(Utilities.path(src, "cda.mif"));
@@ -84,40 +85,56 @@ public class CDAGenerator {
   }
 
   private String target;
-  private Bundle bundle;
+  private List<StructureDefinition> structures;
   private Map<String, String> primitiveTypes = new HashMap<String, String>();
   private Map<String, Element> types = new HashMap<String, Element>();
+  private Map<String, String> shadows = new HashMap<String, String>();
 
 
   private void start() {
-    bundle = new Bundle();
-    bundle.setId(UUID.randomUUID().toString().toLowerCase());
-    bundle.setType(BundleType.COLLECTION);
-    bundle.getFormatCommentsPre().add("\r\nExtensions defined for this set of structure definitions:\r\n"+
-      "  * add xmlText to ElementDefinition.representation: the content of the element does in the XML text for it's parent\r\n"+
-      "    (all of the text, not including text in child elements, with whitespace removed. This won't round-trip completely correctly\r\n"+
-      "\r\n"+
-      "  * add typeAttr to ElementDefinition.representation: instead type choices being handled by n[x] like usual, they are handled\r\n"+
-      "    by xsi:type in XML (and \"type\" : \"[value]\" in json)\r\n"+
-      "\r\n"+
-      "  * add cdaNarrative to ElementDefinition.representation: indicate that the content model of the element is \r\n"+
-      "    a CDA narrative, and must be converted to XHTML by the XML wire format reader\r\n"+
-      "\r\n"+
-      "  * define extension http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace\r\n"+
-      "    value is a URI that is the namespace used in the XML for the content defined in this structure definition.\r\n"+ 
-      "    The namespace will apply until another namespace is specified using the same extension\r\n"+
-      "\r\n");
-    bundle.getFormatCommentsPre().add("\r\nKnown types used with Observation.value, see http://www.healthintersections.com.au/?p=2428\r\n");
+    structures = new ArrayList<StructureDefinition>();
+    
+    // loading forwardReferences:
+//    shadows.put("guardian.guardianPerson", "ClinicalDocument.authenticator.assignedEntity.representedOrganization");
+    
+    
+    
+//    bundle.setId(UUID.randomUUID().toString().toLowerCase());
+//    bundle.setType(BundleType.COLLECTION);
+//    bundle.getFormatCommentsPre().add("\r\nExtensions defined for this set of structure definitions:\r\n"+
+//      "  * add xmlText to ElementDefinition.representation: the content of the element does in the XML text for it's parent\r\n"+
+//      "    (all of the text, not including text in child elements, with whitespace removed. This won't round-trip completely correctly\r\n"+
+//      "\r\n"+
+//      "  * add typeAttr to ElementDefinition.representation: instead type choices being handled by n[x] like usual, they are handled\r\n"+
+//      "    by xsi:type in XML (and \"type\" : \"[value]\" in json)\r\n"+
+//      "\r\n"+
+//      "  * add cdaNarrative to ElementDefinition.representation: indicate that the content model of the element is \r\n"+
+//      "    a CDA narrative, and must be converted to XHTML by the XML wire format reader\r\n"+
+//      "\r\n"+
+//      "  * define extension http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace\r\n"+
+//      "    value is a URI that is the namespace used in the XML for the content defined in this structure definition.\r\n"+ 
+//      "    The namespace will apply until another namespace is specified using the same extension\r\n"+
+//      "\r\n");
+//    bundle.getFormatCommentsPre().add("\r\nKnown types used with Observation.value, see http://www.healthintersections.com.au/?p=2428\r\n");
   }
   
   private void finish() throws FileNotFoundException, IOException {
-    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(target, "cda-bundle.xml")), bundle);
+    StringBuilder b = new StringBuilder();
+    
+    for (StructureDefinition sd : structures) {
+      new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(Utilities.path(target, "cda-logical-"+sd.getId()+".xml")), sd);
+      b.append("   <resource>\r\n"+
+          "     <purpose value=\"logical\"/>\r\n"+
+          "     <name value=\""+sd.getName()+"\"/>\r\n"+
+          "     <sourceUri value=\"cda\\cda-logical-"+sd.getId()+".xml\"/>\r\n"+
+          "   </resource>\r\n");
+    }
+    TextFile.stringToFile(b.toString(), Utilities.path(target, "ig-template.xml"));
 //    dumpPaths();
   }
 
   private void dumpPaths() {
-    for (BundleEntryComponent be : bundle.getEntry()) {
-      StructureDefinition sd = (StructureDefinition) be.getResource();
+    for (StructureDefinition sd : structures) {
       if (sd.hasBase())
         System.out.println("Class "+sd.getId() +" : "+sd.getBase().substring(40));
       else
@@ -140,6 +157,7 @@ public class CDAGenerator {
   }
 
   private void processDataTypes(String filename) throws FileNotFoundException, ParserConfigurationException, SAXException, IOException {
+    System.out.println("Process Data Types");
     Document dtMif = XMLUtil.parseFileToDom(filename);
     List<Element> dts = new ArrayList<Element>();
     XMLUtil.getNamedChildren(dtMif.getDocumentElement(), "mif:datatype", dts);
@@ -158,11 +176,11 @@ public class CDAGenerator {
     buildSXPR();
     buildInfrastructureRoot();
     
-    for (BundleEntryComponent be : bundle.getEntry()) {
-      StructureDefinition sd = (StructureDefinition) be.getResource();
+    for (StructureDefinition sd : structures) {
       if (!sd.getAbstract())
         generateSnapShot(sd);
     }
+    System.out.println(" ... done");
   }
 
   private void generateSnapShot(StructureDefinition sd) {
@@ -189,8 +207,7 @@ public class CDAGenerator {
 
 
   private StructureDefinition getDataType(String name) {
-    for (BundleEntryComponent be : bundle.getEntry()) {
-      StructureDefinition sd = (StructureDefinition) be.getResource();
+    for (StructureDefinition sd : structures) {
       if (sd.getUrl().equals(name))
         return sd;
     }
@@ -231,7 +248,7 @@ public class CDAGenerator {
     ed.addType().setCode("SXPR_TS");
     sd.getDifferential().getElement().add(ed);
     
-    bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
+    structures.add(sd);
   }
 
   private void buildInfrastructureRoot() {
@@ -280,7 +297,7 @@ public class CDAGenerator {
     ed.addType().setCode("II");
     sd.getDifferential().getElement().add(ed);
     
-    bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
+    structures.add(sd);
   }
 
 
@@ -291,7 +308,7 @@ public class CDAGenerator {
       if (n.equals("GTS"))
         n = "SXCM_TS";
       
-      System.out.println("Process Data Type "+n);
+      System.out.print(" "+n);
 
       StructureDefinition sd = new StructureDefinition();
       sd.setId(n);
@@ -354,7 +371,7 @@ public class CDAGenerator {
         addInclusiveAttribute(sd.getDifferential().getElement(), n);
       if (n.equals("CE") || n.equals("CV") || n.equals("CD") )
         addCDExtensions(sd.getDifferential().getElement(), n);
-      bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
+      structures.add(sd);
     }
   }
 
@@ -375,9 +392,9 @@ public class CDAGenerator {
 
 
   private StructureDefinition getDefinition(String id) {
-    for (BundleEntryComponent be : bundle.getEntry()) {
-      if (be.getResource().getId().equals(id))
-        return (StructureDefinition) be.getResource();
+    for (StructureDefinition sd : structures) {
+      if (sd.getId().equals(id))
+        return sd;
     }
     return null;
   }
@@ -702,6 +719,7 @@ public class CDAGenerator {
   private Map<Element, ElementDefinition> classMap = new HashMap<Element, ElementDefinition>();
   
   private void processCDA(String filename) throws ParserConfigurationException, SAXException, IOException {
+    System.out.println("Process Structure");
     StructureDefinition sd = new StructureDefinition();
     sd.setId("ClinicalDocument");
     sd.setUrl("http://hl7.org/fhir/StructureDefinition/ClinicalDocument");
@@ -735,7 +753,7 @@ public class CDAGenerator {
     
     checkTypes(sd);
     
-    bundle.addEntry().setResource(sd).setFullUrl(sd.getUrl());
+    structures.add(sd);
   }
 
 
@@ -752,8 +770,8 @@ public class CDAGenerator {
     String id = t.getCode();
     if (Utilities.existsInList(id, "string", "BackboneElement", "code", "boolean", "Resource"))
       return;
-    for (BundleEntryComponent be : bundle.getEntry()) {
-      if (be.getResource().getId().equals(id))
+    for (StructureDefinition sd : structures) {
+      if (sd.getId().equals(id))
         return;
     }
     if (id.equals("PN") || id.equals("ON"))
@@ -774,11 +792,12 @@ public class CDAGenerator {
     diff.add(ed);
     snapshot.add(ed);
     classMap.put(cclss, ed);
-    processClassAttributes(classes, associations, diff, snapshot, cclss, "ClinicalDocument");
+    processClassAttributes(classes, associations, diff, snapshot, cclss, "ClinicalDocument", null);
   }
 
 
-  private void processClassAttributes(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss, String path) {
+  private void processClassAttributes(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss, String path, Element parentTarget) {
+//    System.out.println("  ... "+path);
     addInfrastructureRootAttributes(snapshot, path);
     List<Element> attrs = new ArrayList<Element>();
     XMLUtil.getNamedChildren(XMLUtil.getFirstChild(cclss), "attribute", attrs);
@@ -794,6 +813,15 @@ public class CDAGenerator {
         processAssociation(classes, associations, diff, snapshot, cclss, path, tc);
       }
     }
+    if (parentTarget != null)
+      for (Element association : associations) {
+        Element conn = XMLUtil.getNamedChild(association, "connections");
+        Element tc = XMLUtil.getNamedChild(conn, "traversableConnection");
+        Element nc = XMLUtil.getNamedChild(conn, "nonTraversableConnection");
+        if (nc.getAttribute("participantClassName").equals(XMLUtil.getFirstChild(parentTarget).getAttribute("name"))) {
+          processAssociation(classes, associations, diff, snapshot, parentTarget, path, tc);
+        }
+      }
   }
 
 
@@ -822,6 +850,8 @@ public class CDAGenerator {
     ed.setPath(path+"."+n);
     ed.setMin(Integer.parseInt(attr.getAttribute("minimumMultiplicity")));
     ed.setMax(attr.getAttribute("maximumMultiplicity"));
+    if (!Utilities.noString(attr.getAttribute("namespace")))
+      ed.addExtension().setUrl("http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace").setValue(new UriType(attr.getAttribute("namespace")));
     String type = getType(attr);
     if ("true".equals(attr.getAttribute("isImmutable"))) {
       if (primitiveTypes.containsKey(type))
@@ -884,23 +914,25 @@ public class CDAGenerator {
   private void processAssociation(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, Element cclss, String path, Element tc) {
     Element target = getClass(classes, tc.getAttribute("participantClassName"));
     if (isChoice(target)) {
-      // we create an elemnet for each participant choice, and use the child class instead
+      // we create an element for each participant choice, and use the child class instead
       List<Element> choices = new ArrayList<Element>();
       XMLUtil.getNamedChildren(tc, "choiceItem", choices);
       for (Element choice : choices) {
         String n = choice.getAttribute("traversalName");
         Element choiceClass = getClass(classes, choice.getAttribute("className"));
-        processAssociationClass(classes, associations, diff, snapshot, path, tc, choiceClass, n);
+        processAssociationClass(classes, associations, diff, snapshot, path, tc, choiceClass, n, target);
       }
     } else {
       String n = tc.getAttribute("name");
-      processAssociationClass(classes, associations, diff, snapshot, path, tc, target, n);
+      processAssociationClass(classes, associations, diff, snapshot, path, tc, target, n, null);
     }
   }
 
 
-  private void processAssociationClass(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, String path, Element tc, Element target, String n) {
+  private void processAssociationClass(List<Element> classes, List<Element> associations, List<ElementDefinition> diff, List<ElementDefinition> snapshot, String path, Element tc, Element target, String n, Element parentTarget) {
     ElementDefinition ed = new ElementDefinition();
+    String ipath = (path.contains(".") ? path.substring(path.lastIndexOf(".")+1) : path)+"."+n;
+    
     ed.setPath(path+"."+n);
     ed.setMin(Integer.parseInt(tc.getAttribute("minimumMultiplicity")));
     ed.setMax(tc.getAttribute("maximumMultiplicity"));
@@ -914,9 +946,14 @@ public class CDAGenerator {
       ElementDefinition nr = classMap.get(target);
       nr.setName(nr.getPath());
       ed.setNameReference(nr.getPath());
+      ed.getType().clear();
+      System.out.println(path+"+ - "+nr.getPath());
+    } else if (shadows.containsKey(ipath)) {
+      ed.setNameReference(shadows.get(ipath));
+      ed.getType().clear();
     } else {
       classMap.put(target, ed);
-      processClassAttributes(classes, associations, diff, snapshot, target, ed.getPath());
+      processClassAttributes(classes, associations, diff, snapshot, target, ed.getPath(), parentTarget);
     }
   }
 

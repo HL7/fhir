@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="TEL"/>
+  <extension url="http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace">
+    <valueUri value="urn:hl7-org:v3"/>
+  </extension>
+  <url value="http://hl7.org/fhir/StructureDefinition/TEL"/>
+  <name value="V3 Data type TEL (TelecommunicationAddress)"/>
+  <display value="V3 Data type TEL (TelecommunicationAddress)"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="HL7"/>
+  <description value="A telephone number (voice or fax), e-mail address, or other locator for a resource mediated by telecommunication equipment. The address is specified as a Universal Resource Locator (URL) qualified by time specification and use codes that help in deciding which address to use for a given time and purpose."/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <base value="http://hl7.org/fhir/StructureDefinition/ANY"/>
+  <snapshot>
+    <element>
+      <path value="TEL"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element>
+      <path value="TEL.nullFlavor"/>
+      <representation value="xmlAttr"/>
+      <label value="Exceptional Value Detail"/>
+      <definition value="If a value is an exceptional value (NULL-value), this specifies in what way and why proper information is missing."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="ValueSet/v3-NullFlavor"/>
+        </valueSetReference>
+      </binding>
+    </element>
+    <element>
+      <path value="TEL.value"/>
+      <representation value="xmlAttr"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element>
+      <path value="TEL.useablePeriod"/>
+      <representation value="typeAttr"/>
+      <label value="Useable Period"/>
+      <definition value="Specifies the periods of time during which the telecommunication address can be used. For a telephone number, this can indicate the time of day in which the party can be reached on that telephone. For a web address, it may specify a time range in which the web content is promised to be available under the given address."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="IVL_TS"/>
+      </type>
+      <type>
+        <code value="EIVL"/>
+      </type>
+      <type>
+        <code value="PIVL"/>
+      </type>
+      <type>
+        <code value="SXPR_TS"/>
+      </type>
+    </element>
+    <element>
+      <path value="TEL.use"/>
+      <representation value="xmlAttr"/>
+      <label value="Use Code"/>
+      <definition value="One or more codes advising a system or user which telecommunication address in a set of like addresses to select for a given telecommunication need."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="ValueSet/v3-AddressUse"/>
+        </valueSetReference>
+      </binding>
+    </element>
+  </snapshot>
+  <differential>
+    <element>
+      <path value="TEL"/>
+      <min value="1"/>
+      <max value="*"/>
+      <type>
+        <code value="Element"/>
+      </type>
+    </element>
+    <element>
+      <path value="TEL.value"/>
+      <representation value="xmlAttr"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+    </element>
+    <element>
+      <path value="TEL.useablePeriod"/>
+      <representation value="typeAttr"/>
+      <label value="Useable Period"/>
+      <definition value="Specifies the periods of time during which the telecommunication address can be used. For a telephone number, this can indicate the time of day in which the party can be reached on that telephone. For a web address, it may specify a time range in which the web content is promised to be available under the given address."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="IVL_TS"/>
+      </type>
+      <type>
+        <code value="EIVL"/>
+      </type>
+      <type>
+        <code value="PIVL"/>
+      </type>
+      <type>
+        <code value="SXPR_TS"/>
+      </type>
+    </element>
+    <element>
+      <path value="TEL.use"/>
+      <representation value="xmlAttr"/>
+      <label value="Use Code"/>
+      <definition value="One or more codes advising a system or user which telecommunication address in a set of like addresses to select for a given telecommunication need."/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <binding>
+        <strength value="required"/>
+        <valueSetReference>
+          <reference value="ValueSet/v3-AddressUse"/>
+        </valueSetReference>
+      </binding>
+    </element>
+  </differential>
+</StructureDefinition>

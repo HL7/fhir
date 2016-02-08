@@ -93,7 +93,7 @@ public class LogicalModelProcessor extends BuildToolScriptedPageProcessor implem
 
   private String genLogicalModelTable(StructureDefinition sd, String prefix) throws Exception {
     ProfileUtilities pu = new ProfileUtilities(page.getWorkerContext(), null, this);
-    XhtmlNode x = pu.generateTable(sd.getId()+"-definitions.html", sd, false, page.getFolders().dstDir, false, sd.getId(), true, prefix);
+    XhtmlNode x = pu.generateTable(sd.getId()+"-definitions.html", sd, sd.hasSnapshot() ? false : true, page.getFolders().dstDir, false, sd.getId(), true, prefix, true);
     return new XhtmlComposer().compose(x);
   }
 
