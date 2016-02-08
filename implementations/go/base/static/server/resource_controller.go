@@ -239,7 +239,8 @@ func (rc *ResourceController) UpdateHandler(c *echo.Context) error {
 	if bson.IsObjectIdHex(idString) {
 		id = bson.ObjectIdHex(idString)
 	} else {
-		return errors.New("Invalid id")
+		oo := models.NewOperationOutcome("fatal", "exception", "Id must be a valid BSON ObjectId")
+		return c.JSON(http.StatusBadRequest, oo)
 	}
 
 	resource := models.NewStructForResourceName(rc.Name)
@@ -252,7 +253,7 @@ func (rc *ResourceController) UpdateHandler(c *echo.Context) error {
 	collection := Database.C(models.PluralizeLowerResourceName(rc.Name))
 	reflect.ValueOf(resource).Elem().FieldByName("Id").SetString(id.Hex())
 	UpdateLastUpdatedDate(resource)
-	err = collection.Update(bson.M{"_id": id.Hex()}, resource)
+	_, err = collection.Upsert(bson.M{"_id": id.Hex()}, resource)
 	if err != nil {
 		return err
 	}
