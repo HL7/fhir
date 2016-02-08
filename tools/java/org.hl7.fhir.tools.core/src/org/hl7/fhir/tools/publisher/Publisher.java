@@ -2028,6 +2028,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         ResourceDefn r = page.getDefinitions().getResources().get(rname);
         page.log(" ...resource " + r.getName(), LogMessageType.Process);
         produceResource2(r, false, null);
+        processExamplesByBatch();
       }
     }
 
