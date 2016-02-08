@@ -728,8 +728,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         // for this, we use the FHIR client
         if (txServer == null) {
           txServer = new FHIRToolingClient(tsServer);
-          if (System.getenv().containsKey("http.proxyHost") && System.getenv().containsKey("http.proxyPort") )
-            txServer.configureProxy(System.getenv().get("http.proxyHost"), Integer.parseInt(System.getenv().get("http.proxyPort")));
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put("code", code);
@@ -760,8 +758,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         // for this, we use the FHIR client
         if (txServer == null) {
           txServer = new FHIRToolingClient(tsServer);
-          if (System.getenv().containsKey("http.proxyHost") && System.getenv().containsKey("http.proxyPort") )
-            txServer.configureProxy(System.getenv().get("http.proxyHost"), Integer.parseInt(System.getenv().get("http.proxyPort")));
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put("_limit", PageProcessor.CODE_LIMIT_EXPANSION);
