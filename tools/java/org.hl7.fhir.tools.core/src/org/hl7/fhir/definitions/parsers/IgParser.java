@@ -111,7 +111,7 @@ public class IgParser {
           throw new Exception("no source on resource in package "+p.getName()+" in IG "+ig.getName());
         File fn = new File(Utilities.path(myRoot, r.getSourceUriType().getValue()));
         if (!fn.exists())
-          throw new Exception("Source "+r.getSourceUriType().getValue()+" resource in package "+p.getName()+" in IG "+ig.getName()+" could not be located");
+          throw new Exception("Source "+r.getSourceUriType().getValue()+" resource in package "+p.getName()+" in IG "+ig.getName()+" could not be located @ "+fn.getAbsolutePath());
 
         String id = Utilities.changeFileExt(fn.getName(), "");
         
