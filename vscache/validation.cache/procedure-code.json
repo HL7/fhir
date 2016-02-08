@@ -24,17 +24,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|172960003|Incision of retropharyngeal abscess",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Incision of retropharyngeal abscess"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|34068001|Heart valve replacement",
       "severity": null,
       "message": null,
@@ -43,6 +32,17 @@
         "code": null,
         "definition": null,
         "display": "Replacement of unspecified heart valve"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|172960003|Incision of retropharyngeal abscess",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Incision of retropharyngeal abscess"
       }
     },
     {

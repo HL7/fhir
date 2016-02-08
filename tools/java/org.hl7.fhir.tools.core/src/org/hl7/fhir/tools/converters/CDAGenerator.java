@@ -7,8 +7,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -71,6 +73,7 @@ public class CDAGenerator {
     processDataTypes(Utilities.path(src, "datatypes.mif"));
     processCDA(Utilities.path(src, "cda.mif"));
     finish();
+    System.out.println(v3vs.toString());
   }
 
   public CDAGenerator() {
@@ -89,6 +92,7 @@ public class CDAGenerator {
   private Map<String, String> primitiveTypes = new HashMap<String, String>();
   private Map<String, Element> types = new HashMap<String, Element>();
   private Map<String, String> shadows = new HashMap<String, String>();
+  private Set<String> v3vs = new HashSet<String>();
 
 
   private void start() {
@@ -534,8 +538,10 @@ public class CDAGenerator {
       ed.addRepresentation(PropertyRepresentation.XMLATTR);
     // special stuff
     String vs = getValueSet(dtn, n);
-    if (vs != null)
-      ed.setBinding(new ElementDefinitionBindingComponent().setStrength(BindingStrength.REQUIRED).setValueSet(new Reference().setReference("ValueSet/v3-"+vs)));
+    if (vs != null) {
+      ed.setBinding(new ElementDefinitionBindingComponent().setStrength(BindingStrength.REQUIRED).setValueSet(new Reference().setReference("http://hl7.org/fhir/ValueSet/v3-"+vs)));
+      v3vs.add(vs);
+    }
     list.add(ed);
   }
 
@@ -902,10 +908,16 @@ public class CDAGenerator {
     if (enums.size() == 1)
       ed.setFixed(buildValue(enums.get(0).getTextContent(), type, ed.getPath()));
     if (enums.size() > 1) {
-      // todo: process vocab
-    }
-    else if (XMLUtil.getNamedChild(attr, "vocabulary") != null) {
-      // todo: process vocab
+//      throw new Error("todo: enums on "+ed.getPath());      
+    } else if (XMLUtil.getNamedChild(attr, "vocabulary") != null) {
+      // <vocabulary codingStrength="CWE"><conceptDomain name="ActClass"/></vocabulary>
+      Element vocab = XMLUtil.getNamedChild(attr, "vocabulary");
+      String cs = vocab.getAttribute("codingStrength");
+      String cd = XMLUtil.getNamedChildAttribute(vocab, "conceptDomain", "name");
+      ElementDefinitionBindingComponent bd = ed.getBinding();
+      bd.setStrength(cs.equals("CNE") ? BindingStrength.REQUIRED : BindingStrength.EXTENSIBLE);
+      bd.setValueSet(new Reference("http://hl7.org/fhir/ValueSet/v3-"+cd));
+      v3vs.add(cd);
     }
     diff.add(ed);    
     snapshot.add(ed);    

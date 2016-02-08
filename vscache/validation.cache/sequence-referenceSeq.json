@@ -12,12 +12,12 @@
       "message": "The code provided is not  valid"
     },
     {
-      "hash": "#|http://www.ensembl.org/|null|ENSP00000252486|null",
+      "hash": "#|http://www.ensembl.org|null|ENSESTT00000085772.1|null",
       "severity": "error",
       "message": "The code provided is not  valid"
     },
     {
-      "hash": "#|http://www.ensembl.org|null|ENSESTT00000085772.1|null",
+      "hash": "#|http://www.ensembl.org/|null|ENSP00000252486|null",
       "severity": "error",
       "message": "The code provided is not  valid"
     },

@@ -3252,10 +3252,15 @@ public class Publisher implements URIResolver, SectionNumberer {
       Element content = XMLUtil.getNamedChild(r, "content");
       if (content == null)
         throw new Exception("Unable to find content for ValueSet " + id);
+      String csu = null;
       ValueSet cs = codesystems.get(content.getAttribute("codeSystem"));
       if (cs == null)
+        csu = getUrlForCS(content.getAttribute("codeSystem"));
+      if (cs == null && csu == null)  {
+        Element ee = XMLUtil.getNamedChild(e, "supportedCodeSystem");
         throw new Exception("Error Processing ValueSet " + id + ", unable to resolve code system '"
-            + XMLUtil.getNamedChild(e, "supportedCodeSystem").getTextContent() + "'");
+            + (ee == null ? content.getAttribute("codeSystem") : e.getTextContent()) + "'");
+      }
       ConceptSetComponent imp = new ValueSet.ConceptSetComponent();
 
       if (XMLUtil.hasNamedChild(content, "combinedContent")) {
@@ -3272,7 +3277,10 @@ public class Publisher implements URIResolver, SectionNumberer {
       } else {
         // simple value set
         compose.getInclude().add(imp);
-        imp.setSystem(cs.getCodeSystem().getSystem());
+        if (cs == null)
+          imp.setSystem(csu);
+        else
+          imp.setSystem(cs.getCodeSystem().getSystem());
 
         if (!XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent().equals(content.getAttribute("codeSystem")))
           throw new Exception("Unexpected codeSystem oid on content for ValueSet " + id + ": expected '"
@@ -3321,6 +3329,14 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
     return vs;
 
+  }
+
+  private String getUrlForCS(String oid) {
+    if (oid.equals("2.16.840.1.113883.6.121"))
+      return "urn:iso:std:iso:3166";
+    if (oid.equals("2.16.840.1.113883.6.1"))
+      return "http://loinc.org";
+    return null;
   }
 
   private void produceV3() throws Exception {

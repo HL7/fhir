@@ -37,7 +37,7 @@
       <binding>
         <strength value="required"/>
         <valueSetReference>
-          <reference value="ValueSet/v3-NullFlavor"/>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
         </valueSetReference>
       </binding>
     </element>

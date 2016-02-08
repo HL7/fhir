@@ -37,7 +37,7 @@
       <binding>
         <strength value="required"/>
         <valueSetReference>
-          <reference value="ValueSet/v3-NullFlavor"/>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-NullFlavor"/>
         </valueSetReference>
       </binding>
     </element>
@@ -105,7 +105,7 @@
       <binding>
         <strength value="required"/>
         <valueSetReference>
-          <reference value="ValueSet/v3-CompressionAlgorithm"/>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-CompressionAlgorithm"/>
         </valueSetReference>
       </binding>
     </element>
@@ -143,7 +143,7 @@
       <binding>
         <strength value="required"/>
         <valueSetReference>
-          <reference value="ValueSet/v3-IntegrityCheckAlgorithm"/>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-IntegrityCheckAlgorithm"/>
         </valueSetReference>
       </binding>
     </element>
@@ -231,7 +231,7 @@
       <binding>
         <strength value="required"/>
         <valueSetReference>
-          <reference value="ValueSet/v3-CompressionAlgorithm"/>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-CompressionAlgorithm"/>
         </valueSetReference>
       </binding>
     </element>
@@ -269,7 +269,7 @@
       <binding>
         <strength value="required"/>
         <valueSetReference>
-          <reference value="ValueSet/v3-IntegrityCheckAlgorithm"/>
+          <reference value="http://hl7.org/fhir/ValueSet/v3-IntegrityCheckAlgorithm"/>
         </valueSetReference>
       </binding>
     </element>
