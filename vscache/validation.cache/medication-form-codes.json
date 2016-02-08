@@ -7,22 +7,22 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|85581007|Drug Powder",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|385218009|Injection",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|385049006|Capsule",
+      "hash": "#|http://snomed.info/sct|null|85581007|Drug Powder",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|255621006|Cream",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|385049006|Capsule",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -43,7 +43,7 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|42108003|Powder for Suspension",
+      "hash": "#|http://snomed.info/sct|null|48582000|Caplet",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -53,7 +53,7 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|48582000|Caplet",
+      "hash": "#|http://snomed.info/sct|null|42108003|Powder for Suspension",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
