@@ -438,7 +438,7 @@ public class HierarchicalTableGenerator  {
       else
         bytes = FileUtils.readFileToByteArray(file);
       b.append(new String(Base64.encodeBase64(bytes)));
-      files.put(filename, b.toString());
+//      files.put(filename, b.toString());
       return b.toString();
     } else
       return corePrefix+filename;
