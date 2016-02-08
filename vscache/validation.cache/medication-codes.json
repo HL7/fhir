@@ -2,27 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/medication-codes",
   "outcomes": [
     {
-      "hash": "#|null|null|200371|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|3127006|Fluorouracil",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Fluorouracil (product)"
-      }
-    },
-    {
-      "hash": "#|http://hc-sc.gc.ca|null|00628115|Apo-Amoxi Cap 250mg",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|411106009|25ug Flutacisone + 250ug Salmeterol",
       "severity": null,
       "message": null,
@@ -32,11 +11,6 @@
         "definition": null,
         "display": "Fluticasone propionate+salmeterol xinafoate (product)"
       }
-    },
-    {
-      "hash": "#|http://hc-sc.gc.ca|null|02176017|Didrocal",
-      "severity": "error",
-      "message": "The code provided is not  valid"
     },
     {
       "hash": "#|http://snomed.info/sct|null|387517004|Paracetamol",
@@ -61,28 +35,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|320442002|Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler (product)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|57066004|Cisplatin",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Cisplatin (product)"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|400352007|Paclitaxel 6mg/mL injection solution 5mL vial (product)",
       "severity": null,
       "message": null,
@@ -91,17 +43,6 @@
         "code": null,
         "definition": null,
         "display": "Paclitaxel 6mg/mL injection solution solution 5mL vial (product)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|325267004|Tolbutamide 500mg tablet",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Tolbutamide 500mg tablet (product)"
       }
     },
     {
@@ -126,22 +67,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|389245004|Gentamicin sulfate 80mg/100ml infusion (product)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Gentamicin sulfate 80mg/100mL infusion (product)"
-      }
-    },
-    {
-      "hash": "#|http://hc-sc.gc.ca|null|00885916|Amox S 250 Sus 250mg/5ml",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|387544009|Flucloxacillin",
       "severity": null,
       "message": null,
@@ -153,23 +78,7 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|108806006|Docetaxel",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Docetaxel (product)"
-      }
-    },
-    {
       "hash": "#|http://hc-sc.gc.ca|null|02181061|Tylenol No. 1 Caplets",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://hc-sc.gc.ca|null|00021695|Novo-Prednisone",
       "severity": "error",
       "message": "The code provided is not  valid"
     },
@@ -207,11 +116,6 @@
       }
     },
     {
-      "hash": "#|http://www.accessdata.fda.gov/scripts/cder/ndc/dsp_searchresult.cfm|null|0173068220|Ventolin Aerosol ",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|134623009|Capecitabine 150mg tablet (product)",
       "severity": null,
       "message": null,
@@ -221,6 +125,102 @@
         "definition": null,
         "display": "Capecitabine 150mg tablet (product)"
       }
+    },
+    {
+      "hash": "#|http://www.accessdata.fda.gov/scripts/cder/ndc/dsp_searchresult.cfm|null|0173068220|Ventolin Aerosol ",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|3127006|Fluorouracil",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Fluorouracil (product)"
+      }
+    },
+    {
+      "hash": "#|null|null|200371|null",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://hc-sc.gc.ca|null|00628115|Apo-Amoxi Cap 250mg",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://hc-sc.gc.ca|null|02176017|Didrocal",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|320442002|Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Salbutamol+ipratropium bromide 100micrograms/20micrograms inhaler (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|57066004|Cisplatin",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Cisplatin (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|325267004|Tolbutamide 500mg tablet",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Tolbutamide 500mg tablet (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|389245004|Gentamicin sulfate 80mg/100ml infusion (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Gentamicin sulfate 80mg/100mL infusion (product)"
+      }
+    },
+    {
+      "hash": "#|http://hc-sc.gc.ca|null|00885916|Amox S 250 Sus 250mg/5ml",
+      "severity": "error",
+      "message": "The code provided is not  valid"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|108806006|Docetaxel",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Docetaxel (product)"
+      }
+    },
+    {
+      "hash": "#|http://hc-sc.gc.ca|null|00021695|Novo-Prednisone",
+      "severity": "error",
+      "message": "The code provided is not  valid"
     }
   ]
 }

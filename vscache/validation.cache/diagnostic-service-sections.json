@@ -35,7 +35,7 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0074|null|HM|null",
+      "hash": "#|http://snomed.info/sct|null|252275004|Haematology test#|http://hl7.org/fhir/v2/0074|null|HM|null",
       "severity": null,
       "message": null,
       "definition": {
@@ -46,7 +46,7 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|252275004|Haematology test#|http://hl7.org/fhir/v2/0074|null|HM|null",
+      "hash": "#|http://hl7.org/fhir/v2/0074|null|HM|null",
       "severity": null,
       "message": null,
       "definition": {

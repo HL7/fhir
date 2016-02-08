@@ -2021,6 +2021,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       ResourceDefn r = page.getDefinitions().getBaseResources().get(rname);
       page.log(" ...resource " + r.getName(), LogMessageType.Process);
       produceResource2(r, true, rname.equals("Resource") ? "Meta" : null);
+      processExamplesByBatch();
     }
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       if (!rname.equals("ValueSet") && wantBuild(rname)) {
