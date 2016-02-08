@@ -3328,7 +3328,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     gen.generate(vs);
     page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
     return vs;
-
   }
 
   private String getUrlForCS(String oid) {
@@ -4172,7 +4171,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void processExamplesByBatch() throws Exception {
     page.log(" ...process examples", LogMessageType.Process);
-
+    System.gc();
     try {
       javaReferencePlatform.processExamples(page.getFolders(), page.getFolders().tmpDir, processingList.keySet());
     } catch (Throwable t) {
