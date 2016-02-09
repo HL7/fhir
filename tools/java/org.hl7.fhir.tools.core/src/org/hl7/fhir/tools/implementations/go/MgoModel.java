@@ -146,10 +146,8 @@ public class MgoModel {
           ST st = templateGroup.getInstanceOf("generic_resource_unmarshaller.go");
           st.add("Name", structName);
           st.add("LowerName", lowercase(structName));
-          if (!resourceFields.isEmpty()) {
-              st.add("Fields", resourceFields);
-              st.add("FieldSliceIndicators", fieldSliceIndicators);
-          }
+          st.add("Fields", resourceFields);
+          st.add("FieldSliceIndicators", fieldSliceIndicators);
           st.add("IsResource", isResource(structName));
           fileBlock.ln(st.render());
         }
