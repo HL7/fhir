@@ -123,7 +123,7 @@ public class MgoModel {
     }
 
     private void generateCustomMarshallersAndUnMarshallers(GenBlock fileBlock) throws Exception {
-        if (definitions.getResources().containsKey(name)) {
+        if (definitions.getResources().containsKey(name) || name.equals("Parameters")) {
             ST st = templateGroup.getInstanceOf("generic_resource_marshaller.go");
             st.add("Name", name);
             fileBlock.ln(st.render());
@@ -622,7 +622,7 @@ public class MgoModel {
     
     // Check to see if this resource is a Resource or DomainResource
     private boolean isResource(String rName) {
-      if (definitions.getResources().get(rName) != null) {
+      if (definitions.getResources().get(rName) != null || rName.equals("Parameters")) {
         for (TypeRef ref: getRootDefinition().getTypes()) {
           if ((ref.getName().equals("Resource") || ref.getName().equals("DomainResource")) &&
               !rName.equals("DomainResource")) {

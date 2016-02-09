@@ -122,7 +122,14 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
             generateMgoModel(entry.getKey(), dirs.get("modelDir"), templateGroup, definitions);
         }
 
-        generateGoUtil(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
+        Set<String> resourcesPlusParameters = new HashSet<String>();
+        resourcesPlusParameters.addAll(namesAndDefinitions.keySet());
+        resourcesPlusParameters.add("Parameters");
+        // We need to add in Parameters when we are generating the util file. MapToResource
+        // needs to know about the Resource for the Bundle unmarshaling to work correctly
+        generateGoUtil(resourcesPlusParameters, dirs.get("modelDir"), templateGroup);
+        // We do not need Parameters in the resource helpers or search since it is an odd resource
+        // with no web endpoint.
         generateResourceHelpers(namesAndDefinitions.keySet(), dirs.get("modelDir"), templateGroup);
         generateSearchParameterDictionary(definitions, dirs.get("searchDir"), templateGroup);
 
