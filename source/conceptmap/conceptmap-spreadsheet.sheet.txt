@@ -367,7 +367,7 @@
   Path = ConceptMap.sourceReference
 
  -- Row 10 -----------------------------------
-  Name = sourceuri
+  Name = source-uri
   Type = reference
   Path = ConceptMap.sourceUri
 
@@ -377,22 +377,22 @@
   Path = ConceptMap.target[x]
 
  -- Row 12 -----------------------------------
-  Name = sourcesystem
+  Name = source-system
   Type = uri
   Path = ConceptMap.element.codeSystem
 
  -- Row 13 -----------------------------------
-  Name = targetsystem
+  Name = target-system
   Type = uri
   Path = ConceptMap.element.target.codeSystem
 
  -- Row 14 -----------------------------------
-  Name = sourcecode
+  Name = source-code
   Type = token
   Path = ConceptMap.element.code
 
  -- Row 15 -----------------------------------
-  Name = targetcode
+  Name = target-code
   Type = token
   Path = ConceptMap.element.target.code
 
@@ -423,7 +423,7 @@
   Filename = conceptmap-example.xml
 
  -- Row 2 -----------------------------------
-  Name = Speciment Type
+  Name = Specimen Type
   Identity = 102
   Description = Specimen Type v2 -> SNOMED CT Mapping
   Filename = conceptmap-example-specimen-type.xml
