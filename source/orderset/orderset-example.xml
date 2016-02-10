@@ -217,13 +217,22 @@
 		<topic>
 			<text value="Chlamydia Screeening"/>
 		</topic>
-<!--		<contributor>
+		<contributor>
 			<type value="author"/>
-			<party>
-				<reference value="#organization1"/>
-				<display value="Motive Medical Intelligence"/>
-			</party>
-		</contributor> -->
+			<name value="Motive Medical Intelligence"/>
+			<contact>
+				<telecom>
+					<system value="phone"/>
+					<value value="415-362-4007"/>
+					<use value="work"/>
+				</telecom>
+				<telecom>
+					<system value="email"/>
+					<value value="info@motivemi.com"/>
+					<use value="work"/>
+				</telecom>
+			</contact>
+		</contributor> 
 		<publisher value="Motive Medical Intelligence"/>
 		<contact>
 			<telecom>

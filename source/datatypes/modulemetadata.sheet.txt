@@ -411,24 +411,6 @@
   Definition = Contact details for the individual (if a name was provided) or the contributor
 
  -- Row 26 -----------------------------------
-  Element = ModuleMetadata.contributor.party
-  Card. = 1..1
-  Type = Reference(Person|Organization)
-  Definition = The contributor
-
- -- Row 27 -----------------------------------
-  Element = !ModuleMetadata.publisher
-  Card. = 0..1
-  Type = Reference(Organization)
-  Definition = The organization responsible for publishing the module
-
- -- Row 28 -----------------------------------
-  Element = !ModuleMetadata.steward
-  Card. = 0..1
-  Type = Reference(Organization)
-  Definition = The organization responsible for stewardship of the module content
-
- -- Row 29 -----------------------------------
   Element = ModuleMetadata.publisher
   Card. = 0..1
   Type = string
@@ -437,27 +419,27 @@
   Requirements = Consumers of the module must be able to determine where to obtain support in the use of this module, as well as where to direct questions and concerns about the content
   Comments = The publisher (or steward) of the module is the organization or individual primarily responsible for the maintenance and upkeep of the module. This is not necessarily the same organization that developed and initially authored the content. The publisher is the primary point of contact for questions or issues with the module
 
- -- Row 30 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ModuleMetadata.contact
   Card. = 0..*
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
 
- -- Row 31 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ModuleMetadata.contact.name
   Card. = 0..1
   Type = string
   Short Label = Name of an individual to contact
   Definition = The name of an individual to contact regarding the module
 
- -- Row 32 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ModuleMetadata.contact.telecom
   Card. = 0..*
   Type = ContactPoint
   Short Label = Contact details for an individual or publisher
   Definition = Contact details for the individual (if a name was provided) or the publisher
 
- -- Row 33 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = ModuleMetadata.copyright
   Card. = 0..1
   Type = string
@@ -465,7 +447,7 @@
   Definition = A copyright statement relating to the module and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the module
   Requirements = Consumers of the module must be able to determine any legal restrictions on the use of the module and/or its content
 
- -- Row 34 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = ModuleMetadata.relatedResource
   Card. = 0..*
   Short Label = Related resources for the module
@@ -473,7 +455,7 @@
   Requirements = Modules must be able to provide enough information for consumers of the content (and/or interventions or results produced by the content) to be able to determine and understand the justification for and evidence in support of the content
   Comments = Each related resource is either an attachment, or a reference to another resource, but not both
 
- -- Row 35 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = ModuleMetadata.relatedResource.type
   Card. = 1..1
   Type = code
@@ -481,14 +463,14 @@
   Short Label = documentation | justification | citation | predecessor | successor | derived-from
   Definition = The type of related resource
 
- -- Row 36 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ModuleMetadata.relatedResource.document
   Card. = 0..1
   Type = Attachment
   Short Label = The related document
   Definition = The document being referenced, represented as an attachment. This is exclusive with the resource element
 
- -- Row 37 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ModuleMetadata.relatedResource.resource
   Card. = 0..1
   Type = Reference(Any)
