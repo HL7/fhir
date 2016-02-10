@@ -13,7 +13,7 @@ import (
 // Constant values for search paramaters and search result parameters
 const (
 	IDParam            = "_id"
-	LastUpdatedParam   = "_lastUpdate"
+	LastUpdatedParam   = "_lastUpdated"
 	TagParam           = "_tag"
 	ProfileParam       = "_profile"
 	SecurityParam      = "_security"
