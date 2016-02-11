@@ -167,7 +167,10 @@ func generatePagingLinks(r *http.Request, query search.Query, total uint32) []mo
 }
 
 func newLink(relation string, baseURL *url.URL, values url.Values, options search.QueryOptions) models.BundleLinkComponent {
-	baseURL.RawQuery = options.QueryValues().Encode()
+	for k, v := range options.QueryValues() {
+		values[k] = v
+	}
+	baseURL.RawQuery = values.Encode()
 	return models.BundleLinkComponent{Relation: relation, Url: baseURL.String()}
 }
 
