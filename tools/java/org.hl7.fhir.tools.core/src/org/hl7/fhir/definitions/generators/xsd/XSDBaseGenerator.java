@@ -726,7 +726,7 @@ public class XSDBaseGenerator {
       } else if (types.size() == 0 && e.getElements().size() > 0) {
         String tn = root.getName() + "." + Utilities.capitalize(e.getName());
         int i = 0;
-        while (structures.containsKey(tn)) {
+        while (typenames.contains(tn)) {
           i++;
           tn = root.getName() + "." + Utilities.capitalize(e.getName())+Integer.toString(i);
         }
