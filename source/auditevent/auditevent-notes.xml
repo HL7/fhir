@@ -8,6 +8,10 @@ DICOM, IHE or ISO, who all defined these codes to meet very specific use cases. 
 used when they are suitable, or other codes can be defined. 
 </p>
 <p>
+Note when using codes from a vocabulary, the displayName can be left off so as to keep the 
+AuditEvent size small and minimize impact of a large audit log of similar entries.
+</p>
+<p>
 The set of codes defined for this resource is expected to grow over time, and 
 additional codes may be proposed / requested using the community input link above.
 </p>
