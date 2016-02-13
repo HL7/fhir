@@ -49,17 +49,21 @@ func (m *MongoSearcher) createQuery(query Query, withOptions bool) *mgo.Query {
 	q := m.createQueryObject(query)
 	mgoQuery := c.Find(q)
 
-	// Horrible, horrible hack (for now) to ensure patients are sorted by name.  This is needed by
-	// the frontend, else paging won't work correctly.  This should be removed when the general
-	// sorting feature is implemented.
-	if query.Resource == "Patient" {
-		// To add insult to injury, mongo will not let us sort by family *and* given name:
-		// Executor error: BadValue cannot sort with keys that are parallel arrays
-		mgoQuery = mgoQuery.Sort("name.0.family.0" /*", name.0.given.0"*/, "_id")
-	}
-
 	if withOptions {
 		o := query.Options()
+		removeParallelArraySorts(o)
+		if len(o.Sort) > 0 {
+			fields := make([]string, len(o.Sort))
+			for i := range o.Sort {
+				// Note: If there are multiple paths, we only look at the first one -- not ideal, but otherwise it gets tricky
+				field := convertSearchPathToMongoField(o.Sort[i].Parameter.Paths[0].Path)
+				if o.Sort[i].Descending {
+					field = "-" + field
+				}
+				fields[i] = field
+			}
+			mgoQuery = mgoQuery.Sort(fields...)
+		}
 		if o.Offset > 0 {
 			mgoQuery = mgoQuery.Skip(o.Offset)
 		}
@@ -81,16 +85,24 @@ func (m *MongoSearcher) CreatePipeline(query Query) *mgo.Pipe {
 	c := m.db.C(models.PluralizeLowerResourceName(query.Resource))
 	p := []bson.M{{"$match": m.createQueryObject(query)}}
 
-	// Horrible, horrible hack (for now) to ensure patients are sorted by name.  This is needed by
-	// the frontend, else paging won't work correctly.  This should be removed when the general
-	// sorting feature is implemented.
-	if query.Resource == "Patient" {
-		// To add insult to injury, mongo will not let us sort by family *and* given name:
-		// Executor error: BadValue cannot sort with keys that are parallel arrays
-		p = append(p, bson.M{"$sort": bson.M{"name.0.family.0": 1, "_id": 1}})
+	o := query.Options()
+
+	// support for _sort
+	removeParallelArraySorts(o)
+	if len(o.Sort) > 0 {
+		var sortBSOND bson.D
+		for _, sort := range o.Sort {
+			// Note: If there are multiple paths, we only look at the first one -- not ideal, but otherwise it gets tricky
+			field := convertSearchPathToMongoField(sort.Parameter.Paths[0].Path)
+			order := 1
+			if sort.Descending {
+				order = -1
+			}
+			sortBSOND = append(sortBSOND, bson.DocElem{Name: field, Value: order})
+		}
+		p = append(p, bson.M{"$sort": sortBSOND})
 	}
 
-	o := query.Options()
 	// support for _offset
 	if o.Offset > 0 {
 		p = append(p, bson.M{"$skip": o.Offset})
@@ -617,9 +629,8 @@ func buildBSON(path string, criteria interface{}) bson.M {
 	result := bson.M{}
 
 	// First fix the indexers so "[0]entry.resource" becomes "entry.0.resource"
-	re := regexp.MustCompile("\\[(\\d+)\\]([^\\.]+)")
-	indexedPath := re.ReplaceAllString(path, "$2.$1")
-	normalizedPath := strings.Replace(indexedPath, "[]", "", -1)
+	indexedPath := convertBracketIndexesToDotIndexes(path)
+	normalizedPath := convertSearchPathToMongoField(path)
 	bCriteria, ok := criteria.(bson.M)
 	if ok {
 		pathRegex := regexp.MustCompile("(.*\\[\\][^\\.]*)\\.?([^\\[\\]]*)")
@@ -660,6 +671,64 @@ func buildBSON(path string, criteria interface{}) bson.M {
 	}
 
 	return result
+}
+
+// Fixes the array markers/indexers so "[]element.[0]target.[]product.element" becomes "element.target.product.element"
+func convertSearchPathToMongoField(path string) string {
+	indexedPath := convertBracketIndexesToDotIndexes(path)
+	return strings.Replace(indexedPath, "[]", "", -1)
+}
+
+// Fixes just the indexers so "[]element.[0]target.[]product.element" becomes "element.target.0.product.element"
+func convertBracketIndexesToDotIndexes(path string) string {
+	re := regexp.MustCompile("\\[(\\d+)\\]([^\\.]+)")
+	return re.ReplaceAllString(path, "$2.$1")
+}
+
+// MongoDB does not properly sort when keys are in parallel arrays ("Executor error: BadValue cannot sort with keys
+// that are parallel arrays"), so... remove any sort options that have parallel arrays (and log it)
+func removeParallelArraySorts(o *QueryOptions) {
+	npSorts := make([]SortOption, 0, len(o.Sort))
+	for i := range o.Sort {
+		sort := o.Sort[i]
+		isParallel := false
+		for _, npSort := range npSorts {
+			isParallel = isParallelArrayPath(sort.Parameter.Paths[0].Path, npSort.Parameter.Paths[0].Path)
+			if isParallel {
+				fmt.Printf("Cannot sub-sort on param '%s' because its path has parallel arrays with previous sort param '%s' (due to limitation in MongoDB)\n.", sort.Parameter.Name, npSort.Parameter.Name)
+				break
+			}
+		}
+		if !isParallel {
+			npSorts = append(npSorts, sort)
+		}
+	}
+	// If we ended up removing sort options, update the Options object to reflect that
+	if len(o.Sort) != len(npSorts) {
+		o.Sort = npSorts
+	}
+}
+
+func isParallelArrayPath(path1 string, path2 string) bool {
+	// If one of them doesn't have any arrays then there can't be any parallel arrays
+	if !strings.Contains(path1, "[") || !strings.Contains(path2, "[") {
+		return false
+	}
+
+	// Take out specific indexers for easier comparison (e.g., "[0]key" becomes "[]key")
+	re := regexp.MustCompile("\\[\\d+\\]")
+	path1 = re.ReplaceAllString(path1, "[]")
+	path2 = re.ReplaceAllString(path2, "[]")
+
+	// Now iterate through until non-matching character
+	for i := 0; i < len(path1) && i < len(path2); i++ {
+		if path1[i] != path2[i] {
+			// Check to see if any of the matching part of the path has an array
+			return strings.Contains(path1[:i], "[")
+		}
+	}
+
+	return false
 }
 
 func isQueryOperator(key string) bool {

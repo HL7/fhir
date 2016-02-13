@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/url"
 	"reflect"
+	"strconv"
 	"strings"
 	"time"
 
@@ -117,60 +118,66 @@ func (rc *ResourceController) IndexHandler(c *echo.Context) error {
 
 func generatePagingLinks(r *http.Request, query search.Query, total uint32) []models.BundleLinkComponent {
 	links := make([]models.BundleLinkComponent, 0, 5)
-	values := query.NormalizedQueryValues(false)
-	options := query.Options()
+	params := query.URLQueryParameters(true)
+	offset := 0
+	if pOffset := params.Get(search.OffsetParam); pOffset != "" {
+		offset, _ = strconv.Atoi(pOffset)
+		if offset < 0 {
+			offset = 0
+		}
+	}
+	count := search.NewQueryOptions().Count
+	if pCount := params.Get(search.CountParam); pCount != "" {
+		count, _ = strconv.Atoi(pCount)
+		if count < 1 {
+			count = search.NewQueryOptions().Count
+		}
+	}
 
 	// First create the base URL for paging
 	baseURL := responseURL(r, query.Resource)
 
 	// Self link
-	links = append(links, newLink("self", baseURL, values, *options))
+	links = append(links, newLink("self", baseURL, params, offset, count))
 
 	// First link
-	firstOptions := *options
-	firstOptions.Offset = 0
-	links = append(links, newLink("first", baseURL, values, firstOptions))
+	links = append(links, newLink("first", baseURL, params, 0, count))
 
 	// Previous link
-	if options.Offset > 0 {
-		previousOptions := *options
-		previousOptions.Offset = options.Offset - options.Count
+	if offset > 0 {
+		prevOffset := offset - count
 		// Handle case where paging is uneven (e.g., count=10&offset=5)
-		if previousOptions.Count > previousOptions.Offset {
-			previousOptions.Offset = 0
+		if prevOffset < 0 {
+			prevOffset = 0
 		}
-		previousOptions.Count = options.Offset - previousOptions.Offset
-		links = append(links, newLink("previous", baseURL, values, previousOptions))
+		prevCount := offset - prevOffset
+		links = append(links, newLink("previous", baseURL, params, prevOffset, prevCount))
 	}
 
 	// Next Link
-	if total > uint32(options.Offset+options.Count) {
-		nextOptions := *options
-		nextOptions.Offset = options.Offset + options.Count
-		links = append(links, newLink("next", baseURL, values, nextOptions))
+	if total > uint32(offset+count) {
+		nextOffset := offset + count
+		links = append(links, newLink("next", baseURL, params, nextOffset, count))
 	}
 
 	// Last Link
-	lastOptions := *options
-	remainder := (int(total) - options.Offset) % options.Count
-	if int(total) < options.Offset {
+	remainder := (int(total) - offset) % count
+	if int(total) < offset {
 		remainder = 0
 	}
 	newOffset := int(total) - remainder
-	if remainder == 0 && int(total) > options.Count {
-		newOffset = int(total) - options.Count
+	if remainder == 0 && int(total) > count {
+		newOffset = int(total) - count
 	}
-	lastOptions.Offset = newOffset
-	links = append(links, newLink("last", baseURL, values, lastOptions))
+	links = append(links, newLink("last", baseURL, params, newOffset, count))
 
 	return links
 }
 
-func newLink(relation string, baseURL *url.URL, values url.Values, options search.QueryOptions) models.BundleLinkComponent {
-	for k, v := range options.QueryValues() {
-		values[k] = v
-	}
-	baseURL.RawQuery = values.Encode()
+func newLink(relation string, baseURL *url.URL, params search.URLQueryParameters, offset int, count int) models.BundleLinkComponent {
+	params.Set(search.OffsetParam, strconv.Itoa(offset))
+	params.Set(search.CountParam, strconv.Itoa(count))
+	baseURL.RawQuery = params.Encode()
 	return models.BundleLinkComponent{Relation: relation, Url: baseURL.String()}
 }
 

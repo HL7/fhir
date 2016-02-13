@@ -65,9 +65,9 @@ type Query struct {
 // slice containing a ReferenceParam (for patient) and a DateParam (for onset).
 func (q *Query) Params() []SearchParam {
 	var results []SearchParam
-	queryMap, _ := url.ParseQuery(q.Query)
-	for param, values := range queryMap {
-		param, modifier, postfix := ParseParamNameModifierAndPostFix(param)
+	queryParams, _ := ParseQuery(q.Query)
+	for _, queryParam := range queryParams.All() {
+		param, modifier, postfix := ParseParamNameModifierAndPostFix(queryParam.Key)
 		if isSearchResultParam(param) {
 			continue
 		}
@@ -76,9 +76,7 @@ func (q *Query) Params() []SearchParam {
 		if ok {
 			info.Postfix = postfix
 			info.Modifier = modifier
-			for _, value := range values {
-				results = append(results, info.CreateSearchParam(value))
-			}
+			results = append(results, info.CreateSearchParam(queryParam.Value))
 		} else {
 			// Check if it's a global search parameter. If so, we must not support it yet.
 			if isGlobalSearchParam(param) {
@@ -94,17 +92,16 @@ func (q *Query) Params() []SearchParam {
 // Options parses the query string and returns the QueryOptions.
 func (q *Query) Options() *QueryOptions {
 	options := NewQueryOptions()
-	queryMap, _ := url.ParseQuery(q.Query)
-	for param, values := range queryMap {
-		param, _, _ := ParseParamNameModifierAndPostFix(param)
+	queryParams, _ := ParseQuery(q.Query)
+	for _, queryParam := range queryParams.All() {
+		param, modifier, _ := ParseParamNameModifierAndPostFix(queryParam.Key)
 		if !strings.HasPrefix(param, "_") || isGlobalSearchParam(param) {
 			continue
 		}
 
 		switch param {
 		case CountParam:
-			value := getSingletonParamValue(param, values)
-			count, err := strconv.Atoi(value)
+			count, err := strconv.Atoi(queryParam.Value)
 			if err != nil {
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_count\" content is invalid"))
 			}
@@ -112,66 +109,67 @@ func (q *Query) Options() *QueryOptions {
 				options.Count = count
 			}
 		case OffsetParam:
-			value := getSingletonParamValue(param, values)
-			offset, err := strconv.Atoi(value)
+			offset, err := strconv.Atoi(queryParam.Value)
 			if err != nil {
 				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_offset\" content is invalid"))
 			}
 			if offset >= 0 {
 				options.Offset = offset
 			}
+		case SortParam:
+			sortParam, ok := SearchParameterDictionary[q.Resource][queryParam.Value]
+			if !ok {
+				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_sort\" content is invalid"))
+			}
+			options.Sort = append(options.Sort, SortOption{Descending: modifier == "desc", Parameter: sortParam})
 		case IncludeParam:
-			for _, value := range values {
-				incls := strings.Split(value, ":")
-				if len(incls) < 2 || len(incls) > 3 {
-					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
-				}
-				inclParam, ok := SearchParameterDictionary[incls[0]][incls[1]]
-				if !ok {
-					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
-				}
-				// Only reference paramaters count, so verify it is a reference parameter
-				if inclParam.Type != "reference" {
-					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
-				}
-				if len(incls) == 3 {
-					if isValidTarget(incls[2], inclParam) {
-						// Modify the targets to include only the one noted
-						inclParam.Targets = []string{incls[2]}
-					} else {
-						panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
-					}
-				}
-				options.Include = append(options.Include, IncludeOption{Resource: incls[0], Parameter: inclParam})
+			incls := strings.Split(queryParam.Value, ":")
+			if len(incls) < 2 || len(incls) > 3 {
+				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
 			}
-		case RevIncludeParam:
-			for _, value := range values {
-				incls := strings.Split(value, ":")
-				if len(incls) < 2 || len(incls) > 3 {
-					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
-				}
-				revInclParam, ok := SearchParameterDictionary[incls[0]][incls[1]]
-				if !ok {
-					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
-				}
-				// Only reference paramaters count, so verify it is a reference parameter
-				if revInclParam.Type != "reference" {
-					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
-				}
-				// Only the currently searched on resource is a valid target (or "Any")
-				target := q.Resource
-				if len(incls) == 3 && incls[2] != target && incls[2] != "Any" {
-					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
-				}
-				// Make sure the selected param actually supports the intended target
-				if isValidTarget(target, revInclParam) {
-					// Modify the targets to include only the resource we're searching on
-					revInclParam.Targets = []string{target}
+			inclParam, ok := SearchParameterDictionary[incls[0]][incls[1]]
+			if !ok {
+				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
+			}
+			// Only reference paramaters count, so verify it is a reference parameter
+			if inclParam.Type != "reference" {
+				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
+			}
+			if len(incls) == 3 {
+				if isValidTarget(incls[2], inclParam) {
+					// Modify the targets to include only the one noted
+					inclParam.Targets = []string{incls[2]}
 				} else {
-					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+					panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_include\" content is invalid"))
 				}
-				options.RevInclude = append(options.RevInclude, RevIncludeOption{Resource: incls[0], Parameter: revInclParam})
 			}
+			options.Include = append(options.Include, IncludeOption{Resource: incls[0], Parameter: inclParam})
+		case RevIncludeParam:
+			incls := strings.Split(queryParam.Value, ":")
+			if len(incls) < 2 || len(incls) > 3 {
+				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+			}
+			revInclParam, ok := SearchParameterDictionary[incls[0]][incls[1]]
+			if !ok {
+				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+			}
+			// Only reference paramaters count, so verify it is a reference parameter
+			if revInclParam.Type != "reference" {
+				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+			}
+			// Only the currently searched on resource is a valid target (or "Any")
+			target := q.Resource
+			if len(incls) == 3 && incls[2] != target && incls[2] != "Any" {
+				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+			}
+			// Make sure the selected param actually supports the intended target
+			if isValidTarget(target, revInclParam) {
+				// Modify the targets to include only the resource we're searching on
+				revInclParam.Targets = []string{target}
+			} else {
+				panic(createInvalidSearchError("MSG_PARAM_INVALID", "Parameter \"_revinclude\" content is invalid"))
+			}
+			options.RevInclude = append(options.RevInclude, RevIncludeOption{Resource: incls[0], Parameter: revInclParam})
 		default:
 			panic(createUnsupportedSearchError("MSG_PARAM_UNKNOWN", fmt.Sprintf("Parameter \"%s\" not understood", param)))
 		}
@@ -195,55 +193,61 @@ func isValidTarget(target string, param SearchParamInfo) bool {
 	return false
 }
 
-// NormalizedQueryValues reconstructs the URL-encoded query based on parsed
+// URLQueryParameters reconstructs the URL-encoded query based on parsed
 // parameters.  This ensures better uniformity/consistency and also removes any
 // garbage parameters or bad formatting in the passed in parameters.  If
 // withOptions is specified, the query options will also be included in the
-// values.
-func (q *Query) NormalizedQueryValues(withOptions bool) url.Values {
-	values := url.Values{}
+// URLQueryParameters.
+func (q *Query) URLQueryParameters(withOptions bool) URLQueryParameters {
+	var queryParams URLQueryParameters
 	for _, param := range q.Params() {
 		k, v := param.getQueryParamAndValue()
-		values.Add(k, v)
+		queryParams.Add(k, v)
 	}
 
 	if withOptions {
-		oValues := q.Options().QueryValues()
-		for k, v := range oValues {
-			for _, v2 := range v {
-				values.Add(k, v2)
-			}
+		oQueryParams := q.Options().URLQueryParameters()
+		for _, oQueryParam := range oQueryParams.All() {
+			queryParams.Add(oQueryParam.Key, oQueryParam.Value)
 		}
 	}
 
-	return values
+	return queryParams
 }
 
 // QueryOptions contains option values such as count and offset.
 type QueryOptions struct {
 	Count      int
 	Offset     int
+	Sort       []SortOption
 	Include    []IncludeOption
 	RevInclude []RevIncludeOption
 }
 
 // NewQueryOptions constructs a new QueryOptions with default values (offset = 0, Count = 100)
 func NewQueryOptions() *QueryOptions {
-	return &QueryOptions{Offset: 0, Count: 100, Include: make([]IncludeOption, 0)}
+	return &QueryOptions{Offset: 0, Count: 100}
 }
 
-// QueryValues returns values representing the query options.
-func (o *QueryOptions) QueryValues() url.Values {
-	values := url.Values{}
-	values.Set(CountParam, strconv.Itoa(o.Count))
-	values.Set(OffsetParam, strconv.Itoa(o.Offset))
+// URLQueryParameters returns URLQueryParameters representing the query options.
+func (o *QueryOptions) URLQueryParameters() URLQueryParameters {
+	var queryParams URLQueryParameters
+	for _, sort := range o.Sort {
+		sortParamKey := SortParam
+		if sort.Descending {
+			sortParamKey += ":desc"
+		}
+		queryParams.Add(sortParamKey, sort.Parameter.Name)
+	}
+	queryParams.Set(OffsetParam, strconv.Itoa(o.Offset))
+	queryParams.Set(CountParam, strconv.Itoa(o.Count))
 	for _, incl := range o.Include {
-		values.Add(IncludeParam, fmt.Sprintf("%s:%s", incl.Resource, incl.Parameter.Name))
+		queryParams.Add(IncludeParam, fmt.Sprintf("%s:%s", incl.Resource, incl.Parameter.Name))
 	}
 	for _, incl := range o.RevInclude {
-		values.Add(RevIncludeParam, fmt.Sprintf("%s:%s", incl.Resource, incl.Parameter.Name))
+		queryParams.Add(RevIncludeParam, fmt.Sprintf("%s:%s", incl.Resource, incl.Parameter.Name))
 	}
-	return values
+	return queryParams
 }
 
 // IncludeOption describes the data that should be included in query results
@@ -256,6 +260,12 @@ type IncludeOption struct {
 type RevIncludeOption struct {
 	Resource  string
 	Parameter SearchParamInfo
+}
+
+// SortOption indicates what parameter to sort on and the sort order
+type SortOption struct {
+	Descending bool
+	Parameter  SearchParamInfo
 }
 
 // SearchParam is an interface for all search parameter classes that exposes
