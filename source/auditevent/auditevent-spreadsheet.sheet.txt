@@ -1019,7 +1019,7 @@
   Path = AuditEvent.action
 
  -- Row 3 -----------------------------------
-  Name = recorded
+  Name = date
   Type = date
   Path = AuditEvent.recorded
 
@@ -1064,7 +1064,7 @@
   Path = AuditEvent.entity.identifier
 
  -- Row 12 -----------------------------------
-  Name = entity
+  Name = reference
   Type = reference
   Path = AuditEvent.entity.reference
 
@@ -1085,7 +1085,7 @@
   Path = AuditEvent.agent.altId
 
  -- Row 16 -----------------------------------
-  Name = agent
+  Name = participant
   Type = reference
   Path = AuditEvent.agent.reference
 
