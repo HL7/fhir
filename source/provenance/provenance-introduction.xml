@@ -59,6 +59,15 @@ The Provenance resource actually corresponds to a single activity that identifie
 The activity also references other entities (<i>entity</i>) that were used and the agents (<i>agent</i>) that were associated with the activity. 
 To record multiple activities that resulted in one (<i>target</i>), record each (<i>activity</i>) in independent Provenance records all pointing at that (<i>target</i>).
 </p>
+<p>
+The Provenance resource depends upon having References to all of the resources, entities, and agents involved in the 
+activity. These References need not be resolvable. The references must provide a unique and ambiguous identification. 
+If a resource, entity, or agent can have different versions that must be identified, then the Reference must have 
+versioning information included.
+</p><p>
+Versioning and unique identification are not mandated for all systems that provide Resources, entities, and agents. 
+But, inclusion of Provenance requirements may introduce requirements for versioning and unique identification on those systems
+</p>
 <a name="TODO"> </a>
 <h3>Open Issues and Request for Comments</h3>
 <p>
