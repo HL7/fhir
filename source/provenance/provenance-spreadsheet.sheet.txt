@@ -369,12 +369,12 @@
   Target Types = Patient
 
  -- Row 8 -----------------------------------
-  Name = sigtype
+  Name = sig
   Type = token
   Path = Provenance.signature.type
 
  -- Row 9 -----------------------------------
-  Name = entitytype
+  Name = entity-type
   Type = token
   Path = Provenance.entity.type
 

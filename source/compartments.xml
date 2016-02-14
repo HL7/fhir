@@ -11,7 +11,7 @@
   <LastAuthor>Bryn</LastAuthor>
   <Created>2013-07-04T21:40:46Z</Created>
   <LastSaved>2015-11-17T21:49:24Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">747a3dc3-14ba-4528-94a7-b06f9d606003</WorkbookGuid>
@@ -178,9 +178,9 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">AuditEvent</Data></Cell>
-    <Cell><Data ss:Type="String">patient | participant.patient | reference.patient</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">participant</Data></Cell>
-    <Cell><Data ss:Type="String">participant</Data></Cell>
+    <Cell><Data ss:Type="String">patient | agent | entity</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">agent</Data></Cell>
+    <Cell><Data ss:Type="String">agent</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Basic</Data></Cell>
@@ -664,7 +664,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>91</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <ActivePane>2</ActivePane>
    <Panes>
     <Pane>
@@ -672,7 +672,8 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>100</ActiveRow>
+     <ActiveRow>22</ActiveRow>
+     <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

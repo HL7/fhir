@@ -177,6 +177,28 @@
   w5 = who.focus
 
  -- Row 4 -----------------------------------
+  Element = ImagingObjectSelection.authoringTime
+  Card. = 0..1
+  Aliases = ObservationDateTime
+  Type = dateTime
+  Short Label = Time when the imaging object selection was created
+  Definition = Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
+  Requirements = Date and time when the selection was made can be important to understand the content of selection.
+  RIM Mapping = .effectiveTime
+  DICOM Mapping = (0040,A032) - Observation Date Time
+  w5 = when.recorded
+
+ -- Row 5 -----------------------------------
+  Element = ImagingObjectSelection.author
+  Card. = 0..1
+  Type = Reference(Practitioner|Device|Organization|Patient|RelatedPerson)
+  Short Label = Author (human or machine)
+  Definition = Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.
+  Requirements = Track the selection decision maker.
+  DICOM Mapping = (0040,A730) - Content Sequence TID 1002 - Observer Context
+  w5 = who.author
+
+ -- Row 6 -----------------------------------
   Element = ImagingObjectSelection.title
   Card. = 1..1
   Type = CodeableConcept
@@ -187,7 +209,7 @@
   Comments = Coded concept of kind of the ImagingObjectSelection. Value set is defined in the DICOM standard Part 16, CID-7010.
   DICOM Mapping = (0040,A043) - Concept Name Code Sequence in the SR root item
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = ImagingObjectSelection.description
   Card. = 0..1
   Aliases = TextValue
@@ -197,28 +219,6 @@
   Requirements = Need to provide a narrative description of the SOP instances in the selection.
   Comments = Free text narrative description of the ImagingObjectSelection
   DICOM Mapping = (0040,A160) - Text Value SR content item immediately under the root item, concept name code = (113012, DCM, \"Key Object Description\")
-
- -- Row 6 -----------------------------------
-  Element = ImagingObjectSelection.author
-  Card. = 0..1
-  Type = Reference(Practitioner|Device|Organization|Patient|RelatedPerson)
-  Short Label = Author (human or machine)
-  Definition = Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.
-  Requirements = Track the selection decision maker.
-  DICOM Mapping = (0040,A730) - Content Sequence TID 1002 - Observer Context
-  w5 = who.author
-
- -- Row 7 -----------------------------------
-  Element = ImagingObjectSelection.authoringTime
-  Card. = 0..1
-  Aliases = ObservationDateTime
-  Type = dateTime
-  Short Label = Authoring time of the selection
-  Definition = Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
-  Requirements = Date and time when the selection was made can be important to understand the content of selection.
-  RIM Mapping = .effectiveTime
-  DICOM Mapping = (0040,A032) - Observation Date Time
-  w5 = when.recorded
 
  -- Row 8 -----------------------------------
   Element = ImagingObjectSelection.study
@@ -291,7 +291,7 @@
 
  -- Row 15 -----------------------------------
   Element = ImagingObjectSelection.study.series.uid
-  Card. = 0..1
+  Card. = 1..1
   Aliases = SeriesInstanceUID, Referenced series instance UID
   Type = oid
   Short Label = Series instance UID
@@ -395,7 +395,7 @@
   DICOM Mapping = (0008,1190) - Retrieve URL
 
  -- Row 25 -----------------------------------
-  Element = ImagingObjectSelection.study.series.instance.frames
+  Element = ImagingObjectSelection.study.series.instance.frame
   Card. = 0..*
   UML = 40;200
   Type = =Frames
@@ -405,15 +405,16 @@
   Comments = This component may be used if the referenced image SOP Instance is a multi-frame image.
 
  -- Row 26 -----------------------------------
-  Element = ImagingObjectSelection.study.series.instance.frames.frameNumbers
+  Element = ImagingObjectSelection.study.series.instance.frame.number
   Card. = 1..*
+  Aliases = FrameNumber
   Type = unsignedInt
-  Short Label = Frame numbers
-  Definition = The frame numbers in the frame set
+  Short Label = Frame reference number
+  Definition = The specific frame reference within a multi-frame object
   Requirements = One or more non-duplicate frame numbers in the selected instance.
 
  -- Row 27 -----------------------------------
-  Element = ImagingObjectSelection.study.series.instance.frames.url
+  Element = ImagingObjectSelection.study.series.instance.frame.url
   Card. = 1..1
   Type = uri
   Short Label = Retrieve frame URL

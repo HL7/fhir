@@ -9,6 +9,7 @@
   <patient>
     <reference value="Patient/dicom"/>
   </patient>
+  <authoringTime value="2014-11-20T11:01:20-08:00"/>
   <title>
     <coding>
 	  <system value="http://nema.org/dicom/dicm"/>
@@ -18,7 +19,6 @@
 	<text value="A set of objects that have been exported for sharing"/>
   </title>
   <description value="1 SC image (screen snapshot) and 2 CT images to share a chest CT exam"/>
-  <authoringTime value="2014-11-20T11:01:20-08:00"/>
   <study>
 	  <uid value="urn:oid:2.16.124.113543.6003.189642796.63084.16749.2599092904"/>
 	  <series>

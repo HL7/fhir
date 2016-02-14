@@ -14,42 +14,60 @@
   Binding = code list
   Reference = #audit-event-action
   Definition = Indicator for type of action performed during the event that generated the audit.
+  Description = DICOM Audit Event Action
   Conformance = required
+  Uri = http://nema.org/dicom/dicm
+  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 3 -----------------------------------
   Binding Name = AuditEventOutcome
   Binding = code list
   Reference = #audit-event-outcome
   Definition = Indicates whether the event succeeded or failed
+  Description = DICOM Audit Event Outcome
   Conformance = required
+  Uri = http://nema.org/dicom/dicm
+  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 4 -----------------------------------
   Binding Name = AuditEventParticipantNetworkType
   Binding = code list
   Reference = #network-type
   Definition = The type of network access point of this participant in the audit event
+  Description = DICOM Audit Event Network Type
   Conformance = required
+  Uri = http://nema.org/dicom/dicm
+  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 5 -----------------------------------
   Binding Name = AuditEventObjectType
   Binding = code list
   Reference = #object-type
   Definition = Code for the object type involved audited.
+  Description = DICOM Audit Event Object Type
   Conformance = extensible
+  Uri = http://nema.org/dicom/dicm
+  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 6 -----------------------------------
   Binding Name = AuditEventObjectRole
   Binding = code list
   Reference = #object-role
   Definition = Code representing the role the Object played in the event.
+  Description = DICOM Audit Event Object Role
   Conformance = extensible
+  Uri = http://nema.org/dicom/dicm
+  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 7 -----------------------------------
   Binding Name = AuditEventObjectLifecycle
   Binding = code list
   Reference = #object-lifecycle
   Definition = Identifier for the data life-cycle stage for the object.
+  Description = DICOM Audit Event Object Lifecycle
   Conformance = extensible
+  Uri = http://nema.org/dicom/dicm
+  Copyright = These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association.
 
  -- Row 8 -----------------------------------
   Binding Name = AuditEventType
@@ -626,9 +644,10 @@
   Card. = 0..*
   Type = CodeableConcept
   Binding = DICOMRoleId
-  Short Label = User roles (e.g. local RBAC codes)
-  Definition = Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context
+  Short Label = Agent role in the event
+  Definition = Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context
   Requirements = This value ties an audited event to a user\'s role(s). It is an optional value that might be used to group events for analysis by user functional role categories
+  Comments = should be roles relevant to the event. Should  not be an exhaustive list of roles.
   RIM Mapping = .typeCode and/or .functionCode
   DICOM Mapping = RoleIdCode
   Prov Mapping = Agent.Attribution
@@ -679,8 +698,8 @@
   Element = AuditEvent.agent.name
   Card. = 0..1
   Type = string
-  Short Label = Human-meaningful name for the user
-  Definition = Human-meaningful name for the user
+  Short Label = Human-meaningful name for the agent
+  Definition = Human-meaningful name for the agent
   Requirements = The User ID and Authorization User ID may be internal or otherwise obscure values. This field assists the auditor in identifying the actual user
   RIM Mapping = .name
   DICOM Mapping = UserName
@@ -733,7 +752,6 @@
   Requirements = Usually, this is used instead of specifying a network address. This field is not used for Media Id (i.e. the serial number of a CD)
   RIM Mapping = .player.description.mediaType
   DICOM Mapping = MediaType
-  To Do = Do we need an element for Media Id (as opposed to type)
   w5 = where
 
  -- Row 20 -----------------------------------
@@ -1029,70 +1047,70 @@
   Path = AuditEvent.subtype
 
  -- Row 5 -----------------------------------
-  Name = user
-  Type = token
-  Path = AuditEvent.agent.userId
-
- -- Row 6 -----------------------------------
-  Name = name
-  Type = string
-  Path = AuditEvent.agent.name
-
- -- Row 7 -----------------------------------
-  Name = address
-  Type = token
-  Path = AuditEvent.agent.network.address
-
- -- Row 8 -----------------------------------
   Name = source
   Type = token
   Path = AuditEvent.source.identifier
 
- -- Row 9 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = site
   Type = token
   Path = AuditEvent.source.site
 
- -- Row 10 -----------------------------------
-  Name = object-type
+ -- Row 7 -----------------------------------
+  Name = agent
+  Type = reference
+  Path = AuditEvent.agent.reference
+
+ -- Row 8 -----------------------------------
+  Name = user
   Type = token
-  Path = AuditEvent.entity.type
+  Path = AuditEvent.agent.userId
+
+ -- Row 9 -----------------------------------
+  Name = altid
+  Type = token
+  Path = AuditEvent.agent.altId
+
+ -- Row 10 -----------------------------------
+  Name = policy
+  Type = uri
+  Path = AuditEvent.agent.policy
 
  -- Row 11 -----------------------------------
-  Name = identity
-  Type = token
-  Path = AuditEvent.entity.identifier
+  Name = agent-name
+  Type = string
+  Path = AuditEvent.agent.name
 
  -- Row 12 -----------------------------------
-  Name = reference
-  Type = reference
-  Path = AuditEvent.entity.reference
+  Name = address
+  Type = token
+  Path = AuditEvent.agent.network.address
 
  -- Row 13 -----------------------------------
-  Name = desc
-  Type = string
-  Path = AuditEvent.entity.name
-
- -- Row 14 -----------------------------------
   Name = patient
   Type = reference
   Path = AuditEvent.agent.reference | AuditEvent.entity.reference
   Target Types = Patient
 
+ -- Row 14 -----------------------------------
+  Name = entity
+  Type = reference
+  Path = AuditEvent.entity.reference
+
  -- Row 15 -----------------------------------
-  Name = altid
+  Name = entity-type
   Type = token
-  Path = AuditEvent.agent.altId
+  Path = AuditEvent.entity.type
 
  -- Row 16 -----------------------------------
-  Name = participant
-  Type = reference
-  Path = AuditEvent.agent.reference
+  Name = entity-id
+  Type = token
+  Path = AuditEvent.entity.identifier
 
  -- Row 17 -----------------------------------
-  Name = policy
-  Type = uri
-  Path = AuditEvent.agent.policy
+  Name = entity-name
+  Type = string
+  Path = AuditEvent.entity.name
 
 === Sheet Profiles =====================================
 
