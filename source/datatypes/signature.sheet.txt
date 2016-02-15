@@ -49,16 +49,16 @@
 
  -- Row 5 -----------------------------------
   Element = Signature.contentType
-  Card. = 1..1
+  Card. = 0..1
   Type = code
   Binding = MimeType
   Short Label = The technical format of the signature
-  Definition = A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature
+  Definition = A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature, etc.
 
  -- Row 6 -----------------------------------
   Element = Signature.blob
-  Card. = 1..1
+  Card. = 0..1
   Type = base64Binary
   Short Label = The actual signature content (XML DigSig. JWT, picture, etc.)
-  Definition = The base64 encoding of the Signature content
+  Definition = The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.
   Comments = Where the signature type is an XML DigSig, the signed content is a FHIR Resource(s), the signature is of the XML form of the Resource(s) using  XML-Signature (XMLDIG) \"Detached Signature\" form.

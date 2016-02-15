@@ -21,10 +21,10 @@
   <issued value="2015-11-18"/>
  <!-- not bound by a timeframe - Contract.applies -->
  
-  <subject>
+  <topic>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
-  </subject>
+  </topic>
 
   <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Contract.authority element -->
   <authority>
@@ -63,12 +63,10 @@
 		 <display value="Withhold all data from specified actor entity."/>
 	   </coding>
 	 </type>
-	 <party>
-       <entity>
+	 <topic>
     	   <reference value="Organization/2.16.840.1.113883.19.5"/>
            <display value="Good Health Clinic"/>
-		</entity>
-	 </party>
+	 </topic>
      <!-- by not specifying term.actor I assume this means everyone? -->
 	 <text value="Withhold this order and any results or related objects from any provider."/>
    </term>

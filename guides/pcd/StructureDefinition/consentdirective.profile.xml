@@ -279,14 +279,14 @@
       </mapping>
     </element>
     <element>
-      <path value="Contract.subject" />
-      <name value="ConsentDirective.subject" />
-      <short value="Subject of this Consent Directive" />
+      <path value="Contract.topic" />
+      <name value="ConsentDirective.topic" />
+      <short value="Patient who is the topic of this Consent Directive" />
       <definition value="Patient information and actions taken on that information that are governed by this Consent Directive." />
       <min value="0" />
       <max value="*" />
       <base>
-        <path value="Contract.subject" />
+        <path value="Contract.topic" />
         <min value="0" />
         <max value="*" />
       </base>
@@ -1286,14 +1286,14 @@
       </binding>
     </element>
     <element>
-      <path value="Contract.term.subject" />
-      <name value="ConsentDirective.term.subject" />
-      <short value="Subject  of this Consent Directive Term" />
+      <path value="Contract.term.topic" />
+      <name value="ConsentDirective.term.topic" />
+      <short value="Topic of this Consent Directive Term" />
       <definition value="Who or what this Consent Directive Provision is about." />
       <min value="0" />
       <max value="1" />
       <base>
-        <path value="Contract.term.subject" />
+        <path value="Contract.term.topic" />
         <min value="0" />
         <max value="1" />
       </base>
@@ -2292,9 +2292,9 @@
       </mapping>
     </element>
     <element>
-      <path value="Contract.subject" />
-      <name value="ConsentDirective.subject" />
-      <short value="The Patient subject of this Consent Directive" />
+      <path value="Contract.topic" />
+      <name value="ConsentDirective.topic" />
+      <short value="The Patient is the topic of this Consent Directive" />
       <definition value="Patient information and actions taken on that information that are governed by this Consent Directive." />
       <min value="1" />
       <max value="1" />
@@ -2841,12 +2841,12 @@
       </binding>
     </element>
     <element>
-      <path value="Contract.term.subject" />
-      <name value="ConsentDirective.term.subject" />
-      <short value="Subject  of this Consent Directive Term" />
+      <path value="Contract.term.topic" />
+      <name value="ConsentDirective.term.topic" />
+      <short value="Topic of this Consent Directive Term" />
       <definition value="Who or what this Consent Directive Provision is about." />
       <min value="0" />
-      <max value="1" />
+      <max value="*" />
       <type>
         <code value="Reference" />
         <profile value="http://hl7.org/fhir/StructureDefinition/Resource" />

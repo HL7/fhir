@@ -22,10 +22,10 @@
   <issued value="2015-11-18"/>
  <!-- not bound by a timeframe - Contract.applies -->
  
-  <subject>
+  <topic>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
-  </subject>
+  </topic>
 
   <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Contract.authority element -->
   <authority>
@@ -64,12 +64,10 @@
 		 <display value="Withhold all data from specified actor entity."/>
 	   </coding>
 	 </type>
-	 <party>
-       <entity>
+	 <topic>
     	   <reference value="Practitioner/f204"/>
            <display value="Fictive Nurse"/>
-		</entity>
-	 </party>
+	 </topic>
      
 	 <text value="Withhold this order and any results or related objects from specified nurse provider."/>
    </term>
