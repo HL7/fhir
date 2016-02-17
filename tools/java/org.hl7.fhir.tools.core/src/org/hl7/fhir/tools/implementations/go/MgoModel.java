@@ -3,7 +3,7 @@ package org.hl7.fhir.tools.implementations.go;
 /*
 Contributed by Mitre Corporation
 
-Copyright (c) 2011-2015, HL7, Inc & The MITRE Corporation
+Copyright (c) 2011-2016, HL7, Inc & The MITRE Corporation
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
@@ -35,12 +35,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import org.hl7.fhir.definitions.model.*;
 import org.hl7.fhir.tools.implementations.GenBlock;
@@ -99,7 +94,7 @@ public class MgoModel {
     private void generateResourceStruct(GenBlock fileBlock) {
         fileBlock.bs("type " + name + " struct {");
         if (name.equals("Resource")) {
-          fileBlock.ln(getFieldDefinition("ResourceType", "string"));
+          fileBlock.ln(getFieldDefinition("ResourceType", GoType.STRING.type()));
         }
         if (definitions.getResources().get(name) != null) {
             for (TypeRef ref: getRootDefinition().getTypes()) {
@@ -193,37 +188,21 @@ public class MgoModel {
                 Modifier m = new Modifier(elementDefinition);
 
                 if (elementType.equals("*")) {
-                    block.ln(getFieldDefinition(fieldName.concat("String"), m.typify("string")));
-                    block.ln(getFieldDefinition(fieldName.concat("Integer"), m.typify("int32")));
-                    block.ln(getFieldDefinition(fieldName.concat("DateTime"), m.typify("FHIRDateTime")));
-                    block.ln(getFieldDefinition(fieldName.concat("Boolean"), m.typify("bool")));
-                    block.ln(getFieldDefinition(fieldName.concat("CodeableConcept"), m.typify("CodeableConcept")));
-                    block.ln(getFieldDefinition(fieldName.concat("Range"), m.typify("Range")));
-                } else if (elementType.equals("base64Binary")) {
-                    block.ln(getFieldDefinition(fieldName, m.typify("string")));
-                } else if (elementType.equals("boolean")) {
-                    block.ln(getFieldDefinition(fieldName, m.typify("bool")));
-                } else if (elementType.equals("integer")) {
-                    block.ln(getFieldDefinition(fieldName, m.typify("int32")));
-                } else if (elementType.equals("unsignedInt") || elementType.equals("positiveInt")) {
-                    block.ln(getFieldDefinition(fieldName, m.typify("uint32")));
-                } else if (elementType.equals("decimal")) {
-                    block.ln(getFieldDefinition(fieldName, m.typify("float64")));
-                } else if (elementType.equals("instant") || elementType.equals("date") || elementType.equals("dateTime") || elementType.equals("time")) {
-                    block.ln(getFieldDefinition(fieldName, m.typify("FHIRDateTime")));
-                } else if (elementType.equals("string") || elementType.equals("uri") || elementType.equals("code") || elementType.equals("id") || elementType.equals("oid") || elementType.equals("xhtml") || elementType.equals("markdown")) {
-                    block.ln(getFieldDefinition(fieldName, m.typify("string")));
-                } else if (elementType.equals("idref")) {
-                    block.ln(getFieldDefinition(fieldName, m.typify("Reference")));
-                } else if (elementType.equals("Resource")) {
-                    block.ln(getFieldDefinition(fieldName, m.typify("interface{}")));
-                } else if (elementType.equals("Age") || elementType.equals("Count") || elementType.equals("Duration") || elementType.equals("Money") || elementType.equals("Distance")|| elementType.equals("SimpleQuantity")) {
-                    block.ln(getFieldDefinition(fieldName, m.typify("Quantity")));
-                } else {
-                    if (typeRef.isElementReference()) {
-                        elementType = getComponentStructName(elementType);
+                    for (FHIRType ft : FHIRType.values()) {
+                        if (ft.isOpen()) {
+                            block.ln(getFieldDefinition(fieldName.concat(capitalize(ft.type())), m.typify(ft.goType())));
+                        }
                     }
-                    block.ln(getFieldDefinition(fieldName, m.typify(elementType)));
+                } else {
+                    try {
+                        block.ln(getFieldDefinition(fieldName, m.typify(FHIRType.byType(elementType).goType())));
+                    } catch (IllegalArgumentException e) {
+                        // Wasn't a recognized core FHIR type -- so it must be a component
+                        if (typeRef.isElementReference()) {
+                            elementType = getComponentStructName(elementType);
+                        }
+                        block.ln(getFieldDefinition(fieldName, m.typify(elementType)));
+                    }
                 }
             }
         }
@@ -240,7 +219,7 @@ public class MgoModel {
             String result = type;
             if (isSlice) {
                 result = "[]".concat(type);
-            } else if (! "string".equals(type) && ! "interface{}".equals(type)) {
+            } else if (! GoType.STRING.type().equals(type) && ! GoType.INTERFACE.type().equals(type)) {
                 result = "*".concat(type);
             }
             return result;
@@ -262,7 +241,7 @@ public class MgoModel {
 
     private String getFieldDefinition(String fieldName, String fieldType) {
         String jsonName = lowercase(fieldName);
-        String bsonName = jsonName.equals("id") ? "_id" : jsonName;
+        String bsonName = jsonName.equals(FHIRType.ID.type()) ? "_id" : jsonName;
         return String.format("%s %s `bson:\"%s,omitempty\" json:\"%s,omitempty\"`", fieldName, fieldType, bsonName, jsonName);
     }
 

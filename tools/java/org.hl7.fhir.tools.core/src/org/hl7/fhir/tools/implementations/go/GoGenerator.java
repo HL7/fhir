@@ -3,7 +3,7 @@ package org.hl7.fhir.tools.implementations.go;
 /*
 Contributed by Mitre Corporation
 
-Copyright (c) 2011-2015, HL7, Inc & The MITRE Corporation
+Copyright (c) 2011-2016, HL7, Inc & The MITRE Corporation
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification, 
@@ -39,7 +39,6 @@ import java.io.Writer;
 import java.util.*;
 
 import org.hl7.fhir.definitions.model.*;
-import org.hl7.fhir.instance.model.annotations.ResourceDef;
 import org.hl7.fhir.instance.validation.ValidationMessage;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.publisher.FolderManager;
@@ -523,25 +522,31 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         }
     }
 
+    /** Derived from: http://hl7.org/fhir/DSTU2/search.html#table */
     private boolean searchParamTypeSupportsDataType(SearchParameterDefn.SearchType searchType, String dataType) {
-        switch (searchType) {
-            case composite:
-                // TODO: Support composite
-                break;
-            case number:
-                return Arrays.asList("decimal", "integer", "unsignedInt", "positiveInt").contains(dataType);
-            case string:
-                return Arrays.asList("string", "Address", "HumanName").contains(dataType);
-            case date:
-                return Arrays.asList("date", "dateTime", "instant", "Period", "Timing").contains(dataType);
-            case quantity:
-                return Arrays.asList("Quantity", "Money", "SimpleQuantity", "Duration", "Count", "Distance", "Age").contains(dataType);
-            case reference:
-                return "Reference".equals(dataType);
-            case token:
-                return Arrays.asList("boolean", "code", "string", "CodeableConcept", "Coding", "ContactPoint", "Identifier").contains(dataType);
-            case uri:
-                return "uri".equals(dataType);
+        try {
+            FHIRType ft = FHIRType.byType(dataType);
+            switch (searchType) {
+                case composite:
+                    // TODO: Support composite
+                    break;
+                case number:
+                    return Arrays.asList(FHIRType.DECIMAL, FHIRType.INTEGER, FHIRType.UNSIGNEDINT, FHIRType.POSITIVEINT).contains(ft);
+                case string:
+                    return Arrays.asList(FHIRType.STRING, FHIRType.ADDRESS, FHIRType.HUMANNAME).contains(ft);
+                case date:
+                    return Arrays.asList(FHIRType.DATE, FHIRType.DATETIME, FHIRType.INSTANT, FHIRType.PERIOD, FHIRType.TIMING).contains(ft);
+                case quantity:
+                    return Arrays.asList(FHIRType.QUANTITY, FHIRType.MONEY, FHIRType.SIMPLEQUANTITY, FHIRType.DURATION, FHIRType.COUNT, FHIRType.DISTANCE, FHIRType.AGE).contains(ft);
+                case reference:
+                    return FHIRType.REFERENCE == ft;
+                case token:
+                    return Arrays.asList(FHIRType.BOOLEAN, FHIRType.CODE, FHIRType.STRING, FHIRType.CODEABLECONCEPT, FHIRType.CODING, FHIRType.CONTACTPOINT, FHIRType.IDENTIFIER).contains(ft);
+                case uri:
+                    return FHIRType.URI == ft;
+            }
+        } catch (Exception e) {
+            return false;
         }
         return false;
     }
