@@ -5,6 +5,16 @@ import (
 	"strings"
 )
 
+func (r *Reference) MarshalJSON() ([]byte, error) {
+	m := map[string]string{
+		"reference": r.Reference,
+	}
+	if r.Display != "" {
+		m["display"] = r.Display
+	}
+	return json.Marshal(m)
+}
+
 type reference Reference
 
 func (r *Reference) UnmarshalJSON(data []byte) (err error) {
