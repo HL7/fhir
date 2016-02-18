@@ -96,12 +96,8 @@ public class MgoModel {
         if (name.equals("Resource")) {
           fileBlock.ln(getFieldDefinition("ResourceType", GoType.STRING.type()));
         }
-        if (definitions.getResources().get(name) != null) {
-            for (TypeRef ref: getRootDefinition().getTypes()) {
-                fileBlock.ln(String.format("%s `bson:\",inline\"`", ref.getName()));
-            }
-        } else if (definitions.getBaseResources().get(name) != null) {
-            for (TypeRef ref: getRootDefinition().getTypes()) {
+        for (TypeRef ref: getRootDefinition().getTypes()) {
+            if (definitions.hasElementDefn(ref.getName())) {
                 fileBlock.ln(String.format("%s `bson:\",inline\"`", ref.getName()));
             }
         }
@@ -266,6 +262,9 @@ public class MgoModel {
             String structName = getComponentStructName(elementDefinition);
             block.ln();
             block.bs(String.format("type %s struct {", structName));
+            // Ideally we would programmatically figure out it inherits from BackboneElement, but this is not an ideal
+            // world, and I don't think the generator actually tells you that information (it's assumed?)
+            block.ln("BackboneElement `bson:\",inline\"`");
             for (ElementDefn nestedElement : elementDefinition.getElements()) {
                 generateFields(block, nestedElement);
             }
