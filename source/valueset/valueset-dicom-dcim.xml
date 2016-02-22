@@ -301,6 +301,11 @@
       <definition value="Intra-oral Radiography device"/>
     </concept>
     <concept>
+      <code value="IVOCT"/>
+      <display value="Intravascular Optical Coherence Tomography"/>
+      <definition value="An acquisition device, process or method that performs intravascular optical coherence tomography"/>
+    </concept>
+    <concept>
       <code value="IVUS"/>
       <display value="Intravascular Ultrasound"/>
       <definition value="Intravascular Ultrasound device"/>
@@ -457,6 +462,11 @@
       <code value="OPV"/>
       <display value="Ophthalmic Visual Field"/>
       <definition value="Modality device that measures visual fields and perform visual perimetry"/>
+    </concept>
+    <concept>
+      <code value="OSS"/>
+      <display value="Optical Survace Scanner"/>
+      <definition value="An acquisition device, process or method that performs optical surface scanning"/>
     </concept>
     <concept>
       <code value="OT"/>
