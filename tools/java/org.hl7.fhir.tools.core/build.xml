@@ -3,7 +3,7 @@
   <property environment="env"/>
   <property name="org.hl7.fhir.definitions.ecore.location" value="../org.hl7.fhir.definitions.ecore"/>
   <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
-  <property name="org.hl7.fhir.implementation.location" value="../org.hl7.fhir.dstu21"/>
+  <property name="org.hl7.fhir.implementation.location" value="../org.hl7.fhir.dstu3"/>
   <property name="org.hl7.fhir.rdf.location" value="../../../implementations/java/org.hl7.fhir.rdf"/>
   <property name="debuglevel" value="source,lines,vars"/>
   <property name="target" value="1.6"/>
@@ -62,26 +62,26 @@
   </target>
   <target name="copy-instance-classes">
     <delete>
-      <fileset dir="../org.hl7.fhir.dstu21/src/org/hl7/fhir/instance/formats" includes="*"/>
+      <fileset dir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/instance/formats" includes="*"/>
       <fileset dir="../org.hl7.fhir.instance/src/org/hl7/fhir/instance/model" includes="*"/>
     </delete>
-    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/formats">
-      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/formats" includes="*.java"/>
+    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/formats">
+      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/formats" includes="*.java"/>
     </copy>
-    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/model">
-      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/model" includes="*.java"/>
+    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model">
+      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/model" includes="*.java"/>
     </copy>
-    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/utils">
-      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/utils" includes="*.java"/>
+    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/utils">
+      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/utils" includes="*.java"/>
     </copy>
-    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/validation">
-      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/validation" includes="*.java"/>
+    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/validation">
+      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/validation" includes="*.java"/>
     </copy>
-    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/test">
-      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/test" includes="*.java"/>
+    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/test">
+      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/test" includes="*.java"/>
     </copy>
-    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/client">
-      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu21/src/org/hl7/fhir/dstu21/client" includes="*.java"/>
+    <copy includeemptydirs="false" todir="../org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/client">
+      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src/org/hl7/fhir/dstu3/client" includes="*.java"/>
     </copy>
   </target>
   <target name="build-project">
@@ -137,7 +137,7 @@
   </target>
   <target name="fhir-sources-jar" depends="build">
     <jar destfile="${maven-sources-jar}" filesetmanifest="mergewithoutmain">
-      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu21/src" includes="**/*.java"/>
+      <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.utilities/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.rdf/src" includes="**/*.java"/>
       <fileset dir="../org.hl7.fhir.definitions.ecore/src" includes="**/*.java"/>
