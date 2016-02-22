@@ -85,7 +85,7 @@ Note that the types don't feature in the mapping.
 
 <h3>Step #2: Fields with different names</h3>
 <p>
-Now consider the case where the elemnets have different names:
+Now consider the case where the elements have different names:
 </p>
 <table>
   <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
@@ -238,9 +238,6 @@ Most transformations involve nested content. Let's start with a simple case, whe
 Note that there is no specified type for the element aa. Some structure definitions (FHIR resources) do 
 leave these elements as anonymously typed, while others explicitly type them. However since the mapping
 does not refer to the type, it's literal type is not important.
-</p>
-<p>
-There are 3 different ways to express this mapping, depending on what should happen when a is not an integer:
 </p>
 <pre>
 rule_aa : for source.aa as s_aa make target.aa as t_aa then by variables // make aa exist
