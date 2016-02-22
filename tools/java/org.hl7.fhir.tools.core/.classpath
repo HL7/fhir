@@ -9,7 +9,6 @@
 	<classpathentry kind="lib" path="../imports/org.eclipse.emf.ecore.xmi-2.9.1-v20131212-0545.jar"/>
 	<classpathentry kind="lib" path="../imports/org.eclipse.emf.ecore-2.9.2-v20131212-0545.jar"/>
 	<classpathentry kind="src" path="/org.hl7.fhir.utilities"/>
-	<classpathentry kind="src" path="/org.hl7.fhir.definitions.ecore"/>
 	<classpathentry kind="lib" path="../imports/sequence-library-1.0.2.jar"/>
 	<classpathentry kind="lib" path="../imports/sqljet-1.1.10.jar"/>
 	<classpathentry kind="lib" path="../imports/trilead-ssh2-1.0.0-build217.jar"/>
@@ -32,6 +31,6 @@
 	<classpathentry kind="lib" path="../imports/Saxon-HE-9.5.1-5.jar"/>
 	<classpathentry kind="lib" path="../imports/commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="lib" path="../imports/junit-4.11.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu21"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/org.hl7.fhir.dstu3"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

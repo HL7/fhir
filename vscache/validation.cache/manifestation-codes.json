@@ -3,19 +3,13 @@
   "outcomes": [
     {
       "hash": "#|http://snomed.info/sct|null|64305001|Urticaria",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Urticaria"
-      }
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Clinical Findings"
     },
     {
       "hash": "#|http://example.org/system|null|xxx|Hives",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set SNOMED CT Clinical Findings"
     },
     {
       "hash": "#|http://snomed.info/sct|null|247472004|Hives",

@@ -37,50 +37,50 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.hl7.fhir.dstu21.model.AllergyIntolerance;
-import org.hl7.fhir.dstu21.model.AllergyIntolerance.AllergyIntoleranceCriticality;
-import org.hl7.fhir.dstu21.model.AllergyIntolerance.AllergyIntoleranceReactionComponent;
-import org.hl7.fhir.dstu21.model.AllergyIntolerance.AllergyIntoleranceSeverity;
-import org.hl7.fhir.dstu21.model.AllergyIntolerance.AllergyIntoleranceStatus;
-import org.hl7.fhir.dstu21.model.AllergyIntolerance.AllergyIntoleranceType;
-import org.hl7.fhir.dstu21.model.Bundle;
-import org.hl7.fhir.dstu21.model.Bundle.BundleEntryComponent;
-import org.hl7.fhir.dstu21.model.CodeableConcept;
-import org.hl7.fhir.dstu21.model.Coding;
-import org.hl7.fhir.dstu21.model.Comparison;
-import org.hl7.fhir.dstu21.model.Composition;
-import org.hl7.fhir.dstu21.model.Composition.CompositionAttestationMode;
-import org.hl7.fhir.dstu21.model.Composition.CompositionAttesterComponent;
-import org.hl7.fhir.dstu21.model.Composition.SectionComponent;
-import org.hl7.fhir.dstu21.model.ContactPoint;
-import org.hl7.fhir.dstu21.model.Device;
-import org.hl7.fhir.dstu21.model.DomainResource;
-import org.hl7.fhir.dstu21.model.Encounter;
-import org.hl7.fhir.dstu21.model.Extension;
-import org.hl7.fhir.dstu21.model.Factory;
-import org.hl7.fhir.dstu21.model.Identifier;
-import org.hl7.fhir.dstu21.model.InstantType;
-import org.hl7.fhir.dstu21.model.ListResource;
-import org.hl7.fhir.dstu21.model.ListResource.ListEntryComponent;
-import org.hl7.fhir.dstu21.model.Location;
-import org.hl7.fhir.dstu21.model.Meta;
-import org.hl7.fhir.dstu21.model.Narrative;
-import org.hl7.fhir.dstu21.model.Narrative.NarrativeStatus;
-import org.hl7.fhir.dstu21.model.Observation;
-import org.hl7.fhir.dstu21.model.Observation.ObservationRelatedComponent;
-import org.hl7.fhir.dstu21.model.Observation.ObservationRelationshipType;
-import org.hl7.fhir.dstu21.model.Observation.ObservationStatus;
-import org.hl7.fhir.dstu21.model.Organization;
-import org.hl7.fhir.dstu21.model.Patient;
-import org.hl7.fhir.dstu21.model.Period;
-import org.hl7.fhir.dstu21.model.Practitioner;
-import org.hl7.fhir.dstu21.model.Procedure;
-import org.hl7.fhir.dstu21.model.Procedure.ProcedurePerformerComponent;
-import org.hl7.fhir.dstu21.model.Reference;
-import org.hl7.fhir.dstu21.model.ResourceFactory;
-import org.hl7.fhir.dstu21.utils.IWorkerContext;
-import org.hl7.fhir.dstu21.utils.NarrativeGenerator;
-import org.hl7.fhir.dstu21.utils.ToolingExtensions;
+import org.hl7.fhir.dstu3.model.AllergyIntolerance;
+import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.CodeableConcept;
+import org.hl7.fhir.dstu3.model.Coding;
+import org.hl7.fhir.dstu3.model.Comparison;
+import org.hl7.fhir.dstu3.model.Composition;
+import org.hl7.fhir.dstu3.model.ContactPoint;
+import org.hl7.fhir.dstu3.model.Device;
+import org.hl7.fhir.dstu3.model.DomainResource;
+import org.hl7.fhir.dstu3.model.Encounter;
+import org.hl7.fhir.dstu3.model.Extension;
+import org.hl7.fhir.dstu3.model.Factory;
+import org.hl7.fhir.dstu3.model.Identifier;
+import org.hl7.fhir.dstu3.model.InstantType;
+import org.hl7.fhir.dstu3.model.ListResource;
+import org.hl7.fhir.dstu3.model.Location;
+import org.hl7.fhir.dstu3.model.Meta;
+import org.hl7.fhir.dstu3.model.Narrative;
+import org.hl7.fhir.dstu3.model.Observation;
+import org.hl7.fhir.dstu3.model.Organization;
+import org.hl7.fhir.dstu3.model.Patient;
+import org.hl7.fhir.dstu3.model.Period;
+import org.hl7.fhir.dstu3.model.Practitioner;
+import org.hl7.fhir.dstu3.model.Procedure;
+import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.dstu3.model.ResourceFactory;
+import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceCriticality;
+import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceReactionComponent;
+import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceSeverity;
+import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceStatus;
+import org.hl7.fhir.dstu3.model.AllergyIntolerance.AllergyIntoleranceType;
+import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.Composition.CompositionAttestationMode;
+import org.hl7.fhir.dstu3.model.Composition.CompositionAttesterComponent;
+import org.hl7.fhir.dstu3.model.Composition.SectionComponent;
+import org.hl7.fhir.dstu3.model.ListResource.ListEntryComponent;
+import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.dstu3.model.Observation.ObservationRelatedComponent;
+import org.hl7.fhir.dstu3.model.Observation.ObservationRelationshipType;
+import org.hl7.fhir.dstu3.model.Observation.ObservationStatus;
+import org.hl7.fhir.dstu3.model.Procedure.ProcedurePerformerComponent;
+import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.utilities.ucum.UcumService;
 import org.w3c.dom.Element;
 
@@ -178,15 +178,15 @@ public class CCDAConverter {
 	}
 
 
-	private CDAUtilities cda;
-	private Element doc; 
-	private Convert convert;
-	private Bundle feed;
-	private Composition composition;
-	private Map<String, Practitioner> practitionerCache = new HashMap<String, Practitioner>();
-	private Integer refCounter = 0;
-	private UcumService ucumSvc;
-	private IWorkerContext context;
+	protected CDAUtilities cda;
+	protected Element doc; 
+	protected Convert convert;
+	protected Bundle feed;
+	protected Composition composition;
+	protected Map<String, Practitioner> practitionerCache = new HashMap<String, Practitioner>();
+	protected Integer refCounter = 0;
+	protected UcumService ucumSvc;
+	protected IWorkerContext context;
 
 
 	public CCDAConverter(UcumService ucumSvc, IWorkerContext context) {
@@ -231,7 +231,7 @@ public class CCDAConverter {
 	}
 
 
-	private String addReference(DomainResource r, String title, String id) throws Exception {
+	protected String addReference(DomainResource r, String title, String id) throws Exception {
 		if (r.getText() == null)
 			r.setText(new Narrative());
 		if (r.getText().getDiv() == null) {
@@ -244,7 +244,7 @@ public class CCDAConverter {
 		return id;
 	}
 
-	private void makeDocument() throws Exception {
+	protected void makeDocument() throws Exception {
 		composition = (Composition) ResourceFactory.createReference("Composition");
 		addReference(composition, "Composition", makeUUIDReference());
 
@@ -280,13 +280,13 @@ public class CCDAConverter {
 		// main todo: fill out the narrative, but before we can do that, we have to convert everything else
 	}
 
-	private String convertConfidentiality(Element child) {
+	protected String convertConfidentiality(Element child) {
 		// TODO Auto-generated method stub
 		return child.getAttribute("code");
 	}
 
 
-	private String makeSubject() throws Exception {
+	protected String makeSubject() throws Exception {
 		Element rt = cda.getChild(doc, "recordTarget");
 		Element pr = cda.getChild(rt, "patientRole");
 		Element p = cda.getChild(pr, "patient");
@@ -338,7 +338,7 @@ public class CCDAConverter {
 	}
 
 
-	private String makeOrganization(Element org, String name) throws Exception {
+	protected String makeOrganization(Element org, String name) throws Exception {
 		Organization o = new Organization();
 		for (Element e : cda.getChildren(org, "id"))
 			o.getIdentifier().add(convert.makeIdentifierFromII(e));
@@ -352,7 +352,7 @@ public class CCDAConverter {
 		return addReference(o, name, makeUUIDReference());
 	}
 
-	private String makeAuthor(Element auth) throws Exception {
+	protected String makeAuthor(Element auth) throws Exception {
 		Element aa = cda.getChild(auth, "assignedAuthor");
 		Element ap = cda.getChild(aa, "assignedPerson");
 
@@ -372,12 +372,12 @@ public class CCDAConverter {
 	}
 
 
-	private String makeUUIDReference() {
+	protected String makeUUIDReference() {
 		return "urn:uuid:"+UUID.randomUUID().toString().toLowerCase();
 	}
 
 
-	private CompositionAttesterComponent makeAttester(Element a1, CompositionAttestationMode mode, String title) throws Exception {
+	protected CompositionAttesterComponent makeAttester(Element a1, CompositionAttestationMode mode, String title) throws Exception {
 		Practitioner  pr = (Practitioner) ResourceFactory.createReference("Practitioner");
 		Element ass = cda.getChild(a1, "assignedEntity");
 		for (Element e : cda.getChildren(ass, "id"))
@@ -401,7 +401,7 @@ public class CCDAConverter {
 	}
 
 
-	private void processComponentSections(List<SectionComponent> sections, Element container) throws Exception {
+	protected void processComponentSections(List<SectionComponent> sections, Element container) throws Exception {
 		for (Element c : cda.getChildren(container, "component")) {
 			SectionComponent s = processSection(cda.getChild(c, "section"));
 			if (s != null) 
@@ -411,7 +411,7 @@ public class CCDAConverter {
 	}
 
 
-	private SectionComponent processSection(Element section) throws Exception {
+	protected SectionComponent processSection(Element section) throws Exception {
 		checkNoSubject(section, "Section");
 		// this we do by templateId
 		if (cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6") || cda.hasTemplateId(section, "2.16.840.1.113883.10.20.22.2.6.1"))
@@ -428,13 +428,13 @@ public class CCDAConverter {
 	}
 
 
-	private void checkNoSubject(Element act, String path) throws Exception {
+	protected void checkNoSubject(Element act, String path) throws Exception {
 		if (cda.getChild(act, "subject") != null) 
 			throw new Exception("The conversion program cannot accept a nullFlavor at the location "+path);	  
 	}
 
 
-	private SectionComponent processProceduresSection(Element section) throws Exception {
+	protected SectionComponent processProceduresSection(Element section) throws Exception {
 		ListResource list = new ListResource();
 		for (Element entry : cda.getChildren(section, "entry")) {
 			Element procedure = cda.getlastChild(entry);
@@ -458,7 +458,7 @@ public class CCDAConverter {
 
 	}
 
-	private void processProcedure(ListResource list, Element procedure, ProcedureType type) throws Exception {
+	protected void processProcedure(ListResource list, Element procedure, ProcedureType type) throws Exception {
 		switch (type) {
 		case Procedure : 
 			cda.checkTemplateId(procedure, "2.16.840.1.113883.10.20.22.4.14");
@@ -556,7 +556,7 @@ public class CCDAConverter {
 	}
 
 
-	private String processSDLocation(Element participantRole, DomainResource r) throws Exception {
+	protected String processSDLocation(Element participantRole, DomainResource r) throws Exception {
 		Location l = new Location();
 		l.setType(convert.makeCodeableConceptFromCD(cda.getChild(participantRole, "code")));
 		for (Element id : cda.getChildren(participantRole, "id")) {
@@ -584,7 +584,7 @@ public class CCDAConverter {
 	}
 
 
-	private String processDevice(Element participantRole, DomainResource r) throws Exception {
+	protected String processDevice(Element participantRole, DomainResource r) throws Exception {
 		Device d = new Device();
 		for (Element id : cda.getChildren(participantRole, "id")) {
 			// todo: check for UDIs, how? 
@@ -605,7 +605,7 @@ public class CCDAConverter {
 	}
 
 
-	private CodeableConcept processIndication(Element obs) throws Exception {
+	protected CodeableConcept processIndication(Element obs) throws Exception {
 		Element v = cda.getChild(obs, "value");
 		if (v == null) {
 			// have to find it by ID
@@ -619,7 +619,7 @@ public class CCDAConverter {
 			return null;
 	}
 
-	private Reference makeReferenceToPractitionerForAssignedEntity(Element assignedEntity, DomainResource r) throws Exception {
+	protected Reference makeReferenceToPractitionerForAssignedEntity(Element assignedEntity, DomainResource r) throws Exception {
 
 		Reference ref = null;
 		// do we have this by id? 
@@ -660,7 +660,7 @@ public class CCDAConverter {
 	}
 
 
-	private void addToContactList(List<ContactPoint> list, ContactPoint c) throws Exception {
+	protected void addToContactList(List<ContactPoint> list, ContactPoint c) throws Exception {
 		for (ContactPoint item : list) {
 			if (Comparison.matches(item, c, null)) 
 				Comparison.merge(item, c);
@@ -669,7 +669,7 @@ public class CCDAConverter {
 	}
 
 
-	private void addToIdList(List<Identifier> list, Identifier id) throws Exception {
+	protected void addToIdList(List<Identifier> list, Identifier id) throws Exception {
 		for (Identifier item : list) {
 			if (Comparison.matches(item, id, null)) 
 				Comparison.merge(item, id);
@@ -678,7 +678,7 @@ public class CCDAConverter {
 	}
 
 
-	private void addToCodeableList(List<CodeableConcept> list, CodeableConcept code) throws Exception {
+	protected void addToCodeableList(List<CodeableConcept> list, CodeableConcept code) throws Exception {
 		for (CodeableConcept item : list) {
 			if (Comparison.matches(item, code, null)) 
 				Comparison.merge(item, code);
@@ -687,7 +687,7 @@ public class CCDAConverter {
 	}
 
 
-	private String getIdForEntity(Element assignedEntity) throws Exception {
+	protected String getIdForEntity(Element assignedEntity) throws Exception {
 		Element id = cda.getChild(assignedEntity, "id"); // for now, just grab the first
 		if (id == null)
 			return null;
@@ -701,7 +701,7 @@ public class CCDAConverter {
 	}
 
 
-	private SectionComponent processAdverseReactionsSection(Element section) throws Exception {
+	protected SectionComponent processAdverseReactionsSection(Element section) throws Exception {
 		ListResource list = new ListResource();
 		for (Element entry : cda.getChildren(section, "entry")) {
 			Element concern = cda.getChild(entry, "act");
@@ -721,7 +721,7 @@ public class CCDAConverter {
 	}
 
 
-	private void processAllergyProblemAct(ListResource list, Element concern) throws Exception {
+	protected void processAllergyProblemAct(ListResource list, Element concern) throws Exception {
 		cda.checkTemplateId(concern, "2.16.840.1.113883.10.20.22.4.30");  
 		// Allergy Problem Act - this is a concern - we treat the concern as information about it's place in the list
 		checkNoNegationOrNullFlavor(concern, "Allergy Problem Act");
@@ -808,7 +808,7 @@ public class CCDAConverter {
 
 
 	// this is going to be a contained resource, so we aren't going to generate any narrative
-	private AllergyIntoleranceReactionComponent processAdverseReactionObservation(Element reaction) throws Exception {
+	protected AllergyIntoleranceReactionComponent processAdverseReactionObservation(Element reaction) throws Exception {
 		checkNoNegationOrNullFlavor(reaction, "Adverse Reaction Observation");
 		checkNoSubject(reaction, "Adverse Reaction Observation");
 
@@ -849,7 +849,7 @@ public class CCDAConverter {
 	}
 
 
-	private SectionComponent processSocialHistorySection(Element section) throws Exception {
+	protected SectionComponent processSocialHistorySection(Element section) throws Exception {
 		ListResource list = new ListResource();
 		for (Element entry : cda.getChildren(section, "entry")) {
 			Element observation = cda.getlastChild(entry);
@@ -877,7 +877,7 @@ public class CCDAConverter {
 
 
 
-	private void processSocialObservation(ListResource list, Element so,   SocialHistoryType type) throws Exception {
+	protected void processSocialObservation(ListResource list, Element so,   SocialHistoryType type) throws Exception {
 		Observation obs = new Observation();
 		addItemToList(list, obs);
 
@@ -965,12 +965,12 @@ public class CCDAConverter {
 	}
 
 
-	private void checkNoNegation(Element act, String path) throws Exception {
+	protected void checkNoNegation(Element act, String path) throws Exception {
 		if ("true".equals(act.getAttribute("negationInd")))
 			throw new Exception("The conversion program cannot accept a negationInd at the location "+path);
 	}
 
-	private void checkNoNegationOrNullFlavor(Element act, String path) throws Exception {
+	protected void checkNoNegationOrNullFlavor(Element act, String path) throws Exception {
 		if (act.hasAttribute("nullFlavor"))
 			throw new Exception("The conversion program cannot accept a nullFlavor at the location "+path);
 		if ("true".equals(act.getAttribute("negationInd")))
@@ -978,7 +978,7 @@ public class CCDAConverter {
 	}
 
 
-	private ListEntryComponent addItemToList(ListResource list, DomainResource ai)
+	protected ListEntryComponent addItemToList(ListResource list, DomainResource ai)
 			throws Exception {
 		list.getContained().add(ai);
 		String n = nextRef();
@@ -990,13 +990,13 @@ public class CCDAConverter {
 	}
 
 
-	private String nextRef() {
+	protected String nextRef() {
 		refCounter++;
 		String n = refCounter.toString();
 		return n;
 	}
 
-	private AllergyIntoleranceCriticality readCriticality(String severity) {
+	protected AllergyIntoleranceCriticality readCriticality(String severity) {
 		if ("255604002".equals(severity)) // Mild 
 			return AllergyIntoleranceCriticality.CRITL; 
 		if ("371923003".equals(severity)) //  Mild to moderate 
@@ -1013,7 +1013,7 @@ public class CCDAConverter {
 	}
 
 
-	private AllergyIntoleranceSeverity readSeverity(String severity) {
+	protected AllergyIntoleranceSeverity readSeverity(String severity) {
 		if ("255604002".equals(severity)) // Mild 
 			return AllergyIntoleranceSeverity.MILD; 
 		if ("371923003".equals(severity)) //  Mild to moderate 
@@ -1030,7 +1030,7 @@ public class CCDAConverter {
 	}
 
 
-	private SectionComponent processVitalSignsSection(Element section) throws Exception {
+	protected SectionComponent processVitalSignsSection(Element section) throws Exception {
 		ListResource list = new ListResource();
 		for (Element entry : cda.getChildren(section, "entry")) {
 			Element organizer = cda.getlastChild(entry);
@@ -1050,7 +1050,7 @@ public class CCDAConverter {
 
 	}
 
-	private void processVitalSignsOrganizer(ListResource list, Element organizer) throws Exception {
+	protected void processVitalSignsOrganizer(ListResource list, Element organizer) throws Exception {
 
 		cda.checkTemplateId(organizer, "2.16.840.1.113883.10.20.22.4.26");
 		checkNoNegationOrNullFlavor(organizer, "Vital Signs Organizer");
@@ -1082,7 +1082,7 @@ public class CCDAConverter {
 	}
 
 
-	private String processVitalSignsObservation(Element comp, ListResource list) throws Exception {
+	protected String processVitalSignsObservation(Element comp, ListResource list) throws Exception {
 		Element observation = cda.getChild(comp, "observation");
 		cda.checkTemplateId(observation, "2.16.840.1.113883.10.20.22.4.27");
 		checkNoNegationOrNullFlavor(observation, "Vital Signs Observation");

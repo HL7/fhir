@@ -109,7 +109,7 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
   }
 
   private void genTypeConvertor() throws IOException {
-    write("  public static org.hl7.fhir.dstu21.model.Type convertType(org.hl7.fhir.dstu2.model.Type src) {\r\n");
+    write("  public static org.hl7.fhir.dstu3.model.Type convertType(org.hl7.fhir.dstu2.model.Type src) {\r\n");
     write("    if (src == null)\r\n");
     write("      return null;\r\n");
     for (String s : sorted(definitions.getPrimitives().keySet())) {
@@ -141,41 +141,41 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
 
     write("    throw new Error(\"Unknown type \"+src.fhirType());\r\n");
     write("  }\r\n\r\n");
-    write("  public static org.hl7.fhir.dstu2.model.Type convertType(org.hl7.fhir.dstu21.model.Type src) {\r\n");
+    write("  public static org.hl7.fhir.dstu2.model.Type convertType(org.hl7.fhir.dstu3.model.Type src) {\r\n");
     write("    if (src == null)\r\n");
     write("      return null;\r\n");
     for (String s : sorted(definitions.getPrimitives().keySet())) {
-      write("    if (src instanceof org.hl7.fhir.dstu21.model."+upFirst(s)+"Type)\r\n");
-      write("      return convert"+upFirst(s)+"((org.hl7.fhir.dstu21.model."+upFirst(s)+"Type) src);\r\n");
+      write("    if (src instanceof org.hl7.fhir.dstu3.model."+upFirst(s)+"Type)\r\n");
+      write("      return convert"+upFirst(s)+"((org.hl7.fhir.dstu3.model."+upFirst(s)+"Type) src);\r\n");
     }
     for (String s : sorted(definitions.getInfrastructure().keySet())) {
       if (!exemptTypeName(s)) {
-        write("    if (src instanceof org.hl7.fhir.dstu21.model."+s+")\r\n");
-        write("      return convert"+s+"((org.hl7.fhir.dstu21.model."+s+") src);\r\n");
+        write("    if (src instanceof org.hl7.fhir.dstu3.model."+s+")\r\n");
+        write("      return convert"+s+"((org.hl7.fhir.dstu3.model."+s+") src);\r\n");
       }
     }
     for (String s : sorted(definitions.getTypes().keySet())) {
       if (!exemptTypeName(s)) {
-      write("    if (src instanceof org.hl7.fhir.dstu21.model."+s+")\r\n");
-      write("      return convert"+s+"((org.hl7.fhir.dstu21.model."+s+") src);\r\n");
+      write("    if (src instanceof org.hl7.fhir.dstu3.model."+s+")\r\n");
+      write("      return convert"+s+"((org.hl7.fhir.dstu3.model."+s+") src);\r\n");
       }
     }
     for (String s : sorted(definitions.getStructures().keySet())) {
       if (!exemptTypeName(s)) {
-      write("    if (src instanceof org.hl7.fhir.dstu21.model."+s+")\r\n");
-      write("      return convert"+s+"((org.hl7.fhir.dstu21.model."+s+") src);\r\n");
+      write("    if (src instanceof org.hl7.fhir.dstu3.model."+s+")\r\n");
+      write("      return convert"+s+"((org.hl7.fhir.dstu3.model."+s+") src);\r\n");
       }
     }    
     for (String s : sorted(definitions.getConstraints().keySet())) {
-      write("    if (src instanceof org.hl7.fhir.dstu21.model."+s+")\r\n");
-      write("      return convert"+s+"((org.hl7.fhir.dstu21.model."+s+") src);\r\n");
+      write("    if (src instanceof org.hl7.fhir.dstu3.model."+s+")\r\n");
+      write("      return convert"+s+"((org.hl7.fhir.dstu3.model."+s+") src);\r\n");
     }
     write("    throw new Error(\"Unknown type \"+src.fhirType());\r\n");
     write("  }\r\n\r\n");
   }
 
   private void genResourceConvertor() throws IOException {
-    write("  public static org.hl7.fhir.dstu21.model.Resource convertResource(org.hl7.fhir.dstu2.model.Resource src) {\r\n");
+    write("  public static org.hl7.fhir.dstu3.model.Resource convertResource(org.hl7.fhir.dstu2.model.Resource src) {\r\n");
     write("    if (src == null)\r\n");
     write("      return null;\r\n");
     for (String s : sorted(definitions.getBaseResources().keySet())) {
@@ -191,13 +191,13 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
     write("    throw new Error(\"Unknown resource \"+src.fhirType());\r\n");
     write("  }\r\n\r\n");
     
-    write("  public static org.hl7.fhir.dstu2.model.Resource convertResource(org.hl7.fhir.dstu21.model.Resource src) {\r\n");
+    write("  public static org.hl7.fhir.dstu2.model.Resource convertResource(org.hl7.fhir.dstu3.model.Resource src) {\r\n");
     write("    if (src == null)\r\n");
     write("      return null;\r\n");
     for (String s : sorted(definitions.getBaseResources().keySet())) {
       if (!definitions.getBaseResources().get(s).isAbstract()) {
-        write("    if (src instanceof org.hl7.fhir.dstu21.model."+s+")\r\n");
-        write("      return convert"+s+"((org.hl7.fhir.dstu21.model."+s+") src);\r\n");
+        write("    if (src instanceof org.hl7.fhir.dstu3.model."+s+")\r\n");
+        write("      return convert"+s+"((org.hl7.fhir.dstu3.model."+s+") src);\r\n");
       }
     }
     for (String s : sorted(definitions.getResources().keySet())) {
@@ -234,30 +234,30 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
   }
 
   private void genVersionCommon() throws IOException {
-    write("  private static void copyElement(org.hl7.fhir.dstu2.model.Element src, org.hl7.fhir.dstu21.model.Element tgt) {\r\n");
+    write("  private static void copyElement(org.hl7.fhir.dstu2.model.Element src, org.hl7.fhir.dstu3.model.Element tgt) {\r\n");
     write("    tgt.setId(src.getId());\r\n");
     write("    for (org.hl7.fhir.dstu2.model.Extension  e : src.getExtension()) {\r\n");
     write("      tgt.addExtension(convertExtension(e));\r\n");
     write("    }\r\n");
     write("  }\r\n\r\n");
 
-    write("  private static void copyElement(org.hl7.fhir.dstu21.model.Element src, org.hl7.fhir.dstu2.model.Element tgt) {\r\n");
+    write("  private static void copyElement(org.hl7.fhir.dstu3.model.Element src, org.hl7.fhir.dstu2.model.Element tgt) {\r\n");
     write("    tgt.setId(src.getId());\r\n");
-    write("    for (org.hl7.fhir.dstu21.model.Extension  e : src.getExtension()) {\r\n");
+    write("    for (org.hl7.fhir.dstu3.model.Extension  e : src.getExtension()) {\r\n");
     write("      tgt.addExtension(convertExtension(e));\r\n");
     write("    }\r\n");
     write("  }\r\n\r\n");
 
-    write("  private static void copyBackboneElement(org.hl7.fhir.dstu2.model.BackboneElement src, org.hl7.fhir.dstu21.model.BackboneElement tgt) {\r\n");
+    write("  private static void copyBackboneElement(org.hl7.fhir.dstu2.model.BackboneElement src, org.hl7.fhir.dstu3.model.BackboneElement tgt) {\r\n");
     write("    copyElement(src, tgt);\r\n");
     write("    for (org.hl7.fhir.dstu2.model.Extension  e : src.getModifierExtension()) {\r\n");
     write("      tgt.addModifierExtension(convertExtension(e));\r\n");
     write("    }\r\n");
     write("  }\r\n\r\n");
 
-    write("  private static void copyBackboneElement(org.hl7.fhir.dstu21.model.BackboneElement src, org.hl7.fhir.dstu2.model.BackboneElement tgt) {\r\n");
+    write("  private static void copyBackboneElement(org.hl7.fhir.dstu3.model.BackboneElement src, org.hl7.fhir.dstu2.model.BackboneElement tgt) {\r\n");
     write("    copyElement(src, tgt);\r\n");
-    write("    for (org.hl7.fhir.dstu21.model.Extension  e : src.getModifierExtension()) {\r\n");
+    write("    for (org.hl7.fhir.dstu3.model.Extension  e : src.getModifierExtension()) {\r\n");
     write("      tgt.addModifierExtension(convertExtension(e));\r\n");
     write("    }\r\n");
     write("  }\r\n\r\n");
@@ -266,12 +266,12 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
 
   private void genVersionConvertor(DefinedCode pt) throws IOException {
     String tn = getPrimitiveTypeModelName(pt.getCode());
-    write("  public static org.hl7.fhir.dstu21.model."+tn+" convert"+tn.substring(0,  tn.length()-4)+"(org.hl7.fhir.dstu2.model."+tn+" src) {\r\n");
-    write("    org.hl7.fhir.dstu21.model."+tn+" tgt = new org.hl7.fhir.dstu21.model."+tn+"(src.getValue());\r\n");
+    write("  public static org.hl7.fhir.dstu3.model."+tn+" convert"+tn.substring(0,  tn.length()-4)+"(org.hl7.fhir.dstu2.model."+tn+" src) {\r\n");
+    write("    org.hl7.fhir.dstu3.model."+tn+" tgt = new org.hl7.fhir.dstu3.model."+tn+"(src.getValue());\r\n");
     write("    copyElement(src, tgt);\r\n");
     write("    return tgt;\r\n");
     write("  }\r\n\r\n");
-    write("  public static org.hl7.fhir.dstu2.model."+tn+" convert"+tn.substring(0,  tn.length()-4)+"(org.hl7.fhir.dstu21.model."+tn+" src) {\r\n");
+    write("  public static org.hl7.fhir.dstu2.model."+tn+" convert"+tn.substring(0,  tn.length()-4)+"(org.hl7.fhir.dstu3.model."+tn+" src) {\r\n");
     write("    org.hl7.fhir.dstu2.model."+tn+" tgt = new org.hl7.fhir.dstu2.model."+tn+"(src.getValue());\r\n");
     write("    copyElement(src, tgt);\r\n");
     write("    return tgt;\r\n");
@@ -299,7 +299,7 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
   }
   
   private void generate(ElementDefn root, ElementDefn n, JavaGenClass clss, String nameOverride) throws Exception {
-    if (exemptTypeName(n.getName())) 
+    if (exemptTypeName(n.getName()) || !r2TypeName(n.getName())) 
       return;
 
     typeNames.clear();
@@ -323,6 +323,15 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
 
   }
 
+  private boolean r2TypeName(String name) {
+    return Utilities.existsInList(name, "base64Binary", "boolean", "code", "date", "dateTime", "decimal", "id", "instant", "integer", "markdown", "oid", "positiveInt", "sid", "string", "time", "unsignedInt", "uri", "uuid", "Account", "Address", "Age", "AllergyIntolerance", "Annotation", "Appointment", "AppointmentResponse", "Attachment", "AuditEvent", 
+        "BackboneElement", "Basic", "Binary", "BodySite", "Bundle", "CarePlan", "Claim", "ClaimResponse", "ClinicalImpression", "CodeableConcept", "Coding", "Communication", "CommunicationRequest", "Comparison", "Composition", "ConceptMap", "Condition", "Configuration", "Conformance", "Constants", "ContactPoint", "Contract", "Count", "Coverage", "DataElement", "DetectedIssue", "Device", 
+        "DeviceComponent", "DeviceMetric", "DeviceUseRequest", "DeviceUseStatement", "DiagnosticOrder", "DiagnosticReport", "Distance", "DocumentManifest", "DocumentReference", "DomainResource", "Duration", "Element", "ElementDefinition", "EligibilityRequest", "EligibilityResponse", "Encounter", "EnrollmentRequest", "EnrollmentResponse", "EpisodeOfCare", "ExplanationOfBenefit", "ExpressionNode", "Extension", "FamilyMemberHistory", "Flag", "Goal", 
+        "Group", "HealthcareService", "HumanName", "Identifier", "ImagingObjectSelection", "ImagingStudy", "Immunization", "ImmunizationRecommendation", "ImplementationGuide", "List_", "Location", "Media", "Medication", "MedicationAdministration", "MedicationDispense", "MedicationOrder", "MedicationStatement", "MessageHeader", "Meta", "Money", "NamingSystem", "Narrative", "NutritionOrder", "Observation", "OperationDefinition", "OperationOutcome", "Order", "OrderResponse", "Organization", 
+        "Parameters", "Patient", "PaymentNotice", "PaymentReconciliation", "Period", "Person", "Practitioner", "Procedure", "ProcedureRequest", "ProcessRequest", "ProcessResponse", "Property", "Provenance", "Quantity", "Questionnaire", "QuestionnaireResponse", "Range", "Ratio", "Reference", "ReferralRequest", "RelatedPerson", "Resource", "Resource", "RiskAssessment", 
+        "SampledData", "Schedule", "SearchParameter", "Signature", "SimpleQuantity", "Slot", "Specimen", "StructureDefinition", "Subscription", "Substance", "SupplyDelivery", "SupplyRequest", "TemporalPrecisionEnum", "TestScript", "Timing", "ValueSet", "VisionPrescription");
+  }
+
   private String javaClassName(String name) {
     if (name.equals("List"))
       return "ListResource";
@@ -343,10 +352,10 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
       stn = tn.contains(".") ? tn.substring(tn.lastIndexOf(".") + 1) : tn;
     }
     
-    write("  public static org.hl7.fhir.dstu21.model."+tn+" convert"+stn+"(org.hl7.fhir.dstu2.model."+tn+" src) {\r\n");
+    write("  public static org.hl7.fhir.dstu3.model."+tn+" convert"+stn+"(org.hl7.fhir.dstu2.model."+tn+" src) {\r\n");
     write("    if (src == null)\r\n");
     write("      return null;\r\n");
-    write("    org.hl7.fhir.dstu21.model."+tn+" tgt = new org.hl7.fhir.dstu21.model."+tn+"();\r\n");
+    write("    org.hl7.fhir.dstu3.model."+tn+" tgt = new org.hl7.fhir.dstu3.model."+tn+"();\r\n");
     String parentType = ed.typeCode();
     if (Utilities.noString(parentType) || parentType.equals("Type") || parentType.equals("Structure"))
       parentType = "Element";
@@ -355,7 +364,7 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
     write("    return tgt;\r\n");
     write("  }\r\n\r\n");
     
-    write("  public static org.hl7.fhir.dstu2.model."+tn+" convert"+stn+"(org.hl7.fhir.dstu21.model."+tn+" src) {\r\n");
+    write("  public static org.hl7.fhir.dstu2.model."+tn+" convert"+stn+"(org.hl7.fhir.dstu3.model."+tn+" src) {\r\n");
     write("    if (src == null)\r\n");
     write("      return null;\r\n");
     write("    org.hl7.fhir.dstu2.model."+tn+" tgt = new org.hl7.fhir.dstu2.model."+tn+"();\r\n");
@@ -422,19 +431,19 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
     elist.add(cn);
     
     StringBuilder b = new StringBuilder();
-    b.append("  private static org.hl7.fhir.dstu21.model."+ctn+" "+cn+"(org.hl7.fhir.dstu2.model."+ctn+" src) {\r\n");
+    b.append("  private static org.hl7.fhir.dstu3.model."+ctn+" "+cn+"(org.hl7.fhir.dstu2.model."+ctn+" src) {\r\n");
     b.append("    if (src == null)\r\n");
     b.append("      return null;\r\n");
     b.append("    switch (src) {\r\n");
     for (DefinedCode c : cd.getAllCodes(definitions.getCodeSystems(), definitions.getValuesets(), true)) {
       String cc = Utilities.camelCase(c.getCode());
       cc = makeConst(cc);
-      b.append("    case "+cc+": return org.hl7.fhir.dstu21.model."+ctn+"."+cc+";\r\n");
+      b.append("    case "+cc+": return org.hl7.fhir.dstu3.model."+ctn+"."+cc+";\r\n");
     } 
-    b.append("    default: return org.hl7.fhir.dstu21.model."+ctn+".NULL;\r\n");
+    b.append("    default: return org.hl7.fhir.dstu3.model."+ctn+".NULL;\r\n");
     b.append("  }\r\n");
     b.append("}\r\n\r\n");
-    b.append("  private static org.hl7.fhir.dstu2.model."+ctn+" "+cn+"(org.hl7.fhir.dstu21.model."+ctn+" src) {\r\n");
+    b.append("  private static org.hl7.fhir.dstu2.model."+ctn+" "+cn+"(org.hl7.fhir.dstu3.model."+ctn+" src) {\r\n");
     b.append("    if (src == null)\r\n");
     b.append("      return null;\r\n");
     b.append("    switch (src) {\r\n");
@@ -453,12 +462,12 @@ public class JavaConverterGenerator extends JavaBaseGenerator {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
     String parent = n.typeCode();
     String es = "";
-    write("  private static void copy"+tn+"(org.hl7.fhir.dstu2.model."+tn+" src, org.hl7.fhir.dstu21.model."+tn+" tgt) {\r\n");
+    write("  private static void copy"+tn+"(org.hl7.fhir.dstu2.model."+tn+" src, org.hl7.fhir.dstu3.model."+tn+" tgt) {\r\n");
     if (!Utilities.noString(parent))
       write("    copy"+parent+"(src, tgt);\r\n");
     es = processElements(n, n, es, "2");
     write("  }\r\n");
-    write("  private static void copy"+tn+"(org.hl7.fhir.dstu21.model."+tn+" src, org.hl7.fhir.dstu2.model."+tn+" tgt) {\r\n");
+    write("  private static void copy"+tn+"(org.hl7.fhir.dstu3.model."+tn+" src, org.hl7.fhir.dstu2.model."+tn+" tgt) {\r\n");
     if (!Utilities.noString(parent))
       write("    copy"+parent+"(src, tgt);\r\n");
     es = processElements(n, n, es, "21");

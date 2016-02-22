@@ -1,30 +1,4 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/sequence-referenceSeq",
-  "outcomes": [
-    {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/nuccore/|null|NM_000927.4|Homo sapiens ATP-binding cassette, sub-family B (MDR/TAP), member 1 (ABCB1), mRNA",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/nuccore/|null|NC_000007.14|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://www.ensembl.org/|null|ENSP00000252486|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://www.ensembl.org|null|ENSESTT00000085772.1|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/nuccore/|null|NM_007298.3|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    }
-  ]
+  "outcomes": []
 }

@@ -57,17 +57,6 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "L",
-        "definition": null,
-        "display": "Low"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|POS|null",
       "severity": null,
       "message": null,
@@ -76,6 +65,17 @@
         "code": "POS",
         "definition": null,
         "display": "Positive"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "L",
+        "definition": null,
+        "display": "Low"
       }
     },
     {

@@ -3,8 +3,14 @@
   "outcomes": [
     {
       "hash": "#|http://snomed.info/sct|null|337915000|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Human"
+      }
     }
   ]
 }

@@ -67,17 +67,6 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRFTH|maternal grandfather",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "MGRFTH",
-        "definition": null,
-        "display": "maternal grandfather"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PUNCLE|paternal uncle",
       "severity": null,
       "message": null,
@@ -86,6 +75,17 @@
         "code": "PUNCLE",
         "definition": null,
         "display": "paternal uncle"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRFTH|maternal grandfather",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MGRFTH",
+        "definition": null,
+        "display": "maternal grandfather"
       }
     },
     {
@@ -171,17 +171,6 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|GRFTH|grandfather",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "GRFTH",
-        "definition": null,
-        "display": "grandfather"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|EXT|extended family member",
       "severity": null,
       "message": null,
@@ -190,6 +179,17 @@
         "code": "EXT",
         "definition": null,
         "display": "extended family member"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|GRFTH|grandfather",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "GRFTH",
+        "definition": null,
+        "display": "grandfather"
       }
     },
     {
@@ -259,17 +259,6 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRMTH|paternal grandmother",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "PGRMTH",
-        "definition": null,
-        "display": "paternal grandmother"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MCOUSN|maternal cousin",
       "severity": null,
       "message": null,
@@ -278,6 +267,17 @@
         "code": "MCOUSN",
         "definition": null,
         "display": "maternal cousin"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRMTH|paternal grandmother",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "PGRMTH",
+        "definition": null,
+        "display": "paternal grandmother"
       }
     },
     {

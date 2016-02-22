@@ -544,6 +544,12 @@
   Description = A use context assigned to the code system
   Path = CodeSystem.useContext
 
+ -- Row 12 -----------------------------------
+  Name = language
+  Type = token
+  Description = A language in which a designation is provided
+  Path = CodeSystem.concept.designation.language
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------

@@ -55,10 +55,10 @@ public class JavaFactoryGenerator extends OutputStreamWriter {
   }
   
 	public void generate(String version, Date genDate) throws Exception {
-		write("package org.hl7.fhir.dstu21.model;\r\n");
+		write("package org.hl7.fhir.dstu3.model;\r\n");
     write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
     write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
-    write("import org.hl7.fhir.dstu21.exceptions.FHIRException;\r\n");
+    write("import org.hl7.fhir.dstu3.exceptions.FHIRException;\r\n");
     write("\r\n");
 		write("public class ResourceFactory extends Factory {\r\n");
 		write("\r\n");

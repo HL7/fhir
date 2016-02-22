@@ -55,7 +55,7 @@ import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.SearchParameterDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.dstu21.validation.ValidationMessage;
+import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.tools.publisher.FolderManager;
@@ -99,16 +99,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   @Override
   public String getTitle() {
     return "Pascal";
-  }
-
-  @Override
-  public boolean isECoreGenerator() {
-    return false;
-  }
-
-  @Override
-  public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
-    throw new UnsupportedOperationException("Pascal generator uses ElementDefn-style definitions.");
   }
 
   @Override

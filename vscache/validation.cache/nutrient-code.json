@@ -58,14 +58,8 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|256674009|Fat",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Fat"
-      }
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Nutrient Modifier Codes"
     }
   ]
 }

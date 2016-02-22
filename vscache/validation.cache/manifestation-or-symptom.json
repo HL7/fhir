@@ -3,14 +3,8 @@
   "outcomes": [
     {
       "hash": "#|http://snomed.info/sct|null|258710007|degrees C",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Degrees Celsius (qualifier value)"
-      }
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
     },
     {
       "hash": "#|http://snomed.info/sct|null|426396005|Cardiac chest pain",
@@ -25,25 +19,13 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|169068008|CT of neck",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Computed tomography of neck (procedure)"
-      }
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
     },
     {
       "hash": "#|http://snomed.info/sct|null|169069000|CT of thorax",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Chest CT"
-      }
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
     }
   ]
 }

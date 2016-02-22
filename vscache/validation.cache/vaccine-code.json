@@ -1,32 +1,4 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/vaccine-code",
-  "outcomes": [
-    {
-      "hash": "#|urn:oid:1.2.36.1.2001.1005.17|null|FLUVAX|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/sid/cvx|null|01|DTP",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "DTP"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|14745005|Hepatitis A vaccine",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Hepatitis A virus vaccine (product)"
-      }
-    }
-  ]
+  "outcomes": []
 }

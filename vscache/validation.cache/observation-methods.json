@@ -18,12 +18,12 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|120220003|Injection to forearm",
+      "hash": "#|http://www.ncbi.nlm.nih.gov/gtr/|null|GTR000521311.1|BRACAnalysis CDx Offered by Myriad Genetic Laboratories, Inc",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/gtr/|null|GTR000521311.1|BRACAnalysis CDx Offered by Myriad Genetic Laboratories, Inc",
+      "hash": "#|http://snomed.info/sct|null|120220003|Injection to forearm",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },

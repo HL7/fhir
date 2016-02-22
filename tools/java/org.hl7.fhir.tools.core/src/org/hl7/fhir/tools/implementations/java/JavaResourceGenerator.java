@@ -97,7 +97,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 //      elem.getTypes().get(0);
 //    }
 		
-		write("package org.hl7.fhir.dstu21.model;\r\n");
+		write("package org.hl7.fhir.dstu3.model;\r\n");
 		write("\r\n/*\r\n"+Config.FULL_LICENSE_CODE+"*/\r\n\r\n");
 		write("// Generated on "+Config.DATE_FORMAT().format(genDate)+" for FHIR v"+version+"\r\n\r\n");
     if (clss != JavaGenClass.Constraint) {
@@ -117,7 +117,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         if (s)
           write("import org.hl7.fhir.utilities.Utilities;\r\n");
         if (e)
-          write("import org.hl7.fhir.dstu21.model.Enumerations.*;\r\n");
+          write("import org.hl7.fhir.dstu3.model.Enumerations.*;\r\n");
       }
       if (clss == JavaGenClass.Resource) {
         write("import ca.uhn.fhir.model.api.annotation.ResourceDef;\r\n");
@@ -131,7 +131,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
     }
     write("import ca.uhn.fhir.model.api.annotation.Block;\r\n");
     write("import org.hl7.fhir.instance.model.api.*;\r\n");
-    write("import org.hl7.fhir.dstu21.exceptions.FHIRException;\r\n");
+    write("import org.hl7.fhir.dstu3.exceptions.FHIRException;\r\n");
     
 		jdoc("", root.getDefinition());
 		classname = upFirst(name);
@@ -1422,7 +1422,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 				else if (e.isXhtmlElement()) 
 					tn = "XhtmlNode";
 				else if (e.getTypes().get(0).isWildcardType())
-					tn ="org.hl7.fhir.dstu21.model.Type";
+					tn ="org.hl7.fhir.dstu3.model.Type";
 				else if (definitions.hasPrimitiveType(tn))
 				  tn = upFirst(tn)+"Type";
 
@@ -1770,21 +1770,30 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
 		} else {
       if (isJavaPrimitive(e)) {
 	      jdoc(indent, "@return {@link #"+getElementName(e.getName(), true)+"} ("+e.getDefinition()+"). This is the underlying object with id, value and extensions. The accessor \"get"+getTitle(getElementName(e.getName(), false))+"\" gives direct access to the value");
-        if (!isReferenceRefField) {
+        if (isReferenceRefField) {
           /*
-           * Don't generate Reference#getReferenceElement because this method is defined in
-           * BaseReference.java
+           * Reference#getReferenceElement is defined differently in BaseReference.java?
            */
-  	      write(indent+"public "+tn+" get"+getTitle(getElementName(e.getName(), false))+"Element() { \r\n");
+          write(indent+"public "+tn+" get"+getTitle(getElementName(e.getName(), false))+"Element_() { \r\n");
           write(indent+"  if (this."+getElementName(e.getName(), true)+" == null)\r\n");
           write(indent+"    if (Configuration.errorOnAutoCreate())\r\n");
           write(indent+"      throw new Error(\"Attempt to auto-create "+className+"."+getElementName(e.getName(), true)+"\");\r\n");
           write(indent+"    else if (Configuration.doAutoCreate())\r\n");
           write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+"); // bb\r\n");
-  	      write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
-  	      write(indent+"}\r\n");
-  	      write("\r\n");
+          write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
+          write(indent+"}\r\n");
+        } else { 
+          write(indent+"public "+tn+" get"+getTitle(getElementName(e.getName(), false))+"Element() { \r\n");
+          write(indent+"  if (this."+getElementName(e.getName(), true)+" == null)\r\n");
+          write(indent+"    if (Configuration.errorOnAutoCreate())\r\n");
+          write(indent+"      throw new Error(\"Attempt to auto-create "+className+"."+getElementName(e.getName(), true)+"\");\r\n");
+          write(indent+"    else if (Configuration.doAutoCreate())\r\n");
+          write(indent+"      this."+getElementName(e.getName(), true)+" = new "+tn+"("+( tn.startsWith("Enum") ? "new "+tn.substring(12, tn.length()-1)+"EnumFactory()" : "")+"); // bb\r\n");
+          write(indent+"  return this."+getElementName(e.getName(), true)+";\r\n");
+          write(indent+"}\r\n");
         }
+        write("\r\n");
+
         write(indent+"public boolean has"+getTitle(getElementName(e.getName(), false))+"Element() { \r\n");
         write(indent+"  return this."+getElementName(e.getName(), true)+" != null && !this."+getElementName(e.getName(), true)+".isEmpty();\r\n");
         write(indent+"}\r\n");

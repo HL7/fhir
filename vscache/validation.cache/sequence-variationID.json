@@ -1,40 +1,4 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/sequence-variationID",
-  "outcomes": [
-    {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/projects/SNP|null|58238562|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/projects/SNP|null|28897672|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/projects/SNP|null|58238560|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/projects/SNP|null|587778247|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/dbvar/|null|essv25820997|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/projects/SNP|null|58238565|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://www.ncbi.nlm.nih.gov/projects/SNP|null|58238559|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    }
-  ]
+  "outcomes": []
 }

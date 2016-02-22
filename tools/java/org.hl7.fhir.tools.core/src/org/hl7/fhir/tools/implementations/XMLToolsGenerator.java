@@ -33,7 +33,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.hl7.fhir.definitions.model.Definitions;
-import org.hl7.fhir.dstu21.validation.ValidationMessage;
+import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
 import org.hl7.fhir.utilities.Logger;
@@ -64,21 +64,10 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   }
 
   @Override
-  public boolean isECoreGenerator() {
-    return false;
-  }
-
-  @Override
   public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
     ZipGenerator zip = new ZipGenerator(Utilities.path(destDir, getReference(version)));
     zip.addFolder(Utilities.path(implDir, ""), "", false);
     zip.close();
-  }
-
-  @Override
-  public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
-    throw new UnsupportedOperationException("not supported");
-
   }
 
   @Override

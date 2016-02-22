@@ -44,7 +44,7 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ResourceDefn;
-import org.hl7.fhir.dstu21.validation.ValidationMessage;
+import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.tools.implementations.BaseGenerator;
 import org.hl7.fhir.tools.publisher.FolderManager;
 import org.hl7.fhir.tools.publisher.PlatformGenerator;
@@ -76,11 +76,6 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
   @Override
   public String getVersion() {
     return "0.1";
-  }
-
-  @Override
-  public boolean isECoreGenerator() {
-    return false;
   }
 
   @Override
@@ -137,10 +132,6 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
 
   @Override
   public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
-  }
-
-  @Override
-  public void generate(org.hl7.fhir.definitions.ecore.fhir.Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision) throws Exception {
   }
 
   @Override

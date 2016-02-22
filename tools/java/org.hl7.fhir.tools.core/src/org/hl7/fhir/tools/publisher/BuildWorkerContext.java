@@ -23,48 +23,51 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.hl7.fhir.definitions.model.Definitions;
-import org.hl7.fhir.dstu21.formats.IParser;
-import org.hl7.fhir.dstu21.formats.JsonParser;
-import org.hl7.fhir.dstu21.formats.ParserType;
-import org.hl7.fhir.dstu21.formats.XmlParser;
-import org.hl7.fhir.dstu21.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu21.model.ConceptMap;
-import org.hl7.fhir.dstu21.model.DataElement;
-import org.hl7.fhir.dstu21.model.OperationOutcome;
-import org.hl7.fhir.dstu21.model.Parameters;
-import org.hl7.fhir.dstu21.model.Questionnaire;
-import org.hl7.fhir.dstu21.model.Reference;
-import org.hl7.fhir.dstu21.model.Resource;
-import org.hl7.fhir.dstu21.model.SearchParameter;
-import org.hl7.fhir.dstu21.model.StringType;
-import org.hl7.fhir.dstu21.model.StructureDefinition;
-import org.hl7.fhir.dstu21.model.ValueSet;
-import org.hl7.fhir.dstu21.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu21.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu21.model.OperationOutcome.IssueType;
-import org.hl7.fhir.dstu21.model.Parameters.ParametersParameterComponent;
-import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu21.model.ValueSet.ConceptDefinitionDesignationComponent;
-import org.hl7.fhir.dstu21.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.dstu21.model.ValueSet.ValueSetComposeComponent;
-import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionComponent;
-import org.hl7.fhir.dstu21.model.ValueSet.ValueSetExpansionContainsComponent;
-import org.hl7.fhir.dstu21.terminologies.ValueSetExpansionCache;
-import org.hl7.fhir.dstu21.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu21.utils.BaseWorkerContext;
-import org.hl7.fhir.dstu21.utils.EOperationOutcome;
-import org.hl7.fhir.dstu21.utils.INarrativeGenerator;
-import org.hl7.fhir.dstu21.utils.IWorkerContext;
-import org.hl7.fhir.dstu21.utils.NarrativeGenerator;
-import org.hl7.fhir.dstu21.utils.client.EFhirClientException;
-import org.hl7.fhir.dstu21.utils.client.FHIRToolingClient;
-import org.hl7.fhir.dstu21.validation.IResourceValidator;
-import org.hl7.fhir.dstu21.validation.InstanceValidator;
+import org.hl7.fhir.dstu3.formats.IParser;
+import org.hl7.fhir.dstu3.formats.JsonParser;
+import org.hl7.fhir.dstu3.formats.ParserType;
+import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.model.ConceptMap;
+import org.hl7.fhir.dstu3.model.DataElement;
+import org.hl7.fhir.dstu3.model.OperationOutcome;
+import org.hl7.fhir.dstu3.model.Parameters;
+import org.hl7.fhir.dstu3.model.Questionnaire;
+import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.SearchParameter;
+import org.hl7.fhir.dstu3.model.StringType;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
+import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.utils.BaseWorkerContext;
+import org.hl7.fhir.dstu3.utils.EOperationOutcome;
+import org.hl7.fhir.dstu3.utils.INarrativeGenerator;
+import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
+import org.hl7.fhir.dstu3.utils.client.EFhirClientException;
+import org.hl7.fhir.dstu3.utils.client.FHIRToolingClient;
+import org.hl7.fhir.dstu3.validation.IResourceValidator;
+import org.hl7.fhir.dstu3.validation.InstanceValidator;
+import org.hl7.fhir.exceptions.UcumException;
 import org.hl7.fhir.utilities.CSFileInputStream;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.TextStreamWriter;
 import org.hl7.fhir.utilities.Utilities;
+import org.hl7.fhir.utilities.ucum.UcumEssenceService;
+import org.hl7.fhir.utilities.ucum.UcumService;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 import org.w3c.dom.Document;
@@ -105,6 +108,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   private Map<String, StructureDefinition> profiles = new HashMap<String, StructureDefinition>();
   private Map<String, SearchParameter> searchParameters = new HashMap<String, SearchParameter>();
   private Map<String, StructureDefinition> extensionDefinitions = new HashMap<String, StructureDefinition>();
+  private UcumService ucum;
   private String version;
   private List<String> resourceNames = new ArrayList<String>();
   private Map<String, Questionnaire> questionnaires = new HashMap<String, Questionnaire>();
@@ -119,7 +123,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   
 
 
-  public BuildWorkerContext(Definitions definitions, FHIRToolingClient client, Map<String, ValueSet> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles) {
+  public BuildWorkerContext(Definitions definitions, FHIRToolingClient client, Map<String, ValueSet> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles) throws UcumException {
     super();
     this.definitions = definitions;
     this.txServer = client;
@@ -341,7 +345,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   @Override
   public boolean supportsSystem(String system) {
-    return "http://snomed.info/sct".equals(system) || "http://loinc.org".equals(system) || super.supportsSystem(system) ;
+    return "http://snomed.info/sct".equals(system) || "http://loinc.org".equals(system) || "http://unitsofmeasure.org".equals(system) || super.supportsSystem(system) ;
   }
   
   @Override
@@ -456,8 +460,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       triedServer = true;
       serverOk = false;
       HttpClient httpclient = new DefaultHttpClient();
-      // HttpGet httpget = new HttpGet("http://fhir.healthintersections.com.au/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
-      HttpGet httpget = new HttpGet("http://localhost:960/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
+       HttpGet httpget = new HttpGet("http://fhir2.healthintersections.com.au/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20"));
+//      HttpGet httpget = new HttpGet("http://localhost:960/snomed/tool/"+URLEncoder.encode(code, "UTF-8").replace("+", "%20")); // don't like the url encoded this way
       HttpResponse response = httpclient.execute(httpget);
       HttpEntity entity = response.getEntity();
       InputStream instream = entity.getContent();
@@ -591,6 +595,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         return verifySnomed(code, display);
       if (system.equals("http://loinc.org"))
         return verifyLoinc(code, display);
+      if (system.equals("http://unitsofmeasure.org"))
+        return verifyUcum(code, display);
       if (codeSystems.containsKey(system)) {
         return verifyCode(codeSystems.get(system), code, display);
       }
@@ -603,6 +609,18 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   }
 
   
+  private ValidationResult verifyUcum(String code, String display) {
+    String s = ucum.validate(code);
+//    if (s != null)
+//      return new ValidationResult(IssueSeverity.ERROR, s);
+//    else {
+      ConceptDefinitionComponent def = new ConceptDefinitionComponent();
+      def.setCode(code);
+      def.setDisplay(ucum.getCommonDisplay(code));
+      return new ValidationResult(def);
+//    }
+  }
+
   public void loadSnomed(String filename) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     DocumentBuilder builder = factory.newDocumentBuilder();
@@ -621,6 +639,10 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     }
   }
 
+  public void loadUcum(String filename) throws UcumException {
+    this.ucum = new UcumEssenceService(filename);
+  }
+  
   public void saveSnomed(String filename) throws Exception {
     FileOutputStream file = new FileOutputStream(filename);
     XMLWriter xml = new XMLWriter(file, "UTF-8");

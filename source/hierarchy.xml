@@ -289,11 +289,12 @@ signatures.html
 			<page type="resource" resource="ImplementationGuide"/>
 			<page type="resource" resource="Conformance"/>
 			<page type="resource" resource="StructureDefinition"/>
+			<page type="resource" resource="StructureMap"/>
 			<page type="resource" resource="OperationDefinition"/>
 			<page type="resource" resource="SearchParameter"/>
 			<page type="resource" resource="DataElement"/>
-                        <page type="resource" resource="ValueSet"/>
-                        <page type="resource" resource="ExpansionProfile"/>
+      <page type="resource" resource="ValueSet"/>
+      <page type="resource" resource="ExpansionProfile"/>
 			<page type="resource" resource="NamingSystem"/>
 			<page type="resource" resource="ConceptMap"/>
 			<page type="resource" resource="CodeSystem"/>

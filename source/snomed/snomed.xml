@@ -2479,6 +2479,15 @@
     <display value="Heart valve replacement"/>
     <display value="Heart valve replacement (procedure)"/>
   </concept>
+  <concept id="34206005" display="Subcutaneous route (qualifier value)">
+    <display value="SC use"/>
+    <display value="Subcutaneous use"/>
+    <display value="SC route"/>
+    <display value="Subcutaneous"/>
+    <display value="Subcutaneous route"/>
+    <display value="Subcutaneous route (qualifier value)"/>
+    <display value="A route that begins in subcutaneous tissue."/>
+  </concept>
   <concept id="34402009" display="Rectum structure (body structure)">
     <display value="Rectum structure"/>
     <display value="Rectum"/>

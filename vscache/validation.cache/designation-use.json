@@ -4,12 +4,12 @@
     {
       "hash": "|http://snomed.info/sct|null|900000000000003001|Fully specified name",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@55b9bbc8\" in system \"http://snomed.info/sct\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@59807778\" in system \"http://snomed.info/sct\": null"
     },
     {
       "hash": "|http://acme.com/config/fhir/codesystems/internal|null|internal-label|null",
       "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@48a761f4\" in system \"http://acme.com/config/fhir/codesystems/internal\": null"
+      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7e850237\" in system \"http://acme.com/config/fhir/codesystems/internal\": null"
     }
   ]
 }

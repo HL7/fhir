@@ -1,6 +1,6 @@
 package org.hl7.fhir.definitions.generators.specification;
 
-import org.hl7.fhir.dstu21.model.Resource;
+import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.utilities.Utilities;
 
 public class ToolResourceUtilities {

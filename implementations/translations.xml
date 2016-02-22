@@ -675,6 +675,9 @@
         <translation lang="es">VCFVariante</translation>
         <translation lang="fr">VCFVariante</translation>
     </item>
+    <item id="StructureMap">
+        <translation lang="en">StructureMap</translation>
+    </item>
     <item id="StructureDefinition">
         <translation lang="en">StructureDefinition</translation>
         <translation lang="fr">DéfinitionStructure</translation>

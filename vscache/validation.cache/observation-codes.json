@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/observation-codes",
   "outcomes": [
     {
+      "hash": "#|http://acme.org/lab/codes/organisms|null|Staaur|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
       "hash": "#|http://loinc.org|null|2000-8|Calcium [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|71878006|null",
       "severity": null,
       "message": null,
@@ -9,13 +14,8 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Calcium measurement"
+        "display": "Calcium [Moles/volume] in Serum or Plasma"
       }
-    },
-    {
-      "hash": "#|http://acme.org/lab/codes/organisms|null|Staaur|null",
-      "severity": "error",
-      "message": "The code provided is not  valid"
     },
     {
       "hash": "#|http://loinc.org|null|736-9|Lymphocytes/100 leukocytes in Blood by Automated count",
@@ -31,7 +31,7 @@
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|ORGANISM|null",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|49464-1|CD13 Ag [Presence] in Tissue by Immune stain",
@@ -52,7 +52,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Alanine aminotransferase measurement"
+        "display": "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
       }
     },
     {
@@ -85,7 +85,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Lipids, triglycerides measurement"
+        "display": "Triglyceride [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -107,7 +107,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "SAP - Systolic arterial pressure"
+        "display": "Systolic blood pressure"
       }
     },
     {
@@ -118,18 +118,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Body weight"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|14798-3|Iron [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|42950004|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Iron level"
+        "display": "Body weight Measured"
       }
     },
     {
@@ -141,6 +130,17 @@
         "code": null,
         "definition": null,
         "display": "Carbon dioxide [Partial pressure] in Blood"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|14798-3|Iron [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|42950004|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Iron [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -162,7 +162,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Potassium measurement (procedure)"
+        "display": "Potassium [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -190,7 +190,7 @@
     {
       "hash": "#|http://example.org/local|null|CFZ|CEFAZOLIN",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|10368-9|Lead [Mass/​volume] in Capillary blood#|urn:oid:2.16.840.1.113883.3.72.5.24|null|CAPLD|Blood Lead, Capillary",
@@ -204,6 +204,11 @@
       }
     },
     {
+      "hash": "#|https://loinc.org/|null|21636-6|BRCA1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
       "hash": "#|http://loinc.org|null|9268-4|Glasgow coma score motor",
       "severity": null,
       "message": null,
@@ -215,11 +220,6 @@
       }
     },
     {
-      "hash": "#|https://loinc.org/|null|21636-6|BRCA1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "#|http://loinc.org|null|1920-8|Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma#|http://snomed.info/sct|null|45896001|null",
       "severity": null,
       "message": null,
@@ -227,7 +227,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Aspartate aminotransferase measurement"
+        "display": "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
       }
     },
     {
@@ -238,8 +238,13 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Bilirubin, conjugated measurement, serum"
+        "display": "Bilirubin.direct [Moles/volume] in Serum or Plasma"
       }
+    },
+    {
+      "hash": "#|http://acme.org/lab/codes/tests|null|60527|Clindamycin",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "|http://loinc.org|null|54116-9|null",
@@ -264,9 +269,15 @@
       }
     },
     {
-      "hash": "#|http://acme.org/lab/codes/tests|null|60527|Clindamycin",
-      "severity": "error",
-      "message": "The code provided is not  valid"
+      "hash": "#|http://loinc.org|null|5821-4|Leukocytes [#/​area] in Urine sediment by Microscopy high power field#|urn:oid:2.16.840.1.113883.3.72.5.24|null|WBCFLD|White blood cells (WBC) in urine ",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Leukocytes [#/area] in Urine sediment by Microscopy high power field"
+      }
     },
     {
       "hash": "#|http://loinc.org|null|43305-2|Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by Probe and target amplification method#|urn:oid:2.16.840.1.113883.3.72.5.24|null|GCPCR|APTIMA GC",
@@ -277,17 +288,6 @@
         "code": null,
         "definition": null,
         "display": "Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by Probe and target amplification method"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|5821-4|Leukocytes [#/​area] in Urine sediment by Microscopy high power field#|urn:oid:2.16.840.1.113883.3.72.5.24|null|WBCFLD|White blood cells (WBC) in urine ",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Leukocytes [#/area] in Urine sediment by Microscopy high power field"
       }
     },
     {
@@ -302,17 +302,6 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Complete blood count (hemogram) panel - Blood by Automated count"
-      }
-    },
-    {
       "hash": "#|http://loinc.org|null|13298-5|null",
       "severity": null,
       "message": null,
@@ -324,20 +313,25 @@
       }
     },
     {
-      "hash": "#|http://acme.org/lab/codes/tests|null|60532|Doxycycline",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|53786006|pT1 category",
+      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "pT1 stage (finding)"
+        "display": "Complete blood count (hemogram) panel - Blood by Automated count"
       }
+    },
+    {
+      "hash": "#|http://acme.org/lab/codes/tests|null|60532|Doxycycline",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|53786006|pT1 category",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|11475-1|Microorganism identified in Unspecified specimen by Culture",
@@ -391,18 +385,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Alkaline phosphatase measurement"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|14682-9|Creatinine [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|70901006|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Creatinine measurement"
+        "display": "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
       }
     },
     {
@@ -413,7 +396,18 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "BCRA2 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"
+        "display": "BRCA2 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|14682-9|Creatinine [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|70901006|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Creatinine [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -452,23 +446,12 @@
     {
       "hash": "#|http://acme.org/lab/codes/panels|null|60418|Susceptibility - Disk diffusion (Billed)",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://example.org/local|null|IPM|IMIPENEM",
       "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://loinc.org|null|30522-7|C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method#|http://snomed.info/sct|null|55235003|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "C-reactive protein level"
-      }
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|2965-2|Specific gravity of Urine",
@@ -479,6 +462,17 @@
         "code": null,
         "definition": null,
         "display": "Specific gravity of Urine"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|30522-7|C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method#|http://snomed.info/sct|null|55235003|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"
       }
     },
     {
@@ -493,6 +487,11 @@
       }
     },
     {
+      "hash": "#|http://acme.org/lab/codes/tests|null|61204|Moxifloxacin",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
       "hash": "#|http://loinc.org|null|14798-3|Iron [Moles/volume] in Serum or Plasma#|null|null|42950004|null",
       "severity": null,
       "message": null,
@@ -504,25 +503,9 @@
       }
     },
     {
-      "hash": "#|http://acme.org/lab/codes/tests|null|61204|Moxifloxacin",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "#|urn:oid:2.16.840.1.113883.6.24|null|131329|MDC_ECG_ELEC_POTL_I",
       "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://loinc.org|null|5905-5|Monocytes/100 leukocytes in Blood by Automated count",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Monocytes/100 leukocytes in Blood by Automated count"
-      }
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|26515-7|Platelets [#/volume] in Blood",
@@ -533,6 +516,17 @@
         "code": null,
         "definition": null,
         "display": "Platelets [#/volume] in Blood"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|5905-5|Monocytes/100 leukocytes in Blood by Automated count",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Monocytes/100 leukocytes in Blood by Automated count"
       }
     },
     {
@@ -587,7 +581,18 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Serum ion gap measurement"
+        "display": "Anion gap 4 in Serum or Plasma"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|33914-3|Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"
       }
     },
     {
@@ -602,25 +607,14 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|33914-3|Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glomerular filtration rate/1.73 sq M.predicted by Creatinine-based formula (MDRD)"
-      }
-    },
-    {
       "hash": "#|http://example.org/local|null|FEP|CEFEPIME",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60504|Ampicillin",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|55233-1|Genetic analysis master panel ­Blood or Tissue by Molecular genetics method",
@@ -636,12 +630,7 @@
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60551|Oxacillin",
       "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://example.org/local|null|TOB|TOBRAMYCIN",
-      "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|789-8|Erythrocytes [#/volume] in Blood by Automated count",
@@ -653,6 +642,11 @@
         "definition": null,
         "display": "Erythrocytes [#/volume] in Blood by Automated count"
       }
+    },
+    {
+      "hash": "#|http://example.org/local|null|TOB|TOBRAMYCIN",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|742-7|Monocytes [#/volume] in Blood by Automated count",
@@ -695,18 +689,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Total globulins measurement"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|14933-6|Urate [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|86228006|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Uric acid measurement"
+        "display": "Globulin [Mass/volume] in Serum by calculation"
       }
     },
     {
@@ -718,6 +701,17 @@
         "code": null,
         "definition": null,
         "display": "Glasgow coma score verbal"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|14933-6|Urate [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|86228006|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Urate [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -745,12 +739,12 @@
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60512|Cefazolin",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60699|Linezolid",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://acme.lab|null|BT|Body temperature#|http://loinc.org|null|8310-5|Body temperature#|http://snomed.info/sct|null|56342008|Temperature taking",
@@ -760,7 +754,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Temperature taking (procedure)"
+        "display": "Body temperature"
       }
     },
     {
@@ -775,11 +769,6 @@
       }
     },
     {
-      "hash": "#|http://acme.org/lab/codes/tests|null|60516|Cefoxitin",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "#|http://loinc.org|null|48643-1|Glomerular filtration rate/1.73 sq M predicted among blacks [Volume Rate/?Area] in Serum or Plasma by Creatinine-based formula (MDRD)",
       "severity": null,
       "message": null,
@@ -787,7 +776,23 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Glomerular filtration rate/1.73 sq M predicted among blacks by Creatinine-based formula (MDRD)"
+        "display": "Glomerular filtration rate/1.73 sq M predicted among blacks [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"
+      }
+    },
+    {
+      "hash": "#|http://acme.org/lab/codes/tests|null|60516|Cefoxitin",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://acmelabs.org|null|104177|Blood culture#|http://loinc.org|null|600-7|Bacteria identified in Blood by Culture",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Bacteria identified in Blood by Culture"
       }
     },
     {
@@ -802,20 +807,9 @@
       }
     },
     {
-      "hash": "#|http://acmelabs.org|null|104177|Blood culture#|http://loinc.org|null|600-7|Bacteria identified in Blood by Culture",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Bacteria identified in Blood by Culture"
-      }
-    },
-    {
       "hash": "#|http://acme.org/lab/codes/panels|null|60790|Susceptibility - Automated broth dilution (Billed)",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|13959-2|Calcium.ionized [Moles/volume] in Serum or Plasma by calculation#|http://snomed.info/sct|null|166708003|null",
@@ -825,7 +819,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Corrected serum calcium measurement"
+        "display": "Calcium.ionized [Moles/volume] in Serum or Plasma by calculation"
       }
     },
     {
@@ -873,11 +867,6 @@
       }
     },
     {
-      "hash": "#|http://example.org/local|null|CTN|CEFOTETAN",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "#|http://loinc.org|null|2085-9|Cholesterol in HDL [Mass/volume] in Serum or Plasma#|http://snomed.info/sct|null|17888004|null",
       "severity": null,
       "message": null,
@@ -885,18 +874,23 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "HDL measurement"
+        "display": "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
       }
+    },
+    {
+      "hash": "#|http://example.org/local|null|CTN|CEFOTETAN",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://acme.org/lab/codes/tests|null|60555|Rifampin",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60697|Quinupristin/Dalfopristin",
       "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://example.org/local|null|TAZ|CEFTAZIDIME",
-      "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|731-0|Lymphocytes [#/volume] in Blood by Automated count",
@@ -910,20 +904,9 @@
       }
     },
     {
-      "hash": "#|http://acme.org/lab/codes/tests|null|60555|Rifampin",
+      "hash": "#|http://example.org/local|null|TAZ|CEFTAZIDIME",
       "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://loinc.org|null|54447-8|FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative"
-      }
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|6812-2|Dengue virus IgM Ab [Titer] in Serum#|urn:oid:2.16.840.1.113883.3.72.5.24|null|DGIGM|Dengue IgM QN",
@@ -937,6 +920,17 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|54447-8|FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|2885-2|Protein [Mass/volume] in Serum or Plasma#|http://snomed.info/sct|null|74040009|null",
       "severity": null,
       "message": null,
@@ -944,18 +938,13 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Protein measurement"
+        "display": "Protein [Mass/volume] in Serum or Plasma"
       }
     },
     {
       "hash": "#|urn:oid:2.16.840.1.113883.6.24|null|131389|MDC_ECG_ELEC_POTL_III",
       "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://example.org/local|null|LVX|LEVOFLOXACIN",
-      "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "|http://loinc.org|null|54125-0|null",
@@ -969,9 +958,14 @@
       }
     },
     {
+      "hash": "#|http://example.org/local|null|LVX|LEVOFLOXACIN",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
       "hash": "#|https://intranet.aumc.nl/labtestcodes|null|20005|Creatinine(Serum)",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|2887-8|Protein [Presence] in Urine",
@@ -987,7 +981,7 @@
     {
       "hash": "#|https://rtmms.nist.gov|null|150456|MDC_PULS_OXIM_SAT_O2",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|4544-3|Hematocrit [Volume Fraction] of Blood by Automated count",
@@ -1034,17 +1028,6 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|54119-3|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Race family member [USSG-FHT]"
-      }
-    },
-    {
       "hash": "#|http://loinc.org|null|718-7|Hemoglobin [Mass/volume] in Blood",
       "severity": null,
       "message": null,
@@ -1056,6 +1039,17 @@
       }
     },
     {
+      "hash": "|http://loinc.org|null|54119-3|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Race family member [USSG-FHT]"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|2951-2|Sodium [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|104934005|null",
       "severity": null,
       "message": null,
@@ -1063,7 +1057,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Serum sodium level"
+        "display": "Sodium [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -1085,7 +1079,18 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Gamma glutamyl transferase measurement"
+        "display": "Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|48642-3|Glomerular filtration rate/1.73 sq M predicted among non-blacks [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Glomerular filtration rate/1.73 sq M predicted among non-blacks [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"
       }
     },
     {
@@ -1097,17 +1102,6 @@
         "code": null,
         "definition": null,
         "display": "Base excess in Blood by calculation"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|48642-3|Glomerular filtration rate/1.73 sq M predicted among non-blacks [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glomerular filtration rate/1.73 sq M predicted among non-blacks by Creatinine-based formula (MDRD)"
       }
     },
     {
@@ -1129,7 +1123,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Urinalysis"
+        "display": "Bilirubin.total [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -1146,7 +1140,7 @@
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60563|Vancomycin",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "|http://loinc.org|null|54115-1|null",
@@ -1162,7 +1156,7 @@
     {
       "hash": "#|http://example.org/local|null|ATM|AZTREONAM",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|704-7|Basophils [#/volume] in Blood by Automated count",
@@ -1227,7 +1221,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Chloride measurement"
+        "display": "Chloride [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -1244,17 +1238,17 @@
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60533|Erythromycin",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://example.org/local|null|PTZ|PIPERACILLIN/TAZOBAC",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|urn:oid:2.16.840.1.113883.6.24|null|131330|MDC_ECG_ELEC_POTL_II",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "|http://loinc.org|null|54113-6|null",
@@ -1290,6 +1284,17 @@
       }
     },
     {
+      "hash": "|http://loinc.org|null|54135-9|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Parents related [USSG-FHT]"
+      }
+    },
+    {
       "hash": "|http://loinc.org|null|54139-1|null",
       "severity": null,
       "message": null,
@@ -1308,34 +1313,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Lactate dehydrogenase level"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|54135-9|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Parents related [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.6.24|null|131328|MDC_ECG_ELEC_POTL",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://loinc.org|null|53037-8|Genetic disease sequence variation interpretation",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Genetic disease sequence variation interpretation [interpretation] in Blood or Tissue by Molecular genetics method"
+        "display": "Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma"
       }
     },
     {
@@ -1347,6 +1325,22 @@
         "code": null,
         "definition": null,
         "display": "BRCA1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"
+      }
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.6.24|null|131328|MDC_ECG_ELEC_POTL",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://loinc.org|null|53037-8|Genetic disease sequence variation interpretation",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Genetic disease sequence variation interpretation in Blood or Tissue by Molecular genetics method"
       }
     },
     {
@@ -1363,7 +1357,7 @@
     {
       "hash": "#|http://example.org/local|null|GM|GENTAMICIN",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|15074-8|Glucose [Moles/volume] in Blood",
@@ -1377,6 +1371,11 @@
       }
     },
     {
+      "hash": "#|http://acme.org/lab/codes/tests|null|2099930|D-Test",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
       "hash": "|http://loinc.org|null|54123-5|null",
       "severity": null,
       "message": null,
@@ -1386,11 +1385,6 @@
         "definition": null,
         "display": "Sex family member [USSG-FHT]"
       }
-    },
-    {
-      "hash": "#|http://acme.org/lab/codes/tests|null|2099930|D-Test",
-      "severity": "error",
-      "message": "The code provided is not  valid"
     },
     {
       "hash": "#|http://loinc.org|null|35200-5|null",
@@ -1417,7 +1411,7 @@
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60536|Gentamicin",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "|http://loinc.org|null|54132-6|null",
@@ -1455,17 +1449,7 @@
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|CULTPOSNEG|null",
       "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://example.org/local|null|AMS|AMPICILLIN/SULBACTAM",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
-      "hash": "#|http://example.org/local|null|CRO|CEFTRIAXONE",
-      "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|1751-7|Albumin [Mass/volume] in Serum or Plasma#|http://snomed.info/sct|null|104485008|null",
@@ -1475,8 +1459,18 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Serum albumin level"
+        "display": "Albumin [Mass/volume] in Serum or Plasma"
       }
+    },
+    {
+      "hash": "#|http://example.org/local|null|AMS|AMPICILLIN/SULBACTAM",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://example.org/local|null|CRO|CEFTRIAXONE",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|711-2|Eosinophils [#/volume] in Blood by Automated count",
@@ -1501,14 +1495,14 @@
       }
     },
     {
-      "hash": "#|http://example.org/local|null|CIPRO|CIPROFLOXACIN",
-      "severity": "error",
-      "message": "The code provided is not  valid"
-    },
-    {
       "hash": "#|http://acme.org/lab/codes/tests|null|61007|Levofloxacin",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
+    },
+    {
+      "hash": "#|http://example.org/local|null|CIPRO|CIPROFLOXACIN",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|2756-5|pH of Urine",
@@ -1529,7 +1523,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Serum urea level"
+        "display": "Urea nitrogen [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -1544,17 +1538,6 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|14879-1|Phosphate [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|104866001|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Phosphate level"
-      }
-    },
-    {
       "hash": "|http://loinc.org|null|54120-1|null",
       "severity": null,
       "message": null,
@@ -1566,14 +1549,14 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|24701-5|Femur DXA Bone density",
+      "hash": "#|http://loinc.org|null|14879-1|Phosphate [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|104866001|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Femur DXA Bone density"
+        "display": "Phosphate [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -1585,6 +1568,17 @@
         "code": null,
         "definition": null,
         "display": "Current age family member [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|24701-5|Femur DXA Bone density",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Femur DXA Bone density"
       }
     },
     {
@@ -1601,22 +1595,22 @@
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60036|Oxacillin",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60561|Trimethoprim/Sulfamethoxazole",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://example.org/local|null|AM|AMPICILLIN",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://example.org/local|null|TRSUV|TRIMETH/SULFA",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|33051-4|Erythrocytes [Presence] in Urine",
@@ -1637,18 +1631,18 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Glucose measurement"
+        "display": "Glucose [Moles/volume] in Serum or Plasma"
       }
     },
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60558|Tetracycline",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|60552|Penicillin",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|51967-8|Genetic disease assessed",
@@ -1673,17 +1667,6 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|1963-8|Bicarbonate [Moles/volume] in Serum#|http://snomed.info/sct|null|88645003|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Bicarbonate measurement"
-      }
-    },
-    {
       "hash": "#|http://loinc.org|null|49874-1|ABCB4 gene mutation analysis",
       "severity": null,
       "message": null,
@@ -1695,6 +1678,17 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|1963-8|Bicarbonate [Moles/volume] in Serum#|http://snomed.info/sct|null|88645003|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Bicarbonate [Moles/volume] in Serum"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|14647-2|Cholesterol [Moles/volume] in Serum or Plasma#|http://snomed.info/sct|null|77068002|null",
       "severity": null,
       "message": null,
@@ -1702,18 +1696,7 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Cholesterol measurement"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|13457-7|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
+        "display": "Cholesterol [Moles/volume] in Serum or Plasma"
       }
     },
     {
@@ -1725,6 +1708,17 @@
         "code": null,
         "definition": null,
         "display": "Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|13457-7|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
       }
     },
     {
@@ -1741,7 +1735,7 @@
     {
       "hash": "#|http://example.org/local|null|NIT|NITROFURANTOIN",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|1963-8|Bicarbonate [Moles/?volume] in Serum#|http://snomed.info/sct|null|365722008|Bicarbonate level",
@@ -1751,13 +1745,13 @@
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Finding of bicarbonate level"
+        "display": "Bicarbonate [Moles/volume] in Serum"
       }
     },
     {
       "hash": "#|http://acme.org/lab/codes/tests|null|61203|Daptomycin",
       "severity": "error",
-      "message": "The code provided is not  valid"
+      "message": "The code provided is not  valid in the value set LOINC Codes"
     },
     {
       "hash": "#|http://loinc.org|null|751-8|Neutrophils [#/volume] in Blood by Automated count",

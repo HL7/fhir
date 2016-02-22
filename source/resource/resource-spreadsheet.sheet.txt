@@ -395,7 +395,7 @@
  -- Row 31 -----------------------------------
   Name = cds-hook.card.indicator
   Documentation = Urgency/importance of what this card conveys. Allowed values, in order of increasing urgency, are: success, info, warning, hard-stop. The EHR can use this field to help make UI display decisions such as sort order or coloring. The value hard-stop indicates that the workflow should not be allowed to proceed.R[-12]C
-  Type = Code
+  Type = code
   Title = Urgency/importance of what this card conveys.
   Min = 1
   Max = 1
