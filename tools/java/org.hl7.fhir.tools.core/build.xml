@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="org.hl7.fhir.tools">
   <property environment="env"/>
-  <property name="org.hl7.fhir.definitions.ecore.location" value="../org.hl7.fhir.definitions.ecore"/>
   <property name="org.hl7.fhir.utilities.location" value="../../../implementations/java/org.hl7.fhir.utilities"/>
   <property name="org.hl7.fhir.implementation.location" value="../org.hl7.fhir.dstu3"/>
   <property name="org.hl7.fhir.rdf.location" value="../../../implementations/java/org.hl7.fhir.rdf"/>
@@ -17,33 +16,23 @@
   <path id="org.hl7.fhir.implementation.classpath">
     <pathelement location="${org.hl7.fhir.implementation.location}/bin"/>
   </path>
-  <path id="org.hl7.fhir.definitions.ecore.classpath">
-    <pathelement location="${org.hl7.fhir.definitions.ecore.location}/bin"/>
-  </path>
   <path id="org.hl7.fhir.tools.classpath">
     <pathelement location="bin"/>
     <fileset dir="../imports" includes="*.jar"/>
     <path refid="org.hl7.fhir.implementation.classpath"/>
     <path refid="org.hl7.fhir.utilities.classpath"/>
     <path refid="org.hl7.fhir.rdf.classpath"/>
-    <path refid="org.hl7.fhir.definitions.ecore.classpath"/>
   </path>
   <target name="clean">
     <delete dir="bin"/>
   </target>
   <target depends="clean" name="cleanall">
-    <ant antfile="build.xml" dir="${org.hl7.fhir.definitions.ecore.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.implementation.location}" inheritAll="false" target="clean"/>
     <ant antfile="build.xml" dir="${org.hl7.fhir.rdf.location}" inheritAll="false" target="clean"/>
   </target>
   <target depends="build-subprojects,build-project" name="build"/>
   <target name="build-subprojects">
-    <ant antfile="build.xml" dir="${org.hl7.fhir.definitions.ecore.location}" inheritAll="false" target="build-project">
-      <propertyset>
-        <propertyref name="build.compiler"/>
-      </propertyset>
-    </ant>
     <ant antfile="build.xml" dir="${org.hl7.fhir.utilities.location}" inheritAll="false" target="build-project">
       <propertyset>
         <propertyref name="build.compiler"/>
@@ -140,7 +129,6 @@
       <fileset dir="../../../implementations/java/org.hl7.fhir.dstu3/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.utilities/src" includes="**/*.java"/>
       <fileset dir="../../../implementations/java/org.hl7.fhir.rdf/src" includes="**/*.java"/>
-      <fileset dir="../org.hl7.fhir.definitions.ecore/src" includes="**/*.java"/>
     </jar>
   </target>
   <target name="fhir-javadoc-jar" depends="build">
