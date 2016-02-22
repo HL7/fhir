@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+
+
+      
+[%settitle FHIR Mapping Language - Tutorial%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+
+<div class="col-9">
+
+<h2>FHIR Mapping Language - Tutorial</h2>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 0</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">n/a yet</a></td></tr></table>
+
+<p>
+This tutorial introduces the FHIR <a href="mapping-language.html">mapping language</a>.
+</p>
+<h3>Step #1: Simplest possible transform</h3>
+<p>
+To start with, we're going to consider a very simple case: mapping between two structures
+that have the same definition, a single element with the same name and the same primitive type:
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      a : string [0..1]
+  </pre></td><td><pre>
+    TRight
+      a : string [0..1]
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by copying a to a</td></tr>
+</table>
+<p>
+<i>Note that for clarity in this tutorial, all the types are prefixed with T.</i>
+</p>
+
+<p>
+The first task to do is to set up the mapping context. For this tutorial, this means
+declaring the source and target models, and specifying that an application invokes
+this with a copy of the left (source) instance, and also an empty copy of the right
+(target) instance: 
+<pre>
+map "http://hl7.org/fhir/StructureMap/tutorial" = tutorial
+
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
+uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
+
+input "source" : TLeft as source
+input "target" : TRight as target
+</pre>
+<p>
+Note that the way this is set up is a choice: we choose to provide the 
+underlying type definitions on which both source and target models are based,
+and we choose to specify that the invoking application most provide both
+the source and the target instance trees. Other options are possible; these 
+are discussed further below. The rest of the tutorial examples use the same set
+up.
+</p>
+<p>
+Having set up the context, we now need to define the relationship between
+the source and target structures:
+</p>
+<pre>
+"rule_a" : for source.a as a make target.a = copy(a)
+</pre>
+<p>
+This simple statement says that:
+</p>
+<ul>
+ <li>for every source (there'll only be one)</li>
+ <li>for any element 'a' in the source</li>
+ <li>if there isn't any element 'a', then don't do anything</li>
+ <li>if there is one, call it variable 'a'</li>
+ <li>the value of property 'a' of the target will be a copy of variable a - that is, source.a</li>
+</ul>
+
+<h3>Step #2: Fields with different names</h3>
+<p>
+Now consider the case where the elemnets have different names:
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      a1 : string [0..1]
+  </pre></td><td><pre>
+    TRight
+      a2 : string [0..1]
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by copying a1 to a2</td></tr>
+</table>
+<p>
+This relationship is a simple variation of the last:
+</p>
+<pre>
+"rule_a1" : for source.a1 as b make target.a2 = copy(b)
+</pre>
+<p>
+Note that the choice of variable name is purely arbitrary. It does not need to be the same as the element name.
+</p>
+
+<h3>Step #3: Length restriction</h3>
+<p>
+Still sticking with very simple mappings, let's consider the case where there is a length restriction on the target model that is shorter than the one on the source 
+model - in this case, 20 characters.
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      a2 : string [0..1]
+  </pre></td><td><pre>
+    TRight
+      a2 : string [0..1] {maxlength = 20}
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by copying a2 to a2, but target.a2 can only be 20 characters long</td></tr>
+</table>
+<p>
+There are 3 different ways to express this mapping, depending on what should happen when the length of source.a is > 20 characters:
+</p>
+<pre>
+"rule_a20a" : for source.a2 as a make target.a2 = truncate(a, 20) // just cut it off at 20 characters
+"rule_a20b" : for source.a2 as a where a1.length &lt;= 20 make target.a2 = copy(a) // ignore it
+"rule_a20c" : for source.a2 as a check a2.length &lt;= 20 make target.a2 = copy(a) // error if it's longer than 20 characters
+</pre>
+<p>
+Note that it is implicit here that the transformation engine is not required to expected to validate the 
+output against that underlying structure definitions that may apply to it. An application may - and usually 
+should - validate the outputs after the transforms, but the transform engine itself should not assume that it's the 
+final step in the process and automatically validate the output. 
+</p>
+
+<h3>Step #4: Type Conversion</h3>
+<p>
+Now for the case where there is a simple type conversion between left and right, in this case from a string to an integer.
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      a21 : string [0..1]
+  </pre></td><td><pre>
+    TRight
+      a21 : integer [0..1] 
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by copying a21 to a21, but a21 is converted to an integer</td></tr>
+</table>
+<p>
+There are 3 different ways to express this mapping, depending on what should happen when a is not an integer:
+</p>
+<pre>
+"rule_a21a" : for source.a21 as a make target.a21 = cast(a, "integer") // error if it's not an integer
+"rule_a21b" : for source.a21 as a where a1.isInteger make target.a2 = cast(a, "integer") // ignore it
+"rule_a21c" : for source.a21 as a where not at1.isInteger make target.a21 = copy(0) // just assign it 0
+</pre>
+
+<h3>Step #5: Managing lists, part 1</h3>
+<p>
+Back to the simple case where source.a22 is copied to target.a22, but in this case, a22 can repeat (in both source and target):
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      a22 : string [0..*]
+  </pre></td><td><pre>
+    TRight
+      a22 : integer [0..*] 
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by copying a22 to a22, once for each copy of a22</td></tr>
+</table>
+<p>
+The transform rule simply asserts that a22 maps to a22. The engine will apply the rule once for each instance of a22:
+</p>
+<pre>
+"rule_a22" : for source.a22 as a make target.a22 = copy(a) 
+</pre>
+
+<h3>Step #6: Managing lists, part 2</h3>
+<p>
+A more difficult case is where the source allows multiple repeats, but the target doesn't:
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      a23 : string [0..*]
+  </pre></td><td><pre>
+    TRight
+      a23 : integer [0..1] 
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by copying a23 to a23, but there can only be one copy of a23</td></tr>
+</table>
+<p>
+Again, there are multiple different ways to write this, depending on out desired outcome if there is more than one copy of a23:
+</p>
+<pre>
+rule_a23a : for source.a23 as a make target.a23 = copy(a) { only_one } // transform engine creates an error 
+rule_a23b : for source.a23 as a make target.a23 = copy(a)  // leave error to lower layer; less informative
+
+rule_a23c_1 : for source.a23 as a then rule_a23c_2
+rule_a23c_2 : for a where @context = source.a23.first make target.a23 = copy(a) // only use the first item in the list
+</pre>
+<p>
+The last rule is the first example of stringing rules together. In this case, rule_a23c_1 exists to define a variable for 
+the list so that the where condition can compare the items in the list against a criteria expressed against abother variable. 
+The ability to compare conditions amongst variables like this in the where clause is a powerful technique that will explored 
+further below.
+</p>
+
+<h3>Step #7: Simple Nesting</h3>
+<p>
+Most transformations involve nested content. Let's start with a simple case, where element aa contains ab: 
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      aa : [0..*]
+        ab : string [1..1]
+  </pre></td><td><pre>
+    TRight
+      aa : [0..*]
+        ab : string [1..1]
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by copying aa to aa, and within aa, ab to ab</td></tr>
+</table>
+<p>
+There are 3 different ways to express this mapping, depending on what should happen when a is not an integer:
+</p>
+<pre>
+rule_aa : for source.aa as s_aa make target.aa as t_aa then by variables // make aa exist
+rule_ab : for s_aa.ab as ab make t_aa.a2 = copy(ab) // copy ab inside aa
+</pre>
+<p>
+This situation is handled by a pair of rules: the first rule establishes that relationship
+between source.aa and target.aa, and assigns 2 variable names to them. Then, the rule says to 
+check other rules for mappings involving s_aa and t_aa, and apply any other rules that match.
+In this case, rule_ab matches, and so for every source.aa, source.ab will be copied to target.aa.
+</p>
+<p>
+Note that the source and target variables never overlap, so both of the variables could have been 
+named 'aa' with no ambiguity, but overloading the names like this is avoided in this tutorial due
+to the potential for reader confusion.
+</p>
+<p>
+In this case, the first rule specified for the any additional rules involving the variables 
+defined by applying the rule. This is a very flexible way to set up the mapping arrangements,
+but requires discipline in the way that variables are named so as not to get the rules crossed.
+</p>
+
+
+
+</div>
+
+[%file newfooter%]
+
+</body>
+
+</html>
