@@ -2,15 +2,9 @@
   "url": "http://hl7.org/fhir/ValueSet/substance-code",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|372687004|Amoxicillin (substance)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Amoxicillin (substance)"
-      }
+      "hash": "#|http://snomed.info/sct|null|3092008|Staphylococcus Aureus",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Substance Code"
     },
     {
       "hash": "#|http://snomed.info/sct|null|333346007|Silver nitrate 20% solution (product)",
@@ -24,12 +18,23 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|3092008|Staphylococcus Aureus",
+      "hash": "#|http://snomed.info/sct|null|372687004|Amoxicillin (substance)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Amoxicillin (substance)"
+      }
+    },
+    {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|C3214954|cashew nut allergenic extract Injectable Product",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Substance Code"
     },
     {
-      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|C3214954|cashew nut allergenic extract Injectable Product",
+      "hash": "#|http://hl7.org/fhir/v3/EntityCode|null|HEPL|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Substance Code"
     },
@@ -45,7 +50,7 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/EntityCode|null|HEPL|null",
+      "hash": "#|null|null|2556|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Substance Code"
     },
@@ -59,11 +64,6 @@
         "definition": null,
         "display": "K - Potassium"
       }
-    },
-    {
-      "hash": "#|null|null|2556|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Substance Code"
     },
     {
       "hash": "#|http://snomed.info/sct|null|392259005|Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)",

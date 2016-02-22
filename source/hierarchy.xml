@@ -138,6 +138,9 @@ signatures.html
 
 			<page title="Downloads" filename="downloads.html"/>
 			<page title="Validating Resources" filename="validation.html"/>
+			<page title="Mapping Language" filename="mapping-language.html">
+			  <page title="Mapping Language Tutorial" filename="mapping-tutorial.html"/>
+      </page>  
 			<page title="Managing Resource Identity" filename="managing.html"/>
 			<page title="Interaction Patterns" filename="pushpull.html"/>
       <page title="Variations between Submitted data and Retrieved data" filename="updates.html"/>

@@ -44,6 +44,7 @@ The first task to do is to set up the mapping context. For this tutorial, this m
 declaring the source and target models, and specifying that an application invokes
 this with a copy of the left (source) instance, and also an empty copy of the right
 (target) instance: 
+</p>
 <pre>
 map "http://hl7.org/fhir/StructureMap/tutorial" = tutorial
 
@@ -78,6 +79,9 @@ This simple statement says that:
  <li>if there is one, call it variable 'a'</li>
  <li>the value of property 'a' of the target will be a copy of variable a - that is, source.a</li>
 </ul>
+<p>
+Note that the types don't feature in the mapping.
+</p>
 
 <h3>Step #2: Fields with different names</h3>
 <p>
@@ -231,6 +235,11 @@ Most transformations involve nested content. Let's start with a simple case, whe
   <tr><td colspan="2">The left instance is transformed to the right instance by copying aa to aa, and within aa, ab to ab</td></tr>
 </table>
 <p>
+Note that there is no specified type for the element aa. Some structure definitions (FHIR resources) do 
+leave these elements as anonymously typed, while others explicitly type them. However since the mapping
+does not refer to the type, it's literal type is not important.
+</p>
+<p>
 There are 3 different ways to express this mapping, depending on what should happen when a is not an integer:
 </p>
 <pre>
@@ -254,6 +263,232 @@ defined by applying the rule. This is a very flexible way to set up the mapping 
 but requires discipline in the way that variables are named so as not to get the rules crossed.
 </p>
 
+<h3>Step #8: Translation</h3>
+<p>
+A common translation pattern is to perform a translation e.g. from one set of codes to another
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      d : code [0..1]
+  </pre></td><td><pre>
+    TRight
+      d : [0..1]
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by translating source.d from one set of codes to another</td></tr>
+</table>
+<p>
+The key to this transformation is the <a href="conceptmap.html">ConceptMap</a> resource, which 
+actually specifies the mapping from one set of codes to the other:
+</p>
+<pre>
+rule_d : for source.d as d make target.d = translate(d, 'uri-of-concept-map', 'code')
+</pre>
+<p>
+This asks the mapping engine to use the <a href="conceptmap-operations.html#translate">$translate</a>
+operation on the terminology server to translate the code, and then to put the code value of the 
+return translation in target.d.
+</p>
+
+<h3>Step #9: Co-dependency in translation</h3>
+<p>
+Another common translation is where the target mapping for one element depends on the 
+value of another element. 
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      i : string [0..1]
+      l : integer [1..1]
+  </pre></td><td><pre>
+    TRight
+      j : [0..1]
+      k : [0..1]
+  </pre></td></tr>
+  <tr><td colspan="2">How the left instance is transformed to the right instance depends on the value of l: if l &lt; 2, then i maps to j, else it maps to k</td></tr>
+</table>
+<p>
+This is managed using conditions on the mapping statements:
+</p>
+<pre>
+rule_i1 : for source.i as i where l &lt; 2 make target.j = copy(i)
+rule_i2 : for source.i as i where l >= 2 make target.j = copy(i)
+</pre>
+
+<h3>Step #9: Co-dependency in translation</h3>
+<p>
+Another common translation is where the target mapping for one element depends on the 
+value of another element. 
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      i : string [0..1]
+      l : integer [1..1]
+  </pre></td><td><pre>
+    TRight
+      j : [0..1]
+      k : [0..1]
+  </pre></td></tr>
+  <tr><td colspan="2">How the left instance is transformed to the right instance depends on the value of l: if l &lt; 2, then i maps to j, else it maps to k</td></tr>
+</table>
+<p>
+This is managed using conditions on the mapping statements:
+</p>
+<pre>
+rule_i1 : for source.i as i where l &lt; 2 make target.j = copy(i)
+rule_i2 : for source.i as i where l >= 2 make target.j = copy(i)
+</pre>
+<p>
+Other kind of conditional tests can include value set membership - and by extension to that, use of subsumption testing. 
+</p>
+
+<h3>Step #10: Reworking Structure #1</h3>
+<p>
+It's now time to start maving away from relatively simple cases to some of the harder ones to 
+manage mappings for. The first mixes list management, and converting from a specific structure 
+to a general structure:
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      e : string [0..*]
+      f : string [1..1]
+  </pre></td><td><pre>
+    TRight
+      e : [0..*]
+        f : string [1..1]
+        g : code [1..1]
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance by adding one instance of target.e for each source.e, where the value goes into target.e.f, and 
+    the value of target.e.g is 'g1'. source.f is also transformed into the same structure, but the value of target.e.g is 'g2'. As an added complication, the value for 
+    source.f must come first</td></tr>
+</table>
+<p>
+This leads to some more complex mapping statements:
+</p>
+<pre>
+ef_a1: for source.e as s_e make target.e as t_e then ef_a2
+ef_a2: for s_e make t_e.f = copy(s_e), t_e.g = copy("g1")
+
+ef_b1: for source.f as s_f make target.e as t_e then ef_b2 { first }
+ef_b2: for s_f make t_e.f = copy(s_f), t_e.g = copy("g2")
+</pre>
+
+<h3>Step #10: Reworking Structure #2</h3>
+<p>
+The second example for reworking structure moves cardinality around the heirarchy.
+in this case, the source has an optional structure that contains a repeating structure,
+while the target puts the cardinality at the next level up:
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      az1 :[0..1]
+        az2 : string [1..1]
+        az3 : string [0..*]
+  </pre></td><td><pre>
+    TRight
+      az1 :[0..*]
+        az2 : string [1..1]
+        az3 : string [0..1]   
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance creating on target.az1 for every source.az1.az3, and then populating 
+  each az1 with the matching value of az3, and copying the value of az2 to each instance</td></tr>
+</table>
+<p>
+The key to setting this mapping up is to create a variable context for source.az1, and then carry it down, performing the actual mappings at the next level down:
+</p>
+<pre>
+aza : for src.az1 as s_az1 then azb // setting up a variable for the parent
+azb : for s_az1.az3 as s_az3 make target.az1 as t_az1 then az2, az3   // one target.az1 for each az3
+az2 : for s_az1.az2 as az2 make t_az1.az2 = copy(az2)  // value for az2. Note that this refers to a previous context in the source
+az3 : for s_az3 make tgt_az1.az3 = copy(src_az3)       // value for az3      
+</pre>
+
+<h3>Step #11: Multiple structures #1</h3>
+<p>
+Simple mappings, such as we've dealt with so far, where the source and target 
+structure both have the same scope, and there is only one of each, are all well
+and good, but there are many mappings where this is not the case. There is a set of 
+complications when dealing with multiple instances:
+</p>
+<ul>
+ <li>If there are multiple source inputs, how does the application know what they are? Sometimes, they are just independent inputs, but more often, the 
+    inputs are dependent on references in the source input, and therefore which source inputs are required depends on the mapping rules</li>
+ <li>If there are multiple output instances, how are they identified as they are created, and how do the target models reference each other?
+   Mostly, the answer is that it depends on the context; the actual identification details are not part of the mapping</li>
+ <li>It may even be the case that the kind of output structure to produce depends on the mapping rules, so the application can't create the target
+ structure before invoking the map</li>
+</ul>
+<p>
+For our first example, we're going to look at creating multiple output structures from a single input structure.
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      f1 : String [0..*];
+  </pre></td><td><pre>
+    TRight
+      ptr : Resource(TRight2) [0..*]
+  
+    TRight2
+      f1 : String [1..1];
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance creating a copy of TRight2 for each f1 in the source, and 
+  then putting the value of source.f1 in TRight2.f1</td></tr>
+</table>
+<p>
+The key to setting this mapping up is to create a variable context for source.az1, and then carry it down, performing the actual mappings at the next level down:
+</p>
+<pre>
+f1 : for source.f1 as s_f1 make null as rr = create("TRight2"), target.ptr = reference(rr) then f1a.
+f1a: for s_f1 make rr.f2 = copy(srcff)
+</pre>
+<p>
+This mapping statement makes use a special known value "null" for the target context to indicate that the created element/object of type "TRight2" 
+doesn't get added to any existing target context. Instead, it will only be available as a context in which to perform further mappings - as rule f1a
+does.
+</p>
+<p>
+The mapping engine passes the create request through to the host application, which is using the mapping. It must create a valid instance
+of TRight, and identify it as appropriate for the technical context in which the mapping is being used. The reference transform is 
+also passed back to the host application for it to determine how to represent the reference - but this is usally some kind of URL.
+</p>
+
+
+<h3>Step #12: Multiple structures #2</h3>
+<p>
+For our second example, we're going to look at the reverse: where  multiple input structures create a single input structure.
+</p>
+<table>
+  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
+  <tr><td><pre>
+    TLeft
+      ptr : Resource(TLeft2) [0..*]
+  
+    TLeft2
+      f2 : String [0..*];
+  </pre></td><td><pre>
+    TRight
+      f2 : String [1..*];
+  </pre></td></tr>
+  <tr><td colspan="2">The left instance is transformed to the right instance finding each ptr reference, getting
+   it's value foe f1, and adding this in target.f2</td></tr>
+</table>
+<p>
+The first task of the map is to ask the application host to find the structure 
+identified by source.ptr, and create a variable for it
+</p>
+<pre>
+f2: [todo]
+</pre>
 
 
 </div>

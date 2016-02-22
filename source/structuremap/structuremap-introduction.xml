@@ -21,6 +21,13 @@ target structure, and no reverse map is implied. Even if the mapping
 is simple, and loss-less, it cannot be assumed that there are no conditions 
 that might additionally apply in the reverse direction. 
 </p>
+<p>
+The mapping language, along with a concrete syntax, is defined in detail in <a href="mapping-language.html">the
+FHIR Mappping Language</a>, which defines a concrete syntax for the language. The StructureMap resource 
+represents the abstract syntax, and the concrete syntax is the recommended narrative representation for 
+a StructureMap. See also the <a href="mapping-tutorial.html">Tutorial</a>.
+</p>
+
 </div>
 
 <div>
@@ -80,10 +87,6 @@ Each rule may have the following properties:
 </ul>
 <p>
 The mapping language is entirely declarative; there is no imperative or procedural aspects to the definitions. 
-The mapping language, along with a concrete syntax, is defined in detail in <a href="mapping-language.html">the
-FHIR Mappping Language</a>, which defines a concrete syntax for the language. The StructureMap resource 
-represents the abstract syntax, and the concrete syntax is the recommended narrative representation for 
-a StructureMap. 
 </p>
 </div>
 
