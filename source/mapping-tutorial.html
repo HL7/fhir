@@ -53,6 +53,8 @@ uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
 input "source" : TLeft as source
 input "target" : TRight as target
+
+-- tutorial mappings ----------------------------------------------------
 </pre>
 <p>
 Note that the way this is set up is a choice: we choose to provide the 
@@ -61,6 +63,11 @@ and we choose to specify that the invoking application most provide both
 the source and the target instance trees. Other options are possible; these 
 are discussed further below. The rest of the tutorial examples use the same set
 up.
+</p>
+<p>
+The line starting with -- tutorial... sets up a section. Each mapping source
+can contain multiple sections each with different names. These are purely for
+the benefit of human editors, to help organise the source, and have no operational meaning.
 </p>
 <p>
 Having set up the context, we now need to define the relationship between
