@@ -59,14 +59,17 @@
             </type>
             <mapping>
                 <identity value="rim"/>
+                <uri value="http://hl7.org/v3"/>
                 <map value="Patient[classCode=PAT]"/>
             </mapping>
             <mapping>
                 <identity value="cda"/>
+                <uri value="http://hl7.org/cda"/>
                 <map value="ClinicalDocument.recordTarget.patientRole"/>
             </mapping>
             <mapping>
                 <identity value="w5"/>
+                <uri value="http://hl7.org/fhir/w5"/>
                 <map value="administrative.individual"/>
             </mapping>
         </element>
@@ -85,14 +88,17 @@
             <isSummary value="true"/>
             <mapping>
                 <identity value="v2"/>
+                <uri value="http://hl7.org/v2"/>
                 <map value="PID-5, PID-9"/>
             </mapping>
             <mapping>
                 <identity value="rim"/>
+                <uri value="http://hl7.org/v3"/>
                 <map value="name"/>
             </mapping>
             <mapping>
                 <identity value="cda"/>
+                <uri value="http://hl7.org/cda"/>
                 <map value=".patient.name"/>
             </mapping>
         </element>
@@ -111,14 +117,17 @@
             <isSummary value="true"/>
             <mapping>
                 <identity value="v2"/>
+                <uri value="http://hl7.org/v2"/>
                 <map value="PID-11"/>
             </mapping>
             <mapping>
                 <identity value="rim"/>
+                <uri value="http://hl7.org/v3"/>
                 <map value="addr"/>
             </mapping>
             <mapping>
                 <identity value="cda"/>
+                <uri value="http://hl7.org/cda"/>
                 <map value=".addr"/>
             </mapping>
         </element>

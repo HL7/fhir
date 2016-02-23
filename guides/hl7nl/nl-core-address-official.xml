@@ -35,10 +35,6 @@
             <type>
                 <code value="Element"/>
             </type>
-            <mapping>
-                <identity value="rim"/>
-                <map value="N/A"/>
-            </mapping>
         </element>
         <element>
             <path value="Extension.url"/>
@@ -49,10 +45,6 @@
             <min value="1"/>
             <max value="1"/>
             <fixedUri value="http://fhir.nl/fhir/StructureDefinition/nl-address-official"/>
-            <mapping>
-                <identity value="rim"/>
-                <map value="N/A"/>
-            </mapping>
         </element>
         <element>
             <path value="Extension.value[x]"/>
@@ -66,6 +58,7 @@
             <meaningWhenMissing value="When an address is not marked explicitly as official=true|false than no information can be inferred from that."/>
             <mapping>
                 <identity value="rim"/>
+                <uri value="http://hl7.org/v3"/>
                 <map value="AD/@use[.='OR']"/>
             </mapping>
         </element>

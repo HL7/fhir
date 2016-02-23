@@ -38,6 +38,7 @@
             </type>
             <mapping>
                 <identity value="rim"/>
+                <uri value="http://hl7.org/v3"/>
                 <map value="PN/prefix[@qualifier='VV']"/>
             </mapping>
         </element>
@@ -86,10 +87,6 @@
                 <code value="uri"/>
             </type>
             <fixedUri value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family-prefix"/>
-            <mapping>
-                <identity value="rim"/>
-                <map value="N/A"/>
-            </mapping>
         </element>
         <element>
             <path value="Extension.value[x]"/>
@@ -100,10 +97,6 @@
             <type>
                 <code value="string"/>
             </type>
-            <mapping>
-                <identity value="rim"/>
-                <map value="N/A"/>
-            </mapping>
         </element>
     </differential>
 </StructureDefinition>
