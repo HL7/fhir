@@ -220,7 +220,7 @@
   Element = MedicationStatement.dosage.text
   Card. = 0..1
   Type = string
-  Short Label = Reported dosage information
+  Short Label = Free text dosage instructions as reported by the information source
   Definition = Free text dosage information as reported about a patient\'s medication use. When coded dosage information is present, the free text may still be present for display to humans.
 
  -- Row 16 -----------------------------------

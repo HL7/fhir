@@ -3,7 +3,7 @@
 <a name="bp"> </a>
 <h2>Best practices for using 'Medication'</h2>
 <p>
-Medications that are entered in error should simply be deleted.
+Medication does not have a status.  If Medication was used to support a formulary use case, then an extension can be used to convey formulary statuses, such as active (e.g. the medication can be ordered) or inactive (e.g. the medication can be documented, but not ordered).
 </p>
  
 </div>
