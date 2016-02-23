@@ -470,15 +470,22 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = FluentPath condition - must be true for source to apply
+  Short Label = FluentPath expression - must be true for source to apply
 
  -- Row 38 -----------------------------------
+  Element = StructureMap.section.rule.source.check
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = FluentPath expression  - must be true or the mapping engine throws an error instead of completing
+
+ -- Row 39 -----------------------------------
   Element = StructureMap.section.rule.target
   Card. = 0..*
   Summary = y
   Short Label = Content to create because of this mapping rule
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = StructureMap.section.rule.target.context
   Card. = 1..1
   Summary = y
@@ -486,7 +493,7 @@
   Short Label = Type or variable this rule applies to
   Definition = Type or variable this rule applies to
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = StructureMap.section.rule.target.contextType
   Card. = 1..1
   Summary = y
@@ -495,21 +502,21 @@
   Short Label = type | variable
   Definition = How to interpret the context
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = StructureMap.section.rule.target.field
   Card. = 0..1
   Summary = y
   Type = string
   Short Label = Field to create in the context
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = StructureMap.section.rule.target.variable
   Card. = 0..1
   Summary = y
   Type = id
   Short Label = Named context for field, if desired, and a field is specified
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = StructureMap.section.rule.target.listMode
   Card. = 0..*
   Summary = y
@@ -518,14 +525,14 @@
   Short Label = only_one | first | share
   Definition = If field is a list, how to manage the list
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = StructureMap.section.rule.target.listRuleId
   Card. = 0..1
   Summary = y
   Type = id
   Short Label = Internal rule reference for shared list items
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = StructureMap.section.rule.target.transform
   Card. = 0..1
   Summary = y
@@ -534,20 +541,47 @@
   Short Label = create | copy +
   Definition = How the data is copied / created
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = StructureMap.section.rule.target.parameter
   Card. = 0..*
   Summary = y
   Short Label = Parameters to the transform
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = StructureMap.section.rule.target.parameter.value[x]
   Card. = 1..1
   Summary = y
   Type = id | string | boolean | integer | decimal
   Short Label = Parameter value - variable or literal
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
+  Element = StructureMap.section.rule.innerRules
+  Card. = 1..1
+  Summary = y
+  Short Label = Which other rules to apply when the rule is applied
+
+ -- Row 50 -----------------------------------
+  Element = StructureMap.section.rule.innerRules.byVariables
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = Apply rules based on variable matching
+
+ -- Row 51 -----------------------------------
+  Element = StructureMap.section.rule.innerRules.byType
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = Apply rules based on type matching
+
+ -- Row 52 -----------------------------------
+  Element = StructureMap.section.rule.innerRules.name
+  Card. = 0..*
+  Summary = y
+  Type = id
+  Short Label = Apply named rules only
+
+ -- Row 53 -----------------------------------
   Element = StructureMap.section.rule.documentation
   Card. = 0..1
   Type = string

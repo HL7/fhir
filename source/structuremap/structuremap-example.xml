@@ -23,6 +23,9 @@
         <field value="test"/>
         <variable value="t"/>
       </source>
+      <innerRules>
+        <byType value="true"/>
+      </innerRules>
     </rule>
   </section>
   
