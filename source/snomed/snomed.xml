@@ -1731,6 +1731,10 @@
     <display value="Preoperative"/>
     <display value="Preoperative (qualifier value)"/>
   </concept>
+  <concept id="263204007" display="Fracture of shaft of ulna (disorder)">
+    <display value="Fracture of shaft of ulna"/>
+    <display value="Fracture of shaft of ulna (disorder)"/>
+  </concept>
   <concept id="263678003" display="At rest (qualifier value)">
     <display value="At rest"/>
     <display value="At rest (qualifier value)"/>

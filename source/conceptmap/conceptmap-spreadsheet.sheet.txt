@@ -423,6 +423,12 @@
   Filename = conceptmap-example.xml
 
  -- Row 2 -----------------------------------
+  Name = SCT / ICD 10
+  Identity = 103
+  Description = SNOMED CT / ICD-10 mapping example
+  Filename = conceptmap-103.xml
+
+ -- Row 3 -----------------------------------
   Name = Specimen Type
   Identity = 102
   Description = Specimen Type v2 -> SNOMED CT Mapping
