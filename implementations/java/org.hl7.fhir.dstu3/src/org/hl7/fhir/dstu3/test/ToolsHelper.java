@@ -51,6 +51,7 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.RdfParser;
+import org.hl7.fhir.dstu3.formats.RdfParserBase;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.Constants;
@@ -317,7 +318,7 @@ public class ToolsHelper {
 		json.compose(s, rf);
 		s.close();    
 
-		RdfParser rdf = new RdfParser();
+		RdfParserBase rdf = new RdfParser();
 		s = new FileOutputStream(destr);
 		rdf.compose(s, rf);
 		s.close();
@@ -371,7 +372,7 @@ public class ToolsHelper {
 				
 				// 2. produce JSON
 				dest = new FileOutputStream(Utilities.changeFileExt(filename, ".ttl"));
-				RdfParser rdf = new RdfParser();
+				RdfParserBase rdf = new RdfParser();
 				rdf.compose(dest, r);
 			} catch (Exception e) {
 				e.printStackTrace();

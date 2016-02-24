@@ -755,7 +755,7 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
       generateComposer(n.getRoot(), n.isAbstract() ? JavaGenClass.AbstractResource : JavaGenClass.Resource);
       if (!n.isAbstract()) {
         String nn = javaClassName(n.getName());
-        reg.append("    else if (resource instanceof "+nn+")\r\n      compose"+nn+"(parent, \""+n.getName()+"\", \""+nn+"\", ("+nn+")resource, -1);\r\n");
+        reg.append("    else if (resource instanceof "+nn+")\r\n      compose"+nn+"(parent, null, \""+nn+"\", ("+nn+")resource, -1);\r\n");
       }
     }
 
@@ -763,7 +763,7 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
       ResourceDefn n = definitions.getResources().get(s);
       generateComposer(n.getRoot(), JavaGenClass.Resource);
       String nn = javaClassName(n.getName());
-      reg.append("    else if (resource instanceof "+nn+")\r\n      compose"+nn+"(parent, \""+n.getName()+"\", \""+nn+"\", ("+nn+")resource, -1);\r\n");
+      reg.append("    else if (resource instanceof "+nn+")\r\n      compose"+nn+"(parent, null, \""+nn+"\", ("+nn+")resource, -1);\r\n");
     }
     finishComposer();
   }
@@ -791,10 +791,10 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
   }
 
   private void generateEnumComposer() throws Exception {
-    write("private void composeEnum(Complex parent, String parentType, String name, Enumeration<? extends Enum> value, int index) {\r\n");
-    write("  if (value == null)\r\n");
-    write("    return;\r\n");
-    write("  Complex t = parent.predicate(\"fhir:\"+parentType+\".\"+name);\r\n");
+    write("  private void composeEnum(Complex parent, String parentType, String name, Enumeration<? extends Enum> value, int index) {\r\n");
+    write("    if (value == null)\r\n");
+    write("      return;\r\n");
+    write("    Complex t = parent.predicate(\"fhir:\"+parentType+\".\"+name);\r\n");
 //    write("  t.predicate(\"a\", \"fhir:code\");\r\n");
 //    write("  t.predicate(\"a\", \"fhir:ConceptBase\");\r\n");
 //    write("  Complex c = t.predicate(\"fhir:ConceptBase.coding\");\r\n");
@@ -804,9 +804,10 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
 //    write("  cc.predicate(\"fhir:value\", ttlLiteral(value.asStringValue()));\r\n");
 //    write("  Complex cs = c.predicate(\"fhir:CodingBase.system\");\r\n");
 //    write("  cs.predicate(\"a\", \"fhir:string\");\r\n");
-    write("  t.predicate(\"fhir:value\", ttlLiteral(value.toSystem()));\r\n");
-    write("  composeElement(t, parentType, name, value, index);\r\n");
-    write("}\r\n\r\n");
+    write("    t.predicate(\"fhir:value\", ttlLiteral(value.asStringValue()));\r\n");
+    write("    composeElement(t, parentType, name, value, index);\r\n");
+    write("    decorateCode(t, value);\r\n");
+    write("  }\r\n\r\n");
     write("\r\n");
   }
 
@@ -835,11 +836,12 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
 //    }
     write("    Complex t = parent.predicate(\"fhir:\"+parentType+\".\"+name);\r\n");
 //    write("    t.predicate(\"a\", \"fhir:"++"\");\r\n");
-    write("    t.predicate(\"fhir:value\", ttlLiteral(value.toString()));\r\n");
+    write("    t.predicate(\"fhir:value\", ttlLiteral(value.asStringValue()));\r\n");
     write("    composeElement(t, parentType, name, value, index);\r\n");
-//    if (dc.getCode().equals("code")) {
+    if (dc.getCode().equals("code")) {
+      write("    decorateCode(t, value);\r\n");
 //      write("    }    \r\n");
-//    }
+    }
     write("  }\r\n");
     write("\r\n");
   }
@@ -910,6 +912,11 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
       write("    composeBackboneElement(t, \""+n.getName()+"\", name, element, index);\r\n");
     else
       write("    composeElement(t, \""+n.getName()+"\", name, element, index);\r\n");
+
+    if (tn.equals("Coding")) 
+      write("    decorateCoding(t, element);\r\n");
+    else if (tn.equals("CodeableConcept")) 
+      write("    decorateCodeableConcept(t, element);\r\n");
 
     for (ElementDefn e : n.getElements()) {
       genElement(root, n, e, type);
