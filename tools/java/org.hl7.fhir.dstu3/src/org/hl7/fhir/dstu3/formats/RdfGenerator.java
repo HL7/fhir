@@ -14,7 +14,7 @@ import java.util.Set;
 import org.hl7.fhir.dstu3.formats.TurtleLexer.TurtleTokenType;
 import org.hl7.fhir.utilities.Utilities;
 
-public class RDFGenerator {
+public class RdfGenerator {
 
   public abstract class Triple {
   	private String uri;
@@ -237,7 +237,7 @@ public class RDFGenerator {
   protected Map<String, String> prefixes = new HashMap<String, String>();
 
   
-  public RDFGenerator(OutputStream destination) {
+  public RdfGenerator(OutputStream destination) {
     super();
     this.destination = destination;
   }

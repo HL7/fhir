@@ -10,7 +10,7 @@ import java.util.Map;
 
 import org.hl7.fhir.definitions.model.BindingSpecification;
 import org.hl7.fhir.definitions.model.BindingSpecification.BindingMethod;
-import org.hl7.fhir.dstu3.formats.RDFGenerator;
+import org.hl7.fhir.dstu3.formats.RdfGenerator;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.CodeType;
@@ -42,7 +42,7 @@ import org.hl7.fhir.definitions.model.W5Entry;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.Utilities;
 
-public class FhirTurtleGenerator extends RDFGenerator {
+public class FhirTurtleGenerator extends RdfGenerator {
   
   private class AnonTypeInfo {
     private String name;

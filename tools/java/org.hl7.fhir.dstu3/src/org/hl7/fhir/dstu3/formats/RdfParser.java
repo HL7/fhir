@@ -53,7 +53,7 @@ import org.xmlpull.v1.*;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
-import org.hl7.fhir.dstu3.formats.RDFGenerator.Complex;
+import org.hl7.fhir.dstu3.formats.RdfGenerator.Complex;
 import java.io.IOException;
 
 public class RdfParser extends RdfParserBase {

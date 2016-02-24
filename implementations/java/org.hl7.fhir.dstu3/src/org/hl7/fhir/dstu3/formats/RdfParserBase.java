@@ -6,9 +6,9 @@ import java.io.OutputStream;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu3.formats.RDFGenerator.Complex;
-import org.hl7.fhir.dstu3.formats.RDFGenerator.Section;
-import org.hl7.fhir.dstu3.formats.RDFGenerator.Subject;
+import org.hl7.fhir.dstu3.formats.RdfGenerator.Complex;
+import org.hl7.fhir.dstu3.formats.RdfGenerator.Section;
+import org.hl7.fhir.dstu3.formats.RdfGenerator.Subject;
 import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
@@ -39,7 +39,7 @@ public abstract class RdfParserBase extends ParserBase implements IParser  {
   
   @Override
   public void compose(OutputStream stream, Resource resource) throws IOException {
-      RDFGenerator ttl = new RDFGenerator(stream);
+      RdfGenerator ttl = new RdfGenerator(stream);
 //      ttl.setFormat(FFormat);
       ttl.prefix("fhir", "http://hl7.org/fhir/");
       ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
@@ -64,7 +64,7 @@ public abstract class RdfParserBase extends ParserBase implements IParser  {
   }
 
   protected String ttlLiteral(String value) {
-  	return "\"" +RDFGenerator.escape(value, true) + "\"";
+  	return "\"" +RdfGenerator.escape(value, true) + "\"";
   }
 
   protected void composeXhtml(Complex t, String string, String string2, XhtmlNode div, int i) {
