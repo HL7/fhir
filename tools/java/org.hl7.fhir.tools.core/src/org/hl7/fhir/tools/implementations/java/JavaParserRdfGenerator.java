@@ -261,7 +261,7 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     write("import org.hl7.fhir.utilities.Utilities;\r\n");
     write("import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;\r\n");
     write("import org.hl7.fhir.dstu3.exceptions.FHIRException;\r\n");
-    write("import org.hl7.fhir.dstu3.formats.RDFGenerator.Complex;\r\n");
+    write("import org.hl7.fhir.dstu3.formats.RdfGenerator.Complex;\r\n");
     write("import java.io.IOException;\r\n");
     //  write("import java.util.*;\r\n");
     write("\r\n");
