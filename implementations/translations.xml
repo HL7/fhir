@@ -962,7 +962,7 @@
     </item>
     <item id="MSG_NO_MATCH" ecode="true">
         <translation lang="en">No Resource found matching the query "%s"</translation>
-        <translation lang="nn">Geen resource gevonden op basis van query "%s"</translation>
+        <translation lang="nl">Geen resource gevonden met query "%s"</translation>
     </item>
     <item id="MSG_NO_EXIST" ecode="true">
         <translation lang="en">Resource Id "%s" does not exist</translation>
