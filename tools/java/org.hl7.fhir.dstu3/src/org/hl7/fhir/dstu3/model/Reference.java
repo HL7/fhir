@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 20, 2016 00:02+1100 for FHIR v1.3.0
+// Generated on Wed, Feb 24, 2016 10:46+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -99,6 +99,15 @@ public class Reference extends BaseReference implements IBaseReference, IComposi
     /**
      * @return {@link #reference} (A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.). This is the underlying object with id, value and extensions. The accessor "getReference" gives direct access to the value
      */
+    public StringType getReferenceElement_() { 
+      if (this.reference == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Reference.reference");
+        else if (Configuration.doAutoCreate())
+          this.reference = new StringType(); // bb
+      return this.reference;
+    }
+
     public boolean hasReferenceElement() { 
       return this.reference != null && !this.reference.isEmpty();
     }

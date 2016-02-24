@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model.valuesets;
   
 */
 
-// Generated on Sat, Feb 20, 2016 00:02+1100 for FHIR v1.3.0
+// Generated on Wed, Feb 24, 2016 10:46+1100 for FHIR v1.3.0
 
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
@@ -37,11 +37,11 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 public enum ObjectLifecycle {
 
         /**
-         * Origination / Creation
+         * Origination, Creation
          */
         _1, 
         /**
-         * Import / Copy from original
+         * Import / Copy
          */
         _2, 
         /**
@@ -73,7 +73,7 @@ public enum ObjectLifecycle {
          */
         _9, 
         /**
-         * Export / Copy to target
+         * Export
          */
         _10, 
         /**
@@ -160,8 +160,8 @@ public enum ObjectLifecycle {
         }
         public String getDefinition() {
           switch (this) {
-            case _1: return "Origination / Creation";
-            case _2: return "Import / Copy from original";
+            case _1: return "Origination, Creation";
+            case _2: return "Import / Copy";
             case _3: return "Amendment";
             case _4: return "Verification";
             case _5: return "Translation";
@@ -169,7 +169,7 @@ public enum ObjectLifecycle {
             case _7: return "De-identification";
             case _8: return "Aggregation, summarization, derivation";
             case _9: return "Report";
-            case _10: return "Export / Copy to target";
+            case _10: return "Export";
             case _11: return "Disclosure";
             case _12: return "Receipt of disclosure";
             case _13: return "Archiving";
@@ -180,8 +180,8 @@ public enum ObjectLifecycle {
         }
         public String getDisplay() {
           switch (this) {
-            case _1: return "Origination / Creation";
-            case _2: return "Import / Copy from original";
+            case _1: return "Origination, Creation";
+            case _2: return "Import / Copy";
             case _3: return "Amendment";
             case _4: return "Verification";
             case _5: return "Translation";
@@ -189,7 +189,7 @@ public enum ObjectLifecycle {
             case _7: return "De-identification";
             case _8: return "Aggregation, summarization, derivation";
             case _9: return "Report";
-            case _10: return "Export / Copy to target";
+            case _10: return "Export";
             case _11: return "Disclosure";
             case _12: return "Receipt of disclosure";
             case _13: return "Archiving";

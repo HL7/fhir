@@ -789,7 +789,7 @@ public class FhirTurtleGenerator extends RDFGenerator {
     for (Coding c : cc.getCoding()) {
       String s = getLinkedForm(c);
       if (s != null) 
-        subject.predicate(predicate, new StringObject(s), c.hasDisplay() ? c.getDisplay() : cc.getText());
+        subject.predicate(predicate, new StringType(s), c.hasDisplay() ? c.getDisplay() : cc.getText());
     }
   }
  

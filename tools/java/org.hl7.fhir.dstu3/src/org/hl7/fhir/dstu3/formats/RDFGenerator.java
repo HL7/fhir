@@ -16,37 +16,38 @@ import org.hl7.fhir.utilities.Utilities;
 
 public class RDFGenerator {
 
-  public abstract class TripleObject {
+  public abstract class Triple {
+  	private String uri;
   }
   
-  public class StringObject extends TripleObject {
+  public class StringType extends Triple {
     private String value;
 
-    public StringObject(String value) {
+    public StringType(String value) {
       super();
       this.value = value;
     }
   }
   
-  public class ComplexObject extends TripleObject {
-    private List<Predicate> predicates = new ArrayList<Predicate>();
+  public class Complex extends Triple {
+    protected List<Predicate> predicates = new ArrayList<Predicate>();
     
     public boolean write(LineOutputStreamWriter writer, int indent) throws Exception {
       if (predicates.isEmpty()) 
         return false;
-      if (predicates.size() == 1 && predicates.get(0).object instanceof StringObject && Utilities.noString(predicates.get(0).comment)) {
-        writer.write(" "+predicates.get(0).predicate+" "+((StringObject) predicates.get(0).object).value);
+      if (predicates.size() == 1 && predicates.get(0).object instanceof StringType && Utilities.noString(predicates.get(0).comment)) {
+        writer.write(" "+predicates.get(0).predicate+" "+((StringType) predicates.get(0).object).value);
         return false;
       }
       String left = Utilities.padLeft("", ' ', indent);
       int i = 0;
       for (Predicate po : predicates) {
         writer.write("\r\n");
-        if (po.getObject() instanceof StringObject)
-          writer.write(left+" "+po.getPredicate()+" "+((StringObject) po.getObject()).value);
+        if (po.getObject() instanceof StringType)
+          writer.write(left+" "+po.getPredicate()+" "+((StringType) po.getObject()).value);
         else {
           writer.write(left+" "+po.getPredicate()+" [");
-          if (((ComplexObject) po.getObject()).write(writer, indent+2))
+          if (((Complex) po.getObject()).write(writer, indent+2))
             writer.write(left+" ]");
           else
             writer.write(" ]");
@@ -60,33 +61,40 @@ public class RDFGenerator {
       return true;      
     }
     
-    public ComplexObject predicate(String predicate, String object) {
+    public Complex predicate(String predicate, String object) {
       predicateSet.add(predicate);
       objectSet.add(object);
-      return predicate(predicate, new StringObject(object));
+      return predicate(predicate, new StringType(object));
     }
     
-    public ComplexObject predicate(String predicate, TripleObject object) {
+    public Complex predicate(String predicate, Triple object) {
       Predicate p = new Predicate();
       p.predicate = predicate;
       predicateSet.add(predicate);
-      if (object instanceof StringObject)
-        objectSet.add(((StringObject) object).value);
+      if (object instanceof StringType)
+        objectSet.add(((StringType) object).value);
       p.object = object;
       predicates.add(p);
       return this;
+    }
+
+    public Complex predicate(String predicate) {
+      predicateSet.add(predicate);
+      Complex c = complex();
+      predicate(predicate, c);
+      return c;
     }
   }
   
   private class Predicate {
     protected String predicate;
-    protected TripleObject object;
+    protected Triple object;
     protected String comment;
     
     public String getPredicate() {
       return predicate;
     }
-    public TripleObject getObject() {
+    public Triple getObject() {
       return object;
     }
     public String getComment() {
@@ -94,32 +102,21 @@ public class RDFGenerator {
     }
   }
   
-  public class Subject {
+  public class Subject extends Complex {
     private String id;
-    private List<Predicate> predicates = new ArrayList<Predicate>();
     
-    public Predicate predicate(String predicate, TripleObject object) {
-      subjectSet.add(id);
-      return predicate(predicate, object, null);
-    }
-    
-    public Predicate predicate(String predicate, String object) {
-      subjectSet.add(id);
-      return predicate(predicate, new StringObject(object), null);
-    }
-    
-    public Predicate predicate(String predicate, TripleObject object, String comment) {
-      subjectSet.add(id);
-      predicateSet.add(predicate);
-      if (object instanceof StringObject)
-        objectSet.add(((StringObject) object).value);
+    public Predicate predicate(String predicate, Triple object, String comment) {
       Predicate p = new Predicate();
       p.predicate = predicate;
+      predicateSet.add(predicate);
+      if (object instanceof StringType)
+        objectSet.add(((StringType) object).value);
       p.object = object;
-      p.comment = comment;
       predicates.add(p);
+      p.comment = comment;
       return p;
     }
+    
     public void comment(String comment) {
       if (!Utilities.noString(comment)) {
         predicate("rdfs:comment", literal(comment));
@@ -139,19 +136,20 @@ public class RDFGenerator {
   public class Section {
     private String name;
     private List<Subject> subjects = new ArrayList<Subject>();
+    
     public Subject triple(String subject, String predicate, String object, String comment) {
-      return triple(subject, predicate, new StringObject(object), comment);
+      return triple(subject, predicate, new StringType(object), comment);
     }
     
     public Subject triple(String subject, String predicate, String object) {
-      return triple(subject, predicate, new StringObject(object));
+      return triple(subject, predicate, new StringType(object));
     }
     
-    public Subject triple(String subject, String predicate, TripleObject object) {
+    public Subject triple(String subject, String predicate, Triple object) {
       return triple(subject, predicate, object, null);     
     }
     
-    public Subject triple(String subject, String predicate, TripleObject object, String comment) {
+    public Subject triple(String subject, String predicate, Triple object, String comment) {
       Subject s = subject(subject);
       s.predicate(predicate, object, comment);
       return s;
@@ -202,9 +200,9 @@ public class RDFGenerator {
       }
     }
 
-    private ComplexObject importComplex(TurtleLexer lexer) throws Exception {
+    private Complex importComplex(TurtleLexer lexer) throws Exception {
       lexer.next(); // read [
-      ComplexObject obj = new ComplexObject();
+      Complex obj = new Complex();
       while (!lexer.peek().equals("]")) {
         String predicate = lexer.next();
         if (lexer.peekType() == TurtleTokenType.TOKEN || lexer.peekType() == TurtleTokenType.LITERAL) {
@@ -326,8 +324,8 @@ public class RDFGenerator {
 //    return obj;
 //  }
 //
-  protected ComplexObject complex() {
-    return new ComplexObject();
+  protected Complex complex() {
+    return new Complex();
   }
 //
 //  protected TripleObject complex(PredicateObject predicate1, PredicateObject predicate2) {
@@ -376,11 +374,11 @@ public class RDFGenerator {
 //    return t;
 //  }
   
-  private void checkPrefix(TripleObject object) {
-    if (object instanceof StringObject)
-      checkPrefix(((StringObject) object).value);
+  private void checkPrefix(Triple object) {
+    if (object instanceof StringType)
+      checkPrefix(((StringType) object).value);
     else {
-      ComplexObject obj = (ComplexObject) object;
+      Complex obj = (Complex) object;
       for (Predicate po : obj.predicates) {
         checkPrefix(po.getPredicate());
         checkPrefix(po.getObject());
@@ -404,11 +402,11 @@ public class RDFGenerator {
     }
   }
 
-  protected StringObject literal(String s) {
-    return new StringObject("\""+escape(s, true)+"\"");
+  protected StringType literal(String s) {
+    return new StringType("\""+escape(s, true)+"\"");
   }
 
-  protected String escape(String s, boolean string) {
+  public static String escape(String s, boolean string) {
     if (s == null)
       return "";
 
@@ -501,11 +499,11 @@ public class RDFGenerator {
       for (Predicate p : sbj.predicates) {
         writer.write(p.getPredicate());
         writer.write(" ");
-        if (p.getObject() instanceof StringObject)
-          writer.write(((StringObject) p.getObject()).value);
+        if (p.getObject() instanceof StringType)
+          writer.write(((StringType) p.getObject()).value);
         else {
           writer.write("[");
-          if (((ComplexObject) p.getObject()).write(writer, 4))
+          if (((Complex) p.getObject()).write(writer, 4))
             writer.write("\r\n  ]");
           else
             writer.write("]");

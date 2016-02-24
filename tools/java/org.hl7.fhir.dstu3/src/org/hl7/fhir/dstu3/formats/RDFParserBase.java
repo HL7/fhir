@@ -6,15 +6,19 @@ import java.io.OutputStream;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.formats.RDFGenerator.Complex;
 import org.hl7.fhir.dstu3.formats.RDFGenerator.Section;
 import org.hl7.fhir.dstu3.formats.RDFGenerator.Subject;
+import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.Type;
+import org.hl7.fhir.utilities.xhtml.XhtmlNode;
 import org.hl7.fhir.utilities.xml.XMLWriter;
 
-public abstract class RDFParserBase extends ParserBase implements IParser  {
+public abstract class RdfParserBase extends ParserBase implements IParser  {
 
-  protected abstract void composeResource(Subject subject, Resource resource);
+  protected abstract void composeResource(Complex complex, Resource resource) throws IOException;
 
   @Override
   public ParserType getType() {
@@ -58,5 +62,13 @@ public abstract class RDFParserBase extends ParserBase implements IParser  {
   public void compose(OutputStream stream, Type type, String rootName) throws IOException {
     throw new Error("Not supported in RDF");  
   }
+
+  protected String ttlLiteral(String value) {
+  	return "\"" +RDFGenerator.escape(value, true) + "\"";
+  }
+
+  protected void composeXhtml(Complex t, String string, String string2, XhtmlNode div, int i) {
+	}
+
 
 }

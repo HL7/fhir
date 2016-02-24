@@ -2,11 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/marital-status",
   "outcomes": [
     {
-      "hash": "|http://snomed.info/sct|null|36629006|Legally married",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Marital Status Codes"
-    },
-    {
       "hash": "|http://hl7.org/fhir/v3/MaritalStatus|null|M|null",
       "severity": null,
       "message": null,
@@ -16,6 +11,11 @@
         "definition": null,
         "display": "Married"
       }
+    },
+    {
+      "hash": "|http://snomed.info/sct|null|36629006|Legally married",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Marital Status Codes"
     },
     {
       "hash": "|http://hl7.org/fhir/v3/MaritalStatus|null|M|Married",

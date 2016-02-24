@@ -2,12 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/use-context",
   "outcomes": [
     {
-      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT",
+      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
     {
-      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
+      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
@@ -34,12 +34,7 @@
       }
     },
     {
-      "hash": "#|http://loinc.org/class|null|null|PANEL.SURVEY.USSGFHT",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
-    },
-    {
-      "hash": "#|http://loinc.org/class|null|null|MISC",
+      "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
@@ -49,7 +44,12 @@
       "message": "None of the codes provided are  valid in the value set Context of Use ValueSet"
     },
     {
-      "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
+      "hash": "#|http://loinc.org/class|null|null|MISC",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+    },
+    {
+      "hash": "#|http://loinc.org/class|null|null|PANEL.SURVEY.USSGFHT",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
@@ -70,11 +70,6 @@
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
     {
-      "hash": "#|http://loinc.org/type|null|null|Survey",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
-    },
-    {
       "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
       "severity": null,
       "message": null,
@@ -84,6 +79,11 @@
         "definition": null,
         "display": "United States Minor Outlying Islands (the)"
       }
+    },
+    {
+      "hash": "#|http://loinc.org/type|null|null|Survey",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     }
   ]
 }

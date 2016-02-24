@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 20, 2016 00:02+1100 for FHIR v1.3.0
+// Generated on Wed, Feb 24, 2016 10:46+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2365,6 +2365,26 @@ public class ConceptMap extends DomainResource {
    }
 
  /**
+   * Search parameter: <b>source-system</b>
+   * <p>
+   * Description: <b>Code System (if value set crosses code systems)</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ConceptMap.element.codeSystem</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="source-system", path="ConceptMap.element.codeSystem", description="Code System (if value set crosses code systems)", type="uri" )
+  public static final String SP_SOURCE_SYSTEM = "source-system";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>source-system</b>
+   * <p>
+   * Description: <b>Code System (if value set crosses code systems)</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>ConceptMap.element.codeSystem</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam SOURCE_SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SOURCE_SYSTEM);
+
+ /**
    * Search parameter: <b>dependson</b>
    * <p>
    * Description: <b>Reference to element/field/ValueSet mapping depends on</b><br>
@@ -2445,24 +2465,24 @@ public class ConceptMap extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
-   * Search parameter: <b>targetsystem</b>
+   * Search parameter: <b>target-code</b>
    * <p>
-   * Description: <b>System of the target (if necessary)</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.target.codeSystem</b><br>
+   * Description: <b>Code that identifies the target element</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ConceptMap.element.target.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="targetsystem", path="ConceptMap.element.target.codeSystem", description="System of the target (if necessary)", type="uri" )
-  public static final String SP_TARGETSYSTEM = "targetsystem";
+  @SearchParamDefinition(name="target-code", path="ConceptMap.element.target.code", description="Code that identifies the target element", type="token" )
+  public static final String SP_TARGET_CODE = "target-code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>targetsystem</b>
+   * <b>Fluent Client</b> search parameter constant for <b>target-code</b>
    * <p>
-   * Description: <b>System of the target (if necessary)</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.target.codeSystem</b><br>
+   * Description: <b>Code that identifies the target element</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>ConceptMap.element.target.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam TARGETSYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_TARGETSYSTEM);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TARGET_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TARGET_CODE);
 
  /**
    * Search parameter: <b>version</b>
@@ -2525,50 +2545,50 @@ public class ConceptMap extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam PRODUCT = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_PRODUCT);
 
  /**
-   * Search parameter: <b>sourcecode</b>
+   * Search parameter: <b>source-code</b>
    * <p>
    * Description: <b>Identifies element being mapped</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ConceptMap.element.code</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="sourcecode", path="ConceptMap.element.code", description="Identifies element being mapped", type="token" )
-  public static final String SP_SOURCECODE = "sourcecode";
+  @SearchParamDefinition(name="source-code", path="ConceptMap.element.code", description="Identifies element being mapped", type="token" )
+  public static final String SP_SOURCE_CODE = "source-code";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>sourcecode</b>
+   * <b>Fluent Client</b> search parameter constant for <b>source-code</b>
    * <p>
    * Description: <b>Identifies element being mapped</b><br>
    * Type: <b>token</b><br>
    * Path: <b>ConceptMap.element.code</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SOURCECODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SOURCECODE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SOURCE_CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SOURCE_CODE);
 
  /**
-   * Search parameter: <b>sourceuri</b>
+   * Search parameter: <b>source-uri</b>
    * <p>
    * Description: <b>Identifies the source of the concepts which are being mapped</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>ConceptMap.sourceUri</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="sourceuri", path="ConceptMap.sourceUri", description="Identifies the source of the concepts which are being mapped", type="reference" )
-  public static final String SP_SOURCEURI = "sourceuri";
+  @SearchParamDefinition(name="source-uri", path="ConceptMap.sourceUri", description="Identifies the source of the concepts which are being mapped", type="reference" )
+  public static final String SP_SOURCE_URI = "source-uri";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>sourceuri</b>
+   * <b>Fluent Client</b> search parameter constant for <b>source-uri</b>
    * <p>
    * Description: <b>Identifies the source of the concepts which are being mapped</b><br>
    * Type: <b>reference</b><br>
    * Path: <b>ConceptMap.sourceUri</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SOURCEURI = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SOURCEURI);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SOURCE_URI = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SOURCE_URI);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>ConceptMap:sourceuri</b>".
+   * the path value of "<b>ConceptMap:source-uri</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCEURI = new ca.uhn.fhir.model.api.Include("ConceptMap:sourceuri").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_SOURCE_URI = new ca.uhn.fhir.model.api.Include("ConceptMap:source-uri").toLocked();
 
  /**
    * Search parameter: <b>source</b>
@@ -2683,26 +2703,6 @@ public class ConceptMap extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_TARGET = new ca.uhn.fhir.model.api.Include("ConceptMap:target").toLocked();
 
  /**
-   * Search parameter: <b>targetcode</b>
-   * <p>
-   * Description: <b>Code that identifies the target element</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ConceptMap.element.target.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="targetcode", path="ConceptMap.element.target.code", description="Code that identifies the target element", type="token" )
-  public static final String SP_TARGETCODE = "targetcode";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>targetcode</b>
-   * <p>
-   * Description: <b>Code that identifies the target element</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>ConceptMap.element.target.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TARGETCODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TARGETCODE);
-
- /**
    * Search parameter: <b>identifier</b>
    * <p>
    * Description: <b>Additional identifier for the concept map</b><br>
@@ -2723,24 +2723,24 @@ public class ConceptMap extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
 
  /**
-   * Search parameter: <b>sourcesystem</b>
+   * Search parameter: <b>target-system</b>
    * <p>
-   * Description: <b>Code System (if value set crosses code systems)</b><br>
+   * Description: <b>System of the target (if necessary)</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.codeSystem</b><br>
+   * Path: <b>ConceptMap.element.target.codeSystem</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="sourcesystem", path="ConceptMap.element.codeSystem", description="Code System (if value set crosses code systems)", type="uri" )
-  public static final String SP_SOURCESYSTEM = "sourcesystem";
+  @SearchParamDefinition(name="target-system", path="ConceptMap.element.target.codeSystem", description="System of the target (if necessary)", type="uri" )
+  public static final String SP_TARGET_SYSTEM = "target-system";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>sourcesystem</b>
+   * <b>Fluent Client</b> search parameter constant for <b>target-system</b>
    * <p>
-   * Description: <b>Code System (if value set crosses code systems)</b><br>
+   * Description: <b>System of the target (if necessary)</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.codeSystem</b><br>
+   * Path: <b>ConceptMap.element.target.codeSystem</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam SOURCESYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SOURCESYSTEM);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam TARGET_SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_TARGET_SYSTEM);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 20, 2016 00:02+1100 for FHIR v1.3.0
+// Generated on Wed, Feb 24, 2016 10:46+1100 for FHIR v1.3.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2449,6 +2449,10 @@ public class Enumerations {
          */
         STRUCTUREDEFINITION, 
         /**
+         * A Map of relationships between 2 structures that can be used to transform data.
+         */
+        STRUCTUREMAP, 
+        /**
          * The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system is able to take an appropriate action.
          */
         SUBSCRIPTION, 
@@ -2779,6 +2783,8 @@ public class Enumerations {
           return SPECIMEN;
         if ("StructureDefinition".equals(codeString))
           return STRUCTUREDEFINITION;
+        if ("StructureMap".equals(codeString))
+          return STRUCTUREMAP;
         if ("Subscription".equals(codeString))
           return SUBSCRIPTION;
         if ("Substance".equals(codeString))
@@ -2945,6 +2951,7 @@ public class Enumerations {
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case STRUCTUREDEFINITION: return "StructureDefinition";
+            case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
             case SUBSTANCE: return "Substance";
             case SUPPLYDELIVERY: return "SupplyDelivery";
@@ -3105,6 +3112,7 @@ public class Enumerations {
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case STRUCTUREMAP: return "http://hl7.org/fhir/resource-types";
             case SUBSCRIPTION: return "http://hl7.org/fhir/resource-types";
             case SUBSTANCE: return "http://hl7.org/fhir/resource-types";
             case SUPPLYDELIVERY: return "http://hl7.org/fhir/resource-types";
@@ -3265,6 +3273,7 @@ public class Enumerations {
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.";
+            case STRUCTUREMAP: return "A Map of relationships between 2 structures that can be used to transform data.";
             case SUBSCRIPTION: return "The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined \"channel\" so that another system is able to take an appropriate action.";
             case SUBSTANCE: return "A homogeneous material with a definite composition.";
             case SUPPLYDELIVERY: return "Record of delivery of what is supplied.";
@@ -3425,6 +3434,7 @@ public class Enumerations {
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case STRUCTUREDEFINITION: return "StructureDefinition";
+            case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
             case SUBSTANCE: return "Substance";
             case SUPPLYDELIVERY: return "SupplyDelivery";
@@ -3738,6 +3748,8 @@ public class Enumerations {
           return FHIRDefinedType.SPECIMEN;
         if ("StructureDefinition".equals(codeString))
           return FHIRDefinedType.STRUCTUREDEFINITION;
+        if ("StructureMap".equals(codeString))
+          return FHIRDefinedType.STRUCTUREMAP;
         if ("Subscription".equals(codeString))
           return FHIRDefinedType.SUBSCRIPTION;
         if ("Substance".equals(codeString))
@@ -4056,6 +4068,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SPECIMEN);
         if ("StructureDefinition".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.STRUCTUREDEFINITION);
+        if ("StructureMap".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.STRUCTUREMAP);
         if ("Subscription".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SUBSCRIPTION);
         if ("Substance".equals(codeString))
@@ -4369,6 +4383,8 @@ public class Enumerations {
         return "Specimen";
       if (code == FHIRDefinedType.STRUCTUREDEFINITION)
         return "StructureDefinition";
+      if (code == FHIRDefinedType.STRUCTUREMAP)
+        return "StructureMap";
       if (code == FHIRDefinedType.SUBSCRIPTION)
         return "Subscription";
       if (code == FHIRDefinedType.SUBSTANCE)
@@ -5217,6 +5233,10 @@ public class Enumerations {
          */
         STRUCTUREDEFINITION, 
         /**
+         * A Map of relationships between 2 structures that can be used to transform data.
+         */
+        STRUCTUREMAP, 
+        /**
          * The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined "channel" so that another system is able to take an appropriate action.
          */
         SUBSCRIPTION, 
@@ -5453,6 +5473,8 @@ public class Enumerations {
           return SPECIMEN;
         if ("StructureDefinition".equals(codeString))
           return STRUCTUREDEFINITION;
+        if ("StructureMap".equals(codeString))
+          return STRUCTUREMAP;
         if ("Subscription".equals(codeString))
           return SUBSCRIPTION;
         if ("Substance".equals(codeString))
@@ -5572,6 +5594,7 @@ public class Enumerations {
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case STRUCTUREDEFINITION: return "StructureDefinition";
+            case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
             case SUBSTANCE: return "Substance";
             case SUPPLYDELIVERY: return "SupplyDelivery";
@@ -5685,6 +5708,7 @@ public class Enumerations {
             case SLOT: return "http://hl7.org/fhir/resource-types";
             case SPECIMEN: return "http://hl7.org/fhir/resource-types";
             case STRUCTUREDEFINITION: return "http://hl7.org/fhir/resource-types";
+            case STRUCTUREMAP: return "http://hl7.org/fhir/resource-types";
             case SUBSCRIPTION: return "http://hl7.org/fhir/resource-types";
             case SUBSTANCE: return "http://hl7.org/fhir/resource-types";
             case SUPPLYDELIVERY: return "http://hl7.org/fhir/resource-types";
@@ -5798,6 +5822,7 @@ public class Enumerations {
             case SLOT: return "A slot of time on a schedule that may be available for booking appointments.";
             case SPECIMEN: return "A sample to be used for analysis.";
             case STRUCTUREDEFINITION: return "A definition of a FHIR structure. This resource is used to describe the underlying resources, data types defined in FHIR, and also for describing extensions, and constraints on resources and data types.";
+            case STRUCTUREMAP: return "A Map of relationships between 2 structures that can be used to transform data.";
             case SUBSCRIPTION: return "The subscription resource is used to define a push based subscription from a server to another system. Once a subscription is registered with the server, the server checks every resource that is created or updated, and if the resource matches the given criteria, it sends a message on the defined \"channel\" so that another system is able to take an appropriate action.";
             case SUBSTANCE: return "A homogeneous material with a definite composition.";
             case SUPPLYDELIVERY: return "Record of delivery of what is supplied.";
@@ -5911,6 +5936,7 @@ public class Enumerations {
             case SLOT: return "Slot";
             case SPECIMEN: return "Specimen";
             case STRUCTUREDEFINITION: return "StructureDefinition";
+            case STRUCTUREMAP: return "StructureMap";
             case SUBSCRIPTION: return "Subscription";
             case SUBSTANCE: return "Substance";
             case SUPPLYDELIVERY: return "SupplyDelivery";
@@ -6130,6 +6156,8 @@ public class Enumerations {
           return ResourceType.SPECIMEN;
         if ("StructureDefinition".equals(codeString))
           return ResourceType.STRUCTUREDEFINITION;
+        if ("StructureMap".equals(codeString))
+          return ResourceType.STRUCTUREMAP;
         if ("Subscription".equals(codeString))
           return ResourceType.SUBSCRIPTION;
         if ("Substance".equals(codeString))
@@ -6354,6 +6382,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.SPECIMEN);
         if ("StructureDefinition".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.STRUCTUREDEFINITION);
+        if ("StructureMap".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.STRUCTUREMAP);
         if ("Subscription".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.SUBSCRIPTION);
         if ("Substance".equals(codeString))
@@ -6573,6 +6603,8 @@ public class Enumerations {
         return "Specimen";
       if (code == ResourceType.STRUCTUREDEFINITION)
         return "StructureDefinition";
+      if (code == ResourceType.STRUCTUREMAP)
+        return "StructureMap";
       if (code == ResourceType.SUBSCRIPTION)
         return "Subscription";
       if (code == ResourceType.SUBSTANCE)

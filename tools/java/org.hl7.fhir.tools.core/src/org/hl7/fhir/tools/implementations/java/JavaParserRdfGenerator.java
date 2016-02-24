@@ -720,9 +720,9 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     generateEnumComposer();
     for (DefinedCode dc : definitions.getPrimitives().values()) {
       String nn = upFirst(dc.getCode());
-      if (nn.equals("Code"))
-        regtn.append("    else if (value instanceof "+nn+"Type)\r\n      compose"+nn+"(parent, parentType, name, ("+nn+"Type)value, false, index);\r\n");
-      else
+//      if (nn.equals("Code"))
+//        regtn.append("    else if (value instanceof "+nn+"Type)\r\n      compose"+nn+"(parent, parentType, name, ("+nn+"Type)value, false, index);\r\n");
+//      else
         regtn.append("    else if (value instanceof "+nn+"Type)\r\n      compose"+nn+"(parent, parentType, name, ("+nn+"Type)value, index);\r\n");
       generatePrimitiveComposer(dc);
     }
@@ -738,9 +738,9 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     for (ElementDefn n : definitions.getTypes().values()) {
       generateComposer(n, JavaGenClass.Type);
       String nn = javaClassName(n.getName());
-      if (nn.equals("Coding"))
-        regtn.append("    else if (value instanceof "+nn+")\r\n      compose"+nn+"(parent, parentType, name, ("+nn+")value, false, index);\r\n");
-      else
+//      if (nn.equals("Coding"))
+//        regtn.append("    else if (value instanceof "+nn+")\r\n      compose"+nn+"(parent, parentType, name, ("+nn+")value, false, index);\r\n");
+//      else
         regtn.append("    else if (value instanceof "+nn+")\r\n      compose"+nn+"(parent, parentType, name, ("+nn+")value, index);\r\n");
     }
 
@@ -774,7 +774,8 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     write("      return;\r\n");
     write("    if (index > -1)\r\n");
     write("      t.predicate(\"fhir:index\", Integer.toString(index));\r\n");
-    write("    composeId(t, \"Element\", \"id\", element.getIdElement(), -1);\r\n");
+    write("    if (element.hasIdElement())\r\n");
+    write("      composeId(t, \"Element\", \"id\", element.getIdElement(), -1);\r\n");
     write("    for (int i = 0; i < element.getExtension().size(); i++)\r\n");
     write("      composeExtension(t, \"Element\", \"extension\", element.getExtension().get(i), i);\r\n");
     write("  }\r\n");
@@ -794,16 +795,16 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     write("  if (value == null)\r\n");
     write("    return;\r\n");
     write("  Complex t = parent.predicate(\"fhir:\"+parentType+\".\"+name);\r\n");
-    write("  t.predicate(\"a\", \"fhir:code\");\r\n");
-    write("  t.predicate(\"a\", \"fhir:ConceptBase\");\r\n");
-    write("  Complex c = t.predicate(\"fhir:ConceptBase.coding\");\r\n");
-    write("  c.predicate(\"a\", \"fhir:CodingBase\");\r\n");
-    write("  Complex cc = c.predicate(\"fhir:CodingBase.code\");\r\n");
-    write("  cc.predicate(\"a\", \"fhir:codeBase\");\r\n");
-    write("  cc.predicate(\"fhir:value\", ttlLiteral(value.asStringValue()));\r\n");
-    write("  Complex cs = c.predicate(\"fhir:CodingBase.system\");\r\n");
-    write("  cs.predicate(\"a\", \"fhir:string\");\r\n");
-    write("  cs.predicate(\"fhir:value\", ttlLiteral(value.toSystem()));\r\n");
+//    write("  t.predicate(\"a\", \"fhir:code\");\r\n");
+//    write("  t.predicate(\"a\", \"fhir:ConceptBase\");\r\n");
+//    write("  Complex c = t.predicate(\"fhir:ConceptBase.coding\");\r\n");
+//    write("  c.predicate(\"a\", \"fhir:CodingBase\");\r\n");
+//    write("  Complex cc = c.predicate(\"fhir:CodingBase.code\");\r\n");
+//    write("  cc.predicate(\"a\", \"fhir:codeBase\");\r\n");
+//    write("  cc.predicate(\"fhir:value\", ttlLiteral(value.asStringValue()));\r\n");
+//    write("  Complex cs = c.predicate(\"fhir:CodingBase.system\");\r\n");
+//    write("  cs.predicate(\"a\", \"fhir:string\");\r\n");
+    write("  t.predicate(\"fhir:value\", ttlLiteral(value.toSystem()));\r\n");
     write("  composeElement(t, parentType, name, value, index);\r\n");
     write("}\r\n\r\n");
     write("\r\n");
@@ -812,33 +813,33 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
 
   
   private void generatePrimitiveComposer(DefinedCode dc) throws Exception {
-    if (dc.getCode().equals("code")) {
-      write("  private void composeCode(Complex parent, String parentType, String name, CodeType value, boolean inCodingBase, int index) {\r\n");
-      write("  if (value == null)\r\n");
-      write("    return;\r\n");
-      write("  if (!inCodingBase) {\r\n");
-      write("    Complex t = parent.predicate(\"fhir:\"+parentType+\".\"+name);\r\n");
-      write("    t.predicate(\"a\", \"fhir:code\");\r\n");
-      write("    t.predicate(\"a\", \"fhir:ConceptBase\");\r\n");
-      write("    Complex c = t.predicate(\"fhir:ConceptBase.coding\");\r\n");
-      write("    c.predicate(\"a\", \"fhir:CodingBase\");\r\n");
-      write("    Complex cc = c.predicate(\"fhir:CodingBase.code\");\r\n");
-      write("    cc.predicate(\"a\", \"fhir:codeBase\");\r\n");
-      write("    cc.predicate(\"fhir:value\", ttlLiteral(value.asStringValue()));\r\n");
-      write("    composeElement(t, parentType, name, value, index);\r\n");
-      write("  } else {\r\n\r\n");
-    } else {
+//    if (dc.getCode().equals("code")) {
+//      write("  private void composeCode(Complex parent, String parentType, String name, CodeType value, boolean inCodingBase, int index) {\r\n");
+//      write("  if (value == null)\r\n");
+//      write("    return;\r\n");
+//      write("  if (!inCodingBase) {\r\n");
+//      write("    Complex t = parent.predicate(\"fhir:\"+parentType+\".\"+name);\r\n");
+//      write("    t.predicate(\"a\", \"fhir:code\");\r\n");
+//      write("    t.predicate(\"a\", \"fhir:ConceptBase\");\r\n");
+//      write("    Complex c = t.predicate(\"fhir:ConceptBase.coding\");\r\n");
+//      write("    c.predicate(\"a\", \"fhir:CodingBase\");\r\n");
+//      write("    Complex cc = c.predicate(\"fhir:CodingBase.code\");\r\n");
+//      write("    cc.predicate(\"a\", \"fhir:codeBase\");\r\n");
+//      write("    cc.predicate(\"fhir:value\", ttlLiteral(value.asStringValue()));\r\n");
+//      write("    composeElement(t, parentType, name, value, index);\r\n");
+//      write("  } else {\r\n\r\n");
+//    } else {
       write("  protected void compose"+upFirst(dc.getCode())+"(Complex parent, String parentType, String name, "+upFirst(dc.getCode())+"Type value, int index) {\r\n");
       write("    if (value == null)\r\n");
       write("      return;\r\n");
-    }
+//    }
     write("    Complex t = parent.predicate(\"fhir:\"+parentType+\".\"+name);\r\n");
-    write("    t.predicate(\"a\", \"fhir:integer\");\r\n");
+//    write("    t.predicate(\"a\", \"fhir:"++"\");\r\n");
     write("    t.predicate(\"fhir:value\", ttlLiteral(value.toString()));\r\n");
     write("    composeElement(t, parentType, name, value, index);\r\n");
-    if (dc.getCode().equals("code")) {
-      write("    }    \r\n");
-    }
+//    if (dc.getCode().equals("code")) {
+//      write("    }    \r\n");
+//    }
     write("  }\r\n");
     write("\r\n");
   }
@@ -870,9 +871,9 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
   private void genInnerComposer(ElementDefn root, ElementDefn n, JavaGenClass type) throws IOException, Exception {
     String tn = typeNames.containsKey(n) ? typeNames.get(n) : javaClassName(n.getName());
 
-    if (tn.equals("Coding"))
-      write("  protected void compose"+upFirst(tn).replace(".", "")+"(Complex parent, String parentType, String name, "+tn+" element, boolean inCodingBase, int index) {\r\n");
-    else
+//    if (tn.equals("Coding"))
+//      write("  protected void compose"+upFirst(tn).replace(".", "")+"(Complex parent, String parentType, String name, "+tn+" element, boolean inCodingBase, int index) {\r\n");
+//    else
       write("  protected void compose"+upFirst(tn).replace(".", "")+"(Complex parent, String parentType, String name, "+tn+" element, int index) {\r\n");
     write("    if (element == null) \r\n");
     write("      return;\r\n");
@@ -882,26 +883,26 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     write("      t = parent;\r\n");
     write("    else {\r\n");
     write("      t = parent.predicate(\"fhir:\"+parentType+'.'+name);\r\n");
-    if (tn.equals("Coding")) {
-      write("      if (inCodingBase)\r\n");
-      write("        t.predicate(\"a\", \"fhir:CodingBase\");\r\n");
-      write("      else\r\n");
-
-      write("        t.predicate(\"a\", \"fhir:"+n.getName()+"\");\r\n");
-    } else
-      write("      t.predicate(\"a\", \"fhir:"+n.getName()+"\");\r\n");
-    if (tn.equals("CodableConcept")) 
-      write("      t.predicate(\"a\", \"fhir:ConceptBase\");\r\n");
+//    if (tn.equals("Coding")) {
+//      write("      if (inCodingBase)\r\n");
+//      write("        t.predicate(\"a\", \"fhir:CodingBase\");\r\n");
+//      write("      else\r\n");
+//
+//      write("        t.predicate(\"a\", \"fhir:"+n.getName()+"\");\r\n");
+//    } else
+//      write("      t.predicate(\"a\", \"fhir:"+n.getName()+"\");\r\n");
+//    if (tn.equals("CodableConcept")) 
+//      write("      t.predicate(\"a\", \"fhir:ConceptBase\");\r\n");
     write("    }\r\n");
 
-    if (tn.equals("Coding")) {
-      write("    if (!inCodingBase) {\r\n");
-      write("      t.predicate(\"a\", \"fhir:ConceptBase\");\r\n");
-      write("      t = t.predicate(\"fhir:ConceptBase.coding\");\r\n");
-      write("      t.predicate(\"a\", \"fhir:CodingBase\");\r\n");
-      write("    }\r\n");
-      tn = "CodingBase";
-    }
+//    if (tn.equals("Coding")) {
+//      write("    if (!inCodingBase) {\r\n");
+//      write("      t.predicate(\"a\", \"fhir:ConceptBase\");\r\n");
+//      write("      t = t.predicate(\"fhir:ConceptBase.coding\");\r\n");
+//      write("      t.predicate(\"a\", \"fhir:CodingBase\");\r\n");
+//      write("    }\r\n");
+//      tn = "CodingBase";
+//    }
 
     if (type == JavaGenClass.Resource) 
       write("    compose"+n.typeCode()+"(t, \""+n.getName()+"\", name, element, index);\r\n");
@@ -957,14 +958,16 @@ public class JavaParserRdfGenerator extends JavaBaseGenerator {
     if (root.getName().equals("Reference") && e.getName().equals("reference"))
       gname = "get"+upFirst(checkJavaReservedWord(name))+"Element_()"; // special case
 
-    String cp = tname.equals("Code") || tname.equals("Coding") ? (root.getName().equals("CodeableConcept") || root.getName().equals("Coding") ? "false, " : "true, ") : "";
+    String cp = ""; // tname.equals("Code") || tname.equals("Coding") ? (root.getName().equals("CodeableConcept") || root.getName().equals("Coding") ? "false, " : "true, ") : "";
     if (e.unbounded()) {
       if (gname.endsWith("Element()") && !gname.equals("getElement()"))
         gname = gname.substring(0, gname.length()-9)+"()";
       write("    for (int i = 0; i < element."+gname+".size(); i++)\r\n");
       write("      compose"+tname+"(t, \""+root.getName()+"\", \""+name+"\", element."+gname+".get(i), "+cp+"i);\r\n");
-    } else
-      write("    compose"+tname+"(t, \""+root.getName()+"\", \""+name+"\", element."+gname+", "+cp+"-1);\r\n");
+    } else {
+      write("    if (element.has"+gname.substring(3).replace("ReferenceElement_", "ReferenceElement")+")\r\n");
+      write("      compose"+tname+"(t, \""+root.getName()+"\", \""+name+"\", element."+gname+", "+cp+"-1);\r\n");
+    }
   }
 
   private String checkJavaReservedWord(String name) {

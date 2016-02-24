@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 20, 2016 00:02+1100 for FHIR v1.3.0
+// Generated on Wed, Feb 24, 2016 10:46+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -729,19 +729,7 @@ public class ModuleMetadata extends Type implements ICompositeType {
         @Description(shortDefinition="Contact details of the contributor", formalDefinition="Contacts to assist a user in finding and communicating with the contributor." )
         protected List<ModuleMetadataContributorContactComponent> contact;
 
-        /**
-         * The contributor.
-         */
-        @Child(name = "party", type = {Person.class, Organization.class}, order=4, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="", formalDefinition="The contributor." )
-        protected Reference party;
-
-        /**
-         * The actual object that is the target of the reference (The contributor.)
-         */
-        protected Resource partyTarget;
-
-        private static final long serialVersionUID = -116063670L;
+        private static final long serialVersionUID = 1033333886L;
 
     /**
      * Constructor
@@ -753,11 +741,10 @@ public class ModuleMetadata extends Type implements ICompositeType {
     /**
      * Constructor
      */
-      public ModuleMetadataContributorComponent(Enumeration<ModuleMetadataContributorType> type, StringType name, Reference party) {
+      public ModuleMetadataContributorComponent(Enumeration<ModuleMetadataContributorType> type, StringType name) {
         super();
         this.type = type;
         this.name = name;
-        this.party = party;
       }
 
         /**
@@ -890,51 +877,11 @@ public class ModuleMetadata extends Type implements ICompositeType {
           return this;
         }
 
-        /**
-         * @return {@link #party} (The contributor.)
-         */
-        public Reference getParty() { 
-          if (this.party == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ModuleMetadataContributorComponent.party");
-            else if (Configuration.doAutoCreate())
-              this.party = new Reference(); // cc
-          return this.party;
-        }
-
-        public boolean hasParty() { 
-          return this.party != null && !this.party.isEmpty();
-        }
-
-        /**
-         * @param value {@link #party} (The contributor.)
-         */
-        public ModuleMetadataContributorComponent setParty(Reference value) { 
-          this.party = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #party} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The contributor.)
-         */
-        public Resource getPartyTarget() { 
-          return this.partyTarget;
-        }
-
-        /**
-         * @param value {@link #party} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The contributor.)
-         */
-        public ModuleMetadataContributorComponent setPartyTarget(Resource value) { 
-          this.partyTarget = value;
-          return this;
-        }
-
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The type of contributor.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("name", "string", "The name of the individual or organization responsible for the contribution.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the contributor.", 0, java.lang.Integer.MAX_VALUE, contact));
-          childrenList.add(new Property("party", "Reference(Person|Organization)", "The contributor.", 0, java.lang.Integer.MAX_VALUE, party));
         }
 
       @Override
@@ -945,8 +892,6 @@ public class ModuleMetadata extends Type implements ICompositeType {
           this.name = castToString(value); // StringType
         else if (name.equals("contact"))
           this.getContact().add((ModuleMetadataContributorContactComponent) value);
-        else if (name.equals("party"))
-          this.party = castToReference(value); // Reference
         else
           super.setProperty(name, value);
       }
@@ -962,10 +907,6 @@ public class ModuleMetadata extends Type implements ICompositeType {
         else if (name.equals("contact")) {
           return addContact();
         }
-        else if (name.equals("party")) {
-          this.party = new Reference();
-          return this.party;
-        }
         else
           return super.addChild(name);
       }
@@ -980,7 +921,6 @@ public class ModuleMetadata extends Type implements ICompositeType {
           for (ModuleMetadataContributorContactComponent i : contact)
             dst.contact.add(i.copy());
         };
-        dst.party = party == null ? null : party.copy();
         return dst;
       }
 
@@ -992,7 +932,7 @@ public class ModuleMetadata extends Type implements ICompositeType {
           return false;
         ModuleMetadataContributorComponent o = (ModuleMetadataContributorComponent) other;
         return compareDeep(type, o.type, true) && compareDeep(name, o.name, true) && compareDeep(contact, o.contact, true)
-           && compareDeep(party, o.party, true);
+          ;
       }
 
       @Override
@@ -1007,7 +947,7 @@ public class ModuleMetadata extends Type implements ICompositeType {
 
       public boolean isEmpty() {
         return super.isEmpty() && (type == null || type.isEmpty()) && (name == null || name.isEmpty())
-           && (contact == null || contact.isEmpty()) && (party == null || party.isEmpty());
+           && (contact == null || contact.isEmpty());
       }
 
   public String fhirType() {

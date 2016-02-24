@@ -4912,6 +4912,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       s.append("<tr><td><a href=\""+prefix+e.getTitle()+".html\">"+Utilities.escapeXml(e.getDescription())+"</a></td>");
     s.append("<td><a href=\""+prefix+e.getTitle()+".xml.html\">XML</a></td>");
     s.append("<td><a href=\""+prefix+e.getTitle()+".json.html\">JSON</a></td>");
+    s.append("<td><a href=\""+prefix+e.getTitle()+".ttl.html\">Turtle</a></td>");
     if (pack == null)
       s.append("<td></td>");
     else

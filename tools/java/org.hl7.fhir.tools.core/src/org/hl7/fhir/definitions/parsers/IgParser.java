@@ -144,7 +144,12 @@ public class IgParser {
         } else if (r.getPurpose() == GuideResourcePurpose.PROFILE) {
           Profile pr = new Profile(igd.getCode());
           pr.setSource(fn.getAbsolutePath());
-          StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new CSFileInputStream(pr.getSource()));
+          StructureDefinition sd;
+          try { 
+            sd = (StructureDefinition) new XmlParser().parse(new CSFileInputStream(pr.getSource()));
+          } catch (Exception e) {
+            throw new Exception("error reading "+pr.getSource()+": "+e.getMessage(), e); 
+          }  
           if (!sd.hasId())
             sd.setId(tail(sd.getUrl()));
           pr.forceMetadata("id", sd.getId()+"-profile");
@@ -153,7 +158,12 @@ public class IgParser {
           pr.getProfiles().add(cs);
           igd.getProfiles().add(pr);
         } else if (r.getPurpose() == GuideResourcePurpose.EXTENSION) {
-          StructureDefinition sd = (StructureDefinition) new XmlParser().parse(new CSFileInputStream(fn.getAbsolutePath()));
+          StructureDefinition sd;
+          try {
+            sd = (StructureDefinition) new XmlParser().parse(new CSFileInputStream(fn.getAbsolutePath()));
+          } catch (Exception e) {
+            throw new Exception("error reading "+fn.getAbsolutePath()+": "+e.getMessage(), e); 
+          }
           sd.setId(tail(sd.getUrl()));
           sd.setUserData(ToolResourceUtilities.NAME_RES_IG, igd.getCode());
           ToolResourceUtilities.updateUsage(sd, igd.getCode());

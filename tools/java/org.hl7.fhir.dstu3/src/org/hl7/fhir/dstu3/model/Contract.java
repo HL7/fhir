@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 20, 2016 00:02+1100 for FHIR v1.3.0
+// Generated on Wed, Feb 24, 2016 10:46+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -49,84 +49,84 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 public class Contract extends DomainResource {
 
     @Block()
-    public static class PartyComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class AgentComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Who or what parties are assigned roles in this Contract.
          */
-        @Child(name = "entity", type = {Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Party Type", formalDefinition="Who or what parties are assigned roles in this Contract." )
-        protected Reference entity;
+        @Child(name = "actor", type = {Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Contract Agent Type", formalDefinition="Who or what parties are assigned roles in this Contract." )
+        protected Reference actor;
 
         /**
          * The actual object that is the target of the reference (Who or what parties are assigned roles in this Contract.)
          */
-        protected Resource entityTarget;
+        protected Resource actorTarget;
 
         /**
-         * Role type of party assigned roles in this Contract.
+         * Role type of agent assigned roles in this Contract.
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Contract  Party Role", formalDefinition="Role type of party assigned roles in this Contract." )
+        @Description(shortDefinition="Contract  Agent Role", formalDefinition="Role type of agent assigned roles in this Contract." )
         protected List<CodeableConcept> role;
 
-        private static final long serialVersionUID = 1371245689L;
+        private static final long serialVersionUID = -454551165L;
 
     /**
      * Constructor
      */
-      public PartyComponent() {
+      public AgentComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public PartyComponent(Reference entity) {
+      public AgentComponent(Reference actor) {
         super();
-        this.entity = entity;
+        this.actor = actor;
       }
 
         /**
-         * @return {@link #entity} (Who or what parties are assigned roles in this Contract.)
+         * @return {@link #actor} (Who or what parties are assigned roles in this Contract.)
          */
-        public Reference getEntity() { 
-          if (this.entity == null)
+        public Reference getActor() { 
+          if (this.actor == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create PartyComponent.entity");
+              throw new Error("Attempt to auto-create AgentComponent.actor");
             else if (Configuration.doAutoCreate())
-              this.entity = new Reference(); // cc
-          return this.entity;
+              this.actor = new Reference(); // cc
+          return this.actor;
         }
 
-        public boolean hasEntity() { 
-          return this.entity != null && !this.entity.isEmpty();
+        public boolean hasActor() { 
+          return this.actor != null && !this.actor.isEmpty();
         }
 
         /**
-         * @param value {@link #entity} (Who or what parties are assigned roles in this Contract.)
+         * @param value {@link #actor} (Who or what parties are assigned roles in this Contract.)
          */
-        public PartyComponent setEntity(Reference value) { 
-          this.entity = value;
+        public AgentComponent setActor(Reference value) { 
+          this.actor = value;
           return this;
         }
 
         /**
-         * @return {@link #entity} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what parties are assigned roles in this Contract.)
+         * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what parties are assigned roles in this Contract.)
          */
-        public Resource getEntityTarget() { 
-          return this.entityTarget;
+        public Resource getActorTarget() { 
+          return this.actorTarget;
         }
 
         /**
-         * @param value {@link #entity} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what parties are assigned roles in this Contract.)
+         * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what parties are assigned roles in this Contract.)
          */
-        public PartyComponent setEntityTarget(Resource value) { 
-          this.entityTarget = value;
+        public AgentComponent setActorTarget(Resource value) { 
+          this.actorTarget = value;
           return this;
         }
 
         /**
-         * @return {@link #role} (Role type of party assigned roles in this Contract.)
+         * @return {@link #role} (Role type of agent assigned roles in this Contract.)
          */
         public List<CodeableConcept> getRole() { 
           if (this.role == null)
@@ -144,7 +144,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #role} (Role type of party assigned roles in this Contract.)
+         * @return {@link #role} (Role type of agent assigned roles in this Contract.)
          */
     // syntactic sugar
         public CodeableConcept addRole() { //3
@@ -156,7 +156,7 @@ public class Contract extends DomainResource {
         }
 
     // syntactic sugar
-        public PartyComponent addRole(CodeableConcept t) { //3
+        public AgentComponent addRole(CodeableConcept t) { //3
           if (t == null)
             return this;
           if (this.role == null)
@@ -167,14 +167,14 @@ public class Contract extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("entity", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)", "Who or what parties are assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, entity));
-          childrenList.add(new Property("role", "CodeableConcept", "Role type of party assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("actor", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)", "Who or what parties are assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, actor));
+          childrenList.add(new Property("role", "CodeableConcept", "Role type of agent assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, role));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("entity"))
-          this.entity = castToReference(value); // Reference
+        if (name.equals("actor"))
+          this.actor = castToReference(value); // Reference
         else if (name.equals("role"))
           this.getRole().add(castToCodeableConcept(value));
         else
@@ -183,9 +183,9 @@ public class Contract extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("entity")) {
-          this.entity = new Reference();
-          return this.entity;
+        if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
         }
         else if (name.equals("role")) {
           return addRole();
@@ -194,10 +194,10 @@ public class Contract extends DomainResource {
           return super.addChild(name);
       }
 
-      public PartyComponent copy() {
-        PartyComponent dst = new PartyComponent();
+      public AgentComponent copy() {
+        AgentComponent dst = new AgentComponent();
         copyValues(dst);
-        dst.entity = entity == null ? null : entity.copy();
+        dst.actor = actor == null ? null : actor.copy();
         if (role != null) {
           dst.role = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : role)
@@ -210,29 +210,251 @@ public class Contract extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof PartyComponent))
+        if (!(other instanceof AgentComponent))
           return false;
-        PartyComponent o = (PartyComponent) other;
-        return compareDeep(entity, o.entity, true) && compareDeep(role, o.role, true);
+        AgentComponent o = (AgentComponent) other;
+        return compareDeep(actor, o.actor, true) && compareDeep(role, o.role, true);
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof PartyComponent))
+        if (!(other instanceof AgentComponent))
           return false;
-        PartyComponent o = (PartyComponent) other;
+        AgentComponent o = (AgentComponent) other;
         return true;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (entity == null || entity.isEmpty()) && (role == null || role.isEmpty())
+        return super.isEmpty() && (actor == null || actor.isEmpty()) && (role == null || role.isEmpty())
           ;
       }
 
   public String fhirType() {
-    return "Contract.party";
+    return "Contract.agent";
+
+  }
+
+  }
+
+    @Block()
+    public static class SignatoryComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Role of this Contract signer, e.g. notary, grantee.
+         */
+        @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Contract Signer Type", formalDefinition="Role of this Contract signer, e.g. notary, grantee." )
+        protected Coding type;
+
+        /**
+         * Party which is a signator to this Contract.
+         */
+        @Child(name = "party", type = {Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Contract Signatory Party", formalDefinition="Party which is a signator to this Contract." )
+        protected Reference party;
+
+        /**
+         * The actual object that is the target of the reference (Party which is a signator to this Contract.)
+         */
+        protected Resource partyTarget;
+
+        /**
+         * Legally binding Contract DSIG signature contents in Base64.
+         */
+        @Child(name = "signature", type = {Signature.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Contract Documentation Signature", formalDefinition="Legally binding Contract DSIG signature contents in Base64." )
+        protected List<Signature> signature;
+
+        private static final long serialVersionUID = 1948139228L;
+
+    /**
+     * Constructor
+     */
+      public SignatoryComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #type} (Role of this Contract signer, e.g. notary, grantee.)
+         */
+        public Coding getType() { 
+          if (this.type == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SignatoryComponent.type");
+            else if (Configuration.doAutoCreate())
+              this.type = new Coding(); // cc
+          return this.type;
+        }
+
+        public boolean hasType() { 
+          return this.type != null && !this.type.isEmpty();
+        }
+
+        /**
+         * @param value {@link #type} (Role of this Contract signer, e.g. notary, grantee.)
+         */
+        public SignatoryComponent setType(Coding value) { 
+          this.type = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #party} (Party which is a signator to this Contract.)
+         */
+        public Reference getParty() { 
+          if (this.party == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SignatoryComponent.party");
+            else if (Configuration.doAutoCreate())
+              this.party = new Reference(); // cc
+          return this.party;
+        }
+
+        public boolean hasParty() { 
+          return this.party != null && !this.party.isEmpty();
+        }
+
+        /**
+         * @param value {@link #party} (Party which is a signator to this Contract.)
+         */
+        public SignatoryComponent setParty(Reference value) { 
+          this.party = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #party} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Party which is a signator to this Contract.)
+         */
+        public Resource getPartyTarget() { 
+          return this.partyTarget;
+        }
+
+        /**
+         * @param value {@link #party} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Party which is a signator to this Contract.)
+         */
+        public SignatoryComponent setPartyTarget(Resource value) { 
+          this.partyTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #signature} (Legally binding Contract DSIG signature contents in Base64.)
+         */
+        public List<Signature> getSignature() { 
+          if (this.signature == null)
+            this.signature = new ArrayList<Signature>();
+          return this.signature;
+        }
+
+        public boolean hasSignature() { 
+          if (this.signature == null)
+            return false;
+          for (Signature item : this.signature)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #signature} (Legally binding Contract DSIG signature contents in Base64.)
+         */
+    // syntactic sugar
+        public Signature addSignature() { //3
+          Signature t = new Signature();
+          if (this.signature == null)
+            this.signature = new ArrayList<Signature>();
+          this.signature.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public SignatoryComponent addSignature(Signature t) { //3
+          if (t == null)
+            return this;
+          if (this.signature == null)
+            this.signature = new ArrayList<Signature>();
+          this.signature.add(t);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("type", "Coding", "Role of this Contract signer, e.g. notary, grantee.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("party", "Reference(Organization|Patient|Practitioner|RelatedPerson)", "Party which is a signator to this Contract.", 0, java.lang.Integer.MAX_VALUE, party));
+          childrenList.add(new Property("signature", "Signature", "Legally binding Contract DSIG signature contents in Base64.", 0, java.lang.Integer.MAX_VALUE, signature));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("type"))
+          this.type = castToCoding(value); // Coding
+        else if (name.equals("party"))
+          this.party = castToReference(value); // Reference
+        else if (name.equals("signature"))
+          this.getSignature().add(castToSignature(value));
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("type")) {
+          this.type = new Coding();
+          return this.type;
+        }
+        else if (name.equals("party")) {
+          this.party = new Reference();
+          return this.party;
+        }
+        else if (name.equals("signature")) {
+          return addSignature();
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public SignatoryComponent copy() {
+        SignatoryComponent dst = new SignatoryComponent();
+        copyValues(dst);
+        dst.type = type == null ? null : type.copy();
+        dst.party = party == null ? null : party.copy();
+        if (signature != null) {
+          dst.signature = new ArrayList<Signature>();
+          for (Signature i : signature)
+            dst.signature.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SignatoryComponent))
+          return false;
+        SignatoryComponent o = (SignatoryComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(party, o.party, true) && compareDeep(signature, o.signature, true)
+          ;
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SignatoryComponent))
+          return false;
+        SignatoryComponent o = (SignatoryComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (type == null || type.isEmpty()) && (party == null || party.isEmpty())
+           && (signature == null || signature.isEmpty());
+      }
+
+  public String fhirType() {
+    return "Contract.signer";
 
   }
 
@@ -754,239 +976,6 @@ public class Contract extends DomainResource {
   }
 
     @Block()
-    public static class SignatoryComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Role of this Contract signer, e.g. notary, grantee.
-         */
-        @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Signer Type", formalDefinition="Role of this Contract signer, e.g. notary, grantee." )
-        protected Coding type;
-
-        /**
-         * Party which is a signator to this Contract.
-         */
-        @Child(name = "party", type = {Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Signatory Party", formalDefinition="Party which is a signator to this Contract." )
-        protected Reference party;
-
-        /**
-         * The actual object that is the target of the reference (Party which is a signator to this Contract.)
-         */
-        protected Resource partyTarget;
-
-        /**
-         * Legally binding Contract DSIG signature contents in Base64.
-         */
-        @Child(name = "signature", type = {StringType.class}, order=3, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Documentation Signature", formalDefinition="Legally binding Contract DSIG signature contents in Base64." )
-        protected StringType signature;
-
-        private static final long serialVersionUID = -1870392043L;
-
-    /**
-     * Constructor
-     */
-      public SignatoryComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public SignatoryComponent(Coding type, Reference party, StringType signature) {
-        super();
-        this.type = type;
-        this.party = party;
-        this.signature = signature;
-      }
-
-        /**
-         * @return {@link #type} (Role of this Contract signer, e.g. notary, grantee.)
-         */
-        public Coding getType() { 
-          if (this.type == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SignatoryComponent.type");
-            else if (Configuration.doAutoCreate())
-              this.type = new Coding(); // cc
-          return this.type;
-        }
-
-        public boolean hasType() { 
-          return this.type != null && !this.type.isEmpty();
-        }
-
-        /**
-         * @param value {@link #type} (Role of this Contract signer, e.g. notary, grantee.)
-         */
-        public SignatoryComponent setType(Coding value) { 
-          this.type = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #party} (Party which is a signator to this Contract.)
-         */
-        public Reference getParty() { 
-          if (this.party == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SignatoryComponent.party");
-            else if (Configuration.doAutoCreate())
-              this.party = new Reference(); // cc
-          return this.party;
-        }
-
-        public boolean hasParty() { 
-          return this.party != null && !this.party.isEmpty();
-        }
-
-        /**
-         * @param value {@link #party} (Party which is a signator to this Contract.)
-         */
-        public SignatoryComponent setParty(Reference value) { 
-          this.party = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #party} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Party which is a signator to this Contract.)
-         */
-        public Resource getPartyTarget() { 
-          return this.partyTarget;
-        }
-
-        /**
-         * @param value {@link #party} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Party which is a signator to this Contract.)
-         */
-        public SignatoryComponent setPartyTarget(Resource value) { 
-          this.partyTarget = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #signature} (Legally binding Contract DSIG signature contents in Base64.). This is the underlying object with id, value and extensions. The accessor "getSignature" gives direct access to the value
-         */
-        public StringType getSignatureElement() { 
-          if (this.signature == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SignatoryComponent.signature");
-            else if (Configuration.doAutoCreate())
-              this.signature = new StringType(); // bb
-          return this.signature;
-        }
-
-        public boolean hasSignatureElement() { 
-          return this.signature != null && !this.signature.isEmpty();
-        }
-
-        public boolean hasSignature() { 
-          return this.signature != null && !this.signature.isEmpty();
-        }
-
-        /**
-         * @param value {@link #signature} (Legally binding Contract DSIG signature contents in Base64.). This is the underlying object with id, value and extensions. The accessor "getSignature" gives direct access to the value
-         */
-        public SignatoryComponent setSignatureElement(StringType value) { 
-          this.signature = value;
-          return this;
-        }
-
-        /**
-         * @return Legally binding Contract DSIG signature contents in Base64.
-         */
-        public String getSignature() { 
-          return this.signature == null ? null : this.signature.getValue();
-        }
-
-        /**
-         * @param value Legally binding Contract DSIG signature contents in Base64.
-         */
-        public SignatoryComponent setSignature(String value) { 
-            if (this.signature == null)
-              this.signature = new StringType();
-            this.signature.setValue(value);
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("type", "Coding", "Role of this Contract signer, e.g. notary, grantee.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("party", "Reference(Organization|Patient|Practitioner|RelatedPerson)", "Party which is a signator to this Contract.", 0, java.lang.Integer.MAX_VALUE, party));
-          childrenList.add(new Property("signature", "string", "Legally binding Contract DSIG signature contents in Base64.", 0, java.lang.Integer.MAX_VALUE, signature));
-        }
-
-      @Override
-      public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("type"))
-          this.type = castToCoding(value); // Coding
-        else if (name.equals("party"))
-          this.party = castToReference(value); // Reference
-        else if (name.equals("signature"))
-          this.signature = castToString(value); // StringType
-        else
-          super.setProperty(name, value);
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("type")) {
-          this.type = new Coding();
-          return this.type;
-        }
-        else if (name.equals("party")) {
-          this.party = new Reference();
-          return this.party;
-        }
-        else if (name.equals("signature")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Contract.signature");
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public SignatoryComponent copy() {
-        SignatoryComponent dst = new SignatoryComponent();
-        copyValues(dst);
-        dst.type = type == null ? null : type.copy();
-        dst.party = party == null ? null : party.copy();
-        dst.signature = signature == null ? null : signature.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof SignatoryComponent))
-          return false;
-        SignatoryComponent o = (SignatoryComponent) other;
-        return compareDeep(type, o.type, true) && compareDeep(party, o.party, true) && compareDeep(signature, o.signature, true)
-          ;
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof SignatoryComponent))
-          return false;
-        SignatoryComponent o = (SignatoryComponent) other;
-        return compareValues(signature, o.signature, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (party == null || party.isEmpty())
-           && (signature == null || signature.isEmpty());
-      }
-
-  public String fhirType() {
-    return "Contract.signer";
-
-  }
-
-  }
-
-    @Block()
     public static class TermComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Unique identifier for this particular Contract Provision.
@@ -1026,70 +1015,58 @@ public class Contract extends DomainResource {
         /**
          * The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.
          */
-        @Child(name = "topic", type = {}, order=6, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "topic", type = {}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Topic of this Contract Term", formalDefinition="The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services." )
-        protected Reference topic;
-
+        protected List<Reference> topic;
         /**
-         * The actual object that is the target of the reference (The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
+         * The actual objects that are the target of the reference (The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
          */
-        protected Resource topicTarget;
+        protected List<Resource> topicTarget;
 
-        /**
-         * Who or what this Contract Provision is about.
-         */
-        @Child(name = "subject", type = {}, order=7, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Subject of this Contract Term", formalDefinition="Who or what this Contract Provision is about." )
-        protected Reference subject;
-
-        /**
-         * The actual object that is the target of the reference (Who or what this Contract Provision is about.)
-         */
-        protected Resource subjectTarget;
 
         /**
          * Action stipulated by this Contract Provision.
          */
-        @Child(name = "action", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "action", type = {CodeableConcept.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Action", formalDefinition="Action stipulated by this Contract Provision." )
         protected List<CodeableConcept> action;
 
         /**
          * Reason or purpose for the action stipulated by this Contract Provision.
          */
-        @Child(name = "actionReason", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "actionReason", type = {CodeableConcept.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Action Reason", formalDefinition="Reason or purpose for the action stipulated by this Contract Provision." )
         protected List<CodeableConcept> actionReason;
 
         /**
-         * Parties to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.
+         * Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.
          */
-        @Child(name = "party", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Party List", formalDefinition="Parties to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration." )
-        protected List<TermPartyComponent> party;
+        @Child(name = "agent", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Contract Term Agent List", formalDefinition="Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration." )
+        protected List<TermAgentComponent> agent;
 
         /**
          * Human readable form of this Contract Provision.
          */
-        @Child(name = "text", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "text", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Human readable Contract term text", formalDefinition="Human readable form of this Contract Provision." )
         protected StringType text;
 
         /**
          * Contract Provision Valued Item List.
          */
-        @Child(name = "valuedItem", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "valuedItem", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Contract Term Valued Item", formalDefinition="Contract Provision Valued Item List." )
         protected List<TermValuedItemComponent> valuedItem;
 
         /**
          * Nested group of Contract Provisions.
          */
-        @Child(name = "group", type = {TermComponent.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "group", type = {TermComponent.class}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Nested Contract Term Group", formalDefinition="Nested group of Contract Provisions." )
         protected List<TermComponent> group;
 
-        private static final long serialVersionUID = 1105219555L;
+        private static final long serialVersionUID = -1949614999L;
 
     /**
      * Constructor
@@ -1246,79 +1223,50 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #topic} (The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
          */
-        public Reference getTopic() { 
+        public List<Reference> getTopic() { 
           if (this.topic == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TermComponent.topic");
-            else if (Configuration.doAutoCreate())
-              this.topic = new Reference(); // cc
+            this.topic = new ArrayList<Reference>();
           return this.topic;
         }
 
         public boolean hasTopic() { 
-          return this.topic != null && !this.topic.isEmpty();
+          if (this.topic == null)
+            return false;
+          for (Reference item : this.topic)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #topic} (The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
+         * @return {@link #topic} (The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
          */
-        public TermComponent setTopic(Reference value) { 
-          this.topic = value;
+    // syntactic sugar
+        public Reference addTopic() { //3
+          Reference t = new Reference();
+          if (this.topic == null)
+            this.topic = new ArrayList<Reference>();
+          this.topic.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public TermComponent addTopic(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.topic == null)
+            this.topic = new ArrayList<Reference>();
+          this.topic.add(t);
           return this;
         }
 
         /**
-         * @return {@link #topic} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
+         * @return {@link #topic} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
          */
-        public Resource getTopicTarget() { 
+        public List<Resource> getTopicTarget() { 
+          if (this.topicTarget == null)
+            this.topicTarget = new ArrayList<Resource>();
           return this.topicTarget;
-        }
-
-        /**
-         * @param value {@link #topic} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.)
-         */
-        public TermComponent setTopicTarget(Resource value) { 
-          this.topicTarget = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #subject} (Who or what this Contract Provision is about.)
-         */
-        public Reference getSubject() { 
-          if (this.subject == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TermComponent.subject");
-            else if (Configuration.doAutoCreate())
-              this.subject = new Reference(); // cc
-          return this.subject;
-        }
-
-        public boolean hasSubject() { 
-          return this.subject != null && !this.subject.isEmpty();
-        }
-
-        /**
-         * @param value {@link #subject} (Who or what this Contract Provision is about.)
-         */
-        public TermComponent setSubject(Reference value) { 
-          this.subject = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #subject} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what this Contract Provision is about.)
-         */
-        public Resource getSubjectTarget() { 
-          return this.subjectTarget;
-        }
-
-        /**
-         * @param value {@link #subject} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what this Contract Provision is about.)
-         */
-        public TermComponent setSubjectTarget(Resource value) { 
-          this.subjectTarget = value;
-          return this;
         }
 
         /**
@@ -1402,42 +1350,42 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #party} (Parties to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.)
+         * @return {@link #agent} (Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.)
          */
-        public List<TermPartyComponent> getParty() { 
-          if (this.party == null)
-            this.party = new ArrayList<TermPartyComponent>();
-          return this.party;
+        public List<TermAgentComponent> getAgent() { 
+          if (this.agent == null)
+            this.agent = new ArrayList<TermAgentComponent>();
+          return this.agent;
         }
 
-        public boolean hasParty() { 
-          if (this.party == null)
+        public boolean hasAgent() { 
+          if (this.agent == null)
             return false;
-          for (TermPartyComponent item : this.party)
+          for (TermAgentComponent item : this.agent)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
         /**
-         * @return {@link #party} (Parties to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.)
+         * @return {@link #agent} (Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.)
          */
     // syntactic sugar
-        public TermPartyComponent addParty() { //3
-          TermPartyComponent t = new TermPartyComponent();
-          if (this.party == null)
-            this.party = new ArrayList<TermPartyComponent>();
-          this.party.add(t);
+        public TermAgentComponent addAgent() { //3
+          TermAgentComponent t = new TermAgentComponent();
+          if (this.agent == null)
+            this.agent = new ArrayList<TermAgentComponent>();
+          this.agent.add(t);
           return t;
         }
 
     // syntactic sugar
-        public TermComponent addParty(TermPartyComponent t) { //3
+        public TermComponent addAgent(TermAgentComponent t) { //3
           if (t == null)
             return this;
-          if (this.party == null)
-            this.party = new ArrayList<TermPartyComponent>();
-          this.party.add(t);
+          if (this.agent == null)
+            this.agent = new ArrayList<TermAgentComponent>();
+          this.agent.add(t);
           return this;
         }
 
@@ -1578,10 +1526,9 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("type", "CodeableConcept", "Type of Contract Provision such as specific requirements, purposes for actions, obligations, prohibitions, e.g. life time maximum benefit.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("subType", "CodeableConcept", "Subtype of this Contract Provision, e.g. life time maximum payment for a contract term for specific valued item, e.g. disability payment.", 0, java.lang.Integer.MAX_VALUE, subType));
           childrenList.add(new Property("topic", "Reference(Any)", "The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.", 0, java.lang.Integer.MAX_VALUE, topic));
-          childrenList.add(new Property("subject", "Reference(Any)", "Who or what this Contract Provision is about.", 0, java.lang.Integer.MAX_VALUE, subject));
           childrenList.add(new Property("action", "CodeableConcept", "Action stipulated by this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, action));
           childrenList.add(new Property("actionReason", "CodeableConcept", "Reason or purpose for the action stipulated by this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, actionReason));
-          childrenList.add(new Property("party", "", "Parties to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.", 0, java.lang.Integer.MAX_VALUE, party));
+          childrenList.add(new Property("agent", "", "Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.", 0, java.lang.Integer.MAX_VALUE, agent));
           childrenList.add(new Property("text", "string", "Human readable form of this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("valuedItem", "", "Contract Provision Valued Item List.", 0, java.lang.Integer.MAX_VALUE, valuedItem));
           childrenList.add(new Property("group", "@Contract.term", "Nested group of Contract Provisions.", 0, java.lang.Integer.MAX_VALUE, group));
@@ -1600,15 +1547,13 @@ public class Contract extends DomainResource {
         else if (name.equals("subType"))
           this.subType = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("topic"))
-          this.topic = castToReference(value); // Reference
-        else if (name.equals("subject"))
-          this.subject = castToReference(value); // Reference
+          this.getTopic().add(castToReference(value));
         else if (name.equals("action"))
           this.getAction().add(castToCodeableConcept(value));
         else if (name.equals("actionReason"))
           this.getActionReason().add(castToCodeableConcept(value));
-        else if (name.equals("party"))
-          this.getParty().add((TermPartyComponent) value);
+        else if (name.equals("agent"))
+          this.getAgent().add((TermAgentComponent) value);
         else if (name.equals("text"))
           this.text = castToString(value); // StringType
         else if (name.equals("valuedItem"))
@@ -1641,12 +1586,7 @@ public class Contract extends DomainResource {
           return this.subType;
         }
         else if (name.equals("topic")) {
-          this.topic = new Reference();
-          return this.topic;
-        }
-        else if (name.equals("subject")) {
-          this.subject = new Reference();
-          return this.subject;
+          return addTopic();
         }
         else if (name.equals("action")) {
           return addAction();
@@ -1654,8 +1594,8 @@ public class Contract extends DomainResource {
         else if (name.equals("actionReason")) {
           return addActionReason();
         }
-        else if (name.equals("party")) {
-          return addParty();
+        else if (name.equals("agent")) {
+          return addAgent();
         }
         else if (name.equals("text")) {
           throw new FHIRException("Cannot call addChild on a primitive type Contract.text");
@@ -1678,8 +1618,11 @@ public class Contract extends DomainResource {
         dst.applies = applies == null ? null : applies.copy();
         dst.type = type == null ? null : type.copy();
         dst.subType = subType == null ? null : subType.copy();
-        dst.topic = topic == null ? null : topic.copy();
-        dst.subject = subject == null ? null : subject.copy();
+        if (topic != null) {
+          dst.topic = new ArrayList<Reference>();
+          for (Reference i : topic)
+            dst.topic.add(i.copy());
+        };
         if (action != null) {
           dst.action = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : action)
@@ -1690,10 +1633,10 @@ public class Contract extends DomainResource {
           for (CodeableConcept i : actionReason)
             dst.actionReason.add(i.copy());
         };
-        if (party != null) {
-          dst.party = new ArrayList<TermPartyComponent>();
-          for (TermPartyComponent i : party)
-            dst.party.add(i.copy());
+        if (agent != null) {
+          dst.agent = new ArrayList<TermAgentComponent>();
+          for (TermAgentComponent i : agent)
+            dst.agent.add(i.copy());
         };
         dst.text = text == null ? null : text.copy();
         if (valuedItem != null) {
@@ -1718,9 +1661,9 @@ public class Contract extends DomainResource {
         TermComponent o = (TermComponent) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(issued, o.issued, true) && compareDeep(applies, o.applies, true)
            && compareDeep(type, o.type, true) && compareDeep(subType, o.subType, true) && compareDeep(topic, o.topic, true)
-           && compareDeep(subject, o.subject, true) && compareDeep(action, o.action, true) && compareDeep(actionReason, o.actionReason, true)
-           && compareDeep(party, o.party, true) && compareDeep(text, o.text, true) && compareDeep(valuedItem, o.valuedItem, true)
-           && compareDeep(group, o.group, true);
+           && compareDeep(action, o.action, true) && compareDeep(actionReason, o.actionReason, true) && compareDeep(agent, o.agent, true)
+           && compareDeep(text, o.text, true) && compareDeep(valuedItem, o.valuedItem, true) && compareDeep(group, o.group, true)
+          ;
       }
 
       @Override
@@ -1736,10 +1679,9 @@ public class Contract extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (issued == null || issued.isEmpty())
            && (applies == null || applies.isEmpty()) && (type == null || type.isEmpty()) && (subType == null || subType.isEmpty())
-           && (topic == null || topic.isEmpty()) && (subject == null || subject.isEmpty()) && (action == null || action.isEmpty())
-           && (actionReason == null || actionReason.isEmpty()) && (party == null || party.isEmpty())
-           && (text == null || text.isEmpty()) && (valuedItem == null || valuedItem.isEmpty()) && (group == null || group.isEmpty())
-          ;
+           && (topic == null || topic.isEmpty()) && (action == null || action.isEmpty()) && (actionReason == null || actionReason.isEmpty())
+           && (agent == null || agent.isEmpty()) && (text == null || text.isEmpty()) && (valuedItem == null || valuedItem.isEmpty())
+           && (group == null || group.isEmpty());
       }
 
   public String fhirType() {
@@ -1750,84 +1692,84 @@ public class Contract extends DomainResource {
   }
 
     @Block()
-    public static class TermPartyComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class TermAgentComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The party assigned a role in this Contract Provision.
+         * The agent assigned a role in this Contract Provision.
          */
-        @Child(name = "entity", type = {Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Party List", formalDefinition="The party assigned a role in this Contract Provision." )
-        protected Reference entity;
+        @Child(name = "actor", type = {Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Contract Term Agent List", formalDefinition="The agent assigned a role in this Contract Provision." )
+        protected Reference actor;
 
         /**
-         * The actual object that is the target of the reference (The party assigned a role in this Contract Provision.)
+         * The actual object that is the target of the reference (The agent assigned a role in this Contract Provision.)
          */
-        protected Resource entityTarget;
+        protected Resource actorTarget;
 
         /**
-         * Role played by the party assigned this role in the execution of this Contract Provision.
+         * Role played by the agent assigned this role in the execution of this Contract Provision.
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Party Role", formalDefinition="Role played by the party assigned this role in the execution of this Contract Provision." )
+        @Description(shortDefinition="Contract Term Agent Role", formalDefinition="Role played by the agent assigned this role in the execution of this Contract Provision." )
         protected List<CodeableConcept> role;
 
-        private static final long serialVersionUID = 1371245689L;
+        private static final long serialVersionUID = -454551165L;
 
     /**
      * Constructor
      */
-      public TermPartyComponent() {
+      public TermAgentComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public TermPartyComponent(Reference entity) {
+      public TermAgentComponent(Reference actor) {
         super();
-        this.entity = entity;
+        this.actor = actor;
       }
 
         /**
-         * @return {@link #entity} (The party assigned a role in this Contract Provision.)
+         * @return {@link #actor} (The agent assigned a role in this Contract Provision.)
          */
-        public Reference getEntity() { 
-          if (this.entity == null)
+        public Reference getActor() { 
+          if (this.actor == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TermPartyComponent.entity");
+              throw new Error("Attempt to auto-create TermAgentComponent.actor");
             else if (Configuration.doAutoCreate())
-              this.entity = new Reference(); // cc
-          return this.entity;
+              this.actor = new Reference(); // cc
+          return this.actor;
         }
 
-        public boolean hasEntity() { 
-          return this.entity != null && !this.entity.isEmpty();
+        public boolean hasActor() { 
+          return this.actor != null && !this.actor.isEmpty();
         }
 
         /**
-         * @param value {@link #entity} (The party assigned a role in this Contract Provision.)
+         * @param value {@link #actor} (The agent assigned a role in this Contract Provision.)
          */
-        public TermPartyComponent setEntity(Reference value) { 
-          this.entity = value;
+        public TermAgentComponent setActor(Reference value) { 
+          this.actor = value;
           return this;
         }
 
         /**
-         * @return {@link #entity} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The party assigned a role in this Contract Provision.)
+         * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The agent assigned a role in this Contract Provision.)
          */
-        public Resource getEntityTarget() { 
-          return this.entityTarget;
+        public Resource getActorTarget() { 
+          return this.actorTarget;
         }
 
         /**
-         * @param value {@link #entity} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The party assigned a role in this Contract Provision.)
+         * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The agent assigned a role in this Contract Provision.)
          */
-        public TermPartyComponent setEntityTarget(Resource value) { 
-          this.entityTarget = value;
+        public TermAgentComponent setActorTarget(Resource value) { 
+          this.actorTarget = value;
           return this;
         }
 
         /**
-         * @return {@link #role} (Role played by the party assigned this role in the execution of this Contract Provision.)
+         * @return {@link #role} (Role played by the agent assigned this role in the execution of this Contract Provision.)
          */
         public List<CodeableConcept> getRole() { 
           if (this.role == null)
@@ -1845,7 +1787,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #role} (Role played by the party assigned this role in the execution of this Contract Provision.)
+         * @return {@link #role} (Role played by the agent assigned this role in the execution of this Contract Provision.)
          */
     // syntactic sugar
         public CodeableConcept addRole() { //3
@@ -1857,7 +1799,7 @@ public class Contract extends DomainResource {
         }
 
     // syntactic sugar
-        public TermPartyComponent addRole(CodeableConcept t) { //3
+        public TermAgentComponent addRole(CodeableConcept t) { //3
           if (t == null)
             return this;
           if (this.role == null)
@@ -1868,14 +1810,14 @@ public class Contract extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("entity", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)", "The party assigned a role in this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, entity));
-          childrenList.add(new Property("role", "CodeableConcept", "Role played by the party assigned this role in the execution of this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("actor", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)", "The agent assigned a role in this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, actor));
+          childrenList.add(new Property("role", "CodeableConcept", "Role played by the agent assigned this role in the execution of this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, role));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("entity"))
-          this.entity = castToReference(value); // Reference
+        if (name.equals("actor"))
+          this.actor = castToReference(value); // Reference
         else if (name.equals("role"))
           this.getRole().add(castToCodeableConcept(value));
         else
@@ -1884,9 +1826,9 @@ public class Contract extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("entity")) {
-          this.entity = new Reference();
-          return this.entity;
+        if (name.equals("actor")) {
+          this.actor = new Reference();
+          return this.actor;
         }
         else if (name.equals("role")) {
           return addRole();
@@ -1895,10 +1837,10 @@ public class Contract extends DomainResource {
           return super.addChild(name);
       }
 
-      public TermPartyComponent copy() {
-        TermPartyComponent dst = new TermPartyComponent();
+      public TermAgentComponent copy() {
+        TermAgentComponent dst = new TermAgentComponent();
         copyValues(dst);
-        dst.entity = entity == null ? null : entity.copy();
+        dst.actor = actor == null ? null : actor.copy();
         if (role != null) {
           dst.role = new ArrayList<CodeableConcept>();
           for (CodeableConcept i : role)
@@ -1911,29 +1853,29 @@ public class Contract extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof TermPartyComponent))
+        if (!(other instanceof TermAgentComponent))
           return false;
-        TermPartyComponent o = (TermPartyComponent) other;
-        return compareDeep(entity, o.entity, true) && compareDeep(role, o.role, true);
+        TermAgentComponent o = (TermAgentComponent) other;
+        return compareDeep(actor, o.actor, true) && compareDeep(role, o.role, true);
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof TermPartyComponent))
+        if (!(other instanceof TermAgentComponent))
           return false;
-        TermPartyComponent o = (TermPartyComponent) other;
+        TermAgentComponent o = (TermAgentComponent) other;
         return true;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (entity == null || entity.isEmpty()) && (role == null || role.isEmpty())
+        return super.isEmpty() && (actor == null || actor.isEmpty()) && (role == null || role.isEmpty())
           ;
       }
 
   public String fhirType() {
-    return "Contract.term.party";
+    return "Contract.term.agent";
 
   }
 
@@ -2884,15 +2826,15 @@ public class Contract extends DomainResource {
     protected Period applies;
 
     /**
-     * Who and/or what this Contract is about: typically a Patient, Organization, or valued items such as goods and services.
+     * Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.
      */
-    @Child(name = "subject", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Subject of this Contract", formalDefinition="Who and/or what this Contract is about: typically a Patient, Organization, or valued items such as goods and services." )
-    protected List<Reference> subject;
+    @Child(name = "topic", type = {}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Topic of this Contract", formalDefinition="Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or \"granted\".  Examples include obligations, rights, and valued items such as goods and services." )
+    protected List<Reference> topic;
     /**
-     * The actual objects that are the target of the reference (Who and/or what this Contract is about: typically a Patient, Organization, or valued items such as goods and services.)
+     * The actual objects that are the target of the reference (Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.)
      */
-    protected List<Resource> subjectTarget;
+    protected List<Resource> topicTarget;
 
 
     /**
@@ -2950,23 +2892,23 @@ public class Contract extends DomainResource {
     /**
      * List of parties to the Contract.
      */
-    @Child(name = "party", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Contract Party", formalDefinition="List of parties to the Contract." )
-    protected List<PartyComponent> party;
-
-    /**
-     * Contract Valued Item List.
-     */
-    @Child(name = "valuedItem", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Contract Valued Item", formalDefinition="Contract Valued Item List." )
-    protected List<ValuedItemComponent> valuedItem;
+    @Child(name = "agent", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Contract Agent", formalDefinition="List of parties to the Contract." )
+    protected List<AgentComponent> agent;
 
     /**
      * Party signing this Contract.
      */
-    @Child(name = "signer", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "signer", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Contract Signer", formalDefinition="Party signing this Contract." )
     protected List<SignatoryComponent> signer;
+
+    /**
+     * Contract Valued Item List.
+     */
+    @Child(name = "valuedItem", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Contract Valued Item", formalDefinition="Contract Valued Item List." )
+    protected List<ValuedItemComponent> valuedItem;
 
     /**
      * One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.
@@ -3003,7 +2945,7 @@ public class Contract extends DomainResource {
     @Description(shortDefinition="Computable Contract Language", formalDefinition="List of Computable Policy Rule Language Representations of this Contract." )
     protected List<ComputableLanguageComponent> rule;
 
-    private static final long serialVersionUID = -2064861271L;
+    private static final long serialVersionUID = -980517187L;
 
   /**
    * Constructor
@@ -3110,52 +3052,52 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #subject} (Who and/or what this Contract is about: typically a Patient, Organization, or valued items such as goods and services.)
+     * @return {@link #topic} (Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.)
      */
-    public List<Reference> getSubject() { 
-      if (this.subject == null)
-        this.subject = new ArrayList<Reference>();
-      return this.subject;
+    public List<Reference> getTopic() { 
+      if (this.topic == null)
+        this.topic = new ArrayList<Reference>();
+      return this.topic;
     }
 
-    public boolean hasSubject() { 
-      if (this.subject == null)
+    public boolean hasTopic() { 
+      if (this.topic == null)
         return false;
-      for (Reference item : this.subject)
+      for (Reference item : this.topic)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #subject} (Who and/or what this Contract is about: typically a Patient, Organization, or valued items such as goods and services.)
+     * @return {@link #topic} (Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.)
      */
     // syntactic sugar
-    public Reference addSubject() { //3
+    public Reference addTopic() { //3
       Reference t = new Reference();
-      if (this.subject == null)
-        this.subject = new ArrayList<Reference>();
-      this.subject.add(t);
+      if (this.topic == null)
+        this.topic = new ArrayList<Reference>();
+      this.topic.add(t);
       return t;
     }
 
     // syntactic sugar
-    public Contract addSubject(Reference t) { //3
+    public Contract addTopic(Reference t) { //3
       if (t == null)
         return this;
-      if (this.subject == null)
-        this.subject = new ArrayList<Reference>();
-      this.subject.add(t);
+      if (this.topic == null)
+        this.topic = new ArrayList<Reference>();
+      this.topic.add(t);
       return this;
     }
 
     /**
-     * @return {@link #subject} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Who and/or what this Contract is about: typically a Patient, Organization, or valued items such as goods and services.)
+     * @return {@link #topic} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or "granted".  Examples include obligations, rights, and valued items such as goods and services.)
      */
-    public List<Resource> getSubjectTarget() { 
-      if (this.subjectTarget == null)
-        this.subjectTarget = new ArrayList<Resource>();
-      return this.subjectTarget;
+    public List<Resource> getTopicTarget() { 
+      if (this.topicTarget == null)
+        this.topicTarget = new ArrayList<Resource>();
+      return this.topicTarget;
     }
 
     /**
@@ -3425,82 +3367,42 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #party} (List of parties to the Contract.)
+     * @return {@link #agent} (List of parties to the Contract.)
      */
-    public List<PartyComponent> getParty() { 
-      if (this.party == null)
-        this.party = new ArrayList<PartyComponent>();
-      return this.party;
+    public List<AgentComponent> getAgent() { 
+      if (this.agent == null)
+        this.agent = new ArrayList<AgentComponent>();
+      return this.agent;
     }
 
-    public boolean hasParty() { 
-      if (this.party == null)
+    public boolean hasAgent() { 
+      if (this.agent == null)
         return false;
-      for (PartyComponent item : this.party)
+      for (AgentComponent item : this.agent)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #party} (List of parties to the Contract.)
+     * @return {@link #agent} (List of parties to the Contract.)
      */
     // syntactic sugar
-    public PartyComponent addParty() { //3
-      PartyComponent t = new PartyComponent();
-      if (this.party == null)
-        this.party = new ArrayList<PartyComponent>();
-      this.party.add(t);
+    public AgentComponent addAgent() { //3
+      AgentComponent t = new AgentComponent();
+      if (this.agent == null)
+        this.agent = new ArrayList<AgentComponent>();
+      this.agent.add(t);
       return t;
     }
 
     // syntactic sugar
-    public Contract addParty(PartyComponent t) { //3
+    public Contract addAgent(AgentComponent t) { //3
       if (t == null)
         return this;
-      if (this.party == null)
-        this.party = new ArrayList<PartyComponent>();
-      this.party.add(t);
-      return this;
-    }
-
-    /**
-     * @return {@link #valuedItem} (Contract Valued Item List.)
-     */
-    public List<ValuedItemComponent> getValuedItem() { 
-      if (this.valuedItem == null)
-        this.valuedItem = new ArrayList<ValuedItemComponent>();
-      return this.valuedItem;
-    }
-
-    public boolean hasValuedItem() { 
-      if (this.valuedItem == null)
-        return false;
-      for (ValuedItemComponent item : this.valuedItem)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #valuedItem} (Contract Valued Item List.)
-     */
-    // syntactic sugar
-    public ValuedItemComponent addValuedItem() { //3
-      ValuedItemComponent t = new ValuedItemComponent();
-      if (this.valuedItem == null)
-        this.valuedItem = new ArrayList<ValuedItemComponent>();
-      this.valuedItem.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public Contract addValuedItem(ValuedItemComponent t) { //3
-      if (t == null)
-        return this;
-      if (this.valuedItem == null)
-        this.valuedItem = new ArrayList<ValuedItemComponent>();
-      this.valuedItem.add(t);
+      if (this.agent == null)
+        this.agent = new ArrayList<AgentComponent>();
+      this.agent.add(t);
       return this;
     }
 
@@ -3541,6 +3443,46 @@ public class Contract extends DomainResource {
       if (this.signer == null)
         this.signer = new ArrayList<SignatoryComponent>();
       this.signer.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #valuedItem} (Contract Valued Item List.)
+     */
+    public List<ValuedItemComponent> getValuedItem() { 
+      if (this.valuedItem == null)
+        this.valuedItem = new ArrayList<ValuedItemComponent>();
+      return this.valuedItem;
+    }
+
+    public boolean hasValuedItem() { 
+      if (this.valuedItem == null)
+        return false;
+      for (ValuedItemComponent item : this.valuedItem)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #valuedItem} (Contract Valued Item List.)
+     */
+    // syntactic sugar
+    public ValuedItemComponent addValuedItem() { //3
+      ValuedItemComponent t = new ValuedItemComponent();
+      if (this.valuedItem == null)
+        this.valuedItem = new ArrayList<ValuedItemComponent>();
+      this.valuedItem.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public Contract addValuedItem(ValuedItemComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.valuedItem == null)
+        this.valuedItem = new ArrayList<ValuedItemComponent>();
+      this.valuedItem.add(t);
       return this;
     }
 
@@ -3754,16 +3696,16 @@ public class Contract extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Unique identifier for this Contract.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("issued", "dateTime", "When this  Contract was issued.", 0, java.lang.Integer.MAX_VALUE, issued));
         childrenList.add(new Property("applies", "Period", "Relevant time or time-period when this Contract is applicable.", 0, java.lang.Integer.MAX_VALUE, applies));
-        childrenList.add(new Property("subject", "Reference(Any)", "Who and/or what this Contract is about: typically a Patient, Organization, or valued items such as goods and services.", 0, java.lang.Integer.MAX_VALUE, subject));
+        childrenList.add(new Property("topic", "Reference(Any)", "Who and/or what this Contract is about:  The matter of consideration about which an agreement is made, which includes an offer or promise of future actions that is accepted.  The party making the offer is the grantor, and the one accepting the offer is the grantee, and the matter under consideration is what is being conveyed or \"granted\".  Examples include obligations, rights, and valued items such as goods and services.", 0, java.lang.Integer.MAX_VALUE, topic));
         childrenList.add(new Property("authority", "Reference(Organization)", "A formally or informally recognized grouping of people, principals, organizations, or jurisdictions formed for the purpose of achieving some form of collective action such as the promulgation, administration and enforcement of contracts and policies.", 0, java.lang.Integer.MAX_VALUE, authority));
         childrenList.add(new Property("domain", "Reference(Location)", "Recognized governance framework or system operating with a circumscribed scope in accordance with specified principles, policies, processes or procedures for managing rights, actions, or behaviors of parties or principals relative to resources.", 0, java.lang.Integer.MAX_VALUE, domain));
         childrenList.add(new Property("type", "CodeableConcept", "Type of Contract such as an insurance policy, real estate contract, a will, power of attorny, Privacy or Security policy , trust framework agreement, etc.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("subType", "CodeableConcept", "More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.", 0, java.lang.Integer.MAX_VALUE, subType));
         childrenList.add(new Property("action", "CodeableConcept", "Action stipulated by this Contract.", 0, java.lang.Integer.MAX_VALUE, action));
         childrenList.add(new Property("actionReason", "CodeableConcept", "Reason for action stipulated by this Contract.", 0, java.lang.Integer.MAX_VALUE, actionReason));
-        childrenList.add(new Property("party", "", "List of parties to the Contract.", 0, java.lang.Integer.MAX_VALUE, party));
-        childrenList.add(new Property("valuedItem", "", "Contract Valued Item List.", 0, java.lang.Integer.MAX_VALUE, valuedItem));
+        childrenList.add(new Property("agent", "", "List of parties to the Contract.", 0, java.lang.Integer.MAX_VALUE, agent));
         childrenList.add(new Property("signer", "", "Party signing this Contract.", 0, java.lang.Integer.MAX_VALUE, signer));
+        childrenList.add(new Property("valuedItem", "", "Contract Valued Item List.", 0, java.lang.Integer.MAX_VALUE, valuedItem));
         childrenList.add(new Property("term", "", "One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.", 0, java.lang.Integer.MAX_VALUE, term));
         childrenList.add(new Property("binding[x]", "Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)", "Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract.", 0, java.lang.Integer.MAX_VALUE, binding));
         childrenList.add(new Property("friendly", "", "The \"patient friendly language\" versionof the Contract in whole or in parts. \"Patient friendly language\" means the representation of the Contract and Contract Provisions in a manner that is readily accessible and understandable by a layperson in accordance with best practices for communication styles that ensure that those agreeing to or signing the Contract understand the roles, actions, obligations, responsibilities, and implication of the agreement.", 0, java.lang.Integer.MAX_VALUE, friendly));
@@ -3779,8 +3721,8 @@ public class Contract extends DomainResource {
           this.issued = castToDateTime(value); // DateTimeType
         else if (name.equals("applies"))
           this.applies = castToPeriod(value); // Period
-        else if (name.equals("subject"))
-          this.getSubject().add(castToReference(value));
+        else if (name.equals("topic"))
+          this.getTopic().add(castToReference(value));
         else if (name.equals("authority"))
           this.getAuthority().add(castToReference(value));
         else if (name.equals("domain"))
@@ -3793,12 +3735,12 @@ public class Contract extends DomainResource {
           this.getAction().add(castToCodeableConcept(value));
         else if (name.equals("actionReason"))
           this.getActionReason().add(castToCodeableConcept(value));
-        else if (name.equals("party"))
-          this.getParty().add((PartyComponent) value);
-        else if (name.equals("valuedItem"))
-          this.getValuedItem().add((ValuedItemComponent) value);
+        else if (name.equals("agent"))
+          this.getAgent().add((AgentComponent) value);
         else if (name.equals("signer"))
           this.getSigner().add((SignatoryComponent) value);
+        else if (name.equals("valuedItem"))
+          this.getValuedItem().add((ValuedItemComponent) value);
         else if (name.equals("term"))
           this.getTerm().add((TermComponent) value);
         else if (name.equals("binding[x]"))
@@ -3826,8 +3768,8 @@ public class Contract extends DomainResource {
           this.applies = new Period();
           return this.applies;
         }
-        else if (name.equals("subject")) {
-          return addSubject();
+        else if (name.equals("topic")) {
+          return addTopic();
         }
         else if (name.equals("authority")) {
           return addAuthority();
@@ -3848,14 +3790,14 @@ public class Contract extends DomainResource {
         else if (name.equals("actionReason")) {
           return addActionReason();
         }
-        else if (name.equals("party")) {
-          return addParty();
-        }
-        else if (name.equals("valuedItem")) {
-          return addValuedItem();
+        else if (name.equals("agent")) {
+          return addAgent();
         }
         else if (name.equals("signer")) {
           return addSigner();
+        }
+        else if (name.equals("valuedItem")) {
+          return addValuedItem();
         }
         else if (name.equals("term")) {
           return addTerm();
@@ -3892,10 +3834,10 @@ public class Contract extends DomainResource {
         dst.identifier = identifier == null ? null : identifier.copy();
         dst.issued = issued == null ? null : issued.copy();
         dst.applies = applies == null ? null : applies.copy();
-        if (subject != null) {
-          dst.subject = new ArrayList<Reference>();
-          for (Reference i : subject)
-            dst.subject.add(i.copy());
+        if (topic != null) {
+          dst.topic = new ArrayList<Reference>();
+          for (Reference i : topic)
+            dst.topic.add(i.copy());
         };
         if (authority != null) {
           dst.authority = new ArrayList<Reference>();
@@ -3923,20 +3865,20 @@ public class Contract extends DomainResource {
           for (CodeableConcept i : actionReason)
             dst.actionReason.add(i.copy());
         };
-        if (party != null) {
-          dst.party = new ArrayList<PartyComponent>();
-          for (PartyComponent i : party)
-            dst.party.add(i.copy());
-        };
-        if (valuedItem != null) {
-          dst.valuedItem = new ArrayList<ValuedItemComponent>();
-          for (ValuedItemComponent i : valuedItem)
-            dst.valuedItem.add(i.copy());
+        if (agent != null) {
+          dst.agent = new ArrayList<AgentComponent>();
+          for (AgentComponent i : agent)
+            dst.agent.add(i.copy());
         };
         if (signer != null) {
           dst.signer = new ArrayList<SignatoryComponent>();
           for (SignatoryComponent i : signer)
             dst.signer.add(i.copy());
+        };
+        if (valuedItem != null) {
+          dst.valuedItem = new ArrayList<ValuedItemComponent>();
+          for (ValuedItemComponent i : valuedItem)
+            dst.valuedItem.add(i.copy());
         };
         if (term != null) {
           dst.term = new ArrayList<TermComponent>();
@@ -3974,10 +3916,10 @@ public class Contract extends DomainResource {
           return false;
         Contract o = (Contract) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(issued, o.issued, true) && compareDeep(applies, o.applies, true)
-           && compareDeep(subject, o.subject, true) && compareDeep(authority, o.authority, true) && compareDeep(domain, o.domain, true)
+           && compareDeep(topic, o.topic, true) && compareDeep(authority, o.authority, true) && compareDeep(domain, o.domain, true)
            && compareDeep(type, o.type, true) && compareDeep(subType, o.subType, true) && compareDeep(action, o.action, true)
-           && compareDeep(actionReason, o.actionReason, true) && compareDeep(party, o.party, true) && compareDeep(valuedItem, o.valuedItem, true)
-           && compareDeep(signer, o.signer, true) && compareDeep(term, o.term, true) && compareDeep(binding, o.binding, true)
+           && compareDeep(actionReason, o.actionReason, true) && compareDeep(agent, o.agent, true) && compareDeep(signer, o.signer, true)
+           && compareDeep(valuedItem, o.valuedItem, true) && compareDeep(term, o.term, true) && compareDeep(binding, o.binding, true)
            && compareDeep(friendly, o.friendly, true) && compareDeep(legal, o.legal, true) && compareDeep(rule, o.rule, true)
           ;
       }
@@ -3994,10 +3936,10 @@ public class Contract extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (issued == null || issued.isEmpty())
-           && (applies == null || applies.isEmpty()) && (subject == null || subject.isEmpty()) && (authority == null || authority.isEmpty())
+           && (applies == null || applies.isEmpty()) && (topic == null || topic.isEmpty()) && (authority == null || authority.isEmpty())
            && (domain == null || domain.isEmpty()) && (type == null || type.isEmpty()) && (subType == null || subType.isEmpty())
            && (action == null || action.isEmpty()) && (actionReason == null || actionReason.isEmpty())
-           && (party == null || party.isEmpty()) && (valuedItem == null || valuedItem.isEmpty()) && (signer == null || signer.isEmpty())
+           && (agent == null || agent.isEmpty()) && (signer == null || signer.isEmpty()) && (valuedItem == null || valuedItem.isEmpty())
            && (term == null || term.isEmpty()) && (binding == null || binding.isEmpty()) && (friendly == null || friendly.isEmpty())
            && (legal == null || legal.isEmpty()) && (rule == null || rule.isEmpty());
       }
@@ -4006,6 +3948,58 @@ public class Contract extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.Contract;
    }
+
+ /**
+   * Search parameter: <b>topic</b>
+   * <p>
+   * Description: <b>The identity of the topic of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="topic", path="Contract.topic", description="The identity of the topic of the contract", type="reference" )
+  public static final String SP_TOPIC = "topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <p>
+   * Description: <b>The identity of the topic of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam TOPIC = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_TOPIC);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:topic</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_TOPIC = new ca.uhn.fhir.model.api.Include("Contract:topic").toLocked();
+
+ /**
+   * Search parameter: <b>authority</b>
+   * <p>
+   * Description: <b>The authority of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.authority</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="authority", path="Contract.authority", description="The authority of the contract", type="reference" )
+  public static final String SP_AUTHORITY = "authority";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>authority</b>
+   * <p>
+   * Description: <b>The authority of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.authority</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AUTHORITY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AUTHORITY);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Contract:authority</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AUTHORITY = new ca.uhn.fhir.model.api.Include("Contract:authority").toLocked();
 
  /**
    * Search parameter: <b>signer</b>
@@ -4036,19 +4030,19 @@ public class Contract extends DomainResource {
  /**
    * Search parameter: <b>patient</b>
    * <p>
-   * Description: <b>The identity of the target of the contract (if a patient)</b><br>
+   * Description: <b>The identity of the topic of the contract (if a patient)</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.subject</b><br>
+   * Path: <b>Contract.topic</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="patient", path="Contract.subject", description="The identity of the target of the contract (if a patient)", type="reference" )
+  @SearchParamDefinition(name="patient", path="Contract.topic", description="The identity of the topic of the contract (if a patient)", type="reference" )
   public static final String SP_PATIENT = "patient";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>patient</b>
    * <p>
-   * Description: <b>The identity of the target of the contract (if a patient)</b><br>
+   * Description: <b>The identity of the topic of the contract (if a patient)</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.subject</b><br>
+   * Path: <b>Contract.topic</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PATIENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PATIENT);
@@ -4060,56 +4054,76 @@ public class Contract extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("Contract:patient").toLocked();
 
  /**
-   * Search parameter: <b>subject</b>
+   * Search parameter: <b>issued</b>
    * <p>
-   * Description: <b>The identity of the target of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.subject</b><br>
+   * Description: <b>The date/time the contract was issued</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Contract.issued</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="subject", path="Contract.subject", description="The identity of the target of the contract", type="reference" )
-  public static final String SP_SUBJECT = "subject";
+  @SearchParamDefinition(name="issued", path="Contract.issued", description="The date/time the contract was issued", type="date" )
+  public static final String SP_ISSUED = "issued";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>subject</b>
+   * <b>Fluent Client</b> search parameter constant for <b>issued</b>
    * <p>
-   * Description: <b>The identity of the target of the contract</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Contract.subject</b><br>
+   * Description: <b>The date/time the contract was issued</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Contract.issued</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBJECT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBJECT);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam ISSUED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_ISSUED);
+
+ /**
+   * Search parameter: <b>domain</b>
+   * <p>
+   * Description: <b>The domain of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.domain</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="domain", path="Contract.domain", description="The domain of the contract", type="reference" )
+  public static final String SP_DOMAIN = "domain";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>domain</b>
+   * <p>
+   * Description: <b>The domain of the contract</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Contract.domain</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam DOMAIN = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_DOMAIN);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:subject</b>".
+   * the path value of "<b>Contract:domain</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Contract:subject").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_DOMAIN = new ca.uhn.fhir.model.api.Include("Contract:domain").toLocked();
 
  /**
-   * Search parameter: <b>party</b>
+   * Search parameter: <b>agent</b>
    * <p>
-   * Description: <b>Party to the Contact</b><br>
+   * Description: <b>Agent to the Contact</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.party.entity</b><br>
+   * Path: <b>Contract.agent.actor</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="party", path="Contract.party.entity", description="Party to the Contact", type="reference" )
-  public static final String SP_PARTY = "party";
+  @SearchParamDefinition(name="agent", path="Contract.agent.actor", description="Agent to the Contact", type="reference" )
+  public static final String SP_AGENT = "agent";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>party</b>
+   * <b>Fluent Client</b> search parameter constant for <b>agent</b>
    * <p>
-   * Description: <b>Party to the Contact</b><br>
+   * Description: <b>Agent to the Contact</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>Contract.party.entity</b><br>
+   * Path: <b>Contract.agent.actor</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTY);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Contract:party</b>".
+   * the path value of "<b>Contract:agent</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTY = new ca.uhn.fhir.model.api.Include("Contract:party").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("Contract:agent").toLocked();
 
  /**
    * Search parameter: <b>identifier</b>

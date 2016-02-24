@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
-// Generated on Sat, Feb 20, 2016 00:02+1100 for FHIR v1.3.0
+// Generated on Wed, Feb 24, 2016 10:46+1100 for FHIR v1.3.0
 
 public enum ResourceType {
     Account,
@@ -104,6 +104,7 @@ public enum ResourceType {
     Slot,
     Specimen,
     StructureDefinition,
+    StructureMap,
     Subscription,
     Substance,
     SupplyDelivery,
@@ -313,6 +314,8 @@ public enum ResourceType {
       return "specimen";
     case StructureDefinition:
       return "structuredefinition";
+    case StructureMap:
+      return "structuremap";
     case Subscription:
       return "subscription";
     case Substance:
@@ -531,6 +534,8 @@ public enum ResourceType {
       return Specimen;
     if ("StructureDefinition".equals(code))
       return StructureDefinition;
+    if ("StructureMap".equals(code))
+      return StructureMap;
     if ("Subscription".equals(code))
       return Subscription;
     if ("Substance".equals(code))

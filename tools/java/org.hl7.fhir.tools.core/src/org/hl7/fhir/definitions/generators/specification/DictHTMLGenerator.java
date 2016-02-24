@@ -366,7 +366,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   private String getMapping(StructureDefinition profile, ElementDefinition d, String uri) {
     String id = null;
     for (StructureDefinitionMappingComponent m : profile.getMapping()) {
-      if (m.getUri().equals(uri))
+      if (m.hasUri() && m.getUri().equals(uri))
         id = m.getIdentity();
     }
     if (id == null)

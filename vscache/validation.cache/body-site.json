@@ -123,25 +123,14 @@
       }
     },
     {
-      "hash": "|http://snomed.info/sct|null|67734004|Upper Trunk Structure",
+      "hash": "#|http://snomed.info/sct|null|66754008|Appendix structure",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Upper trunk"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|368225008|Entire Left Forearm",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Entire left forearm"
+        "display": "Appendix"
       }
     },
     {
@@ -156,14 +145,25 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|66754008|Appendix structure",
+      "hash": "#|http://snomed.info/sct|null|368225008|Entire Left Forearm",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Appendix"
+        "display": "Entire left forearm"
+      }
+    },
+    {
+      "hash": "|http://snomed.info/sct|null|67734004|Upper Trunk Structure",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Upper trunk"
       }
     },
     {
@@ -200,17 +200,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|368209003|Right arm",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Right upper arm"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|272676008|Sphenoid bone",
       "severity": null,
       "message": null,
@@ -219,6 +208,17 @@
         "code": null,
         "definition": null,
         "display": "Entire sphenoid bone"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|368209003|Right arm",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Right upper arm"
       }
     },
     {

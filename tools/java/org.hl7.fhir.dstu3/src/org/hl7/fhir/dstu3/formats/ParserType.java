@@ -26,5 +26,5 @@ public enum ParserType {
    /**
    * RDF is not supported yet
    */
-  RDF_TURTLE;
+  RDF_TURTLE
 }

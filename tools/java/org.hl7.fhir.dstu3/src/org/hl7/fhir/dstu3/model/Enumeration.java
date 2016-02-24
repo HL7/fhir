@@ -100,4 +100,8 @@ public class Enumeration<T extends Enum<?>> extends PrimitiveType<T> implements 
 		}
 		return null;
 	}
+
+	public String toSystem() {
+		return getEnumFactory().toSystem(getValue());
+	}
 }

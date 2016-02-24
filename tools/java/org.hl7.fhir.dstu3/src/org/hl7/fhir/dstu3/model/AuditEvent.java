@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 20, 2016 00:02+1100 for FHIR v1.3.0
+// Generated on Wed, Feb 24, 2016 10:46+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -440,10 +440,10 @@ public class AuditEvent extends DomainResource {
     @Block()
     public static class AuditEventAgentComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.
+         * Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.
          */
         @Child(name = "role", type = {CodeableConcept.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="User roles (e.g. local RBAC codes)", formalDefinition="Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context." )
+        @Description(shortDefinition="Agent role in the event", formalDefinition="Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context." )
         protected List<CodeableConcept> role;
 
         /**
@@ -473,10 +473,10 @@ public class AuditEvent extends DomainResource {
         protected StringType altId;
 
         /**
-         * Human-meaningful name for the user.
+         * Human-meaningful name for the agent.
          */
         @Child(name = "name", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Human-meaningful name for the user", formalDefinition="Human-meaningful name for the user." )
+        @Description(shortDefinition="Human-meaningful name for the agent", formalDefinition="Human-meaningful name for the agent." )
         protected StringType name;
 
         /**
@@ -544,7 +544,7 @@ public class AuditEvent extends DomainResource {
       }
 
         /**
-         * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.)
+         * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.)
          */
         public List<CodeableConcept> getRole() { 
           if (this.role == null)
@@ -562,7 +562,7 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.)
+         * @return {@link #role} (Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.)
          */
     // syntactic sugar
         public CodeableConcept addRole() { //3
@@ -696,7 +696,7 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @return {@link #name} (Human-meaningful name for the user.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #name} (Human-meaningful name for the agent.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
           if (this.name == null)
@@ -716,7 +716,7 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @param value {@link #name} (Human-meaningful name for the user.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #name} (Human-meaningful name for the agent.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public AuditEventAgentComponent setNameElement(StringType value) { 
           this.name = value;
@@ -724,14 +724,14 @@ public class AuditEvent extends DomainResource {
         }
 
         /**
-         * @return Human-meaningful name for the user.
+         * @return Human-meaningful name for the agent.
          */
         public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value Human-meaningful name for the user.
+         * @param value Human-meaningful name for the agent.
          */
         public AuditEventAgentComponent setName(String value) { 
           if (Utilities.noString(value))
@@ -977,11 +977,11 @@ public class AuditEvent extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the role-based access control security system used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
+          childrenList.add(new Property("role", "CodeableConcept", "Specification of the role(s) the user plays when performing the event. Usually the codes used in this element are local codes defined by the access control security system (e.g. RBAC, ABAC) used in the local context.", 0, java.lang.Integer.MAX_VALUE, role));
           childrenList.add(new Property("reference", "Reference(Practitioner|Organization|Device|Patient|RelatedPerson)", "Direct reference to a resource that identifies the agent.", 0, java.lang.Integer.MAX_VALUE, reference));
           childrenList.add(new Property("userId", "Identifier", "Unique identifier for the user actively participating in the event.", 0, java.lang.Integer.MAX_VALUE, userId));
           childrenList.add(new Property("altId", "string", "Alternative agent Identifier. For a human, this should be a user identifier text string from authentication system. This identifier would be one known to a common authentication system (e.g. single sign-on), if available.", 0, java.lang.Integer.MAX_VALUE, altId));
-          childrenList.add(new Property("name", "string", "Human-meaningful name for the user.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("name", "string", "Human-meaningful name for the agent.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("requestor", "boolean", "Indicator that the user is or is not the requestor, or initiator, for the event being audited.", 0, java.lang.Integer.MAX_VALUE, requestor));
           childrenList.add(new Property("location", "Reference(Location)", "Where the event occurred.", 0, java.lang.Integer.MAX_VALUE, location));
           childrenList.add(new Property("policy", "uri", "The policy or plan that authorized the activity being recorded. Typically, a single activity may have multiple applicable policies, such as patient consent, guarantor funding, etc. The policy would also indicate the security token used.", 0, java.lang.Integer.MAX_VALUE, policy));
@@ -3005,24 +3005,50 @@ public class AuditEvent extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SITE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SITE);
 
  /**
-   * Search parameter: <b>desc</b>
+   * Search parameter: <b>entity</b>
    * <p>
-   * Description: <b>Descriptor for entity</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>AuditEvent.entity.name</b><br>
+   * Description: <b>Specific instance of resource (e.g. versioned)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AuditEvent.entity.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="desc", path="AuditEvent.entity.name", description="Descriptor for entity", type="string" )
-  public static final String SP_DESC = "desc";
+  @SearchParamDefinition(name="entity", path="AuditEvent.entity.reference", description="Specific instance of resource (e.g. versioned)", type="reference" )
+  public static final String SP_ENTITY = "entity";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>desc</b>
+   * <b>Fluent Client</b> search parameter constant for <b>entity</b>
    * <p>
-   * Description: <b>Descriptor for entity</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>AuditEvent.entity.name</b><br>
+   * Description: <b>Specific instance of resource (e.g. versioned)</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>AuditEvent.entity.reference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESC = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESC);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam ENTITY = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_ENTITY);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>AuditEvent:entity</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_ENTITY = new ca.uhn.fhir.model.api.Include("AuditEvent:entity").toLocked();
+
+ /**
+   * Search parameter: <b>entity-type</b>
+   * <p>
+   * Description: <b>Type of object involved</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.entity.type</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="entity-type", path="AuditEvent.entity.type", description="Type of object involved", type="token" )
+  public static final String SP_ENTITY_TYPE = "entity-type";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>entity-type</b>
+   * <p>
+   * Description: <b>Type of object involved</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.entity.type</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ENTITY_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ENTITY_TYPE);
 
  /**
    * Search parameter: <b>type</b>
@@ -3065,50 +3091,70 @@ public class AuditEvent extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
-   * Search parameter: <b>reference</b>
+   * Search parameter: <b>agent</b>
    * <p>
-   * Description: <b>Specific instance of resource (e.g. versioned)</b><br>
+   * Description: <b>Direct reference to resource</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>AuditEvent.entity.reference</b><br>
+   * Path: <b>AuditEvent.agent.reference</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="reference", path="AuditEvent.entity.reference", description="Specific instance of resource (e.g. versioned)", type="reference" )
-  public static final String SP_REFERENCE = "reference";
+  @SearchParamDefinition(name="agent", path="AuditEvent.agent.reference", description="Direct reference to resource", type="reference" )
+  public static final String SP_AGENT = "agent";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>reference</b>
+   * <b>Fluent Client</b> search parameter constant for <b>agent</b>
    * <p>
-   * Description: <b>Specific instance of resource (e.g. versioned)</b><br>
+   * Description: <b>Direct reference to resource</b><br>
    * Type: <b>reference</b><br>
-   * Path: <b>AuditEvent.entity.reference</b><br>
+   * Path: <b>AuditEvent.agent.reference</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam REFERENCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_REFERENCE);
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam AGENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_AGENT);
 
 /**
    * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>AuditEvent:reference</b>".
+   * the path value of "<b>AuditEvent:agent</b>".
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_REFERENCE = new ca.uhn.fhir.model.api.Include("AuditEvent:reference").toLocked();
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_AGENT = new ca.uhn.fhir.model.api.Include("AuditEvent:agent").toLocked();
 
  /**
-   * Search parameter: <b>identity</b>
+   * Search parameter: <b>agent-name</b>
    * <p>
-   * Description: <b>Specific instance of object (e.g. versioned)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.entity.identifier</b><br>
+   * Description: <b>Human-meaningful name for the agent</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>AuditEvent.agent.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="identity", path="AuditEvent.entity.identifier", description="Specific instance of object (e.g. versioned)", type="token" )
-  public static final String SP_IDENTITY = "identity";
+  @SearchParamDefinition(name="agent-name", path="AuditEvent.agent.name", description="Human-meaningful name for the agent", type="string" )
+  public static final String SP_AGENT_NAME = "agent-name";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>identity</b>
+   * <b>Fluent Client</b> search parameter constant for <b>agent-name</b>
+   * <p>
+   * Description: <b>Human-meaningful name for the agent</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>AuditEvent.agent.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam AGENT_NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_AGENT_NAME);
+
+ /**
+   * Search parameter: <b>entity-id</b>
    * <p>
    * Description: <b>Specific instance of object (e.g. versioned)</b><br>
    * Type: <b>token</b><br>
    * Path: <b>AuditEvent.entity.identifier</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTITY = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTITY);
+  @SearchParamDefinition(name="entity-id", path="AuditEvent.entity.identifier", description="Specific instance of object (e.g. versioned)", type="token" )
+  public static final String SP_ENTITY_ID = "entity-id";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>entity-id</b>
+   * <p>
+   * Description: <b>Specific instance of object (e.g. versioned)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.entity.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ENTITY_ID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ENTITY_ID);
 
  /**
    * Search parameter: <b>patient</b>
@@ -3137,26 +3183,6 @@ public class AuditEvent extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_PATIENT = new ca.uhn.fhir.model.api.Include("AuditEvent:patient").toLocked();
 
  /**
-   * Search parameter: <b>altid</b>
-   * <p>
-   * Description: <b>Alternative User id e.g. authentication</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.agent.altId</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="altid", path="AuditEvent.agent.altId", description="Alternative User id e.g. authentication", type="token" )
-  public static final String SP_ALTID = "altid";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>altid</b>
-   * <p>
-   * Description: <b>Alternative User id e.g. authentication</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.agent.altId</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ALTID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ALTID);
-
- /**
    * Search parameter: <b>source</b>
    * <p>
    * Description: <b>The identity of source detecting the event</b><br>
@@ -3175,6 +3201,26 @@ public class AuditEvent extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SOURCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SOURCE);
+
+ /**
+   * Search parameter: <b>altid</b>
+   * <p>
+   * Description: <b>Alternative User id e.g. authentication</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.agent.altId</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="altid", path="AuditEvent.agent.altId", description="Alternative User id e.g. authentication", type="token" )
+  public static final String SP_ALTID = "altid";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>altid</b>
+   * <p>
+   * Description: <b>Alternative User id e.g. authentication</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>AuditEvent.agent.altId</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam ALTID = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ALTID);
 
  /**
    * Search parameter: <b>address</b>
@@ -3217,26 +3263,6 @@ public class AuditEvent extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUBTYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUBTYPE);
 
  /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Human-meaningful name for the user</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>AuditEvent.agent.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="AuditEvent.agent.name", description="Human-meaningful name for the user", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Human-meaningful name for the user</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>AuditEvent.agent.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
    * Search parameter: <b>action</b>
    * <p>
    * Description: <b>Type of action performed during the event</b><br>
@@ -3255,32 +3281,6 @@ public class AuditEvent extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam ACTION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_ACTION);
-
- /**
-   * Search parameter: <b>participant</b>
-   * <p>
-   * Description: <b>Direct reference to resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AuditEvent.agent.reference</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="participant", path="AuditEvent.agent.reference", description="Direct reference to resource", type="reference" )
-  public static final String SP_PARTICIPANT = "participant";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>participant</b>
-   * <p>
-   * Description: <b>Direct reference to resource</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>AuditEvent.agent.reference</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARTICIPANT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARTICIPANT);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>AuditEvent:participant</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARTICIPANT = new ca.uhn.fhir.model.api.Include("AuditEvent:participant").toLocked();
 
  /**
    * Search parameter: <b>policy</b>
@@ -3303,26 +3303,6 @@ public class AuditEvent extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.UriClientParam POLICY = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_POLICY);
 
  /**
-   * Search parameter: <b>object-type</b>
-   * <p>
-   * Description: <b>Type of object involved</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.entity.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="object-type", path="AuditEvent.entity.type", description="Type of object involved", type="token" )
-  public static final String SP_OBJECT_TYPE = "object-type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>object-type</b>
-   * <p>
-   * Description: <b>Type of object involved</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>AuditEvent.entity.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam OBJECT_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_OBJECT_TYPE);
-
- /**
    * Search parameter: <b>user</b>
    * <p>
    * Description: <b>Unique identifier for the user</b><br>
@@ -3341,6 +3321,26 @@ public class AuditEvent extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam USER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_USER);
+
+ /**
+   * Search parameter: <b>entity-name</b>
+   * <p>
+   * Description: <b>Descriptor for entity</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>AuditEvent.entity.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="entity-name", path="AuditEvent.entity.name", description="Descriptor for entity", type="string" )
+  public static final String SP_ENTITY_NAME = "entity-name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>entity-name</b>
+   * <p>
+   * Description: <b>Descriptor for entity</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>AuditEvent.entity.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam ENTITY_NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_ENTITY_NAME);
 
 
 }

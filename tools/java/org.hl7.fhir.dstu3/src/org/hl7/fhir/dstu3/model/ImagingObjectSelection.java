@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 20, 2016 00:02+1100 for FHIR v1.3.0
+// Generated on Wed, Feb 24, 2016 10:46+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -370,7 +370,7 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * Series instance UID of the SOP instances in the selection.
          */
-        @Child(name = "uid", type = {OidType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "uid", type = {OidType.class}, order=1, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="Series instance UID", formalDefinition="Series instance UID of the SOP instances in the selection." )
         protected OidType uid;
 
@@ -395,6 +395,14 @@ public class ImagingObjectSelection extends DomainResource {
      */
       public SeriesComponent() {
         super();
+      }
+
+    /**
+     * Constructor
+     */
+      public SeriesComponent(OidType uid) {
+        super();
+        this.uid = uid;
       }
 
         /**
@@ -436,13 +444,9 @@ public class ImagingObjectSelection extends DomainResource {
          * @param value Series instance UID of the SOP instances in the selection.
          */
         public SeriesComponent setUid(String value) { 
-          if (Utilities.noString(value))
-            this.uid = null;
-          else {
             if (this.uid == null)
               this.uid = new OidType();
             this.uid.setValue(value);
-          }
           return this;
         }
 
@@ -641,11 +645,11 @@ public class ImagingObjectSelection extends DomainResource {
         /**
          * Identity and location information of the frames in the selected instance.
          */
-        @Child(name = "frames", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "frame", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="The frame set", formalDefinition="Identity and location information of the frames in the selected instance." )
-        protected List<FramesComponent> frames;
+        protected List<FramesComponent> frame;
 
-        private static final long serialVersionUID = 1641180916L;
+        private static final long serialVersionUID = -1609681911L;
 
     /**
      * Constructor
@@ -800,42 +804,42 @@ public class ImagingObjectSelection extends DomainResource {
         }
 
         /**
-         * @return {@link #frames} (Identity and location information of the frames in the selected instance.)
+         * @return {@link #frame} (Identity and location information of the frames in the selected instance.)
          */
-        public List<FramesComponent> getFrames() { 
-          if (this.frames == null)
-            this.frames = new ArrayList<FramesComponent>();
-          return this.frames;
+        public List<FramesComponent> getFrame() { 
+          if (this.frame == null)
+            this.frame = new ArrayList<FramesComponent>();
+          return this.frame;
         }
 
-        public boolean hasFrames() { 
-          if (this.frames == null)
+        public boolean hasFrame() { 
+          if (this.frame == null)
             return false;
-          for (FramesComponent item : this.frames)
+          for (FramesComponent item : this.frame)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
         /**
-         * @return {@link #frames} (Identity and location information of the frames in the selected instance.)
+         * @return {@link #frame} (Identity and location information of the frames in the selected instance.)
          */
     // syntactic sugar
-        public FramesComponent addFrames() { //3
+        public FramesComponent addFrame() { //3
           FramesComponent t = new FramesComponent();
-          if (this.frames == null)
-            this.frames = new ArrayList<FramesComponent>();
-          this.frames.add(t);
+          if (this.frame == null)
+            this.frame = new ArrayList<FramesComponent>();
+          this.frame.add(t);
           return t;
         }
 
     // syntactic sugar
-        public InstanceComponent addFrames(FramesComponent t) { //3
+        public InstanceComponent addFrame(FramesComponent t) { //3
           if (t == null)
             return this;
-          if (this.frames == null)
-            this.frames = new ArrayList<FramesComponent>();
-          this.frames.add(t);
+          if (this.frame == null)
+            this.frame = new ArrayList<FramesComponent>();
+          this.frame.add(t);
           return this;
         }
 
@@ -844,7 +848,7 @@ public class ImagingObjectSelection extends DomainResource {
           childrenList.add(new Property("sopClass", "oid", "SOP class UID of the selected instance.", 0, java.lang.Integer.MAX_VALUE, sopClass));
           childrenList.add(new Property("uid", "oid", "SOP Instance UID of the selected instance.", 0, java.lang.Integer.MAX_VALUE, uid));
           childrenList.add(new Property("url", "uri", "WADO-RS URL to retrieve the DICOM SOP Instance.", 0, java.lang.Integer.MAX_VALUE, url));
-          childrenList.add(new Property("frames", "", "Identity and location information of the frames in the selected instance.", 0, java.lang.Integer.MAX_VALUE, frames));
+          childrenList.add(new Property("frame", "", "Identity and location information of the frames in the selected instance.", 0, java.lang.Integer.MAX_VALUE, frame));
         }
 
       @Override
@@ -855,8 +859,8 @@ public class ImagingObjectSelection extends DomainResource {
           this.uid = castToOid(value); // OidType
         else if (name.equals("url"))
           this.url = castToUri(value); // UriType
-        else if (name.equals("frames"))
-          this.getFrames().add((FramesComponent) value);
+        else if (name.equals("frame"))
+          this.getFrame().add((FramesComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -872,8 +876,8 @@ public class ImagingObjectSelection extends DomainResource {
         else if (name.equals("url")) {
           throw new FHIRException("Cannot call addChild on a primitive type ImagingObjectSelection.url");
         }
-        else if (name.equals("frames")) {
-          return addFrames();
+        else if (name.equals("frame")) {
+          return addFrame();
         }
         else
           return super.addChild(name);
@@ -885,10 +889,10 @@ public class ImagingObjectSelection extends DomainResource {
         dst.sopClass = sopClass == null ? null : sopClass.copy();
         dst.uid = uid == null ? null : uid.copy();
         dst.url = url == null ? null : url.copy();
-        if (frames != null) {
-          dst.frames = new ArrayList<FramesComponent>();
-          for (FramesComponent i : frames)
-            dst.frames.add(i.copy());
+        if (frame != null) {
+          dst.frame = new ArrayList<FramesComponent>();
+          for (FramesComponent i : frame)
+            dst.frame.add(i.copy());
         };
         return dst;
       }
@@ -901,7 +905,7 @@ public class ImagingObjectSelection extends DomainResource {
           return false;
         InstanceComponent o = (InstanceComponent) other;
         return compareDeep(sopClass, o.sopClass, true) && compareDeep(uid, o.uid, true) && compareDeep(url, o.url, true)
-           && compareDeep(frames, o.frames, true);
+           && compareDeep(frame, o.frame, true);
       }
 
       @Override
@@ -917,7 +921,7 @@ public class ImagingObjectSelection extends DomainResource {
 
       public boolean isEmpty() {
         return super.isEmpty() && (sopClass == null || sopClass.isEmpty()) && (uid == null || uid.isEmpty())
-           && (url == null || url.isEmpty()) && (frames == null || frames.isEmpty());
+           && (url == null || url.isEmpty()) && (frame == null || frame.isEmpty());
       }
 
   public String fhirType() {
@@ -930,11 +934,11 @@ public class ImagingObjectSelection extends DomainResource {
     @Block()
     public static class FramesComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The frame numbers in the frame set.
+         * The specific frame reference within a multi-frame object.
          */
-        @Child(name = "frameNumbers", type = {UnsignedIntType.class}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Frame numbers", formalDefinition="The frame numbers in the frame set." )
-        protected List<UnsignedIntType> frameNumbers;
+        @Child(name = "number", type = {UnsignedIntType.class}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Frame reference number", formalDefinition="The specific frame reference within a multi-frame object." )
+        protected List<UnsignedIntType> number;
 
         /**
          * WADO-RS URL to retrieve the DICOM frames.
@@ -943,7 +947,7 @@ public class ImagingObjectSelection extends DomainResource {
         @Description(shortDefinition="Retrieve frame URL", formalDefinition="WADO-RS URL to retrieve the DICOM frames." )
         protected UriType url;
 
-        private static final long serialVersionUID = -2068206970L;
+        private static final long serialVersionUID = 236505178L;
 
     /**
      * Constructor
@@ -961,54 +965,54 @@ public class ImagingObjectSelection extends DomainResource {
       }
 
         /**
-         * @return {@link #frameNumbers} (The frame numbers in the frame set.)
+         * @return {@link #number} (The specific frame reference within a multi-frame object.)
          */
-        public List<UnsignedIntType> getFrameNumbers() { 
-          if (this.frameNumbers == null)
-            this.frameNumbers = new ArrayList<UnsignedIntType>();
-          return this.frameNumbers;
+        public List<UnsignedIntType> getNumber() { 
+          if (this.number == null)
+            this.number = new ArrayList<UnsignedIntType>();
+          return this.number;
         }
 
-        public boolean hasFrameNumbers() { 
-          if (this.frameNumbers == null)
+        public boolean hasNumber() { 
+          if (this.number == null)
             return false;
-          for (UnsignedIntType item : this.frameNumbers)
+          for (UnsignedIntType item : this.number)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
         /**
-         * @return {@link #frameNumbers} (The frame numbers in the frame set.)
+         * @return {@link #number} (The specific frame reference within a multi-frame object.)
          */
     // syntactic sugar
-        public UnsignedIntType addFrameNumbersElement() {//2 
+        public UnsignedIntType addNumberElement() {//2 
           UnsignedIntType t = new UnsignedIntType();
-          if (this.frameNumbers == null)
-            this.frameNumbers = new ArrayList<UnsignedIntType>();
-          this.frameNumbers.add(t);
+          if (this.number == null)
+            this.number = new ArrayList<UnsignedIntType>();
+          this.number.add(t);
           return t;
         }
 
         /**
-         * @param value {@link #frameNumbers} (The frame numbers in the frame set.)
+         * @param value {@link #number} (The specific frame reference within a multi-frame object.)
          */
-        public FramesComponent addFrameNumbers(int value) { //1
+        public FramesComponent addNumber(int value) { //1
           UnsignedIntType t = new UnsignedIntType();
           t.setValue(value);
-          if (this.frameNumbers == null)
-            this.frameNumbers = new ArrayList<UnsignedIntType>();
-          this.frameNumbers.add(t);
+          if (this.number == null)
+            this.number = new ArrayList<UnsignedIntType>();
+          this.number.add(t);
           return this;
         }
 
         /**
-         * @param value {@link #frameNumbers} (The frame numbers in the frame set.)
+         * @param value {@link #number} (The specific frame reference within a multi-frame object.)
          */
-        public boolean hasFrameNumbers(int value) { 
-          if (this.frameNumbers == null)
+        public boolean hasNumber(int value) { 
+          if (this.number == null)
             return false;
-          for (UnsignedIntType v : this.frameNumbers)
+          for (UnsignedIntType v : this.number)
             if (v.equals(value)) // unsignedInt
               return true;
           return false;
@@ -1061,14 +1065,14 @@ public class ImagingObjectSelection extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("frameNumbers", "unsignedInt", "The frame numbers in the frame set.", 0, java.lang.Integer.MAX_VALUE, frameNumbers));
+          childrenList.add(new Property("number", "unsignedInt", "The specific frame reference within a multi-frame object.", 0, java.lang.Integer.MAX_VALUE, number));
           childrenList.add(new Property("url", "uri", "WADO-RS URL to retrieve the DICOM frames.", 0, java.lang.Integer.MAX_VALUE, url));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("frameNumbers"))
-          this.getFrameNumbers().add(castToUnsignedInt(value));
+        if (name.equals("number"))
+          this.getNumber().add(castToUnsignedInt(value));
         else if (name.equals("url"))
           this.url = castToUri(value); // UriType
         else
@@ -1077,8 +1081,8 @@ public class ImagingObjectSelection extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("frameNumbers")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ImagingObjectSelection.frameNumbers");
+        if (name.equals("number")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ImagingObjectSelection.number");
         }
         else if (name.equals("url")) {
           throw new FHIRException("Cannot call addChild on a primitive type ImagingObjectSelection.url");
@@ -1090,10 +1094,10 @@ public class ImagingObjectSelection extends DomainResource {
       public FramesComponent copy() {
         FramesComponent dst = new FramesComponent();
         copyValues(dst);
-        if (frameNumbers != null) {
-          dst.frameNumbers = new ArrayList<UnsignedIntType>();
-          for (UnsignedIntType i : frameNumbers)
-            dst.frameNumbers.add(i.copy());
+        if (number != null) {
+          dst.number = new ArrayList<UnsignedIntType>();
+          for (UnsignedIntType i : number)
+            dst.number.add(i.copy());
         };
         dst.url = url == null ? null : url.copy();
         return dst;
@@ -1106,7 +1110,7 @@ public class ImagingObjectSelection extends DomainResource {
         if (!(other instanceof FramesComponent))
           return false;
         FramesComponent o = (FramesComponent) other;
-        return compareDeep(frameNumbers, o.frameNumbers, true) && compareDeep(url, o.url, true);
+        return compareDeep(number, o.number, true) && compareDeep(url, o.url, true);
       }
 
       @Override
@@ -1116,16 +1120,16 @@ public class ImagingObjectSelection extends DomainResource {
         if (!(other instanceof FramesComponent))
           return false;
         FramesComponent o = (FramesComponent) other;
-        return compareValues(frameNumbers, o.frameNumbers, true) && compareValues(url, o.url, true);
+        return compareValues(number, o.number, true) && compareValues(url, o.url, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (frameNumbers == null || frameNumbers.isEmpty()) && (url == null || url.isEmpty())
+        return super.isEmpty() && (number == null || number.isEmpty()) && (url == null || url.isEmpty())
           ;
       }
 
   public String fhirType() {
-    return "ImagingObjectSelection.study.series.instance.frames";
+    return "ImagingObjectSelection.study.series.instance.frame";
 
   }
 
@@ -1151,23 +1155,16 @@ public class ImagingObjectSelection extends DomainResource {
     protected Patient patientTarget;
 
     /**
-     * The reason for, or significance of, the selection of objects referenced in the resource.
+     * Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
      */
-    @Child(name = "title", type = {CodeableConcept.class}, order=2, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Reason for selection", formalDefinition="The reason for, or significance of, the selection of objects referenced in the resource." )
-    protected CodeableConcept title;
-
-    /**
-     * Text description of the DICOM SOP instances selected in the ImagingObjectSelection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.
-     */
-    @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Description text", formalDefinition="Text description of the DICOM SOP instances selected in the ImagingObjectSelection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection." )
-    protected StringType description;
+    @Child(name = "authoringTime", type = {DateTimeType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Time when the imaging object selection was created", formalDefinition="Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image)." )
+    protected DateTimeType authoringTime;
 
     /**
      * Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.
      */
-    @Child(name = "author", type = {Practitioner.class, Device.class, Organization.class, Patient.class, RelatedPerson.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "author", type = {Practitioner.class, Device.class, Organization.class, Patient.class, RelatedPerson.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Author (human or machine)", formalDefinition="Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion." )
     protected Reference author;
 
@@ -1177,11 +1174,18 @@ public class ImagingObjectSelection extends DomainResource {
     protected Resource authorTarget;
 
     /**
-     * Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
+     * The reason for, or significance of, the selection of objects referenced in the resource.
      */
-    @Child(name = "authoringTime", type = {DateTimeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Authoring time of the selection", formalDefinition="Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image)." )
-    protected DateTimeType authoringTime;
+    @Child(name = "title", type = {CodeableConcept.class}, order=4, min=1, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Reason for selection", formalDefinition="The reason for, or significance of, the selection of objects referenced in the resource." )
+    protected CodeableConcept title;
+
+    /**
+     * Text description of the DICOM SOP instances selected in the ImagingObjectSelection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.
+     */
+    @Child(name = "description", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Description text", formalDefinition="Text description of the DICOM SOP instances selected in the ImagingObjectSelection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection." )
+    protected StringType description;
 
     /**
      * Study identity and locating information of the DICOM SOP instances in the selection.
@@ -1190,7 +1194,7 @@ public class ImagingObjectSelection extends DomainResource {
     @Description(shortDefinition="Study identity of the selected instances", formalDefinition="Study identity and locating information of the DICOM SOP instances in the selection." )
     protected List<StudyComponent> study;
 
-    private static final long serialVersionUID = -1961832713L;
+    private static final long serialVersionUID = 1428713335L;
 
   /**
    * Constructor
@@ -1299,6 +1303,94 @@ public class ImagingObjectSelection extends DomainResource {
     }
 
     /**
+     * @return {@link #authoringTime} (Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).). This is the underlying object with id, value and extensions. The accessor "getAuthoringTime" gives direct access to the value
+     */
+    public DateTimeType getAuthoringTimeElement() { 
+      if (this.authoringTime == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ImagingObjectSelection.authoringTime");
+        else if (Configuration.doAutoCreate())
+          this.authoringTime = new DateTimeType(); // bb
+      return this.authoringTime;
+    }
+
+    public boolean hasAuthoringTimeElement() { 
+      return this.authoringTime != null && !this.authoringTime.isEmpty();
+    }
+
+    public boolean hasAuthoringTime() { 
+      return this.authoringTime != null && !this.authoringTime.isEmpty();
+    }
+
+    /**
+     * @param value {@link #authoringTime} (Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).). This is the underlying object with id, value and extensions. The accessor "getAuthoringTime" gives direct access to the value
+     */
+    public ImagingObjectSelection setAuthoringTimeElement(DateTimeType value) { 
+      this.authoringTime = value;
+      return this;
+    }
+
+    /**
+     * @return Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
+     */
+    public Date getAuthoringTime() { 
+      return this.authoringTime == null ? null : this.authoringTime.getValue();
+    }
+
+    /**
+     * @param value Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
+     */
+    public ImagingObjectSelection setAuthoringTime(Date value) { 
+      if (value == null)
+        this.authoringTime = null;
+      else {
+        if (this.authoringTime == null)
+          this.authoringTime = new DateTimeType();
+        this.authoringTime.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #author} (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
+     */
+    public Reference getAuthor() { 
+      if (this.author == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create ImagingObjectSelection.author");
+        else if (Configuration.doAutoCreate())
+          this.author = new Reference(); // cc
+      return this.author;
+    }
+
+    public boolean hasAuthor() { 
+      return this.author != null && !this.author.isEmpty();
+    }
+
+    /**
+     * @param value {@link #author} (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
+     */
+    public ImagingObjectSelection setAuthor(Reference value) { 
+      this.author = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
+     */
+    public Resource getAuthorTarget() { 
+      return this.authorTarget;
+    }
+
+    /**
+     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
+     */
+    public ImagingObjectSelection setAuthorTarget(Resource value) { 
+      this.authorTarget = value;
+      return this;
+    }
+
+    /**
      * @return {@link #title} (The reason for, or significance of, the selection of objects referenced in the resource.)
      */
     public CodeableConcept getTitle() { 
@@ -1372,94 +1464,6 @@ public class ImagingObjectSelection extends DomainResource {
     }
 
     /**
-     * @return {@link #author} (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
-     */
-    public Reference getAuthor() { 
-      if (this.author == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ImagingObjectSelection.author");
-        else if (Configuration.doAutoCreate())
-          this.author = new Reference(); // cc
-      return this.author;
-    }
-
-    public boolean hasAuthor() { 
-      return this.author != null && !this.author.isEmpty();
-    }
-
-    /**
-     * @param value {@link #author} (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
-     */
-    public ImagingObjectSelection setAuthor(Reference value) { 
-      this.author = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #author} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
-     */
-    public Resource getAuthorTarget() { 
-      return this.authorTarget;
-    }
-
-    /**
-     * @param value {@link #author} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.)
-     */
-    public ImagingObjectSelection setAuthorTarget(Resource value) { 
-      this.authorTarget = value;
-      return this;
-    }
-
-    /**
-     * @return {@link #authoringTime} (Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).). This is the underlying object with id, value and extensions. The accessor "getAuthoringTime" gives direct access to the value
-     */
-    public DateTimeType getAuthoringTimeElement() { 
-      if (this.authoringTime == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ImagingObjectSelection.authoringTime");
-        else if (Configuration.doAutoCreate())
-          this.authoringTime = new DateTimeType(); // bb
-      return this.authoringTime;
-    }
-
-    public boolean hasAuthoringTimeElement() { 
-      return this.authoringTime != null && !this.authoringTime.isEmpty();
-    }
-
-    public boolean hasAuthoringTime() { 
-      return this.authoringTime != null && !this.authoringTime.isEmpty();
-    }
-
-    /**
-     * @param value {@link #authoringTime} (Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).). This is the underlying object with id, value and extensions. The accessor "getAuthoringTime" gives direct access to the value
-     */
-    public ImagingObjectSelection setAuthoringTimeElement(DateTimeType value) { 
-      this.authoringTime = value;
-      return this;
-    }
-
-    /**
-     * @return Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
-     */
-    public Date getAuthoringTime() { 
-      return this.authoringTime == null ? null : this.authoringTime.getValue();
-    }
-
-    /**
-     * @param value Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
-     */
-    public ImagingObjectSelection setAuthoringTime(Date value) { 
-      if (value == null)
-        this.authoringTime = null;
-      else {
-        if (this.authoringTime == null)
-          this.authoringTime = new DateTimeType();
-        this.authoringTime.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #study} (Study identity and locating information of the DICOM SOP instances in the selection.)
      */
     public List<StudyComponent> getStudy() { 
@@ -1503,10 +1507,10 @@ public class ImagingObjectSelection extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("uid", "oid", "Instance UID of the DICOM KOS SOP Instances represented in this resource.", 0, java.lang.Integer.MAX_VALUE, uid));
         childrenList.add(new Property("patient", "Reference(Patient)", "A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingObjectSelection.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("authoringTime", "dateTime", "Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).", 0, java.lang.Integer.MAX_VALUE, authoringTime));
+        childrenList.add(new Property("author", "Reference(Practitioner|Device|Organization|Patient|RelatedPerson)", "Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.", 0, java.lang.Integer.MAX_VALUE, author));
         childrenList.add(new Property("title", "CodeableConcept", "The reason for, or significance of, the selection of objects referenced in the resource.", 0, java.lang.Integer.MAX_VALUE, title));
         childrenList.add(new Property("description", "string", "Text description of the DICOM SOP instances selected in the ImagingObjectSelection. This should be aligned with the content of the title element, and can provide further explanation of the SOP instances in the selection.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("author", "Reference(Practitioner|Device|Organization|Patient|RelatedPerson)", "Author of ImagingObjectSelection. It can be a human author or a device which made the decision of the SOP instances selected. For example, a radiologist selected a set of imaging SOP instances to attach in a diagnostic report, and a CAD application may author a selection to describe SOP instances it used to generate a detection conclusion.", 0, java.lang.Integer.MAX_VALUE, author));
-        childrenList.add(new Property("authoringTime", "dateTime", "Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).", 0, java.lang.Integer.MAX_VALUE, authoringTime));
         childrenList.add(new Property("study", "", "Study identity and locating information of the DICOM SOP instances in the selection.", 0, java.lang.Integer.MAX_VALUE, study));
       }
 
@@ -1516,14 +1520,14 @@ public class ImagingObjectSelection extends DomainResource {
           this.uid = castToOid(value); // OidType
         else if (name.equals("patient"))
           this.patient = castToReference(value); // Reference
+        else if (name.equals("authoringTime"))
+          this.authoringTime = castToDateTime(value); // DateTimeType
+        else if (name.equals("author"))
+          this.author = castToReference(value); // Reference
         else if (name.equals("title"))
           this.title = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
-        else if (name.equals("author"))
-          this.author = castToReference(value); // Reference
-        else if (name.equals("authoringTime"))
-          this.authoringTime = castToDateTime(value); // DateTimeType
         else if (name.equals("study"))
           this.getStudy().add((StudyComponent) value);
         else
@@ -1539,19 +1543,19 @@ public class ImagingObjectSelection extends DomainResource {
           this.patient = new Reference();
           return this.patient;
         }
+        else if (name.equals("authoringTime")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ImagingObjectSelection.authoringTime");
+        }
+        else if (name.equals("author")) {
+          this.author = new Reference();
+          return this.author;
+        }
         else if (name.equals("title")) {
           this.title = new CodeableConcept();
           return this.title;
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type ImagingObjectSelection.description");
-        }
-        else if (name.equals("author")) {
-          this.author = new Reference();
-          return this.author;
-        }
-        else if (name.equals("authoringTime")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ImagingObjectSelection.authoringTime");
         }
         else if (name.equals("study")) {
           return addStudy();
@@ -1570,10 +1574,10 @@ public class ImagingObjectSelection extends DomainResource {
         copyValues(dst);
         dst.uid = uid == null ? null : uid.copy();
         dst.patient = patient == null ? null : patient.copy();
+        dst.authoringTime = authoringTime == null ? null : authoringTime.copy();
+        dst.author = author == null ? null : author.copy();
         dst.title = title == null ? null : title.copy();
         dst.description = description == null ? null : description.copy();
-        dst.author = author == null ? null : author.copy();
-        dst.authoringTime = authoringTime == null ? null : authoringTime.copy();
         if (study != null) {
           dst.study = new ArrayList<StudyComponent>();
           for (StudyComponent i : study)
@@ -1593,8 +1597,8 @@ public class ImagingObjectSelection extends DomainResource {
         if (!(other instanceof ImagingObjectSelection))
           return false;
         ImagingObjectSelection o = (ImagingObjectSelection) other;
-        return compareDeep(uid, o.uid, true) && compareDeep(patient, o.patient, true) && compareDeep(title, o.title, true)
-           && compareDeep(description, o.description, true) && compareDeep(author, o.author, true) && compareDeep(authoringTime, o.authoringTime, true)
+        return compareDeep(uid, o.uid, true) && compareDeep(patient, o.patient, true) && compareDeep(authoringTime, o.authoringTime, true)
+           && compareDeep(author, o.author, true) && compareDeep(title, o.title, true) && compareDeep(description, o.description, true)
            && compareDeep(study, o.study, true);
       }
 
@@ -1605,14 +1609,14 @@ public class ImagingObjectSelection extends DomainResource {
         if (!(other instanceof ImagingObjectSelection))
           return false;
         ImagingObjectSelection o = (ImagingObjectSelection) other;
-        return compareValues(uid, o.uid, true) && compareValues(description, o.description, true) && compareValues(authoringTime, o.authoringTime, true)
+        return compareValues(uid, o.uid, true) && compareValues(authoringTime, o.authoringTime, true) && compareValues(description, o.description, true)
           ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (uid == null || uid.isEmpty()) && (patient == null || patient.isEmpty())
-           && (title == null || title.isEmpty()) && (description == null || description.isEmpty()) && (author == null || author.isEmpty())
-           && (authoringTime == null || authoringTime.isEmpty()) && (study == null || study.isEmpty())
+           && (authoringTime == null || authoringTime.isEmpty()) && (author == null || author.isEmpty())
+           && (title == null || title.isEmpty()) && (description == null || description.isEmpty()) && (study == null || study.isEmpty())
           ;
       }
 

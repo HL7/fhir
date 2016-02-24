@@ -4164,8 +4164,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (String n : processingList.keySet()) {
       Example e = processingList.get(n);
       String json = TextFile.fileToString(page.getFolders().dstDir + n + ".json");
-      String json2 = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\""+ n + ".json\">Raw JSON</a> (<a href=\""+n + ".canonical.json\">Canonical</a>)</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
-          + "\r\n</pre>\r\n</div>\r\n";
+//      String json2 = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\""+ n + ".json\">Raw JSON</a> (<a href=\""+n + ".canonical.json\">Canonical</a>)</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
+//          + "\r\n</pre>\r\n</div>\r\n";
       json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
           + "\r\n</pre>\r\n</div>\r\n";
       String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
@@ -4173,6 +4173,15 @@ public class Publisher implements URIResolver, SectionNumberer {
       TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
 
       page.getEpub().registerExternal(n + ".json.html");
+
+      String ttl = TextFile.fileToString(page.getFolders().dstDir + n + ".ttl");
+      ttl = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(ttl)
+          + "\r\n</pre>\r\n</div>\r\n";
+      html = TextFile.fileToString(page.getFolders().srcDir + "template-example-ttl.html").replace("<%example%>", ttl);
+      html = page.processPageIncludes(n + ".ttl.html", html, e.getResourceName() == null ? "profile-instance:resource:" + e.getResourceName() : "resource-instance:" + e.getResourceName(), null, null, null, "Example", null);
+      TextFile.stringToFile(html, page.getFolders().dstDir + n + ".ttl.html");
+
+      page.getEpub().registerExternal(n + ".ttl.html");
     }
     processingList.clear();
   }
