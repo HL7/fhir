@@ -4,7 +4,7 @@
     <meta>
         <lastUpdated value="2015-09-22T20:02:49.724+10:00"/>
     </meta>
-    <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/nl-core-humanname-family"/>
     <name value="nl-core-humanname-family"/>
     <status value="draft"/>
     <contact>
@@ -36,7 +36,6 @@
             </type>
             <mapping>
                 <identity value="rim"/>
-                <uri value="http://hl7.org/v3"/>
                 <map value="PN/family[@qualifier=('BR','SP')]"/>
             </mapping>
         </element>
@@ -89,7 +88,7 @@
             <type>
                 <code value="uri"/>
             </type>
-            <fixedUri value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family"/>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/nl-core-humanname-family"/>
         </element>
         <element>
             <path value="Extension.value[x]"/>

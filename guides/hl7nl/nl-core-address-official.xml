@@ -4,7 +4,7 @@
     <meta>
         <lastUpdated value="2015-09-22T20:02:49.724+10:00"/>
     </meta>
-    <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/nl-core-address-official"/>
     <name value="nl-core-address-official"/>
     <status value="draft"/>
     <contact>
@@ -44,7 +44,10 @@
             <comments value="The definition may point directly to a computable or human-readable definition of the extensibility codes, or it may be a logical URI as declared in some other specification. The definition should be version specific.  This will ideally be the URI for the Resource Profile defining the extension, with the code for the extension after a #."/>
             <min value="1"/>
             <max value="1"/>
-            <fixedUri value="http://fhir.nl/fhir/StructureDefinition/nl-address-official"/>
+            <type>
+                <code value="uri"/>
+            </type>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/nl-address-official"/>
         </element>
         <element>
             <path value="Extension.value[x]"/>
@@ -58,7 +61,6 @@
             <meaningWhenMissing value="When an address is not marked explicitly as official=true|false than no information can be inferred from that."/>
             <mapping>
                 <identity value="rim"/>
-                <uri value="http://hl7.org/v3"/>
                 <map value="AD/@use[.='OR']"/>
             </mapping>
         </element>

@@ -4,7 +4,7 @@
     <meta>
         <lastUpdated value="2015-09-22T20:02:49.724+10:00"/>
     </meta>
-    <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-address"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/nl-core-address"/>
     <name value="nl-core-address"/>
     <status value="draft"/>
     <date value="2015-09-22T20:02:49+10:00"/>
@@ -92,7 +92,7 @@
             <constraint>
                 <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-expression">
                     <valueString
-                        value="extension.where(url = 'http://fhir.nl/fhir/StructureDefinition/nl-core-address-official').valueBoolean.where(true).empty() or
+                        value="extension.where(url = 'http://hl7.org/fhir/StructureDefinition/nl-core-address-official').valueBoolean.where(true).empty() or
                                 line.where(
                                     extension.url in ('http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber' | 
                                                       'http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix' | 
@@ -106,22 +106,19 @@
                 <requirements value="This constraint checks conformance against the Dutch BRP constraints on address parts. However: when you only send postalCode + houseNumber which is enough for certain cases this may still be a valid address"/>
                 <severity value="error"/>
                 <human value="Address.streetName in an official address SHALL have a value if one of houseNumber|buildingNumberSuffix|additionalLocator has a value"/>
-                <xpath value="not(.[f:extension[@url='http://fhir.nl/fhir/StructureDefinition/nl-core-address-official'][f:valueBoolean/@value='true']][f:line[empty(f:extension[@url='http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName'])][f:extension[@url=('http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber','http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix','http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator')]]])"/>
+                <xpath value="not(.[f:extension[@url='http://hl7.org/fhir/StructureDefinition/nl-core-address-official'][f:valueBoolean/@value='true']][f:line[empty(f:extension[@url='http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName'])][f:extension[@url=('http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber','http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix','http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-additionalLocator')]]])"/>
             </constraint>
             <isSummary value="true"/>
             <mapping>
                 <identity value="v2"/>
-                <uri value="http://hl7.org/v2"/>
                 <map value="XAD"/>
             </mapping>
             <mapping>
                 <identity value="rim"/>
-                <uri value="http://hl7.org/v3"/>
                 <map value="AD"/>
             </mapping>
             <mapping>
                 <identity value="servd"/>
-                <uri value="http://www.omg.org/spec/ServD/1.0/"/>
                 <map value="Address"/>
             </mapping>
         </element>
@@ -141,7 +138,7 @@
             <max value="1"/>
             <type>
                 <code value="Extension"/>
-                <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official"/>
+                <profile value="http://hl7.org/fhir/StructureDefinition/nl-core-address-official"/>
             </type>
         </element>
         <element>
@@ -214,22 +211,18 @@
             <isSummary value="true"/>
             <mapping>
                 <identity value="v2"/>
-                <uri value="http://hl7.org/v2"/>
                 <map value="XAD.3"/>
             </mapping>
             <mapping>
                 <identity value="rim"/>
-                <uri value="http://hl7.org/v3"/>
                 <map value="AD.part[parttype = CTY]"/>
             </mapping>
             <mapping>
                 <identity value="vcard"/>
-                <uri value="http://w3.org/vcard"/>
                 <map value="locality"/>
             </mapping>
             <mapping>
                 <identity value="servd"/>
-                <uri value="http://www.omg.org/spec/ServD/1.0/"/>
                 <map value="./Jurisdiction"/>
             </mapping>
         </element>
@@ -250,12 +243,10 @@
             <isSummary value="true"/>
             <mapping>
                 <identity value="v2"/>
-                <uri value="http://hl7.org/v2"/>
                 <map value="XAD.9"/>
             </mapping>
             <mapping>
                 <identity value="rim"/>
-                <uri value="http://hl7.org/v3"/>
                 <map value="AD.part[parttype = CNT | CPA]"/>
             </mapping>
         </element>
@@ -285,22 +276,18 @@
             <isSummary value="true"/>
             <mapping>
                 <identity value="v2"/>
-                <uri value="http://hl7.org/v2"/>
                 <map value="XAD.5"/>
             </mapping>
             <mapping>
                 <identity value="rim"/>
-                <uri value="http://hl7.org/v3"/>
                 <map value="AD.part[parttype = ZIP]"/>
             </mapping>
             <mapping>
                 <identity value="vcard"/>
-                <uri value="http://w3.org/vcard"/>
                 <map value="code"/>
             </mapping>
             <mapping>
                 <identity value="servd"/>
-                <uri value="http://www.omg.org/spec/ServD/1.0/"/>
                 <map value="./PostalIdentificationCode"/>
             </mapping>
         </element>

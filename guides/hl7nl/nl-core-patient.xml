@@ -7,7 +7,7 @@
     <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
         <valueInteger value="5"/>
     </extension>
-    <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/nl-core-patient"/>
     <name value="nl-core-patient"/>
     <status value="draft"/>
     <contact>
@@ -59,17 +59,14 @@
             </type>
             <mapping>
                 <identity value="rim"/>
-                <uri value="http://hl7.org/v3"/>
                 <map value="Patient[classCode=PAT]"/>
             </mapping>
             <mapping>
                 <identity value="cda"/>
-                <uri value="http://hl7.org/cda"/>
                 <map value="ClinicalDocument.recordTarget.patientRole"/>
             </mapping>
             <mapping>
                 <identity value="w5"/>
-                <uri value="http://hl7.org/fhir/w5"/>
                 <map value="administrative.individual"/>
             </mapping>
         </element>
@@ -83,22 +80,19 @@
             <max value="*"/>
             <type>
                 <code value="HumanName"/>
-                <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname"/>
+                <profile value="http://hl7.org/fhir/StructureDefinition/nl-core-humanname"/>
             </type>
             <isSummary value="true"/>
             <mapping>
                 <identity value="v2"/>
-                <uri value="http://hl7.org/v2"/>
                 <map value="PID-5, PID-9"/>
             </mapping>
             <mapping>
                 <identity value="rim"/>
-                <uri value="http://hl7.org/v3"/>
                 <map value="name"/>
             </mapping>
             <mapping>
                 <identity value="cda"/>
-                <uri value="http://hl7.org/cda"/>
                 <map value=".patient.name"/>
             </mapping>
         </element>
@@ -112,22 +106,19 @@
             <max value="*"/>
             <type>
                 <code value="Address"/>
-                <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-address"/>
+                <profile value="http://hl7.org/fhir/StructureDefinition/nl-core-address"/>
             </type>
             <isSummary value="true"/>
             <mapping>
                 <identity value="v2"/>
-                <uri value="http://hl7.org/v2"/>
                 <map value="PID-11"/>
             </mapping>
             <mapping>
                 <identity value="rim"/>
-                <uri value="http://hl7.org/v3"/>
                 <map value="addr"/>
             </mapping>
             <mapping>
                 <identity value="cda"/>
-                <uri value="http://hl7.org/cda"/>
                 <map value=".addr"/>
             </mapping>
         </element>

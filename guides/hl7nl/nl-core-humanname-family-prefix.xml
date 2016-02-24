@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="nl-core-humanname-family-prefix"/>
+    <id value="nl-core-humanname-familyname-prefix"/>
     <meta>
         <lastUpdated value="2015-09-22T20:02:49.724+10:00"/>
     </meta>
-    <url value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family-prefix"/>
-    <name value="nl-core-humanname-family-prefix"/>
+    <url value="http://hl7.org/fhir/StructureDefinition/nl-core-humanname-familyname-prefix"/>
+    <name value="nl-core-humanname-familyname-prefix"/>
     <status value="draft"/>
     <contact>
         <name value="HL7 Netherlands"/>
@@ -86,7 +86,7 @@
             <type>
                 <code value="uri"/>
             </type>
-            <fixedUri value="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family-prefix"/>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/nl-core-humanname-familyname-prefix"/>
         </element>
         <element>
             <path value="Extension.value[x]"/>

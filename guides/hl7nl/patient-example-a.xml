@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="http://hl7.org/fhir/patient.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 <Patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir http://hl7.org/fhir/patient.xsd" xmlns="http://hl7.org/fhir">
-    <id value="patient-example-a"/>
+    <id value="nl-core-patient-example"/>
     <meta>
-        <profile value="http://fhir.nl/fhir/StructureDefinition/nl-core-patient"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/nl-core-patient"/>
     </meta>
     <identifier>
         <use value="usual"/>
@@ -19,52 +19,26 @@
     <active value="true"/>
     <name>
         <use value="official"/>
-        <family value="Jongeneel-de Haas">
-            <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family">
-                <extension url="qualifier">
-                    <valueCode value="SP"/>
-                </extension>
-                <extension url="value">
-                    <valueCode value="Jongeneel"/>
-                </extension>
-            </extension>
-            <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family-prefix">
-                <extension url="qualifier">
-                    <valueCode value="VV"/>
-                </extension>
-                <extension url="value">
-                    <valueCode value="de "/>
-                </extension>
-            </extension>
-            <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-humanname-family">
-                <extension url="qualifier">
-                    <valueCode value="BR"/>
-                </extension>
-                <extension url="value">
-                    <valueCode value="Haas"/>
-                </extension>
-            </extension>
-        </family>
-        <given value="Irma"/>
+        <family value="Donald"/>
+        <given value="Duck"/>
     </name>
     <gender value="male"/>
     <address>
-        <extension url="http://fhir.nl/fhir/StructureDefinition/nl-core-address-official">
+        <extension url="nl-core-address-official.dstu2.xml">
             <valueBoolean value="true"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
+            <valueString value="Straatweg"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
+            <valueString value="12"/>
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
+            <valueString value="bII"/>
         </extension>
         <use value="home"/>
         <type value="both"/>
-        <line value="Straatweg 12bII">
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-streetName">
-                <valueString value="Straatweg"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-houseNumber">
-                <valueString value="12"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-buildingNumberSuffix">
-                <valueString value="bII"/>
-            </extension>
-        </line>
+        <line value="Straatweg 12bII"/>
         <city value="Woonplaats"/>
         <district value="Amsterdam"/>
         <postalCode value="1200 AA"/>
