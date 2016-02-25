@@ -192,11 +192,13 @@
   Element = Practitioner.practitionerRole
   Profile Name = AdministrativeAffiliation
   Slice Description = AdministrativeAffiliation
+  Aliases = AdministrativeAffiliation
 
  -- Row 12 -----------------------------------
   Element = Practitioner.practitionerRole
   Profile Name = PracticeAffiliation
   Slice Description = PracticeAffiliation
+  Aliases = PracticeAffiliation
 
  -- Row 13 -----------------------------------
   Element = Practitioner.practitionerRole.extension

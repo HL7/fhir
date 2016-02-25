@@ -7,7 +7,7 @@
   <name value="HSPC Height Meas Associated Precondition"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-05-19T00:00:00+10:00"/>
+  <date value="2015-05-19T00:00:00-06:00"/>
   <description value="The conditions during which an individual&#39;s height was measured."/>
   <copyright value="Intermountain Healthcare"/>
   <caseSensitive value="true"/>

@@ -65,6 +65,7 @@
  -- Row 3 -----------------------------------
   Element = Observation.valueQuantity
   Card. = 1..1
+  Type = Quantity
 
  -- Row 4 -----------------------------------
   Element = Observation.valueQuantity.system

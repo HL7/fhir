@@ -33,7 +33,7 @@
 
  -- Row 4 -----------------------------------
   Element = DiagnosticOrder.encounter
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/hspc-encounter}
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/hspc-genencounter}
 
  -- Row 5 -----------------------------------
   Element = DiagnosticOrder.supportingInformation

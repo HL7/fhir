@@ -7,7 +7,7 @@
   <name value="HSPC Height Meas Method Device"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-05-19T00:00:00+10:00"/>
+  <date value="2015-05-19T00:00:00-06:00"/>
   <description value="The set of codes that describe the methods or devices used to measure an individual&#39;s height."/>
   <copyright value="Intermountain Healthcare"/>
   <caseSensitive value="true"/>

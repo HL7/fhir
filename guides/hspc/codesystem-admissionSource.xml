@@ -6,7 +6,7 @@
   <name value="HSPC Admission Source value set"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-08-06T00:00:00+10:00"/>
+  <date value="2015-08-06T00:00:00-06:00"/>
   <description value="Select Intermountain Healthcare HDD code system values."/>
   <copyright value="Intermountain Healthcare"/>
   <caseSensitive value="true"/>

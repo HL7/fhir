@@ -184,6 +184,12 @@
     <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
       <valueUri value="encounter-hspc-emergency-profile-spreadsheet.xml"/>
     </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="imagingstudy-hspc-profile-spreadsheet.xml"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/tools-profile-spreadsheet">
+      <valueUri value="diagnosticReport-hspc-radiologyreport-spreadsheet.xml"/>
+    </extension>
     <name value="base"/>
     <resource>
       <purpose value="dictionary"/>

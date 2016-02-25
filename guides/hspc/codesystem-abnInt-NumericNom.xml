@@ -7,7 +7,7 @@
   <name value="Abnormal Interpretation Numeric Nom"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-04-14T00:00:00+10:00"/>
+  <date value="2015-04-14T00:00:00-06:00"/>
   <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83 + SNOMED CT SNOMED CT concepts from the Degree findings (qualifier value)272520006, Presence findings (qualifier value)260411009, Absence findings (qualifier value)272519000"/>
   <copyright value="IHC"/>
   <caseSensitive value="true"/>

@@ -6,7 +6,7 @@
   <name value="HSPC Fetal Estimation Method value set"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-06-15T00:00:00+10:00"/>
+  <date value="2015-06-15T00:00:00-06:00"/>
   <description value="Select SNOMED CT code system values and selected local codes from Intermountain Healthcare."/>
   <copyright value="TBD"/>
   <caseSensitive value="true"/>

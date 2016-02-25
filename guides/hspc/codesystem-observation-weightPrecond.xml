@@ -6,7 +6,7 @@
   <name value="HSPC Body Weight Associated Precondition"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-05-19T00:00:00+10:00"/>
+  <date value="2015-05-19T00:00:00-06:00"/>
   <description value="SNOMED CT code system values descending from the following:&#39;body position finding&#39; 9851009"/>
   <copyright value="TBD"/>
   <caseSensitive value="true"/>

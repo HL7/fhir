@@ -205,6 +205,8 @@
   Profile Name = AssignedParticipatingLocation
   Discriminator = Encounter.location.location|flase|open
   Card. = 0..1
+  Slice Description = AssignedParticipatingLocation
+  Aliases = AssignedParticipatingLocation
 
  -- Row 8 -----------------------------------
   Element = Encounter.location.extension
@@ -217,6 +219,8 @@
   Element = Encounter.location
   Profile Name = ServiceDeliveryLocation
   Card. = 0..1
+  Slice Description = ServiceDeliveryLocationCondition
+  Aliases = ServiceDeliveryLocationCondition
 
  -- Row 10 -----------------------------------
   Element = Encounter.location.extension
@@ -299,7 +303,8 @@
   Element = Encounter.extension
   Profile Name = DepartedByTransportation
   Card. = 0..1
-  Type = Extension{#TransportationMode}
+  Aliases = DepartedByTransportation
+  Type = Extension{#DepartedByTransportation}
   Binding = DepartureTransportMode
 
  -- Row 26 -----------------------------------
@@ -332,7 +337,8 @@
   Element = Encounter.extension
   Profile Name = ArrivedByTransportation
   Card. = 0..1
-  Type = Extension{#TransportationMode}
+  Aliases = ArrivedByTransportation
+  Type = Extension{#ArrivedByTransportation}
   Binding = ArrivalTransportMode
 
  -- Row 31 -----------------------------------
@@ -366,6 +372,8 @@
   Profile Name = LengthOfStay
   Discriminator = Encounter.length|true|openAtEnd
   Card. = 0..1
+  Aliases = Length of stay
+  Short Label = LengthOfStay
 
  -- Row 36 -----------------------------------
   Element = Encounter.length.system
@@ -382,6 +390,7 @@
   Profile Name = EncounterLength
   Card. = 0..1
   Aliases = EncounterLength
+  Short Label = EncounterLength
 
  -- Row 39 -----------------------------------
   Element = Encounter.length.system
