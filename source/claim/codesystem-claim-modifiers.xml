@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/modifiers"/>
+  <name value="Modifier type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Modifier type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="A"/>
+    <display value="Repair of prior service or installation"/>
+    <definition value="Repair of prior service or installation."/>
+  </concept>
+  <concept>
+    <code value="B"/>
+    <display value="Temporary service or installation"/>
+    <definition value="Temporary service or installation."/>
+  </concept>
+  <concept>
+    <code value="C"/>
+    <display value="TMJ treatment"/>
+    <definition value="Treatment associated with TMJ."/>
+  </concept>
+  <concept>
+    <code value="E"/>
+    <display value="Implant or associated with an implant"/>
+    <definition value="Implant or associated with an implant."/>
+  </concept>
+  <concept>
+    <code value="X"/>
+    <display value="None"/>
+    <definition value="None."/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/practitioner-role"/>
+  <name value="PractitionerRole"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This example value set defines a set of codes that can be used to indicate the role of a Practitioner."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="doctor"/>
+    <display value="Doctor"/>
+  </concept>
+  <concept>
+    <code value="nurse"/>
+    <display value="Nurse"/>
+  </concept>
+  <concept>
+    <code value="pharmacist"/>
+    <display value="Pharmacist"/>
+  </concept>
+  <concept>
+    <code value="researcher"/>
+    <display value="Researcher"/>
+  </concept>
+  <concept>
+    <code value="teacher"/>
+    <display value="Teacher/educator"/>
+  </concept>
+  <concept>
+    <code value="ict"/>
+    <display value="ICT professional"/>
+  </concept>
+</CodeSystem>

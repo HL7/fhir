@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/flag-category"/>
+  <name value="Flag Category"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Example list of detail codes for flagged issues. (Not complete or necessarily appropriate.)"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/flag-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="diet"/>
+    <display value="Diet"/>
+    <definition value="Flags related to the subject&#39;s dietary needs."/>
+  </concept>
+  <concept>
+    <code value="drug"/>
+    <display value="Drug"/>
+    <definition value="Flags related to the patient&#39;s medications."/>
+  </concept>
+  <concept>
+    <code value="lab"/>
+    <display value="Lab"/>
+    <definition value="Flags related to performing laboratory tests and related processes (e.g. phlebotomy)."/>
+  </concept>
+  <concept>
+    <code value="admin"/>
+    <display value="Administrative"/>
+    <definition value="Flags related to administrative and financial processes."/>
+  </concept>
+  <concept>
+    <code value="contact"/>
+    <display value="Subject contact"/>
+    <definition value="Flags related to coming into contact with the patient."/>
+  </concept>
+</CodeSystem>

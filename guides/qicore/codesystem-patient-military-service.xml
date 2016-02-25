@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/qicore-military-service"/>
+  <name value="Military Service Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Value Set for Military Service (Example)"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="not-indicated"/>
+    <display value="Not Indicated"/>
+    <definition value="The military status is not indicated"/>
+  </concept>
+  <concept>
+    <code value="no-military-service"/>
+    <display value="No Military Service"/>
+    <definition value="The subject has no history of military service"/>
+  </concept>
+  <concept>
+    <code value="veteran"/>
+    <display value="Veteran"/>
+    <definition value="The subject is has served in the military but is no longer active"/>
+  </concept>
+  <concept>
+    <code value="active-duty"/>
+    <display value="Active Duty"/>
+    <definition value="The subject is not a reserve member and is currently engaged in full-time military activity"/>
+  </concept>
+  <concept>
+    <code value="active-reserve"/>
+    <display value="Active Reserve"/>
+    <definition value="The subject is a reserve member and is currently engaged in full-time military activity"/>
+  </concept>
+  <concept>
+    <code value="inactive-reserve"/>
+    <display value="Inactive Reserve"/>
+    <definition value="The subject is a reserve member and is not currently engaged in full-time military activity"/>
+  </concept>
+</CodeSystem>

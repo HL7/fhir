@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="hspc-abnInt-NumericNom"/>
+  <url value="http://healthcaresoa.org/fhir/hspc-abnInt-NumericNom"/>
+  <version value="0.01"/>
+  <name value="Abnormal Interpretation Numeric Nom"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-04-14T00:00:00+10:00"/>
+  <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83 + SNOMED CT SNOMED CT concepts from the Degree findings (qualifier value)272520006, Presence findings (qualifier value)260411009, Absence findings (qualifier value)272519000"/>
+  <copyright value="IHC"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://healthcaresoa.org/fhir/ValueSet/hspc-abnInt-NumericNom"/>
+  <content value="complete"/>
+  <concept>
+    <code value="higher"/>
+    <display value="Higher than technical"/>
+    <definition value="The results were lower than the technical limits of the test procedure"/>
+  </concept>
+  <concept>
+    <code value="lower"/>
+    <display value="Lower than technical"/>
+    <definition value="The results were higher than the technical limits of the test procedure"/>
+  </concept>
+</CodeSystem>

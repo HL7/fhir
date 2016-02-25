@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/benefit-type"/>
+  <name value="Benefit Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes a smattering of Benefit type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="deductable"/>
+    <display value="Deductable"/>
+    <definition value="Cost to be incurred before benefits are applied"/>
+  </concept>
+  <concept>
+    <code value="visit"/>
+    <display value="Visit"/>
+    <definition value="Service visit"/>
+  </concept>
+  <concept>
+    <code value="copay"/>
+    <display value="Copayment per service"/>
+    <definition value="Copayment per service"/>
+  </concept>
+  <concept>
+    <code value="vision-exam"/>
+    <display value="Vision Exam"/>
+    <definition value="Vision Exam"/>
+  </concept>
+  <concept>
+    <code value="vision-glasses"/>
+    <display value="Vision Glasses"/>
+    <definition value="Frames and lenses"/>
+  </concept>
+  <concept>
+    <code value="vision-contacts"/>
+    <display value="Vision Contacts Coverage"/>
+    <definition value="Contact Lenses"/>
+  </concept>
+  <concept>
+    <code value="medical-primarycare"/>
+    <display value="Medical Primary Health Coverage"/>
+    <definition value="Medical Primary Health Coverage"/>
+  </concept>
+  <concept>
+    <code value="pharmacy-dispense"/>
+    <display value="Pharmacy Dispense Coverage"/>
+    <definition value="Pharmacy Dispense Coverage"/>
+  </concept>
+</CodeSystem>

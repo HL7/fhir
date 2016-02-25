@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="adjudication-error"/>
+  <url value="http://hl7.org/fhir/adjudication-error"/>
+  <name value="Adjudication Error Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="This value set includes a smattering of adjudication codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="a001"/>
+    <display value="Missing Identifier"/>
+    <definition value="Missing Identifier"/>
+  </concept>
+  <concept>
+    <code value="a002"/>
+    <display value="Missing Creation Date"/>
+    <definition value="Missing Creation Date"/>
+  </concept>
+</CodeSystem>

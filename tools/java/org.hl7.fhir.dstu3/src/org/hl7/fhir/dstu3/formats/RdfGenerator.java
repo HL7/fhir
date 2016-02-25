@@ -84,6 +84,10 @@ public class RdfGenerator {
       predicate(predicate, c);
       return c;
     }
+
+		public void prefix(String code, String url) {
+			RdfGenerator.this.prefix(code, url);
+		}
   }
   
   private class Predicate {
@@ -271,7 +275,10 @@ public class RdfGenerator {
 
 
   protected void prefix(String code, String url) {
+		if (!prefixes.containsKey(code)) 
     prefixes.put(code, url);
+		else if (!prefixes.get(code).equals(url))
+			throw new Error("The prefix "+code+" is already assigned to "+prefixes.get(code)+" so cannot be set to "+url);
   }
 
   protected boolean hasSection(String sn) {
@@ -447,8 +454,7 @@ public class RdfGenerator {
 
   protected void commit(boolean header) throws Exception {
     LineOutputStreamWriter writer = new LineOutputStreamWriter(destination);
-    if (header)
-      commitPrefixes(writer);
+		commitPrefixes(writer, header);
     for (Section s : sections) {
       commitSection(writer, s);
     }
@@ -458,8 +464,9 @@ public class RdfGenerator {
     writer.close();
   }
  
-  private void commitPrefixes(LineOutputStreamWriter writer) throws Exception {
-    writer.ln("# FHIR ub-definitions");
+	private void commitPrefixes(LineOutputStreamWriter writer, boolean header) throws Exception {
+		if (header) {
+			writer.ln("# FHIR Sub-definitions");
     writer.write("# This is work in progress, and may change rapidly \r\n");
     writer.ln();
     writer.write("# A note about policy: the focus here is providing the knowledge from \r\n"); 
@@ -476,14 +483,17 @@ public class RdfGenerator {
     writer.ln();
     writer.write("# this file refers to concepts defined in rim.ttl and to others defined elsewhere outside HL7 \r\n");
     writer.ln();
+		}
     for (String p : sorted(prefixes.keySet()))
       writer.ln("@prefix "+p+": <"+prefixes.get(p)+"> .");
     writer.ln();
+		if (header) {
     writer.ln("# Predicates used in this file:");
     for (String s : sorted(predicateSet)) 
       writer.ln(" # "+s);
     writer.ln();
  }
+	}
 
 //  private String lastSubject = null;
 //  private String lastComment = "";
@@ -537,5 +547,3 @@ public class RdfGenerator {
 
 }
 
-
-   

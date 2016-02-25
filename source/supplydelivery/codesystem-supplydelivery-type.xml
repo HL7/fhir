@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/supply-item-type"/>
+  <name value="Supply Item Type"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value sets refers to a specific supply item."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="medication"/>
+    <display value="Medication"/>
+    <definition value="Supply is a kind of medication."/>
+  </concept>
+  <concept>
+    <code value="device"/>
+    <display value="Device"/>
+    <definition value="What is supplied (or requested) is a device."/>
+  </concept>
+</CodeSystem>

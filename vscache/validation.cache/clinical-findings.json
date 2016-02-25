@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/clinical-findings",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|407152001|Increased blood lead level",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Increased blood lead level (finding)"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|188340000|Malignant tumor of craniopharyngeal duct",
       "severity": null,
       "message": null,
@@ -21,6 +10,17 @@
         "code": null,
         "definition": null,
         "display": "Malignant tumor of craniopharyngeal duct"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|407152001|Increased blood lead level",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Increased blood lead level (finding)"
       }
     },
     {

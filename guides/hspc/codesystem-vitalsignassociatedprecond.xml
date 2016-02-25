@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/hspc-vitalsignassociatedprecond"/>
+  <version value="0.01"/>
+  <name value="HSPC Vital Sign Associated Precondition"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-06-11T00:00:00+10:00"/>
+  <description value="SELECT SNOMED CT code system values descending from &#39;Qualifier value&#39; (362981000)."/>
+  <copyright value="TBD"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="1942"/>
+    <display value="After cardioversion"/>
+    <definition value="Occurred after the cardioversion procedure"/>
+  </concept>
+  <concept>
+    <code value="1966"/>
+    <display value="Before cardioversion"/>
+    <definition value="Occurred before the cardioversion procedure"/>
+  </concept>
+  <concept>
+    <code value="2029"/>
+    <display value="During cardioversion"/>
+    <definition value="Occurred during the cardioversion procedure"/>
+  </concept>
+  <concept>
+    <code value="219101"/>
+    <display value="At birth"/>
+    <definition value="Occurred at birth"/>
+  </concept>
+</CodeSystem>

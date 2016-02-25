@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-unstable-stable"/>
+  <url value="http://hl7.org/fhir/nehta-unstable-stable"/>
+  <version value="20150625"/>
+  <name value="UnstableStable"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="Provides the results options of stable, unstable or not tested."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-unstable-stable"/>
+  <content value="complete"/>
+  <concept>
+    <code value="unstable"/>
+    <display value="Unstable"/>
+    <definition value="Unstable"/>
+  </concept>
+  <concept>
+    <code value="stable"/>
+    <display value="Stable"/>
+    <definition value="Stable"/>
+  </concept>
+  <concept>
+    <code value="not_tested"/>
+    <display value="Not tested"/>
+    <definition value="Not tested"/>
+  </concept>
+</CodeSystem>

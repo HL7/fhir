@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/processoutcomecodes"/>
+  <name value="Process Outcome Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Process Outcome codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="complete"/>
+  </concept>
+  <concept>
+    <code value="pended"/>
+  </concept>
+  <concept>
+    <code value="error"/>
+  </concept>
+</CodeSystem>

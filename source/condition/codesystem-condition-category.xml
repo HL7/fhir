@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/condition-category"/>
+  <name value="Condition Category Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Preferred value set for Condition Categories."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/condition-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="complaint"/>
+    <display value="Complaint"/>
+    <definition value="The patient considers the condition an issue to be addressed."/>
+  </concept>
+  <concept>
+    <code value="symptom"/>
+    <display value="Symptom"/>
+    <definition value="A symptom of a condition (as might be mentioned in a review of systems)."/>
+  </concept>
+  <concept>
+    <code value="finding"/>
+    <display value="Finding"/>
+    <definition value="An observation made by a healthcare provider."/>
+  </concept>
+  <concept>
+    <code value="diagnosis"/>
+    <display value="Diagnosis"/>
+    <definition value="This is a judgment made by a healthcare provider that the patient has a particular disease or condition."/>
+  </concept>
+</CodeSystem>

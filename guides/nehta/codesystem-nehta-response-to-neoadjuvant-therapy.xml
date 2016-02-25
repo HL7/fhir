@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-response-to-neoadjuvant-therapy"/>
+  <url value="http://hl7.org/fhir/nehta-response-to-neoadjuvant-therapy"/>
+  <version value="20150625"/>
+  <name value="ResponseToNeoadjuvantTherapy"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="The response of the tumour to neoadjuvant treatment must be recorded."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International         Health Terminology Standards Development Organisation (IHTSDO), and distributed by         agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this         agreement"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-response-to-neoadjuvant-therapy"/>
+  <content value="complete"/>
+  <concept>
+    <code value="no_prior_treatment"/>
+    <display value="No prior treatment"/>
+    <definition value="No prior treatment"/>
+  </concept>
+</CodeSystem>

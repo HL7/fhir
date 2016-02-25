@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/benefit-unit"/>
+  <name value="Unit Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes a smattering of Unit type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="individual"/>
+    <display value="Individual"/>
+    <definition value="A single individual"/>
+  </concept>
+  <concept>
+    <code value="family"/>
+    <display value="Family"/>
+    <definition value="A family, typically includes self, spous(s) and children to a defined age"/>
+  </concept>
+</CodeSystem>

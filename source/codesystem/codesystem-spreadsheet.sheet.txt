@@ -55,6 +55,12 @@
   Display = integer
   Definition = The property value is a string (often used to assign ranking values to concepts for supporting score assessments)
 
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = boolean
+  Display = boolean
+  Definition = The property value is a boolean true | false
+
 === Sheet codesystem-content-mode =====================================
 
  -- Row 1 -----------------------------------
@@ -381,7 +387,7 @@
   Summary = y
   Type = code
   Binding = PropertyType
-  Short Label = code | Coding | string | integer
+  Short Label = code | Coding | string | integer | boolean
   Definition = The type of the property value
 
  -- Row 32 -----------------------------------
@@ -465,7 +471,7 @@
  -- Row 42 -----------------------------------
   Element = CodeSystem.concept.property.value[x]
   Card. = 1..1
-  Type = code | Coding | string | integer
+  Type = code | Coding | string | integer | boolean
   Short Label = Value of the property for this concept
   Definition = The value of this property
 

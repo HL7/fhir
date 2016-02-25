@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/participant-type"/>
+  <name value="ParticipantType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set defines a set of codes that can be used to indicate how an individual participates in an encounter."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="translator"/>
+    <display value="Translator"/>
+    <definition value="A translator who is facilitating communication with the patient during the encounter."/>
+  </concept>
+  <concept>
+    <code value="emergency"/>
+    <display value="Emergency"/>
+    <definition value="A person to be contacted in case of an emergency during the encounter."/>
+  </concept>
+</CodeSystem>

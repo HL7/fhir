@@ -37,6 +37,7 @@ import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageCompo
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.tools.converters.CodeSystemConvertor;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -125,6 +126,7 @@ public class IgParser {
           r.setSource(new UriType(example.getId()+".html"));
         } else if (r.getPurpose() == GuideResourcePurpose.TERMINOLOGY) {
           ValueSet vs = (ValueSet) new XmlParser().parse(new FileInputStream(fn));
+          new CodeSystemConvertor().convert(vs, fn.getAbsolutePath());
 //          if (id.contains(File.separator))
             if (id.startsWith("valueset-"))
               id = id.substring(9);

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/condition-clinical"/>
+  <name value="Condition Clinical Status Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Preferred value set for Condition Clinical Status."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/condition-clinical"/>
+  <content value="complete"/>
+  <concept>
+    <code value="active"/>
+    <display value="Active"/>
+    <definition value="The subject is currently experiencing the symptoms of the condition."/>
+  </concept>
+  <concept>
+    <code value="relapse"/>
+    <display value="Relapse"/>
+    <definition value="The subject is re-experiencing the symptoms of the condition after a period of remission or presumed resolution."/>
+  </concept>
+  <concept>
+    <code value="remission"/>
+    <display value="Remission"/>
+    <definition value="The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning."/>
+  </concept>
+  <concept>
+    <code value="resolved"/>
+    <display value="Resolved"/>
+    <definition value="The subject is no longer experiencing the symptoms of the condition and there is no perceived risk of the symptoms returning."/>
+  </concept>
+</CodeSystem>

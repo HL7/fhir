@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/qicore-adverseevent-type"/>
+  <name value="QICore Adverse Event Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Value Set for QICore Adverse Event Type Codes (Preferred)"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="incident"/>
+    <display value="Incident"/>
+    <definition value="A safety incident, reaction, medication error, or other untoward medical event affecting a patient"/>
+  </concept>
+  <concept>
+    <code value="near-miss"/>
+    <display value="Near Miss"/>
+    <definition value="A safety event that almost happened, but was noticed and prevented in time to prevent harm from occurring to the patient"/>
+  </concept>
+  <concept>
+    <code value="unsafe"/>
+    <display value="Unsafe Condition"/>
+    <definition value="Any unsafe condition that poses a elevated risk to patient safety"/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/observation-hspc-weightPrecond"/>
+  <version value="0.01"/>
+  <name value="HSPC Body Weight Associated Precondition"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-05-19T00:00:00+10:00"/>
+  <description value="SNOMED CT code system values descending from the following:&#39;body position finding&#39; 9851009"/>
+  <copyright value="TBD"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="84123"/>
+    <display value="Weight with street clothes"/>
+    <definition value="Body weight measured while clothed"/>
+  </concept>
+  <concept>
+    <code value="84124"/>
+    <display value="Weight without street clothes"/>
+    <definition value="Body weight measured while unclothed"/>
+  </concept>
+  <concept>
+    <code value="84127"/>
+    <display value="Weight with diapers"/>
+    <definition value="Infant weight while wearing a diaper"/>
+  </concept>
+  <concept>
+    <code value="84128"/>
+    <display value="Weight without diapers"/>
+    <definition value="Infant weight without a diaper"/>
+  </concept>
+  <concept>
+    <code value="84129"/>
+    <display value="Weight with cast"/>
+    <definition value="Body weight that includes a cast"/>
+  </concept>
+  <concept>
+    <code value="84130"/>
+    <display value="Weight without cast"/>
+    <definition value="Body weight minus the weight of a cast"/>
+  </concept>
+  <concept>
+    <code value="84131"/>
+    <display value="Weight with limb prosthesis"/>
+    <definition value="Body weight including a prosthetic limb"/>
+  </concept>
+  <concept>
+    <code value="84132"/>
+    <display value="Weight without limb prosthesis"/>
+    <definition value="Body weight minus the weight of a prosthetic limb"/>
+  </concept>
+  <concept>
+    <code value="84133"/>
+    <display value="Weight with brace"/>
+    <definition value="Body weight including a brace"/>
+  </concept>
+  <concept>
+    <code value="84134"/>
+    <display value="Weight without brace"/>
+    <definition value="Body weight minus the weight of a brace"/>
+  </concept>
+  <concept>
+    <code value="84135"/>
+    <display value="Weight with gown or drape"/>
+    <definition value="Body weight including a gown or drape"/>
+  </concept>
+  <concept>
+    <code value="84136"/>
+    <display value="Weight with added-on weight"/>
+    <definition value="Body weight the includes some other weight"/>
+  </concept>
+  <concept>
+    <code value="84137"/>
+    <display value="Weight without added-on weight"/>
+    <definition value="Body weight after subtracting some other included weight"/>
+  </concept>
+</CodeSystem>

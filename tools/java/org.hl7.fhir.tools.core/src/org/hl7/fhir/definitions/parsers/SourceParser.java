@@ -83,6 +83,7 @@ import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.tools.converters.CodeSystemConvertor;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.utilities.CSFile;
@@ -499,6 +500,7 @@ public class SourceParser {
   private void loadValueSet(String n) throws FileNotFoundException, Exception {
     XmlParser xml = new XmlParser();
     ValueSet vs = (ValueSet) xml.parse(new CSFileInputStream(srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar)));
+    new CodeSystemConvertor().convert(vs, srcDir+ini.getStringProperty("valuesets", n).replace('\\', File.separatorChar));
     vs.setId(FormatUtilities.makeId(n));
     vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
     definitions.getExtraValuesets().put(n, vs);

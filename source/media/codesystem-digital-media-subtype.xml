@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/media-subtype"/>
+  <name value="Media SubType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="diagram"/>
+    <display value="Diagram"/>
+    <definition value="A diagram. Often used in diagnostic reports"/>
+  </concept>
+  <concept>
+    <code value="fax"/>
+    <display value="Fax"/>
+    <definition value="A digital record of a fax document"/>
+  </concept>
+  <concept>
+    <code value="scan"/>
+    <display value="Scanned Document"/>
+    <definition value="A digital scan of a document. This is reserved for when there is not enough metadata to create a document reference"/>
+  </concept>
+  <concept>
+    <code value="retina"/>
+    <display value="Retina scan"/>
+    <definition value="A retinal image used for identification purposes"/>
+  </concept>
+  <concept>
+    <code value="fingerprint"/>
+    <display value="Fingerprint"/>
+    <definition value="A finger print scan used for identification purposes"/>
+  </concept>
+  <concept>
+    <code value="iris"/>
+    <display value="Iris"/>
+    <definition value="An iris scan used for identification purposes"/>
+  </concept>
+  <concept>
+    <code value="palm"/>
+    <display value="Palm"/>
+    <definition value="A palm scan used for identification purposes"/>
+  </concept>
+  <concept>
+    <code value="face"/>
+    <display value="Face"/>
+    <definition value="A face scan used for identification purposes"/>
+  </concept>
+</CodeSystem>

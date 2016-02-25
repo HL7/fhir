@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/contracttermtypecodes"/>
+  <name value="Contract Term Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Contract Term Type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="OralHealth"/>
+  </concept>
+  <concept>
+    <code value="Vision"/>
+  </concept>
+</CodeSystem>

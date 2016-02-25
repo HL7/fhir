@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/payment-type"/>
+  <name value="Payment Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Payment Type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="payment"/>
+  </concept>
+  <concept>
+    <code value="adjustment"/>
+  </concept>
+  <concept>
+    <code value="advance"/>
+  </concept>
+</CodeSystem>

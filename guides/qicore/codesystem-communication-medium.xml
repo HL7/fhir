@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/qicore-communication-medium"/>
+  <name value="QICore Communication Medium Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Value Set for QICore Communication Medium (Example)"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="unspecified"/>
+    <display value="Not Specified"/>
+    <definition value="The communication medium has not been specified"/>
+  </concept>
+  <concept>
+    <code value="telephone"/>
+    <display value="Telephone"/>
+    <definition value="The message was communicated via telephone"/>
+  </concept>
+  <concept>
+    <code value="fax"/>
+    <display value="Facsimile (fax)"/>
+    <definition value="The message was sent via a fax transmission"/>
+  </concept>
+  <concept>
+    <code value="device"/>
+    <display value="Via medical device"/>
+    <definition value="The message was communicated via a medical device"/>
+  </concept>
+  <concept>
+    <code value="video"/>
+    <display value="Video call"/>
+    <definition value="The message was communicated via a video call"/>
+  </concept>
+  <concept>
+    <code value="voicemail"/>
+    <display value="Voice message (voicemail)"/>
+    <definition value="The message was left on the recipient&#39;s voicemail system"/>
+  </concept>
+  <concept>
+    <code value="text"/>
+    <display value="Text message (SMS)"/>
+    <definition value="The message was sent via text message (SMS)"/>
+  </concept>
+  <concept>
+    <code value="social-media"/>
+    <display value="Social media"/>
+    <definition value="The message was communicated via a social media platform"/>
+  </concept>
+  <concept>
+    <code value="in-person"/>
+    <display value="In person"/>
+    <definition value="The message was communicated in person"/>
+  </concept>
+  <concept>
+    <code value="mail"/>
+    <display value="Mail (conventional)"/>
+    <definition value="The message was posted via conventional mail"/>
+  </concept>
+  <concept>
+    <code value="email"/>
+    <display value="Electronic mail (email)"/>
+    <definition value="The message was sent as an email"/>
+  </concept>
+  <concept>
+    <code value="portal"/>
+    <display value="Patient portal"/>
+    <definition value="The message was communicated via a patient portal"/>
+  </concept>
+</CodeSystem>

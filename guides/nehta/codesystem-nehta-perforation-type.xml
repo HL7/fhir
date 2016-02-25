@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-perforation-type"/>
+  <url value="http://hl7.org/fhir/nehta-nature-of-perforation"/>
+  <version value="20150619"/>
+  <name value="NehtaNatureOfPerforation"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="Indicates the options for indicating the type(s) of perforation."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-perforation-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="through_tumour_prior_to_surgery"/>
+    <display value="Through tumour prior to surgery"/>
+    <definition value="The perforation was through tumour prior to surgery"/>
+  </concept>
+  <concept>
+    <code value="through_tumour_during_surgery_mobilisation"/>
+    <display value="Through tumour during surgery mobilisation"/>
+    <definition value="The perforation was through tumour during surgery mobilisation"/>
+  </concept>
+  <concept>
+    <code value="away_from_tumour"/>
+    <display value="Away from tumour"/>
+    <definition value="The perforation was away from the tumour"/>
+  </concept>
+</CodeSystem>

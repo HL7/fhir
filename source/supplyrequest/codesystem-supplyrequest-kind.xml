@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/supply-kind"/>
+  <name value="Supply Type"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value sets refers to a Category of supply."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="central"/>
+    <display value="Central Supply"/>
+    <definition value="Supply is stored and requested from central supply."/>
+  </concept>
+  <concept>
+    <code value="nonstock"/>
+    <display value="Non-Stock"/>
+    <definition value="Supply is not onsite and must be requested from an outside vendor using a non-stock requisition."/>
+  </concept>
+</CodeSystem>

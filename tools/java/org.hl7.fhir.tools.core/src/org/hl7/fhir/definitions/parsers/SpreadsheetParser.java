@@ -111,6 +111,7 @@ import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.tools.converters.CodeSystemConvertor;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
 import org.hl7.fhir.utilities.CSFile;
 import org.hl7.fhir.utilities.CSFileInputStream;
@@ -1223,6 +1224,7 @@ public class SpreadsheetParser {
 	    } catch (Exception e) {
 	      throw new Exception("Error loading value set '"+filename+"': "+e.getMessage(), e);
 	    }
+      new CodeSystemConvertor().convert(result, filename);
       result.setId(igSuffix(ig)+ref.substring(9));
       result.setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(9));
 	    result.setExperimental(true);

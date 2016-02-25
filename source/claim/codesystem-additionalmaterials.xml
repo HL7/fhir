@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/additionalmaterials"/>
+  <name value="Additional Material Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample additional material type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="xray"/>
+    <display value="XRay"/>
+    <definition value="XRay"/>
+  </concept>
+  <concept>
+    <code value="image"/>
+    <display value="Image"/>
+    <definition value="Image"/>
+  </concept>
+  <concept>
+    <code value="email"/>
+    <display value="Email"/>
+    <definition value="Email"/>
+  </concept>
+  <concept>
+    <code value="model"/>
+    <display value="Model"/>
+    <definition value="Model"/>
+  </concept>
+  <concept>
+    <code value="document"/>
+    <display value="Document"/>
+    <definition value="Document"/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="Other"/>
+  </concept>
+</CodeSystem>

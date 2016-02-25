@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/encounter-type"/>
+  <name value="EncounterType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This example value set defines a set of codes that can be used to indicate the type of encounter: a specific code indicating type of service provided."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="ADMS"/>
+    <display value="Annual diabetes mellitus screening"/>
+  </concept>
+  <concept>
+    <code value="BD/BM-clin"/>
+    <display value="Bone drilling/bone marrow punction in clinic"/>
+  </concept>
+  <concept>
+    <code value="CCS60"/>
+    <display value="Infant colon screening - 60 minutes"/>
+  </concept>
+  <concept>
+    <code value="OKI"/>
+    <display value="Outpatient Kenacort injection"/>
+  </concept>
+</CodeSystem>

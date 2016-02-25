@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-pharmaservice"/>
+  <name value="Example Pharmacy Service Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes a smattering of Pharmacy Service codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="smokecess"/>
+    <display value="Smoking cessation"/>
+    <definition value="Smoking cessation"/>
+  </concept>
+  <concept>
+    <code value="flushot"/>
+    <display value="Flu Shot"/>
+    <definition value="Flu Shot"/>
+  </concept>
+</CodeSystem>

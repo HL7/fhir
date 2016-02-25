@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-crc-peritoneum-invasion"/>
+  <url value="http://hl7.org/fhir/nehta-crc-peritoneum-invasion"/>
+  <version value="20150619"/>
+  <name value="NehtaPeritoneumInvasion"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="Any involvement of the peritoneum should be recorded."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-crc-peritoneum-invasion"/>
+  <content value="complete"/>
+  <concept>
+    <code value="tumour_invades_to_peritoneal_surface"/>
+    <display value="Tumour invades to the peritoneal surface"/>
+    <definition value="Tumour invades to the peritoneal surface"/>
+  </concept>
+  <concept>
+    <code value="tumour_formed_nodule(s)_discrete_from_tumour_mass_along_the_serosal_surface"/>
+    <display value="Tumour has formed nodule(s) discrete from the tumour mass along the serosal surface"/>
+    <definition value="Tumour has formed nodule(s) discrete from the tumour mass along the serosal surface"/>
+  </concept>
+</CodeSystem>

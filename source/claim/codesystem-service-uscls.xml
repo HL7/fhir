@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-USCLS"/>
+  <name value="USCLS Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes a smattering of USCLS codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="1101"/>
+    <display value="Exam, comp, primary"/>
+    <definition value="Exam, comp, primary"/>
+  </concept>
+  <concept>
+    <code value="1102"/>
+    <display value="Exam, comp, mixed"/>
+    <definition value="Exam, comp, mixed"/>
+  </concept>
+  <concept>
+    <code value="1103"/>
+    <display value="Exam, comp, permanent"/>
+    <definition value="Exam, comp, permanent"/>
+  </concept>
+  <concept>
+    <code value="1201"/>
+    <display value="Exam, recall"/>
+    <definition value="Exam, recall"/>
+  </concept>
+  <concept>
+    <code value="1205"/>
+    <display value="Exam, emergency"/>
+    <definition value="Exam, emergency"/>
+  </concept>
+  <concept>
+    <code value="2101"/>
+    <display value="Radiograph, series (12)"/>
+    <definition value="Radiograph, series (12)"/>
+  </concept>
+  <concept>
+    <code value="2102"/>
+    <display value="Radiograph, series (16)"/>
+    <definition value="Radiograph, series (16)"/>
+  </concept>
+  <concept>
+    <code value="2141"/>
+    <display value="Radiograph, bytewing"/>
+    <definition value="Radiograph, bytewing"/>
+  </concept>
+  <concept>
+    <code value="2601"/>
+    <display value="Radiograph, panoramic"/>
+    <definition value="Radiograph, panoramic"/>
+  </concept>
+  <concept>
+    <code value="11101"/>
+    <display value="Polishing, 1 unit"/>
+    <definition value="Polishing, 1 unit"/>
+  </concept>
+  <concept>
+    <code value="11102"/>
+    <display value="Polishing, 2 unit"/>
+    <definition value="Polishing, 2 unit"/>
+  </concept>
+  <concept>
+    <code value="11103"/>
+    <display value="Polishing, 3 unit"/>
+    <definition value="Polishing, 3 unit"/>
+  </concept>
+  <concept>
+    <code value="11104"/>
+    <display value="Polishing, 4 unit"/>
+    <definition value="Polishing, 4 unit"/>
+  </concept>
+  <concept>
+    <code value="21211"/>
+    <display value="Amalgam, 1 surface"/>
+    <definition value="Amalgam, 1 surface"/>
+  </concept>
+  <concept>
+    <code value="21212"/>
+    <display value="Amalgam, 2 surface"/>
+    <definition value="Amalgam, 2 surface"/>
+  </concept>
+  <concept>
+    <code value="27211"/>
+    <display value="Crown, PFM"/>
+    <definition value="Crown, PFM"/>
+  </concept>
+  <concept>
+    <code value="99111"/>
+    <display value="Lab, commercial"/>
+    <definition value="Lab, commercial"/>
+  </concept>
+  <concept>
+    <code value="99333"/>
+    <display value="Lab, in office"/>
+    <definition value="Lab, in office"/>
+  </concept>
+  <concept>
+    <code value="99555"/>
+    <display value="Expense"/>
+    <definition value="Expense"/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="marital-status"/>
+  <url value="http://hl7.org/fhir/marital-status"/>
+  <name value="Marital Status Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="This value set defines the set of codes that can be used to indicate the marital status of a person."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="U"/>
+    <display value="Unmarried"/>
+    <definition value="The person is not presently married. The marital history is not known or stated."/>
+  </concept>
+</CodeSystem>

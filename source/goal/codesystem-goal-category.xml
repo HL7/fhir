@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/goal-category"/>
+  <name value="GoalCategory"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Example codes for grouping goals for filtering or presentation."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="dietary"/>
+    <display value="dietary"/>
+    <definition value="Goals related to the consumption of food and/or beverages."/>
+  </concept>
+  <concept>
+    <code value="safety"/>
+    <display value="safety"/>
+    <definition value="Goals related to the personal protection of the subject."/>
+  </concept>
+  <concept>
+    <code value="behavioral"/>
+    <display value="behavioral"/>
+    <definition value="Goals related to the manner in which the subject acts."/>
+  </concept>
+  <concept>
+    <code value="nursing"/>
+    <display value="nursing"/>
+    <definition value="Goals related to the practice of nursing or established by nurses."/>
+  </concept>
+  <concept>
+    <code value="physiotherapy"/>
+    <display value="physiotherapy"/>
+    <definition value="Goals related to the mobility and motor capability of the subject."/>
+  </concept>
+</CodeSystem>

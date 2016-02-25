@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/adjudication-reason"/>
+  <name value="Adjudication Reason Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes smattering of Adjudication Reason codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="ar001"/>
+    <display value="Not covered"/>
+    <definition value="Not covered"/>
+  </concept>
+  <concept>
+    <code value="ar002"/>
+    <display value="Plan Limit Reached"/>
+    <definition value="Plan Limit Reached"/>
+  </concept>
+</CodeSystem>

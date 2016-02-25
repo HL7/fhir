@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/benefit-network"/>
+  <name value="Network Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes a smattering of Network type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="in"/>
+    <display value="In Network"/>
+    <definition value="Services rendered by a Network provider"/>
+  </concept>
+  <concept>
+    <code value="out"/>
+    <display value="Out of Network"/>
+    <definition value="Services rendered by a provider who is not in the Network"/>
+  </concept>
+</CodeSystem>

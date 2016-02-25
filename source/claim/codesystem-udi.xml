@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-udi"/>
+  <name value="UDI Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample UDI codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="gudid"/>
+    <display value="GUDID (FDA)"/>
+    <definition value="GUDID (FDA) US Repository"/>
+  </concept>
+</CodeSystem>

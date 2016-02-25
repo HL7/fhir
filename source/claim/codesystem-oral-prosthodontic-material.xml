@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-oralprostho"/>
+  <name value="Oral Prostho Material type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Oral Prosthodontic Material type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="1"/>
+    <display value="Fixed Bridge"/>
+    <definition value="Fixed Bridge"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+    <display value="Maryland Bridge"/>
+    <definition value="Maryland Bridge"/>
+  </concept>
+  <concept>
+    <code value="3"/>
+    <display value="Denture Acrylic"/>
+    <definition value="Denture Acrylic"/>
+  </concept>
+  <concept>
+    <code value="4"/>
+    <display value="Denture Chrome Cobalt"/>
+    <definition value="Denture Chrome Cobalt"/>
+  </concept>
+</CodeSystem>

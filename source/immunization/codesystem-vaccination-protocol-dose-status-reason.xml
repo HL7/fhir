@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/vaccination-protocol-dose-status-reason"/>
+  <name value="Vaccination Protocol Dose Status Reason codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="advstorage"/>
+    <display value="Adverse storage condition"/>
+  </concept>
+  <concept>
+    <code value="coldchbrk"/>
+    <display value="Cold chain break"/>
+  </concept>
+  <concept>
+    <code value="explot"/>
+    <display value="Expired lot"/>
+  </concept>
+  <concept>
+    <code value="outsidesched"/>
+    <display value="Administered outside recommended schedule"/>
+  </concept>
+  <concept>
+    <code value="prodrecall"/>
+    <display value="Product recall"/>
+  </concept>
+</CodeSystem>

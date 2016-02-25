@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/condition-code",
   "outcomes": [
     {
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C4872|Breast Carcinoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|18099001|Retropharyngeal abscess",
       "severity": null,
       "message": null,
@@ -11,11 +16,6 @@
         "definition": null,
         "display": "Retropharyngeal abscess"
       }
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C4872|Breast Carcinoma",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
     },
     {
       "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C2924|Ductal Carcinoma In Situ of the Breast",
@@ -33,22 +33,6 @@
       "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|36225005|Acute renal insufficiency specified as due to procedure",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Acute renal failure due to procedure"
-      }
-    },
-    {
-      "hash": "#|http://www.icd10data.com/icd10pcs|null|R78.71|Abnormal lead level in blood",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|254626006|null",
       "severity": null,
       "message": null,
@@ -57,6 +41,22 @@
         "code": null,
         "definition": null,
         "display": "Adenocarcinoma of lung"
+      }
+    },
+    {
+      "hash": "#|http://www.icd10data.com/icd10pcs|null|R78.71|Abnormal lead level in blood",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|36225005|Acute renal insufficiency specified as due to procedure",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Acute renal failure due to procedure"
       }
     },
     {
@@ -199,17 +199,6 @@
       "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|22253000|Pain",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Pain observations"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|65363002|Otitis Media",
       "severity": null,
       "message": null,
@@ -218,6 +207,17 @@
         "code": null,
         "definition": null,
         "display": "Otitis media"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|22253000|Pain",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Pain observations"
       }
     },
     {
@@ -254,17 +254,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|444780001|High glucose level in blood",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glucose in blood specimen above reference range (finding)"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|371041009|Embolic Stroke",
       "severity": null,
       "message": null,
@@ -273,6 +262,17 @@
         "code": null,
         "definition": null,
         "display": "Embolic stroke (disorder)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|444780001|High glucose level in blood",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Glucose in blood specimen above reference range (finding)"
       }
     },
     {

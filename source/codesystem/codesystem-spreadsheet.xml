@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>15390</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowHeight>17700</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -2022,7 +2022,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer | boolean</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The type of the property value </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2372,7 +2372,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer | boolean</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4440,10 +4440,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>24</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4460,8 +4461,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>20</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5151,7 +5152,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7644,12 +7644,12 @@
     <Cell ss:StyleID="s145"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s144"/>
-    <Cell ss:StyleID="s133"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">5</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">boolean</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">The property value is a boolean true | false</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s145"/>
@@ -8172,9 +8172,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R1</RangeSelection>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/reason-medication-not-given"/>
+  <name value="Reason Medication Not Given Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set is provided as an exemplar. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="a"/>
+    <display value="None"/>
+    <definition value="No reason known."/>
+  </concept>
+  <concept>
+    <code value="b"/>
+    <display value="Away"/>
+    <definition value="The patient was not available when the dose was scheduled."/>
+  </concept>
+  <concept>
+    <code value="c"/>
+    <display value="Asleep"/>
+    <definition value="The patient was asleep when the dose was scheduled."/>
+  </concept>
+  <concept>
+    <code value="d"/>
+    <display value="Vomit"/>
+    <definition value="The patient was given the medication and immediately vomited it back."/>
+  </concept>
+</CodeSystem>

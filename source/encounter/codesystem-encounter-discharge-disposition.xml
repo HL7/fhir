@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/discharge-disposition"/>
+  <name value="DischargeDisposition"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set defines a set of codes that can be used to where the patient left the hospital."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="home"/>
+    <display value="Home"/>
+  </concept>
+  <concept>
+    <code value="other-hcf"/>
+    <display value="Other healthcare facility"/>
+  </concept>
+  <concept>
+    <code value="hosp"/>
+    <display value="Hospice"/>
+  </concept>
+  <concept>
+    <code value="long"/>
+    <display value="Long-term care"/>
+  </concept>
+  <concept>
+    <code value="aadvice"/>
+    <display value="Left against advice"/>
+  </concept>
+  <concept>
+    <code value="exp"/>
+    <display value="Expired"/>
+  </concept>
+  <concept>
+    <code value="psy"/>
+    <display value="Psychiatric hospital"/>
+  </concept>
+  <concept>
+    <code value="rehab"/>
+    <display value="Rehabilitation"/>
+  </concept>
+  <concept>
+    <code value="oth"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

@@ -28,12 +28,12 @@
       "message": "The code provided is not  valid in the value set Parameter Types used in Operation Definitions"
     },
     {
-      "hash": "|http://hl7.org/fhir/ValueSet/special-types|null|date|null",
+      "hash": "|http://hl7.org/fhir/ValueSet/special-types|null|ValueSet|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Parameter Types used in Operation Definitions"
     },
     {
-      "hash": "|http://hl7.org/fhir/ValueSet/special-types|null|ValueSet|null",
+      "hash": "|http://hl7.org/fhir/ValueSet/special-types|null|date|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Parameter Types used in Operation Definitions"
     },
@@ -138,7 +138,7 @@
       "message": "The code provided is not  valid in the value set Parameter Types used in Operation Definitions"
     },
     {
-      "hash": "|http://hl7.org/fhir/ValueSet/special-types|null|Parameters|null",
+      "hash": "|http://hl7.org/fhir/ValueSet/special-types|null|Resource|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Parameter Types used in Operation Definitions"
     },
@@ -148,7 +148,7 @@
       "message": "The code provided is not  valid in the value set Parameter Types used in Operation Definitions"
     },
     {
-      "hash": "|http://hl7.org/fhir/ValueSet/special-types|null|Resource|null",
+      "hash": "|http://hl7.org/fhir/ValueSet/special-types|null|Parameters|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Parameter Types used in Operation Definitions"
     },

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="ruleset"/>
+  <url value="http://hl7.org/fhir/ruleset"/>
+  <name value="Ruleset Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="This value set includes sample ruleset codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="x12-4010"/>
+  </concept>
+  <concept>
+    <code value="x12-5010"/>
+  </concept>
+  <concept>
+    <code value="x12-7010"/>
+  </concept>
+  <concept>
+    <code value="cdanet-v2"/>
+  </concept>
+  <concept>
+    <code value="cdanet-v4"/>
+  </concept>
+  <concept>
+    <code value="cpha-3"/>
+  </concept>
+</CodeSystem>

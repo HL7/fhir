@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/contracttermsubtypecodes"/>
+  <name value="Contract Term Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Contract Term SubType codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="OralHealth-Basic"/>
+  </concept>
+  <concept>
+    <code value="OralHealth-Major"/>
+  </concept>
+  <concept>
+    <code value="OralHealth-Orthodontic"/>
+  </concept>
+</CodeSystem>

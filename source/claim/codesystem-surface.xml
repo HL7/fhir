@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/FDI-surface"/>
+  <name value="Surface Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes a smattering of FDI tooth surface codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="M"/>
+    <display value="Mesial"/>
+    <definition value="The surface of a tooth that is closest to the midline (middle) of the face."/>
+  </concept>
+  <concept>
+    <code value="O"/>
+    <display value="Occlusal"/>
+    <definition value="The chewing surface of posterior teeth."/>
+  </concept>
+  <concept>
+    <code value="I"/>
+    <display value="Incisal"/>
+    <definition value="The biting edge of anterior teeth."/>
+  </concept>
+  <concept>
+    <code value="D"/>
+    <display value="Distal"/>
+    <definition value="The surface of a tooth that faces away from the midline of the face."/>
+  </concept>
+  <concept>
+    <code value="B"/>
+    <display value="Buccal"/>
+    <definition value="The surface of a posterior tooth facing the cheeks."/>
+  </concept>
+  <concept>
+    <code value="V"/>
+    <display value="Ventral"/>
+    <definition value="The surface of a tooth facing the lips."/>
+  </concept>
+  <concept>
+    <code value="L"/>
+    <display value="Lingual"/>
+    <definition value="The surface of a tooth facing the tongue."/>
+  </concept>
+  <concept>
+    <code value="MO"/>
+    <display value="Mesioclusal"/>
+    <definition value="The Mesioclusal surfaces of a tooth."/>
+  </concept>
+  <concept>
+    <code value="DO"/>
+    <display value="Distoclusal"/>
+    <definition value="The Distoclusal surfaces of a tooth."/>
+  </concept>
+  <concept>
+    <code value="DI"/>
+    <display value="Distoincisal"/>
+    <definition value="The Distoincisal surfaces of a tooth."/>
+  </concept>
+  <concept>
+    <code value="MOD"/>
+    <display value="Mesioclusodistal"/>
+    <definition value="The Mesioclusodistal surfaces of a tooth."/>
+  </concept>
+</CodeSystem>

@@ -44,6 +44,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.tools.converters.CodeSystemConvertor;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
@@ -188,21 +189,24 @@ public class BindingsParser {
 
   private ValueSet loadValueSet(String ref) throws Exception {
     String folder = new File(filename).getParent();
+    String srcName;
     IParser p;
-    FileInputStream input;
     if (new File(Utilities.path(folder, ref+".xml")).exists()) {
       p = new XmlParser();
-      input = new FileInputStream(Utilities.path(folder, ref+".xml"));
+      srcName = Utilities.path(folder, ref+".xml");
     } else if (new File(Utilities.path(folder, ref+".json")).exists()) {
       p = new JsonParser();
-      input = new FileInputStream(Utilities.path(folder, ref+".json"));
+      srcName = Utilities.path(folder, ref+".json");
     } else
       throw new Exception("Unable to find source for "+ref+" in "+filename+" ("+Utilities.path(folder, ref+".xml/json)"));
+
+    FileInputStream input = new FileInputStream(srcName);
 
     try {
       ValueSet result = ValueSetUtilities.makeShareable((ValueSet) p.parse(input));
       result.setId(ref.substring(9));
       result.setExperimental(true);
+      new CodeSystemConvertor().convert(result, srcName);
       if (!result.hasVersion())
         result.setVersion(version);
 //      if (!result.hasUrl())

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-observation-heightPrecond"/>
+  <url value="http://hl7,org/fhir/observation-hspc-heightPrecond"/>
+  <version value="0.01"/>
+  <name value="HSPC Height Meas Associated Precondition"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-05-19T00:00:00+10:00"/>
+  <description value="The conditions during which an individual&#39;s height was measured."/>
+  <copyright value="Intermountain Healthcare"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="84138"/>
+    <display value="Height (body length) with shoes"/>
+    <definition value="The individual&#39;s height was measured while the individual was wearing shoes"/>
+  </concept>
+  <concept>
+    <code value="84139"/>
+    <display value="Height (body length) without shoes"/>
+    <definition value="The individual&#39;s height was measured without the individual wearing shoes."/>
+  </concept>
+  <concept>
+    <code value="84140"/>
+    <display value="Height (body length) with patient reclining"/>
+    <definition value="The individual&#39;s height was measured while the individual was lying down."/>
+  </concept>
+  <concept>
+    <code value="84141"/>
+    <display value="Height (body length) with patient standing"/>
+    <definition value="The individual&#39;s height was measured while the individual was standing up."/>
+  </concept>
+</CodeSystem>

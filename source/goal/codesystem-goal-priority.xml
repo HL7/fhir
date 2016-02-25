@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/goal-priority"/>
+  <name value="GoalPriority"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Indicates the level of importance associated with reaching or sustaining a goal."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/goal-priority"/>
+  <content value="complete"/>
+  <concept>
+    <code value="high"/>
+    <display value="high"/>
+    <definition value="Indicates that the goal is of considerable importance and should be a primary focus of care delivery."/>
+  </concept>
+  <concept>
+    <code value="medium"/>
+    <display value="medium"/>
+    <definition value="Indicates that the goal has a reasonable degree of importance and that concrete action should be taken towards the goal.  Attainment is not as critical as high-priority goals."/>
+  </concept>
+  <concept>
+    <code value="low"/>
+    <display value="low"/>
+    <definition value="The goal is desirable but is not sufficiently important to devote significant resources to.  Achievement of the goal may be sought when incidental to achieving other goals."/>
+  </concept>
+</CodeSystem>

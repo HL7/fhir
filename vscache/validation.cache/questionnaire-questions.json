@@ -128,14 +128,19 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|44255-8|null",
+      "hash": "|http://example.org/system/code/sections|null|ABDOMINAL|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
+      "hash": "|http://loinc.org|null|54117-7|Diseases history panel [USSG-FHT] family member",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Feeling down, depressed, or hopeless in last 2 weeks [Reported.PHQ]"
+        "display": "Diseases history panel [USSG-FHT] family member"
       }
     },
     {
@@ -150,20 +155,15 @@
       }
     },
     {
-      "hash": "|http://loinc.org|null|54117-7|Diseases history panel [USSG-FHT] family member",
+      "hash": "|http://loinc.org|null|44255-8|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Diseases history panel [USSG-FHT] family member"
+        "display": "Feeling down, depressed, or hopeless in last 2 weeks [Reported.PHQ]"
       }
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|ABDOMINAL|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
     },
     {
       "hash": "|http://loinc.org|null|54137-5|Diseases history panel [USSG-FHT]",
@@ -188,6 +188,11 @@
       }
     },
     {
+      "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
       "hash": "|http://loinc.org|null|54123-5|Sex family member [USSG-FHT]",
       "severity": null,
       "message": null,
@@ -196,22 +201,6 @@
         "code": null,
         "definition": null,
         "display": "Sex family member [USSG-FHT]"
-      }
-    },
-    {
-      "hash": "|http://example.org/system/code/sections|null|HISTOPATHOLOGY|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
-    },
-    {
-      "hash": "|http://loinc.org|null|54126-8|My health history [USSG-FHT]",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "My health history [USSG-FHT]"
       }
     },
     {
@@ -226,6 +215,22 @@
       }
     },
     {
+      "hash": "|http://loinc.org|null|54126-8|My health history [USSG-FHT]",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "My health history [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
       "hash": "|http://loinc.org|null|54113-6|Age range at death family member [USSG-FHT]",
       "severity": null,
       "message": null,
@@ -235,11 +240,6 @@
         "definition": null,
         "display": "Age range at death family member [USSG-FHT]"
       }
-    },
-    {
-      "hash": "|http://example.org/system/code/questions|null|COMORBCAR|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
     },
     {
       "hash": "|http://loinc.org|null|44252-5|null",
@@ -487,17 +487,6 @@
       "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
     },
     {
-      "hash": "|http://loinc.org|null|44258-2|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down in last 2 weeks [Reported.PHQ]"
-      }
-    },
-    {
       "hash": "|http://loinc.org|null|54136-7|Relationship to patient family member [USSG-FHT]",
       "severity": null,
       "message": null,
@@ -506,6 +495,17 @@
         "code": null,
         "definition": null,
         "display": "Relationship to patient family member [USSG-FHT]"
+      }
+    },
+    {
+      "hash": "|http://loinc.org|null|44258-2|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Feeling bad about yourself - or that you are a failure or have let yourself or your family down in last 2 weeks [Reported.PHQ]"
       }
     },
     {
@@ -558,6 +558,11 @@
       }
     },
     {
+      "hash": "|http://snomed.info/sct|null|194828000|Angina (disorder)",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
+    },
+    {
       "hash": "|http://loinc.org|null|44251-7|null",
       "severity": null,
       "message": null,
@@ -567,11 +572,6 @@
         "definition": null,
         "display": "Poor appetite or overeating in last 2 weeks [Reported.PHQ]"
       }
-    },
-    {
-      "hash": "|http://snomed.info/sct|null|194828000|Angina (disorder)",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Questionnaire Question Codes"
     }
   ]
 }

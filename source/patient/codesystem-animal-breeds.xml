@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/animal-breed"/>
+  <name value="AnimalBreeds"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This example value set defines a set of codes that can be used to indicate breeds of species."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="gsd"/>
+    <display value="German Shepherd Dog"/>
+    <designation>
+      <language value="nl"/>
+      <value value="Duitse herdershond"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="irt"/>
+    <display value="Irish Terrier"/>
+    <designation>
+      <language value="nl"/>
+      <value value="Ierse terrier"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="tibmas"/>
+    <display value="Tibetan Mastiff"/>
+    <designation>
+      <language value="nl"/>
+      <value value="Tibetaanse mastiff"/>
+    </designation>
+  </concept>
+  <concept>
+    <code value="gret"/>
+    <display value="Golden Retriever"/>
+    <designation>
+      <language value="nl"/>
+      <value value="Golden Retriever"/>
+    </designation>
+  </concept>
+</CodeSystem>

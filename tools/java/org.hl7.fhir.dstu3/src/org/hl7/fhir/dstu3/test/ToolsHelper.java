@@ -50,6 +50,8 @@ import org.apache.commons.lang3.NotImplementedException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.JsonParser;
+import org.hl7.fhir.dstu3.formats.RdfParser;
+import org.hl7.fhir.dstu3.formats.RdfParserBase;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.model.Constants;
@@ -294,6 +296,7 @@ public class ToolsHelper {
     File dest = new CSFile(args[2]);
     File destc = new CSFile(Utilities.changeFileExt(args[2], ".canonical.json"));
     File destt = new CSFile(args[2]+".tmp");
+		File destr = new CSFile(Utilities.changeFileExt(args[2], ".ttl"));
 
     if (!source.exists())        
       throw new FHIRException("Source File \""+source.getAbsolutePath()+"\" not found");
@@ -314,6 +317,12 @@ public class ToolsHelper {
     s = new FileOutputStream(destt);
     json.compose(s, rf);
     s.close();    
+
+		RdfParserBase rdf = new RdfParser();
+		s = new FileOutputStream(destr);
+		rdf.compose(s, rf);
+		s.close();
+		
     return TextFile.fileToString(destt.getAbsolutePath());
   }
 
@@ -360,6 +369,11 @@ public class ToolsHelper {
       json.setOutputStyle(OutputStyle.CANONICAL);
       dest = new FileOutputStream(Utilities.changeFileExt(filename, ".canonical.json"));
       json.compose(dest, r);
+				
+				// 2. produce JSON
+				dest = new FileOutputStream(Utilities.changeFileExt(filename, ".ttl"));
+				RdfParserBase rdf = new RdfParser();
+				rdf.compose(dest, r);
       } catch (Exception e) {
         e.printStackTrace();
         throw new FHIRException("Error Processing "+n+".xml: "+e.getMessage(), e);

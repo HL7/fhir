@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Feb 24, 2016 10:46+1100 for FHIR v1.3.0
+// Generated on Thu, Feb 25, 2016 10:54+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -185,6 +185,10 @@ public class CodeSystem extends DomainResource {
          */
         INTEGER, 
         /**
+         * The property value is a boolean true | false
+         */
+        BOOLEAN, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -199,6 +203,8 @@ public class CodeSystem extends DomainResource {
           return STRING;
         if ("integer".equals(codeString))
           return INTEGER;
+        if ("boolean".equals(codeString))
+          return BOOLEAN;
         throw new FHIRException("Unknown PropertyType code '"+codeString+"'");
         }
         public String toCode() {
@@ -207,6 +213,7 @@ public class CodeSystem extends DomainResource {
             case CODING: return "Coding";
             case STRING: return "string";
             case INTEGER: return "integer";
+            case BOOLEAN: return "boolean";
             default: return "?";
           }
         }
@@ -216,6 +223,7 @@ public class CodeSystem extends DomainResource {
             case CODING: return "http://hl7.org/fhir/concept-property-type";
             case STRING: return "http://hl7.org/fhir/concept-property-type";
             case INTEGER: return "http://hl7.org/fhir/concept-property-type";
+            case BOOLEAN: return "http://hl7.org/fhir/concept-property-type";
             default: return "?";
           }
         }
@@ -225,6 +233,7 @@ public class CodeSystem extends DomainResource {
             case CODING: return "The property  value is a code defined in an external code system. This may be used for translations, but is not the intent";
             case STRING: return "The property value is a string";
             case INTEGER: return "The property value is a string (often used to assign ranking values to concepts for supporting score assessments)";
+            case BOOLEAN: return "The property value is a boolean true | false";
             default: return "?";
           }
         }
@@ -234,6 +243,7 @@ public class CodeSystem extends DomainResource {
             case CODING: return "Coding (external reference)";
             case STRING: return "string";
             case INTEGER: return "integer";
+            case BOOLEAN: return "boolean";
             default: return "?";
           }
         }
@@ -252,6 +262,8 @@ public class CodeSystem extends DomainResource {
           return PropertyType.STRING;
         if ("integer".equals(codeString))
           return PropertyType.INTEGER;
+        if ("boolean".equals(codeString))
+          return PropertyType.BOOLEAN;
         throw new IllegalArgumentException("Unknown PropertyType code '"+codeString+"'");
         }
         public Enumeration<PropertyType> fromType(Base code) throws FHIRException {
@@ -268,6 +280,8 @@ public class CodeSystem extends DomainResource {
           return new Enumeration<PropertyType>(this, PropertyType.STRING);
         if ("integer".equals(codeString))
           return new Enumeration<PropertyType>(this, PropertyType.INTEGER);
+        if ("boolean".equals(codeString))
+          return new Enumeration<PropertyType>(this, PropertyType.BOOLEAN);
         throw new FHIRException("Unknown PropertyType code '"+codeString+"'");
         }
     public String toCode(PropertyType code) {
@@ -279,6 +293,8 @@ public class CodeSystem extends DomainResource {
         return "string";
       if (code == PropertyType.INTEGER)
         return "integer";
+      if (code == PropertyType.BOOLEAN)
+        return "boolean";
       return "?";
       }
     public String toSystem(PropertyType code) {
@@ -821,7 +837,7 @@ public class CodeSystem extends DomainResource {
          * The type of the property value.
          */
         @Child(name = "type", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="code | Coding | string | integer", formalDefinition="The type of the property value." )
+        @Description(shortDefinition="code | Coding | string | integer | boolean", formalDefinition="The type of the property value." )
         protected Enumeration<PropertyType> type;
 
         private static final long serialVersionUID = -1346176181L;
@@ -1741,7 +1757,7 @@ public class CodeSystem extends DomainResource {
         /**
          * The value of this property.
          */
-        @Child(name = "value", type = {CodeType.class, Coding.class, StringType.class, IntegerType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {CodeType.class, Coding.class, StringType.class, IntegerType.class, BooleanType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Value of the property for this concept", formalDefinition="The value of this property." )
         protected Type value;
 
@@ -1867,6 +1883,19 @@ public class CodeSystem extends DomainResource {
           return this.value instanceof IntegerType;
         }
 
+        /**
+         * @return {@link #value} (The value of this property.)
+         */
+        public BooleanType getValueBooleanType() throws FHIRException { 
+          if (!(this.value instanceof BooleanType))
+            throw new FHIRException("Type mismatch: the type BooleanType was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (BooleanType) this.value;
+        }
+
+        public boolean hasValueBooleanType() { 
+          return this.value instanceof BooleanType;
+        }
+
         public boolean hasValue() { 
           return this.value != null && !this.value.isEmpty();
         }
@@ -1882,7 +1911,7 @@ public class CodeSystem extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "A code that is a reference to CodeSystem.property.code.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("value[x]", "code|Coding|string|integer", "The value of this property.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value[x]", "code|Coding|string|integer|boolean", "The value of this property.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       @Override
@@ -1914,6 +1943,10 @@ public class CodeSystem extends DomainResource {
         }
         else if (name.equals("valueInteger")) {
           this.value = new IntegerType();
+          return this.value;
+        }
+        else if (name.equals("valueBoolean")) {
+          this.value = new BooleanType();
           return this.value;
         }
         else

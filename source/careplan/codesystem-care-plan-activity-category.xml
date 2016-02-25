@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="care-plan-activity-category"/>
+  <url value="http://hl7.org/fhir/care-plan-activity-category"/>
+  <version value="1.0.0"/>
+  <name value="CarePlanActivityCategory"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-08-31T09:04:04+10:00"/>
+  <description value="High-level categorization of the type of activity in a care plan."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/care-plan-activity-category"/>
+  <content value="complete"/>
+  <concept>
+    <code value="diet"/>
+    <display value="Diet"/>
+    <definition value="Plan for the patient to consume food of a specified nature"/>
+  </concept>
+  <concept>
+    <code value="drug"/>
+    <display value="Drug"/>
+    <definition value="Plan for the patient to consume/receive a drug, vaccine or other product"/>
+  </concept>
+  <concept>
+    <code value="encounter"/>
+    <display value="Encounter"/>
+    <definition value="Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)"/>
+  </concept>
+  <concept>
+    <code value="observation"/>
+    <display value="Observation"/>
+    <definition value="Plan to capture information about a patient (vitals, labs, diagnostic images, etc.)"/>
+  </concept>
+  <concept>
+    <code value="procedure"/>
+    <display value="Procedure"/>
+    <definition value="Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)"/>
+  </concept>
+  <concept>
+    <code value="supply"/>
+    <display value="Supply"/>
+    <definition value="Plan to provide something to the patient (medication, medical supply, etc.)"/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+    <definition value="Some other form of action"/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="hspc-deltaFlag-numericNom"/>
+  <url value="http://healthcaresoa.org/fhir/hspc-deltaFlag-numericNom"/>
+  <version value="0.01"/>
+  <name value="Abnormal Interpretation Numeric Nom"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2014-06-25T00:00:00+10:00"/>
+  <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83 + SNOMED CT SNOMED CT concepts from the Degree findings (qualifier value)272520006, Presence findings (qualifier value)260411009, Absence findings (qualifier value)272519000"/>
+  <copyright value="IHC"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://healthcaresoa.org/fhir/ValueSet/hspc-deltaFlag-numericNom"/>
+  <content value="complete"/>
+  <concept>
+    <code value="unchanged"/>
+    <display value="Unchanged"/>
+    <definition value="The current test results are not significantly different from previous results"/>
+  </concept>
+</CodeSystem>

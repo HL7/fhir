@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://www.hl7.org/fhir/contractaction"/>
+  <name value="Contract Action Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Contract Action codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="action-a"/>
+  </concept>
+  <concept>
+    <code value="action-b"/>
+  </concept>
+</CodeSystem>

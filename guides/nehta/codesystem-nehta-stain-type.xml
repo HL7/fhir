@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-stain-type"/>
+  <url value="http://hl7.org/fhir/nehta-stain-type"/>
+  <version value="20150624"/>
+  <name value="StainType"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="Stain type options"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-stain-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="not_tested"/>
+    <display value="Not tested"/>
+    <definition value="The mismathch repair enzyne was not tested"/>
+  </concept>
+  <concept>
+    <code value="normal_staining"/>
+    <display value="Normal Staining"/>
+    <definition value="The mismatch repair enzyme had normal staining"/>
+  </concept>
+  <concept>
+    <code value="loss_of_staining"/>
+    <display value="Not tested"/>
+    <definition value="The gene mutation was not tested"/>
+  </concept>
+</CodeSystem>

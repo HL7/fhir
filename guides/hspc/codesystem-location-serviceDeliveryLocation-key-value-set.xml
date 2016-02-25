@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/location-hspc-serviceDeliveryLocation-key-value-set"/>
+  <name value="ServiceDeliveryLocation key value set"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set defines the set of codes used to identify the service delivery location."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="119"/>
+    <display value="Facility"/>
+    <definition value="A location that is categorized by the nursing skill, specialty, or type of care delivered"/>
+  </concept>
+</CodeSystem>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/qicore-adverseevent-category"/>
+  <name value="QICore Adverse Event Category Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Value Set for QICore Adverse Event Category (Preferred)"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="blood"/>
+    <display value="Blood or Blood Product"/>
+    <definition value="Blood or Blood Product"/>
+  </concept>
+  <concept>
+    <code value="device"/>
+    <display value="Device, Materials, or Information Technology"/>
+    <definition value="Device or Medical/Surgical Supply, including Health Information Technology (HIT)"/>
+  </concept>
+  <concept>
+    <code value="fall"/>
+    <display value="Fall"/>
+    <definition value="Fall by patient"/>
+  </concept>
+  <concept>
+    <code value="infection"/>
+    <display value="Healthcare-Related Infection"/>
+    <definition value="Healthcare-related infection"/>
+  </concept>
+  <concept>
+    <code value="substance"/>
+    <display value="Medication or Other Substance"/>
+    <definition value="Medication or Other Substance"/>
+  </concept>
+  <concept>
+    <code value="perinatal"/>
+    <display value="Perinatal"/>
+    <definition value="Perinatal"/>
+  </concept>
+  <concept>
+    <code value="ulcer"/>
+    <display value="Pressure Ulcer"/>
+    <definition value="Pressure Ulcer"/>
+  </concept>
+  <concept>
+    <code value="surgery"/>
+    <display value="Surgery or Anesthesia"/>
+    <definition value="Surgery or Anesthesia (includes invasive procedures)"/>
+  </concept>
+  <concept>
+    <code value="embolism"/>
+    <display value="Venous Thromboembolism"/>
+    <definition value="Venous Thromboembolism"/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other (please specify)"/>
+    <definition value="Other (please specify)"/>
+  </concept>
+</CodeSystem>

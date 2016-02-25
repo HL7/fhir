@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/missingtoothreason"/>
+  <name value="Missing Tooth Reason Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Missing Tooth Reason codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="E"/>
+    <display value="E"/>
+    <definition value="Extraction"/>
+  </concept>
+  <concept>
+    <code value="C"/>
+    <display value="C"/>
+    <definition value="Congenital"/>
+  </concept>
+  <concept>
+    <code value="U"/>
+    <display value="U"/>
+    <definition value="Unknown"/>
+  </concept>
+  <concept>
+    <code value="O"/>
+    <display value="O"/>
+    <definition value="Other"/>
+  </concept>
+</CodeSystem>

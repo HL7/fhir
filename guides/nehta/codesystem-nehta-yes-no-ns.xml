@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-yes-no-ns"/>
+  <url value="http://hl7.org/fhir/nehta-yes-no-ns"/>
+  <version value="20151102"/>
+  <name value="YesNoNotStated"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="This is the code has the options of Yes or No."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International       Health Terminology Standards Development Organisation (IHTSDO), and distributed by    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this    agreement"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-yes-no-ns"/>
+  <content value="complete"/>
+  <concept>
+    <code value="not-stated"/>
+    <display value="Not stated"/>
+    <definition value="Indicates whether a response was not stated."/>
+  </concept>
+</CodeSystem>

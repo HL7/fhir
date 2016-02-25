@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/hspc-clinicalassertstatus"/>
+  <version value="0.01"/>
+  <name value="HSPC Clinical Assert Status Value Set"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-07-31T00:00:00+10:00"/>
+  <description value="SELECT SNOMED CT and Intermountain Healthcare HDD code system values."/>
+  <copyright value="TBD"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="1797"/>
+    <display value="Resolved"/>
+    <definition value="Indication that a symptom or condition is subsided or healed."/>
+  </concept>
+  <concept>
+    <code value="69074"/>
+    <display value="Error"/>
+    <definition value="The state of being mistaken."/>
+  </concept>
+</CodeSystem>

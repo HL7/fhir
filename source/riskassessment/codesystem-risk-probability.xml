@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/risk-probability"/>
+  <name value="Risk Probability"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="Codes representing the likelihood of a particular outcome in a risk assessment."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="negligible"/>
+    <display value="Negligible likelihood"/>
+    <definition value="The specified outcome is exceptionally unlikely."/>
+  </concept>
+  <concept>
+    <code value="low"/>
+    <display value="Low likelihood"/>
+    <definition value="The specified outcome is possible but unlikely."/>
+  </concept>
+  <concept>
+    <code value="moderate"/>
+    <display value="Moderate likelihood"/>
+    <definition value="The specified outcome has a reasonable likelihood of occurrence."/>
+  </concept>
+  <concept>
+    <code value="high"/>
+    <display value="High likelihood"/>
+    <definition value="The specified outcome is more likely to occur than not."/>
+  </concept>
+  <concept>
+    <code value="certain"/>
+    <display value="Certain"/>
+    <definition value="The specified outcome is effectively guaranteed."/>
+  </concept>
+</CodeSystem>

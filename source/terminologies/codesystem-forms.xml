@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="forms"/>
+  <url value="http://hl7.org/fhir/forms-codes"/>
+  <name value="Form Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="This value set includes a sample set of Forms codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="1"/>
+  </concept>
+  <concept>
+    <code value="2"/>
+  </concept>
+</CodeSystem>

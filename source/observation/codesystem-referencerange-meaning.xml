@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/referencerange-meaning"/>
+  <name value="Observation Reference Range Meaning Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set defines a set of codes that can be used to indicate the meaning/use of a reference range."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <property>
+    <code value="abstract"/>
+    <description value="True if an element is considered &#39;abstract&#39; - that is the code is not for use as a real concept"/>
+    <type value="boolean"/>
+  </property>
+  <concept>
+    <code value="type"/>
+    <display value="Type"/>
+    <definition value="General types of reference range."/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="normal"/>
+      <display value="Normal Range"/>
+      <definition value="Based on 95th percentile for the relevant control population."/>
+    </concept>
+    <concept>
+      <code value="recommended"/>
+      <display value="Recommended Range"/>
+      <definition value="The range that is recommended by a relevant professional body."/>
+    </concept>
+    <concept>
+      <code value="treatment"/>
+      <display value="Treatment Range"/>
+      <definition value="The range at which treatment would/should be considered."/>
+    </concept>
+    <concept>
+      <code value="therapeutic"/>
+      <display value="Therapeutic Desired Level"/>
+      <definition value="The optimal range for best therapeutic outcomes."/>
+      <concept>
+        <code value="pre"/>
+        <display value="Pre Therapeutic Desired Level"/>
+        <definition value="The optimal range for best therapeutic outcomes for a specimen taken immediately before administration."/>
+      </concept>
+      <concept>
+        <code value="post"/>
+        <display value="Post Therapeutic Desired Level"/>
+        <definition value="The optimal range for best therapeutic outcomes for a specimen taken immediately after administration."/>
+      </concept>
+    </concept>
+  </concept>
+  <concept>
+    <code value="endocrine"/>
+    <display value="Endocrine"/>
+    <definition value="Endocrine related states that change the expected value."/>
+    <property>
+      <code value="abstract"/>
+      <valueBoolean value="true"/>
+    </property>
+    <concept>
+      <code value="pre-puberty"/>
+      <display value="Pre-Puberty"/>
+      <definition value="An expected range in an individual prior to puberty."/>
+    </concept>
+    <concept>
+      <code value="follicular"/>
+      <display value="Follicular Stage"/>
+      <definition value="An expected range in an individual during the follicular stage of the cycle."/>
+    </concept>
+    <concept>
+      <code value="midcycle"/>
+      <display value="MidCycle"/>
+      <definition value="An expected range in an individual during the follicular stage of the cycle."/>
+    </concept>
+    <concept>
+      <code value="luteal"/>
+      <display value="Luteal"/>
+      <definition value="An expected range in an individual during the luteal stage of the cycle."/>
+    </concept>
+    <concept>
+      <code value="postmeopausal"/>
+      <display value="Post-Menopause"/>
+      <definition value="An expected range in an individual post-menopause."/>
+    </concept>
+  </concept>
+</CodeSystem>

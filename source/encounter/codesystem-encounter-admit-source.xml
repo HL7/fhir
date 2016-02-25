@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/admit-source"/>
+  <name value="AdmitSource"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set defines a set of codes that can be used to indicate from where the patient came in."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="hosp-trans"/>
+    <display value="Transferred from other hospital"/>
+  </concept>
+  <concept>
+    <code value="emd"/>
+    <display value="From accident/emergency department"/>
+  </concept>
+  <concept>
+    <code value="outp"/>
+    <display value="From outpatient department"/>
+  </concept>
+  <concept>
+    <code value="born"/>
+    <display value="Born in hospital"/>
+  </concept>
+  <concept>
+    <code value="gp"/>
+    <display value="General Practitioner referral"/>
+  </concept>
+  <concept>
+    <code value="mp"/>
+    <display value="Medical Practitioner/physician referral"/>
+  </concept>
+  <concept>
+    <code value="nursing"/>
+    <display value="From nursing home"/>
+  </concept>
+  <concept>
+    <code value="psych"/>
+    <display value="From psychiatric hospital"/>
+  </concept>
+  <concept>
+    <code value="rehab"/>
+    <display value="From rehabilitation facility"/>
+  </concept>
+  <concept>
+    <code value="other"/>
+    <display value="Other"/>
+  </concept>
+</CodeSystem>

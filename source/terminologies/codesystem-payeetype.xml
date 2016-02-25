@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="payeetype"/>
+  <url value="http://hl7.org/fhir/payeetype"/>
+  <name value="Payee Type Codes"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <description value="This value set includes sample Payee Type codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="subscriber"/>
+  </concept>
+  <concept>
+    <code value="provider"/>
+  </concept>
+  <concept>
+    <code value="other"/>
+  </concept>
+</CodeSystem>

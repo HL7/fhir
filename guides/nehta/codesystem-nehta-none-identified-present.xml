@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-none-identified-present"/>
+  <url value="http://hl7.org/fhir/nehta-none-identified-present"/>
+  <version value="20151104"/>
+  <name value="NoneIdentifiedPresent"/>
+  <status value="active"/>
+  <experimental value="true"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="Indicates if there are any other nodules present."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International       Health Terminology Standards Development Organisation (IHTSDO), and distributed by    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this    agreement"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-none-identified-present"/>
+  <content value="complete"/>
+  <concept>
+    <code value="none_identified"/>
+    <display value="None identified"/>
+    <definition value="None identified"/>
+  </concept>
+</CodeSystem>

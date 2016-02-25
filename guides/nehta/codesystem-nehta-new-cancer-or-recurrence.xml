@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-new-cancer-or-recurrence"/>
+  <url value="http://hl7.org/fhir/nehta-new-cancer-or-recurrence"/>
+  <version value="20150626"/>
+  <name value="NewCancerOrRecurrence"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="Lists the options for recording the a new primary cancer or a residual cancer, if known."/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-new-cancer-or-recurrence"/>
+  <content value="complete"/>
+  <concept>
+    <code value="new-primary"/>
+    <display value="New primary"/>
+    <definition value="The cancer is a new primary cancer."/>
+  </concept>
+  <concept>
+    <code value="regional_recurrence"/>
+    <display value="Regional (local) recurrence"/>
+    <definition value="The cancer is a regional (local) recurrence."/>
+  </concept>
+  <concept>
+    <code value="distant_metastases"/>
+    <display value="Distant metastases"/>
+    <definition value="The cancer is a distant metastases."/>
+  </concept>
+  <concept>
+    <code value="indeterminate"/>
+    <display value="Indeterminate"/>
+    <definition value="The cancer is indeterminate."/>
+  </concept>
+</CodeSystem>

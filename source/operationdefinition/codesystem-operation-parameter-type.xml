@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ValueSet/special-types"/>
+  <name value="Parameter Types used in Operation Definitions"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2014-07-22T00:00:00+10:00"/>
+  <description value="Parameter Types used in Operation Definitions"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/operation-definition-parameter-type"/>
+  <content value="complete"/>
+  <concept>
+    <code value="Any"/>
+    <display value="Any"/>
+    <definition value="Special type for any kind of resource"/>
+  </concept>
+</CodeSystem>

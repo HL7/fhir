@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="valueset-nehta-dysplasia"/>
+  <url value="http://hl7.org/fhir/nehta-dysplasia"/>
+  <version value="20150619"/>
+  <name value="Dysplasia"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="Indicates the presence or absence of dysplasia"/>
+  <caseSensitive value="true"/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nehta-dysplasia"/>
+  <content value="complete"/>
+  <concept>
+    <code value="with_dysplasia"/>
+    <display value="With dysplasia"/>
+    <definition value="Indicates the presence of dysplasia"/>
+  </concept>
+  <concept>
+    <code value="without_dysplasia"/>
+    <display value="Without dysplasia"/>
+    <definition value="Indicates the absence of dysplasia"/>
+  </concept>
+</CodeSystem>
