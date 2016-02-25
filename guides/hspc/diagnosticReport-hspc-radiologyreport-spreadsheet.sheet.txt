@@ -1,0 +1,70 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = TestStatus
+  Binding = value set
+  Reference = valueset-teststatus
+  Definition = The state that the test or test results are currently in.
+  Conformance = preferred
+
+ -- Row 2 -----------------------------------
+  Binding Name = ReportingPriority
+  Binding = value set
+  Reference = valueset-reporting-priority
+  Definition = The urgency level that the results should be reported.
+  Conformance = preferred
+
+ -- Row 3 -----------------------------------
+  Binding Name = RadiologyTransportMode
+  Binding = value set
+  Reference = valueset-radiologytransportmode
+  Definition = The means by which the patient was taken to the diagnostic service department
+  Conformance = preferred
+
+=== Sheet hspc-radiologyreport =====================================
+
+ -- Row 1 -----------------------------------
+  Element = DiagnosticReport
+  Profile Name = HSPC Radiology Report
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = LocationPerformed
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed}
+
+ -- Row 3 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = ReportingPriority
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionspriority}
+  Binding = ReportingPriority
+
+ -- Row 4 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = TransportMode
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsradiologyTransportMode}
+  Binding = RadiologyTransportMode
+
+ -- Row 5 -----------------------------------
+  Element = DiagnosticReport.extension
+  Profile Name = ResultCopiesTo
+  Card. = 0..*
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsresultCopiesTo}
+
+ -- Row 6 -----------------------------------
+  Element = DiagnosticReport.extension.extension
+  Profile Name = ResultCopiesTo.ProviderId
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsresultCopiesTo#ProviderId}
+
+ -- Row 7 -----------------------------------
+  Element = DiagnosticReport.extension.extension
+  Profile Name = ResultCopiesTo.ProviderName
+  Card. = 0..1
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-extensionsresultCopiesTo#ProviderName}
+
+=== Sheet Search =====================================
