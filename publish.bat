@@ -6,6 +6,6 @@ set JAVA_HOME=%newestJDK%
 echo Using %JAVA_HOME%
 
 set ANT_OPTS=-Xms64m 
-call ant Publisher -Dargs="%*"
+call ant Publisher -Dargs="%* -web"
 
 PAUSE
