@@ -86,37 +86,13 @@ public class CSharpGenerator extends BaseGenerator implements PlatformGenerator 
     return super.getReference(version);
   }
 
-  private Logger logger = null;
-
-
   @Override
   public boolean doesCompile() {
     return false;
   }
 
-
   @Override
-  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) 
-  {
+  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
     return false;
-  }
-
-  @Override
-  public boolean doesTest() {
-    return false;
-  }
-
-  @Override
-  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) {
-  }
-
-  @Override
-  public String checkFragments(FolderManager folders, String fragments) throws Exception {
-    return "Not supported by C# implementation";
-  }
-
-  @Override
-  public void test(FolderManager folders, Collection<String> names) throws Exception {
-    throw new Error("This should not be called");
   }
 }

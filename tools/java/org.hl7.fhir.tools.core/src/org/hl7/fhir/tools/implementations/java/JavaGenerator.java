@@ -615,7 +615,7 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   private void checkVersion() throws Exception {
     // execute the jar file javatest.jar to check that it's version matches the version of the reference implemetnation bound in to the build tool
     // also serves as as check of the java
-    // 
+//
     String destFile = Utilities.path(System.getProperty("java.io.tmpdir"), "java-version.tmp"); 
     File file = new CSFile(destFile);
     if (file.exists())
@@ -715,130 +715,6 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
   }
 
 
-  @Override
-  public boolean doesTest() {
-    return true;
-  }
-
-  @Override
-  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
-    if (IN_PROCESS) {
-      ToolsHelper t = new ToolsHelper();
-      String[] cmds = new String[] {"round", sourceFile, destFile};    
-      t.executeRoundTrip(cmds);
-    } else {
-      // execute the jar file javatest.jar
-      // it will produce either the specified output file, or [output file].err with an exception
-      // 
-      File file = new CSFile(destFile);
-      if (file.exists())
-        file.delete();
-      file = new CSFile(destFile+".err");
-      if (file.exists())
-        file.delete();
-
-      List<String> command = new ArrayList<String>();
-      command.add("java");
-      command.add("-jar");
-      command.add("org.hl7.fhir.tools.jar");
-      command.add("round");
-      command.add(sourceFile);
-      command.add(destFile);
-
-      ProcessBuilder builder = new ProcessBuilder(command);
-      builder.directory(new File(folders.dstDir));
-
-      final Process process = builder.start();
-      process.waitFor();
-      if (new File(destFile+".err").exists())
-        throw new Exception(TextFile.fileToString(destFile+".err"));
-      if (!(new File(destFile).exists()))
-        throw new Exception("Neither output nor error file created");
-    }
-  }
-
-  public void processExamples(FolderManager folders, String tmpDir, Collection<String> names) throws Exception {
-    // for debugging: do it in process
-    if (IN_PROCESS) {
-      ToolsHelper t = new ToolsHelper();
-      t.processExamples(folders.dstDir, names);
-    } else {
-      StringBuilder b = new StringBuilder();
-      b.append(folders.dstDir);
-      b.append("\r\n");
-      for (String n : names) {
-        b.append(n);
-        b.append("\r\n");
-      }
-      String ctrl = tmpDir+"ctrl-java.ini";
-      TextFile.stringToFileNoPrefix(b.toString(), ctrl);
-      String err = tmpDir+"ctrl-java.out";
-      File file = new CSFile(err);
-      if (file.exists())
-        file.delete();
-      List<String> command = new ArrayList<String>();
-      command.add("java");
-      command.add("-jar");
-      command.add("org.hl7.fhir.tools.jar");
-      command.add("examples");
-      command.add(ctrl);
-
-      ProcessBuilder builder = new ProcessBuilder(command);
-      builder.directory(new File(folders.dstDir));
-      final Process process = builder.start();
-      BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-      String s;
-      while ((s = stdError.readLine()) != null) {
-        System.err.println(s);
-      }    
-      process.waitFor();
-      String result = TextFile.fileToString(err);
-      if (!"ok".equals(result))
-        throw new Exception(result);
-    } 
-  }
-
-  @Override
-  // in process for debugging, but requires tool generated code to be current
-  public String checkFragments(FolderManager folders, String fragments) throws Exception {
-    File file = Utilities.createTempFile("temp", ".xml");
-    if (file.exists())
-      file.delete();
-    TextFile.stringToFile(fragments, file.getAbsolutePath());
-
-    File filed = Utilities.createTempFile("temp", ".txt");
-    if (filed.exists())
-      filed.delete();
-
-    String commandString;
-    if (IN_PROCESS) {
-      new ToolsHelper().executeFragments(new String[] {"fragments", file.getAbsolutePath(), filed.getAbsolutePath()}); 
-      commandString = "executeFragments(\"fragments\",\"" + file.getAbsolutePath() + "\",\"" + filed.getAbsolutePath() + "\"";
-    } else {
-      List<String> command = new ArrayList<String>();
-      command.add("java");
-      command.add("-jar");
-      command.add("org.hl7.fhir.tools.jar");
-      command.add("fragments");
-      command.add(file.getAbsolutePath());
-      command.add(filed.getAbsolutePath());
-      commandString = new java.io.File( "." ).getCanonicalPath() + "  " + StringUtils.join(command, " ");
-
-      ProcessBuilder builder = new ProcessBuilder().inheritIO().command(command);
-      builder.directory(new File(folders.dstDir));
-
-      final Process process = builder.start();
-      process.waitFor();
-    }
-    if (!filed.exists()) {
-      return "Fragment processing failed completely while executing command: " + commandString;
-    }
-    String s = TextFile.fileToString(filed.getAbsolutePath());
-    if ("ok".equals(s))
-      return null;
-    else
-      return s;
-  }
 
   @Override
   public String getVersion() {
@@ -887,62 +763,5 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
     } 
   }
 
-  @Override
-  public void test(FolderManager folders, Collection<String> names) throws Exception {
-    if (IN_PROCESS) {
-      ToolsHelper t = new ToolsHelper();
-      try {
-        t.testRoundTrip(folders.dstDir, folders.tmpDir, names);
-      } catch (Throwable e) {
-        throw new Exception(e);
-      }
-    } else {
-      System.out.println("Roundtrip: "+names);
-      StringBuilder b = new StringBuilder();
-      b.append(folders.dstDir);
-      b.append("\r\n");
-      b.append(folders.tmpDir);
-      b.append("\r\n");
-      for (String n : names) {
-        b.append(n);
-        b.append("\r\n");
-      }
-      String ctrl = folders.tmpDir+"ctrl-java.ini";
-      TextFile.stringToFileNoPrefix(b.toString(), ctrl);
-      String err = folders.tmpDir+"ctrl-java.out";
-      File file = new CSFile(err);
-      if (file.exists())
-        file.delete();
-      List<String> command = new ArrayList<String>();
-      command.add("java");
-      command.add("-Xmx2G");
-      command.add("-jar");
-      command.add("org.hl7.fhir.tools.jar");
-      command.add("test");
-      command.add(ctrl);
-      boolean done = false;
-      int i = 0;
-      do {
-        ProcessBuilder builder = new ProcessBuilder(command);
-        builder.directory(new File(folders.dstDir));
-        final Process process = builder.start();
-        BufferedReader stdError = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-        String s;
-        while ((s = stdError.readLine()) != null) {
-          System.err.println(s);
-        }    
-        i++;
-        process.waitFor();
-        if (file.exists())
-          done = true;
-        else if (i == 3)
-          throw new Exception("Java Round trip execution failed without generating any response (tried 3 times)");
-      } while (!done);
-
-      String result = TextFile.fileToString(err);
-      if (!"ok".equals(result))
-        throw new Exception(result);
-    }
-  }
 
 }

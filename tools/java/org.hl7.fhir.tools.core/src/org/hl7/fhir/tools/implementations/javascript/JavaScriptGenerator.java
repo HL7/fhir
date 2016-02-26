@@ -126,27 +126,8 @@ public class JavaScriptGenerator extends BaseGenerator implements PlatformGenera
   }
 
   @Override
-  public boolean doesTest() {
-    return false;
-  }
-
-  @Override
-  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
-  }
-
-  @Override
   public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
     return false;
-  }
-
-  @Override
-  public String checkFragments(FolderManager folders, String fragmentsXml) throws Exception {
-    return null;
-  }
-
-  @Override
-  public void test(FolderManager folders, Collection<String> names) throws Exception {
-    throw new Error("This should not be called");
   }
 
 }

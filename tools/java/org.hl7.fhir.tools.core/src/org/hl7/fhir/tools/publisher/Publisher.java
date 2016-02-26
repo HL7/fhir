@@ -124,6 +124,8 @@ import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.metamodel.Manager;
+import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.ConceptMap;
@@ -173,6 +175,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.GuidePageKind;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
+import org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationDosageComponent;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemType;
@@ -412,8 +415,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private String singlePage;
   private PublisherTestSuites tester;
   private List<FHIRPathUsage> fpUsages = new ArrayList<FHIRPathUsage>();
-
-  private Map<String, Example> processingList = new HashMap<String, Example>();
 
   private boolean genRDF;
   int errorCount = 0;
@@ -2003,14 +2004,12 @@ public class Publisher implements URIResolver, SectionNumberer {
       ResourceDefn r = page.getDefinitions().getBaseResources().get(rname);
       page.log(" ...resource " + r.getName(), LogMessageType.Process);
       produceResource2(r, true, rname.equals("Resource") ? "Meta" : null);
-      processExamplesByBatch();
     }
     for (String rname : page.getDefinitions().sortedResourceNames()) {
       if (!rname.equals("ValueSet") && wantBuild(rname)) {
         ResourceDefn r = page.getDefinitions().getResources().get(rname);
         page.log(" ...resource " + r.getName(), LogMessageType.Process);
         produceResource2(r, false, null);
-        processExamplesByBatch();
       }
     }
 
@@ -2020,7 +2019,6 @@ public class Publisher implements URIResolver, SectionNumberer {
         produceCompartment(c);
       }
     }
-    processExamplesByBatch();
 
     for (String n : page.getIni().getPropertyNames("pages")) {
       if (buildFlags.get("all") || buildFlags.get("page-" + n.toLowerCase())) {
@@ -2072,7 +2070,6 @@ public class Publisher implements URIResolver, SectionNumberer {
           produceConformancePackage("", p, null);
         //}
       }
-      processExamplesByBatch();
 
       produceV2();
       produceV3();
@@ -3503,44 +3500,23 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
   private void checkFragments() throws Exception {
-    List<String> errors = new ArrayList<String>();
-    StringBuilder s = new StringBuilder();
-    s.append("<tests>\r\n");
-    int i = 0;
     for (Fragment f : fragments) {
-      s.append("<test id=\"").append(Integer.toString(i)).append("\" page=\"")
-			  .append(f.getPage()).append("\" type=\"").append(f.getType()).append("\">\r\n");
-      s.append(f.getXml());
-      s.append("</test>\r\n");
-      i++;
-    }
-    s.append("</tests>\r\n");
-    String err = javaReferencePlatform.checkFragments(page.getFolders(), s.toString());
-    if (err == null)
-      throw new Exception("Unable to process outcome of checking fragments");
-    if (!err.startsWith("<results"))
-      throw new Exception(err);
-
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    Document errDoc = builder.parse(new ByteArrayInputStream(err.getBytes()));
-
-    Element result = XMLUtil.getFirstChild(errDoc.getDocumentElement());
-
-    while (result != null) {
-      String id = result.getAttribute("id");
-      String outcome = result.getAttribute("outcome");
-      if (!"ok".equals(outcome)) {
-        Fragment f = fragments.get(Integer.parseInt(id));
-        String msg = "Fragment Error in page " + f.getPage() + ": " + result.getAttribute("msg") + " for\r\n" + f.getXml();
-        page.log(msg, LogMessageType.Error);
-        page.log("", LogMessageType.Error);
-        errors.add(msg);
+      String xml = f.getXml();
+      ByteArrayInputStream bs = new ByteArrayInputStream(xml.getBytes());
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      factory.setNamespaceAware(true);
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      Document doc = builder.parse(bs);
+      org.w3c.dom.Element base = doc.getDocumentElement();
+      String type = base.getAttribute("fragment");
+      if (!page.getDefinitions().hasPrimitiveType(type)) {
+        try {
+          new org.hl7.fhir.dstu3.metamodel.XmlParser(page.getWorkerContext(), true).parse(XMLUtil.getFirstChild(base), type);
+        } catch (Exception e) {
+          page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.STRUCTURE, "Fragment Error in page " + f.getPage() + ": " + e.getMessage(), IssueSeverity.ERROR));
+        }
       }
-      result = XMLUtil.getNextSibling(result);
     }
-    if (errors.size() > 0)
-      throw new Exception("Fragment Errors prevent publication from continuing");
   }
 
   private void produceZip() throws Exception {
@@ -3907,7 +3883,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     CSFile file = new CSFile(page.getFolders().dstDir + prefix +n + ".xml");
     xmlgen.generate(xdoc.getDocumentElement(), file, "http://hl7.org/fhir", xdoc.getDocumentElement()
           .getLocalName());
-
+    
     // check the narrative. We generate auto-narrative. If the resource didn't
     // have it's own original narrative, then we save it anyway
     // n
@@ -4024,7 +4000,31 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     // queue for json and canonical XML generation processing
     e.setResourceName(resourceName);
-    processingList.put(prefix +n, e);
+    org.hl7.fhir.dstu3.metamodel.Element ex = Manager.parse(page.getWorkerContext(), new CSFileInputStream(page.getFolders().dstDir + prefix+n + ".xml"), FhirFormat.XML, true);
+    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".json"), FhirFormat.JSON, OutputStyle.PRETTY); 
+//    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(Utilities.changeFileExt(destName, ".canonical.json")), FhirFormat.JSON, OutputStyle.CANONICAL); 
+//    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(Utilities.changeFileExt(destName, ".canonical.xml")), FhirFormat.XML, OutputStyle.CANONICAL); 
+    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".ttl"), FhirFormat.TURTLE, OutputStyle.PRETTY); 
+    
+    String json = TextFile.fileToString(page.getFolders().dstDir + prefix+n + ".json");
+    //        String json2 = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\""+ n + ".json\">Raw JSON</a> (<a href=\""+n + ".canonical.json\">Canonical</a>)</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
+    //            + "\r\n</pre>\r\n</div>\r\n";
+    json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
+    + "\r\n</pre>\r\n</div>\r\n";
+    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
+    html = page.processPageIncludes(n + ".json.html", html, e.getResourceName() == null ? "profile-instance:resource:" + e.getResourceName() : "resource-instance:" + e.getResourceName(), null, null, null, "Example", null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + prefix+n + ".json.html");
+
+    page.getEpub().registerExternal(prefix+n + ".json.html");
+
+    String ttl = TextFile.fileToString(page.getFolders().dstDir + prefix+n + ".ttl");
+    ttl = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(ttl)
+    + "\r\n</pre>\r\n</div>\r\n";
+    html = TextFile.fileToString(page.getFolders().srcDir + "template-example-ttl.html").replace("<%example%>", ttl);
+    html = page.processPageIncludes(n + ".ttl.html", html, e.getResourceName() == null ? "profile-instance:resource:" + e.getResourceName() : "resource-instance:" + e.getResourceName(), null, null, null, "Example", null);
+    TextFile.stringToFile(html, page.getFolders().dstDir + prefix+n + ".ttl.html");
+
+    page.getEpub().registerExternal(prefix+n + ".ttl.html");
 
     // reload it now, xml to xhtml of xml
     builder = factory.newDocumentBuilder();
@@ -4033,7 +4033,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     ByteArrayOutputStream b = new ByteArrayOutputStream();
     xhtml.generate(xdoc, b, n.toUpperCase().substring(0, 1) + n.substring(1), Utilities.noString(e.getId()) ? e.getDescription() : e.getDescription()
         + " (id = \"" + e.getId() + "\")", 0, true, n + ".xml.html");
-    String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
+    html = TextFile.fileToString(page.getFolders().srcDir + "template-example-xml.html").replace("<%example%>", b.toString());
     html = page.processPageIncludes(n + ".xml.html", html, resourceName == null ? "profile-instance:resource:" + rt : "resource-instance:" + resourceName, null, profile, null, "Example", ig);
     TextFile.stringToFile(html, page.getFolders().dstDir + prefix +n + ".xml.html");
     XhtmlDocument d = new XhtmlParser().parse(new CSFileInputStream(page.getFolders().dstDir + prefix +n + ".xml.html"), "html");
@@ -4152,39 +4152,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
-  private void processExamplesByBatch() throws Exception {
-    page.log(" ...process examples", LogMessageType.Process);
-    System.gc();
-    try {
-      javaReferencePlatform.processExamples(page.getFolders(), page.getFolders().tmpDir, processingList.keySet());
-    } catch (Throwable t) {
-      System.out.println("Error processing examples");
-      t.printStackTrace(System.err);
-    }
-    for (String n : processingList.keySet()) {
-      Example e = processingList.get(n);
-      String json = TextFile.fileToString(page.getFolders().dstDir + n + ".json");
-//      String json2 = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\""+ n + ".json\">Raw JSON</a> (<a href=\""+n + ".canonical.json\">Canonical</a>)</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
-//          + "\r\n</pre>\r\n</div>\r\n";
-      json = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)
-          + "\r\n</pre>\r\n</div>\r\n";
-      String html = TextFile.fileToString(page.getFolders().srcDir + "template-example-json.html").replace("<%example%>", json);
-      html = page.processPageIncludes(n + ".json.html", html, e.getResourceName() == null ? "profile-instance:resource:" + e.getResourceName() : "resource-instance:" + e.getResourceName(), null, null, null, "Example", null);
-      TextFile.stringToFile(html, page.getFolders().dstDir + n + ".json.html");
-
-      page.getEpub().registerExternal(n + ".json.html");
-
-      String ttl = TextFile.fileToString(page.getFolders().dstDir + n + ".ttl");
-      ttl = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(ttl)
-          + "\r\n</pre>\r\n</div>\r\n";
-      html = TextFile.fileToString(page.getFolders().srcDir + "template-example-ttl.html").replace("<%example%>", ttl);
-      html = page.processPageIncludes(n + ".ttl.html", html, e.getResourceName() == null ? "profile-instance:resource:" + e.getResourceName() : "resource-instance:" + e.getResourceName(), null, null, null, "Example", null);
-      TextFile.stringToFile(html, page.getFolders().dstDir + n + ".ttl.html");
-
-      page.getEpub().registerExternal(n + ".ttl.html");
-    }
-    processingList.clear();
-  }
 
   private String buildLoincExample(String filename) throws FileNotFoundException, Exception {
     LoincToDEConvertor conv = new LoincToDEConvertor();
@@ -5268,10 +5235,8 @@ public class Publisher implements URIResolver, SectionNumberer {
 
 
   private void validationProcess() throws Exception {
-//    new ProfileUtilitiesTests(page.getFolders().dstDir).testSnapshotGeneration();
     validateXml();
-    if (web)
-      roundTrip();
+    miscValidation();
   }
 
   private void validateXml() throws Exception {
@@ -5376,73 +5341,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       throw new EValidationFailed("Resource Examples failed instance validation");
   }
 
-  private void roundTrip() throws Exception {
-    page.log("Reference Platform Validation", LogMessageType.Process);
+  private void miscValidation() throws Exception {
+    page.log("Other Validation", LogMessageType.Process);
     page.clean2();
-
-    page.log("Round Trip #1", LogMessageType.Process);
-    List<String> list = new ArrayList<String>();
-
-    listExamples(list);
-    Collections.sort(list);
-    for (PlatformGenerator gen : page.getReferenceImplementations()) {
-      if (gen.doesTest()) {
-        page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
-        gen.test(page.getFolders(), list);
-      }
-    }
-
-    page.log("Round Trip #2", LogMessageType.Process);
-    if (buildFlags.get("all")) {
-      list = new ArrayList<String>();
-      listCollections1(list);
-    }
-
-    for (PlatformGenerator gen : page.getReferenceImplementations()) {
-      if (gen.doesTest()) {
-        page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
-        gen.test(page.getFolders(), list);
-      }
-    }
-
-    page.log("Round Trip #3", LogMessageType.Process);
-    if (buildFlags.get("all")) {
-      list = new ArrayList<String>();
-      listCollections2(list);
-    }
-
-    for (PlatformGenerator gen : page.getReferenceImplementations()) {
-      if (gen.doesTest()) {
-        page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
-        gen.test(page.getFolders(), list);
-      }
-    }
-
-    page.log("Round Trip #4", LogMessageType.Process);
-    if (buildFlags.get("all")) {
-      list = new ArrayList<String>();
-      listCollections3(list);
-    }
-
-    for (PlatformGenerator gen : page.getReferenceImplementations()) {
-      if (gen.doesTest()) {
-        page.log(" ...round trip " + gen.getTitle(), LogMessageType.Process);
-        gen.test(page.getFolders(), list);
-      }
-    }
-
-    list = new ArrayList<String>();
-
-    listExamples(list);
-    listCollections1(list);
-    listCollections2(list);
-    listCollections3(list);
-    Collections.sort(list);
-
-    for (String n : list) {
-      page.log(" ...test " + n, LogMessageType.Process);
-      validateRoundTrip(n);
-    }
 
     for (String rn : page.getDefinitions().sortedResourceNames()) {
       ResourceDefn r = page.getDefinitions().getResourceByName(rn);
@@ -5651,15 +5552,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       return LogMessageType.Warning;
     default:
       return LogMessageType.Error;
-    }
-  }
-
-  private void validateRoundTrip(String n) throws Exception {
-    testSearchParameters(page.getFolders().dstDir + n + ".xml");
-    for (PlatformGenerator gen : page.getReferenceImplementations()) {
-      if (gen.doesTest()) {
-        compareXml(n, gen.getName(), page.getFolders().dstDir + n + ".xml", page.getFolders().tmpDir + n.replace(File.separator, "-") + "."+gen.getName()+".xml");
-      }
     }
   }
 

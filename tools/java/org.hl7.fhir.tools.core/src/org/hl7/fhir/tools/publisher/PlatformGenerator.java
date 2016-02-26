@@ -78,6 +78,7 @@ public interface PlatformGenerator {
    */
   public void generate(Definitions definitions, String destDir, String implDir, String version, Date genDate, Logger logger, String svnRevision)  throws Exception;
   
+
   /**
    * todo: should this be part of the generate or not?
    * 
@@ -95,71 +96,11 @@ public interface PlatformGenerator {
    */
   public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception;
   
-  /**
-   * 
-   * @return true if this platform can be tested as part of the run-time tests i.e. supports loadAndSave
-   */
-  public boolean doesTest();
-
-  /**
-   * Load the source File to the object model, then save it to the dest file 
-   * Both dest and source should be XML. The build tool will check if the 
-   * canonical XML of the source and dest are the same. If so, it passes
-   * 
-   * @param sourceFile
-   * @param destFile
-   * @throws Exception 
-   */
-  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception;
-  
-  /**
-   * Load a set of source Files to the object model, then save them to [tmp]\*.xx.xml
-   * where xx is getName()
-   * 
-   * Both dest and source should be XML. The build tool will check if the 
-   * canonical XML of the source and dest are the same. If so, it passes
-   * 
-   */
-  public void test(FolderManager folders, Collection<String> names) throws Exception;
-  
-  /**
-   * Used during the build to check the syntactical validity of fragments. We use the 
-   * java generated code rather than the schemas because the fragments are quite often
-   * incomplete, and we mainly want to know whether they include things that are not known
-   *  
-   */
-  public String checkFragments(FolderManager folders, String fragmentsXml) throws Exception;
 
   /**
    * Whether to list this in the downloads page
    * @return
    */
   public boolean wantListAsDownload();
-  
-  /** 
-   * find out whether the reference implementation supports the sign and verify
-   *  
-   * @return
-   */
-  public boolean canSign();
-
-  /**
-   * Sign a provenance resource or an atom feed
-   * 
-   * @param filename - the file name to sign
-   * @param atom - whether this is an atome feed or a provenance resource
-   * @param type - which type of certificate to use (rsa, dsa, or ecdsa)
-   * 
-   * @throws Exception
-   */
-  public void sign(String filename, boolean atom, String type) throws Exception;
-  
-  /**
-   * Verify that the provenance resource or an atom feed has a valid signature
-   * 
-   * @param filename - name of the file or bundle (xml or json)
-   * @throws Exception 
-   */
-  public void verify(String filename) throws Exception;
   
 }

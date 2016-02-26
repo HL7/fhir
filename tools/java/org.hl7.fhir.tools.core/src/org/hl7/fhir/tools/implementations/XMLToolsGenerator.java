@@ -70,29 +70,6 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
     zip.close();
   }
 
-  @Override
-  public boolean doesCompile() {
-    return false;
-  }
-
-  @Override
-  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) {
-    return false;
-  }
-
-  @Override
-  public boolean doesTest() {
-    return false;
-  }
-
-  @Override
-  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
-  }
-
-  @Override
-  public String checkFragments(FolderManager folders, String fragments) throws Exception {
-    throw new UnsupportedOperationException("not supported");   
-  }
 
   @Override
   public String getVersion() {
@@ -100,8 +77,13 @@ public class XMLToolsGenerator extends BaseGenerator implements PlatformGenerato
   }
 
   @Override
-  public void test(FolderManager folders, Collection<String> names) throws Exception {
-    throw new Error("This should not be called");
+  public boolean doesCompile() {
+    return false;
+  }
+
+  @Override
+  public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
+    return false;
   }
 
 }

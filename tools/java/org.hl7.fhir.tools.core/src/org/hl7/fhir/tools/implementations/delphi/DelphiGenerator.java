@@ -102,6 +102,11 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   }
 
   @Override
+  public String getVersion() {
+    return "0.80";
+  }
+
+  @Override
   public boolean doesCompile() {
     return false;
   }
@@ -109,42 +114,6 @@ public class DelphiGenerator extends BaseGenerator implements PlatformGenerator 
   @Override
   public boolean compile(String rootDir, List<String> errors, Logger logger, List<ValidationMessage> issues) throws Exception {
     return false;
-  }
-
-  @Override
-  public boolean doesTest() {
-    return doesCompile();
-  }
-
-  @Override
-  public void loadAndSave(FolderManager folders, String sourceFile, String destFile) throws Exception {
-  }
-
-  @Override
-  public void test(FolderManager folders, Collection<String> names) throws Exception {
-  }
-
-  @Override
-  public String checkFragments(FolderManager folders, String fragments) throws Exception {
-    return "Not supported by pascal implementation";
-  }
-
-  @Override
-  public String getVersion() {
-    return "0.80";
-  }
-
-  @Override
-  public boolean canSign() {
-    return doesCompile();
-  }
-
-  @Override
-  public void sign(String filename, boolean atom, String type) throws Exception {
-  }
-
-  @Override
-  public void verify(String filename) throws Exception {
   }
 
 }

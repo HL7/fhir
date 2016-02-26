@@ -467,7 +467,8 @@ public class ProfileGenerator {
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     defineElement(null, p, p.getSnapshot().getElement(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.DataType, true, "Element");
     for (ElementDefinition ed : p.getSnapshot().getElement())
-      generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
+      if (!ed.hasBase())
+        generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
 
     containedSlices.clear();
 
@@ -659,7 +660,8 @@ public class ProfileGenerator {
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
     defineElement(null, p, p.getSnapshot().getElement(), r.getRoot(), r.getRoot().getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.Resource, true, "BackboneElement");
     for (ElementDefinition ed : p.getSnapshot().getElement())
-      generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
+      if (!ed.hasBase())
+        generateElementDefinition(ed, getParent(ed, p.getSnapshot().getElement()));
 
     List<String> names = new ArrayList<String>();
     names.addAll(r.getSearchParams().keySet());
@@ -1232,9 +1234,14 @@ public class ProfileGenerator {
     if (!Utilities.noString(e.typeCode()))
       defineAncestorElements(e.typeCode(), path, snapshot, containedSlices, p, elements, dt);
 
-    for (ElementDefn child : e.getElements()) 
-      defineElement(null, p, elements, child, path+"."+child.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), snapshot, false, dt);
-
+    for (ElementDefn child : e.getElements()) {
+      ElementDefinition ed = defineElement(null, p, elements, child, path+"."+child.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), snapshot, false, dt);
+      ed.getBase().setPath(e.getName()+"."+child.getName());
+      if (child.getMinCardinality() != null)
+        ed.getBase().setMin(e.getMinCardinality());
+      if (child.getMaxCardinality() != null)
+        ed.getBase().setMax(e.getMaxCardinality() == Integer.MAX_VALUE ? "*" : e.getMaxCardinality().toString());
+    }
   }
 
   /*
