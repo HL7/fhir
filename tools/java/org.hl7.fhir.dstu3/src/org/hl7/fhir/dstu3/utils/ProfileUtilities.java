@@ -226,7 +226,7 @@ public class ProfileUtilities {
 
 
   public static List<ElementDefinition> getChildMap(StructureDefinition profile, ElementDefinition element) throws DefinitionException {
-	  	return getChildMap(profile, element.getName(), element.getPath(), null);
+	  	return getChildMap(profile, element.getName(), element.getPath(), element.getNameReference());
   }
 
 

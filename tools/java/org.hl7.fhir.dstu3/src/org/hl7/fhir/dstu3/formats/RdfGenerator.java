@@ -274,7 +274,7 @@ public class RdfGenerator {
   }
 
 
-  protected void prefix(String code, String url) {
+  public void prefix(String code, String url) {
 		if (!prefixes.containsKey(code)) 
     prefixes.put(code, url);
 		else if (!prefixes.get(code).equals(url))
@@ -452,7 +452,7 @@ public class RdfGenerator {
   }
 
 
-  protected void commit(boolean header) throws Exception {
+  public void commit(boolean header) throws Exception {
     LineOutputStreamWriter writer = new LineOutputStreamWriter(destination);
 		commitPrefixes(writer, header);
     for (Section s : sections) {
