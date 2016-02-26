@@ -6,7 +6,7 @@
   <name value="HSPC Clinical Assert Status Value Set"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-07-31T00:00:00-06:00"/>
+  <date value="2015-07-31T00:00:00+10:00"/>
   <description value="SELECT SNOMED CT and Intermountain Healthcare HDD code system values."/>
   <copyright value="TBD"/>
   <caseSensitive value="true"/>

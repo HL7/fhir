@@ -77,6 +77,17 @@ Note that the US distribution of SNOMED CT is currently used as the underlying
 system for the FHIR specification.
 </p>
 
+<h3>RDF</h3>
+
+<p>
+The IHTSDO URI specifications uses the namespace http://snomed.info/sct for the code system,
+and the URI http://snomed.info/id for the individual concepts in the code system. This means
+that when a SNOMED CT concept is converted from the system::code pair, where the system is 
+http://snomed.info/sct, to the <a href="rdf.html">RDF ontological form</a>, the representation is 
+http://snomed.info/id/[concept-id]. Expressions are represented the same way, except
+that for this use, expressions SHALL not contain whitespace, terms, or comments.
+</p>
+
 <h3>SNOMED CT Filter Properties</h3>
 
 <p>
@@ -161,17 +172,17 @@ A SNOMED CT implicit value set URL has two parts:
 actual membership will depend on the particular edition used when it is expanded. 
 </p>
 <p>
-For the second part of the URL (the query part), the 3 possible values are:
+For the second part of the URL (the query part), the 4 possible values are:
 </p>
 <ul>
   <li>?fhir_vs - all Concept IDs in the edition/version. If the base URI is http://snomed.info/sct, this means all possible SNOMED CT concepts</li>
   <li>?fhir_vs=isa/[sctid] - all concept IDs that are subsumed by the specified Concept.</li>
+  <li>?fhir_vs=refset - all concept ids that correspond to real references sets defined in the specified SNOMED CT edition</li>
   <li>?fhir_vs=refset/[sctid] - all concept IDs in the specified reference set</li>
 </ul>
 
 <p>
-A value set with an identifier that follows the pattern "[edition/version]?fhir_vs=isa/[sctid]" in the identifier
-follows this template:
+A value set with a URL that follows the pattern "[edition/version]?fhir_vs=isa/[sctid]" follows this template:
 </p>
 <pre>
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
@@ -181,7 +192,7 @@ follows this template:
      [Some HTML that describes this value set as all concepts subsumed by conceptid]
     &lt;/div&gt;
   &lt;/text&gt;
-  &lt;identifier value=&quot;[edition/version]?fhir_vs=isa/[sctid]&quot;/&gt;
+  &lt;url value=&quot;[edition/version]?fhir_vs=isa/[sctid]&quot;/&gt;
   &lt;version value=&quot;[edition/version]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT Concept [conceptid] and descendents&quot;/&gt;
   &lt;description value=&quot;All SNOMED CT concepts for [concept id or preferred description]&quot;/&gt;
@@ -201,8 +212,40 @@ follows this template:
 </pre>
 
 <p>
-A value set with an identifier that follows the pattern "[edition/version]?fhir_vs=refset/[sctid]" in the identifier
-follows this template:
+The value set with a url that follows the pattern "[edition/version]?fhir_vs=refset" follows this template:
+</p>
+<pre>
+&lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
+  &lt;text&gt;
+    &lt;status value=&quot;generated&quot;/&gt;
+    &lt;div xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+     [Some HTML that describes this value set as all concepts with associated reference sets]
+    &lt;/div&gt;
+  &lt;/text&gt;
+  &lt;url value=&quot;[edition/version]?fhir_vs=refset&quot;/&gt;
+  &lt;version value=&quot;[edition/version]&quot;/&gt;
+  &lt;name value=&quot;SNOMED CT Reference Sets&quot;/&gt;
+  &lt;description value=&quot;All SNOMED CT concepts associated with a reference set&quot;/&gt;
+  &lt;copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/&gt;
+  &lt;status value=&quot;active&quot;/&gt;
+  &lt;compose&gt;
+    &lt;include&gt;
+      &lt;system value=&quot;http://snomed.info/sct&quot;/&gt;
+      &lt;!-- repeat: one concept element with a code for each concept that has an associated reference set --&gt;
+      &lt;concept&gt;
+        &lt;code value=&quot;[concept]&quot;/&gt;
+      &lt;/concept&gt;
+      &lt;-- end repeat --&gt;
+    &lt;/include&gt;
+  &lt;/compose&gt;
+&lt;/ValueSet&gt;
+</pre>
+<p>
+For each concept that is associated with a reference set, there will be one concept element with a 
+contained code that contains the concept id.
+</p>
+<p>
+A value set with a url that follows the pattern "[edition/version]?fhir_vs=refset/[sctid]" follows this template:
 </p>
 <pre>
 &lt;ValueSet xmlns=&quot;http://hl7.org/fhir&quot;&gt;
@@ -212,7 +255,7 @@ follows this template:
      [Some HTML that describes this value set as all concepts in the reference set identified by conceptid]
     &lt;/div&gt;
   &lt;/text&gt;
-  &lt;identifier value=&quot;[edition/version]?fhir_vs=refset/[sctid]&quot;/&gt;
+  &lt;url value=&quot;[edition/version]?fhir_vs=refset/[sctid]&quot;/&gt;
   &lt;version value=&quot;[edition/version]&quot;/&gt;
   &lt;name value=&quot;SNOMED CT Reference Set [conceptid]&quot;/&gt;
   &lt;description value=&quot;All SNOMED CT concepts in the reference set [concept id or preferred description]&quot;/&gt;
