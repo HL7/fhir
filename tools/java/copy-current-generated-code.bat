@@ -7,5 +7,6 @@ C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\impleme
 C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\validation C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\validation java
 C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\test C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\test java
 C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\client C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\client java
+C:\work\org.hl7.fhir\build\tools\bin\dirmerge C:\work\org.hl7.fhir\build\implementations\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\metamodel C:\work\org.hl7.fhir\build\tools\java\org.hl7.fhir.dstu3\src\org\hl7\fhir\dstu3\metamodel java "// Generated on"
 
 
