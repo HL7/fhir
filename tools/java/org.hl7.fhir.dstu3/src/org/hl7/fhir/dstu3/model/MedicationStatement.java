@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Thu, Feb 25, 2016 10:54+1100 for FHIR v1.3.0
+// Generated on Sat, Feb 27, 2016 00:21+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -172,7 +172,7 @@ public class MedicationStatement extends DomainResource {
          * Free text dosage information as reported about a patient's medication use. When coded dosage information is present, the free text may still be present for display to humans.
          */
         @Child(name = "text", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Reported dosage information", formalDefinition="Free text dosage information as reported about a patient's medication use. When coded dosage information is present, the free text may still be present for display to humans." )
+        @Description(shortDefinition="Free text dosage instructions as reported by the information source", formalDefinition="Free text dosage information as reported about a patient's medication use. When coded dosage information is present, the free text may still be present for display to humans." )
         protected StringType text;
 
         /**
