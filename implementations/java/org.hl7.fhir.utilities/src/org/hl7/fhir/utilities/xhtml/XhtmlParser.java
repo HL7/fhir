@@ -40,6 +40,9 @@ import java.util.Set;
 
 import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.exceptions.FHIRFormatError;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -206,6 +209,31 @@ public enum ParserSecurityPolicy {
   public void setPolicy(ParserSecurityPolicy policy) {
 	this.policy = policy; 
   }
+
+  public XhtmlNode parseHtmlNode(Element node) throws FHIRFormatError  {
+    XhtmlNode res = new XhtmlNode(NodeType.Element);
+    res.setName(node.getLocalName());
+    
+    for (int i = 0; i < node.getAttributes().getLength(); i++) {
+    	Attr attr = (Attr) node.getAttributes().item(i);
+      if (attributeIsOk(res.getName(), attr.getName(), attr.getValue()) && !attr.getLocalName().startsWith("xmlns"))
+        res.getAttributes().put(attr.getName(), attr.getValue());
+    }
+    Node child = node.getFirstChild();
+    while (child != null) {
+      if (child.getNodeType() == Node.TEXT_NODE) {
+        res.addText(child.getTextContent());
+      } else if (child.getNodeType() == Node.COMMENT_NODE) {
+        res.addComment(child.getTextContent());
+      } else if (child.getNodeType() == Node.ELEMENT_NODE) {
+        if (elementIsOk(child.getLocalName()))
+          res.getChildNodes().add(parseHtmlNode((Element) child));
+      } else
+        throw new FHIRFormatError("Unhandled XHTML feature: "+Integer.toString(child.getNodeType())+descLoc());
+      child = child.getNextSibling();
+    }
+    return res;
+  }  
 
   public XhtmlNode parseHtmlNode(XmlPullParser xpp) throws XmlPullParserException, IOException, FHIRFormatError  {
     XhtmlNode res = new XhtmlNode(NodeType.Element);
