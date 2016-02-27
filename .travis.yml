@@ -20,7 +20,6 @@ notifications:
     - brianpos@optushome.com.au
 
   webhooks:
-    - http://fhir.me:5556/notify/status
     - https://chat.fhir.org/api/v1/external/travis?stream=committers&topic=ci-notifications&api_key=IelOy1KhccEy3QpRIeOrtQUTqw98Kvr8
 
 after_success:
