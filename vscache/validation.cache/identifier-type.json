@@ -13,6 +13,11 @@
       }
     },
     {
+      "hash": "|http://hl7.org/fhir/v2/0203|null|NI|National unique individual identifier",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Identifier Type Codes"
+    },
+    {
       "hash": "|http://hl7.org/fhir/v2/0203|null|MR|null",
       "severity": null,
       "message": null,
@@ -22,11 +27,6 @@
         "definition": null,
         "display": "Medical record number"
       }
-    },
-    {
-      "hash": "|http://hl7.org/fhir/v2/0203|null|NI|National unique individual identifier",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Identifier Type Codes"
     },
     {
       "hash": "|http://hl7.org/fhir/v2/0203|null|SS|null",
@@ -45,17 +45,6 @@
       }
     },
     {
-      "hash": "|http://hl7.org/fhir/identifier-type|null|SNO|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Serial Number"
-      }
-    },
-    {
       "hash": "|http://hl7.org/fhir/v2/0203|null|DL|null",
       "severity": null,
       "message": null,
@@ -64,6 +53,17 @@
         "code": null,
         "definition": null,
         "display": "Driver's license number"
+      }
+    },
+    {
+      "hash": "|http://hl7.org/fhir/identifier-type|null|SNO|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Serial Number"
       }
     },
     {

@@ -1,0 +1,19 @@
+map "http://hl7.org/fhir/StructureMap/cda-pq" = "V3/FHIR Mappings: PQ"
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-PQ" as source
+uses "http://hl7.org/fhir/StructureDefinition/Quantity" as target
+
+imports "http://hl7.org/fhir/StructureMap/cda-any"; 
+
+input src : PQ as source;
+input tgt : Quantity as target;
+
+-- PQ / Quantity rules --------------------------------------------------------------------
+
+pq.base: for src then by type // apply base nullFlavor rule
+
+pq.value: for src.value as val make tgt.value = copy(val)
+pq.unit: for src.unit as u make tgt.unit = copy(u), tgt.code = copy(u), tgt.system = copy("http://unitsofmeasure.org")
+// ignore pq.translations
+
+

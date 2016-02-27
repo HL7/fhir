@@ -1,0 +1,26 @@
+map "http://hl7.org/fhir/StructureMap/cda-ivl-ts" = "V3/FHIR Mappings: IVL<TS>"
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-IVL_TS" as source
+uses "http://hl7.org/fhir/StructureDefinition/Period" as target
+
+imports "http://hl7.org/fhir/StructureMap/cda-any"; 
+
+input src : IVL_TS as source;
+input tgt : Period as target;
+
+-- IVL<TS> / Period rules --------------------------------------------------------------------
+
+
+ivlts.base: for src then by type // apply base nullFlavor rule
+ivlts.value: for src.value as v make tgt.start as copy(v), tgt.end = copy(v)
+
+ivlts.lowhigh: for src.low as low, src.high as high make tgt.start = copy(low), tgt.end = copy(high) // note that there's a problem with high
+// technically, this is more accurate, but everyone uses high wrongly because the definition is counter-intuitive: 
+//   ivlts.lowhigh: for src.low as low, src.high as high make tgt.start = copy(low), tgt.end = dateOp(high, "rotate-left") 
+// where rotate-left means to rotate the date on the start of the period e.g. 2013-01-23 becomes 2013-01-22
+
+ivlts.lowwidth: for src.low as low, src.width as width make tgt.start = copy(low), tgt.end = dateOp(low, "add", width) 
+
+// we could, I suppose, fill out all the variants - eg. low+center, high+width, etc, and we will if anyone encounters them in the wild.
+// todo: do we need to consider inclusive in the mappings?
+

@@ -1,0 +1,15 @@
+map "http://hl7.org/fhir/StructureMap/cda-bl" = "V3/FHIR Mappings: BL"
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-BL" as source
+uses "http://hl7.org/fhir/StructureDefinition/boolean" as target
+
+imports "http://hl7.org/fhir/StructureMap/cda-any"; 
+
+input src : BL as source;
+input tgt : boolean as target;
+
+-- BL / boolean rules --------------------------------------------------------------------
+
+bl.base: for src then by type // apply base nullFlavor rule
+bl.value: for src.value as bl make tgt.value = copy(bl) // todo: is this the best way?
+

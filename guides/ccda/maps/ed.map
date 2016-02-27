@@ -1,0 +1,25 @@
+map "http://hl7.org/fhir/StructureMap/cda-ed" = "V3/FHIR Mappings: ED"
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-ED" as source
+uses "http://hl7.org/fhir/StructureDefinition/Attachment" as target
+
+imports "http://hl7.org/fhir/StructureMap/cda-any"; 
+
+input src : ED as source;
+input tgt : Attachment as target;
+
+-- ED / Attachment rules --------------------------------------------------------------------
+
+ed.base: for src then by type // apply base nullFlavor rule
+
+ed.b64: for src.data as data where representation = "B64" make tgt.data = copy(data)
+ed.plain: for src.data as data where not representation = "B64" make tgt.data = escape(data, "plain", "base64")
+ed.ct1: for src.mediaType as mt where src.charset.empty make tgt.contentType = copy(mt)
+ed.ct1: for src.mediaType as mt, src.charset as cs make tgt.contentType = append(mt, "; charset=", cs)
+ed.lang: for src.language as lang make tgt.language = copy(lang)
+ed.comp: for src check compression.empty
+ed.ref: for src.reference as ref make tgt.url = copy(ref)
+ed.ic: for src.integrityCheck as ic make tgt.hash = copy(ic)
+ed.ica: for src.integrityCheckAlgorithm check integrityCheckAlgorithm = 'SHA1'
+// ignore ed.thumbnail
+

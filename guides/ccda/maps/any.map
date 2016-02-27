@@ -1,0 +1,14 @@
+map "http://hl7.org/fhir/StructureMap/cda-any" = "V3/FHIR Mappings: ANY"
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-ANY" as source
+uses "http://hl7.org/fhir/StructureDefinition/Element" as target
+
+input src : ANY as source;
+input tgt : Element as target;
+
+-- ANY / Element rules --------------------------------------------------------------------
+
+any.nf: for src.nullFlavor as nf make
+   Element.extension as ex, 
+   ex.url = copy("http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor"), 
+   ex.value = copy(nf)  // nothing more after this
