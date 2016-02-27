@@ -3,8 +3,6 @@ package org.hl7.fhir.dstu3.metamodel;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hl7.fhir.dstu3.model.ElementDefinition;
-
 /**
  * This class represents the reference model of FHIR
  * 

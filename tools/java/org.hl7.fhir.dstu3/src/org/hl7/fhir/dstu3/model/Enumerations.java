@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 27, 2016 00:21+1100 for FHIR v1.3.0
+// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2109,6 +2109,10 @@ public class Enumerations {
          */
         COMMUNICATIONREQUEST, 
         /**
+         * A compartment definition that defines how resources are accessed on a server.
+         */
+        COMPARTMENTDEFINITION, 
+        /**
          * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.
          */
         COMPOSITION, 
@@ -2613,6 +2617,8 @@ public class Enumerations {
           return COMMUNICATION;
         if ("CommunicationRequest".equals(codeString))
           return COMMUNICATIONREQUEST;
+        if ("CompartmentDefinition".equals(codeString))
+          return COMPARTMENTDEFINITION;
         if ("Composition".equals(codeString))
           return COMPOSITION;
         if ("ConceptMap".equals(codeString))
@@ -2866,6 +2872,7 @@ public class Enumerations {
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
             case COMMUNICATIONREQUEST: return "CommunicationRequest";
+            case COMPARTMENTDEFINITION: return "CompartmentDefinition";
             case COMPOSITION: return "Composition";
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
@@ -3027,6 +3034,7 @@ public class Enumerations {
             case CODESYSTEM: return "http://hl7.org/fhir/resource-types";
             case COMMUNICATION: return "http://hl7.org/fhir/resource-types";
             case COMMUNICATIONREQUEST: return "http://hl7.org/fhir/resource-types";
+            case COMPARTMENTDEFINITION: return "http://hl7.org/fhir/resource-types";
             case COMPOSITION: return "http://hl7.org/fhir/resource-types";
             case CONCEPTMAP: return "http://hl7.org/fhir/resource-types";
             case CONDITION: return "http://hl7.org/fhir/resource-types";
@@ -3188,6 +3196,7 @@ public class Enumerations {
             case CODESYSTEM: return "A code system specifies a set of codes drawn from one or more code systems.";
             case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.";
             case COMMUNICATIONREQUEST: return "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
+            case COMPARTMENTDEFINITION: return "A compartment definition that defines how resources are accessed on a server.";
             case COMPOSITION: return "A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.";
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
@@ -3349,6 +3358,7 @@ public class Enumerations {
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
             case COMMUNICATIONREQUEST: return "CommunicationRequest";
+            case COMPARTMENTDEFINITION: return "CompartmentDefinition";
             case COMPOSITION: return "Composition";
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
@@ -3578,6 +3588,8 @@ public class Enumerations {
           return FHIRDefinedType.COMMUNICATION;
         if ("CommunicationRequest".equals(codeString))
           return FHIRDefinedType.COMMUNICATIONREQUEST;
+        if ("CompartmentDefinition".equals(codeString))
+          return FHIRDefinedType.COMPARTMENTDEFINITION;
         if ("Composition".equals(codeString))
           return FHIRDefinedType.COMPOSITION;
         if ("ConceptMap".equals(codeString))
@@ -3898,6 +3910,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.COMMUNICATION);
         if ("CommunicationRequest".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.COMMUNICATIONREQUEST);
+        if ("CompartmentDefinition".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.COMPARTMENTDEFINITION);
         if ("Composition".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.COMPOSITION);
         if ("ConceptMap".equals(codeString))
@@ -4213,6 +4227,8 @@ public class Enumerations {
         return "Communication";
       if (code == FHIRDefinedType.COMMUNICATIONREQUEST)
         return "CommunicationRequest";
+      if (code == FHIRDefinedType.COMPARTMENTDEFINITION)
+        return "CompartmentDefinition";
       if (code == FHIRDefinedType.COMPOSITION)
         return "Composition";
       if (code == FHIRDefinedType.CONCEPTMAP)
@@ -4893,6 +4909,10 @@ public class Enumerations {
          */
         COMMUNICATIONREQUEST, 
         /**
+         * A compartment definition that defines how resources are accessed on a server.
+         */
+        COMPARTMENTDEFINITION, 
+        /**
          * A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.
          */
         COMPOSITION, 
@@ -5303,6 +5323,8 @@ public class Enumerations {
           return COMMUNICATION;
         if ("CommunicationRequest".equals(codeString))
           return COMMUNICATIONREQUEST;
+        if ("CompartmentDefinition".equals(codeString))
+          return COMPARTMENTDEFINITION;
         if ("Composition".equals(codeString))
           return COMPOSITION;
         if ("ConceptMap".equals(codeString))
@@ -5509,6 +5531,7 @@ public class Enumerations {
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
             case COMMUNICATIONREQUEST: return "CommunicationRequest";
+            case COMPARTMENTDEFINITION: return "CompartmentDefinition";
             case COMPOSITION: return "Composition";
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
@@ -5623,6 +5646,7 @@ public class Enumerations {
             case CODESYSTEM: return "http://hl7.org/fhir/resource-types";
             case COMMUNICATION: return "http://hl7.org/fhir/resource-types";
             case COMMUNICATIONREQUEST: return "http://hl7.org/fhir/resource-types";
+            case COMPARTMENTDEFINITION: return "http://hl7.org/fhir/resource-types";
             case COMPOSITION: return "http://hl7.org/fhir/resource-types";
             case CONCEPTMAP: return "http://hl7.org/fhir/resource-types";
             case CONDITION: return "http://hl7.org/fhir/resource-types";
@@ -5737,6 +5761,7 @@ public class Enumerations {
             case CODESYSTEM: return "A code system specifies a set of codes drawn from one or more code systems.";
             case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.";
             case COMMUNICATIONREQUEST: return "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
+            case COMPARTMENTDEFINITION: return "A compartment definition that defines how resources are accessed on a server.";
             case COMPOSITION: return "A set of healthcare-related information that is assembled together into a single logical document that provides a single coherent statement of meaning, establishes its own context and that has clinical attestation with regard to who is making the statement. While a Composition defines the structure, it does not actually contain the content: rather the full content of a document is contained in a Bundle, of which the Composition is the first resource contained.";
             case CONCEPTMAP: return "A statement of relationships from one set of concepts to one or more other concepts - either code systems or data elements, or classes in class models.";
             case CONDITION: return "Use to record detailed information about conditions, problems or diagnoses recognized by a clinician. There are many uses including: recording a diagnosis during an encounter; populating a problem list or a summary statement, such as a discharge summary.";
@@ -5851,6 +5876,7 @@ public class Enumerations {
             case CODESYSTEM: return "CodeSystem";
             case COMMUNICATION: return "Communication";
             case COMMUNICATIONREQUEST: return "CommunicationRequest";
+            case COMPARTMENTDEFINITION: return "CompartmentDefinition";
             case COMPOSITION: return "Composition";
             case CONCEPTMAP: return "ConceptMap";
             case CONDITION: return "Condition";
@@ -5986,6 +6012,8 @@ public class Enumerations {
           return ResourceType.COMMUNICATION;
         if ("CommunicationRequest".equals(codeString))
           return ResourceType.COMMUNICATIONREQUEST;
+        if ("CompartmentDefinition".equals(codeString))
+          return ResourceType.COMPARTMENTDEFINITION;
         if ("Composition".equals(codeString))
           return ResourceType.COMPOSITION;
         if ("ConceptMap".equals(codeString))
@@ -6212,6 +6240,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.COMMUNICATION);
         if ("CommunicationRequest".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.COMMUNICATIONREQUEST);
+        if ("CompartmentDefinition".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.COMPARTMENTDEFINITION);
         if ("Composition".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.COMPOSITION);
         if ("ConceptMap".equals(codeString))
@@ -6433,6 +6463,8 @@ public class Enumerations {
         return "Communication";
       if (code == ResourceType.COMMUNICATIONREQUEST)
         return "CommunicationRequest";
+      if (code == ResourceType.COMPARTMENTDEFINITION)
+        return "CompartmentDefinition";
       if (code == ResourceType.COMPOSITION)
         return "Composition";
       if (code == ResourceType.CONCEPTMAP)

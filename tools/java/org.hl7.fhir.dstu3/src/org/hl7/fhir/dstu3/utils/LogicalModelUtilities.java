@@ -6,28 +6,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.hl7.fhir.utilities.Utilities;
 import org.apache.commons.lang3.NotImplementedException;
-import org.hl7.fhir.exceptions.DefinitionException;
-import org.hl7.fhir.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
-import org.hl7.fhir.dstu3.model.Element;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.Extension;
-import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.Timing;
-import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.model.Bundle.BundleType;
-import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
+import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine.BundleMappingContext;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IConstantResolver;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.MapExpression;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.MappingContext;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.ResourceFactory;
+import org.hl7.fhir.exceptions.DefinitionException;
+import org.hl7.fhir.exceptions.FHIRException;
 
 public class LogicalModelUtilities implements IConstantResolver {
 

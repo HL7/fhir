@@ -2,13 +2,9 @@ package org.hl7.fhir.dstu3.metamodel;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map.Entry;
 
-import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
@@ -19,7 +15,6 @@ import org.hl7.fhir.utilities.Utilities;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonSyntaxException;
 
 public class Tester {
 

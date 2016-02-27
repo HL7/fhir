@@ -39,8 +39,8 @@ import java.util.Set;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
+import org.hl7.fhir.dstu3.model.ValueSet;
 
 /**
  * This class is the root to all the definitions in FHIR. There are the
@@ -404,7 +404,7 @@ public class Definitions {
 
   public Compartment getCompartmentByName(String n) {
     for (Compartment c : compartments)
-      if (c.getName().equals(n))
+      if (c.getName().equalsIgnoreCase(n))
         return c;
     return null;
   }

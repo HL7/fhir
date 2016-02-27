@@ -42,6 +42,7 @@ import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.NotImplementedException;
+
 import org.hl7.fhir.dstu3.exceptions.DefinitionException;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
@@ -57,24 +58,44 @@ import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
+import org.hl7.fhir.dstu3.model.CompartmentDefinition;
+import org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent;
 import org.hl7.fhir.dstu3.model.Composition;
+import org.hl7.fhir.dstu3.model.Composition.SectionComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap;
+import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent;
+import org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent;
+import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
+import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
 import org.hl7.fhir.dstu3.model.Conformance;
+import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent;
+import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent;
+import org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent;
+import org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent;
+import org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction;
+import org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.dstu3.model.ContactPoint;
+import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
+import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumeration;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.ExtensionHelper;
 import org.hl7.fhir.dstu3.model.HumanName;
+import org.hl7.fhir.dstu3.model.HumanName.NameUse;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.Meta;
 import org.hl7.fhir.dstu3.model.Narrative;
+import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu3.model.OperationDefinition;
+import org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionParameterComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome;
+import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
+import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.dstu3.model.Period;
 import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Property;
@@ -87,29 +108,11 @@ import org.hl7.fhir.dstu3.model.SampledData;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.Timing;
-import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.Composition.SectionComponent;
-import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent;
-import org.hl7.fhir.dstu3.model.ConceptMap.OtherElementComponent;
-import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
-import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
-import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent;
-import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent;
-import org.hl7.fhir.dstu3.model.Conformance.ResourceInteractionComponent;
-import org.hl7.fhir.dstu3.model.Conformance.SystemInteractionComponent;
-import org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction;
-import org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction;
-import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
-import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
-import org.hl7.fhir.dstu3.model.HumanName.NameUse;
-import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
-import org.hl7.fhir.dstu3.model.OperationDefinition.OperationDefinitionParameterComponent;
-import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
-import org.hl7.fhir.dstu3.model.OperationOutcome.OperationOutcomeIssueComponent;
 import org.hl7.fhir.dstu3.model.Timing.EventTiming;
 import org.hl7.fhir.dstu3.model.Timing.TimingRepeatComponent;
 import org.hl7.fhir.dstu3.model.Timing.UnitsOfTime;
+import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
@@ -561,6 +564,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       generate((OperationOutcome) r); // Maintainer = Grahame
     } else if (r instanceof Conformance) {
       generate((Conformance) r);   // Maintainer = Grahame
+    } else if (r instanceof CompartmentDefinition) {
+      generate((CompartmentDefinition) r);   // Maintainer = Grahame
     } else if (r instanceof OperationDefinition) {
       generate((OperationDefinition) r);   // Maintainer = Grahame
     } else {
@@ -2822,6 +2827,38 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	  }
   }
 
+  public void generate(CompartmentDefinition cpd) {
+    StringBuilder in = new StringBuilder();
+    StringBuilder out = new StringBuilder();
+    for (CompartmentDefinitionResourceComponent cc: cpd.getResource()) {
+      CommaSeparatedStringBuilder rules = new CommaSeparatedStringBuilder();
+      if (!cc.hasParam()) {
+        out.append(" <li><a href=\"").append(cc.getCode().toLowerCase()).append(".html\">").append(cc.getCode()).append("</a></li>\r\n");
+      } else if (!rules.equals("{def}")) {
+        for (StringType p : cc.getParam())
+          rules.append(p.asStringValue());
+        in.append(" <tr><td><a href=\"").append(cc.getCode().toLowerCase()).append(".html\">").append(cc.getCode()).append("</a></td><td>").append(rules.toString()).append("</td></tr>\r\n");
+      }
+    }
+    XhtmlNode x;
+    try {
+      x = new XhtmlParser().parseFragment("<div><p>\r\nThe following resources may be in this compartment:\r\n</p>\r\n" +
+          "<table class=\"grid\">\r\n"+
+          " <tr><td><b>Resource</b></td><td><b>Inclusion Criteria</b></td></tr>\r\n"+
+          in.toString()+
+          "</table>\r\n"+
+          "<p>\r\nA resource is in this compartment if the nominated search parameter (or chain) refers to the patient resource that defines the compartment.\r\n</p>\r\n" +
+          "<p>\r\n\r\n</p>\r\n" +        
+          "<p>\r\nThe following resources are never in this compartment:\r\n</p>\r\n" +
+          "<ul>\r\n"+
+          out.toString()+
+          "</ul></div>\r\n");
+      inject(cpd, x, NarrativeStatus.GENERATED);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+  
   public void generate(Conformance conf) {
     XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
     x.addTag("h2").addText(conf.getName());

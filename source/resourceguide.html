@@ -585,10 +585,15 @@ analysis and exchange. They have slightly different purposes:
  <li>StructureDefinition is used specifically to describe the structures used by or with this specification</li>
  <li>DataElement describes more general data items that are represented and exchanged in many formats and/or contexts</li>
 </ul>
+<p>
+<code>StructureMap</code> supports a general purpose mapping language that can be used to transfer data
+from one structure to another.
+</p>
 
 <table class="grid">
 <tr><td><b>Resource</b></td><td><b>Category</b></td><td><b>RIM</b></td><td><b>Lifecycle</b></td></tr>
 <tr><td><a href="structuredefinition.html">StructureDefinition</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+<tr><td><a href="structuremap.html">StructureMap</a></td><td><a href="#unrelated">Unrelated</a></td><td>Unrelated</td><td></td></tr>
 <tr><td><a href="dataelement.html">DataElement</a></td><td><a href="#unrelated">Unrelated</a></td><td>Entity</td><td></td></tr>
 </table>
 
@@ -601,7 +606,8 @@ for use as system discovery, or conformance expectations.
 <p>
 An <code>OperationDefinition</code> describes an operation that can be 
 executed on a server, and a <code>SearchParameter</code> defines 
-a search parameter that can be used on a server. 
+a search parameter that can be used on a server. <code>CompartmentDefinition</code>
+provides information about how resources are associated on a server.
 </p>
 
 <table class="grid">
@@ -609,6 +615,8 @@ a search parameter that can be used on a server.
 <tr><td><a href="conformance.html">Conformance</a></td><td><a href="#">Unrelated</a></td><td></td><td></td></tr>
 <tr><td><a href="operationdefinition.html">OperationDefinition</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
 <tr><td><a href="searchparameter.html">SearchParameter</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+<tr><td><a href="compartmentdefinition.html">CompartmentDefinition</a></td><td><a href="#unrelated">Unrelated</a></td><td></td><td></td></tr>
+
 </table>
 
 <h4>Miscellaneous</h4>

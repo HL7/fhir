@@ -1,0 +1,39 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="scope"> </a>
+<h2>Scope and Usage</h2>
+<p>
+Each resource may belong to one or more logical compartments. A compartment is a logical 
+grouping of resources which share a common property. Compartments have two principal roles:
+</p>
+<ul>
+ <li>Function as an access mechanism for finding a set of related resources quickly</li>
+ <li>Provide a definitional basis for applying access control to resources quickly</li>
+</ul>
+</div> 
+
+<div> 
+<a name="bnr"> </a>
+<h2>Boundaries and Relationships</h2> 
+<p>
+Compartment definitions describe how particular compartment instances are named and identified,
+and how systems know which resources are in the compartment. The following compartments are 
+defined by this specification:
+</p>
+<%compartmentlist%>
+<p>
+The full definitions of these compartments are published as <code>CompartmentDefinition</code>
+resources. Servers typically do not support the full definition of a compartment, and are not 
+required to. Systems may publish <code>CompartmentDefinition</code> resources so that
+other systems may make use of compartments properly.
+</p>
+<ul>
+ <li>CompartmentDefinitions are used by <a href="conformance.html">Conformance</a> instances for specifying how resources are accessed</li>
+</ul>
+
+</div> 
+
+
+
+</div>

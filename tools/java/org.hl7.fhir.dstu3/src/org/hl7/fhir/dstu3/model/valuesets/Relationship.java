@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model.valuesets;
   
 */
 
-// Generated on Thu, Feb 25, 2016 10:54+1100 for FHIR v1.3.0
+// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
 
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
@@ -37,23 +37,23 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 public enum Relationship {
 
         /**
-         * null
+         * The patient is the subscriber (policy holder)
          */
         _1, 
         /**
-         * null
+         * The patient is the spouse or equivalent of the subscriber (policy holder)
          */
         _2, 
         /**
-         * null
+         * The patient is the child of the subscriber (policy holder)
          */
         _3, 
         /**
-         * null
+         * The patient is the common law spouse of the subscriber (policy holder)
          */
         _4, 
         /**
-         * null
+         * The patient has some other relationship, such as parent, to the subscriber (policy holder)
          */
         _5, 
         /**
@@ -90,21 +90,21 @@ public enum Relationship {
         }
         public String getDefinition() {
           switch (this) {
-            case _1: return "";
-            case _2: return "";
-            case _3: return "";
-            case _4: return "";
-            case _5: return "";
+            case _1: return "The patient is the subscriber (policy holder)";
+            case _2: return "The patient is the spouse or equivalent of the subscriber (policy holder)";
+            case _3: return "The patient is the child of the subscriber (policy holder)";
+            case _4: return "The patient is the common law spouse of the subscriber (policy holder)";
+            case _5: return "The patient has some other relationship, such as parent, to the subscriber (policy holder)";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case _1: return "1";
-            case _2: return "2";
-            case _3: return "3";
-            case _4: return "4";
-            case _5: return "5";
+            case _1: return "Self";
+            case _2: return "Spouse";
+            case _3: return "Child";
+            case _4: return "Common Law Spouse";
+            case _5: return "Other";
             default: return "?";
           }
     }

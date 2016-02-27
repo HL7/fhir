@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 27, 2016 00:21+1100 for FHIR v1.3.0
+// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -212,6 +212,8 @@ public class ResourceFactory extends Factory {
             return new MedicationAdministration();
         if ("StructureMap".equals(name))
             return new StructureMap();
+        if ("CompartmentDefinition".equals(name))
+            return new CompartmentDefinition();
         if ("Encounter".equals(name))
             return new Encounter();
         if ("CodeSystem".equals(name))
@@ -224,10 +226,10 @@ public class ResourceFactory extends Factory {
             return new GuidanceResponse();
         if ("Goal".equals(name))
             return new Goal();
-        if ("NutritionOrder".equals(name))
-            return new NutritionOrder();
         if ("SearchParameter".equals(name))
             return new SearchParameter();
+        if ("NutritionOrder".equals(name))
+            return new NutritionOrder();
         if ("ReferralRequest".equals(name))
             return new ReferralRequest();
         if ("ClinicalImpression".equals(name))

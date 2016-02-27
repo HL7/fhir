@@ -1,45 +1,4 @@
-<!DOCTYPE HTML>
-
-
-      
-[%settitle Tags, Bundles, Compartments%]
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-[%file newheader%]
-</head>
-<body>
-[%file newnavbar%]
-
-<div class="col-9">
-
-<h2>Compartment Based Access</h2>
-<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: 3</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
-
-<a name="root"> </a>
-<a name="compartments"> </a>
-<a name="compartment"> </a>
-<h3>Compartments</h3>
-<p>
-Each resource may belong to one or more logical compartments. A compartment is a logical 
-grouping of resources which share a common property. Compartments have two principal roles:
-</p>
-<ul>
- <li>Function as an access mechanism for finding a set of related resources quickly</li>
- <li>Provide a definitional basis for applying access control to resources quickly</li>
-</ul>
-<p>
-Compartment definitions describe how particular compartment instances are named and identified,
-and how systems know which resources are in the compartment. The following compartments are 
-defined by this specification:
-</p>
-<%compartmentlist%>
-<p>
-Compartments are defined and added the list above when implementer 
-communities identify them as common access points for data. As described 
-below, compartments have both syntactical and logical consequences, and
-both these aspects of their functionality are evaluated when deciding
-whether to define compartments. 
-</p>
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <a name="use"> </a>
 <h3>Using Compartments</h3>
@@ -137,10 +96,13 @@ connects the Medication (details of what was administered) to the patient (for w
 it administered), and so is required to interpret the administration.
 </p>
 
-
+<h2>Defining New Compartments</h2>
+<p>
+Compartments are defined and added the list above when implementer 
+communities identify them as common access points for data. As described 
+below, compartments have both syntactical and logical consequences, and
+both these aspects of their functionality are evaluated when deciding
+whether to define compartments. 
+</p>
 
 </div>
-
-[%file newfooter%]
-</body>
-</html>

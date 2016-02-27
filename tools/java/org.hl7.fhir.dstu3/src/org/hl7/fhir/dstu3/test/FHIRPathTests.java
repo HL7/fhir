@@ -1,10 +1,6 @@
 package org.hl7.fhir.dstu3.test;
 
-import java.util.List;
-
-import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.MappingContext;
 
 public class FHIRPathTests {
 

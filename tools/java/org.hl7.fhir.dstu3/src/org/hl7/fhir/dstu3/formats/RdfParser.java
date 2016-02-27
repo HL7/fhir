@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Sat, Feb 27, 2016 00:21+1100 for FHIR v1.3.0
+// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -2677,6 +2677,76 @@ public class RdfParser extends RdfParserBase {
     composeBackboneElement(t, "payload", name, element, index);
     if (element.hasContent())
       composeType(t, "CommunicationRequest", "content", element.getContent(), -1);
+  }
+
+  protected void composeCompartmentDefinition(Complex parent, String parentType, String name, CompartmentDefinition element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeDomainResource(t, "CompartmentDefinition", name, element, index);
+    if (element.hasUrlElement())
+      composeUri(t, "CompartmentDefinition", "url", element.getUrlElement(), -1);
+    if (element.hasNameElement())
+      composeString(t, "CompartmentDefinition", "name", element.getNameElement(), -1);
+    if (element.hasStatusElement())
+      composeEnum(t, "CompartmentDefinition", "status", element.getStatusElement(), -1);
+    if (element.hasExperimentalElement())
+      composeBoolean(t, "CompartmentDefinition", "experimental", element.getExperimentalElement(), -1);
+    if (element.hasPublisherElement())
+      composeString(t, "CompartmentDefinition", "publisher", element.getPublisherElement(), -1);
+    for (int i = 0; i < element.getContact().size(); i++)
+      composeCompartmentDefinitionCompartmentDefinitionContactComponent(t, "CompartmentDefinition", "contact", element.getContact().get(i), i);
+    if (element.hasDateElement())
+      composeDateTime(t, "CompartmentDefinition", "date", element.getDateElement(), -1);
+    if (element.hasDescriptionElement())
+      composeString(t, "CompartmentDefinition", "description", element.getDescriptionElement(), -1);
+    if (element.hasRequirementsElement())
+      composeString(t, "CompartmentDefinition", "requirements", element.getRequirementsElement(), -1);
+    if (element.hasCodeElement())
+      composeEnum(t, "CompartmentDefinition", "code", element.getCodeElement(), -1);
+    if (element.hasSearchElement())
+      composeBoolean(t, "CompartmentDefinition", "search", element.getSearchElement(), -1);
+    for (int i = 0; i < element.getResource().size(); i++)
+      composeCompartmentDefinitionCompartmentDefinitionResourceComponent(t, "CompartmentDefinition", "resource", element.getResource().get(i), i);
+  }
+
+  protected void composeCompartmentDefinitionCompartmentDefinitionContactComponent(Complex parent, String parentType, String name, CompartmentDefinition.CompartmentDefinitionContactComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "contact", name, element, index);
+    if (element.hasNameElement())
+      composeString(t, "CompartmentDefinition", "name", element.getNameElement(), -1);
+    for (int i = 0; i < element.getTelecom().size(); i++)
+      composeContactPoint(t, "CompartmentDefinition", "telecom", element.getTelecom().get(i), i);
+  }
+
+  protected void composeCompartmentDefinitionCompartmentDefinitionResourceComponent(Complex parent, String parentType, String name, CompartmentDefinition.CompartmentDefinitionResourceComponent element, int index) {
+    if (element == null) 
+      return;
+    Complex t;
+    if (Utilities.noString(parentType))
+      t = parent;
+    else {
+      t = parent.predicate("fhir:"+parentType+'.'+name);
+    }
+    composeBackboneElement(t, "resource", name, element, index);
+    if (element.hasCodeElement())
+      composeCode(t, "CompartmentDefinition", "code", element.getCodeElement(), -1);
+    for (int i = 0; i < element.getParam().size(); i++)
+      composeString(t, "CompartmentDefinition", "param", element.getParam().get(i), i);
+    if (element.hasDocumentationElement())
+      composeString(t, "CompartmentDefinition", "documentation", element.getDocumentationElement(), -1);
   }
 
   protected void composeComposition(Complex parent, String parentType, String name, Composition element, int index) {
@@ -10963,6 +11033,8 @@ public class RdfParser extends RdfParserBase {
       composeCommunication(parent, null, "Communication", (Communication)resource, -1);
     else if (resource instanceof CommunicationRequest)
       composeCommunicationRequest(parent, null, "CommunicationRequest", (CommunicationRequest)resource, -1);
+    else if (resource instanceof CompartmentDefinition)
+      composeCompartmentDefinition(parent, null, "CompartmentDefinition", (CompartmentDefinition)resource, -1);
     else if (resource instanceof Composition)
       composeComposition(parent, null, "Composition", (Composition)resource, -1);
     else if (resource instanceof ConceptMap)

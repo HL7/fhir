@@ -73,7 +73,7 @@ The interactions on this page are defined like this:
      <li><code>type</code>: The name of a resource type (e.g. "Patient")</li>
      <li><code>id</code>: The <a href="resource.html#id">Logical Id</a> of a resource</li>
      <li><code>vid</code>: The <a href="resource.html#metadata">Version Id</a> of a resource</li>
-     <li><code>compartment</code>: The name of a <a href="compartments.html#compartment">compartment</a></li>
+     <li><code>compartment</code>: The name of a <a href="compartmentdefinition.html">compartment</a></li>
      <li><code>parameters</code>: URL parameters as defined for the particular interaction</li>
    </ul>
  </li>
@@ -134,7 +134,7 @@ patient or user centric view of a record, where authentication/authorization is
 explicitly granted to the URL, on the grounds that some identifiable user is associated
 with the logical identity. It is not necessary to explicitly embed the patient id in the
 URL - implementations can associate an FHIR end-point with a particular patient or
-provider by using an OAuth login. See <a href="compartments.html#compartments">Compartments</a> for the logical underpinning.
+provider by using an OAuth login. See <a href="compartmentdefinition.htmls">Compartments</a> for the logical underpinning.
 </p>
 <p><b>Identity</b></p>
 <p>
@@ -760,7 +760,7 @@ Searches are processed as specified for the <a href="search.html">Search handlin
 <p>
 If the search fails (cannot be executed, not that there is no matches), the return value is 
 a status code 4xx or 5xx with an <a href="operationoutcome.html">OperationOutcome</a>.
-If the search succeeds, the return content is a <a href="compartments.html#bundle">Bundle</a> with
+If the search succeeds, the return content is a <a href="bundle.html">Bundle</a> with
 <a href="bundle-definitions.html#Bundle.type">type</a> = <code>searchset</code> containing the results of the search as a list of resources
 in a defined order. The result list can be long, so servers may use paging. If they do, they SHALL use the method <a href="#paging">described below</a>
 (adapted from <a href="https://tools.ietf.org/html/rfc5005">RFC 5005 (Feed Paging and Archiving</a>) for breaking the
@@ -771,7 +771,7 @@ mode</a> of <code>include</code>.
 <a name="vsearch"> </a>
 <h4>Variant Searches</h4>
 <p>
-To search a <a href="compartments.html#compartments">compartment</a>, for either all possible resources or for a particular resource type, respectively:
+To search a <a href="compartmentdefinition.htmls">compartment</a>, for either all possible resources or for a particular resource type, respectively:
 </p>
 <pre>
   GET [base]/[Compartment]/[id]/{*?[parameters]{&amp;_format=[mime-type]}}
@@ -950,7 +950,7 @@ logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in t
 
 <p>
 In order to allow the client to know the outcomes of processing the entry, and the identities
-assigned to the resources by the server, the server SHALL return a <a href="compartments.html#bundle">Bundle</a> with
+assigned to the resources by the server, the server SHALL return a <a href="bundle.html">Bundle</a> with
 <a href="bundle-definitions.html#Bundle.type">type</a> set to <code>batch-response</code> or <code>transaction-response</code> that contains one entry for each entry in the
 request, in the same order, with the outcome of processing the entry.
 </p>
@@ -1000,7 +1000,7 @@ interaction are performed by HTTP <code>GET</code> command as shown:
   GET [base]/_history{?[parameters]&amp;_format=[mime-type]}
 </pre>
 <p>
-The return content is a <a href="compartments.html#bundle">Bundle</a> with
+The return content is a <a href="bundle.html">Bundle</a> with
 <a href="bundle-definitions.html#Bundle.type">type</a> set to <code>history</code> containing the 
 specified version history, sorted with oldest versions last, and including deleted resources.
 Each entry SHALL minimally contain either a <code>resource</code> which holds the resource as 
@@ -1254,7 +1254,7 @@ In this regard, FHIR functions as a Record Format Profile as described in that s
 </p>
 <ul>
  <li>FHIR maps the hData sections to resource types, and hData documents to resource instances. There are no subsections, and client systems are not able to create new sections,
- though <a href="compartments.html#compartments">compartments</a> behave somewhat like sections</li>
+ though <a href="compartmentdefinition.htmls">compartments</a> behave somewhat like sections</li>
  <li>Because clients cannot submit new sections (<code>POST</code> to service URL), <code>POST</code> to the service URL has been re-used for <a href="#transaction">the transaction
  interaction</a> (difference under review)</li>
  <li>FHIR does not (yet) define a root document. When defined, it will contain information about what the FHIR server has done (as opposed to a conformance statement, which describes what it is capable of doing)</li>

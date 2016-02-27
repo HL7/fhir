@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model.valuesets;
   
 */
 
-// Generated on Thu, Feb 25, 2016 10:54+1100 for FHIR v1.3.0
+// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
 
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
@@ -37,15 +37,15 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
 public enum Payeetype {
 
         /**
-         * null
+         * The subscriber (policy holder) will be reimbursed.
          */
         SUBSCRIBER, 
         /**
-         * null
+         * Any benefit payable will be paid to the provider (Assignment of Benefit).
          */
         PROVIDER, 
         /**
-         * null
+         * Any benefit payable will be paid to a third party such as a guarrantor.
          */
         OTHER, 
         /**
@@ -76,17 +76,17 @@ public enum Payeetype {
         }
         public String getDefinition() {
           switch (this) {
-            case SUBSCRIBER: return "";
-            case PROVIDER: return "";
-            case OTHER: return "";
+            case SUBSCRIBER: return "The subscriber (policy holder) will be reimbursed.";
+            case PROVIDER: return "Any benefit payable will be paid to the provider (Assignment of Benefit).";
+            case OTHER: return "Any benefit payable will be paid to a third party such as a guarrantor.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case SUBSCRIBER: return "subscriber";
-            case PROVIDER: return "provider";
-            case OTHER: return "other";
+            case SUBSCRIBER: return "Subscriber";
+            case PROVIDER: return "Provider";
+            case OTHER: return "Provider";
             default: return "?";
           }
     }

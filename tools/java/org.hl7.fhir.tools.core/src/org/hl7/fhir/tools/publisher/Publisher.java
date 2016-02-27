@@ -72,9 +72,6 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.io.IOUtils;
-import org.eclipse.emf.ecore.xmi.XMIResource;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.hl7.fhir.definitions.Config;
 import org.hl7.fhir.definitions.generators.specification.DataTypeTableGenerator;
 import org.hl7.fhir.definitions.generators.specification.DictHTMLGenerator;
@@ -121,41 +118,23 @@ import org.hl7.fhir.definitions.validation.FHIRPathUsage;
 import org.hl7.fhir.definitions.validation.ResourceValidator;
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
 import org.hl7.fhir.dstu3.formats.IParser;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.metamodel.Manager;
 import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.model.Bundle;
-import org.hl7.fhir.dstu3.model.CodeableConcept;
-import org.hl7.fhir.dstu3.model.ConceptMap;
-import org.hl7.fhir.dstu3.model.Conformance;
-import org.hl7.fhir.dstu3.model.ContactPoint;
-import org.hl7.fhir.dstu3.model.DataElement;
-import org.hl7.fhir.dstu3.model.DateTimeType;
-import org.hl7.fhir.dstu3.model.DomainResource;
-import org.hl7.fhir.dstu3.model.ElementDefinition;
-import org.hl7.fhir.dstu3.model.Factory;
-import org.hl7.fhir.dstu3.model.InstantType;
-import org.hl7.fhir.dstu3.model.Meta;
-import org.hl7.fhir.dstu3.model.NamingSystem;
-import org.hl7.fhir.dstu3.model.Narrative;
-import org.hl7.fhir.dstu3.model.OperationDefinition;
-import org.hl7.fhir.dstu3.model.Questionnaire;
-import org.hl7.fhir.dstu3.model.Reference;
-import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.model.ResourceType;
-import org.hl7.fhir.dstu3.model.SearchParameter;
-import org.hl7.fhir.dstu3.model.StringType;
-import org.hl7.fhir.dstu3.model.StructureDefinition;
-import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.model.UriType;
-import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
+import org.hl7.fhir.dstu3.model.CodeableConcept;
+import org.hl7.fhir.dstu3.model.CompartmentDefinition;
+import org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent;
+import org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentType;
+import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ConceptMap.ConceptMapContactComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.SourceElementComponent;
 import org.hl7.fhir.dstu3.model.ConceptMap.TargetElementComponent;
+import org.hl7.fhir.dstu3.model.Conformance;
 import org.hl7.fhir.dstu3.model.Conformance.ConditionalDeleteStatus;
 import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestComponent;
 import org.hl7.fhir.dstu3.model.Conformance.ConformanceRestResourceComponent;
@@ -168,22 +147,42 @@ import org.hl7.fhir.dstu3.model.Conformance.SystemRestfulInteraction;
 import org.hl7.fhir.dstu3.model.Conformance.TransactionMode;
 import org.hl7.fhir.dstu3.model.Conformance.TypeRestfulInteraction;
 import org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode;
+import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
+import org.hl7.fhir.dstu3.model.DataElement;
+import org.hl7.fhir.dstu3.model.DateTimeType;
+import org.hl7.fhir.dstu3.model.DomainResource;
+import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.ConceptMapEquivalence;
 import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
+import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.GuidePageKind;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
-import org.hl7.fhir.dstu3.model.MedicationAdministration.MedicationAdministrationDosageComponent;
+import org.hl7.fhir.dstu3.model.InstantType;
+import org.hl7.fhir.dstu3.model.Meta;
+import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemIdentifierType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemType;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemUniqueIdComponent;
+import org.hl7.fhir.dstu3.model.Narrative;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
+import org.hl7.fhir.dstu3.model.OperationDefinition;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
+import org.hl7.fhir.dstu3.model.Questionnaire;
+import org.hl7.fhir.dstu3.model.Reference;
+import org.hl7.fhir.dstu3.model.Resource;
+import org.hl7.fhir.dstu3.model.ResourceType;
+import org.hl7.fhir.dstu3.model.SearchParameter;
+import org.hl7.fhir.dstu3.model.StringType;
+import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu3.model.Type;
+import org.hl7.fhir.dstu3.model.UriType;
+import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
@@ -193,23 +192,23 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.dstu3.terminologies.LoincToDEConvertor;
-import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.LogicalModelUtilities;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ProfileComparer;
+import org.hl7.fhir.dstu3.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities;
 import org.hl7.fhir.dstu3.utils.QuestionnaireBuilder;
 import org.hl7.fhir.dstu3.utils.ResourceUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
-import org.hl7.fhir.dstu3.utils.ProfileComparer.ProfileComparison;
 import org.hl7.fhir.dstu3.validation.BaseValidator;
+import org.hl7.fhir.dstu3.validation.IResourceValidator.BestPracticeWarningLevel;
+import org.hl7.fhir.dstu3.validation.IResourceValidator.IdStatus;
 import org.hl7.fhir.dstu3.validation.InstanceValidator;
 import org.hl7.fhir.dstu3.validation.ProfileValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.dstu3.validation.IResourceValidator.BestPracticeWarningLevel;
-import org.hl7.fhir.dstu3.validation.IResourceValidator.IdStatus;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.rdf.RDFValidator;
 import org.hl7.fhir.tools.converters.CDAGenerator;
@@ -1100,6 +1099,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (isGenerate) {
       generateConformanceStatement(true, "base", false);
       generateConformanceStatement(false, "base2", false);
+      generateCompartmentDefinitions();
     }
     page.log(" ...resource ValueSet", LogMessageType.Process);
     ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
@@ -1252,6 +1252,55 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.setv3Valuesets(v3Valuesets);
   }
 
+  private void generateCompartmentDefinitions() throws Exception {
+    for (Compartment c : page.getDefinitions().getCompartments())
+      generateCompartmentDefinition(c);
+  }
+  
+  private void generateCompartmentDefinition(Compartment c) throws Exception {
+    CompartmentDefinition cpd = new CompartmentDefinition();
+    cpd.setId(c.getName());
+    cpd.setUrl("http://hl7.org/fhir/CompartmentDefinition/" + c.getName());
+    cpd.setName("Base FHIR compartment definition for " +c.getTitle());
+    cpd.setStatus(ConformanceResourceStatus.DRAFT);
+    cpd.setDescription(c.getIdentity()+". "+c.getDescription());
+    cpd.setExperimental(true);
+    cpd.setDate(page.getGenDate().getTime());
+    cpd.setPublisher("FHIR Project Team");
+    cpd.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
+    cpd.setCode(CompartmentType.fromCode(c.getTitle()));
+    cpd.setSearch(true);
+    for (String rn : page.getDefinitions().sortedResourceNames()) {
+      ResourceDefn rd = page.getDefinitions().getResourceByName(rn);
+      String rules = c.getResources().get(rd);
+      CompartmentDefinitionResourceComponent cc = cpd.addResource().setCode(rd.getName());
+      if (!Utilities.noString(rules)) {
+        for (String p : rules.split("\\|"))
+          cc.addParam(p.trim());
+      }
+    }
+    NarrativeGenerator gen = new NarrativeGenerator("", "", page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
+    gen.generate(cpd);
+    FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + "compartmentdefinition-" + c.getName().toLowerCase() + ".xml");
+    new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cpd);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + "compartmentdefinition-" + c.getName().toLowerCase() + ".canonical.xml");
+    new XmlParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, cpd);
+    s.close();
+    cloneToXhtml("compartmentdefinition-" + c.getName().toLowerCase(), "Compartment Definition for "+c.getName(), true, "resource-instance:CompartmentDefinition", "Compartment Definition for "+c.getName());
+    s = new FileOutputStream(page.getFolders().dstDir + "compartmentdefinition-" + c.getName().toLowerCase() + ".json");
+    new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, cpd);
+    s.close();
+    s = new FileOutputStream(page.getFolders().dstDir + "compartmentdefinition-" + c.getName().toLowerCase() + ".canonical.json");
+    new JsonParser().setOutputStyle(OutputStyle.CANONICAL).compose(s, cpd);
+    s.close();
+    jsonToXhtml("compartmentdefinition-" + c.getName().toLowerCase(), "Compartment Definition for "+c.getName(), resource2Json(cpd), "resource-instance:CompartmentDefinition", "Compartment Definition for "+c.getName());
+
+    Utilities.copyFile(new CSFile(page.getFolders().dstDir + "compartmentdefinition-" + c.getName().toLowerCase() + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator
+        + "compartmentdefinition-" + c.getName().toLowerCase()+ ".xml"));
+//    addToResourceFeed(cpd, resourceBundle);
+  }
+  
   private void generateConformanceStatement(boolean full, String name, boolean register) throws Exception {
     Conformance conf = new Conformance();
     conf.setId(FormatUtilities.makeId(name));
@@ -4962,10 +5011,10 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void produceCompartment(Compartment c) throws Exception {
 
-    String logicalName = "compartment-" + c.getName();
+    String logicalName = "compartmentdefinition-" + c.getName().toLowerCase();
     String file = logicalName + ".html";
     String src = TextFile.fileToString(page.getFolders().srcDir + "template-compartment.html");
-    src = page.processPageIncludes(file, src, "compartment", null, null, null, "Compartment", null);
+    src = page.processPageIncludes(file, src, "resource-instance:CompartmentDefinition", null, null, null, "Compartment", null);
 
     // String prefix = "";
     // if

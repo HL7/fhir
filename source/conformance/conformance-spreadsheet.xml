@@ -3173,7 +3173,7 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">An absolute URI which is a reference to the definition of a compartment hosted by the system</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">At present, the only defined compartments are at [[compartments.html]]</Data><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">At present, the only defined compartments are at [[compartmentdefinition.html]]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>

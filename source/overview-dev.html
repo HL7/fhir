@@ -429,7 +429,7 @@ Notes:
   <li><b>total</b> (line 14) - The total number of matches in the search results. Not the number of matches in this particular bundle, which may be a <a href="http.html#search">paged view into the results</a></li>
   <li><b>link</b> (line 15) - A set of named links that give related contexts to this bundle. Names defined in this specification: <a href="http.html#search">first</a>, <a href="http.html#search">prev</a>, <a href="http.html#search">next</a>, <a href="http.html#search">last</a>, <a href="http.html#search">self</a></li>
   <li><b>entry</b> (line 24) - Actual resources in this set of results</li>
-	<li><b>entry.resource.id</b> (line 27) - Note that in some bundles, the <code>entry.resource.id</code>must be <a href="compartments.html#bundle-unique">unique in the bundle</a></li>
+	<li><b>entry.resource.id</b> (line 27) - Note that in some bundles, the <code>entry.resource.id</code>must be <a href="bundle.html-unique">unique in the bundle</a></li>
   <li>The search operation is also able to <a href="search.html#include">return additional related resources</a> as well</li>
 </ul>
 
@@ -547,7 +547,7 @@ Implementers notes:
   <li><b>meta.lastUpdated</b> (line 6) - Changes when the versionId changes. Systems that don't support versions usually don't track lastUpdated either</li>
   <li><b>meta.profile</b> (line 7) - An assertion that the content conforms to a profile. See <a href="profiling.html#resources">Extending and Restricting Resources</a> for further discussion. Can be changed as profiles and value sets change or the system rechecks conformance</li>
   <li><b>meta.security</b> (lines 8 - 11) - <a href="security-labels.html">Security labels</a> applied to this resource. These tags connect resources in specific ways to the overall security policy and infrastructure. Security tags can be updated when the resource changes, or whenever the security sub-system chooses to</li>
-  <li><b>meta.tag</b> (lines 12 - 16) - <a href="compartments.html">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider the tags when interpreting the meaning of a resource. Tags can be <a href="http.html#tags">updated</a> without changing the resource version</li>
+  <li><b>meta.tag</b> (lines 12 - 16) - <a href="resource.html#Meta">Tags</a> applied to this resource. Tags are used to relate resources to process and workflow. Applications are not required to consider the tags when interpreting the meaning of a resource. Tags can be <a href="http.html#tags">updated</a> without changing the resource version</li>
   <li><b>implicitRules</b> (line 17) - indicates that there is a <a href="profiling.html#agreement">custom agreement</a> about how the resources are used that must be understood in order to safely process the resource. Use of this is discouraged because it restricts sharing, but sometimes necessary</li>
   <li><b>language</b> (line 18) - The <a href="narrative.html#language">base language of the resource</a>. The resource is allowed to have content from other languages; this is just the base, but should be the main language of the resource</li>
 </ul>

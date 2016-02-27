@@ -85,7 +85,7 @@ that are the results of the search.
 </p>
 <ul>
  <li>A specified resource type: <code>GET [base]/[ResourceType]?parameter(s)</code></li>
- <li>A specified <a href="compartments.html#compartments">compartment</a>, perhaps with a specified resource type in that compartment: <code>GET [base]/Patient/[id]/[ResourceType]?parameter(s)</code></li>
+ <li>A specified <a href="compartmentdefinition.htmls">compartment</a>, perhaps with a specified resource type in that compartment: <code>GET [base]/Patient/[id]/[ResourceType]?parameter(s)</code></li>
  <li>All resource types: <code>GET [base]/_search?parameter(s)</code> (parameters common to all types only)</li>
 </ul>
 <p>
@@ -1237,7 +1237,7 @@ of the client.
 <p>
 If the <code>_include</code> path selects a reference that refers to an entity that is not a Resource, such as
 an image attachment, the server may also elect to include this in the returned
-results as a <a href="compartments.html#binary">Binary</a> resource. For example, the include
+results as a <a href="binary.html">Binary</a> resource. For example, the include
 path may point to an attachment which is by reference, like this:
 </p>
 <pre>

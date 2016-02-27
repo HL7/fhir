@@ -1,18 +1,15 @@
 package org.hl7.fhir.dstu3.metamodel;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.apache.commons.lang3.NotImplementedException;
-import org.hl7.fhir.dstu3.formats.RdfGenerator;
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.formats.RdfGenerator;
 import org.hl7.fhir.dstu3.formats.RdfGenerator.Complex;
 import org.hl7.fhir.dstu3.formats.RdfGenerator.Section;
 import org.hl7.fhir.dstu3.formats.RdfGenerator.Subject;
-import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
-import org.hl7.fhir.utilities.Utilities;
 
 public class TurtleParser extends ParserBase {
 

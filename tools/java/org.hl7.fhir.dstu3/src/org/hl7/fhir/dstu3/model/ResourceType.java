@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
-// Generated on Sat, Feb 27, 2016 00:21+1100 for FHIR v1.3.0
+// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
 
 public enum ResourceType {
     Account,
@@ -21,6 +21,7 @@ public enum ResourceType {
     CodeSystem,
     Communication,
     CommunicationRequest,
+    CompartmentDefinition,
     Composition,
     ConceptMap,
     Condition,
@@ -148,6 +149,8 @@ public enum ResourceType {
       return "communication";
     case CommunicationRequest:
       return "communicationrequest";
+    case CompartmentDefinition:
+      return "compartmentdefinition";
     case Composition:
       return "composition";
     case ConceptMap:
@@ -368,6 +371,8 @@ public enum ResourceType {
       return Communication;
     if ("CommunicationRequest".equals(code))
       return CommunicationRequest;
+    if ("CompartmentDefinition".equals(code))
+      return CompartmentDefinition;
     if ("Composition".equals(code))
       return Composition;
     if ("ConceptMap".equals(code))

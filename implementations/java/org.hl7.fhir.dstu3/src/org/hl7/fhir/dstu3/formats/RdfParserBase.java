@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
-import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.RdfGenerator.Complex;
 import org.hl7.fhir.dstu3.formats.RdfGenerator.Section;
 import org.hl7.fhir.dstu3.formats.RdfGenerator.Subject;
@@ -13,12 +12,9 @@ import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.Enumeration;
-import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.Resource;
-import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.utilities.xhtml.XhtmlNode;
-import org.hl7.fhir.utilities.xml.XMLWriter;
 
 public abstract class RdfParserBase extends ParserBase implements IParser  {
 

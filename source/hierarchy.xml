@@ -32,13 +32,6 @@ signatures.html
 			<page title="References" filename="references.html">
 				<page title="Definitions" filename="references-definitions.html"/>
 			</page>
-			<page title="Compartment Based Access" filename="compartments.html">
-				<page title="Patient Compartment" filename="compartment-patient.html"/>
-				<page title="Encounter Compartment" filename="compartment-encounter.html"/>
-				<page title="RelatedPerson Compartment" filename="compartment-relatedPerson.html"/>
-				<page title="Practitioner Compartment" filename="compartment-practitioner.html"/>
-				<page title="Device Compartment" filename="compartment-device.html"/>
-			</page>
 			<page title="Narrative" filename="narrative.html">
 				<page title="Narrative Example" filename="narrative-example.html"/>
 				<page title="Definitions" filename="narrative-definitions.html"/>
@@ -295,6 +288,7 @@ signatures.html
 			<page type="resource" resource="StructureMap"/>
 			<page type="resource" resource="OperationDefinition"/>
 			<page type="resource" resource="SearchParameter"/>
+			<page type="resource" resource="CompartmentDefinition"/>
 			<page type="resource" resource="DataElement"/>
       <page type="resource" resource="ValueSet"/>
       <page type="resource" resource="ExpansionProfile"/>

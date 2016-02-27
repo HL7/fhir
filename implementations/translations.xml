@@ -115,6 +115,9 @@
         <translation lang="en">CommunicationRequest</translation>
         <translation lang="fr">DemandeDeCommunication</translation>
     </item>
+    <item id="CompartmentDefinition">
+        <translation lang="en">CompartmentDefinition</translation>
+    </item>
     <item id="Composition">
         <translation lang="en">Composition</translation>
         <translation lang="zh">组合</translation>

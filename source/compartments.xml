@@ -20,7 +20,7 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>15390</WindowHeight>
+  <WindowHeight>14100</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -135,7 +135,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="108" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="109" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.75"/>
    <Column ss:AutoFitWidth="0" ss:Width="198"/>
@@ -235,6 +235,9 @@
     <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>
     <Cell><Data ss:Type="String">sender | recipient | requester</Data></Cell>
     <Cell><Data ss:Type="String">sender | recipient</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CompartmentDefinition</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Composition</Data></Cell>
@@ -675,7 +678,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>6</ActiveRow>
+     <ActiveRow>17</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>

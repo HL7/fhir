@@ -3,7 +3,7 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="relationship"/>
   <url value="http://hl7.org/fhir/relationship"/>
-  <name value="Surface Codes"/>
+  <name value="Beneficiary Relationship Codes"/>
   <status value="draft"/>
   <experimental value="true"/>
   <description value="This value set includes the Patient to subscriber relationship codes."/>
@@ -12,17 +12,27 @@
   <content value="complete"/>
   <concept>
     <code value="1"/>
+    <display value="Self"/>
+    <definition value="The patient is the subscriber (policy holder)"/>
   </concept>
   <concept>
     <code value="2"/>
+    <display value="Spouse"/>
+    <definition value="The patient is the spouse or equivalent of the subscriber (policy holder)"/>
   </concept>
   <concept>
     <code value="3"/>
+    <display value="Child"/>
+    <definition value="The patient is the child of the subscriber (policy holder)"/>
   </concept>
   <concept>
     <code value="4"/>
+    <display value="Common Law Spouse"/>
+    <definition value="The patient is the common law spouse of the subscriber (policy holder)"/>
   </concept>
   <concept>
     <code value="5"/>
+    <display value="Other"/>
+    <definition value="The patient has some other relationship, such as parent, to the subscriber (policy holder)"/>
   </concept>
 </CodeSystem>
