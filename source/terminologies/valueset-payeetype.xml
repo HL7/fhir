@@ -17,12 +17,18 @@
     <caseSensitive value="true"/>
     <concept>
       <code value="subscriber"/>
+      <display value="Subscriber"/>
+      <definition value="The subscriber (policy holder) will be reimbursed."/>
     </concept>
     <concept>
       <code value="provider"/>
+      <display value="Provider"/>
+      <definition value="Any benefit payable will be paid to the provider (Assignment of Benefit)."/>
     </concept>
     <concept>
       <code value="other"/>
+      <display value="Provider"/>
+      <definition value="Any benefit payable will be paid to a third party such as a guarrantor."/>
     </concept>
   </codeSystem>
 </ValueSet>

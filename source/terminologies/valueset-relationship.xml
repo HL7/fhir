@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <name value="Surface Codes"/>
+  <name value="Beneficiary Relationship Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>
@@ -17,18 +17,28 @@
     <caseSensitive value="true"/>
     <concept>
       <code value="1"/>
+      <display value="Self"/>
+      <definition value="The patient is the subscriber (policy holder)"/>
     </concept>
     <concept>
       <code value="2"/>
+      <display value="Spouse"/>
+      <definition value="The patient is the spouse or equivalent of the subscriber (policy holder)"/>
     </concept>
     <concept>
       <code value="3"/>
+      <display value="Child"/>
+      <definition value="The patient is the child of the subscriber (policy holder)"/>
     </concept>
     <concept>
       <code value="4"/>
+      <display value="Common Law Spouse"/>
+      <definition value="The patient is the common law spouse of the subscriber (policy holder)"/>
     </concept>
     <concept>
       <code value="5"/>
+      <display value="Other"/>
+      <definition value="The patient has some other relationship, such as parent, to the subscriber (policy holder)"/>
     </concept>
   </codeSystem>
 </ValueSet>
