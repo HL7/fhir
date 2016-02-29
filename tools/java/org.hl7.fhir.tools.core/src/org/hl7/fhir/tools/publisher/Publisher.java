@@ -583,7 +583,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.loadUcum();
 
       prsr.parse(page.getGenDate(), page.getValidationErrors());
-      TextFile.stringToFile(new DefinitionDumper().dumpDefinitions(page.getDefinitions()), "c:\\temp\\build.txt");
 
       if (web) {
         page.log("Clear Directory", LogMessageType.Process);

@@ -82,6 +82,11 @@
       }
     },
     {
+      "hash": "#|http://example.org/FBPP|null|null|FBPP Pooled Database#|http://example.org/PhenX|null|null|Demographics#|http://example.org/EligibilityCriteria|null|null|Pt. Administrative#|http://example.org/UAMSClinicalResearch|null|null|UAMS New CDEs#|http://example.org/PhenX|null|null|Substance Abuse and #|http://example.org/Category|null|null|CSAERS Adverse Event#|http://example.org/PhenX|null|null|Core: Tier 1#|http://example.org/Category|null|null|Case Report Forms#|http://example.org/Category|null|null|CSAERS Review Set#|http://example.org/Demonstration%20Applications|null|null|CIAF#|http://example.org/NIDA%20CTN%20Usage|null|null|Clinical Research#|http://example.org/NIDA%20CTN%20Usage|null|null|Electronic Health Re#|http://example.org/Condition|null|null|Barretts Esophagus#|http://example.org/Condition|null|null|Bladder Cancer#|http://example.org/Condition|null|null|Oral Leukoplakia#|http://example.org/Condition|null|null|Sulindac for Breast",
+      "severity": "error",
+      "message": "None of the codes provided are  valid in the value set Context of Use ValueSet"
+    },
+    {
       "hash": "#|http://loinc.org/class|null|null|MISC",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
@@ -90,11 +95,6 @@
       "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
-    },
-    {
-      "hash": "#|http://example.org/FBPP|null|null|FBPP Pooled Database#|http://example.org/PhenX|null|null|Demographics#|http://example.org/EligibilityCriteria|null|null|Pt. Administrative#|http://example.org/UAMSClinicalResearch|null|null|UAMS New CDEs#|http://example.org/PhenX|null|null|Substance Abuse and #|http://example.org/Category|null|null|CSAERS Adverse Event#|http://example.org/PhenX|null|null|Core: Tier 1#|http://example.org/Category|null|null|Case Report Forms#|http://example.org/Category|null|null|CSAERS Review Set#|http://example.org/Demonstration%20Applications|null|null|CIAF#|http://example.org/NIDA%20CTN%20Usage|null|null|Clinical Research#|http://example.org/NIDA%20CTN%20Usage|null|null|Electronic Health Re#|http://example.org/Condition|null|null|Barretts Esophagus#|http://example.org/Condition|null|null|Bladder Cancer#|http://example.org/Condition|null|null|Oral Leukoplakia#|http://example.org/Condition|null|null|Sulindac for Breast",
-      "severity": "error",
-      "message": "None of the codes provided are  valid in the value set Context of Use ValueSet"
     }
   ]
 }

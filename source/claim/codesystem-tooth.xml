@@ -2,15 +2,17 @@
 
 <CodeSystem xmlns="http://hl7.org/fhir">
   <url value="http://hl7.org/fhir/ex-tooth"/>
-  <name value="Surface Codes"/>
+  <name value="Oral Site Codes"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <description value="This value set includes a smattering of FDI tooth surface codes."/>
+  <description value="This value set includes a smattering of FDI oral site codes."/>
   <copyright value="This is an example set."/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <concept>
     <code value="0"/>
+    <display value="Oral cavity"/>
+    <definition value="Oral cavity."/>
   </concept>
   <concept>
     <code value="1"/>
