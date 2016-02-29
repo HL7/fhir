@@ -16,10 +16,10 @@ ed.b64: for src.data as data where representation = "B64" make tgt.data = copy(d
 ed.plain: for src.data as data where not representation = "B64" make tgt.data = escape(data, "plain", "base64")
 ed.ct1: for src.mediaType as mt where src.charset.empty make tgt.contentType = copy(mt)
 ed.ct1: for src.mediaType as mt, src.charset as cs make tgt.contentType = append(mt, "; charset=", cs)
-ed.lang: for src.language as lang make tgt.language = copy(lang)
+ed.lang: for src.language as lang make tgt.language = lang
 ed.comp: for src check compression.empty
-ed.ref: for src.reference as ref make tgt.url = copy(ref)
-ed.ic: for src.integrityCheck as ic make tgt.hash = copy(ic)
+ed.ref: for src.reference as ref make tgt.url = ref
+ed.ic: for src.integrityCheck as ic make tgt.hash = ic
 ed.ica: for src.integrityCheckAlgorithm check integrityCheckAlgorithm = 'SHA1'
 // ignore ed.thumbnail
 

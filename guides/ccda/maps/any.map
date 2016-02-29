@@ -10,5 +10,5 @@ input tgt : Element as target;
 
 any.nf: for src.nullFlavor as nf make
    Element.extension as ex, 
-   ex.url = copy("http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor"), 
-   ex.value = copy(nf)  // nothing more after this
+   ex.url = "http://hl7.org/fhir/StructureDefinition/iso21090-nullFlavor",
+   ex.value = nf  // nothing more after this

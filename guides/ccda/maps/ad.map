@@ -14,13 +14,13 @@ input tgt : Address as target;
 ad.base: for src then by type // apply base nullFlavor rule
 
 ad.use: for src.use as v make tgt.use = translate(v, "http://hl7.org/fhir/ConceptMap/v3-address-use", code) // todo: that map is the wrong way around
-ad.dal: for src.deliveryAddressLine as v make tgt.line = copy(v) {first}
-ad.sal: for src.streetAddressLine as v make tgt.line = copy(v) 
-ad.city: for src.city as v make tgt.city = copy(v) {only-one} // more than one, an error
-ad.county: for src.county as v make tgt.district = copy(v) {only-one} // more than one, an error
-ad.state: for src.state as v make tgt.state = copy(v) {only-one} // more than one, an error
-ad.postalCode: for src.postalCode as v make tgt.postalCode = copy(v) {only-one} // more than one, an error
-ad.country: for src.country as v make tgt.country = copy(v) {only-one} // more than one, an error
+ad.dal: for src.deliveryAddressLine as v make tgt.line = v {first}
+ad.sal: for src.streetAddressLine as v make tgt.line = v 
+ad.city: for src.city as v make tgt.city = v {only-one} // more than one, an error
+ad.county: for src.county as v make tgt.district = v {only-one} // more than one, an error
+ad.state: for src.state as v make tgt.state = v {only-one} // more than one, an error
+ad.postalCode: for src.postalCode as v make tgt.postalCode = v {only-one} // more than one, an error
+ad.country: for src.country as v make tgt.country = v {only-one} // more than one, an error
 ad.period: for src.useablePeriod as s_up where useablePeriod.asType("IVL_TS") make tgt.period as t_p then by type // see ivl-ts map. otherwise we ignore useablePeriod
 
 // mapping these items presents conceptual difficulties:

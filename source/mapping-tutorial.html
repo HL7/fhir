@@ -74,7 +74,7 @@ Having set up the context, we now need to define the relationship between
 the source and target structures:
 </p>
 <pre>
-"rule_a" : for source.a as a make target.a = copy(a)
+"rule_a" : for source.a as a make target.a = a
 </pre>
 <p>
 This simple statement says that:
@@ -109,7 +109,7 @@ Now consider the case where the elements have different names:
 This relationship is a simple variation of the last:
 </p>
 <pre>
-"rule_a1" : for source.a1 as b make target.a2 = copy(b)
+"rule_a1" : for source.a1 as b make target.a2 = b
 </pre>
 <p>
 Note that the choice of variable name is purely arbitrary. It does not need to be the same as the element name.
@@ -136,8 +136,8 @@ There are 3 different ways to express this mapping, depending on what should hap
 </p>
 <pre>
 "rule_a20a" : for source.a2 as a make target.a2 = truncate(a, 20) // just cut it off at 20 characters
-"rule_a20b" : for source.a2 as a where a1.length &lt;= 20 make target.a2 = copy(a) // ignore it
-"rule_a20c" : for source.a2 as a check a2.length &lt;= 20 make target.a2 = copy(a) // error if it's longer than 20 characters
+"rule_a20b" : for source.a2 as a where a1.length &lt;= 20 make target.a2 = a // ignore it
+"rule_a20c" : for source.a2 as a check a2.length &lt;= 20 make target.a2 = a // error if it's longer than 20 characters
 </pre>
 <p>
 Note that it is implicit here that the transformation engine is not required to expected to validate the 
@@ -167,7 +167,7 @@ There are 3 different ways to express this mapping, depending on what should hap
 <pre>
 "rule_a21a" : for source.a21 as a make target.a21 = cast(a, "integer") // error if it's not an integer
 "rule_a21b" : for source.a21 as a where a1.isInteger make target.a2 = cast(a, "integer") // ignore it
-"rule_a21c" : for source.a21 as a where not at1.isInteger make target.a21 = copy(0) // just assign it 0
+"rule_a21c" : for source.a21 as a where not at1.isInteger make target.a21 = 0 // just assign it 0
 </pre>
 
 <h3>Step #5: Managing lists, part 1</h3>
@@ -189,7 +189,7 @@ Back to the simple case where source.a22 is copied to target.a22, but in this ca
 The transform rule simply asserts that a22 maps to a22. The engine will apply the rule once for each instance of a22:
 </p>
 <pre>
-"rule_a22" : for source.a22 as a make target.a22 = copy(a) 
+"rule_a22" : for source.a22 as a make target.a22 = a 
 </pre>
 
 <h3>Step #6: Managing lists, part 2</h3>
@@ -211,11 +211,11 @@ A more difficult case is where the source allows multiple repeats, but the targe
 Again, there are multiple different ways to write this, depending on out desired outcome if there is more than one copy of a23:
 </p>
 <pre>
-rule_a23a : for source.a23 as a make target.a23 = copy(a) { only_one } // transform engine creates an error 
-rule_a23b : for source.a23 as a make target.a23 = copy(a)  // leave error to lower layer; less informative
+rule_a23a : for source.a23 as a make target.a23 = a { only_one } // transform engine creates an error 
+rule_a23b : for source.a23 as a make target.a23 = a  // leave error to lower layer; less informative
 
 rule_a23c_1 : for source.a23 as a then rule_a23c_2
-rule_a23c_2 : for a where @context = source.a23.first make target.a23 = copy(a) // only use the first item in the list
+rule_a23c_2 : for a where @context = source.a23.first make target.a23 = a // only use the first item in the list
 </pre>
 <p>
 The last rule is the first example of stringing rules together. In this case, rule_a23c_1 exists to define a variable for 
@@ -248,7 +248,7 @@ does not refer to the type, it's literal type is not important.
 </p>
 <pre>
 rule_aa : for source.aa as s_aa make target.aa as t_aa then by variables // make aa exist
-rule_ab : for s_aa.ab as ab make t_aa.a2 = copy(ab) // copy ab inside aa
+rule_ab : for s_aa.ab as ab make t_aa.a2 = ab // copy ab inside aa
 </pre>
 <p>
 This situation is handled by a pair of rules: the first rule establishes that relationship
@@ -317,8 +317,8 @@ value of another element.
 This is managed using conditions on the mapping statements:
 </p>
 <pre>
-rule_i1 : for source.i as i where l &lt; 2 make target.j = copy(i)
-rule_i2 : for source.i as i where l >= 2 make target.j = copy(i)
+rule_i1 : for source.i as i where l &lt; 2 make target.j = i
+rule_i2 : for source.i as i where l >= 2 make target.j = i
 </pre>
 
 <h3>Step #9: Co-dependency in translation</h3>
@@ -343,8 +343,8 @@ value of another element.
 This is managed using conditions on the mapping statements:
 </p>
 <pre>
-rule_i1 : for source.i as i where l &lt; 2 make target.j = copy(i)
-rule_i2 : for source.i as i where l >= 2 make target.j = copy(i)
+rule_i1 : for source.i as i where l &lt; 2 make target.j = i
+rule_i2 : for source.i as i where l >= 2 make target.j = i
 </pre>
 <p>
 Other kind of conditional tests can include value set membership - and by extension to that, use of subsumption testing. 
@@ -377,10 +377,10 @@ This leads to some more complex mapping statements:
 </p>
 <pre>
 ef_a1: for source.e as s_e make target.e as t_e then ef_a2
-ef_a2: for s_e make t_e.f = copy(s_e), t_e.g = copy("g1")
+ef_a2: for s_e make t_e.f = s_e, t_e.g = "g1"
 
 ef_b1: for source.f as s_f make target.e as t_e then ef_b2 { first }
-ef_b2: for s_f make t_e.f = copy(s_f), t_e.g = copy("g2")
+ef_b2: for s_f make t_e.f = s_f, t_e.g = "g2"
 </pre>
 
 <h3>Step #10: Reworking Structure #2</h3>
@@ -411,8 +411,8 @@ The key to setting this mapping up is to create a variable context for source.az
 <pre>
 aza : for src.az1 as s_az1 then azb // setting up a variable for the parent
 azb : for s_az1.az3 as s_az3 make target.az1 as t_az1 then az2, az3   // one target.az1 for each az3
-az2 : for s_az1.az2 as az2 make t_az1.az2 = copy(az2)  // value for az2. Note that this refers to a previous context in the source
-az3 : for s_az3 make tgt_az1.az3 = copy(src_az3)       // value for az3      
+az2 : for s_az1.az2 as az2 make t_az1.az2 = az2  // value for az2. Note that this refers to a previous context in the source
+az3 : for s_az3 make tgt_az1.az3 = src_az3       // value for az3      
 </pre>
 
 <h3>Step #11: Multiple structures #1</h3>
@@ -453,7 +453,7 @@ The key to setting this mapping up is to create a variable context for source.az
 </p>
 <pre>
 f1 : for source.f1 as s_f1 make null as rr = create("TRight2"), target.ptr = reference(rr) then f1a.
-f1a: for s_f1 make rr.f2 = copy(srcff)
+f1a: for s_f1 make rr.f2 = srcff
 </pre>
 <p>
 This mapping statement makes use a special known value "null" for the target context to indicate that the created element/object of type "TRight2" 

@@ -12,8 +12,8 @@ input tgt : Quantity as target;
 
 pq.base: for src then by type // apply base nullFlavor rule
 
-pq.value: for src.value as val make tgt.value = copy(val)
-pq.unit: for src.unit as u make tgt.unit = copy(u), tgt.code = copy(u), tgt.system = copy("http://unitsofmeasure.org")
+pq.value: for src.value as val make tgt.value = val
+pq.unit: for src.unit as u make tgt.unit = u, tgt.code = u, tgt.system = "http://unitsofmeasure.org"
 // ignore pq.translations
 
 
