@@ -1298,7 +1298,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     Utilities.copyFile(new CSFile(page.getFolders().dstDir + "compartmentdefinition-" + c.getName().toLowerCase() + ".xml"), new CSFile(page.getFolders().dstDir + "examples" + File.separator
         + "compartmentdefinition-" + c.getName().toLowerCase()+ ".xml"));
-//    addToResourceFeed(cpd, resourceBundle);
+    addToResourceFeed(cpd, resourceBundle);
   }
   
   private void generateConformanceStatement(boolean full, String name, boolean register) throws Exception {
@@ -4330,6 +4330,20 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (!cm.getUrl().equals("http://hl7.org/fhir/"+cm.getResourceType().toString()+"/"+cm.getId()))
       throw new Exception("URL mismatch on concept map");
     dest.getEntry().add(new BundleEntryComponent().setResource(cm).setFullUrl(cm.getUrl()));
+  }
+
+  private void addToResourceFeed(CompartmentDefinition cd, Bundle dest) throws Exception {
+    if (cd.getId() == null)
+      throw new Exception("Resource has no id");
+    if (ResourceUtilities.getById(dest, ResourceType.CompartmentDefinition, cd.getId()) != null)
+      throw new Exception("Attempt to add duplicate Compartment Definition " + cd.getId());
+    if (cd.getText() == null || cd.getText().getDiv() == null)
+      throw new Exception("Example Compartment Definition " + cd.getId() + " does not have any narrative");
+
+    ResourceUtilities.meta(cd).setLastUpdated(page.getGenDate().getTime());
+    if (!cd.getUrl().equals("http://hl7.org/fhir/"+cd.getResourceType().toString()+"/"+cd.getId()))
+      throw new Exception("URL mismatch on concept map");
+    dest.getEntry().add(new BundleEntryComponent().setResource(cd).setFullUrl(cd.getUrl()));
   }
 
   private void addToResourceFeed(Conformance conf, Bundle dest) throws Exception {
