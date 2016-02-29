@@ -3560,7 +3560,7 @@ public class Publisher implements URIResolver, SectionNumberer {
         doc = builder.parse(bs);
       } catch (Exception e) {
         TextFile.bytesToFile(xml.getBytes(), Utilities.path(page.getFolders().dstDir, "dump.xml"));
-        throw new Exception(e);
+        throw new Exception("Error parsing fragments: "+e.getMessage()+": source dumped to "+Utilities.path(page.getFolders().dstDir, "dump.xml"), e);
       }
       org.w3c.dom.Element base = doc.getDocumentElement();
       String type = base.getAttribute("fragment");
