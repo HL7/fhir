@@ -40,6 +40,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -249,6 +250,7 @@ import org.w3c.dom.NodeList;
 import org.w3c.dom.ls.LSInput;
 import org.w3c.dom.ls.LSResourceResolver;
 import org.xml.sax.ErrorHandler;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xmlpull.v1.XmlPullParser;
@@ -3551,17 +3553,11 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void checkFragments() throws Exception {
     for (Fragment f : fragments) {
       String xml = f.getXml();
-      ByteArrayInputStream bs = new ByteArrayInputStream(xml.getBytes());
-      Document doc;
-      try {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        doc = builder.parse(bs);
-      } catch (Exception e) {
-        TextFile.bytesToFile(xml.getBytes(), Utilities.path(page.getFolders().dstDir, "dump.xml"));
-        throw new Exception("Error parsing fragments: "+e.getMessage()+": source dumped to "+Utilities.path(page.getFolders().dstDir, "dump.xml"), e);
-      }
+      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+      factory.setNamespaceAware(true);
+      DocumentBuilder builder = factory.newDocumentBuilder();
+      InputSource is = new InputSource(new StringReader(xml));
+      Document doc = builder.parse(is);
       org.w3c.dom.Element base = doc.getDocumentElement();
       String type = base.getAttribute("fragment");
       if (!page.getDefinitions().hasPrimitiveType(type)) {
