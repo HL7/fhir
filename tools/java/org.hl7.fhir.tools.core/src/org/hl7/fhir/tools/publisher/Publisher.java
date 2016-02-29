@@ -3552,10 +3552,16 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (Fragment f : fragments) {
       String xml = f.getXml();
       ByteArrayInputStream bs = new ByteArrayInputStream(xml.getBytes());
-      DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-      factory.setNamespaceAware(true);
-      DocumentBuilder builder = factory.newDocumentBuilder();
-      Document doc = builder.parse(bs);
+      Document doc;
+      try {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true);
+        DocumentBuilder builder = factory.newDocumentBuilder();
+        doc = builder.parse(bs);
+      } catch (Exception e) {
+        TextFile.bytesToFile(xml.getBytes(), Utilities.path(page.getFolders().dstDir, "dump.xml"));
+        throw new Exception(e);
+      }
       org.w3c.dom.Element base = doc.getDocumentElement();
       String type = base.getAttribute("fragment");
       if (!page.getDefinitions().hasPrimitiveType(type)) {
