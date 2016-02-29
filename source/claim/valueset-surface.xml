@@ -3,7 +3,7 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <name value="Surface Codes"/>
   <status value="draft"/>
-  <publisher value="FHIR Project team"/>
+  <publisher value="Financial Management"/>
   <contact>
     <telecom>
       <system value="other"/>
