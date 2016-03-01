@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-03-01T09:50:22Z</LastSaved>
+  <LastSaved>2016-03-01T12:54:56Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>26685</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1860,7 +1860,7 @@
     <Cell ss:StyleID="s183"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s183"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s183"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s184"><Data ss:Type="String">300;120</Data><NamedCell
+    <Cell ss:StyleID="s184"><Data ss:Type="String">550;120</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s183"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s185"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2097,7 +2097,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">F02</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">340;0</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">360;0</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2465,7 +2465,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">340;120</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">360;120</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2598,7 +2598,7 @@
     <Cell ss:StyleID="s174"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s174"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s174"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s175"><Data ss:Type="String">340;120</Data><NamedCell
+    <Cell ss:StyleID="s175"><Data ss:Type="String">360;220</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s174"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s176"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2897,7 +2897,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">340;200</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">360;330</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3607,7 +3607,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">20;400</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">10;570</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4301,7 +4301,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">270;460</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">350;590</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4675,7 +4675,7 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">510;460</Data><NamedCell
+    <Cell ss:StyleID="s92"><Data ss:Type="String">570;590</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5060,7 +5060,7 @@
     <Cell ss:Index="5"><Data ss:Type="String">=Prosthesis</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Prosthetic details</Data></Cell>
     <Cell><Data ss:Type="String">The materials and placement date of prior fixed prosthesis. </Data></Cell>
-    <Cell ss:Index="24"><Data ss:Type="String">270;640</Data></Cell>
+    <Cell ss:Index="24"><Data ss:Type="String">360;770</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell><Data ss:Type="String">Claim.item.prosthesis.initial</Data></Cell>
@@ -5164,7 +5164,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">280;360</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String" x:Ticked="1">360;490</Data></Cell>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s93"/>
    </Row>
@@ -5265,12 +5265,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>77</TopRowBottomPane>
+   <TopRowBottomPane>43</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>14</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5278,6 +5279,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5285,7 +5287,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>78</ActiveRow>
+     <ActiveRow>120</ActiveRow>
+     <ActiveCol>23</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8453,7 +8456,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

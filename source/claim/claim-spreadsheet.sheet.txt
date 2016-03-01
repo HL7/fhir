@@ -207,7 +207,7 @@
   Binding Name = ICD10_Procedures
   Binding = value set
   Reference = valueset-icd-10-procedures
-  Definition = ICD10 Diagnostic codes
+  Definition = ICD10 Procedure codes
   Conformance = example
 
 === Sheet claim-use-link =====================================
@@ -402,7 +402,7 @@
  -- Row 18 -----------------------------------
   Element = Claim.related
   Card. = 0..*
-  UML = 300;120
+  UML = 550;120
   Type = =RelatedClaims
   Short Label = Related Claims
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
@@ -453,7 +453,7 @@
  -- Row 25 -----------------------------------
   Element = Claim.payee
   Card. = 0..1
-  UML = 340;0
+  UML = 360;0
   Type = =Payee
   Short Label = Payee
   Definition = The party to be reimbursed for the services.
@@ -531,7 +531,7 @@
  -- Row 36 -----------------------------------
   Element = Claim.diagnosis
   Card. = 0..*
-  UML = 340;120
+  UML = 360;120
   Type = =Diagnosis
   Short Label = Diagnosis
   Definition = Ordered list of patient diagnosis for which care is sought.
@@ -559,7 +559,7 @@
  -- Row 40 -----------------------------------
   Element = Claim.procedure
   Card. = 0..*
-  UML = 340;120
+  UML = 360;220
   Type = =Procedure
   Short Label = Procedures performed
   Definition = Ordered list of patient procedures performed to support the adjudication.
@@ -617,7 +617,7 @@
  -- Row 49 -----------------------------------
   Element = Claim.coverage
   Card. = 0..*
-  UML = 340;200
+  UML = 360;330
   Type = =Coverage
   Short Label = Insurance or medical plan
   Definition = Financial instrument by which payment information for health care
@@ -772,7 +772,7 @@
  -- Row 70 -----------------------------------
   Element = Claim.item
   Card. = 0..*
-  UML = 20;400
+  UML = 10;570
   Type = =Items
   Short Label = Goods and Services
   Definition = First tier of goods and services
@@ -924,7 +924,7 @@
  -- Row 90 -----------------------------------
   Element = Claim.item.detail
   Card. = 0..*
-  UML = 270;460
+  UML = 350;590
   Type = =Detail
   Short Label = Additional items
   Definition = Second tier of goods and services
@@ -1006,7 +1006,7 @@
  -- Row 101 -----------------------------------
   Element = Claim.item.detail.subDetail
   Card. = 0..*
-  UML = 510;460
+  UML = 570;590
   Type = =SubDetail
   Short Label = Additional items
   Definition = Third tier of goods and services
@@ -1095,7 +1095,7 @@
  -- Row 113 -----------------------------------
   Element = Claim.item.prosthesis
   Card. = 0..1
-  UML = 270;640
+  UML = 360;770
   Type = =Prosthesis
   Short Label = Prosthetic details
   Definition = The materials and placement date of prior fixed prosthesis.
@@ -1152,7 +1152,7 @@
  -- Row 122 -----------------------------------
   Element = Claim.missingTeeth
   Card. = 0..*
-  UML = 280;360
+  UML = 360;490
   Type = =MissingTeeth
   Short Label = Only if type = oral
   Definition = A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
