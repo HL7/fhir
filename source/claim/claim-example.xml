@@ -64,9 +64,9 @@
    <type>
      <code value="service"/>
    </type>
-   <provider>
+   <providerReference>
      <reference value="Practitioner/example"/>
-   </provider>
+   </providerReference>
    <service>
      <code value="1200"/>
    </service>

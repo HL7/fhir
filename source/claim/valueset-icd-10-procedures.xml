@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="ICD-10 Procedure Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes sample ICD-10 Procedure codes."/>
+  <copyright value="This is an example set."/>
+  <codeSystem>
+      <system value="http://hl7.org/fhir/sid/ex-icd-10-procedures"/>
+      <caseSensitive value="true"/>
+      <concept>
+        <code value="123001"/>
+        <display value="PROC-1"/>
+        <definition value="Procedure 1"/>
+      </concept>
+      <concept>
+        <code value="123002"/>
+        <display value="PROC-2"/>
+        <definition value="Procedure 2"/>
+      </concept>
+      <concept>
+        <code value="123003"/>
+        <display value="PROC-3"/>
+        <definition value="Procedure 3"/>
+      </concept>
+  </codeSystem>
+</ValueSet>

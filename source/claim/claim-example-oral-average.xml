@@ -63,9 +63,9 @@
    <type>
      <code value="service"/>
    </type>
-   <provider>
+   <providerReference>
      <reference value="Practitioner/example"/>
-   </provider>
+   </providerReference>
    <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="1200"/>
@@ -88,9 +88,9 @@
    <type>
      <code value="service"/>
    </type>
-   <provider>
+   <providerReference>
      <reference value="Practitioner/example"/>
-   </provider>
+   </providerReference>
    <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="21211"/>
@@ -121,9 +121,9 @@
    <type>
      <code value="group"/>
    </type>
-   <provider>
+   <providerReference>
      <reference value="Practitioner/example"/>
-   </provider>
+   </providerReference>
    <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="27211"/>

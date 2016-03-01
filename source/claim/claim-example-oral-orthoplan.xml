@@ -65,9 +65,9 @@
      <system value="http://hl7.org/fhir/v3/ActCode"/>
      <code value="FRAMEING"/> <!-- was group changed by GG to be valid -->
    </type>
-   <provider>
+   <providerReference>
      <reference value="Practitioner/example"/>
-   </provider>
+   </providerReference>
    <diagnosisLinkId value="1"/>
    <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
@@ -192,9 +192,9 @@
    <type>
      <code value="service"/>
    </type>
-   <provider>
+   <providerReference>
      <reference value="Practitioner/example"/>
-   </provider>
+   </providerReference>
    <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="21211"/>
@@ -225,9 +225,9 @@
    <type>
      <code value="group"/>
    </type>
-   <provider>
+   <providerReference>
      <reference value="Practitioner/example"/>
-   </provider>
+   </providerReference>
    <service>
      <system value="http://hl7.org/fhir/oralservicecodes"/>
      <code value="27211"/>

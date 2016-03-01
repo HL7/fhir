@@ -6,7 +6,7 @@
   <name value="Audit Event ID"/>
   <status value="active"/>
   <experimental value="false"/>
-  <date value="2015-03-26T00:00:00+11:00"/>
+  <date value="2015-03-26T00:00:00+03:00"/>
   <description value="Event Types for Audit Events - defined by DICOM with some FHIR specific additions."/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
   <caseSensitive value="true"/>
