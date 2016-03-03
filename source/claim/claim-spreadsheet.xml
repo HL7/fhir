@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-03-01T12:54:56Z</LastSaved>
+  <LastSaved>2016-03-02T17:52:05Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>26685</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1081,6 +1081,27 @@
     ss:WrapText="1"/>
    <Interior ss:Color="#A9D08E" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s199">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#FF0000"
+    ss:Bold="1"/>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s201">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="3"/>
+   </Borders>
+   <Interior ss:Color="#C6E0B4" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s202">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#C6E0B4" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -1136,7 +1157,7 @@
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="119.25"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="28.5"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="27"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="112.5"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="131.25"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="81"/>
    <Column ss:StyleID="s68" ss:Width="51.75" ss:Span="1"/>
    <Column ss:Index="12" ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="80.25"/>
@@ -2303,13 +2324,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s177">
-    <Cell ss:StyleID="s170"><Data ss:Type="String">Claim.occurrence</Data><NamedCell
+    <Cell ss:StyleID="s170"><Data ss:Type="String">Claim.occurrenceCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2321,7 +2342,7 @@
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">Occurrence Codes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service.</Data><NamedCell
+    <Cell ss:StyleID="s172"><Data ss:Type="String">**Insert definition of Occurrence codes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s173"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s172"><Data ss:Type="String">This may contain the local bill type codes such as the US UB-04 bill type code.</Data><NamedCell
@@ -2338,13 +2359,13 @@
     <Cell ss:StyleID="s176"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s177">
-    <Cell ss:StyleID="s170"><Data ss:Type="String">Claim.occurenceSpan</Data><NamedCell
+    <Cell ss:StyleID="s170"><Data ss:Type="String">Claim.occurenceSpanCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2356,7 +2377,7 @@
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">Occurrence Span Codes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service.</Data><NamedCell
+    <Cell ss:StyleID="s172"><Data ss:Type="String">**Insert definition of Occurrence Span codes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s173"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s172"><Data ss:Type="String">This may contain the local bill type codes such as the US UB-04 bill type code.</Data><NamedCell
@@ -2373,13 +2394,13 @@
     <Cell ss:StyleID="s176"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s177">
-    <Cell ss:StyleID="s170"><Data ss:Type="String">Claim.value</Data><NamedCell
+    <Cell ss:StyleID="s170"><Data ss:Type="String">Claim.valueCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Coding</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2391,7 +2412,7 @@
     <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s171"><Data ss:Type="String">Value Codes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s172"><Data ss:Type="String">A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service.</Data><NamedCell
+    <Cell ss:StyleID="s172"><Data ss:Type="String">**Insert definition of Value codes</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s173"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s172"><Data ss:Type="String">This may contain the local bill type codes such as the US UB-04 bill type code.</Data><NamedCell
@@ -5265,13 +5286,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>43</TopRowBottomPane>
+   <TopRowBottomPane>37</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>14</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5279,7 +5299,6 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -5287,8 +5306,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>120</ActiveRow>
-     <ActiveCol>23</ActiveCol>
+     <ActiveRow>38</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8088,7 +8107,7 @@
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActInvoiceGroupCode</Data></Cell>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">Suggest we reduce this to just Group, service, product</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
@@ -8164,7 +8183,7 @@
     <Cell ss:StyleID="s132"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">#claim-type-link</Data></Cell>
-    <Cell ss:StyleID="s132"/>
+    <Cell ss:StyleID="s199"><Data ss:Type="String">create a valueset</Data></Cell>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
@@ -8294,7 +8313,7 @@
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s178"><Data ss:Type="String">ProviderQualification</Data></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">ProviderQualification</Data></Cell>
     <Cell><Data ss:Type="String">Provider professional qualifications</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">example</Data></Cell>
@@ -8309,7 +8328,7 @@
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s178"><Data ss:Type="String">ServiceModifiers</Data></Cell>
+    <Cell ss:StyleID="s202"><Data ss:Type="String">ServiceModifiers</Data></Cell>
     <Cell><Data ss:Type="String">Factors which may influce adjudication of services</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">example</Data></Cell>
@@ -8324,7 +8343,7 @@
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s161"><Data ss:Type="String">ICD10_Procedures</Data></Cell>
+    <Cell ss:StyleID="s201"><Data ss:Type="String">ICD10_Procedures</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">ICD10 Procedure codes</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s132"><Data ss:Type="String">example</Data></Cell>
@@ -8456,10 +8475,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>22</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8476,7 +8496,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>31</ActiveRow>
+     <ActiveRow>28</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
