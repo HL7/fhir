@@ -42,7 +42,8 @@ after_success:
 
 env:
   global:
-    secure: "MV6r5LHUxQns93+NuKCv+iJPDLoSRSXpJ5YNq36mlO7pKIiHxWOYkrdxaXFyZU7lJzYMuJuFFpPPmzBNN8AqGo+3GY/ge6cODbYyAyS+PPUnazKNSyha7Hu9XQh1px44NBgnwE3wbltXYYvwQbHe8vXhDwBLXYZe9xj0g4YY4ms="
+    - MALLOC_ARENA_MAX=2
+    - secure: "MV6r5LHUxQns93+NuKCv+iJPDLoSRSXpJ5YNq36mlO7pKIiHxWOYkrdxaXFyZU7lJzYMuJuFFpPPmzBNN8AqGo+3GY/ge6cODbYyAyS+PPUnazKNSyha7Hu9XQh1px44NBgnwE3wbltXYYvwQbHe8vXhDwBLXYZe9xj0g4YY4ms="
 
 # To recreate the payload + "secure" var above:
 # password=`openssl rand -hex 32`
