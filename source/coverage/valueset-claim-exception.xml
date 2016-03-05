@@ -13,7 +13,7 @@
   <description value="This value set includes sample Exception codes."/>
   <copyright value="This is an example set."/>
   <codeSystem>
-    <system value="http://hl7.org/fhir/exception"/>
+    <system value="http://hl7.org/fhir/ex-coverageexception"/>
     <caseSensitive value="true"/>
     <concept>
       <code value="student"/>
