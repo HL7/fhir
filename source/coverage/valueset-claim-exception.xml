@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <name value="Exception Codes"/>
+  <status value="draft"/>
+  <publisher value="Financial Management"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+  </contact>
+  <description value="This value set includes sample Exception codes."/>
+  <copyright value="This is an example set."/>
+  <codeSystem>
+    <system value="http://hl7.org/fhir/exception"/>
+    <caseSensitive value="true"/>
+    <concept>
+      <code value="student"/>
+    <!--   student over the age limit   -->
+      <display value="Student (Fulltime)"/>
+      <definition value="Fulltime Student"/>
+    </concept>
+    <concept>
+      <code value="disabled"/>
+    <!--   disabled   -->
+      <display value="Disabled"/>
+      <definition value="Disabled"/>
+    </concept>
+  </codeSystem>
+</ValueSet>

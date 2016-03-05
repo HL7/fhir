@@ -7,9 +7,9 @@
     <div xmlns="http://www.w3.org/1999/xhtml">A human-readable rendering of the coverage</div>
   </text>
 
- <issuer>
+ <issuerReference>
   <reference value="Organization/2"/>
-</issuer>
+ </issuerReference>
  
  <period> 
    <start value="2011-05-23"/>
@@ -21,6 +21,18 @@
       <code value="EHCPOL"/>
       <display value="extended healthcare"/>
  </type>
+ 
+ <planholderReference>
+	<reference value="Patient/4"/>
+ </planholderReference>
+ 
+ <beneficiaryReference>
+	<reference value="Patient/4"/>
+ </beneficiaryReference>
+ 
+ <relationship>
+      <code value="self"/>
+ </relationship>
  
  <identifier>
     <system value="http://benefitsinc.com/certificate"/>
@@ -34,8 +46,5 @@
  <dependent value="1"/>
  
  <sequence value="1"/>
- 
- <subscriber>
-	<reference value="Patient/4"/>
- </subscriber>
+
 </Coverage>

@@ -288,6 +288,7 @@
  -- Row 3 -----------------------------------
   Element = Claim.type
   Card. = 1..1
+  Regex = should we create a valueset?
   Type = code
   Binding = ClaimType
   Short Label = institutional | oral | pharmacy | professional | vision
@@ -462,22 +463,22 @@
 
  -- Row 26 -----------------------------------
   Element = Claim.payee.type
-  Card. = 0..1
+  Card. = 1..1
   Type = Coding
   Binding = PayeeType
   Short Label = Payee type
   Definition = Type of Party to be reimbursed: Subscriber, provider, other.
 
  -- Row 27 -----------------------------------
-  Element = !Claim.payee.party
+  Element = Claim.payee.party[x]
   Card. = 0..1
-  Type = Identifier|Reference(Practitioner|Organization|Patient)
+  Type = Identifier|Reference(Practitioner|Organization|Patient|RelatedPerson)
   Short Label = Party to be paid any benefits payable
   Definition = Party to be reimbursed: Subscriber, provider, other.
   Comments = Consider makig this a choice (payee[x])
 
  -- Row 28 -----------------------------------
-  Element = Claim.payee.provider
+  Element = !Claim.payee.provider
   Card. = 0..1
   Type = Reference(Practitioner)
   Short Label = Provider who is the payee
@@ -485,14 +486,14 @@
   Comments = Consider makig this a choice (payee[x])
 
  -- Row 29 -----------------------------------
-  Element = Claim.payee.organization
+  Element = !Claim.payee.organization
   Card. = 0..1
   Type = Reference(Organization)
   Short Label = Organization who is the payee
   Definition = The organization who is to be reimbursed for the claim (the party to whom any benefit is assigned)
 
  -- Row 30 -----------------------------------
-  Element = Claim.payee.person
+  Element = !Claim.payee.person
   Card. = 0..1
   Type = Reference(Patient)
   Short Label = Other person who is the payee
@@ -666,7 +667,7 @@
   Definition = The contract number of a business agreement which describes the terms and conditions.
 
  -- Row 55 -----------------------------------
-  Element = Claim.coverage.relationship
+  Element = !Claim.coverage.relationship
   Card. = 1..1
   Type = Coding
   Binding = Relationship
@@ -703,7 +704,7 @@
   Element = !Insurance Exception Information
 
  -- Row 60 -----------------------------------
-  Element = Claim.exception
+  Element = !Claim.exception
   Card. = 0..*
   Type = Coding
   Binding = Exception
@@ -712,7 +713,7 @@
   Requirements = To determine extenuating circumstances for coverage
 
  -- Row 61 -----------------------------------
-  Element = Claim.school
+  Element = !Claim.school
   Card. = 0..1
   Type = string
   Short Label = Name of School
@@ -1194,3 +1195,161 @@
   Short Label = Date of Extraction
   Definition = The date of the extraction either known from records or patient reported estimate.
   Requirements = Some services and adjudications require this information.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The primary identifier of the financial resource
+  Path = Claim.identifier
+
+ -- Row 2 -----------------------------------
+  Name = use
+  Type = token
+  Description = The kind of financial resource
+  Path = Claim.use
+
+ -- Row 3 -----------------------------------
+  Name = priority
+  Type = token
+  Description = Processing priority requested
+  Path = Claim.priority
+
+ -- Row 4 -----------------------------------
+  Name = patientreference
+  Type = reference
+  Description = Patient receiving the services
+  Path = Claim.patientReference
+
+ -- Row 5 -----------------------------------
+  Name = patientidentifier
+  Type = token
+  Description = Patient receiving the services
+  Path = Claim.patientIdentifier
+
+ -- Row 6 -----------------------------------
+  Name = providerreference
+  Type = reference
+  Description = Provider responsible for the Claim
+  Path = Claim.providerReference
+
+ -- Row 7 -----------------------------------
+  Name = provideridentifier
+  Type = token
+  Description = Provider responsible for the Claim
+  Path = Claim.providerIdentifier
+
+ -- Row 8 -----------------------------------
+  Name = created
+  Type = date
+  Description = The creation date for the Claim
+  Path = Claim.created
+
+ -- Row 9 -----------------------------------
+  Name = targetreference
+  Type = reference
+  Description = The target payor/insurer for the Claim
+  Path = Claim.targetReference
+
+ -- Row 10 -----------------------------------
+  Name = targetidentifier
+  Type = token
+  Description = The target payor/insurer for the Claim
+  Path = Claim.targetIdentifier
+
+ -- Row 11 -----------------------------------
+  Name = organizationreference
+  Type = reference
+  Description = The reference to the providing organization
+  Path = Claim.organizationReference
+
+ -- Row 12 -----------------------------------
+  Name = organizationidentifier
+  Type = token
+  Description = The reference to the providing organization
+  Path = Claim.organizationIdentifier
+
+ -- Row 13 -----------------------------------
+  Name = facilityreference
+  Type = reference
+  Description = Facility responsible for the goods and services
+  Path = Claim.facilityReference
+
+ -- Row 14 -----------------------------------
+  Name = facilityidentifier
+  Type = token
+  Description = Facility responsible for the goods and services
+  Path = Claim.facilityIdentifier
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = General-Claim-Oral-Simple
+  Identity = 100150
+  Description = Simple dental Claim
+  Filename = claim-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = General-Claim-Oral-Average
+  Identity = 100151
+  Description = Average dental Claim
+  Filename = claim-example-oral-average.xml
+
+ -- Row 3 -----------------------------------
+  Name = General-Claim-Oral-Contained
+  Identity = 100152
+  Description = SOA Dental Claim
+  Filename = claim-example-oral-contained.xml
+
+ -- Row 4 -----------------------------------
+  Name = General-Claim-Oral-Identifers
+  Identity = 100154
+  Description = SOA Dental Claim using identifiers
+  Filename = claim-example-oral-identifier.xml
+
+ -- Row 5 -----------------------------------
+  Name = General-Claim-Oral-Mixed
+  Identity = 100155
+  Description = SOA Dental Claim using identifiers and Contained
+  Filename = claim-example-oral-contained-identifier.xml
+
+ -- Row 6 -----------------------------------
+  Name = General-PreAuth-Oral-OthoPlan
+  Identity = 100153
+  Description = PreAuthorization with Orthodontic Treatment Plan
+  Filename = claim-example-oral-orthoplan.xml
+
+ -- Row 7 -----------------------------------
+  Name = General-Claim-Vision-Exam
+  Identity = 660150
+  Description = Simple Vision Claim
+  Filename = claim-example-vision.xml
+
+ -- Row 8 -----------------------------------
+  Name = General-Claim-Vision-Glasses
+  Identity = 660151
+  Description = Glasses Claim
+  Filename = claim-example-vision-glasses.xml
+
+ -- Row 9 -----------------------------------
+  Name = General-Claim-Institutional-Simple
+  Identity = 960150
+  Description = Simple Institutional Service Claim
+  Filename = claim-example-institutional.xml
+
+ -- Row 10 -----------------------------------
+  Name = General-Claim-Professional-Simple
+  Identity = 860150
+  Description = Simple Pharmacy Service Claim
+  Filename = claim-example-professional.xml
+
+ -- Row 11 -----------------------------------
+  Name = General-Claim-Pharmacy-Simple
+  Identity = 760150
+  Description = Simple Pharmacy Service Claim
+  Filename = claim-example-pharmacy.xml
+
+=== Sheet Examples =====================================

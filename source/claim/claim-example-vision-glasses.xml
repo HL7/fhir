@@ -57,9 +57,6 @@
    <coverageReference>
      <reference value="Coverage/9876B1"/>
    </coverageReference>
-   <relationship>
-     <code value="self"/>
-   </relationship>
  </coverage>
   
  <item>

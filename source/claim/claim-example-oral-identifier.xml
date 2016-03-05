@@ -57,9 +57,6 @@
       <system value="http://www.jurisdiction.com/nationalplan"/>
       <value value="123AB345"/>
     </coverageIdentifier>
-    <relationship>
-      <code value="self"/>
-    </relationship>
   </coverage>
   
   <item>

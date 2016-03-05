@@ -60,13 +60,25 @@
   <contained>
     <Coverage>
       <id value="coverage-1"/>
-      <issuer>
+      <issuerReference>
         <reference value="#organization-2"/>
-      </issuer>
+      </issuerReference>
       <type>
         <system value="http://hl7.org/fhir/v3/ActCode"/>
         <code value="EHCPOL"/>
       </type>
+	  <planholderReference>
+	     <reference value="#patient-1"/>
+      </planholderReference>
+ 
+      <beneficiaryReference>
+	     <reference value="#patient-1"/>
+      </beneficiaryReference>
+ 
+      <relationship>
+        <code value="self"/>
+      </relationship>
+	  
       <identifier>
         <system value="http://benefitsinc.com/certificate"/>
         <value value="12345"/>
@@ -75,9 +87,6 @@
       <subPlan value="123"/>
       <dependent value="1"/>
       <sequence value="1"/>
-      <subscriber>
-        <reference value="#patient-1"/>
-      </subscriber>
     </Coverage>
   </contained>
   
@@ -127,9 +136,6 @@
     <coverageReference>
       <reference value="#coverage-1"/>
     </coverageReference>
-    <relationship>
-      <code value="self"/>
-    </relationship>
   </coverage>
   
   <item>
