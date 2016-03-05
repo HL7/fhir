@@ -252,16 +252,22 @@
 		<reference value="Library/mmi-suiciderisk-orderset-logic"/>
 	</library>
 	
-	<!-- Items -->
+	<!-- Actions -->
 	<!-- Suicide Risk Assessment and Outpatient Management -->
-	<item>
+	<action>
 		<title value="Suicide Risk Assessment and Outpatient Management"/>
 		<!-- Consults and Referrals -->
-		<items>
+		<actions>
 			<title value="Consults and Referrals"/>
-			<groupingBehavior value="logical-group"/>
-			<selectionBehavior value="any"/>
-			<items>
+			<behavior>
+				<type><code value="grouping-behavior"/></type>
+				<value><code value="logical-group"/></value>
+			</behavior>
+			<behavior>
+				<type><code value="selection-behavior"/></type>
+				<value><code value="any"/></value>
+			</behavior>
+			<actions>
 				<!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now -->
 				<textEquivalent value="Refer to outpatient mental health program for evaluation and treatment of mental health conditions now"/>
 				<resource>
@@ -287,14 +293,20 @@
 					<path value="supportingInformation"/>
 					<expression value="RiskAssessment"/>
 				</customization>
-			</items>
-		</items>
+			</actions>
+		</actions>
 		<!-- Medications -->
-		<items>
+		<actions>
 			<title value="Medications"/>
-			<groupingBehavior value="logical-group"/>
-			<selectionBehavior value="at-most-one"/>
-			<items>
+			<behavior>
+				<type><code value="grouping-behavior"/></type>
+				<value><code value="logical-group"/></value>
+			</behavior>
+			<behavior>
+				<type><code value="selection-behavior"/></type>
+				<value><code value="at-most-one"/></value>
+			</behavior>
+			<actions>
 
 				<!-- First-Line Antidepressants -->
 				<title value="First-Line Antidepressants"/>
@@ -303,9 +315,15 @@
 					<url value="http://psychiatryonline.org/pb/assets/raw/sitewide/practice_guidelines/guidelines/mdd.pdf"/>
 					<title value="Practice Guideline for the Treatment of Patients with Major Depressive Disorder"/>
 				</supportingEvidence>
-				<groupingBehavior value="logical-group"/>
-				<selectionBehavior value="at-most-one"/>
-				<items>
+				<behavior>
+					<type><code value="grouping-behavior"/></type>
+					<value><code value="logical-group"/></value>
+				</behavior>
+				<behavior>
+					<type><code value="selection-behavior"/></type>
+					<value><code value="at-most-one"/></value>
+				</behavior>
+				<actions>
 					<!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
 					<title value="Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)"/>
 					<documentation>
@@ -313,52 +331,58 @@
 						<url value="http://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6daeb45c-451d-b135-bf8f-2d6dff4b6b01"/>
 						<title value="National Library of Medicine. DailyMed website. CITALOPRAM- citalopram hydrobromide tablet, film coated."/>
 					</documentation>
-					<groupingBehavior value="logical-group"/>
-					<selectionBehavior value="at-most-one"/>
-					<items>
+					<behavior>
+						<type><code value="grouping-behavior"/></type>
+						<value><code value="logical-group"/></value>
+					</behavior>
+					<behavior>
+						<type><code value="selection-behavior"/></type>
+						<value><code value="at-most-one"/></value>
+					</behavior>
+					<actions>
 						<!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) -->
 						<textEquivalent value="citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)"/>
 						<resource>
 							<reference value="#citalopramPrescription"/>
 						</resource>
-					</items>
-					<items>
+					</actions>
+					<actions>
 						<!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
 						<textEquivalent value="escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					</items>
-					<items>
+					</actions>
+					<actions>
 						<!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) -->
 						<textEquivalent value="fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					</items>
-					<items>
+					</actions>
+					<actions>
 						<!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
 						<textEquivalent value="paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					</items>
-					<items>
+					</actions>
+					<actions>
 						<!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
 						<textEquivalent value="sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					</items>
-				</items>
-				<items>
+					</actions>
+				</actions>
+				<actions>
 					<!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
 					<textEquivalent value="Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)"/>
 					<!-- Follows pattern established above -->
-				</items>
-				<items>
+				</actions>
+				<actions>
 					<!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) -->
 					<textEquivalent value="Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)"/>
 					<!-- Follows pattern established above -->
-				</items>
-				<items>
+				</actions>
+				<actions>
 					<!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) -->
 					<textEquivalent value="Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)"/>
 					<!-- Follows pattern established above -->
-				</items>
-			</items>
-		</items>
-	</item>
+				</actions>
+			</actions>
+		</actions>
+	</action>
 </OrderSet>

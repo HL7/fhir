@@ -33,8 +33,8 @@
 		<profile>
 			<reference value="http://hl7.org/fhir/StructureDefinition/gao-patient"/>
 		</profile>
-		<mustSupport value="gender"/>
-		<mustSupport value="birthDate"/>
+		<!--mustSupport value="gender"/-->
+		<!--mustSupport value="birthDate"/-->
 	</parameter>
 
 	<!-- Order Data Requirement -->

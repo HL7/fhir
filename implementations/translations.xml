@@ -361,6 +361,9 @@
     <item id="Measure">
         <translation lang="en">Measure</translation>
     </item>
+    <item id="MeasureReport">
+        <translation lang="en">MeasureReport</translation>
+    </item>
     <item id="Media">
         <translation lang="en">Media</translation>
         <translation lang="zh">媒体</translation>

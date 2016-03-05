@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+      
+[%settitle Action Definition%]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+[%file newheader%]
+</head>
+<body>
+[%file newnavbar%]
+
+<div class="col-9">
+
+<%adheader base%>
+<h1>Action Definition</h1>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg cds%]">[%wgt cds%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
+
+<p>The ActionDefinition structure is used to define an action to be taken as part of some context such as the result of evaluating a decision support rule, or completing an order set for a patient. The structure is definitional in that it does not define a concrete action, but rather a template for some action that will be filled out in context.</p>
+
+<a name="definition"></a>
+<h2 style="margin-bottom: 1px">
+Content
+</h2>
+
+[%dt ActionDefinition 1%]
+
+
+<div class="use">
+<p><b>Constraints</b></p>
+[%dt.constraints ActionDefinition%]
+</div>
+
+<!-- TODO -->
+
+</div>
+
+[%file newfooter%]
+
+<script src="external/jquery/jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+ try {
+   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
+ } catch(exception){ 
+ }
+ if (!currentTabIndex)
+   currentTabIndex = '0';
+
+$( '#tabs-ActionDefinition' ).tabs({ active: currentTabIndex, activate: function( event, ui ) { store(ui.newTab.index()); } });
+     
+     
+function store(currentTab) {
+  document.activeElement.blur();
+  try {
+    sessionStorage.setItem('fhir-resource-tab-index', currentTab);
+  } catch(exception){ 
+  }
+  $( '#tabs-ActionDefinition' ).tabs('option', 'active', currentTab);
+}     
+</script>
+  
+</body>
+</html>

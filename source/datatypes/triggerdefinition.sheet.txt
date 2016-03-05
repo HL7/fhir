@@ -4,11 +4,11 @@
  -- Row 1 -----------------------------------
   Binding Name = TriggerType
   Binding = code list
-  Reference = #cqif-trigger-type
+  Reference = #trigger-type
   Definition = The type of trigger
   Conformance = required
 
-=== Sheet cqif-trigger-type =====================================
+=== Sheet trigger-type =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
@@ -52,4 +52,41 @@
   Display = Data Access Ended
   Definition = The trigger occurs whenever access to data of a particular type is completed
 
-=== Sheet Search =====================================
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = TriggerDefinition
+  Type = Type
+  Short Label = Defines an expected trigger for a module
+  Definition = A description of a triggering event
+
+ -- Row 2 -----------------------------------
+  Element = TriggerDefinition.type
+  Card. = 1..1
+  Type = code
+  Binding = TriggerType
+  Short Label = named-event | periodic | data-added | data-modified | data-removed | data-accessed | data-access-ended
+  Definition = The type of triggering event
+
+ -- Row 3 -----------------------------------
+  Element = TriggerDefinition.eventName
+  Card. = 0..1
+  Type = string
+  Short Label = Name of the event
+  Definition = The name of the event (if this is a named-event trigger)
+
+ -- Row 4 -----------------------------------
+  Element = TriggerDefinition.eventTiming[x]
+  Card. = 0..1
+  Type = Timing|Reference(Schedule)|date|dateTime
+  Short Label = Timing of the event
+  Definition = The timing of the event (if this is a period trigger)
+
+ -- Row 5 -----------------------------------
+  Element = TriggerDefinition.eventData
+  Card. = 0..1
+  Type = DataRequirement
+  Short Label = Triggering data of the event
+  Definition = The triggering data of the event (if this is a data trigger)

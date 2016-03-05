@@ -1,0 +1,362 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ParticipantType
+  Binding = code list
+  Reference = #action-participant-type
+  Definition = The type of participant for the action
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = ActionType
+  Binding = code list
+  Reference = #action-type
+  Definition = The type of action to be performed
+  Conformance = extensible
+
+ -- Row 3 -----------------------------------
+  Binding Name = ActionBehaviorType
+  Binding = code list
+  Reference = #action-behavior-type
+  Definition = The type of behavior to be defined
+  Conformance = extensible
+
+ -- Row 4 -----------------------------------
+  Binding Name = ActionGroupingBehavior
+  Binding = code list
+  Reference = #action-grouping-behavior
+  Definition = Defines organization behavior of a group
+  Conformance = required
+
+ -- Row 5 -----------------------------------
+  Binding Name = ActionSelectionBehavior
+  Binding = code list
+  Reference = #action-selection-behavior
+  Definition = Defines selection behavior of a group
+  Conformance = required
+
+ -- Row 6 -----------------------------------
+  Binding Name = ActionRequiredBehavior
+  Binding = code list
+  Reference = #action-required-behavior
+  Definition = Defines requiredness behavior for selecting an action or an action group
+  Conformance = required
+
+ -- Row 7 -----------------------------------
+  Binding Name = ActionPrecheckBehavior
+  Binding = code list
+  Reference = #action-precheck-behavior
+  Definition = Defines selection frequency behavior for an action or group
+  Conformance = required
+
+ -- Row 8 -----------------------------------
+  Binding Name = ActionCardinalityBehavior
+  Binding = code list
+  Reference = #action-cardinality-behavior
+  Definition = Defines behavior for an action or a group for how many times that item may be repeated
+  Conformance = required
+
+=== Sheet action-participant-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = patient
+  Display = Patient
+  Definition = The participant is the patient under evaluation
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = practitioner
+  Display = Practitioner
+  Definition = The participant is a practitioner involved in the patient\'s care
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = related-person
+  Display = Related Person
+  Definition = The participant is a person related to the patient
+
+=== Sheet action-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = create
+  Display = Create
+  Definition = The action is to create a new resource
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = update
+  Display = Update
+  Definition = The action is to update an existing resource
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = remove
+  Display = Remove
+  Definition = The action is to remove an existing resource
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = fire-event
+  Display = Fire Event
+  Definition = The action is to fire a specific event
+
+=== Sheet action-behavior-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = grouping
+  Display = Grouping Behavior
+  Definition = Specifies grouping behavior using the action-group-behavior valueset
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = selection
+  Display = Selection Behavior
+  Definition = Specifies selection behavior using the action-selection-behavior valueset
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = required
+  Display = Required Behavior
+  Definition = Specifies required behavior using the action-required-behavior valueset
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = precheck
+  Display = Precheck Behavior
+  Definition = Specifies precheck behavior using the action-precheck-behavior valueset
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = cardinality
+  Display = Cardinality Behavior
+  Definition = Specifies cardinality behavior using the action-cardinality behavior valueset
+
+=== Sheet action-grouping-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = visual-group
+  Display = Visual Group
+  Definition = Any group marked with this behavior should be displayed as a visual group to the end user
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = logical-group
+  Display = Logical Group
+  Definition = A group with this behavior logically groups its sub-elements, and may be shown as a visual group to the end user, but it is not required to do so
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = sentence-group
+  Display = Sentence Group
+  Definition = A group of related alternative actions is a sentence group if the target referenced by the action is the same in all the actions and each action simply constitutes a different variation on how to specify the details for the target. For example, two actions that could be in a SentenceGroup are \"aspirin, 500 mg, 2 times per day\" and \"aspirin, 300 mg, 3 times per day\". In both cases, aspirin is the target referenced by the action, and the two actions represent different options for how aspirin might be ordered for the patient. Note that a SentenceGroup would almost always have an associated selection behavior of \"AtMostOne\", unless it\'s a required action, in which case, it would be \"ExactlyOne\"
+
+=== Sheet action-selection-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = any
+  Display = Any
+  Definition = Any number of the actions in the group may be chosen, from zero to all
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = all
+  Display = All
+  Definition = All the actions in the group must be selected as a single unit
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = all-or-none
+  Display = All Or None
+  Definition = All the actions in the group are meant to be chosen as a single unit: either all must be selected by the end user, or none may be selected
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = exactly-one
+  Display = Exactly One
+  Definition = The end user must choose one and only one of the selectable actions in the group. The user may not choose none of the actions in the group
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = at-most-one
+  Display = At Most One
+  Definition = The end user may choose zero or at most one of the actions in the group
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = one-or-more
+  Display = One Or More
+  Definition = The end user must choose a minimum of one, and as many additional as desired
+
+=== Sheet action-required-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = must
+  Display = Must
+  Definition = An action with this behavior must be included in the actions processed by the end user; the end user may not choose not to include this action
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = could
+  Display = Could
+  Definition = An action with this behavior may be included in the set of actions processed by the end user
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = must-unless-documented
+  Display = Must Unless Documented
+  Definition = An action with this behavior must be included in the set of actions processed by the end user, unless the end user provides documentation as to why the action was not included
+
+=== Sheet action-precheck-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = yes
+  Display = Yes
+  Definition = An action with this behavior is one of the most frequent action that is, or should be, included by an end user, for the particular context in which the action occurs. The system displaying the action to the end user should consider \"pre-checking\" such an action as a convenience for the user
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = no
+  Display = No
+  Definition = An action with this behavior is one of the less frequent actions included by the end user, for the particular context in which the action occurs. The system displaying the actions to the end user would typically not \"pre-check\" such an action
+
+=== Sheet action-cardinality-behavior =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = single
+  Display = Single
+  Definition = The action may only be selected one time
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = multiple
+  Display = Multiple
+  Definition = The action may be selected multiple times
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ActionDefinition
+  Type = Type
+  Definition = The definition of the actions that should be returned by evaluation of the artifact
+
+ -- Row 2 -----------------------------------
+  Element = ActionDefinition.actionIdentifier
+  Card. = 0..1
+  Type = Identifier
+  Definition = A unique identifier for the action
+
+ -- Row 3 -----------------------------------
+  Element = ActionDefinition.number
+  Card. = 0..1
+  Type = string
+  Definition = A user-visible number for the action
+
+ -- Row 4 -----------------------------------
+  Element = ActionDefinition.title
+  Card. = 0..1
+  Type = string
+  Definition = The title of the action
+
+ -- Row 5 -----------------------------------
+  Element = ActionDefinition.description
+  Card. = 0..1
+  Type = string
+  Definition = A short description of the action
+
+ -- Row 6 -----------------------------------
+  Element = ActionDefinition.textEquivalent
+  Card. = 0..1
+  Type = string
+  Definition = A text equivalent of the action to be performed
+
+ -- Row 7 -----------------------------------
+  Element = ActionDefinition.concept
+  Card. = 0..*
+  Type = CodeableConcept
+  Definition = Concepts associated with the action
+
+ -- Row 8 -----------------------------------
+  Element = ActionDefinition.supportingEvidence
+  Card. = 0..*
+  Type = Attachment
+  Definition = Supporting evidence for the action
+
+ -- Row 9 -----------------------------------
+  Element = ActionDefinition.documentation
+  Card. = 0..*
+  Type = Attachment
+  Definition = Supporting documentation for the action
+
+ -- Row 10 -----------------------------------
+  Element = ActionDefinition.participantType
+  Card. = 0..*
+  Type = code
+  Binding = ParticipantType
+  Short Label = patient | practitioner | related-person
+  Definition = The type of participant in the action
+
+ -- Row 11 -----------------------------------
+  Element = ActionDefinition.type
+  Card. = 0..1
+  Type = code
+  Binding = ActionType
+  Short Label = create | update | remove | fire-event
+  Definition = The type of action to perform (create, update, remove)
+
+ -- Row 12 -----------------------------------
+  Element = ActionDefinition.behavior
+  Card. = 0..*
+  Definition = A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment
+
+ -- Row 13 -----------------------------------
+  Element = ActionDefinition.behavior.type
+  Card. = 1..1
+  Type = Coding
+  Binding = ActionBehaviorType
+  Definition = The type of the behavior to be described, such as grouping, visual, or selection behaviors
+
+ -- Row 14 -----------------------------------
+  Element = ActionDefinition.behavior.value
+  Card. = 1..1
+  Type = Coding
+  Definition = The specific behavior. The code used here is determined by the type of behavior being described. For example, the grouping behavior uses the grouping-behavior-type valueset
+
+ -- Row 15 -----------------------------------
+  Element = ActionDefinition.resource
+  Card. = 0..1
+  Type = Reference(Any)
+  Definition = The resource that is the target of the action (e.g. CommunicationRequest)
+
+ -- Row 16 -----------------------------------
+  Element = ActionDefinition.customization
+  Card. = 0..*
+  Definition = Customizations that should be applied to the statically defined resource
+
+ -- Row 17 -----------------------------------
+  Element = ActionDefinition.customization.path
+  Card. = 1..1
+  Type = string
+  Definition = The path to the element to be customized
+
+ -- Row 18 -----------------------------------
+  Element = ActionDefinition.customization.expression
+  Card. = 1..1
+  Type = string
+  Definition = An expression specifying the value of the customized element
+
+ -- Row 19 -----------------------------------
+  Element = ActionDefinition.actions
+  Card. = 0..*
+  Type = ActionDefinition
+  Definition = Sub actions

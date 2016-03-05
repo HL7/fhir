@@ -69,6 +69,26 @@ signatures.html
 				<page title="ModuleMetadata Detailed Descriptions" filename="modulemetadata-definitions.html"/>
 				<page title="ModuleMetadata Mappings" filename="modulemetadata-mappings.html"/>
 			</page>
+			<page title="DataRequirement" filename="datarequirement.html">
+				<page title="DataRequirement Examples" filename="datarequirement-examples.html"/>
+				<page title="DataRequirement Detailed Descriptions" filename="datarequirement-definitions.html"/>
+				<page title="DataRequirement Mappings" filename="datarequirement-mappings.html"/>
+			</page>
+			<page title="ActionDefinition" filename="actiondefinition.html">
+				<page title="ActionDefinition Examples" filename="actiondefinition-examples.html"/>
+				<page title="ActionDefinition Detailed Descriptions" filename="actiondefinition-definitions.html"/>
+				<page title="ActionDefinition Mappings" filename="actiondefinition-mappings.html"/>
+			</page>
+			<page title="ParameterDefinition" filename="parameterdefinition.html">
+				<page title="ParameterDefinition Examples" filename="parameterdefinition-examples.html"/>
+				<page title="ParameterDefinition Detailed Descriptions" filename="parameterdefinition-definitions.html"/>
+				<page title="ParameterDefinition Mappings" filename="parameterdefinition-mappings.html"/>
+			</page>
+			<page title="TriggerDefinition" filename="triggerdefinition.html">
+				<page title="TriggerDefinition Examples" filename="triggerdefinition-examples.html"/>
+				<page title="TriggerDefinition Detailed Descriptions" filename="triggerdefinition-definitions.html"/>
+				<page title="TriggerDefinition Mappings" filename="triggerdefinition-mappings.html"/>
+			</page>
 			<page title="Ontology" filename="ontology.html"/>
 
 			<page title="Using Codes" filename="terminologies.html">
@@ -209,6 +229,7 @@ signatures.html
 			<page type="resource" resource="OrderSet"/>
 			<page type="resource" resource="GuidanceResponse"/>
 			<page type="resource" resource="Measure"/>
+			<page type="resource" resource="MeasureReport"/>
 			<page type="resource" resource="Medication"/>
 			<page type="resource" resource="MedicationOrder"/>
 			<page type="resource" resource="MedicationAdministration"/>

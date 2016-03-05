@@ -1,0 +1,247 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = MeasureReportStatus
+  Binding = code list
+  Reference = #measure-report-status
+  Definition = The status of the measure report
+  Description = The status of the measure report (e.g. complete, pending, or error)
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = MeasurePopulation
+  Binding = reference
+  Reference = http://hl7.org/fhir/ValueSet/measure-population
+  Definition = The type of population (e.g. initial, numerator, denominator, etc.)
+  Conformance = required
+
+=== Sheet measure-report-status =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = complete
+  Display = Complete
+  Definition = The report is complete and ready for use
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = pending
+  Display = Pending
+  Definition = The report is currently being generated
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = error
+  Display = Error
+  Definition = An error occurred attempting to generate the report
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = MeasureReport
+  Type = DomainResource
+  Short Label = Results of a measure evaluation
+  Definition = The MeasureReport resource contains the results of evaluating a measure
+  w5 = clinical.general
+
+ -- Row 2 -----------------------------------
+  Element = MeasureReport.measure
+  Card. = 0..1
+  Type = Reference(Measure)
+  Short Label = Measure that was evaluated
+  Definition = A reference to the Measure that was evaluated to produce this report
+
+ -- Row 3 -----------------------------------
+  Element = MeasureReport.patient
+  Card. = 0..1
+  Type = Reference(Patient)
+  Short Label = Optional Patient
+  Definition = Optional Patient if the report was requested for a single patient.
+
+ -- Row 4 -----------------------------------
+  Element = MeasureReport.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Reporting period
+  Definition = Reporting period
+
+ -- Row 5 -----------------------------------
+  Element = MeasureReport.status
+  Card. = 0..1
+  Type = code
+  Binding = MeasureReportStatus
+  Short Label = complete | pending | error
+  Definition = Response status
+
+ -- Row 6 -----------------------------------
+  Element = MeasureReport.populationReport
+  Card. = 0..*
+  Short Label = Population Report
+  Definition = Population Report
+
+ -- Row 7 -----------------------------------
+  Element = MeasureReport.populationReport.name
+  Card. = 1..1
+  Type = string
+  Short Label = Name of the population group
+  Definition = The name of the population group as identified in the measure definition
+
+ -- Row 8 -----------------------------------
+  Element = MeasureReport.populationReport.population
+  Card. = 0..*
+  Short Label = The populations in the group
+  Definition = The populations that make up the population group, one for each type of population appropriate for the measure
+
+ -- Row 9 -----------------------------------
+  Element = MeasureReport.populationReport.population.type
+  Card. = 1..1
+  Type = code
+  Binding = MeasurePopulation
+  Short Label = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
+  Definition = The type of the population
+
+ -- Row 10 -----------------------------------
+  Element = MeasureReport.populationReport.population.count
+  Card. = 0..1
+  Type = integer
+  Short Label = Size of the population
+  Definition = The number of members of the population
+
+ -- Row 11 -----------------------------------
+  Element = MeasureReport.populationReport.population.patients
+  Card. = 0..1
+  Type = Reference(Bundle)
+  Short Label = Bundle of MeasureResponse resources, one per patient
+  Definition = Bundle of MeasureResponse resources, one per patient
+
+ -- Row 12 -----------------------------------
+  Element = MeasureReport.populationReport.measureScore
+  Card. = 0..1
+  Type = decimal
+  Short Label = The measure score
+  Definition = The measure score
+
+ -- Row 13 -----------------------------------
+  Element = MeasureReport.populationReport.stratifier
+  Card. = 0..*
+  Short Label = Stratification results
+  Definition = Stratification results
+
+ -- Row 14 -----------------------------------
+  Element = MeasureReport.populationReport.stratifier.name
+  Card. = 1..1
+  Type = string
+  Short Label = A group of stratifier data
+  Definition = When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure
+
+ -- Row 15 -----------------------------------
+  Element = MeasureReport.populationReport.stratifier.population
+  Card. = 0..*
+  Short Label = The populations in the stratifier
+  Definition = The populations that make up the stratifier, one for each type of population appropriate to the measure
+
+ -- Row 16 -----------------------------------
+  Element = MeasureReport.populationReport.stratifier.population.type
+  Card. = 1..1
+  Type = code
+  Binding = MeasurePopulation
+  Short Label = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
+  Definition = The type of the population
+
+ -- Row 17 -----------------------------------
+  Element = MeasureReport.populationReport.stratifier.population.count
+  Card. = 0..1
+  Type = integer
+  Short Label = Size of the population
+  Definition = The number of members of the population
+
+ -- Row 18 -----------------------------------
+  Element = MeasureReport.populationReport.stratifier.population.patients
+  Card. = 0..1
+  Type = Reference(Bundle)
+  Short Label = Bundle of MeasureResponse resources, one per patient
+  Definition = Bundle of MeasureResponse resources, one per patient
+
+ -- Row 19 -----------------------------------
+  Element = MeasureReport.populationReport.stratifier.measureScore
+  Card. = 0..1
+  Type = decimal
+  Short Label = The measure score
+  Definition = The measure score
+
+ -- Row 20 -----------------------------------
+  Element = MeasureReport.populationReport.supplementalData
+  Card. = 0..*
+  Short Label = Supplemental data elements for the measure
+  Definition = Supplemental data elements for the measure provide additional information requested by the measure for each patient involved in the populations
+
+ -- Row 21 -----------------------------------
+  Element = MeasureReport.populationReport.supplementalData.name
+  Card. = 1..1
+  Type = string
+  Short Label = Name of the supplemental element
+  Definition = The name of the supplemental data element
+
+ -- Row 22 -----------------------------------
+  Element = MeasureReport.populationReport.supplementalData.group
+  Card. = 1..*
+  Short Label = A group of supplemental data
+  Definition = A group of supplemental data corresponding to a supplemental data element specification in the measure
+
+ -- Row 23 -----------------------------------
+  Element = MeasureReport.populationReport.supplementalData.group.count
+  Card. = 1..1
+  Type = integer
+  Short Label = Number of patients in the group
+  Definition = The number of patients in the supplemental data group
+
+ -- Row 24 -----------------------------------
+  Element = MeasureReport.populationReport.supplementalData.group.patients
+  Card. = 0..1
+  Type = Reference(Bundle)
+  Short Label = Bundle of patients
+  Definition = A bundle containing the patients in this supplemental data group
+
+ -- Row 25 -----------------------------------
+  Element = MeasureReport.reportingOrganization
+  Card. = 0..1
+  Type = string
+  Short Label = Reporting Organization
+  Definition = Reporting Organization
+
+ -- Row 26 -----------------------------------
+  Element = MeasureReport.evaluatedResources
+  Card. = 0..1
+  Short Label = Evaluated Resources
+  Definition = Resources used in the evaluation of this response.
+
+ -- Row 27 -----------------------------------
+  Element = MeasureReport.evaluatedResources.url
+  Card. = 1..1
+  Type = uri
+  Short Label = Evaluated Resources URL
+  Definition = Evaluated Resources URL
+
+ -- Row 28 -----------------------------------
+  Element = MeasureReport.evaluatedResources.value
+  Card. = 1..1
+  Type = string
+  Short Label = Evaluated Resources value
+  Definition = Evaluated Resources value
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = patient
+  Type = reference
+  Description = The identity of a patient to search for individual measure report results for
+  Path = MeasureReport.patient
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================

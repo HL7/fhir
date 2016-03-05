@@ -1,0 +1,76 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = ParameterType
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/operation-parameter-type
+  Definition = The type of the parameter
+  Conformance = required
+
+ -- Row 2 -----------------------------------
+  Binding Name = ParameterUse
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/operation-parameter-use
+  Definition = Whether the parameter is input or output
+  Conformance = required
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = ParameterDefinition
+  Type = Type
+  Short Label = Definition of a parameter to a module
+  Definition = The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse
+
+ -- Row 2 -----------------------------------
+  Element = ParameterDefinition.name
+  Card. = 0..1
+  Type = code
+  Binding = !
+  Short Label = Parameter name
+  Definition = The name of the parameter
+
+ -- Row 3 -----------------------------------
+  Element = ParameterDefinition.use
+  Card. = 1..1
+  Type = code
+  Binding = ParameterUse
+  Definition = Whether the parameter is input or output for the module
+
+ -- Row 4 -----------------------------------
+  Element = ParameterDefinition.min
+  Card. = 0..1
+  Type = integer
+  Short Label = Minimum cardinality
+  Definition = The minimum number of times this parameter SHALL appear in the request or response
+
+ -- Row 5 -----------------------------------
+  Element = ParameterDefinition.max
+  Card. = 0..1
+  Type = string
+  Short Label = Maximum cardinality (a number of *)
+  Definition = The maximum number of times this element is permitted to appear in the request or response
+
+ -- Row 6 -----------------------------------
+  Element = ParameterDefinition.documentation
+  Card. = 0..1
+  Type = string
+  Short Label = A brief description of the parameter
+  Definition = A brief discussion of what the parameter is for and how it is used by the module
+
+ -- Row 7 -----------------------------------
+  Element = ParameterDefinition.type
+  Card. = 1..1
+  Type = code
+  Binding = ParameterType
+  Definition = The type of the parameter
+
+ -- Row 8 -----------------------------------
+  Element = ParameterDefinition.profile
+  Card. = 0..1
+  Type = Reference(StructureDefinition)
+  Short Label = The profile of the parameter, any
+  Definition = If specified, this indicates a profile that the input data must conform to, or that the output data will conform to

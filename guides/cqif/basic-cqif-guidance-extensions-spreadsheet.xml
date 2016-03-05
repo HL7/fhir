@@ -20,33 +20,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <SupBook>
-   <Path>basic-cqif-extensions-spreadsheet.xml</Path>
-   <SheetName>Instructions</SheetName>
-   <SheetName>Metadata</SheetName>
-   <SheetName>SomeStructure</SheetName>
-   <SheetName>SomeStructure-Inv</SheetName>
-   <SheetName>Extensions</SheetName>
-   <SheetName>Search</SheetName>
-   <SheetName>Operations</SheetName>
-   <SheetName>Bindings</SheetName>
-   <SheetName>some-code-list</SheetName>
-   <SheetName>knowledge-module-resource-type</SheetName>
-   <SheetName>knowledge-module-status</SheetName>
-   <SheetName>knowledge-module-contributor</SheetName>
-   <SheetName>knowledge-response-status</SheetName>
-   <SheetName>knowledge-module-focus-type</SheetName>
-   <Xct>
-    <Count>0</Count>
-    <SheetIndex>4</SheetIndex>
-   </Xct>
-  </SupBook>
-  <WindowHeight>13635</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>7995</WindowHeight>
+  <WindowWidth>22275</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <FirstVisibleSheet>4</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -6350,7 +6329,7 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R46C1,R51C1,R55C1,R30C1</Range>
+   <Range>R46C1,R51C1,R55C1,R29C1:R30C1</Range>
    <Condition>
     <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
@@ -6369,25 +6348,6 @@
     <Value1>AND(RC&lt;&gt;&quot;&quot;,R[-4]C=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R29C1</Range>
-   <Condition>
-    <Value1>AND(RC&lt;&gt;&quot;&quot;,#REF!=&quot;&quot;)</Value1>
-    <Format Style='border:.5pt solid #D8D8D8;background:red'/>
-   </Condition>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R35C16:R36C23</Range>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R37C1</Range>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R35C19:R36C20</Range>
-  </ConditionalFormatting>
-  <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R35C16:R36C23</Range>
   </ConditionalFormatting>
  </Worksheet>
  <Worksheet ss:Name="Search">
@@ -7539,7 +7499,7 @@
     <Cell ss:StyleID="s106"><Data ss:Type="String">The type of trigger</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">#trigger-type</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">#cqif-trigger-type</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
@@ -7968,8 +7928,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R2</RangeSelection>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8724,10 +8684,10 @@
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
- <Worksheet ss:Name="artifact-type">
+ <Worksheet ss:Name="cqif-artifact-type">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='artifact-type'!R1C1:R1C9"
-    ss:Hidden="1"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='cqif-artifact-type'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s152" ss:DefaultRowHeight="15">
@@ -9395,10 +9355,10 @@
    </Condition>
   </ConditionalFormatting>
  </Worksheet>
- <Worksheet ss:Name="trigger-type">
+ <Worksheet ss:Name="cqif-trigger-type">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="='trigger-type'!R1C1:R1C9"
-    ss:Hidden="1"/>
+   <NamedRange ss:Name="_FilterDatabase"
+    ss:RefersTo="='cqif-trigger-type'!R1C1:R1C9" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s152" ss:DefaultRowHeight="15">
