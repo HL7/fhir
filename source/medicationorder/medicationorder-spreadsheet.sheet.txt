@@ -234,6 +234,7 @@
   Type = Annotation
   Short Label = Information about the prescription
   Definition = Extra information about the prescription that could not be conveyed by the other attributes.
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
  -- Row 13 -----------------------------------
   Element = MedicationOrder.dosageInstruction
@@ -434,6 +435,7 @@
   Type = Reference(MedicationOrder)
   Short Label = An order/prescription that this supersedes
   Definition = A link to a resource representing an earlier order or prescription that this order supersedes
+  RIM Mapping = .outboundRelationship[typeCode=?RPLC or ?SUCC]/target[classCode=SBADM,moodCode=RQO]
 
 === Sheet Search =====================================
 

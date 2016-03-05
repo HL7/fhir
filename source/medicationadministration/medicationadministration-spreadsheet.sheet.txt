@@ -123,7 +123,6 @@
   Type = Identifier
   Short Label = External identifier
   Definition = External identifier - FHIR will generate its own internal identifiers (probably URLs) which do not need to be explicitly managed by the resource.  The identifier here is one that would be used by another non-FHIR system - for example an automated medication pump would provide a record each time it operated; an administration while the patient was off the ward might be made with a different system and entered after the event.  Particularly important if these records have to be updated.
-  v2 Mapping = RXA-25-Administered Barcode Identifier
   RIM Mapping = id
   w5 = id
 
@@ -231,6 +230,7 @@
   Short Label = Reason administration performed
   Definition = A code indicating why the medication was given.
   v2 Mapping = RXE-27 Give Indication
+  RIM Mapping = . reasonCode
 
  -- Row 13 -----------------------------------
   Element = MedicationAdministration.device
@@ -247,6 +247,7 @@
   Type = Annotation
   Short Label = Information about the administration
   Definition = Extra information about the medication administration that is not conveyed by the other attributes.
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
  -- Row 15 -----------------------------------
   Element = MedicationAdministration.dosage
@@ -262,6 +263,7 @@
   Type = string
   Short Label = Free text dosage instructions e.g. SIG
   Definition = Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
+  RIM Mapping = .text
 
  -- Row 17 -----------------------------------
   Element = MedicationAdministration.dosage.site[x]

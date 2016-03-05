@@ -254,6 +254,7 @@
   Short Label = Information about the dispense
   Definition = Extra information about the dispense that could not be conveyed in the other attributes.
   v2 Mapping = RXD-9 Dispense Notes
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=ACT,moodCode=EVN]
 
  -- Row 16 -----------------------------------
   Element = MedicationDispense.dosageInstruction
@@ -271,6 +272,7 @@
   Type = string
   Short Label = Free text dosage instructions e.g. SIG
   Definition = Free text dosage instructions can be used for cases where the instructions are too complex to code. When coded instructions are present, the free text instructions may still be present for display to humans taking or administering the medication.
+  RIM Mapping = .text
 
  -- Row 18 -----------------------------------
   Element = MedicationDispense.dosageInstruction.additionalInstructions

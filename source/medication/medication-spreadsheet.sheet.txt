@@ -119,6 +119,7 @@
   Card. = 0..*
   UML = 280;240
   Definition = Information about a group of medication produced or packaged from one production run.
+  RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].id
 
  -- Row 11 -----------------------------------
   Element = Medication.product.batch.lotNumber
@@ -133,6 +134,7 @@
   Type = dateTime
   Definition = When this specific batch of product will expire.
   v2 Mapping = RXA-16 Substance Expiration Date / RXG-20 Substance Expiration Date
+  RIM Mapping = participation[typeCode=CSM].role[classCode=INST].scopedRole.scoper[classCode=MMAT].expirationTime
 
  -- Row 13 -----------------------------------
   Element = Medication.package

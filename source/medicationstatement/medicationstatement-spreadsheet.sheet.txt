@@ -119,6 +119,7 @@
   Binding = MedicationStatementStatus
   Short Label = active | completed | entered-in-error | intended
   Definition = A code representing the patient or other source\'s judgment about the state of the medication used that this statement is about.  Generally this will be active or completed.
+  RIM Mapping = .statusCode
   w5 = status
 
  -- Row 4 -----------------------------------
@@ -156,6 +157,7 @@
   Card. = 0..1
   Type = Reference(Patient | Practitioner | RelatedPerson)
   Definition = The person who provided the information about the taking of this medication.
+  RIM Mapping = .participation[typeCode=INF].role[classCode=PAT, or  codes for Practioner or Related Person (if PAT is the informer, then syntax for self-reported =true)
   w5 = who.source
 
  -- Row 8 -----------------------------------
@@ -191,6 +193,7 @@
   Type = CodeableConcept | Reference(Condition)
   Binding = MedicationReason
   Definition = A reason for why the medication is being/was taken.
+  RIM Mapping = .reasonCode
 
  -- Row 12 -----------------------------------
   Element = MedicationStatement.note
@@ -198,6 +201,7 @@
   Type = Annotation
   Short Label = Further information about the statement
   Definition = Provides extra information about the medication statement that is not conveyed by the other attributes.
+  RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
 
  -- Row 13 -----------------------------------
   Element = MedicationStatement.supportingInformation
@@ -206,6 +210,7 @@
   Short Label = Additional supporting information
   Definition = Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports the MedicationStatement.
   Comments = Likely references would be to MedicationOrder, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
+  RIM Mapping = .outboundRelationship[typeCode=SPRT]/target[classCode=ACT,moodCode=EVN]
 
  -- Row 14 -----------------------------------
   Element = MedicationStatement.dosage
@@ -222,6 +227,7 @@
   Type = string
   Short Label = Free text dosage instructions as reported by the information source
   Definition = Free text dosage information as reported about a patient\'s medication use. When coded dosage information is present, the free text may still be present for display to humans.
+  RIM Mapping = .text
 
  -- Row 16 -----------------------------------
   Element = MedicationStatement.dosage.timing
