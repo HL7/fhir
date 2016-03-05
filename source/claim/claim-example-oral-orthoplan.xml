@@ -16,13 +16,13 @@
  
   <created value="2015-03-16"/>
 
-  <target>
+  <targetReference>
     <reference value="Organization/2"/>
-  </target>
+  </targetReference>
 
-  <organization>
+  <organizationReference>
     <reference value="Organization/1"/>
-  </organization>
+  </organizationReference>
 
   <use value="proposed"/>
 
@@ -44,16 +44,16 @@
     </diagnosis>
   </diagnosis>
  
-  <patient>
+  <patientReference>
     <reference value="Patient/1"/>
-  </patient>
+  </patientReference>
  
   <coverage>
     <sequence value="1"/>
     <focal value="true"/>
-    <coverage>
+    <coverageReference>
       <reference value="Coverage/9876B1"/>
-    </coverage>
+    </coverageReference>
     <relationship>
       <code value="self"/>
     </relationship>

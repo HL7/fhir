@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-03-02T17:52:05Z</LastSaved>
+  <LastSaved>2016-03-03T06:08:20Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,7 +20,7 @@
   <WindowWidth>26685</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1102,6 +1102,36 @@
    <Borders/>
    <Interior ss:Color="#C6E0B4" ss:Pattern="Solid"/>
   </Style>
+  <Style ss:ID="s206">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s207">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s208">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s209">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -1146,15 +1176,15 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R113C26" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R114C26" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="127" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="128" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:Width="227.25"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77.25"/>
    <Column ss:StyleID="s68" ss:Width="29.25"/>
    <Column ss:StyleID="s68" ss:Width="34.5"/>
-   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="119.25"/>
+   <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="171.75"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="28.5"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="27"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="131.25"/>
@@ -1584,13 +1614,13 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.target</Data><NamedCell
+    <Cell ss:StyleID="s206"><Data ss:Type="String">Claim.target[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(Organization)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(Organization)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1617,13 +1647,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.provider</Data><NamedCell
+    <Cell ss:StyleID="s206"><Data ss:Type="String">Claim.provider[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(Practitioner)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(Practitioner)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1651,13 +1681,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.organization</Data><NamedCell
+    <Cell ss:StyleID="s206"><Data ss:Type="String">Claim.organization[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(Organization)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(Organization)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1787,13 +1817,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.enterer</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.enterer[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(Practitioner)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(Practitioner)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1820,13 +1850,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.facility</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.facility[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(Location)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(Location)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1887,13 +1917,13 @@
     <Cell ss:StyleID="s185"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45" ss:StyleID="s95">
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Claim.related.claim</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">Claim.related.claim[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s187"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s97"><Data ss:Type="String">Reference(Claim)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(Claim)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1991,13 +2021,13 @@
     <Cell ss:StyleID="s176"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.prescription</Data><NamedCell
+    <Cell ss:StyleID="s206"><Data ss:Type="String">Claim.prescription[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(MedicationOrder|VisionPrescription)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(MedicationOrder|VisionPrescription)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2026,13 +2056,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.originalPrescription</Data><NamedCell
+    <Cell ss:StyleID="s206"><Data ss:Type="String">Claim.originalPrescription[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(MedicationOrder)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(MedicationOrder)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2140,9 +2170,9 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Party to be paid any benefits payable</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Payee type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Party to be reimbursed: Subscriber, provider, other.</Data><NamedCell
+    <Cell ss:StyleID="s208"><Data ss:Type="String">Type of Party to be reimbursed: Subscriber, provider, other.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2153,6 +2183,41 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="60">
+    <Cell ss:StyleID="s206"><Data ss:Type="String">!Claim.payee.party</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(Practitioner|Organization|Patient)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Party to be paid any benefits payable</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s208"><Data ss:Type="String">Party to be reimbursed: Subscriber, provider, other.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s209"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><Data ss:Type="String">Consider makig this a choice (payee[x])</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">B03, B04</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2290,13 +2355,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.referral</Data><NamedCell
+    <Cell ss:StyleID="s206"><Data ss:Type="String">Claim.referral[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(ReferralRequest)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(ReferralRequest)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2824,13 +2889,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.patient</Data><NamedCell
+    <Cell ss:StyleID="s206"><Data ss:Type="String">Claim.patient[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(Patient)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(Patient)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2992,13 +3057,13 @@
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.coverage.coverage</Data><NamedCell
+    <Cell ss:StyleID="s206"><Data ss:Type="String">Claim.coverage.coverage[x]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reference(Coverage)</Data><NamedCell
+    <Cell ss:StyleID="s187"><Data ss:Type="String">Identifier|Reference(Coverage)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3756,7 +3821,8 @@
     <Cell ss:StyleID="s178"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s178"><Data ss:Type="String">Type, classification or Specialization</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s192"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s192"><Data ss:Type="String">The qualification which is applicable for this service .</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s193"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s192"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s192"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5127,13 +5193,13 @@
     <Cell><Data ss:Type="String">!Extensions</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell><Data ss:Type="String">!SupervisingProvider</Data></Cell>
+    <Cell><Data ss:Type="String">!SupervisingProvider[x]</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..1</Data></Cell>
-    <Cell ss:Index="5"><Data ss:Type="String">Resource(Practitioner)</Data></Cell>
+    <Cell ss:Index="5" ss:StyleID="s207"><Data ss:Type="String">Identifier|Resource(Practitioner)</Data></Cell>
     <Cell ss:Index="13"><Data ss:Type="String">Supervision Practitioner</Data></Cell>
     <Cell><Data ss:Type="String">The practitioner who is supervising the work of the serviceing provider(s).</Data></Cell>
    </Row>
-   <Row ss:Index="123" ss:AutoFitHeight="0">
+   <Row ss:Index="124" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s87"><Data ss:Type="String">!Oral Health Specific</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
@@ -5289,7 +5355,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>37</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5306,14 +5372,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>38</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>11</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R113C26"
+  <AutoFilter x:Range="R1C1:R114C26"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -5849,9 +5915,9 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Search!R1C1:R1C5"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="36" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s126" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s126" ss:AutoFitWidth="0" ss:Width="70.5"/>
+   <Column ss:StyleID="s126" ss:AutoFitWidth="0" ss:Width="115.5"/>
    <Column ss:StyleID="s126" ss:AutoFitWidth="0" ss:Width="57"/>
    <Column ss:StyleID="s126" ss:AutoFitWidth="0" ss:Width="109.5"/>
    <Column ss:StyleID="s126" ss:AutoFitWidth="0" ss:Width="210"/>
@@ -5899,17 +5965,31 @@
     <Cell ss:StyleID="s133"><Data ss:Type="String">Processing priority requested</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s131"><Data ss:Type="String">patient</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">patientreference</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.patient</Data></Cell>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Patient receiveing the services</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.patientReference</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">Patient receiving the services</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s131"><Data ss:Type="String">provider</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">patientidentifier</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.patientIdentifier</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">Patient receiving the services</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s131"><Data ss:Type="String">providerreference</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.provider</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.providerReference</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">Provider responsible for the Claim</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s131"><Data ss:Type="String">provideridentifier</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.providerIdentifier</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Provider responsible for the Claim</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5920,24 +6000,45 @@
     <Cell ss:StyleID="s133"><Data ss:Type="String">The creation date for the Claim</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s131"><Data ss:Type="String">target</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">targetreference</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.target</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.targetReference</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">The target payor/insurer for the Claim</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s131"><Data ss:Type="String">organization</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">targetidentifier</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.targetIdentifier</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">The target payor/insurer for the Claim</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s131"><Data ss:Type="String">organizationreference</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.organization</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.organizationReference</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">The reference to the providing organization</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s131"><Data ss:Type="String">facility</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">organizationidentifier</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.organizationIdentifier</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">The reference to the providing organization</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s131"><Data ss:Type="String">facilityreference</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.facility</Data></Cell>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.facilityReference</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">Facility responsible for the goods and services</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s131"><Data ss:Type="String">facilityidentifier</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">token</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s132"><Data ss:Type="String">Claim.facilityIdentifier</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Facility responsible for the goods and services</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -6108,8 +6209,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7348,7 +7449,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="48" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="50" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s151" ss:DefaultColumnWidth="171.75"
    ss:DefaultRowHeight="15">
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
@@ -7410,6 +7511,24 @@
     <Cell ss:StyleID="s89"><Data ss:Type="String">SOA Dental Claim</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="Number">100152</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">claim-example-oral-contained.xml</Data></Cell>
+    <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s155"><Data ss:Type="String">General-Claim-Oral-Identifers</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">SOA Dental Claim using identifiers</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="Number">100154</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">claim-example-oral-identifier.xml</Data></Cell>
+    <Cell ss:StyleID="s145"/>
+    <Cell ss:StyleID="s156"><Data ss:Type="String">y</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s155"><Data ss:Type="String">General-Claim-Oral-Mixed</Data></Cell>
+    <Cell ss:StyleID="s88"/>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">SOA Dental Claim using identifiers and Contained</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="Number">100155</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">claim-example-oral-contained-identifier.xml</Data></Cell>
     <Cell ss:StyleID="s145"/>
     <Cell ss:StyleID="s156"><Data ss:Type="String">y</Data></Cell>
    </Row>
@@ -7813,6 +7932,7 @@
     <ValidPrinterInfo/>
     <VerticalResolution>0</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7832,8 +7952,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8475,11 +8595,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -8492,11 +8611,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>28</ActiveRow>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
