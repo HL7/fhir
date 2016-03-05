@@ -266,7 +266,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Contract</Data></Cell>
-    <Cell><Data ss:Type="String">beneficiaryidentifier | beneficiaryreference</Data></Cell>
+    <Cell><Data ss:Type="String">beneficiaryreference</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Coverage</Data></Cell>
@@ -678,7 +678,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>26</ActiveRow>
+     <ActiveRow>23</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
