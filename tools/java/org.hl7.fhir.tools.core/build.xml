@@ -89,7 +89,10 @@
       fork="true" 
       maxmemory="1400m" >
       <arg line="${args}"/>
-      <jvmarg line="-Djava.awt.headless=true"/>
+      <jvmarg value="-Xmx1400m"/>
+      <jvmarg value="-Xms1400m"/>
+      <jvmarg value="-XX:MaxPermSize=768m"/>
+      <jvmarg value="-Djava.awt.headless=true"/>
       <classpath refid="org.hl7.fhir.tools.classpath"/>
     </java>
   </target>
