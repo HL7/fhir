@@ -27,7 +27,7 @@
  the specified focal resource may not be required or may be employed as one of the Operation parameters.
  </p>
  
- <p><b>Note:</b> The SupportingDocumentation resource has been deprecated in favour of DocumentManifest for the excahnge of attachments
+ <p><b>Note:</b> The SupportingDocumentation resource has been deprecated in favour of DocumentManifest for the exchange of attachments
  and supporting materials, PDF, Images, XRays, etc.
  </p>
  
@@ -42,14 +42,14 @@
  <tr><td>Nullify</td><td><a href="processrequest.html">ProcessRequest</a> (action=cancel, nullify=true)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Re-adjudication</td><td><a href="processrequest.html">ProcessRequest</a> (action=reprocess)</td><td><a href="claimresponse.html">ClaimResponse</a></td></tr>
  <tr><td>Status Check</td><td><a href="processrequest.html">ProcessRequest</a> (action=status)</td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
- <tr><td>Pended Check (Polling)</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll)</td><td><a href="resourcelist.html">{Resource</a>} or <a href="processresponse.html">ProcessResponse</a></td></tr>
+ <tr><td>Pended Check (Polling)</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll)</td><td><a href="resourcelist.html">{Resource}</a> or <a href="processresponse.html">ProcessResponse</a></td></tr>
  <tr><td>Payment Notice</td><td><a href="paymentnotice.html">PaymentNotice</a></td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
  <tr><td>Payment Reconciliation</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll, include=<a href="paymentreconciliation.html">PaymentReconciliation</a>)</td><td><a href="paymentreconciliation.html">PaymentReconciliation</a></td></tr>
  <tr><td>Send Attachments</td><td><a href="documentmanifest.html">DocumentManifest</a></td><td><a href="processresponse.html">ProcessResponse</a></td></tr>
  <tr><td>Request an Explanation of Benefits&nbsp;&nbsp;&nbsp;</td><td><a href="processrequest.html">ProcessRequest</a> (action=poll, include=<a href="explanationofbenefit.html">ExplanationOfBenefit</a>)</td><td><a href="explanationofbenefit.html">ExplanationOfBenefit</a></td></tr>
 </table>
  <p>
- <b>{disipline}</b> means the type of claim: OralHealth, Vision, Pharmacy, Professional or Institutional.
+ <b>{discipline}</b> means the type of claim: OralHealth, Vision, Pharmacy, Professional or Institutional.
  </p>
   <p>
  <b>{Resource}</b> means any pended or undelivered resource subject to the selection details specified in the request.
