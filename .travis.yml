@@ -11,7 +11,7 @@ cache:
     - '$HOME/.m2/repository'
 
 script: ./build.sh
-sudo: false
+sudo: required
 notifications:
   email:
     - fhir-svn-travis@dilute.net

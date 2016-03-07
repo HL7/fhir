@@ -85,11 +85,11 @@
     <java
       dir="../../../"
       classname="org.hl7.fhir.tools.publisher.Publisher"
-      failonerror="true" 
-      fork="true" 
-      maxmemory="1400m" >
+      failonerror="true"
+      fork="true"
+      maxmemory="2000m" >
       <arg line="${args}"/>
-      <jvmarg value="-Xmx1400m"/>
+      <jvmarg value="-Xmx2000m"/>
       <jvmarg value="-Xms1400m"/>
       <jvmarg value="-XX:MaxPermSize=768m"/>
       <jvmarg value="-Djava.awt.headless=true"/>
