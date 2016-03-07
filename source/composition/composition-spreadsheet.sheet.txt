@@ -617,7 +617,7 @@
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
-  Name = Measure Report
+  Name = !Measure Report
   IG Name = cqmf
   Filename = composition-measurereport.xml
   Type = spreadsheet

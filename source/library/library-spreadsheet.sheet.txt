@@ -13,37 +13,156 @@
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = Library.identifier
-  Card. = 0..*
-  Summary = Y
-  Type = Identifier
-  Short Label = Logical identifier
-  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
-  w5 = id
-
- -- Row 3 -----------------------------------
-  Element = Library.version
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Label = The version of the module, if any
-  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification
-
- -- Row 4 -----------------------------------
   Element = Library.moduleMetadata
   Card. = 0..1
   Type = ModuleMetadata
   Short Label = The metadata information for the library
   Definition = A reference to a ModuleMetadata resource containing publication, description, and supporting information for the library
 
+ -- Row 3 -----------------------------------
+  Element = Library.model
+  Card. = 0..*
+  Short Label = A model used by the library
+  Definition = A model element describes the model and version used by the library
+
+ -- Row 4 -----------------------------------
+  Element = Library.model.name
+  Card. = 0..1
+  Type = string
+  Short Label = Name of the model
+  Definition = The name element defines the local name of the model as used within the library
+
  -- Row 5 -----------------------------------
-  Element = Library.moduleDefinition
+  Element = Library.model.identifier
+  Card. = 1..1
+  Type = string
+  Short Label = The identifier of the model
+  Definition = The identifier element specifies the global, non-version-specific identifier for the model
+
+ -- Row 6 -----------------------------------
+  Element = Library.model.version
+  Card. = 0..1
+  Type = string
+  Short Label = The version of the model, if any
+  Definition = The version element, if present, identifies the specific version of the model to be used. If no version is specified, the most recent published version of the model is implied
+
+ -- Row 7 -----------------------------------
+  Element = Library.library
+  Card. = 0..*
+  Short Label = A library referenced by this library
+  Definition = A library element describes a library referenced by this library
+
+ -- Row 8 -----------------------------------
+  Element = Library.library.name
+  Card. = 0..1
+  Type = string
+  Short Label = Name of the library
+  Definition = The name element defines the local name of the referenced library
+
+ -- Row 9 -----------------------------------
+  Element = Library.library.identifier
+  Card. = 1..1
+  Type = string
+  Short Label = The identifier of the library
+  Definition = The identifier element specifies the global, non-version-specific identifier for the library
+
+ -- Row 10 -----------------------------------
+  Element = Library.library.version
+  Card. = 0..1
+  Type = string
+  Short Label = The version of the library, if any
+  Definition = The version element, if present, identifies the specific version of the library to be used. If no version is specified, the most recent published version of the library is implied
+
+ -- Row 11 -----------------------------------
+  Element = Library.library.document[x]
+  Card. = 0..1
+  Type = Attachment|Reference(ModuleDefinition)
+  Short Label = The content of the library
+  Definition = The content of the referenced library as an Attachment, or a reference to the Library resource. If the document is an attachment, it may be a reference to a url from which the library document may be retrieved, or it may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document
+
+ -- Row 12 -----------------------------------
+  Element = Library.codeSystem
+  Card. = 0..*
+  Short Label = A code system used by the library
+  Definition = A code system definition used within the library
+
+ -- Row 13 -----------------------------------
+  Element = Library.codeSystem.name
+  Card. = 0..1
+  Type = string
+  Short Label = Name of the code system
+  Definition = The name element specifies the local name of the code system as used within the library. This name is also used when the code system is referenced from a value set element to determine the version of the code system to be used when computed the expansion of the value set definition
+
+ -- Row 14 -----------------------------------
+  Element = Library.codeSystem.identifier
+  Card. = 1..1
+  Type = string
+  Short Label = The identifier of the code system
+  Definition = The identifier element specifies the global, non-version-specific identifier for the code system
+
+ -- Row 15 -----------------------------------
+  Element = Library.codeSystem.version
+  Card. = 0..1
+  Type = string
+  Short Label = The version of the code system, if any
+  Definition = The version element, if present, identifies the specific version of the library to be used. If no code system is specified, the most recent published version of the code system is implied
+
+ -- Row 16 -----------------------------------
+  Element = Library.valueSet
+  Card. = 0..*
+  Short Label = A value set used by the library
+  Definition = A value set definition referenced by the library
+
+ -- Row 17 -----------------------------------
+  Element = Library.valueSet.name
+  Card. = 0..1
+  Type = string
+  Short Label = Name of the value set
+  Definition = The name element specifies the local name of the value set used within the library
+
+ -- Row 18 -----------------------------------
+  Element = Library.valueSet.identifier
+  Card. = 1..1
+  Type = string
+  Short Label = The identifier of the value set
+  Definition = The identifier element specifies the global, non-version-specific identifier for the value set
+
+ -- Row 19 -----------------------------------
+  Element = Library.valueSet.version
+  Card. = 0..1
+  Type = string
+  Short Label = The version of the value set
+  Definition = The version element, if present, determines the specific version of the value set definition that is used by the library. If no version is specified, the latest published version of the value set definition is implied
+
+ -- Row 20 -----------------------------------
+  Element = Library.valueSet.codeSystem
+  Card. = 0..*
+  Type = string
+  Short Label = The code system binding for this value set definition
+  Definition = The codeSystem element determines which code system binding to use to compute the expansion of the value set definition. The codeSystem element specified here will correspond to a code system element, which is used to determine the code system version
+
+ -- Row 21 -----------------------------------
+  Element = Library.parameter
+  Card. = 0..*
+  Type = ParameterDefinition
+  Short Label = Parameters defined by the library
+  Definition = The parameter element defines parameters used by the library
+
+ -- Row 22 -----------------------------------
+  Element = Library.dataRequirement
+  Card. = 0..*
+  Type = DataRequirement
+  Short Label = Data requirements of the library
+  Definition = The dataRequirement element specifies a data requirement used by some expression within the library
+
+ -- Row 23 -----------------------------------
+  Element = !Library.moduleDefinition
   Card. = 1..1
   Type = Reference(ModuleDefinition)
   Short Label = The header information for the library
   Definition = A reference to a ModuleDefinition resource describing the header information for the library
 
- -- Row 6 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Library.document
   Card. = 1..1
   Type = Attachment

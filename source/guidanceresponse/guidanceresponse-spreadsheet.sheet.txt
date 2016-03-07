@@ -203,6 +203,12 @@
   Type = @GuidanceResponse.action
   Definition = Sub actions
 
+ -- Row 20 -----------------------------------
+  Element = GuidanceResponse.dataRequirement
+  Card. = 0..*
+  Type = DataRequirement
+  Definition = If the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. A subsequent request to the service should include this data
+
 === Sheet Search =====================================
 
 === Sheet Profiles =====================================

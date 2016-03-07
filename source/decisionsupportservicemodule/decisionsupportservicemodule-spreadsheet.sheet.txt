@@ -27,120 +27,138 @@
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = !DecisionSupportServiceModule.identifier
-  Card. = 0..*
-  Summary = Y
-  Type = Identifier
-  Short Label = Logical identifier
-  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
-  w5 = id
-
- -- Row 3 -----------------------------------
-  Element = !DecisionSupportServiceModule.version
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Label = The version of the module, if any
-  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification
-
- -- Row 4 -----------------------------------
   Element = DecisionSupportServiceModule.moduleMetadata
   Card. = 0..1
   Type = ModuleMetadata
   Short Label = Metadata for the service module
   Definition = A reference to a ModuleMetadata resource describing the metadata for the decision support service module
 
- -- Row 5 -----------------------------------
+ -- Row 3 -----------------------------------
+  Element = DecisionSupportServiceModule.trigger
+  Card. = 0..*
+  Type = TriggerDefinition
+  Short Label = \"when\" the module should be invoked
+  Definition = The trigger element
+
+ -- Row 4 -----------------------------------
   Element = DecisionSupportServiceModule.parameter
+  Card. = 0..*
+  Type = ParameterDefinition
+  Short Label = Parameters to the module
+  Definition = The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse
+
+ -- Row 5 -----------------------------------
+  Element = DecisionSupportServiceModule.dataRequirement
+  Card. = 0..*
+  Type = DataRequirement
+  Short Label = Data requirements for the module
+  Definition = Data requirements are a machine processable description of the data required by the module in order to successfully evaluate
+
+ -- Row 6 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter
   Card. = 0..*
   Short Label = Parameters to the module
   Definition = The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse
 
- -- Row 6 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.name
+ -- Row 7 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.name
   Card. = 0..1
   Type = code
   Binding = !
   Short Label = Parameter name
   Definition = The name of the parameter
 
- -- Row 7 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.use
+ -- Row 8 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.use
   Card. = 1..1
   Type = code
   Binding = ModuleDefinitionParameterUse
   Definition = Whether the parameter is input or output for the module
 
- -- Row 8 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.documentation
+ -- Row 9 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.min
+  Card. = 0..1
+  Type = integer
+  Short Label = Minimum cardinality
+  Definition = The minimum number of times this parameter SHALL appear in the request or response
+
+ -- Row 10 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.max
+  Card. = 0..1
+  Type = string
+  Short Label = Maximum cardinality (a number of *)
+  Definition = The maximum number of times this element is permitted to appear in the request or response
+
+ -- Row 11 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.documentation
   Card. = 0..1
   Type = string
   Short Label = A brief description of the parameter
   Definition = A brief discussion of what the parameter is for and how it is used by the module
 
- -- Row 9 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.type
+ -- Row 12 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.type
   Card. = 1..1
   Type = code
   Binding = ModuleDefinitionParameterType
   Definition = The type of the parameter
 
- -- Row 10 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.profile
+ -- Row 13 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.profile
   Card. = 0..1
   Type = Reference(StructureDefinition)
   Short Label = The profile of the parameter, any
   Definition = If specified, this indicates a profile that the input data must conform to, or that the output data will conform to
 
- -- Row 11 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.mustSupport
+ -- Row 14 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.mustSupport
   Card. = 0..*
   Type = string
   Short Label = Indicates that specific structure elements are referenced by the knowledge module
   Definition = Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available
 
- -- Row 12 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.codeFilter
+ -- Row 15 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.codeFilter
   Card. = 0..*
   Short Label = Code filters for the required data, if any
   Definition = Indicates that incoming data for this parameter is expected to match the given code filter. In other words, every instance should have a value for the path element that comes from the specified value set (or list of concepts)
 
- -- Row 13 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.codeFilter.path
+ -- Row 16 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.codeFilter.path
   Card. = 1..1
   Type = string
   Short Label = The code-valued attribute of the filter
   Definition = The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept
 
- -- Row 14 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.codeFilter.valueSet[x]
+ -- Row 17 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.codeFilter.valueSet[x]
   Card. = 0..1
   Type = uri|Reference(ValueSet)
   Short Label = The valueset for the code filter
   Definition = The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset
 
- -- Row 15 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.codeFilter.codeableConcept
+ -- Row 18 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.codeFilter.codeableConcept
   Card. = 0..*
   Type = CodeableConcept
   Short Label = The codeableConcepts for the filter
   Definition = The codeable concept for the code filter. Only one of valueSet or codeableConcept may be specified. If codeableConcepts are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codeable concepts
 
- -- Row 16 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.dateFilter
+ -- Row 19 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.dateFilter
   Card. = 0..*
   Short Label = Date filters for the required data, if any
   Definition = Indicates that incoming data for this parameter is expected to match the given date filter. In other words, every instance should have a value for the path element that is equal to the given datetime (or within the given Period)
 
- -- Row 17 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.dateFilter.path
+ -- Row 20 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.dateFilter.path
   Card. = 1..1
   Type = string
   Short Label = The date-valued attribute of the filter
   Definition = The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing
 
- -- Row 18 -----------------------------------
-  Element = DecisionSupportServiceModule.parameter.dateFilter.value[x]
+ -- Row 21 -----------------------------------
+  Element = !DecisionSupportServiceModule.parameter.dateFilter.value[x]
   Card. = 0..1
   Type = dateTime|Period
   Short Label = The value of the filter, as a Period or dateTime value
