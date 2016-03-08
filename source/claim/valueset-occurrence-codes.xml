@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Example Occurrance Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
@@ -12,18 +15,9 @@
   </contact>
   <description value="This value set includes sample Occurrance codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/ex-claimoccurrance"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="1001"/>
-      <display value="Occurrance 1001"/>
-      <definition value="Occurrance 1001 description."/>
-    </concept>
-    <concept>
-      <code value="1002"/>
-      <display value="Occurrance 1002"/>
-      <definition value="Occurrance 1002 description."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ex-claimoccurrance"/>
+    </include>
+  </compose>
 </ValueSet>

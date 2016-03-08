@@ -13,8 +13,8 @@
 
 <%txheader systems%>
 
-<h2>Known Code Systems</h2>
-<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt fhir%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
+<h2>Code Systems</h2>
+<table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg fhir%]">[%wgt vocab%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
 <p>
 The following names (URIs) may be used in the <i>system</i> element of the <a href="datatypes.html#Coding">Coding</a> data type.
@@ -42,6 +42,15 @@ standards published by ISO, such as urn:iso:std:iso:11073:10101. Where ISO stand
 and they are not registered in the HL7 OID registry, the default URN for the code system is that defined by the RFC 5141.</li>
 <li>For several of the code systems in this list, multiple systems are given. This means that the variants identified are different code systems, not just variants of the same code system</li>
 </ul>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-ext">External</a></li>
+    <li><a href="#tabs-fhir">Internal (FHIR)</a></li>
+    <li><a href="#tabs-v3">HL7 V3</a></li>
+    <li><a href="#tabs-v2">HL7 v2</a></li>
+  </ul>
+  <div id="tabs-ext">
 
 <table class="grid">
  <tr>
@@ -314,14 +323,77 @@ and they are not registered in the HL7 OID registry, the default URN for the cod
    <td></td>
    <td>2.16.840.1.113883.3.1077</td>
  </tr>
+</table>
+  
+  </div>
+  <div id="tabs-fhir">
 
+<table class="grid">
  <tr>
-   <td colspan="4" style="background: #EFEFEF"><b>Code systems defined as part of FHIR</b> <a name="internal"> </a></td>
- </tr>  
+   <th width="80">URI</th>
+   <th width="80">Description</th>
+   <th width="80">OID</th>
+ </tr>
 <%internalsystemlist%>
+
 </table>
 
+  
+  </div>
+  <div id="tabs-v3">
+  
+<table class="grid">
+ <tr>
+   <th width="80">URI</th>
+   <th width="80">Description</th>
+   <th width="80">OID</th>
+ </tr>
+<%v3Index-cs%>
+</table>
+  </div>
+  <div id="tabs-v2">
+  
+<table class="grid">
+ <tr>
+   <th width="80">URI</th>
+   <th width="80">Description</th>
+   <th width="80">OID</th>
+ </tr>
+
+ <%v2Index%>
+ 
+</table>
+  </div>
 </div>
+</div>
+
+<script src="external/jquery/jquery.js"> </script>
+<script src="jquery-ui.min.js"> </script>
+<script>
+try {
+  var currentTabIndex = sessionStorage.getItem('fhir-codesystem-tab-index');
+}
+catch(exception){ 
+}
+
+if (!currentTabIndex)
+  currentTabIndex = '0';
+
+$( '#tabs' ).tabs({
+         active: currentTabIndex,
+         activate: function( event, ui ) {
+             var active = $('.selector').tabs('option', 'active');
+             currentTabIndex = ui.newTab.index();
+             document.activeElement.blur();
+             try {
+               sessionStorage.setItem('fhir-codesystem-tab-index', currentTabIndex);
+             }
+             catch(exception){ 
+             }
+         }
+     });
+</script>
+
 
 	[%file newfooter%]
     

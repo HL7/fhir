@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="AnimalBreeds"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,40 +14,9 @@
     </telecom>
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate breeds of species."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/animal-breed"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="gsd"/>
-      <display value="German Shepherd Dog"/>
-      <designation>
-        <language value="nl"/>
-        <value value="Duitse herdershond"/>
-      </designation>
-    </concept>
-    <concept>
-      <code value="irt"/>
-      <display value="Irish Terrier"/>
-      <designation>
-        <language value="nl"/>
-        <value value="Ierse terrier"/>
-      </designation>
-    </concept>
-    <concept>
-      <code value="tibmas"/>
-      <display value="Tibetan Mastiff"/>
-      <designation>
-        <language value="nl"/>
-        <value value="Tibetaanse mastiff"/>
-      </designation>
-    </concept>
-    <concept>
-      <code value="gret"/>
-      <display value="Golden Retriever"/>
-      <designation>
-        <language value="nl"/>
-        <value value="Golden Retriever"/>
-      </designation>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/animal-breed"/>
+    </include>
+  </compose>
 </ValueSet>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Supply Item Type"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,18 +14,9 @@
     </telecom>
   </contact>
   <description value="This value sets refers to a specific supply item."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/supply-item-type"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="medication"/>
-      <display value="Medication"/>
-      <definition value="Supply is a kind of medication."/>
-    </concept>
-    <concept>
-      <code value="device"/>
-      <display value="Device"/>
-      <definition value="What is supplied (or requested) is a device."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/supply-item-type"/>
+    </include>
+  </compose>
 </ValueSet>

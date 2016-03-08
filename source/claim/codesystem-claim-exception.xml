@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-  <url value="http://hl7.org/fhir/exception"/>
+  <url value="http://hl7.org/fhir/claim-exception"/>
   <name value="Exception Codes"/>
   <status value="draft"/>
   <experimental value="false"/>

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="fundsreserve"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Funds Reservation Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -12,17 +17,9 @@
   </contact>
   <description value="This value set includes sample funds reservation type codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/fundsreserve"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="patient"/>
-    </concept>
-    <concept>
-      <code value="provider"/>
-    </concept>
-    <concept>
-      <code value="none"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/fundsreserve"/>
+    </include>
+  </compose>
 </ValueSet>

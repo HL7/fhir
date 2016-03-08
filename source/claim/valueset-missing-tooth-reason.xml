@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Missing Tooth Reason Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
@@ -12,32 +15,9 @@
   </contact>
   <description value="This value set includes sample Missing Tooth Reason codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/missingtoothreason"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="E"/>
-    <!--   extraction   -->
-      <display value="E"/>
-      <definition value="Extraction"/>
-    </concept>
-    <concept>
-      <code value="C"/>
-    <!--   congenital   -->
-      <display value="C"/>
-      <definition value="Congenital"/>
-    </concept>
-    <concept>
-      <code value="U"/>
-    <!--   unknown   -->
-      <display value="U"/>
-      <definition value="Unknown"/>
-    </concept>
-    <concept>
-      <code value="O"/>
-    <!--   other   -->
-      <display value="O"/>
-      <definition value="Other"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/missingtoothreason"/>
+    </include>
+  </compose>
 </ValueSet>

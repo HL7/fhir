@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <url value="http://hl7.org/fhir/ValueSet/operation-definition-parameter-type"/>
   <name value="Parameter Types used in Operation Definitions"/>
   <status value="draft"/>
@@ -9,19 +12,13 @@
   <date value="2014-07-22"/>
   <description value="Parameter Types used in Operation Definitions"/>
   <extensible value="false"/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/ValueSet/special-types"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="Any"/>
-      <display value="Any"/>
-      <definition value="Special type for any kind of resource"/>
-    </concept>
-  </codeSystem>
   <compose>
-  <!--   search parameters   -->
+  <!--    search parameters    -->
     <import value="http://hl7.org/fhir/ValueSet/search-param-type"/>
-  <!--   FHIR data types & Resources   -->
+  <!--    FHIR data types & Resources    -->
     <import value="http://hl7.org/fhir/ValueSet/defined-types"/>
+    <include>
+      <system value="http://hl7.org/fhir/ValueSet/special-types"/>
+    </include>
   </compose>
 </ValueSet>

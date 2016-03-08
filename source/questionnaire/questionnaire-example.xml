@@ -19,28 +19,6 @@
           </pre>
     </div>
   </text>
-  <contained>
-    <ValueSet>
-      <id value="yesno"/>
-      <!--   In practice you could (should?) use boolean for this sort of circumstance.  However, the reality is
-        that many systems treat booleans as coded data   -->
-      <name value="Example YesNo"/>
-      <status value="active"/>
-      <description value="Captures simple yes-no"/>
-      <codeSystem>
-        <system value="http://example.org/system/code/yesno"/>
-        <caseSensitive value="true"/>
-        <concept>
-          <code value="1"/>
-          <display value="Yes"/>
-        </concept>
-        <concept>
-          <code value="2"/>
-          <display value="No"/>
-        </concept>
-      </codeSystem>
-    </ValueSet>
-  </contained>
   <status value="draft"/>
   <date value="2012-01"/>
   <title value="Cancer Quality Forum Questionnaire 2012"/>
@@ -63,7 +41,7 @@
       </concept>
       <type value="choice"/>
       <options>
-        <reference value="#yesno"/>
+        <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
       </options>
       <item>
         <!--   COMORBIDITY/CARDIAL   -->
@@ -82,7 +60,7 @@
           </concept>
           <type value="choice"/>
           <options>
-            <reference value="#yesno"/>
+            <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
           </options>
         </item>
         <item>
@@ -100,7 +78,7 @@
           </concept>
           <type value="choice"/>
           <options>
-            <reference value="#yesno"/>
+            <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
           </options>
         </item>
         <item>
@@ -112,7 +90,7 @@
           </concept>
           <type value="choice"/>
           <options>
-            <reference value="#yesno"/>
+            <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
           </options>
         </item>
       </item>

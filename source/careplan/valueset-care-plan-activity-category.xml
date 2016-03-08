@@ -9,71 +9,137 @@
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
+      
       <h2>CarePlanActivityCategory</h2>
+      
       <p>High-level categorization of the type of activity in a care plan.</p>
+      
       <p>This value set has an inline code system http://hl7.org/fhir/care-plan-activity-category, which defines the following codes:</p>
+      
       <table class="codes">
+        
         <tr>
+          
           <td>
+            
             <b>Code</b>
+          
           </td>
+          
           <td>
+            
             <b>Display</b>
+          
           </td>
+          
           <td>
+            
             <b>Definition</b>
+          
           </td>
+        
         </tr>
+        
         <tr>
+          
           <td>diet
+            
             <a name="diet"> </a>
+          
           </td>
+          
           <td>Diet</td>
+          
           <td>Plan for the patient to consume food of a specified nature</td>
+        
         </tr>
+        
         <tr>
+          
           <td>drug
+            
             <a name="drug"> </a>
+          
           </td>
+          
           <td>Drug</td>
+          
           <td>Plan for the patient to consume/receive a drug, vaccine or other product</td>
+        
         </tr>
+        
         <tr>
+          
           <td>encounter
+            
             <a name="encounter"> </a>
+          
           </td>
+          
           <td>Encounter</td>
+          
           <td>Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)</td>
+        
         </tr>
+        
         <tr>
+          
           <td>observation
+            
             <a name="observation"> </a>
+          
           </td>
+          
           <td>Observation</td>
+          
           <td>Plan to capture information about a patient (vitals, labs, diagnostic images, etc.)</td>
+        
         </tr>
+        
         <tr>
+          
           <td>procedure
+            
             <a name="procedure"> </a>
+          
           </td>
+          
           <td>Procedure</td>
+          
           <td>Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)</td>
+        
         </tr>
+        
         <tr>
+          
           <td>supply
+            
             <a name="supply"> </a>
+          
           </td>
+          
           <td>Supply</td>
+          
           <td>Plan to provide something to the patient (medication, medical supply, etc.)</td>
+        
         </tr>
+        
         <tr>
+          
           <td>other
+            
             <a name="other"> </a>
+          
           </td>
+          
           <td>Other</td>
+          
           <td>Some other form of action</td>
+        
         </tr>
+      
       </table>
+    
     </div>
   </text>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
@@ -97,47 +163,9 @@
   </contact>
   <date value="2015-08-30T17:04:04-06:00"/>
   <description value="High-level categorization of the type of activity in a care plan."/>
-  <codeSystem>
-    <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-      <valueUri value="urn:oid:2.16.840.1.113883.4.642.1.63"/>
-    </extension>
-    <system value="http://hl7.org/fhir/care-plan-activity-category"/>
-    <version value="1.0.0"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="diet"/>
-      <display value="Diet"/>
-      <definition value="Plan for the patient to consume food of a specified nature"/>
-    </concept>
-    <concept>
-      <code value="drug"/>
-      <display value="Drug"/>
-      <definition value="Plan for the patient to consume/receive a drug, vaccine or other product"/>
-    </concept>
-    <concept>
-      <code value="encounter"/>
-      <display value="Encounter"/>
-      <definition value="Plan to meet or communicate with the patient (in-patient, out-patient, phone call, etc.)"/>
-    </concept>
-    <concept>
-      <code value="observation"/>
-      <display value="Observation"/>
-      <definition value="Plan to capture information about a patient (vitals, labs, diagnostic images, etc.)"/>
-    </concept>
-    <concept>
-      <code value="procedure"/>
-      <display value="Procedure"/>
-      <definition value="Plan to modify the patient in some way (surgery, physiotherapy, education, counseling, etc.)"/>
-    </concept>
-    <concept>
-      <code value="supply"/>
-      <display value="Supply"/>
-      <definition value="Plan to provide something to the patient (medication, medical supply, etc.)"/>
-    </concept>
-    <concept>
-      <code value="other"/>
-      <display value="Other"/>
-      <definition value="Some other form of action"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/care-plan-activity-category"/>
+    </include>
+  </compose>
 </ValueSet>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Supply Type"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,18 +14,9 @@
     </telecom>
   </contact>
   <description value="This value sets refers to a Category of supply."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/supply-kind"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="central"/>
-      <display value="Central Supply"/>
-      <definition value="Supply is stored and requested from central supply."/>
-    </concept>
-    <concept>
-      <code value="nonstock"/>
-      <display value="Non-Stock"/>
-      <definition value="Supply is not onsite and must be requested from an outside vendor using a non-stock requisition."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/supply-kind"/>
+    </include>
+  </compose>
 </ValueSet>

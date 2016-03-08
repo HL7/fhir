@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Adjudication Reason Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
@@ -12,18 +15,9 @@
   </contact>
   <description value="This value set includes smattering of Adjudication Reason codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/adjudication-reason"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="ar001"/>
-      <display value="Not covered"/>
-      <definition value="Not covered"/>
-    </concept>
-    <concept>
-      <code value="ar002"/>
-      <display value="Plan Limit Reached"/>
-      <definition value="Plan Limit Reached"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/adjudication-reason"/>
+    </include>
+  </compose>
 </ValueSet>

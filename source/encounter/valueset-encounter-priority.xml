@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Encounter Priority"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,33 +14,9 @@
     </telecom>
   </contact>
   <description value="This is an example value set defined by the FHIR project, that could be used in Emergency to indicate the encounter priority as determined by triage."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/encounter-priority"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="imm"/>
-      <display value="Immediate"/>
-      <definition value="Within seconds."/>
-    </concept>
-    <concept>
-      <code value="emg"/>
-      <display value="Emergency"/>
-      <definition value="Within 10 minutes."/>
-    </concept>
-    <concept>
-      <code value="urg"/>
-      <display value="Urgent"/>
-      <definition value="Within 30 minutes."/>
-    </concept>
-    <concept>
-      <code value="s-urg"/>
-      <display value="Semi-urgent"/>
-      <definition value="Within 60 minutes."/>
-    </concept>
-    <concept>
-      <code value="no-urg"/>
-      <display value="Non-urgent"/>
-      <definition value="Within 120 minutes."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/encounter-priority"/>
+    </include>
+  </compose>
 </ValueSet>

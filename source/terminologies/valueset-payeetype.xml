@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="payeetype"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Payee Type Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -12,23 +17,9 @@
   </contact>
   <description value="This value set includes sample Payee Type codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/payeetype"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="subscriber"/>
-      <display value="Subscriber"/>
-      <definition value="The subscriber (policy holder) will be reimbursed."/>
-    </concept>
-    <concept>
-      <code value="provider"/>
-      <display value="Provider"/>
-      <definition value="Any benefit payable will be paid to the provider (Assignment of Benefit)."/>
-    </concept>
-    <concept>
-      <code value="other"/>
-      <display value="Provider"/>
-      <definition value="Any benefit payable will be paid to a third party such as a guarrantor."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/payeetype"/>
+    </include>
+  </compose>
 </ValueSet>

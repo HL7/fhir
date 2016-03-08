@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Immunization Recommendation Status Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,18 +14,9 @@
     </telecom>
   </contact>
   <description value="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process, in particular the process and reasons for dispensing. This value set is provided as a suggestive example."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/immunization-recommendation-status"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="due"/>
-      <display value="Due"/>
-      <definition value="The patient is due for their next vaccination."/>
-    </concept>
-    <concept>
-      <code value="overdue"/>
-      <display value="Overdue"/>
-      <definition value="The patient is considered overdue for their next vaccination."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/immunization-recommendation-status"/>
+    </include>
+  </compose>
 </ValueSet>

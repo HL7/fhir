@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <url value="http://hl7.org/fhir/ValueSet/condition-category"/>
   <name value="Condition Category Codes"/>
   <status value="draft"/>
@@ -12,28 +15,9 @@
     </telecom>
   </contact>
   <description value="Preferred value set for Condition Categories."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/condition-category"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="complaint"/>
-      <display value="Complaint"/>
-      <definition value="The patient considers the condition an issue to be addressed."/>
-    </concept>
-    <concept>
-      <code value="symptom"/>
-      <display value="Symptom"/>
-      <definition value="A symptom of a condition (as might be mentioned in a review of systems)."/>
-    </concept>
-    <concept>
-      <code value="finding"/>
-      <display value="Finding"/>
-      <definition value="An observation made by a healthcare provider."/>
-    </concept>
-    <concept>
-      <code value="diagnosis"/>
-      <display value="Diagnosis"/>
-      <definition value="This is a judgment made by a healthcare provider that the patient has a particular disease or condition."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/condition-category"/>
+    </include>
+  </compose>
 </ValueSet>

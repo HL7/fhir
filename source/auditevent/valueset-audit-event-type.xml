@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <url value="http://nema.org/dicom/dicm/400"/>
   <version value="20150326"/>
   <name value="Audit Event ID"/>
@@ -9,15 +12,6 @@
   <date value="2015-03-26"/>
   <description value="Event Types for Audit Events - defined by DICOM with some FHIR specific additions."/>
   <copyright value="These codes are excerpted from Digital Imaging and Communications in Medicine (DICOM) Standard, Part 16: Content Mapping Resource, Copyright © 2011 by the National Electrical Manufacturers Association."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/audit-event-type"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="rest"/>
-      <display value="RESTful Operation"/>
-      <definition value="Audit Event: Execution of a RESTful operation as defined by FHIR."/>
-    </concept>
-  </codeSystem>
   <compose>
     <include>
       <system value="http://nema.org/dicom/dicm"/>
@@ -66,6 +60,9 @@
       <concept>
         <code value="110114"/>
       </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/audit-event-type"/>
     </include>
   </compose>
 </ValueSet>

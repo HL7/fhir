@@ -32,7 +32,7 @@ understand the impact of this on the meaning of the list.
 <p>
 There are several different kinds of uses for a List resource:
 </p>
-[%codelist http://hl7.org/fhir/ValueSet/list-mode%]
+[%codelist http://hl7.org/fhir/list-mode%]
 
 <p>
 The most common mode is "snapshot" - a list that is accurate 

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Contract Subtype Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
@@ -12,14 +15,9 @@
   </contact>
   <description value="This value set includes sample Contract Subtype codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/contractsubtypecodes"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="disclosure-CA"/>
-    </concept>
-    <concept>
-      <code value="disclosure-US"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/contractsubtypecodes"/>
+    </include>
+  </compose>
 </ValueSet>

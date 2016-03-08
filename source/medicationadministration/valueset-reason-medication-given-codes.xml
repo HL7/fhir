@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Reason Medication Given Codes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,23 +14,9 @@
     </telecom>
   </contact>
   <description value="This value set is provided as an exemplar. The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the medication process."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/reason-medication-given"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="a"/>
-      <display value="None"/>
-      <definition value="No reason known."/>
-    </concept>
-    <concept>
-      <code value="b"/>
-      <display value="Given as Ordered"/>
-      <definition value="The administration was following an ordered protocol."/>
-    </concept>
-    <concept>
-      <code value="c"/>
-      <display value="Emergency"/>
-      <definition value="The administration was needed to treat an emergency."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/reason-medication-given"/>
+    </include>
+  </compose>
 </ValueSet>

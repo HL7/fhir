@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-relatedclaimrelationship"/>
+  <name value="Example Related Claim Relationship Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Related Claim Relationship codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="prior"/>
+    <display value="Prior Claim"/>
+    <definition value="A prior claim instance for the same intended suite of services."/>
+  </concept>
+  <concept>
+    <code value="associated"/>
+    <display value="Associated Claim"/>
+    <definition value="A claim for a different suite of services which is related the the suite claimed here."/>
+  </concept>
+</CodeSystem>

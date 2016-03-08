@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="ruleset"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Ruleset Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="Financial Management"/>
   <contact>
     <telecom>
@@ -12,26 +17,9 @@
   </contact>
   <description value="This value set includes sample ruleset codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/ruleset"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="x12-4010"/>
-    </concept>
-    <concept>
-      <code value="x12-5010"/>
-    </concept>
-    <concept>
-      <code value="x12-7010"/>
-    </concept>
-    <concept>
-      <code value="cdanet-v2"/>
-    </concept>
-    <concept>
-      <code value="cdanet-v4"/>
-    </concept>
-    <concept>
-      <code value="cpha-3"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ruleset"/>
+    </include>
+  </compose>
 </ValueSet>

@@ -1,38 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <url value="http://hl7.org/fhir/ValueSet/goal-status-reason"/>
-	<name value="GoalStatusReason"/>
-	<status value="draft"/>
-	<publisher value="HL7 International - Patient Care WG"/>
-	<contact>
-		<telecom>
-			<system value="other"/>
-			<value value="http://www.hl7.org/Special/committees/patientcare/"/>
-		</telecom>
-	</contact>
-	<description value="Example codes indicating the reason for a current status.  Note that these are in no way complete and may not even be appropriate for some uses."/>
-	<codeSystem>
-		<system value="http://hl7.org/fhir/goal-status-reason"/>
-		<caseSensitive value="true"/>
-		<concept>
-			<code value="surgery"/>
-			<display value="surgery"/>
-			<definition value="Goal suspended or ended because of a surgical procedure."/>
-		</concept>
-		<concept>
-			<code value="life-event"/>
-			<display value="life event"/>
-			<definition value="Goal suspended or ended because of a significant life event (marital change, bereavement, etc.)."/>
-		</concept>
-		<concept>
-			<code value="replaced"/>
-			<display value="replaced"/>
-			<definition value="Goal has been superseded by a new goal."/>
-		</concept>
-		<concept>
-			<code value="patient-request"/>
-			<display value="patient request"/>
-			<definition value="Patient wishes the goal to be set aside, at least temporarily."/>
-		</concept>
-	</codeSystem>
+  <name value="GoalStatusReason"/>
+  <status value="draft"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare/"/>
+    </telecom>
+  </contact>
+  <description value="Example codes indicating the reason for a current status.  Note that these are in no way complete and may not even be appropriate for some uses."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/goal-status-reason"/>
+    </include>
+  </compose>
 </ValueSet>

@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="identifier-type"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <extension url="http://hl7.org/fhir/StructureDefinition/valueset-warning">
     <valueMarkdown value="Types are for general categories of identifiers. See [the identifier registry](identifier-registry.html) for a list of common identifier systems"/>
   </extension>
   <name value="Identifier Type Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="HL7 (FHIR Project)"/>
   <contact>
     <telecom>
@@ -14,36 +19,6 @@
     </telecom>
   </contact>
   <description value="A coded type for an identifier that can be used to determine which identifier to use for a specific purpose."/>
-  <codeSystem>
-  <!--   these are defined until they move properly into v2 able 0203   -->
-    <system value="http://hl7.org/fhir/identifier-type"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="UDI"/>
-      <display value="Universal Device Identifier"/>
-      <definition value="A identifier assigned to a device using the Universal Device Identifier framework as defined by FDA (http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/)."/>
-    </concept>
-    <concept>
-      <code value="SNO"/>
-      <display value="Serial Number"/>
-      <definition value="An identifier affixed to an item by the manufacturer when it is first made, where each item has a different identifier."/>
-    </concept>
-    <concept>
-      <code value="SB"/>
-      <display value="Social Beneficiary Identifier"/>
-      <definition value="An identifier issued by a governmental organization to an individual for the purpose of the receipt of social services and benefits."/>
-    </concept>
-    <concept>
-      <code value="PLAC"/>
-      <display value="Placer Identifier"/>
-      <definition value="The identifier associated with the person or service that requests or places an order."/>
-    </concept>
-    <concept>
-      <code value="FILL"/>
-      <display value="Filler Identifier"/>
-      <definition value="The Identifier associated with the person, or service, who produces the observations or fulfills the order requested by the requestor."/>
-    </concept>
-  </codeSystem>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v2/0203"/>
@@ -80,6 +55,9 @@
       <concept>
         <code value="DR"/>
       </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/identifier-type"/>
     </include>
   </compose>
 </ValueSet>

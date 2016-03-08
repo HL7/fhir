@@ -1,28 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-	<url value="http://hl7.org/fhir/ValueSet/questionnaire-display-category"/>
-	<name value="Questionnaire Text Categories"/>
-	<status value="draft"/>
-	<publisher value="HL7 International - Patient Care WG"/>
-	<contact>
-		<telecom>
-			<system value="other"/>
-			<value value="http://www.hl7.org/Special/committees/patientcare"/>
-		</telecom>
-	</contact>
-	<description value="Codes defining the purpose of a Questionnaire item of type 'text'."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/questionnaire-display-category"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="instructions"/>
-      <display value="Instructions"/>
-      <definition value="The text provides guidances on how to populate or use a portion of the questionnaire (or the questionnaire as a whole)."/>
-    </concept>
-    <concept>
-      <code value="security"/>
-      <display value="Security"/>
-      <definition value="The text provides guidance on how the information should be or will be handled from a security/confidentiality/access control perspective when completed"/>
-    </concept>
-  </codeSystem>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <url value="http://hl7.org/fhir/ValueSet/questionnaire-display-category"/>
+  <name value="Questionnaire Text Categories"/>
+  <status value="draft"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://www.hl7.org/Special/committees/patientcare"/>
+    </telecom>
+  </contact>
+  <description value="Codes defining the purpose of a Questionnaire item of type &#39;text&#39;."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/questionnaire-display-category"/>
+    </include>
+  </compose>
 </ValueSet>

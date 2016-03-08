@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="SpecialArrangements"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,28 +14,9 @@
     </telecom>
   </contact>
   <description value="This value set defines a set of codes that can be used to indicate the kinds of special arrangements in place for a patients visit."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/encounter-special-arrangements"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="wheel"/>
-      <display value="Wheelchair"/>
-    </concept>
-    <concept>
-      <code value="stret"/>
-      <display value="Stretcher"/>
-    </concept>
-    <concept>
-      <code value="int"/>
-      <display value="Interpreter"/>
-    </concept>
-    <concept>
-      <code value="att"/>
-      <display value="Attendant"/>
-    </concept>
-    <concept>
-      <code value="dog"/>
-      <display value="Guide dog"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/encounter-special-arrangements"/>
+    </include>
+  </compose>
 </ValueSet>

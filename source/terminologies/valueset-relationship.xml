@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <id value="relationship"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Beneficiary Relationship Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -12,33 +17,9 @@
   </contact>
   <description value="This value set includes the Patient to subscriber relationship codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/relationship"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="1"/>
-      <display value="Self"/>
-      <definition value="The patient is the subscriber (policy holder)"/>
-    </concept>
-    <concept>
-      <code value="2"/>
-      <display value="Spouse"/>
-      <definition value="The patient is the spouse or equivalent of the subscriber (policy holder)"/>
-    </concept>
-    <concept>
-      <code value="3"/>
-      <display value="Child"/>
-      <definition value="The patient is the child of the subscriber (policy holder)"/>
-    </concept>
-    <concept>
-      <code value="4"/>
-      <display value="Common Law Spouse"/>
-      <definition value="The patient is the common law spouse of the subscriber (policy holder)"/>
-    </concept>
-    <concept>
-      <code value="5"/>
-      <display value="Other"/>
-      <definition value="The patient has some other relationship, such as parent, to the subscriber (policy holder)"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/relationship"/>
+    </include>
+  </compose>
 </ValueSet>

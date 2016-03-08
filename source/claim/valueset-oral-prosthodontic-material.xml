@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Oral Prostho Material type Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
@@ -12,32 +15,9 @@
   </contact>
   <description value="This value set includes sample Oral Prosthodontic Material type codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/ex-oralprostho"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="1"/>
-    <!--   Fixed Bridge   -->
-      <display value="Fixed Bridge"/>
-      <definition value="Fixed Bridge"/>
-    </concept>
-    <concept>
-      <code value="2"/>
-    <!--   Maryland Bridge   -->
-      <display value="Maryland Bridge"/>
-      <definition value="Maryland Bridge"/>
-    </concept>
-    <concept>
-      <code value="3"/>
-    <!--   Denture Acrylic   -->
-      <display value="Denture Acrylic"/>
-      <definition value="Denture Acrylic"/>
-    </concept>
-    <concept>
-      <code value="4"/>
-    <!--   Denture Chrome Cobalt   -->
-      <display value="Denture Chrome Cobalt"/>
-      <definition value="Denture Chrome Cobalt"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ex-oralprostho"/>
+    </include>
+  </compose>
 </ValueSet>

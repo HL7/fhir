@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="PatientContactRelationship"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,59 +14,9 @@
     </telecom>
   </contact>
   <description value="This value set defines a set of codes that are used to indicate the nature of the relationship between a patient and a contactperson for that patient."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/patient-contact-relationship"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="emergency"/>
-      <display value="Emergency"/>
-      <definition value="Contact for use in case of emergency."/>
-    </concept>
-    <concept>
-      <code value="family"/>
-      <display value="Family"/>
-    </concept>
-    <concept>
-      <code value="guardian"/>
-      <display value="Guardian"/>
-    </concept>
-    <concept>
-      <code value="friend"/>
-      <display value="Friend"/>
-    </concept>
-    <concept>
-      <code value="partner"/>
-      <display value="Partner"/>
-    </concept>
-    <concept>
-      <code value="work"/>
-      <display value="Work"/>
-      <definition value="Contact for matters related to the patients occupation/employment."/>
-    </concept>
-    <concept>
-      <code value="caregiver"/>
-      <display value="Caregiver"/>
-      <definition value="(Non)professional caregiver"/>
-    </concept>
-    <concept>
-      <code value="agent"/>
-      <display value="Agent"/>
-      <definition value="Contact that acts on behalf of the patient"/>
-    </concept>
-    <concept>
-      <code value="guarantor"/>
-      <display value="Guarantor"/>
-      <definition value="Contact for financial matters"/>
-    </concept>
-    <concept>
-      <code value="owner"/>
-      <display value="Owner of animal"/>
-      <definition value="For animals, the owner of the animal"/>
-    </concept>
-    <concept>
-      <code value="parent"/>
-      <display value="Parent"/>
-      <definition value="Parent of the patient"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/patient-contact-relationship"/>
+    </include>
+  </compose>
 </ValueSet>

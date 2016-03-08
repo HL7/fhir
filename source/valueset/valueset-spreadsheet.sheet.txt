@@ -66,10 +66,10 @@
   Context = ValueSet
   English = A value set with only one import SHALL also have an include and/or an exclude unless the value set includes and inline code system
   XPath = not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude) or exists(f:codeSystem))
-  Expression = compose.import.count() != 1 or compose.include or compose.exclude or codeSystem
+  Expression = compose.import.count() != 1 or compose.include or compose.exclude
 
  -- Row 3 -----------------------------------
-  Id = 3
+  Id = !3
   Context = ValueSet.codeSystem
   English = Within a code system definition, all the codes SHALL be unique
   XPath = count(distinct-values(descendant::f:concept/f:code/@value))=count(descendant::f:concept)
@@ -80,7 +80,7 @@
   Context = ValueSet
   English = Value set SHALL contain at least one of a codeSystem, a compose, or an expansion element
   XPath = exists(f:codeSystem) or exists(f:compose) or exists(f:expansion)
-  Expression = codeSystem or compose or expansion
+  Expression = compose or expansion
 
  -- Row 5 -----------------------------------
   Id = 6
@@ -90,14 +90,14 @@
   Expression = code or display
 
  -- Row 6 -----------------------------------
-  Id = 7
+  Id = !7
   Context = ValueSet
   English = A defined code system (if present) SHALL have a different url than the value set url
   XPath = not(f:codeSystem/f:system/@value = f:url/@value)
   Expression = codeSystem.empty() or (codeSystem.system != url)
 
  -- Row 7 -----------------------------------
-  Id = 8
+  Id = !8
   Context = ValueSet.codeSystem
   English = Codes must be unique
   XPath = count(descendant::f:concept)=count(distinct-values(descendant::f:concept/f:code/@value))
@@ -319,7 +319,7 @@
   Requirements = It is not required to say whether this intent applies
 
  -- Row 20 -----------------------------------
-  Element = ValueSet.codeSystem
+  Element = !ValueSet.codeSystem
   Card. = 0..1
   Summary = y
   UML = -190;0
@@ -330,7 +330,7 @@
   Committee Notes = The choice to package code system as a part of the value set resource rather than having code systems as a first level entity is a scope choice that has generated much comment; this may be reviewed in the future
 
  -- Row 21 -----------------------------------
-  Element = ValueSet.codeSystem.system
+  Element = !ValueSet.codeSystem.system
   Card. = 1..1
   Summary = y
   Type = uri
@@ -339,7 +339,7 @@
   Comments = The reference is not required to point to any specific kind of definition, but the more information that can be provided, the more useful it is for implementers. Best practice is to resolve to a computable definition of the code system (either a value set, or some other format). Terminology servers MAY validate this reference (e.g. when accepting PUT/POST), and MAY make additional rules about what kind of content it refers to
 
  -- Row 22 -----------------------------------
-  Element = ValueSet.codeSystem.version
+  Element = !ValueSet.codeSystem.version
   Card. = 0..1
   Summary = y
   Type = string
@@ -347,7 +347,7 @@
   Definition = The version of this code system that defines the codes. Note that the version is optional because a well maintained code system does not suffer from versioning, and therefore the version does not need to be maintained. However many code systems are not well maintained, and the version needs to be defined and tracked
 
  -- Row 23 -----------------------------------
-  Element = ValueSet.codeSystem.caseSensitive
+  Element = !ValueSet.codeSystem.caseSensitive
   Card. = 0..1
   Summary = y
   Type = boolean
@@ -356,7 +356,7 @@
   Comments = If this value is missing, then it is not specified whether a code system is case sensitive or not. When the rule is not known, Postel\'s law should be followed: produce codes with the correct case, and accept codes in any case. This element is primarily provided to support validation software
 
  -- Row 24 -----------------------------------
-  Element = ValueSet.codeSystem.concept
+  Element = !ValueSet.codeSystem.concept
   Card. = 1..*
   UML = -190;140
   Type = =ConceptDefinition
@@ -364,7 +364,7 @@
   Definition = Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are
 
  -- Row 25 -----------------------------------
-  Element = ValueSet.codeSystem.concept.code
+  Element = !ValueSet.codeSystem.concept.code
   Card. = 1..1
   Type = code
   Binding = !
@@ -372,7 +372,7 @@
   Definition = A code - a text symbol - that uniquely identifies the concept within the code system
 
  -- Row 26 -----------------------------------
-  Element = ValueSet.codeSystem.concept.abstract
+  Element = !ValueSet.codeSystem.concept.abstract
   Card. = 0..1
   Type = boolean
   Short Label = If this code is not for use as a real concept
@@ -380,21 +380,21 @@
   Default Value = False
 
  -- Row 27 -----------------------------------
-  Element = ValueSet.codeSystem.concept.display
+  Element = !ValueSet.codeSystem.concept.display
   Card. = 0..1
   Type = string
   Short Label = Text to display to the user
   Definition = A human readable string that is the recommended default way to present this concept to a user
 
  -- Row 28 -----------------------------------
-  Element = ValueSet.codeSystem.concept.definition
+  Element = !ValueSet.codeSystem.concept.definition
   Card. = 0..1
   Type = string
   Short Label = Formal definition
   Definition = The formal definition of the concept. The value set resource does not make formal definitions required, because of the prevalence of legacy systems. However, they are highly recommended, as without them there is no formal meaning associated with the concept
 
  -- Row 29 -----------------------------------
-  Element = ValueSet.codeSystem.concept.designation
+  Element = !ValueSet.codeSystem.concept.designation
   Card. = 0..*
   UML = -190;280
   Short Label = Additional representations for the concept
@@ -402,7 +402,7 @@
   Requirements = Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes
 
  -- Row 30 -----------------------------------
-  Element = ValueSet.codeSystem.concept.designation.language
+  Element = !ValueSet.codeSystem.concept.designation.language
   Card. = 0..1
   Type = code
   Binding = Language
@@ -411,7 +411,7 @@
   Comments = In the absence of a language, the resource language applies
 
  -- Row 31 -----------------------------------
-  Element = ValueSet.codeSystem.concept.designation.use
+  Element = !ValueSet.codeSystem.concept.designation.use
   Card. = 0..1
   Type = Coding
   Binding = ConceptDesignationUse
@@ -420,14 +420,14 @@
   Comments = If no use is provided, the designation can be assumed to be suitable for general display to a human user
 
  -- Row 32 -----------------------------------
-  Element = ValueSet.codeSystem.concept.designation.value
+  Element = !ValueSet.codeSystem.concept.designation.value
   Card. = 1..1
   Type = string
   Short Label = The text value for this designation
   Definition = The text value for this designation
 
  -- Row 33 -----------------------------------
-  Element = ValueSet.codeSystem.concept.concept
+  Element = !ValueSet.codeSystem.concept.concept
   Card. = 0..*
   Type = @ValueSet.codeSystem.concept
   Short Label = Child Concepts (is-a/contains/categorizes)
@@ -529,11 +529,35 @@
  -- Row 43 -----------------------------------
   Element = ValueSet.compose.include.concept.designation
   Card. = 0..*
-  Type = @ValueSet.codeSystem.concept.designation
   Short Label = Additional representations for this valueset
   Definition = Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.
 
  -- Row 44 -----------------------------------
+  Element = ValueSet.compose.include.concept.designation.language
+  Card. = 0..1
+  Type = code
+  Binding = Language
+  Short Label = Human language of the designation
+  Definition = The language this designation is defined for
+  Comments = In the absence of a language, the resource language applies
+
+ -- Row 45 -----------------------------------
+  Element = ValueSet.compose.include.concept.designation.use
+  Card. = 0..1
+  Type = Coding
+  Binding = ConceptDesignationUse
+  Short Label = Details how this designation would be used
+  Definition = A code that details how this designation would be used
+  Comments = If no use is provided, the designation can be assumed to be suitable for general display to a human user
+
+ -- Row 46 -----------------------------------
+  Element = ValueSet.compose.include.concept.designation.value
+  Card. = 1..1
+  Type = string
+  Short Label = The text value for this designation
+  Definition = The text value for this designation
+
+ -- Row 47 -----------------------------------
   Element = ValueSet.compose.include.filter
   Card. = 0..*
   UML = 230;420
@@ -543,7 +567,7 @@
   Comments = Selecting codes by specifying filters based on properties is only possible where the underlying code system defines appropriate properties. Note that in some cases, the underlying code system defines the logical concepts but not the literal codes for the concepts. In such cases, the literal definitions may be provided by a third party
   RIM Mapping = N/A
 
- -- Row 45 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = ValueSet.compose.include.filter.property
   Card. = 1..1
   Type = code
@@ -552,7 +576,7 @@
   Definition = A code that identifies a property defined in the code system
   RIM Mapping = N/A
 
- -- Row 46 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = ValueSet.compose.include.filter.op
   Card. = 1..1
   Type = code
@@ -561,7 +585,7 @@
   Definition = The kind of operation to perform as a part of the filter criteria
   RIM Mapping = N/A
 
- -- Row 47 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = ValueSet.compose.include.filter.value
   Card. = 1..1
   Type = code
@@ -571,7 +595,7 @@
   Comments = Use regex matching with care - full regex matching on every SNOMED CT term is prohibitive, for example
   RIM Mapping = N/A
 
- -- Row 48 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = ValueSet.compose.exclude
   Card. = 0..*
   Inv. = 2
@@ -581,7 +605,7 @@
   Comments = Usually this is used to selectively exclude codes that were included by subsumption in the inclusions. Any display names specified for the codes are ignored
   RIM Mapping = N/A
 
- -- Row 49 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = ValueSet.expansion
   Card. = 0..1
   UML = 360;205
@@ -590,7 +614,7 @@
   Definition = A value set can also be \"expanded\", where the value set is turned into a simple collection of enumerated codes. This element holds the expansion, if it has been performed
   Comments = Expansion is performed to produce a collection of codes that are ready to use for data entry or validation
 
- -- Row 50 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = ValueSet.expansion.identifier
   Card. = 1..1
   Type = uri
@@ -598,7 +622,7 @@
   Definition = An identifier that uniquely identifies this expansion of the valueset. Systems may re-use the same identifier as long as the expansion and the definition remain the same, but are not required to do so
   Comments = Typically, this uri is a UUID (e.g. urn:uuid:8230ff20-c97a-4167-a59d-dc2cb9df16dd)
 
- -- Row 51 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = ValueSet.expansion.timestamp
   Card. = 1..1
   Type = dateTime
@@ -606,7 +630,7 @@
   Definition = The time at which the expansion was produced by the expanding system.
   Comments = This SHOULD be a fully populated instant, but in some circumstances, value sets are expanded by hand, and the expansion is published without that precision
 
- -- Row 52 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = ValueSet.expansion.total
   Card. = 0..1
   Type = integer
@@ -614,7 +638,7 @@
   Definition = The total number of concepts in the expansion. If the number of concept nodes in this resource is less than the stated number, then the server can return more using the offset parameter
   Comments = Paging only applies to flat expansions
 
- -- Row 53 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = ValueSet.expansion.offset
   Card. = 0..1
   Type = integer
@@ -623,7 +647,7 @@
   Comments = Paging only applies to flat expansions. If a filter is applied, the count is the number of concepts that matched the filter, not the number of concepts in an unfiltered view of the expansion
   Missing Meaning = Paging is not being used
 
- -- Row 54 -----------------------------------
+ -- Row 57 -----------------------------------
   Element = ValueSet.expansion.parameter
   Card. = 0..*
   UML = 290;80
@@ -631,7 +655,7 @@
   Definition = A parameter that controlled the expansion process. These parameters may be used by users of expanded value sets to check whether the expansion is suitable for a particular purpose, or to pick the correct expansion
   Comments = The server decides which parameters to include here, but at a minimum, the list SHOULD include the date, filter, and profile parameters passed to the $expand operation (if any)
 
- -- Row 55 -----------------------------------
+ -- Row 58 -----------------------------------
   Element = ValueSet.expansion.parameter.name
   Card. = 1..1
   Type = string
@@ -640,28 +664,28 @@
   Comments = The names are assigned at the discretion of the server
   Committee Notes = There is no standardization of parameter names that control the expansion process. This will be reviewed in the future
 
- -- Row 56 -----------------------------------
+ -- Row 59 -----------------------------------
   Element = ValueSet.expansion.parameter.value[x]
   Card. = 0..1
   Type = string | boolean | integer | decimal | uri | code
   Short Label = Value of the named parameter
   Definition = The value of the parameter
 
- -- Row 57 -----------------------------------
+ -- Row 60 -----------------------------------
   Element = ValueSet.expansion.contains
   Card. = 0..*
   UML = 190;290
   Short Label = Codes in the value set
   Definition = The codes that are contained in the value set expansion
 
- -- Row 58 -----------------------------------
+ -- Row 61 -----------------------------------
   Element = ValueSet.expansion.contains.system
   Card. = 0..1
   Type = uri
   Short Label = System value for the code
   Definition = An absolute URI which is the code system in which the code for this item in the expansion is defined
 
- -- Row 59 -----------------------------------
+ -- Row 62 -----------------------------------
   Element = ValueSet.expansion.contains.abstract
   Card. = 0..1
   Type = boolean
@@ -669,7 +693,7 @@
   Definition = If true, this entry is included in the expansion for navigational purposes, and the user cannot select the code directly as a proper value
   Comments = This should not be understood to exclude its use for searching (e.g. by subsumption testing). The client should know whether it is appropriate for the user to select an abstract code or not
 
- -- Row 60 -----------------------------------
+ -- Row 63 -----------------------------------
   Element = ValueSet.expansion.contains.version
   Card. = 0..1
   Type = string
@@ -677,7 +701,7 @@
   Definition = The version of this code system that defined this code and/or display. This should only be used with code systems that do not enforce concept permanence
   Comments = The exact value of the version string is specified by the system from which the code is derived
 
- -- Row 61 -----------------------------------
+ -- Row 64 -----------------------------------
   Element = ValueSet.expansion.contains.code
   Card. = 0..1
   Inv. = 6
@@ -686,7 +710,7 @@
   Short Label = Code - if blank, this is not a selectable code
   Definition = The code for this item in the expansion hierarchy. If this code is missing the entry in the hierarchy is a place holder (abstract) and does not represent a valid code in the value set
 
- -- Row 62 -----------------------------------
+ -- Row 65 -----------------------------------
   Element = ValueSet.expansion.contains.display
   Card. = 0..1
   Inv. = 6
@@ -694,7 +718,7 @@
   Short Label = User display for the concept
   Definition = The recommended display for this item in the expansion
 
- -- Row 63 -----------------------------------
+ -- Row 66 -----------------------------------
   Element = ValueSet.expansion.contains.contains
   Card. = 0..*
   Type = @ValueSet.expansion.contains
@@ -753,13 +777,13 @@
   Path = ValueSet.date
 
  -- Row 9 -----------------------------------
-  Name = system
+  Name = !system
   Type = uri
   Description = The system for any codes defined by this value set
   Path = ValueSet.codeSystem.system
 
  -- Row 10 -----------------------------------
-  Name = code
+  Name = !code
   Type = token
   Description = A code defined in the value set
   Path = ValueSet.codeSystem.concept.code
@@ -804,7 +828,7 @@
   Filename = valueset-example.xml
 
  -- Row 2 -----------------------------------
-  Name = InlineCS
+  Name = !InlineCS
   Identity = example-inline
   Description = ValueSet Example defining codes using an inline code system
   Filename = valueset-example-inline.xml
@@ -822,36 +846,24 @@
   Filename = valueset-example-expansion.xml
 
  -- Row 5 -----------------------------------
-  Name = DICOM DICM
-  Identity = dicom-dcim
-  Description = Codes defined by DICOM
-  Filename = valueset-dicom-dcim.xml
-
- -- Row 6 -----------------------------------
-  Name = RESTful Interactions
-  Identity = restful-interaction
-  Description = The set of interactions defined by the RESTful part of the FHIR specification
-  Filename = valueset-restful-interaction.xml
-
- -- Row 7 -----------------------------------
   Name = UCUM Common
   Identity = ucum-common
   Description = Common UCUM codes
   Filename = valueset-ucum-common.xml
 
- -- Row 8 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = cpt-all
   Identity = cpt-all
   Description = All CPT codes
   Filename = valueset-cpt-all.xml
 
- -- Row 9 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = Yes/No/Don\'t know
   Identity = yesnodontknow
   Description = Yes/No/Don\'t know, for capturing a common answer set in questionnaires
   Filename = valueset-example-yesnodontknow.xml
 
- -- Row 10 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = NHIN PurposeOfUse
   Identity = nhin-purposeofuse
   Description = NHIN Purpose of Use

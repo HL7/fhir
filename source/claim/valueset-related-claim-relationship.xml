@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Example Related Claim Relationship Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
@@ -12,18 +15,9 @@
   </contact>
   <description value="This value set includes sample Related Claim Relationship codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/ex-relatedclaimrelationship"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="prior"/>
-      <display value="Prior Claim"/>
-      <definition value="A prior claim instance for the same intended suite of services."/>
-    </concept>
-    <concept>
-      <code value="associated"/>
-      <display value="Associated Claim"/>
-      <definition value="A claim for a different suite of services which is related the the suite claimed here."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ex-relatedclaimrelationship"/>
+    </include>
+  </compose>
 </ValueSet>

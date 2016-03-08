@@ -7,7 +7,7 @@
   <name value="CarePlanActivityCategory"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-08-31T02:04:04+03:00"/>
+  <date value="2015-08-31T09:04:04+10:00"/>
   <description value="High-level categorization of the type of activity in a care plan."/>
   <caseSensitive value="true"/>
   <valueSet value="http://hl7.org/fhir/ValueSet/care-plan-activity-category"/>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Example Service Place Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
@@ -12,18 +15,9 @@
   </contact>
   <description value="This value set includes a smattering of Service Place codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/ex-serviceplace"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="emergency"/>
-      <display value="Emergency Department"/>
-      <definition value="Emergency Department"/>
-    </concept>
-    <concept>
-      <code value="clinic"/>
-      <display value="Clinic"/>
-      <definition value="Clinic"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/ex-serviceplace"/>
+    </include>
+  </compose>
 </ValueSet>

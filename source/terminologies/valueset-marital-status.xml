@@ -2,8 +2,12 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="marital-status"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Marital Status Codes"/>
   <status value="draft"/>
+  <experimental value="true"/>
   <publisher value="FHIR Project team"/>
   <contact>
     <telecom>
@@ -12,16 +16,6 @@
     </telecom>
   </contact>
   <description value="This value set defines the set of codes that can be used to indicate the marital status of a person."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/marital-status"/>
-    <caseSensitive value="true"/>
-    <concept>
-    <!--   work around for missing code in v3 code system - should be temporary, until added in v3   -->
-      <code value="U"/>
-      <display value="Unmarried"/>
-      <definition value="The person is not presently married. The marital history is not known or stated."/>
-    </concept>
-  </codeSystem>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/MaritalStatus"/>
@@ -58,6 +52,9 @@
       <concept>
         <code value="UNK"/>
       </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/marital-status"/>
     </include>
   </compose>
 </ValueSet>

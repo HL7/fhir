@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Enteral Formula Additive Type Code"/>
-<!--  copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/   -->
+<!--   copyright value="This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"/    -->
   <status value="draft"/>
   <publisher value="FHIR NutritionOrder team"/>
   <contact>
@@ -12,28 +15,9 @@
     </telecom>
   </contact>
   <description value="EnteralFormulaAdditiveType: Codes for the type of modular component such as protein, carbohydrate or fiber to be provided in addition to or mixed with the base formula. This value set is provided as a suggestive example."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/entformula-additive"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="lipid"/>
-      <display value="Modular lipid enteral formula component"/>
-    </concept>
-    <concept>
-      <code value="protein"/>
-      <display value="Modular protein enteral formula component"/>
-    </concept>
-    <concept>
-      <code value="carbohydrate"/>
-      <display value="Modular carbohydrate enteral formula component"/>
-    </concept>
-    <concept>
-      <code value="fiber"/>
-      <display value="Modular fiber enteral formula component"/>
-    </concept>
-    <concept>
-      <code value="water"/>
-      <display value="Added water"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/entformula-additive"/>
+    </include>
+  </compose>
 </ValueSet>

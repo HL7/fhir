@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-claimvalue"/>
+  <name value="Example Value Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Value codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="1001"/>
+    <display value="Value 1001"/>
+    <definition value="Value 1001 description."/>
+  </concept>
+  <concept>
+    <code value="1002"/>
+    <display value="Value 1002"/>
+    <definition value="Value 1002 description."/>
+  </concept>
+</CodeSystem>

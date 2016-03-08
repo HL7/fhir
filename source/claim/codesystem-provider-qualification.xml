@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-providerqualification"/>
+  <name value="Example Provider Qualification Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Provider Qualification codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="311405"/>
+    <display value="Dentist"/>
+    <definition value="Dentist General Practitioner (DDS, DDM)."/>
+  </concept>
+  <concept>
+    <code value="604215"/>
+    <display value="Ophthalmologist"/>
+    <definition value="Ophthalmologist."/>
+  </concept>
+  <concept>
+    <code value="604210"/>
+    <display value="Optometrist"/>
+    <definition value="Optometrist."/>
+  </concept>
+</CodeSystem>

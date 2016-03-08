@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-servicemodifier"/>
+  <name value="Example Service Modifier Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Service Modifier codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="SR"/>
+    <display value="Side of the Road"/>
+    <definition value="Services provided on the side of the raod or such other non-conventional setting."/>
+  </concept>
+  <concept>
+    <code value="AH"/>
+    <display value="After hours"/>
+    <definition value="Services provided outside or normal business hours."/>
+  </concept>
+</CodeSystem>

@@ -157,7 +157,7 @@ further advice. All patient records SHALL have a score from 0 to 1, where
 <p>
 The patient-mpi-match extension has one of the <a href="valueset-patient-mpi-match.html">following codes</a>:
 </p>
-[%codelist-nh http://hl7.org/fhir/ValueSet/patient-mpi-match%]
+[%codelist-nh http://hl7.org/fhir/patient-mpi-match%]
 <p>
 One optional parameter to the MPI match operation is "userid", which is
 used to pass the user details from a trusted client to the MPI. This may 

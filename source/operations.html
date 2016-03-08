@@ -59,7 +59,7 @@ Operations can be invoked on four types of FHIR endpoints:
  <li>The "base" FHIR service endpoint (e.g. http://fhir.someserver.org/fhir): These are operations that operate on the full scale of the server. For example, "return me all extensions known by this server"</li>
  <li>A Resource type (e.g. http://fhir.someserver.org/fhir/Patient): These are operations that operate across all instances of a given resource type</li>
  <li>A Resource instance (e.g. http://fhir.someserver.org/fhir/Patient/1): These are operations involve only a single instance of a Resource, like the $everything operation above does</li>
- <li>A specific version of a resource instance (http://fhir.someserver.org/fhir/Patient/1/_history/4): These operations involve only a specific version of a single instance of a FHIR Resource and extists only to allow manipulation of profile and tag metadata of past versions</li>
+ <li>A specific version of a resource instance (http://fhir.someserver.org/fhir/Patient/1/_history/4): These operations involve only a specific version of a single instance of a FHIR Resource and exists only to allow manipulation of profile and tag metadata of past versions</li>
 </ul>
 <p>
 The body of the invocation contains a special infrastructure resource called <a href="parameters.html">Parameters</a>,

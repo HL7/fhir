@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Priority Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
@@ -12,23 +15,9 @@
   </contact>
   <description value="This value set includes the financial processing priority codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/processpriority"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="stat"/>
-      <display value="Immediate"/>
-      <definition value="Immediately in real time."/>
-    </concept>
-    <concept>
-      <code value="normal"/>
-      <display value="Normal"/>
-      <definition value="With best effort."/>
-    </concept>
-    <concept>
-      <code value="deferred"/>
-      <display value="Deferred"/>
-      <definition value="Later, when possible."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/processpriority"/>
+    </include>
+  </compose>
 </ValueSet>

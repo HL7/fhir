@@ -20,7 +20,7 @@ Search operations traverse through an existing set of resources filtering by
 parameters supplied to the search operation. The text below describes
 the FHIR search framework, starting with simple cases moving to the more complex.
 Implementers need only implement the amount of
-complexity that they require for their implementaitons.
+complexity that they require for their implementations.
 </p>
 
 <h3>Summary Table</h3>
@@ -29,7 +29,7 @@ complexity that they require for their implementaitons.
 <tr><td><b>Search Parameter Types</b></td><td><b>Parameters for all resources</b></td><td><b>Search result parameters</b></td></tr>
 <tr>
 <td>
-<%codetoc http://hl7.org/fhir/ValueSet/search-param-type%>
+<%codetoc http://hl7.org/fhir/search-param-type%>
 </td>
 <td>
 <a href="#id"><code>_id</code></a><br/>
@@ -250,7 +250,7 @@ Servers are not required to implement any of the standard search parameters
 <p>Each search parameter is defined by a type that specifies how the search parameter
 behaves. These are the defined parameter types:
 </p>
-<%linkcodelist http://hl7.org/fhir/ValueSet/search-param-type%>
+<%linkcodelist http://hl7.org/fhir/search-param-type%>
 <p>
 The search parameters can also append "modifiers" that control
 their behavior. The kinds of modifiers that available is dependent on the type

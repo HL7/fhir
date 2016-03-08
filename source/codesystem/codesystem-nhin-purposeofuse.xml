@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="nhin-purposeofuse"/>
+  <url value="http://healthit.gov/nhin/purposeofuse"/>
+  <version value="2.0"/>
+  <name value="NHIN PurposeOfUse"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <publisher value="Nationwide Health Information Network (NHIN)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="https://www.healthit.gov/sites/default/files/nhin-authorization-framework-production-specification-v2.0-1.pdf"/>
+    </telecom>
+  </contact>
+  <date value="2010-01-29"/>
+  <description value="This value set is suitable for use with the provenance resource. It is derived from, but not compatible with, the HL7 v3 Purpose of use Code system."/>
+  <valueSet value="http://hl7.org/fhir/ValueSet/nhin-purposeofuse"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="TREATMENT"/>
+    <display value="Treatment"/>
+    <definition value="Treatment"/>
+  </concept>
+  <concept>
+    <code value="PAYMENT"/>
+    <display value="Payment"/>
+    <definition value="Payment"/>
+  </concept>
+  <concept>
+    <code value="OPERATIONS"/>
+    <display value="Operations"/>
+    <definition value="Healthcare Operations"/>
+  </concept>
+  <concept>
+    <code value="SYSADMIN"/>
+    <display value="Sysadmin"/>
+    <definition value="System Administration"/>
+  </concept>
+  <concept>
+    <code value="FRAUD"/>
+    <display value="Fraud"/>
+    <definition value="Fraud detection"/>
+  </concept>
+  <concept>
+    <code value="PSYCHOTHERAPY"/>
+    <display value="Psychotherapy"/>
+    <definition value="Use or disclosure of Psychotherapy Notes"/>
+  </concept>
+  <concept>
+    <code value="TRAINING"/>
+    <display value="Training"/>
+    <definition value="Use or disclosure by the covered entity for its own training programs"/>
+  </concept>
+  <concept>
+    <code value="LEGAL"/>
+    <display value="Legal"/>
+    <definition value="Use or disclosure by the covered entity to defend itself in a legal action"/>
+  </concept>
+  <concept>
+    <code value="MARKETING"/>
+    <display value="Marketing"/>
+    <definition value="Marketing"/>
+  </concept>
+  <concept>
+    <code value="DIRECTORY"/>
+    <display value="Directory"/>
+    <definition value="Use and disclosure for facility directories"/>
+  </concept>
+  <concept>
+    <code value="FAMILY"/>
+    <display value="Family"/>
+    <definition value="Disclose to a family member, other relative, or a close personal friend of the individual"/>
+  </concept>
+  <concept>
+    <code value="PRESENT"/>
+    <display value="Present"/>
+    <definition value="Uses and disclosures with the individual present."/>
+  </concept>
+  <concept>
+    <code value="EMERGENCY"/>
+    <display value="Emergency"/>
+    <definition value="Permission cannot practicably be provided because of the individual's incapacity or an emergency."/>
+  </concept>
+  <concept>
+    <code value="DISASTER"/>
+    <display value="Disaster"/>
+    <definition value="Use and disclosures for disaster relief purposes."/>
+  </concept>
+  <concept>
+    <code value="PUBLICHEALTH"/>
+    <display value="Public Health"/>
+    <definition value="Uses and disclosures for public health activities."/>
+  </concept>
+  <concept>
+    <code value="ABUSE"/>
+    <display value="Abuse"/>
+    <definition value="Disclosures about victims of abuse, neglect or domestic violence."/>
+  </concept>
+  <concept>
+    <code value="OVERSIGHT"/>
+    <display value="Oversight"/>
+    <definition value="Uses and disclosures for health oversight activities."/>
+  </concept>
+  <concept>
+    <code value="JUDICIAL"/>
+    <display value="Judicial"/>
+    <definition value="Disclosures for judicial and administrative proceedings."/>
+  </concept>
+  <concept>
+    <code value="LAW"/>
+    <display value="Law Enforcement"/>
+    <definition value="Disclosures for law enforcement purposes."/>
+  </concept>
+  <concept>
+    <code value="DECEASED"/>
+    <display value="Deceased"/>
+    <definition value="Uses and disclosures about decedents."/>
+  </concept>
+  <concept>
+    <code value="DONATION"/>
+    <display value="Donation"/>
+    <definition value="Uses and disclosures for cadaveric organ,  eye or tissue donation purposes"/>
+  </concept>
+  <concept>
+    <code value="RESEARCH"/>
+    <display value="Research"/>
+    <definition value="Uses and disclosures for research purposes."/>
+  </concept>
+  <concept>
+    <code value="THREAT"/>
+    <display value="Threat"/>
+    <definition value="Uses and disclosures to avert a serious threat to health or safety."/>
+  </concept>
+  <concept>
+    <code value="GOVERNMENT"/>
+    <display value="Government"/>
+    <definition value="Uses and disclosures for specialized government functions."/>
+  </concept>
+  <concept>
+    <code value="WORKERSCOMP"/>
+    <display value="Worker&#39;s Comp"/>
+    <definition value="Disclosures for workers' compensation."/>
+  </concept>
+  <concept>
+    <code value="COVERAGE"/>
+    <display value="Coverage"/>
+    <definition value="Disclosures for insurance or disability coverage determination"/>
+  </concept>
+  <concept>
+    <code value="REQUEST"/>
+    <display value="Request"/>
+    <definition value="Request of the Individual"/>
+  </concept>
+</CodeSystem>

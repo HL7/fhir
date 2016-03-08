@@ -364,7 +364,7 @@ The FMM level can be used by implementers to judge how advanced - and therefore 
  <li>FMM1 + the artifact has been tested and successfully exchanged between at least three independently developed systems leveraging at least 80% of the core data elements using semi-realistic data and scenarios based on at least one of the declared scopes of the resource (e.g. at a connectathon).  These interoperability results must have been reported to and accepted by the FMG</li>
  <li>FMM2 + the artifact has been verified by the work group as meeting the <a href="http://wiki.hl7.org/index.php?title=DSTU_2_QA_guidelines">DSTU Quality Guidelines</a> and has been subject to a 
  round of formal balloting; has at least 10 implementer comments recorded in the tracker drawn from at least 3 organizations resulting in at least one substantive change</li>
- <li>FMM3 + he artifact has been tested across its scope (see below), published in a formal publication (e.g. STU), and implemented in multiple prototype projects. As well, the responsible 
+ <li>FMM3 + the artifact has been tested across its scope (see below), published in a formal publication (e.g. STU), and implemented in multiple prototype projects. As well, the responsible 
  work group agrees the resource is sufficiently stable to require implementer consensus for subsequent non-backward compatible changes.</li>
  <li>FMM4 + the artifact has been published in two formal publication release cycles at FMM1+ (i.e. STU level) and has been implemented in at least 5 independent production systems in more than one country</li>
 </ol>

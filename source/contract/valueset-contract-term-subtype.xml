@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="Contract Term Type Codes"/>
   <status value="draft"/>
   <publisher value="Financial Management"/>
@@ -12,17 +15,9 @@
   </contact>
   <description value="This value set includes sample Contract Term SubType codes."/>
   <copyright value="This is an example set."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/contracttermsubtypecodes"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="OralHealth-Basic"/>
-    </concept>
-    <concept>
-      <code value="OralHealth-Major"/>
-    </concept>
-    <concept>
-      <code value="OralHealth-Orthodontic"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/contracttermsubtypecodes"/>
+    </include>
+  </compose>
 </ValueSet>

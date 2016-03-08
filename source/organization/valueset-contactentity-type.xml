@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="ContactEntityType"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,38 +14,9 @@
     </telecom>
   </contact>
   <description value="This example value set defines a set of codes that can be used to indicate the purpose for which you would contact a contact party."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/contactentity-type"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="BILL"/>
-      <display value="Billing"/>
-      <definition value="Contact details for information regarding to billing/general finance enquiries."/>
-    </concept>
-    <concept>
-      <code value="ADMIN"/>
-      <display value="Administrative"/>
-      <definition value="Contact details for administrative enquiries."/>
-    </concept>
-    <concept>
-      <code value="HR"/>
-      <display value="Human Resource"/>
-      <definition value="Contact details for issues related to Human Resources, such as staff matters, OH&amp;S etc."/>
-    </concept>
-    <concept>
-      <code value="PAYOR"/>
-      <display value="Payor"/>
-      <definition value="Contact details for dealing with issues related to insurance claims/adjudication/payment."/>
-    </concept>
-    <concept>
-      <code value="PATINF"/>
-      <display value="Patient"/>
-      <definition value="Generic information contact for patients."/>
-    </concept>
-    <concept>
-      <code value="PRESS"/>
-      <display value="Press"/>
-      <definition value="Dedicated contact point for matters relating to press enquiries."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/contactentity-type"/>
+    </include>
+  </compose>
 </ValueSet>

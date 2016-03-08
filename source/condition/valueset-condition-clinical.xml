@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <url value="http://hl7.org/fhir/ValueSet/condition-clinical"/>
   <name value="Condition Clinical Status Codes"/>
   <status value="draft"/>
@@ -12,28 +15,9 @@
     </telecom>
   </contact>
   <description value="Preferred value set for Condition Clinical Status."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/condition-clinical"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="active"/>
-      <display value="Active"/>
-      <definition value="The subject is currently experiencing the symptoms of the condition."/>
-    </concept>
-    <concept>
-      <code value="relapse"/>
-      <display value="Relapse"/>
-      <definition value="The subject is re-experiencing the symptoms of the condition after a period of remission or presumed resolution."/>
-    </concept>
-    <concept>
-      <code value="remission"/>
-      <display value="Remission"/>
-      <definition value="The subject is no longer experiencing the symptoms of the condition, but there is a risk of the symptoms returning."/>
-    </concept>
-    <concept>
-      <code value="resolved"/>
-      <display value="Resolved"/>
-      <definition value="The subject is no longer experiencing the symptoms of the condition and there is no perceived risk of the symptoms returning."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/condition-clinical"/>
+    </include>
+  </compose>
 </ValueSet>

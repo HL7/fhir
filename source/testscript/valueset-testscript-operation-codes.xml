@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="TestScriptOperationCodes"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
@@ -11,128 +14,9 @@
     </telecom>
   </contact>
   <description value="This value set defines a set of codes that are used to indicate the supported operations of a testing engine or tool."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/testscript-operation-codes"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="read"/>
-      <display value="Read"/>
-      <definition value="Read the current state of the resource."/>
-    </concept>
-    <concept>
-      <code value="vread"/>
-      <display value="Version Read"/>
-      <definition value="Read the state of a specific version of the resource."/>
-    </concept>
-    <concept>
-      <code value="update"/>
-      <display value="Update"/>
-      <definition value="Update an existing resource by its id (or create it if it is new)."/>
-    </concept>
-    <concept>
-      <code value="delete"/>
-      <display value="Delete"/>
-      <definition value="Delete a resource."/>
-    </concept>
-    <concept>
-      <code value="history"/>
-      <display value="History"/>
-      <definition value="Retrieve the update history for a particular resource or resource type."/>
-    </concept>
-    <concept>
-      <code value="create"/>
-      <display value="Create"/>
-      <definition value="Create a new resource with a server assigned id."/>
-    </concept>
-    <concept>
-      <code value="search"/>
-      <display value="Search"/>
-      <definition value="Search based on some filter criteria."/>
-    </concept>
-    <concept>
-      <code value="transaction"/>
-      <display value="Transaction"/>
-      <definition value="Update, create or delete a set of resources as a single transaction."/>
-    </concept>
-    <concept>
-      <code value="conformance"/>
-      <display value="Conformance"/>
-      <definition value="Get a conformance statement for the system."/>
-    </concept>
-    <concept>
-      <code value="closure"/>
-      <display value="$closure"/>
-      <definition value="Closure Table Maintenance."/>
-    </concept>
-    <concept>
-      <code value="document"/>
-      <display value="$document"/>
-      <definition value="Generate a Document."/>
-    </concept>
-    <concept>
-      <code value="everything"/>
-      <display value="$everything"/>
-      <definition value="Fetch Encounter/Patient Record."/>
-    </concept>
-    <concept>
-      <code value="expand"/>
-      <display value="$expand"/>
-      <definition value="Value Set Expansion."/>
-    </concept>
-    <concept>
-      <code value="find"/>
-      <display value="$find"/>
-      <definition value="Find a functional list."/>
-    </concept>
-    <concept>
-      <code value="lookup"/>
-      <display value="$lookup"/>
-      <definition value="Concept Look Up."/>
-    </concept>
-    <concept>
-      <code value="meta"/>
-      <display value="$meta"/>
-      <definition value="Access a list of profiles, tags, and security labels."/>
-    </concept>
-    <concept>
-      <code value="meta-add"/>
-      <display value="$meta-add"/>
-      <definition value="Add profiles, tags, and security labels to a resource."/>
-    </concept>
-    <concept>
-      <code value="meta-delete"/>
-      <display value="$meta-delete"/>
-      <definition value="Delete profiles, tags, and security labels for a resource."/>
-    </concept>
-    <concept>
-      <code value="populate"/>
-      <display value="$populate"/>
-      <definition value="Populate Questionnaire."/>
-    </concept>
-    <concept>
-      <code value="process-message"/>
-      <display value="$process-message"/>
-      <definition value="Process Message."/>
-    </concept>
-    <concept>
-      <code value="questionnaire"/>
-      <display value="$questionnaire"/>
-      <definition value="Build Questionnaire."/>
-    </concept>
-    <concept>
-      <code value="translate"/>
-      <display value="$translate"/>
-      <definition value="Concept Translation."/>
-    </concept>
-    <concept>
-      <code value="validate"/>
-      <display value="$validate"/>
-      <definition value="Validate a resource."/>
-    </concept>
-    <concept>
-      <code value="validate-code"/>
-      <display value="$validate-code"/>
-      <definition value="Value Set based Validation."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/testscript-operation-codes"/>
+    </include>
+  </compose>
 </ValueSet>
