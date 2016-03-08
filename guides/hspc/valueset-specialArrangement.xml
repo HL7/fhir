@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="HSPC Special Arrangement value set"/>
   <status value="draft"/>
   <publisher value="HSPC"/>
@@ -12,38 +15,9 @@
   </contact>
   <description value="The list of codes that describe how the data came into being."/>
   <copyright value="Intermountain Healthcare HDD"/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/hspc-specialArrangement"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="182850"/>
-      <display value="Wheelchair"/>
-      <definition value="A device, comprising a chair with wheels, used for individuals that cannot walk."/>
-    </concept>
-    <concept>
-      <code value="528123036"/>
-      <display value="Interpreter"/>
-      <definition value="An individual that translates spoken language to a language that is understood by the receiver."/>
-    </concept>
-    <concept>
-	  <code value="182847"/>
-	  <display value="Stretcher"/>
-	  <definition value="A device used to convey an individual from one place to another where the individual is in a lying position and is carried by others."/>
-	</concept>
-    <concept>
-	  <code value="528123037"/>
-	  <display value="Seeing eye dog"/>
-	  <definition value="A canine that has been trained to lead an idividual that is blind."/>
-	</concept>
-    <concept>
-	  <code value="30719"/>
-	  <display value="Oxygen"/>
-	  <definition value="A suuplimental substance given to patients who cannot obtain appropriate level of environmental oxygen through natural breathing."/>
-	</concept>
-    <concept>
-	  <code value="528123038"/>
-	  <display value="Heart monitor"/>
-	  <definition value="A device that monitors an idividual's heart rate."/>
-	</concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/hspc-specialArrangement"/>
+    </include>
+  </compose>
 </ValueSet>

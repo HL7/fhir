@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <version value="0.01"/>
   <name value="HSPC Organization Name Use"/>
   <status value="draft"/>
@@ -15,15 +18,6 @@
   <description value="The set of codes that describe use of an organization&#39;s name."/>
   <immutable value="true"/>
   <extensible value="true"/>
-  <codeSystem>
-    <system value="http://hl7,org/fhir/organization-hspc-organizationnameuse"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="526758025"/>
-      <display value="Stock Exchange Name"/>
-      <definition value="A name used to represent the organization in a stock exchange market."/>
-    </concept>
-  </codeSystem>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/EntityNameUseR2"/>
@@ -46,6 +40,9 @@
         <code value="ASGN"/>
         <display value="Assigned (alias)"/>
       </concept>
+    </include>
+    <include>
+      <system value="http://hl7,org/fhir/organization-hspc-organizationnameuse"/>
     </include>
   </compose>
 </ValueSet>

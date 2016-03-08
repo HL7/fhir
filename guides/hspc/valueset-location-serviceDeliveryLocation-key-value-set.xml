@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="ServiceDeliveryLocation key value set"/>
   <status value="draft"/>
   <publisher value="HSPC"/>
@@ -11,15 +14,6 @@
     </telecom>
   </contact>
   <description value="This value set defines the set of codes used to identify the service delivery location."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/location-hspc-serviceDeliveryLocation-key-value-set"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="119"/>
-      <display value="Facility"/>
-      <definition value="A location that is categorized by the nursing skill, specialty, or type of care delivered"/>
-    </concept>
-  </codeSystem>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/ValueSet/v3-EntityCode"/>
@@ -35,6 +29,9 @@
         <code value="BED"/>
         <display value="Bed Location"/>
       </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/location-hspc-serviceDeliveryLocation-key-value-set"/>
     </include>
   </compose>
 </ValueSet>

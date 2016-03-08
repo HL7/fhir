@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <version value="0.01"/>
   <name value="HSPC Admission Source value set"/>
   <status value="draft"/>
@@ -10,114 +13,9 @@
   <immutable value="true"/>
   <copyright value="Intermountain Healthcare"/>
   <extensible value="true"/>
-  <codeSystem>
-		<system value="http://hl7.org/fhir/hspc-admissionSource"/>
-		<caseSensitive value="true"/>
-		<concept>	
-			<code value ="102702"/>
-			<display value="Clinic Referral"/>
-			<definition value ="The source of admission is from a clinic."/>
-		</concept>	
-		<concept>	
-			<code value ="17567"/>
-			<display value="Court/Law Enforcement"/>
-			<definition value ="The source of admission is from a court or law enforcement"/>
-		</concept>	
-		<concept>	
-			<code value ="17566"/>
-			<display value="Emergency Room"/>
-			<definition value ="The source of admission is from an emergency department"/>
-		</concept>	
-		<concept>	
-			<code value ="528129525"/>
-			<display value="From Home Or Work"/>
-			<definition value ="The source of admission is from the individual's place of residence or employment"/>
-		</concept>	
-		<concept>	
-			<code value ="102703"/>
-			<display value="HMO Referral"/>
-			<definition value ="The source of referral is from a health management organization"/>
-		</concept>	
-		<concept>	
-			<code value ="219107"/>
-			<display value="In-Hospital Transfer"/>
-			<definition value ="The source of admission is a transfer from one area of the hospital to another"/>
-		</concept>	
-		<concept>	
-			<code value ="528129526"/>
-			<display value="Newborn From an Outside Hospital"/>
-			<definition value ="The source of the newborn admission is from a facility not associate with the organization"/>
-		</concept>	
-		<concept>	
-			<code value ="154642"/>
-			<display value="Normal Newborn"/>
-			<definition value ="The source of admission is a routine birth of a newborn at an internal birthing facility"/>
-		</concept>	
-		<concept>	
-			<code value ="102701"/>
-			<display value="Physician Referral"/>
-			<definition value ="The patient was referred for admission by a physician"/>
-		</concept>	
-		<concept>	
-			<code value ="528129527"/>
-			<display value="Premature newborn within the hospital"/>
-			<definition value ="The source of admission is a premature birth at an internal birthing facility"/>
-		</concept>	
-		<concept>	
-			<code value ="510105657"/>
-			<display value="Readmission to Same HHA"/>
-			<definition value ="The patient was readmitted to the same home health agency as the previous admission"/>
-		</concept>	
-		<concept>	
-			<code value ="528129528"/>
-			<display value="Sick newborn within a hospital"/>
-			<definition value ="The admission is due to an infant becoming ill at an internal neborn facility"/>
-		</concept>	
-		<concept>	
-			<code value ="510105655"/>
-			<display value="Transfer From A Critical Access Hospital"/>
-			<definition value ="The source of admission is an external critical care access facility"/>
-		</concept>	
-		<concept>	
-			<code value ="102704"/>
-			<display value="Transfer from a Hospital"/>
-			<definition value ="The source of admission is an external hospital"/>
-		</concept>	
-		<concept>	
-			<code value ="14689616"/>
-			<display value="Transfer from a SNF"/>
-			<definition value ="The source of admission is a transfer from a skilled nursing facility"/>
-		</concept>	
-		<concept>	
-			<code value ="528129529"/>
-			<display value="Transfer From Acute Care Hospital"/>
-			<definition value ="The source of admission is a transfer from an acute care hospital"/>
-		</concept>	
-		<concept>	
-			<code value ="520442099"/>
-			<display value="Transfer From Ambulatory Surgery Center"/>
-			<definition value ="The source of admission is a transfer from an ambulatory surgery facility"/>
-		</concept>	
-		<concept>	
-			<code value ="14690444"/>
-			<display value="Transfer from Other Facility"/>
-			<definition value ="The source of admission is a transfer from an external facility"/>
-		</concept>	
-		<concept>	
-			<code value ="510105656"/>
-			<display value="Transfer From Another HHA"/>
-			<definition value ="The source of admission is a transfer from an external home health agency"/>
-		</concept>	
-		<concept>	
-			<code value ="528129530"/>
-			<display value="Transfer from hospice"/>
-			<definition value ="The source of admission is a transfer from a hospice facility"/>
-		</concept>	
-		<concept>	
-			<code value ="510105654"/>
-			<display value="Transfer From Pysch, Substance Abuse or Rehab Hosp"/>
-			<definition value ="The source of admission is a transfer from a psychiatric, substance abuse, or rehabilitation facility"/>
-		</concept>	
-
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/hspc-admissionSource"/>
+    </include>
+  </compose>
 </ValueSet>

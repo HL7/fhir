@@ -9,14 +9,14 @@
   <Author>Stephen Royce</Author>
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2015-07-09T04:54:25Z</Created>
-  <LastSaved>2015-09-17T04:53:46Z</LastSaved>
-  <Version>15.00</Version>
+  <LastSaved>2016-03-04T09:49:34Z</LastSaved>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12975</WindowHeight>
+  <WindowHeight>14010</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
@@ -833,7 +833,7 @@
     <Cell ss:StyleID="s78"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">Shared Health Summary</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Composition[code= LOINC:60591-5]</Data><NamedCell
+    <Cell ss:StyleID="s77"><Data ss:Type="String">for src make thing as tgt = create(Composition), tgt.code = concept(&quot;LOINC&quot;, &quot;60591-5&quot;)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s77"><Data ss:Type="String">A clinical document written by the nominated provider, which contains key pieces of information about an individual’s health status and is useful to a wide range of providers in assessing individuals and delivering care. (PCEHR Concept of Operations document)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -869,7 +869,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Subject of Care</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Composition.subject</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for src.subjectofCare as x make tgt.subject = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Person who receives healthcare services.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -905,7 +905,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Document Author</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Composition.author;Composition.attester.party</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for src.documentAuthor as x make tgt.author = x&#10;for src.documentAuthor as xa make tgt.attestor as y = x, y.party = xa</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Composer of the document.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -941,7 +941,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Document Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s77"><Data ss:Type="String">Composition.identifier</Data><NamedCell
+    <Cell ss:StyleID="s77"><Data ss:Type="String">for srcdocumentType make tgt.identifier then by type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Type of document.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -977,7 +977,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">DateTime Attested</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">Composition.date</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for src.dateTimeAttested as x make tgt.date = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The date and time that the document author or document authoriser or approver confirms that a document is complete and genuine.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1011,7 +1011,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Adverse Reactions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@sct1 = Composition.section[title='Adverse Reactions'; code={nehta-sct:101.20113}]</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for src.adverseReactions as ar make tgt.section as sct1, sct1.title = &quot;Adverse Reactions&quot;, sct1.code= concept(&quot;nehta-sct&quot; : &quot;101.20113&quot;)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Information about adverse reactions of the patient (including allergies and intolerances), and any relevant reaction details. This includes statements about adverse reactions that need to be positively recorded as absent or excluded.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1044,7 +1044,8 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Exclusion Statement - Adverse Reactions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">for ar.exclusionStatementAdverseReactions as arex then by vars</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Statements about adverse reactions that need to be positively recorded as absent or excluded.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1079,7 +1080,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Global Statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">sct1.emptyReason</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for arex as x make  sct1.emptyReason = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The statement about the absence or exclusion.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1113,7 +1114,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Adverse Reaction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@ai = sct1.entry-&gt;AllergyIntolerance</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for ar.adverseReasion make ai as ai = create(&quot;AllergyIntolerance&quot;), sct1.entry = pointer(ai)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A harmful or undesirable effect associated with exposure to any substance or agent.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1149,7 +1150,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Substance/Agent</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ai.substance</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for ai.substanceAgent as x make ai.substance = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Identification of a substance, agent, or a class of substance, that is considered to be responsible for the adverse reaction.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1183,7 +1184,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Reaction Event</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@ev = ai.event</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for  ai.event as ev make ai.reaction as air then by vars</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Details about each adverse reaction event.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1219,7 +1220,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Manifestation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ev.manifestation</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for ev.manifestation as x make air.manifestation = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Presentation or exhibition of signs and symptoms of the adverse reaction expressed as a single word, phrase or brief description.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1255,7 +1256,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Reaction Type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ai.type</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for ev.reactionType as x make ai.type as x {only-one}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The type of reaction, as determined by the clinician.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1289,7 +1290,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Medication Orders</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@sct2 = Composition.section[title='Medication Orders'; code={nehta-sct:101.16146}]</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for src.medicationOrders as mo make tgt.section as sct2, sct2.title = &quot;Medication Orders&quot;, sct2.code= concept(&quot;nehta-sct&quot; : &quot;101.16146&quot;)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Medicines that the subject of care is using.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1323,7 +1324,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Exclusion Statement - Medications</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">n/a</Data><NamedCell
+    <Cell><Data ss:Type="String">for mo.exclusionStatementMedications as moex then by vars</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Statement to positively assert that the patient has not been prescribed or is not taking certain medication.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1359,7 +1360,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Global Statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">sct2.emptyReason</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for moex as x make sct2.emptyReason = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The statement about the absence or exclusion of certain medication.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1393,7 +1394,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Medication Instruction</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@ms = sct2.entry-&gt;MedicationStatement</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for mo.medicationInstruction as moi make ms as ms = create(&quot;MedicationStatement&quot;), sct2.entry = pointer(ms)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Information pertaining to one or more therapeutic goods that is represented to achieve, or is likely to achieve, its principal intended action by pharmacological, chemical, immunological or metabolic means in or on the body of a human.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1429,7 +1430,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Therapeutic Good Identification</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ms.medicationCodeableConcept</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for moi.therapeuticGoodIdentification as x make ms.medicationCodeableConcept = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The medicine, vaccine or other therapeutic good being ordered for, administered to or used by the subject of care.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1464,7 +1465,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Directions</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ms.dosage.text</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for moi.directions as moid make ms.dosage as msd, msd.text = moid</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A complete narrative description of how much, when and how to use the medicine, vaccine or other therapeutic good.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1499,7 +1500,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Clinical Indication</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ms.reasonForUseCodeableConcept.text</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for moi.clinicalIndication as moic make ms.reasonForUseCodeableConcept as ru, ru.text = moic</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Reason for ordering the medicine, vaccine or other therapeutic good.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1534,7 +1535,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Medication Instruction Comment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">ms.note</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for moi.comment as x make ms.note = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Any additional information that may be needed to ensure the continuity of supply, rationale for current dose and timing, or safe and appropriate use.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1568,7 +1569,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Medical History</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@sct3 = Composition.section[title='Medical History'; code={nehta-sct:101.16117}]</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for src.medicalHistory as mh make tgt.section as sct3, sct3.title = &quot;Medical History&quot;, sct3.code= concept(&quot;nehta-sct&quot; : &quot;101.16117&quot;)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The history of the subject of care's problems, diagnoses and medical or surgical procedures.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1602,7 +1603,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Problem/Diagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@cnd1 = sct3.entry-&gt;Condition</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for mh.problemDiagnosis as pd make cnd as cnd = create(&quot;Condition&quot;), sct3.entry = pointer(cnd)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A health condition that, as determined by a clinician, may have impact on the physical, mental or social well-being of a person. A diagnosis is determined by scientific evaluation of pathological and pathophysiological findings identified from the patient's clinical history, family history, physical examination and diagnostic investigations.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1638,7 +1639,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Problem/Diagnosis Identification</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">cnd1.code</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for pd.identitification as x make cnd.code = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Identification of the problem or diagnosis.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1673,7 +1674,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Date of Onset</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">cnd1.onsetDateTime</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for pd.dateOfOnset as x make cnd.onsetDateTime = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Estimated or actual date the problem or diagnosis began, as indicated or identified by the clinician.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1708,7 +1709,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Date of Resolution/Remission</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">cnd1.abatementDate</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for pd.dateOfResolutionRemission as x make cnd.abatementDate = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Estimated or actual date the problem or diagnosis resolved or went into remission, as indicated or identified by the clinician.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1743,7 +1744,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Problem/Diagnosis Comment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">cnd1.notes</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for pd.comment as x make cnd.notes = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Additional narrative about the problem or diagnosis not captured in other fields.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1777,7 +1778,8 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Exclusion Statement - Problems and Diagnoses</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">for pd.exclusionStatementProblemsandDiagnoses as pdex then by vars</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Statements which positively assert that the patient does not have the problem or diagnosis.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1812,7 +1814,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Global Statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">sct3.emptyReason</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for pdex as x make sct3.emptyReason = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The statement about the absence or exclusion.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1846,7 +1848,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Procedure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@cnd2 = sct3.entry-&gt;Condition</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for mh.procedure as pr make cndp as cndp = create(&quot;Condition&quot;), sct3.entry = pointer(cndp)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A clinical activity carried out for therapeutic, evaluative, investigative, screening or diagnostic purposes.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1882,7 +1884,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Procedure Name</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">cnd2.code</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for pd.name as x make cndp.code = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The name of the procedure (to be) performed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1917,7 +1919,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Procedure Comment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">cnd2.notes</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for pd.comment as x make cndp.notes = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Additional narrative about the procedure not captured in other fields.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1952,7 +1954,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Procedure DateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">cnd2.onsetDateTime</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for pr.dateTime as x make cndp.onsetDateTime = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Date, and optionally time, of the Procedure action.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1986,7 +1988,8 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Exclusion Statement - Procedures</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">for mh.exclusionStatementProcedures as prex then by vars</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Statements to positively assert that a certain procedure has not been performed on the patient.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2021,7 +2024,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Global Statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">sct3.emptyReason</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for prex as x make sct3.emptyReason = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The statement about the absence or exclusion of procedure performed on the patient.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2055,7 +2058,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Uncategorised Medical History Item</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@cnd3 = sct3.entry-&gt;Condition</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for mh.uncategorisedMedicalHistoryItem as item make cndi as cndp = create(&quot;Condition&quot;), sct3.entry = pointer(cndi) then by vars</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A medical history entry that has not been categorised as either Procedure or Problem/Diagnosis .</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2090,7 +2093,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Medical History Item Description</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">cnd3.code.text</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for item.description as x make cndi.code as y, y.text = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">A description of the problem, diagnosis or procedure as a medical history item.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2125,7 +2128,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Medical History Item TimeInterval</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">cnd3.onsetDateTime &amp; cnd3.abatementDate</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for item.timeInterval as ti then by vars&#10;for ti.start as x make cndi.onsetDateTime = x&#10;for ti.end as x make cndi.abatementDate = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The date range during which the problem or diagnosis applied or the procedure occurred.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2160,7 +2163,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Medical History Item Comment</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">cnd3.notes</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for item.comment as x make cndi.notes = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Additional narrative about the problem, diagnosis or procedure.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2194,7 +2197,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Immunisations</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@sct4 = Composition.section[title='Immunization'; code={nehta-sct:101.16117}]</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for src.immunizations as imm make tgt.section as sct4, sct4.title = &quot;Immunization&quot;, sct4.code= concept(&quot;nehta-sct&quot;, &quot;101.16117)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Information about vaccines given to the subject of care.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2228,7 +2231,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Medication Action</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">@imm = sct4.entry-&gt;Immunization</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String" x:Ticked="1">for imm.medicationAction as ima make im as im = create(&quot;Immunization&quot;), sct4.entry = pointer(im)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The act of administering a dose of a vaccine to a person for the purpose of preventing or minimising the effects of a disease by producing immunity or to counter the effects of an infectious organism.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2264,7 +2267,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Therapeutic Good Identification</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">imm.vaccineType</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for ima.therapeuticGoodIdentification as x make im.vaccineType = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The medicine, vaccine or other therapeutic good being ordered for, administered to or used by the subject of care.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2299,7 +2302,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Sequence Number</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">imm.vaccinationProtocol.doseSequence</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for ima.sequenceNumber as x make im.vaccinationProtocol as vp, vp.doseSequence = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The sequence number specific to the action being recorded.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2334,7 +2337,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Medication Action DateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">imm.date</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for ima.dateTime as x make imm.date = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Date, and optionally time, that the medication action is completed.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2368,7 +2371,8 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Exclusion Statement - Medications</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">n/a</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">for imm.exclusionStatementMedications  as imex then by vars</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">Statements that positively assert that the patient has not received immunisations.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2403,7 +2407,7 @@
     <Cell ss:StyleID="s86"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s86"><Data ss:Type="String">Global Statement</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s86"><Data ss:Type="String">sct4.emptyReason</Data><NamedCell
+    <Cell ss:StyleID="s86"><Data ss:Type="String">for imex as x make sct4.emptyReason = x</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The statement about the absence or exclusion of certain medication.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2435,9 +2439,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>38</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -2445,13 +2449,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
+     <ActiveRow>47</ActiveRow>
      <ActiveCol>14</ActiveCol>
     </Pane>
    </Panes>

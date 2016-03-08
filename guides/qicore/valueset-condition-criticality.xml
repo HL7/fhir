@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="QICore Condition Criticality Codes"/>
   <status value="draft"/>
   <publisher value="HL7 Clinical Quality Information (CQI) Work Group"/>
@@ -11,38 +14,9 @@
     </telecom>
   </contact>
   <description value="Value Set for QICore Condition Criticality (Example)"/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/qicore-condition-criticality"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="unspecified"/>
-      <display value="Not Specified"/>
-      <definition value="The criticality of the condition is not specified"/>
-    </concept>
-    <concept>
-      <code value="self-resolving"/>
-      <display value="Expected to Self-Resolve"/>
-      <definition value="The condition is expected to resolve on its own"/>
-    </concept>
-    <concept>
-      <code value="controllable"/>
-      <display value="Controllable"/>
-      <definition value="The condition is considered to be controllable"/>
-    </concept>
-    <concept>
-      <code value="functional-loss"/>
-      <display value="Potential loss of function or capacity"/>
-      <definition value="The condition may result in partial or full loss of function or capacity"/>
-    </concept>
-    <concept>
-      <code value="life-threatening"/>
-      <display value="Life Threatening"/>
-      <definition value="The condition is considered to be life-threatening"/>
-    </concept>
-    <concept>
-      <code value="requires-hospitalization"/>
-      <display value="Requires Hospitalization"/>
-      <definition value="The condition requires hospitalization"/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/qicore-condition-criticality"/>
+    </include>
+  </compose>
 </ValueSet>

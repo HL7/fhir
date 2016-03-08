@@ -1,67 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <ValueSet xmlns="http://hl7.org/fhir">
-    <id value="valueset-nehta-new-cancer-or-recurrence"/>
-    <meta>
-        <lastUpdated value="2015-06-11T16:01:03.224+10:00"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
-    </meta>
-    <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml"><!-- Snipped for brevity --></div>
-    </text>
-    <!-- DMc ?? SR says to make into a NEHTA oid -->
-    <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+  <id value="valueset-nehta-new-cancer-or-recurrence"/>
+  <meta>
+    <lastUpdated value="2015-06-11T16:01:03.224+10:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+  </text>
+<!--  DMc ?? SR says to make into a NEHTA oid  -->
+<!-- <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
-    </extension>-->
-    <url value="http://hl7.org/fhir/ValueSet/nehta-new-cancer-or-recurrence"/>
-    <version value="20150626"/>
-    <name value="NewCancerOrRecurrence"/>
-    <publisher value="HL7 (FHIR Project)"/>
-    <contact>
-        <telecom>
-            <system value="other"/>
-            <value value="http://hl7.org/fhir"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="fhir@lists.hl7.org"/>
-        </telecom>
-    </contact>
-    <description value="Lists the options for recording the a new primary cancer or a residual cancer, if known."/>
-    <status value="draft"/>
-    <experimental value="false"/>
-    <date value="2015-06-11T16:01:03+10:00"/>
-    <codeSystem>
-        
-        <!-- DMc ?? SR says to make into a NEHTA oid -->
-        <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-            <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
-        </extension>-->
-
-        <system value="http://hl7.org/fhir/nehta-new-cancer-or-recurrence"/>
-        <version value="20150626"/>
-        <caseSensitive value="true"/>
-        <concept>
-            <code value="new-primary"/>
-            <display value="New primary"/>
-            <definition value="The cancer is a new primary cancer."/>
-        </concept>
-        <concept>
-            <code value="regional_recurrence"/>
-            <display value="Regional (local) recurrence"/>
-            <definition value="The cancer is a regional (local) recurrence."/>
-        </concept>
-        <concept>
-            <code value="distant_metastases"/>
-            <display value="Distant metastases"/>
-            <definition value="The cancer is a distant metastases."/>
-        </concept>
-        <concept>
-            <code value="indeterminate"/>
-            <display value="Indeterminate"/>
-            <definition value="The cancer is indeterminate."/>
-        </concept>      
-    </codeSystem>
+    </extension> -->
+  <url value="http://hl7.org/fhir/ValueSet/nehta-new-cancer-or-recurrence"/>
+  <version value="20150626"/>
+  <name value="NewCancerOrRecurrence"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="Lists the options for recording the a new primary cancer or a residual cancer, if known."/>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/nehta-new-cancer-or-recurrence"/>
+    </include>
+  </compose>
 </ValueSet>

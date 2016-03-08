@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <version value="0.01"/>
   <name value="HSPC Fetal Estimation Method value set"/>
   <status value="draft"/>
@@ -10,20 +13,6 @@
   <immutable value="true"/>
   <copyright value="TBD"/>
   <extensible value="true"/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/hspc-fetalestimationmethod"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="103241"/>
-      <display value="Last known menstrual period"/>
-      <definition value="A method to estimate due date based on the reported date of the last known menstrual period."/>
-    </concept>
-    <concept>
-      <code value="205940"/>
-      <display value="Uterine size"/>
-      <definition value="A method to estimate due date by measuring the size of the uterus."/>
-    </concept>
-  </codeSystem>
   <compose>
     <include>
       <system value="http://snomed.info/sct"/>
@@ -35,6 +24,9 @@
         <code value="248986005"/>
         <display value="Estimated date of conception"/>
       </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/hspc-fetalestimationmethod"/>
     </include>
   </compose>
 </ValueSet>

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="HSPC Telecom System"/>
   <status value="draft"/>
   <publisher value="HSPC"/>
@@ -11,23 +14,9 @@
     </telecom>
   </contact>
   <description value="A set of values that describe the type of system the telecom value belongs to."/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/patient-hspc-telecomSystem"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="fax"/>
-      <display value="fax"/>
-      <definition value="Method of communication which uses telephone lines to send and receive printed documents between facsimile devices."/>
-    </concept>
-    <concept>
-      <code value="email"/>
-      <display value="email"/>
-      <definition value="Electronic mail."/>
-    </concept>
-    <concept>
-      <code value="phone"/>
-      <display value="phone"/>
-      <definition value="Telephone."/>
-    </concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/patient-hspc-telecomSystem"/>
+    </include>
+  </compose>
 </ValueSet>

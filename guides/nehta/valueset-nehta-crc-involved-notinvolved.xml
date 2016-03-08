@@ -59,16 +59,4 @@
       </concept>
     </include>
   </compose>
-  <codeSystem>
- 
-   <!-- <system value="http://hl7.org/fhir/nehta-crc-involved-notinvolved"/>
-    <version value="20150619"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="not_involved"/>
-      <display value="Not involved"/>
-      <definition value="Not involved"/>
-    </concept>-->
-            
-  </codeSystem>
 </ValueSet>

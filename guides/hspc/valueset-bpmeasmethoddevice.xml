@@ -1,36 +1,22 @@
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="HSPC Blood Pressure Measurement Method/Device Value Set"/>
+  <status value="draft"/>
   <publisher value="HSPC"/>
   <contact>
-    <telecom>  
-    <system value="other"/>
-    <value value="http://healthcaresoa.org"/>
-  </telecom>
+    <telecom>
+      <system value="other"/>
+      <value value="http://healthcaresoa.org"/>
+    </telecom>
   </contact>
   <description value="A set of codes that describe the method or device used to measure a systolic blood pressure."/>
-  <status value="draft"/>
-  <codeSystem>
-	    <system value="http://hl7.org/fhir/hspc-bpmeasmethoddevice"/>
-	    <caseSensitive value="true"/>
-	    <concept>
-			<code value="2102"/>
-			<display value="Pediatric cuff"/>
-			<definition value="A blood pressure cuff that is sized to use on pediatric paitents"/>
-		</concept>
-		<concept>
-			<code value="2162"/>
-			<display value="Thigh cuff (24 cm)"/>
-			<definition value="A blood pressure cuff designed to be used on an individual's thigh"/>
-		</concept>
-	    <concept>
-			<code value="31163"/>
-			<display value="Adult Arm Cuff"/>
-			<definition value="A blood pressure cuff that is sized to use on an adult upper arm"/>
-		</concept>
-		<concept>
-			<code value="50577434"/>
-			<display value="Ankle Cuff"/>
-			<definition value="A blood pressure cuff designed to be used on an individual's ankle"/>
-		</concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/hspc-bpmeasmethoddevice"/>
+    </include>
+  </compose>
 </ValueSet>

@@ -80,7 +80,7 @@
   Type = Logical
   Short Label = Shared Health Summary
   Definition = A clinical document written by the nominated provider, which contains key pieces of information about an individual’s health status and is useful to a wide range of providers in assessing individuals and delivering care. (PCEHR Concept of Operations document)
-  Logical Mapping = Composition[code= LOINC:60591-5]
+  Logical Mapping = for src make thing as tgt = create(Composition), tgt.code = concept(\"LOINC\", \"60591-5\")
 
  -- Row 2 -----------------------------------
   Element = SharedHealthSummary.subjectofCare
@@ -88,7 +88,7 @@
   Type = Reference(Patient)
   Short Label = Subject of Care
   Definition = Person who receives healthcare services.
-  Logical Mapping = Composition.subject
+  Logical Mapping = for src.subjectofCare as x make tgt.subject = x
 
  -- Row 3 -----------------------------------
   Element = SharedHealthSummary.documentAuthor
@@ -96,7 +96,7 @@
   Type = Reference(Patient|Practitioner|RelatedPerson|Device)
   Short Label = Document Author
   Definition = Composer of the document.
-  Logical Mapping = Composition.author;Composition.attester.party
+  Logical Mapping = for src.documentAuthor as x make tgt.author = x\nfor src.documentAuthor as xa make tgt.attestor as y = x, y.party = xa
 
  -- Row 4 -----------------------------------
   Element = SharedHealthSummary.documentType
@@ -104,7 +104,7 @@
   Type = Identifier
   Short Label = Document Type
   Definition = Type of document.
-  Logical Mapping = Composition.identifier
+  Logical Mapping = for srcdocumentType make tgt.identifier then by type
 
  -- Row 5 -----------------------------------
   Element = SharedHealthSummary.dateTimeAttested
@@ -112,7 +112,7 @@
   Type = dateTime
   Short Label = DateTime Attested
   Definition = The date and time that the document author or document authoriser or approver confirms that a document is complete and genuine.
-  Logical Mapping = Composition.date
+  Logical Mapping = for src.dateTimeAttested as x make tgt.date = x
 
  -- Row 6 -----------------------------------
   Element = SharedHealthSummary.adverseReactions
@@ -120,7 +120,7 @@
   Type = *
   Short Label = Adverse Reactions
   Definition = Information about adverse reactions of the patient (including allergies and intolerances), and any relevant reaction details. This includes statements about adverse reactions that need to be positively recorded as absent or excluded.
-  Logical Mapping = @sct1 = Composition.section[title=\'Adverse Reactions\'; code={nehta-sct:101.20113}]
+  Logical Mapping = for src.adverseReactions as ar make tgt.section as sct1, sct1.title = \"Adverse Reactions\", sct1.code= concept(\"nehta-sct\" : \"101.20113\")
 
  -- Row 7 -----------------------------------
   Element = SharedHealthSummary.adverseReactions.exclusionStatementAdverseReactions
@@ -128,7 +128,7 @@
   Type = *
   Short Label = Exclusion Statement - Adverse Reactions
   Definition = Statements about adverse reactions that need to be positively recorded as absent or excluded.
-  Logical Mapping = n/a
+  Logical Mapping = for ar.exclusionStatementAdverseReactions as arex then by vars
 
  -- Row 8 -----------------------------------
   Element = SharedHealthSummary.adverseReactions.exclusionStatementAdverseReactions.globalStatement
@@ -137,7 +137,7 @@
   Binding = GlobalStatementValues
   Short Label = Global Statement
   Definition = The statement about the absence or exclusion.
-  Logical Mapping = sct1.emptyReason
+  Logical Mapping = for arex as x make  sct1.emptyReason = x
 
  -- Row 9 -----------------------------------
   Element = SharedHealthSummary.adverseReactions.adverseReaction
@@ -145,7 +145,7 @@
   Type = *
   Short Label = Adverse Reaction
   Definition = A harmful or undesirable effect associated with exposure to any substance or agent.
-  Logical Mapping = @ai = sct1.entry->AllergyIntolerance
+  Logical Mapping = for ar.adverseReasion make ai as ai = create(\"AllergyIntolerance\"), sct1.entry = pointer(ai)
 
  -- Row 10 -----------------------------------
   Element = SharedHealthSummary.adverseReactions.adverseReaction.substanceAgent
@@ -154,7 +154,7 @@
   Binding = SubstanceAgentValues
   Short Label = Substance/Agent
   Definition = Identification of a substance, agent, or a class of substance, that is considered to be responsible for the adverse reaction.
-  Logical Mapping = ai.substance
+  Logical Mapping = for ai.substanceAgent as x make ai.substance = x
 
  -- Row 11 -----------------------------------
   Element = SharedHealthSummary.adverseReactions.adverseReaction.event
@@ -162,7 +162,7 @@
   Type = *
   Short Label = Reaction Event
   Definition = Details about each adverse reaction event.
-  Logical Mapping = @ev = ai.event
+  Logical Mapping = for  ai.event as ev make ai.reaction as air then by vars
 
  -- Row 12 -----------------------------------
   Element = SharedHealthSummary.adverseReactions.adverseReaction.event.manifestation
@@ -171,7 +171,7 @@
   Binding = ClinicalManifestationValues
   Short Label = Manifestation
   Definition = Presentation or exhibition of signs and symptoms of the adverse reaction expressed as a single word, phrase or brief description.
-  Logical Mapping = ev.manifestation
+  Logical Mapping = for ev.manifestation as x make air.manifestation = x
 
  -- Row 13 -----------------------------------
   Element = SharedHealthSummary.adverseReactions.adverseReaction.event.reactionType
@@ -180,7 +180,7 @@
   Binding = AdverseReactionTypeValues
   Short Label = Reaction Type
   Definition = The type of reaction, as determined by the clinician.
-  Logical Mapping = ai.type
+  Logical Mapping = for ev.reactionType as x make ai.type as x {only-one}
 
  -- Row 14 -----------------------------------
   Element = SharedHealthSummary.medicationOrders
@@ -188,7 +188,7 @@
   Type = *
   Short Label = Medication Orders
   Definition = Medicines that the subject of care is using.
-  Logical Mapping = @sct2 = Composition.section[title=\'Medication Orders\'; code={nehta-sct:101.16146}]
+  Logical Mapping = for src.medicationOrders as mo make tgt.section as sct2, sct2.title = \"Medication Orders\", sct2.code= concept(\"nehta-sct\" : \"101.16146\")
 
  -- Row 15 -----------------------------------
   Element = SharedHealthSummary.medicationOrders.exclusionStatementMedications
@@ -196,7 +196,7 @@
   Type = *
   Short Label = Exclusion Statement - Medications
   Definition = Statement to positively assert that the patient has not been prescribed or is not taking certain medication.
-  Logical Mapping = n/a
+  Logical Mapping = for mo.exclusionStatementMedications as moex then by vars
 
  -- Row 16 -----------------------------------
   Element = SharedHealthSummary.medicationOrders.exclusionStatementMedications.globalStatement
@@ -205,7 +205,7 @@
   Binding = GlobalStatementValues
   Short Label = Global Statement
   Definition = The statement about the absence or exclusion of certain medication.
-  Logical Mapping = sct2.emptyReason
+  Logical Mapping = for moex as x make sct2.emptyReason = x
 
  -- Row 17 -----------------------------------
   Element = SharedHealthSummary.medicationOrders.medicationInstruction
@@ -213,7 +213,7 @@
   Type = *
   Short Label = Medication Instruction
   Definition = Information pertaining to one or more therapeutic goods that is represented to achieve, or is likely to achieve, its principal intended action by pharmacological, chemical, immunological or metabolic means in or on the body of a human.
-  Logical Mapping = @ms = sct2.entry->MedicationStatement
+  Logical Mapping = for mo.medicationInstruction as moi make ms as ms = create(\"MedicationStatement\"), sct2.entry = pointer(ms)
 
  -- Row 18 -----------------------------------
   Element = SharedHealthSummary.medicationOrders.medicationInstruction.therapeuticGoodIdentification
@@ -222,7 +222,7 @@
   Binding = MedicinesTerminology
   Short Label = Therapeutic Good Identification
   Definition = The medicine, vaccine or other therapeutic good being ordered for, administered to or used by the subject of care.
-  Logical Mapping = ms.medicationCodeableConcept
+  Logical Mapping = for moi.therapeuticGoodIdentification as x make ms.medicationCodeableConcept = x
 
  -- Row 19 -----------------------------------
   Element = SharedHealthSummary.medicationOrders.medicationInstruction.directions
@@ -230,7 +230,7 @@
   Type = string
   Short Label = Directions
   Definition = A complete narrative description of how much, when and how to use the medicine, vaccine or other therapeutic good.
-  Logical Mapping = ms.dosage.text
+  Logical Mapping = for moi.directions as moid make ms.dosage as msd, msd.text = moid
 
  -- Row 20 -----------------------------------
   Element = SharedHealthSummary.medicationOrders.medicationInstruction.clinicalIndication
@@ -238,7 +238,7 @@
   Type = string
   Short Label = Clinical Indication
   Definition = Reason for ordering the medicine, vaccine or other therapeutic good.
-  Logical Mapping = ms.reasonForUseCodeableConcept.text
+  Logical Mapping = for moi.clinicalIndication as moic make ms.reasonForUseCodeableConcept as ru, ru.text = moic
 
  -- Row 21 -----------------------------------
   Element = SharedHealthSummary.medicationOrders.medicationInstruction.comment
@@ -246,7 +246,7 @@
   Type = string
   Short Label = Medication Instruction Comment
   Definition = Any additional information that may be needed to ensure the continuity of supply, rationale for current dose and timing, or safe and appropriate use.
-  Logical Mapping = ms.note
+  Logical Mapping = for moi.comment as x make ms.note = x
 
  -- Row 22 -----------------------------------
   Element = SharedHealthSummary.medicalHistory
@@ -254,7 +254,7 @@
   Type = *
   Short Label = Medical History
   Definition = The history of the subject of care\'s problems, diagnoses and medical or surgical procedures.
-  Logical Mapping = @sct3 = Composition.section[title=\'Medical History\'; code={nehta-sct:101.16117}]
+  Logical Mapping = for src.medicalHistory as mh make tgt.section as sct3, sct3.title = \"Medical History\", sct3.code= concept(\"nehta-sct\" : \"101.16117\")
 
  -- Row 23 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.problemDiagnosis
@@ -262,7 +262,7 @@
   Type = *
   Short Label = Problem/Diagnosis
   Definition = A health condition that, as determined by a clinician, may have impact on the physical, mental or social well-being of a person. A diagnosis is determined by scientific evaluation of pathological and pathophysiological findings identified from the patient\'s clinical history, family history, physical examination and diagnostic investigations.
-  Logical Mapping = @cnd1 = sct3.entry->Condition
+  Logical Mapping = for mh.problemDiagnosis as pd make cnd as cnd = create(\"Condition\"), sct3.entry = pointer(cnd)
 
  -- Row 24 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.problemDiagnosis.identification
@@ -271,7 +271,7 @@
   Binding = ProblemDiagnosisReferenceSet
   Short Label = Problem/Diagnosis Identification
   Definition = Identification of the problem or diagnosis.
-  Logical Mapping = cnd1.code
+  Logical Mapping = for pd.identitification as x make cnd.code = x
 
  -- Row 25 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.problemDiagnosis.dateofOnset
@@ -279,7 +279,7 @@
   Type = dateTime
   Short Label = Date of Onset
   Definition = Estimated or actual date the problem or diagnosis began, as indicated or identified by the clinician.
-  Logical Mapping = cnd1.onsetDateTime
+  Logical Mapping = for pd.dateOfOnset as x make cnd.onsetDateTime = x
 
  -- Row 26 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.problemDiagnosis.dateofResolutionRemission
@@ -287,7 +287,7 @@
   Type = dateTime
   Short Label = Date of Resolution/Remission
   Definition = Estimated or actual date the problem or diagnosis resolved or went into remission, as indicated or identified by the clinician.
-  Logical Mapping = cnd1.abatementDate
+  Logical Mapping = for pd.dateOfResolutionRemission as x make cnd.abatementDate = x
 
  -- Row 27 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.problemDiagnosis.comment
@@ -295,7 +295,7 @@
   Type = string
   Short Label = Problem/Diagnosis Comment
   Definition = Additional narrative about the problem or diagnosis not captured in other fields.
-  Logical Mapping = cnd1.notes
+  Logical Mapping = for pd.comment as x make cnd.notes = x
 
  -- Row 28 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.exclusionStatementProblemsandDiagnoses
@@ -303,7 +303,7 @@
   Type = *
   Short Label = Exclusion Statement - Problems and Diagnoses
   Definition = Statements which positively assert that the patient does not have the problem or diagnosis.
-  Logical Mapping = n/a
+  Logical Mapping = for pd.exclusionStatementProblemsandDiagnoses as pdex then by vars
 
  -- Row 29 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.exclusionStatementProblemsandDiagnoses.globalStatement
@@ -312,7 +312,7 @@
   Binding = GlobalStatementValues
   Short Label = Global Statement
   Definition = The statement about the absence or exclusion.
-  Logical Mapping = sct3.emptyReason
+  Logical Mapping = for pdex as x make sct3.emptyReason = x
 
  -- Row 30 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.procedure
@@ -320,7 +320,7 @@
   Type = *
   Short Label = Procedure
   Definition = A clinical activity carried out for therapeutic, evaluative, investigative, screening or diagnostic purposes.
-  Logical Mapping = @cnd2 = sct3.entry->Condition
+  Logical Mapping = for mh.procedure as pr make cndp as cndp = create(\"Condition\"), sct3.entry = pointer(cndp)
 
  -- Row 31 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.procedure.name
@@ -329,7 +329,7 @@
   Binding = ProcedureFoundationReferenceSet
   Short Label = Procedure Name
   Definition = The name of the procedure (to be) performed.
-  Logical Mapping = cnd2.code
+  Logical Mapping = for pd.name as x make cndp.code = x
 
  -- Row 32 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.procedure.comment
@@ -337,7 +337,7 @@
   Type = string
   Short Label = Procedure Comment
   Definition = Additional narrative about the procedure not captured in other fields.
-  Logical Mapping = cnd2.notes
+  Logical Mapping = for pd.comment as x make cndp.notes = x
 
  -- Row 33 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.procedure.dateTime
@@ -345,7 +345,7 @@
   Type = Period
   Short Label = Procedure DateTime
   Definition = Date, and optionally time, of the Procedure action.
-  Logical Mapping = cnd2.onsetDateTime
+  Logical Mapping = for pr.dateTime as x make cndp.onsetDateTime = x
 
  -- Row 34 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.exclusionStatementProcedures
@@ -353,7 +353,7 @@
   Type = *
   Short Label = Exclusion Statement - Procedures
   Definition = Statements to positively assert that a certain procedure has not been performed on the patient.
-  Logical Mapping = n/a
+  Logical Mapping = for mh.exclusionStatementProcedures as prex then by vars
 
  -- Row 35 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.exclusionStatementProcedures.globalStatement
@@ -362,7 +362,7 @@
   Binding = GlobalStatementValues
   Short Label = Global Statement
   Definition = The statement about the absence or exclusion of procedure performed on the patient.
-  Logical Mapping = sct3.emptyReason
+  Logical Mapping = for prex as x make sct3.emptyReason = x
 
  -- Row 36 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.uncategorisedMedicalHistoryItem
@@ -370,7 +370,7 @@
   Type = *
   Short Label = Uncategorised Medical History Item
   Definition = A medical history entry that has not been categorised as either Procedure or Problem/Diagnosis .
-  Logical Mapping = @cnd3 = sct3.entry->Condition
+  Logical Mapping = for mh.uncategorisedMedicalHistoryItem as item make cndi as cndp = create(\"Condition\"), sct3.entry = pointer(cndi) then by vars
 
  -- Row 37 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.uncategorisedMedicalHistoryItem.description
@@ -378,7 +378,7 @@
   Type = string
   Short Label = Medical History Item Description
   Definition = A description of the problem, diagnosis or procedure as a medical history item.
-  Logical Mapping = cnd3.code.text
+  Logical Mapping = for item.description as x make cndi.code as y, y.text = x
 
  -- Row 38 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.uncategorisedMedicalHistoryItem.timeInterval
@@ -386,7 +386,7 @@
   Type = Period
   Short Label = Medical History Item TimeInterval
   Definition = The date range during which the problem or diagnosis applied or the procedure occurred.
-  Logical Mapping = cnd3.onsetDateTime & cnd3.abatementDate
+  Logical Mapping = for item.timeInterval as ti then by vars\nfor ti.start as x make cndi.onsetDateTime = x\nfor ti.end as x make cndi.abatementDate = x
 
  -- Row 39 -----------------------------------
   Element = SharedHealthSummary.medicalHistory.uncategorisedMedicalHistoryItem.comment
@@ -394,7 +394,7 @@
   Type = string
   Short Label = Medical History Item Comment
   Definition = Additional narrative about the problem, diagnosis or procedure.
-  Logical Mapping = cnd3.notes
+  Logical Mapping = for item.comment as x make cndi.notes = x
 
  -- Row 40 -----------------------------------
   Element = SharedHealthSummary.immunisations
@@ -402,7 +402,7 @@
   Type = *
   Short Label = Immunisations
   Definition = Information about vaccines given to the subject of care.
-  Logical Mapping = @sct4 = Composition.section[title=\'Immunization\'; code={nehta-sct:101.16117}]
+  Logical Mapping = for src.immunizations as imm make tgt.section as sct4, sct4.title = \"Immunization\", sct4.code= concept(\"nehta-sct\", \"101.16117)
 
  -- Row 41 -----------------------------------
   Element = SharedHealthSummary.immunisations.medicationAction
@@ -410,7 +410,7 @@
   Type = *
   Short Label = Medication Action
   Definition = The act of administering a dose of a vaccine to a person for the purpose of preventing or minimising the effects of a disease by producing immunity or to counter the effects of an infectious organism.
-  Logical Mapping = @imm = sct4.entry->Immunization
+  Logical Mapping = for imm.medicationAction as ima make im as im = create(\"Immunization\"), sct4.entry = pointer(im)
 
  -- Row 42 -----------------------------------
   Element = SharedHealthSummary.immunisations.medicationAction.therapeuticGoodIdentification
@@ -419,7 +419,7 @@
   Binding = MedicinesTerminology
   Short Label = Therapeutic Good Identification
   Definition = The medicine, vaccine or other therapeutic good being ordered for, administered to or used by the subject of care.
-  Logical Mapping = imm.vaccineType
+  Logical Mapping = for ima.therapeuticGoodIdentification as x make im.vaccineType = x
 
  -- Row 43 -----------------------------------
   Element = SharedHealthSummary.immunisations.medicationAction.sequenceNumber
@@ -427,7 +427,7 @@
   Type = integer
   Short Label = Sequence Number
   Definition = The sequence number specific to the action being recorded.
-  Logical Mapping = imm.vaccinationProtocol.doseSequence
+  Logical Mapping = for ima.sequenceNumber as x make im.vaccinationProtocol as vp, vp.doseSequence = x
 
  -- Row 44 -----------------------------------
   Element = SharedHealthSummary.immunisations.medicationAction.dateTime
@@ -435,7 +435,7 @@
   Type = dateTime
   Short Label = Medication Action DateTime
   Definition = Date, and optionally time, that the medication action is completed.
-  Logical Mapping = imm.date
+  Logical Mapping = for ima.dateTime as x make imm.date = x
 
  -- Row 45 -----------------------------------
   Element = SharedHealthSummary.immunisations.exclusionStatementMedications
@@ -443,7 +443,7 @@
   Type = *
   Short Label = Exclusion Statement - Medications
   Definition = Statements that positively assert that the patient has not received immunisations.
-  Logical Mapping = n/a
+  Logical Mapping = for imm.exclusionStatementMedications  as imex then by vars
 
  -- Row 46 -----------------------------------
   Element = SharedHealthSummary.immunisations.exclusionStatementMedications.globalStatement
@@ -452,4 +452,4 @@
   Binding = GlobalStatementValues
   Short Label = Global Statement
   Definition = The statement about the absence or exclusion of certain medication.
-  Logical Mapping = sct4.emptyReason
+  Logical Mapping = for imex as x make sct4.emptyReason = x

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="HSPC Departure Transport Mode value set"/>
   <status value="draft"/>
   <publisher value="HSPC"/>
@@ -12,58 +15,52 @@
   </contact>
   <description value="The list of codes that describe how the data came into being."/>
   <copyright value="Intermountain Healthcare HDD"/>
-  <codeSystem>
-			<system value="http://hl7.org/fhir/hspc-departureTransportationMode"/>
-			<caseSensitive value="true"/>
-			<concept>
-				<code value="14586425"/>
-				<display value="Left w/ Law Enforcement"/>
-				<definition value="The subject departed by means of a law enforcement vehicle."/>
-			</concept>
-		</codeSystem>
   <compose>
-	<include>
-		<system value="http://snomed.info/sct"/>
-		<concept>
-			<code value="49122002"/>
-			<display value="Ambulance, device (physical object)"/>
-		</concept>
-		<concept>
-			<code value="52387005"/>
-			<display value="Taxi, device (physical object)"/>
-		</concept>
-		<concept>
-			<code value="73957001"/>
-			<display value="Air transport ambulance, device (physical object)"/>
-		</concept>
-		<concept>
-			<code value="469233002"/>
-			<display value="Helicopter ambulance (physical object)"/>
-		</concept>
-		<concept>
-			<code value="257250006"/>
-			<display value="Pedestrian conveyance (physical object)"/>
-		</concept>
-		<concept>
-			<code value="44613004"/>
-			<display value="Ground transport ambulance, device (physical object)"/>
-		</concept>
-		<concept>
-			<code value="71783008"/>
-			<display value="Automobile, device (physical object)"/>
-		</concept>
-		<concept>
-			<code value="58938008"/>
-			<display value="Wheel chair, device (physical object)"/>
-		</concept>
-		<concept>
-			<code value="91537007"/>
-			<display value="Hospital bed, device (physical object)"/>
-		</concept>
-		<concept>
-			<code value="49890001"/>
-			<display value="Hospital cart, device (physical object)"/>
-		</concept>
-	</include>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="49122002"/>
+        <display value="Ambulance, device (physical object)"/>
+      </concept>
+      <concept>
+        <code value="52387005"/>
+        <display value="Taxi, device (physical object)"/>
+      </concept>
+      <concept>
+        <code value="73957001"/>
+        <display value="Air transport ambulance, device (physical object)"/>
+      </concept>
+      <concept>
+        <code value="469233002"/>
+        <display value="Helicopter ambulance (physical object)"/>
+      </concept>
+      <concept>
+        <code value="257250006"/>
+        <display value="Pedestrian conveyance (physical object)"/>
+      </concept>
+      <concept>
+        <code value="44613004"/>
+        <display value="Ground transport ambulance, device (physical object)"/>
+      </concept>
+      <concept>
+        <code value="71783008"/>
+        <display value="Automobile, device (physical object)"/>
+      </concept>
+      <concept>
+        <code value="58938008"/>
+        <display value="Wheel chair, device (physical object)"/>
+      </concept>
+      <concept>
+        <code value="91537007"/>
+        <display value="Hospital bed, device (physical object)"/>
+      </concept>
+      <concept>
+        <code value="49890001"/>
+        <display value="Hospital cart, device (physical object)"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/hspc-departureTransportationMode"/>
+    </include>
   </compose>
 </ValueSet>

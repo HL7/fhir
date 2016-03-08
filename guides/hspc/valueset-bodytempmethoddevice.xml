@@ -1,53 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ValueSet  xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
-    <version value="0.01"/>
-    <name value="HSPC Body Temperature Measurement Method/Device"/>
-    <immutable value="true"/>
-    <publisher value="Health Services Platform Consortium (HSPC)"/>
-    <description value="SELECT SNOMED CT code system values."/>
-    <copyright value="TBD"/>
-    <status value="draft"/>
-    <extensible value="true"/>
-    <date value="2015-06-11"/>
-    <codeSystem>
-		<system value="http://hl7.org/fhir/hspc-bodytempmethoddevice"/>
-		<caseSensitive value="true"/>
-		<concept>
-			<code value="30277"/>
-			<display value="Digital Thermometer"/>
-			<definition value="The electronic thermometer that displays body temperature in numeric values."/>
-		</concept>
-		<concept>
-			<code value="30522"/>
-			<display value="Infrared Thermometer"/>
-			<definition value="The thermometer that measure the temperature by the intensity of infrared light emission. "/>
-		</concept>
-		<concept>
-			<code value="82735"/>
-			<display value="Thermoluminescent diode thermometer"/>
-			<definition value="Thermoluminescent diode thermometer is a thermometer that measures the temperature of the emitted heat from the surface of an area."/>
-		</concept>
-		<concept>
-			<code value="84301"/>
-			<display value="MRI diffusion thermometer"/>
-			<definition value="MRI diffusion thermometer is an instrument that uses MRI diffusion to indicate the temperature of a substance."/>
-		</concept>
-    </codeSystem>
-    <compose>
-        <include>
-            <system value="http://snomed.info/sct"/>
-            <concept>
-				<code value="467862000"/>
-				<display value="capillary patient thermometer, mercury"/>
-			</concept>
-			<concept>
-				<code value="462983001"/>
-				<display value="liquid-crystal patient thermometer"/>
-			</concept>
-            <concept>
-				<code value="118376009"/>
-				<display value="thermocouple"/>
-			</concept>
-        </include>
-    </compose>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <version value="0.01"/>
+  <name value="HSPC Body Temperature Measurement Method/Device"/>
+  <status value="draft"/>
+  <publisher value="Health Services Platform Consortium (HSPC)"/>
+  <date value="2015-06-11"/>
+  <description value="SELECT SNOMED CT code system values."/>
+  <immutable value="true"/>
+  <copyright value="TBD"/>
+  <extensible value="true"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="467862000"/>
+        <display value="capillary patient thermometer, mercury"/>
+      </concept>
+      <concept>
+        <code value="462983001"/>
+        <display value="liquid-crystal patient thermometer"/>
+      </concept>
+      <concept>
+        <code value="118376009"/>
+        <display value="thermocouple"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/hspc-bodytempmethoddevice"/>
+    </include>
+  </compose>
 </ValueSet>

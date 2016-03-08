@@ -2,6 +2,9 @@
 
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="hspc-deltaFlag-numericNom"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <url value="http://healthcaresoa.org/fhir/ValueSet/hspc-deltaFlag-numericNom"/>
   <version value="0.01"/>
   <name value="Abnormal Interpretation Numeric Nom"/>
@@ -16,16 +19,6 @@
   <date value="2014-06-25"/>
   <description value="HL7 V3:ObservationInterpretation OID: 2.16.840.1.113883.5.83 + SNOMED CT SNOMED CT concepts from the Degree findings (qualifier value)272520006, Presence findings (qualifier value)260411009, Absence findings (qualifier value)272519000"/>
   <copyright value="IHC"/>
-  <codeSystem>
-    <system value="http://healthcaresoa.org/fhir/hspc-deltaFlag-numericNom"/>
-    <version value="0.01"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="unchanged"/>
-      <display value="Unchanged"/>
-      <definition value="The current test results are not significantly different from previous results"/>
-    </concept>
-  </codeSystem>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v3/ObservationInterpretation"/>
@@ -45,6 +38,9 @@
         <code value="W"/>
         <display value="Worse"/>
       </concept>
+    </include>
+    <include>
+      <system value="http://healthcaresoa.org/fhir/hspc-deltaFlag-numericNom"/>
     </include>
   </compose>
 </ValueSet>

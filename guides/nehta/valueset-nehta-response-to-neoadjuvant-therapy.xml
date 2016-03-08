@@ -1,99 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <ValueSet xmlns="http://hl7.org/fhir">
-    <id value="valueset-nehta-response-to-neoadjuvant-therapy"/>
-    <meta>
-        <lastUpdated value="2015-06-11T16:01:03.224+10:00"/>
-        <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
-    </meta>
-    <text>
-        <status value="generated"/>
-        <div xmlns="http://www.w3.org/1999/xhtml"><!-- Snipped for brevity --></div>
-    </text>
-    <!-- DMc ?? SR says to make into a NEHTA oid -->
-    <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
+  <id value="valueset-nehta-response-to-neoadjuvant-therapy"/>
+  <meta>
+    <lastUpdated value="2015-06-11T16:01:03.224+10:00"/>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+  </text>
+<!--  DMc ?? SR says to make into a NEHTA oid  -->
+<!-- <extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
     <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
-    </extension>-->
-    <url value="http://hl7.org/fhir/ValueSet/nehta-response-to-neoadjuvant-therapy"/>
-    <version value="20150625"/>
-    <name value="ResponseToNeoadjuvantTherapy"/>
-    <publisher value="HL7 (FHIR Project)"/>
-    <contact>
-        <telecom>
-            <system value="other"/>
-            <value value="http://hl7.org/fhir"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="fhir@lists.hl7.org"/>
-        </telecom>
-    </contact>
-    <description value="The response of the tumour to neoadjuvant treatment must be recorded."/>
-    <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International
-        Health Terminology Standards Development Organisation (IHTSDO), and distributed by
-        agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this
-        agreement"/>
-    <status value="draft"/>
-    <experimental value="false"/>
-    <date value="2015-06-11T16:01:03+10:00"/>
-    <compose>
-        <include>
-            <system value="http://snomed.info/sct"/>
-            <concept>
-                <code value="444431007"/>
-                <display value="Grade 0 on a scale of 0 to 3 (qualifier value)"/>
-            </concept>
-            <concept>
-                <code value="444456001"/>
-                <display value="Grade 1 on a scale of 0 to 3 (qualifier value)"/>
-            </concept>
-            <concept>
-                <code value="444457005"/>
-                <display value="Grade 2 on a scale of 0 to 3 (qualifier value)"/>
-            </concept>
-            <concept>
-                <code value="444447009"/>
-                <display value="Grade 3 on a scale of 0 to 3 (qualifier value)"/>
-            </concept>
-        </include>
-    </compose>
-    <codeSystem>
-        <!-- These result values are from  
-            Ryan R, Gibbons D and Hyland JMP (2005). Pathological response following long-course neoadjuvant 
-            chemoradiotherapy for locally advanced rectal cancer. Histopathology(47):141-146.  -->
-        <!-- DMc ?? SR says to make into a NEHTA oid -->
-        <!--<extension url="http://hl7.org/fhir/StructureDefinition/valueset-oid">
-            <valueUri value="urn:oid:2.16.840.1.113883.3.88.12.80.67"/>   
-        </extension>-->
-
-        <system value="http://hl7.org/fhir/nehta-response-to-neoadjuvant-therapy"/>
-        <version value="20150625"/>
-        <caseSensitive value="true"/>
-        <concept>
-            <code value="no_prior_treatment"/>
-            <display value="No prior treatment"/>
-            <definition value="No prior treatment"/>
-        </concept>
-        <!--<concept>
-            <code value="grade_0_complete_response"/>
-            <display value="Grade 0 (complete response) No viable cancer cells"/>
-            <definition value="Grade 0 (complete response) No viable cancer cells"/>
-        </concept>
-        <concept>
-            <code value="grade_1_moderate_response"/>
-            <display value="Grade 1 (moderate response) Single cells or small groups of cancer cells"/>
-            <definition value="Grade 1 (moderate response) Single cells or small groups of cancer cells"/>
-        </concept>
-        <concept>
-            <code value="grade_2_minimal_response"/>
-            <display value="Grade 2 (minimal response) Residual cancer outgrown by fibrosis"/>
-            <definition value="Grade 2 (minimal response) Residual cancer outgrown by fibrosis"/>
-        </concept>
-        <concept>
-            <code value="grade_3_poor_response"/>
-            <display value="Grade 3 (poor response) Minimal or no tumour kill; extensive residual cancer."/>
-            <definition value="Grade 3 (poor response) Minimal or no tumour kill; extensive residual cancer."/>
-        </concept>-->
-    </codeSystem>
+    </extension> -->
+  <url value="http://hl7.org/fhir/ValueSet/nehta-response-to-neoadjuvant-therapy"/>
+  <version value="20150625"/>
+  <name value="ResponseToNeoadjuvantTherapy"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="HL7 (FHIR Project)"/>
+  <contact>
+    <telecom>
+      <system value="other"/>
+      <value value="http://hl7.org/fhir"/>
+    </telecom>
+    <telecom>
+      <system value="email"/>
+      <value value="fhir@lists.hl7.org"/>
+    </telecom>
+  </contact>
+  <date value="2015-06-11T16:01:03+10:00"/>
+  <description value="The response of the tumour to neoadjuvant treatment must be recorded."/>
+  <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International         Health Terminology Standards Development Organisation (IHTSDO), and distributed by         agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this         agreement"/>
+  <compose>
+    <include>
+      <system value="http://snomed.info/sct"/>
+      <concept>
+        <code value="444431007"/>
+        <display value="Grade 0 on a scale of 0 to 3 (qualifier value)"/>
+      </concept>
+      <concept>
+        <code value="444456001"/>
+        <display value="Grade 1 on a scale of 0 to 3 (qualifier value)"/>
+      </concept>
+      <concept>
+        <code value="444457005"/>
+        <display value="Grade 2 on a scale of 0 to 3 (qualifier value)"/>
+      </concept>
+      <concept>
+        <code value="444447009"/>
+        <display value="Grade 3 on a scale of 0 to 3 (qualifier value)"/>
+      </concept>
+    </include>
+    <include>
+      <system value="http://hl7.org/fhir/nehta-response-to-neoadjuvant-therapy"/>
+    </include>
+  </compose>
 </ValueSet>

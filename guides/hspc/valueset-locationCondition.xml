@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<ValueSet xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/valueset.xsd">
+<ValueSet xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
+  </meta>
   <name value="HSPC Service Delivery Location Condition value set"/>
   <status value="draft"/>
   <publisher value="HSPC"/>
@@ -12,23 +15,9 @@
   </contact>
   <description value="The list of codes that describe how the data came into being."/>
   <copyright value="Intermountain Healthcare HDD"/>
-  <codeSystem>
-    <system value="http://hl7.org/fhir/hspc-locationCondition"/>
-    <caseSensitive value="true"/>
-    <concept>
-      <code value="182845"/>
-      <display value="Contaminated"/>
-      <definition value="The assigned service delivery location is currently dirty, awaiting cleaning."/>
-    </concept>
-    <concept>
-      <code value="528112801"/>
-      <display value="Clean"/>
-      <definition value="The assigned service delivery location has been cleaned, awaiting occupancy."/>
-    </concept>
-    <concept>
-	  <code value="182843"/>
-	  <display value="Occupied"/>
-	  <definition value="The assigned service delivery location is currently occupied."/>
-	</concept>
-  </codeSystem>
+  <compose>
+    <include>
+      <system value="http://hl7.org/fhir/hspc-locationCondition"/>
+    </include>
+  </compose>
 </ValueSet>
