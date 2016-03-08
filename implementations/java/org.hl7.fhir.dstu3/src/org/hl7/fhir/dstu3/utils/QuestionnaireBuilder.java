@@ -533,7 +533,6 @@ public class QuestionnaireBuilder {
           questionnaire.getContained().add(vs);
           vsCache.put(vs.getUrl(), vs.getId());
           vs.setText(null);
-          vs.setCodeSystem(null);
           vs.setCompose(null);
           vs.getContact().clear();
           vs.setPublisherElement(null);

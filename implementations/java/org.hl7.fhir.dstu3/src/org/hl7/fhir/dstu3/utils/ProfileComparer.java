@@ -654,10 +654,6 @@ public class ProfileComparer {
   
   private ValueSet unite(ElementDefinition ed, ProfileComparison outcome, String path, ValueSet lvs, ValueSet rvs) {
     ValueSet vs = new ValueSet();
-    if (lvs.hasCodeSystem())
-      vs.getCompose().addInclude().setSystem(lvs.getCodeSystem().getSystem());
-    if (rvs.hasCodeSystem())
-      vs.getCompose().addInclude().setSystem(rvs.getCodeSystem().getSystem());
     if (lvs.hasCompose()) {
       for (UriType imp : lvs.getCompose().getImport()) 
         vs.getCompose().getImport().add(imp);

@@ -35,7 +35,8 @@ import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
 
 /**
@@ -316,12 +317,10 @@ public class QuestionnaireResponseValidator extends BaseValidator {
 							}
 
 							boolean found = false;
-							if (coding.getSystem().equals(valueSet.getCodeSystem().getSystem())) {
-								for (ConceptDefinitionComponent next : valueSet.getCodeSystem().getConcept()) {
-									if (coding.getCode().equals(next.getCode())) {
-										found = true;
-										break;
-									}
+							for (ValueSetExpansionContainsComponent next : valueSet.getExpansion().getContains()) {
+								if (coding.getCode().equals(next.getCode()) && coding.getSystem().equals(next.getSystem())) {
+									found = true;
+									break;
 								}
 							}
 

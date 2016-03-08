@@ -31,7 +31,7 @@ public class TurtleParser extends ParserBase {
 //		if (url != null) 
 //			subject = section.triple("<"+url+">", "a", "fhir:"+resource.getResourceType().toString());
 //		else
-		subject = section.triple("_", "a", "fhir:"+e.getType());
+		subject = section.triple("_:"+e.getChildValue("id"), "a", "fhir:"+e.getType());
 
 		for (Element child : e.getChildren()) {
 			composeElement(subject, child);

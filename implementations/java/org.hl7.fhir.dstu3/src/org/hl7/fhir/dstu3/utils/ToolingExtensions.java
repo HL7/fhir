@@ -38,6 +38,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.model.BooleanType;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
@@ -58,17 +59,16 @@ import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ValueSetCodeSystemComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 
 
 public class ToolingExtensions {
 
   // validated
-  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/StructureDefinition/valueset-subsumes"; 
+  public static final String EXT_SUBSUMES = "http://hl7.org/fhir/StructureDefinition/codesystem-subsumes"; 
   private static final String EXT_OID = "http://hl7.org/fhir/StructureDefinition/valueset-oid";
-  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/StructureDefinition/valueset-deprecated";
+  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/StructureDefinition/codesystem-deprecated";
   public static final String EXT_DEFINITION = "http://hl7.org/fhir/StructureDefinition/valueset-definition";
   public static final String EXT_COMMENT = "http://hl7.org/fhir/StructureDefinition/valueset-comments";
   private static final String EXT_IDENTIFIER = "http://hl7.org/fhir/StructureDefinition/identifier";
@@ -335,7 +335,7 @@ public class ToolingExtensions {
       resource.getExtension().add(new Extension(new UriType(uri)).setValue(new StringType(value)));
   }
 
-  public static String getOID(ValueSetCodeSystemComponent define) {
+  public static String getOID(CodeSystem define) {
     return readStringExtension(define, EXT_OID);    
   }
 
@@ -343,7 +343,7 @@ public class ToolingExtensions {
     return readStringExtension(vs, EXT_OID);    
   }
 
-  public static void setOID(ValueSetCodeSystemComponent define, String oid) throws FHIRFormatError, URISyntaxException {
+  public static void setOID(CodeSystem define, String oid) throws FHIRFormatError, URISyntaxException {
     if (!oid.startsWith("urn:oid:"))
       throw new FHIRFormatError("Error in OID format");
     if (oid.startsWith("urn:oid:urn:oid:"))
