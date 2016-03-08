@@ -2200,8 +2200,25 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     return !Utilities.isInteger(s) || s.contains("?") ? 100 : Integer.parseInt(s);
   }
 
-  private String generateCSUsage(CodeSystem Cs, String prefix) throws Exception {
-    return "not done yet";
+  private String generateCSUsage(CodeSystem cs, String prefix) throws Exception {
+    StringBuilder b = new StringBuilder();
+    for (ValueSet vs : definitions.getValuesets().values()) {
+      boolean uses = false;
+      for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+        if (inc.getSystem().equals(cs.getUrl())) 
+          uses = true;
+      }
+      for (ConceptSetComponent inc : vs.getCompose().getExclude()) {
+        if (inc.getSystem().equals(cs.getUrl())) 
+          uses = true;
+      }
+      if (uses)
+        b.append(" <li><a href=\"").append(prefix+vs.getUserString("path")).append("\">").append(vs.getName()).append("</a> (").append(Utilities.escapeXml(vs.getDescription())).append(")</li>\r\n");
+    }
+    if (b.length() == 0)
+      return "<p>\r\nThis Code system is not currently used\r\n</p>\r\n";
+    else
+      return "<p>\r\nThis Code system is used in the following value sets:\r\n</p>\r\n<ul>\r\n"+b.toString()+"</ul>\r\n";
   }
   
   private String generateBSUsage(ValueSet vs, String prefix) throws Exception {        
@@ -3728,7 +3745,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String csContent(String fileTitle, CodeSystem cs, String prefix) throws Exception {
-    return "not done yet";
+    if (cs.hasText() && cs.getText().hasDiv()) 
+      return new XhtmlComposer().compose(cs.getText().getDiv());
+    else
+      return "not done yet";
   }
   
   private String vsCLD(String fileTitle, ValueSet vs, String prefix) throws Exception {
