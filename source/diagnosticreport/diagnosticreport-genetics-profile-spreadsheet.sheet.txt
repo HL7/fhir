@@ -7,35 +7,36 @@
   Reference = #LOINC-53037-8-answerlist
   Definition = LOINC answer list for Genetic disease sequence variation interpretation
   Conformance = example
+  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
 
 === Sheet LOINC-53037-8-answerlist =====================================
 
  -- Row 1 -----------------------------------
-  Id = 1
+  System = http://loinc.org
   Code = LA6668-3
   Display = Pathogenic
   Definition = Pathogenic
 
  -- Row 2 -----------------------------------
-  Id = 2
+  System = http://loinc.org
   Code = LA6669-1
   Display = Presumed pathogenic
   Definition = Presumed pathogenic
 
  -- Row 3 -----------------------------------
-  Id = 3
+  System = http://loinc.org
   Code = LA6682-4
   Display = Unknown significance
   Definition = Unknown significance
 
  -- Row 4 -----------------------------------
-  Id = 4
+  System = http://loinc.org
   Code = LA6675-8
   Display = Benign
   Definition = Benign
 
  -- Row 5 -----------------------------------
-  Id = 5
+  System = http://loinc.org
   Code = LA6674-1
   Display = Presumed benign
   Definition = Presumed benign

@@ -10,7 +10,7 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/observation-geneticsSource">
       <valueCodeableConcept>
           <coding>
-              <system value="http://hl7.org/fhir/LOINC-48002-0-answerlist"/>
+              <system value="http://hl7.org/fhir/LOINC"/>
               <code value="LA6684-0"/>
               <display value="somatic"/>
           </coding>

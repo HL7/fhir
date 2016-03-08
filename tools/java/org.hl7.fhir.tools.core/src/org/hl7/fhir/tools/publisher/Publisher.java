@@ -5430,7 +5430,6 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   private void generateCodeSystemPart2(CodeSystem cs) throws Exception {
     String n = cs.getUserString("filename");
-    System.out.println("  cs: "+n+" = "+cs.getUrl());
     if (n == null)
       n = "codesystem-"+cs.getId();
     ImplementationGuideDefn ig = (ImplementationGuideDefn) cs.getUserData(ToolResourceUtilities.NAME_RES_IG);

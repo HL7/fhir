@@ -51,8 +51,6 @@ public class CodeSystemConvertor {
       populate(cs, vs);
 //      if (codeSystems.containsKey(cs.getUrl())) 
 //        throw new Exception("Duplicate Code System: "+cs.getUrl());
-      if (cs.getUrl().contains("ategory"))
-        System.out.println("........Adding "+cs.getUrl());
       codeSystems.put(cs.getUrl(), cs);
     }    
   }

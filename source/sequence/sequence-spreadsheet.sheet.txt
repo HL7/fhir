@@ -30,6 +30,7 @@
   Reference = #LOINC-48019-4-answerlist
   Definition = LOINC answer list for Type of variation
   Conformance = example
+  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
 
  -- Row 5 -----------------------------------
   Binding Name = LOINC 48002-0 answerlist
@@ -37,6 +38,7 @@
   Reference = #LOINC-48002-0-answerlist
   Definition = LOINC answer list for Genomic source class
   Conformance = example
+  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
 
  -- Row 6 -----------------------------------
   Binding Name = sequenceStatus
@@ -51,6 +53,7 @@
   Reference = #LOINC-53034-5-answerlist
   Definition = LOINC answer list for AllelicState
   Conformance = example
+  Copyright = This content LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use
 
  -- Row 8 -----------------------------------
   Binding Name = sequenceType
@@ -94,43 +97,43 @@
 === Sheet LOINC-48019-4-answerlist =====================================
 
  -- Row 1 -----------------------------------
-  Id = 1
+  System = http://loinc.org
   Code = LA9658-1
   Display = Wild type
   Definition = Wild type
 
  -- Row 2 -----------------------------------
-  Id = 2
+  System = http://loinc.org
   Code = LA6692-3
   Display = Deletion
   Definition = Deletion
 
  -- Row 3 -----------------------------------
-  Id = 3
+  System = http://loinc.org
   Code = LA6686-5
   Display = Duplication
   Definition = Duplication
 
  -- Row 4 -----------------------------------
-  Id = 4
+  System = http://loinc.org
   Code = LA6687-3
   Display = Insertion
   Definition = Insertion
 
  -- Row 5 -----------------------------------
-  Id = 5
+  System = http://loinc.org
   Code = LA6688-1
   Display = Insertion/Deletion
   Definition = Insertion/Deletion
 
  -- Row 6 -----------------------------------
-  Id = 6
+  System = http://loinc.org
   Code = LA6689-9
   Display = Inversion
   Definition = Inversion
 
  -- Row 7 -----------------------------------
-  Id = 7
+  System = http://loinc.org
   Code = LA6690-7
   Display = Substitution
   Definition = Substitution
@@ -138,43 +141,43 @@
 === Sheet LOINC-48002-0-answerlist =====================================
 
  -- Row 1 -----------------------------------
-  Id = 1
+  System = http://loinc.org
   Code = LA6683-2
   Display = Germline
   Definition = Germline
 
  -- Row 2 -----------------------------------
-  Id = 2
+  System = http://loinc.org
   Code = LA6684-0
   Display = Somatic
   Definition = Somatic
 
  -- Row 3 -----------------------------------
-  Id = 3
+  System = http://loinc.org
   Code = LA6685-7
   Display = Prenatal
   Definition = Prenatal
 
  -- Row 4 -----------------------------------
-  Id = 4
+  System = http://loinc.org
   Code = LA18194-3
   Display = Likely Germline
   Definition = Likely Germline
 
  -- Row 5 -----------------------------------
-  Id = 5
+  System = http://loinc.org
   Code = LA18195-0
   Display = Likely Somatic
   Definition = Likely Somatic
 
  -- Row 6 -----------------------------------
-  Id = 6
+  System = http://loinc.org
   Code = LA18196-8
   Display = Likely Prenatal
   Definition = Likely Prenatal
 
  -- Row 7 -----------------------------------
-  Id = 7
+  System = http://loinc.org
   Code = LA18197-6
   Display = Unknown Genomic Origin
   Definition = Unknown Genomic Origin
@@ -202,31 +205,31 @@
 === Sheet LOINC-53034-5-answerlist =====================================
 
  -- Row 1 -----------------------------------
-  Id = 1
+  System = http://loinc.org
   Code = LA6703-8
   Display = Heteroplasmic
   Definition = Heteroplasmic
 
  -- Row 2 -----------------------------------
-  Id = 2
+  System = http://loinc.org
   Code = LA6704-6
   Display = Homoplasmic
   Definition = Homoplasmic
 
  -- Row 3 -----------------------------------
-  Id = 3
+  System = http://loinc.org
   Code = LA6705-3
   Display = Homozygous
   Definition = Homozygous
 
  -- Row 4 -----------------------------------
-  Id = 4
+  System = http://loinc.org
   Code = LA6706-1
   Display = Heterozygous
   Definition = Heterozygous
 
  -- Row 5 -----------------------------------
-  Id = 5
+  System = http://loinc.org
   Code = LA6707-9
   Display = Hemizygous
   Definition = Hemizygous
