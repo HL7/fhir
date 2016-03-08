@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/remittance-outcome",
+  "outcomes": [
+    {
+      "hash": "|null|null|complete|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "complete",
+        "definition": null,
+        "display": "Complete"
+      }
+    }
+  ]
+}

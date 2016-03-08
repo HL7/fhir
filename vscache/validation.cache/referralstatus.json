@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/referralstatus",
+  "outcomes": [
+    {
+      "hash": "|null|null|requested|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "requested",
+        "definition": null,
+        "display": "Requested"
+      }
+    },
+    {
+      "hash": "|null|null|rejected|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "rejected",
+        "definition": null,
+        "display": "Rejected"
+      }
+    }
+  ]
+}

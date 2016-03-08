@@ -11,8 +11,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Acetaminophen (substance)"
       }
@@ -47,8 +46,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Floxacillin (substance)"
       }
@@ -68,8 +66,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Amoxicilline trihydrate"
       }

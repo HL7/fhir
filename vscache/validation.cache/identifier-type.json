@@ -2,84 +2,78 @@
   "url": "http://hl7.org/fhir/ValueSet/identifier-type",
   "outcomes": [
     {
-      "hash": "|http://hl7.org/fhir/v2/0203|null|PRN|null",
+      "hash": "#|http://hl7.org/fhir/identifier-type|null|PLAC|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": "PLAC",
         "definition": null,
-        "display": "Provider number"
+        "display": "Placer Identifier"
       }
     },
     {
-      "hash": "|http://hl7.org/fhir/v2/0203|null|NI|National unique individual identifier",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Identifier Type Codes"
-    },
-    {
-      "hash": "|http://hl7.org/fhir/v2/0203|null|MR|null",
+      "hash": "#|http://hl7.org/fhir/identifier-type|null|SB|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Medical record number"
-      }
-    },
-    {
-      "hash": "|http://hl7.org/fhir/v2/0203|null|SS|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Identifier Type Codes"
-    },
-    {
-      "hash": "|http://hl7.org/fhir/identifier-type|null|SB|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": "SB",
         "definition": null,
         "display": "Social Beneficiary Identifier"
       }
     },
     {
-      "hash": "|http://hl7.org/fhir/v2/0203|null|DL|null",
+      "hash": "#|http://hl7.org/fhir/v2/0203|null|MR|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": "MR",
+        "definition": null,
+        "display": "Medical record number"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0203|null|SS|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0203|null|DL|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DL",
         "definition": null,
         "display": "Driver's license number"
       }
     },
     {
-      "hash": "|http://hl7.org/fhir/identifier-type|null|SNO|null",
+      "hash": "#|http://hl7.org/fhir/v2/0203|null|NI|National unique individual identifier",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0203|null|PRN|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": "PRN",
         "definition": null,
-        "display": "Serial Number"
+        "display": "Provider number"
       }
     },
     {
-      "hash": "|urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd|null|IHE XDS Metadata|submission set classificationNode",
+      "hash": "#|urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd|null|IHE XDS Metadata|submission set classificationNode",
       "severity": "error",
-      "message": "The code provided is not  valid in the value set Identifier Type Codes"
+      "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "|http://hl7.org/fhir/identifier-type|null|PLAC|null",
+      "hash": "#|http://hl7.org/fhir/identifier-type|null|SNO|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": "SNO",
         "definition": null,
-        "display": "Placer Identifier"
+        "display": "Serial Number"
       }
     }
   ]

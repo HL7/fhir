@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Insertion of intracardiac pacemaker"
       }
@@ -17,8 +16,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Appendectomy"
       }
@@ -28,8 +26,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Incision of retropharyngeal abscess"
       }
@@ -39,8 +36,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Replacement of unspecified heart valve"
       }
@@ -50,8 +46,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "CT - Chemotherapy"
       }
@@ -61,8 +56,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Trachy"
       }
@@ -72,8 +66,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Partial lobectomy of lung"
       }
@@ -88,8 +81,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Biopsy of soft tissue of forearm, superficial"
       }

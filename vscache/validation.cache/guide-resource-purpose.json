@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/guide-resource-purpose",
+  "outcomes": [
+    {
+      "hash": "|null|null|example|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "example",
+        "definition": null,
+        "display": "Example"
+      }
+    }
+  ]
+}

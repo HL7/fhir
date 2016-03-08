@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/list-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|current|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "current",
+        "definition": null,
+        "display": "Current"
+      }
+    }
+  ]
+}

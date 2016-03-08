@@ -11,8 +11,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Cashew nuts"
       }
@@ -22,8 +21,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Fish"
       }

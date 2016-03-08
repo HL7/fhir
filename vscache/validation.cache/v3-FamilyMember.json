@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "NFTH",
+        "abstract": "NFTH",
         "definition": null,
         "display": "natural father"
       }
@@ -17,8 +16,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "MAUNT",
+        "abstract": "MAUNT",
         "definition": null,
         "display": "maternal aunt"
       }
@@ -33,8 +31,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "MTH",
+        "abstract": "MTH",
         "definition": null,
         "display": "mother"
       }
@@ -49,8 +46,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "NMTH",
+        "abstract": "NMTH",
         "definition": null,
         "display": "natural mother"
       }
@@ -60,8 +56,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "FTH",
+        "abstract": "FTH",
         "definition": null,
         "display": "father"
       }
@@ -71,8 +66,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "PUNCLE",
+        "abstract": "PUNCLE",
         "definition": null,
         "display": "paternal uncle"
       }
@@ -82,8 +76,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "MGRFTH",
+        "abstract": "MGRFTH",
         "definition": null,
         "display": "maternal grandfather"
       }
@@ -98,8 +91,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "MGRMTH",
+        "abstract": "MGRMTH",
         "definition": null,
         "display": "maternal grandmother"
       }
@@ -109,8 +101,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "PGRFTH",
+        "abstract": "PGRFTH",
         "definition": null,
         "display": "paternal grandfather"
       }
@@ -120,8 +111,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "PAUNT",
+        "abstract": "PAUNT",
         "definition": null,
         "display": "paternal aunt"
       }
@@ -131,8 +121,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "PCOUSN",
+        "abstract": "PCOUSN",
         "definition": null,
         "display": "paternal cousin"
       }
@@ -142,8 +131,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "NBRO",
+        "abstract": "NBRO",
         "definition": null,
         "display": "natural brother"
       }
@@ -153,8 +141,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "DAU",
+        "abstract": "DAU",
         "definition": null,
         "display": "natural daughter"
       }
@@ -164,8 +151,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "SIGOTHR",
+        "abstract": "SIGOTHR",
         "definition": null,
         "display": "significant other"
       }
@@ -175,8 +161,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "EXT",
+        "abstract": "EXT",
         "definition": null,
         "display": "extended family member"
       }
@@ -186,8 +171,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "GRFTH",
+        "abstract": "GRFTH",
         "definition": null,
         "display": "grandfather"
       }
@@ -197,8 +181,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "BROINLAW",
+        "abstract": "BROINLAW",
         "definition": null,
         "display": "brother-in-law"
       }
@@ -208,8 +191,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "NIECE",
+        "abstract": "NIECE",
         "definition": null,
         "display": "niece"
       }
@@ -219,8 +201,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "FTH",
+        "abstract": "FTH",
         "definition": null,
         "display": "father"
       }
@@ -230,8 +211,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "NSIS",
+        "abstract": "NSIS",
         "definition": null,
         "display": "natural sister"
       }
@@ -241,8 +221,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "NEPHEW",
+        "abstract": "NEPHEW",
         "definition": null,
         "display": "nephew"
       }
@@ -252,8 +231,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "MUNCLE",
+        "abstract": "MUNCLE",
         "definition": null,
         "display": "maternal uncle"
       }
@@ -263,8 +241,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "MCOUSN",
+        "abstract": "MCOUSN",
         "definition": null,
         "display": "maternal cousin"
       }
@@ -274,8 +251,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "PGRMTH",
+        "abstract": "PGRMTH",
         "definition": null,
         "display": "paternal grandmother"
       }

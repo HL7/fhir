@@ -1,0 +1,60 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/risk-probability",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/risk-probability|null|moderate|moderate likelihood",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "moderate",
+        "definition": null,
+        "display": "Moderate likelihood"
+      }
+    },
+    {
+      "hash": "|null|null|0.000594|null",
+      "severity": "error",
+      "message": "Unknown Code 0.000594 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+      "hash": "|null|null|0.001663|null",
+      "severity": "error",
+      "message": "Unknown Code 0.001663 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+      "hash": "|null|null|0.02|null",
+      "severity": "error",
+      "message": "Unknown Code 0.02 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+      "hash": "|null|null|0.001089|null",
+      "severity": "error",
+      "message": "Unknown Code 0.001089 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+      "hash": "|null|null|0.001327|null",
+      "severity": "error",
+      "message": "Unknown Code 0.001327 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+      "hash": "|null|null|0.000168|null",
+      "severity": "error",
+      "message": "Unknown Code 0.000168 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+      "hash": "|null|null|0.001530|null",
+      "severity": "error",
+      "message": "Unknown Code 0.001530 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+      "hash": "|null|null|0.000838|null",
+      "severity": "error",
+      "message": "Unknown Code 0.000838 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+      "hash": "|null|null|0.000368|null",
+      "severity": "error",
+      "message": "Unknown Code 0.000368 in http://hl7.org/fhir/ValueSet/risk-probability"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/list-order",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/list-order|null|entry-date|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "entry-date",
+        "definition": null,
+        "display": "Sorted by Item Date"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/list-order|null|event-date|Sorted by Event Date",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "event-date",
+        "definition": null,
+        "display": "Sorted by Event Date"
+      }
+    }
+  ]
+}

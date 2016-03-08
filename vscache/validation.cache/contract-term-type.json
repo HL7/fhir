@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/contract-term-type",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/consent-term-type-codes|null|withhold-identified-object-and-related|Withhold the identified object and any other resources that are related to this object.",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/consent-term-type-codes|null|withhold-authored-by|Withhold all data authored by specified actor entity.",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/consent-term-type-codes|null|withhold-object-type|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/consent-term-type-codes|null|withhold-from|Withhold all data from specified actor entity.",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}

@@ -3,13 +3,13 @@
   "outcomes": [
     {
       "hash": "|urn:oid:1.3.6.1.4.1.19376.1.2|null|ITI-32|Distribute Document Set on Media",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@26f2c269\" in system \"urn:oid:1.3.6.1.4.1.19376.1.2\": null"
+      "severity": "error",
+      "message": "Unknown Code ITI-32 in http://hl7.org/fhir/ValueSet/audit-event-sub-type"
     },
     {
       "hash": "|urn:oid:1.3.6.1.4.1.19376.1.2|null|ITI-9|PIX Query",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@bdb1eb\" in system \"urn:oid:1.3.6.1.4.1.19376.1.2\": null"
+      "severity": "error",
+      "message": "Unknown Code ITI-9 in http://hl7.org/fhir/ValueSet/audit-event-sub-type"
     }
   ]
 }

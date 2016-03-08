@@ -1,0 +1,45 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/search-xpath-usage",
+  "outcomes": [
+    {
+      "hash": "|null|null|distance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "distance",
+        "definition": null,
+        "display": "Distance"
+      }
+    },
+    {
+      "hash": "|null|null|nearby|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "nearby",
+        "definition": null,
+        "display": "Nearby"
+      }
+    },
+    {
+      "hash": "|null|null|phonetic|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "phonetic",
+        "definition": null,
+        "display": "Phonetic"
+      }
+    },
+    {
+      "hash": "|null|null|normal|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "normal",
+        "definition": null,
+        "display": "Normal"
+      }
+    }
+  ]
+}

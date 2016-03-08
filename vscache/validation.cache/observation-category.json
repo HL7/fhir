@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/observation-category",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/observation-category|null|procedure|Procedure",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "procedure",
+        "definition": null,
+        "display": "Procedure"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/observation-category|null|vital-signs|Vital Signs",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "vital-signs",
+        "definition": null,
+        "display": "Vital Signs"
+      }
+    }
+  ]
+}

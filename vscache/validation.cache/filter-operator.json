@@ -1,0 +1,35 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/filter-operator",
+  "outcomes": [
+    {
+      "hash": "|null|null|in|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "in",
+        "definition": null,
+        "display": "In Set"
+      }
+    },
+    {
+      "hash": "|null|null|=|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "=",
+        "definition": null,
+        "display": "Equals"
+      }
+    },
+    {
+      "hash": "|null|null|is-a|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "is-a",
+        "definition": null,
+        "display": "Is A (by subsumption)"
+      }
+    }
+  ]
+}

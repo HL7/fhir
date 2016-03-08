@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/guide-dependency-type",
+  "outcomes": [
+    {
+      "hash": "|null|null|reference|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "reference",
+        "definition": null,
+        "display": "Reference"
+      }
+    }
+  ]
+}

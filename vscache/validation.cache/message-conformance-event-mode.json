@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/message-conformance-event-mode",
+  "outcomes": [
+    {
+      "hash": "|null|null|receiver|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "receiver",
+        "definition": null,
+        "display": "Receiver"
+      }
+    }
+  ]
+}

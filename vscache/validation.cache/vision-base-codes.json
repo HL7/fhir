@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/vision-base-codes",
+  "outcomes": [
+    {
+      "hash": "|null|null|down|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "down",
+        "definition": null,
+        "display": "Down"
+      }
+    },
+    {
+      "hash": "|null|null|up|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "up",
+        "definition": null,
+        "display": "Up"
+      }
+    }
+  ]
+}

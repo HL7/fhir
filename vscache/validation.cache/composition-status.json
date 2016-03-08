@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/composition-status",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/composition-status|null|preliminary|preliminary",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "preliminary",
+        "definition": null,
+        "display": "Preliminary"
+      }
+    },
+    {
+      "hash": "|null|null|final|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "final",
+        "definition": null,
+        "display": "Final"
+      }
+    }
+  ]
+}

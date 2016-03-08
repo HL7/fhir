@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/appointmentstatus",
+  "outcomes": [
+    {
+      "hash": "|null|null|proposed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "proposed",
+        "definition": null,
+        "display": "Proposed"
+      }
+    },
+    {
+      "hash": "|null|null|booked|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "booked",
+        "definition": null,
+        "display": "Booked"
+      }
+    }
+  ]
+}

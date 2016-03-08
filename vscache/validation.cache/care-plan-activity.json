@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Operative procedure on heart"
       }
@@ -27,8 +26,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "US kidneys"
       }
@@ -38,8 +36,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Incision of retropharyngeal abscess"
       }
@@ -49,8 +46,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "CT - Chemotherapy"
       }
@@ -75,8 +71,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Partial lobectomy of lung"
       }
@@ -86,8 +81,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "High resolution computed tomography of lungs (procedure)"
       }

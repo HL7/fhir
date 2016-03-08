@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/document-relationship-type",
+  "outcomes": [
+    {
+      "hash": "|null|null|appends|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "appends",
+        "definition": null,
+        "display": "Appends"
+      }
+    }
+  ]
+}

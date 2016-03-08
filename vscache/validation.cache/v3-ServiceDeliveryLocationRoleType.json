@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "RNEU",
+        "abstract": "RNEU",
         "definition": null,
         "display": "Neuroradiology unit"
       }
@@ -17,8 +16,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "SLEEP",
+        "abstract": "SLEEP",
         "definition": null,
         "display": "Sleep disorders unit"
       }
@@ -28,8 +26,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "PHARM",
+        "abstract": "PHARM",
         "definition": null,
         "display": "Pharmacy"
       }
@@ -39,8 +36,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "AMB",
+        "abstract": "AMB",
         "definition": null,
         "display": "Ambulance"
       }
@@ -50,8 +46,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "PTRES",
+        "abstract": "PTRES",
         "definition": null,
         "display": "Patient's Residence"
       }

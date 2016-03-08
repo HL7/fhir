@@ -1,0 +1,35 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/allergy-intolerance-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|unconfirmed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "unconfirmed",
+        "definition": null,
+        "display": "Unconfirmed"
+      }
+    },
+    {
+      "hash": "|null|null|confirmed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "confirmed",
+        "definition": null,
+        "display": "Confirmed"
+      }
+    },
+    {
+      "hash": "|null|null|refuted|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "refuted",
+        "definition": null,
+        "display": "Refuted"
+      }
+    }
+  ]
+}

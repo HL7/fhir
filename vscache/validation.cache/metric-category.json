@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/metric-category",
+  "outcomes": [
+    {
+      "hash": "|null|null|measurement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "measurement",
+        "definition": null,
+        "display": "Measurement"
+      }
+    }
+  ]
+}

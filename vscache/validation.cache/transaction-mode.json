@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/transaction-mode",
+  "outcomes": [
+    {
+      "hash": "|null|null|both|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "both",
+        "definition": null,
+        "display": "Batches & Transactions"
+      }
+    }
+  ]
+}

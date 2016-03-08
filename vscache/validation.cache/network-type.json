@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/network-type",
+  "outcomes": [
+    {
+      "hash": "|null|null|2|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "2",
+        "definition": null,
+        "display": "IP Address"
+      }
+    },
+    {
+      "hash": "|null|null|1|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "1",
+        "definition": null,
+        "display": "Machine Name"
+      }
+    }
+  ]
+}

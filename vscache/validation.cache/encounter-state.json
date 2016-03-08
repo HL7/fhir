@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/encounter-state",
+  "outcomes": [
+    {
+      "hash": "|null|null|finished|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "finished",
+        "definition": null,
+        "display": "Finished"
+      }
+    },
+    {
+      "hash": "|null|null|in-progress|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "in-progress",
+        "definition": null,
+        "display": "in Progress"
+      }
+    }
+  ]
+}

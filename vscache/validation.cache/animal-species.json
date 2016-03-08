@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/animal-species",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/animal-species|null|canislf|Dog",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "canislf",
+        "definition": null,
+        "display": "Dog"
+      }
+    }
+  ]
+}

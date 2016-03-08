@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "L",
+        "abstract": "L",
         "definition": null,
         "display": "Low"
       }
@@ -17,8 +16,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "R",
+        "abstract": "R",
         "definition": null,
         "display": "Resistant"
       }
@@ -28,8 +26,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "H",
+        "abstract": "H",
         "definition": null,
         "display": "High"
       }
@@ -39,8 +36,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "N",
+        "abstract": "N",
         "definition": null,
         "display": "Normal"
       }
@@ -50,8 +46,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "N",
+        "abstract": "N",
         "definition": null,
         "display": "Normal"
       }
@@ -61,8 +56,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "POS",
+        "abstract": "POS",
         "definition": null,
         "display": "Positive"
       }
@@ -72,8 +66,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "L",
+        "abstract": "L",
         "definition": null,
         "display": "Low"
       }
@@ -83,8 +76,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "S",
+        "abstract": "S",
         "definition": null,
         "display": "Susceptible"
       }
@@ -94,8 +86,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "LL",
+        "abstract": "LL",
         "definition": null,
         "display": "Critically low"
       }
@@ -105,8 +96,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "H",
+        "abstract": "H",
         "definition": null,
         "display": "High"
       }
@@ -116,8 +106,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "H",
+        "abstract": "H",
         "definition": null,
         "display": "High"
       }
@@ -127,8 +116,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "L",
+        "abstract": "L",
         "definition": null,
         "display": "Low"
       }
@@ -138,8 +126,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "HH",
+        "abstract": "HH",
         "definition": null,
         "display": "Critically high"
       }
@@ -149,8 +136,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "A",
+        "abstract": "A",
         "definition": null,
         "display": "Abnormal"
       }
@@ -160,8 +146,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "N",
+        "abstract": "N",
         "definition": null,
         "display": "Normal"
       }

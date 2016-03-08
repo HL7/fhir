@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "ACID",
+        "abstract": "ACID",
         "definition": null,
         "display": "Acidification"
       }

@@ -11,8 +11,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Calcium [Moles/volume] in Serum or Plasma"
       }
@@ -22,8 +21,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Lymphocytes/100 leukocytes in Blood by Automated count"
       }
@@ -38,8 +36,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "CD13 Ag [Presence] in Tissue by Immune stain"
       }
@@ -49,8 +46,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
       }
@@ -60,8 +56,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Glucose [Presence] in Urine"
       }
@@ -71,8 +66,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Erythrocyte mean corpuscular volume [Entitic volume] by Automated count"
       }
@@ -82,8 +76,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Triglyceride [Moles/volume] in Serum or Plasma"
       }
@@ -93,8 +86,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Urinalysis macro (dipstick) panel - Urine"
       }
@@ -104,8 +96,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Systolic blood pressure"
       }
@@ -115,8 +106,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Body weight Measured"
       }
@@ -126,8 +116,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Carbon dioxide [Partial pressure] in Blood"
       }
@@ -137,8 +126,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Iron [Moles/volume] in Serum or Plasma"
       }
@@ -148,8 +136,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Adopted"
       }
@@ -159,8 +146,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Potassium [Moles/volume] in Serum or Plasma"
       }
@@ -170,8 +156,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Reagin Ab [Presence] in Serum by RPR"
       }
@@ -181,8 +166,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "NPM1 gene mutations found [Identifier] in Bone marrow by Molecular genetics method Nominal"
       }
@@ -197,8 +181,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Lead [Mass/volume] in Capillary blood"
       }
@@ -213,8 +196,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Glasgow coma score motor"
       }
@@ -224,8 +206,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Aspartate aminotransferase [Enzymatic activity/volume] in Serum or Plasma"
       }
@@ -235,8 +216,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Bilirubin.direct [Moles/volume] in Serum or Plasma"
       }
@@ -251,8 +231,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "History of diseases family member [USSG-FHT]"
       }
@@ -262,8 +241,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Microorganism [#/volume] in Unspecified specimen by Viability count"
       }
@@ -273,8 +251,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Leukocytes [#/area] in Urine sediment by Microscopy high power field"
       }
@@ -284,8 +261,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Neisseria gonorrhoeae rRNA [Presence] in Unspecified specimen by Probe and target amplification method"
       }
@@ -295,8 +271,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Sex [USSG-FHT]"
       }
@@ -306,8 +281,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "HLA-A [Type]"
       }
@@ -317,8 +291,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Complete blood count (hemogram) panel - Blood by Automated count"
       }
@@ -338,8 +311,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Microorganism identified in Unspecified specimen by Culture"
       }
@@ -349,8 +321,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Lead [Mass/volume] in Blood"
       }
@@ -360,8 +331,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Hematocrit [Volume Fraction] of Blood"
       }
@@ -371,8 +341,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "KIT gene mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
       }
@@ -382,8 +351,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Alkaline phosphatase [Enzymatic activity/volume] in Serum or Plasma"
       }
@@ -393,8 +361,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "BRCA2 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"
       }
@@ -404,8 +371,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Creatinine [Moles/volume] in Serum or Plasma"
       }
@@ -415,8 +381,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Sex [AHRQ]"
       }
@@ -426,8 +391,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Myeloblasts [#/volume] in Blood"
       }
@@ -437,8 +401,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Relationship to patient family member [USSG-FHT]"
       }
@@ -458,8 +421,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Specific gravity of Urine"
       }
@@ -469,8 +431,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "C reactive protein [Mass/volume] in Serum or Plasma by High sensitivity method"
       }
@@ -480,8 +441,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Neutrophils/100 leukocytes in Blood by Automated count"
       }
@@ -496,8 +456,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Iron [Moles/volume] in Serum or Plasma"
       }
@@ -512,8 +471,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Platelets [#/volume] in Blood"
       }
@@ -523,8 +481,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Monocytes/100 leukocytes in Blood by Automated count"
       }
@@ -534,8 +491,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Triglyceride [Mass or Moles/volume] in Serum or Plasma"
       }
@@ -545,8 +501,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Fasting status - Reported"
       }
@@ -556,8 +511,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Leukocytes [Presence] in Urine"
       }
@@ -567,8 +521,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Name family member"
       }
@@ -578,8 +531,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Anion gap 4 in Serum or Plasma"
       }
@@ -589,8 +541,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Glomerular filtration rate/1.73 sq M.predicted [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"
       }
@@ -600,8 +551,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Age range at onset of disease [USSG-FHT]"
       }
@@ -621,8 +571,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Genetic analysis master panel - Blood or Tissue by Molecular genetics method"
       }
@@ -637,8 +586,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Erythrocytes [#/volume] in Blood by Automated count"
       }
@@ -653,8 +601,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Monocytes [#/volume] in Blood by Automated count"
       }
@@ -664,8 +611,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Blood pressure systolic and diastolic"
       }
@@ -675,8 +621,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "CD4 Ag [Presence] in Tissue by Immune stain"
       }
@@ -686,8 +631,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Globulin [Mass/volume] in Serum by calculation"
       }
@@ -697,8 +641,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Glasgow coma score verbal"
       }
@@ -708,8 +651,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Urate [Moles/volume] in Serum or Plasma"
       }
@@ -719,8 +661,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Leukocytes [#/volume] in Blood"
       }
@@ -730,8 +671,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Race [USSG-FHT]"
       }
@@ -751,8 +691,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Body temperature"
       }
@@ -762,8 +701,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Erythrocyte mean corpuscular hemoglobin [Entitic mass] by Automated count"
       }
@@ -773,8 +711,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Glomerular filtration rate/1.73 sq M predicted among blacks [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"
       }
@@ -789,8 +726,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Bacteria identified in Blood by Culture"
       }
@@ -800,8 +736,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Epithelial cells.squamous [#/volume] in Urine sediment"
       }
@@ -816,8 +751,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Calcium.ionized [Moles/volume] in Serum or Plasma by calculation"
       }
@@ -827,8 +761,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "CD2 Ag [Presence] in Tissue by Immune stain"
       }
@@ -838,8 +771,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Platelets [#/volume] in Blood by Automated count"
       }
@@ -849,8 +781,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Genetic analysis master panel - Blood or Tissue by Molecular genetics method"
       }
@@ -860,8 +791,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Leukocytes [#/volume] in Blood by Automated count"
       }
@@ -871,8 +801,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
       }
@@ -897,8 +826,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Lymphocytes [#/volume] in Blood by Automated count"
       }
@@ -913,8 +841,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Dengue virus IgM Ab [Titer] in Serum"
       }
@@ -924,8 +851,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "FLT3 gene mutation analysis in Bone marrow by Molecular genetics method Narrative"
       }
@@ -935,8 +861,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Protein [Mass/volume] in Serum or Plasma"
       }
@@ -951,8 +876,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Name"
       }
@@ -972,8 +896,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Protein [Presence] in Urine"
       }
@@ -988,8 +911,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Hematocrit [Volume Fraction] of Blood by Automated count"
       }
@@ -999,8 +921,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Birth date family member"
       }
@@ -1010,8 +931,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
       }
@@ -1021,8 +941,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Basophils/100 leukocytes in Blood by Automated count"
       }
@@ -1032,8 +951,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Hemoglobin [Mass/volume] in Blood"
       }
@@ -1043,8 +961,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Race family member [USSG-FHT]"
       }
@@ -1054,8 +971,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Sodium [Moles/volume] in Serum or Plasma"
       }
@@ -1065,8 +981,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Adopted family member"
       }
@@ -1076,8 +991,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma"
       }
@@ -1087,8 +1001,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Glomerular filtration rate/1.73 sq M predicted among non-blacks [Volume Rate/Area] in Serum or Plasma by Creatinine-based formula (MDRD)"
       }
@@ -1098,8 +1011,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Base excess in Blood by calculation"
       }
@@ -1109,8 +1021,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Erythrocytes [#/volume] in Urine"
       }
@@ -1120,8 +1031,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Bilirubin.total [Moles/volume] in Serum or Plasma"
       }
@@ -1131,8 +1041,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Ethnicity [USSG-FHT]"
       }
@@ -1147,8 +1056,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Age range at onset of disease family member [USSG-FHT]"
       }
@@ -1163,8 +1071,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Basophils [#/volume] in Blood by Automated count"
       }
@@ -1174,8 +1081,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Twin family member"
       }
@@ -1185,8 +1091,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Glasgow coma score eye opening"
       }
@@ -1196,8 +1101,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Diastolic blood pressure"
       }
@@ -1207,8 +1111,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Birth Date"
       }
@@ -1218,8 +1121,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Chloride [Moles/volume] in Serum or Plasma"
       }
@@ -1229,8 +1131,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "BRCA1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"
       }
@@ -1255,8 +1156,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Age range at death family member [USSG-FHT]"
       }
@@ -1266,8 +1166,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Hemoglobin [Mass/volume] in Venous blood"
       }
@@ -1277,8 +1176,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Karyotype [Identifier] in Bone marrow Nominal"
       }
@@ -1288,8 +1186,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Parents related [USSG-FHT]"
       }
@@ -1299,8 +1196,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Living family member"
       }
@@ -1310,8 +1206,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Lactate dehydrogenase [Enzymatic activity/volume] in Serum or Plasma"
       }
@@ -1321,8 +1216,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "BRCA1 gene mutations found [Identifier] in Blood or Tissue by Molecular genetics method Nominal"
       }
@@ -1337,8 +1231,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Genetic disease sequence variation interpretation in Blood or Tissue by Molecular genetics method"
       }
@@ -1348,8 +1241,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Hospital admission diagnosis Narrative - Reported"
       }
@@ -1364,8 +1256,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Glucose [Moles/volume] in Blood"
       }
@@ -1380,8 +1271,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Sex family member [USSG-FHT]"
       }
@@ -1391,8 +1281,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Cholesterol [Mass or Moles/volume] in Serum or Plasma"
       }
@@ -1402,8 +1291,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Eosinophils/100 leukocytes in Blood by Automated count"
       }
@@ -1418,8 +1306,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Twin"
       }
@@ -1429,8 +1316,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Chlamydia trachomatis and Neisseria gonorrhoeae rRNA panel - Unspecified specimen by Probe and target amplification method"
       }
@@ -1440,8 +1326,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Leukocytes [#/volume] in Urine"
       }
@@ -1456,8 +1341,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Albumin [Mass/volume] in Serum or Plasma"
       }
@@ -1477,8 +1361,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Eosinophils [#/volume] in Blood by Automated count"
       }
@@ -1488,8 +1371,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Bacteria identified in Unspecified specimen by Culture"
       }
@@ -1509,8 +1391,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "pH of Urine"
       }
@@ -1520,8 +1401,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Urea nitrogen [Moles/volume] in Serum or Plasma"
       }
@@ -1531,8 +1411,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Glasgow coma score total"
       }
@@ -1542,8 +1421,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Ethnicity family member [USSG-FHT]"
       }
@@ -1553,8 +1431,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Phosphate [Moles/volume] in Serum or Plasma"
       }
@@ -1564,8 +1441,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Current age family member [USSG-FHT]"
       }
@@ -1575,8 +1451,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Femur DXA Bone density"
       }
@@ -1586,8 +1461,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Comprehensive metabolic 2000 panel - Serum or Plasma"
       }
@@ -1617,8 +1491,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Erythrocytes [Presence] in Urine"
       }
@@ -1628,8 +1501,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Glucose [Moles/volume] in Serum or Plasma"
       }
@@ -1649,8 +1521,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Genetic disease assessed [Identifier] in Blood or Tissue by Molecular genetics method"
       }
@@ -1660,8 +1531,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Cause of death family member [USSG-FHT]"
       }
@@ -1671,8 +1541,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "ABCB4 gene mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
       }
@@ -1682,8 +1551,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Bicarbonate [Moles/volume] in Serum"
       }
@@ -1693,8 +1561,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Cholesterol [Moles/volume] in Serum or Plasma"
       }
@@ -1704,8 +1571,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Chlamydia trachomatis rRNA [Presence] in Unspecified specimen by Probe and target amplification method"
       }
@@ -1715,8 +1581,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Cholesterol in LDL [Mass/volume] in Serum or Plasma by calculation"
       }
@@ -1726,8 +1591,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "History of diseases [USSG-FHT]"
       }
@@ -1742,8 +1606,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Bicarbonate [Moles/volume] in Serum"
       }
@@ -1758,8 +1621,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Neutrophils [#/volume] in Blood by Automated count"
       }

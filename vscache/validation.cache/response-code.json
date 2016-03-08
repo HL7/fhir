@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/response-code",
+  "outcomes": [
+    {
+      "hash": "|null|null|ok|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ok",
+        "definition": null,
+        "display": "OK"
+      }
+    }
+  ]
+}

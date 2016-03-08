@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/dataelement-stringency",
+  "outcomes": [
+    {
+      "hash": "|null|null|fully-specified|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "fully-specified",
+        "definition": null,
+        "display": "Fully Specified"
+      }
+    }
+  ]
+}

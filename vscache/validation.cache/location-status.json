@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/location-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|suspended|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "suspended",
+        "definition": null,
+        "display": "Suspended"
+      }
+    },
+    {
+      "hash": "|null|null|active|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "active",
+        "definition": null,
+        "display": "Active"
+      }
+    }
+  ]
+}

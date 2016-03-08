@@ -1,0 +1,1 @@
+{"resourceType":"ValueSet","expansion":{"identifier":"urn:uuid:02838cd2-69e3-4920-9181-8d79251d8688","timestamp":"2016-03-07T20:21:52Z","parameter":[{"name":"version","valueUri":"http://snomed.info/sct?version=http://snomed.info/sct/731000124108/version/20150901"}],"contains":[{"system":"http://snomed.info/sct","code":"440622005","display":"Specimen received"}]}}

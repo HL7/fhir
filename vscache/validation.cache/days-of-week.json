@@ -1,0 +1,65 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/days-of-week",
+  "outcomes": [
+    {
+      "hash": "|null|null|wed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "wed",
+        "definition": null,
+        "display": "Wednesday"
+      }
+    },
+    {
+      "hash": "|null|null|thu|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "thu",
+        "definition": null,
+        "display": "Thursday"
+      }
+    },
+    {
+      "hash": "|null|null|fri|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "fri",
+        "definition": null,
+        "display": "Friday"
+      }
+    },
+    {
+      "hash": "|null|null|mon|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "mon",
+        "definition": null,
+        "display": "Monday"
+      }
+    },
+    {
+      "hash": "|null|null|sat|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "sat",
+        "definition": null,
+        "display": "Saturday"
+      }
+    },
+    {
+      "hash": "|null|null|tue|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "tue",
+        "definition": null,
+        "display": "Tuesday"
+      }
+    }
+  ]
+}

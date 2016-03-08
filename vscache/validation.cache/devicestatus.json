@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/devicestatus",
+  "outcomes": [
+    {
+      "hash": "|null|null|available|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "available",
+        "definition": null,
+        "display": "Available"
+      }
+    }
+  ]
+}

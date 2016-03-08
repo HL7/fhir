@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/device-action",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/device-action|null|implanted|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "implanted",
+        "definition": null,
+        "display": "Implanted"
+      }
+    }
+  ]
+}

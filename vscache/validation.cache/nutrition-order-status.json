@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/nutrition-order-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|active|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "active",
+        "definition": null,
+        "display": "Active"
+      }
+    }
+  ]
+}

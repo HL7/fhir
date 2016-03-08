@@ -1,0 +1,45 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/contact-point-system",
+  "outcomes": [
+    {
+      "hash": "|null|null|phone|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "phone",
+        "definition": null,
+        "display": "Phone"
+      }
+    },
+    {
+      "hash": "|null|null|fax|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "fax",
+        "definition": null,
+        "display": "Fax"
+      }
+    },
+    {
+      "hash": "|null|null|email|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "email",
+        "definition": null,
+        "display": "Email"
+      }
+    },
+    {
+      "hash": "|null|null|other|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "other",
+        "definition": null,
+        "display": "URL"
+      }
+    }
+  ]
+}

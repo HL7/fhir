@@ -1,0 +1,35 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/care-plan-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|completed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "completed",
+        "definition": null,
+        "display": "Completed"
+      }
+    },
+    {
+      "hash": "|null|null|draft|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "draft",
+        "definition": null,
+        "display": "Pending"
+      }
+    },
+    {
+      "hash": "|null|null|active|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "active",
+        "definition": null,
+        "display": "Active"
+      }
+    }
+  ]
+}

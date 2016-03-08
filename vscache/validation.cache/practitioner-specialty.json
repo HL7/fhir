@@ -1,0 +1,80 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/practitioner-specialty",
+  "outcomes": [
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.015|Physician",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.018|Keel- neus- en oorarts",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|410158009|Assess physical therapist service",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|null|null|Orthopedic|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.011|Cardiothoracal surgery",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/practitioner-specialty|null|cardio|Cardiologist",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "cardio",
+        "definition": null,
+        "display": "Cardiologist"
+      }
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.018|Ear-, Nose and Throat",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|310512001|Medical oncologist",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|17.000|Pharmacist",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://orionhealth.com/fhir/apps/specialties|null|ent|ENT",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|null|null|261QM0850X|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|159285000|Medical laboratory technician",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|417887005|Pediatric otolaryngology",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|9632001|Nursing procedure",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}

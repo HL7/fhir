@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/vision-eye-codes",
+  "outcomes": [
+    {
+      "hash": "|null|null|right|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "right",
+        "definition": null,
+        "display": "Right Eye"
+      }
+    },
+    {
+      "hash": "|null|null|left|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "left",
+        "definition": null,
+        "display": "Left Eye"
+      }
+    }
+  ]
+}

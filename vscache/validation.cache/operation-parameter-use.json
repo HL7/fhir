@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/operation-parameter-use",
+  "outcomes": [
+    {
+      "hash": "|null|null|in|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "in",
+        "definition": null,
+        "display": "In"
+      }
+    },
+    {
+      "hash": "|null|null|out|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "out",
+        "definition": null,
+        "display": "Out"
+      }
+    }
+  ]
+}

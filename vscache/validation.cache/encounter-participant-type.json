@@ -2,12 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/encounter-participant-type",
   "outcomes": [
     {
-      "hash": "|http://hl7.org/fhir/v3/ParticipationType|null|ATND|null",
+      "hash": "#|http://hl7.org/fhir/v3/ParticipationType|null|ATND|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": "ATND",
         "definition": null,
         "display": "attender"
       }

@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/specimen-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|unavailable|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "unavailable",
+        "definition": null,
+        "display": "Unavailable"
+      }
+    },
+    {
+      "hash": "|null|null|available|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "available",
+        "definition": null,
+        "display": "Available"
+      }
+    }
+  ]
+}

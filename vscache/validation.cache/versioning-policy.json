@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/versioning-policy",
+  "outcomes": [
+    {
+      "hash": "|null|null|versioned-update|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "versioned-update",
+        "definition": null,
+        "display": "VersionId tracked fully"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/document-mode",
+  "outcomes": [
+    {
+      "hash": "|null|null|consumer|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "consumer",
+        "definition": null,
+        "display": "Consumer"
+      }
+    }
+  ]
+}

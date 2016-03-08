@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/assert-direction-codes",
+  "outcomes": [
+    {
+      "hash": "|null|null|request|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "request",
+        "definition": null,
+        "display": "request"
+      }
+    }
+  ]
+}

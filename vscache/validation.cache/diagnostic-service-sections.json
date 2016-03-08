@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "LAB",
+        "abstract": "LAB",
         "definition": null,
         "display": "Laboratory"
       }
@@ -17,8 +16,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "RAD",
+        "abstract": "RAD",
         "definition": null,
         "display": "Radiology"
       }
@@ -28,8 +26,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "MB",
+        "abstract": "MB",
         "definition": null,
         "display": "Microbiology"
       }
@@ -39,8 +36,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "HM",
+        "abstract": "HM",
         "definition": null,
         "display": "Hematology"
       }
@@ -50,8 +46,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "HM",
+        "abstract": "HM",
         "definition": null,
         "display": "Hematology"
       }

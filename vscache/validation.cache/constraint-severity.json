@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/constraint-severity",
+  "outcomes": [
+    {
+      "hash": "|null|null|warning|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "warning",
+        "definition": null,
+        "display": "Warning"
+      }
+    },
+    {
+      "hash": "|null|null|error|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "error",
+        "definition": null,
+        "display": "Error"
+      }
+    }
+  ]
+}

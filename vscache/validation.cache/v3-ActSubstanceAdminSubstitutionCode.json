@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "G",
+        "abstract": "G",
         "definition": null,
         "display": "generic composition"
       }

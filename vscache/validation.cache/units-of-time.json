@@ -3,13 +3,23 @@
   "outcomes": [
     {
       "hash": "|null|null|h|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@43e3eb79\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "h",
+        "definition": null,
+        "display": "hour"
+      }
     },
     {
       "hash": "|null|null|d|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@1876826\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "d",
+        "definition": null,
+        "display": "day"
+      }
     }
   ]
 }

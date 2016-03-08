@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "IM",
+        "abstract": "IM",
         "definition": null,
         "display": "Injection, intramuscular"
       }

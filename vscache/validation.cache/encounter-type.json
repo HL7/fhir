@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/encounter-type",
+  "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|null|183807002|Inpatient stay for nine days",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|11429006|Consultation",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|270427003|Patient-initiated encounter",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|367336001|Chemotherapy",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    }
+  ]
+}

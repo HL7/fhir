@@ -1,0 +1,35 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/substance-category",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org.fhir/substance-category|null|allergen|Allergen",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "allergen",
+        "definition": null,
+        "display": "Allergen"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org.fhir/substance-category|null|drug|Drug or Medicament",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "drug",
+        "definition": null,
+        "display": "Drug or Medicament"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org.fhir/substance-category|null|chemical|Chemical",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "chemical",
+        "definition": null,
+        "display": "Chemical"
+      }
+    }
+  ]
+}

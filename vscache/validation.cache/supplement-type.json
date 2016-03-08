@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "442971000124100",
+        "abstract": "442971000124100",
         "definition": null,
         "display": "Adult high energy formula"
       }
@@ -17,8 +16,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "442991000124104",
+        "abstract": "442991000124104",
         "definition": null,
         "display": "Adult high protein formula"
       }
@@ -28,8 +26,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "443051000124104",
+        "abstract": "443051000124104",
         "definition": null,
         "display": "Adult diabetes specialty formula"
       }
@@ -39,8 +36,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "442971000124100",
+        "abstract": "442971000124100",
         "definition": null,
         "display": "Adult high energy formula"
       }

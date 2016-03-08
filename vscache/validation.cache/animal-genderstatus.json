@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/animal-genderstatus",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/animal-genderstatus|null|neutered|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "neutered",
+        "definition": null,
+        "display": "Neutered"
+      }
+    }
+  ]
+}

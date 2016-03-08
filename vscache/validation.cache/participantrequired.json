@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/participantrequired",
+  "outcomes": [
+    {
+      "hash": "|null|null|required|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "required",
+        "definition": null,
+        "display": "Required"
+      }
+    },
+    {
+      "hash": "|null|null|information-only|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "information-only",
+        "definition": null,
+        "display": "Information Only"
+      }
+    }
+  ]
+}

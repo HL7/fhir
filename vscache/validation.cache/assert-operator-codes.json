@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/assert-operator-codes",
+  "outcomes": [
+    {
+      "hash": "|null|null|notEmpty|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "notEmpty",
+        "definition": null,
+        "display": "notEmpty"
+      }
+    },
+    {
+      "hash": "|null|null|equals|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "equals",
+        "definition": null,
+        "display": "equals"
+      }
+    }
+  ]
+}

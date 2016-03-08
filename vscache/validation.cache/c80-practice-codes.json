@@ -36,8 +36,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "394587001",
+        "abstract": "394587001",
         "definition": null,
         "display": "Psychiatry"
       }
@@ -52,8 +51,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "394913002",
+        "abstract": "394913002",
         "definition": null,
         "display": "Psychotherapy"
       }

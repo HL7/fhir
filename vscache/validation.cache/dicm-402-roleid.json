@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "110152",
+        "abstract": "110152",
         "definition": null,
         "display": "Destination Role ID"
       }
@@ -17,8 +16,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "110153",
+        "abstract": "110153",
         "definition": null,
         "display": "Source Role ID"
       }

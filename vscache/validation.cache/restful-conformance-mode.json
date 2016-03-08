@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/restful-conformance-mode",
+  "outcomes": [
+    {
+      "hash": "|null|null|server|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "server",
+        "definition": null,
+        "display": "Server"
+      }
+    },
+    {
+      "hash": "|null|null|client|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "client",
+        "definition": null,
+        "display": "Client"
+      }
+    }
+  ]
+}

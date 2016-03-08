@@ -1,0 +1,85 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/search-param-type",
+  "outcomes": [
+    {
+      "hash": "|null|null|number|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "number",
+        "definition": null,
+        "display": "Number"
+      }
+    },
+    {
+      "hash": "|null|null|uri|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "uri",
+        "definition": null,
+        "display": "URI"
+      }
+    },
+    {
+      "hash": "|null|null|quantity|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "quantity",
+        "definition": null,
+        "display": "Quantity"
+      }
+    },
+    {
+      "hash": "|null|null|composite|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "composite",
+        "definition": null,
+        "display": "Composite"
+      }
+    },
+    {
+      "hash": "|null|null|token|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "token",
+        "definition": null,
+        "display": "Token"
+      }
+    },
+    {
+      "hash": "|null|null|date|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "date",
+        "definition": null,
+        "display": "Date/DateTime"
+      }
+    },
+    {
+      "hash": "|null|null|reference|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "reference",
+        "definition": null,
+        "display": "Reference"
+      }
+    },
+    {
+      "hash": "|null|null|string|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "string",
+        "definition": null,
+        "display": "String"
+      }
+    }
+  ]
+}

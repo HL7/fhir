@@ -3,18 +3,33 @@
   "outcomes": [
     {
       "hash": "|null|null|search-system|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@6468d409\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "search-system",
+        "definition": null,
+        "display": "search-system"
+      }
     },
     {
       "hash": "|null|null|history-system|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@40ff889e\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "history-system",
+        "definition": null,
+        "display": "history-system"
+      }
     },
     {
       "hash": "|null|null|transaction|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@3de20237\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "transaction",
+        "definition": null,
+        "display": "transaction"
+      }
     }
   ]
 }

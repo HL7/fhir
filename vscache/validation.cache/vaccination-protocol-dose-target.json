@@ -6,10 +6,9 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "1857005",
+        "abstract": "1857005",
         "definition": null,
-        "display": "Congenital rubella syndrome (disorder)"
+        "display": "Congenital rubella syndrome"
       }
     }
   ]

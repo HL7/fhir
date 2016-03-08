@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/communication-request-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|rejected|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "rejected",
+        "definition": null,
+        "display": "Rejected"
+      }
+    }
+  ]
+}

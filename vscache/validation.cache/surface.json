@@ -3,8 +3,13 @@
   "outcomes": [
     {
       "hash": "|http://fdi.org/fhir/oralsurfacecodes|null|L|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@21d6c188\" in system \"http://fdi.org/fhir/oralsurfacecodes\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "L",
+        "definition": null,
+        "display": "Lingual"
+      }
     }
   ]
 }

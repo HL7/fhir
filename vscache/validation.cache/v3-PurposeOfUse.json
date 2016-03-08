@@ -3,8 +3,8 @@
   "outcomes": [
     {
       "hash": "|http://snomed.info/sct|null|3457005|Referral",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@500dec95\" in system \"http://snomed.info/sct\": null"
+      "severity": "error",
+      "message": "Unknown Code 3457005 in http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"
     }
   ]
 }

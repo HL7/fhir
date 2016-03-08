@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/extension-context",
+  "outcomes": [
+    {
+      "hash": "|null|null|resource|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "resource",
+        "definition": null,
+        "display": "Resource"
+      }
+    },
+    {
+      "hash": "|null|null|datatype|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "datatype",
+        "definition": null,
+        "display": "Datatype"
+      }
+    }
+  ]
+}

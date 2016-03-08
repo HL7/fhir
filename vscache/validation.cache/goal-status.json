@@ -1,0 +1,55 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/goal-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|cancelled|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "cancelled",
+        "definition": null,
+        "display": "Cancelled"
+      }
+    },
+    {
+      "hash": "|null|null|achieved|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "achieved",
+        "definition": null,
+        "display": "Achieved"
+      }
+    },
+    {
+      "hash": "|null|null|planned|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "planned",
+        "definition": null,
+        "display": "Planned"
+      }
+    },
+    {
+      "hash": "|null|null|rejected|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "rejected",
+        "definition": null,
+        "display": "Rejected"
+      }
+    },
+    {
+      "hash": "|null|null|in-progress|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "in-progress",
+        "definition": null,
+        "display": "In Progress"
+      }
+    }
+  ]
+}

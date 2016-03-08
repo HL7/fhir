@@ -1,0 +1,55 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/issue-type",
+  "outcomes": [
+    {
+      "hash": "|null|null|exception|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "exception",
+        "definition": null,
+        "display": "Exception"
+      }
+    },
+    {
+      "hash": "|null|null|suppressed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "suppressed",
+        "definition": null,
+        "display": "Information  Suppressed"
+      }
+    },
+    {
+      "hash": "|null|null|informational|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "informational",
+        "definition": null,
+        "display": "Informational Note"
+      }
+    },
+    {
+      "hash": "|null|null|code-invalid|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "code-invalid",
+        "definition": null,
+        "display": "Invalid Code"
+      }
+    },
+    {
+      "hash": "|null|null|structure|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "structure",
+        "definition": null,
+        "display": "Structural Issue"
+      }
+    }
+  ]
+}

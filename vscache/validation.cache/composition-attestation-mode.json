@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/composition-attestation-mode",
+  "outcomes": [
+    {
+      "hash": "|null|null|legal|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "legal",
+        "definition": null,
+        "display": "Legal"
+      }
+    }
+  ]
+}

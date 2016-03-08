@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/operation-kind",
+  "outcomes": [
+    {
+      "hash": "|null|null|operation|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "operation",
+        "definition": null,
+        "display": "Operation"
+      }
+    },
+    {
+      "hash": "|null|null|query|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "query",
+        "definition": null,
+        "display": "Query"
+      }
+    }
+  ]
+}

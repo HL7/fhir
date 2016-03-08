@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/reaction-event-certainty",
+  "outcomes": [
+    {
+      "hash": "|null|null|likely|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "likely",
+        "definition": null,
+        "display": "Likely"
+      }
+    },
+    {
+      "hash": "|null|null|confirmed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "confirmed",
+        "definition": null,
+        "display": "Confirmed"
+      }
+    }
+  ]
+}

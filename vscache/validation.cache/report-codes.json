@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Complete blood count (hemogram) panel - Blood by Automated count"
       }
@@ -32,8 +31,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Complete blood count (hemogram) panel - Blood by Automated count"
       }
@@ -48,8 +46,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Microbial susceptibility tests Set"
       }
@@ -64,8 +61,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Genetic analysis master panel - Blood or Tissue by Molecular genetics method"
       }
@@ -75,8 +71,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Lipid panel with direct LDL - Serum or Plasma"
       }
@@ -86,8 +81,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Study report Skeletal system DXA"
       }
@@ -97,8 +91,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Lead [Mass/volume] in Blood"
       }
@@ -108,8 +101,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "Bacteria identified in Wound by Aerobe culture"
       }
@@ -119,8 +111,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": null,
+        "abstract": null,
         "definition": null,
         "display": "ABCB4 gene mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
       }

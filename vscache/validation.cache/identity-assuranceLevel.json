@@ -1,0 +1,25 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/identity-assuranceLevel",
+  "outcomes": [
+    {
+      "hash": "|null|null|level3|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "level3",
+        "definition": null,
+        "display": "Level 3"
+      }
+    },
+    {
+      "hash": "|null|null|level2|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "level2",
+        "definition": null,
+        "display": "Level 2"
+      }
+    }
+  ]
+}

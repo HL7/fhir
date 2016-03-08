@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "FP",
+        "abstract": "FP",
         "definition": null,
         "display": "formulary policy"
       }

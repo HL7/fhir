@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "113030",
+        "abstract": "113030",
         "definition": null,
         "display": "Manifest"
       }

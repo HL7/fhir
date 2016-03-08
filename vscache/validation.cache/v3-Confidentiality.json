@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/v3-Confidentiality",
+  "outcomes": [
+    {
+      "hash": "|null|null|N|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "N",
+        "definition": null,
+        "display": "normal"
+      }
+    }
+  ]
+}

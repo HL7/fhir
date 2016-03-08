@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "28647000",
+        "abstract": "28647000",
         "definition": null,
         "display": "Meat"
       }

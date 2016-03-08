@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/property-representation",
+  "outcomes": [
+    {
+      "hash": "|null|null|xmlAttr|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "xmlAttr",
+        "definition": null,
+        "display": "XML Attribute"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/detectedissue-severity",
+  "outcomes": [
+    {
+      "hash": "|null|null|high|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "high",
+        "definition": null,
+        "display": "High"
+      }
+    }
+  ]
+}

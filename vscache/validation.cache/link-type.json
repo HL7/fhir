@@ -1,0 +1,15 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/link-type",
+  "outcomes": [
+    {
+      "hash": "|null|null|seealso|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "seealso",
+        "definition": null,
+        "display": "See also"
+      }
+    }
+  ]
+}

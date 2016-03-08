@@ -1,0 +1,35 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/condition-ver-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|provisional|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "provisional",
+        "definition": null,
+        "display": "Provisional"
+      }
+    },
+    {
+      "hash": "|null|null|differential|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "differential",
+        "definition": null,
+        "display": "Differential"
+      }
+    },
+    {
+      "hash": "|null|null|confirmed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "confirmed",
+        "definition": null,
+        "display": "Confirmed"
+      }
+    }
+  ]
+}

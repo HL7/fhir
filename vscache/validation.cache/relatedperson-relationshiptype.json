@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "partner",
+        "abstract": "partner",
         "definition": null,
         "display": "Partner"
       }
@@ -17,8 +16,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "owner",
+        "abstract": "owner",
         "definition": null,
         "display": "Owner of animal"
       }
@@ -28,8 +26,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "SIGOTHR",
+        "abstract": "SIGOTHR",
         "definition": null,
         "display": "significant other"
       }

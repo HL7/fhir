@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "13",
+        "abstract": "13",
         "definition": null,
         "display": "Stopped Concurrent Therapy"
       }

@@ -3,463 +3,933 @@
   "outcomes": [
     {
       "hash": "|null|null|MedicationDispense|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7e23d1b6\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "MedicationDispense",
+        "definition": null,
+        "display": "MedicationDispense"
+      }
     },
     {
       "hash": "|null|null|Questionnaire|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@27233468\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Questionnaire",
+        "definition": null,
+        "display": "Questionnaire"
+      }
     },
     {
       "hash": "|null|null|time|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@73e9e9c1\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "time",
+        "definition": null,
+        "display": "time"
+      }
     },
     {
       "hash": "|null|null|Observation|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@63a4f5f2\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Observation",
+        "definition": null,
+        "display": "Observation"
+      }
     },
     {
       "hash": "|null|null|Resource|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@3a96751c\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Resource",
+        "definition": null,
+        "display": "Resource"
+      }
     },
     {
       "hash": "|null|null|DocumentReference|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@736bc13d\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DocumentReference",
+        "definition": null,
+        "display": "DocumentReference"
+      }
     },
     {
       "hash": "|null|null|Provenance|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@2f090d8f\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Provenance",
+        "definition": null,
+        "display": "Provenance"
+      }
     },
     {
       "hash": "|null|null|markdown|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@2ff4575e\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "markdown",
+        "definition": null,
+        "display": "markdown"
+      }
     },
     {
       "hash": "|null|null|instant|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@1003f57d\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "instant",
+        "definition": null,
+        "display": "instant"
+      }
     },
     {
       "hash": "|null|null|HumanName|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@724f6da\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "HumanName",
+        "definition": null,
+        "display": "HumanName"
+      }
     },
     {
       "hash": "|null|null|integer|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@3d003969\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "integer",
+        "definition": null,
+        "display": "integer"
+      }
     },
     {
       "hash": "|null|null|Encounter|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@67f7dca4\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Encounter",
+        "definition": null,
+        "display": "Encounter"
+      }
     },
     {
       "hash": "|null|null|ContactPoint|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@425c59a0\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ContactPoint",
+        "definition": null,
+        "display": "ContactPoint"
+      }
     },
     {
       "hash": "|null|null|DiagnosticOrder|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@15fd398e\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DiagnosticOrder",
+        "definition": null,
+        "display": "DiagnosticOrder"
+      }
     },
     {
       "hash": "|null|null|uri|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@547ba47a\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "uri",
+        "definition": null,
+        "display": "uri"
+      }
     },
     {
       "hash": "|null|null|QuestionnaireResponse|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7845abea\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "QuestionnaireResponse",
+        "definition": null,
+        "display": "QuestionnaireResponse"
+      }
     },
     {
       "hash": "|null|null|DeviceUseRequest|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7444dd80\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DeviceUseRequest",
+        "definition": null,
+        "display": "DeviceUseRequest"
+      }
     },
     {
       "hash": "|null|null|Specimen|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@76a0cd25\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Specimen",
+        "definition": null,
+        "display": "Specimen"
+      }
     },
     {
       "hash": "|null|null|Procedure|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@5acea1b\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Procedure",
+        "definition": null,
+        "display": "Procedure"
+      }
     },
     {
       "hash": "|null|null|DataElement|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@36fc74fb\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DataElement",
+        "definition": null,
+        "display": "DataElement"
+      }
     },
     {
       "hash": "|null|null|ImagingStudy|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@4559b450\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ImagingStudy",
+        "definition": null,
+        "display": "ImagingStudy"
+      }
     },
     {
       "hash": "|null|null|Bundle|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@5017ffa4\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Bundle",
+        "definition": null,
+        "display": "Bundle"
+      }
     },
     {
       "hash": "|null|null|CarePlan|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@4e230bd0\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "CarePlan",
+        "definition": null,
+        "display": "CarePlan"
+      }
+    },
+    {
+      "hash": "|null|null|ActionDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code ActionDefinition in http://hl7.org/fhir/ValueSet/defined-types"
     },
     {
       "hash": "|null|null|Signature|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@69b76477\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Signature",
+        "definition": null,
+        "display": "Signature"
+      }
     },
     {
       "hash": "|null|null|AuditEvent|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7a736957\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "AuditEvent",
+        "definition": null,
+        "display": "AuditEvent"
+      }
     },
     {
       "hash": "|null|null|Identifier|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@40c162af\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Identifier",
+        "definition": null,
+        "display": "Identifier"
+      }
     },
     {
       "hash": "|null|null|FamilyMemberHistory|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@630f15f9\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "FamilyMemberHistory",
+        "definition": null,
+        "display": "FamilyMemberHistory"
+      }
     },
     {
       "hash": "|null|null|positiveInt|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@3ae194dd\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "positiveInt",
+        "definition": null,
+        "display": "positiveInt"
+      }
     },
     {
       "hash": "|null|null|Contract|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@69d266dc\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Contract",
+        "definition": null,
+        "display": "Contract"
+      }
     },
     {
       "hash": "|null|null|Meta|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@17b8588\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Meta",
+        "definition": null,
+        "display": "Meta"
+      }
     },
     {
       "hash": "|null|null|Extension|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@6be29f50\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Extension",
+        "definition": null,
+        "display": "Extension"
+      }
     },
     {
       "hash": "|null|null|Attachment|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@5835f05f\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Attachment",
+        "definition": null,
+        "display": "Attachment"
+      }
     },
     {
       "hash": "|null|null|List|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@4718dc3d\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "List",
+        "definition": null,
+        "display": "List"
+      }
     },
     {
       "hash": "|null|null|Timing|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@14e65b2c\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Timing",
+        "definition": null,
+        "display": "Timing"
+      }
     },
     {
       "hash": "|null|null|Practitioner|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@61b9f18a\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Practitioner",
+        "definition": null,
+        "display": "Practitioner"
+      }
     },
     {
       "hash": "|null|null|MedicationOrder|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@619d446c\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "MedicationOrder",
+        "definition": null,
+        "display": "MedicationOrder"
+      }
     },
     {
       "hash": "|null|null|Organization|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@1205cf5c\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Organization",
+        "definition": null,
+        "display": "Organization"
+      }
     },
     {
       "hash": "|null|null|Composition|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@516ccd6d\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Composition",
+        "definition": null,
+        "display": "Composition"
+      }
     },
     {
       "hash": "|null|null|ReferralRequest|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@27c662f2\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ReferralRequest",
+        "definition": null,
+        "display": "ReferralRequest"
+      }
     },
     {
       "hash": "|null|null|Coding|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@6d0c95a2\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Coding",
+        "definition": null,
+        "display": "Coding"
+      }
+    },
+    {
+      "hash": "|null|null|TriggerDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code TriggerDefinition in http://hl7.org/fhir/ValueSet/defined-types"
     },
     {
       "hash": "|null|null|ImmunizationRecommendation|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@44d13c2\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ImmunizationRecommendation",
+        "definition": null,
+        "display": "ImmunizationRecommendation"
+      }
     },
     {
       "hash": "|null|null|Immunization|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@41b6c84f\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Immunization",
+        "definition": null,
+        "display": "Immunization"
+      }
     },
     {
       "hash": "|null|null|Reference|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@47b12c06\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Reference",
+        "definition": null,
+        "display": "Reference"
+      }
     },
     {
       "hash": "|null|null|date|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@4fdeef74\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "date",
+        "definition": null,
+        "display": "date"
+      }
     },
     {
       "hash": "|null|null|ProcedureRequest|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@604c27c2\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ProcedureRequest",
+        "definition": null,
+        "display": "ProcedureRequest"
+      }
     },
     {
       "hash": "|null|null|Location|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@31234d42\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Location",
+        "definition": null,
+        "display": "Location"
+      }
     },
     {
       "hash": "|null|null|id|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@2e4e514\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "id",
+        "definition": null,
+        "display": "id"
+      }
     },
     {
       "hash": "|null|null|Medication|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@4a54142\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Medication",
+        "definition": null,
+        "display": "Medication"
+      }
     },
     {
       "hash": "|null|null|Ratio|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@4f12fe6f\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Ratio",
+        "definition": null,
+        "display": "Ratio"
+      }
     },
     {
       "hash": "|null|null|AllergyIntolerance|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@2619cd56\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "AllergyIntolerance",
+        "definition": null,
+        "display": "AllergyIntolerance"
+      }
+    },
+    {
+      "hash": "|null|null|ParameterDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code ParameterDefinition in http://hl7.org/fhir/ValueSet/defined-types"
     },
     {
       "hash": "|null|null|DomainResource|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7154fdd5\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DomainResource",
+        "definition": null,
+        "display": "DomainResource"
+      }
     },
     {
       "hash": "|null|null|SampledData|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@67fe51f7\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "SampledData",
+        "definition": null,
+        "display": "SampledData"
+      }
     },
     {
       "hash": "|null|null|Condition|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@23cda4e9\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Condition",
+        "definition": null,
+        "display": "Condition"
+      }
     },
     {
       "hash": "|null|null|Period|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@79a34914\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Period",
+        "definition": null,
+        "display": "Period"
+      }
     },
     {
       "hash": "|null|null|oid|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@1f1b95b\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "oid",
+        "definition": null,
+        "display": "oid"
+      }
     },
     {
       "hash": "|null|null|Narrative|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@6b497485\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Narrative",
+        "definition": null,
+        "display": "Narrative"
+      }
     },
     {
       "hash": "|null|null|DocumentManifest|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@275bc6fe\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DocumentManifest",
+        "definition": null,
+        "display": "DocumentManifest"
+      }
     },
     {
       "hash": "|null|null|CommunicationRequest|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@35cc8ee0\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "CommunicationRequest",
+        "definition": null,
+        "display": "CommunicationRequest"
+      }
     },
     {
       "hash": "|null|null|ModuleMetadata|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@68f145ff\" in system \"null\": null"
+      "severity": "error",
+      "message": "Unknown Code ModuleMetadata in http://hl7.org/fhir/ValueSet/defined-types"
     },
     {
       "hash": "|null|null|xhtml|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@35ecfe57\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "xhtml",
+        "definition": null,
+        "display": "XHTML"
+      }
     },
     {
       "hash": "|null|null|Quantity|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@6fb45900\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Quantity",
+        "definition": null,
+        "display": "Quantity"
+      }
     },
     {
       "hash": "|null|null|MedicationAdministration|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7d5f566f\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "MedicationAdministration",
+        "definition": null,
+        "display": "MedicationAdministration"
+      }
     },
     {
       "hash": "|null|null|Element|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@cc4753d\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Element",
+        "definition": null,
+        "display": "Element"
+      }
     },
     {
       "hash": "|null|null|BodySite|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@2052041c\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "BodySite",
+        "definition": null,
+        "display": "BodySite"
+      }
     },
     {
       "hash": "|null|null|Basic|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7b593f68\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Basic",
+        "definition": null,
+        "display": "Basic"
+      }
     },
     {
       "hash": "|null|null|Order|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@5edcacc3\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Order",
+        "definition": null,
+        "display": "Order"
+      }
     },
     {
       "hash": "|null|null|unsignedInt|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@24c0065c\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "unsignedInt",
+        "definition": null,
+        "display": "unsignedInt"
+      }
     },
     {
       "hash": "|null|null|DeviceUseStatement|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@552a3a22\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DeviceUseStatement",
+        "definition": null,
+        "display": "DeviceUseStatement"
+      }
     },
     {
       "hash": "|null|null|Flag|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@21fe673d\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Flag",
+        "definition": null,
+        "display": "Flag"
+      }
     },
     {
       "hash": "|null|null|Patient|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@6d490937\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Patient",
+        "definition": null,
+        "display": "Patient"
+      }
     },
     {
       "hash": "|null|null|Substance|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@68239e62\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Substance",
+        "definition": null,
+        "display": "Substance"
+      }
     },
     {
       "hash": "|null|null|Address|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@bca65e0\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Address",
+        "definition": null,
+        "display": "Address"
+      }
     },
     {
       "hash": "|null|null|RelatedPerson|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@1b3d9586\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "RelatedPerson",
+        "definition": null,
+        "display": "RelatedPerson"
+      }
     },
     {
       "hash": "|null|null|CodeableConcept|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@72c0993c\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "CodeableConcept",
+        "definition": null,
+        "display": "CodeableConcept"
+      }
     },
     {
       "hash": "|null|null|DiagnosticReport|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@6122e7a6\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DiagnosticReport",
+        "definition": null,
+        "display": "DiagnosticReport"
+      }
     },
     {
       "hash": "|null|null|Parameters|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@674f2158\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Parameters",
+        "definition": null,
+        "display": "Parameters"
+      }
     },
     {
       "hash": "|null|null|MedicationStatement|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@1bf74085\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "MedicationStatement",
+        "definition": null,
+        "display": "MedicationStatement"
+      }
     },
     {
       "hash": "|null|null|CodeSystem|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7a6561e1\" in system \"null\": null"
+      "severity": "error",
+      "message": "Unknown Code CodeSystem in http://hl7.org/fhir/ValueSet/defined-types"
     },
     {
       "hash": "|null|null|Range|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@293f484b\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Range",
+        "definition": null,
+        "display": "Range"
+      }
     },
     {
       "hash": "|null|null|Goal|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@452be73a\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Goal",
+        "definition": null,
+        "display": "Goal"
+      }
     },
     {
       "hash": "|null|null|code|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@2380feca\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "code",
+        "definition": null,
+        "display": "code"
+      }
     },
     {
       "hash": "|null|null|BackboneElement|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@34c25507\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "BackboneElement",
+        "definition": null,
+        "display": "BackboneElement"
+      }
     },
     {
       "hash": "|null|null|ValueSet|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@43cf18ea\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ValueSet",
+        "definition": null,
+        "display": "ValueSet"
+      }
     },
     {
       "hash": "|null|null|Communication|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@688bdad7\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Communication",
+        "definition": null,
+        "display": "Communication"
+      }
     },
     {
       "hash": "|null|null|Annotation|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@5293f4ea\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Annotation",
+        "definition": null,
+        "display": "Annotation"
+      }
     },
     {
       "hash": "|null|null|dateTime|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@69d791fb\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "dateTime",
+        "definition": null,
+        "display": "dateTime"
+      }
     },
     {
       "hash": "|null|null|ElementDefinition|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@4347a205\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ElementDefinition",
+        "definition": null,
+        "display": "ElementDefinition"
+      }
     },
     {
       "hash": "|null|null|Device|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@8b82fb8\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Device",
+        "definition": null,
+        "display": "Device"
+      }
     },
     {
       "hash": "|null|null|boolean|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@16b70eb\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "boolean",
+        "definition": null,
+        "display": "boolean"
+      }
     },
     {
       "hash": "|null|null|string|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@7f43df66\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "string",
+        "definition": null,
+        "display": "string"
+      }
     },
     {
       "hash": "|null|null|decimal|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@3ff31375\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "decimal",
+        "definition": null,
+        "display": "decimal"
+      }
     },
     {
       "hash": "|null|null|base64Binary|null",
-      "severity": "fatal",
-      "message": "Error validating code \"org.hl7.fhir.dstu21.model.Coding@59b93bc8\" in system \"null\": null"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "base64Binary",
+        "definition": null,
+        "display": "base64Binary"
+      }
+    },
+    {
+      "hash": "|null|null|DataRequirement|null",
+      "severity": "error",
+      "message": "Unknown Code DataRequirement in http://hl7.org/fhir/ValueSet/defined-types"
     }
   ]
 }

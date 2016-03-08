@@ -6,8 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "10157-6",
+        "abstract": "10157-6",
         "definition": null,
         "display": "History of family member diseases Narrative"
       }
@@ -17,8 +16,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "11348-0",
+        "abstract": "11348-0",
         "definition": null,
         "display": "History of past illness Narrative"
       }
@@ -28,8 +26,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "10183-2",
+        "abstract": "10183-2",
         "definition": null,
         "display": "Hospital discharge medications Narrative"
       }
@@ -39,8 +36,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "48765-2",
+        "abstract": "48765-2",
         "definition": null,
         "display": "Allergies and adverse reactions Document"
       }
@@ -50,8 +46,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "29299-5",
+        "abstract": "29299-5",
         "definition": null,
         "display": "Reason for visit Narrative"
       }

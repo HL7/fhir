@@ -1,0 +1,55 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/care-plan-activity-category",
+  "outcomes": [
+    {
+      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|observation|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "observation",
+        "definition": null,
+        "display": "Observation"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|procedure|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "procedure",
+        "definition": null,
+        "display": "Procedure"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|encounter|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "encounter",
+        "definition": null,
+        "display": "Encounter"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|diet|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "diet",
+        "definition": null,
+        "display": "Diet"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|other|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "other",
+        "definition": null,
+        "display": "Other"
+      }
+    }
+  ]
+}
