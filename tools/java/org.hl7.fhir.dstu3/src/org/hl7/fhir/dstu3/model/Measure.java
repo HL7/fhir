@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -46,6 +46,212 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 @ResourceDef(name="Measure", profile="http://hl7.org/fhir/Profile/Measure")
 public class Measure extends DomainResource {
+
+    public enum MeasureScoring {
+        /**
+         * The measure score is defined using a proportion
+         */
+        PROPORTION, 
+        /**
+         * The measure score is defined using a ratio
+         */
+        RATIO, 
+        /**
+         * The score is defined by a calculation of some quantity
+         */
+        CONTINUOUSVARIABLE, 
+        /**
+         * The measure is a cohort definition
+         */
+        COHORT, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static MeasureScoring fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("proportion".equals(codeString))
+          return PROPORTION;
+        if ("ratio".equals(codeString))
+          return RATIO;
+        if ("continuous-variable".equals(codeString))
+          return CONTINUOUSVARIABLE;
+        if ("cohort".equals(codeString))
+          return COHORT;
+        throw new FHIRException("Unknown MeasureScoring code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case PROPORTION: return "proportion";
+            case RATIO: return "ratio";
+            case CONTINUOUSVARIABLE: return "continuous-variable";
+            case COHORT: return "cohort";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PROPORTION: return "http://hl7.org/fhir/measure-scoring";
+            case RATIO: return "http://hl7.org/fhir/measure-scoring";
+            case CONTINUOUSVARIABLE: return "http://hl7.org/fhir/measure-scoring";
+            case COHORT: return "http://hl7.org/fhir/measure-scoring";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PROPORTION: return "The measure score is defined using a proportion";
+            case RATIO: return "The measure score is defined using a ratio";
+            case CONTINUOUSVARIABLE: return "The score is defined by a calculation of some quantity";
+            case COHORT: return "The measure is a cohort definition";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PROPORTION: return "Proportion";
+            case RATIO: return "Ratio";
+            case CONTINUOUSVARIABLE: return "Continuous Variable";
+            case COHORT: return "Cohort";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class MeasureScoringEnumFactory implements EnumFactory<MeasureScoring> {
+    public MeasureScoring fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("proportion".equals(codeString))
+          return MeasureScoring.PROPORTION;
+        if ("ratio".equals(codeString))
+          return MeasureScoring.RATIO;
+        if ("continuous-variable".equals(codeString))
+          return MeasureScoring.CONTINUOUSVARIABLE;
+        if ("cohort".equals(codeString))
+          return MeasureScoring.COHORT;
+        throw new IllegalArgumentException("Unknown MeasureScoring code '"+codeString+"'");
+        }
+        public Enumeration<MeasureScoring> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("proportion".equals(codeString))
+          return new Enumeration<MeasureScoring>(this, MeasureScoring.PROPORTION);
+        if ("ratio".equals(codeString))
+          return new Enumeration<MeasureScoring>(this, MeasureScoring.RATIO);
+        if ("continuous-variable".equals(codeString))
+          return new Enumeration<MeasureScoring>(this, MeasureScoring.CONTINUOUSVARIABLE);
+        if ("cohort".equals(codeString))
+          return new Enumeration<MeasureScoring>(this, MeasureScoring.COHORT);
+        throw new FHIRException("Unknown MeasureScoring code '"+codeString+"'");
+        }
+    public String toCode(MeasureScoring code) {
+      if (code == MeasureScoring.PROPORTION)
+        return "proportion";
+      if (code == MeasureScoring.RATIO)
+        return "ratio";
+      if (code == MeasureScoring.CONTINUOUSVARIABLE)
+        return "continuous-variable";
+      if (code == MeasureScoring.COHORT)
+        return "cohort";
+      return "?";
+      }
+    public String toSystem(MeasureScoring code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum MeasureType {
+        /**
+         * The measure is a process measure
+         */
+        PROCESS, 
+        /**
+         * The measure is an outcome measure
+         */
+        OUTCOME, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static MeasureType fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("process".equals(codeString))
+          return PROCESS;
+        if ("outcome".equals(codeString))
+          return OUTCOME;
+        throw new FHIRException("Unknown MeasureType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case PROCESS: return "process";
+            case OUTCOME: return "outcome";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case PROCESS: return "http://hl7.org/fhir/measure-type";
+            case OUTCOME: return "http://hl7.org/fhir/measure-type";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case PROCESS: return "The measure is a process measure";
+            case OUTCOME: return "The measure is an outcome measure";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case PROCESS: return "Process";
+            case OUTCOME: return "Outcome";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class MeasureTypeEnumFactory implements EnumFactory<MeasureType> {
+    public MeasureType fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("process".equals(codeString))
+          return MeasureType.PROCESS;
+        if ("outcome".equals(codeString))
+          return MeasureType.OUTCOME;
+        throw new IllegalArgumentException("Unknown MeasureType code '"+codeString+"'");
+        }
+        public Enumeration<MeasureType> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("process".equals(codeString))
+          return new Enumeration<MeasureType>(this, MeasureType.PROCESS);
+        if ("outcome".equals(codeString))
+          return new Enumeration<MeasureType>(this, MeasureType.OUTCOME);
+        throw new FHIRException("Unknown MeasureType code '"+codeString+"'");
+        }
+    public String toCode(MeasureType code) {
+      if (code == MeasureType.PROCESS)
+        return "process";
+      if (code == MeasureType.OUTCOME)
+        return "outcome";
+      return "?";
+      }
+    public String toSystem(MeasureType code) {
+      return code.getSystem();
+      }
+    }
 
     public enum MeasurePopulationType {
         /**
@@ -247,50 +453,248 @@ public class Measure extends DomainResource {
     }
 
     @Block()
-    public static class MeasurePopulationComponent extends BackboneElement implements IBaseBackboneElement {
+    public static class MeasureGroupComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The type of population criteria.
+         * The name of the population group.
          */
-        @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score", formalDefinition="The type of population criteria." )
-        protected Enumeration<MeasurePopulationType> type;
-
-        /**
-         * Optional name or short description of this population.
-         */
-        @Child(name = "name", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="", formalDefinition="Optional name or short description of this population." )
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="The name of the population group." )
         protected StringType name;
 
         /**
-         * The human readable description of this population criteria.
+         * A population criteria for the measure.
          */
-        @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="", formalDefinition="The human readable description of this population criteria." )
-        protected StringType description;
+        @Child(name = "population", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="A population criteria for the measure." )
+        protected List<MeasureGroupPopulationComponent> population;
 
-        /**
-         * The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.
-         */
-        @Child(name = "criteria", type = {StringType.class}, order=4, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="", formalDefinition="The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria." )
-        protected StringType criteria;
-
-        private static final long serialVersionUID = 1825597517L;
+        private static final long serialVersionUID = -524073700L;
 
     /**
      * Constructor
      */
-      public MeasurePopulationComponent() {
+      public MeasureGroupComponent() {
         super();
       }
 
     /**
      * Constructor
      */
-      public MeasurePopulationComponent(Enumeration<MeasurePopulationType> type, StringType criteria) {
+      public MeasureGroupComponent(StringType name) {
+        super();
+        this.name = name;
+      }
+
+        /**
+         * @return {@link #name} (The name of the population group.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureGroupComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (The name of the population group.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public MeasureGroupComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return The name of the population group.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value The name of the population group.
+         */
+        public MeasureGroupComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #population} (A population criteria for the measure.)
+         */
+        public List<MeasureGroupPopulationComponent> getPopulation() { 
+          if (this.population == null)
+            this.population = new ArrayList<MeasureGroupPopulationComponent>();
+          return this.population;
+        }
+
+        public boolean hasPopulation() { 
+          if (this.population == null)
+            return false;
+          for (MeasureGroupPopulationComponent item : this.population)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #population} (A population criteria for the measure.)
+         */
+    // syntactic sugar
+        public MeasureGroupPopulationComponent addPopulation() { //3
+          MeasureGroupPopulationComponent t = new MeasureGroupPopulationComponent();
+          if (this.population == null)
+            this.population = new ArrayList<MeasureGroupPopulationComponent>();
+          this.population.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public MeasureGroupComponent addPopulation(MeasureGroupPopulationComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.population == null)
+            this.population = new ArrayList<MeasureGroupPopulationComponent>();
+          this.population.add(t);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "The name of the population group.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("population", "", "A population criteria for the measure.", 0, java.lang.Integer.MAX_VALUE, population));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("population"))
+          this.getPopulation().add((MeasureGroupPopulationComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.name");
+        }
+        else if (name.equals("population")) {
+          return addPopulation();
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public MeasureGroupComponent copy() {
+        MeasureGroupComponent dst = new MeasureGroupComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        if (population != null) {
+          dst.population = new ArrayList<MeasureGroupPopulationComponent>();
+          for (MeasureGroupPopulationComponent i : population)
+            dst.population.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MeasureGroupComponent))
+          return false;
+        MeasureGroupComponent o = (MeasureGroupComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(population, o.population, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MeasureGroupComponent))
+          return false;
+        MeasureGroupComponent o = (MeasureGroupComponent) other;
+        return compareValues(name, o.name, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (population == null || population.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "Measure.group";
+
+  }
+
+  }
+
+    @Block()
+    public static class MeasureGroupPopulationComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The type of population criteria.
+         */
+        @Child(name = "type", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score", formalDefinition="The type of population criteria." )
+        protected Enumeration<MeasurePopulationType> type;
+
+        /**
+         * A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report.
+         */
+        @Child(name = "identifier", type = {Identifier.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report." )
+        protected Identifier identifier;
+
+        /**
+         * Optional name or short description of this population.
+         */
+        @Child(name = "name", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="Optional name or short description of this population." )
+        protected StringType name;
+
+        /**
+         * The human readable description of this population criteria.
+         */
+        @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="The human readable description of this population criteria." )
+        protected StringType description;
+
+        /**
+         * The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.
+         */
+        @Child(name = "criteria", type = {StringType.class}, order=5, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria." )
+        protected StringType criteria;
+
+        private static final long serialVersionUID = 1158202275L;
+
+    /**
+     * Constructor
+     */
+      public MeasureGroupPopulationComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public MeasureGroupPopulationComponent(Enumeration<MeasurePopulationType> type, Identifier identifier, StringType criteria) {
         super();
         this.type = type;
+        this.identifier = identifier;
         this.criteria = criteria;
       }
 
@@ -300,7 +704,7 @@ public class Measure extends DomainResource {
         public Enumeration<MeasurePopulationType> getTypeElement() { 
           if (this.type == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MeasurePopulationComponent.type");
+              throw new Error("Attempt to auto-create MeasureGroupPopulationComponent.type");
             else if (Configuration.doAutoCreate())
               this.type = new Enumeration<MeasurePopulationType>(new MeasurePopulationTypeEnumFactory()); // bb
           return this.type;
@@ -317,7 +721,7 @@ public class Measure extends DomainResource {
         /**
          * @param value {@link #type} (The type of population criteria.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
          */
-        public MeasurePopulationComponent setTypeElement(Enumeration<MeasurePopulationType> value) { 
+        public MeasureGroupPopulationComponent setTypeElement(Enumeration<MeasurePopulationType> value) { 
           this.type = value;
           return this;
         }
@@ -332,10 +736,34 @@ public class Measure extends DomainResource {
         /**
          * @param value The type of population criteria.
          */
-        public MeasurePopulationComponent setType(MeasurePopulationType value) { 
+        public MeasureGroupPopulationComponent setType(MeasurePopulationType value) { 
             if (this.type == null)
               this.type = new Enumeration<MeasurePopulationType>(new MeasurePopulationTypeEnumFactory());
             this.type.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #identifier} (A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report.)
+         */
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureGroupPopulationComponent.identifier");
+            else if (Configuration.doAutoCreate())
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
+        }
+
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
+        }
+
+        /**
+         * @param value {@link #identifier} (A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report.)
+         */
+        public MeasureGroupPopulationComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
           return this;
         }
 
@@ -345,7 +773,7 @@ public class Measure extends DomainResource {
         public StringType getNameElement() { 
           if (this.name == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MeasurePopulationComponent.name");
+              throw new Error("Attempt to auto-create MeasureGroupPopulationComponent.name");
             else if (Configuration.doAutoCreate())
               this.name = new StringType(); // bb
           return this.name;
@@ -362,7 +790,7 @@ public class Measure extends DomainResource {
         /**
          * @param value {@link #name} (Optional name or short description of this population.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
-        public MeasurePopulationComponent setNameElement(StringType value) { 
+        public MeasureGroupPopulationComponent setNameElement(StringType value) { 
           this.name = value;
           return this;
         }
@@ -377,7 +805,7 @@ public class Measure extends DomainResource {
         /**
          * @param value Optional name or short description of this population.
          */
-        public MeasurePopulationComponent setName(String value) { 
+        public MeasureGroupPopulationComponent setName(String value) { 
           if (Utilities.noString(value))
             this.name = null;
           else {
@@ -394,7 +822,7 @@ public class Measure extends DomainResource {
         public StringType getDescriptionElement() { 
           if (this.description == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MeasurePopulationComponent.description");
+              throw new Error("Attempt to auto-create MeasureGroupPopulationComponent.description");
             else if (Configuration.doAutoCreate())
               this.description = new StringType(); // bb
           return this.description;
@@ -411,7 +839,7 @@ public class Measure extends DomainResource {
         /**
          * @param value {@link #description} (The human readable description of this population criteria.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
          */
-        public MeasurePopulationComponent setDescriptionElement(StringType value) { 
+        public MeasureGroupPopulationComponent setDescriptionElement(StringType value) { 
           this.description = value;
           return this;
         }
@@ -426,7 +854,7 @@ public class Measure extends DomainResource {
         /**
          * @param value The human readable description of this population criteria.
          */
-        public MeasurePopulationComponent setDescription(String value) { 
+        public MeasureGroupPopulationComponent setDescription(String value) { 
           if (Utilities.noString(value))
             this.description = null;
           else {
@@ -443,7 +871,7 @@ public class Measure extends DomainResource {
         public StringType getCriteriaElement() { 
           if (this.criteria == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MeasurePopulationComponent.criteria");
+              throw new Error("Attempt to auto-create MeasureGroupPopulationComponent.criteria");
             else if (Configuration.doAutoCreate())
               this.criteria = new StringType(); // bb
           return this.criteria;
@@ -460,7 +888,7 @@ public class Measure extends DomainResource {
         /**
          * @param value {@link #criteria} (The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
          */
-        public MeasurePopulationComponent setCriteriaElement(StringType value) { 
+        public MeasureGroupPopulationComponent setCriteriaElement(StringType value) { 
           this.criteria = value;
           return this;
         }
@@ -475,7 +903,7 @@ public class Measure extends DomainResource {
         /**
          * @param value The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.
          */
-        public MeasurePopulationComponent setCriteria(String value) { 
+        public MeasureGroupPopulationComponent setCriteria(String value) { 
             if (this.criteria == null)
               this.criteria = new StringType();
             this.criteria.setValue(value);
@@ -485,6 +913,7 @@ public class Measure extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The type of population criteria.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("identifier", "Identifier", "A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("name", "string", "Optional name or short description of this population.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("description", "string", "The human readable description of this population criteria.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("criteria", "string", "The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.", 0, java.lang.Integer.MAX_VALUE, criteria));
@@ -494,6 +923,8 @@ public class Measure extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("type"))
           this.type = new MeasurePopulationTypeEnumFactory().fromType(value); // Enumeration<MeasurePopulationType>
+        else if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("description"))
@@ -509,6 +940,10 @@ public class Measure extends DomainResource {
         if (name.equals("type")) {
           throw new FHIRException("Cannot call addChild on a primitive type Measure.type");
         }
+        else if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type Measure.name");
         }
@@ -522,10 +957,11 @@ public class Measure extends DomainResource {
           return super.addChild(name);
       }
 
-      public MeasurePopulationComponent copy() {
-        MeasurePopulationComponent dst = new MeasurePopulationComponent();
+      public MeasureGroupPopulationComponent copy() {
+        MeasureGroupPopulationComponent dst = new MeasureGroupPopulationComponent();
         copyValues(dst);
         dst.type = type == null ? null : type.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
         dst.criteria = criteria == null ? null : criteria.copy();
@@ -536,62 +972,48 @@ public class Measure extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof MeasurePopulationComponent))
+        if (!(other instanceof MeasureGroupPopulationComponent))
           return false;
-        MeasurePopulationComponent o = (MeasurePopulationComponent) other;
-        return compareDeep(type, o.type, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
-           && compareDeep(criteria, o.criteria, true);
+        MeasureGroupPopulationComponent o = (MeasureGroupPopulationComponent) other;
+        return compareDeep(type, o.type, true) && compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true)
+           && compareDeep(description, o.description, true) && compareDeep(criteria, o.criteria, true);
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof MeasurePopulationComponent))
+        if (!(other instanceof MeasureGroupPopulationComponent))
           return false;
-        MeasurePopulationComponent o = (MeasurePopulationComponent) other;
+        MeasureGroupPopulationComponent o = (MeasureGroupPopulationComponent) other;
         return compareValues(type, o.type, true) && compareValues(name, o.name, true) && compareValues(description, o.description, true)
            && compareValues(criteria, o.criteria, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (type == null || type.isEmpty()) && (name == null || name.isEmpty())
-           && (description == null || description.isEmpty()) && (criteria == null || criteria.isEmpty())
+        return super.isEmpty() && (type == null || type.isEmpty()) && (identifier == null || identifier.isEmpty())
+           && (name == null || name.isEmpty()) && (description == null || description.isEmpty()) && (criteria == null || criteria.isEmpty())
           ;
       }
 
   public String fhirType() {
-    return "Measure.population";
+    return "Measure.group.population";
 
   }
 
   }
-
-    /**
-     * A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.
-     */
-    @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Logical identifier", formalDefinition="A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact." )
-    protected List<Identifier> identifier;
-
-    /**
-     * The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
-     */
-    @Child(name = "version", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="The version of the module, if any", formalDefinition="The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification." )
-    protected StringType version;
 
     /**
      * A reference to a ModuleMetadata resource that describes the metadata for the measure.
      */
-    @Child(name = "moduleMetadata", type = {ModuleMetadata.class}, order=2, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "moduleMetadata", type = {ModuleMetadata.class}, order=0, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Metadata for the measure", formalDefinition="A reference to a ModuleMetadata resource that describes the metadata for the measure." )
     protected ModuleMetadata moduleMetadata;
 
     /**
      * A reference to a Library resource containing the formal logic used by the measure.
      */
-    @Child(name = "library", type = {Library.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "library", type = {Library.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Logic used by the measure", formalDefinition="A reference to a Library resource containing the formal logic used by the measure." )
     protected List<Reference> library;
     /**
@@ -601,122 +1023,110 @@ public class Measure extends DomainResource {
 
 
     /**
-     * The measure populations.
+     * A disclaimer for the measure.
      */
-    @Child(name = "population", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="", formalDefinition="The measure populations." )
-    protected List<MeasurePopulationComponent> population;
+    @Child(name = "disclaimer", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="A disclaimer for the measure." )
+    protected MarkdownType disclaimer;
+
+    /**
+     * The measure scoring type, e.g. proportion, CV.
+     */
+    @Child(name = "scoring", type = {CodeType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="proportion | ratio | continuous-variable | cohort", formalDefinition="The measure scoring type, e.g. proportion, CV." )
+    protected Enumeration<MeasureScoring> scoring;
+
+    /**
+     * The measure type, e.g. process, outcome.
+     */
+    @Child(name = "type", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="process | outcome", formalDefinition="The measure type, e.g. process, outcome." )
+    protected Enumeration<MeasureType> type;
+
+    /**
+     * A description of the risk adjustment for the measure.
+     */
+    @Child(name = "riskAdjustment", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="A description of the risk adjustment for the measure." )
+    protected StringType riskAdjustment;
+
+    /**
+     * A description of the rate aggregation for the measure.
+     */
+    @Child(name = "rateAggregation", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="A description of the rate aggregation for the measure." )
+    protected StringType rateAggregation;
+
+    /**
+     * The rationale for the measure.
+     */
+    @Child(name = "rationale", type = {MarkdownType.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="The rationale for the measure." )
+    protected MarkdownType rationale;
+
+    /**
+     * The clinical recommendation statement for the measure.
+     */
+    @Child(name = "clinicalRecommendationStatement", type = {MarkdownType.class}, order=8, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="The clinical recommendation statement for the measure." )
+    protected MarkdownType clinicalRecommendationStatement;
+
+    /**
+     * Improvement notation for the measure, e.g. higher score indicates better quality.
+     */
+    @Child(name = "improvementNotation", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="Improvement notation for the measure, e.g. higher score indicates better quality." )
+    protected StringType improvementNotation;
+
+    /**
+     * A natural language definition of the measure.
+     */
+    @Child(name = "definition", type = {MarkdownType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="A natural language definition of the measure." )
+    protected MarkdownType definition;
+
+    /**
+     * The guidance for the measure.
+     */
+    @Child(name = "guidance", type = {MarkdownType.class}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="The guidance for the measure." )
+    protected MarkdownType guidance;
+
+    /**
+     * The measure set, e.g. Preventive Care and Screening.
+     */
+    @Child(name = "set", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="The measure set, e.g. Preventive Care and Screening." )
+    protected StringType set;
+
+    /**
+     * A group of population criteria for the measure.
+     */
+    @Child(name = "group", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="A group of population criteria for the measure." )
+    protected List<MeasureGroupComponent> group;
 
     /**
      * The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.
      */
-    @Child(name = "stratifier", type = {StringType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "stratifier", type = {StringType.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path." )
     protected List<StringType> stratifier;
 
     /**
      * The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.
      */
-    @Child(name = "supplementalData", type = {StringType.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "supplementalData", type = {StringType.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="", formalDefinition="The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path." )
     protected List<StringType> supplementalData;
 
-    private static final long serialVersionUID = 914320694L;
+    private static final long serialVersionUID = -1076900406L;
 
   /**
    * Constructor
    */
     public Measure() {
       super();
-    }
-
-    /**
-     * @return {@link #identifier} (A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.)
-     */
-    public List<Identifier> getIdentifier() { 
-      if (this.identifier == null)
-        this.identifier = new ArrayList<Identifier>();
-      return this.identifier;
-    }
-
-    public boolean hasIdentifier() { 
-      if (this.identifier == null)
-        return false;
-      for (Identifier item : this.identifier)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #identifier} (A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.)
-     */
-    // syntactic sugar
-    public Identifier addIdentifier() { //3
-      Identifier t = new Identifier();
-      if (this.identifier == null)
-        this.identifier = new ArrayList<Identifier>();
-      this.identifier.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public Measure addIdentifier(Identifier t) { //3
-      if (t == null)
-        return this;
-      if (this.identifier == null)
-        this.identifier = new ArrayList<Identifier>();
-      this.identifier.add(t);
-      return this;
-    }
-
-    /**
-     * @return {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
-     */
-    public StringType getVersionElement() { 
-      if (this.version == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Measure.version");
-        else if (Configuration.doAutoCreate())
-          this.version = new StringType(); // bb
-      return this.version;
-    }
-
-    public boolean hasVersionElement() { 
-      return this.version != null && !this.version.isEmpty();
-    }
-
-    public boolean hasVersion() { 
-      return this.version != null && !this.version.isEmpty();
-    }
-
-    /**
-     * @param value {@link #version} (The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
-     */
-    public Measure setVersionElement(StringType value) { 
-      this.version = value;
-      return this;
-    }
-
-    /**
-     * @return The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
-     */
-    public String getVersion() { 
-      return this.version == null ? null : this.version.getValue();
-    }
-
-    /**
-     * @param value The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.
-     */
-    public Measure setVersion(String value) { 
-      if (Utilities.noString(value))
-        this.version = null;
-      else {
-        if (this.version == null)
-          this.version = new StringType();
-        this.version.setValue(value);
-      }
-      return this;
     }
 
     /**
@@ -805,42 +1215,581 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #population} (The measure populations.)
+     * @return {@link #disclaimer} (A disclaimer for the measure.). This is the underlying object with id, value and extensions. The accessor "getDisclaimer" gives direct access to the value
      */
-    public List<MeasurePopulationComponent> getPopulation() { 
-      if (this.population == null)
-        this.population = new ArrayList<MeasurePopulationComponent>();
-      return this.population;
+    public MarkdownType getDisclaimerElement() { 
+      if (this.disclaimer == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.disclaimer");
+        else if (Configuration.doAutoCreate())
+          this.disclaimer = new MarkdownType(); // bb
+      return this.disclaimer;
     }
 
-    public boolean hasPopulation() { 
-      if (this.population == null)
+    public boolean hasDisclaimerElement() { 
+      return this.disclaimer != null && !this.disclaimer.isEmpty();
+    }
+
+    public boolean hasDisclaimer() { 
+      return this.disclaimer != null && !this.disclaimer.isEmpty();
+    }
+
+    /**
+     * @param value {@link #disclaimer} (A disclaimer for the measure.). This is the underlying object with id, value and extensions. The accessor "getDisclaimer" gives direct access to the value
+     */
+    public Measure setDisclaimerElement(MarkdownType value) { 
+      this.disclaimer = value;
+      return this;
+    }
+
+    /**
+     * @return A disclaimer for the measure.
+     */
+    public String getDisclaimer() { 
+      return this.disclaimer == null ? null : this.disclaimer.getValue();
+    }
+
+    /**
+     * @param value A disclaimer for the measure.
+     */
+    public Measure setDisclaimer(String value) { 
+      if (value == null)
+        this.disclaimer = null;
+      else {
+        if (this.disclaimer == null)
+          this.disclaimer = new MarkdownType();
+        this.disclaimer.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #scoring} (The measure scoring type, e.g. proportion, CV.). This is the underlying object with id, value and extensions. The accessor "getScoring" gives direct access to the value
+     */
+    public Enumeration<MeasureScoring> getScoringElement() { 
+      if (this.scoring == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.scoring");
+        else if (Configuration.doAutoCreate())
+          this.scoring = new Enumeration<MeasureScoring>(new MeasureScoringEnumFactory()); // bb
+      return this.scoring;
+    }
+
+    public boolean hasScoringElement() { 
+      return this.scoring != null && !this.scoring.isEmpty();
+    }
+
+    public boolean hasScoring() { 
+      return this.scoring != null && !this.scoring.isEmpty();
+    }
+
+    /**
+     * @param value {@link #scoring} (The measure scoring type, e.g. proportion, CV.). This is the underlying object with id, value and extensions. The accessor "getScoring" gives direct access to the value
+     */
+    public Measure setScoringElement(Enumeration<MeasureScoring> value) { 
+      this.scoring = value;
+      return this;
+    }
+
+    /**
+     * @return The measure scoring type, e.g. proportion, CV.
+     */
+    public MeasureScoring getScoring() { 
+      return this.scoring == null ? null : this.scoring.getValue();
+    }
+
+    /**
+     * @param value The measure scoring type, e.g. proportion, CV.
+     */
+    public Measure setScoring(MeasureScoring value) { 
+      if (value == null)
+        this.scoring = null;
+      else {
+        if (this.scoring == null)
+          this.scoring = new Enumeration<MeasureScoring>(new MeasureScoringEnumFactory());
+        this.scoring.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #type} (The measure type, e.g. process, outcome.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     */
+    public Enumeration<MeasureType> getTypeElement() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new Enumeration<MeasureType>(new MeasureTypeEnumFactory()); // bb
+      return this.type;
+    }
+
+    public boolean hasTypeElement() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    /**
+     * @param value {@link #type} (The measure type, e.g. process, outcome.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     */
+    public Measure setTypeElement(Enumeration<MeasureType> value) { 
+      this.type = value;
+      return this;
+    }
+
+    /**
+     * @return The measure type, e.g. process, outcome.
+     */
+    public MeasureType getType() { 
+      return this.type == null ? null : this.type.getValue();
+    }
+
+    /**
+     * @param value The measure type, e.g. process, outcome.
+     */
+    public Measure setType(MeasureType value) { 
+      if (value == null)
+        this.type = null;
+      else {
+        if (this.type == null)
+          this.type = new Enumeration<MeasureType>(new MeasureTypeEnumFactory());
+        this.type.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #riskAdjustment} (A description of the risk adjustment for the measure.). This is the underlying object with id, value and extensions. The accessor "getRiskAdjustment" gives direct access to the value
+     */
+    public StringType getRiskAdjustmentElement() { 
+      if (this.riskAdjustment == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.riskAdjustment");
+        else if (Configuration.doAutoCreate())
+          this.riskAdjustment = new StringType(); // bb
+      return this.riskAdjustment;
+    }
+
+    public boolean hasRiskAdjustmentElement() { 
+      return this.riskAdjustment != null && !this.riskAdjustment.isEmpty();
+    }
+
+    public boolean hasRiskAdjustment() { 
+      return this.riskAdjustment != null && !this.riskAdjustment.isEmpty();
+    }
+
+    /**
+     * @param value {@link #riskAdjustment} (A description of the risk adjustment for the measure.). This is the underlying object with id, value and extensions. The accessor "getRiskAdjustment" gives direct access to the value
+     */
+    public Measure setRiskAdjustmentElement(StringType value) { 
+      this.riskAdjustment = value;
+      return this;
+    }
+
+    /**
+     * @return A description of the risk adjustment for the measure.
+     */
+    public String getRiskAdjustment() { 
+      return this.riskAdjustment == null ? null : this.riskAdjustment.getValue();
+    }
+
+    /**
+     * @param value A description of the risk adjustment for the measure.
+     */
+    public Measure setRiskAdjustment(String value) { 
+      if (Utilities.noString(value))
+        this.riskAdjustment = null;
+      else {
+        if (this.riskAdjustment == null)
+          this.riskAdjustment = new StringType();
+        this.riskAdjustment.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #rateAggregation} (A description of the rate aggregation for the measure.). This is the underlying object with id, value and extensions. The accessor "getRateAggregation" gives direct access to the value
+     */
+    public StringType getRateAggregationElement() { 
+      if (this.rateAggregation == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.rateAggregation");
+        else if (Configuration.doAutoCreate())
+          this.rateAggregation = new StringType(); // bb
+      return this.rateAggregation;
+    }
+
+    public boolean hasRateAggregationElement() { 
+      return this.rateAggregation != null && !this.rateAggregation.isEmpty();
+    }
+
+    public boolean hasRateAggregation() { 
+      return this.rateAggregation != null && !this.rateAggregation.isEmpty();
+    }
+
+    /**
+     * @param value {@link #rateAggregation} (A description of the rate aggregation for the measure.). This is the underlying object with id, value and extensions. The accessor "getRateAggregation" gives direct access to the value
+     */
+    public Measure setRateAggregationElement(StringType value) { 
+      this.rateAggregation = value;
+      return this;
+    }
+
+    /**
+     * @return A description of the rate aggregation for the measure.
+     */
+    public String getRateAggregation() { 
+      return this.rateAggregation == null ? null : this.rateAggregation.getValue();
+    }
+
+    /**
+     * @param value A description of the rate aggregation for the measure.
+     */
+    public Measure setRateAggregation(String value) { 
+      if (Utilities.noString(value))
+        this.rateAggregation = null;
+      else {
+        if (this.rateAggregation == null)
+          this.rateAggregation = new StringType();
+        this.rateAggregation.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #rationale} (The rationale for the measure.). This is the underlying object with id, value and extensions. The accessor "getRationale" gives direct access to the value
+     */
+    public MarkdownType getRationaleElement() { 
+      if (this.rationale == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.rationale");
+        else if (Configuration.doAutoCreate())
+          this.rationale = new MarkdownType(); // bb
+      return this.rationale;
+    }
+
+    public boolean hasRationaleElement() { 
+      return this.rationale != null && !this.rationale.isEmpty();
+    }
+
+    public boolean hasRationale() { 
+      return this.rationale != null && !this.rationale.isEmpty();
+    }
+
+    /**
+     * @param value {@link #rationale} (The rationale for the measure.). This is the underlying object with id, value and extensions. The accessor "getRationale" gives direct access to the value
+     */
+    public Measure setRationaleElement(MarkdownType value) { 
+      this.rationale = value;
+      return this;
+    }
+
+    /**
+     * @return The rationale for the measure.
+     */
+    public String getRationale() { 
+      return this.rationale == null ? null : this.rationale.getValue();
+    }
+
+    /**
+     * @param value The rationale for the measure.
+     */
+    public Measure setRationale(String value) { 
+      if (value == null)
+        this.rationale = null;
+      else {
+        if (this.rationale == null)
+          this.rationale = new MarkdownType();
+        this.rationale.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #clinicalRecommendationStatement} (The clinical recommendation statement for the measure.). This is the underlying object with id, value and extensions. The accessor "getClinicalRecommendationStatement" gives direct access to the value
+     */
+    public MarkdownType getClinicalRecommendationStatementElement() { 
+      if (this.clinicalRecommendationStatement == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.clinicalRecommendationStatement");
+        else if (Configuration.doAutoCreate())
+          this.clinicalRecommendationStatement = new MarkdownType(); // bb
+      return this.clinicalRecommendationStatement;
+    }
+
+    public boolean hasClinicalRecommendationStatementElement() { 
+      return this.clinicalRecommendationStatement != null && !this.clinicalRecommendationStatement.isEmpty();
+    }
+
+    public boolean hasClinicalRecommendationStatement() { 
+      return this.clinicalRecommendationStatement != null && !this.clinicalRecommendationStatement.isEmpty();
+    }
+
+    /**
+     * @param value {@link #clinicalRecommendationStatement} (The clinical recommendation statement for the measure.). This is the underlying object with id, value and extensions. The accessor "getClinicalRecommendationStatement" gives direct access to the value
+     */
+    public Measure setClinicalRecommendationStatementElement(MarkdownType value) { 
+      this.clinicalRecommendationStatement = value;
+      return this;
+    }
+
+    /**
+     * @return The clinical recommendation statement for the measure.
+     */
+    public String getClinicalRecommendationStatement() { 
+      return this.clinicalRecommendationStatement == null ? null : this.clinicalRecommendationStatement.getValue();
+    }
+
+    /**
+     * @param value The clinical recommendation statement for the measure.
+     */
+    public Measure setClinicalRecommendationStatement(String value) { 
+      if (value == null)
+        this.clinicalRecommendationStatement = null;
+      else {
+        if (this.clinicalRecommendationStatement == null)
+          this.clinicalRecommendationStatement = new MarkdownType();
+        this.clinicalRecommendationStatement.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #improvementNotation} (Improvement notation for the measure, e.g. higher score indicates better quality.). This is the underlying object with id, value and extensions. The accessor "getImprovementNotation" gives direct access to the value
+     */
+    public StringType getImprovementNotationElement() { 
+      if (this.improvementNotation == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.improvementNotation");
+        else if (Configuration.doAutoCreate())
+          this.improvementNotation = new StringType(); // bb
+      return this.improvementNotation;
+    }
+
+    public boolean hasImprovementNotationElement() { 
+      return this.improvementNotation != null && !this.improvementNotation.isEmpty();
+    }
+
+    public boolean hasImprovementNotation() { 
+      return this.improvementNotation != null && !this.improvementNotation.isEmpty();
+    }
+
+    /**
+     * @param value {@link #improvementNotation} (Improvement notation for the measure, e.g. higher score indicates better quality.). This is the underlying object with id, value and extensions. The accessor "getImprovementNotation" gives direct access to the value
+     */
+    public Measure setImprovementNotationElement(StringType value) { 
+      this.improvementNotation = value;
+      return this;
+    }
+
+    /**
+     * @return Improvement notation for the measure, e.g. higher score indicates better quality.
+     */
+    public String getImprovementNotation() { 
+      return this.improvementNotation == null ? null : this.improvementNotation.getValue();
+    }
+
+    /**
+     * @param value Improvement notation for the measure, e.g. higher score indicates better quality.
+     */
+    public Measure setImprovementNotation(String value) { 
+      if (Utilities.noString(value))
+        this.improvementNotation = null;
+      else {
+        if (this.improvementNotation == null)
+          this.improvementNotation = new StringType();
+        this.improvementNotation.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #definition} (A natural language definition of the measure.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+     */
+    public MarkdownType getDefinitionElement() { 
+      if (this.definition == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.definition");
+        else if (Configuration.doAutoCreate())
+          this.definition = new MarkdownType(); // bb
+      return this.definition;
+    }
+
+    public boolean hasDefinitionElement() { 
+      return this.definition != null && !this.definition.isEmpty();
+    }
+
+    public boolean hasDefinition() { 
+      return this.definition != null && !this.definition.isEmpty();
+    }
+
+    /**
+     * @param value {@link #definition} (A natural language definition of the measure.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+     */
+    public Measure setDefinitionElement(MarkdownType value) { 
+      this.definition = value;
+      return this;
+    }
+
+    /**
+     * @return A natural language definition of the measure.
+     */
+    public String getDefinition() { 
+      return this.definition == null ? null : this.definition.getValue();
+    }
+
+    /**
+     * @param value A natural language definition of the measure.
+     */
+    public Measure setDefinition(String value) { 
+      if (value == null)
+        this.definition = null;
+      else {
+        if (this.definition == null)
+          this.definition = new MarkdownType();
+        this.definition.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #guidance} (The guidance for the measure.). This is the underlying object with id, value and extensions. The accessor "getGuidance" gives direct access to the value
+     */
+    public MarkdownType getGuidanceElement() { 
+      if (this.guidance == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.guidance");
+        else if (Configuration.doAutoCreate())
+          this.guidance = new MarkdownType(); // bb
+      return this.guidance;
+    }
+
+    public boolean hasGuidanceElement() { 
+      return this.guidance != null && !this.guidance.isEmpty();
+    }
+
+    public boolean hasGuidance() { 
+      return this.guidance != null && !this.guidance.isEmpty();
+    }
+
+    /**
+     * @param value {@link #guidance} (The guidance for the measure.). This is the underlying object with id, value and extensions. The accessor "getGuidance" gives direct access to the value
+     */
+    public Measure setGuidanceElement(MarkdownType value) { 
+      this.guidance = value;
+      return this;
+    }
+
+    /**
+     * @return The guidance for the measure.
+     */
+    public String getGuidance() { 
+      return this.guidance == null ? null : this.guidance.getValue();
+    }
+
+    /**
+     * @param value The guidance for the measure.
+     */
+    public Measure setGuidance(String value) { 
+      if (value == null)
+        this.guidance = null;
+      else {
+        if (this.guidance == null)
+          this.guidance = new MarkdownType();
+        this.guidance.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #set} (The measure set, e.g. Preventive Care and Screening.). This is the underlying object with id, value and extensions. The accessor "getSet" gives direct access to the value
+     */
+    public StringType getSetElement() { 
+      if (this.set == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Measure.set");
+        else if (Configuration.doAutoCreate())
+          this.set = new StringType(); // bb
+      return this.set;
+    }
+
+    public boolean hasSetElement() { 
+      return this.set != null && !this.set.isEmpty();
+    }
+
+    public boolean hasSet() { 
+      return this.set != null && !this.set.isEmpty();
+    }
+
+    /**
+     * @param value {@link #set} (The measure set, e.g. Preventive Care and Screening.). This is the underlying object with id, value and extensions. The accessor "getSet" gives direct access to the value
+     */
+    public Measure setSetElement(StringType value) { 
+      this.set = value;
+      return this;
+    }
+
+    /**
+     * @return The measure set, e.g. Preventive Care and Screening.
+     */
+    public String getSet() { 
+      return this.set == null ? null : this.set.getValue();
+    }
+
+    /**
+     * @param value The measure set, e.g. Preventive Care and Screening.
+     */
+    public Measure setSet(String value) { 
+      if (Utilities.noString(value))
+        this.set = null;
+      else {
+        if (this.set == null)
+          this.set = new StringType();
+        this.set.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #group} (A group of population criteria for the measure.)
+     */
+    public List<MeasureGroupComponent> getGroup() { 
+      if (this.group == null)
+        this.group = new ArrayList<MeasureGroupComponent>();
+      return this.group;
+    }
+
+    public boolean hasGroup() { 
+      if (this.group == null)
         return false;
-      for (MeasurePopulationComponent item : this.population)
+      for (MeasureGroupComponent item : this.group)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #population} (The measure populations.)
+     * @return {@link #group} (A group of population criteria for the measure.)
      */
     // syntactic sugar
-    public MeasurePopulationComponent addPopulation() { //3
-      MeasurePopulationComponent t = new MeasurePopulationComponent();
-      if (this.population == null)
-        this.population = new ArrayList<MeasurePopulationComponent>();
-      this.population.add(t);
+    public MeasureGroupComponent addGroup() { //3
+      MeasureGroupComponent t = new MeasureGroupComponent();
+      if (this.group == null)
+        this.group = new ArrayList<MeasureGroupComponent>();
+      this.group.add(t);
       return t;
     }
 
     // syntactic sugar
-    public Measure addPopulation(MeasurePopulationComponent t) { //3
+    public Measure addGroup(MeasureGroupComponent t) { //3
       if (t == null)
         return this;
-      if (this.population == null)
-        this.population = new ArrayList<MeasurePopulationComponent>();
-      this.population.add(t);
+      if (this.group == null)
+        this.group = new ArrayList<MeasureGroupComponent>();
+      this.group.add(t);
       return this;
     }
 
@@ -954,27 +1903,54 @@ public class Measure extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("version", "string", "The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification.", 0, java.lang.Integer.MAX_VALUE, version));
         childrenList.add(new Property("moduleMetadata", "ModuleMetadata", "A reference to a ModuleMetadata resource that describes the metadata for the measure.", 0, java.lang.Integer.MAX_VALUE, moduleMetadata));
         childrenList.add(new Property("library", "Reference(Library)", "A reference to a Library resource containing the formal logic used by the measure.", 0, java.lang.Integer.MAX_VALUE, library));
-        childrenList.add(new Property("population", "", "The measure populations.", 0, java.lang.Integer.MAX_VALUE, population));
+        childrenList.add(new Property("disclaimer", "markdown", "A disclaimer for the measure.", 0, java.lang.Integer.MAX_VALUE, disclaimer));
+        childrenList.add(new Property("scoring", "code", "The measure scoring type, e.g. proportion, CV.", 0, java.lang.Integer.MAX_VALUE, scoring));
+        childrenList.add(new Property("type", "code", "The measure type, e.g. process, outcome.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("riskAdjustment", "string", "A description of the risk adjustment for the measure.", 0, java.lang.Integer.MAX_VALUE, riskAdjustment));
+        childrenList.add(new Property("rateAggregation", "string", "A description of the rate aggregation for the measure.", 0, java.lang.Integer.MAX_VALUE, rateAggregation));
+        childrenList.add(new Property("rationale", "markdown", "The rationale for the measure.", 0, java.lang.Integer.MAX_VALUE, rationale));
+        childrenList.add(new Property("clinicalRecommendationStatement", "markdown", "The clinical recommendation statement for the measure.", 0, java.lang.Integer.MAX_VALUE, clinicalRecommendationStatement));
+        childrenList.add(new Property("improvementNotation", "string", "Improvement notation for the measure, e.g. higher score indicates better quality.", 0, java.lang.Integer.MAX_VALUE, improvementNotation));
+        childrenList.add(new Property("definition", "markdown", "A natural language definition of the measure.", 0, java.lang.Integer.MAX_VALUE, definition));
+        childrenList.add(new Property("guidance", "markdown", "The guidance for the measure.", 0, java.lang.Integer.MAX_VALUE, guidance));
+        childrenList.add(new Property("set", "string", "The measure set, e.g. Preventive Care and Screening.", 0, java.lang.Integer.MAX_VALUE, set));
+        childrenList.add(new Property("group", "", "A group of population criteria for the measure.", 0, java.lang.Integer.MAX_VALUE, group));
         childrenList.add(new Property("stratifier", "string", "The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.", 0, java.lang.Integer.MAX_VALUE, stratifier));
         childrenList.add(new Property("supplementalData", "string", "The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.", 0, java.lang.Integer.MAX_VALUE, supplementalData));
       }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("identifier"))
-          this.getIdentifier().add(castToIdentifier(value));
-        else if (name.equals("version"))
-          this.version = castToString(value); // StringType
-        else if (name.equals("moduleMetadata"))
+        if (name.equals("moduleMetadata"))
           this.moduleMetadata = castToModuleMetadata(value); // ModuleMetadata
         else if (name.equals("library"))
           this.getLibrary().add(castToReference(value));
-        else if (name.equals("population"))
-          this.getPopulation().add((MeasurePopulationComponent) value);
+        else if (name.equals("disclaimer"))
+          this.disclaimer = castToMarkdown(value); // MarkdownType
+        else if (name.equals("scoring"))
+          this.scoring = new MeasureScoringEnumFactory().fromType(value); // Enumeration<MeasureScoring>
+        else if (name.equals("type"))
+          this.type = new MeasureTypeEnumFactory().fromType(value); // Enumeration<MeasureType>
+        else if (name.equals("riskAdjustment"))
+          this.riskAdjustment = castToString(value); // StringType
+        else if (name.equals("rateAggregation"))
+          this.rateAggregation = castToString(value); // StringType
+        else if (name.equals("rationale"))
+          this.rationale = castToMarkdown(value); // MarkdownType
+        else if (name.equals("clinicalRecommendationStatement"))
+          this.clinicalRecommendationStatement = castToMarkdown(value); // MarkdownType
+        else if (name.equals("improvementNotation"))
+          this.improvementNotation = castToString(value); // StringType
+        else if (name.equals("definition"))
+          this.definition = castToMarkdown(value); // MarkdownType
+        else if (name.equals("guidance"))
+          this.guidance = castToMarkdown(value); // MarkdownType
+        else if (name.equals("set"))
+          this.set = castToString(value); // StringType
+        else if (name.equals("group"))
+          this.getGroup().add((MeasureGroupComponent) value);
         else if (name.equals("stratifier"))
           this.getStratifier().add(castToString(value));
         else if (name.equals("supplementalData"))
@@ -985,21 +1961,48 @@ public class Measure extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("identifier")) {
-          return addIdentifier();
-        }
-        else if (name.equals("version")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Measure.version");
-        }
-        else if (name.equals("moduleMetadata")) {
+        if (name.equals("moduleMetadata")) {
           this.moduleMetadata = new ModuleMetadata();
           return this.moduleMetadata;
         }
         else if (name.equals("library")) {
           return addLibrary();
         }
-        else if (name.equals("population")) {
-          return addPopulation();
+        else if (name.equals("disclaimer")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.disclaimer");
+        }
+        else if (name.equals("scoring")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.scoring");
+        }
+        else if (name.equals("type")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.type");
+        }
+        else if (name.equals("riskAdjustment")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.riskAdjustment");
+        }
+        else if (name.equals("rateAggregation")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.rateAggregation");
+        }
+        else if (name.equals("rationale")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.rationale");
+        }
+        else if (name.equals("clinicalRecommendationStatement")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.clinicalRecommendationStatement");
+        }
+        else if (name.equals("improvementNotation")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.improvementNotation");
+        }
+        else if (name.equals("definition")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.definition");
+        }
+        else if (name.equals("guidance")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.guidance");
+        }
+        else if (name.equals("set")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.set");
+        }
+        else if (name.equals("group")) {
+          return addGroup();
         }
         else if (name.equals("stratifier")) {
           throw new FHIRException("Cannot call addChild on a primitive type Measure.stratifier");
@@ -1019,22 +2022,27 @@ public class Measure extends DomainResource {
       public Measure copy() {
         Measure dst = new Measure();
         copyValues(dst);
-        if (identifier != null) {
-          dst.identifier = new ArrayList<Identifier>();
-          for (Identifier i : identifier)
-            dst.identifier.add(i.copy());
-        };
-        dst.version = version == null ? null : version.copy();
         dst.moduleMetadata = moduleMetadata == null ? null : moduleMetadata.copy();
         if (library != null) {
           dst.library = new ArrayList<Reference>();
           for (Reference i : library)
             dst.library.add(i.copy());
         };
-        if (population != null) {
-          dst.population = new ArrayList<MeasurePopulationComponent>();
-          for (MeasurePopulationComponent i : population)
-            dst.population.add(i.copy());
+        dst.disclaimer = disclaimer == null ? null : disclaimer.copy();
+        dst.scoring = scoring == null ? null : scoring.copy();
+        dst.type = type == null ? null : type.copy();
+        dst.riskAdjustment = riskAdjustment == null ? null : riskAdjustment.copy();
+        dst.rateAggregation = rateAggregation == null ? null : rateAggregation.copy();
+        dst.rationale = rationale == null ? null : rationale.copy();
+        dst.clinicalRecommendationStatement = clinicalRecommendationStatement == null ? null : clinicalRecommendationStatement.copy();
+        dst.improvementNotation = improvementNotation == null ? null : improvementNotation.copy();
+        dst.definition = definition == null ? null : definition.copy();
+        dst.guidance = guidance == null ? null : guidance.copy();
+        dst.set = set == null ? null : set.copy();
+        if (group != null) {
+          dst.group = new ArrayList<MeasureGroupComponent>();
+          for (MeasureGroupComponent i : group)
+            dst.group.add(i.copy());
         };
         if (stratifier != null) {
           dst.stratifier = new ArrayList<StringType>();
@@ -1060,9 +2068,14 @@ public class Measure extends DomainResource {
         if (!(other instanceof Measure))
           return false;
         Measure o = (Measure) other;
-        return compareDeep(identifier, o.identifier, true) && compareDeep(version, o.version, true) && compareDeep(moduleMetadata, o.moduleMetadata, true)
-           && compareDeep(library, o.library, true) && compareDeep(population, o.population, true) && compareDeep(stratifier, o.stratifier, true)
-           && compareDeep(supplementalData, o.supplementalData, true);
+        return compareDeep(moduleMetadata, o.moduleMetadata, true) && compareDeep(library, o.library, true)
+           && compareDeep(disclaimer, o.disclaimer, true) && compareDeep(scoring, o.scoring, true) && compareDeep(type, o.type, true)
+           && compareDeep(riskAdjustment, o.riskAdjustment, true) && compareDeep(rateAggregation, o.rateAggregation, true)
+           && compareDeep(rationale, o.rationale, true) && compareDeep(clinicalRecommendationStatement, o.clinicalRecommendationStatement, true)
+           && compareDeep(improvementNotation, o.improvementNotation, true) && compareDeep(definition, o.definition, true)
+           && compareDeep(guidance, o.guidance, true) && compareDeep(set, o.set, true) && compareDeep(group, o.group, true)
+           && compareDeep(stratifier, o.stratifier, true) && compareDeep(supplementalData, o.supplementalData, true)
+          ;
       }
 
       @Override
@@ -1072,15 +2085,24 @@ public class Measure extends DomainResource {
         if (!(other instanceof Measure))
           return false;
         Measure o = (Measure) other;
-        return compareValues(version, o.version, true) && compareValues(stratifier, o.stratifier, true) && compareValues(supplementalData, o.supplementalData, true)
-          ;
+        return compareValues(disclaimer, o.disclaimer, true) && compareValues(scoring, o.scoring, true) && compareValues(type, o.type, true)
+           && compareValues(riskAdjustment, o.riskAdjustment, true) && compareValues(rateAggregation, o.rateAggregation, true)
+           && compareValues(rationale, o.rationale, true) && compareValues(clinicalRecommendationStatement, o.clinicalRecommendationStatement, true)
+           && compareValues(improvementNotation, o.improvementNotation, true) && compareValues(definition, o.definition, true)
+           && compareValues(guidance, o.guidance, true) && compareValues(set, o.set, true) && compareValues(stratifier, o.stratifier, true)
+           && compareValues(supplementalData, o.supplementalData, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (version == null || version.isEmpty())
-           && (moduleMetadata == null || moduleMetadata.isEmpty()) && (library == null || library.isEmpty())
-           && (population == null || population.isEmpty()) && (stratifier == null || stratifier.isEmpty())
-           && (supplementalData == null || supplementalData.isEmpty());
+        return super.isEmpty() && (moduleMetadata == null || moduleMetadata.isEmpty()) && (library == null || library.isEmpty())
+           && (disclaimer == null || disclaimer.isEmpty()) && (scoring == null || scoring.isEmpty())
+           && (type == null || type.isEmpty()) && (riskAdjustment == null || riskAdjustment.isEmpty())
+           && (rateAggregation == null || rateAggregation.isEmpty()) && (rationale == null || rationale.isEmpty())
+           && (clinicalRecommendationStatement == null || clinicalRecommendationStatement.isEmpty())
+           && (improvementNotation == null || improvementNotation.isEmpty()) && (definition == null || definition.isEmpty())
+           && (guidance == null || guidance.isEmpty()) && (set == null || set.isEmpty()) && (group == null || group.isEmpty())
+           && (stratifier == null || stratifier.isEmpty()) && (supplementalData == null || supplementalData.isEmpty())
+          ;
       }
 
   @Override

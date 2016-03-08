@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1150,7 +1150,14 @@ public class GuidanceResponse extends DomainResource {
     @Description(shortDefinition="", formalDefinition="The actions, if any, produced by the evaluation of the artifact." )
     protected List<GuidanceResponseActionComponent> action;
 
-    private static final long serialVersionUID = -2105369308L;
+    /**
+     * If the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. A subsequent request to the service should include this data.
+     */
+    @Child(name = "dataRequirement", type = {DataRequirement.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="", formalDefinition="If the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. A subsequent request to the service should include this data." )
+    protected List<DataRequirement> dataRequirement;
+
+    private static final long serialVersionUID = -918912174L;
 
   /**
    * Constructor
@@ -1446,6 +1453,46 @@ public class GuidanceResponse extends DomainResource {
       return this;
     }
 
+    /**
+     * @return {@link #dataRequirement} (If the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. A subsequent request to the service should include this data.)
+     */
+    public List<DataRequirement> getDataRequirement() { 
+      if (this.dataRequirement == null)
+        this.dataRequirement = new ArrayList<DataRequirement>();
+      return this.dataRequirement;
+    }
+
+    public boolean hasDataRequirement() { 
+      if (this.dataRequirement == null)
+        return false;
+      for (DataRequirement item : this.dataRequirement)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #dataRequirement} (If the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. A subsequent request to the service should include this data.)
+     */
+    // syntactic sugar
+    public DataRequirement addDataRequirement() { //3
+      DataRequirement t = new DataRequirement();
+      if (this.dataRequirement == null)
+        this.dataRequirement = new ArrayList<DataRequirement>();
+      this.dataRequirement.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public GuidanceResponse addDataRequirement(DataRequirement t) { //3
+      if (t == null)
+        return this;
+      if (this.dataRequirement == null)
+        this.dataRequirement = new ArrayList<DataRequirement>();
+      this.dataRequirement.add(t);
+      return this;
+    }
+
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("requestId", "string", "The id of the request associated with this response. If an id was provided as part of the request, it will be provided here to enable the requester to more easily identify the response in a multi-request scenario.", 0, java.lang.Integer.MAX_VALUE, requestId));
@@ -1454,6 +1501,7 @@ public class GuidanceResponse extends DomainResource {
         childrenList.add(new Property("evaluationMessage", "Reference(OperationOutcome)", "Messages resulting from the evaluation of the artifact or artifacts. As part of evaluating the request, the engine may produce informational or warning messages. These messages will be provided by this element.", 0, java.lang.Integer.MAX_VALUE, evaluationMessage));
         childrenList.add(new Property("outputParameters", "Reference(Parameters)", "The output parameters of the evaluation, if any. Many modules will result in the return of specific resources such as procedure or communication requests that are returned as part of the operation result. However, modules may define specific outputs that would be returned as the result of the evaluation, and these would be returned in this element.", 0, java.lang.Integer.MAX_VALUE, outputParameters));
         childrenList.add(new Property("action", "", "The actions, if any, produced by the evaluation of the artifact.", 0, java.lang.Integer.MAX_VALUE, action));
+        childrenList.add(new Property("dataRequirement", "DataRequirement", "If the evaluation could not be completed due to lack of information, or additional information would potentially result in a more accurate response, this element will a description of the data required in order to proceed with the evaluation. A subsequent request to the service should include this data.", 0, java.lang.Integer.MAX_VALUE, dataRequirement));
       }
 
       @Override
@@ -1470,6 +1518,8 @@ public class GuidanceResponse extends DomainResource {
           this.outputParameters = castToReference(value); // Reference
         else if (name.equals("action"))
           this.getAction().add((GuidanceResponseActionComponent) value);
+        else if (name.equals("dataRequirement"))
+          this.getDataRequirement().add(castToDataRequirement(value));
         else
           super.setProperty(name, value);
       }
@@ -1495,6 +1545,9 @@ public class GuidanceResponse extends DomainResource {
         }
         else if (name.equals("action")) {
           return addAction();
+        }
+        else if (name.equals("dataRequirement")) {
+          return addDataRequirement();
         }
         else
           return super.addChild(name);
@@ -1522,6 +1575,11 @@ public class GuidanceResponse extends DomainResource {
           for (GuidanceResponseActionComponent i : action)
             dst.action.add(i.copy());
         };
+        if (dataRequirement != null) {
+          dst.dataRequirement = new ArrayList<DataRequirement>();
+          for (DataRequirement i : dataRequirement)
+            dst.dataRequirement.add(i.copy());
+        };
         return dst;
       }
 
@@ -1538,7 +1596,8 @@ public class GuidanceResponse extends DomainResource {
         GuidanceResponse o = (GuidanceResponse) other;
         return compareDeep(requestId, o.requestId, true) && compareDeep(module, o.module, true) && compareDeep(status, o.status, true)
            && compareDeep(evaluationMessage, o.evaluationMessage, true) && compareDeep(outputParameters, o.outputParameters, true)
-           && compareDeep(action, o.action, true);
+           && compareDeep(action, o.action, true) && compareDeep(dataRequirement, o.dataRequirement, true)
+          ;
       }
 
       @Override
@@ -1555,7 +1614,7 @@ public class GuidanceResponse extends DomainResource {
         return super.isEmpty() && (requestId == null || requestId.isEmpty()) && (module == null || module.isEmpty())
            && (status == null || status.isEmpty()) && (evaluationMessage == null || evaluationMessage.isEmpty())
            && (outputParameters == null || outputParameters.isEmpty()) && (action == null || action.isEmpty())
-          ;
+           && (dataRequirement == null || dataRequirement.isEmpty());
       }
 
   @Override

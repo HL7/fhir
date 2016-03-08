@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -947,6 +947,10 @@ public class Enumerations {
 
     public enum DataType {
         /**
+         * The definition of the actions that should be returned by evaluation of the artifact.
+         */
+        ACTIONDEFINITION, 
+        /**
          * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.
          */
         ADDRESS, 
@@ -982,6 +986,10 @@ public class Enumerations {
          * null
          */
         COUNT, 
+        /**
+         * Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.
+         */
+        DATAREQUIREMENT, 
         /**
          * null
          */
@@ -1027,6 +1035,10 @@ public class Enumerations {
          */
         NARRATIVE, 
         /**
+         * The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.
+         */
+        PARAMETERDEFINITION, 
+        /**
          * A time period defined by a start and end date and optionally time.
          */
         PERIOD, 
@@ -1062,6 +1074,10 @@ public class Enumerations {
          * Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.
          */
         TIMING, 
+        /**
+         * A description of a triggering event.
+         */
+        TRIGGERDEFINITION, 
         /**
          * A stream of bytes
          */
@@ -1141,6 +1157,8 @@ public class Enumerations {
         public static DataType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("ActionDefinition".equals(codeString))
+          return ACTIONDEFINITION;
         if ("Address".equals(codeString))
           return ADDRESS;
         if ("Age".equals(codeString))
@@ -1159,6 +1177,8 @@ public class Enumerations {
           return CONTACTPOINT;
         if ("Count".equals(codeString))
           return COUNT;
+        if ("DataRequirement".equals(codeString))
+          return DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DISTANCE;
         if ("Duration".equals(codeString))
@@ -1181,6 +1201,8 @@ public class Enumerations {
           return MONEY;
         if ("Narrative".equals(codeString))
           return NARRATIVE;
+        if ("ParameterDefinition".equals(codeString))
+          return PARAMETERDEFINITION;
         if ("Period".equals(codeString))
           return PERIOD;
         if ("Quantity".equals(codeString))
@@ -1199,6 +1221,8 @@ public class Enumerations {
           return SIMPLEQUANTITY;
         if ("Timing".equals(codeString))
           return TIMING;
+        if ("TriggerDefinition".equals(codeString))
+          return TRIGGERDEFINITION;
         if ("base64Binary".equals(codeString))
           return BASE64BINARY;
         if ("boolean".equals(codeString))
@@ -1239,6 +1263,7 @@ public class Enumerations {
         }
         public String toCode() {
           switch (this) {
+            case ACTIONDEFINITION: return "ActionDefinition";
             case ADDRESS: return "Address";
             case AGE: return "Age";
             case ANNOTATION: return "Annotation";
@@ -1248,6 +1273,7 @@ public class Enumerations {
             case CODING: return "Coding";
             case CONTACTPOINT: return "ContactPoint";
             case COUNT: return "Count";
+            case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
@@ -1259,6 +1285,7 @@ public class Enumerations {
             case MODULEMETADATA: return "ModuleMetadata";
             case MONEY: return "Money";
             case NARRATIVE: return "Narrative";
+            case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
             case QUANTITY: return "Quantity";
             case RANGE: return "Range";
@@ -1268,6 +1295,7 @@ public class Enumerations {
             case SIGNATURE: return "Signature";
             case SIMPLEQUANTITY: return "SimpleQuantity";
             case TIMING: return "Timing";
+            case TRIGGERDEFINITION: return "TriggerDefinition";
             case BASE64BINARY: return "base64Binary";
             case BOOLEAN: return "boolean";
             case CODE: return "code";
@@ -1291,6 +1319,7 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
+            case ACTIONDEFINITION: return "http://hl7.org/fhir/data-types";
             case ADDRESS: return "http://hl7.org/fhir/data-types";
             case AGE: return "http://hl7.org/fhir/data-types";
             case ANNOTATION: return "http://hl7.org/fhir/data-types";
@@ -1300,6 +1329,7 @@ public class Enumerations {
             case CODING: return "http://hl7.org/fhir/data-types";
             case CONTACTPOINT: return "http://hl7.org/fhir/data-types";
             case COUNT: return "http://hl7.org/fhir/data-types";
+            case DATAREQUIREMENT: return "http://hl7.org/fhir/data-types";
             case DISTANCE: return "http://hl7.org/fhir/data-types";
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
@@ -1311,6 +1341,7 @@ public class Enumerations {
             case MODULEMETADATA: return "http://hl7.org/fhir/data-types";
             case MONEY: return "http://hl7.org/fhir/data-types";
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
+            case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
             case PERIOD: return "http://hl7.org/fhir/data-types";
             case QUANTITY: return "http://hl7.org/fhir/data-types";
             case RANGE: return "http://hl7.org/fhir/data-types";
@@ -1320,6 +1351,7 @@ public class Enumerations {
             case SIGNATURE: return "http://hl7.org/fhir/data-types";
             case SIMPLEQUANTITY: return "http://hl7.org/fhir/data-types";
             case TIMING: return "http://hl7.org/fhir/data-types";
+            case TRIGGERDEFINITION: return "http://hl7.org/fhir/data-types";
             case BASE64BINARY: return "http://hl7.org/fhir/data-types";
             case BOOLEAN: return "http://hl7.org/fhir/data-types";
             case CODE: return "http://hl7.org/fhir/data-types";
@@ -1343,6 +1375,7 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
+            case ACTIONDEFINITION: return "The definition of the actions that should be returned by evaluation of the artifact.";
             case ADDRESS: return "There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.";
             case AGE: return "";
             case ANNOTATION: return "A  text note which also  contains information about who made the statement and when.";
@@ -1352,6 +1385,7 @@ public class Enumerations {
             case CODING: return "A reference to a code defined by a terminology system.";
             case CONTACTPOINT: return "Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.";
             case COUNT: return "";
+            case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
             case DISTANCE: return "";
             case DURATION: return "";
             case ELEMENT: return "Base definition for all elements in a resource.";
@@ -1363,6 +1397,7 @@ public class Enumerations {
             case MODULEMETADATA: return "The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.";
             case MONEY: return "";
             case NARRATIVE: return "A human-readable formatted text, including images.";
+            case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
             case QUANTITY: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case RANGE: return "A set of ordered Quantities defined by a low and high limit.";
@@ -1372,6 +1407,7 @@ public class Enumerations {
             case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
             case TIMING: return "Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.";
+            case TRIGGERDEFINITION: return "A description of a triggering event.";
             case BASE64BINARY: return "A stream of bytes";
             case BOOLEAN: return "Value of \"true\" or \"false\"";
             case CODE: return "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents";
@@ -1395,6 +1431,7 @@ public class Enumerations {
         }
         public String getDisplay() {
           switch (this) {
+            case ACTIONDEFINITION: return "ActionDefinition";
             case ADDRESS: return "Address";
             case AGE: return "Age";
             case ANNOTATION: return "Annotation";
@@ -1404,6 +1441,7 @@ public class Enumerations {
             case CODING: return "Coding";
             case CONTACTPOINT: return "ContactPoint";
             case COUNT: return "Count";
+            case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
@@ -1415,6 +1453,7 @@ public class Enumerations {
             case MODULEMETADATA: return "ModuleMetadata";
             case MONEY: return "Money";
             case NARRATIVE: return "Narrative";
+            case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
             case QUANTITY: return "Quantity";
             case RANGE: return "Range";
@@ -1424,6 +1463,7 @@ public class Enumerations {
             case SIGNATURE: return "Signature";
             case SIMPLEQUANTITY: return "SimpleQuantity";
             case TIMING: return "Timing";
+            case TRIGGERDEFINITION: return "TriggerDefinition";
             case BASE64BINARY: return "base64Binary";
             case BOOLEAN: return "boolean";
             case CODE: return "code";
@@ -1452,6 +1492,8 @@ public class Enumerations {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("ActionDefinition".equals(codeString))
+          return DataType.ACTIONDEFINITION;
         if ("Address".equals(codeString))
           return DataType.ADDRESS;
         if ("Age".equals(codeString))
@@ -1470,6 +1512,8 @@ public class Enumerations {
           return DataType.CONTACTPOINT;
         if ("Count".equals(codeString))
           return DataType.COUNT;
+        if ("DataRequirement".equals(codeString))
+          return DataType.DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DataType.DISTANCE;
         if ("Duration".equals(codeString))
@@ -1492,6 +1536,8 @@ public class Enumerations {
           return DataType.MONEY;
         if ("Narrative".equals(codeString))
           return DataType.NARRATIVE;
+        if ("ParameterDefinition".equals(codeString))
+          return DataType.PARAMETERDEFINITION;
         if ("Period".equals(codeString))
           return DataType.PERIOD;
         if ("Quantity".equals(codeString))
@@ -1510,6 +1556,8 @@ public class Enumerations {
           return DataType.SIMPLEQUANTITY;
         if ("Timing".equals(codeString))
           return DataType.TIMING;
+        if ("TriggerDefinition".equals(codeString))
+          return DataType.TRIGGERDEFINITION;
         if ("base64Binary".equals(codeString))
           return DataType.BASE64BINARY;
         if ("boolean".equals(codeString))
@@ -1554,6 +1602,8 @@ public class Enumerations {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("ActionDefinition".equals(codeString))
+          return new Enumeration<DataType>(this, DataType.ACTIONDEFINITION);
         if ("Address".equals(codeString))
           return new Enumeration<DataType>(this, DataType.ADDRESS);
         if ("Age".equals(codeString))
@@ -1572,6 +1622,8 @@ public class Enumerations {
           return new Enumeration<DataType>(this, DataType.CONTACTPOINT);
         if ("Count".equals(codeString))
           return new Enumeration<DataType>(this, DataType.COUNT);
+        if ("DataRequirement".equals(codeString))
+          return new Enumeration<DataType>(this, DataType.DATAREQUIREMENT);
         if ("Distance".equals(codeString))
           return new Enumeration<DataType>(this, DataType.DISTANCE);
         if ("Duration".equals(codeString))
@@ -1594,6 +1646,8 @@ public class Enumerations {
           return new Enumeration<DataType>(this, DataType.MONEY);
         if ("Narrative".equals(codeString))
           return new Enumeration<DataType>(this, DataType.NARRATIVE);
+        if ("ParameterDefinition".equals(codeString))
+          return new Enumeration<DataType>(this, DataType.PARAMETERDEFINITION);
         if ("Period".equals(codeString))
           return new Enumeration<DataType>(this, DataType.PERIOD);
         if ("Quantity".equals(codeString))
@@ -1612,6 +1666,8 @@ public class Enumerations {
           return new Enumeration<DataType>(this, DataType.SIMPLEQUANTITY);
         if ("Timing".equals(codeString))
           return new Enumeration<DataType>(this, DataType.TIMING);
+        if ("TriggerDefinition".equals(codeString))
+          return new Enumeration<DataType>(this, DataType.TRIGGERDEFINITION);
         if ("base64Binary".equals(codeString))
           return new Enumeration<DataType>(this, DataType.BASE64BINARY);
         if ("boolean".equals(codeString))
@@ -1651,6 +1707,8 @@ public class Enumerations {
         throw new FHIRException("Unknown DataType code '"+codeString+"'");
         }
     public String toCode(DataType code) {
+      if (code == DataType.ACTIONDEFINITION)
+        return "ActionDefinition";
       if (code == DataType.ADDRESS)
         return "Address";
       if (code == DataType.AGE)
@@ -1669,6 +1727,8 @@ public class Enumerations {
         return "ContactPoint";
       if (code == DataType.COUNT)
         return "Count";
+      if (code == DataType.DATAREQUIREMENT)
+        return "DataRequirement";
       if (code == DataType.DISTANCE)
         return "Distance";
       if (code == DataType.DURATION)
@@ -1691,6 +1751,8 @@ public class Enumerations {
         return "Money";
       if (code == DataType.NARRATIVE)
         return "Narrative";
+      if (code == DataType.PARAMETERDEFINITION)
+        return "ParameterDefinition";
       if (code == DataType.PERIOD)
         return "Period";
       if (code == DataType.QUANTITY)
@@ -1709,6 +1771,8 @@ public class Enumerations {
         return "SimpleQuantity";
       if (code == DataType.TIMING)
         return "Timing";
+      if (code == DataType.TRIGGERDEFINITION)
+        return "TriggerDefinition";
       if (code == DataType.BASE64BINARY)
         return "base64Binary";
       if (code == DataType.BOOLEAN)
@@ -1857,6 +1921,10 @@ public class Enumerations {
 
     public enum FHIRDefinedType {
         /**
+         * The definition of the actions that should be returned by evaluation of the artifact.
+         */
+        ACTIONDEFINITION, 
+        /**
          * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.
          */
         ADDRESS, 
@@ -1892,6 +1960,10 @@ public class Enumerations {
          * null
          */
         COUNT, 
+        /**
+         * Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.
+         */
+        DATAREQUIREMENT, 
         /**
          * null
          */
@@ -1937,6 +2009,10 @@ public class Enumerations {
          */
         NARRATIVE, 
         /**
+         * The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.
+         */
+        PARAMETERDEFINITION, 
+        /**
          * A time period defined by a start and end date and optionally time.
          */
         PERIOD, 
@@ -1972,6 +2048,10 @@ public class Enumerations {
          * Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.
          */
         TIMING, 
+        /**
+         * A description of a triggering event.
+         */
+        TRIGGERDEFINITION, 
         /**
          * A stream of bytes
          */
@@ -2289,6 +2369,10 @@ public class Enumerations {
          */
         MEASURE, 
         /**
+         * The MeasureReport resource contains the results of evaluating a measure.
+         */
+        MEASUREREPORT, 
+        /**
          * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
          */
         MEDIA, 
@@ -2491,6 +2575,8 @@ public class Enumerations {
         public static FHIRDefinedType fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("ActionDefinition".equals(codeString))
+          return ACTIONDEFINITION;
         if ("Address".equals(codeString))
           return ADDRESS;
         if ("Age".equals(codeString))
@@ -2509,6 +2595,8 @@ public class Enumerations {
           return CONTACTPOINT;
         if ("Count".equals(codeString))
           return COUNT;
+        if ("DataRequirement".equals(codeString))
+          return DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return DISTANCE;
         if ("Duration".equals(codeString))
@@ -2531,6 +2619,8 @@ public class Enumerations {
           return MONEY;
         if ("Narrative".equals(codeString))
           return NARRATIVE;
+        if ("ParameterDefinition".equals(codeString))
+          return PARAMETERDEFINITION;
         if ("Period".equals(codeString))
           return PERIOD;
         if ("Quantity".equals(codeString))
@@ -2549,6 +2639,8 @@ public class Enumerations {
           return SIMPLEQUANTITY;
         if ("Timing".equals(codeString))
           return TIMING;
+        if ("TriggerDefinition".equals(codeString))
+          return TRIGGERDEFINITION;
         if ("base64Binary".equals(codeString))
           return BASE64BINARY;
         if ("boolean".equals(codeString))
@@ -2707,6 +2799,8 @@ public class Enumerations {
           return LOCATION;
         if ("Measure".equals(codeString))
           return MEASURE;
+        if ("MeasureReport".equals(codeString))
+          return MEASUREREPORT;
         if ("Media".equals(codeString))
           return MEDIA;
         if ("Medication".equals(codeString))
@@ -2809,6 +2903,7 @@ public class Enumerations {
         }
         public String toCode() {
           switch (this) {
+            case ACTIONDEFINITION: return "ActionDefinition";
             case ADDRESS: return "Address";
             case AGE: return "Age";
             case ANNOTATION: return "Annotation";
@@ -2818,6 +2913,7 @@ public class Enumerations {
             case CODING: return "Coding";
             case CONTACTPOINT: return "ContactPoint";
             case COUNT: return "Count";
+            case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
@@ -2829,6 +2925,7 @@ public class Enumerations {
             case MODULEMETADATA: return "ModuleMetadata";
             case MONEY: return "Money";
             case NARRATIVE: return "Narrative";
+            case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
             case QUANTITY: return "Quantity";
             case RANGE: return "Range";
@@ -2838,6 +2935,7 @@ public class Enumerations {
             case SIGNATURE: return "Signature";
             case SIMPLEQUANTITY: return "SimpleQuantity";
             case TIMING: return "Timing";
+            case TRIGGERDEFINITION: return "TriggerDefinition";
             case BASE64BINARY: return "base64Binary";
             case BOOLEAN: return "boolean";
             case CODE: return "code";
@@ -2917,6 +3015,7 @@ public class Enumerations {
             case LIST: return "List";
             case LOCATION: return "Location";
             case MEASURE: return "Measure";
+            case MEASUREREPORT: return "MeasureReport";
             case MEDIA: return "Media";
             case MEDICATION: return "Medication";
             case MEDICATIONADMINISTRATION: return "MedicationAdministration";
@@ -2971,6 +3070,7 @@ public class Enumerations {
         }
         public String getSystem() {
           switch (this) {
+            case ACTIONDEFINITION: return "http://hl7.org/fhir/data-types";
             case ADDRESS: return "http://hl7.org/fhir/data-types";
             case AGE: return "http://hl7.org/fhir/data-types";
             case ANNOTATION: return "http://hl7.org/fhir/data-types";
@@ -2980,6 +3080,7 @@ public class Enumerations {
             case CODING: return "http://hl7.org/fhir/data-types";
             case CONTACTPOINT: return "http://hl7.org/fhir/data-types";
             case COUNT: return "http://hl7.org/fhir/data-types";
+            case DATAREQUIREMENT: return "http://hl7.org/fhir/data-types";
             case DISTANCE: return "http://hl7.org/fhir/data-types";
             case DURATION: return "http://hl7.org/fhir/data-types";
             case ELEMENT: return "http://hl7.org/fhir/data-types";
@@ -2991,6 +3092,7 @@ public class Enumerations {
             case MODULEMETADATA: return "http://hl7.org/fhir/data-types";
             case MONEY: return "http://hl7.org/fhir/data-types";
             case NARRATIVE: return "http://hl7.org/fhir/data-types";
+            case PARAMETERDEFINITION: return "http://hl7.org/fhir/data-types";
             case PERIOD: return "http://hl7.org/fhir/data-types";
             case QUANTITY: return "http://hl7.org/fhir/data-types";
             case RANGE: return "http://hl7.org/fhir/data-types";
@@ -3000,6 +3102,7 @@ public class Enumerations {
             case SIGNATURE: return "http://hl7.org/fhir/data-types";
             case SIMPLEQUANTITY: return "http://hl7.org/fhir/data-types";
             case TIMING: return "http://hl7.org/fhir/data-types";
+            case TRIGGERDEFINITION: return "http://hl7.org/fhir/data-types";
             case BASE64BINARY: return "http://hl7.org/fhir/data-types";
             case BOOLEAN: return "http://hl7.org/fhir/data-types";
             case CODE: return "http://hl7.org/fhir/data-types";
@@ -3079,6 +3182,7 @@ public class Enumerations {
             case LIST: return "http://hl7.org/fhir/resource-types";
             case LOCATION: return "http://hl7.org/fhir/resource-types";
             case MEASURE: return "http://hl7.org/fhir/resource-types";
+            case MEASUREREPORT: return "http://hl7.org/fhir/resource-types";
             case MEDIA: return "http://hl7.org/fhir/resource-types";
             case MEDICATION: return "http://hl7.org/fhir/resource-types";
             case MEDICATIONADMINISTRATION: return "http://hl7.org/fhir/resource-types";
@@ -3133,6 +3237,7 @@ public class Enumerations {
         }
         public String getDefinition() {
           switch (this) {
+            case ACTIONDEFINITION: return "The definition of the actions that should be returned by evaluation of the artifact.";
             case ADDRESS: return "There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.";
             case AGE: return "";
             case ANNOTATION: return "A  text note which also  contains information about who made the statement and when.";
@@ -3142,6 +3247,7 @@ public class Enumerations {
             case CODING: return "A reference to a code defined by a terminology system.";
             case CONTACTPOINT: return "Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.";
             case COUNT: return "";
+            case DATAREQUIREMENT: return "Describes a required data item for evaluation in terms of the type of data, and optional code- or date-based filters of the data.";
             case DISTANCE: return "";
             case DURATION: return "";
             case ELEMENT: return "Base definition for all elements in a resource.";
@@ -3153,6 +3259,7 @@ public class Enumerations {
             case MODULEMETADATA: return "The ModuleMetadata structure defines the common metadata elements used by quality improvement artifacts. This information includes descriptive and topical metadata to enable repository searches, as well as governance and evidentiary support information.";
             case MONEY: return "";
             case NARRATIVE: return "A human-readable formatted text, including images.";
+            case PARAMETERDEFINITION: return "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.";
             case PERIOD: return "A time period defined by a start and end date and optionally time.";
             case QUANTITY: return "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.";
             case RANGE: return "A set of ordered Quantities defined by a low and high limit.";
@@ -3162,6 +3269,7 @@ public class Enumerations {
             case SIGNATURE: return "A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different Signature approaches have different utilities.";
             case SIMPLEQUANTITY: return "";
             case TIMING: return "Specifies an event that may occur multiple times. Timing schedules are used to record when things are expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds.";
+            case TRIGGERDEFINITION: return "A description of a triggering event.";
             case BASE64BINARY: return "A stream of bytes";
             case BOOLEAN: return "Value of \"true\" or \"false\"";
             case CODE: return "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents";
@@ -3241,6 +3349,7 @@ public class Enumerations {
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
             case MEASURE: return "The Measure resource provides the definition of a quality measure.";
+            case MEASUREREPORT: return "The MeasureReport resource contains the results of evaluating a measure.";
             case MEDIA: return "A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.";
             case MEDICATION: return "This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.";
             case MEDICATIONADMINISTRATION: return "Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.";
@@ -3295,6 +3404,7 @@ public class Enumerations {
         }
         public String getDisplay() {
           switch (this) {
+            case ACTIONDEFINITION: return "ActionDefinition";
             case ADDRESS: return "Address";
             case AGE: return "Age";
             case ANNOTATION: return "Annotation";
@@ -3304,6 +3414,7 @@ public class Enumerations {
             case CODING: return "Coding";
             case CONTACTPOINT: return "ContactPoint";
             case COUNT: return "Count";
+            case DATAREQUIREMENT: return "DataRequirement";
             case DISTANCE: return "Distance";
             case DURATION: return "Duration";
             case ELEMENT: return "Element";
@@ -3315,6 +3426,7 @@ public class Enumerations {
             case MODULEMETADATA: return "ModuleMetadata";
             case MONEY: return "Money";
             case NARRATIVE: return "Narrative";
+            case PARAMETERDEFINITION: return "ParameterDefinition";
             case PERIOD: return "Period";
             case QUANTITY: return "Quantity";
             case RANGE: return "Range";
@@ -3324,6 +3436,7 @@ public class Enumerations {
             case SIGNATURE: return "Signature";
             case SIMPLEQUANTITY: return "SimpleQuantity";
             case TIMING: return "Timing";
+            case TRIGGERDEFINITION: return "TriggerDefinition";
             case BASE64BINARY: return "base64Binary";
             case BOOLEAN: return "boolean";
             case CODE: return "code";
@@ -3403,6 +3516,7 @@ public class Enumerations {
             case LIST: return "List";
             case LOCATION: return "Location";
             case MEASURE: return "Measure";
+            case MEASUREREPORT: return "MeasureReport";
             case MEDIA: return "Media";
             case MEDICATION: return "Medication";
             case MEDICATIONADMINISTRATION: return "MedicationAdministration";
@@ -3462,6 +3576,8 @@ public class Enumerations {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
+        if ("ActionDefinition".equals(codeString))
+          return FHIRDefinedType.ACTIONDEFINITION;
         if ("Address".equals(codeString))
           return FHIRDefinedType.ADDRESS;
         if ("Age".equals(codeString))
@@ -3480,6 +3596,8 @@ public class Enumerations {
           return FHIRDefinedType.CONTACTPOINT;
         if ("Count".equals(codeString))
           return FHIRDefinedType.COUNT;
+        if ("DataRequirement".equals(codeString))
+          return FHIRDefinedType.DATAREQUIREMENT;
         if ("Distance".equals(codeString))
           return FHIRDefinedType.DISTANCE;
         if ("Duration".equals(codeString))
@@ -3502,6 +3620,8 @@ public class Enumerations {
           return FHIRDefinedType.MONEY;
         if ("Narrative".equals(codeString))
           return FHIRDefinedType.NARRATIVE;
+        if ("ParameterDefinition".equals(codeString))
+          return FHIRDefinedType.PARAMETERDEFINITION;
         if ("Period".equals(codeString))
           return FHIRDefinedType.PERIOD;
         if ("Quantity".equals(codeString))
@@ -3520,6 +3640,8 @@ public class Enumerations {
           return FHIRDefinedType.SIMPLEQUANTITY;
         if ("Timing".equals(codeString))
           return FHIRDefinedType.TIMING;
+        if ("TriggerDefinition".equals(codeString))
+          return FHIRDefinedType.TRIGGERDEFINITION;
         if ("base64Binary".equals(codeString))
           return FHIRDefinedType.BASE64BINARY;
         if ("boolean".equals(codeString))
@@ -3678,6 +3800,8 @@ public class Enumerations {
           return FHIRDefinedType.LOCATION;
         if ("Measure".equals(codeString))
           return FHIRDefinedType.MEASURE;
+        if ("MeasureReport".equals(codeString))
+          return FHIRDefinedType.MEASUREREPORT;
         if ("Media".equals(codeString))
           return FHIRDefinedType.MEDIA;
         if ("Medication".equals(codeString))
@@ -3784,6 +3908,8 @@ public class Enumerations {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
+        if ("ActionDefinition".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ACTIONDEFINITION);
         if ("Address".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.ADDRESS);
         if ("Age".equals(codeString))
@@ -3802,6 +3928,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CONTACTPOINT);
         if ("Count".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.COUNT);
+        if ("DataRequirement".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DATAREQUIREMENT);
         if ("Distance".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.DISTANCE);
         if ("Duration".equals(codeString))
@@ -3824,6 +3952,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MONEY);
         if ("Narrative".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.NARRATIVE);
+        if ("ParameterDefinition".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PARAMETERDEFINITION);
         if ("Period".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.PERIOD);
         if ("Quantity".equals(codeString))
@@ -3842,6 +3972,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SIMPLEQUANTITY);
         if ("Timing".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.TIMING);
+        if ("TriggerDefinition".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.TRIGGERDEFINITION);
         if ("base64Binary".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.BASE64BINARY);
         if ("boolean".equals(codeString))
@@ -4000,6 +4132,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.LOCATION);
         if ("Measure".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEASURE);
+        if ("MeasureReport".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEASUREREPORT);
         if ("Media".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.MEDIA);
         if ("Medication".equals(codeString))
@@ -4101,6 +4235,8 @@ public class Enumerations {
         throw new FHIRException("Unknown FHIRDefinedType code '"+codeString+"'");
         }
     public String toCode(FHIRDefinedType code) {
+      if (code == FHIRDefinedType.ACTIONDEFINITION)
+        return "ActionDefinition";
       if (code == FHIRDefinedType.ADDRESS)
         return "Address";
       if (code == FHIRDefinedType.AGE)
@@ -4119,6 +4255,8 @@ public class Enumerations {
         return "ContactPoint";
       if (code == FHIRDefinedType.COUNT)
         return "Count";
+      if (code == FHIRDefinedType.DATAREQUIREMENT)
+        return "DataRequirement";
       if (code == FHIRDefinedType.DISTANCE)
         return "Distance";
       if (code == FHIRDefinedType.DURATION)
@@ -4141,6 +4279,8 @@ public class Enumerations {
         return "Money";
       if (code == FHIRDefinedType.NARRATIVE)
         return "Narrative";
+      if (code == FHIRDefinedType.PARAMETERDEFINITION)
+        return "ParameterDefinition";
       if (code == FHIRDefinedType.PERIOD)
         return "Period";
       if (code == FHIRDefinedType.QUANTITY)
@@ -4159,6 +4299,8 @@ public class Enumerations {
         return "SimpleQuantity";
       if (code == FHIRDefinedType.TIMING)
         return "Timing";
+      if (code == FHIRDefinedType.TRIGGERDEFINITION)
+        return "TriggerDefinition";
       if (code == FHIRDefinedType.BASE64BINARY)
         return "base64Binary";
       if (code == FHIRDefinedType.BOOLEAN)
@@ -4317,6 +4459,8 @@ public class Enumerations {
         return "Location";
       if (code == FHIRDefinedType.MEASURE)
         return "Measure";
+      if (code == FHIRDefinedType.MEASUREREPORT)
+        return "MeasureReport";
       if (code == FHIRDefinedType.MEDIA)
         return "Media";
       if (code == FHIRDefinedType.MEDICATION)
@@ -5089,6 +5233,10 @@ public class Enumerations {
          */
         MEASURE, 
         /**
+         * The MeasureReport resource contains the results of evaluating a measure.
+         */
+        MEASUREREPORT, 
+        /**
          * A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.
          */
         MEDIA, 
@@ -5413,6 +5561,8 @@ public class Enumerations {
           return LOCATION;
         if ("Measure".equals(codeString))
           return MEASURE;
+        if ("MeasureReport".equals(codeString))
+          return MEASUREREPORT;
         if ("Media".equals(codeString))
           return MEDIA;
         if ("Medication".equals(codeString))
@@ -5576,6 +5726,7 @@ public class Enumerations {
             case LIST: return "List";
             case LOCATION: return "Location";
             case MEASURE: return "Measure";
+            case MEASUREREPORT: return "MeasureReport";
             case MEDIA: return "Media";
             case MEDICATION: return "Medication";
             case MEDICATIONADMINISTRATION: return "MedicationAdministration";
@@ -5691,6 +5842,7 @@ public class Enumerations {
             case LIST: return "http://hl7.org/fhir/resource-types";
             case LOCATION: return "http://hl7.org/fhir/resource-types";
             case MEASURE: return "http://hl7.org/fhir/resource-types";
+            case MEASUREREPORT: return "http://hl7.org/fhir/resource-types";
             case MEDIA: return "http://hl7.org/fhir/resource-types";
             case MEDICATION: return "http://hl7.org/fhir/resource-types";
             case MEDICATIONADMINISTRATION: return "http://hl7.org/fhir/resource-types";
@@ -5806,6 +5958,7 @@ public class Enumerations {
             case LIST: return "A set of information summarized from a list of other resources.";
             case LOCATION: return "Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.";
             case MEASURE: return "The Measure resource provides the definition of a quality measure.";
+            case MEASUREREPORT: return "The MeasureReport resource contains the results of evaluating a measure.";
             case MEDIA: return "A photo, video, or audio recording acquired or used in healthcare. The actual content may be inline or provided by direct reference.";
             case MEDICATION: return "This resource is primarily used for the identification and definition of a medication. It covers the ingredients and the packaging for a medication.";
             case MEDICATIONADMINISTRATION: return "Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.";
@@ -5921,6 +6074,7 @@ public class Enumerations {
             case LIST: return "List";
             case LOCATION: return "Location";
             case MEASURE: return "Measure";
+            case MEASUREREPORT: return "MeasureReport";
             case MEDIA: return "Media";
             case MEDICATION: return "Medication";
             case MEDICATIONADMINISTRATION: return "MedicationAdministration";
@@ -6102,6 +6256,8 @@ public class Enumerations {
           return ResourceType.LOCATION;
         if ("Measure".equals(codeString))
           return ResourceType.MEASURE;
+        if ("MeasureReport".equals(codeString))
+          return ResourceType.MEASUREREPORT;
         if ("Media".equals(codeString))
           return ResourceType.MEDIA;
         if ("Medication".equals(codeString))
@@ -6330,6 +6486,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.LOCATION);
         if ("Measure".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.MEASURE);
+        if ("MeasureReport".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.MEASUREREPORT);
         if ("Media".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.MEDIA);
         if ("Medication".equals(codeString))
@@ -6553,6 +6711,8 @@ public class Enumerations {
         return "Location";
       if (code == ResourceType.MEASURE)
         return "Measure";
+      if (code == ResourceType.MEASUREREPORT)
+        return "MeasureReport";
       if (code == ResourceType.MEDIA)
         return "Media";
       if (code == ResourceType.MEDICATION)

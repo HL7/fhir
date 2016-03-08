@@ -28,6 +28,7 @@ import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.ParserType;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.DataElement;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
@@ -43,8 +44,8 @@ import org.hl7.fhir.dstu3.model.SearchParameter;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
@@ -122,7 +123,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   
 
 
-  public BuildWorkerContext(Definitions definitions, FHIRToolingClient client, Map<String, ValueSet> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles) throws UcumException {
+  public BuildWorkerContext(Definitions definitions, FHIRToolingClient client, Map<String, CodeSystem> codeSystems, Map<String, ValueSet> valueSets, Map<String, ConceptMap> maps, Map<String, StructureDefinition> profiles) throws UcumException {
     super();
     this.definitions = definitions;
     this.txServer = client;
@@ -141,7 +142,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     return txServer;
   }
 
-  public Map<String, ValueSet> getCodeSystems() {
+  public Map<String, CodeSystem> getCodeSystems() {
     return codeSystems;
   }
 
@@ -186,13 +187,11 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
 
   public void seeValueSet(String url, ValueSet vs) throws Exception {
     if (valueSets.containsKey(vs.getUrl()))
-      throw new Exception("Duplicate Profile "+vs.getUrl());
+      throw new Exception("Duplicate value set "+vs.getUrl());
     valueSets.put(vs.getId(), vs);
     valueSets.put(url, vs);
     valueSets.put(vs.getUrl(), vs);
-	  if (vs.hasCodeSystem()) {
-	    codeSystems.put(vs.getCodeSystem().getSystem().toString(), vs);
-    }
+    throw new Error("this is not used");
   }
 
   public void seeProfile(String url, StructureDefinition p) throws Exception {
@@ -531,38 +530,24 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     return new ValidationResult(new ConceptDefinitionComponent().setCode(code).setDisplay(lc.display));
   }
 
-  private ValidationResult verifyCode(ValueSet vs, String code, String display) throws Exception {
-    if (vs.hasExpansion() && !vs.hasCodeSystem()) {
-      ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code);
-      if (cc == null)
-        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getCodeSystem().getSystem());
-      if (display == null)
-        return new ValidationResult(new ConceptDefinitionComponent().setCode(code).setDisplay(cc.getDisplay()));
-      if (cc.hasDisplay()) {
-        if (display.equalsIgnoreCase(cc.getDisplay()))
-          return new ValidationResult(new ConceptDefinitionComponent().setCode(code).setDisplay(cc.getDisplay()));
-        return new ValidationResult(IssueSeverity.ERROR, "Display Name for "+code+" must be '"+cc.getDisplay()+"'");
-      }
-      return null;
-    } else {
-      ConceptDefinitionComponent cc = findCodeInConcept(vs.getCodeSystem().getConcept(), code);
-      if (cc == null)
-        return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getCodeSystem().getSystem());
-      if (display == null)
+  private ValidationResult verifyCode(CodeSystem cs, String code, String display) throws Exception {
+    ConceptDefinitionComponent cc = findCodeInConcept(cs.getConcept(), code);
+    if (cc == null)
+      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
+    if (display == null)
+      return new ValidationResult(cc);
+    CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
+    if (cc.hasDisplay()) {
+      b.append(cc.getDisplay());
+      if (display.equalsIgnoreCase(cc.getDisplay()))
         return new ValidationResult(cc);
-      CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
-      if (cc.hasDisplay()) {
-        b.append(cc.getDisplay());
-        if (display.equalsIgnoreCase(cc.getDisplay()))
-          return new ValidationResult(cc);
-      }
-      for (ConceptDefinitionDesignationComponent ds : cc.getDesignation()) {
-        b.append(ds.getValue());
-        if (display.equalsIgnoreCase(ds.getValue()))
-          return new ValidationResult(cc);
-      }
-      return new ValidationResult(IssueSeverity.ERROR, "Display Name for "+code+" must be one of '"+b.toString()+"'");
     }
+    for (ConceptDefinitionDesignationComponent ds : cc.getDesignation()) {
+      b.append(ds.getValue());
+      if (display.equalsIgnoreCase(ds.getValue()))
+        return new ValidationResult(cc);
+    }
+    return new ValidationResult(IssueSeverity.ERROR, "Display Name for "+code+" must be one of '"+b.toString()+"'");
   }
 
   private ValueSetExpansionContainsComponent findCode(List<ValueSetExpansionContainsComponent> contains, String code) {
@@ -716,7 +701,6 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
   private String determineCacheId(ValueSet vs) throws Exception {
     // just the content logical definition is hashed
     ValueSet vsid = new ValueSet();
-    vsid.setCodeSystem(vs.getCodeSystem());
     vsid.setCompose(vs.getCompose());
     vsid.setLockedDate(vs.getLockedDate());
     JsonParser parser = new JsonParser();
@@ -933,7 +917,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         if (j != null && j instanceof JsonObject) {
           def = new ConceptDefinitionComponent();
           o = (JsonObject) j;
-          def.setAbstract(o.get("abstract").getAsBoolean());
+//          def.setAbstract(o.get("abstract").getAsBoolean());
           if (!(o.get("code") instanceof JsonNull))
             def.setCode(o.get("code").getAsString());
           if (!(o.get("definition") instanceof JsonNull))
@@ -980,8 +964,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
           gson.name("definition");
           gson.beginObject();
           gson.name("abstract");
-          gson.value(vr.asConceptDefinition().getAbstract());
-          gson.name("code");
+//          gson.value(vr.asConceptDefinition().getAbstract());
+//          gson.name("code");
           gson.value(vr.asConceptDefinition().getCode());
           gson.name("definition");
           gson.value(vr.asConceptDefinition().getDefinition());

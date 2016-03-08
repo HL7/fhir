@@ -55,6 +55,7 @@ import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Base64BinaryType;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
@@ -113,8 +114,8 @@ import org.hl7.fhir.dstu3.model.Timing.TimingRepeatComponent;
 import org.hl7.fhir.dstu3.model.Timing.UnitsOfTime;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
@@ -560,6 +561,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
       generate((ConceptMap) r); // Maintainer = Grahame
     } else if (r instanceof ValueSet) {
       generate((ValueSet) r, true); // Maintainer = Grahame
+    } else if (r instanceof CodeSystem) {
+      generate((CodeSystem) r, true); // Maintainer = Grahame
     } else if (r instanceof OperationOutcome) {
       generate((OperationOutcome) r); // Maintainer = Grahame
     } else if (r instanceof Conformance) {
@@ -1923,6 +1926,103 @@ public class NarrativeGenerator implements INarrativeGenerator {
    * @param codeSystems
    * @throws Exception
    */
+  public void generate(CodeSystem cs, boolean header) {
+    XhtmlNode x = new XhtmlNode(NodeType.Element, "div");
+    boolean hasExtensions = false;
+    hasExtensions = generateDefinition(x, cs, header);
+    inject(cs, x, hasExtensions ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);
+  }
+
+  private boolean generateDefinition(XhtmlNode x, CodeSystem cs, boolean header) {
+    boolean hasExtensions = false;
+    Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
+    for (ConceptMap a : context.findMapsForSource(cs.getValueSet())) {
+        String url = "";
+        ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
+        if (vsr != null)
+            url = (String) vsr.getUserData("filename");
+        mymaps.put(a, url);
+    }
+    // also, look in the contained resources for a concept map
+    for (Resource r : cs.getContained()) {
+      if (r instanceof ConceptMap) {
+        ConceptMap cm = (ConceptMap) r;
+        if (((Reference) cm.getSource()).getReference().equals(cs.getValueSet())) {
+          String url = "";
+          ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) cm.getTarget()).getReference());
+          if (vsr != null)
+              url = (String) vsr.getUserData("filename");
+        mymaps.put(cm, url);
+        }
+      }
+    }
+    List<String> langs = new ArrayList<String>();
+
+    if (header) {
+      XhtmlNode h = x.addTag("h2");
+      h.addText(cs.getName());
+      XhtmlNode p = x.addTag("p");
+      smartAddText(p, cs.getDescription());
+      if (cs.hasCopyright())
+        generateCopyright(x, cs);
+    }
+    XhtmlNode p = x.addTag("p");
+    p.addText("This code system "+cs.getUrl()+" defines the following codes:");
+    XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
+    boolean commentS = false;
+    boolean deprecated = false;
+    boolean display = false;
+    boolean hierarchy = false;
+    for (ConceptDefinitionComponent c : cs.getConcept()) {
+      commentS = commentS || conceptsHaveComments(c);
+      deprecated = deprecated || conceptsHaveDeprecated(c);
+      display = display || conceptsHaveDisplay(c);
+      hierarchy = hierarchy || c.hasConcept();
+      scanLangs(c, langs);
+    }
+    addMapHeaders(addTableHeaderRowStandard(t, hierarchy, display, true, commentS, deprecated), mymaps);
+    for (ConceptDefinitionComponent c : cs.getConcept()) {
+      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, deprecated, mymaps, cs.getUrl()) || hasExtensions;
+    }
+    if (langs.size() > 0) {
+      Collections.sort(langs);
+      x.addTag("p").addTag("b").addText("Additional Language Displays");
+      t = x.addTag("table").setAttribute("class", "codes");
+      XhtmlNode tr = t.addTag("tr");
+      tr.addTag("td").addTag("b").addText("Code");
+      for (String lang : langs)
+        tr.addTag("td").addTag("b").addText(lang);
+      for (ConceptDefinitionComponent c : cs.getConcept()) {
+        addLanguageRow(c, t, langs);
+      }
+    }
+    return hasExtensions;
+  }
+
+  private int countConcepts(List<ConceptDefinitionComponent> list) {
+    int count = list.size();
+    for (ConceptDefinitionComponent c : list)
+      if (c.hasConcept())
+        count = count + countConcepts(c.getConcept());
+    return count;
+  }
+
+  private void generateCopyright(XhtmlNode x, CodeSystem cs) {
+    XhtmlNode p = x.addTag("p");
+    p.addTag("b").addText("Copyright Statement:");
+    smartAddText(p, " " + cs.getCopyright());
+  }
+
+
+  /**
+   * This generate is optimised for the FHIR build process itself in as much as it
+   * generates hyperlinks in the narrative that are only going to be correct for
+   * the purposes of the build. This is to be reviewed in the future.
+   *
+   * @param vs
+   * @param codeSystems
+   * @throws Exception
+   */
   public void generate(ValueSet vs, boolean header) {
     generate(vs, null, header);
   }
@@ -1932,17 +2032,9 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (vs.hasExpansion()) {
       // for now, we just accept an expansion if there is one
       generateExpansion(x, vs, src, header);
-//      if (!vs.hasCodeSystem() && !vs.hasCompose())
-//        generateExpansion(x, vs, src, header);
-//      else
-//        throw new DefinitionException("Error: should not encounter value set expansion at this point");
     }
 
-    boolean hasExtensions = false;
-    if (vs.hasCodeSystem())
-      hasExtensions = generateDefinition(x, vs, header);
-    if (vs.hasCompose())
-      hasExtensions = generateComposition(x, vs, header) || hasExtensions;
+    boolean hasExtensions = generateComposition(x, vs, header);
     inject(vs, x, hasExtensions ? NarrativeStatus.EXTENSIONS :  NarrativeStatus.GENERATED);
   }
 
@@ -1951,8 +2043,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (vs.hasExpansion())
       count = count + conceptCount(vs.getExpansion().getContains());
     else {
-      if (vs.hasCodeSystem())
-        count = count + countConcepts(vs.getCodeSystem().getConcept());
       if (vs.hasCompose()) {
         if (vs.getCompose().hasExclude()) {
           try {
@@ -1983,14 +2073,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
         count++;
       count = count + conceptCount(c.getContains());
     }
-    return count;
-  }
-
-  private int countConcepts(List<ConceptDefinitionComponent> list) {
-    int count = list.size();
-    for (ConceptDefinitionComponent c : list)
-      if (c.hasConcept())
-        count = count + countConcepts(c.getConcept());
     return count;
   }
 
@@ -2070,8 +2152,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private boolean checkDoSystem(ValueSet vs, ValueSet src) {
     if (src != null)
       vs = src;
-    if (!vs.hasCodeSystem())
-      return true;
     if (vs.hasCompose())
       return true;
     return false;
@@ -2091,71 +2171,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return false;
   }
 
-  private boolean generateDefinition(XhtmlNode x, ValueSet vs, boolean header) {
-    boolean hasExtensions = false;
-    Map<ConceptMap, String> mymaps = new HashMap<ConceptMap, String>();
-    for (ConceptMap a : context.findMapsForSource(vs.getUrl())) {
-        String url = "";
-        ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) a.getTarget()).getReference());
-        if (vsr != null)
-            url = (String) vsr.getUserData("filename");
-        mymaps.put(a, url);
-    }
-    // also, look in the contained resources for a concept map
-    for (Resource r : vs.getContained()) {
-      if (r instanceof ConceptMap) {
-        ConceptMap cm = (ConceptMap) r;
-        if (((Reference) cm.getSource()).getReference().equals(vs.getUrl())) {
-          String url = "";
-          ValueSet vsr = context.fetchResource(ValueSet.class, ((Reference) cm.getTarget()).getReference());
-          if (vsr != null)
-              url = (String) vsr.getUserData("filename");
-        mymaps.put(cm, url);
-        }
-      }
-    }
-    List<String> langs = new ArrayList<String>();
-
-    if (header) {
-      XhtmlNode h = x.addTag("h2");
-      h.addText(vs.getName());
-      XhtmlNode p = x.addTag("p");
-      smartAddText(p, vs.getDescription());
-      if (vs.hasCopyright())
-        generateCopyright(x, vs);
-    }
-    XhtmlNode p = x.addTag("p");
-    p.addText("This value set has an inline code system "+vs.getCodeSystem().getSystem()+", which defines the following codes:");
-    XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
-    boolean commentS = false;
-    boolean deprecated = false;
-    boolean display = false;
-    boolean hierarchy = false;
-    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
-      commentS = commentS || conceptsHaveComments(c);
-      deprecated = deprecated || conceptsHaveDeprecated(c);
-      display = display || conceptsHaveDisplay(c);
-      hierarchy = hierarchy || c.hasConcept();
-      scanLangs(c, langs);
-    }
-    addMapHeaders(addTableHeaderRowStandard(t, hierarchy, display, true, commentS, deprecated), mymaps);
-    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
-      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, deprecated, mymaps, vs.getCodeSystem().getSystem()) || hasExtensions;
-    }
-    if (langs.size() > 0) {
-      Collections.sort(langs);
-      x.addTag("p").addTag("b").addText("Additional Language Displays");
-      t = x.addTag("table").setAttribute("class", "codes");
-      XhtmlNode tr = t.addTag("tr");
-      tr.addTag("td").addTag("b").addText("Code");
-      for (String lang : langs)
-        tr.addTag("td").addTag("b").addText(lang);
-      for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
-        addLanguageRow(c, t, langs);
-      }
-    }
-    return hasExtensions;
-  }
 
   private void addLanguageRow(ConceptDefinitionComponent c, XhtmlNode t, List<String> langs) {
     XhtmlNode tr = t.addTag("tr");
@@ -2437,7 +2452,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
 	private boolean generateComposition(XhtmlNode x, ValueSet vs, boolean header) {
 	  boolean hasExtensions = false;
-    if (!vs.hasCodeSystem()) {
       if (header) {
         XhtmlNode h = x.addTag("h2");
         h.addText(vs.getName());
@@ -2448,10 +2462,6 @@ public class NarrativeGenerator implements INarrativeGenerator {
       }
       XhtmlNode p = x.addTag("p");
       p.addText("This value set includes codes from the following code systems:");
-    } else {
-      XhtmlNode p = x.addTag("p");
-      p.addText("In addition, this value set includes codes from other code systems:");
-    }
 
     XhtmlNode ul = x.addTag("ul");
     XhtmlNode li;
@@ -2472,14 +2482,20 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private void AddVsRef(String value, XhtmlNode li) {
 
     ValueSet vs = context.fetchResource(ValueSet.class, value);
-    if (vs == null)
-      vs = context.fetchCodeSystem(value);
     if (vs != null) {
       String ref = (String) vs.getUserData("path");
       ref = adjustForPath(ref);
       XhtmlNode a = li.addTag("a");
       a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
       a.addText(value);
+    } else {
+    	CodeSystem cs = context.fetchCodeSystem(value);
+    	if (cs != null) {
+        String ref = (String) cs.getUserData("path");
+        ref = adjustForPath(ref);
+        XhtmlNode a = li.addTag("a");
+        a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
+        a.addText(value);   
     } else if (value.equals("http://snomed.info/sct") || value.equals("http://snomed.info/id")) {
       XhtmlNode a = li.addTag("a");
       a.setAttribute("href", value);
@@ -2487,6 +2503,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
     else
       li.addText(value);
+  }
   }
 
   private String adjustForPath(String ref) {
@@ -2500,7 +2517,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     boolean hasExtensions = false;
     XhtmlNode li;
     li = ul.addTag("li");
-    ValueSet e = context.fetchCodeSystem(inc.getSystem());
+    CodeSystem e = context.fetchCodeSystem(inc.getSystem());
 
     if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
       li.addText(type+" all codes defined in ");
@@ -2578,14 +2595,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return null;
   }
 
-  private <T extends Resource> ConceptDefinitionComponent getConceptForCode(T e, String code, String system) {
+  private ConceptDefinitionComponent getConceptForCode(CodeSystem e, String code, String system) {
     if (e == null) {
       return context.validateCode(system, code, null).asConceptDefinition();
     }
-    ValueSet vs = (ValueSet) e;
-    if (!vs.hasCodeSystem())
-      return null;
-    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
+    for (ConceptDefinitionComponent c : e.getConcept()) {
       ConceptDefinitionComponent v = getConceptForCode(c, code);
       if (v != null)
         return v;
@@ -2628,15 +2642,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private  <T extends Resource> String getCsRef(T cs) {
     String ref = (String) cs.getUserData("filename");
     if (ref == null)
-      return "??";
+      return "v2/0136/index.html";  // fix me - csvs!
     if (!ref.endsWith(".html"))
       ref = ref + ".html";
     return ref.replace("\\", "/");
   }
 
-  private  <T extends Resource> boolean codeExistsInValueSet(T cs, String code) {
-    ValueSet vs = (ValueSet) cs;
-    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
+  private boolean codeExistsInValueSet(CodeSystem cs, String code) {
+    for (ConceptDefinitionComponent c : cs.getConcept()) {
       if (inConcept(code, c))
         return true;
     }

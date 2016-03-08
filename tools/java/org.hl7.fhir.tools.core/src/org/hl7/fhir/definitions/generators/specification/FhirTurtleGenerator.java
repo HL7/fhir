@@ -24,6 +24,7 @@ import org.hl7.fhir.dstu3.formats.RdfGenerator;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
@@ -35,8 +36,7 @@ import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ValueSetCodeSystemComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
 import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.tools.publisher.BuildWorkerContext;
@@ -88,14 +88,13 @@ public class FhirTurtleGenerator extends RdfGenerator {
    * Only produce the v3 vocabulary for appending to rim.ttl
    * @throws Exception
    */
-  public void executeV3(Bundle bundle) throws Exception {
-    for (BundleEntryComponent e : bundle.getEntry()) {
-      ValueSet vs = (ValueSet) e.getResource();
+  public void executeV3(Map<String, ValueSet> valuesets, Map<String, CodeSystem> codeSystems) throws Exception {
+    for (ValueSet vs : this.valuesets.values()) {
       valuesets.put("vs:"+tail(vs.getUrl()), vs);
     }
 
-    for (String n : sorted(valuesets.keySet()))
-      gen(n, valuesets.get(n));
+//    for (String n : sorted(valuesets.keySet()))
+//      gen(n, valuesets.get(n));
     commit(false);
   }
   
@@ -490,10 +489,7 @@ public class FhirTurtleGenerator extends RdfGenerator {
         BindingSpecification bs = e.getBinding();
         if (bs.getValueSet() != null) {
           String bn = getPNameForUri(bs.getValueSet().getUrl());
-          if (bs.getStrength() == BindingStrength.REQUIRED && bs.getBinding() == BindingMethod.CodeList && tr.getName().equals("code") && bs.getValueSet().hasCodeSystem())
-            section.triple("fhir:"+tn+"."+en, "rdfs:range", getPNameForUri(bs.getValueSet().getCodeSystem().getSystem()));
-          else
-            section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
+          section.triple("fhir:"+tn+"."+en, "rdfs:range", processType(tr.getName()));
           section.triple("fhir:"+tn+"."+en, "fhir:binding", bn);
           if (!bn.startsWith("vs:")) // a v3 valueset
           valuesets.put(bn, bs.getValueSet());
@@ -678,17 +674,14 @@ public class FhirTurtleGenerator extends RdfGenerator {
       codedTriple(section, bn, "fhir:useContext", cc);
     section.triple(bn, "fhir:status", complex().predicate("a", "fhir:conformance-resource-status\\#"+vs.getStatus().toCode()));
     section.triple(bn, "fhir:canonicalStatus", complex().predicate("a", getCanonicalStatus("ValueSet.status", vs.getStatus().toCode())));
-    if (vs.hasCodeSystem()) {
-      section.triple(bn, "fhir:include", gen(section, vs.getCodeSystem(), vs));
-    }
   }
 
-  private String gen(Section section, ValueSetCodeSystemComponent define, ValueSet vs) {
-    String bn = getPNameForUri(define.getSystem()); 
+  private String gen(Section section, CodeSystem cs, ValueSet vs) {
+    String bn = getPNameForUri(cs.getUrl()); 
     if (!bn.startsWith("<")) {
       section.triple(bn+".system", "a", "fhir:CodeSystem");
-      if (define.hasVersion())
-        section.triple(bn+".system", "fhir:version", literal(define.getVersion()));
+      if (cs.hasVersion())
+        section.triple(bn+".system", "fhir:version", literal(cs.getVersion()));
       if (vs.hasName())
         section.label(bn+".system", vs.getName());
       if (vs.hasDescription()) 
@@ -700,7 +693,7 @@ public class FhirTurtleGenerator extends RdfGenerator {
       
       section.triple(bn, "a", "fhir:Concept");
 
-      gen(section, bn, bn, define.getConcept());
+      gen(section, bn, bn, cs.getConcept());
     }
     return bn;
   }

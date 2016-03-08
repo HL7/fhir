@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -182,6 +182,8 @@ public class ResourceFactory extends Factory {
             return new Bundle();
         if ("Subscription".equals(name))
             return new Subscription();
+        if ("MeasureReport".equals(name))
+            return new MeasureReport();
         if ("ImagingStudy".equals(name))
             return new ImagingStudy();
         if ("Provenance".equals(name))
@@ -273,6 +275,8 @@ public class ResourceFactory extends Factory {
             return new Extension();
         if ("ModuleMetadata".equals(name))
             return new ModuleMetadata();
+        if ("ActionDefinition".equals(name))
+            return new ActionDefinition();
         if ("HumanName".equals(name))
             return new HumanName();
         if ("Ratio".equals(name))
@@ -295,14 +299,20 @@ public class ResourceFactory extends Factory {
             return new Money();
         if ("Distance".equals(name))
             return new Distance();
+        if ("DataRequirement".equals(name))
+            return new DataRequirement();
+        if ("ParameterDefinition".equals(name))
+            return new ParameterDefinition();
         if ("ContactPoint".equals(name))
             return new ContactPoint();
+        if ("TriggerDefinition".equals(name))
+            return new TriggerDefinition();
         if ("ElementDefinition".equals(name))
             return new ElementDefinition();
-        if ("Annotation".equals(name))
-            return new Annotation();
         if ("Address".equals(name))
             return new Address();
+        if ("Annotation".equals(name))
+            return new Annotation();
         if ("Meta".equals(name))
             return new Meta();
         if ("SampledData".equals(name))

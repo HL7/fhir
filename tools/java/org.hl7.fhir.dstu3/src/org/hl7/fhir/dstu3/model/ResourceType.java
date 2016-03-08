@@ -2,7 +2,7 @@ package org.hl7.fhir.dstu3.model;
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
-// Generated on Sat, Feb 27, 2016 23:39+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
 
 public enum ResourceType {
     Account,
@@ -65,6 +65,7 @@ public enum ResourceType {
     List,
     Location,
     Measure,
+    MeasureReport,
     Media,
     Medication,
     MedicationAdministration,
@@ -237,6 +238,8 @@ public enum ResourceType {
       return "location";
     case Measure:
       return "measure";
+    case MeasureReport:
+      return "measurereport";
     case Media:
       return "media";
     case Medication:
@@ -459,6 +462,8 @@ public enum ResourceType {
       return Location;
     if ("Measure".equals(code))
       return Measure;
+    if ("MeasureReport".equals(code))
+      return MeasureReport;
     if ("Media".equals(code))
       return Media;
     if ("Medication".equals(code))

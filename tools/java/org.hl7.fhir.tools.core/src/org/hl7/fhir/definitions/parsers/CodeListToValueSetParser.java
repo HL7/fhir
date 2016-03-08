@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
+import org.hl7.fhir.tools.converters.CodeSystemConvertor;
 import org.hl7.fhir.utilities.Utilities;
 import org.hl7.fhir.utilities.XLSXmlParser.Sheet;
 
@@ -20,14 +22,16 @@ public class CodeListToValueSetParser {
   private String version;
   private String sheetName;
   private TabDelimitedSpreadSheet tabfmt;
+  private Map<String, CodeSystem> codeSystems;
 
-  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, TabDelimitedSpreadSheet tabfmt) throws Exception {
+  public CodeListToValueSetParser(Sheet sheet, String sheetName, ValueSet valueSet, String version, TabDelimitedSpreadSheet tabfmt, Map<String, CodeSystem> codeSystems) throws Exception {
     super();
     this.sheet = sheet;
     this.sheetName = sheetName;
     this.valueSet = valueSet;
     this.version = version;
     this.tabfmt = tabfmt;
+    this.codeSystems = codeSystems;
 
     tabfmt.column("System");
     tabfmt.column("Id");
@@ -72,11 +76,14 @@ public class CodeListToValueSetParser {
 
     
     if (hasDefine) {
-      ValueSetCodeSystemComponent define = new ValueSetCodeSystemComponent();
-      valueSet.setCodeSystem(define);
-      define.setSystem("http://hl7.org/fhir/"+sheetName);
-      define.setVersion(version);
-      define.setCaseSensitive(true);
+      CodeSystem cs = new CodeSystem();
+      cs.setUrl("http://hl7.org/fhir/"+sheetName);
+      valueSet.getCompose().addInclude().setSystem(cs.getUrl());
+      CodeSystemConvertor.populate(cs, valueSet);
+      cs.setVersion(version);
+      cs.setCaseSensitive(true);
+      cs.setContent(CodeSystemContentMode.COMPLETE);
+      codeSystems.put(cs.getUrl(), cs);
 
       for (int row = 0; row < sheet.rows.size(); row++) {
         if (Utilities.noString(sheet.getColumn(row, "System"))) {
@@ -89,8 +96,8 @@ public class CodeListToValueSetParser {
           codes.put(cc.getCode(), cc);
           codesById.put(cc.getUserString("id"), cc);
           cc.setDisplay(sheet.getColumn(row, "Display"));
-          if (sheet.getColumn(row, "Abstract").toUpperCase().equals("Y"))
-          	cc.setAbstract(true);
+//          if (sheet.getColumn(row, "Abstract").toUpperCase().equals("Y"))
+//          	cc.setAbstract(true);
           if (cc.hasCode() && !cc.hasDisplay())
             cc.setDisplay(Utilities.humanize(cc.getCode()));
           cc.setDefinition(sheet.getColumn(row, "Definition"));
@@ -103,7 +110,7 @@ public class CodeListToValueSetParser {
               cc.addDesignation().setLanguage(ct.substring(8)).setValue(sheet.getColumn(row, ct));
           String parent = sheet.getColumn(row, "Parent");
           if (Utilities.noString(parent))
-            define.addConcept(cc);
+            cs.addConcept(cc);
           else if (parent.startsWith("#") && codesById.containsKey(parent.substring(1)))
             codesById.get(parent.substring(1)).addConcept(cc);
           else if (codes.containsKey(parent))

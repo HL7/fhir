@@ -41,9 +41,8 @@ import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -120,12 +119,7 @@ public class XSDGenerator  {
 		write("  <xs:simpleType name=\""+en+"-list\">\r\n");
 		write("    <xs:restriction base=\"xs:string\">\r\n");
 		ValueSet vs = enums.get(en);
-    if (vs.hasCodeSystem()) {
-      for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
-        genDefinedCode(c);
-      }
-    }
-    if (vs.hasCompose()) {
+		    if (vs.hasCompose()) {
       for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
         for (ConceptReferenceComponent c : cc.getConcept()) {
           genIncludedCode(c);
@@ -154,26 +148,13 @@ public class XSDGenerator  {
 	    write("      <xs:enumeration value=\"" + Utilities.escapeXml(c.getCode()) + "\">\r\n");
 	    write("        <xs:annotation>\r\n");
 	    write("          <xs:documentation xml:lang=\"en\">" + Utilities.escapeXml(c.getDisplay()) + "</xs:documentation>\r\n"); // todo: do we need to look the definition up? 
-	    for (ConceptDefinitionDesignationComponent l : c.getDesignation())
+	    for (ConceptReferenceDesignationComponent l : c.getDesignation())
 	      if (l.hasLanguage())
 	        write("          <xs:documentation xml:lang=\""+l.getLanguage()+"\">"+Utilities.escapeXml(l.getValue())+"</xs:documentation>\r\n");
 	    write("        </xs:annotation>\r\n");
 	    write("      </xs:enumeration>\r\n");
 	  }
 
-	  private void genDefinedCode(ConceptDefinitionComponent c) throws IOException {
-	    write("      <xs:enumeration value=\"" + Utilities.escapeXml(c.getCode()) + "\">\r\n");
-	    write("        <xs:annotation>\r\n");
-	    write("          <xs:documentation xml:lang=\"en\">" + Utilities.escapeXml(c.getDefinition()) + "</xs:documentation>\r\n");
-	    for (ConceptDefinitionDesignationComponent l : c.getDesignation())
-	      if (l.hasLanguage())
-	        write("          <xs:documentation xml:lang=\""+l.getLanguage()+"\">"+Utilities.escapeXml(l.getValue())+"</xs:documentation>\r\n");
-	    write("        </xs:annotation>\r\n");
-	    write("      </xs:enumeration>\r\n");
-	    for (ConceptDefinitionComponent cc : c.getConcept()) {
-	      genDefinedCode(cc);
-	    }
-	  }
 	private void generateType(ElementDefn root, String name, ElementDefn struc, boolean isResource) throws IOException, Exception {
 		write("  <xs:complexType name=\""+name+"\">\r\n");
 		write("    <xs:annotation>\r\n");
@@ -366,10 +347,12 @@ public class XSDGenerator  {
 			String en = null;
 			if (e.hasBinding()) {
 				BindingSpecification cd = e.getBinding();
-				if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList && !cd.isShared()) {
+				if (cd != null && cd.getBinding() == BindingSpecification.BindingMethod.CodeList) {
 					en = cd.getValueSet().getName();
-					enums.put(en, cd.getValueSet());
-					enumDefs.put(en, cd.getDefinition());
+					if (!cd.isShared()) {
+					  enums.put(en, cd.getValueSet());
+					  enumDefs.put(en, cd.getDefinition());
+					}
 					return en;
 				}
 			}

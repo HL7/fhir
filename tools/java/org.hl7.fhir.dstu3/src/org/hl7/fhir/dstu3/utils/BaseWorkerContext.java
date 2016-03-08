@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.hl7.fhir.dstu3.model.BooleanType;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ConceptMap;
@@ -22,8 +23,8 @@ import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Parameters.ParametersParameterComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
@@ -39,7 +40,7 @@ import org.hl7.fhir.utilities.Utilities;
 public abstract class BaseWorkerContext implements IWorkerContext {
 
   // all maps are to the full URI
-  protected Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
+  protected Map<String, CodeSystem> codeSystems = new HashMap<String, CodeSystem>();
   protected Map<String, ValueSet> valueSets = new HashMap<String, ValueSet>();
   protected Map<String, ConceptMap> maps = new HashMap<String, ConceptMap>();
   
@@ -53,7 +54,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   protected FHIRToolingClient txServer;
 
   @Override
-  public ValueSet fetchCodeSystem(String system) {
+  public CodeSystem fetchCodeSystem(String system) {
     return codeSystems.get(system);
   } 
 
@@ -224,7 +225,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   public ValidationResult validateCode(String system, String code, String display) {
     try {
       if (codeSystems.containsKey(system)) 
-        return verifyCodeInternal(codeSystems.get(system), system, code, display);
+        return verifyCodeInCodeSystem(codeSystems.get(system), system, code, display);
       else 
         return verifyCodeExternal(null, new Coding().setSystem(system).setCode(code).setDisplay(display), true);
     } catch (Exception e) {
@@ -236,8 +237,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public ValidationResult validateCode(Coding code, ValueSet vs) {
     try {
-      if (codeSystems.containsKey(code.getSystem()) || vs.hasExpansion()) 
-        return verifyCodeInternal(codeSystems.get(code.getSystem()), code.getSystem(), code.getCode(), code.getDisplay());
+      if (codeSystems.containsKey(code.getSystem())) 
+        return verifyCodeInCodeSystem(codeSystems.get(code.getSystem()), code.getSystem(), code.getCode(), code.getDisplay());
+      else if (vs.hasExpansion()) 
+        return verifyCodeInternal(vs, code.getSystem(), code.getCode(), code.getDisplay());
       else 
         return verifyCodeExternal(vs, code, true);
     } catch (Exception e) {
@@ -248,7 +251,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public ValidationResult validateCode(CodeableConcept code, ValueSet vs) {
     try {
-      if (vs.hasCodeSystem() || vs.hasExpansion()) 
+      if (vs.hasExpansion()) 
         return verifyCodeInternal(vs, code);
       else 
         return verifyCodeExternal(vs, code, true);
@@ -261,9 +264,9 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   @Override
   public ValidationResult validateCode(String system, String code, String display, ValueSet vs) {
     try {
-      if (system == null && vs.hasCodeSystem())
-        return verifyCodeInternal(vs, vs.getCodeSystem().getSystem(), code, display);
-      else if (codeSystems.containsKey(system) || vs.hasExpansion()) 
+//      if (system == null && vs.hasCodeSystem())
+//        return verifyCodeInternal(vs, vs.getCodeSystem().getSystem(), code, display);
+      if (codeSystems.containsKey(system) || vs.hasExpansion()) 
         return verifyCodeInternal(vs, system, code, display);
       else 
         return verifyCodeExternal(vs, new Coding().setSystem(system).setCode(code).setDisplay(display), true);
@@ -307,8 +310,6 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private ValidationResult verifyCodeInternal(ValueSet vs, String system, String code, String display) throws FileNotFoundException, ETooCostly, IOException {
     if (vs.hasExpansion())
       return verifyCodeInExpansion(vs, system, code, display);
-    else if (vs.hasCodeSystem() && !vs.hasCompose()) 
-      return verifyCodeInCodeSystem(vs, system, code, display);
     else {
       ValueSetExpansionOutcome vse = expansionCache.getExpander().expand(vs);
       if (vse.getValueset() != null) 
@@ -318,10 +319,10 @@ public abstract class BaseWorkerContext implements IWorkerContext {
     }
   }
 
-  private ValidationResult verifyCodeInCodeSystem(ValueSet vs, String system, String code, String display) {
-    ConceptDefinitionComponent cc = findCodeInConcept(vs.getCodeSystem().getConcept(), code);
+  private ValidationResult verifyCodeInCodeSystem(CodeSystem cs, String system, String code, String display) {
+    ConceptDefinitionComponent cc = findCodeInConcept(cs.getConcept(), code);
     if (cc == null)
-      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getCodeSystem().getSystem());
+      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+cs.getUrl());
     if (display == null)
       return new ValidationResult(cc);
     CommaSeparatedStringBuilder b = new CommaSeparatedStringBuilder();
@@ -342,7 +343,7 @@ public abstract class BaseWorkerContext implements IWorkerContext {
   private ValidationResult verifyCodeInExpansion(ValueSet vs, String system,String code, String display) {
     ValueSetExpansionContainsComponent cc = findCode(vs.getExpansion().getContains(), code);
     if (cc == null)
-      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getCodeSystem().getSystem());
+      return new ValidationResult(IssueSeverity.ERROR, "Unknown Code "+code+" in "+vs.getUrl());
     if (display == null)
       return new ValidationResult(new ConceptDefinitionComponent().setCode(code).setDisplay(cc.getDisplay()));
     if (cc.hasDisplay()) {

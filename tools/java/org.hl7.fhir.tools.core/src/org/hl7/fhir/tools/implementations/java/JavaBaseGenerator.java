@@ -36,8 +36,9 @@ import java.util.List;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
 import org.hl7.fhir.tools.implementations.GeneratorUtils;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -113,9 +114,9 @@ public class JavaBaseGenerator extends OutputStreamWriter {
 	}
 	
 
-  protected List<ConceptDefinitionComponent> listAllCodes(ValueSet vs) {
-    List<ConceptDefinitionComponent> result = new ArrayList<ValueSet.ConceptDefinitionComponent>();
-    addAllCodes(result, vs.getCodeSystem().getConcept());
+  protected List<ConceptDefinitionComponent> listAllCodes(CodeSystem cs) {
+    List<ConceptDefinitionComponent> result = new ArrayList<ConceptDefinitionComponent>();
+    addAllCodes(result, cs.getConcept());
     return result;
   }
 

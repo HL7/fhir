@@ -523,6 +523,34 @@ private Map<String, Object> userData;
 			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a ModuleMetadata");
 	}
 
+	public ActionDefinition castToActionDefinition(Base b) throws FHIRException {
+		if (b instanceof ActionDefinition)
+			return (ActionDefinition) b;
+		else
+			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a ActionDefinition");
+	}
+
+	public DataRequirement castToDataRequirement(Base b) throws FHIRException {
+		if (b instanceof DataRequirement)
+			return (DataRequirement) b;
+		else
+			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a DataRequirement");
+	}
+
+	public ParameterDefinition castToParameterDefinition(Base b) throws FHIRException {
+		if (b instanceof ParameterDefinition)
+			return (ParameterDefinition) b;
+		else
+			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a ParameterDefinition");
+	}
+
+	public TriggerDefinition castToTriggerDefinition(Base b) throws FHIRException {
+		if (b instanceof TriggerDefinition)
+			return (TriggerDefinition) b;
+		else
+			throw new FHIRException("Unable to convert a "+b.getClass().getName()+" to a TriggerDefinition");
+	}
+
 	protected boolean isMetadataBased() {
   	return false;
 	}

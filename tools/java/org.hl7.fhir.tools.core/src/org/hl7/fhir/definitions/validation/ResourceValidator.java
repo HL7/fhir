@@ -55,7 +55,9 @@ import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.utils.Translations;
 import org.hl7.fhir.dstu3.validation.BaseValidator;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
@@ -84,14 +86,14 @@ public class ResourceValidator extends BaseValidator {
   private final Map<String, Integer> names = new HashMap<String, Integer>();
   private final Map<SearchType, UsageT> usagest = new HashMap<SearchType, UsageT>();
   private Translations translations;
-  private final Map<String, ValueSet> codeSystems;
+  private final Map<String, CodeSystem> codeSystems;
   private SpellChecker speller;
   private int maxElementLength;
   private List<FHIRPathUsage> fpUsages;
   
 //  private Map<String, Integer> typeCounter = new HashMap<String, Integer>();
 
-	public ResourceValidator(Definitions definitions, Translations translations, Map<String, ValueSet> map, String srcFolder, List<FHIRPathUsage> fpUsages) throws IOException {
+	public ResourceValidator(Definitions definitions, Translations translations, Map<String, CodeSystem> map, String srcFolder, List<FHIRPathUsage> fpUsages) throws IOException {
 		super();
 		source = Source.ResourceValidator;
 		this.definitions = definitions;
@@ -401,10 +403,15 @@ public class ResourceValidator extends BaseValidator {
   private boolean hasStatus(ResourceDefn parent, String code) {
     ElementDefn e = parent.getRoot().getElementByName("status");
     if (e != null) {
-      if (e.hasBinding() && e.getBinding().getValueSet() != null && e.getBinding().getValueSet().hasCodeSystem()) {
-        for (ConceptDefinitionComponent cc : e.getBinding().getValueSet().getCodeSystem().getConcept()) {
-          if (cc.getCode().equals(code))
-            return true;
+      if (e.hasBinding() && e.getBinding().getValueSet() != null) {
+        ValueSet vs = e.getBinding().getValueSet();
+        for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+          CodeSystem cs = codeSystems.get(inc.getSystem());
+          if (inc.getConcept().isEmpty() && cs != null)
+          for (ConceptDefinitionComponent cc : cs.getConcept()) {
+            if (cc.getCode().equals(code))
+              return true;
+          }
         }
       } 
     }
@@ -809,6 +816,8 @@ public class ResourceValidator extends BaseValidator {
       }
         
       if (sd.contains("|")) {
+        if (b.length() < 3)
+          throw new Error("surprise");
         String esd = b.substring(3);
         rule(errors, IssueType.STRUCTURE, path, sd.startsWith(esd) || (sd.endsWith("+") && b.substring(3).startsWith(sd.substring(0, sd.length()-1)) ), "The short description \""+sd+"\" does not match the expected (\""+b.substring(3)+"\")");
       } else {
@@ -817,8 +826,7 @@ public class ResourceValidator extends BaseValidator {
     }
     boolean isComplex = !e.typeCode().equals("code");
 
-    if (isComplex && cd.getValueSet() != null && cd.getValueSet().hasCodeSystem() && cd.getStrength() != BindingStrength.EXAMPLE && 
-          !cd.getValueSet().getUrl().contains("/v2/") && !cd.getValueSet().getUrl().contains("/v3/")) {
+    if (isComplex && cd.getValueSet() != null && hasInternalReference(cd.getValueSet()) && cd.getStrength() != BindingStrength.EXAMPLE) {
       hint(errors, IssueType.BUSINESSRULE, path, false, "The value "+cd.getValueSet().getUrl()+" defines codes, but is used by a Coding/CodeableConcept @ "+path+", so it should not use FHIR defined codes");
       cd.getValueSet().setUserData("vs-val-warned", true);
     }
@@ -836,6 +844,15 @@ public class ResourceValidator extends BaseValidator {
   }
     
   
+
+	private boolean hasInternalReference(ValueSet vs) {
+	  for (ConceptSetComponent inc : vs.getCompose().getInclude()) {
+	    String url = inc.getSystem();
+	    if (url.startsWith("http://hl7.org/fhir") && !url.contains("/v2/") && !url.contains("/v3/"))
+	      return false;
+	  }
+	  return false;
+	}
 
   public void dumpParams() {
 //    for (String s : usages.keySet()) {

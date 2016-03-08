@@ -76,6 +76,7 @@ import org.hl7.fhir.dstu3.formats.JsonParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Base64BinaryType;
 import org.hl7.fhir.dstu3.model.BooleanType;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
@@ -156,6 +157,7 @@ public class SpreadsheetParser {
   private Map<String, ConstraintStructure> profileIds;
   private List<ValueSet> valuesets = new ArrayList<ValueSet>();
   private List<FHIRPathUsage> fpUsages;
+  private Map<String, CodeSystem> codeSystems;
 
 	public SpreadsheetParser(String usageContext, InputStream in, String name,	Definitions definitions, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, IniFile ini, String committee, Map<String, ConstraintStructure> profileIds, List<FHIRPathUsage> fpUsages) throws Exception {
 	  this.usageContext = usageContext;
@@ -186,9 +188,10 @@ public class SpreadsheetParser {
 		tabfmt = new TabDelimitedSpreadSheet();
 		tabfmt.setFileName(((CSFileInputStream) in).getPath(), Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".sheet.txt"));
 		this.profileIds = profileIds;
+		this.codeSystems = definitions.getCodeSystems();
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
     xls = new XLSXmlParser(in, name); 
@@ -216,6 +219,7 @@ public class SpreadsheetParser {
     this.tabfmt = new TabDelimitedSpreadSheet(); 
     tabfmt.setFileName(((CSFileInputStream) in).getPath(), Utilities.changeFileExt(((CSFileInputStream) in).getPath(), ".sheet.txt"));
     this.profileIds = profileIds;
+    this.codeSystems = codeSystems;
   }
 
 
@@ -1110,17 +1114,25 @@ public class SpreadsheetParser {
       if (cd.getBinding() == BindingMethod.CodeList) {
         if (ref.startsWith("#valueset-"))
           throw new Exception("don't start code list references with #valueset-");
-        cd.setValueSet(new ValueSet());
+        cd.setValueSet(ValueSetUtilities.makeShareable(new ValueSet()));
         valuesets.add(cd.getValueSet());
         cd.getValueSet().setId(igSuffix(ig)+ref.substring(1));
         cd.getValueSet().setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(1));
+        cd.getValueSet().setUserData("filename", "valueset-"+ref.substring(1));
+        cd.getValueSet().setUserData("committee", committee);
+        if (ig != null) {
+          cd.getValueSet().setUserDataINN(ToolResourceUtilities.NAME_RES_IG, ig);
+          cd.getValueSet().setUserData("path", ig.getCode()+"/valueset-"+cd.getValueSet().getId()+".html");
+        } else
+          cd.getValueSet().setUserData("path", "valueset-"+cd.getValueSet().getId()+".html");
         if (!ref.startsWith("#"))
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' must started with '#'");
         Sheet cs = xls.getSheets().get(ref.substring(1));
         if (cs == null)
           throw new Exception("Error parsing binding "+cd.getName()+": code list reference '"+ref+"' not resolved");
         tabfmt.sheet(ref.substring(1));
-        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, tabfmt).execute();
+        vsGen.updateHeader(cd, cd.getValueSet());
+        new CodeListToValueSetParser(cs, ref.substring(1), cd.getValueSet(), version, tabfmt, codeSystems).execute();
       } else if (cd.getBinding() == BindingMethod.ValueSet) {
         if (ref.startsWith("http:"))
           cd.setReference(sheet.getColumn(row, "Reference")); // will sort this out later
@@ -1128,7 +1140,7 @@ public class SpreadsheetParser {
           cd.setValueSet(loadValueSet(ref));
       } else if (cd.getBinding() == BindingMethod.Special) {
         if ("#operation-outcome".equals(sheet.getColumn(row, "Reference")))
-          ValueSetGenerator.loadOperationOutcomeValueSet(cd, folder);
+          new ValueSetGenerator(definitions, version, genDate).loadOperationOutcomeValueSet(cd, folder);
         else
           throw new Exception("Special bindings are only allowed in bindings.xml");
       } else if (cd.getBinding() == BindingMethod.Reference) { 
@@ -1152,7 +1164,8 @@ public class SpreadsheetParser {
         } else
           vs.setUserData("path", "valueset-"+vs.getId()+".html");
         ToolingExtensions.setOID(vs, "urn:oid:"+BindingSpecification.DEFAULT_OID_VS + cd.getId());
-        vs.setUserData("csoid", BindingSpecification.DEFAULT_OID_CS + cd.getId());
+        if (vs.getUserData("cs") != null)
+          ToolingExtensions.setOID((CodeSystem) vs.getUserData("cs"), "urn:oid:"+BindingSpecification.DEFAULT_OID_CS + cd.getId());
         if (definitions != null)
           definitions.getBoundValueSets().put(vs.getUrl(), vs);
         else
@@ -1224,14 +1237,15 @@ public class SpreadsheetParser {
 	    } catch (Exception e) {
 	      throw new Exception("Error loading value set '"+filename+"': "+e.getMessage(), e);
 	    }
-      new CodeSystemConvertor().convert(result, filename);
       result.setId(igSuffix(ig)+ref.substring(9));
       result.setUrl("http://hl7.org/fhir/ValueSet/"+igSuffix(ig)+ref.substring(9));
 	    result.setExperimental(true);
 	    if (!result.hasVersion())
 	      result.setVersion(version);
+      result.setUserData("filename", ref);
       result.setUserData("path", ((ig == null || ig.isCore()) ? "" : ig.getCode()+"/")+ ref+".html");
       result.setUserData("committee", committee);
+      new CodeSystemConvertor(codeSystems).convert(p, result, filename);
       valuesets.add(result);
 	    return result;
 	}

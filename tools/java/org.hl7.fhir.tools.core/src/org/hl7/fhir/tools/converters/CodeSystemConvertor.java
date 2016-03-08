@@ -2,98 +2,95 @@ package org.hl7.fhir.tools.converters;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 
 import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
+import org.hl7.fhir.dstu3.formats.IParser;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemPropertyComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionPropertyComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.PropertyType;
+import org.hl7.fhir.dstu3.model.CodeableConcept;
+import org.hl7.fhir.dstu3.model.ContactPoint;
+import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
+import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.utilities.TextFile;
 import org.hl7.fhir.utilities.Utilities;
 
 public class CodeSystemConvertor {
 
-  public void convert(ValueSet vs, String name) throws FileNotFoundException, IOException {
-    if (vs.hasCodeSystem()) {
-      String nname = name.replace("valueset-", "codesystem-");
-      if (nname.equals(name))
-        name = Utilities.changeFileExt(name, "-cs.xml");
-      else
-        name = nname;
-      CodeSystem cs = new CodeSystem();
-      cs.setId(vs.getId());
-      cs.setUrl(vs.getCodeSystem().getSystem());
-      if (vs.hasVersion())
-        cs.setVersion(vs.getVersion());
-      cs.setName(vs.getName());
-      cs.setStatus(vs.getStatus());
-      cs.setExperimental(vs.getExperimental());
-      if (vs.hasDate())
-        cs.setDate(vs.getDate());
-      cs.setDescription(vs.getDescription());
-      cs.setRequirements(vs.getRequirements());
-      cs.setCopyright(vs.getCopyright());
-      cs.setCaseSensitive(vs.getCodeSystem().getCaseSensitive());
-      cs.setValueSet(vs.getUrl());
-      cs.setContent(CodeSystemContentMode.COMPLETE);
-      processConcepts(cs, cs.getConcept(), vs.getCodeSystem().getConcept());
-      if (!new File(name).exists()) {
-        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(name), cs);
-      } else {
-        String existing = TextFile.fileToString(name);
-        ByteArrayOutputStream bs = new ByteArrayOutputStream();
-        new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(bs, cs);
-        String current = new String(bs.toByteArray()); 
-        if (!existing.equals(current)) 
-          new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(new FileOutputStream(name), cs);
-      }
+  private Map<String, CodeSystem> codeSystems;
+
+  public CodeSystemConvertor(Map<String, CodeSystem> codeSystems) {
+    super();
+    this.codeSystems = codeSystems;
+  }
+
+  public void convert(IParser p, ValueSet vs, String name) throws Exception {
+    String nname = name.replace("valueset-", "codesystem-");
+    if (nname.equals(name))
+      nname = Utilities.changeFileExt(name, "-cs.xml");
+    if (new File(nname).exists()) {
+      FileInputStream input = new FileInputStream(nname);
+      CodeSystem cs = ValueSetUtilities.makeShareable((CodeSystem) p.parse(input));
+      populate(cs, vs);
+//      if (codeSystems.containsKey(cs.getUrl())) 
+//        throw new Exception("Duplicate Code System: "+cs.getUrl());
+      if (cs.getUrl().contains("ategory"))
+        System.out.println("........Adding "+cs.getUrl());
+      codeSystems.put(cs.getUrl(), cs);
     }    
   }
 
-  private void processConcepts(CodeSystem cs, List<ConceptDefinitionComponent> dest, List<org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent> source) {
-    for (org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent ccs : source) {
-      ConceptDefinitionComponent ct = new ConceptDefinitionComponent();
-      ct.setCode(ccs.getCode());
-      ct.setDisplay(ccs.getDisplay());
-      ct.setDefinition(ccs.getDefinition());
-      for (org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent ds : ccs.getDesignation()) {
-        ConceptDefinitionDesignationComponent dt = new ConceptDefinitionDesignationComponent();
-        dt.setLanguage(ds.getLanguage());
-        dt.setUse(ds.getUse());
-        dt.setValue(ds.getValue());
-        ct.getDesignation().add(dt);
-      }
-      if (ccs.getAbstract()) {
-        boolean defined = false;
-        for (CodeSystemPropertyComponent pd : cs.getProperty()) {
-          if (pd.getCode().equals("abstract")) 
-            defined = true;
-        }
-        if (!defined) {
-          CodeSystemPropertyComponent pd = new CodeSystemPropertyComponent();
-          cs.getProperty().add(pd);
-          pd.setCode("abstract");
-          pd.setDescription("True if an element is considered 'abstract' - that is the code is not for use as a real concept");
-          pd.setType(PropertyType.BOOLEAN);
-        }
-        ConceptDefinitionPropertyComponent p = new ConceptDefinitionPropertyComponent();
-        p.setCode("abstract");
-        p.setValue(new BooleanType(true));
-        ct.getProperty().add(p );  
-      }
-      dest.add(ct);
-      processConcepts(cs, ct.getConcept(), ccs.getConcept());
+  public static void populate(CodeSystem cs, ValueSet vs) {
+    if (vs.getUserData("filename") == null)
+      throw new Error("No filename on vs "+vs.getUrl());
+    if (!vs.hasName())
+      throw new Error("No name vs "+vs.getUrl());
+    if (!vs.hasDescription())
+      throw new Error("No description vs "+vs.getUrl());
+    
+    if (cs.getUserData("conv-vs") != null)
+      throw new Error("This code system has already been converted");
+    cs.setUserData("conv-vs", "done");
+    vs.setUserData("cs", cs);
+    cs.setUserData("filename", vs.getUserString("filename").replace("valueset-", "codesystem-"));
+    cs.setUserData("path", vs.getUserString("path").replace("valueset-", "codesystem-"));
+    cs.setUserData("committee", vs.getUserData("committee"));
+    cs.setId(vs.getId());
+    cs.setVersion(vs.getVersion());
+    cs.setName(vs.getName());
+    cs.setStatus(vs.getStatus());
+    cs.setExperimental(vs.getExperimental());
+    cs.setPublisher(vs.getPublisher());
+    for (ValueSetContactComponent csrc : vs.getContact()) {
+      CodeSystemContactComponent ctgt = cs.addContact();
+      ctgt.setName(csrc.getName());
+      for (ContactPoint cc : csrc.getTelecom())
+        ctgt.addTelecom(cc);
     }
+    cs.setDate(vs.getDate());
+    cs.setDescription(vs.getDescription());
+    for (CodeableConcept cc : vs.getUseContext())
+      cs.addUseContext(cc);
+    cs.setRequirements(vs.getRequirements());
+    cs.setCopyright(vs.getCopyright());
+    cs.setValueSet(vs.getUrl());    
   }
 
 }

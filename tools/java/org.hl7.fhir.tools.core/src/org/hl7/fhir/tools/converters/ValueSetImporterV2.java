@@ -17,6 +17,10 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
+import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
@@ -24,14 +28,12 @@ import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.Narrative;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
+import org.hl7.fhir.tools.converters.ValueSetImporterV2.VSPack;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.tools.publisher.SectionNumberer;
 import org.hl7.fhir.utilities.CSFile;
@@ -47,6 +49,12 @@ import org.w3c.dom.Element;
 
 public class ValueSetImporterV2 {
 
+  public class VSPack {
+
+    public ValueSet vs;
+    public CodeSystem cs;
+
+  }
   private static final String HTTP_separator = "/";
   private static final String MAX_VER = "2.8.2";
 
@@ -84,7 +92,7 @@ public class ValueSetImporterV2 {
   }
   private List<ValidationMessage> errors; 
   private PageProcessor page;
-  private List<ValueSet> valuesets = new ArrayList<ValueSet>();
+  private List<VSPack> valuesets = new ArrayList<VSPack>();
   private Map<String, OIDEntry> oids = new HashMap<String, OIDEntry>();
   private Map<String, Set<String>> vsImports = new HashMap<String, Set<String>>();
   private Map<String, TableRegistration> tables = new HashMap<String, TableRegistration>();
@@ -107,8 +115,9 @@ public class ValueSetImporterV2 {
     for (int  i = 1; i <= count; i++) {
       loadLanguagePack(ini.getStringProperty("v2", "lang"+Integer.toString(i)));
     }
-    for (ValueSet vs : valuesets) 
-      updateNarrative(vs);
+    for (VSPack vs : valuesets) 
+      if (vs.cs != null)
+        updateNarrative(vs.vs, vs.cs);
   }
   
   private void loadOIds() throws IOException {
@@ -149,10 +158,10 @@ public class ValueSetImporterV2 {
     }
   }
 
-  private void updateNarrative(ValueSet vs) {
+  private void updateNarrative(ValueSet vs, CodeSystem cs) {
     XhtmlNode table = vs.getText().getDiv().getElement("table");
     List<String> langs = new ArrayList<String>(); 
-    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
+    for (ConceptDefinitionComponent c : cs.getConcept()) {
       for (ConceptDefinitionDesignationComponent d : c.getDesignation()) {
         if (d.hasLanguage() && !d.hasUse()) {
           if (!langs.contains(d.getLanguage()))
@@ -168,7 +177,7 @@ public class ValueSetImporterV2 {
       i++;
     }
     int r = 1;
-    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
+    for (ConceptDefinitionComponent c : cs.getConcept()) {
       tr = table.getChildNodes().get(r);
       i = 2;
       for (String s : langs) {
@@ -177,6 +186,7 @@ public class ValueSetImporterV2 {
       }
       r++;
     }
+    cs.setText(vs.getText());
   }
 
   private String getLang(ConceptDefinitionComponent c, String s) {
@@ -204,8 +214,8 @@ public class ValueSetImporterV2 {
       e = XMLUtil.getNextSibling(e);
     }
 
-    for (ValueSet vs : valuesets) {
-      String id = vs.getId().substring(3);
+    for (VSPack vs : valuesets) {
+      String id = vs.vs.getId().substring(3);
       if (id.contains("-")) {
         // version specific
       } else {
@@ -215,15 +225,16 @@ public class ValueSetImporterV2 {
     
   }
 
-  private void processV2Table(ValueSet vs, Element element) {
+  private void processV2Table(VSPack vs, Element element) {
     if (element != null) {
-      for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
-        processV2Code(c, element);
+      if (vs.cs != null)
+        for (ConceptDefinitionComponent c : vs.cs.getConcept()) {
+          processV2Code(c, element);
       }
     }
     for (Element e : getLangList(element)) {
-      if (!ToolingExtensions.hasLanguageTranslation(vs.getNameElement(), e.getAttribute("lang")))
-        ToolingExtensions.addLanguageTranslation(vs.getNameElement(), e.getAttribute("lang"), e.getAttribute("value"));
+      if (!ToolingExtensions.hasLanguageTranslation(vs.vs.getNameElement(), e.getAttribute("lang")))
+        ToolingExtensions.addLanguageTranslation(vs.vs.getNameElement(), e.getAttribute("lang"), e.getAttribute("value"));
     }
   }
   
@@ -286,27 +297,25 @@ public class ValueSetImporterV2 {
       String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
       if (tables.containsKey(id)) {
         if (tables.get(id).versionPoints.isEmpty()) {
-          ValueSet vs = buildV2CodeSystem(id, e);
-          valuesets.add(vs);
-          vs.setId("v2-"+FormatUtilities.makeId(id));
-          vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
-          page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-          page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
-          page.getValueSets().put(vs.getUrl(), vs);
-          page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
+          VSPack vp = new VSPack();
+          buildV2CodeSystem(vp, id, e);
+          valuesets.add(vp);
+          vp.vs.setId("v2-"+FormatUtilities.makeId(id));
+          vp.vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
+          vp.cs.setId("v2-"+FormatUtilities.makeId(id));
+          vp.cs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
         } else { // versioned
           TableRegistration tbl = tables.get(id);
           for (int i = 0; i < tbl.versionPoints.size(); i++) {
             String ver = tbl.versionPoints.get(i);
             String nver = i < tbl.versionPoints.size() - 1 ? tbl.versionPoints.get(i+1) : null;
-            ValueSet vs = buildV2CodeSystemVersioned(id, ver, nver, e);
-            valuesets.add(vs);
-            vs.setId("v2-"+FormatUtilities.makeId(ver)+"-"+id);
-            vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + ver + HTTP_separator + "index.html");
-            page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-            page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
-            page.getValueSets().put(vs.getUrl(), vs);
-            page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
+            VSPack vp = new VSPack();
+            buildV2CodeSystemVersioned(vp, id, ver, nver, e);
+            valuesets.add(vp);
+            vp.vs.setId("v2-"+FormatUtilities.makeId(ver)+"-"+id);
+            vp.vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + ver + HTTP_separator + "index.html");
+            vp.cs.setId("v2-"+FormatUtilities.makeId(ver)+"-"+id);
+            vp.cs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + ver + HTTP_separator + "index.html");
           }
         }
       }
@@ -318,8 +327,10 @@ public class ValueSetImporterV2 {
     while (e != null) {
       String id = Utilities.padLeft(e.getAttribute("id"), '0', 4);
       if (vsImports.containsKey(id)) {
+        VSPack vp = new VSPack();
         ValueSet vs = buildV2ValueSet(id, e);
-        valuesets.add(vs);
+        vp.vs = vs;
+        valuesets.add(vp);
         vs.setId("v2-"+FormatUtilities.makeId(id));
         vs.setUserData("path", "v2" + HTTP_separator + id + HTTP_separator + "index.html");
         page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
@@ -397,18 +408,12 @@ public class ValueSetImporterV2 {
       if (cset == null) {
         String translate = ini.getStringProperty("translate", id+"/"+cd);
         if (!Utilities.noString(translate)) {
-          if (!vs.hasCodeSystem()) 
-            vs.getCodeSystem().setCaseSensitive(false).setSystem("http://hl7.org/fhir/v2/" + id);
-          vs.getCodeSystem().addConcept().setCode(cd).setDisplay(codes.get(cd)).setDefinition("This code is an error - it actually refers to "+translate);
-          cset = checkAddCSReference(vs, sources, translate);
-          ConceptReferenceComponent concept = cset.addConcept().setCode(translate).setDisplay(codes.get(cd)+". Wrongly included with a wrong code '"+cd+"'"); 
           String comment = "";
           if (comments.containsKey(cd)) {
             comment = comments.get(cd);
-            ToolingExtensions.addComment(concept, comment);
           }
           String nm = Utilities.nmtokenize(cd);
-          s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>"+cset.getSystem()+"::<b>"+translate+"</b></td><td>" + Utilities.escapeXml(codes.get(cd))
+          s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>??::<b>"+translate+"</b></td><td>" + Utilities.escapeXml(codes.get(cd))
             + "</td><td>Wrongly Included as "+cd+". " + Utilities.escapeXml(comment) + "</td><td>" + ver + "</td></tr>");
         } else if (!ini.getBooleanProperty("ignore", id+"/"+cd))
           throw new Exception("No Match for "+cd+" in "+sources.toString());
@@ -442,10 +447,10 @@ public class ValueSetImporterV2 {
   private ConceptSetComponent checkAddCSReference(ValueSet vs, Set<String> sources, String cd) throws Exception {
     ConceptSetComponent cset = null;
     for (String system : sources) {
-      ValueSet vsc = page.getCodeSystems().get(system);
-      if (vsc == null)
+      CodeSystem cs = page.getCodeSystems().get(system);
+      if (cs == null)
         throw new Exception("Unable to resolve code system "+system);
-      if (definesCode(vsc.getCodeSystem().getConcept(), cd)) {
+      if (definesCode(cs.getConcept(), cd)) {
         if (cset != null)
           throw new Exception("Multiple possible matches for "+cd+" in "+sources.toString());
         for (ConceptSetComponent cc : vs.getCompose().getInclude()) {
@@ -469,11 +474,12 @@ public class ValueSetImporterV2 {
     return false;
   }
 
-  private ValueSet buildV2CodeSystem(String id, Element e) throws Exception {
+  private void buildV2CodeSystem(VSPack vp, String id, Element e) throws Exception {
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(id));
     vs.setUserData("filename", Utilities.path("v2", id, "index.html"));
+    vs.setUserData("path", Utilities.path("v2", id, "index.html"));
     vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
     vs.setName("v2 table " + id);
     vs.setPublisher("HL7, Inc");
@@ -482,15 +488,11 @@ public class ValueSetImporterV2 {
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
     vs.setExperimental(true);
     vs.setDateElement(new DateTimeType(date)); 
-    ValueSetCodeSystemComponent def = new ValueSet.ValueSetCodeSystemComponent();
-    vs.setCodeSystem(def);
-    OIDEntry oe = oids.get(id);
-    if (oe != null)
-      ToolingExtensions.setOID(def, "urn:oid:"+oe.getOid());
-    def.setCaseSensitive(false);
-    def.setSystem("http://hl7.org/fhir/v2/" + id);
+    
+    
     StringBuilder s = new StringBuilder();
 
+    CodeSystem cs = new CodeSystem();
     String desc = "";
     // we use the latest description of the table
     Element c = XMLUtil.getFirstChild(e);
@@ -518,10 +520,10 @@ public class ValueSetImporterV2 {
     s.append("<p>").append(Utilities.escapeXml(desc)).append("</p>\r\n");
     s.append("<table class=\"grid\">");
     s.append("<tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Comment</b></td><td><b>Version</b></td></tr>");
-    List<String> cs = new ArrayList<String>();
-    cs.addAll(codes.keySet());
-    Collections.sort(cs);
-    for (String cd : cs) {
+    List<String> css = new ArrayList<String>();
+    css.addAll(codes.keySet());
+    Collections.sort(css);
+    for (String cd : css) {
       String min = null;
       String max = null;
       c = XMLUtil.getFirstChild(e);
@@ -541,7 +543,7 @@ public class ValueSetImporterV2 {
         c = XMLUtil.getNextSibling(c);
       }
       String ver = ("2.1".equals(min) ? "from v2.1" : "added v" + min) + (MAX_VER.equals(max) ? "" : ", removed after v" + max);
-      ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
+      ConceptDefinitionComponent concept = new CodeSystem.ConceptDefinitionComponent();
       concept.setCode(cases.get(cd));
       concept.setDisplay(codes.get(cd)); // we deem the v2 description to
       String comment = "";
@@ -556,7 +558,7 @@ public class ValueSetImporterV2 {
         ToolingExtensions.markDeprecated(concept);
       if (ToolingExtensions.hasDeprecated(concept) && Utilities.noString(comment))
         comment = "deprecated";
-      def.getConcept().add(concept);
+      cs.getConcept().add(concept);
       String nm = Utilities.nmtokenize(cd);
       s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>" + Utilities.escapeXml(codes.get(cd))
          + "</td><td>" + Utilities.escapeXml(comment) + "</td><td>" + ver + "</td></tr>");
@@ -567,17 +569,34 @@ public class ValueSetImporterV2 {
     // v2 versioning
     // information
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
+    ValueSetUtilities.makeShareable(cs);
+    CodeSystemConvertor.populate(cs, vs);
+    cs.setContent(CodeSystemContentMode.COMPLETE);
+    OIDEntry oe = oids.get(id);
+    if (oe != null)
+      ToolingExtensions.setOID(cs, "urn:oid:"+oe.getOid());
+    cs.setCaseSensitive(false);
+    cs.setUrl("http://hl7.org/fhir/v2/" + id);
+    cs.setId("v2-"+FormatUtilities.makeId(id));
+    cs.setUserData("filename", Utilities.path("v2", id, "index.html"));
+    vs.getCompose().addInclude().setSystem(cs.getUrl());
+    vp.vs = vs;
+    vp.cs = cs;
+    page.getVsValidator().validate(errors, "v2 table "+id, cs, false, true);
+    page.getCodeSystems().put(vp.cs.getUrl(), vp.cs);
     page.getVsValidator().validate(errors, "v2 table "+id, vs, false, true);
-    return vs;
+    page.getValueSets().put(vp.vs.getUrl(), vp.vs);
+
   }
 
-  private ValueSet buildV2CodeSystemVersioned(String id, String version, String endVersion, Element e) throws Exception {
+  private void buildV2CodeSystemVersioned(VSPack vp, String id, String version, String endVersion, Element e) throws Exception {
     StringBuilder s = new StringBuilder();
 
     ValueSet vs = new ValueSet();
     ValueSetUtilities.makeShareable(vs);
     vs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
     vs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
+    vs.setUserData("path", Utilities.path("v2", id, version, "index.html"));
     vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
     vs.setName("v2 table " + id + ", Version " + version);
     vs.setPublisher("HL7, Inc");
@@ -586,13 +605,20 @@ public class ValueSetImporterV2 {
     vs.setExperimental(false);
     vs.setVersion(id);
     vs.setDateElement(new DateTimeType(date)); 
-    ValueSetCodeSystemComponent def = new ValueSet.ValueSetCodeSystemComponent();
+    vs.setDescription("v2 table definition for "+vs.getName());
+    CodeSystem cs = new CodeSystem();
+    ValueSetUtilities.makeShareable(cs);
+    CodeSystemConvertor.populate(cs, vs);
+    cs.setContent(CodeSystemContentMode.COMPLETE);
+
     OIDEntry oe = oids.get(id+"-"+version);
     if (oe != null)
-      ToolingExtensions.setOID(def, "urn:oid:"+oe.getOid());
-    vs.setCodeSystem(def);
-    def.setCaseSensitive(true);
-    def.setSystem("http://hl7.org/fhir/v2/" + id + "/" + version);
+      ToolingExtensions.setOID(cs, "urn:oid:"+oe.getOid());
+    cs.setCaseSensitive(true);
+    cs.setUrl("http://hl7.org/fhir/v2/" + id + "/" + version);
+    cs.setId("v2-"+FormatUtilities.makeId(version)+"-"+id);
+    cs.setUserData("filename", Utilities.path("v2", id, version, "index.html"));
+    vs.getCompose().addInclude().setSystem(cs.getUrl());
 
     String desc = "";
     String minlim = null;
@@ -629,11 +655,11 @@ public class ValueSetImporterV2 {
     s.append("<p>").append(Utilities.escapeXml(desc)).append("</p>\r\n");
     s.append("<table class=\"grid\">");
     s.append("<tr><td><b>Code</b></td><td><b>Description</b></td><td><b>Version</b></td></tr>");
-    List<String> cs = new ArrayList<String>();
-    cs.addAll(codes.keySet());
-    Collections.sort(cs);
+    List<String> css = new ArrayList<String>();
+    css.addAll(codes.keySet());
+    Collections.sort(css);
     started = false;
-    for (String cd : cs) {
+    for (String cd : css) {
       String min = null;
       String max = null;
       c = XMLUtil.getFirstChild(e);
@@ -658,7 +684,7 @@ public class ValueSetImporterV2 {
         c = XMLUtil.getNextSibling(c);
       }
       String ver = (minlim.equals(min) ? "from v" + minlim : "added v" + min) + (maxlim.equals(max) ? "" : ", removed after v" + max);
-      ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
+      ConceptDefinitionComponent concept = new CodeSystem.ConceptDefinitionComponent();
       concept.setCode(cd);
       concept.setDisplay(codes.get(cd)); // we deem the v2 description to
       if (comments.containsKey(cd))
@@ -667,7 +693,7 @@ public class ValueSetImporterV2 {
       // be display name, not
       // definition. Open for
       // consideration
-      def.getConcept().add(concept);
+      cs.getConcept().add(concept);
       s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(Utilities.nmtokenize(cd)) + "\"> </a></td><td>"
           + Utilities.escapeXml(codes.get(cd)) + "</td><td>" + ver + "</td></tr>");
     }
@@ -677,8 +703,12 @@ public class ValueSetImporterV2 {
     // v2 versioning
     // information
     vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
+    vp.vs = vs;
+    vp.cs = cs;
+    page.getVsValidator().validate(errors, "v2 table "+id, cs, false, true);
+    page.getCodeSystems().put(vp.cs.getUrl(), vp.cs);
     page.getVsValidator().validate(errors, "v2 table "+id, vs, false, true);
-    return vs;
+    page.getValueSets().put(vp.vs.getUrl(), vp.vs);
   }
 
   public String getIndex(Document v2src) throws IOException {

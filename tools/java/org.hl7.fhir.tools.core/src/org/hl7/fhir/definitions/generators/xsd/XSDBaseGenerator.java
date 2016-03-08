@@ -47,9 +47,8 @@ import org.hl7.fhir.definitions.model.PrimitiveType;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
+import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.utilities.Utilities;
 
@@ -557,11 +556,6 @@ public class XSDBaseGenerator {
 
     write("  <xs:simpleType name=\"" + en + "-list\">\r\n");
     write("    <xs:restriction base=\"xs:string\">\r\n");
-    if (bs.getValueSet().hasCodeSystem()) {
-      for (ConceptDefinitionComponent c : bs.getValueSet().getCodeSystem().getConcept()) {
-        genDefinedCode(c);
-      }
-    }
     if (bs.getValueSet().hasCompose()) {
       for (ConceptSetComponent cc : bs.getValueSet().getCompose().getInclude()) {
         for (ConceptReferenceComponent c : cc.getConcept()) {
@@ -592,25 +586,11 @@ public class XSDBaseGenerator {
     write("      <xs:enumeration value=\"" + Utilities.escapeXml(c.getCode()) + "\">\r\n");
     write("        <xs:annotation>\r\n");
     write("          <xs:documentation xml:lang=\"en\">" + Utilities.escapeXml(c.getDisplay()) + "</xs:documentation>\r\n"); // todo: do we need to look the definition up? 
-    for (ConceptDefinitionDesignationComponent l : c.getDesignation())
+    for (ConceptReferenceDesignationComponent l : c.getDesignation())
       if (l.hasLanguage())
         write("          <xs:documentation xml:lang=\""+l.getLanguage()+"\">"+Utilities.escapeXml(l.getValue())+"</xs:documentation>\r\n");
     write("        </xs:annotation>\r\n");
     write("      </xs:enumeration>\r\n");
-  }
-
-  private void genDefinedCode(ConceptDefinitionComponent c) throws IOException {
-    write("      <xs:enumeration value=\"" + Utilities.escapeXml(c.getCode()) + "\">\r\n");
-    write("        <xs:annotation>\r\n");
-    write("          <xs:documentation xml:lang=\"en\">" + Utilities.escapeXml(c.getDefinition()) + "</xs:documentation>\r\n");
-    for (ConceptDefinitionDesignationComponent l : c.getDesignation())
-      if (l.hasLanguage())
-        write("          <xs:documentation xml:lang=\""+l.getLanguage()+"\">"+Utilities.escapeXml(l.getValue())+"</xs:documentation>\r\n");
-    write("        </xs:annotation>\r\n");
-    write("      </xs:enumeration>\r\n");
-    for (ConceptDefinitionComponent cc : c.getConcept()) {
-      genDefinedCode(cc);
-    }
   }
 
   private void generateType(ElementDefn root, String name, ElementDefn struc)

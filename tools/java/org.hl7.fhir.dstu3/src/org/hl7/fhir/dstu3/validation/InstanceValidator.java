@@ -16,6 +16,7 @@ import org.hl7.fhir.dstu3.model.Attachment;
 import org.hl7.fhir.dstu3.model.Base;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ContactPoint;
@@ -52,7 +53,7 @@ import org.hl7.fhir.dstu3.model.Timing;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
@@ -444,9 +445,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 			if (system.equals("http://hl7.org/fhir/sid/icd-10"))
 				return true; // else don't check ICD-10 (for now)
 			else {
-				ValueSet vs = getValueSet(system);
-				if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, vs != null, "Unknown Code System " + system)) {
-					ConceptDefinitionComponent def = getCodeDefinition(vs, code);
+        CodeSystem cs = getCodeSystem(system);
+        if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, cs != null, "Unknown Code System " + system)) {
+          ConceptDefinitionComponent def = getCodeDefinition(cs, code);
 					if (warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, def != null, "Unknown Code (" + system + "#" + code + ")"))
 						return warning(errors, IssueType.CODEINVALID, element.line(), element.col(), path, display == null || display.equals(def.getDisplay()), "Display should be '" + def.getDisplay() + "'");
 				}
@@ -1148,8 +1149,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		return null;
 	}
 
-	private ConceptDefinitionComponent getCodeDefinition(ValueSet vs, String code) {
-		for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
+  private ConceptDefinitionComponent getCodeDefinition(CodeSystem cs, String code) {
+    for (ConceptDefinitionComponent c : cs.getConcept()) {
 			ConceptDefinitionComponent r = getCodeDefinition(c, code);
 			if (r != null)
 				return r;
@@ -1253,7 +1254,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		return null;
 	}
 
-	private ValueSet getValueSet(String system) {
+  private CodeSystem getCodeSystem(String system) {
 		return context.fetchCodeSystem(system);
 	}
 

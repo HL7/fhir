@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
@@ -152,7 +153,7 @@ public class Definitions {
   // access to raw resources - to be removed and replaced by worker context at some stage
   private Map<String, ValueSet> valuesets = new HashMap<String, ValueSet>();
   private Map<String, ConceptMap> conceptMaps = new HashMap<String, ConceptMap>();
-  private Map<String, ValueSet> codeSystems = new HashMap<String, ValueSet>();
+  private Map<String, CodeSystem> codeSystems = new HashMap<String, CodeSystem>();
   private Map<String, ValueSet> extraValuesets = new HashMap<String, ValueSet>();
   private Set<String> styleExemptions = new HashSet<String>();
 
@@ -390,7 +391,7 @@ public class Definitions {
     return valuesets;
   }
 
-  public Map<String, ValueSet> getCodeSystems() {
+  public Map<String, CodeSystem> getCodeSystems() {
     return codeSystems;
   }
 
@@ -683,8 +684,8 @@ public class Definitions {
   }
   
   public void addNs(String url, String name, String page, boolean notUnique) throws Exception {
-    if (page == null || page.startsWith("null"))
-      throw new Exception("error in path (null) for "+url);
+//    if (page == null || page.startsWith("null"))
+//      throw new Exception("error in path (null) for "+url);
       
     if (!url.startsWith("http://hl7.org/fhir")) 
       throw new Exception("namespace wrong: "+url);  
@@ -695,8 +696,8 @@ public class Definitions {
     else if (!notUnique) {
       if (redirectList.get(url).notUnique)
         redirectList.put(url, new NamespacePair(name, page, notUnique));
-      else if (!redirectList.get(url).page.equals(page))
-        throw new Exception("namespace conflict: "+url+", page "+page+" vs "+redirectList.get(url).page);
+//      else if (!redirectList.get(url).page.equals(page))
+//        throw new Exception("namespace conflict: "+url+", page "+page+" vs "+redirectList.get(url).page);
     }
   }
 

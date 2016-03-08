@@ -61,6 +61,7 @@ import org.hl7.fhir.definitions.model.ElementDefn;
 import org.hl7.fhir.definitions.model.ProfiledType;
 import org.hl7.fhir.definitions.model.ResourceDefn;
 import org.hl7.fhir.definitions.model.TypeRef;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
@@ -200,14 +201,16 @@ public class JavaGenerator extends BaseGenerator implements PlatformGenerator {
       jgen.close();
     }
 
-    for (ValueSet vs : definitions.getValuesets().values()) {
-      if (vs.getUserData("java-generated") == null && vs.hasCodeSystem() && !vs.hasCompose() && !vs.getId().startsWith("v2-")) {
-        String tns = tokenize(vs.getId());
-        JavaValueSetGenerator vsgen = new JavaValueSetGenerator(new FileOutputStream(Utilities.path(javaDir, "valuesets", tns+".java"))); 
-        vsgen.generate(genDate, version, vs, tns);
+    for (CodeSystem cs : definitions.getCodeSystems().values()) {
+      if (!cs.hasId())
+        throw new Exception("No id on "+cs.getUrl()); 
+      if (cs.getUserData("java-generated") == null && !cs.getId().startsWith("v2-")) {
+        String tns = tokenize(cs.getId());
+        JavaCodeSystemGenerator vsgen = new JavaCodeSystemGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+".java"))); 
+        vsgen.generate(genDate, version, cs, tns);
         vsgen.close();
-        JavaValueSetFactoryGenerator vsfgen = new JavaValueSetFactoryGenerator(new FileOutputStream(Utilities.path(javaDir, "valuesets", tns+"EnumFactory.java"))); 
-        vsfgen.generate(genDate, version, vs, tns);
+        JavaCodeSystemFactoryGenerator vsfgen = new JavaCodeSystemFactoryGenerator(new FileOutputStream(Utilities.path(javaDir, "codesystems", tns+"EnumFactory.java"))); 
+        vsfgen.generate(genDate, version, cs, tns);
         vsfgen.close();
       }        
     }

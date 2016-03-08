@@ -10,15 +10,15 @@ import java.util.Map;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
 import org.hl7.fhir.dstu3.formats.XmlParser;
+import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
+import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.DateTimeType;
-import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.Identifier;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ValueSetCodeSystemComponent;
+import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -37,7 +37,8 @@ public class ICPC2Importer {
     try {
       ICPC2Importer r = new ICPC2Importer();
       r.setSourceFileName("c:\\temp\\ICPC-2e-v5.0.xml");
-      r.setTargetFileName("C:\\temp\\icpc2.xml");
+      r.setTargetFileNameCS("C:\\temp\\icpc2.xml");
+      r.setTargetFileNameVS("C:\\temp\\icpc2-vs.xml");
       r.go();
       System.out.println("Completed OK");
     } catch (Exception e) {
@@ -46,15 +47,17 @@ public class ICPC2Importer {
   }
 
   private String sourceFileName; // the ICPC2 ClaML file
-  private String targetFileName; // the value set to produce
+  private String targetFileNameVS; // the value set to produce
+  private String targetFileNameCS; // the value set to produce
   
   public ICPC2Importer() {
     super();
   }
-  public ICPC2Importer(String sourceFileName, String targetFileName) {
+  public ICPC2Importer(String sourceFileName, String targetFileNameCS, String targetFileNameVS) {
     super();
     this.sourceFileName = sourceFileName;
-    this.targetFileName = targetFileName;
+    this.targetFileNameCS = targetFileNameCS;
+    this.targetFileNameVS = targetFileNameVS;
   }
   public String getSourceFileName() {
     return sourceFileName;
@@ -62,11 +65,18 @@ public class ICPC2Importer {
   public void setSourceFileName(String sourceFileName) {
     this.sourceFileName = sourceFileName;
   }
-  public String getTargetFileName() {
-    return targetFileName;
+  public String getTargetFileNameCS() {
+    return targetFileNameCS;
   }
-  public void setTargetFileName(String targetFileName) {
-    this.targetFileName = targetFileName;
+  public void setTargetFileNameCS(String targetFileName) {
+    this.targetFileNameCS = targetFileName;
+  }
+
+  public String getTargetFileNameVS() {
+    return targetFileNameVS;
+  }
+  public void setTargetFileNameVS(String targetFileName) {
+    this.targetFileNameVS = targetFileName;
   }
 
   public void go() throws Exception {
@@ -76,7 +86,7 @@ public class ICPC2Importer {
     Document doc = builder.parse(new FileInputStream(sourceFileName));
 
     ValueSet vs = new ValueSet();
-    vs.setUrl("http://hl7.org/fhir/sid/icpc2");
+    vs.setUrl("http://hl7.org/fhir/sid/icpc2/vs");
     Element title = XMLUtil.getNamedChild(doc.getDocumentElement(), "Title");
     vs.setVersion(title.getAttribute("version"));
     vs.setName(title.getAttribute("name"));
@@ -92,21 +102,39 @@ public class ICPC2Importer {
     vs.setCopyright("The copyright of ICPC, both in hard copy and in electronic form, is owned by Wonca. See http://www.kith.no/templates/kith_WebPage____1110.aspx");
     vs.setStatus(ConformanceResourceStatus.ACTIVE);
     vs.setDateElement(new DateTimeType(title.getAttribute("date")));
-    vs.setCodeSystem(new ValueSetCodeSystemComponent());
-    vs.getCodeSystem().setSystem("http://hl7.org/fhir/sid/icpc2/cs");
+    
+    vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/sid/icpc2");
+    CodeSystem cs = new CodeSystem();
+    cs.setUrl("http://hl7.org/fhir/sid/icpc2");
+    cs.setVersion(title.getAttribute("version"));
+    cs.setName(title.getAttribute("name"));
+    identifier = XMLUtil.getNamedChild(doc.getDocumentElement(), "Identifier");
+    cs.setPublisher(identifier.getAttribute("authority"));
+    cs.setIdentifier(new Identifier().setValue(identifier.getAttribute("uid")));
+    authors = new ArrayList<Element>(); 
+    XMLUtil.getNamedChildren(XMLUtil.getNamedChild(doc.getDocumentElement(), "Authors"), "Author", authors);
+    for (Element a : authors)
+      if (!a.getAttribute("name").contains("+"))
+        cs.addContact().setName(a.getTextContent());
+    cs.setCopyright("The copyright of ICPC, both in hard copy and in electronic form, is owned by Wonca. See http://www.kith.no/templates/kith_WebPage____1110.aspx");
+    cs.setStatus(ConformanceResourceStatus.ACTIVE);
+    cs.setDateElement(new DateTimeType(title.getAttribute("date")));
+    cs.setValueSet(vs.getUrl());
     
     Map<String, ConceptDefinitionComponent> concepts = new HashMap<String, ConceptDefinitionComponent>();
     List<Element> classes = new ArrayList<Element>(); 
     XMLUtil.getNamedChildren(doc.getDocumentElement(), "Class", classes);
     for (Element cls : classes) {
-      processClass(cls, concepts, vs.getCodeSystem());
+      processClass(cls, concepts, cs);
     }
     
     XmlParser xml = new XmlParser();
     xml.setOutputStyle(OutputStyle.PRETTY);
-    xml.compose(new FileOutputStream(targetFileName), vs);
+    xml.compose(new FileOutputStream(targetFileNameVS), vs);
+    xml.compose(new FileOutputStream(targetFileNameCS), cs);
   }
-  private void processClass(Element cls, Map<String, ConceptDefinitionComponent> concepts, ValueSetCodeSystemComponent define) {
+  
+  private void processClass(Element cls, Map<String, ConceptDefinitionComponent> concepts, CodeSystem define) {
     ConceptDefinitionComponent concept = new ConceptDefinitionComponent();
     concept.setCode(cls.getAttribute("code"));
     concept.setDefinition(getRubric(cls, "preferred"));
@@ -132,8 +160,8 @@ public class ICPC2Importer {
     concepts.put(concept.getCode(), concept);
     List<Element> children = new ArrayList<Element>(); 
     XMLUtil.getNamedChildren(cls, "SubClass", children);
-    if (children.size() > 0)
-      concept.setAbstract(true);
+//    if (children.size() > 0)
+//      concept.setAbstract(true);
     
     Element parent = XMLUtil.getNamedChild(cls, "SuperClass");
     if (parent == null) {

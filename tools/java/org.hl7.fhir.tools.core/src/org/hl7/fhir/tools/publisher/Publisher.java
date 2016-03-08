@@ -127,6 +127,7 @@ import org.hl7.fhir.dstu3.metamodel.Manager.FhirFormat;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.CompartmentDefinition;
 import org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent;
@@ -184,12 +185,12 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptDefinitionDesignationComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.FilterOperator;
-import org.hl7.fhir.dstu3.model.ValueSet.ValueSetCodeSystemComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.dstu3.terminologies.LoincToDEConvertor;
@@ -214,6 +215,7 @@ import org.hl7.fhir.dstu3.validation.ValidationMessage.Source;
 import org.hl7.fhir.rdf.RDFValidator;
 import org.hl7.fhir.tools.converters.CDAGenerator;
 import org.hl7.fhir.tools.converters.ValueSetImporterV2;
+import org.hl7.fhir.tools.converters.ValueSetImporterV3;
 import org.hl7.fhir.tools.implementations.XMLToolsGenerator;
 import org.hl7.fhir.tools.implementations.csharp.CSharpGenerator;
 import org.hl7.fhir.tools.implementations.delphi.DelphiGenerator;
@@ -401,8 +403,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private Bundle profileBundle;
   private Bundle valueSetsFeed;
   private Bundle conceptMapsFeed;
-  private Bundle v2Valuesets;
-  private Bundle v3Valuesets;
   private Bundle dataElements;
   private boolean noPartialBuild;
   private List<Fragment> fragments = new ArrayList<Publisher.Fragment>();
@@ -725,10 +725,10 @@ public class Publisher implements URIResolver, SectionNumberer {
     page.getIgResources().put(ae.getId(), ae);
     if (ae instanceof ValueSet) {
       ValueSet vs = (ValueSet) ae;
-      if (vs.hasCodeSystem())
-        page.getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
       page.getValueSets().put(ae.getId(), vs);
     }
+    if (ae instanceof CodeSystem)
+      page.getCodeSystems().put(ae.getId(), (CodeSystem) ae);
     if (ae instanceof ConceptMap)
       page.getConceptMaps().put(ae.getId(), (ConceptMap) ae);
 
@@ -1062,8 +1062,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     buildFeedsAndMaps();
 
     page.log(" ...vocab #1", LogMessageType.Process);
-    analyseV3();
+    new ValueSetImporterV3(page, page.getValidationErrors()).execute();
     new ValueSetImporterV2(page, page.getValidationErrors()).execute();
+    generateCodeSystemsPart1();
     generateValueSetsPart1();
     for (BindingSpecification cd : page.getDefinitions().getUnresolvedBindings()) {
       String ref = cd.getReference();
@@ -1102,8 +1103,15 @@ public class Publisher implements URIResolver, SectionNumberer {
       generateConformanceStatement(false, "base2", false);
       generateCompartmentDefinitions();
     }
+    page.log(" ...resource CodeSystem", LogMessageType.Process);
+    ResourceDefn r = page.getDefinitions().getResources().get("CodeSystem");
+    if (isGenerate && wantBuild("CodeSystem")) {
+      produceResource1(r, false);
+      produceResource2(r, false, null);
+    }
+    generateCodeSystemsPart2();
     page.log(" ...resource ValueSet", LogMessageType.Process);
-    ResourceDefn r = page.getDefinitions().getResources().get("ValueSet");
+    r = page.getDefinitions().getResources().get("ValueSet");
     if (isGenerate && wantBuild("ValueSet")) {
       produceResource1(r, false);
       produceResource2(r, false, null);
@@ -1141,29 +1149,33 @@ public class Publisher implements URIResolver, SectionNumberer {
     names.addAll(page.getCodeSystems().keySet());
     Collections.sort(names);
     for (String n : names) {
-      ValueSet vs = page.getCodeSystems().get(n);
-      NamingSystem ns = new NamingSystem();
-      ns.setId(vs.getId());
-      ns.setName(vs.getName());
-      ns.setStatus(vs.getStatus());
-      ns.setKind(NamingSystemType.CODESYSTEM);
-      ns.setPublisher(vs.getPublisher());
-      for (ValueSetContactComponent c : vs.getContact()) {
-        NamingSystemContactComponent nc = ns.addContact();
-        nc.setName(c.getName());
-        for (ContactPoint cc : c.getTelecom()) {
-          nc.getTelecom().add(cc);
+      CodeSystem cs = page.getCodeSystems().get(n);
+      if (cs.hasName()) {
+        NamingSystem ns = new NamingSystem();
+        ns.setId(cs.getId());
+        ns.setName(cs.getName());
+        ns.setStatus(cs.getStatus());
+        if (!ns.hasStatus())
+          ns.setStatus(ConformanceResourceStatus.DRAFT);
+        ns.setKind(NamingSystemType.CODESYSTEM);
+        ns.setPublisher(cs.getPublisher());
+        for (CodeSystemContactComponent c : cs.getContact()) {
+          NamingSystemContactComponent nc = ns.addContact();
+          nc.setName(c.getName());
+          for (ContactPoint cc : c.getTelecom()) {
+            nc.getTelecom().add(cc);
+          }
         }
+        ns.setDate(cs.getDate());
+        if (!ns.hasDate())
+          ns.setDate(page.getGenDate().getTime());
+        ns.setDescription(cs.getDescription());
+        ns.addUniqueId().setType(NamingSystemIdentifierType.URI).setValue(cs.getUrl()).setPreferred(true);
+        if (ToolingExtensions.getOID(cs) != null)
+          ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(ToolingExtensions.getOID(cs).substring(8)).setPreferred(false);
+        ns.setUserData("path", cs.getUserData("path"));
+        bnd.addEntry().setResource(ns).setFullUrl(cs.getUrl().replace("ValueSet", "NamingSystem"));
       }
-      ns.setDate(vs.getDate());
-      if (!ns.hasDate())
-        ns.setDate(page.getGenDate().getTime());
-      ns.setDescription(vs.getDescription());
-      ns.addUniqueId().setType(NamingSystemIdentifierType.URI).setValue(vs.getCodeSystem().getSystem()).setPreferred(true);
-      if (ToolingExtensions.getOID(vs.getCodeSystem()) != null)
-        ns.addUniqueId().setType(NamingSystemIdentifierType.OID).setValue(ToolingExtensions.getOID(vs.getCodeSystem()).substring(8)).setPreferred(false);
-      ns.setUserData("path", vs.getUserData("path"));
-      bnd.addEntry().setResource(ns).setFullUrl(vs.getUrl().replace("ValueSet", "NamingSystem"));
     }
     xml.compose(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "namingsystem-terminologies.xml")), bnd);
     cloneToXhtml("namingsystem-terminologies", "Terminology Registry", false, "resource-instance:NamingSystem", "Terminology Registry");
@@ -1239,18 +1251,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     conceptMapsFeed.setId("conceptmaps");
     conceptMapsFeed.setType(BundleType.COLLECTION);
     conceptMapsFeed.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-
-    v2Valuesets = new Bundle();
-    v2Valuesets.setType(BundleType.COLLECTION);
-    v2Valuesets.setId("v2-valuesets");
-    v2Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-    page.setV2Valuesets(v2Valuesets);
-
-    v3Valuesets = new Bundle();
-    v3Valuesets.setType(BundleType.COLLECTION);
-    v3Valuesets.setId("v3-valuesets");
-    v3Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
-    page.setv3Valuesets(v3Valuesets);
   }
 
   private void generateCompartmentDefinitions() throws Exception {
@@ -1854,9 +1854,6 @@ public class Publisher implements URIResolver, SectionNumberer {
   private void produceSpecification() throws Exception {
     page.setNavigation(new Navigation());
     page.getNavigation().parse(page.getFolders().srcDir + "navigation.xml");
-    for (ValueSet vs : page.getWorkerContext().getCodeSystems().values())
-      if (!vs.hasCodeSystem())
-        throw new Error("ValueSet "+vs.getName()+"/"+vs.getUrl()+" has no code system!");
 
       processCDA();
       processRDF();
@@ -1906,9 +1903,6 @@ public class Publisher implements URIResolver, SectionNumberer {
 
       produceSchemaZip();
       
-    for (ValueSet vs : page.getWorkerContext().getCodeSystems().values())
-      if (!vs.hasCodeSystem())
-        throw new Error("ValueSet "+vs.getName()+"/"+vs.getUrl()+" has no code system!");
     page.log("Produce Content", LogMessageType.Process);
     produceSpec();
 
@@ -1930,7 +1924,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     String rim = TextFile.fileToString(Utilities.path(page.getFolders().srcDir, "v3", "rim.ttl"));
     ByteArrayOutputStream tmp = new ByteArrayOutputStream();
     FhirTurtleGenerator ttl = new FhirTurtleGenerator(tmp, page.getDefinitions(), page.getWorkerContext(), page.getValidationErrors());
-    ttl.executeV3(page.getV3Valuesets());
+    ttl.executeV3(page.getValueSets(), page.getCodeSystems());
     rim = rim + tmp.toString();
     TextFile.stringToFile(rim, Utilities.path(page.getFolders().dstDir, "rim.ttl"));
     ttl = new FhirTurtleGenerator(new FileOutputStream(Utilities.path(page.getFolders().dstDir, "fhir.ttl")), page.getDefinitions(), page.getWorkerContext(), page.getValidationErrors());
@@ -2024,9 +2018,6 @@ public class Publisher implements URIResolver, SectionNumberer {
       ImplementationGuideDefn ig = page.getDefinitions().getIgs().get(ed.getUserString(ToolResourceUtilities.NAME_RES_IG));
       ed.setUserData("path", (ig.isCore() ? "" : ig.getCode()+File.separator) + filename+".html");
     }
-    for (ValueSet vs : page.getWorkerContext().getCodeSystems().values())
-      if (!vs.hasCodeSystem())
-        throw new Error("ValueSet "+vs.getName()+"/"+vs.getUrl()+" has no code system!");
 
     loadValueSets2();
     page.log(" ...extensions", LogMessageType.Process);
@@ -2041,7 +2032,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       produceResource1(r, r.isAbstract());
     }
     for (String rname : page.getDefinitions().sortedResourceNames()) {
-      if (!rname.equals("ValueSet") && wantBuild(rname)) {
+      if (!rname.equals("ValueSet") && !rname.equals("CodeSystem") && wantBuild(rname)) {
         ResourceDefn r = page.getDefinitions().getResources().get(rname);
         produceResource1(r, false);
       }
@@ -2056,7 +2047,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       produceResource2(r, true, rname.equals("Resource") ? "Meta" : null);
     }
     for (String rname : page.getDefinitions().sortedResourceNames()) {
-      if (!rname.equals("ValueSet") && wantBuild(rname)) {
+      if (!rname.equals("ValueSet") && !rname.equals("CodeSystem") && wantBuild(rname)) {
         ResourceDefn r = page.getDefinitions().getResources().get(rname);
         page.log(" ...resource " + r.getName(), LogMessageType.Process);
         produceResource2(r, false, null);
@@ -2251,6 +2242,18 @@ public class Publisher implements URIResolver, SectionNumberer {
 //      if (delphiReferencePlatform.canSign())
 //        delphiReferencePlatform.sign(page.getFolders().dstDir + "conceptmaps.xml", true, "dsa");
 
+      Bundle v2Valuesets = new Bundle();
+      v2Valuesets.setType(BundleType.COLLECTION);
+      v2Valuesets.setId("v2-valuesets");
+      v2Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+      for (ValueSet vs : page.getValueSets().values())
+        if (vs.getUrl().contains("/v2"))
+          v2Valuesets.addEntry().setFullUrl(vs.getUrl()).setResource(vs);
+      for (CodeSystem cs : page.getCodeSystems().values())
+        if (cs.getUrl().contains("/v2"))
+          v2Valuesets.addEntry().setFullUrl(cs.getUrl()).setResource(cs);
+
+
       checkBundleURLs(v2Valuesets);
       s = new FileOutputStream(page.getFolders().dstDir + "v2-tables.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v2Valuesets);
@@ -2259,6 +2262,18 @@ public class Publisher implements URIResolver, SectionNumberer {
       s = new FileOutputStream(page.getFolders().dstDir + "v2-tables.json");
       new JsonParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v2Valuesets);
       s.close();
+      v2Valuesets = null;
+      Bundle v3Valuesets = new Bundle();
+      v3Valuesets.setType(BundleType.COLLECTION);
+      v3Valuesets.setId("v3-valuesets");
+      v3Valuesets.setMeta(new Meta().setLastUpdated(page.getGenDate().getTime()));
+      for (ValueSet vs : page.getValueSets().values())
+        if (vs.getUrl().contains("/v3"))
+          v3Valuesets.addEntry().setFullUrl(vs.getUrl()).setResource(vs);
+      for (CodeSystem cs : page.getCodeSystems().values())
+        if (cs.getUrl().contains("/v3"))
+          v3Valuesets.addEntry().setFullUrl(cs.getUrl()).setResource(cs);
+      
       checkBundleURLs(v3Valuesets);
       s = new FileOutputStream(page.getFolders().dstDir + "v3-codesystems.xml");
       new XmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, v3Valuesets);
@@ -2499,7 +2514,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       i++;
       if (!e.hasFullUrl())
         page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "no Full URL on entry "+Integer.toString(i),IssueSeverity.ERROR));
-      else if (!e.getFullUrl().equals("http://hl7.org/fhir/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId()))
+      else if (!e.getFullUrl().equals("http://hl7.org/fhir/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId()) && e.getResource().getResourceType() != ResourceType.CodeSystem)
         page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "Bundle "+bnd.getId(), "URL mismatch on entry "+Integer.toString(i)+" : "+e.getFullUrl()+" vs "+"http://hl7.org/fhir/"+e.getResource().getResourceType().toString()+"/"+e.getResource().getId(),IssueSeverity.ERROR));
     }
   }
@@ -2616,6 +2631,8 @@ public class Publisher implements URIResolver, SectionNumberer {
       minifyProfile((StructureDefinition) r);
     if (r instanceof ValueSet)
       minifyValueSet((ValueSet) r);
+    if (r instanceof CodeSystem)
+      minifyCodeSystem((CodeSystem) r);
     if (r instanceof Bundle)
       minifyBundle((Bundle) r);
   }
@@ -2654,10 +2671,15 @@ public class Publisher implements URIResolver, SectionNumberer {
     vs.getContact().clear();
     vs.setDescriptionElement(null);
     vs.setCopyrightElement(null);
-    if (vs.hasCodeSystem())
-      stripDefinition(vs.getCodeSystem().getConcept());
   }
 
+  private void minifyCodeSystem(CodeSystem cs) {
+    cs.getContact().clear();
+    cs.setDescriptionElement(null);
+    cs.setCopyrightElement(null);
+    stripDefinition(cs.getConcept());
+  }
+  
   private void stripDefinition(List<ConceptDefinitionComponent> concept) {
     for (ConceptDefinitionComponent c : concept) {
       c.setDefinitionElement(null);
@@ -2913,464 +2935,8 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
-  private static String nodeToString(Element node) throws Exception {
-    StringBuilder b = new StringBuilder();
-    Node n = node.getFirstChild();
-    while (n != null) {
-      if (n.getNodeType() == Node.ELEMENT_NODE) {
-        b.append(nodeToString((Element) n));
-      } else if (n.getNodeType() == Node.TEXT_NODE) {
-        b.append(Utilities.escapeXml(n.getTextContent()));
-      }
-      n = n.getNextSibling();
-    }
-    if (node.getNodeName().equals("p"))
-      b.append("<br/>\r\n");
-    return b.toString();
-  }
-
-  private static String nodeToText(Element node) throws Exception {
-    StringBuilder b = new StringBuilder();
-    Node n = node.getFirstChild();
-    while (n != null) {
-      if (n.getNodeType() == Node.ELEMENT_NODE) {
-        b.append(nodeToText((Element) n));
-      } else if (n.getNodeType() == Node.TEXT_NODE) {
-        b.append(n.getTextContent());
-      }
-      n = n.getNextSibling();
-    }
-    if (node.getNodeName().equals("p"))
-      b.append("\r\n");
-    return b.toString();
-  }
-
-  private static class CodeInfo {
-    boolean select;
-    String code;
-    String display;
-    String definition;
-    String textDefinition;
-    boolean deprecated;
-
-    List<String> parents = new ArrayList<String>();
-    List<CodeInfo> children = new ArrayList<CodeInfo>();
-
-    public void write(int lvl, StringBuilder s, ValueSet vs, List<ConceptDefinitionComponent> list, ConceptDefinitionComponent owner,
-        Map<String, ConceptDefinitionComponent> handled) throws Exception {
-      if (!select && children.size() == 0)
-        return;
-
-      if (handled.containsKey(code)) {
-        if (owner == null)
-          throw new Exception("Error handling poly-hierarchy - subsequent mention is on the root");
-        // ToolingExtensions.addParentCode(handled.get(code),
-        // owner.getCode());
-        ToolingExtensions.addSubsumes(owner, code);
-        s.append(" <tr><td>").append(Integer.toString(lvl)).append("</td><td>");
-        for (int i = 1; i < lvl; i++)
-          s.append("&nbsp;&nbsp;");
-        s.append("<a href=\"#").append(Utilities.escapeXml(Utilities.nmtokenize(code))).append("\">")
-				.append(Utilities.escapeXml(code)).append("</a></td><td></td><td></td></tr>\r\n");
-      } else {
-        ConceptDefinitionComponent concept = new ValueSet.ConceptDefinitionComponent();
-        handled.put(code, concept);
-        concept.setCode(code);
-        concept.setDisplay(display);
-        concept.setDefinition(textDefinition);
-        if (!concept.hasDefinition())
-          concept.setDefinition(concept.getDisplay());
-        concept.setAbstract(!select);
-        String d = "";
-        if (deprecated) {
-          ToolingExtensions.markDeprecated(concept);
-          d = " <b><i>Deprecated</i></b>";
-        }
-
-        list.add(concept);
-
-        s.append(" <tr" + (deprecated ? " style=\"background: #EFEFEF\"" : "") + "><td>" + Integer.toString(lvl) + "</td><td>");
-        for (int i = 1; i < lvl; i++)
-          s.append("&nbsp;&nbsp;");
-        if (select) {
-          s.append(Utilities.escapeXml(code) + "<a name=\"" + Utilities.escapeXml(Utilities.nmtokenize(code)) + "\"> </a>" + d + "</td><td>"
-              + Utilities.escapeXml(display) + "</td><td>");
-        } else
-          s.append("<span style=\"color: grey\"><i>(" + Utilities.escapeXml(code) + ")</i></span>" + d + "</td><td><a name=\""
-              + Utilities.escapeXml(Utilities.nmtokenize(code)) + "\">&nbsp;</a></td><td>");
-        if (definition != null)
-          s.append(definition);
-        s.append("</td></tr>\r\n");
-        for (CodeInfo child : children) {
-          child.write(lvl + 1, s, vs, concept.getConcept(), concept, handled);
-        }
-      }
-    }
-  }
-
-  private ValueSet buildV3CodeSystem(String id, String date, Element e, String csOid, String vsOid) throws Exception {
-    StringBuilder s = new StringBuilder();
-    ValueSet vs = new ValueSet();
-    ValueSetUtilities.makeShareable(vs);
-    vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
-    vs.setId("v3-"+FormatUtilities.makeId(id));
-    vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
-    vs.setName("v3 Code System " + id);
-    vs.setPublisher("HL7, Inc");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org"));
-    vs.setStatus(ConformanceResourceStatus.ACTIVE);
-    ValueSetCodeSystemComponent def = new ValueSet.ValueSetCodeSystemComponent();
-    vs.setCodeSystem(def);
-    vs.setExperimental(false);
-    def.setCaseSensitive(true);
-    def.setSystem("http://hl7.org/fhir/v3/" + id);
-
-    Element r = XMLUtil.getNamedChild(e, "releasedVersion");
-    if (r != null) {
-      s.append("<p>Release Date: " + r.getAttribute("releaseDate") + "</p>\r\n");
-      vs.setDateElement(new DateTimeType(r.getAttribute("releaseDate")));
-      vs.setVersion(r.getAttribute("releaseDate"));
-    }
-    if (csOid != null)
-      s.append("<p>OID for code system: " + csOid + "</p>\r\n");
-    if (vsOid != null) {
-      s.append("<p>OID for value set: " + vsOid + " (this is the value set that includes the entire code system)</p>\r\n");
-      ToolingExtensions.setOID(vs, "urn:oid:"+vsOid);
-    }
-    r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"), "text");
-    if (r == null)
-      r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "definition"), "text");
-    if (r != null) {
-      s.append("<h2>Description</h2>\r\n");
-      s.append("<p>").append(nodeToString(r)).append("</p>\r\n");
-      s.append("<hr/>\r\n");
-      vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(r));
-    } else
-      vs.setDescription("**** MISSING DEFINITIONS ****");
-
-    List<CodeInfo> codes = new ArrayList<CodeInfo>();
-    // first, collate all the codes
-    Element c = XMLUtil.getFirstChild(XMLUtil.getNamedChild(e, "releasedVersion"));
-    while (c != null) {
-      if (c.getNodeName().equals("concept")) {
-        CodeInfo ci = new CodeInfo();
-        ci.select = !"false".equals(c.getAttribute("isSelectable"));
-        r = XMLUtil.getNamedChild(c, "code");
-        ci.code = r == null ? null : r.getAttribute("code");
-        r = XMLUtil.getNamedChild(c, "printName");
-        ci.display = r == null ? null : r.getAttribute("text");
-        r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(c, "annotations"), "documentation"), "definition"), "text");
-        ci.definition = r == null ? null : nodeToString(r);
-        ci.textDefinition = r == null ? null : nodeToText(r).trim();
-        ci.deprecated = (XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(c, "annotations"), "appInfo"), "deprecationInfo") != null) || "retired".equals(XMLUtil.getNamedChild(c, "code").getAttribute("status"));
-        List<Element> pl = new ArrayList<Element>();
-        XMLUtil.getNamedChildren(c, "conceptRelationship", pl);
-        for (Element p : pl) {
-          if (p.getAttribute("relationshipName").equals("Specializes"))
-            ci.parents.add(XMLUtil.getFirstChild(p).getAttribute("code"));
-        }
-        codes.add(ci);
-      }
-      c = XMLUtil.getNextSibling(c);
-    }
-
-    // now, organise the hierarchy
-    for (CodeInfo ci : codes) {
-      for (String p : ci.parents) {
-        CodeInfo pi = null;
-        for (CodeInfo cip : codes) {
-          if (cip.code != null && cip.code.equals(p))
-            pi = cip;
-        }
-        if (pi != null)
-          pi.children.add(ci);
-      }
-    }
-
-    s.append("<table class=\"grid\">\r\n");
-    s.append(" <tr><td><b>Level</b></td><td><b>Code</b></td><td><b>Display</b></td><td><b>Definition</b></td></tr>\r\n");
-    Map<String, ConceptDefinitionComponent> handled = new HashMap<String, ValueSet.ConceptDefinitionComponent>();
-    for (CodeInfo ci : codes) {
-      if (ci.parents.size() == 0) {
-        ci.write(1, s, vs, def.getConcept(), null, handled);
-      }
-    }
-    s.append("</table>\r\n");
-
-    vs.setText(new Narrative());
-    vs.getText().setStatus(NarrativeStatus.GENERATED);
-    vs.getText().setDiv(new XhtmlParser().parse("<div>" + s.toString() + "</div>", "div").getElement("div"));
-    page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
-
-    return vs;
-  }
-
-  private void analyseV3() throws Exception {
-    DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    factory.setNamespaceAware(true);
-    DocumentBuilder builder = factory.newDocumentBuilder();
-    page.setV3src(builder.parse(new CSFileInputStream(new CSFile(page.getFolders().srcDir + "v3" + File.separator + "source.xml"))));
-    String dt = null;
-    Map<String, ValueSet> codesystems = new HashMap<String, ValueSet>();
-    Set<String> cslist = new HashSet<String>();
-
-    IniFile ini = new IniFile(page.getFolders().srcDir + "v3" + File.separator + "valuesets.ini");
-
-    Element e = XMLUtil.getFirstChild(page.getV3src().getDocumentElement());
-    while (e != null) {
-
-      if (e.getNodeName().equals("header")) {
-        Element d = XMLUtil.getNamedChild(e, "renderingInformation");
-        if (d != null)
-          dt = d.getAttribute("renderingTime");
-      }
-
-      if (e.getNodeName().equals("codeSystem")) {
-        Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
-        if (!ini.getBooleanProperty("Exclude", e.getAttribute("name")) && !deprecated(e)) {
-          String id = e.getAttribute("name");
-          if (cslist.contains(id))
-            throw new Exception("Duplicate v3 name: "+id);
-          cslist.add(id);
-          if (r != null && "Health Level 7".equals(r.getAttribute("organizationName")) || ini.getBooleanProperty("CodeSystems", id)) {
-            String vsOid = getVSForCodeSystem(page.getV3src().getDocumentElement(), e.getAttribute("codeSystemId"));
-            ValueSet vs = buildV3CodeSystem(id, dt, e, e.getAttribute("codeSystemId"), vsOid);
-            vs.setId("v3-" + FormatUtilities.makeId(id));
-            vs.setUrl("http://hl7.org/fhir/ValueSet/"+vs.getId());
-            vs.setUserData("path", "v3" + HTTP_separator + id + HTTP_separator + "index.html");
-            ToolingExtensions.setOID(vs.getCodeSystem(), "urn:oid:"+e.getAttribute("codeSystemId"));
-            if (vs.hasDate())
-              vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
-            else
-              vs.getMeta().setLastUpdated(page.getGenDate().getTime());
-            page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl(vs.getUrl()));
-            page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-            page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
-            page.getValueSets().put(vs.getUrl(), vs);
-            page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
-            codesystems.put(e.getAttribute("codeSystemId"), vs);
-          } // else if (r == null)
-          // page.log("unowned code system: "+id);
-        }
-      }
-
-      if (e.getNodeName().equals("valueSet")) {
-        String iniV = ini.getStringProperty("ValueSets", e.getAttribute("name"));
-        if (iniV != null) {
-          String id = e.getAttribute("name");
-          if (cslist.contains(id))
-            throw new Exception("Duplicate v3 name: "+id);
-          cslist.add(id);
-          ValueSet vs;
-          if (iniV.equals("1"))
-            vs = buildV3ValueSet(id, dt, e, codesystems, ini);
-          else if (iniV.startsWith("->")) {
-            vs = buildV3ValueSetAsCodeSystem(id, e, iniV.substring(2));
-          } else
-            throw new Exception("unhandled value set specifier in ini file");
-
-          vs.setUserData("path", "v3" + HTTP_separator + id + HTTP_separator + "index.html");
-          ToolingExtensions.setOID(vs, "urn:oid:"+e.getAttribute("id"));
-          if (vs.hasDate())
-            vs.getMeta().setLastUpdatedElement(new InstantType(vs.getDate()));
-          else
-            vs.getMeta().setLastUpdated(page.getGenDate().getTime());
-          page.getV3Valuesets().getEntry().add(new BundleEntryComponent().setResource(vs).setFullUrl(vs.getUrl()));
-          page.getValueSets().put(vs.getUrl(), vs);
-          page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-        }
-      }
-      e = XMLUtil.getNextSibling(e);
-    }
-  }
-
-  private boolean deprecated(Element cs) {
-    Element e = XMLUtil.getNamedChild(cs, "annotations");
-    e = XMLUtil.getNamedChild(e, "appInfo");
-    e = XMLUtil.getNamedChild(e, "deprecationInfo");
-    return e != null;
-  }
-
-  private String getVSForCodeSystem(Element documentElement, String oid) {
-    // we need to find a value set that has the content from the supported code system, and nothing ese
-    Element element = XMLUtil.getFirstChild(documentElement);
-    while (element != null) {
-      Element version = XMLUtil.getNamedChild(element, "version");
-      if (version != null) {
-        Element content = XMLUtil.getNamedChild(version, "content");
-        if (oid.equals(content.getAttribute("codeSystem")) && content.getFirstChild() == null)
-          return element.getAttribute("id");
-      }
-      element = XMLUtil.getNextSibling(element);
-    }
-
-    return null;
-  }
-
-  private ValueSet buildV3ValueSetAsCodeSystem(String id, Element e, String csname) throws DOMException, Exception {
-    ValueSet vs = new ValueSet();
-    ValueSetUtilities.makeShareable(vs);
-    vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
-    vs.setId("v3-"+FormatUtilities.makeId(id));
-    vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
-    vs.setName(id);
-    Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"),
-        "text");
-    if (r != null) {
-      vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(r));
-    } else {
-      vs.setDescription("No Description Provided");
-    }
-    vs.setPublisher("HL7 v3");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://www.hl7.org"));
-    vs.setStatus(ConformanceResourceStatus.ACTIVE);
-    vs.setExperimental(false);
-
-    r = XMLUtil.getNamedChild(e, "version");
-    if (r != null)
-      vs.setVersion(r.getAttribute("versionDate"));
-    String[] parts = csname.split("\\&");
-    ValueSetComposeComponent compose = new ValueSet.ValueSetComposeComponent();
-    vs.setCompose(compose);
-    for (String cs : parts) {
-      if (cs.contains(":")) {
-        compose.addInclude().setSystem(cs);
-      } else if (cs.contains(".")) {
-        String[] csp = cs.split("\\.");
-        if (csp.length != 2)
-          throw new Exception("unhandled value set specifier "+cs+" in ini file");
-        ConceptSetComponent inc = compose.addInclude();
-        inc.setSystem("http://hl7.org/fhir/v3/"+csp[0]);
-        inc.addFilter().setProperty("concept").setOp(FilterOperator.ISA).setValue(csp[1]);
-      } else {
-        compose.addInclude().setSystem("http://hl7.org/fhir/v3/"+cs);
-      }
-    }
-
-    NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
-    gen.generate(vs);
-    page.getVsValidator().validate(page.getValidationErrors(), "v3 value set as code system "+id, vs, false, true);
-    return vs;
-  }
-
-  private ValueSet buildV3ValueSet(String id, String dt, Element e, Map<String, ValueSet> codesystems, IniFile vsini) throws DOMException, Exception {
-    ValueSet vs = new ValueSet();
-    ValueSetUtilities.makeShareable(vs);
-    vs.setUserData("filename", Utilities.path("v3", id, "index.html"));
-    vs.setId("v3-"+FormatUtilities.makeId(id));
-    vs.setUrl("http://hl7.org/fhir/ValueSet/" + vs.getId());
-    vs.setName(id);
-    Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "annotations"), "documentation"), "description"),
-        "text");
-    if (r != null) {
-      vs.setDescription(XMLUtil.htmlToXmlEscapedPlainText(r));
-    } else {
-      vs.setDescription("No Description Provided");
-    }
-    vs.setPublisher("HL7 v3");
-    vs.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://www.hl7.org"));
-    vs.setStatus(ConformanceResourceStatus.ACTIVE);
-    vs.setExperimental(false);
-
-    r = XMLUtil.getNamedChild(e, "version");
-    if (r != null) {
-      vs.setVersion(r.getAttribute("versionDate"));
-
-      // ok, now the content
-      ValueSetComposeComponent compose = new ValueSet.ValueSetComposeComponent();
-      vs.setCompose(compose);
-      Element content = XMLUtil.getNamedChild(r, "content");
-      if (content == null)
-        throw new Exception("Unable to find content for ValueSet " + id);
-      String csu = null;
-      ValueSet cs = codesystems.get(content.getAttribute("codeSystem"));
-      if (cs == null)
-        csu = getUrlForCS(content.getAttribute("codeSystem"));
-      if (cs == null && csu == null)  {
-        Element ee = XMLUtil.getNamedChild(e, "supportedCodeSystem");
-        throw new Exception("Error Processing ValueSet " + id + ", unable to resolve code system '"
-            + (ee == null ? content.getAttribute("codeSystem") : e.getTextContent()) + "'");
-      }
-      ConceptSetComponent imp = new ValueSet.ConceptSetComponent();
-
-      if (XMLUtil.hasNamedChild(content, "combinedContent")) {
-        if (!id.equals("SecurityControlObservationValue") && !id.equals("ProvenanceEventCurrentState"))
-          throw new Exception("check logic; this is fragile code, and each value set needs manual review- id is "+id);
-        Element part = XMLUtil.getFirstChild(XMLUtil.getNamedChild(content, "combinedContent"));
-        while (part != null) {
-          if (part.getNodeName().equals("unionWithContent"))
-            compose.addImport("http://hl7.org/fhir/ValueSet/v3-" + XMLUtil.getNamedChild(part, "valueSetRef").getAttribute("name"));
-          else
-            throw new Exception("unknown value set construction method");
-          part = XMLUtil.getNextSibling(part);
-        }
-      } else {
-        // simple value set
-        compose.getInclude().add(imp);
-        if (cs == null)
-          imp.setSystem(csu);
-        else
-          imp.setSystem(cs.getCodeSystem().getSystem());
-
-        if (!XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent().equals(content.getAttribute("codeSystem")))
-          throw new Exception("Unexpected codeSystem oid on content for ValueSet " + id + ": expected '"
-              + XMLUtil.getNamedChild(r, "supportedCodeSystem").getTextContent() + "', found '" + content.getAttribute("codeSystem") + "'");
-
-        List<String> codes = new ArrayList<String>();
-
-        Element cnt = XMLUtil.getFirstChild(content);
-        while (cnt != null) {
-          if (cnt.getNodeName().equals("codeBasedContent") && (XMLUtil.getNamedChild(cnt, "includeRelatedCodes") != null)) {
-            // common case: include a child and all or some of it's descendants
-            ConceptSetFilterComponent f = new ValueSet.ConceptSetFilterComponent();
-            f.setOp(FilterOperator.ISA);
-            f.setProperty("concept");
-            f.setValue(cnt.getAttribute("code"));
-            imp.getFilter().add(f);
-            if ("false".equals(cnt.getAttribute("includeHeadCode"))) {
-              compose.addExclude().setSystem(imp.getSystem()).addConcept().setCode(cnt.getAttribute("code"));
-            }
-          } else if (cnt.getNodeName().equals("codeBasedContent") && cnt.hasAttribute("code")) {
-            codes.add(cnt.getAttribute("code"));
-          }
-          cnt = XMLUtil.getNextSibling(cnt);
-        }
-        if (vsini.getStringProperty("Order", id) != null) {
-          List<String> order = new ArrayList<String>();
-          for (String s : vsini.getStringProperty("Order", id).split("\\,")) {
-            order.add(s);
-          }
-          for (String c : order) {
-            if (codes.contains(c))
-              imp.addConcept().setCode(c);
-          }
-          for (String c : codes) {
-            if (!order.contains(c))
-              imp.addConcept().setCode(c);
-          }
-        } else
-          for (String c : codes) {
-            imp.addConcept().setCode(c);
-          }
-      }
-    }
-    NarrativeGenerator gen = new NarrativeGenerator("../../", "v3/"+id, page.getWorkerContext()).setTooCostlyNote(PageProcessor.TOO_MANY_CODES_TEXT);
-    gen.generate(vs);
-    page.getVsValidator().validate(page.getValidationErrors(), "v3 valueset "+id, vs, false, true);
-    return vs;
-  }
-
-  private String getUrlForCS(String oid) {
-    if (oid.equals("2.16.840.1.113883.6.121"))
-      return "urn:iso:std:iso:3166";
-    if (oid.equals("2.16.840.1.113883.6.1"))
-      return "http://loinc.org";
-    return null;
-  }
-
   private void produceV3() throws Exception {
     page.log(" ...v3 Code Systems", LogMessageType.Process);
-
     Utilities.createDirectory(page.getFolders().dstDir + "v3");
     Utilities.clearDirectory(page.getFolders().dstDir + "v3");
     String src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template.html");
@@ -3379,44 +2945,9 @@ public class Publisher implements URIResolver, SectionNumberer {
         page.getFolders().dstDir + "terminologies-v3.html");
     src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template.html");
     cachePage("terminologies-v3.html", page.processPageIncludesForBook("terminologies-v3.html", src, "page", null, null), "V3 Terminologes", false);
-    IniFile ini = new IniFile(page.getFolders().srcDir + "v3" + File.separator + "valuesets.ini");
-
-    Element e = XMLUtil.getFirstChild(page.getV3src().getDocumentElement());
-    while (e != null) {
-      if (e.getNodeName().equals("codeSystem")) {
-        if (!ini.getBooleanProperty("Exclude", e.getAttribute("name")) && !deprecated(e)) {
-          Element r = XMLUtil.getNamedChild(XMLUtil.getNamedChild(e, "header"), "responsibleGroup");
-          if (r != null && "Health Level 7".equals(r.getAttribute("organizationName")) || ini.getBooleanProperty("CodeSystems", e.getAttribute("name"))) {
-            String id = e.getAttribute("name");
-            Utilities.createDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
-            Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
-            src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-cs.html");
-            ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v3-"+FormatUtilities.makeId(id));
-
-            String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "index.html", vs, null, null, "V3 CodeSystem", null);
-            sf = addSectionNumbers(Utilities.path("v3", id, "index.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("codeSystemId")), 2, null, null);
-            TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "index.html");
-            page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "index.html");
-          }
-        }
-      }
-      if (e.getNodeName().equals("valueSet")) {
-        if (ini.getStringProperty("ValueSets", e.getAttribute("name")) != null) {
-          String id = e.getAttribute("name");
-          Utilities.createDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
-          Utilities.clearDirectory(page.getFolders().dstDir + "v3" + File.separator + id);
-          src = TextFile.fileToString(page.getFolders().srcDir + "v3" + File.separator + "template-vs.html");
-          ValueSet vs = page.getValueSets().get("http://hl7.org/fhir/ValueSet/v3-"+FormatUtilities.makeId(id));
-          String sf = page.processPageIncludes(id + ".html", src, "v3Vocab", null, "v3" + File.separator + id + File.separator + "index.html", vs, null, "V3 ValueSet", null);
-          sf = addSectionNumbers(Utilities.path("v3", id, "index.html"), "template-v3", sf, Utilities.oidTail(e.getAttribute("id")), 2, null, null);
-          TextFile.stringToFile(sf, page.getFolders().dstDir + "v3" + File.separator + id + File.separator + "index.html");
-          page.getEpub().registerExternal("v3" + File.separator + id + File.separator + "index.html");
-        }
-      }
-      e = XMLUtil.getNextSibling(e);
-    }
+    new ValueSetImporterV3(page, page.getValidationErrors()).produce(this);
   }
-
+  
   private void produceV2() throws Exception {
     page.log(" ...v2 Tables", LogMessageType.Process);
     Utilities.createDirectory(page.getFolders().dstDir + "v2");
@@ -3918,7 +3449,6 @@ public class Publisher implements URIResolver, SectionNumberer {
     int level = (ig == null || ig.isCore()) ? 0 : 1;
     String prefix = (ig == null || ig.isCore()) ? "" : ig.getCode() + File.separator;
 
-
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
     DocumentBuilder builder = factory.newDocumentBuilder();
@@ -3946,7 +3476,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       if (!page.getDefinitions().getBaseResources().containsKey(rt) && !id.equals(e.getId()))
         throw new Error("Resource in "+prefix +n + ".xml needs an id of value=\""+e.getId()+"\"");
       page.getDefinitions().addNs("http://hl7.org/fhir/"+rt+"/"+id, "Example", prefix +n + ".html");
-      if (rt.equals("ValueSet") || rt.equals("ConceptMap") || rt.equals("Conformance")) {
+      if (rt.equals("ValueSet") || rt.equals("CodeSystem") || rt.equals("ConceptMap") || rt.equals("Conformance")) {
         // for these, we use the reference implementation directly
         DomainResource res = (DomainResource) new XmlParser().parse(new FileInputStream(file));
         boolean wantSave = false;
@@ -4029,14 +3559,14 @@ public class Publisher implements URIResolver, SectionNumberer {
       vs.setUserData("path", prefix +n + ".html");
       if (vs.getUrl().startsWith("http:"))
         page.getValueSets().put(vs.getUrl(), vs);
-      if (vs.hasCodeSystem()) {
-        page.getCodeSystems().put(vs.getCodeSystem().getSystem().toString(), vs);
-      }
       addToResourceFeed(vs, valueSetsFeed, file.getName());
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-      if (vs.hasCodeSystem()) {
-        page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
-      }
+    } else if (rt.equals("CodeSystem")) {
+      CodeSystem cs = (CodeSystem) new XmlParser().parse(new FileInputStream(file));
+      cs.setUserData("example", "true");
+      cs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
+      cs.setUserData("committee", "fhir");
+      page.getCodeSystems().put(cs.getUrl(), cs);
     } else if (rt.equals("ConceptMap")) {
       ConceptMap cm = (ConceptMap) new XmlParser().parse(new FileInputStream(file));
       new ConceptMapValidator(page.getDefinitions(), e.getTitle()).validate(cm, false);
@@ -5754,13 +5284,11 @@ public class Publisher implements URIResolver, SectionNumberer {
     for (Resource ae : page.getIgResources().values()) {
       if (ae instanceof ValueSet) {
         ValueSet vs = (ValueSet) ae;
-        page.getValueSets().put(vs.getUrl(), (ValueSet) ae);
-        page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-        if (vs.hasCodeSystem()) {
-          page.getCodeSystems().put(vs.getCodeSystem().getSystem(), (ValueSet) ae);
-          page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
-        }
-
+        page.getValueSets().put(vs.getUrl(), vs);
+      }
+      if (ae instanceof CodeSystem) {
+        CodeSystem cs = (CodeSystem) ae;
+        page.getCodeSystems().put(cs.getUrl(), cs);
       }
     }
   }
@@ -5810,6 +5338,19 @@ public class Publisher implements URIResolver, SectionNumberer {
     }
   }
 
+  private void generateCodeSystemsPart2() throws Exception {
+
+    Set<String> urls = new HashSet<String>();
+    
+    for (CodeSystem cs : page.getDefinitions().getCodeSystems().values()) {
+      if (cs.getUserData("example") == null && !cs.getUrl().contains("/v2/") && !cs.getUrl().contains("/v3/"))
+        if (!urls.contains(cs.getUrl())) {
+          urls.add(cs.getUrl());
+          generateCodeSystemPart2(cs);
+        }
+    }
+  }
+
   private void generateValueSetsPart2() throws Exception {
 
     for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
@@ -5840,21 +5381,28 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     if (isGenerate) {
 //      page.log(" ... "+n, LogMessageType.Process);
-      if (vs.hasCodeSystem())
-        generateCodeSystemPart2(vs);
 
       addToResourceFeed(vs, valueSetsFeed, null);
 
       if (vs.getUserData("path") == null)
         vs.setUserData("path", n + ".html");
       page.setId(vs.getId());
-      String sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "valueSet", null, n+".html", vs, null, "Value Set", ig);
+      String sf;
+      try {
+        sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs.html"), "valueSet", null, n+".html", vs, null, "Value Set", ig);
+      } catch (Exception e) {
+        throw new Exception("Error processing "+n+".html: "+e.getMessage(), e);
+      }
       sf = addSectionNumbers(n + ".html", "template-valueset", sf, Utilities.oidTail(ToolingExtensions.getOID(vs)), ig == null ? 0 : 1, null, ig);
 
       TextFile.stringToFile(sf, page.getFolders().dstDir + n + ".html");
-      String src = page.processPageIncludesForBook(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-book.html"), "valueSet", vs, ig);
-      cachePage(n + ".html", src, "Value Set " + n, false);
-      page.setId(null);
+      try {
+        String src = page.processPageIncludesForBook(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-vs-book.html"), "valueSet", vs, ig);
+        cachePage(n + ".html", src, "Value Set " + n, false);
+        page.setId(null);
+      } catch (Exception e) {
+        throw new Exception("Error processing "+n+".html: "+e.getMessage(), e);
+      }
 
       IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
       FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + n + ".json");
@@ -5879,6 +5427,82 @@ public class Publisher implements URIResolver, SectionNumberer {
 
   }
 
+
+  private void generateCodeSystemPart2(CodeSystem cs) throws Exception {
+    String n = cs.getUserString("filename");
+    System.out.println("  cs: "+n+" = "+cs.getUrl());
+    if (n == null)
+      n = "codesystem-"+cs.getId();
+    ImplementationGuideDefn ig = (ImplementationGuideDefn) cs.getUserData(ToolResourceUtilities.NAME_RES_IG);
+    if (ig != null)
+      n = ig.getCode()+File.separator+n;
+
+    if (cs.getText().getDiv().allChildrenAreText()
+        && (Utilities.noString(cs.getText().getDiv().allText()) || !cs.getText().getDiv().allText().matches(".*\\w.*"))) {
+      if (ig != null)
+        new NarrativeGenerator("../", ig.getCode()+"/", page.getWorkerContext()).generate(cs);
+      else
+        new NarrativeGenerator("", "", page.getWorkerContext()).generate(cs);
+    }
+    page.getVsValidator().validate(page.getValidationErrors(), n, cs, true, false);
+
+    if (isGenerate) {
+//      page.log(" ... "+n, LogMessageType.Process);
+
+      addToResourceFeed(cs, valueSetsFeed, null);
+
+      if (cs.getUserData("path") == null)
+        cs.setUserData("path", n + ".html");
+      page.setId(cs.getId());
+      String sf;
+      try {
+        sf = page.processPageIncludes(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-cs.html"), "codeSystem", null, n+".html", cs, null, "Value Set", ig);
+      } catch (Exception e) {
+        throw new Exception("Error processing "+n+".html: "+e.getMessage(), e);
+      }
+      sf = addSectionNumbers(n + ".html", "template-codesystem", sf, Utilities.oidTail(ToolingExtensions.getOID(cs)), ig == null ? 0 : 1, null, ig);
+
+      TextFile.stringToFile(sf, page.getFolders().dstDir + n + ".html");
+      try {
+        String src = page.processPageIncludesForBook(n + ".html", TextFile.fileToString(page.getFolders().srcDir + "template-cs-book.html"), "codeSystem", cs, ig);
+        cachePage(n + ".html", src, "Code System " + n, false);
+        page.setId(null);
+      } catch (Exception e) {
+        throw new Exception("Error processing "+n+".html: "+e.getMessage(), e);
+      }
+
+      IParser json = new JsonParser().setOutputStyle(OutputStyle.PRETTY);
+      FileOutputStream s = new FileOutputStream(page.getFolders().dstDir + n + ".json");
+      json.compose(s, cs);
+      s.close();
+      json = new JsonParser().setOutputStyle(OutputStyle.CANONICAL);
+      s = new FileOutputStream(page.getFolders().dstDir + n + ".canonical.json");
+      json.compose(s, cs);
+      s.close();
+      IParser xml = new XmlParser().setOutputStyle(OutputStyle.PRETTY);
+      s = new FileOutputStream(page.getFolders().dstDir + n + ".xml");
+      xml.compose(s, cs);
+      s.close();
+      xml = new XmlParser().setOutputStyle(OutputStyle.CANONICAL);
+      s = new FileOutputStream(page.getFolders().dstDir + n + ".canonical.xml");
+      xml.compose(s, cs);
+      s.close();
+//      System.out.println(vs.getUrl());
+      cloneToXhtml(n, "Definition for Code System " + cs.getName(), false, "codesystem-instance", "Code System");
+      jsonToXhtml(n, "Definition for Code System " + cs.getName(), resource2Json(cs), "codesystem-instance", "Code System");
+    }
+  }
+//  if (vs.hasCodeSystem()) {
+//    if (ToolingExtensions.getOID(vs.getCodeSystem()) == null && !Utilities.noString(vs.getUserString("csoid")))
+//      ToolingExtensions.setOID(vs.getCodeSystem(), "urn:oid:"+vs.getUserString("csoid"));
+//    if (ToolingExtensions.getOID(vs.getCodeSystem()) == null)
+//      throw new Exception("No OID on value set define for "+vs.getUrl());
+//  }
+//  if (vs.hasCodeSystem()) {
+//    page.getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
+//    page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
+//  }
+
   private void generateValueSetsPart1() throws Exception {
     page.log(" ...value sets", LogMessageType.Process);
     for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
@@ -5892,23 +5516,29 @@ public class Publisher implements URIResolver, SectionNumberer {
       }
       if (ToolingExtensions.getOID(vs) == null)
         throw new Exception("No OID on value set "+vs.getUrl());
-      if (vs.hasCodeSystem()) {
-        if (ToolingExtensions.getOID(vs.getCodeSystem()) == null && !Utilities.noString(vs.getUserString("csoid")))
-          ToolingExtensions.setOID(vs.getCodeSystem(), "urn:oid:"+vs.getUserString("csoid"));
-        if (ToolingExtensions.getOID(vs.getCodeSystem()) == null)
-          throw new Exception("No OID on value set define for "+vs.getUrl());
-      }
 
       page.getValueSets().put(vs.getUrl(), vs);
       page.getDefinitions().getValuesets().put(vs.getUrl(), vs);
-      if (vs.hasCodeSystem()) {
-        page.getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
-        page.getDefinitions().getCodeSystems().put(vs.getCodeSystem().getSystem(), vs);
-      }
 
     }
     for (ValueSet vs : page.getDefinitions().getBoundValueSets().values()) {
       page.getVsValidator().validate(page.getValidationErrors(), vs.getUserString("filename"), vs, true, false);
+    }
+  }
+
+  private void generateCodeSystemsPart1() throws Exception {
+    page.log(" ...code systems", LogMessageType.Process);
+    for (CodeSystem cs : page.getDefinitions().getCodeSystems().values()) {
+      if (!cs.hasText()) {
+        cs.setText(new Narrative());
+        cs.getText().setStatus(NarrativeStatus.EMPTY);
+      }
+      if (!cs.getText().hasDiv()) {
+        cs.getText().setDiv(new XhtmlNode(NodeType.Element));
+        cs.getText().getDiv().setName("div");
+      }
+//      if (ToolingExtensions.getOID(cs) == null)
+//        throw new Exception("No OID on code system "+cs.getUrl());
     }
   }
 
@@ -5933,9 +5563,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     cm.setDate(page.getGenDate().getTime());
     cm.setSource(Factory.makeReference(src));
     cm.setTarget(Factory.makeReference(vs.getUserString("v2map")));
-    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
-      genV2MapItems(vs, srcCS, cm, tbls, c);
-    }
+//    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
+//      genV2MapItems(vs, srcCS, cm, tbls, c);
+//    }
     StringBuilder b = new StringBuilder();
     boolean first = false;
     for (String s : tbls) {
@@ -6035,9 +5665,9 @@ public class Publisher implements URIResolver, SectionNumberer {
     cm.setDate(page.getGenDate().getTime());
     cm.setSource(Factory.makeReference(src));
     cm.setTarget(Factory.makeReference("http://hl7.org/fhir/ValueSet/v3-"+vs.getUserString("v3map")));
-    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
-      genV3MapItems(vs, srcCS, cm, tbls, c);
-    }
+//    for (ConceptDefinitionComponent c : vs.getCodeSystem().getConcept()) {
+//      genV3MapItems(vs, srcCS, cm, tbls, c);
+//    }
     StringBuilder b = new StringBuilder();
     boolean first = false;
     for (String s : tbls) {
@@ -6159,23 +5789,23 @@ public class Publisher implements URIResolver, SectionNumberer {
 //      jsonToXhtml(Utilities.fileTitle(filename), "Definition for Value Set" + vs.getName(), resource2Json(vs), "valueset-instance", "Value Set");
   }
 
-  private void addCode(ValueSet vs, List<ConceptDefinitionComponent> list, DefinedCode c) {
-    ConceptDefinitionComponent d = new ValueSet.ConceptDefinitionComponent();
-    list.add(d);
-    d.setCode(c.getCode());
-    if (!Utilities.noString(c.getDisplay()))
-      d.setDisplay(c.getDisplay());
-    if (!Utilities.noString(c.getDefinition()))
-      d.setDefinition(c.getDefinition());
-    for (DefinedCode g : c.getChildCodes()) {
-      addCode(vs, d.getConcept(), g);
-    }
-    for (String n : c.getLangs().keySet()) {
-      ConceptDefinitionDesignationComponent designation = d.addDesignation();
-      designation.setLanguage(n);
-      designation.setValue(c.getLangs().get(n));
-    }
-  }
+//  private void addCode(ValueSet vs, List<ConceptDefinitionComponent> list, DefinedCode c) {
+//    ConceptDefinitionComponent d = new ValueSet.ConceptDefinitionComponent();
+//    list.add(d);
+//    d.setCode(c.getCode());
+//    if (!Utilities.noString(c.getDisplay()))
+//      d.setDisplay(c.getDisplay());
+//    if (!Utilities.noString(c.getDefinition()))
+//      d.setDefinition(c.getDefinition());
+//    for (DefinedCode g : c.getChildCodes()) {
+//      addCode(vs, d.getConcept(), g);
+//    }
+//    for (String n : c.getLangs().keySet()) {
+//      ConceptDefinitionDesignationComponent designation = d.addDesignation();
+//      designation.setLanguage(n);
+//      designation.setValue(c.getLangs().get(n));
+//    }
+//  }
 
   public static Map<String, String> splitQuery(URL url) throws UnsupportedEncodingException {
     Map<String, String> query_pairs = new LinkedHashMap<String, String>();
@@ -6214,3 +5844,4 @@ public class Publisher implements URIResolver, SectionNumberer {
   }
 
 }
+

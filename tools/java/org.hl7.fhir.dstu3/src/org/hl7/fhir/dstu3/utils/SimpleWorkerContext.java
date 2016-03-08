@@ -22,6 +22,7 @@ import org.hl7.fhir.dstu3.formats.ParserType;
 import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.ConceptMap;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionBindingComponent;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
@@ -111,6 +112,8 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
       seeProfile(url, (StructureDefinition) r);
     else if (r instanceof ValueSet)
       seeValueSet(url, (ValueSet) r);
+    else if (r instanceof CodeSystem)
+      seeCodeSystem(url, (CodeSystem) r);
     else if (r instanceof ConceptMap)
       maps.put(((ConceptMap) r).getUrl(), (ConceptMap) r);
 	}
@@ -124,9 +127,10 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
 		valueSets.put(vs.getUrl(), vs);
 		if (!vs.getUrl().equals(url))
 			valueSets.put(url, vs);
-		if (vs.hasCodeSystem()) {
-			codeSystems.put(vs.getCodeSystem().getSystem().toString(), vs);
 		}
+
+	private void seeCodeSystem(String url, CodeSystem cs) throws DefinitionException {
+		codeSystems.put(cs.getUrl(), cs);
 	}
 
 	private void seeProfile(String url, StructureDefinition p) throws FHIRException {
