@@ -250,6 +250,7 @@
   Element = StructureMap.contact
   Card. = 0..*
   Summary = y
+  UML = left
   Short Label = Contact details of the publisher
   Definition = Contacts to assist a user in finding and communicating with the publisher
   To Do = May be a web site, an email address, a telephone number (tel:), etc.
@@ -322,6 +323,7 @@
   Element = StructureMap.structure
   Card. = 0..*
   Summary = y
+  UML = right
   Short Label = Structure Definition used by this map
   Definition = A structure definition used by this map. The structure definition may describe instances that are converted, or the instances that are produced
   Comments = It is not necessary for a structure map to identify any dependent structures, though not losting them may restrict it\'s usefulness
@@ -362,6 +364,7 @@
   Element = StructureMap.group
   Card. = 1..*
   Summary = y
+  UML = down
   Short Label = Named sections for reader convenience
 
  -- Row 23 -----------------------------------
@@ -389,6 +392,7 @@
   Element = StructureMap.group.input
   Card. = 1..*
   Summary = y
+  UML = left
   Short Label = Named instance provided when invoking the map
   Definition = A name assigned to an instance of data. The instance must be provided when the mapping is invoked
   Comments = If no inputs are named, then the entry mappings are type based
@@ -426,6 +430,7 @@
   Element = StructureMap.group.rule
   Card. = 1..*
   Summary = y
+  UML = down
   Short Label = Transform Rule from source to target
 
  -- Row 32 -----------------------------------
@@ -439,6 +444,7 @@
   Element = StructureMap.group.rule.source
   Card. = 1..*
   Summary = y
+  UML = left
   Short Label = Source inputs to the mapping
 
  -- Row 34 -----------------------------------
@@ -497,6 +503,7 @@
   Element = StructureMap.group.rule.target
   Card. = 0..*
   Summary = y
+  UML = right
   Short Label = Content to create because of this mapping rule
 
  -- Row 42 -----------------------------------
@@ -570,23 +577,24 @@
 
  -- Row 51 -----------------------------------
   Element = StructureMap.group.rule.dependent
-  Card. = 1..1
+  Card. = 0..*
   Summary = y
+  UML = right
   Short Label = Which other rules to apply in the context of this rule
 
  -- Row 52 -----------------------------------
   Element = StructureMap.group.rule.dependent.name
-  Card. = 0..*
+  Card. = 1..1
   Summary = y
   Type = id
   Short Label = Name of a rule or group to apply
 
  -- Row 53 -----------------------------------
   Element = StructureMap.group.rule.dependent.variable
-  Card. = 0..*
+  Card. = 1..*
   Summary = y
   Type = string
-  Short Label = names of vairables to pass to the rule or group
+  Short Label = Names of variables to pass to the rule or group
 
  -- Row 54 -----------------------------------
   Element = StructureMap.group.rule.documentation
