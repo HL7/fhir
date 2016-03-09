@@ -1,4 +1,15 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/module-metadata-status",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|null|null|draft|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "draft",
+        "definition": null,
+        "display": "Draft"
+      }
+    }
+  ]
 }

@@ -67,6 +67,16 @@
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
     {
+      "hash": "#|http://unstats.un.org/unsd/methods/m49/m49.htm|null|840|United States of America",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "United Republic of Tanzania"
+      }
+    },
+    {
       "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
       "severity": null,
       "message": null,

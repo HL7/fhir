@@ -1,4 +1,15 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/map-input-mode",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|null|null|source|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "source",
+        "definition": null,
+        "display": "Source Instance"
+      }
+    }
+  ]
 }

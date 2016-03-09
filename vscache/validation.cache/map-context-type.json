@@ -1,4 +1,15 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/map-context-type",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|null|null|variable|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "variable",
+        "definition": null,
+        "display": "Variable"
+      }
+    }
+  ]
 }

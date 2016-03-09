@@ -1,4 +1,15 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/module-metadata-contributor",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|null|null|author|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "author",
+        "definition": null,
+        "display": "Author"
+      }
+    }
+  ]
 }

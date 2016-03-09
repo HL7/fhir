@@ -1,4 +1,15 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/concept-property-type",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|null|null|boolean|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "boolean",
+        "definition": null,
+        "display": "boolean"
+      }
+    }
+  ]
 }

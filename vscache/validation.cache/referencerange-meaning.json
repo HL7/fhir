@@ -6,7 +6,7 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": "normal",
         "definition": null,
         "display": "Normal Range"
       }

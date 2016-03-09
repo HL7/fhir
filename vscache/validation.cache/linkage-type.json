@@ -1,4 +1,25 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/linkage-type",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|null|null|source|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "source",
+        "definition": null,
+        "display": "Source of truth"
+      }
+    },
+    {
+      "hash": "|null|null|alternate|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "alternate",
+        "definition": null,
+        "display": "Alternate record"
+      }
+    }
+  ]
 }

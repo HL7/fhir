@@ -1,4 +1,15 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/guidance-response-status",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|null|null|success|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "success",
+        "definition": null,
+        "display": "Success"
+      }
+    }
+  ]
 }

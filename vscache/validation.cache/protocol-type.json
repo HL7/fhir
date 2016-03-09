@@ -1,4 +1,25 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/protocol-type",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|null|null|condition|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "condition",
+        "definition": null,
+        "display": "Condition"
+      }
+    },
+    {
+      "hash": "|null|null|study|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "study",
+        "definition": null,
+        "display": "Study"
+      }
+    }
+  ]
 }
