@@ -909,10 +909,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + "../" + s3;
       else if (com[0].equals("backboneelementlist"))
         src = s1 + genBackboneelementList() + s3;
+      else if (com[0].equals("vscommittee"))
+        src = s1 + vscommittee(resource) + s3;
+      
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }
     return src;
+  }
+
+  private String vscommittee(Resource resource) {
+    WorkGroup wg = definitions.getWorkgroups().get(resource.getUserString("committee"));
+    return wg == null ? "??" : "<a _target=\"blank\" href=\""+wg.getUrl()+"\">"+wg.getName()+"</a> Work Group";
   }
 
   private String genBackboneelementList() {

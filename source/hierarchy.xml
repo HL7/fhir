@@ -103,10 +103,10 @@ signatures.html
 					<page title="CVX" filename="cvx.html"/>
 					<page title="CPT" filename="cpt.html"/>
 					<page title="NDC" filename="ndc.html"/>
+					<pages type="codesystem" filename="template-codesystem.html"/>
 				</page>
 				<page title="Value Sets" filename="terminologies-valuesets.html">
 					<pages type="valueset" filename="template-valueset.html"/>
-					<pages type="codesystem" filename="template-codesystem.html"/>
 				</page>
 				<page title="V2 Tables" filename="terminologies-v2.html" source="v2/template.html">
 					<pages type="v2-table" filename="template-v2.html"/>
