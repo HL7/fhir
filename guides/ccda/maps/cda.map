@@ -1,0 +1,72 @@
+map "http://hl7.org/fhir/StructureMap/cda" = "CDA Mapping"
+
+uses "http://hl7.org/fhir/StructureDefinition/ClinicalDocument" as source
+uses "http://hl7.org/fhir/StructureDefinition/Composition" as target
+
+imports "http://hl7.org/fhir/StructureMap/cda-ed"
+imports "http://hl7.org/fhir/StructureMap/cda-ad"
+imports "http://hl7.org/fhir/StructureMap/cda-ii"
+imports "http://hl7.org/fhir/StructureMap/cda-cd"
+
+
+
+group CDA2FHIR // this groups sets things going. pass in a CDA document and a bundle.
+  input src : CDA as source;
+  input tgt : Bundle as target;
+
+setup: for src make 
+  tgt.type = "document", 
+  tgt.id = uuid(), 
+  tgt.entry as e, 
+  e.resource = create("Composition") as cmp, 
+  cmp.id = guid(),
+  e.fullUrl = pointer(cmp)
+  
+// we ignore for src.id. that's the CDA id we can't use 
+
+code:  for src.code            as s make cmp.type as t then CD2CodeableConcept(s, t)
+title: for src.title           as s make cmp.title = s 
+date:  for src.effectiveTime   as s make cmp.date = s
+conf:  for src.confidentiality as s make cmp.confidentiality as t then CD2CodeableConcept(s, t)
+lang:  for src.languageCode    as s make then lang2(s, tgt)
+lang2: for s.code              as s make cmp.language = s
+setid: for s.setId             as s make cmp.identifier as t then II2Identifier(s, t)
+
+// we also ignore version number and copyTime
+
+rct: for src.recordTarget as r then pat(r, tgt)
+pat: for t.patientRole as s make 
+  tgt.entry as p, 
+  p.resource = create("Patient") as pat, 
+  pat.id = guid(),
+  e.fullUrl = pointer(pat) then PatientRole(s, pat)
+  
+end-group   
+
+group PatientRole
+  input src : PatientRole as source;
+  input tgt : Patient as target;
+  
+pid:   for src.id      as s make tgt.identifier as t then II2Identifier(s, t)
+paddr: for src.addr    as s make tgt.address as t then AD2Address(s, t)
+ptel:  for src.telecom as s make tgt.telecom as t then TEL2Telecom(s, t)
+pat:   for src.patient as p then Patient(p, tgt)
+
+end-group 
+
+group Patient
+  input src : Patient as source;
+  input tgt : Patient as target;
+  
+pid:   for src.id                       as s make tgt.identifier as t then II2Identifier(s, t) // though this is deprecated
+pname: for src.name                     as s make tgt.name as t then EN2HumanName(s, t)
+sex:   for src.administrativeGenderCode as s make tgt.gender = translate(s, "http://hl7.org/fhir/ConceptMap/v3-administrative-gender", "code")
+dob:   for src.birthTime                as s make tgt.birthDate = truncate(s, 10)
+ms:    for src.maritalStatusCode        as s make tgt.maritalStatus as t then CD2CodeableConcept(s, t)
+rel:   for src.religiousAffiliationCode as s make tgt.extension as e, e.url = "http://hl7.org/fhir/StructureDefinition/us-core-religion", e.value = create("CodeableConcept") CD2CodeableConcept(s, e)
+race:  for src.raceCode                 as s make tgt.extension as e, e.url = "http://hl7.org/fhir/StructureDefinition/us-core-race", e.value = create("CodeableConcept") CD2CodeableConcept(s, e)
+eth:   for src.ethnicGroupCode          as s make tgt.extension as e, e.url = "http://hl7.org/fhir/StructureDefinition/us-core-ethnicity", e.value = create("CodeableConcept") CD2CodeableConcept(s, e)
+
+end-group 
+
+  
