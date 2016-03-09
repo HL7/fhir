@@ -16,7 +16,7 @@
 
 <ol>
 	<li>Sharing - The representation of computable knowledge artifacts</li>
-	<li>Evaluation - The evaluation of knowledge artifacts</li>
+	<li>Evaluation - The evaluation of patient data using knowledge artifacts</li>
 	<li>Distribution - The exposure of a searchable repository of knowledge artifacts</li>
 </ol>
 
@@ -99,7 +99,7 @@
 <a name="publication-information"/>
 <h4>Publication Information</h4>
 
-The <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.status">status</a> element of the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure describes the lifecycle status of the module, indicating whether the module is a <i>draft</i>, <i>test</i>, <i>active</i>, or <i>retired</i> artifact. This representation is consistent with the states described by the Quality Metadata Conceptual Model. The following table provides a mapping from the states defined here, to the states as defined in the Clinical Decision Support Knowledge Artifact Specification (CDS KAS), as well as the Decision Support Services (DSS) standard:
+The <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.status">status</a> element of the <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure describes the lifecycle status of the module, indicating whether the module is a <i>draft</i>, <i>test</i>, <i>active</i>, or <i>retired</i> artifact. This representation is consistent with the states described by the Quality Metadata Conceptual Model. The following table provides a mapping from the states defined here, to the states as defined in the Clinical Decision Support Knowledge Artifact Specification (CDS KAS), as well as the Decision Support Service (DSS) standard:
 
 <table class="list">
 	<thead>
@@ -125,7 +125,7 @@ The <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.status"
 
 <p>The data requirements for a knowledge module describe the minimum data required in order to achieve a successful evaluation of the module. More data may in general be provided, but not less. For example, a given module may state that the lab results for A1C tests over the past two years are required. If a system provides data for the last three years, the module can still be successfully evaluated, but if a system provides data for only the last year, the module may produce incorrect results based on the absence of the expected data.</p>
 
-<p>In the scenario that an evaluation service is not colocated with the clinical information, the service has no general way of knowing whether or not a request has fulfilled the stated data requirements for a module. As such, this is a critical aspect of implementation, the service assumes the stated data requirements will be provided as part of a request, and requesters shall provide at least the data specified by the data requirements when requesting evaluation for a module.</p>
+<p>In the scenario that an evaluation service is not colocated with the clinical information, the service has no general way of knowing whether or not a request has fulfilled the stated data requirements for a module. As such, this is a critical aspect of implementation. The service assumes the stated data requirements will be provided as part of a request, and requesters shall provide at least the data specified by the data requirements when requesting evaluation for a module.</p>
 
 <p>The <a href="[%fhir-path%]moduledefinition.html">ModuleDefinition</a> structure provides for the definition of two types of data requirements:</p>
 
@@ -167,13 +167,13 @@ The <a href="[%fhir-path%]modulemetadata-definitions.html#ModuleMetadata.status"
 <!--
 <p>The evaluation use case enables the user of a system (such as a clinical workflow system) to receive clinical guidance for a particular patient. In addition, this use enables the ability of a health care system to automatically determine the need for clinical guidance based on clinical observations. In general, the use case involves a service requestor, and a service supplier. The Decision Support Service specification defines interfaces to enable this use case; this implementation guide provides a realization of that interface using FHIR as the service.</p>
 
-<p>Only the common aspects of an artifact evaluation request and response are considered here, measure- and decision-support-specific evaluation operations are defined in their respective sections.</p>
+<p>Only the common aspects of an artifact evaluation request and response are considered here; measure- and decision-support-specific evaluation operations are defined in their respective sections.</p>
 
 <p>Note that this implementation guide does not assume that the data required for an evaluation is available on the same FHIR service as the quality service. In some scenarios, a quality service vendor may be exposing a FHIR service that only supports evaluation, and requires that patient information be supplied as part of the evaluation request. In other scenarios, the patient data may be co-located with the quality evaluation service.</p>
 
 <p>To support the evaluation use case, this implementation guide defines structures to capture the relevant information for a request and response. These structures are then used by the quality measurement and decision support domains to define operations appropriate to their specific use cases.</p>
 
-<p>The <a href="cqif-knowledgerequest.html">KnowledgeRequest</a> structure captures the information required to request evaluation of a particular module, and the <a href="cqif-knowledgeresponse.html">KnowledgeResponse</a> structure describes the information returned by an evaluation.</p>
+<p>The <a href="cqif-knowledgerequest.html">KnowledgeRequest</a> structure captures the information required to request evaluation by a particular module, and the <a href="cqif-knowledgeresponse.html">KnowledgeResponse</a> structure describes the information returned by an evaluation.</p>
 
 <p>Each request instance specifies a single module to be evaluated, and results in a single response to describe the result of the evaluation. Note that the <a href="cqif-knowledgerequest-definitions.html#cqif-knowledgerequest.inputparameters">inputParameters</a> provided as part of the KnowledgeRequest are intended to provide patient-independent information to the evaluation. Patient-specific information, if required, is provided as part of the operation interaction.</p>
 -->

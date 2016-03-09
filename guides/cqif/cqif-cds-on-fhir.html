@@ -16,7 +16,7 @@
 
 <ol>
 	<li>Sharing - The representation of computable knowledge artifacts</li>
-	<li>Evaluation - The evaluation of knowledge artifacts</li>
+	<li>Evaluation - The evaluation of patient data using knowledge artifacts</li>
 	<li>Distribution - The exposure of a searchable repository of knowledge artifacts</li>
 </ol>
 
@@ -146,9 +146,9 @@
 <a name="order-sets"/>
 <h4>Order Sets</h4>
 
-<p>An order set is a pre-defined and approved group of orders related to a particular clinical condition (e.g. hypertension treatment and monitoring) or stage of care (e.g. hospital admission to Coronary Care Unit). An order set is used as a checklist for the clinician when managing a patient with a specific condition. It is a structured collection of orders relevant to that condition and presented to the clinician in a computerized provider order entry system (CPOE).</p>
+<p>An order set is a pre-defined and approved group of orders related to a particular clinical condition (e.g. hypertension treatment and monitoring) or stage of care (e.g. hospital admission to Coronary Care Unit). An order set is used as a checklist for the clinician when managing a patient with a specific condition. It is a structured collection of orders relevant to that condition and presented to the clinician in a computerized provider order entry (CPOE) system.</p>
 
-<p>Within this implementation guide, order sets are represented using the <a href="[%fhir-path%]orderset.html">OrderSet</a> structure. The <a href="[%fhir-path%]orderset-definitions.html#OrderSet.item">item</a> element provides the ability to define hierarchical groups of items, where each specific item defines an orderable item, together with behaviors that determine how the orderable items are related to eachother.</p>
+<p>Within this implementation guide, order sets are represented using the <a href="[%fhir-path%]orderset.html">OrderSet</a> structure. The <a href="[%fhir-path%]orderset-definitions.html#OrderSet.item">item</a> element provides the ability to define hierarchical groups of items, where each specific item defines an orderable item, together with behaviors that determine how the orderable items are related to each other.</p>
 
 <p>If the order set contains only static items (i.e. there are no context-dependent values that must be provided to complete the orderable), then the <a href="[%fhir-path%]orderset-definitions.html#OrderSet.item.resource">resource</a> element contains a reference to a complete resource instance representing the orderable.</p>
 
