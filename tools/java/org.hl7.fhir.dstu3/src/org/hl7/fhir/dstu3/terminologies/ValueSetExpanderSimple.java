@@ -145,8 +145,14 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
   private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params) throws TerminologyServiceException, ETooCostly {
 	  if (context.supportsSystem(inc.getSystem())) {
-      addCodes(context.expandVS(inc), params);
-      return;
+      try {
+        int i = codes.size();
+        addCodes(context.expandVS(inc), params);
+        if (codes.size() > i)
+          return;
+      } catch (Exception e) {
+        // ok, we'll try locally
+      }
     }
 	    
 	  CodeSystem cs = context.fetchCodeSystem(inc.getSystem());
@@ -195,8 +201,8 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
 	private void addCodeAndDescendents(String system, ConceptDefinitionComponent def) {
 		if (!ToolingExtensions.hasDeprecated(def)) {  
-//			if (!def.hasAbstractElement() || !def.getAbstract())
-//				addCode(system, def.getCode(), def.getDisplay());
+//			if (!def.hasAbstractElement() || !def.getAbstract() )
+				addCode(system, def.getCode(), def.getDisplay());
 			for (ConceptDefinitionComponent c : def.getConcept()) 
 				addCodeAndDescendents(system, c);
 		}

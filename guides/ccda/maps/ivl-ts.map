@@ -5,11 +5,10 @@ uses "http://hl7.org/fhir/StructureDefinition/Period" as target
 
 imports "http://hl7.org/fhir/StructureMap/cda-any"; 
 
-group IVL_TS2Period
+group IVL_TS2Period extends ANY2Element
   input src : IVL_TS as source;
   input tgt : Period as target;
 
-ivlts.base: for src then by type // apply base nullFlavor rule
 ivlts.value: for src.value as v make tgt.start as v, tgt.end = v
 
 ivlts.lowhigh: for src.low as low, src.high as high make tgt.start = low, tgt.end = high // note that there's a problem with high

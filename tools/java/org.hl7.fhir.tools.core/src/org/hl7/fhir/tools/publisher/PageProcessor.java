@@ -254,8 +254,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     this.tsServer = tsServer;
   }
 
-  public final static String DEF_TS_SERVER = "http://fhir2.healthintersections.com.au/open";
-//  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
+//  public final static String DEF_TS_SERVER = "http://fhir2.healthintersections.com.au/open";
+  public final static String DEF_TS_SERVER = "http://local.healthintersections.com.au:960/open";
   
   public final static String WEB_PUB_NAME = "DSTU2";
   public final static String CI_PUB_NAME = "Current Build";
@@ -911,7 +911,6 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1 + genBackboneelementList() + s3;
       else if (com[0].equals("vscommittee"))
         src = s1 + vscommittee(resource) + s3;
-      
       else
         throw new Exception("Instruction <%"+s2+"%> not understood parsing page "+file);
     }

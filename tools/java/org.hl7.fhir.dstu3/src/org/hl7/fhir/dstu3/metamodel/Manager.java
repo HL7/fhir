@@ -8,7 +8,7 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 
 public class Manager {
 
-  public enum FhirFormat { XML, JSON, TURTLE }
+  public enum FhirFormat { XML, JSON, JSONLD, TURTLE }
   
   public static Element parse(IWorkerContext context, InputStream source, FhirFormat inputFormat, boolean check) throws Exception {
     return makeParser(context, inputFormat, check).parse(source);
@@ -21,6 +21,7 @@ public class Manager {
   private static ParserBase makeParser(IWorkerContext context, FhirFormat format, boolean check) {
     switch (format) {
     case JSON : return new JsonParser(context, check);
+    case JSONLD : return new JsonLDParser(context, check);
     case XML : return new XmlParser(context, check);
     case TURTLE : return new TurtleParser(context, check);
     }
