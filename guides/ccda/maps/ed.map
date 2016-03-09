@@ -5,10 +5,9 @@ uses "http://hl7.org/fhir/StructureDefinition/Attachment" as target
 
 imports "http://hl7.org/fhir/StructureMap/cda-any"; 
 
-input src : ED as source;
-input tgt : Attachment as target;
-
--- ED / Attachment rules --------------------------------------------------------------------
+group ED2Attachment 
+  input src : ED as source;
+  input tgt : Attachment as target;
 
 ed.base: for src then by type // apply base nullFlavor rule
 
@@ -23,3 +22,4 @@ ed.ic: for src.integrityCheck as ic make tgt.hash = ic
 ed.ica: for src.integrityCheckAlgorithm check integrityCheckAlgorithm = 'SHA1'
 // ignore ed.thumbnail
 
+endgroup

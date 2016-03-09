@@ -40,10 +40,12 @@ that have the same definition, a single element with the same name and the same 
 </p>
 
 <p>
-The first task to do is to set up the mapping context. For this tutorial, this means
-declaring the source and target models, and specifying that an application invokes
-this with a copy of the left (source) instance, and also an empty copy of the right
-(target) instance: 
+The first task to do is to set up the mapping context on a default group. 
+All mappings are divided up into a set of groups. For now, we just set up a 
+group named "tutorial" - the same as the name of the mapping. 
+For this tutorial, we also declaring the source and target models, and 
+specify that an application invokes this with a copy of the left (source) 
+instance, and also an empty copy of the right (target) instance: 
 </p>
 <pre>
 map "http://hl7.org/fhir/StructureMap/tutorial" = tutorial
@@ -51,26 +53,24 @@ map "http://hl7.org/fhir/StructureMap/tutorial" = tutorial
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-left" as source
 uses "http://hl7.org/fhir/StructureDefinition/tutorial-right" as target
 
-input "source" : TLeft as source
-input "target" : TRight as target
+group tutorial
+  input "source" : TLeft as source
+  input "target" : TRight as target
 
--- tutorial mappings ----------------------------------------------------
+// rules go here
+
+endgroup
 </pre>
 <p>
-Note that the way this is set up is a choice: we choose to provide the 
+Note that the way the input variables are set up is a choice: we choose to provide the 
 underlying type definitions on which both source and target models are based,
 and we choose to specify that the invoking application most provide both
 the source and the target instance trees. Other options are possible; these 
-are discussed further below. The rest of the tutorial examples use the same set
-up.
+are discussed further below. The rest of the tutorial examples use the same 
+setup for the group.
 </p>
 <p>
-The line starting with -- tutorial... sets up a section. Each mapping source
-can contain multiple sections each with different names. These are purely for
-the benefit of human editors, to help organise the source, and have no operational meaning.
-</p>
-<p>
-Having set up the context, we now need to define the relationship between
+Having set up the context, we now need to define the relationships between
 the source and target structures:
 </p>
 <pre>
@@ -87,7 +87,7 @@ This simple statement says that:
  <li>the value of property 'a' of the target will be a copy of variable a - that is, source.a</li>
 </ul>
 <p>
-Note that the types don't feature in the mapping.
+Note that the types don't feature explicitly in the mapping statements.
 </p>
 
 <h3>Step #2: Fields with different names</h3>
@@ -214,7 +214,7 @@ Again, there are multiple different ways to write this, depending on out desired
 rule_a23a : for source.a23 as a make target.a23 = a { only_one } // transform engine creates an error 
 rule_a23b : for source.a23 as a make target.a23 = a  // leave error to lower layer; less informative
 
-rule_a23c_1 : for source.a23 as a then rule_a23c_2
+rule_a23c_1 : for source.a23 as a then rule_a23c_2(a, target)
 rule_a23c_2 : for a where @context = source.a23.first make target.a23 = a // only use the first item in the list
 </pre>
 <p>
@@ -247,7 +247,7 @@ leave these elements as anonymously typed, while others explicitly type them. Ho
 does not refer to the type, it's literal type is not important.
 </p>
 <pre>
-rule_aa : for source.aa as s_aa make target.aa as t_aa then by variables // make aa exist
+rule_aa : for source.aa as s_aa make target.aa as t_aa then rule_ab(s_aa, t_aa) // make aa exist
 rule_ab : for s_aa.ab as ab make t_aa.a2 = ab // copy ab inside aa
 </pre>
 <p>
@@ -318,7 +318,7 @@ This is managed using conditions on the mapping statements:
 </p>
 <pre>
 rule_i1 : for source.i as i where l &lt; 2 make target.j = i
-rule_i2 : for source.i as i where l >= 2 make target.j = i
+rule_i2 : for source.i as i where l >= 2 make target.k = i
 </pre>
 
 <h3>Step #9: Co-dependency in translation</h3>
@@ -376,10 +376,10 @@ to a general structure:
 This leads to some more complex mapping statements:
 </p>
 <pre>
-ef_a1: for source.e as s_e make target.e as t_e then ef_a2
+ef_a1: for source.e as s_e make target.e as t_e then ef_a2(s_e, t_e)
 ef_a2: for s_e make t_e.f = s_e, t_e.g = "g1"
 
-ef_b1: for source.f as s_f make target.e as t_e then ef_b2 { first }
+ef_b1: for source.f as s_f make target.e as t_e then ef_b2(s_f, t_e) { first }
 ef_b2: for s_f make t_e.f = s_f, t_e.g = "g2"
 </pre>
 
@@ -409,8 +409,8 @@ while the target puts the cardinality at the next level up:
 The key to setting this mapping up is to create a variable context for source.az1, and then carry it down, performing the actual mappings at the next level down:
 </p>
 <pre>
-aza : for src.az1 as s_az1 then azb // setting up a variable for the parent
-azb : for s_az1.az3 as s_az3 make target.az1 as t_az1 then az2, az3   // one target.az1 for each az3
+aza : for src.az1 as s_az1 then azb(s_az1, t_az1) // setting up a variable for the parent
+azb : for s_az1.az3 as s_az3 make target.az1 as t_az1 then az2(s_az3, t_az1), az3(s_az3, t_az1)   // one target.az1 for each az3
 az2 : for s_az1.az2 as az2 make t_az1.az2 = az2  // value for az2. Note that this refers to a previous context in the source
 az3 : for s_az3 make tgt_az1.az3 = src_az3       // value for az3      
 </pre>
@@ -452,7 +452,7 @@ For our first example, we're going to look at creating multiple output structure
 The key to setting this mapping up is to create a variable context for source.az1, and then carry it down, performing the actual mappings at the next level down:
 </p>
 <pre>
-f1 : for source.f1 as s_f1 make null as rr = create("TRight2"), target.ptr = reference(rr) then f1a.
+f1 : for source.f1 as s_f1 make create("TRight2") as rr, target.ptr = reference(rr) then f1a(s_f1, rr).
 f1a: for s_f1 make rr.f2 = srcff
 </pre>
 <p>

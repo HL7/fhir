@@ -359,29 +359,56 @@
   Definition = Other maps used by this map (canonical URLs)
 
  -- Row 22 -----------------------------------
-  Element = StructureMap.input
+  Element = StructureMap.group
+  Card. = 1..*
+  Summary = y
+  Short Label = Named sections for reader convenience
+
+ -- Row 23 -----------------------------------
+  Element = StructureMap.group.name
+  Card. = 1..1
+  Summary = y
+  Type = id
+  Short Label = Descriptive name for a user
+
+ -- Row 24 -----------------------------------
+  Element = StructureMap.group.extends
+  Card. = 0..1
+  Summary = y
+  Type = id
+  Short Label = Another group that this group adds rules to
+
+ -- Row 25 -----------------------------------
+  Element = StructureMap.group.documentation
+  Card. = 0..1
+  Summary = y
+  Type = string
+  Short Label = Documentation for this group
+
+ -- Row 26 -----------------------------------
+  Element = StructureMap.group.input
   Card. = 1..*
   Summary = y
   Short Label = Named instance provided when invoking the map
   Definition = A name assigned to an instance of data. The instance must be provided when the mapping is invoked
   Comments = If no inputs are named, then the entry mappings are type based
 
- -- Row 23 -----------------------------------
-  Element = StructureMap.input.name
+ -- Row 27 -----------------------------------
+  Element = StructureMap.group.input.name
   Card. = 1..1
   Summary = y
   Type = id
   Short Label = Name for this instance of data
 
- -- Row 24 -----------------------------------
-  Element = StructureMap.input.type
+ -- Row 28 -----------------------------------
+  Element = StructureMap.group.input.type
   Card. = 0..1
   Summary = y
   Type = string
   Short Label = Type for this instance of data
 
- -- Row 25 -----------------------------------
-  Element = StructureMap.input.mode
+ -- Row 29 -----------------------------------
+  Element = StructureMap.group.input.mode
   Card. = 1..1
   Summary = y
   Type = code
@@ -389,61 +416,48 @@
   Short Label = source | target
   Definition = Mode for this instance of data
 
- -- Row 26 -----------------------------------
-  Element = StructureMap.input.documentation
+ -- Row 30 -----------------------------------
+  Element = StructureMap.group.input.documentation
   Card. = 0..1
   Type = string
   Short Label = Documentation for this instance of data
 
- -- Row 27 -----------------------------------
-  Element = StructureMap.section
-  Card. = 1..*
-  Summary = y
-  Short Label = Named sections for reader convenience
-
- -- Row 28 -----------------------------------
-  Element = StructureMap.section.name
-  Card. = 1..1
-  Summary = y
-  Type = string
-  Short Label = Descriptive name for a user
-
- -- Row 29 -----------------------------------
-  Element = StructureMap.section.rule
+ -- Row 31 -----------------------------------
+  Element = StructureMap.group.rule
   Card. = 1..*
   Summary = y
   Short Label = Transform Rule from source to target
 
- -- Row 30 -----------------------------------
-  Element = StructureMap.section.rule.name
+ -- Row 32 -----------------------------------
+  Element = StructureMap.group.rule.name
   Card. = 1..1
   Summary = y
   Type = id
   Short Label = Name of the rule for internal references
 
- -- Row 31 -----------------------------------
-  Element = StructureMap.section.rule.source
+ -- Row 33 -----------------------------------
+  Element = StructureMap.group.rule.source
   Card. = 1..*
   Summary = y
   Short Label = Source inputs to the mapping
 
- -- Row 32 -----------------------------------
-  Element = StructureMap.section.rule.source.required
+ -- Row 34 -----------------------------------
+  Element = StructureMap.group.rule.source.required
   Card. = 1..1
   Summary = y
   Type = boolean
   Short Label = Whether this rule applies if the source isn\'t found
 
- -- Row 33 -----------------------------------
-  Element = StructureMap.section.rule.source.context
+ -- Row 35 -----------------------------------
+  Element = StructureMap.group.rule.source.context
   Card. = 1..1
   Summary = y
   Type = id
   Short Label = Type or variable this rule applies to
   Definition = Type or variable this rule applies to
 
- -- Row 34 -----------------------------------
-  Element = StructureMap.section.rule.source.contextType
+ -- Row 36 -----------------------------------
+  Element = StructureMap.group.rule.source.contextType
   Card. = 1..1
   Summary = y
   Type = code
@@ -451,50 +465,50 @@
   Short Label = type | variable
   Definition = How to interpret the context
 
- -- Row 35 -----------------------------------
-  Element = StructureMap.section.rule.source.field
+ -- Row 37 -----------------------------------
+  Element = StructureMap.group.rule.source.field
   Card. = 0..1
   Summary = y
   Type = string
   Short Label = Optional field for this source
 
- -- Row 36 -----------------------------------
-  Element = StructureMap.section.rule.source.variable
+ -- Row 38 -----------------------------------
+  Element = StructureMap.group.rule.source.variable
   Card. = 0..1
   Summary = y
   Type = id
   Short Label = Named context for field, if a field is specified
 
- -- Row 37 -----------------------------------
-  Element = StructureMap.section.rule.source.condition
+ -- Row 39 -----------------------------------
+  Element = StructureMap.group.rule.source.condition
   Card. = 0..1
   Summary = y
   Type = string
   Short Label = FluentPath expression - must be true for source to apply
 
- -- Row 38 -----------------------------------
-  Element = StructureMap.section.rule.source.check
+ -- Row 40 -----------------------------------
+  Element = StructureMap.group.rule.source.check
   Card. = 0..1
   Summary = y
   Type = string
   Short Label = FluentPath expression  - must be true or the mapping engine throws an error instead of completing
 
- -- Row 39 -----------------------------------
-  Element = StructureMap.section.rule.target
+ -- Row 41 -----------------------------------
+  Element = StructureMap.group.rule.target
   Card. = 0..*
   Summary = y
   Short Label = Content to create because of this mapping rule
 
- -- Row 40 -----------------------------------
-  Element = StructureMap.section.rule.target.context
+ -- Row 42 -----------------------------------
+  Element = StructureMap.group.rule.target.context
   Card. = 1..1
   Summary = y
   Type = id
   Short Label = Type or variable this rule applies to
   Definition = Type or variable this rule applies to
 
- -- Row 41 -----------------------------------
-  Element = StructureMap.section.rule.target.contextType
+ -- Row 43 -----------------------------------
+  Element = StructureMap.group.rule.target.contextType
   Card. = 1..1
   Summary = y
   Type = code
@@ -502,22 +516,22 @@
   Short Label = type | variable
   Definition = How to interpret the context
 
- -- Row 42 -----------------------------------
-  Element = StructureMap.section.rule.target.field
+ -- Row 44 -----------------------------------
+  Element = StructureMap.group.rule.target.field
   Card. = 0..1
   Summary = y
   Type = string
   Short Label = Field to create in the context
 
- -- Row 43 -----------------------------------
-  Element = StructureMap.section.rule.target.variable
+ -- Row 45 -----------------------------------
+  Element = StructureMap.group.rule.target.variable
   Card. = 0..1
   Summary = y
   Type = id
   Short Label = Named context for field, if desired, and a field is specified
 
- -- Row 44 -----------------------------------
-  Element = StructureMap.section.rule.target.listMode
+ -- Row 46 -----------------------------------
+  Element = StructureMap.group.rule.target.listMode
   Card. = 0..*
   Summary = y
   Type = code
@@ -525,15 +539,15 @@
   Short Label = only_one | first | share
   Definition = If field is a list, how to manage the list
 
- -- Row 45 -----------------------------------
-  Element = StructureMap.section.rule.target.listRuleId
+ -- Row 47 -----------------------------------
+  Element = StructureMap.group.rule.target.listRuleId
   Card. = 0..1
   Summary = y
   Type = id
   Short Label = Internal rule reference for shared list items
 
- -- Row 46 -----------------------------------
-  Element = StructureMap.section.rule.target.transform
+ -- Row 48 -----------------------------------
+  Element = StructureMap.group.rule.target.transform
   Card. = 0..1
   Summary = y
   Type = code
@@ -541,48 +555,41 @@
   Short Label = create | copy +
   Definition = How the data is copied / created
 
- -- Row 47 -----------------------------------
-  Element = StructureMap.section.rule.target.parameter
+ -- Row 49 -----------------------------------
+  Element = StructureMap.group.rule.target.parameter
   Card. = 0..*
   Summary = y
   Short Label = Parameters to the transform
 
- -- Row 48 -----------------------------------
-  Element = StructureMap.section.rule.target.parameter.value[x]
+ -- Row 50 -----------------------------------
+  Element = StructureMap.group.rule.target.parameter.value[x]
   Card. = 1..1
   Summary = y
   Type = id | string | boolean | integer | decimal
   Short Label = Parameter value - variable or literal
 
- -- Row 49 -----------------------------------
-  Element = StructureMap.section.rule.innerRules
+ -- Row 51 -----------------------------------
+  Element = StructureMap.group.rule.dependent
   Card. = 1..1
   Summary = y
-  Short Label = Which other rules to apply when the rule is applied
-
- -- Row 50 -----------------------------------
-  Element = StructureMap.section.rule.innerRules.byVariables
-  Card. = 0..1
-  Summary = y
-  Type = boolean
-  Short Label = Apply rules based on variable matching
-
- -- Row 51 -----------------------------------
-  Element = StructureMap.section.rule.innerRules.byType
-  Card. = 0..1
-  Summary = y
-  Type = boolean
-  Short Label = Apply rules based on type matching
+  Short Label = Which other rules to apply in the context of this rule
 
  -- Row 52 -----------------------------------
-  Element = StructureMap.section.rule.innerRules.name
+  Element = StructureMap.group.rule.dependent.name
   Card. = 0..*
   Summary = y
   Type = id
-  Short Label = Apply named rules only
+  Short Label = Name of a rule or group to apply
 
  -- Row 53 -----------------------------------
-  Element = StructureMap.section.rule.documentation
+  Element = StructureMap.group.rule.dependent.variable
+  Card. = 0..*
+  Summary = y
+  Type = string
+  Short Label = names of vairables to pass to the rule or group
+
+ -- Row 54 -----------------------------------
+  Element = StructureMap.group.rule.documentation
   Card. = 0..1
   Type = string
   Short Label = Documentation for this instance of data

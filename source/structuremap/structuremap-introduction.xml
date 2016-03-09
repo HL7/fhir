@@ -70,10 +70,14 @@ conformance resoures contain, the following information:
 <ul>
  <li>A list of the structure definitions referenced by the map</li>
  <li>A list of other structure maps that the map uses</li>
- <li>A list of rules that describe how content in the source is transformed to content in the target</li>
+ <li>One or more groups of rules that describe how content in the source is transformed to content in the target</li>
 </ul>
 <p>
-Each rule may have the following properties:
+Each group of rules defines a set of input and output variables that must be passed when the group is invoked 
+in a particular context. When a gruop is invoked, all the rules in the group are checked to see whether they 
+apply.</p>
+<p>
+Each rule may has some or all of the following properties:
 </p>
 <ul>
  <li>A name - used as the identity in internal references, and traces</li>
@@ -91,3 +95,4 @@ The mapping language is entirely declarative; there is no imperative or procedur
 </div>
 
 </div>
+

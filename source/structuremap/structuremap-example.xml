@@ -8,12 +8,12 @@
   <url value="http://hl7.org/fhir/StructureMap/example"/>
   <name value="Example Map"/>
   <status value="draft"/>
-  <input>
-    <name value="test"/>
-    <mode value="source"/>
-  </input>  
-  <section>
+  <group>
     <name value="Examples"/>
+    <input>
+      <name value="test"/>
+      <mode value="source"/>
+    </input>  
     <rule>
       <name value="rule1"/>
       <source>
@@ -23,10 +23,7 @@
         <field value="test"/>
         <variable value="t"/>
       </source>
-      <innerRules>
-        <byType value="true"/>
-      </innerRules>
     </rule>
-  </section>
+  </group>
   
 </StructureMap>

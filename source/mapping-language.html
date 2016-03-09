@@ -22,11 +22,11 @@ and described in this page, and an abstract syntax, which is found in the <a hre
 resource. See also the <a href="mapping-tutorial.html">Tutorial</a>.
 </p>
 <p>
-The mapping language describes one set of Directed Acyclic Graphs (instances) is transformed to another set of 
+The mapping language describes how one set of Directed Acyclic Graphs (instances) is transformed to another set of 
 directed ayclic graphs. When the instances have formal definitions that are represented as 
 <a href="structuredefinition.html">Structure Definitions</a>, the language can use additional type
 related features, though it can function without them, and therefore can function on any directed 
-acyclic graph, even if it has not typing system (or cannot, e.g. HL7 v2).
+acyclic graph, even if it has no typing system (or cannot have one e.g. HL7 v2).
 </p>
 <p>
 The mapping language addresses 2 very different kinds of transformations:
@@ -42,8 +42,8 @@ A map has 5 parts:
  <li>Metadata</li>
  <li>References to the structures involved in the mapping</li>
  <li>Imports: additional Maps used by this map</li>
- <li>List of input instances</li>
- <li>A series of transformation rules</li>
+ <li>a series of groups, with a list of input variables</li>
+ <li>A series of transformation rules in each group</li>
 </ul>
 
 <h3>Executing Maps</h3>
@@ -74,8 +74,7 @@ Generally, it is assumed the invocation of the engine follows some pattern like 
 
 <h3>General Syntax Notes</h3>
 <p>
-Mapping files are always plain text in unicode. 
-Whitespace is any unicode whitespace, and the particular whitespace used 
+Mapping files are always plain text in unicode. Whitespace is any unicode whitespace, and the particular whitespace used 
 is not signicant, except that unicode end of line characters terminate a 
 comment. Comments are started by the characters "//".
 </p>
@@ -85,7 +84,7 @@ text representation is for each item to be on it's own line, with documentation
 at the end of the line as a comment.
 </p>
 <p>
-All names defined by the map language - rule names, and variable names - must be valid 
+All names defined by the map language - group, rule and variable names - must be valid 
 <a href="datatypes.html#id">id</a> (1-64 characters, upper and lowercase letters, numbers, dashes, dots and underscores), 
 and must start with a letter. The special values 'true' and 'false' are not allowed as variable names.
 </p>
@@ -101,7 +100,7 @@ map "[url]" = "[name]"
 <p>
 The letters "map" are the first non-whitespace non-comment characters 
 in the source. This is followed by the canonical URL that identifies 
-the map uniquely, and then a human readable name for the map.
+the map uniquely, and then a human readable name for the map. 
 </p>
 <p>
 <i>todo: add additional metadata?</i>
@@ -166,17 +165,28 @@ use of a CD --> CodeableConcept map.
 How imported maps are actually used is discussed below.
 </p>
 
-<h3>Input variables</h3>
+<h3>Groups</h3>
 <p>
-Input variables define exactly which instances are passed to the mapping, and provides 
-names by which they may be passed when invoking the map:
+Each Mapping source contains one or more groups of maps. Each group
+defines a set of related mapping rules that take the same input and 
+output variables, that define exactly which instances are passed to 
+the mapping, and provides names by which they may be passed when invoking the map:
 </p>
 <pre>
-input [name] : [type] as [mode] // documentation
+group [group-name] (extends [other-group])
+  input [name] : [type] as [mode] // documentation
 </pre>
 <p>
-Each input has a name. This is the name that applications use when passing the 
-instance to the invocation engine. Inputs may have a type - and should (see the 
+Each group has a name, which is how the mapping is invoked. The first group 
+is special, in that this is the group invoked if there no name is provided (e.g.
+starting the mapping by a host application). Groups may extend other groups,
+which means that the rules in the other group also apply (typically, this is 
+used with specialising classes in an OO context). 
+</p>
+
+<p>
+Each variable parameter to the group has a name. This is the name that applications use when passing the 
+instance to the invocation engine, or that rules use when invoking the group. Inputs may have a type - and should (see the 
 discussion above), but are not required to. Input variables also have a mode, 
 which may be one of source or target (see above).
 </p>
@@ -206,7 +216,7 @@ Each rule has 4 main sections:
  <li><b>Name</b>: The identity of the rule, for internal references</li>
  <li><b>Source Content</b>: One or more elements from the source that contribute to the mapping </li>
  <li><b>Target Transform</b>: One or more specifications of content to create in the target model </li>
- <li><b>Inner Rules</b>: Specifies what - if any - rules to apply to the newly assigned variables on the source and target side</li>
+ <li><b>Dependent Rules</b>: Specifies which - if any - rules or groups to apply within the scope of the rule</li>
 </ul>
 
 <h4>Name</h4>
@@ -261,14 +271,14 @@ defined source variables. Multiple target elements are separated by a comma, lik
 Each [target] contains the following items:
 </p>
 <pre>
-make context.element as variable = transform_code(parameters...) {list_modes}
+make context.element = transform_code(parameters...)  as variable {list_modes}
 </pre>
 <ul>
  <li><b>context</b>: Either a variable or type that is the context in which the content will be created. Variables are not prefixed, and must be declared elsewhere in 
    the map ('as variable' below, or in the input target variables). If the context is a type, it is prefixed by the character '@' e.g. @Patient.id</li>
  <li><b>element</b>: An optional name of a child element of the context. If this is not provided, the transform rule must be 'create' - this means the creation of a new instance of data as part of the output. If this is provided, the created value will be placed into the named element</li>
- <li><b>as variable</b>: a variable name may be assigned, which allows the created item to be re-used in other rules that apply in the scope of this rule</li>
  <li><b>transform+parameters</b>: details how the content that is created is transformed from the source data. See below for possible transform codes. If no transform code is provided, then the element is autocreated. It is an error if auto-created elements are primitive types, or have more than one possible type</li>
+ <li><b>as variable</b>: a variable name may be assigned, which allows the created item to be re-used in other rules that apply in the scope of this rule</li>
  <li><b>list_modes</b>: control how elements that repeat are managed when the transform rule is evaluated</li> 
 </ul>
 <p>
@@ -280,7 +290,7 @@ The following list specifies that transforms that can be specified. Each transfo
 </p>
 <table class="grid">
  <tr><td><b>Name</b></td><td><b>parameters</b></td><td><b>Documentation</b></td></tr>
- <tr><td>copy</td> <td>type</td> <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types)</td></tr>
+ <tr><td>copy</td> <td>type</td> <td>simply copy the source to the target as is (only allowed when the types in source and target match- typically for primitive types). In the concretet syntax, this is simply represented as the source variable</td></tr>
  <tr><td>create</td> <td>source</td> <td>use the standard API to create a new instance of data. Where structure definitions have been provided, the name must be a known type of a root element. Where they haven't, the application must know the name somehow</td></tr>
  <tr><td>truncate</td> <td>source, length</td> <td>source must be some stringy type that has some meaningful length property</td></tr>
  <tr><td>escape</td> <td>source, format1, format2</td> <td>Change the internal escaping of a string element. Note: this is not often needed, as mostly the escaping is done on the base format</td></tr>
@@ -294,59 +304,23 @@ The following list specifies that transforms that can be specified. Each transfo
 TODO: explain how optional parameters work with transforms (append only?), document list mode
 </p>
 
-<h4>Inner Rules</h4>
+<h4>Dependent Rules</h4>
 
 <p>
 Once the source elements are evaluated, and any specifed targets created, the engine has a set of variables that represent source and target 
-contexts in which mapping may occur. The set of variables includes those already defined before the rule was evaluated, as well as those newly 
+contexts in which further mapping may occur. The set of variables includes those already defined before the rule was evaluated, as well as those newly 
 created by the evaluation of the rule. For some created elements that are primitive types, that's the end of the road - there's nothing more
-to do with them. But if either or both the source and target types are complex, there will be additional mapping rules that need to apply
-to the newly created mapping contexts.
+to do with them. But if either or both the source and target types are complex, there may be additional mapping rules that need to apply
+to the newly created variables.
 </p>
 <p>
-Transform rules specify what additional rules are evaluated when the rule is complete. There are 3 options:
-</p>
-<p>
-The first option is for the transform rule can list, by name, other rules to be evaluated:
+Transform rules specify what additional rules are evaluated when the rule is complete, by listing either other rules
+within the same group, or other groups in the same or an imported mapping. Each rule or group is listed by name,
+and then a set of parameters are provided.
 </p>
 <pre>
- .. then rule1, rule2, rule3.
+ .. then rule(param, param), .
 </pre>
-<p>
-Specifying the additional rules specifically like this places the author of the transform completely in control of 
-what the relationships between the maps are (e.g. when you map a to be, then you apply these additional maps in the 
-context of a and b). However this rapidly becomes very laborious as soon as the map becomes moderately large, so it's 
-more normal to specify that it happens by variables or by type:
-</p>
-<pre>
- .. then by variables.
-</pre>
-<p>
-This means that at the conclusion of the rule, the evaluation engine will recheck all the other rules, and
-any that have sources with contexts that are variables and where sources are satisfied (as documented above),
-and where one of the sources uses a source or target variable created by this rule, then it will be applied. 
-Note that in order to use this, authors of maps must be disciplined about the variables names that they use, 
-since the variable names are used to link the different rules (e.g. no re-use of variable names, careful attention
-to linking source and target names with each other. 
-</p>
-<pre>
- .. then by type.
-</pre>
-<p>
-Alternatively, the linking can be done by type, where any rule that specifies inputs that match by type,
-not variable, are selected. This is really useful when linking to imported maps, where the author cannot
-link by variable name. 
-</p>
-<p>
-It's also possible to do both:
-</p>
-<pre>
- .. then by variables and type.
-</pre>
-
-
-
-
 
 
 <h3>Formal Grammar</h3>
