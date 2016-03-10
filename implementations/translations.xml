@@ -650,6 +650,9 @@
         <translation lang="es">Solicitud de Suministro</translation>
         <translation lang="fr">Demande d'approvisionnement</translation>
     </item>
+    <item id="Task">
+        <translation lang="en">Task</translation>
+    </item>
     <item id="User">
         <translation lang="en">User</translation>
         <translation lang="zh">用户</translation>
