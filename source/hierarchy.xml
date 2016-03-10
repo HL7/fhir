@@ -213,6 +213,7 @@ signatures.html
 			<page type="resource" resource="BodySite"/>
 			<page type="resource" resource="Condition"/>
 			<page type="resource" resource="CarePlan"/>
+			<page type="resource" resource="CareTeam"/>
 			<page type="resource" resource="Goal"/>
 			<page type="resource" resource="Protocol"/>
 			<page type="resource" resource="ClinicalImpression"/>

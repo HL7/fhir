@@ -1,0 +1,140 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = CareTeamParticipantRole
+  Binding = value set
+  Reference = valueset-participant-role
+  Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
+  Conformance = example
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = CareTeam
+  Type = DomainResource
+  w5 = clinical.careprovision
+
+ -- Row 2 -----------------------------------
+  Element = CareTeam.identifier
+  Card. = 0..*
+  Summary = Y
+  Type = Identifier
+  Short Label = External Ids for this team
+  Definition = This records identifiers associated with this care team that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate.
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = CareTeam.category
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Short Label = Type of team
+  Definition = Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team
+  Requirements = Used for filtering what teams(s) are retrieved and displayed to different types of users
+  Comments = There may be multiple axis of categorization and one team may serve multiple purposes.
+  To Do = Need a value set for this
+  w5 = class
+
+ -- Row 4 -----------------------------------
+  Element = CareTeam.name
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Name of the team
+  Definition = Name of the care team
+
+ -- Row 5 -----------------------------------
+  Element = CareTeam.patient
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Patient)
+  Short Label = Who care team is for
+  Definition = Identifies the patient whose intended care is handled by the team
+  w5 = who.focus
+
+ -- Row 6 -----------------------------------
+  Element = CareTeam.period
+  Card. = 0..1
+  Summary = Y
+  Type = Period
+  Short Label = Time period team covers
+  Definition = Indicates when the team did (or is intended to) come into effect and end.
+  Requirements = Allows tracking what team(s) are in effect at a particular time.
+  w5 = when.init
+
+ -- Row 7 -----------------------------------
+  Element = CareTeam.participant
+  Card. = 0..*
+  Short Label = Members of the team
+  Definition = Identifies all people and organizations who are expected to be involved in the care team.
+  v2 Mapping = REL (REL.4 is always the Patient) ( or PRT?)
+  RIM Mapping = .participation[typeCode=PFM]
+
+ -- Row 8 -----------------------------------
+  Element = CareTeam.participant.role
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = CareTeamParticipantRole
+  Short Label = Type of involvement
+  Definition = Indicates specific responsibility of an individual within the care team, such as \"Primary physician\", \"Team coordinator\", \"Caregiver\", etc.
+  Comments = Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care team.  General relationships should be handled as properties of the Patient resource directly.
+  v2 Mapping = REL.2 (or PRT-4?)
+  RIM Mapping = .functionCode
+
+ -- Row 9 -----------------------------------
+  Element = CareTeam.participant.member
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Practitioner|RelatedPerson|Patient|Organization)
+  Short Label = Who is involved
+  Definition = The specific person or organization who is participating/expected to participate in the care team.
+  Comments = Patient only needs to be listed if they have a role other than \"subject of care\".\n\nMember is optional because some participants may be known only by their role, particularly in draft plans.
+  v2 Mapping = REL.5 (or PRT-5 : ( PRV-4 {provider participations} ) / PRT-5 : ( PRV-4  {non-provider person participations} ) / PRT-5 : ( PRV-4 = (patient non-subject of care) ) / PRT-8?)
+  RIM Mapping = .role
+  w5 = who.actor
+
+ -- Row 10 -----------------------------------
+  Element = CareTeam.participant.period
+  Card. = 0..1
+  Type = Period
+  Short Label = Time period of participant
+  Definition = Indicates when the specific member or organization did (or is intended to) come into effect and end.
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = patient
+  Type = reference
+  Path = CareTeam.patient
+  Target Types = Patient
+
+ -- Row 2 -----------------------------------
+  Name = date
+  Type = date
+  Path = CareTeam.period
+
+ -- Row 3 -----------------------------------
+  Name = participant
+  Type = reference
+  Path = CareTeam.participant.member
+
+ -- Row 4 -----------------------------------
+  Name = category
+  Type = token
+  Path = CareTeam.category
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Care Team
+  Identity = example
+  Description = Care Team to address obesity
+  Filename = careteam-example.xml
+
+=== Sheet Examples =====================================

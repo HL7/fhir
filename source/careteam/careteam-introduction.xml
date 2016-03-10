@@ -1,0 +1,35 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+<div>
+<a name="bnc"> </a>
+<h2>Scope and Usage</h2>
+<p>
+The Care Team resource includes all the people and/or organizations who participate in the coordination and delivery of care for a patient. This is not limited to practitioners, but may include other caregivers such as family members, guardians, the patient themself, or others. 
+
+The Care Team, depending on where used, may include care team members specific to a particular care plan, an episode, an encounter, or may reflect all known team members across these perspectives.  
+
+</p>
+</div>
+
+
+<div>
+<h2>Boundaries and Relationships</h2>
+<p>
+Care Team is distinct from Group. Group is patient-independent and identifies an undifferentiated set of individuals who are intended to be the target of one or more clinical activities (e.g. set of clinical trial participants, set of individuals impacted by or at risk of a public health event, a herd or flock, etc.) Care Team is about establishing a set of relationships and roles and is specific to a particular Patient. 
+
+CareTeam is referenced by EpisodeOfCare and CarePlan to identify the set of individuals (and their respective roles) involved in providing the care defined by those two resources. 
+
+</p>
+</div>
+
+
+<!-- (optional):
+<div>
+<h2>Background and Context</h2>
+<p>
+Provides additional detail on exactly how the resource is to be used.
+</p>
+</div>
+-->
+
+</div>

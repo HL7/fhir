@@ -205,6 +205,12 @@
     <Cell><Data ss:Type="String">participant | performer</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">CareTeam</Data></Cell>
+    <Cell ss:StyleID="s66"><Data ss:Type="String">patient | participant </Data></Cell>
+    <Cell ss:Index="4"><Data ss:Type="String">participant </Data></Cell>
+    <Cell><Data ss:Type="String">participant </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">Claim</Data></Cell>
     <Cell><Data ss:Type="String">patientidentifier | patientreference</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">provideridentifier | providerreference</Data></Cell>
