@@ -1,0 +1,30 @@
+﻿
+=== Sheet Bindings =====================================
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Task
+  Type = DomainResource
+  Short Label = A task to be performed
+  Definition = A task to be performed
+  w5 = workflow.order
+
+ -- Row 2 -----------------------------------
+  Element = Task.identifier
+  Card. = 0..*
+  Type = Identifier
+  Short Label = Identifier(s) assigned to this task by the creator
+  Definition = Identifier(s) assigned to this task by the creator
+  RIM Mapping = .id
+  w5 = id
+
+=== Sheet Search =====================================
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+=== Sheet Examples =====================================
