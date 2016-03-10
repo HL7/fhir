@@ -284,6 +284,7 @@ signatures.html
 			<page type="resource" resource="AppointmentResponse"/>
 			<page type="resource" resource="Schedule"/>
 			<page type="resource" resource="Slot"/>
+			<page type="resource" resource="Task"/>
 		</page>
 		<page title="Infrastructure" filename="infrastructure.html">
 			<page type="resource" resource="List"/>

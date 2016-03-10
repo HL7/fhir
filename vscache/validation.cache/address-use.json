@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/address-use",
   "outcomes": [
     {
-      "hash": "|null|null|home|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "home",
-        "definition": null,
-        "display": "Home"
-      }
-    },
-    {
       "hash": "|null|null|work|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "work",
         "definition": null,
         "display": "Work"
+      }
+    },
+    {
+      "hash": "|null|null|home|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "home",
+        "definition": null,
+        "display": "Home"
       }
     }
   ]

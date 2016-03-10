@@ -2,86 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/item-type",
   "outcomes": [
     {
-      "hash": "|null|null|choice|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "choice",
-        "definition": null,
-        "display": "Choice"
-      }
-    },
-    {
-      "hash": "|null|null|time|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "time",
-        "definition": null,
-        "display": "Time"
-      }
-    },
-    {
-      "hash": "|null|null|display|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "display",
-        "definition": null,
-        "display": "Display"
-      }
-    },
-    {
-      "hash": "|null|null|group|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "group",
-        "definition": null,
-        "display": "Group"
-      }
-    },
-    {
-      "hash": "|null|null|open-choice|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "open-choice",
-        "definition": null,
-        "display": "Open Choice"
-      }
-    },
-    {
-      "hash": "|null|null|date|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "date",
-        "definition": null,
-        "display": "Date"
-      }
-    },
-    {
-      "hash": "|null|null|dateTime|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "dateTime",
-        "definition": null,
-        "display": "Date Time"
-      }
-    },
-    {
-      "hash": "|null|null|boolean|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "boolean",
-        "definition": null,
-        "display": "Boolean"
-      }
-    },
-    {
       "hash": "|null|null|decimal|null",
       "severity": null,
       "message": null,
@@ -99,6 +19,66 @@
         "abstract": "string",
         "definition": null,
         "display": "String"
+      }
+    },
+    {
+      "hash": "|null|null|group|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "group",
+        "definition": null,
+        "display": "Group"
+      }
+    },
+    {
+      "hash": "|null|null|date|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "date",
+        "definition": null,
+        "display": "Date"
+      }
+    },
+    {
+      "hash": "|null|null|open-choice|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "open-choice",
+        "definition": null,
+        "display": "Open Choice"
+      }
+    },
+    {
+      "hash": "|null|null|choice|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "choice",
+        "definition": null,
+        "display": "Choice"
+      }
+    },
+    {
+      "hash": "|null|null|display|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "display",
+        "definition": null,
+        "display": "Display"
+      }
+    },
+    {
+      "hash": "|null|null|time|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "time",
+        "definition": null,
+        "display": "Time"
       }
     }
   ]

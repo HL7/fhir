@@ -2,6 +2,36 @@
   "url": "http://hl7.org/fhir/ValueSet/type-restful-interaction",
   "outcomes": [
     {
+      "hash": "|null|null|delete|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "delete",
+        "definition": null,
+        "display": "delete"
+      }
+    },
+    {
+      "hash": "|null|null|vread|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "vread",
+        "definition": null,
+        "display": "vread"
+      }
+    },
+    {
+      "hash": "|null|null|search-type|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "search-type",
+        "definition": null,
+        "display": "search-type"
+      }
+    },
+    {
       "hash": "|null|null|history-instance|null",
       "severity": null,
       "message": null,
@@ -22,46 +52,6 @@
       }
     },
     {
-      "hash": "|null|null|read|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "read",
-        "definition": null,
-        "display": "read"
-      }
-    },
-    {
-      "hash": "|null|null|search-type|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "search-type",
-        "definition": null,
-        "display": "search-type"
-      }
-    },
-    {
-      "hash": "|null|null|history-type|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "history-type",
-        "definition": null,
-        "display": "history-type"
-      }
-    },
-    {
-      "hash": "|null|null|delete|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "delete",
-        "definition": null,
-        "display": "delete"
-      }
-    },
-    {
       "hash": "|null|null|update|null",
       "severity": null,
       "message": null,
@@ -72,13 +62,13 @@
       }
     },
     {
-      "hash": "|null|null|vread|null",
+      "hash": "|null|null|read|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "vread",
+        "abstract": "read",
         "definition": null,
-        "display": "vread"
+        "display": "read"
       }
     },
     {

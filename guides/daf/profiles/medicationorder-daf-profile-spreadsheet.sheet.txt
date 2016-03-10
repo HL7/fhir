@@ -69,87 +69,75 @@
 
  -- Row 9 -----------------------------------
   Element = MedicationOrder.medication[x]
-  Profile Name = medicationroot
-  Discriminator = @type
   Card. = 1..1
-
- -- Row 10 -----------------------------------
-  Element = MedicationOrder.medicationCodeableConcept
-  Profile Name = medicationcodeableconcept
   Must Support = Y
-  Type = CodeableConcept
+  Type = CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
   Binding = DAFMedications
 
- -- Row 11 -----------------------------------
-  Element = MedicationOrder.medicationReference
-  Profile Name = medicationreference
-  Must Support = Y
-  Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
-
- -- Row 12 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationOrder.dosageInstruction
   Card. = 0..*
   Must Support = Y
 
- -- Row 13 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationOrder.dosageInstruction.text
   Card. = 0..1
   Must Support = Y
 
- -- Row 14 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationOrder.dosageInstruction.timing
   Card. = 0..1
   Must Support = Y
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationOrder.dosageInstruction.asNeeded[x]
   Card. = 0..1
   Must Support = Y
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationOrder.dosageInstruction.siteCodeableConcept
   Card. = 0..1
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFBodySite
 
- -- Row 17 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationOrder.dosageInstruction.route
   Card. = 0..1
   Must Support = Y
   Binding = DAFRoute
 
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationOrder.dosageInstruction.dose[x]
   Card. = 0..1
   Must Support = Y
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationOrder.dosageInstruction.rate[x]
   Card. = 0..1
   Must Support = Y
 
- -- Row 20 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = MedicationOrder.dispenseRequest
   Card. = 0..1
   Must Support = Y
 
- -- Row 21 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = MedicationOrder.dispenseRequest.validityPeriod
   Card. = 0..1
   Must Support = Y
 
- -- Row 22 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = MedicationOrder.dispenseRequest.numberOfRepeatsAllowed
   Card. = 0..1
   Must Support = Y
 
- -- Row 23 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = MedicationOrder.dispenseRequest.quantity
   Card. = 0..1
   Must Support = Y
 
- -- Row 24 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = MedicationOrder.dispenseRequest.expectedSupplyDuration
   Card. = 0..1
   Must Support = Y

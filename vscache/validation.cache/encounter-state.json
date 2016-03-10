@@ -10,16 +10,6 @@
         "definition": null,
         "display": "Finished"
       }
-    },
-    {
-      "hash": "|null|null|in-progress|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "in-progress",
-        "definition": null,
-        "display": "in Progress"
-      }
     }
   ]
 }

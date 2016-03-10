@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/questionnaire-answers-status",
   "outcomes": [
     {
-      "hash": "|null|null|completed|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "completed",
-        "definition": null,
-        "display": "Completed"
-      }
-    },
-    {
       "hash": "|null|null|in-progress|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "in-progress",
         "definition": null,
         "display": "In Progress"
+      }
+    },
+    {
+      "hash": "|null|null|completed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "completed",
+        "definition": null,
+        "display": "Completed"
       }
     }
   ]

@@ -84,51 +84,39 @@
 
  -- Row 11 -----------------------------------
   Element = MedicationAdministration.medication[x]
-  Profile Name = medicationroot
-  Discriminator = @type
   Card. = 1..1
-
- -- Row 12 -----------------------------------
-  Element = MedicationAdministration.medicationCodeableConcept
-  Profile Name = medicationcodeableconcept
   Must Support = Y
-  Type = CodeableConcept
+  Type = CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
   Binding = DAFMedications
 
- -- Row 13 -----------------------------------
-  Element = MedicationAdministration.medicationReference
-  Profile Name = medicationreference
-  Must Support = Y
-  Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}
-
- -- Row 14 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationAdministration.device
   Card. = 0..*
   Must Support = Y
 
- -- Row 15 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationAdministration.dosage
   Card. = 0..1
   Must Support = Y
 
- -- Row 16 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = MedicationAdministration.dosage.siteCodeableConcept
   Must Support = Y
   Type = CodeableConcept
   Binding = DAFBodySite
 
- -- Row 17 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = MedicationAdministration.dosage.route
   Card. = 0..1
   Must Support = Y
   Binding = DAFRoute
 
- -- Row 18 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = MedicationAdministration.dosage.quantity
   Card. = 0..1
   Must Support = Y
 
- -- Row 19 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = MedicationAdministration.dosage.rate[x]
   Card. = 0..1
   Must Support = Y

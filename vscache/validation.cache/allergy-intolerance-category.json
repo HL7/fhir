@@ -10,16 +10,6 @@
         "definition": null,
         "display": "Food"
       }
-    },
-    {
-      "hash": "|null|null|medication|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "medication",
-        "definition": null,
-        "display": "Medication"
-      }
     }
   ]
 }

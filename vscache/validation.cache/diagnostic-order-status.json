@@ -2,13 +2,13 @@
   "url": "http://hl7.org/fhir/ValueSet/diagnostic-order-status",
   "outcomes": [
     {
-      "hash": "|null|null|received|null",
+      "hash": "|null|null|rejected|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "received",
+        "abstract": "rejected",
         "definition": null,
-        "display": "Received"
+        "display": "Rejected"
       }
     },
     {
@@ -19,16 +19,6 @@
         "abstract": "requested",
         "definition": null,
         "display": "Requested"
-      }
-    },
-    {
-      "hash": "|null|null|rejected|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "rejected",
-        "definition": null,
-        "display": "Rejected"
       }
     }
   ]

@@ -2,76 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/operation-parameter-type",
   "outcomes": [
     {
-      "hash": "|null|null|Questionnaire|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Questionnaire",
-        "definition": null,
-        "display": "Questionnaire"
-      }
-    },
-    {
-      "hash": "|null|null|Condition|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Condition",
-        "definition": null,
-        "display": "Condition"
-      }
-    },
-    {
-      "hash": "|null|null|Resource|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Resource",
-        "definition": null,
-        "display": "Resource"
-      }
-    },
-    {
-      "hash": "|null|null|Provenance|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Provenance",
-        "definition": null,
-        "display": "Provenance"
-      }
-    },
-    {
-      "hash": "|null|null|integer|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "integer",
-        "definition": null,
-        "display": "integer"
-      }
-    },
-    {
-      "hash": "|null|null|uri|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "uri",
-        "definition": null,
-        "display": "URI"
-      }
-    },
-    {
-      "hash": "|null|null|QuestionnaireResponse|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "QuestionnaireResponse",
-        "definition": null,
-        "display": "QuestionnaireResponse"
-      }
-    },
-    {
       "hash": "|null|null|Basic|null",
       "severity": null,
       "message": null,
@@ -79,6 +9,16 @@
         "abstract": "Basic",
         "definition": null,
         "display": "Basic"
+      }
+    },
+    {
+      "hash": "|null|null|Questionnaire|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Questionnaire",
+        "definition": null,
+        "display": "Questionnaire"
       }
     },
     {
@@ -92,23 +32,23 @@
       }
     },
     {
-      "hash": "|null|null|Patient|null",
+      "hash": "|null|null|Device|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "Patient",
+        "abstract": "Device",
         "definition": null,
-        "display": "Patient"
+        "display": "Device"
       }
     },
     {
-      "hash": "|null|null|Bundle|null",
+      "hash": "|null|null|uri|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "Bundle",
+        "abstract": "uri",
         "definition": null,
-        "display": "Bundle"
+        "display": "URI"
       }
     },
     {
@@ -122,178 +62,23 @@
       }
     },
     {
-      "hash": "|null|null|CodeableConcept|null",
+      "hash": "|null|null|QuestionnaireResponse|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "CodeableConcept",
+        "abstract": "QuestionnaireResponse",
         "definition": null,
-        "display": "CodeableConcept"
+        "display": "QuestionnaireResponse"
       }
     },
     {
-      "hash": "|null|null|Parameters|null",
+      "hash": "|null|null|Provenance|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "Parameters",
+        "abstract": "Provenance",
         "definition": null,
-        "display": "Parameters"
-      }
-    },
-    {
-      "hash": "|null|null|Meta|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Meta",
-        "definition": null,
-        "display": "Meta"
-      }
-    },
-    {
-      "hash": "|null|null|ConceptMap|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ConceptMap",
-        "definition": null,
-        "display": "ConceptMap"
-      }
-    },
-    {
-      "hash": "|null|null|code|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "code",
-        "definition": null,
-        "display": "code"
-      }
-    },
-    {
-      "hash": "|null|null|GuidanceResponse|null",
-      "severity": "error",
-      "message": "Unknown Code GuidanceResponse in http://hl7.org/fhir/ValueSet/operation-parameter-type"
-    },
-    {
-      "hash": "|null|null|Coding|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Coding",
-        "definition": null,
-        "display": "Coding"
-      }
-    },
-    {
-      "hash": "|null|null|OperationOutcome|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "OperationOutcome",
-        "definition": null,
-        "display": "OperationOutcome"
-      }
-    },
-    {
-      "hash": "|null|null|token|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "token",
-        "definition": null,
-        "display": "Token"
-      }
-    },
-    {
-      "hash": "|null|null|ValueSet|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ValueSet",
-        "definition": null,
-        "display": "ValueSet"
-      }
-    },
-    {
-      "hash": "|null|null|Reference|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Reference",
-        "definition": null,
-        "display": "Reference"
-      }
-    },
-    {
-      "hash": "|null|null|date|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "date",
-        "definition": null,
-        "display": "Date/DateTime"
-      }
-    },
-    {
-      "hash": "|null|null|dateTime|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "dateTime",
-        "definition": null,
-        "display": "dateTime"
-      }
-    },
-    {
-      "hash": "|null|null|id|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "id",
-        "definition": null,
-        "display": "id"
-      }
-    },
-    {
-      "hash": "|null|null|string|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "string",
-        "definition": null,
-        "display": "String"
-      }
-    },
-    {
-      "hash": "|null|null|boolean|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "boolean",
-        "definition": null,
-        "display": "boolean"
-      }
-    },
-    {
-      "hash": "|null|null|Device|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Device",
-        "definition": null,
-        "display": "Device"
-      }
-    },
-    {
-      "hash": "|null|null|Any|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Any",
-        "definition": null,
-        "display": "Any"
+        "display": "Provenance"
       }
     }
   ]

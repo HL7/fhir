@@ -2,107 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/observation-interpretation",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|low",
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|HH|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "L",
+        "abstract": "HH",
         "definition": null,
-        "display": "Low"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|R|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "R",
-        "definition": null,
-        "display": "Resistant"
+        "display": "Critically high"
       }
     },
     {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|H|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "H",
-        "definition": null,
-        "display": "High"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "N",
-        "definition": null,
-        "display": "Normal"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|166698001|Serum bicarbonate level normal#|http://hl7.org/fhir/v2/0078|null|N|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "N",
-        "definition": null,
-        "display": "Normal"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|POS|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "POS",
-        "definition": null,
-        "display": "Positive"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "L",
-        "definition": null,
-        "display": "Low"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|S|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "S",
-        "definition": null,
-        "display": "Susceptible"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|LL|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "LL",
-        "definition": null,
-        "display": "Critically low"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|166717003|Serum creatinine raised#|http://hl7.org/fhir/v2/0078|null|H|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "H",
-        "definition": null,
-        "display": "High"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|H|High",
       "severity": null,
       "message": null,
       "definition": {
@@ -122,16 +32,6 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|HH|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "HH",
-        "definition": null,
-        "display": "Critically high"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|A|null",
       "severity": null,
       "message": null,
@@ -142,7 +42,27 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|Normal",
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|LL|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "LL",
+        "definition": null,
+        "display": "Critically low"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "L",
+        "definition": null,
+        "display": "Low"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
       "severity": null,
       "message": null,
       "definition": {
