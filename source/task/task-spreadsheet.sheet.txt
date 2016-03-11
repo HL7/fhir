@@ -127,6 +127,11 @@
   Display = On Hold
   Definition = Task was started but has temporarily ceased with an expectation of resumption at a future time.
 
+ -- Row 8 -----------------------------------
+  Code = reserved
+  Display = Reserved
+  Definition = The task has been claimed by an owner
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -182,19 +187,17 @@
   Card. = 0..*
   Type = Coding
   Binding = TaskPerformerType
-  Short Label = Task Performer Type
+  Short Label = requester |\ndispatcher |\nscheduler |\nperformer |\nmonitor |\nmanager |\nacquirer |\nreviewer
   Definition = The type of participant that can execute the task.
   Requirements = Use to distinguish tasks on different activity queues.
-  Comments = requester |\ndispatcher |\nscheduler |\nperformer |\nmonitor |\nmanager |\nacquirer |\nreviewer
 
  -- Row 6 -----------------------------------
   Element = Task.priority
   Card. = 0..1
   Type = Coding
   Binding = TaskPriority
-  Short Label = Task Priority
+  Short Label = low | normal | high
   Definition = The priority of the task among other tasks of the same type
-  Comments = low | normal | high
   Missing Meaning = If missing, this task should be performed with normal priority
 
  -- Row 7 -----------------------------------
@@ -204,9 +207,8 @@
   Inv. = inv-2
   Type = code
   Binding = TaskStatus
-  Short Label = Task Status
+  Short Label = cancelled | completed | created | \nfailed |\nin-progress | ready |\non-hold
   Definition = The current status of the task.
-  Comments = cancelled | completed | created | \nfailed |\nin-progress | ready |\non-hold
 
  -- Row 8 -----------------------------------
   Element = Task.suspended
@@ -361,7 +363,7 @@
   Path = Task.status
 
  -- Row 6 -----------------------------------
-  Name = failureReason
+  Name = failure
   Type = token
   Description = Search by failure reason
   Path = Task.failureReason

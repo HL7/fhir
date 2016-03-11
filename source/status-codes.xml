@@ -11,7 +11,7 @@
   <LastAuthor>Eric Haas</LastAuthor>
   <Created>2013-11-28T10:43:10Z</Created>
   <LastSaved>2015-04-15T04:11:27Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">2eaca039-8f5b-4e09-a647-90931ca82fc4</WorkbookGuid>
@@ -191,7 +191,7 @@
   </Style>
  </Styles>
  <Worksheet ss:Name="Status Codes">
-  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="71" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="40" ss:ExpandedRowCount="72" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s63" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s63" ss:Width="314.25"/>
@@ -1629,6 +1629,17 @@
     <Cell ss:StyleID="s69"><Data ss:Type="String">retired</Data></Cell>
     <Cell ss:StyleID="s62"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Task.satus</Data></Cell>
+    <Cell ss:Index="3"><Data ss:Type="String">created</Data></Cell>
+    <Cell ss:Index="7"><Data ss:Type="String">ready</Data></Cell>
+    <Cell ss:Index="9"><Data ss:Type="String">reserved</Data></Cell>
+    <Cell ss:Index="11"><Data ss:Type="String">in-progress</Data></Cell>
+    <Cell><Data ss:Type="String">on-hold</Data></Cell>
+    <Cell><Data ss:Type="String">failed</Data></Cell>
+    <Cell ss:Index="15"><Data ss:Type="String">completed</Data></Cell>
+    <Cell ss:Index="17" ss:StyleID="s69"><Data ss:Type="String">cancelled</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -1646,9 +1657,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>16</TopRowBottomPane>
+   <TopRowBottomPane>48</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>9</LeftColumnRightPane>
+   <LeftColumnRightPane>10</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -1664,8 +1675,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>45</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>71</ActiveRow>
+     <ActiveCol>18</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
