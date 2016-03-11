@@ -3,8 +3,14 @@
   <id value='example'/>
   <text>
     <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">[Put rendering here]</div>
+    <div xmlns="http://www.w3.org/1999/xhtml"></div>
   </text>
-
-  <!-- insert contents here -->
+  <type><text value="Refill Request"/></type>
+  <status value="created"/>
+  <suspended value="false"/>
+  <subject><reference value="Medication/123"/></subject>
+  <created value="2016-03-10T22:39:32-04:00"/>
+  <lastModified value="2016-03-10T22:39:32-04:00"/>
+  <creator><reference value='Patient/Keith'/></creator>
+  <owner><reference value='Practitioner/MyDoc'/></owner>
 </Task>

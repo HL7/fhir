@@ -1,7 +1,149 @@
 ﻿
 === Sheet Bindings =====================================
 
+ -- Row 1 -----------------------------------
+  Binding Name = TaskPerformerType
+  Binding = code list
+  Reference = #task-performer-type
+  Definition = The type(s) of task performers allowed
+
+ -- Row 2 -----------------------------------
+  Binding Name = TaskPriority
+  Binding = code list
+  Reference = #task-priority
+  Definition = The task\'s priority
+
+ -- Row 3 -----------------------------------
+  Binding Name = TaskStatus
+  Binding = code list
+  Reference = #task-status
+  Definition = The current status of the task.
+
+=== Sheet task-performer-type =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = requester
+  Display = Requester
+  Definition = A workflow participant that requests services.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = dispatcher
+  Display = Dispatcher
+  Definition = A workflow participant that dispatches services (assigns another task to a participant).
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = scheduler
+  Display = Scheduler
+  Definition = A workflow participant that schedules (dispatches and sets the time or date for performance of) services.
+  Parent = #2
+
+ -- Row 4 -----------------------------------
+  Id = 4
+  Code = performer
+  Display = Performer
+  Definition = A workflow participant that performs services.
+
+ -- Row 5 -----------------------------------
+  Id = 5
+  Code = monitor
+  Display = Monitor
+  Definition = A workflow participant that monitors task activity.
+
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = manager
+  Display = Manager
+  Definition = A workflow participant that manages task activity.
+
+ -- Row 7 -----------------------------------
+  Id = 7
+  Code = acquirer
+  Display = Acquirer
+  Definition = A workflow participant that acquires resources (specimens, images, etc) necessary to perform the task.
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Code = reviewer
+  Display = Reviewer
+  Definition = A workflow participant that reviews task inputs or outputs.
+
+=== Sheet task-priority =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = low
+  Display = Low
+  Definition = This task has low priority.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = normal
+  Display = Normal
+  Definition = This task has normal priority.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = high
+  Display = High
+  Definition = This task has high priority.
+
+=== Sheet task-status =====================================
+
+ -- Row 1 -----------------------------------
+  Code = cancelled
+  Display = Cancelled
+  Definition = The task was not completed due to some process issue.  It may not have been attempted, or if attempted, it may not have failed (e.g., an issue elsewhere might have resulted in the task being cancelled).
+
+ -- Row 2 -----------------------------------
+  Code = completed
+  Display = Completed
+  Definition = The task has been completed (more or less) as planned.
+
+ -- Row 3 -----------------------------------
+  Code = created
+  Display = Created
+  Definition = The task has been created by is not yet ready to be performed.
+
+ -- Row 4 -----------------------------------
+  Code = failed
+  Display = Failed
+  Definition = The task was attempted but could not be completed due to some error.
+
+ -- Row 5 -----------------------------------
+  Code = in-progress
+  Display = In Progress
+  Definition = Task has been started but is not yet complete.
+
+ -- Row 6 -----------------------------------
+  Code = ready
+  Display = Ready
+  Definition = Task is ready to be performed, but no action has yet been taken.
+
+ -- Row 7 -----------------------------------
+  Code = on-hold
+  Display = On Hold
+  Definition = Task was started but has temporarily ceased with an expectation of resumption at a future time.
+
 === Sheet Invariants =====================================
+
+ -- Row 1 -----------------------------------
+  Id = inv-1
+  Context = Task
+  English = Last modified date must be greater than or equal to created date.
+  XPath = f:lastModified >= f:created
+  Expression = lastModified >= created
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = inv-2
+  Context = Task
+  English = A Failure reason may be present only when a task has failed.
+  XPath = not(exists(f:failureReason)) or f:status/@value = \'failed\'
+  Expression = failureReason.empty() or  status = \'failed\'
+  Severity = error
 
 === Sheet Data Elements =====================================
 
@@ -14,17 +156,398 @@
 
  -- Row 2 -----------------------------------
   Element = Task.identifier
-  Card. = 0..*
+  Card. = 0..1
   Type = Identifier
-  Short Label = Identifier(s) assigned to this task by the creator
-  Definition = Identifier(s) assigned to this task by the creator
-  RIM Mapping = .id
-  w5 = id
+  Short Label = Task Instance Identifier
+  Definition = The business identifier for this task.
+
+ -- Row 3 -----------------------------------
+  Element = Task.type
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Short Label = Task Type
+  Definition = A name or code (or both) briefly describing what the task involves.
+
+ -- Row 4 -----------------------------------
+  Element = Task.description
+  Card. = 0..1
+  Summary = Y
+  Type = string
+  Short Label = Task Description
+  Definition = A description of this task.
+
+ -- Row 5 -----------------------------------
+  Element = Task.performerType
+  Card. = 0..*
+  Type = Coding
+  Binding = TaskPerformerType
+  Short Label = Task Performer Type
+  Definition = The type of participant that can execute the task.
+  Requirements = Use to distinguish tasks on different activity queues.
+  Comments = requester |\ndispatcher |\nscheduler |\nperformer |\nmonitor |\nmanager |\nacquirer |\nreviewer
+
+ -- Row 6 -----------------------------------
+  Element = Task.priority
+  Card. = 0..1
+  Type = Coding
+  Binding = TaskPriority
+  Short Label = Task Priority
+  Definition = The priority of the task among other tasks of the same type
+  Comments = low | normal | high
+  Missing Meaning = If missing, this task should be performed with normal priority
+
+ -- Row 7 -----------------------------------
+  Element = Task.status
+  Card. = 1..1
+  Summary = Y
+  Inv. = inv-2
+  Type = code
+  Binding = TaskStatus
+  Short Label = Task Status
+  Definition = The current status of the task.
+  Comments = cancelled | completed | created | \nfailed |\nin-progress | ready |\non-hold
+
+ -- Row 8 -----------------------------------
+  Element = Task.suspended
+  Card. = 1..1
+  Summary = Y
+  Type = boolean
+  Short Label = Task Suspended
+  Definition = True if the task has been suspended (put on hold), false otherwise.
+
+ -- Row 9 -----------------------------------
+  Element = Task.failureReason
+  Card. = 0..1
+  Summary = Y
+  Inv. = inv-2
+  Type = CodeableConcept
+  Short Label = Task Failure Reason
+  Definition = An explaination as to why this task failed.
+
+ -- Row 10 -----------------------------------
+  Element = Task.subject
+  Card. = 0..1
+  Type = Reference(Any)
+  Short Label = Task Subject
+  Definition = The subject of the task
+
+ -- Row 11 -----------------------------------
+  Element = Task.definition
+  Card. = 0..1
+  Summary = Y
+  Type = uri
+  Short Label = Task Definition
+  Definition = A reference to a formal or informal definition of the task.
+
+ -- Row 12 -----------------------------------
+  Element = Task.created
+  Card. = 1..1
+  Aliases = Created Date
+  Inv. = inv-1
+  Type = dateTime
+  Short Label = Task Creation Date
+  Definition = The date and time this task was created.
+  Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
+
+ -- Row 13 -----------------------------------
+  Element = Task.lastModified
+  Card. = 1..1
+  Aliases = Update Date
+  Summary = Y
+  Inv. = inv-1
+  Type = dateTime
+  Short Label = Task Last Modified Date
+  Definition = The date and time of last modification to this task.
+  Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
+
+ -- Row 14 -----------------------------------
+  Element = Task.creator
+  Card. = 1..1
+  Aliases = Initiator; Author
+  Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
+  Short Label = Task Creator
+  Definition = The creator of the task.
+  Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
+
+ -- Row 15 -----------------------------------
+  Element = Task.owner
+  Card. = 0..1
+  Aliases = Performer; Executer
+  Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
+  Short Label = Task Owner
+  Definition = The owner of this task.  The participant who can execute this task.
+  Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
+
+ -- Row 16 -----------------------------------
+  Element = Task.subtask
+  Card. = 0..*
+  Type = Reference(Task)
+  Short Label = Subtasks
+  Definition = Subtasks to be performed before this task can be considered to be complete.
+
+ -- Row 17 -----------------------------------
+  Element = Task.input
+  Card. = 0..*
+  Type = =Parameter
+  Short Label = Task Input
+  Definition = Inputs to the task
+
+ -- Row 18 -----------------------------------
+  Element = Task.input.name
+  Card. = 1..1
+  Type = string
+  Short Label = Input Name
+  Definition = The name of the input parameter.
+
+ -- Row 19 -----------------------------------
+  Element = Task.input.value[x]
+  Card. = 1..1
+  Type = *
+  Short Label = Input Value
+  Definition = The value of the input parameter as a basic type.
+
+ -- Row 20 -----------------------------------
+  Element = Task.output
+  Card. = 0..*
+  Type = @Task.input
+  Short Label = Task Output
+  Definition = Outputs produced by the Task
+
+ -- Row 21 -----------------------------------
+  Element = Task.output.name
+  Card. = 1..1
+  Type = string
+  Short Label = Output Name
+  Definition = The name of the Output parameter.
+
+ -- Row 22 -----------------------------------
+  Element = Task.output.value[x]
+  Card. = 1..1
+  Type = *
+  Short Label = Output Value
+  Definition = The value of the Output parameter as a basic type.
 
 === Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Search for a task instance by its business identifier
+  Path = Task.identifier
+
+ -- Row 2 -----------------------------------
+  Name = type
+  Type = token
+  Description = Search by task type
+  Path = Task.type
+
+ -- Row 3 -----------------------------------
+  Name = performer
+  Type = token
+  Description = Search by recommended type of performer (e.g., Requester, Performer, Scheduler).
+  Path = Task.performerType
+
+ -- Row 4 -----------------------------------
+  Name = priority
+  Type = token
+  Description = Search by task priority
+  Path = Task.priority
+
+ -- Row 5 -----------------------------------
+  Name = status
+  Type = token
+  Description = Search by task status
+  Path = Task.status
+
+ -- Row 6 -----------------------------------
+  Name = failureReason
+  Type = token
+  Description = Search by failure reason
+  Path = Task.failureReason
+
+ -- Row 7 -----------------------------------
+  Name = suspended
+  Type = token
+  Description = Search by suspension status
+  Path = Task.suspended
+
+ -- Row 8 -----------------------------------
+  Name = subject
+  Type = reference
+  Description = Search by task subject
+  Path = Task.subject
+
+ -- Row 9 -----------------------------------
+  Name = definition
+  Type = uri
+  Description = Search by task definition
+  Path = Task.definition
+
+ -- Row 10 -----------------------------------
+  Name = created
+  Type = date
+  Description = Search by creation date
+  Path = Task.created
+
+ -- Row 11 -----------------------------------
+  Name = modified
+  Type = date
+  Description = Search by last modification date
+  Path = Task.lastModified
+
+ -- Row 12 -----------------------------------
+  Name = owner
+  Type = reference
+  Description = Search by task owner
+  Path = Task.owner
+
+ -- Row 13 -----------------------------------
+  Name = creator
+  Type = reference
+  Description = Search by task creator
+  Path = Task.creator
+
+ -- Row 14 -----------------------------------
+  Name = subtask
+  Type = reference
+  Description = Search by subtasks
+  Path = Task.subtask
 
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = reserve
+  Use = Instance
+  Documentation = Reserve this task for the specified entity.  Makes the specified entity the task owner, and transitions the task to the Reserved state.  This operation may be used by an entity to claim a task for itself, or to delegate or forward the task to another entity.
+  Type = operation
+
+ -- Row 2 -----------------------------------
+  Name = reserve.owner
+  Use = in
+  Documentation = The entity who is to be assigned ownership of this task.
+  Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = start
+  Use = Instance
+  Documentation = Start this task by the specified entity (or if none specified, by the present task owner).  If an owner is specified, that owner is assigned as the task owner.  The task is transitioned to the In Progress state.
+  Type = operation
+
+ -- Row 4 -----------------------------------
+  Name = start.owner
+  Use = in
+  Documentation = The entity who is to be assigned ownership of this task.  If no entity is provided, the ownership of the task remains unchanged.
+  Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
+  Min = 0
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = finish
+  Use = Instance
+  Documentation = Finish this task.  The task is transitioned to the completed state.
+  Type = operation
+
+ -- Row 6 -----------------------------------
+  Name = fail
+  Use = Instance
+  Documentation = Fail this task.  The task is transitioned to the failed state.
+  Type = operation
+
+ -- Row 7 -----------------------------------
+  Name = fail.reason
+  Use = in
+  Documentation = The reason for failure.  If present, this is assigned to the failureReason property of the task.
+  Type = CodeableConcept
+  Min = 0
+  Max = 1
+
+ -- Row 8 -----------------------------------
+  Name = release
+  Use = Instance
+  Documentation = Release a previously reserved task.  The task owner is cleared and the task is transitioned to the Ready state.
+  Type = operation
+
+ -- Row 9 -----------------------------------
+  Name = suspend
+  Use = Instance
+  Documentation = Transition an In Progress task to the Reserved state.  Propogates the suspension to all child tasks.
+  Type = operation
+
+ -- Row 10 -----------------------------------
+  Name = resume
+  Use = Instance
+  Documentation = Transition a suspended task back to its orginal state.
+  Type = operation
+
+ -- Row 11 -----------------------------------
+  Name = cancel
+  Use = Instance
+  Documentation = Cancel the task.  Set the status of the task to cancelled.
+  Type = operation
+
+ -- Row 12 -----------------------------------
+  Name = stop
+  Use = Instance
+  Documentation = Stop processing the task.  The task is returned to the ready state.
+  Type = operation
+
+ -- Row 13 -----------------------------------
+  Name = set-input
+  Use = Instance
+  Documentation = Set one of the inputs for a task.
+  Type = operation
+
+ -- Row 14 -----------------------------------
+  Name = set-input.input
+  Use = in
+  Type = Tuple
+  Min = 1
+  Max = *
+
+ -- Row 15 -----------------------------------
+  Name = set-input.input.name
+  Documentation = The name of the input to add or update.
+  Type = string
+  Min = 1
+  Max = 1
+
+ -- Row 16 -----------------------------------
+  Name = set-input.input.value[x]
+  Documentation = If no value is provided, any current input with that name is removed from the resource.
+  Type = *
+  Min = 0
+  Max = 1
+
+ -- Row 17 -----------------------------------
+  Name = set-output
+  Use = Instance
+  Documentation = Set one of the outputs of a task.
+  Type = operation
+
+ -- Row 18 -----------------------------------
+  Name = set-output.output
+  Use = out
+  Type = Tuple
+  Min = 1
+  Max = *
+
+ -- Row 19 -----------------------------------
+  Name = set-output.output.name
+  Documentation = The name of the output to add or update.
+  Type = string
+  Min = 1
+  Max = 1
+
+ -- Row 20 -----------------------------------
+  Name = set-output.output.value[x]
+  Documentation = If no value is provided, any current output with that name is removed from the resource.
+  Type = *
+  Min = 0
+  Max = 1
