@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/namingsystem-type",
   "outcomes": [
     {
-      "hash": "|null|null|codesystem|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "codesystem",
-        "definition": null,
-        "display": "Code System"
-      }
-    },
-    {
       "hash": "|null|null|identifier|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "identifier",
         "definition": null,
         "display": "Identifier"
+      }
+    },
+    {
+      "hash": "|null|null|codesystem|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "codesystem",
+        "definition": null,
+        "display": "Code System"
       }
     }
   ]

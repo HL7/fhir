@@ -2,6 +2,16 @@
   "url": "http://hl7.org/fhir/ValueSet/conformance-statement-kind",
   "outcomes": [
     {
+      "hash": "|null|null|capability|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "capability",
+        "definition": null,
+        "display": "Capability"
+      }
+    },
+    {
       "hash": "|null|null|requirements|null",
       "severity": null,
       "message": null,
@@ -9,6 +19,16 @@
         "abstract": "requirements",
         "definition": null,
         "display": "Requirements"
+      }
+    },
+    {
+      "hash": "|null|null|instance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "instance",
+        "definition": null,
+        "display": "Instance"
       }
     }
   ]

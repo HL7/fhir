@@ -10,6 +10,36 @@
         "definition": null,
         "display": "Required"
       }
+    },
+    {
+      "hash": "|null|null|preferred|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "preferred",
+        "definition": null,
+        "display": "Preferred"
+      }
+    },
+    {
+      "hash": "|null|null|extensible|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "extensible",
+        "definition": null,
+        "display": "Extensible"
+      }
+    },
+    {
+      "hash": "|null|null|example|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "example",
+        "definition": null,
+        "display": "Example"
+      }
     }
   ]
 }

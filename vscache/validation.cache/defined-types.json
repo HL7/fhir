@@ -2,13 +2,198 @@
   "url": "http://hl7.org/fhir/ValueSet/defined-types",
   "outcomes": [
     {
-      "hash": "|null|null|CodeableConcept|null",
+      "hash": "|null|null|ModuleMetadata|null",
+      "severity": "error",
+      "message": "Unknown Code ModuleMetadata in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|ActionDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code ActionDefinition in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|DataRequirement|null",
+      "severity": "error",
+      "message": "Unknown Code DataRequirement in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|CodeSystem|null",
+      "severity": "error",
+      "message": "Unknown Code CodeSystem in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|dateTime|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "CodeableConcept",
+        "abstract": "dateTime",
         "definition": null,
-        "display": "CodeableConcept"
+        "display": "dateTime"
+      }
+    },
+    {
+      "hash": "|null|null|Observation|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Observation",
+        "definition": null,
+        "display": "Observation"
+      }
+    },
+    {
+      "hash": "|null|null|Condition|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Condition",
+        "definition": null,
+        "display": "Condition"
+      }
+    },
+    {
+      "hash": "|null|null|DocumentReference|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DocumentReference",
+        "definition": null,
+        "display": "DocumentReference"
+      }
+    },
+    {
+      "hash": "|null|null|Specimen|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Specimen",
+        "definition": null,
+        "display": "Specimen"
+      }
+    },
+    {
+      "hash": "|null|null|CarePlan|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "CarePlan",
+        "definition": null,
+        "display": "CarePlan"
+      }
+    },
+    {
+      "hash": "|null|null|Practitioner|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Practitioner",
+        "definition": null,
+        "display": "Practitioner"
+      }
+    },
+    {
+      "hash": "|null|null|ContactPoint|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ContactPoint",
+        "definition": null,
+        "display": "ContactPoint"
+      }
+    },
+    {
+      "hash": "|null|null|DeviceUseStatement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DeviceUseStatement",
+        "definition": null,
+        "display": "DeviceUseStatement"
+      }
+    },
+    {
+      "hash": "|null|null|ReferralRequest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ReferralRequest",
+        "definition": null,
+        "display": "ReferralRequest"
+      }
+    },
+    {
+      "hash": "|null|null|Resource|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Resource",
+        "definition": null,
+        "display": "Resource"
+      }
+    },
+    {
+      "hash": "|null|null|instant|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "instant",
+        "definition": null,
+        "display": "instant"
+      }
+    },
+    {
+      "hash": "|null|null|time|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "time",
+        "definition": null,
+        "display": "time"
+      }
+    },
+    {
+      "hash": "|null|null|Composition|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Composition",
+        "definition": null,
+        "display": "Composition"
+      }
+    },
+    {
+      "hash": "|null|null|Goal|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Goal",
+        "definition": null,
+        "display": "Goal"
+      }
+    },
+    {
+      "hash": "|null|null|TriggerDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code TriggerDefinition in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|Communication|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Communication",
+        "definition": null,
+        "display": "Communication"
+      }
+    },
+    {
+      "hash": "|null|null|DeviceUseRequest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DeviceUseRequest",
+        "definition": null,
+        "display": "DeviceUseRequest"
       }
     },
     {
@@ -22,13 +207,23 @@
       }
     },
     {
-      "hash": "|null|null|string|null",
+      "hash": "|null|null|ImmunizationRecommendation|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "string",
+        "abstract": "ImmunizationRecommendation",
         "definition": null,
-        "display": "string"
+        "display": "ImmunizationRecommendation"
+      }
+    },
+    {
+      "hash": "|null|null|RelatedPerson|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "RelatedPerson",
+        "definition": null,
+        "display": "RelatedPerson"
       }
     },
     {
@@ -42,6 +237,316 @@
       }
     },
     {
+      "hash": "|null|null|Substance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Substance",
+        "definition": null,
+        "display": "Substance"
+      }
+    },
+    {
+      "hash": "|null|null|Range|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Range",
+        "definition": null,
+        "display": "Range"
+      }
+    },
+    {
+      "hash": "|null|null|Provenance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Provenance",
+        "definition": null,
+        "display": "Provenance"
+      }
+    },
+    {
+      "hash": "|null|null|SampledData|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "SampledData",
+        "definition": null,
+        "display": "SampledData"
+      }
+    },
+    {
+      "hash": "|null|null|oid|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "oid",
+        "definition": null,
+        "display": "oid"
+      }
+    },
+    {
+      "hash": "|null|null|base64Binary|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "base64Binary",
+        "definition": null,
+        "display": "base64Binary"
+      }
+    },
+    {
+      "hash": "|null|null|DiagnosticOrder|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DiagnosticOrder",
+        "definition": null,
+        "display": "DiagnosticOrder"
+      }
+    },
+    {
+      "hash": "|null|null|positiveInt|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "positiveInt",
+        "definition": null,
+        "display": "positiveInt"
+      }
+    },
+    {
+      "hash": "|null|null|MedicationDispense|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "MedicationDispense",
+        "definition": null,
+        "display": "MedicationDispense"
+      }
+    },
+    {
+      "hash": "|null|null|AllergyIntolerance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "AllergyIntolerance",
+        "definition": null,
+        "display": "AllergyIntolerance"
+      }
+    },
+    {
+      "hash": "|null|null|Questionnaire|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Questionnaire",
+        "definition": null,
+        "display": "Questionnaire"
+      }
+    },
+    {
+      "hash": "|null|null|Encounter|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Encounter",
+        "definition": null,
+        "display": "Encounter"
+      }
+    },
+    {
+      "hash": "|null|null|BodySite|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "BodySite",
+        "definition": null,
+        "display": "BodySite"
+      }
+    },
+    {
+      "hash": "|null|null|uri|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "uri",
+        "definition": null,
+        "display": "uri"
+      }
+    },
+    {
+      "hash": "|null|null|Parameters|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Parameters",
+        "definition": null,
+        "display": "Parameters"
+      }
+    },
+    {
+      "hash": "|null|null|QuestionnaireResponse|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "QuestionnaireResponse",
+        "definition": null,
+        "display": "QuestionnaireResponse"
+      }
+    },
+    {
+      "hash": "|null|null|Organization|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Organization",
+        "definition": null,
+        "display": "Organization"
+      }
+    },
+    {
+      "hash": "|null|null|MedicationAdministration|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "MedicationAdministration",
+        "definition": null,
+        "display": "MedicationAdministration"
+      }
+    },
+    {
+      "hash": "|null|null|ProcedureRequest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ProcedureRequest",
+        "definition": null,
+        "display": "ProcedureRequest"
+      }
+    },
+    {
+      "hash": "|null|null|ValueSet|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ValueSet",
+        "definition": null,
+        "display": "ValueSet"
+      }
+    },
+    {
+      "hash": "|null|null|Basic|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Basic",
+        "definition": null,
+        "display": "Basic"
+      }
+    },
+    {
+      "hash": "|null|null|DataElement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DataElement",
+        "definition": null,
+        "display": "DataElement"
+      }
+    },
+    {
+      "hash": "|null|null|Device|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Device",
+        "definition": null,
+        "display": "Device"
+      }
+    },
+    {
+      "hash": "|null|null|xhtml|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "xhtml",
+        "definition": null,
+        "display": "XHTML"
+      }
+    },
+    {
+      "hash": "|null|null|Narrative|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Narrative",
+        "definition": null,
+        "display": "Narrative"
+      }
+    },
+    {
+      "hash": "|null|null|CodeableConcept|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "CodeableConcept",
+        "definition": null,
+        "display": "CodeableConcept"
+      }
+    },
+    {
+      "hash": "|null|null|code|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "code",
+        "definition": null,
+        "display": "code"
+      }
+    },
+    {
+      "hash": "|null|null|ImagingStudy|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ImagingStudy",
+        "definition": null,
+        "display": "ImagingStudy"
+      }
+    },
+    {
+      "hash": "|null|null|MedicationOrder|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "MedicationOrder",
+        "definition": null,
+        "display": "MedicationOrder"
+      }
+    },
+    {
+      "hash": "|null|null|MedicationStatement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "MedicationStatement",
+        "definition": null,
+        "display": "MedicationStatement"
+      }
+    },
+    {
+      "hash": "|null|null|Ratio|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Ratio",
+        "definition": null,
+        "display": "Ratio"
+      }
+    },
+    {
       "hash": "|null|null|date|null",
       "severity": null,
       "message": null,
@@ -49,6 +554,381 @@
         "abstract": "date",
         "definition": null,
         "display": "date"
+      }
+    },
+    {
+      "hash": "|null|null|Order|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Order",
+        "definition": null,
+        "display": "Order"
+      }
+    },
+    {
+      "hash": "|null|null|Location|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Location",
+        "definition": null,
+        "display": "Location"
+      }
+    },
+    {
+      "hash": "|null|null|Identifier|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Identifier",
+        "definition": null,
+        "display": "Identifier"
+      }
+    },
+    {
+      "hash": "|null|null|boolean|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "boolean",
+        "definition": null,
+        "display": "boolean"
+      }
+    },
+    {
+      "hash": "|null|null|Address|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Address",
+        "definition": null,
+        "display": "Address"
+      }
+    },
+    {
+      "hash": "|null|null|CommunicationRequest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "CommunicationRequest",
+        "definition": null,
+        "display": "CommunicationRequest"
+      }
+    },
+    {
+      "hash": "|null|null|Reference|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Reference",
+        "definition": null,
+        "display": "Reference"
+      }
+    },
+    {
+      "hash": "|null|null|Procedure|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Procedure",
+        "definition": null,
+        "display": "Procedure"
+      }
+    },
+    {
+      "hash": "|null|null|Meta|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Meta",
+        "definition": null,
+        "display": "Meta"
+      }
+    },
+    {
+      "hash": "|null|null|Timing|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Timing",
+        "definition": null,
+        "display": "Timing"
+      }
+    },
+    {
+      "hash": "|null|null|ElementDefinition|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ElementDefinition",
+        "definition": null,
+        "display": "ElementDefinition"
+      }
+    },
+    {
+      "hash": "|null|null|ParameterDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code ParameterDefinition in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|Annotation|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Annotation",
+        "definition": null,
+        "display": "Annotation"
+      }
+    },
+    {
+      "hash": "|null|null|Patient|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Patient",
+        "definition": null,
+        "display": "Patient"
+      }
+    },
+    {
+      "hash": "|null|null|string|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "string",
+        "definition": null,
+        "display": "string"
+      }
+    },
+    {
+      "hash": "|null|null|DomainResource|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DomainResource",
+        "definition": null,
+        "display": "DomainResource"
+      }
+    },
+    {
+      "hash": "|null|null|Immunization|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Immunization",
+        "definition": null,
+        "display": "Immunization"
+      }
+    },
+    {
+      "hash": "|null|null|id|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "id",
+        "definition": null,
+        "display": "id"
+      }
+    },
+    {
+      "hash": "|null|null|FamilyMemberHistory|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "FamilyMemberHistory",
+        "definition": null,
+        "display": "FamilyMemberHistory"
+      }
+    },
+    {
+      "hash": "|null|null|List|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "List",
+        "definition": null,
+        "display": "List"
+      }
+    },
+    {
+      "hash": "|null|null|BackboneElement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "BackboneElement",
+        "definition": null,
+        "display": "BackboneElement"
+      }
+    },
+    {
+      "hash": "|null|null|AuditEvent|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "AuditEvent",
+        "definition": null,
+        "display": "AuditEvent"
+      }
+    },
+    {
+      "hash": "|null|null|Bundle|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Bundle",
+        "definition": null,
+        "display": "Bundle"
+      }
+    },
+    {
+      "hash": "|null|null|Element|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Element",
+        "definition": null,
+        "display": "Element"
+      }
+    },
+    {
+      "hash": "|null|null|Period|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Period",
+        "definition": null,
+        "display": "Period"
+      }
+    },
+    {
+      "hash": "|null|null|Quantity|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Quantity",
+        "definition": null,
+        "display": "Quantity"
+      }
+    },
+    {
+      "hash": "|null|null|Flag|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Flag",
+        "definition": null,
+        "display": "Flag"
+      }
+    },
+    {
+      "hash": "|null|null|Extension|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Extension",
+        "definition": null,
+        "display": "Extension"
+      }
+    },
+    {
+      "hash": "|null|null|DocumentManifest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DocumentManifest",
+        "definition": null,
+        "display": "DocumentManifest"
+      }
+    },
+    {
+      "hash": "|null|null|Medication|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Medication",
+        "definition": null,
+        "display": "Medication"
+      }
+    },
+    {
+      "hash": "|null|null|HumanName|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "HumanName",
+        "definition": null,
+        "display": "HumanName"
+      }
+    },
+    {
+      "hash": "|null|null|DiagnosticReport|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DiagnosticReport",
+        "definition": null,
+        "display": "DiagnosticReport"
+      }
+    },
+    {
+      "hash": "|null|null|markdown|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "markdown",
+        "definition": null,
+        "display": "markdown"
+      }
+    },
+    {
+      "hash": "|null|null|integer|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "integer",
+        "definition": null,
+        "display": "integer"
+      }
+    },
+    {
+      "hash": "|null|null|Contract|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Contract",
+        "definition": null,
+        "display": "Contract"
+      }
+    },
+    {
+      "hash": "|null|null|Signature|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Signature",
+        "definition": null,
+        "display": "Signature"
+      }
+    },
+    {
+      "hash": "|null|null|Attachment|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Attachment",
+        "definition": null,
+        "display": "Attachment"
+      }
+    },
+    {
+      "hash": "|null|null|unsignedInt|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "unsignedInt",
+        "definition": null,
+        "display": "unsignedInt"
       }
     }
   ]

@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/claim-type-link",
   "outcomes": [
     {
-      "hash": "|null|null|professional|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "professional",
-        "definition": null,
-        "display": "Professional"
-      }
-    },
-    {
       "hash": "|null|null|institutional|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "institutional",
         "definition": null,
         "display": "Institutional"
+      }
+    },
+    {
+      "hash": "|null|null|professional|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "professional",
+        "definition": null,
+        "display": "Professional"
       }
     },
     {
@@ -32,16 +32,6 @@
       }
     },
     {
-      "hash": "|null|null|pharmacy|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "pharmacy",
-        "definition": null,
-        "display": "Pharmacy"
-      }
-    },
-    {
       "hash": "|null|null|vision|null",
       "severity": null,
       "message": null,
@@ -49,6 +39,16 @@
         "abstract": "vision",
         "definition": null,
         "display": "Vision"
+      }
+    },
+    {
+      "hash": "|null|null|pharmacy|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "pharmacy",
+        "definition": null,
+        "display": "Pharmacy"
       }
     }
   ]

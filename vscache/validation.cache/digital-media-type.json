@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/digital-media-type",
   "outcomes": [
     {
-      "hash": "|null|null|photo|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "photo",
-        "definition": null,
-        "display": "Photo"
-      }
-    },
-    {
       "hash": "|null|null|video|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "video",
         "definition": null,
         "display": "Video"
+      }
+    },
+    {
+      "hash": "|null|null|photo|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "photo",
+        "definition": null,
+        "display": "Photo"
       }
     }
   ]

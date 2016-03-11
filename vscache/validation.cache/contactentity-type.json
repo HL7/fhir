@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/contactentity-type",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/contactentity-type|null|PRESS|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "PRESS",
-        "definition": null,
-        "display": "Press"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/contactentity-type|null|ADMIN|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "ADMIN",
         "definition": null,
         "display": "Administrative"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/contactentity-type|null|PRESS|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "PRESS",
+        "definition": null,
+        "display": "Press"
       }
     },
     {

@@ -197,7 +197,7 @@
   Inv. = inv-2
   Type = code
   Binding = TaskStatus
-  Short Label = cancelled | completed | created | failed |\nin-progress | ready
+  Short Label = cancelled | completed | created | failed | in-progress | ready
   Definition = The current status of the task.
 
  -- Row 8 -----------------------------------
@@ -417,6 +417,7 @@
   Use = Instance
   Documentation = Reserve this task for the specified entity.  Makes the specified entity the task owner, and transitions the task to the Ready state.  This operation may be used by an entity to claim a task for itself, or to delegate or forward the task to another entity.
   Type = operation
+  Title = Reserve Task
 
  -- Row 2 -----------------------------------
   Name = reserve.owner
@@ -431,6 +432,7 @@
   Use = Instance
   Documentation = Start this task by the specified entity (or if none specified, by the present task owner).  If an owner is specified, that owner is assigned as the task owner.  The task is transitioned to the In Progress state.
   Type = operation
+  Title = Start Task
 
  -- Row 4 -----------------------------------
   Name = start.owner
@@ -445,12 +447,14 @@
   Use = Instance
   Documentation = Finish this task.  The task is transitioned to the completed state.
   Type = operation
+  Title = Finish Task
 
  -- Row 6 -----------------------------------
   Name = fail
   Use = Instance
   Documentation = Fail this task.  The task is transitioned to the failed state.
   Type = operation
+  Title = Fail Task
 
  -- Row 7 -----------------------------------
   Name = fail.reason
@@ -465,36 +469,42 @@
   Use = Instance
   Documentation = Release a previously reserved task.  The task owner is cleared and the task is transitioned to the Ready state.
   Type = operation
+  Title = Release Task
 
  -- Row 9 -----------------------------------
   Name = suspend
   Use = Instance
   Documentation = Place a hold on any activity for this task until it is subsequently resumed.  The task remains in  its current state but is marked as being suspended, indicating that no additional activity should b performed.  If the task has subtasks, these are also suspended.
   Type = operation
+  Title = Suspend Task
 
  -- Row 10 -----------------------------------
   Name = resume
   Use = Instance
   Documentation = Indicate that activity on this task can now be resumed.  Removes the mark that the task is suspended, and propgates the resume to any child tasks.
   Type = operation
+  Title = Resume Task
 
  -- Row 11 -----------------------------------
   Name = cancel
   Use = Instance
   Documentation = Cancel the task.  Set the status of the task to cancelled.
   Type = operation
+  Title = Cancel Task
 
  -- Row 12 -----------------------------------
   Name = stop
   Use = Instance
   Documentation = Stop processing the task.  The task is returned to the ready state.
   Type = operation
+  Title = Stop Task
 
  -- Row 13 -----------------------------------
   Name = set-input
   Use = Instance
   Documentation = Set one of the inputs for a task.
   Type = operation
+  Title = Set Task Input
 
  -- Row 14 -----------------------------------
   Name = set-input.input
@@ -522,6 +532,7 @@
   Use = Instance
   Documentation = Set one of the outputs of a task.
   Type = operation
+  Title = Set Task Output
 
  -- Row 18 -----------------------------------
   Name = set-output.output

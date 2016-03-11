@@ -10,6 +10,56 @@
         "definition": null,
         "display": "Equivalent"
       }
+    },
+    {
+      "hash": "|null|null|disjoint|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "disjoint",
+        "definition": null,
+        "display": "Disjoint"
+      }
+    },
+    {
+      "hash": "|null|null|unmatched|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "unmatched",
+        "definition": null,
+        "display": "Unmatched"
+      }
+    },
+    {
+      "hash": "|null|null|narrower|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "narrower",
+        "definition": null,
+        "display": "Narrower"
+      }
+    },
+    {
+      "hash": "|null|null|equal|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "equal",
+        "definition": null,
+        "display": "Equal"
+      }
+    },
+    {
+      "hash": "|null|null|wider|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "wider",
+        "definition": null,
+        "display": "Wider"
+      }
     }
   ]
 }

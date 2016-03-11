@@ -2,6 +2,46 @@
   "url": "http://hl7.org/fhir/ValueSet/practitioner-role",
   "outcomes": [
     {
+      "hash": "#|null|null|Primary Surgon|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|224565004|Renal nurse",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|225304007|Implementation of planned interventions",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|36682004|Physical therapist",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|33526004|Electronic laboratory reporting",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.000|Arts",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0286|null|RP|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|null|null|Attending|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://hl7.org/fhir/practitioner-role|null|doctor|Doctor",
       "severity": null,
       "message": null,

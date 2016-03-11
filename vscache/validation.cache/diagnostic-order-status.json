@@ -12,6 +12,16 @@
       }
     },
     {
+      "hash": "|null|null|received|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "received",
+        "definition": null,
+        "display": "Received"
+      }
+    },
+    {
       "hash": "|null|null|requested|null",
       "severity": null,
       "message": null,

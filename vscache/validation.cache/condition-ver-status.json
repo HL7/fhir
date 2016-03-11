@@ -20,6 +20,16 @@
         "definition": null,
         "display": "Provisional"
       }
+    },
+    {
+      "hash": "|null|null|differential|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "differential",
+        "definition": null,
+        "display": "Differential"
+      }
     }
   ]
 }

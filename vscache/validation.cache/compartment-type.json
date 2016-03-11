@@ -2,6 +2,16 @@
   "url": "http://hl7.org/fhir/ValueSet/compartment-type",
   "outcomes": [
     {
+      "hash": "|null|null|Patient|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Patient",
+        "definition": null,
+        "display": "Patient"
+      }
+    },
+    {
       "hash": "|null|null|RelatedPerson|null",
       "severity": null,
       "message": null,
@@ -9,6 +19,16 @@
         "abstract": "RelatedPerson",
         "definition": null,
         "display": "RelatedPerson"
+      }
+    },
+    {
+      "hash": "|null|null|Encounter|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Encounter",
+        "definition": null,
+        "display": "Encounter"
       }
     },
     {
@@ -22,16 +42,6 @@
       }
     },
     {
-      "hash": "|null|null|Patient|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Patient",
-        "definition": null,
-        "display": "Patient"
-      }
-    },
-    {
       "hash": "|null|null|Device|null",
       "severity": null,
       "message": null,
@@ -39,16 +49,6 @@
         "abstract": "Device",
         "definition": null,
         "display": "Device"
-      }
-    },
-    {
-      "hash": "|null|null|Encounter|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Encounter",
-        "definition": null,
-        "display": "Encounter"
       }
     }
   ]

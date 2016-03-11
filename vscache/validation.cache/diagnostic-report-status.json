@@ -2,6 +2,16 @@
   "url": "http://hl7.org/fhir/ValueSet/diagnostic-report-status",
   "outcomes": [
     {
+      "hash": "|null|null|partial|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "partial",
+        "definition": null,
+        "display": "Partial"
+      }
+    },
+    {
       "hash": "|null|null|final|null",
       "severity": null,
       "message": null,

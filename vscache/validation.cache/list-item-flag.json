@@ -2,12 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/list-item-flag",
   "outcomes": [
     {
-      "hash": "#|http://nehta.gov.au/codes/medications/changetype|null|01|Prescribed",
+      "hash": "#|http://nehta.gov.au/codes/medications/changetype|null|02|Cancelled",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://nehta.gov.au/codes/medications/changetype|null|02|Cancelled",
+      "hash": "#|http://nehta.gov.au/codes/medications/changetype|null|01|Prescribed",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

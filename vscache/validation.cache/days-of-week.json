@@ -12,36 +12,6 @@
       }
     },
     {
-      "hash": "|null|null|thu|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "thu",
-        "definition": null,
-        "display": "Thursday"
-      }
-    },
-    {
-      "hash": "|null|null|fri|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "fri",
-        "definition": null,
-        "display": "Friday"
-      }
-    },
-    {
-      "hash": "|null|null|mon|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "mon",
-        "definition": null,
-        "display": "Monday"
-      }
-    },
-    {
       "hash": "|null|null|sat|null",
       "severity": null,
       "message": null,
@@ -59,6 +29,36 @@
         "abstract": "tue",
         "definition": null,
         "display": "Tuesday"
+      }
+    },
+    {
+      "hash": "|null|null|thu|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "thu",
+        "definition": null,
+        "display": "Thursday"
+      }
+    },
+    {
+      "hash": "|null|null|mon|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "mon",
+        "definition": null,
+        "display": "Monday"
+      }
+    },
+    {
+      "hash": "|null|null|fri|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "fri",
+        "definition": null,
+        "display": "Friday"
       }
     }
   ]

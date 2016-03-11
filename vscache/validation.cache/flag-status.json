@@ -10,6 +10,16 @@
         "definition": null,
         "display": "Inactive"
       }
+    },
+    {
+      "hash": "|null|null|active|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "active",
+        "definition": null,
+        "display": "Active"
+      }
     }
   ]
 }

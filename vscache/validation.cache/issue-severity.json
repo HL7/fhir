@@ -12,16 +12,6 @@
       }
     },
     {
-      "hash": "|null|null|error|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "error",
-        "definition": null,
-        "display": "Error"
-      }
-    },
-    {
       "hash": "|null|null|fatal|null",
       "severity": null,
       "message": null,
@@ -29,6 +19,16 @@
         "abstract": "fatal",
         "definition": null,
         "display": "Fatal"
+      }
+    },
+    {
+      "hash": "|null|null|error|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "error",
+        "definition": null,
+        "display": "Error"
       }
     }
   ]

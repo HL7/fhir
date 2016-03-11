@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/content-type",
   "outcomes": [
     {
-      "hash": "|null|null|xml|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "xml",
-        "definition": null,
-        "display": "xml"
-      }
-    },
-    {
       "hash": "|null|null|json|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "json",
         "definition": null,
         "display": "json"
+      }
+    },
+    {
+      "hash": "|null|null|xml|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "xml",
+        "definition": null,
+        "display": "xml"
       }
     }
   ]

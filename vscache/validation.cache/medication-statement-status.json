@@ -2,6 +2,16 @@
   "url": "http://hl7.org/fhir/ValueSet/medication-statement-status",
   "outcomes": [
     {
+      "hash": "|null|null|entered-in-error|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "entered-in-error",
+        "definition": null,
+        "display": "Entered in Error"
+      }
+    },
+    {
       "hash": "|null|null|completed|null",
       "severity": null,
       "message": null,
@@ -9,6 +19,16 @@
         "abstract": "completed",
         "definition": null,
         "display": "Completed"
+      }
+    },
+    {
+      "hash": "|null|null|active|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "active",
+        "definition": null,
+        "display": "Active"
       }
     }
   ]

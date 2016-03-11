@@ -70,6 +70,16 @@
         "definition": null,
         "display": "Number"
       }
+    },
+    {
+      "hash": "|null|null|uri|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "uri",
+        "definition": null,
+        "display": "URI"
+      }
     }
   ]
 }

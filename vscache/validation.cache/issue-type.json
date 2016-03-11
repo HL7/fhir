@@ -2,33 +2,13 @@
   "url": "http://hl7.org/fhir/ValueSet/issue-type",
   "outcomes": [
     {
-      "hash": "|null|null|exception|null",
+      "hash": "|null|null|structure|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "exception",
+        "abstract": "structure",
         "definition": null,
-        "display": "Exception"
-      }
-    },
-    {
-      "hash": "|null|null|suppressed|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "suppressed",
-        "definition": null,
-        "display": "Information  Suppressed"
-      }
-    },
-    {
-      "hash": "|null|null|informational|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "informational",
-        "definition": null,
-        "display": "Informational Note"
+        "display": "Structural Issue"
       }
     },
     {
@@ -42,13 +22,33 @@
       }
     },
     {
-      "hash": "|null|null|structure|null",
+      "hash": "|null|null|exception|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "structure",
+        "abstract": "exception",
         "definition": null,
-        "display": "Structural Issue"
+        "display": "Exception"
+      }
+    },
+    {
+      "hash": "|null|null|informational|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "informational",
+        "definition": null,
+        "display": "Informational Note"
+      }
+    },
+    {
+      "hash": "|null|null|suppressed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "suppressed",
+        "definition": null,
+        "display": "Information  Suppressed"
       }
     }
   ]

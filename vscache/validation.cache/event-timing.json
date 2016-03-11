@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/event-timing",
   "outcomes": [
     {
-      "hash": "|null|null|C|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "C",
-        "definition": null,
-        "display": "C"
-      }
-    },
-    {
       "hash": "|null|null|HS|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "HS",
         "definition": null,
         "display": "HS"
+      }
+    },
+    {
+      "hash": "|null|null|C|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "C",
+        "definition": null,
+        "display": "C"
       }
     }
   ]

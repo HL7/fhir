@@ -2,6 +2,26 @@
   "url": "http://hl7.org/fhir/ValueSet/item-type",
   "outcomes": [
     {
+      "hash": "|null|null|boolean|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "boolean",
+        "definition": null,
+        "display": "Boolean"
+      }
+    },
+    {
+      "hash": "|null|null|dateTime|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "dateTime",
+        "definition": null,
+        "display": "Date Time"
+      }
+    },
+    {
       "hash": "|null|null|decimal|null",
       "severity": null,
       "message": null,

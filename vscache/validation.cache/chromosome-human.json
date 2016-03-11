@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/chromosome-human",
   "outcomes": [
     {
-      "hash": "#|null|null|7|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "7",
-        "definition": null,
-        "display": "chromsome 7"
-      }
-    },
-    {
       "hash": "#|null|null|17|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "17",
         "definition": null,
         "display": "chromsome 17"
+      }
+    },
+    {
+      "hash": "#|null|null|7|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "7",
+        "definition": null,
+        "display": "chromsome 7"
       }
     }
   ]

@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/episode-of-care-status",
   "outcomes": [
     {
-      "hash": "|null|null|planned|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "planned",
-        "definition": null,
-        "display": "Planned"
-      }
-    },
-    {
       "hash": "|null|null|onhold|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "onhold",
         "definition": null,
         "display": "On Hold"
+      }
+    },
+    {
+      "hash": "|null|null|planned|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "planned",
+        "definition": null,
+        "display": "Planned"
       }
     },
     {

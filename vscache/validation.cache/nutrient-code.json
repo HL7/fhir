@@ -22,16 +22,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|30820000|Phosphorus",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "Phosphorus"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|33463005|Fluid",
       "severity": null,
       "message": null,
@@ -42,6 +32,21 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|30820000|Phosphorus",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "Phosphorus"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|256674009|Fat",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Nutrient Modifier Codes"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|39972003|Sodium",
       "severity": null,
       "message": null,
@@ -50,11 +55,6 @@
         "definition": null,
         "display": "Na - Sodium"
       }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|256674009|Fat",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Nutrient Modifier Codes"
     }
   ]
 }

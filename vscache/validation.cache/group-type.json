@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/group-type",
   "outcomes": [
     {
-      "hash": "|null|null|person|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "person",
-        "definition": null,
-        "display": "Person"
-      }
-    },
-    {
       "hash": "|null|null|animal|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "animal",
         "definition": null,
         "display": "Animal"
+      }
+    },
+    {
+      "hash": "|null|null|person|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "person",
+        "definition": null,
+        "display": "Person"
       }
     }
   ]

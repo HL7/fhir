@@ -10,6 +10,16 @@
         "definition": null,
         "display": "Operation"
       }
+    },
+    {
+      "hash": "|null|null|query|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "query",
+        "definition": null,
+        "display": "Query"
+      }
     }
   ]
 }

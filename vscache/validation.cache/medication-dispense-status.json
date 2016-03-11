@@ -2,6 +2,16 @@
   "url": "http://hl7.org/fhir/ValueSet/medication-dispense-status",
   "outcomes": [
     {
+      "hash": "|null|null|in-progress|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "in-progress",
+        "definition": null,
+        "display": "In Progress"
+      }
+    },
+    {
       "hash": "|null|null|completed|null",
       "severity": null,
       "message": null,

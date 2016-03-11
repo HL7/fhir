@@ -2,6 +2,16 @@
   "url": "http://hl7.org/fhir/ValueSet/v3-ActSubstanceAdminSubstitutionCode",
   "outcomes": [
     {
+      "hash": "#|http://hl7.org/fhir|null|G|Generic Composition",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "G",
+        "definition": null,
+        "display": "generic composition"
+      }
+    },
+    {
       "hash": "#|http://example.org/MedDispSubType|null|NoSub|No substitution made or expected",
       "severity": "error",
       "message": "None of the codes are in the specified value set"

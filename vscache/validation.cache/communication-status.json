@@ -10,6 +10,16 @@
         "definition": null,
         "display": "Suspended"
       }
+    },
+    {
+      "hash": "|null|null|completed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "completed",
+        "definition": null,
+        "display": "Completed"
+      }
     }
   ]
 }

@@ -2,6 +2,26 @@
   "url": "http://hl7.org/fhir/ValueSet/encounter-class",
   "outcomes": [
     {
+      "hash": "|null|null|virtual|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "virtual",
+        "definition": null,
+        "display": "Virtual"
+      }
+    },
+    {
+      "hash": "|null|null|outpatient|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "outpatient",
+        "definition": null,
+        "display": "Outpatient"
+      }
+    },
+    {
       "hash": "|null|null|inpatient|null",
       "severity": null,
       "message": null,

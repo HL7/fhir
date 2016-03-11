@@ -12,6 +12,26 @@
       }
     },
     {
+      "hash": "|null|null|temp|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "temp",
+        "definition": null,
+        "display": "Temp"
+      }
+    },
+    {
+      "hash": "|null|null|mobile|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "mobile",
+        "definition": null,
+        "display": "Mobile"
+      }
+    },
+    {
       "hash": "|null|null|home|null",
       "severity": null,
       "message": null,
