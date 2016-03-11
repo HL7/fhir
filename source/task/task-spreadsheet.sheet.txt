@@ -122,16 +122,6 @@
   Display = Ready
   Definition = Task is ready to be performed, but no action has yet been taken.
 
- -- Row 7 -----------------------------------
-  Code = on-hold
-  Display = On Hold
-  Definition = Task was started but has temporarily ceased with an expectation of resumption at a future time.
-
- -- Row 8 -----------------------------------
-  Code = reserved
-  Display = Reserved
-  Definition = The task has been claimed by an owner
-
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
@@ -187,7 +177,7 @@
   Card. = 0..*
   Type = Coding
   Binding = TaskPerformerType
-  Short Label = requester |\ndispatcher |\nscheduler |\nperformer |\nmonitor |\nmanager |\nacquirer |\nreviewer
+  Short Label = requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer
   Definition = The type of participant that can execute the task.
   Requirements = Use to distinguish tasks on different activity queues.
 
@@ -207,7 +197,7 @@
   Inv. = inv-2
   Type = code
   Binding = TaskStatus
-  Short Label = cancelled | completed | created | \nfailed |\nin-progress | ready |\non-hold
+  Short Label = cancelled | completed | created | failed |\nin-progress | ready
   Definition = The current status of the task.
 
  -- Row 8 -----------------------------------
@@ -425,7 +415,7 @@
  -- Row 1 -----------------------------------
   Name = reserve
   Use = Instance
-  Documentation = Reserve this task for the specified entity.  Makes the specified entity the task owner, and transitions the task to the Reserved state.  This operation may be used by an entity to claim a task for itself, or to delegate or forward the task to another entity.
+  Documentation = Reserve this task for the specified entity.  Makes the specified entity the task owner, and transitions the task to the Ready state.  This operation may be used by an entity to claim a task for itself, or to delegate or forward the task to another entity.
   Type = operation
 
  -- Row 2 -----------------------------------
@@ -479,13 +469,13 @@
  -- Row 9 -----------------------------------
   Name = suspend
   Use = Instance
-  Documentation = Transition an In Progress task to the Reserved state.  Propogates the suspension to all child tasks.
+  Documentation = Place a hold on any activity for this task until it is subsequently resumed.  The task remains in  its current state but is marked as being suspended, indicating that no additional activity should b performed.  If the task has subtasks, these are also suspended.
   Type = operation
 
  -- Row 10 -----------------------------------
   Name = resume
   Use = Instance
-  Documentation = Transition a suspended task back to its orginal state.
+  Documentation = Indicate that activity on this task can now be resumed.  Removes the mark that the task is suspended, and propgates the resume to any child tasks.
   Type = operation
 
  -- Row 11 -----------------------------------

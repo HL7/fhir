@@ -9,7 +9,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Keith W. Boone</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-03-11T03:53:01Z</LastSaved>
+  <LastSaved>2016-03-11T06:58:39Z</LastSaved>
   <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -628,15 +628,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s131">
-   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
-    <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
-   <Interior/>
-  </Style>
   <Style ss:ID="s132">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
@@ -1086,7 +1077,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="60">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Task.performerType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1104,7 +1095,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">requester |&#10;dispatcher |&#10;scheduler |&#10;performer |&#10;monitor |&#10;manager |&#10;acquirer |&#10;reviewer</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">requester | dispatcher | scheduler | performer | monitor | manager | acquirer | reviewer</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The type of participant that can execute the task.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1119,7 +1110,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="120">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Task.priority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1152,7 +1143,7 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="45">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Task.status</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1172,7 +1163,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">cancelled | completed | created | &#10;failed |&#10;in-progress | ready |&#10;on-hold</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">cancelled | completed | created | failed |&#10;in-progress | ready</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The current status of the task.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3713,7 +3704,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>6</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3721,15 +3712,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4550,7 +4540,7 @@
  </Worksheet>
  <Worksheet ss:Name="Operations">
   <Names>
-   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
+   <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R1C9"
     ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="52" x:FullColumns="1"
@@ -4601,19 +4591,15 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s115"><Data ss:Type="String">reserve</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Instance</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">operation</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s130"><Data ss:Type="String">Reserve this task for the specified entity.  Makes the specified entity the task owner, and transitions the task to the Reserved state.  This operation may be used by an entity to claim a task for itself, or to delegate or forward the task to another entity.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">reserve</Data></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Instance</Data></Cell>
+    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s129"/>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">operation</Data></Cell>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s128"/>
+    <Cell ss:StyleID="s130"><Data ss:Type="String">Reserve this task for the specified entity.  Makes the specified entity the task owner, and transitions the task to the Ready state.  This operation may be used by an entity to claim a task for itself, or to delegate or forward the task to another entity.</Data></Cell>
+    <Cell ss:StyleID="s134"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
     <Cell ss:StyleID="s118"><Data ss:Type="String">reserve.owner</Data></Cell>
@@ -4692,7 +4678,7 @@
     <Cell ss:StyleID="s133"><Data ss:Type="String">Release a previously reserved task.  The task owner is cleared and the task is transitioned to the Ready state.</Data></Cell>
     <Cell ss:StyleID="s134"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
+   <Row ss:Height="90">
     <Cell ss:StyleID="s118"><Data ss:Type="String">suspend</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Instance</Data></Cell>
     <Cell ss:StyleID="s132"/>
@@ -4700,10 +4686,10 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Transition an In Progress task to the Reserved state.  Propogates the suspension to all child tasks.</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">Place a hold on any activity for this task until it is subsequently resumed.  The task remains in  its current state but is marked as being suspended, indicating that no additional activity should b performed.  If the task has subtasks, these are also suspended.</Data></Cell>
     <Cell ss:StyleID="s134"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
+   <Row ss:Height="60">
     <Cell ss:StyleID="s118"><Data ss:Type="String">resume</Data></Cell>
     <Cell ss:StyleID="s116"><Data ss:Type="String">Instance</Data></Cell>
     <Cell ss:StyleID="s132"/>
@@ -4711,7 +4697,7 @@
     <Cell ss:StyleID="s116"><Data ss:Type="String">operation</Data></Cell>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s116"/>
-    <Cell ss:StyleID="s133"><Data ss:Type="String">Transition a suspended task back to its orginal state.</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="String">Indicate that activity on this task can now be resumed.  Removes the mark that the task is suspended, and propgates the resume to any child tasks.</Data></Cell>
     <Cell ss:StyleID="s134"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -5166,7 +5152,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>3</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5179,17 +5165,16 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>17</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R2C9" xmlns="urn:schemas-microsoft-com:office:excel">
+  <AutoFilter x:Range="R1C1:R1C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
  <Worksheet ss:Name="Events">
@@ -6881,21 +6866,21 @@
     <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s149"><Data ss:Type="String">on-hold</Data></Cell>
+    <Cell ss:StyleID="s149"/>
     <Cell ss:Index="4" ss:StyleID="s152"/>
-    <Cell ss:StyleID="s149"><Data ss:Type="String">On Hold</Data></Cell>
-    <Cell ss:StyleID="s113"><Data ss:Type="String">Task was started but has temporarily ceased with an expectation of resumption at a future time.</Data></Cell>
+    <Cell ss:StyleID="s149"/>
+    <Cell ss:StyleID="s113"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s142"><Data ss:Type="String">reserved</Data></Cell>
+    <Cell ss:StyleID="s142"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s116"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Reserved</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The task has been claimed by an owner</Data></Cell>
+    <Cell ss:StyleID="s152"/>
+    <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s132"/>
     <Cell ss:StyleID="s143"/>
@@ -7394,7 +7379,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

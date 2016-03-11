@@ -1,30 +1,91 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
-
-<div>
-<a name="bnc"> </a>
-<h2>Scope and Usage</h2>
-<p>
-Todo
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
-</p>
-</div>
-
-<!-- (recommended): 
-<div>
-<h2>Boundaries and Relationships</h2>
-<p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
-</p>
-</div>
--->
-
-<!-- (optional):
-<div>
-<h2>Background and Context</h2>
-<p>
-Provides additional detail on exactly how the resource is to be used
-</p>
-</div>
--->
-
+  <div>
+    <a name="scope"> </a>
+    <h2>Scope and Usage</h2>
+    <p> An task resource describes an activity that can be performed, and tracks the state of
+      completion of that activity. It is a representation that an activity should be or has been
+      initiated, and eventually, represents the successful or unsuccessful completion of that
+      activity. </p>
+    <p> Note that there are a variety of processes associated with making and processing orders.
+      Some orders may be handled immediately by automated systems but most require real world
+      actions by one or more humans. Some orders can only be processed when other real world actions
+      happen, such as a patient actually presenting themselves so that the action to be performed
+      can actually be performed. Often these real world dependencies are only implicit in the order
+      details. </p>
+  </div>
+  <div>
+    <a name="bnc"> </a>
+    <h2>Background and Context</h2>
+    <h3>Using Tasks in a RESTful context</h3>
+    <p>In a RESTful context, a server functions as a repository of tasks. The server itself, or
+      other agents are expected to monitor task activity, and initiate appropriate actions to ensure
+      task completion, updating the status of the task as it proceeds through its various stages of
+      completion. These agents can be coordinated, following well choreographed business logic to
+      ensure that tasks are completed. Task management may also be centrally controlled using some
+      form of workflow engine, in which case, the workflow engine itself may update and maintain the
+      task resources in the server, and through its orchestration activities, ensure that tasks are
+      completed. The task resource enables either model of task management, yet provides a
+      consistent view of the status of tasks being executed in support of healthcare workflows. </p>
+    <p>The assignment of tasks into categories by type of task and type of performer, and task status 
+      enable the server to function as a queue of work items.  This queue can be polled or subscribed 
+      to by various agents, enabling automation of workflows in FHIR using existing search and subscription 
+      mechanisms.  Owners, creators, other agents (e.g. workflow managers) can thus be ready to 
+      initiate the next steps in a complex workflow.</p>
+    <h3>Tasks State Machine</h3>
+    <p>Tasks start in a Created state. Once they have been assigned to an owner they transition to
+      the Ready state, indicating that they are ready to be performed. Once the owner initiates
+      activity on the task, the task transitions to the In Progress state, indicating that work is
+      being performed. Upon normal completion, the task enters the Completed state. If there is a
+      failure during the task execution that prevents the task from being completed, it can also
+      enter a Failed state, indicating an abnormal termination of the task. A task in any
+      non-terminal state may also be Cancelled, representing an abnormal termination of the task due
+      to external forces, rather than an error condition.</p>
+    <p>Tasks in any non-terminal state (Created, Reading, In Progress) can be suspended and resumed.
+      When a task is suspended, it is typically resumed in the state it was in when it was
+      originally suspended. Suspending a task suspends all of its children as well. Resuming a task
+      resumes all of its children.</p>
+    <p>An In-progress task can also be stopped, returning it to a ready state. This may be in
+      preparation for delegation or reassignment (e.g., because it cannot be completed by the
+      current owner), to restart a task due to a temporary failure (e.g., to reattempt completion of
+      the activity), or in preparation to allow others to claim the task.</p>
+    <h3>Using Tasks with operations</h3>
+    <p>The Task resource defines several operations to enable rich control over the task execution
+      environment. A server managing task resources may allow unfettered read access to all tasks
+      that it maintains, but restrict write access to the task resources to itself in order to exert
+      control over the task state machine. Instead, it might offer operations on tasks that enable
+      strictly controlled write operations following commonly accepted business rules for task
+      management. For example, only tasks that are in the "In Process" state might be allowed to be
+      "Completed" or "Failed". Use or support of these operations is not essential in simple
+      workflow environments where task activity needs little management. </p>
+    <p>There is no distinct operation for creating a new task because the FHIR RESTful API already
+      distinguishes between the create and update operations.</p>
+    <p>The task history allows applications monitoring the state of a workflow to identify tasks
+      that are long running, perhaps stuck in some queue, to enable management activities that could
+      ensure completion. It also enables tracking of task statistics such as wait time, or time in
+      progress, or time to completion, enabling capture of important task metrics in support of
+      optimization and quality improvement. </p>
+  </div>
+  <div>
+    <a name="bnr"> </a>
+    <h2>Boundaries and Relationships</h2>
+    <p>The task resource tracks the state of a task, enabling systems to ensure that tasks are
+      completed. This information is kept separate from the operational details necessary to
+      complete the task, as those details vary across and even within workflows. That detail is 
+      expected to be carried as the subject of the task.
+    </p>
+    <p>Tasks may have named inputs and outputs. Inputs represent information that may 
+      or must be present in order for a task to complete. Outputs represent intermediate or 
+      final results produced by a task. For example, in a task supporting reading of radiology 
+      image, the inputs might include both the imaging study to be read, as well as relevant 
+      prior images. Outputs could represent radiology measurements as well as the 
+      Radiologist's diagnostic report. </p>
+    <p>Inputs and outputs are tracked by the task because workflow management activity
+      may automate the transer of outputs from one task to inputs to a subsequent task.
+    </p>
+    <p>To facilitate the integration of off the shelf workflow applications with FHIR, the task
+    resource may reference a definition.  This definition can represent a description of the workflow 
+    actitivity to be performed, using a standard workflow description language such as BPEL, BPMN, 
+    or XPDL, a workflow definition such as those defined in IHE profiles, or even simple written
+    instructions explaining a process to be performed.</p>
+  </div>
 </div>
