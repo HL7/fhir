@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-claimsubtype"/>
+  <name value="Claim Item Type Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes Claim Item Type codes."/>
+  <copyright value="HL7 International"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="group"/>
+    <display value="Group"/>
+    <definition value="A group of products and/or Services, amount ar the summary or detail level products and services."/>
+  </concept>
+  <concept>
+    <code value="product"/>
+    <display value="Product"/>
+    <definition value="A billed product line item."/>
+  </concept>
+  <concept>
+    <code value="service"/>
+    <display value="Service"/>
+    <definition value="A billed service line item."/>
+  </concept>
+</CodeSystem>

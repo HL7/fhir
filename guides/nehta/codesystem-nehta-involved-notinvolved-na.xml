@@ -7,7 +7,7 @@
   <name value="InvolvedNotinvolvedNA"/>
   <status value="active"/>
   <experimental value="true"/>
-  <date value="2015-06-11T16:01:03+10:00"/>
+  <date value="2015-06-11T09:01:03+03:00"/>
   <description value="Indicates whether a specimen was involved, not involved or not applicable."/>
   <copyright value="This value set includes content from SNOMED CT, which is copyright Â© 2002+ International       Health Terminology Standards Development Organisation (IHTSDO), and distributed by    agreement    between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this    agreement"/>
   <caseSensitive value="true"/>

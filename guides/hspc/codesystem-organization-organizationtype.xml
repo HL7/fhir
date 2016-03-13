@@ -6,7 +6,7 @@
   <name value="HSPC Organization Type"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <date value="2015-05-19T00:00:00+10:00"/>
+  <date value="2015-05-19T00:00:00+03:00"/>
   <description value="The set of codes that describe a kind of organization."/>
   <copyright value="Intermountain Healthcare"/>
   <caseSensitive value="true"/>
