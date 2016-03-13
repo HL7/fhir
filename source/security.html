@@ -132,20 +132,11 @@ To support browser-based client applications, servers SHOULD
 implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the <a href="http.html">REST operations</a>.  
 </p>
 <p>
-The choice of whether to return 403 or 404 depends upon the specific situation and specific 
-local policies, regulations, and laws. The decision of which error to use will include consideration 
-of whether disclosure of the existence of relevant records is considered an acceptable 
-disclosure of PI or  a prohibited disclosure of PI. Note 
-that since a 404 does not leak information, it should be the default choice 
-unless there is a specific reason to return a 403.
-</p>
-<p>
 Chained search implementations need to observe the restrictions on a user in the chained 
 search, and that it would be normal to simply omit resources from the search if the user is not 
 authorized, but a server may elect to add an OperationOutcome to indicate that additional 
 resources may be available if other access tokens are used (e.g. break the glass) (<a href="operationoutcome-example-break-the-glass.html">example</a>). 
 </p>
-
 <a name="authentication"> </a>
 <h2>Authentication</h2>
 <p>
@@ -199,6 +190,30 @@ The rules behind the access control decision are often very complex, and potenti
 Access control constraints may result in data returned in a read or search being 
 redacted or otherwise restricted. See <a href="updates.html">Variations between 
 Submitted data and Retrieved data</a>.
+</p>
+
+<a name="AccessDenied"> </a>
+<h3>
+Access Denied Response Handling
+</h3>
+<p>
+A web-server, especially hosting FHIR, must choose the response carefully when an Access Denied condition exists. Returning too much information may expose details that should not be communicated. The Access Denied condition might be because of missing but required Authentication, the user is not authorized to access the endpoint, the user is not authorized to access specific data, or other policy reasons. 
+</p>
+<p>
+To balance usability of the returned result vs appropriate protection, the actual result method used needs to be controlled by policy and context. 
+Typical methods of handling Access Denied used are:
+</p>
+<p>
+<b>Return a Success with Bundle containing zero results</b> – This result is indistinguishable from the case where no data is known. When consistently returned on Access Denied, this will not expose which patients exist, or what data might be blinded. This method is also consistent with cases where some results are authorized while other results are blinded. This can only be used when the returning a Bundle is a valid result.
+</p>
+<p>
+<b>Return a 404 “Not Found”</b> – This also protects from data leakage as it is indistinguishable from a query against a resource that doesn’t exist. It does however leak that the user authentication is validated. 
+</p>
+<p>
+<b>Return a 403 “Forbidden”</b> – This communicates that the reason for the failure is an Authorization failure. It should only be used when the client and/or user is well enough known to be given this information. Thus this method is most used when the user is allowed to know that they are forbidden access. It doesn’t explain how the user might change things to become authorized. 
+</p>
+<p>
+<b>Return a 401 “Unauthorized”</b> – This communicates that user authentication was attempted and failed to be authenticated. 
 </p>
 
 <a name="audit"> </a>

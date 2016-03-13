@@ -630,9 +630,10 @@
   Card. = 1..*
   Aliases = ActiveParticipant
   UML = 0;150
-  Short Label = A person, a hardware device or software process
-  Requirements = The event has one or more active agents
-  Comments = There may be more than one user per event, for example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, or system process. However, only one user may be the initiator/requestor for the event
+  Short Label = Actor involved in the event
+  Definition = An actor taking an active role in the event or activity that is logged.
+  Requirements = An agent can be a person, an organization, software, device, or other actors that may be ascribed responsibility.
+  Comments = Several agents may be associated (i.e. have some responsibility for an activity) with an event or activity.\n\nFor example, an activity may be initiated by one user for other users or involve more than one user. However, only one user may be the initiator/requestor for the activity.
   RIM Mapping = .participation
   DICOM Mapping = ActiveParticipant
   Prov Mapping = Agent

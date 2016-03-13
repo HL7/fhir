@@ -181,13 +181,7 @@ to <a href="https://en.wikipedia.org/wiki/Role-based_access_control">RBAC</a> an
 and some operations may depend on appropriate consent being granted. 
 </p>
 <p>
-The choice of whether to return <code>403</code> Unauthorised or <code>404</code> Not found depends upon 
-the specific situation and specific local policies, regulations, and laws. The 
-decision of which error to use will include consideration of whether disclosure 
-of the existence of relevant records is considered an acceptable disclosure of 
-PHI (Personal Health Information) or a prohibited disclosure of PHI. Note 
-that since a <code>404</code> does not leak information, it should be the default choice 
-unless there is a specific reason to return a <code>403</code>.
+See the <a href="security.html#AccessDenied">HTTP Security</a> guidance on how to handle access denial response.
 </p>
 <p>
 Note: to support browser-based client applications, recommend that servers SHOULD implement <a href="http://enable-cors.org/">cross-origin resource sharing</a> for the interactions documented here.

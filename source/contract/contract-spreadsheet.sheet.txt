@@ -167,7 +167,9 @@
   UML = 530;-20
   Type = =Agent
   Short Label = Contract Agent
-  Definition = List of parties to the Contract
+  Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
+  Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
+  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\nFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 
  -- Row 13 -----------------------------------
   Element = Contract.agent.actor
@@ -190,11 +192,13 @@
   UML = 530;260
   Type = =Signatory
   Short Label = Contract Signer
-  Definition = Party signing this Contract.
+  Definition = Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
+  Requirements = The Contract.signer applies a signature to the Contract.binding referenced resource, which is the documentation that is the legal \"source of truth\". The Contract.signer may delegate, such as a legally recognized personal representative, or have a delegate assigned e.g., by a court of law, to actually sign the Contract, such as a trustee in the case of incompetence.
+  Comments = Signers who are principal parties to the contract are bound by the Contract.activity related to the Contract.topic, and the Contract.term(s), which either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions, action reason, or agents with respect to some or all of the topic.\nFor example, specifying how policies or obligations shall constrain actions and action reasons permitted or denied on all or a subset of the Contract.topic (e.g., all or a portion of property being transferred by the contract), agents (e.g., who can resell, assign interests, or alter the property being transferred by the contract), actions, and action reasons; or with respect to Contract.terms, stipulating, extending, or limiting the Contract.period of applicability or valuation of items under consideration.
 
  -- Row 16 -----------------------------------
   Element = Contract.signer.type
-  Card. = 0..1
+  Card. = 1..1
   Type = Coding
   Binding = ContractSignerType
   Short Label = Contract Signer Type
@@ -202,14 +206,14 @@
 
  -- Row 17 -----------------------------------
   Element = Contract.signer.party
-  Card. = 0..1
+  Card. = 1..1
   Type = Reference(Organization|Patient|Practitioner|RelatedPerson)
   Short Label = Contract Signatory Party
   Definition = Party which is a signator to this Contract.
 
  -- Row 18 -----------------------------------
   Element = Contract.signer.signature
-  Card. = 0..*
+  Card. = 1..*
   Type = Signature
   Short Label = Contract Documentation Signature
   Definition = Legally binding Contract DSIG signature contents in Base64.
@@ -372,7 +376,9 @@
   UML = -20;320
   Type = =TermAgent
   Short Label = Contract Term Agent List
-  Definition = Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.
+  Definition = An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
+  Requirements = An agent can be a person, an organization, software, device, or other entities that may be ascribed responsibility.
+  Comments = Several agents may be associated (i.e. has some responsibility for an activity) with an activity and vice-versa.\nFor example, in cases of actions initiated by one user for other users, or in events that involve more than one user, hardware device, software, or system process. However, only one user may be the initiator/requestor for the event.
 
  -- Row 39 -----------------------------------
   Element = Contract.term.agent.actor
