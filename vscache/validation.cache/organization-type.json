@@ -2,46 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/organization-type",
   "outcomes": [
     {
-      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.1060|null|V6|University Medical Hospital#|http://hl7.org/fhir/organization-type|null|prov|Healthcare Provider",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "prov",
-        "definition": null,
-        "display": "Healthcare Provider"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|405608006|Academic Medical Center#|urn:oid:2.16.840.1.113883.2.4.15.1060|null|V6|University Medical Hospital#|http://hl7.org/fhir/organization-type|null|prov|Healthcare Provider",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "prov",
-        "definition": null,
-        "display": "Healthcare Provider"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/organization-type|null|dept|Hospital Department",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "dept",
-        "definition": null,
-        "display": "Hospital Department"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|405608006|Academic Medical Center#|http://hl7.org/fhir/organization-type|null|prov|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "prov",
-        "definition": null,
-        "display": "Healthcare Provider"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/organization-type|null|team|Organizational team",
       "severity": null,
       "message": null,

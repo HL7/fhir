@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/medication-order-status",
   "outcomes": [
     {
-      "hash": "|null|null|on-hold|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "on-hold",
-        "definition": null,
-        "display": "On Hold"
-      }
-    },
-    {
       "hash": "|null|null|active|null",
       "severity": null,
       "message": null,
@@ -19,16 +9,6 @@
         "abstract": "active",
         "definition": null,
         "display": "Active"
-      }
-    },
-    {
-      "hash": "|null|null|completed|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "completed",
-        "definition": null,
-        "display": "Completed"
       }
     }
   ]

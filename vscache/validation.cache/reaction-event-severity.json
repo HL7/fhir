@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/reaction-event-severity",
   "outcomes": [
     {
-      "hash": "|null|null|severe|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "severe",
-        "definition": null,
-        "display": "Severe"
-      }
-    },
-    {
       "hash": "|null|null|moderate|null",
       "severity": null,
       "message": null,
@@ -19,6 +9,16 @@
         "abstract": "moderate",
         "definition": null,
         "display": "Moderate"
+      }
+    },
+    {
+      "hash": "|null|null|severe|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "severe",
+        "definition": null,
+        "display": "Severe"
       }
     }
   ]

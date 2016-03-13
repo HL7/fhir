@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/diagnostic-requests",
   "outcomes": [
     {
-      "hash": "#|http://loinc.org|null|5671-3|Lead [Mass/volume] in Blood#|urn:oid:2.16.840.1.113883.3.72.5.24|null|BLDLD|Blood Lead",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "Lead [Mass/volume] in Blood"
-      }
-    },
-    {
       "hash": "#|http://loinc.org|null|24590-2|Brain MRI",
       "severity": null,
       "message": null,
@@ -19,41 +9,6 @@
         "abstract": null,
         "definition": null,
         "display": "Brain MRI"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|49874-1|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "ABCB4 gene mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "Complete blood count (hemogram) panel - Blood by Automated count"
-      }
-    },
-    {
-      "hash": "#|http://acme.org/tests|null|LIPID|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set LOINC Diagnostic Order Codes"
-    },
-    {
-      "hash": "#|http://loinc.org|null|30799-1|Head CT WO contrast",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "Head CT WO contrast"
       }
     },
     {
@@ -67,23 +22,23 @@
       }
     },
     {
-      "hash": "#|http://loinc.org|null|24627-2|null",
+      "hash": "#|http://loinc.org|null|5671-3|Lead [Mass/volume] in Blood#|urn:oid:2.16.840.1.113883.3.72.5.24|null|BLDLD|Blood Lead",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": null,
         "definition": null,
-        "display": "Chest CT"
+        "display": "Lead [Mass/volume] in Blood"
       }
     },
     {
-      "hash": "#|http://loinc.org|null|3024-7|null",
+      "hash": "#|http://loinc.org|null|30799-1|Head CT WO contrast",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": null,
         "definition": null,
-        "display": "Thyroxine (T4) free [Mass/volume] in Serum or Plasma"
+        "display": "Head CT WO contrast"
       }
     }
   ]

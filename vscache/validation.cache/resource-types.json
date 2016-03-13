@@ -2,191 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/resource-types",
   "outcomes": [
     {
-      "hash": "|null|null|CodeSystem|null",
-      "severity": "error",
-      "message": "Unknown Code CodeSystem in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Schedule|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Schedule",
-        "definition": null,
-        "display": "Schedule"
-      }
-    },
-    {
-      "hash": "|null|null|NamingSystem|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "NamingSystem",
-        "definition": null,
-        "display": "NamingSystem"
-      }
-    },
-    {
-      "hash": "|null|null|Observation|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Observation",
-        "definition": null,
-        "display": "Observation"
-      }
-    },
-    {
-      "hash": "|null|null|CarePlan|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "CarePlan",
-        "definition": null,
-        "display": "CarePlan"
-      }
-    },
-    {
-      "hash": "|null|null|Specimen|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Specimen",
-        "definition": null,
-        "display": "Specimen"
-      }
-    },
-    {
-      "hash": "|null|null|ClinicalImpression|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ClinicalImpression",
-        "definition": null,
-        "display": "ClinicalImpression"
-      }
-    },
-    {
-      "hash": "|null|null|DeviceUseStatement|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "DeviceUseStatement",
-        "definition": null,
-        "display": "DeviceUseStatement"
-      }
-    },
-    {
-      "hash": "|null|null|NutritionOrder|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "NutritionOrder",
-        "definition": null,
-        "display": "NutritionOrder"
-      }
-    },
-    {
-      "hash": "|null|null|Composition|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Composition",
-        "definition": null,
-        "display": "Composition"
-      }
-    },
-    {
-      "hash": "|null|null|DecisionSupportRule|null",
-      "severity": "error",
-      "message": "Unknown Code DecisionSupportRule in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|PaymentNotice|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "PaymentNotice",
-        "definition": null,
-        "display": "PaymentNotice"
-      }
-    },
-    {
-      "hash": "|null|null|DeviceUseRequest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "DeviceUseRequest",
-        "definition": null,
-        "display": "DeviceUseRequest"
-      }
-    },
-    {
-      "hash": "|null|null|ImmunizationRecommendation|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ImmunizationRecommendation",
-        "definition": null,
-        "display": "ImmunizationRecommendation"
-      }
-    },
-    {
-      "hash": "|null|null|Library|null",
-      "severity": "error",
-      "message": "Unknown Code Library in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Substance|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Substance",
-        "definition": null,
-        "display": "Substance"
-      }
-    },
-    {
-      "hash": "|null|null|StructureMap|null",
-      "severity": "error",
-      "message": "Unknown Code StructureMap in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Provenance|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Provenance",
-        "definition": null,
-        "display": "Provenance"
-      }
-    },
-    {
-      "hash": "|null|null|CareTeam|null",
-      "severity": "error",
-      "message": "Unknown Code CareTeam in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Appointment|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Appointment",
-        "definition": null,
-        "display": "Appointment"
-      }
-    },
-    {
-      "hash": "|null|null|DiagnosticOrder|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "DiagnosticOrder",
-        "definition": null,
-        "display": "DiagnosticOrder"
-      }
-    },
-    {
       "hash": "|null|null|MedicationDispense|null",
       "severity": null,
       "message": null,
@@ -194,631 +9,6 @@
         "abstract": "MedicationDispense",
         "definition": null,
         "display": "MedicationDispense"
-      }
-    },
-    {
-      "hash": "|null|null|AllergyIntolerance|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "AllergyIntolerance",
-        "definition": null,
-        "display": "AllergyIntolerance"
-      }
-    },
-    {
-      "hash": "|null|null|BodySite|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "BodySite",
-        "definition": null,
-        "display": "BodySite"
-      }
-    },
-    {
-      "hash": "|null|null|QuestionnaireResponse|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "QuestionnaireResponse",
-        "definition": null,
-        "display": "QuestionnaireResponse"
-      }
-    },
-    {
-      "hash": "|null|null|DecisionSupportServiceModule|null",
-      "severity": "error",
-      "message": "Unknown Code DecisionSupportServiceModule in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|OrderResponse|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "OrderResponse",
-        "definition": null,
-        "display": "OrderResponse"
-      }
-    },
-    {
-      "hash": "|null|null|Organization|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Organization",
-        "definition": null,
-        "display": "Organization"
-      }
-    },
-    {
-      "hash": "|null|null|EligibilityResponse|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "EligibilityResponse",
-        "definition": null,
-        "display": "EligibilityResponse"
-      }
-    },
-    {
-      "hash": "|null|null|MedicationAdministration|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "MedicationAdministration",
-        "definition": null,
-        "display": "MedicationAdministration"
-      }
-    },
-    {
-      "hash": "|null|null|MeasureReport|null",
-      "severity": "error",
-      "message": "Unknown Code MeasureReport in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Person|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Person",
-        "definition": null,
-        "display": "Person"
-      }
-    },
-    {
-      "hash": "|null|null|ProcedureRequest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ProcedureRequest",
-        "definition": null,
-        "display": "ProcedureRequest"
-      }
-    },
-    {
-      "hash": "|null|null|Basic|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Basic",
-        "definition": null,
-        "display": "Basic"
-      }
-    },
-    {
-      "hash": "|null|null|DetectedIssue|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "DetectedIssue",
-        "definition": null,
-        "display": "DetectedIssue"
-      }
-    },
-    {
-      "hash": "|null|null|Sequence|null",
-      "severity": "error",
-      "message": "Unknown Code Sequence in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Device|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Device",
-        "definition": null,
-        "display": "Device"
-      }
-    },
-    {
-      "hash": "|null|null|Coverage|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Coverage",
-        "definition": null,
-        "display": "Coverage"
-      }
-    },
-    {
-      "hash": "|null|null|OperationOutcome|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "OperationOutcome",
-        "definition": null,
-        "display": "OperationOutcome"
-      }
-    },
-    {
-      "hash": "|null|null|AppointmentResponse|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "AppointmentResponse",
-        "definition": null,
-        "display": "AppointmentResponse"
-      }
-    },
-    {
-      "hash": "|null|null|EnrollmentRequest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "EnrollmentRequest",
-        "definition": null,
-        "display": "EnrollmentRequest"
-      }
-    },
-    {
-      "hash": "|null|null|MedicationOrder|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "MedicationOrder",
-        "definition": null,
-        "display": "MedicationOrder"
-      }
-    },
-    {
-      "hash": "|null|null|MedicationStatement|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "MedicationStatement",
-        "definition": null,
-        "display": "MedicationStatement"
-      }
-    },
-    {
-      "hash": "|null|null|MessageHeader|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "MessageHeader",
-        "definition": null,
-        "display": "MessageHeader"
-      }
-    },
-    {
-      "hash": "|null|null|Order|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Order",
-        "definition": null,
-        "display": "Order"
-      }
-    },
-    {
-      "hash": "|null|null|Location|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Location",
-        "definition": null,
-        "display": "Location"
-      }
-    },
-    {
-      "hash": "|null|null|Media|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Media",
-        "definition": null,
-        "display": "Media"
-      }
-    },
-    {
-      "hash": "|null|null|CommunicationRequest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "CommunicationRequest",
-        "definition": null,
-        "display": "CommunicationRequest"
-      }
-    },
-    {
-      "hash": "|null|null|Account|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Account",
-        "definition": null,
-        "display": "Account"
-      }
-    },
-    {
-      "hash": "|null|null|ModuleDefinition|null",
-      "severity": "error",
-      "message": "Unknown Code ModuleDefinition in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|ExpansionProfile|null",
-      "severity": "error",
-      "message": "Unknown Code ExpansionProfile in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Patient|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Patient",
-        "definition": null,
-        "display": "Patient"
-      }
-    },
-    {
-      "hash": "|null|null|Slot|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Slot",
-        "definition": null,
-        "display": "Slot"
-      }
-    },
-    {
-      "hash": "|http://loinc.org|null|57133-1|Referral note",
-      "severity": "error",
-      "message": "Unknown Code 57133-1 in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Linkage|null",
-      "severity": "error",
-      "message": "Unknown Code Linkage in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|EligibilityRequest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "EligibilityRequest",
-        "definition": null,
-        "display": "EligibilityRequest"
-      }
-    },
-    {
-      "hash": "|null|null|FamilyMemberHistory|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "FamilyMemberHistory",
-        "definition": null,
-        "display": "FamilyMemberHistory"
-      }
-    },
-    {
-      "hash": "|null|null|SupplyDelivery|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "SupplyDelivery",
-        "definition": null,
-        "display": "SupplyDelivery"
-      }
-    },
-    {
-      "hash": "|null|null|EnrollmentResponse|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "EnrollmentResponse",
-        "definition": null,
-        "display": "EnrollmentResponse"
-      }
-    },
-    {
-      "hash": "|null|null|Subscription|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Subscription",
-        "definition": null,
-        "display": "Subscription"
-      }
-    },
-    {
-      "hash": "|null|null|SupplyRequest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "SupplyRequest",
-        "definition": null,
-        "display": "SupplyRequest"
-      }
-    },
-    {
-      "hash": "|null|null|Flag|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Flag",
-        "definition": null,
-        "display": "Flag"
-      }
-    },
-    {
-      "hash": "|null|null|ProcessRequest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ProcessRequest",
-        "definition": null,
-        "display": "ProcessRequest"
-      }
-    },
-    {
-      "hash": "|null|null|RiskAssessment|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "RiskAssessment",
-        "definition": null,
-        "display": "RiskAssessment"
-      }
-    },
-    {
-      "hash": "|null|null|PaymentReconciliation|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "PaymentReconciliation",
-        "definition": null,
-        "display": "PaymentReconciliation"
-      }
-    },
-    {
-      "hash": "|null|null|DocumentManifest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "DocumentManifest",
-        "definition": null,
-        "display": "DocumentManifest"
-      }
-    },
-    {
-      "hash": "|null|null|Medication|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Medication",
-        "definition": null,
-        "display": "Medication"
-      }
-    },
-    {
-      "hash": "|null|null|DiagnosticReport|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "DiagnosticReport",
-        "definition": null,
-        "display": "DiagnosticReport"
-      }
-    },
-    {
-      "hash": "|null|null|Group|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Group",
-        "definition": null,
-        "display": "Group"
-      }
-    },
-    {
-      "hash": "|null|null|DeviceComponent|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "DeviceComponent",
-        "definition": null,
-        "display": "DeviceComponent"
-      }
-    },
-    {
-      "hash": "|null|null|DeviceMetric|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "DeviceMetric",
-        "definition": null,
-        "display": "DeviceMetric"
-      }
-    },
-    {
-      "hash": "|null|null|VisionPrescription|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "VisionPrescription",
-        "definition": null,
-        "display": "VisionPrescription"
-      }
-    },
-    {
-      "hash": "|null|null|Condition|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Condition",
-        "definition": null,
-        "display": "Condition"
-      }
-    },
-    {
-      "hash": "|null|null|DocumentReference|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "DocumentReference",
-        "definition": null,
-        "display": "DocumentReference"
-      }
-    },
-    {
-      "hash": "|null|null|Practitioner|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Practitioner",
-        "definition": null,
-        "display": "Practitioner"
-      }
-    },
-    {
-      "hash": "|null|null|ReferralRequest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ReferralRequest",
-        "definition": null,
-        "display": "ReferralRequest"
-      }
-    },
-    {
-      "hash": "|null|null|Resource|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Resource",
-        "definition": null,
-        "display": "Resource"
-      }
-    },
-    {
-      "hash": "|null|null|Goal|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Goal",
-        "definition": null,
-        "display": "Goal"
-      }
-    },
-    {
-      "hash": "|null|null|StructureDefinition|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "StructureDefinition",
-        "definition": null,
-        "display": "StructureDefinition"
-      }
-    },
-    {
-      "hash": "|null|null|OrderSet|null",
-      "severity": "error",
-      "message": "Unknown Code OrderSet in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Communication|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Communication",
-        "definition": null,
-        "display": "Communication"
-      }
-    },
-    {
-      "hash": "|null|null|CompartmentDefinition|null",
-      "severity": "error",
-      "message": "Unknown Code CompartmentDefinition in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|ClaimResponse|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ClaimResponse",
-        "definition": null,
-        "display": "ClaimResponse"
-      }
-    },
-    {
-      "hash": "|null|null|RelatedPerson|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "RelatedPerson",
-        "definition": null,
-        "display": "RelatedPerson"
-      }
-    },
-    {
-      "hash": "|null|null|OperationDefinition|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "OperationDefinition",
-        "definition": null,
-        "display": "OperationDefinition"
-      }
-    },
-    {
-      "hash": "|null|null|Task|null",
-      "severity": "error",
-      "message": "Unknown Code Task in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Measure|null",
-      "severity": "error",
-      "message": "Unknown Code Measure in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|ProcessResponse|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ProcessResponse",
-        "definition": null,
-        "display": "ProcessResponse"
-      }
-    },
-    {
-      "hash": "|null|null|ImplementationGuide|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ImplementationGuide",
-        "definition": null,
-        "display": "ImplementationGuide"
-      }
-    },
-    {
-      "hash": "|null|null|EpisodeOfCare|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "EpisodeOfCare",
-        "definition": null,
-        "display": "EpisodeOfCare"
       }
     },
     {
@@ -832,138 +22,13 @@
       }
     },
     {
-      "hash": "|null|null|Encounter|null",
+      "hash": "|null|null|Condition|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "Encounter",
+        "abstract": "Condition",
         "definition": null,
-        "display": "Encounter"
-      }
-    },
-    {
-      "hash": "|null|null|TestScript|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "TestScript",
-        "definition": null,
-        "display": "TestScript"
-      }
-    },
-    {
-      "hash": "|null|null|ValueSet|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ValueSet",
-        "definition": null,
-        "display": "ValueSet"
-      }
-    },
-    {
-      "hash": "|null|null|DataElement|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "DataElement",
-        "definition": null,
-        "display": "DataElement"
-      }
-    },
-    {
-      "hash": "|null|null|GuidanceResponse|null",
-      "severity": "error",
-      "message": "Unknown Code GuidanceResponse in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|Binary|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Binary",
-        "definition": null,
-        "display": "Binary"
-      }
-    },
-    {
-      "hash": "|null|null|ImagingStudy|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ImagingStudy",
-        "definition": null,
-        "display": "ImagingStudy"
-      }
-    },
-    {
-      "hash": "|null|null|Conformance|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Conformance",
-        "definition": null,
-        "display": "Conformance"
-      }
-    },
-    {
-      "hash": "|null|null|ExplanationOfBenefit|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ExplanationOfBenefit",
-        "definition": null,
-        "display": "ExplanationOfBenefit"
-      }
-    },
-    {
-      "hash": "|null|null|Procedure|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Procedure",
-        "definition": null,
-        "display": "Procedure"
-      }
-    },
-    {
-      "hash": "|null|null|Claim|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Claim",
-        "definition": null,
-        "display": "Claim"
-      }
-    },
-    {
-      "hash": "|null|null|Immunization|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Immunization",
-        "definition": null,
-        "display": "Immunization"
-      }
-    },
-    {
-      "hash": "|null|null|ImagingObjectSelection|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ImagingObjectSelection",
-        "definition": null,
-        "display": "ImagingObjectSelection"
-      }
-    },
-    {
-      "hash": "|null|null|List|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "List",
-        "definition": null,
-        "display": "List"
+        "display": "Condition"
       }
     },
     {
@@ -977,58 +42,213 @@
       }
     },
     {
-      "hash": "|null|null|SearchParameter|null",
+      "hash": "|null|null|Observation|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "SearchParameter",
+        "abstract": "Observation",
         "definition": null,
-        "display": "SearchParameter"
+        "display": "Observation"
       }
     },
     {
-      "hash": "|null|null|Bundle|null",
+      "hash": "|null|null|DiagnosticReport|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "Bundle",
+        "abstract": "DiagnosticReport",
         "definition": null,
-        "display": "Bundle"
+        "display": "DiagnosticReport"
       }
     },
     {
-      "hash": "|null|null|Protocol|null",
-      "severity": "error",
-      "message": "Unknown Code Protocol in http://hl7.org/fhir/ValueSet/resource-types"
-    },
-    {
-      "hash": "|null|null|ConceptMap|null",
+      "hash": "|null|null|Binary|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "ConceptMap",
+        "abstract": "Binary",
         "definition": null,
-        "display": "ConceptMap"
+        "display": "Binary"
       }
     },
     {
-      "hash": "|null|null|HealthcareService|null",
+      "hash": "|null|null|FamilyMemberHistory|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "HealthcareService",
+        "abstract": "FamilyMemberHistory",
         "definition": null,
-        "display": "HealthcareService"
+        "display": "FamilyMemberHistory"
       }
     },
     {
-      "hash": "|null|null|Contract|null",
+      "hash": "|null|null|MedicationStatement|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "Contract",
+        "abstract": "MedicationStatement",
         "definition": null,
-        "display": "Contract"
+        "display": "MedicationStatement"
+      }
+    },
+    {
+      "hash": "|null|null|DocumentReference|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DocumentReference",
+        "definition": null,
+        "display": "DocumentReference"
+      }
+    },
+    {
+      "hash": "|null|null|Provenance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Provenance",
+        "definition": null,
+        "display": "Provenance"
+      }
+    },
+    {
+      "hash": "|null|null|List|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "List",
+        "definition": null,
+        "display": "List"
+      }
+    },
+    {
+      "hash": "|null|null|Encounter|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Encounter",
+        "definition": null,
+        "display": "Encounter"
+      }
+    },
+    {
+      "hash": "|null|null|DiagnosticOrder|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DiagnosticOrder",
+        "definition": null,
+        "display": "DiagnosticOrder"
+      }
+    },
+    {
+      "hash": "|null|null|MedicationOrder|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "MedicationOrder",
+        "definition": null,
+        "display": "MedicationOrder"
+      }
+    },
+    {
+      "hash": "|null|null|QuestionnaireResponse|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "QuestionnaireResponse",
+        "definition": null,
+        "display": "QuestionnaireResponse"
+      }
+    },
+    {
+      "hash": "|null|null|MedicationAdministration|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "MedicationAdministration",
+        "definition": null,
+        "display": "MedicationAdministration"
+      }
+    },
+    {
+      "hash": "|null|null|Immunization|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Immunization",
+        "definition": null,
+        "display": "Immunization"
+      }
+    },
+    {
+      "hash": "|null|null|ValueSet|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "ValueSet",
+        "definition": null,
+        "display": "ValueSet"
+      }
+    },
+    {
+      "hash": "|null|null|Order|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Order",
+        "definition": null,
+        "display": "Order"
+      }
+    },
+    {
+      "hash": "|null|null|Procedure|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Procedure",
+        "definition": null,
+        "display": "Procedure"
+      }
+    },
+    {
+      "hash": "|null|null|DataElement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DataElement",
+        "definition": null,
+        "display": "DataElement"
+      }
+    },
+    {
+      "hash": "|null|null|Patient|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Patient",
+        "definition": null,
+        "display": "Patient"
+      }
+    },
+    {
+      "hash": "|null|null|Medication|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Medication",
+        "definition": null,
+        "display": "Medication"
+      }
+    },
+    {
+      "hash": "|null|null|AllergyIntolerance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "AllergyIntolerance",
+        "definition": null,
+        "display": "AllergyIntolerance"
       }
     }
   ]

@@ -10,16 +10,6 @@
         "definition": null,
         "display": "Rejected"
       }
-    },
-    {
-      "hash": "|null|null|requested|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "requested",
-        "definition": null,
-        "display": "Requested"
-      }
     }
   ]
 }

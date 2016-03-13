@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|252275004|Haematology test#|http://hl7.org/fhir/v2/0074|null|HM|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "HM",
-        "definition": null,
-        "display": "Hematology"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v2/0074|null|HM|null",
       "severity": null,
       "message": null,
@@ -19,36 +9,6 @@
         "abstract": "HM",
         "definition": null,
         "display": "Hematology"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|394914008|Radiology#|http://hl7.org/fhir/v2/0074|null|RAD|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "RAD",
-        "definition": null,
-        "display": "Radiology"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|15220000|Laboratory test#|http://hl7.org/fhir/v2/0074|null|LAB|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "LAB",
-        "definition": null,
-        "display": "Laboratory"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0074|null|MB|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "MB",
-        "definition": null,
-        "display": "Microbiology"
       }
     }
   ]

@@ -2,36 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/bundle-type",
   "outcomes": [
     {
-      "hash": "|null|null|collection|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "collection",
-        "definition": null,
-        "display": "Collection"
-      }
-    },
-    {
-      "hash": "|null|null|transaction-response|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "transaction-response",
-        "definition": null,
-        "display": "Transaction Response"
-      }
-    },
-    {
-      "hash": "|null|null|searchset|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "searchset",
-        "definition": null,
-        "display": "Search Results"
-      }
-    },
-    {
       "hash": "|null|null|transaction|null",
       "severity": null,
       "message": null,
@@ -42,23 +12,13 @@
       }
     },
     {
-      "hash": "|null|null|document|null",
+      "hash": "|null|null|collection|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "document",
+        "abstract": "collection",
         "definition": null,
-        "display": "Document"
-      }
-    },
-    {
-      "hash": "|null|null|message|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "message",
-        "definition": null,
-        "display": "Message"
+        "display": "Collection"
       }
     }
   ]

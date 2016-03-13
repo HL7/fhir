@@ -2,16 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/identifier-use",
   "outcomes": [
     {
-      "hash": "|null|null|temp|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "temp",
-        "definition": null,
-        "display": "Temp"
-      }
-    },
-    {
       "hash": "|null|null|official|null",
       "severity": null,
       "message": null,

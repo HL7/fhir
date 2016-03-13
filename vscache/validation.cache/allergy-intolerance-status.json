@@ -12,16 +12,6 @@
       }
     },
     {
-      "hash": "|null|null|unconfirmed|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "unconfirmed",
-        "definition": null,
-        "display": "Unconfirmed"
-      }
-    },
-    {
       "hash": "|null|null|refuted|null",
       "severity": null,
       "message": null,
