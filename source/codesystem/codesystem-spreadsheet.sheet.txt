@@ -320,6 +320,7 @@
   Element = CodeSystem.filter
   Card. = 0..*
   Summary = Y
+  UML = right
   Short Label = Filter that can be used in a value set
   Definition = A filter that can be used in a value set compose statement when selecting concepts using a filter
 
@@ -361,6 +362,7 @@
   Element = CodeSystem.property
   Card. = 0..*
   Summary = y
+  UML = right
   Short Label = Additional information supplied about each concept
   Definition = A property defines an additional slot through which additional information can be provided about a concept
 
@@ -393,7 +395,7 @@
  -- Row 32 -----------------------------------
   Element = CodeSystem.concept
   Card. = 0..*
-  UML = -190;140
+  UML = down
   Type = =ConceptDefinition
   Short Label = Concepts in the code system
   Definition = Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are
@@ -424,7 +426,7 @@
  -- Row 36 -----------------------------------
   Element = CodeSystem.concept.designation
   Card. = 0..*
-  UML = -190;280
+  UML = left
   Short Label = Additional representations for the concept
   Definition = Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
   Requirements = Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes
@@ -457,6 +459,7 @@
  -- Row 40 -----------------------------------
   Element = CodeSystem.concept.property
   Card. = 0..*
+  UML = down
   Short Label = Property value for the concept
   Definition = A property value for this concept
 
@@ -481,3 +484,119 @@
   Type = @CodeSystem.concept
   Short Label = Child Concepts (is-a/contains/categorizes)
   Definition = Defines children of a concept to produce a hierarchy of concepts. The nature of the relationships is variable (is-a/contains/categorizes) and can only be determined by examining the definitions of the concepts
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = url
+  Type = uri
+  Description = The logical URL for the code system
+  Path = CodeSystem.url
+
+ -- Row 2 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = The identifier for the code system
+  Path = CodeSystem.identifier
+
+ -- Row 3 -----------------------------------
+  Name = version
+  Type = token
+  Description = The version identifier of the code system
+  Path = CodeSystem.version
+
+ -- Row 4 -----------------------------------
+  Name = name
+  Type = string
+  Description = The name of the code system
+  Path = CodeSystem.name
+
+ -- Row 5 -----------------------------------
+  Name = publisher
+  Type = string
+  Description = Name of the publisher of the code system
+  Path = CodeSystem.publisher
+
+ -- Row 6 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search in the description of the code system
+  Path = CodeSystem.description
+
+ -- Row 7 -----------------------------------
+  Name = status
+  Type = token
+  Description = The status of the code system
+  Path = CodeSystem.status
+
+ -- Row 8 -----------------------------------
+  Name = date
+  Type = date
+  Description = The code system publication date
+  Path = CodeSystem.date
+
+ -- Row 9 -----------------------------------
+  Name = system
+  Type = uri
+  Description = The system for any codes defined by this code system (same as \'url\')
+  Path = CodeSystem.url
+
+ -- Row 10 -----------------------------------
+  Name = code
+  Type = token
+  Description = A code defined in the code system
+  Path = CodeSystem.concept.code
+
+ -- Row 11 -----------------------------------
+  Name = context
+  Type = token
+  Description = A use context assigned to the code system
+  Path = CodeSystem.useContext
+
+ -- Row 12 -----------------------------------
+  Name = language
+  Type = token
+  Description = A language in which a designation is provided
+  Path = CodeSystem.concept.designation.language
+
+=== Sheet Profiles =====================================
+
+ -- Row 1 -----------------------------------
+  Name = CodeSystem Extensions
+  IG Name = core
+  Filename = codesystem-extensions.xml
+  Type = spreadsheet
+
+ -- Row 2 -----------------------------------
+  Name = Shareable Code System
+  IG Name = core
+  Filename = codesystem-shareable.xml
+  Type = spreadsheet
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = Simple
+  Identity = example
+  Description = Simple Code System
+  Filename = codesystem-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = DICOM DICM
+  Identity = dicom-dcim
+  Description = Codes defined by DICOM
+  Filename = codesystem-dicom-dcim.xml
+
+ -- Row 3 -----------------------------------
+  Name = NHIN PurposeOfUse
+  Identity = nhin-purposeofuse
+  Description = NHIN Purpose of Use
+  Filename = codesystem-nhin-purposeofuse.xml
+
+ -- Row 4 -----------------------------------
+  Name = RESTful Interactions
+  Identity = restful-interaction
+  Description = The set of interactions defined by the RESTful part of the FHIR specification
+  Filename = codesystem-restful-interaction.xml
+
+=== Sheet Examples =====================================

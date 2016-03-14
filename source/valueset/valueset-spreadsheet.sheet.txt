@@ -396,7 +396,7 @@
  -- Row 29 -----------------------------------
   Element = !ValueSet.codeSystem.concept.designation
   Card. = 0..*
-  UML = -190;280
+  UML = down
   Short Label = Additional representations for the concept
   Definition = Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
   Requirements = Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes
@@ -499,7 +499,7 @@
  -- Row 40 -----------------------------------
   Element = ValueSet.compose.include.concept
   Card. = 0..*
-  UML = -150;400
+  UML = down
   Inv. = 11
   Type = =ConceptReference
   Short Label = A concept defined in the system
@@ -529,6 +529,7 @@
  -- Row 43 -----------------------------------
   Element = ValueSet.compose.include.concept.designation
   Card. = 0..*
+  UML = right
   Short Label = Additional representations for this valueset
   Definition = Additional representations for this concept when used in this value set - other languages, aliases, specialized purposes, used for particular purposes, etc.
 
