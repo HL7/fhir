@@ -159,7 +159,7 @@
 
  -- Row 6 -----------------------------------
   Element = Measure.type
-  Card. = 0..1
+  Card. = 0..*
   Type = code
   Binding = MeasureType
   Short Label = process | outcome
@@ -219,17 +219,29 @@
   Definition = A group of population criteria for the measure
 
  -- Row 16 -----------------------------------
-  Element = Measure.group.name
+  Element = Measure.group.identifier
   Card. = 1..1
-  Type = string
-  Definition = The name of the population group
+  Type = Identifier
+  Definition = A unique identifier for the group. This identifier will used to report data for the group in the measure report
 
  -- Row 17 -----------------------------------
+  Element = Measure.group.name
+  Card. = 0..1
+  Type = string
+  Definition = Optional name or short description of this group
+
+ -- Row 18 -----------------------------------
+  Element = Measure.group.description
+  Card. = 0..1
+  Type = string
+  Definition = The human readable description of this population group
+
+ -- Row 19 -----------------------------------
   Element = Measure.group.population
   Card. = 0..*
   Definition = A population criteria for the measure
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Measure.group.population.type
   Card. = 1..1
   Type = code
@@ -237,40 +249,65 @@
   Short Label = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
   Definition = The type of population criteria
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Measure.group.population.identifier
   Card. = 1..1
   Type = Identifier
   Definition = A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Measure.group.population.name
   Card. = 0..1
   Type = string
   Definition = Optional name or short description of this population
 
- -- Row 21 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Measure.group.population.description
   Card. = 0..1
   Type = string
   Definition = The human readable description of this population criteria
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Measure.group.population.criteria
   Card. = 1..1
   Type = string
   Definition = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
 
- -- Row 23 -----------------------------------
-  Element = Measure.stratifier
+ -- Row 25 -----------------------------------
+  Element = Measure.group.stratifier
   Card. = 0..*
-  Type = string
   Definition = The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path
 
- -- Row 24 -----------------------------------
+ -- Row 26 -----------------------------------
+  Element = Measure.group.stratifier.identifier
+  Card. = 1..1
+  Type = Identifier
+  Definition = The identifier for the stratifier used to coordinate the reported data back to this stratifier
+
+ -- Row 27 -----------------------------------
+  Element = Measure.group.stratifier.criteria
+  Card. = 1..1
+  Type = string
+  Definition = The criteria for the stratifier. This must be the name of an expression defined within a referenced library
+
+ -- Row 28 -----------------------------------
   Element = Measure.supplementalData
   Card. = 0..*
+  Short Label = Supplemental data
+  Definition = Supplemental data to be supplied with the measure report
+
+ -- Row 29 -----------------------------------
+  Element = Measure.supplementalData.identifier
+  Card. = 1..1
+  Type = Identifier
+  Short Label = Identifier, unique within the measure
+  Definition = An identifier for the supplemental data
+
+ -- Row 30 -----------------------------------
+  Element = Measure.supplementalData.path
+  Card. = 1..1
   Type = string
+  Short Label = Path to the supplemental data element
   Definition = The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path
 
 === Sheet Search =====================================
