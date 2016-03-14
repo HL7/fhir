@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "rest-hook",
+        "abstract": false,
+        "code": "rest-hook",
         "definition": null,
         "display": "Rest Hook"
       }

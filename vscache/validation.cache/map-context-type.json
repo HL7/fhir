@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "variable",
+        "abstract": false,
+        "code": "variable",
         "definition": null,
         "display": "Variable"
       }

@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "level3",
+        "abstract": false,
+        "code": "level3",
         "definition": null,
         "display": "Level 3"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "level2",
+        "abstract": false,
+        "code": "level2",
         "definition": null,
         "display": "Level 2"
       }

@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "ATND",
+        "abstract": false,
+        "code": "ATND",
         "definition": null,
         "display": "attender"
       }

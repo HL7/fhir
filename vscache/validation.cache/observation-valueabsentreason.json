@@ -11,7 +11,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "not-asked",
+        "abstract": false,
+        "code": "not-asked",
         "definition": null,
         "display": "Not Asked"
       }

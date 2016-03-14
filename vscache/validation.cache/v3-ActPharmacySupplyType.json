@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "FF",
+        "abstract": false,
+        "code": "FF",
         "definition": null,
         "display": "First Fill"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "FFP",
+        "abstract": false,
+        "code": "FFP",
         "definition": null,
         "display": "First Fill - Part Fill"
       }

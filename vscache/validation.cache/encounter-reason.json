@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Replacement of unspecified heart valve"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Retropharyngeal abscess"
       }
@@ -31,7 +33,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Clinical management plan review (procedure)"
       }
@@ -41,7 +44,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Replacement of unspecified heart valve"
       }

@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "not-supported",
+        "abstract": false,
+        "code": "not-supported",
         "definition": null,
         "display": "Not Supported"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "multiple",
+        "abstract": false,
+        "code": "multiple",
         "definition": null,
         "display": "Multiple Deletes Supported"
       }

@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "unavailable",
+        "abstract": false,
+        "code": "unavailable",
         "definition": null,
         "display": "Unavailable"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "available",
+        "abstract": false,
+        "code": "available",
         "definition": null,
         "display": "Available"
       }

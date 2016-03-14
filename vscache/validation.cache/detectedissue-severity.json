@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "high",
+        "abstract": false,
+        "code": "high",
         "definition": null,
         "display": "High"
       }

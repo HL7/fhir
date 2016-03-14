@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "M",
+        "abstract": false,
+        "code": "M",
         "definition": null,
         "display": "Married"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "M",
+        "abstract": false,
+        "code": "M",
         "definition": null,
         "display": "Married"
       }

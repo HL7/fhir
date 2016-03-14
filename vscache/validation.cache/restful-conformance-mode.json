@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "server",
+        "abstract": false,
+        "code": "server",
         "definition": null,
         "display": "Server"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "client",
+        "abstract": false,
+        "code": "client",
         "definition": null,
         "display": "Client"
       }

@@ -17,6 +17,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.hl7.fhir.dstu3.formats.FormatUtilities;
+import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
@@ -30,6 +31,7 @@ import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
@@ -47,7 +49,7 @@ import org.hl7.fhir.utilities.xml.XMLUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-public class ValueSetImporterV2 {
+public class ValueSetImporterV2 extends ValueSetImporterBase {
 
   public class VSPack {
 
@@ -554,10 +556,12 @@ public class ValueSetImporterV2 {
       // be display name, not
       // definition. Open for
       // consideration
-      if (!(MAX_VER.equals(max)) || comment.equalsIgnoreCase("deprecated"))
-        ToolingExtensions.markDeprecated(concept);
-      if (ToolingExtensions.hasDeprecated(concept) && Utilities.noString(comment))
-        comment = "deprecated";
+      if (!(MAX_VER.equals(max)) || comment.equalsIgnoreCase("deprecated")) {
+        CodeSystemUtilities.setDeprecated(cs, concept);
+        concept.addProperty().setCode("deprecated").setValue(new BooleanType(true));
+        if (Utilities.noString(comment))
+          comment = "deprecated";
+      }
       cs.getConcept().add(concept);
       String nm = Utilities.nmtokenize(cd);
       s.append("<tr><td>" + Utilities.escapeXml(cd) + "<a name=\"" + Utilities.escapeXml(nm) + "\"> </a></td><td>" + Utilities.escapeXml(codes.get(cd))

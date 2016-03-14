@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "allergen",
+        "abstract": false,
+        "code": "allergen",
         "definition": null,
         "display": "Allergen"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "drug",
+        "abstract": false,
+        "code": "drug",
         "definition": null,
         "display": "Drug or Medicament"
       }
@@ -26,7 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "chemical",
+        "abstract": false,
+        "code": "chemical",
         "definition": null,
         "display": "Chemical"
       }

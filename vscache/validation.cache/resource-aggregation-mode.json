@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "bundled",
+        "abstract": false,
+        "code": "bundled",
         "definition": null,
         "display": "Bundled"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "contained",
+        "abstract": false,
+        "code": "contained",
         "definition": null,
         "display": "Contained"
       }

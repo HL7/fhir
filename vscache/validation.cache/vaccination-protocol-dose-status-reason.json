@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "coldchbrk",
+        "abstract": false,
+        "code": "coldchbrk",
         "definition": null,
         "display": "Cold chain break"
       }

@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "gret",
+        "abstract": false,
+        "code": "gret",
         "definition": null,
         "display": "Golden Retriever"
       }

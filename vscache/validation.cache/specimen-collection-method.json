@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "LNV",
+        "abstract": false,
+        "code": "LNV",
         "definition": null,
         "display": "Line, Venous"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "BAP",
+        "abstract": false,
+        "code": "BAP",
         "definition": null,
         "display": "Plates, Blood Agar"
       }

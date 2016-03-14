@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "LA",
+        "abstract": false,
+        "code": "LA",
         "definition": null,
         "display": "Left arm"
       }

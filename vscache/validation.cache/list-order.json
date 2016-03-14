@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "entry-date",
+        "abstract": false,
+        "code": "entry-date",
         "definition": null,
         "display": "Sorted by Item Date"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "event-date",
+        "abstract": false,
+        "code": "event-date",
         "definition": null,
         "display": "Sorted by Event Date"
       }

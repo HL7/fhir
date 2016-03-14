@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "xmlAttr",
+        "abstract": false,
+        "code": "xmlAttr",
         "definition": null,
         "display": "XML Attribute"
       }

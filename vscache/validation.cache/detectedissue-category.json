@@ -11,7 +11,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "DRG",
+        "abstract": false,
+        "code": "DRG",
         "definition": null,
         "display": "Drug Interaction Alert"
       }

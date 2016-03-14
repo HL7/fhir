@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "proposed",
+        "abstract": false,
+        "code": "proposed",
         "definition": null,
         "display": "Proposed"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "complete",
+        "abstract": false,
+        "code": "complete",
         "definition": null,
         "display": "Complete"
       }

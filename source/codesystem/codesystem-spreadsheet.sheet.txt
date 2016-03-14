@@ -320,7 +320,6 @@
   Element = CodeSystem.filter
   Card. = 0..*
   Summary = Y
-  UML = right
   Short Label = Filter that can be used in a value set
   Definition = A filter that can be used in a value set compose statement when selecting concepts using a filter
 
@@ -362,7 +361,6 @@
   Element = CodeSystem.property
   Card. = 0..*
   Summary = y
-  UML = right
   Short Label = Additional information supplied about each concept
   Definition = A property defines an additional slot through which additional information can be provided about a concept
 
@@ -395,7 +393,7 @@
  -- Row 32 -----------------------------------
   Element = CodeSystem.concept
   Card. = 0..*
-  UML = down
+  UML = -190;140
   Type = =ConceptDefinition
   Short Label = Concepts in the code system
   Definition = Concepts that are in the code system. The concept definitions are inherently hierarchical, but the definitions must be consulted to determine what the meaning of the hierarchical relationships are
@@ -426,7 +424,7 @@
  -- Row 36 -----------------------------------
   Element = CodeSystem.concept.designation
   Card. = 0..*
-  UML = left
+  UML = -190;280
   Short Label = Additional representations for the concept
   Definition = Additional representations for the concept - other languages, aliases, specialized purposes, used for particular purposes, etc.
   Requirements = Many concept definition systems support multiple representations, in multiple languages, and for multiple purposes
@@ -459,7 +457,6 @@
  -- Row 40 -----------------------------------
   Element = CodeSystem.concept.property
   Card. = 0..*
-  UML = down
   Short Label = Property value for the concept
   Definition = A property value for this concept
 
@@ -600,3 +597,140 @@
   Filename = codesystem-restful-interaction.xml
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = lookup
+  Use = Resource
+  Documentation = Given a code/system, or a Coding, get additional details about the concept
+  Type = operation
+  Example.Request = $lookup-request.txt
+  Example.Response = $lookup-response.txt
+  Title = Concept Look Up
+  Footer = Note that the $lookup operation is more than just a code system search  - the server finds the concept, and gathers the return information from the value set and the underlying code system definitions.
+
+ -- Row 2 -----------------------------------
+  Name = lookup.code
+  Use = in
+  Documentation = The code that is to be validated. If a code is provided, a system must be provided
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = lookup.system
+  Use = in
+  Documentation = The system for the code that is to be validated
+  Type = uri
+  Min = 0
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = lookup.version
+  Use = in
+  Documentation = The version of the system, if one was provided in the source data
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = lookup.coding
+  Use = in
+  Documentation = A coding to look up
+  Type = Coding
+  Min = 0
+  Max = 1
+
+ -- Row 6 -----------------------------------
+  Name = lookup.date
+  Use = in
+  Documentation = The date for which the information should be returned. Normally, this is the current conditions (which is the default value) but under some circumstances, systems need to acccess this information as it would have been in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.
+  Type = dateTime
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = lookup.property
+  Use = in
+  Documentation = A property that the client wishes to be returned in the output. If no properties are specified, the server chooses what to return
+  Type = code
+  Min = 0
+  Max = *
+
+ -- Row 8 -----------------------------------
+  Name = lookup.name
+  Use = out
+  Documentation = A display name for the code system
+  Type = string
+  Min = 1
+  Max = 1
+
+ -- Row 9 -----------------------------------
+  Name = lookup.version
+  Use = out
+  Documentation = The version that these details are based on
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = lookup.display
+  Use = out
+  Documentation = The preferred display for this concept
+  Type = string
+  Min = 1
+  Max = 1
+
+ -- Row 11 -----------------------------------
+  Name = lookup.property
+  Use = out
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 12 -----------------------------------
+  Name = lookup.property.code
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 13 -----------------------------------
+  Name = lookup.property.value
+  Type = string
+  Min = 1
+  Max = 1
+
+ -- Row 14 -----------------------------------
+  Name = lookup.property.description
+  Documentation = Human Readable representation of the propery value
+  Type = string
+  Min = 0
+  Max = 1
+
+ -- Row 15 -----------------------------------
+  Name = lookup.designation
+  Use = out
+  Documentation = Additional representations for this concept
+  Type = Tuple
+  Min = 0
+  Max = *
+
+ -- Row 16 -----------------------------------
+  Name = lookup.designation.language
+  Documentation = The language this designation is defined for
+  Type = code
+  Min = 0
+  Max = 1
+
+ -- Row 17 -----------------------------------
+  Name = lookup.designation.use
+  Documentation = A code that details how this designation would be used
+  Type = Coding
+  Min = 0
+  Max = 1
+
+ -- Row 18 -----------------------------------
+  Name = lookup.designation.value
+  Documentation = The text value for this designation
+  Type = string
+  Min = 1
+  Max = 1

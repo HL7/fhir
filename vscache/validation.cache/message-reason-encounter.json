@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "admit",
+        "abstract": false,
+        "code": "admit",
         "definition": null,
         "display": "Admit"
       }

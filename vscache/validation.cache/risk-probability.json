@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "moderate",
+        "abstract": false,
+        "code": "moderate",
         "definition": null,
         "display": "Moderate likelihood"
       }

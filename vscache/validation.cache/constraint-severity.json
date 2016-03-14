@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "warning",
+        "abstract": false,
+        "code": "warning",
         "definition": null,
         "display": "Warning"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "error",
+        "abstract": false,
+        "code": "error",
         "definition": null,
         "display": "Error"
       }

@@ -51,6 +51,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpansionCache;
 import org.hl7.fhir.dstu3.utils.BaseWorkerContext;
 import org.hl7.fhir.dstu3.utils.INarrativeGenerator;
@@ -917,7 +918,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
         if (j != null && j instanceof JsonObject) {
           def = new ConceptDefinitionComponent();
           o = (JsonObject) j;
-//          def.setAbstract(o.get("abstract").getAsBoolean());
+          if (o.get("abstract").getAsBoolean())
+            CodeSystemUtilities.setAbstract(null, def);
           if (!(o.get("code") instanceof JsonNull))
             def.setCode(o.get("code").getAsString());
           if (!(o.get("definition") instanceof JsonNull))
@@ -964,8 +966,8 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
           gson.name("definition");
           gson.beginObject();
           gson.name("abstract");
-//          gson.value(vr.asConceptDefinition().getAbstract());
-//          gson.name("code");
+          gson.value(CodeSystemUtilities.isAbstract(null, vr.asConceptDefinition()));
+          gson.name("code");
           gson.value(vr.asConceptDefinition().getCode());
           gson.name("definition");
           gson.value(vr.asConceptDefinition().getDefinition());

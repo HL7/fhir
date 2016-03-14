@@ -19,9 +19,12 @@ import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.Narrative;
 import org.hl7.fhir.dstu3.model.ValueSet;
+import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemPropertyComponent;
 import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.PropertyType;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.Enumerations.ConformanceResourceStatus;
 import org.hl7.fhir.dstu3.model.Narrative.NarrativeStatus;
@@ -29,6 +32,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.FilterOperator;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
@@ -47,7 +51,7 @@ import org.w3c.dom.DOMException;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-public class ValueSetImporterV3 {
+public class ValueSetImporterV3 extends ValueSetImporterBase {
   private List<ValidationMessage> errors; 
   private PageProcessor page;
   public class VSPack {
@@ -107,15 +111,13 @@ public class ValueSetImporterV3 {
     List<CodeInfo> children = new ArrayList<CodeInfo>();
 
     public void write(int lvl, StringBuilder s, ValueSet vs, List<ConceptDefinitionComponent> list, ConceptDefinitionComponent owner,
-        Map<String, ConceptDefinitionComponent> handled) throws Exception {
+        Map<String, ConceptDefinitionComponent> handled, CodeSystem cs) throws Exception {
       if (!select && children.size() == 0)
         return;
 
       if (handled.containsKey(code)) {
         if (owner == null)
           throw new Exception("Error handling poly-hierarchy - subsequent mention is on the root");
-        // ToolingExtensions.addParentCode(handled.get(code),
-        // owner.getCode());
         ToolingExtensions.addSubsumes(owner, code);
         s.append(" <tr><td>").append(Integer.toString(lvl)).append("</td><td>");
         for (int i = 1; i < lvl; i++)
@@ -130,11 +132,14 @@ public class ValueSetImporterV3 {
         concept.setDefinition(textDefinition);
         if (!concept.hasDefinition())
           concept.setDefinition(concept.getDisplay());
-//        concept.setAbstract(!select);
         String d = "";
+        if (!select) {
+          CodeSystemUtilities.setAbstract(cs, concept);
+          d = d + " <b><i>Abstract</i></b>";
+        }
         if (deprecated) {
-          ToolingExtensions.markDeprecated(concept);
-          d = " <b><i>Deprecated</i></b>";
+          CodeSystemUtilities.setDeprecated(cs, concept);
+          d = d + " <b><i>Deprecated</i></b>";
         }
 
         list.add(concept);
@@ -152,7 +157,7 @@ public class ValueSetImporterV3 {
           s.append(definition);
         s.append("</td></tr>\r\n");
         for (CodeInfo child : children) {
-          child.write(lvl + 1, s, vs, concept.getConcept(), concept, handled);
+          child.write(lvl + 1, s, vs, concept.getConcept(), concept, handled, cs);
         }
       }
     }
@@ -254,7 +259,7 @@ public class ValueSetImporterV3 {
     Map<String, ConceptDefinitionComponent> handled = new HashMap<String, ConceptDefinitionComponent>();
     for (CodeInfo ci : codes) {
       if (ci.parents.size() == 0) {
-        ci.write(1, s, vs, cs.getConcept(), null, handled);
+        ci.write(1, s, vs, cs.getConcept(), null, handled, cs);
       }
     }
     s.append("</table>\r\n");

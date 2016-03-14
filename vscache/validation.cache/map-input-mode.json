@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "source",
+        "abstract": false,
+        "code": "source",
         "definition": null,
         "display": "Source Instance"
       }

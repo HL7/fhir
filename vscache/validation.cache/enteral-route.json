@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "NGT",
+        "abstract": false,
+        "code": "NGT",
         "definition": null,
         "display": "Instillation, nasogastric tube"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "PO",
+        "abstract": false,
+        "code": "PO",
         "definition": null,
         "display": "Swallow, oral"
       }
@@ -26,7 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "GT",
+        "abstract": false,
+        "code": "GT",
         "definition": null,
         "display": "Instillation, gastrostomy tube"
       }

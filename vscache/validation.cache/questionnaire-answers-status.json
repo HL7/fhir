@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "completed",
+        "abstract": false,
+        "code": "completed",
         "definition": null,
         "display": "Completed"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "in-progress",
+        "abstract": false,
+        "code": "in-progress",
         "definition": null,
         "display": "In Progress"
       }

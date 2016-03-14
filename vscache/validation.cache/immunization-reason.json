@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "429060002",
+        "abstract": false,
+        "code": "429060002",
         "definition": null,
         "display": "Procedure to meet occupational requirement"
       }

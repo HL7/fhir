@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "LP173421-1",
+        "abstract": false,
+        "code": "LP173421-1",
         "definition": null,
         "display": "Report"
       }

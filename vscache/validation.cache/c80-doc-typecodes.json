@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "34108-1",
+        "abstract": false,
+        "code": "34108-1",
         "definition": null,
         "display": "Outpatient Note"
       }

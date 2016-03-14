@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "cardio",
+        "abstract": false,
+        "code": "cardio",
         "definition": null,
         "display": "Cardiologist"
       }

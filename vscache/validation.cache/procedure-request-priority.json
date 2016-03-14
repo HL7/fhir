@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "urgent",
+        "abstract": false,
+        "code": "urgent",
         "definition": null,
         "display": "Urgent"
       }

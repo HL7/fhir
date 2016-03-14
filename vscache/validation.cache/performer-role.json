@@ -11,7 +11,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "310512001",
+        "abstract": false,
+        "code": "310512001",
         "definition": null,
         "display": "Medical oncologist"
       }

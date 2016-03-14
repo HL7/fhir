@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "phone",
+        "abstract": false,
+        "code": "phone",
         "definition": null,
         "display": "Phone"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "fax",
+        "abstract": false,
+        "code": "fax",
         "definition": null,
         "display": "Fax"
       }
@@ -26,7 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "email",
+        "abstract": false,
+        "code": "email",
         "definition": null,
         "display": "Email"
       }
@@ -36,7 +39,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "other",
+        "abstract": false,
+        "code": "other",
         "definition": null,
         "display": "URL"
       }

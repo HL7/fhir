@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "right",
+        "abstract": false,
+        "code": "right",
         "definition": null,
         "display": "Right Eye"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "left",
+        "abstract": false,
+        "code": "left",
         "definition": null,
         "display": "Left Eye"
       }

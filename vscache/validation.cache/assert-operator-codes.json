@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "notEmpty",
+        "abstract": false,
+        "code": "notEmpty",
         "definition": null,
         "display": "notEmpty"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "equals",
+        "abstract": false,
+        "code": "equals",
         "definition": null,
         "display": "equals"
       }

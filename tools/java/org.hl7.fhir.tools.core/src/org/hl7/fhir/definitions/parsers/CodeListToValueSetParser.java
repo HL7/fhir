@@ -10,6 +10,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptReferenceComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.tools.converters.CodeSystemConvertor;
 import org.hl7.fhir.utilities.Utilities;
@@ -96,8 +97,8 @@ public class CodeListToValueSetParser {
           codes.put(cc.getCode(), cc);
           codesById.put(cc.getUserString("id"), cc);
           cc.setDisplay(sheet.getColumn(row, "Display"));
-//          if (sheet.getColumn(row, "Abstract").toUpperCase().equals("Y"))
-//          	cc.setAbstract(true);
+          if (sheet.getColumn(row, "Abstract").toUpperCase().equals("Y"))
+          	CodeSystemUtilities.setAbstract(cs, cc);
           if (cc.hasCode() && !cc.hasDisplay())
             cc.setDisplay(Utilities.humanize(cc.getCode()));
           cc.setDefinition(sheet.getColumn(row, "Definition"));

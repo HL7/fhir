@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "professional",
+        "abstract": false,
+        "code": "professional",
         "definition": null,
         "display": "Professional"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "institutional",
+        "abstract": false,
+        "code": "institutional",
         "definition": null,
         "display": "Institutional"
       }
@@ -26,7 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "oral",
+        "abstract": false,
+        "code": "oral",
         "definition": null,
         "display": "Oral Health"
       }
@@ -36,7 +39,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "pharmacy",
+        "abstract": false,
+        "code": "pharmacy",
         "definition": null,
         "display": "Pharmacy"
       }
@@ -46,7 +50,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "vision",
+        "abstract": false,
+        "code": "vision",
         "definition": null,
         "display": "Vision"
       }

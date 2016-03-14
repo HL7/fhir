@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "allergy",
+        "abstract": false,
+        "code": "allergy",
         "definition": null,
         "display": "Allergy"
       }

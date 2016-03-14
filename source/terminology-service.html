@@ -15,15 +15,16 @@
 <p>
 This specification includes support for the provision of a terminology service - that is, a
 service that lets healthcare applications make use of codes and value sets without having to become
-experts in the fine details of the value set resource, and the underlying code systems.
-A server that supports all the functionality described here can be described as a "FHIR Terminology Service",
-and SHALL conform to <a href="conformance-terminology-server.html">this conformance statement</a>.
+experts in the fine details of the code system, value set and concept map resources, and the underlying 
+code systems and terminological principles. A server that supports all the functionality described here 
+can be described as a "FHIR Terminology Service", and SHALL conform to <a href="conformance-terminology-server.html">this 
+conformance statement</a>.
 </p>
 
 <h3>Security</h3>
 <p>
 Generally, SSL SHOULD be used for all production health care data exchange.
-Even though terminology servers do not directly handle patient information,
+Even though terminology servers do not generally handle patient information directly,
 hackers may still be able to infer information about patients by observing
 the codes and concepts that the terminology service is asked about, so
 encryption is still recommended.
@@ -40,7 +41,7 @@ This specification does not require any particular approach to security.
 <h3>Basic Concepts</h3>
 <p>
 A FHIR terminology service is simply a set of functions built on the definitions
-provided by a collection of <a href="valueset.html">ValueSet</a> and
+provided by a collection of <a href="codesystem.html">CodeSystem</a>,  <a href="valueset.html">ValueSet</a>  and
 <a href="conceptmap.html">ConceptMap</a> resources, with additional inherently known terminologies providing support.
 </p>
 <p>
@@ -49,12 +50,13 @@ in FHIR. Implementers should be familiar with:
 </p>
 <ul>
  <li><a href="terminologies.html">Using codes in FHIR</a></li>
+ <li>The <a href="codesystem.html">CodeSystem</a> resource</li>
  <li>The <a href="valueset.html">ValueSet</a> resource</li>
  <li>The <a href="conceptmap.html">ConceptMap</a> resource</li>
 </ul>
 <p>
 In addition, implementers should be familiar with the <a href="operations.html">operations
-framework</a>. Further useful information may be found in:
+framework</a>. Further useful information about terminologies may be found in:
 </p>
 <ul>
  <li>Underlying Principles: <a href="http://www.hl7.org/documentcenter/public/standards/V3/core_principles/infrastructure/coreprinciples/v3modelcoreprinciples.html">HL7 v3 Core Principles</a></li>
@@ -63,25 +65,22 @@ framework</a>. Further useful information may be found in:
 
 <h4>External Code Systems</h4>
 <p>
-In order to be used with a value set, code systems must be defined somewhere. They can be defined as part of
-an <a href="valueset.html#codeSystem">inline code system definition</a>, or they can be defined elsewhere,
-and then used in a value set by quoting the correct namespace. The FHIR specification defines a <a href="terminologies-systems.html">set of
+In order to be used with a value set, code systems and their content must be defined somewhere. They can be defined explicitly
+using the <a href="codesystem.html">code system resource</a>, or they can be defined elsewhere, and then used in a value set 
+by quoting the correct system url. The FHIR specification defines a <a href="terminologies-systems.html">set of
 namespaces</a> for commonly encountered code systems, and defines how some work with FHIR (e.g.
 <a href="snomedct.html">SNOMED CT</a>, <a href="loinc.html">LOINC</a>, <a href="rxnorm.html">RxNorm</a>).
 These code systems are often large, and have many internally defined properties that are part of their
-formal definitions. Inline code systems in Value Set resources are not an appropriate way to define
-these code systems; FHIR does not provide a formal representation at all. Instead, these terminologies
-provide their own distribution formats, and it is assumed that they are externally known to the
-terminology server.
+formal definitions. The code systems resource is not an appropriate way to distribute the contents of 
+these code systems; the standard FHIR code system resource simply represents the properties of 
+the code system. Instead, these terminologies provide their own distribution formats, and it is assumed that the
+content of these code systems are externally known to the terminology server.
 </p>
 <p>
 Most useful terminology servers will make one or more of these external code systems available for use
 within the value sets that they manage. The list of additional terminologies that a terminology server supports
-beyond those defined in its value sets is published to clients by (still to figure out how this works).
-</p>
-<p>
-A server SHOULD publish the additional code systems that it supports through intrinsic knowledge
-using the <a href="extension-conformance-supported-system.html">http://hl7.org/fhir/StructureDefinition/conformance-supported-system extension:</a>
+beyond those defined in its value sets is published to clients by referencing code system resources in 
+the server's <a href="conformance.html">Conformance Statement</a>.
 </p>
 <pre class="json">
 {
@@ -121,7 +120,7 @@ list above extended.</i>
 
 <p>
 Note: A terminology service may choose to expose additional external code system specific
-related functionality such as exploration, or structured search, but these services are
+related functionality such as summation, or structured search, but these services are
 outside the scope of the FHIR terminology service.
 </p>
 
@@ -143,12 +142,12 @@ can only be used as a parameter to the operations described on this page.
 
 <h4>Terminology Maintenance</h4>
 <p>
-The terminology service uses the value set resources defined on the system - both
+The terminology service uses the code systems and value set resources defined on the system - both
 the implicit ones associated with the external code systems and those explicitly
-available at the /ValueSet endpoint - to serve the operational interface defined below.
-As value sets are created, updated or deleted, the outcomes of the operational services
-change. A terminology server should validate incoming resources, and ensure integrity
-of the terminology services. Typically, servers would provide a test and production
+available at the /CodeSystem and /ValueSet endpoints - to serve the operational interface defined below.
+As code systems and value sets are created, updated or deleted, the outcomes of the operational 
+services change. A terminology server should validate incoming resources, and ensure integrity
+of the terminology services. Typically, servers provide a test and production
 environment, but there is no explicit notion of this in the interface itself.
 </p>
 
@@ -177,7 +176,7 @@ The server returns a value set that contains the current list of codes that meet
 Note that some value sets expand to many thousands of codes, or even an infinite number,
 and for these, the server SHOULD return an <a href="valueset-issue-type.html#too-costly">error code
 <i>too-costly</i></a>. In these cases the client can try again with a more specific text filter
-to reduce the number of codes returned.
+to reduce the number of codes returned - this may result in a valid expansion.
 </p>
 <p>
 For further information, consult the <a href="valueset-operations.html#expand">definition of the operation</a>.
@@ -258,50 +257,65 @@ HTTP/1.1 200 OK
 <h3>Concept Lookup</h3>
 <p>
 A system can ask a terminology server to return a set of information about a particular system/code
-combination using <a href="valueset-operations.html#lookup">the lookup operation</a>. The server returns information for both display and processing
+combination using <a href="codesystem-operations.html#lookup">the lookup operation</a>. The server returns information for both display and processing
 purposes. The client passes the server the following information:
 </p>
 <ul>
- <li> the code value (either a code + system, or a Coding data type)</li>
+ <li> the code value (either a code, or a Coding data type)</li>
+ <li> (Optionally) the id or the url of the code system in which the code is being checked</li>
  <li> (Optionally) a date at which the code information should be returned (usually, this is the current date/time, but there are circumstances where that is not appropriate)</li>
+ <li> (Optionally) a set of properties to return about the code</li>
 </ul>
 <p>
-The server returns the following information:
+The server returns some or all of the following information:
 </p>
 <ul>
  <li> a human description of the system</li>
  <li> a recommended display for the code </li>
- <li> whether the code is abstract or not</li>
+ <li> properties of the code</li>
  <li> other designations for the code (a value, optionally with language and/or a use code)</li>
+ <li> relationships between this code and other codes</li>
 </ul>
 <p>
 The recommended display for the code is a text representation of the code
 that the terminology server recommends as the default choice to show
 to the user, though a  client may choose out of the other designations if it has reason to.
 </p>
+<p>
+If the client does not ask for any particular properties to be returned, it is at the discretion
+of the server to decide which properties to return.
+</p>
+
 
 <div class="example">
 <p><b>Examples</b></p>
 <p>
-Looking up a code/system:
+Looking up a code in a code system:
 </p>
 <pre class="http">
-GET [base]/ValueSet/$lookup?system=http://loinc.org&amp;code=1963-8
+GET [base]/CodeSystem/loinc/$lookup?code=1963-8
 </pre>
 <p>
-Lookup using a Coding (this example in XML):
+Note that the logical id "loinc" is not a reliable identifer across systems; each server assigns
+logical ids to code system resources however it sees fit. A more reliable query is this:
 </p>
 <pre class="http">
-POST [base]/ValueSet/$lookup
+GET [base]/CodeSystem/$lookup?url=http://loinc.org&amp;code=1963-8&amp;properties=code,display,designations
+</pre>
+<p>
+Lookup the code system using a Coding (this example in XML):
+</p>
+<pre class="http">
+POST [base]/CodeSystem/$lookup
 [other headers]
 
 &lt;Parameters xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;parameter&gt;
     &lt;name value=&quot;coding&quot;/&gt;
-  &lt;valueCoding&gt;
-    &lt;system value=&quot;http://loinc.org&quot;/&gt;
-    &lt;code value=&quot;1963-8&quot;/&gt;
-  &lt;/valueCoding&gt;
+    &lt;valueCoding&gt;
+      &lt;system value=&quot;http://loinc.org&quot;/&gt;
+      &lt;code value=&quot;1963-8&quot;/&gt;
+    &lt;/valueCoding&gt;
   &lt;/parameter&gt;
 &lt;/Parameters&gt;
 </pre>
@@ -324,30 +338,63 @@ HTTP/1.1 200 OK
     "valueString" : "2.48"
   },
   {
-    "name" : "designation",
+    "name" : "display",
     "valueString" : "Bicarbonate [Moles/volume] in Serum"
   },
   {
     "name" : "abstract",
     "valueString" : "false"
-  },
-  {
-      "name" : "designation",
-    "part" : [
-    {
-      "name" : "value",
-      "valueString" : "Bicarbonate [Moles/volume] in Serum "
-    }
-    ]
   }
   ]
 }
 </pre>
+
+<p>
+Thie following properties are defined:
+</p>
+<table class="grid">
+ <tr>
+  <td><b>Name</b></td>
+  <td><b>Usage</b></td>
+ </tr>
+ <tr>
+  <td>system</td>
+  <td>The name of the code ssystem</td>
+ </tr>
+ <tr>
+  <td>version</td>
+  <td>The version of the code system used for the look up operation</td>
+ </tr>
+ <tr>
+  <td>display</td>
+  <td>The recommended display for the code, if one is known</td>
+ </tr>
+ <tr>
+  <td>definition</td>
+  <td>The definition for the code</td>
+ </tr>
+ <tr>
+  <td>designation</td>
+  <td>Other designations for the code</td>
+ </tr>
+ <tr>
+  <td>parent</td>
+  <td>Parent codes for this code (for code systems with a defined heirarchy)</td>
+ </tr>
+ <tr>
+  <td>child</td>
+  <td>child codes of this code (for code systems with a defined heirarchy)</td>
+ </tr>
+</table>
+<p>
+In addition, any property codes defined by the code system (CodeSysem.property.code) can be used.
+</p>
+
 </div>
 
 <h3>Value Set Validation</h3>
 <p>
-One of the ways to determine whether a code is in a value set is to expand the value set
+One way to determine whether a code is in a value set is to expand the value set
 (as described above), and then look at the returned codes to see if the code is in the expansion.
 However this is not an efficient way to test whether a code is valid, and for some value sets
 (e.g. with infinite number of members), it cannot work. Instead, a FHIR terminology server
@@ -370,7 +417,7 @@ multiple codings are allowed and/or the codings provided are consistent with eac
 </p>
 <p>
 Every code system has an implicit value set that is "all the concepts defined
-in the code system". For some code systems, these value set URIs are defined
+in the code system" (CodeSystem.valueSet). For some code systems, these value set URIs are defined
 in advance (e.g. for <a href="loinc.html">LOINC</a>, it is <code>http://loinc.org/vs</code>).
 However for some code systems, they are not known. Clients can refer to these implicit
 value sets by providing the URI for the code system itself.

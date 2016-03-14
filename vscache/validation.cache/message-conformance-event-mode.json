@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "receiver",
+        "abstract": false,
+        "code": "receiver",
         "definition": null,
         "display": "Receiver"
       }

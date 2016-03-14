@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "procedure",
+        "abstract": false,
+        "code": "procedure",
         "definition": null,
         "display": "Procedure"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "encounter",
+        "abstract": false,
+        "code": "encounter",
         "definition": null,
         "display": "Encounter"
       }

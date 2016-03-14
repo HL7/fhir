@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "legal",
+        "abstract": false,
+        "code": "legal",
         "definition": null,
         "display": "Legal"
       }

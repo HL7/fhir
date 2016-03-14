@@ -1,9 +1,9 @@
 // Looking up a code/system
-GET [base]/ValueSet/$lookup?system=http://loinc.org&code=1963-8
+GET [base]/CodeSystem/$lookup?system=http://loinc.org&code=1963-8
 
 --------------------------------------
 // Lookup using a Coding 
-POST [base]/ValueSet/$lookup
+POST [base]/CodeSystem/$lookup
 [other headers]
 
 <Parameters xmlns="http://hl7.org/fhir">

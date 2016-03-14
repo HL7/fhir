@@ -7,12 +7,12 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://hl7.org/fhir/consent-term-type-codes|null|withhold-authored-by|Withhold all data authored by specified actor entity.",
+      "hash": "#|http://hl7.org/fhir/consent-term-type-codes|null|withhold-object-type|null",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://hl7.org/fhir/consent-term-type-codes|null|withhold-object-type|null",
+      "hash": "#|http://hl7.org/fhir/consent-term-type-codes|null|withhold-authored-by|Withhold all data authored by specified actor entity.",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },

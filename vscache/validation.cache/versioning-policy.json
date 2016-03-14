@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "versioned-update",
+        "abstract": false,
+        "code": "versioned-update",
         "definition": null,
         "display": "VersionId tracked fully"
       }

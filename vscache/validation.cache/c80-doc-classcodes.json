@@ -11,7 +11,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "47039-3",
+        "abstract": false,
+        "code": "47039-3",
         "definition": null,
         "display": "Inpatient Admission history and physical note"
       }

@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "resource",
+        "abstract": false,
+        "code": "resource",
         "definition": null,
         "display": "Resource"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "datatype",
+        "abstract": false,
+        "code": "datatype",
         "definition": null,
         "display": "Datatype"
       }

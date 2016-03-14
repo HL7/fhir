@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "in",
+        "abstract": false,
+        "code": "in",
         "definition": null,
         "display": "In"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "out",
+        "abstract": false,
+        "code": "out",
         "definition": null,
         "display": "Out"
       }

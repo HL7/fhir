@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "rejected",
+        "abstract": false,
+        "code": "rejected",
         "definition": null,
         "display": "Rejected"
       }

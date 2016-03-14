@@ -16,7 +16,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Cardiac chest pain (finding)"
       }

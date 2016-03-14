@@ -121,6 +121,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.FilterOperator;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -1975,14 +1976,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     boolean hierarchy = false;
     for (ConceptDefinitionComponent c : cs.getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
-      deprecated = deprecated || conceptsHaveDeprecated(c);
+      deprecated = deprecated || conceptsHaveDeprecated(cs, c);
       display = display || conceptsHaveDisplay(c);
       hierarchy = hierarchy || c.hasConcept();
       scanLangs(c, langs);
     }
     addMapHeaders(addTableHeaderRowStandard(t, hierarchy, display, true, commentS, deprecated), mymaps);
     for (ConceptDefinitionComponent c : cs.getConcept()) {
-      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, deprecated, mymaps, cs.getUrl()) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, deprecated, mymaps, cs.getUrl(), cs) || hasExtensions;
     }
     if (langs.size() > 0) {
       Collections.sort(langs);
@@ -2235,11 +2236,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return false;
   }
 
-  private boolean conceptsHaveDeprecated(ConceptDefinitionComponent c) {
-    if (ToolingExtensions.hasDeprecated(c))
+  private boolean conceptsHaveDeprecated(CodeSystem cs, ConceptDefinitionComponent c) {
+    if (CodeSystemUtilities.isDeprecated(cs, c))
       return true;
     for (ConceptDefinitionComponent g : c.getConcept())
-      if (conceptsHaveDeprecated(g))
+      if (conceptsHaveDeprecated(cs, g))
         return true;
     return false;
   }
@@ -2316,7 +2317,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHierarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps, String system) {
+  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHierarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps, String system, CodeSystem cs) {
     boolean hasExtensions = false;
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
@@ -2344,7 +2345,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       smartAddText(td, c.getDefinition());
     if (deprecated) {
       td = tr.addTag("td");
-      Boolean b = ToolingExtensions.getDeprecated(c);
+      Boolean b = CodeSystemUtilities.isDeprecated(cs, c);
       if (b !=  null && b) {
         smartAddText(td, "Deprecated");
         hasExtensions = true;
@@ -2397,7 +2398,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       a.addText(c.getCode());
     }
     for (ConceptDefinitionComponent cc : c.getConcept()) {
-      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHierarchy, hasDisplay, comment, deprecated, maps, system) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHierarchy, hasDisplay, comment, deprecated, maps, system, cs) || hasExtensions;
     }
     return hasExtensions;
   }

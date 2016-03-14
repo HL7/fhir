@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "source",
+        "abstract": false,
+        "code": "source",
         "definition": null,
         "display": "Source of truth"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "alternate",
+        "abstract": false,
+        "code": "alternate",
         "definition": null,
         "display": "Alternate record"
       }

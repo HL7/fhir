@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "suspended",
+        "abstract": false,
+        "code": "suspended",
         "definition": null,
         "display": "Suspended"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "active",
+        "abstract": false,
+        "code": "active",
         "definition": null,
         "display": "Active"
       }

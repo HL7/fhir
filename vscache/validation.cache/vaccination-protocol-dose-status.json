@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "count",
+        "abstract": false,
+        "code": "count",
         "definition": null,
         "display": "Counts"
       }

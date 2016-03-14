@@ -11,7 +11,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "900000000000003001",
+        "abstract": false,
+        "code": "900000000000003001",
         "definition": null,
         "display": "Fully specified name"
       }

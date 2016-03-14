@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "noguidelines",
+        "abstract": false,
+        "code": "noguidelines",
         "definition": null,
         "display": "No Guidelines Apply"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "outside",
+        "abstract": false,
+        "code": "outside",
         "definition": null,
         "display": "Outside Guidelines"
       }

@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "R",
+        "abstract": false,
+        "code": "R",
         "definition": null,
         "display": "Read/View/Print"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "E",
+        "abstract": false,
+        "code": "E",
         "definition": null,
         "display": "Execute"
       }

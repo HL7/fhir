@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "HEALTHREC",
+        "abstract": false,
+        "code": "HEALTHREC",
         "definition": null,
         "display": "health record"
       }

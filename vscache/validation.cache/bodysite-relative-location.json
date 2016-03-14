@@ -11,7 +11,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "261183002",
+        "abstract": false,
+        "code": "261183002",
         "definition": null,
         "display": "Upper"
       }
@@ -21,7 +22,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "419161000",
+        "abstract": false,
+        "code": "419161000",
         "definition": null,
         "display": "Unilateral left"
       }
