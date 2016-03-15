@@ -463,7 +463,7 @@
   Must Support = Y
 
  -- Row 30 -----------------------------------
-  Element = Practitioner.practitionerRole.managingOrganization
+  Element = Practitioner.practitionerRole.organization
   Card. = 1..1
   Must Support = Y
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/uslab-orderfacility}

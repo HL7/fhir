@@ -15,9 +15,9 @@ source data from http://wiki.ihe.net/index.php?title=Annotated_ProvideAndRegiste
 				<given value="Gerald"/>
 			</name>
 			<practitionerRole>
-				<managingOrganization>
+				<organization>
 					<display value="Cleveland Clinic"/>
-				</managingOrganization>
+				</organization>
 				<role>
 					<text value="Attending"/>
 				</role>

@@ -22,9 +22,9 @@
 
   <practitionerRole>
 
-    <managingOrganization>
+    <organization>
       <reference value="Organization/1"/>
-    </managingOrganization>
+    </organization>
 
     <role>
       <coding>

@@ -47,10 +47,10 @@
     <birthDate value="1980-02-04"/>
 
 	<practitionerRole>
-	<managingOrganization>
+	<organization>
         <reference value="Organization/f001"/>
         <display value="BMC"/>
-    </managingOrganization>
+    </organization>
     <role>
         <coding>
             <system value="urn:oid:2.16.840.1.113883.2.4.15.111"/>

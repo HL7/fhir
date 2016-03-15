@@ -15,9 +15,9 @@
   </telecom>
   <practitionerRole>
 
-    <managingOrganization>
+    <organization>
       <display value="Cleveland Clinic"/>
-    </managingOrganization>
+    </organization>
 
     <role>
       <text value="Primary Surgon"/>

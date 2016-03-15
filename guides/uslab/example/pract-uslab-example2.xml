@@ -55,9 +55,9 @@ Authored by: Eric M Haas  Health eData Inc.
 		<country value="USA"/>
 	</address>
 	<practitionerRole>
-	<managingOrganization>
+	<organization>
 		<reference value="Organization/org-uslab-example1"/>
 		<display value="Children's Hospital"/>
-	</managingOrganization>
+	</organization>
 	</practitionerRole>
 </Practitioner>

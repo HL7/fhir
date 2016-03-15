@@ -38,10 +38,10 @@
         <display value="Picture_Juri_van_Gelder"/>
     </photo>-->
 		<practitionerRole>
-  <managingOrganization>
+  <organization>
      <reference value="Organization/f201"/>
      <display value="AUMC"/>
- </managingOrganization>
+ </organization>
  <role>
      <coding>
         <system value="http://snomed.info/sct"/>

@@ -478,9 +478,9 @@
 
  -- Row 4 -----------------------------------
   Name = vslookup
-  Identity = ValueSet-lookup
+  Identity = CodeSystem-lookup
   Description = ValueSet Lookup
-  Filename = operation-valueset-lookup.xml
+  Filename = operation-codesystem-lookup.xml
   Type = tool
 
  -- Row 5 -----------------------------------

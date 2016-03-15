@@ -113,7 +113,7 @@
   Element = Practitioner.practitionerRole
 
  -- Row 13 -----------------------------------
-  Element = Practitioner.practitionerRole.managingOrganization
+  Element = Practitioner.practitionerRole.organization
   Must Support = Y
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
 

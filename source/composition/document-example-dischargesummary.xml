@@ -232,9 +232,9 @@
           <prefix value="Dr"/>
         </name>
         <practitionerRole>
-          <managingOrganization>
+          <organization>
             <reference value="Organization/1"/>
-          </managingOrganization>
+          </organization>
         <!--     Referring Practitioner for the first 3 months of 2012     -->
           <role>
             <coding>

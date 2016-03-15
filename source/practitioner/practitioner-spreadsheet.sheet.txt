@@ -83,10 +83,10 @@
   Card. = 0..*
   Summary = y
   Type = ContactPoint
-  Short Label = A contact detail for the practitioner
+  Short Label = A contact detail for the practitioner (that apply to all roles)
   Definition = A contact detail for the practitioner, e.g. a telephone number or an email address.
-  Requirements = Need to know how to reach a practitioner
-  Comments = Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification
+  Requirements = Need to know how to reach a practitioner independent to any roles the practitioner may have
+  Comments = Person may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification\n\nThese typically will have home numbers, or mobile numbers that are not role specific.
   v2 Mapping = PRT-15, STF-10, ROL-12
   RIM Mapping = ./telecom
   ServD Mapping = ./ContactPoints
@@ -96,9 +96,10 @@
   Card. = 0..*
   Summary = y
   Type = Address
-  Short Label = Where practitioner can be found/visited
-  Definition = The postal address where the practitioner can be found or visited or to which mail can be delivered
-  Requirements = Need to keep track where the practitioner can found during work or for directing mail
+  Short Label = Address(es) of the practitioner that are not role specific (typically home address)
+  Definition = Address(es) of the practitioner that are not role specific (typically home address). \nWork addresses are not typically entered in this property as they are usually role dependent.
+  Requirements = The home/mailing address of the practitioner is often required for employee administration purposes, and also for some rostering services where the start point (practitioners home) can be used in calculations.
+  Comments = The PractitionerRole does not have an address value on it, as it is expected that the location property be used for this purpose (which has an address)
   v2 Mapping = ORC-24, STF-11, ROL-11, PRT-14
   RIM Mapping = ./addr
   ServD Mapping = ./Addresses
@@ -156,10 +157,11 @@
   UML = 400;20
   Short Label = Roles/organizations the practitioner is associated with
   Definition = The list of roles/organizations that the practitioner is associated with
+  Comments = The address to be used for this PractitionerRole is in the referenced location (removing duplication across all the services provided at the location)
   RIM Mapping = .(Role)
 
  -- Row 12 -----------------------------------
-  Element = Practitioner.practitionerRole.managingOrganization
+  Element = Practitioner.practitionerRole.organization
   Card. = 0..1
   Type = Reference(Organization)
   Short Label = Organization where the roles are performed
@@ -193,6 +195,22 @@
   ServD Mapping = ./Specialty
 
  -- Row 15 -----------------------------------
+  Element = Practitioner.practitionerRole.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = Business Identifiers that are specific to a role/location
+  Requirements = Some business identifiers are specific to a location and should be able to be associated.
+
+ -- Row 16 -----------------------------------
+  Element = Practitioner.practitionerRole.telecom
+  Card. = 0..*
+  Summary = y
+  Type = ContactPoint
+  Short Label = Contact details that are specific to the role/location/service
+  Requirements = Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these.
+
+ -- Row 17 -----------------------------------
   Element = Practitioner.practitionerRole.period
   Card. = 0..1
   Summary = y
@@ -206,7 +224,7 @@
   Committee Notes = Is this separate from the period of validity of the qualification?
   w5 = when.done
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Practitioner.practitionerRole.location
   Card. = 0..*
   Type = Reference(Location)
@@ -216,14 +234,14 @@
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)<br/> However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)
   w5 = where
 
- -- Row 17 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Practitioner.practitionerRole.healthcareService
   Card. = 0..*
   Type = Reference(HealthcareService)
   Short Label = The list of healthcare services that this worker provides for this role\'s Organization/Location(s)
   RIM Mapping = ./target[classCode=\"indirectAuthority].id?
 
- -- Row 18 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Practitioner.qualification
   Card. = 0..*
   UML = 380;180
@@ -232,7 +250,7 @@
   RIM Mapping = ./indirectAuthority/QualifiedEntity[code < qualifiedEntity]
   ServD Mapping = ./Qualifications
 
- -- Row 19 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Practitioner.qualification.identifier
   Card. = 0..*
   Type = Identifier
@@ -241,7 +259,7 @@
   Requirements = Often, specific identities are assigned for the qualification
   RIM Mapping = ./id
 
- -- Row 20 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Practitioner.qualification.code
   Card. = 1..1
   Type = CodeableConcept
@@ -250,7 +268,7 @@
   RIM Mapping = ./code
   ServD Mapping = ./Qualifications.Value
 
- -- Row 21 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Practitioner.qualification.period
   Card. = 0..1
   Type = Period
@@ -260,7 +278,7 @@
   RIM Mapping = ./effectiveTime
   ServD Mapping = ./Qualifications.StartDate and ./Qualifications.EndDate
 
- -- Row 22 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Practitioner.qualification.issuer
   Card. = 0..1
   Type = Reference(Organization)
@@ -268,7 +286,7 @@
   Definition = Organization that regulates and issues the qualification
   RIM Mapping = ./scoper
 
- -- Row 23 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Practitioner.communication
   Card. = 0..*
   Type = CodeableConcept
@@ -288,7 +306,7 @@
   Name = identifier
   Type = token
   Description = A practitioner\'s Identifier
-  Path = Practitioner.identifier
+  Path = Practitioner.identifier | Practitioner.practitionerRole.identifier
 
  -- Row 2 -----------------------------------
   Name = name
@@ -319,19 +337,19 @@
   Name = telecom
   Type = token
   Description = The value in any kind of contact
-  Path = Practitioner.telecom
+  Path = Practitioner.telecom | Practitioner.practitionerRole.telecom
 
  -- Row 7 -----------------------------------
   Name = phone
   Type = token
   Description = A value in a phone contact
-  Path = Practitioner.telecom(system=phone)
+  Path = Practitioner.telecom(system=phone) | Practitioner.practitionerRole.telecom(system=phone)
 
  -- Row 8 -----------------------------------
   Name = email
   Type = token
   Description = A value in an email contact
-  Path = Practitioner.telecom(system=email)
+  Path = Practitioner.telecom(system=email) | Practitioner.practitionerRole.telecom(system=email)
 
  -- Row 9 -----------------------------------
   Name = address
@@ -379,7 +397,7 @@
   Name = organization
   Type = reference
   Description = The identity of the organization the practitioner represents / acts on behalf of
-  Path = Practitioner.practitionerRole.managingOrganization
+  Path = Practitioner.practitionerRole.organization
 
  -- Row 17 -----------------------------------
   Name = communication
