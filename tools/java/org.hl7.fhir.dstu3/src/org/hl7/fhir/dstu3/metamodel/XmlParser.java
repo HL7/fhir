@@ -145,7 +145,7 @@ public class XmlParser extends ParserBase {
 	}
 
 	@Override
-  public void compose(Element e, OutputStream destination, OutputStyle style) throws Exception {
+  public void compose(Element e, OutputStream destination, OutputStyle style, String identity) throws Exception {
     throw new NotImplementedException("not done yet");
   }
 }

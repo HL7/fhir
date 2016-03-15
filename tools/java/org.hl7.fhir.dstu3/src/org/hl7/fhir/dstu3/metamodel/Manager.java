@@ -14,8 +14,8 @@ public class Manager {
     return makeParser(context, inputFormat, check).parse(source);
   }
 
-  public static void compose(IWorkerContext context, Element e, OutputStream destination, FhirFormat outputFormat, OutputStyle style) throws Exception {
-    makeParser(context, outputFormat, false).compose(e, destination, style);
+  public static void compose(IWorkerContext context, Element e, OutputStream destination, FhirFormat outputFormat, OutputStyle style, String identity) throws Exception {
+    makeParser(context, outputFormat, false).compose(e, destination, style, identity);
   }
 
   private static ParserBase makeParser(IWorkerContext context, FhirFormat format, boolean check) {

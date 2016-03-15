@@ -3580,12 +3580,14 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     // queue for json and canonical XML generation processing
     e.setResourceName(resourceName);
+    String canonical = "http://hl7.org/fhir/"+resourceName+"/"+e.getId();
+    
     org.hl7.fhir.dstu3.metamodel.Element ex = Manager.parse(page.getWorkerContext(), new CSFileInputStream(page.getFolders().dstDir + prefix+n + ".xml"), FhirFormat.XML, true);
-    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".json"), FhirFormat.JSON, OutputStyle.PRETTY); 
-    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".jsonld"), FhirFormat.JSONLD, OutputStyle.PRETTY); 
+    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".json"), FhirFormat.JSON, OutputStyle.PRETTY, canonical); 
+    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".jsonld"), FhirFormat.JSONLD, OutputStyle.PRETTY, canonical); 
 //    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(Utilities.changeFileExt(destName, ".canonical.json")), FhirFormat.JSON, OutputStyle.CANONICAL); 
 //    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(Utilities.changeFileExt(destName, ".canonical.xml")), FhirFormat.XML, OutputStyle.CANONICAL); 
-    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".ttl"), FhirFormat.TURTLE, OutputStyle.PRETTY); 
+    Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".ttl"), FhirFormat.TURTLE, OutputStyle.PRETTY, canonical); 
     
     String json = TextFile.fileToString(page.getFolders().dstDir + prefix+n + ".json");
     //        String json2 = "<div class=\"example\">\r\n<p>" + Utilities.escapeXml(e.getDescription()) + "</p>\r\n<p><a href=\""+ n + ".json\">Raw JSON</a> (<a href=\""+n + ".canonical.json\">Canonical</a>)</p>\r\n<pre class=\"json\">\r\n" + Utilities.escapeXml(json)

@@ -21,18 +21,21 @@ public class TurtleParser extends ParserBase {
     throw new NotImplementedException("not done yet");
   }
   @Override
-  public void compose(Element e, OutputStream stream, OutputStyle style) throws Exception {
+  public void compose(Element e, OutputStream stream, OutputStyle style, String identity) throws Exception {
 		RdfGenerator ttl = new RdfGenerator(stream);
 		//      ttl.setFormat(FFormat);
 		ttl.prefix("fhir", "http://hl7.org/fhir/");
 		ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+		ttl.prefix("owl", "http://www.w3.org/2002/07/owl#");
+		
 		Section section = ttl.section("resource");
 		Subject subject;
-//		if (url != null) 
-//			subject = section.triple("<"+url+">", "a", "fhir:"+resource.getResourceType().toString());
-//		else
-		subject = section.triple("_:"+e.getChildValue("id"), "a", "fhir:"+e.getType());
-
+		if (identity != null) 
+			subject = section.triple("<"+identity+">", "a", "fhir:"+e.getType());
+		else
+		  subject = section.triple("_", "a", "fhir:"+e.getType());
+		subject.predicate("rdf:type", "owl:Ontology");
+		
 		for (Element child : e.getChildren()) {
 			composeElement(subject, child);
 		}

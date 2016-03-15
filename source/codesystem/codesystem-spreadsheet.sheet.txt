@@ -103,7 +103,7 @@
   UML = 0;0
   Type = DomainResource
   Short Label = A set of codes drawn from one or more code systems
-  Definition = A code system specifies a set of codes drawn from one or more code systems.
+  Definition = A code system resource specifies a set of codes drawn from one or more code systems.
   RIM Mapping = N/A
   w5 = conformance.terminology
 
