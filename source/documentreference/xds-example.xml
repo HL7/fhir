@@ -143,9 +143,9 @@
           <given value="Gerald"/>
         </name>
         <practitionerRole>
-          <managingOrganization>
+          <organization>
             <display value="Cleveland Clinic"/>
-          </managingOrganization>
+          </organization>
           <role>
             <coding>
               <code value="Attending"/>
@@ -158,9 +158,9 @@
           </specialty>
         </practitionerRole>
         <practitionerRole>
-          <managingOrganization>
+          <organization>
             <display value="Parma Community"/>
-          </managingOrganization>
+          </organization>
         </practitionerRole>
       </Practitioner>
     </resource>
@@ -188,9 +188,9 @@
           <given value="Sherry"/>
         </name>
         <practitionerRole>
-          <managingOrganization>
+          <organization>
             <display value="Cleveland Clinic"/>
-          </managingOrganization>
+          </organization>
           <role>
             <coding>
               <code value="Primary Surgon"/>
@@ -203,9 +203,9 @@
           </specialty>
         </practitionerRole>
         <practitionerRole>
-          <managingOrganization>
+          <organization>
             <display value="Berea Community"/>
-          </managingOrganization>
+          </organization>
         </practitionerRole>
       </Practitioner>
     </resource>
