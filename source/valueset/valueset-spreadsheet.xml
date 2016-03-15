@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>12885</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>16710</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -669,15 +669,6 @@
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
-   <Interior/>
-  </Style>
-  <Style ss:ID="s138">
-   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
-    ss:WrapText="1"/>
-   <Borders>
-    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
-   </Borders>
-   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
    <Interior/>
   </Style>
   <Style ss:ID="s139">
@@ -4452,7 +4443,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5307,7 +5297,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="63" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="49" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s116" ss:DefaultColumnWidth="51"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s116" ss:AutoFitWidth="0" ss:Width="171"/>
@@ -5478,162 +5468,6 @@
     <Cell ss:StyleID="s137"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">Resource</Data></Cell>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s135"/>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">operation</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">Concept Look Up</Data></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">Given a code/system, or a Coding, get additional details about the concept</Data></Cell>
-    <Cell ss:StyleID="s137"><Data ss:Type="String">Note that the $lookup operation is more than just a value set search  - the server finds the concept, and gathers the return information from the value set and the underlying code system definitions.</Data></Cell>
-    <Cell><Data ss:Type="String">$lookup-request.txt</Data></Cell>
-    <Cell><Data ss:Type="String">$lookup-response.txt</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup.code</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">in</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The code that is to be validated. If a code is provided, a system must be provided</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup.system</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">in</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">uri</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The system for the code that is to be validated</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup.version</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">in</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The version of the system, if one was provided in the source data</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup.coding</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">in</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">Coding</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">A coding to look up</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup.date</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">in</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">dateTime</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The date for which the information should be returned. Normally, this is the current conditions (which is the default value) but under some circumstances, systems need to acccess this information as it would have been in the past. A typical example of this would be where code selection is constrained to the set of codes that were available when the patient was treated, not when the record is being edited. Note that which date is appropriate is a matter for implementation policy.</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup.name</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">out</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">A display name for the code system</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup.version</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">out</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The version that these details are based on</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup.display</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">out</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">The preferred display for this concept </Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup.abstract</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">out</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">boolean</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">Whether this code is an abstract concept </Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s121"><Data ss:Type="String">lookup.designation</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">out</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="String">*</Data></Cell>
-    <Cell ss:StyleID="s122"><Data ss:Type="String">Tuple</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">Additional representations for this concept</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s138"><Data ss:Type="String">lookup.designation.language</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">code</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The language this designation is defined for </Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s138"><Data ss:Type="String">lookup.designation.use</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">0</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Coding</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A code that details how this designation would be used</Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s138"><Data ss:Type="String">lookup.designation.value</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s135"><Data ss:Type="Number">1</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">string</Data></Cell>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s122"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The text value for this designation </Data></Cell>
-    <Cell ss:StyleID="s137"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s121"><Data ss:Type="String">validate-code</Data></Cell>
     <Cell ss:StyleID="s122"><Data ss:Type="String">Resource | Instance</Data></Cell>
     <Cell ss:StyleID="s135"/>
@@ -5800,7 +5634,7 @@
     <Cell ss:StyleID="s136"><Data ss:Type="String">A valid display for the concept if the system wishes to display this to a user</Data></Cell>
     <Cell ss:StyleID="s137"/>
    </Row>
-   <Row ss:Index="44" ss:AutoFitHeight="0">
+   <Row ss:Index="30" ss:AutoFitHeight="0">
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s122"/>
     <Cell ss:StyleID="s135"/>
@@ -6024,10 +5858,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>7</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -6040,11 +5875,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
