@@ -98,18 +98,22 @@
     </xsl:element>
   </xsl:template>
   <!-- label, hidden, instruction, security, tooltip, style, markup -->
-  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-label']|
+  <xsl:template mode="upgradeQuestionnaire" match="f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-category']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-label']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-hidden']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-readOnly']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-deReference']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-deMap']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource']|
-                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-instruction']|
-                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-security']|
-                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-help']|
-                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-tooltip']| 
-                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-trailing']|
-                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-units']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength']|
-                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/questionnaire-sdc-endpoint']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-endpoint']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-optionalDisplay']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/sdc-questionnaire-provenanceSignatureRequired']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/valueset-conceptOrder']|
+                                                   f:extension[@url='http://hl7.org/fhir/StructureDefinition/valueset-label']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/minLength']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/regex']|
                                                    f:extension[@url='http://hl7.org/fhir/StructureDefinition/entryFormat']|
@@ -135,6 +139,25 @@
     </xsl:variable>
     <xsl:element name="_{$baseName}" namespace="http://hl7.org/fhir">
       <xsl:for-each select="*">
+        <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
+      </xsl:for-each>
+    </xsl:element>  
+  </xsl:template>
+  <xsl:template match="f:item[f:type/@value='display']">
+    <xsl:variable name="baseName">
+      <!-- Todo: Add support for prompt, upper, lower; handle _instruction, _security and _trailing as display -->
+      <xsl:choose>
+        <xsl:when test="f:extension[@url='http://hl7.org/fhir/StructureDefinition/itemControl']/f:valueCodeableConcept/f:coding/f:code/@value='prompt'">prompt</xsl:when>
+        <xsl:when test="f:extension[@url='http://hl7.org/fhir/StructureDefinition/itemControl']/f:valueCodeableConcept/f:coding/f:code/@value='unit'">units</xsl:when>
+        <xsl:when test="f:extension[@url='http://hl7.org/fhir/StructureDefinition/itemControl']/f:valueCodeableConcept/f:coding/f:code/@value='lower'">lower</xsl:when>
+        <xsl:when test="f:extension[@url='http://hl7.org/fhir/StructureDefinition/itemControl']/f:valueCodeableConcept/f:coding/f:code/@value='upper'">upper</xsl:when>
+        <xsl:when test="f:extension[@url='http://hl7.org/fhir/StructureDefinition/itemControl']/f:valueCodeableConcept/f:coding/f:code/@value='flyover'">tooltip</xsl:when>
+        <xsl:when test="f:extension[@url='http://hl7.org/fhir/StructureDefinition/itemControl']/f:valueCodeableConcept/f:coding/f:code/@value='help'">help</xsl:when>
+        <xsl:otherwise>display</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:element name="_{$baseName}" namespace="http://hl7.org/fhir">
+      <xsl:for-each select="*[not(self::f:extension[@url='http://hl7.org/fhir/StructureDefinition/itemControl'])]">
         <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
       </xsl:for-each>
     </xsl:element>  
@@ -167,21 +190,12 @@
       <xsl:copy-of select="@*|node()"/>
     </f:code>
   </xsl:template>
-  <xsl:template mode="upgradeQuestionnaire" match="f:group">
-    <xsl:choose>
-      <xsl:when test="f:text/@value!='' or f:title/@value!='' or f:group or count(f:question)&gt;1 or count(f:extension[@url='http://www.healthintersections.com.au/fhir/StructureDefinition/metadata-type'])!=0 or f:repeats/@value='true'">
-        <xsl:copy>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
-          <xsl:call-template name="upgradeCardinality"/>
-          <xsl:apply-templates mode="upgradeQuestionnaire" select="node()"/>
-        </xsl:copy>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates mode="upgradeQuestionnaire" select="f:question">
-          <xsl:with-param name="additionalPrefix" select="concat(f:linkId/@value, '[1]')"/>
-        </xsl:apply-templates>
-      </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template mode="upgradeQuestionnaire" match="f:item[f:type/@value='group']">
+    <f:group>
+      <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
+      <xsl:call-template name="upgradeCardinality"/>
+      <xsl:apply-templates mode="upgradeQuestionnaire" select="node()"/>
+    </f:group>
   </xsl:template>
   <xsl:template name="upgradeCardinality">
     <f:_minOccurs>
@@ -220,14 +234,14 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  <xsl:template mode="upgradeQuestionnaire" match="f:header">
+<!--  <xsl:template mode="upgradeQuestionnaire" match="f:header">
     <f:title>
       <xsl:apply-templates mode="upgradeQuestionnaire" select="@*|node()"/>
     </f:title>
-  </xsl:template>
-  <xsl:template mode="upgradeQuestionnaire" match="f:question">
+  </xsl:template>-->
+  <xsl:template mode="upgradeQuestionnaire" match="f:item[not(f:type/@value='display' or f:type/@value='group')]">
     <xsl:param name="additionalPrefix"/>
-    <xsl:copy>
+    <f:question>
       <xsl:apply-templates mode="upgradeQuestionnaire" select="@*"/>
       <xsl:call-template name="upgradeCardinality"/>
       <xsl:if test="f:type[@value='choice' or @value='open-choice']">
@@ -270,7 +284,7 @@
       <xsl:apply-templates mode="upgradeQuestionnaire" select="node()">
         <xsl:with-param name="additionalPrefix" select="$additionalPrefix"/>
       </xsl:apply-templates>
-    </xsl:copy>
+    </f:question>
   </xsl:template>
   <xsl:template mode="upgradeQuestionnaire" match="f:linkId">
     <xsl:param name="additionalPrefix"/>
@@ -2738,7 +2752,7 @@ function closeReferenceSelect() {
         <xsl:for-each select="f:expansion//f:contains">
           <xsl:if test="not(f:abstract/@value='true')">
             <f:coding>
-              <xsl:copy-of select="f:system|f:version|f:code|f:display|f:extension"/>
+              <xsl:apply-templates mode="upgradeQuestionnaire" select="f:system|f:version|f:code|f:display|f:extension"/>
             </f:coding>
           </xsl:if>
         </xsl:for-each>
@@ -2754,17 +2768,17 @@ function closeReferenceSelect() {
         <xsl:for-each select="f:define//f:concept">
           <xsl:if test="not(f:abstract/@value='true')">
             <f:coding>
-              <xsl:copy-of select="f:extension"/>
-              <xsl:copy-of select="parent::f:define/f:system|parent::f:define/f:version"/>
-              <xsl:copy-of select="f:code|f:display|f:definition"/>
+              <xsl:apply-templates mode="upgradeQuestionnaire" select="f:extension"/>
+              <xsl:apply-templates mode="upgradeQuestionnaire" select="parent::f:define/f:system|parent::f:define/f:version"/>
+              <xsl:apply-templates mode="upgradeQuestionnaire" select="f:code|f:display|f:definition"/>
             </f:coding>
           </xsl:if>
         </xsl:for-each>
         <xsl:for-each select="f:compose/f:include/f:concept">
           <f:coding>
-            <xsl:copy-of select="f:extension"/>
-            <xsl:copy-of select="parent::f:include/f:system|parent::f:include/f:version"/>
-            <xsl:copy-of select="f:code|f:display"/>
+            <xsl:apply-templates mode="upgradeQuestionnaire" select="f:extension"/>
+            <xsl:apply-templates mode="upgradeQuestionnaire" select="parent::f:include/f:system|parent::f:include/f:version"/>
+            <xsl:apply-templates mode="upgradeQuestionnaire" select="f:code|f:display"/>
           </f:coding>
         </xsl:for-each>
       </xsl:otherwise>
@@ -2795,4 +2809,3 @@ function closeReferenceSelect() {
     </xsl:choose>
   </xsl:template>
 </xsl:stylesheet>
-
