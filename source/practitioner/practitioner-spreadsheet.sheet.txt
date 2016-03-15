@@ -67,12 +67,13 @@
 
  -- Row 4 -----------------------------------
   Element = Practitioner.name
-  Card. = 0..1
+  Card. = 0..*
   Summary = y
   Type = HumanName
-  Short Label = A name associated with the person
-  Definition = A name associated with the person
-  Requirements = Contact persons need to be identified by name, but it is uncommon to need details about multiple other names for that person
+  Short Label = The name(s) associated with the practitioner
+  Definition = The name(s) associated with the practitioner
+  Requirements = The name(s) that a Practitioner is known by. Where there are multiple, the name that the practitioner is usually known as should be used in the display.
+  Comments = The selection of the use property should ensure that there is a single usual name specified, and others use the nickname (alias), old, or other values as appropriate.\n\nIn general select the value to be used in the ResourceReference.display based on this:\n\n1. There is more than 1 name\n2. Use = usual\n3. Period is current to the date of the usage\n4. Use = official\n5. Other order as decided by internal business rules.
   v2 Mapping = XCN Components
   RIM Mapping = ./name
   ServD Mapping = ./PreferredName (GivenNames, FamilyName, TitleCode)
