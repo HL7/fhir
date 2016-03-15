@@ -16,6 +16,7 @@
 	<description value="Discussion on the results of your recent MRI" />
 	<start value="2013-12-10T09:00:00Z" />
 	<end value="2013-12-10T11:00:00Z" />
+	<created value="2013-10-10" />
 	<comment value="Further expand on the results of the MRI and determine the next actions that may be appropriate." />
 	<participant>
 		<actor>

@@ -29,6 +29,7 @@
 	<slot>
 		<reference value="Slot/example" />
 	</slot>
+    <created value="2015-12-02" />
 	<comment value="Further expand on the results of the MRI and determine the next actions that may be appropriate." />
 	<participant>
 		<actor>
