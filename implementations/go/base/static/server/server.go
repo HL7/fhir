@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"net/http"
 
@@ -8,9 +9,13 @@ import (
 )
 
 func main() {
+	smartAuth := flag.Bool("smart", false, "Enables SMART Authorization")
+	log := flag.Bool("log", false, "Enable request logging")
+	flag.Parse()
 	s := server.NewServer("localhost")
 
-	s.Run()
+	config := server.Config{UseSmartAuth: *smartAuth, UseLoggingMiddleware: *log}
+	s.Run(config)
 }
 
 func HomeHandler(rw http.ResponseWriter, r *http.Request) {

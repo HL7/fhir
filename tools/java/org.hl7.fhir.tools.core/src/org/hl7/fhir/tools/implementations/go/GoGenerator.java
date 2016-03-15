@@ -144,6 +144,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "config.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "resource_controller.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "smart_auth.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server.go")), new File(Utilities.path(basedDir, "app")));
 
         ZipGenerator zip = new ZipGenerator(destDir + getReference(version));
@@ -175,7 +176,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.write("import \"github.com/labstack/echo\"");
         serverWriter.newLine();
         serverWriter.newLine();
-        serverWriter.write("func RegisterController(name string, e *echo.Echo, m []echo.Middleware) {");
+        serverWriter.write("func RegisterController(name string, e *echo.Echo, m []echo.Middleware, config Config) {");
         serverWriter.newLine();
         serverWriter.write("\trc := ResourceController{name}");
         serverWriter.newLine();
@@ -201,10 +202,16 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.newLine();
         serverWriter.write("\t}");
         serverWriter.newLine();
+        serverWriter.newLine();
+        serverWriter.write("\tif config.UseSmartAuth {");
+        serverWriter.newLine();
+        serverWriter.write("\t\trcBase.Use(SmartAuthHandler(name))");
+        serverWriter.newLine();
+        serverWriter.write("\t}");
         serverWriter.write("}");
         serverWriter.newLine();
         serverWriter.newLine();
-        serverWriter.write("func RegisterRoutes(e *echo.Echo, config map[string][]echo.Middleware) {");
+        serverWriter.write("func RegisterRoutes(e *echo.Echo, config map[string][]echo.Middleware, serverConfig Config) {");
         serverWriter.newLine();
         serverWriter.newLine();
         serverWriter.write("\t// Batch Support");
@@ -218,7 +225,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.newLine();
 
         for (String name : namesAndDefinitions.keySet()) {
-            serverWriter.write("\tRegisterController(\""+ name + "\", e, config[\"" + name + "\"])");
+            serverWriter.write("\tRegisterController(\""+ name + "\", e, config[\"" + name + "\"], serverConfig)");
             serverWriter.newLine();
         }
 

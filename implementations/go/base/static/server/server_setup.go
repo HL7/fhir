@@ -4,6 +4,7 @@ import (
 	"log"
 
 	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 	"gopkg.in/mgo.v2"
 )
 
@@ -23,7 +24,7 @@ func NewServer(databaseHost string) *FHIRServer {
 	return server
 }
 
-func (f *FHIRServer) Run() {
+func (f *FHIRServer) Run(config Config) {
 	var err error
 
 	// Setup the database
@@ -35,7 +36,9 @@ func (f *FHIRServer) Run() {
 
 	Database = MongoSession.DB("fhir")
 
-	RegisterRoutes(f.Echo, f.MiddlewareConfig)
-
+	if config.UseLoggingMiddleware {
+		f.Echo.Use(middleware.Logger())
+	}
+	RegisterRoutes(f.Echo, f.MiddlewareConfig, config)
 	f.Echo.Run(":3001")
 }
