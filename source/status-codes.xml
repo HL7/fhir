@@ -225,6 +225,8 @@
     <Cell><Data ss:Type="String">c21</Data></Cell>
     <Cell><Data ss:Type="String">c22</Data></Cell>
     <Cell><Data ss:Type="String">c23</Data></Cell>
+    <Cell><Data ss:Type="String">c24</Data></Cell>
+    <Cell><Data ss:Type="String">c25</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="40.050000000000004">
     <Cell><Data ss:Type="String" x:Ticked="1">@codes</Data></Cell>
@@ -251,6 +253,8 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">refuted</Data></Cell>
     <Cell><Data ss:Type="String">differential</Data></Cell>
     <Cell><Data ss:Type="String">partial</Data></Cell>
+    <Cell><Data ss:Type="String">busy-unavailable</Data></Cell>
+    <Cell><Data ss:Type="String">free</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="40.050000000000004">
     <Cell><Data ss:Type="String" x:Ticked="1">@code</Data></Cell>
@@ -277,6 +281,8 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">refuted</Data></Cell>
     <Cell><Data ss:Type="String">differential</Data></Cell>
     <Cell><Data ss:Type="String">partial</Data></Cell>
+    <Cell><Data ss:Type="String">busy-unavailable</Data></Cell>
+    <Cell><Data ss:Type="String">free</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="22.95">
     <Cell><Data ss:Type="String" x:Ticked="1">@definition</Data></Cell>
@@ -1677,7 +1683,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>4</SplitHorizontal>
-   <TopRowBottomPane>50</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -1694,8 +1700,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>63</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>1</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
