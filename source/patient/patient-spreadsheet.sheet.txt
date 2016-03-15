@@ -222,8 +222,9 @@
   Card. = 0..1
   Type = boolean|integer
   Short Label = Whether patient is part of a multiple birth
-  Definition = Indicates whether the patient is part of a multiple or indicates the actual birth order.
+  Definition = Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).
   Requirements = For disambiguation of multiple-birth children, especially relevant where the care provider doesn\'t meet the patient, such as labs.
+  Comments = Where the valueInteger is provided, the number is the birth number in the sequence.\nE.g. The middle birth in tripplets would be valueInteger=2 and the third born would have valueInteger=3
   v2 Mapping = PID-24 (bool), PID-25 (integer)
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthInd,  player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthOrderNumber
   CDA Mapping = n/a
