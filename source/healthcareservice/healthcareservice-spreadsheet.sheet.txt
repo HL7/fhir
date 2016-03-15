@@ -217,11 +217,11 @@
 
  -- Row 8 -----------------------------------
   Element = HealthcareService.location
-  Card. = 1..1
+  Card. = 0..*
   Summary = Y
   Type = Reference(Location)
-  Short Label = Location where service may be provided
-  Definition = The location where this healthcare service may be provided
+  Short Label = Location(s) where service may be provided
+  Definition = The location(s) where this healthcare service may be provided
   w5 = where
 
  -- Row 9 -----------------------------------
