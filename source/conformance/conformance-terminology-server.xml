@@ -219,7 +219,7 @@
     <operation>
       <name value="lookup"/>
       <definition>
-        <reference value="OperationDefinition/ValueSet-lookup"/>
+        <reference value="OperationDefinition/CodeSystem-lookup"/>
       </definition>
     </operation>
     <operation>
