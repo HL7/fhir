@@ -45,6 +45,14 @@
       <sourceUri value="StructureDefinition/ccda-care-plan-composition.xml"/>
     </resource>
     <resource>
+      <purpose value="profile"/>
+      <name value="C-CDA on FHIR Discharge Summary"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-consultation-note-composition"/>
+      <sourceUri value="StructureDefinition/ccda-discharge-summary-composition.xml"/>
+    </resource>
+    <resource>
       <purpose value="terminology"/>
       <name value="HL7 BasicConfidentialityKind"/>
       <description
