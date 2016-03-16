@@ -34,7 +34,7 @@ public class TurtleParser extends ParserBase {
 			subject = section.triple("<"+identity+">", "a", "fhir:"+e.getType());
 		else
 		  subject = section.triple("_", "a", "fhir:"+e.getType());
-		subject.predicate("rdf:type", "owl:Ontology");
+		subject.predicate("a", "owl:Ontology");
 		
 		for (Element child : e.getChildren()) {
 			composeElement(subject, child);
