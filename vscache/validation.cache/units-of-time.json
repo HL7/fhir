@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "d",
+        "abstract": false,
+        "code": "d",
         "definition": null,
         "display": "day"
       }

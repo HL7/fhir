@@ -6,18 +6,23 @@
   Binding = code list
   Reference = #task-performer-type
   Definition = The type(s) of task performers allowed
+  Description = A code describing the kind of performer that will act on this task.
+  Conformance = preferred
 
  -- Row 2 -----------------------------------
   Binding Name = TaskPriority
   Binding = code list
   Reference = #task-priority
   Definition = The task\'s priority
+  Description = The priority of a task (may affect service level applied to the task).
+  Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = TaskStatus
   Binding = code list
   Reference = #task-status
   Definition = The current status of the task.
+  Conformance = required
 
 === Sheet task-performer-type =====================================
 
@@ -184,10 +189,11 @@
  -- Row 6 -----------------------------------
   Element = Task.priority
   Card. = 0..1
-  Type = Coding
+  Type = code
   Binding = TaskPriority
   Short Label = low | normal | high
   Definition = The priority of the task among other tasks of the same type
+  Requirements = Used to identify the service level expected while performing a task.
   Missing Meaning = If missing, this task should be performed with normal priority
 
  -- Row 7 -----------------------------------
@@ -199,6 +205,7 @@
   Binding = TaskStatus
   Short Label = cancelled | completed | created | failed | in-progress | ready
   Definition = The current status of the task.
+  Requirements = These states enable coordination of task status with off-the-shelf workflow solutions that support automation of tasks.
 
  -- Row 8 -----------------------------------
   Element = Task.suspended
@@ -207,6 +214,7 @@
   Type = boolean
   Short Label = Task Suspended
   Definition = True if the task has been suspended (put on hold), false otherwise.
+  Requirements = Used to place a task on hold.
 
  -- Row 9 -----------------------------------
   Element = Task.failureReason
@@ -223,16 +231,27 @@
   Type = Reference(Any)
   Short Label = Task Subject
   Definition = The subject of the task
+  Requirements = Used to identify the thing to be done (not the beneficiary -- see for below).
 
  -- Row 11 -----------------------------------
+  Element = Task.for
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Any)
+  Short Label = Beneficiary of the Task
+  Definition = The entity who benefits from the performance of the service specified in the task (e.g., the patient).
+  Requirements = Used to track tasks outstanding for a beneficiary.  Do not use to track the task owner or creator (see owner and creator respectively).
+
+ -- Row 12 -----------------------------------
   Element = Task.definition
   Card. = 0..1
   Summary = Y
   Type = uri
   Short Label = Task Definition
   Definition = A reference to a formal or informal definition of the task.
+  Requirements = Enables a formal definition of how he task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation) to be associated with a task, enabling automation.
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Task.created
   Card. = 1..1
   Aliases = Created Date
@@ -240,9 +259,10 @@
   Type = dateTime
   Short Label = Task Creation Date
   Definition = The date and time this task was created.
+  Requirements = Most often used along with lastUpdated to track duration of task to supporting monitoring and management.
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Task.lastModified
   Card. = 1..1
   Aliases = Update Date
@@ -251,74 +271,84 @@
   Type = dateTime
   Short Label = Task Last Modified Date
   Definition = The date and time of last modification to this task.
+  Requirements = Used along with history to track task activity and time in a particular task state.  This enables monitoring and management.
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Task.creator
   Card. = 1..1
   Aliases = Initiator; Author
   Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
   Short Label = Task Creator
   Definition = The creator of the task.
+  Requirements = Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task).
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Task.owner
   Card. = 0..1
   Aliases = Performer; Executer
   Type = Reference(Device | Organization | Patient | Practitioner | RelatedPerson )
   Short Label = Task Owner
   Definition = The owner of this task.  The participant who can execute this task.
+  Requirements = Identifies who is expected to perform this task.
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Task.subtask
   Card. = 0..*
   Type = Reference(Task)
   Short Label = Subtasks
   Definition = Subtasks to be performed before this task can be considered to be complete.
+  Requirements = Enables suspend/resume processing to propogate through a task hierarchy.
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Task.input
   Card. = 0..*
   Type = =Parameter
   Short Label = Task Input
   Definition = Inputs to the task
+  Requirements = Resources and data used to perform the task.  This data is used in the business logic of task execution, and is stored separately because it varies between workflows.
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Task.input.name
   Card. = 1..1
   Type = string
   Short Label = Input Name
   Definition = The name of the input parameter.
+  Requirements = Inputs are named to enable task automation to bind data and pass it from one task to the next.
 
- -- Row 19 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Task.input.value[x]
   Card. = 1..1
   Type = *
   Short Label = Input Value
   Definition = The value of the input parameter as a basic type.
+  Requirements = Task inputs can take any form.
 
- -- Row 20 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Task.output
   Card. = 0..*
   Type = @Task.input
   Short Label = Task Output
   Definition = Outputs produced by the Task
+  Requirements = Resources and data produced during the execution the task.  This data is generated by the business logic of task execution, and is stored separately because it varies between workflows.
 
- -- Row 21 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Task.output.name
   Card. = 1..1
   Type = string
   Short Label = Output Name
   Definition = The name of the Output parameter.
+  Requirements = Outputs are named to enable task automation to bind data and pass it from one task to the next.
 
- -- Row 22 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Task.output.value[x]
   Card. = 1..1
   Type = *
   Short Label = Output Value
   Definition = The value of the Output parameter as a basic type.
+  Requirements = Task outputs can take any form.
 
 === Sheet Search =====================================
 

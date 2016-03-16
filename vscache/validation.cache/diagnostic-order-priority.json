@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/diagnostic-order-priority",
   "outcomes": [
     {
+      "hash": "#|http://snomed.info/sct|null|394848005|Normal priority",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "|null|null|routine|null",
       "severity": null,
       "message": null,
@@ -11,11 +16,6 @@
         "definition": null,
         "display": "Routine"
       }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|394848005|Normal priority",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
     }
   ]
 }

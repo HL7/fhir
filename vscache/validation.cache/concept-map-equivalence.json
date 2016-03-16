@@ -6,9 +6,32 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "equivalent",
+        "abstract": false,
+        "code": "equivalent",
         "definition": null,
         "display": "Equivalent"
+      }
+    },
+    {
+      "hash": "|null|null|narrower|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "narrower",
+        "definition": null,
+        "display": "Narrower"
+      }
+    },
+    {
+      "hash": "|null|null|wider|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "wider",
+        "definition": null,
+        "display": "Wider"
       }
     }
   ]

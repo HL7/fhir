@@ -2,13 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/search-param-type",
   "outcomes": [
     {
-      "hash": "|null|null|number|null",
+      "hash": "|null|null|reference|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "number",
+        "abstract": false,
+        "code": "reference",
         "definition": null,
-        "display": "Number"
+        "display": "Reference"
       }
     },
     {
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "quantity",
+        "abstract": false,
+        "code": "quantity",
         "definition": null,
         "display": "Quantity"
       }
@@ -26,7 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "composite",
+        "abstract": false,
+        "code": "composite",
         "definition": null,
         "display": "Composite"
       }
@@ -36,29 +39,10 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "token",
+        "abstract": false,
+        "code": "token",
         "definition": null,
         "display": "Token"
-      }
-    },
-    {
-      "hash": "|null|null|reference|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "reference",
-        "definition": null,
-        "display": "Reference"
-      }
-    },
-    {
-      "hash": "|null|null|date|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "date",
-        "definition": null,
-        "display": "Date/DateTime"
       }
     },
     {
@@ -66,9 +50,43 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "string",
+        "abstract": false,
+        "code": "string",
         "definition": null,
         "display": "String"
+      }
+    },
+    {
+      "hash": "|null|null|date|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "date",
+        "definition": null,
+        "display": "Date/DateTime"
+      }
+    },
+    {
+      "hash": "|null|null|number|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "number",
+        "definition": null,
+        "display": "Number"
+      }
+    },
+    {
+      "hash": "|null|null|uri|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "uri",
+        "definition": null,
+        "display": "URI"
       }
     }
   ]

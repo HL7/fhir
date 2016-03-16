@@ -2,21 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/observation-interpretation",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "L",
-        "definition": null,
-        "display": "Low"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/v2/0078|null|HH|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "HH",
+        "abstract": false,
+        "code": "HH",
         "definition": null,
         "display": "Critically high"
       }
@@ -26,27 +17,19 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "H",
+        "abstract": false,
+        "code": "H",
         "definition": null,
         "display": "High"
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "N",
-        "definition": null,
-        "display": "Normal"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "L",
+        "abstract": false,
+        "code": "L",
         "definition": null,
         "display": "Low"
       }
@@ -56,7 +39,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "A",
+        "abstract": false,
+        "code": "A",
         "definition": null,
         "display": "Abnormal"
       }
@@ -66,9 +50,32 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "LL",
+        "abstract": false,
+        "code": "LL",
         "definition": null,
         "display": "Critically low"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "L",
+        "definition": null,
+        "display": "Low"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "N",
+        "definition": null,
+        "display": "Normal"
       }
     }
   ]

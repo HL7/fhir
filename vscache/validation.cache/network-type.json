@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "1",
+        "abstract": false,
+        "code": "1",
         "definition": null,
         "display": "Machine Name"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "2",
+        "abstract": false,
+        "code": "2",
         "definition": null,
         "display": "IP Address"
       }

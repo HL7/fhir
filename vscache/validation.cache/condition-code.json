@@ -2,22 +2,18 @@
   "url": "http://hl7.org/fhir/ValueSet/condition-code",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|315619001|Myocardial Infarction",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|407152001|Increased blood lead level",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Increased blood lead level (finding)"
       }
     },
     {
-      "hash": "#|http://www.icd10data.com/icd10pcs|null|R78.71|Abnormal lead level in blood",
+      "hash": "#|http://www.cms.gov/Medicare/Coding/ICD10/index.html|null|R78.71|Abnormal lead level in blood",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
     },
@@ -26,13 +22,19 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Burn of ear structure"
       }
     },
     {
-      "hash": "#|http://www.cms.gov/Medicare/Coding/ICD10/index.html|null|R78.71|Abnormal lead level in blood",
+      "hash": "#|http://snomed.info/sct|null|315619001|Myocardial Infarction",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://www.icd10data.com/icd10pcs|null|R78.71|Abnormal lead level in blood",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
     }

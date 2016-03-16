@@ -6,9 +6,21 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "operation",
+        "abstract": false,
+        "code": "operation",
         "definition": null,
         "display": "Operation"
+      }
+    },
+    {
+      "hash": "|null|null|query|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "query",
+        "definition": null,
+        "display": "Query"
       }
     }
   ]

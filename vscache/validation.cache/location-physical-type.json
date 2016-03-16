@@ -2,73 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/location-physical-type",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/location-physical-type|null|ho|House",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ho",
-        "definition": null,
-        "display": "House"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/location-physical-type|null|bu|Building",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "bu",
-        "definition": null,
-        "display": "Building"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/location-physical-type|null|jdn|Jurisdiction",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "jdn",
-        "definition": null,
-        "display": "Jurisdiction"
-      }
-    },
-    {
       "hash": "#|null|null|area|Area",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "area",
+        "abstract": false,
+        "code": "area",
         "definition": null,
         "display": "Area"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/location-physical-type|null|ro|Room",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ro",
-        "definition": null,
-        "display": "Room"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/location-physical-type|null|wi|Wing",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "wi",
-        "definition": null,
-        "display": "Wing"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/location-physical-type|null|ve|Vehicle",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "ve",
-        "definition": null,
-        "display": "Vehicle"
       }
     }
   ]

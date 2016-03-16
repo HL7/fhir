@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "completed",
+        "abstract": false,
+        "code": "completed",
         "definition": null,
         "display": "Completed"
       }

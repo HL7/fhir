@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "confirmed",
+        "abstract": false,
+        "code": "confirmed",
         "definition": null,
         "display": "Confirmed"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "refuted",
+        "abstract": false,
+        "code": "refuted",
         "definition": null,
         "display": "Refuted"
       }

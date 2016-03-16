@@ -2,13 +2,69 @@
   "url": "http://hl7.org/fhir/ValueSet/type-restful-interaction",
   "outcomes": [
     {
+      "hash": "|null|null|history-type|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "history-type",
+        "definition": null,
+        "display": "history-type"
+      }
+    },
+    {
+      "hash": "|null|null|delete|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "delete",
+        "definition": null,
+        "display": "delete"
+      }
+    },
+    {
+      "hash": "|null|null|vread|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "vread",
+        "definition": null,
+        "display": "vread"
+      }
+    },
+    {
+      "hash": "|null|null|search-type|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "search-type",
+        "definition": null,
+        "display": "search-type"
+      }
+    },
+    {
       "hash": "|null|null|history-instance|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "history-instance",
+        "abstract": false,
+        "code": "history-instance",
         "definition": null,
         "display": "history-instance"
+      }
+    },
+    {
+      "hash": "|null|null|update|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "update",
+        "definition": null,
+        "display": "update"
       }
     },
     {
@@ -16,7 +72,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "create",
+        "abstract": false,
+        "code": "create",
         "definition": null,
         "display": "create"
       }
@@ -26,49 +83,10 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "read",
+        "abstract": false,
+        "code": "read",
         "definition": null,
         "display": "read"
-      }
-    },
-    {
-      "hash": "|null|null|search-type|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "search-type",
-        "definition": null,
-        "display": "search-type"
-      }
-    },
-    {
-      "hash": "|null|null|delete|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "delete",
-        "definition": null,
-        "display": "delete"
-      }
-    },
-    {
-      "hash": "|null|null|update|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "update",
-        "definition": null,
-        "display": "update"
-      }
-    },
-    {
-      "hash": "|null|null|vread|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "vread",
-        "definition": null,
-        "display": "vread"
       }
     },
     {
@@ -76,7 +94,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "validate",
+        "abstract": false,
+        "code": "validate",
         "definition": null,
         "display": "validate"
       }

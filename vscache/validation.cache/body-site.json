@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Structure of superficial forearm vein (body structure)"
       }
@@ -16,29 +17,10 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Left external ear structure"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|53120007|Arm#|http://ehr.goodhealthclinic.org|null|ARM|Arm",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "Arm"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|66754008|Appendix structure",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "Appendix"
       }
     },
     {
@@ -46,9 +28,32 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Upper trunk"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|66754008|Appendix structure",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Appendix"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|53120007|Arm#|http://ehr.goodhealthclinic.org|null|ARM|Arm",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Arm"
       }
     }
   ]

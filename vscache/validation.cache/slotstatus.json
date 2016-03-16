@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "free",
+        "abstract": false,
+        "code": "free",
         "definition": null,
         "display": "Free"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "busy",
+        "abstract": false,
+        "code": "busy",
         "definition": null,
         "display": "Busy"
       }
@@ -26,7 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "busy-tentative",
+        "abstract": false,
+        "code": "busy-tentative",
         "definition": null,
         "display": "Busy (Tentative)"
       }
@@ -36,7 +39,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "busy-unavailable",
+        "abstract": false,
+        "code": "busy-unavailable",
         "definition": null,
         "display": "Busy (Unavailable)"
       }

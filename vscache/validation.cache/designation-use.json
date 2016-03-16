@@ -5,17 +5,6 @@
       "hash": "|http://acme.com/config/fhir/codesystems/internal|null|internal-label|null",
       "severity": "error",
       "message": "Unknown Code internal-label in http://hl7.org/fhir/ValueSet/designation-use"
-    },
-    {
-      "hash": "|http://snomed.info/sct|null|900000000000003001|Fully specified name",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "900000000000003001",
-        "definition": null,
-        "display": "Fully specified name"
-      }
     }
   ]
 }

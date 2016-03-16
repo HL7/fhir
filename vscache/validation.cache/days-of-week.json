@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "wed",
+        "abstract": false,
+        "code": "wed",
         "definition": null,
         "display": "Wednesday"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "sat",
+        "abstract": false,
+        "code": "sat",
         "definition": null,
         "display": "Saturday"
       }
@@ -26,7 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "tue",
+        "abstract": false,
+        "code": "tue",
         "definition": null,
         "display": "Tuesday"
       }
@@ -36,7 +39,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "thu",
+        "abstract": false,
+        "code": "thu",
         "definition": null,
         "display": "Thursday"
       }
@@ -46,7 +50,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "mon",
+        "abstract": false,
+        "code": "mon",
         "definition": null,
         "display": "Monday"
       }
@@ -56,7 +61,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "fri",
+        "abstract": false,
+        "code": "fri",
         "definition": null,
         "display": "Friday"
       }

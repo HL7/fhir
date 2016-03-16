@@ -2,23 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/report-codes",
   "outcomes": [
     {
-      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count#|null|null|CBC|MASTER FULL BLOOD COUNT",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "Complete blood count (hemogram) panel - Blood by Automated count"
-      }
-    },
-    {
       "hash": "#|http://loinc.org|null|5671-3|Lead [Mass/volume] in Blood#|urn:oid:2.16.840.1.113883.3.72.5.24|null|BLDLD|Blood Lead",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": null,
+        "abstract": false,
+        "code": null,
         "definition": null,
         "display": "Lead [Mass/volume] in Blood"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count#|null|null|CBC|MASTER FULL BLOOD COUNT",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Complete blood count (hemogram) panel - Blood by Automated count"
       }
     }
   ]

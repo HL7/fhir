@@ -11,18 +11,19 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "advevent",
+        "abstract": false,
+        "code": "advevent",
         "definition": null,
         "display": "Adverse Event"
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/evaluation-result-code|null|noguidelines|No Guidelines Apply",
+      "hash": "#|http://hl7.org/fhir/evaluation-result-code|null|outside|Outside Guidelines",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://hl7.org/fhir/evaluation-result-code|null|outside|Outside Guidelines",
+      "hash": "#|http://hl7.org/fhir/evaluation-result-code|null|noguidelines|No Guidelines Apply",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

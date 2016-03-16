@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "HM",
+        "abstract": false,
+        "code": "HM",
         "definition": null,
         "display": "Hematology"
       }

@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/questionnaire-status",
   "outcomes": [
     {
-      "hash": "|null|null|published|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "published",
-        "definition": null,
-        "display": "Published"
-      }
-    },
-    {
       "hash": "|null|null|draft|null",
       "severity": null,
       "message": null,
@@ -21,6 +10,17 @@
         "code": "draft",
         "definition": null,
         "display": "Draft"
+      }
+    },
+    {
+      "hash": "|null|null|published|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "published",
+        "definition": null,
+        "display": "Published"
       }
     }
   ]

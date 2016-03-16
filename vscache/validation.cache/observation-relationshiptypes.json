@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "has-member",
+        "abstract": false,
+        "code": "has-member",
         "definition": null,
         "display": "Has Member"
       }

@@ -2,17 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/v2-0487",
   "outcomes": [
     {
+      "hash": "#|http://snomed.info/sct|null|698276005|First stream urine sample#|http://ehr.goodhealthclinic.org|null|UFV|Urine, First Void",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|122555007|Venous blood specimen#|http://ehr.goodhealthclinic.org|null|BLD|Blood",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|122555007|Venous blood specimen",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|698276005|First stream urine sample#|http://ehr.goodhealthclinic.org|null|UFV|Urine, First Void",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/location-mode",
   "outcomes": [
     {
-      "hash": "|null|null|kind|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "kind",
-        "definition": null,
-        "display": "Kind"
-      }
-    },
-    {
       "hash": "|null|null|instance|null",
       "severity": null,
       "message": null,

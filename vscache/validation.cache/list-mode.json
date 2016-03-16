@@ -6,19 +6,10 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "working",
+        "abstract": false,
+        "code": "working",
         "definition": null,
         "display": "Working List"
-      }
-    },
-    {
-      "hash": "|null|null|changes|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "changes",
-        "definition": null,
-        "display": "Change List"
       }
     },
     {
@@ -26,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "snapshot",
+        "abstract": false,
+        "code": "snapshot",
         "definition": null,
         "display": "Snapshot List"
       }

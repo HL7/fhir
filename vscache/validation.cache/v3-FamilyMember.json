@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "FTH",
+        "abstract": false,
+        "code": "FTH",
         "definition": null,
         "display": "father"
       }

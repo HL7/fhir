@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/tooth",
   "outcomes": [
     {
-      "hash": "|http://fdi.org/fhir/oraltoothcodes|null|21|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "21",
-        "definition": null,
-        "display": "21"
-      }
-    },
-    {
       "hash": "|http://fdi.org/fhir/oraltoothcodes|null|36|null",
       "severity": null,
       "message": null,
@@ -21,6 +10,17 @@
         "code": "36",
         "definition": null,
         "display": "36"
+      }
+    },
+    {
+      "hash": "|http://fdi.org/fhir/oraltoothcodes|null|21|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "21",
+        "definition": null,
+        "display": "21"
       }
     }
   ]

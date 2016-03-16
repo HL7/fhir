@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "team",
+        "abstract": false,
+        "code": "team",
         "definition": null,
         "display": "Organizational team"
       }

@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/claim-use-link",
   "outcomes": [
     {
-      "hash": "|null|null|proposed|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "proposed",
-        "definition": null,
-        "display": "Proposed"
-      }
-    },
-    {
       "hash": "|null|null|complete|null",
       "severity": null,
       "message": null,
@@ -21,6 +10,17 @@
         "code": "complete",
         "definition": null,
         "display": "Complete"
+      }
+    },
+    {
+      "hash": "|null|null|proposed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "proposed",
+        "definition": null,
+        "display": "Proposed"
       }
     }
   ]

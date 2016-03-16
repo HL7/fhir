@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "inpatient",
+        "abstract": false,
+        "code": "inpatient",
         "definition": null,
         "display": "Inpatient"
       }

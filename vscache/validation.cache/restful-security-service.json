@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "Certificates",
+        "abstract": false,
+        "code": "Certificates",
         "definition": null,
         "display": "Certificates"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "SMART-on-FHIR",
+        "abstract": false,
+        "code": "SMART-on-FHIR",
         "definition": null,
         "display": "SMART-on-FHIR"
       }
@@ -26,7 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "SMART-on-FHIR",
+        "abstract": false,
+        "code": "SMART-on-FHIR",
         "definition": null,
         "display": "SMART-on-FHIR"
       }

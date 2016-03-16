@@ -2,27 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/use-context",
   "outcomes": [
     {
-      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
-    },
-    {
       "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
     {
-      "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
-    },
-    {
-      "hash": "#|http://loinc.org/class|null|null|MISC",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
-    },
-    {
-      "hash": "#|http://loinc.org/class|null|null|PANEL.SURVEY.USSGFHT",
+      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
@@ -32,7 +17,22 @@
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
     {
+      "hash": "#|http://loinc.org/class|null|null|PANEL.SURVEY.USSGFHT",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+    },
+    {
       "hash": "#|http://loinc.org/type|null|null|Survey",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+    },
+    {
+      "hash": "#|http://loinc.org/class|null|null|MISC",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
+    },
+    {
+      "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     }

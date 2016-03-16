@@ -6,7 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "diagnosis",
+        "abstract": false,
+        "code": "diagnosis",
         "definition": null,
         "display": "Diagnosis"
       }
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "diagnosis",
+        "abstract": false,
+        "code": "diagnosis",
         "definition": null,
         "display": "Diagnosis"
       }

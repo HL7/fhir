@@ -2,33 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/defined-types",
   "outcomes": [
     {
-      "hash": "|null|null|Coding|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Coding",
-        "definition": null,
-        "display": "Coding"
-      }
-    },
-    {
       "hash": "|null|null|CodeableConcept|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "CodeableConcept",
+        "abstract": false,
+        "code": "CodeableConcept",
         "definition": null,
         "display": "CodeableConcept"
-      }
-    },
-    {
-      "hash": "|null|null|date|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "date",
-        "definition": null,
-        "display": "date"
       }
     },
     {
@@ -36,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "decimal",
+        "abstract": false,
+        "code": "decimal",
         "definition": null,
         "display": "decimal"
       }
@@ -46,9 +28,32 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "string",
+        "abstract": false,
+        "code": "string",
         "definition": null,
         "display": "string"
+      }
+    },
+    {
+      "hash": "|null|null|Coding|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Coding",
+        "definition": null,
+        "display": "Coding"
+      }
+    },
+    {
+      "hash": "|null|null|date|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "date",
+        "definition": null,
+        "display": "date"
       }
     }
   ]

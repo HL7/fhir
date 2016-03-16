@@ -6,19 +6,10 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "withheld",
+        "abstract": false,
+        "code": "withheld",
         "definition": null,
         "display": "Information Withheld"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/list-empty-reason|null|nilknown|Nil Known",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "nilknown",
-        "definition": null,
-        "display": "Nil Known"
       }
     }
   ]
