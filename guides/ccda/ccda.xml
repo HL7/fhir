@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?> 
-<ImplementationGuide xmlns="http://hl7.org/fhir">
+<ImplementationGuide xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../schema/implementationguide.xsd"
+ xmlns="http://hl7.org/fhir">
   <id value="ccda"/> 
   <language value="English"/>
   <url value="http://hl7.org/fhir/ccda"/>
@@ -53,12 +55,28 @@
       <sourceUri value="StructureDefinition/ccda-discharge-summary-composition.xml"/>
     </resource>
     <resource>
+      <purpose value="profile"/>
+      <name value="C-CDA on FHIR Procedure Note"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-consultation-note-composition"/>
+      <sourceUri value="StructureDefinition/ccda-procedure-note-composition.xml"/>
+    </resource>
+    <resource>
       <purpose value="terminology"/>
       <name value="HL7 BasicConfidentialityKind"/>
       <description
         value="TBD"/>
       <acronym value="basic-confidentiality-kind"/>
       <sourceUri value="ValueSet/2.16.840.1.113883.1.11.16926.xml"/>
+    </resource>
+    <resource>
+      <purpose value="terminology"/>
+      <name value="ProcedureNoteDocumentTypeCodes"/>
+      <description
+        value="TBD"/>
+      <acronym value="ProcedureNoteDocumentTypeCodes"/>
+      <sourceUri value="ValueSet/2.16.840.1.113883.11.20.6.1.xml"/>
     </resource>
     <resource>
       <purpose value="logical"/>
