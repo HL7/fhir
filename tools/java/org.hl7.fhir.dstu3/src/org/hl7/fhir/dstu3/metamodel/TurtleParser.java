@@ -13,6 +13,8 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 
 public class TurtleParser extends ParserBase {
 
+  private String base;
+  
   public TurtleParser(IWorkerContext context, boolean check) {
     super(context, check);
   }
@@ -21,7 +23,9 @@ public class TurtleParser extends ParserBase {
     throw new NotImplementedException("not done yet");
   }
   @Override
-  public void compose(Element e, OutputStream stream, OutputStyle style, String identity) throws Exception {
+  public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws Exception {
+    this.base = base;
+    
 		RdfGenerator ttl = new RdfGenerator(stream);
 		//      ttl.setFormat(FFormat);
 		ttl.prefix("fhir", "http://hl7.org/fhir/");
@@ -30,8 +34,9 @@ public class TurtleParser extends ParserBase {
 		
 		Section section = ttl.section("resource");
 		Subject subject;
-		if (identity != null) 
-			subject = section.triple("<"+identity+">", "a", "fhir:"+e.getType());
+		String id = e.getChildValue("id");
+		if (base != null && id != null) 
+			subject = section.triple("<"+base+"/"+e.getType()+"/"+id+">", "a", "fhir:"+e.getType());
 		else
 		  subject = section.triple("_", "a", "fhir:"+e.getType());
 		subject.predicate("a", "owl:Ontology");
@@ -40,6 +45,15 @@ public class TurtleParser extends ParserBase {
 			composeElement(subject, child);
 		}
 		ttl.commit(false);
+  }
+  
+  protected void decorateReference(Complex t, Element coding) {
+    String ref = coding.getChildValue("reference");
+    if (ref != null && (ref.startsWith("http://") || ref.startsWith("https://")))
+      t.predicate("fhir:reference", "<"+ref+">");
+    else if (base != null && ref != null && ref.contains("/")) {
+      t.predicate("fhir:reference", "<"+base+"/"+ref+">");
+    }
   }
   
 	protected void decorateCoding(Complex t, Element coding) {
@@ -87,6 +101,8 @@ public class TurtleParser extends ParserBase {
 	  	decorateCoding(t, element);
 	  if ("CodeableConcept".equals(element.getType()))
 	  	decorateCodeableConcept(t, element);
+    if ("Reference".equals(element.getType()))
+      decorateReference(t, element);
 	  		
 		for (Element child : element.getChildren()) {
 			composeElement(t, child);

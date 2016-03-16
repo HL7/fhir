@@ -248,7 +248,7 @@ does not refer to the type, it's literal type is not important.
 </p>
 <pre>
 rule_aa : for source.aa as s_aa make target.aa as t_aa then rule_ab(s_aa, t_aa) // make aa exist
-rule_ab : for s_aa.ab as ab make t_aa.a2 = ab // copy ab inside aa
+rule_ab : for s_aa.ab as ab make t_aa.ab = ab // copy ab inside aa
 </pre>
 <p>
 This situation is handled by a pair of rules: the first rule establishes that relationship
@@ -278,7 +278,7 @@ A common translation pattern is to perform a translation e.g. from one set of co
       d : code [0..1]
   </pre></td><td><pre>
     TRight
-      d : [0..1]
+      d : code [0..1]
   </pre></td></tr>
   <tr><td colspan="2">The left instance is transformed to the right instance by translating source.d from one set of codes to another</td></tr>
 </table>
@@ -305,50 +305,21 @@ value of another element.
   <tr><td><pre>
     TLeft
       i : string [0..1]
-      l : integer [1..1]
+      m : integer [1..1]
   </pre></td><td><pre>
     TRight
       j : [0..1]
       k : [0..1]
   </pre></td></tr>
-  <tr><td colspan="2">How the left instance is transformed to the right instance depends on the value of l: if l &lt; 2, then i maps to j, else it maps to k</td></tr>
+  <tr><td colspan="2">How the left instance is transformed to the right instance depends on the value of m: if m &lt; 2, then i maps to j, else it maps to k</td></tr>
 </table>
 <p>
 This is managed using conditions on the mapping statements:
 </p>
 <pre>
-rule_i1 : for source.i as i where l &lt; 2 make target.j = i
-rule_i2 : for source.i as i where l >= 2 make target.k = i
+rule_i1 : for source.i as i where m &lt; 2 make target.j = i
+rule_i2 : for source.i as i where m >= 2 make target.k = i
 </pre>
-
-<h3>Step #9: Co-dependency in translation</h3>
-<p>
-Another common translation is where the target mapping for one element depends on the 
-value of another element. 
-</p>
-<table>
-  <tr><td><b>Source Structure</b></td><td><b>Target Structure</b></td></tr>
-  <tr><td><pre>
-    TLeft
-      i : string [0..1]
-      l : integer [1..1]
-  </pre></td><td><pre>
-    TRight
-      j : [0..1]
-      k : [0..1]
-  </pre></td></tr>
-  <tr><td colspan="2">How the left instance is transformed to the right instance depends on the value of l: if l &lt; 2, then i maps to j, else it maps to k</td></tr>
-</table>
-<p>
-This is managed using conditions on the mapping statements:
-</p>
-<pre>
-rule_i1 : for source.i as i where l &lt; 2 make target.j = i
-rule_i2 : for source.i as i where l >= 2 make target.j = i
-</pre>
-<p>
-Other kind of conditional tests can include value set membership - and by extension to that, use of subsumption testing. 
-</p>
 
 <h3>Step #10: Reworking Structure #1</h3>
 <p>
@@ -409,10 +380,17 @@ while the target puts the cardinality at the next level up:
 The key to setting this mapping up is to create a variable context for source.az1, and then carry it down, performing the actual mappings at the next level down:
 </p>
 <pre>
-aza : for src.az1 as s_az1 then azb(s_az1, t_az1) // setting up a variable for the parent
-azb : for s_az1.az3 as s_az3 make target.az1 as t_az1 then az2(s_az3, t_az1), az3(s_az3, t_az1)   // one target.az1 for each az3
-az2 : for s_az1.az2 as az2 make t_az1.az2 = az2  // value for az2. Note that this refers to a previous context in the source
-az3 : for s_az3 make tgt_az1.az3 = src_az3       // value for az3      
+aza : for src.az1 as s_az1 then azb(s_az1, target) 
+  // setting up a variable for the parent
+  
+azb : for s_az1.az3 as s_az3 make target.az1 as t_az1 then az2(s_az1, t_az1), az3(s_az3, t_az1) 
+  // one target.az1 for each az3
+  
+az2 : for s_az1.az2 as az2 make t_az1.az2 = az2  
+  // value for az2. Note that this refers to a previous context in the source
+  
+az3 : for s_az3 make tgt_az1.az3 = src_az3       
+  // value for az3      
 </pre>
 
 <h3>Step #11: Multiple structures #1</h3>
