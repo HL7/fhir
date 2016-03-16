@@ -3580,7 +3580,7 @@ public class Publisher implements URIResolver, SectionNumberer {
 
     // queue for json and canonical XML generation processing
     e.setResourceName(resourceName);
-    String canonical = "http://hl7.org/fhir/"+resourceName+"/"+e.getId();
+    String canonical = "http://hl7.org/fhir/";
     
     org.hl7.fhir.dstu3.metamodel.Element ex = Manager.parse(page.getWorkerContext(), new CSFileInputStream(page.getFolders().dstDir + prefix+n + ".xml"), FhirFormat.XML, true);
     Manager.compose(page.getWorkerContext(), ex, new FileOutputStream(page.getFolders().dstDir + prefix+n + ".json"), FhirFormat.JSON, OutputStyle.PRETTY, canonical); 

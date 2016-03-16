@@ -658,6 +658,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         src = s1+makeCanonical(name)+s3;
       else if (com[0].equals("prettyname"))
         src = s1+makePretty(name)+s3;
+      else if (com[0].equals("jsonldname"))
+        src = s1+makeJsonld(name)+s3;
       else if (com[0].equals("version"))
         src = s1+version+s3;
       else if (com[0].equals("gendate"))
@@ -1464,6 +1466,18 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (i == -1)
       throw new Error("unable to get canonical name for "+name);
     return name.substring(0, i)+".canonical"+name.substring(i);
+  }
+
+  
+  private String makeJsonld(String name) {
+    if (name.contains("/"))
+      name = name.substring(name.indexOf("/")+1);
+    if (name.contains("\\"))
+      name = name.substring(name.indexOf("\\")+1);
+    int i = name.lastIndexOf(".");
+    if (i == -1)
+      throw new Error("unable to get pretty name for "+name);
+    return Utilities.changeFileExt(name.substring(0, i)+name.substring(i), ".jsonld");
   }
 
   private String makePretty(String name) {

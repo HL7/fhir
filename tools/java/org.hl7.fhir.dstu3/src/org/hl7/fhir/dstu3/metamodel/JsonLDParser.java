@@ -21,6 +21,7 @@ import org.hl7.fhir.utilities.Utilities;
 public class JsonLDParser extends ParserBase {
 
 	private JsonCreator json;
+  private String base;
 
 	public JsonLDParser(IWorkerContext context, boolean check) {
 		super(context, check);
@@ -61,6 +62,7 @@ public class JsonLDParser extends ParserBase {
 
 	@Override
 	public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws Exception {
+	  this.base = base;
 		OutputStreamWriter osw = new OutputStreamWriter(stream, "UTF-8");
 		if (style == OutputStyle.CANONICAL)
 			json = new JsonCreatorCanonical(osw);
@@ -160,12 +162,25 @@ public class JsonLDParser extends ParserBase {
 			}
 	    if ("Coding".equals(element.getType()))
 	      decorateCoding(element);
-	    if ("CodeableConcept".equals(element.getType()))
-	      decorateCodeableConcept(element);
+      if ("CodeableConcept".equals(element.getType()))
+        decorateCodeableConcept(element);
+      if ("Reference".equals(element.getType()))
+        decorateReference(element);
 			
 			close();
 		}
 	}
+
+  private void decorateReference(Element element) throws IOException {
+    String ref = element.getChildValue("reference");
+    if (ref != null && (ref.startsWith("http://") || ref.startsWith("https://"))) {
+      json.name("reference");
+      json.value(ref);
+    } else if (base != null && ref != null && ref.contains("/")) {
+      json.name("reference");
+      json.value(base+"/"+ref);
+    }
+  }
 
   protected void decorateCoding(Element coding) throws IOException {
     String system = coding.getChildValue("system");
