@@ -92,13 +92,12 @@ public class JsonLDParser extends ParserBase {
 	private void composeList(String path, List<Element> list) throws IOException {
 		// there will be at least one element
     String en = list.get(0).getProperty().getDefinition().getBase().getPath();
+    if (en == null) 
+      en = list.get(0).getProperty().getDefinition().getPath();
     boolean doType = false;
-    if (en == null) {
-      en = list.get(0).getProperty().getStructure().getName() +"."+list.get(0).getProperty().getDefinition().getPath().substring(list.get(0).getProperty().getDefinition().getPath().lastIndexOf(".")+1);
-      if (en.endsWith("[x]")) {
-        en = en.substring(0, en.length()-3);
-        doType = true;        
-      }
+    if (en.endsWith("[x]")) {
+      en = en.substring(0, en.length()-3);
+      doType = true;        
     }
 
     openArray(en);
@@ -134,13 +133,12 @@ public class JsonLDParser extends ParserBase {
 
 	private void compose(String path, Element element) throws IOException {
     String en = element.getProperty().getDefinition().getBase().getPath();
+    if (en == null) 
+      en = element.getProperty().getDefinition().getPath();
     boolean doType = false;
-    if (en == null) {
-      en = element.getProperty().getStructure().getName() +"."+element.getProperty().getDefinition().getPath().substring(element.getProperty().getDefinition().getPath().lastIndexOf(".")+1);
-      if (en.endsWith("[x]")) {
-        en = en.substring(0, en.length()-3);
-        doType = true;        
-      }
+    if (en.endsWith("[x]")) {
+      en = en.substring(0, en.length()-3);
+      doType = true;        
     }
 
     if (element.hasChildren() || element.hasComments() || element.hasValue()) {

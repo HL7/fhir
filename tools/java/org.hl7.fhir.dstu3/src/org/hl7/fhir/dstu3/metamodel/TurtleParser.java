@@ -67,13 +67,12 @@ public class TurtleParser extends ParserBase {
 		if ("xhtml".equals(element.getType())) // need to decide what to do with this
 			return;
 		String en = element.getProperty().getDefinition().getBase().getPath();
+    if (en == null) 
+      en = element.getProperty().getDefinition().getPath();
 		boolean doType = false;
-		if (en == null) {
-			en = element.getProperty().getStructure().getName() +"."+element.getProperty().getDefinition().getPath().substring(element.getProperty().getDefinition().getPath().lastIndexOf(".")+1);
-			if (en.endsWith("[x]")) {
-				en = en.substring(0, en.length()-3);
-				doType = true;				
-			}
+		if (en.endsWith("[x]")) {
+			en = en.substring(0, en.length()-3);
+			doType = true;				
 		}
 
 	  Complex t = ctxt.predicate("fhir:"+en);
