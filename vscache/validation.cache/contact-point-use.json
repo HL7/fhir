@@ -2,14 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/contact-point-use",
   "outcomes": [
     {
-      "hash": "|null|null|work|null",
+      "hash": "|null|null|mobile|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "work",
+        "code": "mobile",
         "definition": null,
-        "display": "Work"
+        "display": "Mobile"
+      }
+    },
+    {
+      "hash": "|null|null|temp|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "temp",
+        "definition": null,
+        "display": "Temp"
       }
     },
     {
@@ -24,14 +35,14 @@
       }
     },
     {
-      "hash": "|null|null|mobile|null",
+      "hash": "|null|null|work|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "mobile",
+        "code": "work",
         "definition": null,
-        "display": "Mobile"
+        "display": "Work"
       }
     }
   ]

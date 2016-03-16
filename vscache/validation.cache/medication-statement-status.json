@@ -11,6 +11,28 @@
         "definition": null,
         "display": "Completed"
       }
+    },
+    {
+      "hash": "|null|null|entered-in-error|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "entered-in-error",
+        "definition": null,
+        "display": "Entered in Error"
+      }
+    },
+    {
+      "hash": "|null|null|active|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "active",
+        "definition": null,
+        "display": "Active"
+      }
     }
   ]
 }

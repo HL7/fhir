@@ -2,14 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/administrative-gender",
   "outcomes": [
     {
-      "hash": "|null|null|other|null",
+      "hash": "|null|null|male|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "other",
+        "code": "male",
         "definition": null,
-        "display": "Other"
+        "display": "Male"
       }
     },
     {
@@ -24,14 +24,14 @@
       }
     },
     {
-      "hash": "|null|null|male|null",
+      "hash": "|null|null|other|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "male",
+        "code": "other",
         "definition": null,
-        "display": "Male"
+        "display": "Other"
       }
     }
   ]

@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/participantstatus",
   "outcomes": [
     {
-      "hash": "|null|null|tentative|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "tentative",
-        "definition": null,
-        "display": "Tentative"
-      }
-    },
-    {
       "hash": "|null|null|accepted|null",
       "severity": null,
       "message": null,
@@ -21,6 +10,17 @@
         "code": "accepted",
         "definition": null,
         "display": "Accepted"
+      }
+    },
+    {
+      "hash": "|null|null|tentative|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "tentative",
+        "definition": null,
+        "display": "Tentative"
       }
     }
   ]

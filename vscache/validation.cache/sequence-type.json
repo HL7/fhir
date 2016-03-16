@@ -2,23 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/sequence-type",
   "outcomes": [
     {
-      "hash": "|null|null|RNA|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "RNA",
-        "definition": null,
-        "display": "RNA Sequence"
-      }
-    },
-    {
       "hash": "|null|null|DNA|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "DNA",
+        "abstract": false,
+        "code": "DNA",
         "definition": null,
         "display": "DNA Sequence"
+      }
+    },
+    {
+      "hash": "|null|null|RNA|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "RNA",
+        "definition": null,
+        "display": "RNA Sequence"
       }
     },
     {
@@ -26,7 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "AA",
+        "abstract": false,
+        "code": "AA",
         "definition": null,
         "display": "AA Sequence"
       }

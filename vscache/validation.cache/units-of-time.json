@@ -2,6 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/units-of-time",
   "outcomes": [
     {
+      "hash": "|null|null|h|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "h",
+        "definition": null,
+        "display": "hour"
+      }
+    },
+    {
       "hash": "|null|null|d|null",
       "severity": null,
       "message": null,

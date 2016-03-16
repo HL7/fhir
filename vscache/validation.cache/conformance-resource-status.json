@@ -2,6 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/conformance-resource-status",
   "outcomes": [
     {
+      "hash": "|null|null|retired|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "retired",
+        "definition": null,
+        "display": "Retired"
+      }
+    },
+    {
       "hash": "|null|null|draft|null",
       "severity": null,
       "message": null,

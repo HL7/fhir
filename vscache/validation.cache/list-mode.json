@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/list-mode",
   "outcomes": [
     {
-      "hash": "|null|null|working|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "working",
-        "definition": null,
-        "display": "Working List"
-      }
-    },
-    {
       "hash": "|null|null|snapshot|null",
       "severity": null,
       "message": null,
@@ -21,6 +10,28 @@
         "code": "snapshot",
         "definition": null,
         "display": "Snapshot List"
+      }
+    },
+    {
+      "hash": "|null|null|changes|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "changes",
+        "definition": null,
+        "display": "Change List"
+      }
+    },
+    {
+      "hash": "|null|null|working|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "working",
+        "definition": null,
+        "display": "Working List"
       }
     }
   ]

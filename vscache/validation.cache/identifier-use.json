@@ -2,17 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/identifier-use",
   "outcomes": [
     {
-      "hash": "|null|null|usual|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "usual",
-        "definition": null,
-        "display": "Usual"
-      }
-    },
-    {
       "hash": "|null|null|official|null",
       "severity": null,
       "message": null,
@@ -21,6 +10,28 @@
         "code": "official",
         "definition": null,
         "display": "Official"
+      }
+    },
+    {
+      "hash": "|null|null|temp|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "temp",
+        "definition": null,
+        "display": "Temp"
+      }
+    },
+    {
+      "hash": "|null|null|usual|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "usual",
+        "definition": null,
+        "display": "Usual"
       }
     }
   ]

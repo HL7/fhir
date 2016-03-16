@@ -2,23 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/medication-admin-status",
   "outcomes": [
     {
-      "hash": "|null|null|on-hold|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "on-hold",
-        "definition": null,
-        "display": "On Hold"
-      }
-    },
-    {
       "hash": "|null|null|completed|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "completed",
+        "abstract": false,
+        "code": "completed",
         "definition": null,
         "display": "Completed"
+      }
+    },
+    {
+      "hash": "|null|null|on-hold|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "on-hold",
+        "definition": null,
+        "display": "On Hold"
       }
     }
   ]

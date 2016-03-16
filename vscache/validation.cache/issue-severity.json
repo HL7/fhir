@@ -6,19 +6,10 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "information",
+        "abstract": false,
+        "code": "information",
         "definition": null,
         "display": "Information"
-      }
-    },
-    {
-      "hash": "|null|null|fatal|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "fatal",
-        "definition": null,
-        "display": "Fatal"
       }
     },
     {
@@ -26,9 +17,21 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "error",
+        "abstract": false,
+        "code": "error",
         "definition": null,
         "display": "Error"
+      }
+    },
+    {
+      "hash": "|null|null|fatal|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "fatal",
+        "definition": null,
+        "display": "Fatal"
       }
     }
   ]

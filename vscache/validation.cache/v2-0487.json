@@ -2,7 +2,7 @@
   "url": "http://hl7.org/fhir/ValueSet/v2-0487",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|698276005|First stream urine sample#|http://ehr.goodhealthclinic.org|null|UFV|Urine, First Void",
+      "hash": "#|http://snomed.info/sct|null|122575003|Urine specimen",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -12,7 +12,43 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+      "hash": "#|http://hl7.org/fhir/v2/0487|null|RANDU|Urine, Random",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "RANDU",
+        "definition": null,
+        "display": "Urine, Random"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|445295009|Blood specimen with EDTA",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|429951000124103|Bacterial isolate specimen",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|122555007|Venous blood specimen",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|119339001|Stool specimen",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|698276005|First stream urine sample#|http://ehr.goodhealthclinic.org|null|UFV|Urine, First Void",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|119364003|Serum sample",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

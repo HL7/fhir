@@ -11,6 +11,17 @@
         "definition": null,
         "display": "Completed"
       }
+    },
+    {
+      "hash": "|null|null|in-progress|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "in-progress",
+        "definition": null,
+        "display": "In Progress"
+      }
     }
   ]
 }

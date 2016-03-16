@@ -1,21 +1,4 @@
 {
   "url": "http://hl7.org/fhir/ValueSet/digital-media-subtype",
-  "outcomes": [
-    {
-      "hash": "#|http://nema.org/dicom/dicm|null|US|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Ultrasound"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/media-method|null|diagram|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Media SubType"
-    }
-  ]
+  "outcomes": []
 }

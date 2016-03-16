@@ -2,13 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/quantity-comparator",
   "outcomes": [
     {
-      "hash": "|null|null|<=|null",
+      "hash": "|null|null|>|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "<=",
+        "abstract": false,
+        "code": ">",
         "definition": null,
-        "display": "Less or Equal to"
+        "display": "Greater than"
       }
     },
     {
@@ -16,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "<",
+        "abstract": false,
+        "code": "<",
         "definition": null,
         "display": "Less than"
       }
@@ -26,19 +28,21 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": ">=",
+        "abstract": false,
+        "code": ">=",
         "definition": null,
         "display": "Greater or Equal to"
       }
     },
     {
-      "hash": "|null|null|>|null",
+      "hash": "|null|null|<=|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": ">",
+        "abstract": false,
+        "code": "<=",
         "definition": null,
-        "display": "Greater than"
+        "display": "Less or Equal to"
       }
     }
   ]

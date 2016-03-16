@@ -2,13 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/compartment-type",
   "outcomes": [
     {
-      "hash": "|null|null|Patient|null",
+      "hash": "|null|null|Practitioner|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "Patient",
+        "abstract": false,
+        "code": "Practitioner",
         "definition": null,
-        "display": "Patient"
+        "display": "Practitioner"
       }
     },
     {
@@ -16,29 +17,21 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "RelatedPerson",
+        "abstract": false,
+        "code": "RelatedPerson",
         "definition": null,
         "display": "RelatedPerson"
       }
     },
     {
-      "hash": "|null|null|Encounter|null",
+      "hash": "|null|null|Patient|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "Encounter",
+        "abstract": false,
+        "code": "Patient",
         "definition": null,
-        "display": "Encounter"
-      }
-    },
-    {
-      "hash": "|null|null|Practitioner|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "Practitioner",
-        "definition": null,
-        "display": "Practitioner"
+        "display": "Patient"
       }
     },
     {
@@ -46,9 +39,21 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "Device",
+        "abstract": false,
+        "code": "Device",
         "definition": null,
         "display": "Device"
+      }
+    },
+    {
+      "hash": "|null|null|Encounter|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Encounter",
+        "definition": null,
+        "display": "Encounter"
       }
     }
   ]

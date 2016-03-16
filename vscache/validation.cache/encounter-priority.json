@@ -2,7 +2,7 @@
   "url": "http://hl7.org/fhir/ValueSet/encounter-priority",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|394849002|High priority",
+      "hash": "#|http://snomed.info/sct|null|17621005|Normal",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -12,17 +12,17 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|310361003|Non-urgent cardiological admission",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|17621005|Normal",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|103391001|Urgent",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|394849002|High priority",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|310361003|Non-urgent cardiological admission",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

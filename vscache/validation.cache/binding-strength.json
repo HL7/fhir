@@ -11,6 +11,39 @@
         "definition": null,
         "display": "Required"
       }
+    },
+    {
+      "hash": "|null|null|extensible|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "extensible",
+        "definition": null,
+        "display": "Extensible"
+      }
+    },
+    {
+      "hash": "|null|null|preferred|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "preferred",
+        "definition": null,
+        "display": "Preferred"
+      }
+    },
+    {
+      "hash": "|null|null|example|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "example",
+        "definition": null,
+        "display": "Example"
+      }
     }
   ]
 }

@@ -2,6 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/clinical-findings",
   "outcomes": [
     {
+      "hash": "#|http://snomed.info/sct|null|188340000|Malignant tumor of craniopharyngeal duct",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Malignant tumor of craniopharyngeal duct"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|407152001|Increased blood lead level",
       "severity": null,
       "message": null,
@@ -10,6 +21,28 @@
         "code": null,
         "definition": null,
         "display": "Increased blood lead level (finding)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|391040000|At risk of osteoporotic fracture",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "At risk of osteoporotic fracture (finding)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|428763004|Bacteremia due to staphylococcus",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Bacteremia due to Staphylococcus aureus (disorder)"
       }
     }
   ]

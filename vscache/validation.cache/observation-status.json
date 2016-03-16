@@ -2,6 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/observation-status",
   "outcomes": [
     {
+      "hash": "|null|null|cancelled|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "cancelled",
+        "definition": null,
+        "display": "cancelled"
+      }
+    },
+    {
       "hash": "|null|null|final|null",
       "severity": null,
       "message": null,
@@ -10,6 +21,17 @@
         "code": "final",
         "definition": null,
         "display": "Final"
+      }
+    },
+    {
+      "hash": "|null|null|entered-in-error|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "entered-in-error",
+        "definition": null,
+        "display": "Entered in Error"
       }
     }
   ]

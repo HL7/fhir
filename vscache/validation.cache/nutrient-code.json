@@ -46,11 +46,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|256674009|Fat",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Nutrient Modifier Codes"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|39972003|Sodium",
       "severity": null,
       "message": null,
@@ -60,6 +55,11 @@
         "definition": null,
         "display": "Na - Sodium"
       }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|256674009|Fat",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Nutrient Modifier Codes"
     }
   ]
 }

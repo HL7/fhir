@@ -2,13 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/immunization-recommendation-date-criterion|null|recommended|Recommended",
+      "hash": "#|http://hl7.org/fhir/immunization-recommendation-date-criterion|null|earliest|Earliest Date",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "recommended",
+        "abstract": false,
+        "code": "earliest",
         "definition": null,
-        "display": "Recommended"
+        "display": "Earliest Date"
       }
     },
     {
@@ -16,19 +17,21 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "overdue",
+        "abstract": false,
+        "code": "overdue",
         "definition": null,
         "display": "Past Due Date"
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/immunization-recommendation-date-criterion|null|earliest|Earliest Date",
+      "hash": "#|http://hl7.org/fhir/immunization-recommendation-date-criterion|null|recommended|Recommended",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "earliest",
+        "abstract": false,
+        "code": "recommended",
         "definition": null,
-        "display": "Earliest Date"
+        "display": "Recommended"
       }
     }
   ]

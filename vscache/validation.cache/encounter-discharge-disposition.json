@@ -11,6 +11,11 @@
         "definition": null,
         "display": "Home"
       }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|306689006|Discharge to home",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

@@ -2,6 +2,818 @@
   "url": "http://hl7.org/fhir/ValueSet/defined-types",
   "outcomes": [
     {
+      "hash": "|null|null|MedicationDispense|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MedicationDispense",
+        "definition": null,
+        "display": "MedicationDispense"
+      }
+    },
+    {
+      "hash": "|null|null|Questionnaire|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Questionnaire",
+        "definition": null,
+        "display": "Questionnaire"
+      }
+    },
+    {
+      "hash": "|null|null|time|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "time",
+        "definition": null,
+        "display": "time"
+      }
+    },
+    {
+      "hash": "|null|null|Observation|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Observation",
+        "definition": null,
+        "display": "Observation"
+      }
+    },
+    {
+      "hash": "|null|null|Resource|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Resource",
+        "definition": null,
+        "display": "Resource"
+      }
+    },
+    {
+      "hash": "|null|null|DocumentReference|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DocumentReference",
+        "definition": null,
+        "display": "DocumentReference"
+      }
+    },
+    {
+      "hash": "|null|null|Provenance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Provenance",
+        "definition": null,
+        "display": "Provenance"
+      }
+    },
+    {
+      "hash": "|null|null|markdown|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "markdown",
+        "definition": null,
+        "display": "markdown"
+      }
+    },
+    {
+      "hash": "|null|null|instant|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "instant",
+        "definition": null,
+        "display": "instant"
+      }
+    },
+    {
+      "hash": "|null|null|HumanName|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "HumanName",
+        "definition": null,
+        "display": "HumanName"
+      }
+    },
+    {
+      "hash": "|null|null|integer|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "integer",
+        "definition": null,
+        "display": "integer"
+      }
+    },
+    {
+      "hash": "|null|null|ContactPoint|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ContactPoint",
+        "definition": null,
+        "display": "ContactPoint"
+      }
+    },
+    {
+      "hash": "|null|null|Encounter|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Encounter",
+        "definition": null,
+        "display": "Encounter"
+      }
+    },
+    {
+      "hash": "|null|null|DiagnosticOrder|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DiagnosticOrder",
+        "definition": null,
+        "display": "DiagnosticOrder"
+      }
+    },
+    {
+      "hash": "|null|null|uri|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "uri",
+        "definition": null,
+        "display": "uri"
+      }
+    },
+    {
+      "hash": "|null|null|QuestionnaireResponse|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "QuestionnaireResponse",
+        "definition": null,
+        "display": "QuestionnaireResponse"
+      }
+    },
+    {
+      "hash": "|null|null|DeviceUseRequest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DeviceUseRequest",
+        "definition": null,
+        "display": "DeviceUseRequest"
+      }
+    },
+    {
+      "hash": "|null|null|Specimen|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Specimen",
+        "definition": null,
+        "display": "Specimen"
+      }
+    },
+    {
+      "hash": "|null|null|DataElement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DataElement",
+        "definition": null,
+        "display": "DataElement"
+      }
+    },
+    {
+      "hash": "|null|null|Procedure|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Procedure",
+        "definition": null,
+        "display": "Procedure"
+      }
+    },
+    {
+      "hash": "|null|null|Bundle|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Bundle",
+        "definition": null,
+        "display": "Bundle"
+      }
+    },
+    {
+      "hash": "|null|null|ImagingStudy|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ImagingStudy",
+        "definition": null,
+        "display": "ImagingStudy"
+      }
+    },
+    {
+      "hash": "|null|null|ActionDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code ActionDefinition in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|CarePlan|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "CarePlan",
+        "definition": null,
+        "display": "CarePlan"
+      }
+    },
+    {
+      "hash": "|null|null|Signature|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Signature",
+        "definition": null,
+        "display": "Signature"
+      }
+    },
+    {
+      "hash": "|null|null|AuditEvent|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "AuditEvent",
+        "definition": null,
+        "display": "AuditEvent"
+      }
+    },
+    {
+      "hash": "|null|null|Identifier|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Identifier",
+        "definition": null,
+        "display": "Identifier"
+      }
+    },
+    {
+      "hash": "|null|null|FamilyMemberHistory|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "FamilyMemberHistory",
+        "definition": null,
+        "display": "FamilyMemberHistory"
+      }
+    },
+    {
+      "hash": "|null|null|positiveInt|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "positiveInt",
+        "definition": null,
+        "display": "positiveInt"
+      }
+    },
+    {
+      "hash": "|null|null|Contract|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Contract",
+        "definition": null,
+        "display": "Contract"
+      }
+    },
+    {
+      "hash": "|null|null|Meta|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Meta",
+        "definition": null,
+        "display": "Meta"
+      }
+    },
+    {
+      "hash": "|null|null|Extension|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Extension",
+        "definition": null,
+        "display": "Extension"
+      }
+    },
+    {
+      "hash": "|null|null|Attachment|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Attachment",
+        "definition": null,
+        "display": "Attachment"
+      }
+    },
+    {
+      "hash": "|null|null|List|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "List",
+        "definition": null,
+        "display": "List"
+      }
+    },
+    {
+      "hash": "|null|null|Timing|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Timing",
+        "definition": null,
+        "display": "Timing"
+      }
+    },
+    {
+      "hash": "|null|null|Practitioner|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Practitioner",
+        "definition": null,
+        "display": "Practitioner"
+      }
+    },
+    {
+      "hash": "|null|null|MedicationOrder|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MedicationOrder",
+        "definition": null,
+        "display": "MedicationOrder"
+      }
+    },
+    {
+      "hash": "|null|null|Organization|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Organization",
+        "definition": null,
+        "display": "Organization"
+      }
+    },
+    {
+      "hash": "|null|null|Composition|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Composition",
+        "definition": null,
+        "display": "Composition"
+      }
+    },
+    {
+      "hash": "|null|null|ReferralRequest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ReferralRequest",
+        "definition": null,
+        "display": "ReferralRequest"
+      }
+    },
+    {
+      "hash": "|null|null|Coding|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Coding",
+        "definition": null,
+        "display": "Coding"
+      }
+    },
+    {
+      "hash": "|null|null|TriggerDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code TriggerDefinition in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|ImmunizationRecommendation|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ImmunizationRecommendation",
+        "definition": null,
+        "display": "ImmunizationRecommendation"
+      }
+    },
+    {
+      "hash": "|null|null|Immunization|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Immunization",
+        "definition": null,
+        "display": "Immunization"
+      }
+    },
+    {
+      "hash": "|null|null|Reference|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Reference",
+        "definition": null,
+        "display": "Reference"
+      }
+    },
+    {
+      "hash": "|null|null|date|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "date",
+        "definition": null,
+        "display": "date"
+      }
+    },
+    {
+      "hash": "|null|null|ProcedureRequest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ProcedureRequest",
+        "definition": null,
+        "display": "ProcedureRequest"
+      }
+    },
+    {
+      "hash": "|null|null|id|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "id",
+        "definition": null,
+        "display": "id"
+      }
+    },
+    {
+      "hash": "|null|null|Location|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Location",
+        "definition": null,
+        "display": "Location"
+      }
+    },
+    {
+      "hash": "|null|null|Medication|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Medication",
+        "definition": null,
+        "display": "Medication"
+      }
+    },
+    {
+      "hash": "|null|null|Ratio|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Ratio",
+        "definition": null,
+        "display": "Ratio"
+      }
+    },
+    {
+      "hash": "|null|null|ParameterDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code ParameterDefinition in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|AllergyIntolerance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "AllergyIntolerance",
+        "definition": null,
+        "display": "AllergyIntolerance"
+      }
+    },
+    {
+      "hash": "|null|null|SampledData|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "SampledData",
+        "definition": null,
+        "display": "SampledData"
+      }
+    },
+    {
+      "hash": "|null|null|DomainResource|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DomainResource",
+        "definition": null,
+        "display": "DomainResource"
+      }
+    },
+    {
+      "hash": "|null|null|Condition|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Condition",
+        "definition": null,
+        "display": "Condition"
+      }
+    },
+    {
+      "hash": "|null|null|Period|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Period",
+        "definition": null,
+        "display": "Period"
+      }
+    },
+    {
+      "hash": "|null|null|oid|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "oid",
+        "definition": null,
+        "display": "oid"
+      }
+    },
+    {
+      "hash": "|null|null|Narrative|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Narrative",
+        "definition": null,
+        "display": "Narrative"
+      }
+    },
+    {
+      "hash": "|null|null|DocumentManifest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DocumentManifest",
+        "definition": null,
+        "display": "DocumentManifest"
+      }
+    },
+    {
+      "hash": "|null|null|CommunicationRequest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "CommunicationRequest",
+        "definition": null,
+        "display": "CommunicationRequest"
+      }
+    },
+    {
+      "hash": "|null|null|ModuleMetadata|null",
+      "severity": "error",
+      "message": "Unknown Code ModuleMetadata in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|xhtml|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "xhtml",
+        "definition": null,
+        "display": "XHTML"
+      }
+    },
+    {
+      "hash": "|null|null|Quantity|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Quantity",
+        "definition": null,
+        "display": "Quantity"
+      }
+    },
+    {
+      "hash": "|null|null|MedicationAdministration|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MedicationAdministration",
+        "definition": null,
+        "display": "MedicationAdministration"
+      }
+    },
+    {
+      "hash": "|null|null|Element|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Element",
+        "definition": null,
+        "display": "Element"
+      }
+    },
+    {
+      "hash": "|null|null|Basic|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Basic",
+        "definition": null,
+        "display": "Basic"
+      }
+    },
+    {
+      "hash": "|null|null|BodySite|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "BodySite",
+        "definition": null,
+        "display": "BodySite"
+      }
+    },
+    {
+      "hash": "|null|null|unsignedInt|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "unsignedInt",
+        "definition": null,
+        "display": "unsignedInt"
+      }
+    },
+    {
+      "hash": "|null|null|Order|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Order",
+        "definition": null,
+        "display": "Order"
+      }
+    },
+    {
+      "hash": "|null|null|DeviceUseStatement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DeviceUseStatement",
+        "definition": null,
+        "display": "DeviceUseStatement"
+      }
+    },
+    {
+      "hash": "|null|null|Patient|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Patient",
+        "definition": null,
+        "display": "Patient"
+      }
+    },
+    {
+      "hash": "|null|null|Flag|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Flag",
+        "definition": null,
+        "display": "Flag"
+      }
+    },
+    {
+      "hash": "|null|null|Address|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Address",
+        "definition": null,
+        "display": "Address"
+      }
+    },
+    {
+      "hash": "|null|null|Substance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Substance",
+        "definition": null,
+        "display": "Substance"
+      }
+    },
+    {
+      "hash": "|null|null|RelatedPerson|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "RelatedPerson",
+        "definition": null,
+        "display": "RelatedPerson"
+      }
+    },
+    {
       "hash": "|null|null|CodeableConcept|null",
       "severity": null,
       "message": null,
@@ -10,6 +822,154 @@
         "code": "CodeableConcept",
         "definition": null,
         "display": "CodeableConcept"
+      }
+    },
+    {
+      "hash": "|null|null|DiagnosticReport|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DiagnosticReport",
+        "definition": null,
+        "display": "DiagnosticReport"
+      }
+    },
+    {
+      "hash": "|null|null|Parameters|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Parameters",
+        "definition": null,
+        "display": "Parameters"
+      }
+    },
+    {
+      "hash": "|null|null|Range|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Range",
+        "definition": null,
+        "display": "Range"
+      }
+    },
+    {
+      "hash": "|null|null|CodeSystem|null",
+      "severity": "error",
+      "message": "Unknown Code CodeSystem in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
+      "hash": "|null|null|MedicationStatement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MedicationStatement",
+        "definition": null,
+        "display": "MedicationStatement"
+      }
+    },
+    {
+      "hash": "|null|null|Goal|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Goal",
+        "definition": null,
+        "display": "Goal"
+      }
+    },
+    {
+      "hash": "|null|null|code|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "code",
+        "definition": null,
+        "display": "code"
+      }
+    },
+    {
+      "hash": "|null|null|BackboneElement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "BackboneElement",
+        "definition": null,
+        "display": "BackboneElement"
+      }
+    },
+    {
+      "hash": "|null|null|ValueSet|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ValueSet",
+        "definition": null,
+        "display": "ValueSet"
+      }
+    },
+    {
+      "hash": "|null|null|Annotation|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Annotation",
+        "definition": null,
+        "display": "Annotation"
+      }
+    },
+    {
+      "hash": "|null|null|Communication|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Communication",
+        "definition": null,
+        "display": "Communication"
+      }
+    },
+    {
+      "hash": "|null|null|ElementDefinition|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ElementDefinition",
+        "definition": null,
+        "display": "ElementDefinition"
+      }
+    },
+    {
+      "hash": "|null|null|dateTime|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "dateTime",
+        "definition": null,
+        "display": "dateTime"
+      }
+    },
+    {
+      "hash": "|null|null|base64Binary|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "base64Binary",
+        "definition": null,
+        "display": "base64Binary"
       }
     },
     {
@@ -35,26 +995,31 @@
       }
     },
     {
-      "hash": "|null|null|Coding|null",
+      "hash": "|null|null|boolean|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "Coding",
+        "code": "boolean",
         "definition": null,
-        "display": "Coding"
+        "display": "boolean"
       }
     },
     {
-      "hash": "|null|null|date|null",
+      "hash": "|null|null|Device|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "date",
+        "code": "Device",
         "definition": null,
-        "display": "date"
+        "display": "Device"
       }
+    },
+    {
+      "hash": "|null|null|DataRequirement|null",
+      "severity": "error",
+      "message": "Unknown Code DataRequirement in http://hl7.org/fhir/ValueSet/defined-types"
     }
   ]
 }

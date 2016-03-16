@@ -1,0 +1,16 @@
+{
+  "url": "http://hl7.org/fhir/ValueSet/task-status",
+  "outcomes": [
+    {
+      "hash": "|null|null|created|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "created",
+        "definition": null,
+        "display": "Created"
+      }
+    }
+  ]
+}

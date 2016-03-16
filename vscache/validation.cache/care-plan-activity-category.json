@@ -2,21 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/care-plan-activity-category",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|diet|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "diet",
-        "definition": null,
-        "display": "Diet"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|observation|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "observation",
+        "abstract": false,
+        "code": "observation",
         "definition": null,
         "display": "Observation"
       }
@@ -26,7 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "procedure",
+        "abstract": false,
+        "code": "procedure",
         "definition": null,
         "display": "Procedure"
       }
@@ -36,9 +28,21 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "encounter",
+        "abstract": false,
+        "code": "encounter",
         "definition": null,
         "display": "Encounter"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|diet|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "diet",
+        "definition": null,
+        "display": "Diet"
       }
     },
     {
@@ -46,7 +50,8 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "other",
+        "abstract": false,
+        "code": "other",
         "definition": null,
         "display": "Other"
       }

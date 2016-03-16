@@ -2,14 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/search-param-type",
   "outcomes": [
     {
-      "hash": "|null|null|reference|null",
+      "hash": "|null|null|uri|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "reference",
+        "code": "uri",
         "definition": null,
-        "display": "Reference"
+        "display": "URI"
+      }
+    },
+    {
+      "hash": "|null|null|number|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "number",
+        "definition": null,
+        "display": "Number"
       }
     },
     {
@@ -46,14 +57,14 @@
       }
     },
     {
-      "hash": "|null|null|string|null",
+      "hash": "|null|null|reference|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "string",
+        "code": "reference",
         "definition": null,
-        "display": "String"
+        "display": "Reference"
       }
     },
     {
@@ -68,25 +79,14 @@
       }
     },
     {
-      "hash": "|null|null|number|null",
+      "hash": "|null|null|string|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "number",
+        "code": "string",
         "definition": null,
-        "display": "Number"
-      }
-    },
-    {
-      "hash": "|null|null|uri|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "uri",
-        "definition": null,
-        "display": "URI"
+        "display": "String"
       }
     }
   ]

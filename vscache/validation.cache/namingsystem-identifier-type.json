@@ -2,23 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/namingsystem-identifier-type",
   "outcomes": [
     {
-      "hash": "|null|null|oid|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "oid",
-        "definition": null,
-        "display": "OID"
-      }
-    },
-    {
       "hash": "|null|null|uri|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "uri",
+        "abstract": false,
+        "code": "uri",
         "definition": null,
         "display": "URI"
+      }
+    },
+    {
+      "hash": "|null|null|oid|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "oid",
+        "definition": null,
+        "display": "OID"
       }
     }
   ]

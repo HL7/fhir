@@ -2,41 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/care-plan-activity-status",
   "outcomes": [
     {
-      "hash": "|null|null|on-hold|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "on-hold",
-        "definition": null,
-        "display": "On Hold"
-      }
-    },
-    {
-      "hash": "|null|null|scheduled|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "scheduled",
-        "definition": null,
-        "display": "Scheduled"
-      }
-    },
-    {
-      "hash": "|null|null|in-progress|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "in-progress",
-        "definition": null,
-        "display": "In Progress"
-      }
-    },
-    {
       "hash": "|null|null|not-started|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "not-started",
+        "abstract": false,
+        "code": "not-started",
         "definition": null,
         "display": "Not Started"
       }
@@ -46,9 +17,43 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "completed",
+        "abstract": false,
+        "code": "completed",
         "definition": null,
         "display": "Completed"
+      }
+    },
+    {
+      "hash": "|null|null|on-hold|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "on-hold",
+        "definition": null,
+        "display": "On Hold"
+      }
+    },
+    {
+      "hash": "|null|null|scheduled|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "scheduled",
+        "definition": null,
+        "display": "Scheduled"
+      }
+    },
+    {
+      "hash": "|null|null|in-progress|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "in-progress",
+        "definition": null,
+        "display": "In Progress"
       }
     }
   ]

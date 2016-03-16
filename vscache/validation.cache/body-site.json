@@ -2,6 +2,28 @@
   "url": "http://hl7.org/fhir/ValueSet/body-site",
   "outcomes": [
     {
+      "hash": "#|http://snomed.info/sct|null|39607008|Lung structure",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Lung structure"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|181414000|Kidney",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Kidney"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|308046002|Superficial forearm vein",
       "severity": null,
       "message": null,
@@ -13,14 +35,91 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|49521004|Left external ear structure",
+      "hash": "#|http://snomed.info/sct|null|14975008|Forearm structure",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Left external ear structure"
+        "display": "Forearm"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|53120007|Arm#|http://ehr.goodhealthclinic.org|null|ARM|Arm",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Arm"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|17401000|Heart valve structure",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Heart valve structure"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|51185008|Thorax",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Thoracic structure"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|38266002|Entire body as a whole",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Entire body as a whole"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|361355005|Entire head and neck",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Entire head and neck"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|280193007|Entire retropharyngeal area",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Retropharyngeal space"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|51185008|Thoracic structure",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Thoracic structure"
       }
     },
     {
@@ -35,6 +134,28 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|368225008|Entire Left Forearm",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Entire left forearm"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|83030008|Retropharyngeal area",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Retropharyngeal area"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|66754008|Appendix structure",
       "severity": null,
       "message": null,
@@ -46,7 +167,18 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|53120007|Arm#|http://ehr.goodhealthclinic.org|null|ARM|Arm",
+      "hash": "#|http://snomed.info/sct|null|40768004|Left thorax",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Left thorax structure"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|53120007|Arm",
       "severity": null,
       "message": null,
       "definition": {
@@ -54,6 +186,61 @@
         "code": null,
         "definition": null,
         "display": "Arm"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|49521004|Left external ear structure",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Left external ear structure"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|368209003|Right arm",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Right upper arm"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|272676008|Sphenoid bone",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Entire sphenoid bone"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|74262004|Oral cavity",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Oral cavity"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|281158006|Pulmonary vascular structure",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Pulmonary vascular structure"
       }
     }
   ]

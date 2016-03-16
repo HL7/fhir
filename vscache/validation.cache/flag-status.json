@@ -11,6 +11,17 @@
         "definition": null,
         "display": "Inactive"
       }
+    },
+    {
+      "hash": "|null|null|active|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "active",
+        "definition": null,
+        "display": "Active"
+      }
     }
   ]
 }

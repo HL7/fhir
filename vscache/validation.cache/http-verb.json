@@ -2,6 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/http-verb",
   "outcomes": [
     {
+      "hash": "|null|null|PUT|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "PUT",
+        "definition": null,
+        "display": "PUT"
+      }
+    },
+    {
       "hash": "|null|null|POST|null",
       "severity": null,
       "message": null,
@@ -13,14 +24,25 @@
       }
     },
     {
-      "hash": "|null|null|PUT|null",
+      "hash": "|null|null|GET|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "PUT",
+        "code": "GET",
         "definition": null,
-        "display": "PUT"
+        "display": "GET"
+      }
+    },
+    {
+      "hash": "|null|null|DELETE|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DELETE",
+        "definition": null,
+        "display": "DELETE"
       }
     }
   ]

@@ -2,23 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/texture-code",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|228055009|Liquidized food",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "228055009",
-        "definition": null,
-        "display": "Liquidized food"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|228049004|Chopped food",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "228049004",
+        "abstract": false,
+        "code": "228049004",
         "definition": null,
         "display": "Chopped food"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|228055009|Liquidized food",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "228055009",
+        "definition": null,
+        "display": "Liquidized food"
       }
     }
   ]

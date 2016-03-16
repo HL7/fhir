@@ -12,6 +12,17 @@
       "message": "The code provided is not  valid in the value set SNOMED CT Clinical Findings"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|247472004|Hives",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Wheal"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|39579001|Anaphylactic reaction",
       "severity": null,
       "message": null,

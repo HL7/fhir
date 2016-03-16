@@ -5,6 +5,11 @@
       "hash": "#|http://example.org/local|null|admin|Admin",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://example.org/local|null|infection|Infection Control Level",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

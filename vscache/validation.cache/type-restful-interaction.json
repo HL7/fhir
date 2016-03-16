@@ -2,6 +2,50 @@
   "url": "http://hl7.org/fhir/ValueSet/type-restful-interaction",
   "outcomes": [
     {
+      "hash": "|null|null|history-instance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "history-instance",
+        "definition": null,
+        "display": "history-instance"
+      }
+    },
+    {
+      "hash": "|null|null|create|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "create",
+        "definition": null,
+        "display": "create"
+      }
+    },
+    {
+      "hash": "|null|null|read|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "read",
+        "definition": null,
+        "display": "read"
+      }
+    },
+    {
+      "hash": "|null|null|search-type|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "search-type",
+        "definition": null,
+        "display": "search-type"
+      }
+    },
+    {
       "hash": "|null|null|history-type|null",
       "severity": null,
       "message": null,
@@ -35,28 +79,6 @@
       }
     },
     {
-      "hash": "|null|null|search-type|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "search-type",
-        "definition": null,
-        "display": "search-type"
-      }
-    },
-    {
-      "hash": "|null|null|history-instance|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "history-instance",
-        "definition": null,
-        "display": "history-instance"
-      }
-    },
-    {
       "hash": "|null|null|update|null",
       "severity": null,
       "message": null,
@@ -65,28 +87,6 @@
         "code": "update",
         "definition": null,
         "display": "update"
-      }
-    },
-    {
-      "hash": "|null|null|create|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "create",
-        "definition": null,
-        "display": "create"
-      }
-    },
-    {
-      "hash": "|null|null|read|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "read",
-        "definition": null,
-        "display": "read"
       }
     },
     {

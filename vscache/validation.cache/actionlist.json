@@ -2,23 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/actionlist",
   "outcomes": [
     {
-      "hash": "|null|null|cancel|null",
+      "hash": "|null|null|status|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "cancel",
+        "abstract": false,
+        "code": "status",
         "definition": null,
-        "display": "Cancel, Reverse or Nullify"
-      }
-    },
-    {
-      "hash": "|null|null|reprocess|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "reprocess",
-        "definition": null,
-        "display": "Re-Process"
+        "display": "Status Check"
       }
     },
     {
@@ -26,19 +17,32 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "poll",
+        "abstract": false,
+        "code": "poll",
         "definition": null,
         "display": "Poll"
       }
     },
     {
-      "hash": "|null|null|status|null",
+      "hash": "|null|null|reprocess|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "status",
+        "abstract": false,
+        "code": "reprocess",
         "definition": null,
-        "display": "Status Check"
+        "display": "Re-Process"
+      }
+    },
+    {
+      "hash": "|null|null|cancel|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "cancel",
+        "definition": null,
+        "display": "Cancel, Reverse or Nullify"
       }
     }
   ]

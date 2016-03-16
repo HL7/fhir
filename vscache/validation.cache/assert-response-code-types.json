@@ -2,13 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/assert-response-code-types",
   "outcomes": [
     {
-      "hash": "|null|null|okay|null",
+      "hash": "|null|null|notFound|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "okay",
+        "abstract": false,
+        "code": "notFound",
         "definition": null,
-        "display": "okay"
+        "display": "notFound"
       }
     },
     {
@@ -16,19 +17,21 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "bad",
+        "abstract": false,
+        "code": "bad",
         "definition": null,
         "display": "bad"
       }
     },
     {
-      "hash": "|null|null|notFound|null",
+      "hash": "|null|null|okay|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "notFound",
+        "abstract": false,
+        "code": "okay",
         "definition": null,
-        "display": "notFound"
+        "display": "okay"
       }
     }
   ]

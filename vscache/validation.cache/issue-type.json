@@ -2,43 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/issue-type",
   "outcomes": [
     {
-      "hash": "|null|null|structure|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "structure",
-        "definition": null,
-        "display": "Structural Issue"
-      }
-    },
-    {
-      "hash": "|null|null|code-invalid|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "code-invalid",
-        "definition": null,
-        "display": "Invalid Code"
-      }
-    },
-    {
       "hash": "|null|null|exception|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "exception",
+        "abstract": false,
+        "code": "exception",
         "definition": null,
         "display": "Exception"
-      }
-    },
-    {
-      "hash": "|null|null|informational|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "informational",
-        "definition": null,
-        "display": "Informational Note"
       }
     },
     {
@@ -46,9 +17,43 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": "suppressed",
+        "abstract": false,
+        "code": "suppressed",
         "definition": null,
         "display": "Information  Suppressed"
+      }
+    },
+    {
+      "hash": "|null|null|informational|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "informational",
+        "definition": null,
+        "display": "Informational Note"
+      }
+    },
+    {
+      "hash": "|null|null|code-invalid|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "code-invalid",
+        "definition": null,
+        "display": "Invalid Code"
+      }
+    },
+    {
+      "hash": "|null|null|structure|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "structure",
+        "definition": null,
+        "display": "Structural Issue"
       }
     }
   ]

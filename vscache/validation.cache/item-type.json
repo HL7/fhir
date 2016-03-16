@@ -2,47 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/item-type",
   "outcomes": [
     {
-      "hash": "|null|null|boolean|null",
+      "hash": "|null|null|choice|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "boolean",
+        "code": "choice",
         "definition": null,
-        "display": "Boolean"
+        "display": "Choice"
       }
     },
     {
-      "hash": "|null|null|dateTime|null",
+      "hash": "|null|null|time|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "dateTime",
+        "code": "time",
         "definition": null,
-        "display": "Date Time"
-      }
-    },
-    {
-      "hash": "|null|null|decimal|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "decimal",
-        "definition": null,
-        "display": "Decimal"
-      }
-    },
-    {
-      "hash": "|null|null|string|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "string",
-        "definition": null,
-        "display": "String"
+        "display": "Time"
       }
     },
     {
@@ -57,25 +35,14 @@
       }
     },
     {
-      "hash": "|null|null|date|null",
+      "hash": "|null|null|display|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "date",
+        "code": "display",
         "definition": null,
-        "display": "Date"
-      }
-    },
-    {
-      "hash": "|null|null|choice|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "choice",
-        "definition": null,
-        "display": "Choice"
+        "display": "Display"
       }
     },
     {
@@ -90,25 +57,58 @@
       }
     },
     {
-      "hash": "|null|null|display|null",
+      "hash": "|null|null|date|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "display",
+        "code": "date",
         "definition": null,
-        "display": "Display"
+        "display": "Date"
       }
     },
     {
-      "hash": "|null|null|time|null",
+      "hash": "|null|null|dateTime|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "time",
+        "code": "dateTime",
         "definition": null,
-        "display": "Time"
+        "display": "Date Time"
+      }
+    },
+    {
+      "hash": "|null|null|string|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "string",
+        "definition": null,
+        "display": "String"
+      }
+    },
+    {
+      "hash": "|null|null|decimal|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "decimal",
+        "definition": null,
+        "display": "Decimal"
+      }
+    },
+    {
+      "hash": "|null|null|boolean|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "boolean",
+        "definition": null,
+        "display": "Boolean"
       }
     }
   ]

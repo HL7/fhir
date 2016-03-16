@@ -2,6 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/list-empty-reason",
   "outcomes": [
     {
+      "hash": "#|http://hl7.org/fhir/list-empty-reason|null|nilknown|Nil Known",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "nilknown",
+        "definition": null,
+        "display": "Nil Known"
+      }
+    },
+    {
       "hash": "#|http://hl7.org/fhir/list-empty-reason|null|withheld|Information Withheld",
       "severity": null,
       "message": null,

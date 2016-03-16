@@ -2,11 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/encounter-diet",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|276026009|Fluid balance regulation",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
       "hash": "#|http://hl7.org/fhir/diet|null|dairy-free|null",
       "severity": null,
       "message": null,
@@ -27,6 +22,11 @@
         "definition": null,
         "display": "Kosher"
       }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|276026009|Fluid balance regulation",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }
