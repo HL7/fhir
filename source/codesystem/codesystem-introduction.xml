@@ -31,7 +31,7 @@ their basic properties (code, display, definition), designations, and additional
 <p>
 The Code system resource is not intended to support the process of maintaining a 
 code system. Instead, the focus is on publishing the properties and optionally 
-the content of a code system for use throughout the FHIR eco-system. Note that 
+the content of a code system for use throughout the FHIR eco-system, such as to support value set expansion and validation. Note that 
 the important existing (large) code systems (SNOMED CT, LOINC, RxNorm, ICD family, etc) 
 all have their own distribution formats, and there is no intent that the code system
 resource be used for distributing these kind of terminologies. Instead, it is 

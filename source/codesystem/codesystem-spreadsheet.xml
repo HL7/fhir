@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13110</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>16710</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
@@ -2005,7 +2005,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer | boolean</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer | boolean | dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The type of the property value </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2355,7 +2355,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">1..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer | boolean</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">code | Coding | string | integer | boolean | dateTime</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4427,7 +4427,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>21</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4440,11 +4440,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>14</ActiveCol>
+     <ActiveRow>32</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7689,12 +7690,12 @@
     <Cell ss:StyleID="s143"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
-    <Cell ss:StyleID="s142"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s142"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
-    <Cell ss:StyleID="s150"/>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">dateTime</Data></Cell>
+    <Cell ss:StyleID="s150"><Data ss:Type="String">The property is a date or a date + time</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s143"/>

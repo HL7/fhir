@@ -61,6 +61,12 @@
   Display = boolean
   Definition = The property value is a boolean true | false
 
+ -- Row 6 -----------------------------------
+  Id = 6
+  Code = dateTime
+  Display = dateTime
+  Definition = The property is a date or a date + time
+
 === Sheet codesystem-content-mode =====================================
 
  -- Row 1 -----------------------------------
@@ -387,7 +393,7 @@
   Summary = y
   Type = code
   Binding = PropertyType
-  Short Label = code | Coding | string | integer | boolean
+  Short Label = code | Coding | string | integer | boolean | dateTime
   Definition = The type of the property value
 
  -- Row 32 -----------------------------------
@@ -471,7 +477,7 @@
  -- Row 42 -----------------------------------
   Element = CodeSystem.concept.property.value[x]
   Card. = 1..1
-  Type = code | Coding | string | integer | boolean
+  Type = code | Coding | string | integer | boolean | dateTime
   Short Label = Value of the property for this concept
   Definition = The value of this property
 
