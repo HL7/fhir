@@ -23,7 +23,7 @@
   Element = DecisionSupportServiceModule
   Type = DomainResource
   Short Label = A description of decision support service functionality
-  Definition = The DecisionSupportServiceModule resource describes decision support functionality that is available as a service
+  Definition = The DecisionSupportServiceModule describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
@@ -31,14 +31,14 @@
   Card. = 0..1
   Type = ModuleMetadata
   Short Label = Metadata for the service module
-  Definition = A reference to a ModuleMetadata resource describing the metadata for the decision support service module
+  Definition = The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence
 
  -- Row 3 -----------------------------------
   Element = DecisionSupportServiceModule.trigger
   Card. = 0..*
   Type = TriggerDefinition
   Short Label = \"when\" the module should be invoked
-  Definition = The trigger element
+  Definition = The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow
 
  -- Row 4 -----------------------------------
   Element = DecisionSupportServiceModule.parameter
@@ -52,119 +52,51 @@
   Card. = 0..*
   Type = DataRequirement
   Short Label = Data requirements for the module
-  Definition = Data requirements are a machine processable description of the data required by the module in order to successfully evaluate
-
- -- Row 6 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter
-  Card. = 0..*
-  Short Label = Parameters to the module
-  Definition = The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse
-
- -- Row 7 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.name
-  Card. = 0..1
-  Type = code
-  Binding = !
-  Short Label = Parameter name
-  Definition = The name of the parameter
-
- -- Row 8 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.use
-  Card. = 1..1
-  Type = code
-  Binding = ModuleDefinitionParameterUse
-  Definition = Whether the parameter is input or output for the module
-
- -- Row 9 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.min
-  Card. = 0..1
-  Type = integer
-  Short Label = Minimum cardinality
-  Definition = The minimum number of times this parameter SHALL appear in the request or response
-
- -- Row 10 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.max
-  Card. = 0..1
-  Type = string
-  Short Label = Maximum cardinality (a number of *)
-  Definition = The maximum number of times this element is permitted to appear in the request or response
-
- -- Row 11 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.documentation
-  Card. = 0..1
-  Type = string
-  Short Label = A brief description of the parameter
-  Definition = A brief discussion of what the parameter is for and how it is used by the module
-
- -- Row 12 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.type
-  Card. = 1..1
-  Type = code
-  Binding = ModuleDefinitionParameterType
-  Definition = The type of the parameter
-
- -- Row 13 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.profile
-  Card. = 0..1
-  Type = Reference(StructureDefinition)
-  Short Label = The profile of the parameter, any
-  Definition = If specified, this indicates a profile that the input data must conform to, or that the output data will conform to
-
- -- Row 14 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.mustSupport
-  Card. = 0..*
-  Type = string
-  Short Label = Indicates that specific structure elements are referenced by the knowledge module
-  Definition = Indicates that specific elements of the type are referenced by the knowledge module and must be supported by the consumer in order to obtain an effective evaluation. This does not mean that a value is required for this element, only that the consuming system must understand the element and be able to provide values for it if they are available
-
- -- Row 15 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.codeFilter
-  Card. = 0..*
-  Short Label = Code filters for the required data, if any
-  Definition = Indicates that incoming data for this parameter is expected to match the given code filter. In other words, every instance should have a value for the path element that comes from the specified value set (or list of concepts)
-
- -- Row 16 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.codeFilter.path
-  Card. = 1..1
-  Type = string
-  Short Label = The code-valued attribute of the filter
-  Definition = The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept
-
- -- Row 17 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.codeFilter.valueSet[x]
-  Card. = 0..1
-  Type = uri|Reference(ValueSet)
-  Short Label = The valueset for the code filter
-  Definition = The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset
-
- -- Row 18 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.codeFilter.codeableConcept
-  Card. = 0..*
-  Type = CodeableConcept
-  Short Label = The codeableConcepts for the filter
-  Definition = The codeable concept for the code filter. Only one of valueSet or codeableConcept may be specified. If codeableConcepts are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codeable concepts
-
- -- Row 19 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.dateFilter
-  Card. = 0..*
-  Short Label = Date filters for the required data, if any
-  Definition = Indicates that incoming data for this parameter is expected to match the given date filter. In other words, every instance should have a value for the path element that is equal to the given datetime (or within the given Period)
-
- -- Row 20 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.dateFilter.path
-  Card. = 1..1
-  Type = string
-  Short Label = The date-valued attribute of the filter
-  Definition = The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing
-
- -- Row 21 -----------------------------------
-  Element = !DecisionSupportServiceModule.parameter.dateFilter.value[x]
-  Card. = 0..1
-  Type = dateTime|Period
-  Short Label = The value of the filter, as a Period or dateTime value
-  Definition = The value of the filter. If period is specified, the filter will return only those data items that fall within the bounds determined by the Period, inclusive of the period boundaries. If dateTime is specified, the filter will return only those data items that are equal to the specified dateTime
+  Definition = Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation
 
 === Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Logical identifier for the module (e.g. CMS-143)
+  Path = DecisionSupportServiceModule.moduleMetadata.identifier
+
+ -- Row 2 -----------------------------------
+  Name = topic
+  Type = token
+  Description = Topics associated with the module
+  Path = DecisionSupportServiceModule.moduleMetadata.topic
+
+ -- Row 3 -----------------------------------
+  Name = title
+  Type = string
+  Description = Text search against the title
+  Path = DecisionSupportServiceModule.moduleMetadata.title
+
+ -- Row 4 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search against the description
+  Path = DecisionSupportServiceModule.moduleMetadata.description
+
+ -- Row 5 -----------------------------------
+  Name = version
+  Type = string
+  Description = Version of the module (e.g. 1.0.0)
+  Path = DecisionSupportServiceModule.moduleMetadata.version
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Description = Status of the module
+  Path = DecisionSupportServiceModule.moduleMetadata.status
+
+ -- Row 7 -----------------------------------
+  Name = !minScore
+  Type = number
+  Description = The minimum relevance score of any match that will be returned
+  Path = Bundle/entry/search/score
 
 === Sheet Profiles =====================================
 
@@ -186,6 +118,7 @@
   Use = in
   Documentation = An optional client-provided identifier to track the request
   Type = code
+  Title = Request Id
   Min = 0
   Max = 1
 
@@ -194,6 +127,7 @@
   Use = in
   Documentation = An optional date and time specifying that the evaluation should be performed as thought it was the given date and time. The most direct implication of this is that references to \"Now\" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the date and time of the request is assumed
   Type = dateTime
+  Title = Evaluate At
   Min = 0
   Max = 1
 
@@ -202,29 +136,114 @@
   Use = in
   Documentation = The input parameters for a request, if any. These parameters are defined by the module that is the target of the evaluation, and supply the input information to the module.
   Type = Parameters
+  Title = Input Parameters
   Min = 0
   Max = 1
 
  -- Row 5 -----------------------------------
-  Name = evaluate.setting
+  Name = evaluate.initiatingOrganization
   Use = in
-  Documentation = The current setting of the request (inpatient, outpatient, etc)
-  Type = CodeableConcept
+  Documentation = The organization initiating the request
+  Type = Reference(Organization)
+  Title = Initiating Organization
   Min = 0
   Max = 1
 
  -- Row 6 -----------------------------------
-  Name = evaluate.settingContext
+  Name = evaluate.initiatingPerson
   Use = in
-  Documentation = Additional detail about the setting of the request, if any
-  Type = CodeableConcept
+  Documentation = The person initiating the request
+  Type = Reference(Patient|Practitioner|RelatedPerson)
+  Title = Initiating Person
   Min = 0
   Max = 1
 
  -- Row 7 -----------------------------------
+  Name = evaluate.userType
+  Use = in
+  Documentation = The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)
+  Type = CodeableConcept
+  Title = User Type
+  Min = 0
+  Max = 1
+
+ -- Row 8 -----------------------------------
+  Name = evaluate.userLanguage
+  Use = in
+  Documentation = Preferred language of the person using the system
+  Type = CodeableConcept
+  Title = User Language
+  Min = 0
+  Max = 1
+
+ -- Row 9 -----------------------------------
+  Name = evaluate.userTaskContext
+  Use = in
+  Documentation = The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources
+  Type = CodeableConcept
+  Title = User Task Context
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = evaluate.receivingOrganization
+  Use = in
+  Documentation = The organization that will receive the response
+  Type = Reference(Organization)
+  Title = Receiving Organization
+  Min = 0
+  Max = 1
+
+ -- Row 11 -----------------------------------
+  Name = evaluate.receivingPerson
+  Use = in
+  Documentation = The person in the receiving organization that will receive the response
+  Type = Reference(Patient|Practitioner|RelatedPerson)
+  Title = Receiving Person
+  Min = 0
+  Max = 1
+
+ -- Row 12 -----------------------------------
+  Name = evaluate.recipientType
+  Use = in
+  Documentation = The type of individual that will consume the response content. This may be different from the requesting user type (e.g. if a clinician is getting disease management guidance for provision to a patient). E.g. patient, healthcare provider or specific type of healthcare provider (physician, nurse, etc.)
+  Type = CodeableConcept
+  Title = Recipient Type
+  Min = 0
+  Max = 1
+
+ -- Row 13 -----------------------------------
+  Name = evaluate.recipientLanguage
+  Use = in
+  Documentation = Preferred language of the person that will consume the content
+  Type = CodeableConcept
+  Title = Recipient Language
+  Min = 0
+  Max = 1
+
+ -- Row 14 -----------------------------------
+  Name = evaluate.setting
+  Use = in
+  Documentation = The current setting of the request (inpatient, outpatient, etc)
+  Type = CodeableConcept
+  Title = Setting
+  Min = 0
+  Max = 1
+
+ -- Row 15 -----------------------------------
+  Name = evaluate.settingContext
+  Use = in
+  Documentation = Additional detail about the setting of the request, if any
+  Type = CodeableConcept
+  Title = Setting Context
+  Min = 0
+  Max = 1
+
+ -- Row 16 -----------------------------------
   Name = evaluate.return
   Use = out
   Documentation = The result of the request as a GuidanceResponse resource. Output parameters, if any, will be contained in the parameters element of the response
   Type = GuidanceResponse
+  Title = Return
   Min = 1
   Max = 1

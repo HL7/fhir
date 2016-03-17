@@ -17,7 +17,7 @@
   Card. = 0..1
   Type = ModuleMetadata
   Short Label = The metadata information for the library
-  Definition = A reference to a ModuleMetadata resource containing publication, description, and supporting information for the library
+  Definition = The metadata for the library, including publishing, life-cycle, version, documentation, and supporting evidence
 
  -- Row 3 -----------------------------------
   Element = Library.model
@@ -156,13 +156,6 @@
   Definition = The dataRequirement element specifies a data requirement used by some expression within the library
 
  -- Row 23 -----------------------------------
-  Element = !Library.moduleDefinition
-  Card. = 1..1
-  Type = Reference(ModuleDefinition)
-  Short Label = The header information for the library
-  Definition = A reference to a ModuleDefinition resource describing the header information for the library
-
- -- Row 24 -----------------------------------
   Element = Library.document
   Card. = 1..1
   Type = Attachment
@@ -170,6 +163,48 @@
   Definition = The content of the library as an Attachment. The content may be a reference to a url, or may be directly embedded as a base-64 string. Either way, the content is expected to be a CQL or ELM document
 
 === Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Logical identifier for the module (e.g. CMS-143)
+  Path = Library.moduleMetadata.identifier
+
+ -- Row 2 -----------------------------------
+  Name = topic
+  Type = token
+  Description = Topics associated with the module
+  Path = Library.moduleMetadata.topic
+
+ -- Row 3 -----------------------------------
+  Name = title
+  Type = string
+  Description = Text search against the title
+  Path = Library.moduleMetadata.title
+
+ -- Row 4 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search against the description
+  Path = Library.moduleMetadata.description
+
+ -- Row 5 -----------------------------------
+  Name = version
+  Type = string
+  Description = Version of the module (e.g. 1.0.0)
+  Path = Library.moduleMetadata.version
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Description = Status of the module
+  Path = Library.moduleMetadata.status
+
+ -- Row 7 -----------------------------------
+  Name = !minScore
+  Type = number
+  Description = The minimum relevance score of any match that will be returned
+  Path = Bundle/entry/search/score
 
 === Sheet Profiles =====================================
 

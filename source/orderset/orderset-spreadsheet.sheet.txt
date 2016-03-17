@@ -237,147 +237,52 @@
   Element = OrderSet.action
   Card. = 0..*
   Type = ActionDefinition
-  Definition = The definition of the actions that make up the order set
-
- -- Row 5 -----------------------------------
-  Element = !OrderSet.item
-  Card. = 0..*
-  Definition = The definition of the items that make up the orderset
-
- -- Row 6 -----------------------------------
-  Element = !OrderSet.item.identifier
-  Card. = 0..1
-  Type = Identifier
-  Definition = A unique identifier for the item
-
- -- Row 7 -----------------------------------
-  Element = !OrderSet.item.number
-  Card. = 0..1
-  Type = string
-  Definition = A user-visible number for the item
-
- -- Row 8 -----------------------------------
-  Element = !OrderSet.item.title
-  Card. = 0..1
-  Type = string
-  Definition = The title of the item
-
- -- Row 9 -----------------------------------
-  Element = !OrderSet.item.description
-  Card. = 0..1
-  Type = string
-  Definition = A short description of the item
-
- -- Row 10 -----------------------------------
-  Element = !OrderSet.item.textEquivalent
-  Card. = 0..1
-  Type = string
-  Definition = A text equivalent of the item in the orderset
-
- -- Row 11 -----------------------------------
-  Element = !OrderSet.item.supportingEvidence
-  Card. = 0..*
-  Type = Attachment
-  Definition = Supporting evidence for the item
-
- -- Row 12 -----------------------------------
-  Element = !OrderSet.item.documentation
-  Card. = 0..*
-  Type = Attachment
-  Definition = Supporting documentation for the  item
-
- -- Row 13 -----------------------------------
-  Element = !OrderSet.item.participantType
-  Card. = 0..*
-  Type = code
-  Binding = OrderSetParticipantType
-  Short Label = patient | person | practitioner | related-person
-  Definition = The type of participant in the item
-
- -- Row 14 -----------------------------------
-  Element = !OrderSet.item.concept
-  Card. = 0..*
-  Type = CodeableConcept
-  Definition = Concepts associated with the item
-
- -- Row 15 -----------------------------------
-  Element = !OrderSet.item.type
-  Card. = 0..1
-  Type = code
-  Binding = OrderSetItemType
-  Short Label = create | update | remove | fire-event
-  Definition = The type of item (create, update, remove)
-
- -- Row 16 -----------------------------------
-  Element = !OrderSet.item.groupingBehavior
-  Card. = 0..1
-  Type = code
-  Binding = OrderSetItemGroupingBehavior
-  Short Label = visual-group | logical-group | sentence-group
-  Definition = Defines organization behavior of a group: gives the reason why the items are grouped together
-
- -- Row 17 -----------------------------------
-  Element = !OrderSet.item.selectionBehavior
-  Card. = 0..1
-  Type = code
-  Binding = OrderSetItemSelectionBehavior
-  Short Label = any | all | all-or-none | exactly-one | at-most-one | one-or-more
-  Definition = Defines selection behavior of a group: specifies the number of selectable items in the group that may be selected by the end user when the items of the group are displayed
-
- -- Row 18 -----------------------------------
-  Element = !OrderSet.item.requiredBehavior
-  Card. = 0..1
-  Type = code
-  Binding = OrderSetItemRequiredBehavior
-  Short Label = must | could | must-unless-documented
-  Definition = Defines requiredness behavior for selecting an action or an action group; i.e., whether the action or action group is required or optional
-
- -- Row 19 -----------------------------------
-  Element = !OrderSet.item.precheckBehavior
-  Card. = 0..1
-  Type = code
-  Binding = OrderSetItemPrecheckBehavior
-  Short Label = yes | no
-  Definition = Defines selection frequency behavior for an action or group; i.e., for most frequently selected items, the end-user system may provide convenience options in the UI (such as pre-selection) in order to (1) communicate to the end user what the most frequently selected item is, or should, be in a particular context, and (2) save the end user time
-
- -- Row 20 -----------------------------------
-  Element = !OrderSet.item.cardinalityBehavior
-  Card. = 0..1
-  Type = code
-  Binding = OrderSetItemCardinalityBehavior
-  Short Label = single | multiple
-  Definition = Defines behavior for an action or a group for how many times that item may be repeated, i.e., cardinality. For example, if a user is documenting lesions, the lesion element may be repeated several times, once for each occurrence of a lesion on the patient or tissue sample or image
-
- -- Row 21 -----------------------------------
-  Element = !OrderSet.item.resource
-  Card. = 0..1
-  Type = Reference(Any)
-  Definition = The resource that is the target of the item (e.g. CommunicationRequest)
-
- -- Row 22 -----------------------------------
-  Element = !OrderSet.item.customization
-  Card. = 0..*
-  Definition = Customizations that should be applied to the statically defined resource
-
- -- Row 23 -----------------------------------
-  Element = !OrderSet.item.customization.path
-  Card. = 1..1
-  Type = string
-  Definition = The path to the element to be customized
-
- -- Row 24 -----------------------------------
-  Element = !OrderSet.item.customization.expression
-  Card. = 1..1
-  Type = string
-  Definition = An expression specifying the value of the customized element
-
- -- Row 25 -----------------------------------
-  Element = !OrderSet.item.items
-  Card. = 0..*
-  Type = @OrderSet.item
-  Definition = Sub items for the orderable
+  Short Label = Groups, sections, and line items of the order set
+  Definition = The definition of the actions that make up the order set. Order set groups and sections are represented as actions which contain sub-actions
 
 === Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Logical identifier for the module (e.g. CMS-143)
+  Path = OrderSet.moduleMetadata.identifier
+
+ -- Row 2 -----------------------------------
+  Name = topic
+  Type = token
+  Description = Topics associated with the module
+  Path = OrderSet.moduleMetadata.topic
+
+ -- Row 3 -----------------------------------
+  Name = title
+  Type = string
+  Description = Text search against the title
+  Path = OrderSet.moduleMetadata.title
+
+ -- Row 4 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search against the description
+  Path = OrderSet.moduleMetadata.description
+
+ -- Row 5 -----------------------------------
+  Name = version
+  Type = string
+  Description = Version of the module (e.g. 1.0.0)
+  Path = OrderSet.moduleMetadata.version
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Description = Status of the module
+  Path = OrderSet.moduleMetadata.status
+
+ -- Row 7 -----------------------------------
+  Name = !minScore
+  Type = number
+  Description = The minimum relevance score of any match that will be returned
+  Path = Bundle/entry/search/score
 
 === Sheet Profiles =====================================
 

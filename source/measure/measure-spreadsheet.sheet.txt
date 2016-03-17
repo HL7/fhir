@@ -134,7 +134,7 @@
   Card. = 0..1
   Type = ModuleMetadata
   Short Label = Metadata for the measure
-  Definition = A reference to a ModuleMetadata resource that describes the metadata for the measure
+  Definition = The metadata for the measure, including publishing, life-cycle, version, documentation, and supporting evidence
 
  -- Row 3 -----------------------------------
   Element = Measure.library
@@ -147,7 +147,8 @@
   Element = Measure.disclaimer
   Card. = 0..1
   Type = markdown
-  Definition = A disclaimer for the measure
+  Short Label = Disclaimer for the measure
+  Definition = A disclaimer for the use of the measure
 
  -- Row 5 -----------------------------------
   Element = Measure.scoring
@@ -169,76 +170,89 @@
   Element = Measure.riskAdjustment
   Card. = 0..1
   Type = string
-  Definition = A description of the risk adjustment for the measure
+  Short Label = How is risk adjustment applied for this measure
+  Definition = A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results
 
  -- Row 8 -----------------------------------
   Element = Measure.rateAggregation
   Card. = 0..1
   Type = string
+  Short Label = How is rate aggregation performed for this measure
   Definition = A description of the rate aggregation for the measure
 
  -- Row 9 -----------------------------------
   Element = Measure.rationale
   Card. = 0..1
   Type = markdown
+  Short Label = Why does this measure exist
   Definition = The rationale for the measure
 
  -- Row 10 -----------------------------------
   Element = Measure.clinicalRecommendationStatement
   Card. = 0..1
   Type = markdown
+  Short Label = Clinical recommendation
   Definition = The clinical recommendation statement for the measure
 
  -- Row 11 -----------------------------------
   Element = Measure.improvementNotation
   Card. = 0..1
   Type = string
+  Short Label = Improvement notation for the measure, e.g. higher score indicates better quality
   Definition = Improvement notation for the measure, e.g. higher score indicates better quality
 
  -- Row 12 -----------------------------------
   Element = Measure.definition
   Card. = 0..1
   Type = markdown
-  Definition = A natural language definition of the measure
+  Short Label = A natural language definition of the measure
+  Definition = A narrative description of the complete measure calculation
 
  -- Row 13 -----------------------------------
   Element = Measure.guidance
   Card. = 0..1
   Type = markdown
-  Definition = The guidance for the measure
+  Short Label = The guidance for the measure
+  Definition = Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure
 
  -- Row 14 -----------------------------------
   Element = Measure.set
   Card. = 0..1
   Type = string
+  Short Label = The measure set, e.g. Preventive Care and Screening
   Definition = The measure set, e.g. Preventive Care and Screening
 
  -- Row 15 -----------------------------------
   Element = Measure.group
   Card. = 0..*
+  Short Label = Population criteria group
   Definition = A group of population criteria for the measure
 
  -- Row 16 -----------------------------------
   Element = Measure.group.identifier
   Card. = 1..1
   Type = Identifier
+  Short Label = Unique identifier
   Definition = A unique identifier for the group. This identifier will used to report data for the group in the measure report
 
  -- Row 17 -----------------------------------
   Element = Measure.group.name
   Card. = 0..1
   Type = string
+  Short Label = Short name
   Definition = Optional name or short description of this group
 
  -- Row 18 -----------------------------------
   Element = Measure.group.description
   Card. = 0..1
   Type = string
+  Short Label = Summary description
   Definition = The human readable description of this population group
 
  -- Row 19 -----------------------------------
   Element = Measure.group.population
   Card. = 0..*
+  Short Label = Population criteria
   Definition = A population criteria for the measure
 
  -- Row 20 -----------------------------------
@@ -253,41 +267,48 @@
   Element = Measure.group.population.identifier
   Card. = 1..1
   Type = Identifier
+  Short Label = Unique identifier
   Definition = A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report
 
  -- Row 22 -----------------------------------
   Element = Measure.group.population.name
   Card. = 0..1
   Type = string
+  Short Label = Short name
   Definition = Optional name or short description of this population
 
  -- Row 23 -----------------------------------
   Element = Measure.group.population.description
   Card. = 0..1
   Type = string
+  Short Label = The human readable description of this population criteria
   Definition = The human readable description of this population criteria
 
  -- Row 24 -----------------------------------
   Element = Measure.group.population.criteria
   Card. = 1..1
   Type = string
+  Short Label = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
   Definition = The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria
 
  -- Row 25 -----------------------------------
   Element = Measure.group.stratifier
   Card. = 0..*
+  Short Label = Stratifier criteria for the measure
   Definition = The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path
 
  -- Row 26 -----------------------------------
   Element = Measure.group.stratifier.identifier
   Card. = 1..1
   Type = Identifier
+  Short Label = The identifier for the stratifier used to coordinate the reported data back to this stratifier
   Definition = The identifier for the stratifier used to coordinate the reported data back to this stratifier
 
  -- Row 27 -----------------------------------
   Element = Measure.group.stratifier.criteria
   Card. = 1..1
   Type = string
+  Short Label = Stratifier criteria
   Definition = The criteria for the stratifier. This must be the name of an expression defined within a referenced library
 
  -- Row 28 -----------------------------------
@@ -312,8 +333,118 @@
 
 === Sheet Search =====================================
 
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Logical identifier for the module (e.g. CMS-143)
+  Path = Measure.moduleMetadata.identifier
+
+ -- Row 2 -----------------------------------
+  Name = topic
+  Type = token
+  Description = Topics associated with the module
+  Path = Measure.moduleMetadata.topic
+
+ -- Row 3 -----------------------------------
+  Name = title
+  Type = string
+  Description = Text search against the title
+  Path = Measure.moduleMetadata.title
+
+ -- Row 4 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search against the description
+  Path = Measure.moduleMetadata.description
+
+ -- Row 5 -----------------------------------
+  Name = version
+  Type = string
+  Description = Version of the module (e.g. 1.0.0)
+  Path = Measure.moduleMetadata.version
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Description = Status of the module
+  Path = Measure.moduleMetadata.status
+
+ -- Row 7 -----------------------------------
+  Name = !minScore
+  Type = number
+  Description = The minimum relevance score of any match that will be returned
+  Path = Bundle/entry/search/score
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = evaluate-measure
+  Use = Resource | Instance
+  Documentation = The evaluateMeasure operation is used to invoke an eMeasure and obtain the results
+  Type = operation
+  Title = Evaluate Measure
+  Footer = The effect of invoking this operation is to calculate the measure for the given patient, or all patients if no patient is supplied, and return the results as a MeasureReport resource of the appropriate type
+
+ -- Row 2 -----------------------------------
+  Name = evaluate-measure.periodStart
+  Use = in
+  Documentation = The start of the measurement period
+  Type = date
+  Title = Period Start
+  Footer = In keeping with the semantics of the date parameter used in the FHIR search operation, the period will start at the beginning of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period start to be 2014-01-01T00:00:00 inclusive
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = evaluate-measure.periodEnd
+  Use = in
+  Documentation = The end of the measurement period
+  Type = date
+  Title = Period End
+  Footer = The period will end at the end of the period implied by the supplied timestamp. E.g. a value of 2014 would set the period end to be 2014-12-31T23:59:59 inclusive
+  Min = 1
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = evaluate-measure.measure
+  Use = in
+  Documentation = The measure to evaluate
+  Type = Reference(Measure)
+  Title = Measure
+  Footer = This parameter is only required when the operation is invoked on the resource type, it is not used when invoking the operation on a Measure instance
+  Min = 0
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = evaluate-measure.reportType
+  Use = in
+  Documentation = The type of measure report (patient or population)
+  Type = code
+  Title = Report type
+  Footer = If not specified, a default value of patient will be used if the patient parameter is supplied, otherwise, population will be used
+  Min = 0
+  Max = 1
+
+ -- Row 6 -----------------------------------
+  Name = evaluate-measure.patient
+  Use = in
+  Documentation = Patient to evaluate against
+  Type = Reference(Patient)
+  Title = Patient
+  Footer = If not specified, the measure will be evaluated for all patients that meet the requirements of the measure. If specified, only the referenced patient will be evaluated
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = evaluate-measure.return
+  Use = out
+  Documentation = The results of the measure calculation
+  Type = MeasureReport
+  Title = Return
+  Footer = See the MeasureReport resource for a complete description of the output of this operation
+  Min = 1
+  Max = 1

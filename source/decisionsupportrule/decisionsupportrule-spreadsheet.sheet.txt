@@ -126,191 +126,87 @@
   Element = DecisionSupportRule
   Type = DomainResource
   Short Label = A decision support rule
-  Definition = This resource defines a decision support rule of the form [on Event] if Condition then Action
+  Definition = This resource defines a decision support rule of the form [on Event] if Condition then Action. It is intended to be a shareable, computable definition of a actions that should be taken whenever some condition is met in response to a particular event or events
   w5 = clinical.general
 
  -- Row 2 -----------------------------------
-  Element = !DecisionSupportRule.identifier
-  Card. = 0..*
-  Summary = Y
-  Type = Identifier
-  Short Label = Logical identifier
-  Definition = A logical identifier for the module such as the CMS or NQF identifiers for a measure artifact
-  w5 = id
-
- -- Row 3 -----------------------------------
-  Element = !DecisionSupportRule.version
-  Card. = 0..1
-  Summary = Y
-  Type = string
-  Short Label = The version of the module, if any
-  Definition = The version of the module, if any. To provide a version consistent with the Decision Support Service specification, use the format Major.Minor.Revision (e.g. 1.0.0). For more information on versioning knowledge modules, refer to the Decision Support Service specification
-
- -- Row 4 -----------------------------------
   Element = DecisionSupportRule.moduleMetadata
   Card. = 0..1
   Type = ModuleMetadata
   Short Label = Module information for the rule
-  Definition = A reference to a ModuleMetadata resource that provides metadata for the rule
+  Definition = The metadata for the decision support rule, including publishing, life-cycle, version, documentation, and supporting evidence
 
- -- Row 5 -----------------------------------
+ -- Row 3 -----------------------------------
   Element = DecisionSupportRule.library
   Card. = 0..*
   Type = Reference(Library)
   Short Label = Logic used within the rule
   Definition = A reference to a Library containing the formal logic used by the rule
 
- -- Row 6 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = DecisionSupportRule.trigger
   Card. = 0..*
   Type = TriggerDefinition
   Short Label = \"when\" the rule should be invoked
   Definition = The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow
 
- -- Row 7 -----------------------------------
-  Element = !DecisionSupportRule.trigger
-  Card. = 0..*
-  Definition = A description of a triggering event
-
- -- Row 8 -----------------------------------
-  Element = !DecisionSupportRule.trigger.type
-  Card. = 1..1
-  Type = code
-  Binding = DecisionSupportRuleTriggerType
-  Short Label = named-event | periodic | data-added | data-modified | data-removed | data-accessed | data-access-ended
-  Definition = The type of triggering event
-
- -- Row 9 -----------------------------------
-  Element = !DecisionSupportRule.trigger.eventName
-  Card. = 0..1
-  Type = string
-  Definition = The name of the event (if this is a named-event trigger)
-
- -- Row 10 -----------------------------------
-  Element = !DecisionSupportRule.trigger.eventTiming[x]
-  Card. = 0..1
-  Type = Timing|Reference(Schedule)|date|dateTime
-  Definition = The timing of the event (if this is a period trigger)
-
- -- Row 11 -----------------------------------
-  Element = !DecisionSupportRule.trigger.eventData
-  Card. = 0..1
-  Type = @DecisionSupportRule.data
-  Definition = The triggering data of the event (if this is a data trigger)
-
- -- Row 12 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = DecisionSupportRule.condition
   Card. = 0..1
   Type = string
   Short Label = \"if\" some condition is true
   Definition = The condition element describes he \"if\" portion of the rule that determines whether or not the rule \"fires\". The condition must be the name of an expression in a referenced library.
 
- -- Row 13 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = DecisionSupportRule.action
   Card. = 0..*
   Type = ActionDefinition
   Short Label = \"then\" perform these actions
   Definition = The action element defines the \"when\" portion of the rule that determines what actions should be performed if the condition evaluates to true
 
- -- Row 14 -----------------------------------
-  Element = !DecisionSupportRule.action
-  Card. = 0..*
-  Definition = The definition of the actions that should be returned by evaluation of the artifact
-
- -- Row 15 -----------------------------------
-  Element = !DecisionSupportRule.action.actionIdentifier
-  Card. = 0..1
-  Type = Identifier
-  Definition = A unique identifier for the action
-
- -- Row 16 -----------------------------------
-  Element = !DecisionSupportRule.action.number
-  Card. = 0..1
-  Type = string
-  Definition = A user-visible number for the action
-
- -- Row 17 -----------------------------------
-  Element = !DecisionSupportRule.action.supportingEvidence
-  Card. = 0..*
-  Type = Attachment
-  Definition = Supporting evidence for the action
-
- -- Row 18 -----------------------------------
-  Element = !DecisionSupportRule.action.documentation
-  Card. = 0..*
-  Type = Attachment
-  Definition = Supporting documentation for the action
-
- -- Row 19 -----------------------------------
-  Element = !DecisionSupportRule.action.participantType
-  Card. = 0..*
-  Type = code
-  Binding = DecisionSupportRuleParticipantType
-  Short Label = patient | person | practitioner | related-person
-  Definition = The type of participant in the action
-
- -- Row 20 -----------------------------------
-  Element = !DecisionSupportRule.action.title
-  Card. = 0..1
-  Type = string
-  Definition = The title of the action
-
- -- Row 21 -----------------------------------
-  Element = !DecisionSupportRule.action.description
-  Card. = 0..1
-  Type = string
-  Definition = A short description of the action
-
- -- Row 22 -----------------------------------
-  Element = !DecisionSupportRule.action.textEquivalent
-  Card. = 0..1
-  Type = string
-  Definition = A text equivalent of the action to be performed
-
- -- Row 23 -----------------------------------
-  Element = !DecisionSupportRule.action.concept
-  Card. = 0..*
-  Type = CodeableConcept
-  Definition = Concepts associated with the action
-
- -- Row 24 -----------------------------------
-  Element = !DecisionSupportRule.action.type
-  Card. = 0..1
-  Type = code
-  Binding = DecisionSupportRuleActionType
-  Short Label = create | update | remove | fire-event
-  Definition = The type of action to perform (create, update, remove)
-
- -- Row 25 -----------------------------------
-  Element = !DecisionSupportRule.action.resource
-  Card. = 0..1
-  Type = Reference(Any)
-  Definition = The resource that is the target of the action (e.g. CommunicationRequest)
-
- -- Row 26 -----------------------------------
-  Element = !DecisionSupportRule.action.customization
-  Card. = 0..*
-  Definition = Customizations that should be applied to the statically defined resource
-
- -- Row 27 -----------------------------------
-  Element = !DecisionSupportRule.action.customization.path
-  Card. = 1..1
-  Type = string
-  Definition = The path to the element to be customized
-
- -- Row 28 -----------------------------------
-  Element = !DecisionSupportRule.action.customization.expression
-  Card. = 1..1
-  Type = string
-  Definition = An expression specifying the value of the customized element
-
- -- Row 29 -----------------------------------
-  Element = !DecisionSupportRule.action.actions
-  Card. = 0..*
-  Type = @DecisionSupportRule.action
-  Definition = Sub actions
-
 === Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = Logical identifier for the module (e.g. CMS-143)
+  Path = DecisionSupportRule.moduleMetadata.identifier
+
+ -- Row 2 -----------------------------------
+  Name = topic
+  Type = token
+  Description = Topics associated with the module
+  Path = DecisionSupportRule.moduleMetadata.topic
+
+ -- Row 3 -----------------------------------
+  Name = title
+  Type = string
+  Description = Text search against the title
+  Path = DecisionSupportRule.moduleMetadata.title
+
+ -- Row 4 -----------------------------------
+  Name = description
+  Type = string
+  Description = Text search against the description
+  Path = DecisionSupportRule.moduleMetadata.description
+
+ -- Row 5 -----------------------------------
+  Name = version
+  Type = string
+  Description = Version of the module (e.g. 1.0.0)
+  Path = DecisionSupportRule.moduleMetadata.version
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Description = Status of the module
+  Path = DecisionSupportRule.moduleMetadata.status
+
+ -- Row 7 -----------------------------------
+  Name = !minScore
+  Type = number
+  Description = The minimum relevance score of any match that will be returned
+  Path = Bundle/entry/search/score
 
 === Sheet Profiles =====================================
 
@@ -330,6 +226,7 @@
   Use = in
   Documentation = An optional client-provided identifier to track the request
   Type = code
+  Title = Request Id
   Min = 0
   Max = 1
 
@@ -338,6 +235,7 @@
   Use = in
   Documentation = An optional date and time specifying that the evaluation should be performed as thought it was the given date and time. The most direct implication of this is that references to \"Now\" within the evaluation logic of the module should result in this value. In addition, wherever possible, the data accessed by the module should appear as though it was accessed at this time. The evaluateAtDateTime value may be any time in the past or future, enabling both retrospective and prospective scenarios. If no value is provided, the date and time of the request is assumed
   Type = dateTime
+  Title = Evaluate At
   Min = 0
   Max = 1
 
@@ -346,29 +244,114 @@
   Use = in
   Documentation = The input parameters for a request, if any. These parameters are defined by the module that is the target of the evaluation, and supply the input information to the module.
   Type = Parameters
+  Title = Input Parameters
   Min = 0
   Max = 1
 
  -- Row 5 -----------------------------------
-  Name = evaluate.setting
+  Name = evaluate.initiatingOrganization
   Use = in
-  Documentation = The current setting of the request (inpatient, outpatient, etc)
-  Type = CodeableConcept
+  Documentation = The organization initiating the request
+  Type = Reference(Organization)
+  Title = Initiating Organization
   Min = 0
   Max = 1
 
  -- Row 6 -----------------------------------
-  Name = evaluate.settingContext
+  Name = evaluate.initiatingPerson
   Use = in
-  Documentation = Additional detail about the setting of the request, if any
-  Type = CodeableConcept
+  Documentation = The person initiating the request
+  Type = Reference(Patient|Practitioner|RelatedPerson)
+  Title = Initiating Person
   Min = 0
   Max = 1
 
  -- Row 7 -----------------------------------
+  Name = evaluate.userType
+  Use = in
+  Documentation = The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)
+  Type = CodeableConcept
+  Title = User Type
+  Min = 0
+  Max = 1
+
+ -- Row 8 -----------------------------------
+  Name = evaluate.userLanguage
+  Use = in
+  Documentation = Preferred language of the person using the system
+  Type = CodeableConcept
+  Title = User Language
+  Min = 0
+  Max = 1
+
+ -- Row 9 -----------------------------------
+  Name = evaluate.userTaskContext
+  Use = in
+  Documentation = The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources
+  Type = CodeableConcept
+  Title = User Task Context
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = evaluate.receivingOrganization
+  Use = in
+  Documentation = The organization that will receive the response
+  Type = Reference(Organization)
+  Title = Receiving Organization
+  Min = 0
+  Max = 1
+
+ -- Row 11 -----------------------------------
+  Name = evaluate.receivingPerson
+  Use = in
+  Documentation = The person in the receiving organization that will receive the response
+  Type = Reference(Patient|Practitioner|RelatedPerson)
+  Title = Receiving Person
+  Min = 0
+  Max = 1
+
+ -- Row 12 -----------------------------------
+  Name = evaluate.recipientType
+  Use = in
+  Documentation = The type of individual that will consume the response content. This may be different from the requesting user type (e.g. if a clinician is getting disease management guidance for provision to a patient). E.g. patient, healthcare provider or specific type of healthcare provider (physician, nurse, etc.)
+  Type = CodeableConcept
+  Title = Recipient Type
+  Min = 0
+  Max = 1
+
+ -- Row 13 -----------------------------------
+  Name = evaluate.recipientLanguage
+  Use = in
+  Documentation = Preferred language of the person that will consume the content
+  Type = CodeableConcept
+  Title = Recipient Language
+  Min = 0
+  Max = 1
+
+ -- Row 14 -----------------------------------
+  Name = evaluate.setting
+  Use = in
+  Documentation = The current setting of the request (inpatient, outpatient, etc)
+  Type = CodeableConcept
+  Title = Setting
+  Min = 0
+  Max = 1
+
+ -- Row 15 -----------------------------------
+  Name = evaluate.settingContext
+  Use = in
+  Documentation = Additional detail about the setting of the request, if any
+  Type = CodeableConcept
+  Title = Setting Context
+  Min = 0
+  Max = 1
+
+ -- Row 16 -----------------------------------
   Name = evaluate.return
   Use = out
   Documentation = The result of the request as a GuidanceResponse resource. Output parameters, if any, will be contained in the parameters element of the response
   Type = GuidanceResponse
+  Title = Return
   Min = 1
   Max = 1
