@@ -31,10 +31,10 @@
 	<requirements value="To help implementers map from HL7 v3/CDA to FHIR"/>
 	<copyright value="Creative Commons 0"/>
 	<sourceReference>
-		<reference value="http://hl7.org/fhir/address-use"/>
+		<reference value="http://hl7.org/fhir/ValueSet/address-use"/>
 	</sourceReference>
 	<targetReference>
-		<reference value="http://hl7.org/fhir/v3/AddressUse"/>
+		<reference value="http://hl7.org/fhir/ValueSet/v3-AddressUse"/>
 	</targetReference>
 	<element>
 		<codeSystem value="http://hl7.org/fhir/address-use"/>
