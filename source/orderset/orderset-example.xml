@@ -257,7 +257,7 @@
 	<action>
 		<title value="Suicide Risk Assessment and Outpatient Management"/>
 		<!-- Consults and Referrals -->
-		<actions>
+		<action>
 			<title value="Consults and Referrals"/>
 			<behavior>
 				<type><code value="grouping-behavior"/></type>
@@ -267,7 +267,7 @@
 				<type><code value="selection-behavior"/></type>
 				<value><code value="any"/></value>
 			</behavior>
-			<actions>
+			<action>
 				<!-- Refer to outpatient mental health program for evaluation and treatment of mental health conditions now -->
 				<textEquivalent value="Refer to outpatient mental health program for evaluation and treatment of mental health conditions now"/>
 				<resource>
@@ -293,10 +293,10 @@
 					<path value="supportingInformation"/>
 					<expression value="RiskAssessment"/>
 				</customization>
-			</actions>
-		</actions>
+			</action>
+		</action>
 		<!-- Medications -->
-		<actions>
+		<action>
 			<title value="Medications"/>
 			<behavior>
 				<type><code value="grouping-behavior"/></type>
@@ -306,7 +306,7 @@
 				<type><code value="selection-behavior"/></type>
 				<value><code value="at-most-one"/></value>
 			</behavior>
-			<actions>
+			<action>
 
 				<!-- First-Line Antidepressants -->
 				<title value="First-Line Antidepressants"/>
@@ -323,7 +323,7 @@
 					<type><code value="selection-behavior"/></type>
 					<value><code value="at-most-one"/></value>
 				</behavior>
-				<actions>
+				<action>
 					<!-- Selective Serotonin Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
 					<title value="Selective Serotonin Reuptake Inhibitors (Choose a mazimum of one or document reasons for exception)"/>
 					<documentation>
@@ -339,50 +339,50 @@
 						<type><code value="selection-behavior"/></type>
 						<value><code value="at-most-one"/></value>
 					</behavior>
-					<actions>
+					<action>
 						<!-- citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills) -->
 						<textEquivalent value="citalopram 20 mg tablet 1 tablet oral 1 time daily now (30 table; 3 refills)"/>
 						<resource>
 							<reference value="#citalopramPrescription"/>
 						</resource>
-					</actions>
-					<actions>
+					</action>
+					<action>
 						<!-- escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
 						<textEquivalent value="escitalopram 10 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					</actions>
-					<actions>
+					</action>
+					<action>
 						<!-- fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills) -->
 						<textEquivalent value="fluoxetine 20 mg capsule 1 capsule oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					</actions>
-					<actions>
+					</action>
+					<action>
 						<!-- paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
 						<textEquivalent value="paroxetine 20 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					</actions>
-					<actions>
+					</action>
+					<action>
 						<!-- sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills) -->
 						<textEquivalent value="sertraline 50 mg tablet 1 tablet oral 1 time daily now (30 tablet; 3 refills)"/>
 						<!-- Follows pattern established above -->
-					</actions>
-				</actions>
-				<actions>
+					</action>
+				</action>
+				<action>
 					<!-- Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception) -->
 					<textEquivalent value="Dopamine Norepinephrine Reuptake Inhibitors (Choose a maximum of one or document reasons for exception)"/>
 					<!-- Follows pattern established above -->
-				</actions>
-				<actions>
+				</action>
+				<action>
 					<!-- Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception) -->
 					<textEquivalent value="Serotonin Norepinephrine Reuptake Inhibitors (Choose a maximum of one or doument reasons for exception)"/>
 					<!-- Follows pattern established above -->
-				</actions>
-				<actions>
+				</action>
+				<action>
 					<!-- Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception) -->
 					<textEquivalent value="Norepinephrine-Serotonin Modulators (Choose a maximum of one or document reasons for exception)"/>
 					<!-- Follows pattern established above -->
-				</actions>
-			</actions>
-		</actions>
+				</action>
+			</action>
+		</action>
 	</action>
 </OrderSet>
