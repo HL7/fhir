@@ -1,0 +1,55 @@
+map "http://hl7.org/fhir/StructureMap/cda-ad"
+	(name: "V3/FHIR Mappings: AD");
+
+uses "http://hl7.org/fhir/StructureDefinition/cda-AD" = AD;
+uses "http://hl7.org/fhir/StructureDefinition/Address";
+uses "http://hl7.org/fhir/StructureMap/cda-ivl-ts" = IvlTsMap; 
+uses "http://hl7.org/fhir/StructureMap/any" = AnyMap; 
+
+group ADToAdress  extends AnyMap.ANY2Element
+	source src : AD;
+	target tgt : Address;
+
+	ad.use: 
+		for src.use as v make
+			tgt.use = translate(v, "http://hl7.org/fhir/ConceptMap/v3-address-use", code);
+			// todo: that map is the wrong way around
+	
+	ad.dal: 
+		// Turned weird { xxxxx } statements into list selector first()
+		for src.deliveryAddressLine.first() as v make tgt.line = v;
+
+	ad.sal: 
+		for src.streetAddressLine as v make tgt.line = v;
+
+	ad.city: 
+		// Turned weird { xxxxx } statements into list selector single() - which throws when > 1 entry in list
+		for src.city.single() as v make tgt.city = v; // more than one, an error
+
+	// In the mapping language "for" is actually the start of the source spec, 
+	// which is not necessarily a repeating item. This may cause confusion, but does cover the cases
+	// where the source DOES repeat.
+		
+	ad.county: 
+		for src.county as v make tgt.district = v {only-one}; // more than one, an error
+		
+	ad.state: 
+		for src.state as v make tgt.state = v {only-one};	// more than one, an error
+		
+	ad.postalCode: 
+		for src.postalCode as v make tgt.postalCode = v {only-one} // more than one, an error
+
+	ad.country: 
+		for src.country as v make tgt.country = v {only-one} // more than one, an error
+
+	ad.period: 
+		for src.useablePeriod as s_up where useablePeriod.is("IVL_TS") make 
+			new tgt.period as t_p 
+		then 
+			by IvlTsMap.IVL_TS2Period(s_up, t_p); 	// fragile, order determines binding to inputs of called group
+
+// mapping these items presents conceptual difficulties:
+//   delimiter, houseNumber, houseNumberNumeric, direction, streetName, streetNameBase, streetNameType, additionalLocator, unitID, unitType, careOf, censusTract, deliveryInstallationType, deliveryInstallationArea, deliveryInstallationQualifier, deliveryMode, deliveryModeIdentifier, buildingNumberSuffix, postBox, precinct, other
+// ignored: isNotOrdered
+
+endgroup
