@@ -238,13 +238,14 @@ rule_name: for [source], [source], make ...
 Each [source] contains the following items:
 </p>
 <pre>
-for (optional) context.element as variable where [fluentpath] check [fluentpath]
+for (optional) context.element { list-option } as variable where [fluentpath] check [fluentpath]
 </pre>
 <ul>
  <li><b>optional</b>: The keyword 'optional' indicates that the rule should still apply when there is no value that matches this source element - see below</li>
  <li><b>context</b>: Either a variable or type that is the context in which this rule applies. Variables are not prefixed, and must be declared elsewhere in 
    the map ('as variable' below, or in the input source variables). If the context is a type, it is prefixed by the character '@' e.g. @Patient.id</li>
  <li><b>element</b>: An optional name of a child element of the context. If this is not provided, the source is the context. If this is provided, the rule will apply once for each element on the context that matches this name </li>
+ <li><b>list-option</b>: by default, the rule will apply once for each occurance of the element in context. The list option can override this to specify only to apply to the first, or the last, and to ignore the others</li>
  <li><b>as variable</b>: if an element is specified, a variable name must be assigned. This variable name may be used in the target statement, and may be re-used in other rules that apply in the scope of this rule</li>
  <li><b>where [condition]</b>: a fluent path (ref) expression that is evaluated to boolean on the context. If the expression returns false, the source element has no match</li>
  <li><b>check [condition]</b>: a fluent path (ref) expression that is evaluated to boolean on the context. If the expression returns false, the mapping engine terminates execution with an error. Note: it's usual to have either a where or a check clause, but possible to have both. If both are provided, the where clause is evaluated first, and the check only applies if the where expression is true</li>
