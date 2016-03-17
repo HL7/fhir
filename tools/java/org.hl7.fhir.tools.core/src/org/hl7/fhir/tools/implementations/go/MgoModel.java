@@ -410,8 +410,10 @@ public class MgoModel {
         fileBlock.ln("resourceMap := make(map[string]interface{})");
         for (ResourcePlusIncludeInfo info : includeInfos) {
             fileBlock.bs(String.format("if %s.%s != nil {", alias, info.getField()));
-            fileBlock.bs(String.format("for _, r := range *%s.%s {", alias, info.getField()));
-            fileBlock.ln("resourceMap[r.Id] = &r");
+            // Normally I'd use 'i' as the index, but 'i' is already defined as the alias for resources whose name starts with with 'I'
+            fileBlock.bs(String.format("for idx := range *%s.%s {", alias, info.getField()));
+            fileBlock.ln(String.format("rsc := (*%s.%s)[idx]", alias, info.getField()));
+            fileBlock.ln("resourceMap[rsc.Id] = &rsc");
             fileBlock.es("}");
             fileBlock.es("}");
         }
@@ -423,8 +425,9 @@ public class MgoModel {
         fileBlock.ln("resourceMap := make(map[string]interface{})");
         for (ResourcePlusRevIncludeInfo info : revIncludeInfos) {
             fileBlock.bs(String.format("if %s.%s != nil {", alias, info.getField()));
-            fileBlock.bs(String.format("for _, r := range *%s.%s {", alias, info.getField()));
-            fileBlock.ln("resourceMap[r.Id] = &r");
+            fileBlock.bs(String.format("for idx := range *%s.%s {", alias, info.getField()));
+            fileBlock.ln(String.format("rsc := (*%s.%s)[idx]", alias, info.getField()));
+            fileBlock.ln("resourceMap[rsc.Id] = &rsc");
             fileBlock.es("}");
             fileBlock.es("}");
         }
@@ -436,15 +439,17 @@ public class MgoModel {
         fileBlock.ln("resourceMap := make(map[string]interface{})");
         for (ResourcePlusIncludeInfo info : includeInfos) {
             fileBlock.bs(String.format("if %s.%s != nil {", alias, info.getField()));
-            fileBlock.bs(String.format("for _, r := range *%s.%s {", alias, info.getField()));
-            fileBlock.ln("resourceMap[r.Id] = &r");
+            fileBlock.bs(String.format("for idx := range *%s.%s {", alias, info.getField()));
+            fileBlock.ln(String.format("rsc := (*%s.%s)[idx]", alias, info.getField()));
+            fileBlock.ln("resourceMap[rsc.Id] = &rsc");
             fileBlock.es("}");
             fileBlock.es("}");
         }
         for (ResourcePlusRevIncludeInfo info : revIncludeInfos) {
             fileBlock.bs(String.format("if %s.%s != nil {", alias, info.getField()));
-            fileBlock.bs(String.format("for _, r := range *%s.%s {", alias, info.getField()));
-            fileBlock.ln("resourceMap[r.Id] = &r");
+            fileBlock.bs(String.format("for idx := range *%s.%s {", alias, info.getField()));
+            fileBlock.ln(String.format("rsc := (*%s.%s)[idx]", alias, info.getField()));
+            fileBlock.ln("resourceMap[rsc.Id] = &rsc");
             fileBlock.es("}");
             fileBlock.es("}");
         }
