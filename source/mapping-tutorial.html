@@ -214,8 +214,7 @@ Again, there are multiple different ways to write this, depending on out desired
 rule_a23a : for source.a23 as a make target.a23 = a { only_one } // transform engine creates an error 
 rule_a23b : for source.a23 as a make target.a23 = a  // leave error to lower layer; less informative
 
-rule_a23c_1 : for source.a23 as a then rule_a23c_2(a, target)
-rule_a23c_2 : for a where @context = source.a23.first make target.a23 = a // only use the first item in the list
+rule_a23c_1 : for source.a23 { first } as a make target.a23 = a // only use the first item in the list
 </pre>
 <p>
 The last rule is the first example of stringing rules together. In this case, rule_a23c_1 exists to define a variable for 

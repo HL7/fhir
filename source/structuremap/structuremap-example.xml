@@ -20,7 +20,7 @@
         <required value="true"/>
         <context value="test"/>
         <contextType value="variable"/>
-        <field value="test"/>
+        <element value="test"/>
         <variable value="t"/>
       </source>
     </rule>
