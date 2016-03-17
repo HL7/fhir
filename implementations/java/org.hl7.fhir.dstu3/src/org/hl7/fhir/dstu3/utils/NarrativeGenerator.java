@@ -120,6 +120,7 @@ import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.FilterOperator;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.IWorkerContext.ValidationResult;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -1666,7 +1667,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
 
     if (!cm.getElement().isEmpty()) {
       SourceElementComponent cc = cm.getElement().get(0);
-      String src = cc.getCodeSystem();
+      String src = cc.getSystem();
       boolean comments = false;
       boolean ok = cc.getTarget().size() == 1;
       Map<String, HashSet<String>> sources = new HashMap<String, HashSet<String>>();
@@ -1674,24 +1675,24 @@ public class NarrativeGenerator implements INarrativeGenerator {
       Map<String, HashSet<String>> targets = new HashMap<String, HashSet<String>>();
       targets.put("code", new HashSet<String>());
       if (ok) {
-        String dst = cc.getTarget().get(0).getCodeSystem();
+        String dst = cc.getTarget().get(0).getSystem();
         for (SourceElementComponent ccl : cm.getElement()) {
-          ok = ok && src.equals(ccl.getCodeSystem()) && ccl.getTarget().size() == 1 && dst.equals(ccl.getTarget().get(0).getCodeSystem()) && ccl.getTarget().get(0).getDependsOn().isEmpty() && ccl.getTarget().get(0).getProduct().isEmpty();
-          if (ccl.hasCodeSystem())
-            sources.get("code").add(ccl.getCodeSystem());
+          ok = ok && src.equals(ccl.getSystem()) && ccl.getTarget().size() == 1 && dst.equals(ccl.getTarget().get(0).getSystem()) && ccl.getTarget().get(0).getDependsOn().isEmpty() && ccl.getTarget().get(0).getProduct().isEmpty();
+          if (ccl.hasSystem())
+            sources.get("code").add(ccl.getSystem());
           for (TargetElementComponent ccm : ccl.getTarget()) {
             comments = comments || !Utilities.noString(ccm.getComments());
             for (OtherElementComponent d : ccm.getDependsOn()) {
             if (!sources.containsKey(d.getElement()))
               sources.put(d.getElement(), new HashSet<String>());
-            sources.get(d.getElement()).add(d.getCodeSystem());
+            sources.get(d.getElement()).add(d.getSystem());
           }
-            if (ccm.hasCodeSystem())
-              targets.get("code").add(ccm.getCodeSystem());
+            if (ccm.hasSystem())
+              targets.get("code").add(ccm.getSystem());
             for (OtherElementComponent d : ccm.getProduct()) {
               if (!targets.containsKey(d.getElement()))
                 targets.put(d.getElement(), new HashSet<String>());
-              targets.get(d.getElement()).add(d.getCodeSystem());
+              targets.get(d.getElement()).add(d.getSystem());
             }
 
           }
@@ -1712,14 +1713,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
           tr = tbl.addTag("tr");
           XhtmlNode td = tr.addTag("td");
           td.addText(ccl.getCode());
-          display = getDisplayForConcept(ccl.getCodeSystem(), ccl.getCode());
+          display = getDisplayForConcept(ccl.getSystem(), ccl.getCode());
           if (display != null)
             td.addText(" ("+display+")");
           TargetElementComponent ccm = ccl.getTarget().get(0);
           tr.addTag("td").addText(!ccm.hasEquivalence() ? "" : ccm.getEquivalence().toCode());
           td = tr.addTag("td");
           td.addText(ccm.getCode());
-          display = getDisplayForConcept(ccm.getCodeSystem(), ccm.getCode());
+          display = getDisplayForConcept(ccm.getSystem(), ccm.getCode());
           if (display != null)
             td.addText(" ("+display+")");
           if (comments)
@@ -1769,8 +1770,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
           if (sources.get("code").size() == 1)
             td.addText(ccl.getCode());
           else
-            td.addText(ccl.getCodeSystem()+" / "+ccl.getCode());
-          display = getDisplayForConcept(ccl.getCodeSystem(), ccl.getCode());
+            td.addText(ccl.getSystem()+" / "+ccl.getCode());
+          display = getDisplayForConcept(ccl.getSystem(), ccl.getCode());
           if (display != null)
             td.addText(" ("+display+")");
 
@@ -1789,8 +1790,8 @@ public class NarrativeGenerator implements INarrativeGenerator {
           if (targets.get("code").size() == 1)
             td.addText(ccm.getCode());
           else
-            td.addText(ccm.getCodeSystem()+" / "+ccm.getCode());
-          display = getDisplayForConcept(ccm.getCodeSystem(), ccm.getCode());
+            td.addText(ccm.getSystem()+" / "+ccm.getCode());
+          display = getDisplayForConcept(ccm.getSystem(), ccm.getCode());
           if (display != null)
             td.addText(" ("+display+")");
 
@@ -1870,7 +1871,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private String getDisplay(List<OtherElementComponent> list, String s) {
     for (OtherElementComponent c : list) {
       if (s.equals(c.getElement()))
-        return getDisplayForConcept(c.getCodeSystem(), c.getCode());
+        return getDisplayForConcept(c.getSystem(), c.getCode());
     }
     return null;
   }
@@ -1894,7 +1895,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     for (OtherElementComponent c : list) {
       if (s.equals(c.getElement()))
         if (withSystem)
-          return c.getCodeSystem()+" / "+c.getCode();
+          return c.getSystem()+" / "+c.getCode();
         else
           return c.getCode();
     }
@@ -1974,14 +1975,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     boolean hierarchy = false;
     for (ConceptDefinitionComponent c : cs.getConcept()) {
       commentS = commentS || conceptsHaveComments(c);
-      deprecated = deprecated || conceptsHaveDeprecated(c);
+      deprecated = deprecated || conceptsHaveDeprecated(cs, c);
       display = display || conceptsHaveDisplay(c);
       hierarchy = hierarchy || c.hasConcept();
       scanLangs(c, langs);
     }
     addMapHeaders(addTableHeaderRowStandard(t, hierarchy, display, true, commentS, deprecated), mymaps);
     for (ConceptDefinitionComponent c : cs.getConcept()) {
-      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, deprecated, mymaps, cs.getUrl()) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, c, 0, hierarchy, display, commentS, deprecated, mymaps, cs.getUrl(), cs) || hasExtensions;
     }
     if (langs.size() > 0) {
       Collections.sort(langs);
@@ -2234,11 +2235,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return false;
   }
 
-  private boolean conceptsHaveDeprecated(ConceptDefinitionComponent c) {
-    if (ToolingExtensions.hasDeprecated(c))
+  private boolean conceptsHaveDeprecated(CodeSystem cs, ConceptDefinitionComponent c) {
+    if (CodeSystemUtilities.isDeprecated(cs, c))
       return true;
     for (ConceptDefinitionComponent g : c.getConcept())
-      if (conceptsHaveDeprecated(g))
+      if (conceptsHaveDeprecated(cs, g))
         return true;
     return false;
   }
@@ -2315,7 +2316,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     }
   }
 
-  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHierarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps, String system) {
+  private boolean addDefineRowToTable(XhtmlNode t, ConceptDefinitionComponent c, int i, boolean hasHierarchy, boolean hasDisplay, boolean comment, boolean deprecated, Map<ConceptMap, String> maps, String system, CodeSystem cs) {
     boolean hasExtensions = false;
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
@@ -2343,7 +2344,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       smartAddText(td, c.getDefinition());
     if (deprecated) {
       td = tr.addTag("td");
-      Boolean b = ToolingExtensions.getDeprecated(c);
+      Boolean b = CodeSystemUtilities.isDeprecated(cs, c);
       if (b !=  null && b) {
         smartAddText(td, "Deprecated");
         hasExtensions = true;
@@ -2379,7 +2380,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       	span.setAttribute("title", mapping.hasEquivalence() ?  mapping.getEquivalence().toCode() : "");
       	span.addText(getCharForEquivalence(mapping));
       	a = td.addTag("a");
-      	a.setAttribute("href", prefix+maps.get(m)+"#"+makeAnchor(mapping.getCodeSystem(), mapping.getCode()));
+      	a.setAttribute("href", prefix+maps.get(m)+"#"+makeAnchor(mapping.getSystem(), mapping.getCode()));
       	a.addText(mapping.getCode());
         if (!Utilities.noString(mapping.getComments()))
           td.addTag("i").addText("("+mapping.getComments()+")");
@@ -2396,7 +2397,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       a.addText(c.getCode());
     }
     for (ConceptDefinitionComponent cc : c.getConcept()) {
-      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHierarchy, hasDisplay, comment, deprecated, maps, system) || hasExtensions;
+      hasExtensions = addDefineRowToTable(t, cc, i+1, hasHierarchy, hasDisplay, comment, deprecated, maps, system, cs) || hasExtensions;
     }
     return hasExtensions;
   }

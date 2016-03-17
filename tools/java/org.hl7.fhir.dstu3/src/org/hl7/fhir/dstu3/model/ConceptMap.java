@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -239,16 +239,16 @@ public class ConceptMap extends DomainResource {
         /**
          * An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
          */
-        @Child(name = "codeSystem", type = {UriType.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "system", type = {UriType.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Code System (if value set crosses code systems)", formalDefinition="An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system)." )
-        protected UriType codeSystem;
+        protected UriType system;
 
         /**
          * The specific version of the code system, as determined by the code system authority.
          */
-        @Child(name = "codeSystemVersion", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "version", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Specific version of the  code system", formalDefinition="The specific version of the code system, as determined by the code system authority." )
-        protected StringType codeSystemVersion;
+        protected StringType version;
 
         /**
          * Identity (code or path) or the element/item being mapped.
@@ -264,7 +264,7 @@ public class ConceptMap extends DomainResource {
         @Description(shortDefinition="Concept in target system for element", formalDefinition="A concept from the target value set that this concept maps to." )
         protected List<TargetElementComponent> target;
 
-        private static final long serialVersionUID = 137702586L;
+        private static final long serialVersionUID = -387093487L;
 
     /**
      * Constructor
@@ -274,99 +274,99 @@ public class ConceptMap extends DomainResource {
       }
 
         /**
-         * @return {@link #codeSystem} (An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @return {@link #system} (An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public UriType getCodeSystemElement() { 
-          if (this.codeSystem == null)
+        public UriType getSystemElement() { 
+          if (this.system == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SourceElementComponent.codeSystem");
+              throw new Error("Attempt to auto-create SourceElementComponent.system");
             else if (Configuration.doAutoCreate())
-              this.codeSystem = new UriType(); // bb
-          return this.codeSystem;
+              this.system = new UriType(); // bb
+          return this.system;
         }
 
-        public boolean hasCodeSystemElement() { 
-          return this.codeSystem != null && !this.codeSystem.isEmpty();
+        public boolean hasSystemElement() { 
+          return this.system != null && !this.system.isEmpty();
         }
 
-        public boolean hasCodeSystem() { 
-          return this.codeSystem != null && !this.codeSystem.isEmpty();
+        public boolean hasSystem() { 
+          return this.system != null && !this.system.isEmpty();
         }
 
         /**
-         * @param value {@link #codeSystem} (An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @param value {@link #system} (An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public SourceElementComponent setCodeSystemElement(UriType value) { 
-          this.codeSystem = value;
+        public SourceElementComponent setSystemElement(UriType value) { 
+          this.system = value;
           return this;
         }
 
         /**
          * @return An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
          */
-        public String getCodeSystem() { 
-          return this.codeSystem == null ? null : this.codeSystem.getValue();
+        public String getSystem() { 
+          return this.system == null ? null : this.system.getValue();
         }
 
         /**
          * @param value An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).
          */
-        public SourceElementComponent setCodeSystem(String value) { 
+        public SourceElementComponent setSystem(String value) { 
           if (Utilities.noString(value))
-            this.codeSystem = null;
+            this.system = null;
           else {
-            if (this.codeSystem == null)
-              this.codeSystem = new UriType();
-            this.codeSystem.setValue(value);
+            if (this.system == null)
+              this.system = new UriType();
+            this.system.setValue(value);
           }
           return this;
         }
 
         /**
-         * @return {@link #codeSystemVersion} (The specific version of the code system, as determined by the code system authority.). This is the underlying object with id, value and extensions. The accessor "getCodeSystemVersion" gives direct access to the value
+         * @return {@link #version} (The specific version of the code system, as determined by the code system authority.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getCodeSystemVersionElement() { 
-          if (this.codeSystemVersion == null)
+        public StringType getVersionElement() { 
+          if (this.version == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SourceElementComponent.codeSystemVersion");
+              throw new Error("Attempt to auto-create SourceElementComponent.version");
             else if (Configuration.doAutoCreate())
-              this.codeSystemVersion = new StringType(); // bb
-          return this.codeSystemVersion;
+              this.version = new StringType(); // bb
+          return this.version;
         }
 
-        public boolean hasCodeSystemVersionElement() { 
-          return this.codeSystemVersion != null && !this.codeSystemVersion.isEmpty();
+        public boolean hasVersionElement() { 
+          return this.version != null && !this.version.isEmpty();
         }
 
-        public boolean hasCodeSystemVersion() { 
-          return this.codeSystemVersion != null && !this.codeSystemVersion.isEmpty();
+        public boolean hasVersion() { 
+          return this.version != null && !this.version.isEmpty();
         }
 
         /**
-         * @param value {@link #codeSystemVersion} (The specific version of the code system, as determined by the code system authority.). This is the underlying object with id, value and extensions. The accessor "getCodeSystemVersion" gives direct access to the value
+         * @param value {@link #version} (The specific version of the code system, as determined by the code system authority.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public SourceElementComponent setCodeSystemVersionElement(StringType value) { 
-          this.codeSystemVersion = value;
+        public SourceElementComponent setVersionElement(StringType value) { 
+          this.version = value;
           return this;
         }
 
         /**
          * @return The specific version of the code system, as determined by the code system authority.
          */
-        public String getCodeSystemVersion() { 
-          return this.codeSystemVersion == null ? null : this.codeSystemVersion.getValue();
+        public String getVersion() { 
+          return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value The specific version of the code system, as determined by the code system authority.
          */
-        public SourceElementComponent setCodeSystemVersion(String value) { 
+        public SourceElementComponent setVersion(String value) { 
           if (Utilities.noString(value))
-            this.codeSystemVersion = null;
+            this.version = null;
           else {
-            if (this.codeSystemVersion == null)
-              this.codeSystemVersion = new StringType();
-            this.codeSystemVersion.setValue(value);
+            if (this.version == null)
+              this.version = new StringType();
+            this.version.setValue(value);
           }
           return this;
         }
@@ -462,18 +462,18 @@ public class ConceptMap extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("codeSystem", "uri", "An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
-          childrenList.add(new Property("codeSystemVersion", "string", "The specific version of the code system, as determined by the code system authority.", 0, java.lang.Integer.MAX_VALUE, codeSystemVersion));
+          childrenList.add(new Property("system", "uri", "An absolute URI that identifies the Code System (if the source is a value set that crosses more than one code system).", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("version", "string", "The specific version of the code system, as determined by the code system authority.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("code", "code", "Identity (code or path) or the element/item being mapped.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("target", "", "A concept from the target value set that this concept maps to.", 0, java.lang.Integer.MAX_VALUE, target));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("codeSystem"))
-          this.codeSystem = castToUri(value); // UriType
-        else if (name.equals("codeSystemVersion"))
-          this.codeSystemVersion = castToString(value); // StringType
+        if (name.equals("system"))
+          this.system = castToUri(value); // UriType
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
         else if (name.equals("code"))
           this.code = castToCode(value); // CodeType
         else if (name.equals("target"))
@@ -484,11 +484,11 @@ public class ConceptMap extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("codeSystem")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.codeSystem");
+        if (name.equals("system")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.system");
         }
-        else if (name.equals("codeSystemVersion")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.codeSystemVersion");
+        else if (name.equals("version")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.version");
         }
         else if (name.equals("code")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.code");
@@ -503,8 +503,8 @@ public class ConceptMap extends DomainResource {
       public SourceElementComponent copy() {
         SourceElementComponent dst = new SourceElementComponent();
         copyValues(dst);
-        dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
-        dst.codeSystemVersion = codeSystemVersion == null ? null : codeSystemVersion.copy();
+        dst.system = system == null ? null : system.copy();
+        dst.version = version == null ? null : version.copy();
         dst.code = code == null ? null : code.copy();
         if (target != null) {
           dst.target = new ArrayList<TargetElementComponent>();
@@ -521,8 +521,8 @@ public class ConceptMap extends DomainResource {
         if (!(other instanceof SourceElementComponent))
           return false;
         SourceElementComponent o = (SourceElementComponent) other;
-        return compareDeep(codeSystem, o.codeSystem, true) && compareDeep(codeSystemVersion, o.codeSystemVersion, true)
-           && compareDeep(code, o.code, true) && compareDeep(target, o.target, true);
+        return compareDeep(system, o.system, true) && compareDeep(version, o.version, true) && compareDeep(code, o.code, true)
+           && compareDeep(target, o.target, true);
       }
 
       @Override
@@ -532,12 +532,12 @@ public class ConceptMap extends DomainResource {
         if (!(other instanceof SourceElementComponent))
           return false;
         SourceElementComponent o = (SourceElementComponent) other;
-        return compareValues(codeSystem, o.codeSystem, true) && compareValues(codeSystemVersion, o.codeSystemVersion, true)
-           && compareValues(code, o.code, true);
+        return compareValues(system, o.system, true) && compareValues(version, o.version, true) && compareValues(code, o.code, true)
+          ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (codeSystem == null || codeSystem.isEmpty()) && (codeSystemVersion == null || codeSystemVersion.isEmpty())
+        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
            && (code == null || code.isEmpty()) && (target == null || target.isEmpty());
       }
 
@@ -553,16 +553,16 @@ public class ConceptMap extends DomainResource {
         /**
          * An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
          */
-        @Child(name = "codeSystem", type = {UriType.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "system", type = {UriType.class}, order=1, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="System of the target (if necessary)", formalDefinition="An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems)." )
-        protected UriType codeSystem;
+        protected UriType system;
 
         /**
          * The specific version of the code system, as determined by the code system authority.
          */
-        @Child(name = "codeSystemVersion", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "version", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Specific version of the  code system", formalDefinition="The specific version of the code system, as determined by the code system authority." )
-        protected StringType codeSystemVersion;
+        protected StringType version;
 
         /**
          * Identity (code or path) or the element/item that the map refers to.
@@ -599,7 +599,7 @@ public class ConceptMap extends DomainResource {
         @Description(shortDefinition="Other concepts that this mapping also produces", formalDefinition="A set of additional outcomes from this mapping to other elements. To properly execute this mapping, the specified element must be mapped to some data element or source that is in context. The mapping may still be useful without a place for the additional data elements, but the equivalence cannot be relied on." )
         protected List<OtherElementComponent> product;
 
-        private static final long serialVersionUID = -452097610L;
+        private static final long serialVersionUID = 2147112127L;
 
     /**
      * Constructor
@@ -617,99 +617,99 @@ public class ConceptMap extends DomainResource {
       }
 
         /**
-         * @return {@link #codeSystem} (An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @return {@link #system} (An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public UriType getCodeSystemElement() { 
-          if (this.codeSystem == null)
+        public UriType getSystemElement() { 
+          if (this.system == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TargetElementComponent.codeSystem");
+              throw new Error("Attempt to auto-create TargetElementComponent.system");
             else if (Configuration.doAutoCreate())
-              this.codeSystem = new UriType(); // bb
-          return this.codeSystem;
+              this.system = new UriType(); // bb
+          return this.system;
         }
 
-        public boolean hasCodeSystemElement() { 
-          return this.codeSystem != null && !this.codeSystem.isEmpty();
+        public boolean hasSystemElement() { 
+          return this.system != null && !this.system.isEmpty();
         }
 
-        public boolean hasCodeSystem() { 
-          return this.codeSystem != null && !this.codeSystem.isEmpty();
+        public boolean hasSystem() { 
+          return this.system != null && !this.system.isEmpty();
         }
 
         /**
-         * @param value {@link #codeSystem} (An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @param value {@link #system} (An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public TargetElementComponent setCodeSystemElement(UriType value) { 
-          this.codeSystem = value;
+        public TargetElementComponent setSystemElement(UriType value) { 
+          this.system = value;
           return this;
         }
 
         /**
          * @return An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
          */
-        public String getCodeSystem() { 
-          return this.codeSystem == null ? null : this.codeSystem.getValue();
+        public String getSystem() { 
+          return this.system == null ? null : this.system.getValue();
         }
 
         /**
          * @param value An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).
          */
-        public TargetElementComponent setCodeSystem(String value) { 
+        public TargetElementComponent setSystem(String value) { 
           if (Utilities.noString(value))
-            this.codeSystem = null;
+            this.system = null;
           else {
-            if (this.codeSystem == null)
-              this.codeSystem = new UriType();
-            this.codeSystem.setValue(value);
+            if (this.system == null)
+              this.system = new UriType();
+            this.system.setValue(value);
           }
           return this;
         }
 
         /**
-         * @return {@link #codeSystemVersion} (The specific version of the code system, as determined by the code system authority.). This is the underlying object with id, value and extensions. The accessor "getCodeSystemVersion" gives direct access to the value
+         * @return {@link #version} (The specific version of the code system, as determined by the code system authority.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public StringType getCodeSystemVersionElement() { 
-          if (this.codeSystemVersion == null)
+        public StringType getVersionElement() { 
+          if (this.version == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TargetElementComponent.codeSystemVersion");
+              throw new Error("Attempt to auto-create TargetElementComponent.version");
             else if (Configuration.doAutoCreate())
-              this.codeSystemVersion = new StringType(); // bb
-          return this.codeSystemVersion;
+              this.version = new StringType(); // bb
+          return this.version;
         }
 
-        public boolean hasCodeSystemVersionElement() { 
-          return this.codeSystemVersion != null && !this.codeSystemVersion.isEmpty();
+        public boolean hasVersionElement() { 
+          return this.version != null && !this.version.isEmpty();
         }
 
-        public boolean hasCodeSystemVersion() { 
-          return this.codeSystemVersion != null && !this.codeSystemVersion.isEmpty();
+        public boolean hasVersion() { 
+          return this.version != null && !this.version.isEmpty();
         }
 
         /**
-         * @param value {@link #codeSystemVersion} (The specific version of the code system, as determined by the code system authority.). This is the underlying object with id, value and extensions. The accessor "getCodeSystemVersion" gives direct access to the value
+         * @param value {@link #version} (The specific version of the code system, as determined by the code system authority.). This is the underlying object with id, value and extensions. The accessor "getVersion" gives direct access to the value
          */
-        public TargetElementComponent setCodeSystemVersionElement(StringType value) { 
-          this.codeSystemVersion = value;
+        public TargetElementComponent setVersionElement(StringType value) { 
+          this.version = value;
           return this;
         }
 
         /**
          * @return The specific version of the code system, as determined by the code system authority.
          */
-        public String getCodeSystemVersion() { 
-          return this.codeSystemVersion == null ? null : this.codeSystemVersion.getValue();
+        public String getVersion() { 
+          return this.version == null ? null : this.version.getValue();
         }
 
         /**
          * @param value The specific version of the code system, as determined by the code system authority.
          */
-        public TargetElementComponent setCodeSystemVersion(String value) { 
+        public TargetElementComponent setVersion(String value) { 
           if (Utilities.noString(value))
-            this.codeSystemVersion = null;
+            this.version = null;
           else {
-            if (this.codeSystemVersion == null)
-              this.codeSystemVersion = new StringType();
-            this.codeSystemVersion.setValue(value);
+            if (this.version == null)
+              this.version = new StringType();
+            this.version.setValue(value);
           }
           return this;
         }
@@ -939,8 +939,8 @@ public class ConceptMap extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("codeSystem", "uri", "An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
-          childrenList.add(new Property("codeSystemVersion", "string", "The specific version of the code system, as determined by the code system authority.", 0, java.lang.Integer.MAX_VALUE, codeSystemVersion));
+          childrenList.add(new Property("system", "uri", "An absolute URI that identifies the code system of the target code (if the target is a value set that cross code systems).", 0, java.lang.Integer.MAX_VALUE, system));
+          childrenList.add(new Property("version", "string", "The specific version of the code system, as determined by the code system authority.", 0, java.lang.Integer.MAX_VALUE, version));
           childrenList.add(new Property("code", "code", "Identity (code or path) or the element/item that the map refers to.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("equivalence", "code", "The equivalence between the source and target concepts (counting for the dependencies and products). The equivalence is read from target to source (e.g. the target is 'wider' than the source).", 0, java.lang.Integer.MAX_VALUE, equivalence));
           childrenList.add(new Property("comments", "string", "A description of status/issues in mapping that conveys additional information not represented in  the structured data.", 0, java.lang.Integer.MAX_VALUE, comments));
@@ -950,10 +950,10 @@ public class ConceptMap extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("codeSystem"))
-          this.codeSystem = castToUri(value); // UriType
-        else if (name.equals("codeSystemVersion"))
-          this.codeSystemVersion = castToString(value); // StringType
+        if (name.equals("system"))
+          this.system = castToUri(value); // UriType
+        else if (name.equals("version"))
+          this.version = castToString(value); // StringType
         else if (name.equals("code"))
           this.code = castToCode(value); // CodeType
         else if (name.equals("equivalence"))
@@ -970,11 +970,11 @@ public class ConceptMap extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("codeSystem")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.codeSystem");
+        if (name.equals("system")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.system");
         }
-        else if (name.equals("codeSystemVersion")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.codeSystemVersion");
+        else if (name.equals("version")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.version");
         }
         else if (name.equals("code")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.code");
@@ -998,8 +998,8 @@ public class ConceptMap extends DomainResource {
       public TargetElementComponent copy() {
         TargetElementComponent dst = new TargetElementComponent();
         copyValues(dst);
-        dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
-        dst.codeSystemVersion = codeSystemVersion == null ? null : codeSystemVersion.copy();
+        dst.system = system == null ? null : system.copy();
+        dst.version = version == null ? null : version.copy();
         dst.code = code == null ? null : code.copy();
         dst.equivalence = equivalence == null ? null : equivalence.copy();
         dst.comments = comments == null ? null : comments.copy();
@@ -1023,9 +1023,9 @@ public class ConceptMap extends DomainResource {
         if (!(other instanceof TargetElementComponent))
           return false;
         TargetElementComponent o = (TargetElementComponent) other;
-        return compareDeep(codeSystem, o.codeSystem, true) && compareDeep(codeSystemVersion, o.codeSystemVersion, true)
-           && compareDeep(code, o.code, true) && compareDeep(equivalence, o.equivalence, true) && compareDeep(comments, o.comments, true)
-           && compareDeep(dependsOn, o.dependsOn, true) && compareDeep(product, o.product, true);
+        return compareDeep(system, o.system, true) && compareDeep(version, o.version, true) && compareDeep(code, o.code, true)
+           && compareDeep(equivalence, o.equivalence, true) && compareDeep(comments, o.comments, true) && compareDeep(dependsOn, o.dependsOn, true)
+           && compareDeep(product, o.product, true);
       }
 
       @Override
@@ -1035,13 +1035,12 @@ public class ConceptMap extends DomainResource {
         if (!(other instanceof TargetElementComponent))
           return false;
         TargetElementComponent o = (TargetElementComponent) other;
-        return compareValues(codeSystem, o.codeSystem, true) && compareValues(codeSystemVersion, o.codeSystemVersion, true)
-           && compareValues(code, o.code, true) && compareValues(equivalence, o.equivalence, true) && compareValues(comments, o.comments, true)
-          ;
+        return compareValues(system, o.system, true) && compareValues(version, o.version, true) && compareValues(code, o.code, true)
+           && compareValues(equivalence, o.equivalence, true) && compareValues(comments, o.comments, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (codeSystem == null || codeSystem.isEmpty()) && (codeSystemVersion == null || codeSystemVersion.isEmpty())
+        return super.isEmpty() && (system == null || system.isEmpty()) && (version == null || version.isEmpty())
            && (code == null || code.isEmpty()) && (equivalence == null || equivalence.isEmpty()) && (comments == null || comments.isEmpty())
            && (dependsOn == null || dependsOn.isEmpty()) && (product == null || product.isEmpty());
       }
@@ -1065,9 +1064,9 @@ public class ConceptMap extends DomainResource {
         /**
          * An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).
          */
-        @Child(name = "codeSystem", type = {UriType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "system", type = {UriType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Code System (if necessary)", formalDefinition="An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems)." )
-        protected UriType codeSystem;
+        protected UriType system;
 
         /**
          * Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.
@@ -1076,7 +1075,7 @@ public class ConceptMap extends DomainResource {
         @Description(shortDefinition="Value of the referenced element", formalDefinition="Identity (code or path) or the element/item/ValueSet that the map depends on / refers to." )
         protected StringType code;
 
-        private static final long serialVersionUID = 1488522448L;
+        private static final long serialVersionUID = 1365816253L;
 
     /**
      * Constructor
@@ -1088,10 +1087,10 @@ public class ConceptMap extends DomainResource {
     /**
      * Constructor
      */
-      public OtherElementComponent(UriType element, UriType codeSystem, StringType code) {
+      public OtherElementComponent(UriType element, UriType system, StringType code) {
         super();
         this.element = element;
-        this.codeSystem = codeSystem;
+        this.system = system;
         this.code = code;
       }
 
@@ -1141,47 +1140,47 @@ public class ConceptMap extends DomainResource {
         }
 
         /**
-         * @return {@link #codeSystem} (An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @return {@link #system} (An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public UriType getCodeSystemElement() { 
-          if (this.codeSystem == null)
+        public UriType getSystemElement() { 
+          if (this.system == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create OtherElementComponent.codeSystem");
+              throw new Error("Attempt to auto-create OtherElementComponent.system");
             else if (Configuration.doAutoCreate())
-              this.codeSystem = new UriType(); // bb
-          return this.codeSystem;
+              this.system = new UriType(); // bb
+          return this.system;
         }
 
-        public boolean hasCodeSystemElement() { 
-          return this.codeSystem != null && !this.codeSystem.isEmpty();
+        public boolean hasSystemElement() { 
+          return this.system != null && !this.system.isEmpty();
         }
 
-        public boolean hasCodeSystem() { 
-          return this.codeSystem != null && !this.codeSystem.isEmpty();
+        public boolean hasSystem() { 
+          return this.system != null && !this.system.isEmpty();
         }
 
         /**
-         * @param value {@link #codeSystem} (An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).). This is the underlying object with id, value and extensions. The accessor "getCodeSystem" gives direct access to the value
+         * @param value {@link #system} (An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).). This is the underlying object with id, value and extensions. The accessor "getSystem" gives direct access to the value
          */
-        public OtherElementComponent setCodeSystemElement(UriType value) { 
-          this.codeSystem = value;
+        public OtherElementComponent setSystemElement(UriType value) { 
+          this.system = value;
           return this;
         }
 
         /**
          * @return An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).
          */
-        public String getCodeSystem() { 
-          return this.codeSystem == null ? null : this.codeSystem.getValue();
+        public String getSystem() { 
+          return this.system == null ? null : this.system.getValue();
         }
 
         /**
          * @param value An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).
          */
-        public OtherElementComponent setCodeSystem(String value) { 
-            if (this.codeSystem == null)
-              this.codeSystem = new UriType();
-            this.codeSystem.setValue(value);
+        public OtherElementComponent setSystem(String value) { 
+            if (this.system == null)
+              this.system = new UriType();
+            this.system.setValue(value);
           return this;
         }
 
@@ -1233,7 +1232,7 @@ public class ConceptMap extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("element", "uri", "A reference to a specific concept that holds a coded value. This can be an element in a FHIR resource, or a specific reference to a data element in a different specification (e.g. HL7 v2) or a general reference to a kind of data field, or a reference to a value set with an appropriately narrow definition.", 0, java.lang.Integer.MAX_VALUE, element));
-          childrenList.add(new Property("codeSystem", "uri", "An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).", 0, java.lang.Integer.MAX_VALUE, codeSystem));
+          childrenList.add(new Property("system", "uri", "An absolute URI that identifies the code system of the dependency code (if the source/dependency is a value set that crosses code systems).", 0, java.lang.Integer.MAX_VALUE, system));
           childrenList.add(new Property("code", "string", "Identity (code or path) or the element/item/ValueSet that the map depends on / refers to.", 0, java.lang.Integer.MAX_VALUE, code));
         }
 
@@ -1241,8 +1240,8 @@ public class ConceptMap extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("element"))
           this.element = castToUri(value); // UriType
-        else if (name.equals("codeSystem"))
-          this.codeSystem = castToUri(value); // UriType
+        else if (name.equals("system"))
+          this.system = castToUri(value); // UriType
         else if (name.equals("code"))
           this.code = castToString(value); // StringType
         else
@@ -1254,8 +1253,8 @@ public class ConceptMap extends DomainResource {
         if (name.equals("element")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.element");
         }
-        else if (name.equals("codeSystem")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.codeSystem");
+        else if (name.equals("system")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.system");
         }
         else if (name.equals("code")) {
           throw new FHIRException("Cannot call addChild on a primitive type ConceptMap.code");
@@ -1268,7 +1267,7 @@ public class ConceptMap extends DomainResource {
         OtherElementComponent dst = new OtherElementComponent();
         copyValues(dst);
         dst.element = element == null ? null : element.copy();
-        dst.codeSystem = codeSystem == null ? null : codeSystem.copy();
+        dst.system = system == null ? null : system.copy();
         dst.code = code == null ? null : code.copy();
         return dst;
       }
@@ -1280,7 +1279,7 @@ public class ConceptMap extends DomainResource {
         if (!(other instanceof OtherElementComponent))
           return false;
         OtherElementComponent o = (OtherElementComponent) other;
-        return compareDeep(element, o.element, true) && compareDeep(codeSystem, o.codeSystem, true) && compareDeep(code, o.code, true)
+        return compareDeep(element, o.element, true) && compareDeep(system, o.system, true) && compareDeep(code, o.code, true)
           ;
       }
 
@@ -1291,12 +1290,12 @@ public class ConceptMap extends DomainResource {
         if (!(other instanceof OtherElementComponent))
           return false;
         OtherElementComponent o = (OtherElementComponent) other;
-        return compareValues(element, o.element, true) && compareValues(codeSystem, o.codeSystem, true) && compareValues(code, o.code, true)
+        return compareValues(element, o.element, true) && compareValues(system, o.system, true) && compareValues(code, o.code, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (element == null || element.isEmpty()) && (codeSystem == null || codeSystem.isEmpty())
+        return super.isEmpty() && (element == null || element.isEmpty()) && (system == null || system.isEmpty())
            && (code == null || code.isEmpty());
       }
 
@@ -2369,17 +2368,17 @@ public class ConceptMap extends DomainResource {
    * <p>
    * Description: <b>Code System (if value set crosses code systems)</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.codeSystem</b><br>
+   * Path: <b>ConceptMap.element.system</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="source-system", path="ConceptMap.element.codeSystem", description="Code System (if value set crosses code systems)", type="uri" )
+  @SearchParamDefinition(name="source-system", path="ConceptMap.element.system", description="Code System (if value set crosses code systems)", type="uri" )
   public static final String SP_SOURCE_SYSTEM = "source-system";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>source-system</b>
    * <p>
    * Description: <b>Code System (if value set crosses code systems)</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.codeSystem</b><br>
+   * Path: <b>ConceptMap.element.system</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam SOURCE_SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_SOURCE_SYSTEM);
@@ -2727,17 +2726,17 @@ public class ConceptMap extends DomainResource {
    * <p>
    * Description: <b>System of the target (if necessary)</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.target.codeSystem</b><br>
+   * Path: <b>ConceptMap.element.target.system</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="target-system", path="ConceptMap.element.target.codeSystem", description="System of the target (if necessary)", type="uri" )
+  @SearchParamDefinition(name="target-system", path="ConceptMap.element.target.system", description="System of the target (if necessary)", type="uri" )
   public static final String SP_TARGET_SYSTEM = "target-system";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>target-system</b>
    * <p>
    * Description: <b>System of the target (if necessary)</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>ConceptMap.element.target.codeSystem</b><br>
+   * Path: <b>ConceptMap.element.target.system</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam TARGET_SYSTEM = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_TARGET_SYSTEM);

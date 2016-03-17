@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -195,9 +195,9 @@ public class Slot extends DomainResource {
     /**
      * busy | free | busy-unavailable | busy-tentative.
      */
-    @Child(name = "freeBusyType", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="busy | free | busy-unavailable | busy-tentative", formalDefinition="busy | free | busy-unavailable | busy-tentative." )
-    protected Enumeration<SlotStatus> freeBusyType;
+    protected Enumeration<SlotStatus> status;
 
     /**
      * Date/Time that the slot is to begin.
@@ -227,7 +227,7 @@ public class Slot extends DomainResource {
     @Description(shortDefinition="Comments on the slot to describe any extended information. Such as custom constraints on the slot", formalDefinition="Comments on the slot to describe any extended information. Such as custom constraints on the slot." )
     protected StringType comment;
 
-    private static final long serialVersionUID = 1984269299L;
+    private static final long serialVersionUID = -918250048L;
 
   /**
    * Constructor
@@ -239,10 +239,10 @@ public class Slot extends DomainResource {
   /**
    * Constructor
    */
-    public Slot(Reference schedule, Enumeration<SlotStatus> freeBusyType, InstantType start, InstantType end) {
+    public Slot(Reference schedule, Enumeration<SlotStatus> status, InstantType start, InstantType end) {
       super();
       this.schedule = schedule;
-      this.freeBusyType = freeBusyType;
+      this.status = status;
       this.start = start;
       this.end = end;
     }
@@ -356,47 +356,47 @@ public class Slot extends DomainResource {
     }
 
     /**
-     * @return {@link #freeBusyType} (busy | free | busy-unavailable | busy-tentative.). This is the underlying object with id, value and extensions. The accessor "getFreeBusyType" gives direct access to the value
+     * @return {@link #status} (busy | free | busy-unavailable | busy-tentative.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Enumeration<SlotStatus> getFreeBusyTypeElement() { 
-      if (this.freeBusyType == null)
+    public Enumeration<SlotStatus> getStatusElement() { 
+      if (this.status == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Slot.freeBusyType");
+          throw new Error("Attempt to auto-create Slot.status");
         else if (Configuration.doAutoCreate())
-          this.freeBusyType = new Enumeration<SlotStatus>(new SlotStatusEnumFactory()); // bb
-      return this.freeBusyType;
+          this.status = new Enumeration<SlotStatus>(new SlotStatusEnumFactory()); // bb
+      return this.status;
     }
 
-    public boolean hasFreeBusyTypeElement() { 
-      return this.freeBusyType != null && !this.freeBusyType.isEmpty();
+    public boolean hasStatusElement() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
-    public boolean hasFreeBusyType() { 
-      return this.freeBusyType != null && !this.freeBusyType.isEmpty();
+    public boolean hasStatus() { 
+      return this.status != null && !this.status.isEmpty();
     }
 
     /**
-     * @param value {@link #freeBusyType} (busy | free | busy-unavailable | busy-tentative.). This is the underlying object with id, value and extensions. The accessor "getFreeBusyType" gives direct access to the value
+     * @param value {@link #status} (busy | free | busy-unavailable | busy-tentative.). This is the underlying object with id, value and extensions. The accessor "getStatus" gives direct access to the value
      */
-    public Slot setFreeBusyTypeElement(Enumeration<SlotStatus> value) { 
-      this.freeBusyType = value;
+    public Slot setStatusElement(Enumeration<SlotStatus> value) { 
+      this.status = value;
       return this;
     }
 
     /**
      * @return busy | free | busy-unavailable | busy-tentative.
      */
-    public SlotStatus getFreeBusyType() { 
-      return this.freeBusyType == null ? null : this.freeBusyType.getValue();
+    public SlotStatus getStatus() { 
+      return this.status == null ? null : this.status.getValue();
     }
 
     /**
      * @param value busy | free | busy-unavailable | busy-tentative.
      */
-    public Slot setFreeBusyType(SlotStatus value) { 
-        if (this.freeBusyType == null)
-          this.freeBusyType = new Enumeration<SlotStatus>(new SlotStatusEnumFactory());
-        this.freeBusyType.setValue(value);
+    public Slot setStatus(SlotStatus value) { 
+        if (this.status == null)
+          this.status = new Enumeration<SlotStatus>(new SlotStatusEnumFactory());
+        this.status.setValue(value);
       return this;
     }
 
@@ -589,7 +589,7 @@ public class Slot extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "External Ids for this item.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("type", "CodeableConcept", "The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("schedule", "Reference(Schedule)", "The schedule resource that this slot defines an interval of status information.", 0, java.lang.Integer.MAX_VALUE, schedule));
-        childrenList.add(new Property("freeBusyType", "code", "busy | free | busy-unavailable | busy-tentative.", 0, java.lang.Integer.MAX_VALUE, freeBusyType));
+        childrenList.add(new Property("status", "code", "busy | free | busy-unavailable | busy-tentative.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("start", "instant", "Date/Time that the slot is to begin.", 0, java.lang.Integer.MAX_VALUE, start));
         childrenList.add(new Property("end", "instant", "Date/Time that the slot is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
         childrenList.add(new Property("overbooked", "boolean", "This slot has already been overbooked, appointments are unlikely to be accepted for this time.", 0, java.lang.Integer.MAX_VALUE, overbooked));
@@ -604,8 +604,8 @@ public class Slot extends DomainResource {
           this.type = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("schedule"))
           this.schedule = castToReference(value); // Reference
-        else if (name.equals("freeBusyType"))
-          this.freeBusyType = new SlotStatusEnumFactory().fromType(value); // Enumeration<SlotStatus>
+        else if (name.equals("status"))
+          this.status = new SlotStatusEnumFactory().fromType(value); // Enumeration<SlotStatus>
         else if (name.equals("start"))
           this.start = castToInstant(value); // InstantType
         else if (name.equals("end"))
@@ -631,8 +631,8 @@ public class Slot extends DomainResource {
           this.schedule = new Reference();
           return this.schedule;
         }
-        else if (name.equals("freeBusyType")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Slot.freeBusyType");
+        else if (name.equals("status")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Slot.status");
         }
         else if (name.equals("start")) {
           throw new FHIRException("Cannot call addChild on a primitive type Slot.start");
@@ -665,7 +665,7 @@ public class Slot extends DomainResource {
         };
         dst.type = type == null ? null : type.copy();
         dst.schedule = schedule == null ? null : schedule.copy();
-        dst.freeBusyType = freeBusyType == null ? null : freeBusyType.copy();
+        dst.status = status == null ? null : status.copy();
         dst.start = start == null ? null : start.copy();
         dst.end = end == null ? null : end.copy();
         dst.overbooked = overbooked == null ? null : overbooked.copy();
@@ -685,7 +685,7 @@ public class Slot extends DomainResource {
           return false;
         Slot o = (Slot) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(schedule, o.schedule, true)
-           && compareDeep(freeBusyType, o.freeBusyType, true) && compareDeep(start, o.start, true) && compareDeep(end, o.end, true)
+           && compareDeep(status, o.status, true) && compareDeep(start, o.start, true) && compareDeep(end, o.end, true)
            && compareDeep(overbooked, o.overbooked, true) && compareDeep(comment, o.comment, true);
       }
 
@@ -696,41 +696,21 @@ public class Slot extends DomainResource {
         if (!(other instanceof Slot))
           return false;
         Slot o = (Slot) other;
-        return compareValues(freeBusyType, o.freeBusyType, true) && compareValues(start, o.start, true) && compareValues(end, o.end, true)
+        return compareValues(status, o.status, true) && compareValues(start, o.start, true) && compareValues(end, o.end, true)
            && compareValues(overbooked, o.overbooked, true) && compareValues(comment, o.comment, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
-           && (schedule == null || schedule.isEmpty()) && (freeBusyType == null || freeBusyType.isEmpty())
-           && (start == null || start.isEmpty()) && (end == null || end.isEmpty()) && (overbooked == null || overbooked.isEmpty())
-           && (comment == null || comment.isEmpty());
+           && (schedule == null || schedule.isEmpty()) && (status == null || status.isEmpty()) && (start == null || start.isEmpty())
+           && (end == null || end.isEmpty()) && (overbooked == null || overbooked.isEmpty()) && (comment == null || comment.isEmpty())
+          ;
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Slot;
    }
-
- /**
-   * Search parameter: <b>fb-type</b>
-   * <p>
-   * Description: <b>The free/busy status of the appointment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Slot.freeBusyType</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="fb-type", path="Slot.freeBusyType", description="The free/busy status of the appointment", type="token" )
-  public static final String SP_FB_TYPE = "fb-type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>fb-type</b>
-   * <p>
-   * Description: <b>The free/busy status of the appointment</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Slot.freeBusyType</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam FB_TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_FB_TYPE);
 
  /**
    * Search parameter: <b>schedule</b>
@@ -757,6 +737,26 @@ public class Slot extends DomainResource {
    * the path value of "<b>Slot:schedule</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SCHEDULE = new ca.uhn.fhir.model.api.Include("Slot:schedule").toLocked();
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>The free/busy status of the appointment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Slot.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Slot.status", description="The free/busy status of the appointment", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>The free/busy status of the appointment</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Slot.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
    * Search parameter: <b>start</b>

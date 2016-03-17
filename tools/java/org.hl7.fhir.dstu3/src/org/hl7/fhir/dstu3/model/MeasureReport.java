@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -47,6 +47,109 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 @ResourceDef(name="MeasureReport", profile="http://hl7.org/fhir/Profile/MeasureReport")
 public class MeasureReport extends DomainResource {
+
+    public enum MeasureReportType {
+        /**
+         * An individual report that provides information on the performance for a given measure with respect to a single patient
+         */
+        INDIVIDUAL, 
+        /**
+         * A patient list report that includes a listing of patients that satisfied each population criteria in the measure
+         */
+        PATIENTLIST, 
+        /**
+         * A summary report that returns the number of patients in each population criteria for the measure
+         */
+        SUMMARY, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static MeasureReportType fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("individual".equals(codeString))
+          return INDIVIDUAL;
+        if ("patient-list".equals(codeString))
+          return PATIENTLIST;
+        if ("summary".equals(codeString))
+          return SUMMARY;
+        throw new FHIRException("Unknown MeasureReportType code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case INDIVIDUAL: return "individual";
+            case PATIENTLIST: return "patient-list";
+            case SUMMARY: return "summary";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case INDIVIDUAL: return "http://hl7.org/fhir/measure-report-type";
+            case PATIENTLIST: return "http://hl7.org/fhir/measure-report-type";
+            case SUMMARY: return "http://hl7.org/fhir/measure-report-type";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case INDIVIDUAL: return "An individual report that provides information on the performance for a given measure with respect to a single patient";
+            case PATIENTLIST: return "A patient list report that includes a listing of patients that satisfied each population criteria in the measure";
+            case SUMMARY: return "A summary report that returns the number of patients in each population criteria for the measure";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case INDIVIDUAL: return "Individual";
+            case PATIENTLIST: return "Patient List";
+            case SUMMARY: return "Summary";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class MeasureReportTypeEnumFactory implements EnumFactory<MeasureReportType> {
+    public MeasureReportType fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("individual".equals(codeString))
+          return MeasureReportType.INDIVIDUAL;
+        if ("patient-list".equals(codeString))
+          return MeasureReportType.PATIENTLIST;
+        if ("summary".equals(codeString))
+          return MeasureReportType.SUMMARY;
+        throw new IllegalArgumentException("Unknown MeasureReportType code '"+codeString+"'");
+        }
+        public Enumeration<MeasureReportType> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("individual".equals(codeString))
+          return new Enumeration<MeasureReportType>(this, MeasureReportType.INDIVIDUAL);
+        if ("patient-list".equals(codeString))
+          return new Enumeration<MeasureReportType>(this, MeasureReportType.PATIENTLIST);
+        if ("summary".equals(codeString))
+          return new Enumeration<MeasureReportType>(this, MeasureReportType.SUMMARY);
+        throw new FHIRException("Unknown MeasureReportType code '"+codeString+"'");
+        }
+    public String toCode(MeasureReportType code) {
+      if (code == MeasureReportType.INDIVIDUAL)
+        return "individual";
+      if (code == MeasureReportType.PATIENTLIST)
+        return "patient-list";
+      if (code == MeasureReportType.SUMMARY)
+        return "summary";
+      return "?";
+      }
+    public String toSystem(MeasureReportType code) {
+      return code.getSystem();
+      }
+    }
 
     public enum MeasureReportStatus {
         /**
@@ -154,11 +257,11 @@ public class MeasureReport extends DomainResource {
     @Block()
     public static class MeasureReportPopulationReportComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The name of the population group as identified in the measure definition.
+         * The identifier of the population group as defined in the measure definition.
          */
-        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Name of the population group", formalDefinition="The name of the population group as identified in the measure definition." )
-        protected StringType name;
+        @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Identifier of the population group being reported", formalDefinition="The identifier of the population group as defined in the measure definition." )
+        protected Identifier identifier;
 
         /**
          * The populations that make up the population group, one for each type of population appropriate for the measure.
@@ -175,10 +278,10 @@ public class MeasureReport extends DomainResource {
         protected DecimalType measureScore;
 
         /**
-         * Stratification results.
+         * When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.
          */
         @Child(name = "stratifier", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Stratification results", formalDefinition="Stratification results." )
+        @Description(shortDefinition="Stratification results", formalDefinition="When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure." )
         protected List<MeasureReportPopulationReportStratifierComponent> stratifier;
 
         /**
@@ -188,7 +291,7 @@ public class MeasureReport extends DomainResource {
         @Description(shortDefinition="Supplemental data elements for the measure", formalDefinition="Supplemental data elements for the measure provide additional information requested by the measure for each patient involved in the populations." )
         protected List<MeasureReportPopulationReportSupplementalDataComponent> supplementalData;
 
-        private static final long serialVersionUID = 1746619155L;
+        private static final long serialVersionUID = -2120791437L;
 
     /**
      * Constructor
@@ -200,53 +303,32 @@ public class MeasureReport extends DomainResource {
     /**
      * Constructor
      */
-      public MeasureReportPopulationReportComponent(StringType name) {
+      public MeasureReportPopulationReportComponent(Identifier identifier) {
         super();
-        this.name = name;
+        this.identifier = identifier;
       }
 
         /**
-         * @return {@link #name} (The name of the population group as identified in the measure definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #identifier} (The identifier of the population group as defined in the measure definition.)
          */
-        public StringType getNameElement() { 
-          if (this.name == null)
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MeasureReportPopulationReportComponent.name");
+              throw new Error("Attempt to auto-create MeasureReportPopulationReportComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType(); // bb
-          return this.name;
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
         }
 
-        public boolean hasNameElement() { 
-          return this.name != null && !this.name.isEmpty();
-        }
-
-        public boolean hasName() { 
-          return this.name != null && !this.name.isEmpty();
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
-         * @param value {@link #name} (The name of the population group as identified in the measure definition.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #identifier} (The identifier of the population group as defined in the measure definition.)
          */
-        public MeasureReportPopulationReportComponent setNameElement(StringType value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return The name of the population group as identified in the measure definition.
-         */
-        public String getName() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value The name of the population group as identified in the measure definition.
-         */
-        public MeasureReportPopulationReportComponent setName(String value) { 
-            if (this.name == null)
-              this.name = new StringType();
-            this.name.setValue(value);
+        public MeasureReportPopulationReportComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
           return this;
         }
 
@@ -358,7 +440,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return {@link #stratifier} (Stratification results.)
+         * @return {@link #stratifier} (When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.)
          */
         public List<MeasureReportPopulationReportStratifierComponent> getStratifier() { 
           if (this.stratifier == null)
@@ -376,7 +458,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return {@link #stratifier} (Stratification results.)
+         * @return {@link #stratifier} (When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.)
          */
     // syntactic sugar
         public MeasureReportPopulationReportStratifierComponent addStratifier() { //3
@@ -439,17 +521,17 @@ public class MeasureReport extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "The name of the population group as identified in the measure definition.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("identifier", "Identifier", "The identifier of the population group as defined in the measure definition.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("population", "", "The populations that make up the population group, one for each type of population appropriate for the measure.", 0, java.lang.Integer.MAX_VALUE, population));
           childrenList.add(new Property("measureScore", "decimal", "The measure score.", 0, java.lang.Integer.MAX_VALUE, measureScore));
-          childrenList.add(new Property("stratifier", "", "Stratification results.", 0, java.lang.Integer.MAX_VALUE, stratifier));
+          childrenList.add(new Property("stratifier", "", "When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.", 0, java.lang.Integer.MAX_VALUE, stratifier));
           childrenList.add(new Property("supplementalData", "", "Supplemental data elements for the measure provide additional information requested by the measure for each patient involved in the populations.", 0, java.lang.Integer.MAX_VALUE, supplementalData));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
-          this.name = castToString(value); // StringType
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("population"))
           this.getPopulation().add((MeasureReportPopulationReportPopulationComponent) value);
         else if (name.equals("measureScore"))
@@ -464,8 +546,9 @@ public class MeasureReport extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MeasureReport.name");
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
         }
         else if (name.equals("population")) {
           return addPopulation();
@@ -486,7 +569,7 @@ public class MeasureReport extends DomainResource {
       public MeasureReportPopulationReportComponent copy() {
         MeasureReportPopulationReportComponent dst = new MeasureReportPopulationReportComponent();
         copyValues(dst);
-        dst.name = name == null ? null : name.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
         if (population != null) {
           dst.population = new ArrayList<MeasureReportPopulationReportPopulationComponent>();
           for (MeasureReportPopulationReportPopulationComponent i : population)
@@ -513,9 +596,9 @@ public class MeasureReport extends DomainResource {
         if (!(other instanceof MeasureReportPopulationReportComponent))
           return false;
         MeasureReportPopulationReportComponent o = (MeasureReportPopulationReportComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(population, o.population, true) && compareDeep(measureScore, o.measureScore, true)
-           && compareDeep(stratifier, o.stratifier, true) && compareDeep(supplementalData, o.supplementalData, true)
-          ;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(population, o.population, true)
+           && compareDeep(measureScore, o.measureScore, true) && compareDeep(stratifier, o.stratifier, true)
+           && compareDeep(supplementalData, o.supplementalData, true);
       }
 
       @Override
@@ -525,11 +608,11 @@ public class MeasureReport extends DomainResource {
         if (!(other instanceof MeasureReportPopulationReportComponent))
           return false;
         MeasureReportPopulationReportComponent o = (MeasureReportPopulationReportComponent) other;
-        return compareValues(name, o.name, true) && compareValues(measureScore, o.measureScore, true);
+        return compareValues(measureScore, o.measureScore, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (population == null || population.isEmpty())
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (population == null || population.isEmpty())
            && (measureScore == null || measureScore.isEmpty()) && (stratifier == null || stratifier.isEmpty())
            && (supplementalData == null || supplementalData.isEmpty());
       }
@@ -800,11 +883,11 @@ public class MeasureReport extends DomainResource {
     @Block()
     public static class MeasureReportPopulationReportStratifierComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.
+         * The identifier of this stratum, as defined in the measure definition.
          */
-        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="A group of stratifier data", formalDefinition="When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure." )
-        protected StringType name;
+        @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Identifier of the stratum", formalDefinition="The identifier of this stratum, as defined in the measure definition." )
+        protected Identifier identifier;
 
         /**
          * The populations that make up the stratifier, one for each type of population appropriate to the measure.
@@ -814,13 +897,13 @@ public class MeasureReport extends DomainResource {
         protected List<MeasureReportPopulationReportStratifierPopulationComponent> population;
 
         /**
-         * The measure score.
+         * The measure score for this stratum.
          */
         @Child(name = "measureScore", type = {DecimalType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The measure score", formalDefinition="The measure score." )
+        @Description(shortDefinition="The measure score", formalDefinition="The measure score for this stratum." )
         protected DecimalType measureScore;
 
-        private static final long serialVersionUID = 1604139902L;
+        private static final long serialVersionUID = 542974686L;
 
     /**
      * Constructor
@@ -832,53 +915,32 @@ public class MeasureReport extends DomainResource {
     /**
      * Constructor
      */
-      public MeasureReportPopulationReportStratifierComponent(StringType name) {
+      public MeasureReportPopulationReportStratifierComponent(Identifier identifier) {
         super();
-        this.name = name;
+        this.identifier = identifier;
       }
 
         /**
-         * @return {@link #name} (When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #identifier} (The identifier of this stratum, as defined in the measure definition.)
          */
-        public StringType getNameElement() { 
-          if (this.name == null)
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MeasureReportPopulationReportStratifierComponent.name");
+              throw new Error("Attempt to auto-create MeasureReportPopulationReportStratifierComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType(); // bb
-          return this.name;
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
         }
 
-        public boolean hasNameElement() { 
-          return this.name != null && !this.name.isEmpty();
-        }
-
-        public boolean hasName() { 
-          return this.name != null && !this.name.isEmpty();
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
-         * @param value {@link #name} (When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #identifier} (The identifier of this stratum, as defined in the measure definition.)
          */
-        public MeasureReportPopulationReportStratifierComponent setNameElement(StringType value) { 
-          this.name = value;
-          return this;
-        }
-
-        /**
-         * @return When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.
-         */
-        public String getName() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.
-         */
-        public MeasureReportPopulationReportStratifierComponent setName(String value) { 
-            if (this.name == null)
-              this.name = new StringType();
-            this.name.setValue(value);
+        public MeasureReportPopulationReportStratifierComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
           return this;
         }
 
@@ -923,7 +985,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return {@link #measureScore} (The measure score.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
+         * @return {@link #measureScore} (The measure score for this stratum.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
          */
         public DecimalType getMeasureScoreElement() { 
           if (this.measureScore == null)
@@ -943,7 +1005,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value {@link #measureScore} (The measure score.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
+         * @param value {@link #measureScore} (The measure score for this stratum.). This is the underlying object with id, value and extensions. The accessor "getMeasureScore" gives direct access to the value
          */
         public MeasureReportPopulationReportStratifierComponent setMeasureScoreElement(DecimalType value) { 
           this.measureScore = value;
@@ -951,14 +1013,14 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return The measure score.
+         * @return The measure score for this stratum.
          */
         public BigDecimal getMeasureScore() { 
           return this.measureScore == null ? null : this.measureScore.getValue();
         }
 
         /**
-         * @param value The measure score.
+         * @param value The measure score for this stratum.
          */
         public MeasureReportPopulationReportStratifierComponent setMeasureScore(BigDecimal value) { 
           if (value == null)
@@ -972,7 +1034,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value The measure score.
+         * @param value The measure score for this stratum.
          */
         public MeasureReportPopulationReportStratifierComponent setMeasureScore(long value) { 
               this.measureScore = new DecimalType();
@@ -981,7 +1043,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value The measure score.
+         * @param value The measure score for this stratum.
          */
         public MeasureReportPopulationReportStratifierComponent setMeasureScore(double value) { 
               this.measureScore = new DecimalType();
@@ -991,15 +1053,15 @@ public class MeasureReport extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("identifier", "Identifier", "The identifier of this stratum, as defined in the measure definition.", 0, java.lang.Integer.MAX_VALUE, identifier));
           childrenList.add(new Property("population", "", "The populations that make up the stratifier, one for each type of population appropriate to the measure.", 0, java.lang.Integer.MAX_VALUE, population));
-          childrenList.add(new Property("measureScore", "decimal", "The measure score.", 0, java.lang.Integer.MAX_VALUE, measureScore));
+          childrenList.add(new Property("measureScore", "decimal", "The measure score for this stratum.", 0, java.lang.Integer.MAX_VALUE, measureScore));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
-          this.name = castToString(value); // StringType
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
         else if (name.equals("population"))
           this.getPopulation().add((MeasureReportPopulationReportStratifierPopulationComponent) value);
         else if (name.equals("measureScore"))
@@ -1010,8 +1072,9 @@ public class MeasureReport extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MeasureReport.name");
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
         }
         else if (name.equals("population")) {
           return addPopulation();
@@ -1026,7 +1089,7 @@ public class MeasureReport extends DomainResource {
       public MeasureReportPopulationReportStratifierComponent copy() {
         MeasureReportPopulationReportStratifierComponent dst = new MeasureReportPopulationReportStratifierComponent();
         copyValues(dst);
-        dst.name = name == null ? null : name.copy();
+        dst.identifier = identifier == null ? null : identifier.copy();
         if (population != null) {
           dst.population = new ArrayList<MeasureReportPopulationReportStratifierPopulationComponent>();
           for (MeasureReportPopulationReportStratifierPopulationComponent i : population)
@@ -1043,8 +1106,8 @@ public class MeasureReport extends DomainResource {
         if (!(other instanceof MeasureReportPopulationReportStratifierComponent))
           return false;
         MeasureReportPopulationReportStratifierComponent o = (MeasureReportPopulationReportStratifierComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(population, o.population, true) && compareDeep(measureScore, o.measureScore, true)
-          ;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(population, o.population, true)
+           && compareDeep(measureScore, o.measureScore, true);
       }
 
       @Override
@@ -1054,11 +1117,11 @@ public class MeasureReport extends DomainResource {
         if (!(other instanceof MeasureReportPopulationReportStratifierComponent))
           return false;
         MeasureReportPopulationReportStratifierComponent o = (MeasureReportPopulationReportStratifierComponent) other;
-        return compareValues(name, o.name, true) && compareValues(measureScore, o.measureScore, true);
+        return compareValues(measureScore, o.measureScore, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (population == null || population.isEmpty())
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (population == null || population.isEmpty())
            && (measureScore == null || measureScore.isEmpty());
       }
 
@@ -1079,21 +1142,21 @@ public class MeasureReport extends DomainResource {
         protected CodeType type;
 
         /**
-         * The number of members of the population.
+         * The number of members of the population in this stratum.
          */
         @Child(name = "count", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Size of the population", formalDefinition="The number of members of the population." )
+        @Description(shortDefinition="Size of the population", formalDefinition="The number of members of the population in this stratum." )
         protected IntegerType count;
 
         /**
-         * Bundle of MeasureResponse resources, one per patient.
+         * Bundle of MeasureResponse resources, one per patient in this stratum.
          */
         @Child(name = "patients", type = {Bundle.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Bundle of MeasureResponse resources, one per patient", formalDefinition="Bundle of MeasureResponse resources, one per patient." )
+        @Description(shortDefinition="Bundle of MeasureResponse resources, one per patient", formalDefinition="Bundle of MeasureResponse resources, one per patient in this stratum." )
         protected Reference patients;
 
         /**
-         * The actual object that is the target of the reference (Bundle of MeasureResponse resources, one per patient.)
+         * The actual object that is the target of the reference (Bundle of MeasureResponse resources, one per patient in this stratum.)
          */
         protected Bundle patientsTarget;
 
@@ -1160,7 +1223,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return {@link #count} (The number of members of the population.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
+         * @return {@link #count} (The number of members of the population in this stratum.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
         public IntegerType getCountElement() { 
           if (this.count == null)
@@ -1180,7 +1243,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value {@link #count} (The number of members of the population.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
+         * @param value {@link #count} (The number of members of the population in this stratum.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
         public MeasureReportPopulationReportStratifierPopulationComponent setCountElement(IntegerType value) { 
           this.count = value;
@@ -1188,14 +1251,14 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return The number of members of the population.
+         * @return The number of members of the population in this stratum.
          */
         public int getCount() { 
           return this.count == null || this.count.isEmpty() ? 0 : this.count.getValue();
         }
 
         /**
-         * @param value The number of members of the population.
+         * @param value The number of members of the population in this stratum.
          */
         public MeasureReportPopulationReportStratifierPopulationComponent setCount(int value) { 
             if (this.count == null)
@@ -1205,7 +1268,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return {@link #patients} (Bundle of MeasureResponse resources, one per patient.)
+         * @return {@link #patients} (Bundle of MeasureResponse resources, one per patient in this stratum.)
          */
         public Reference getPatients() { 
           if (this.patients == null)
@@ -1221,7 +1284,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value {@link #patients} (Bundle of MeasureResponse resources, one per patient.)
+         * @param value {@link #patients} (Bundle of MeasureResponse resources, one per patient in this stratum.)
          */
         public MeasureReportPopulationReportStratifierPopulationComponent setPatients(Reference value) { 
           this.patients = value;
@@ -1229,7 +1292,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @return {@link #patients} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Bundle of MeasureResponse resources, one per patient.)
+         * @return {@link #patients} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Bundle of MeasureResponse resources, one per patient in this stratum.)
          */
         public Bundle getPatientsTarget() { 
           if (this.patientsTarget == null)
@@ -1241,7 +1304,7 @@ public class MeasureReport extends DomainResource {
         }
 
         /**
-         * @param value {@link #patients} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Bundle of MeasureResponse resources, one per patient.)
+         * @param value {@link #patients} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Bundle of MeasureResponse resources, one per patient in this stratum.)
          */
         public MeasureReportPopulationReportStratifierPopulationComponent setPatientsTarget(Bundle value) { 
           this.patientsTarget = value;
@@ -1251,8 +1314,8 @@ public class MeasureReport extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The type of the population.", 0, java.lang.Integer.MAX_VALUE, type));
-          childrenList.add(new Property("count", "integer", "The number of members of the population.", 0, java.lang.Integer.MAX_VALUE, count));
-          childrenList.add(new Property("patients", "Reference(Bundle)", "Bundle of MeasureResponse resources, one per patient.", 0, java.lang.Integer.MAX_VALUE, patients));
+          childrenList.add(new Property("count", "integer", "The number of members of the population in this stratum.", 0, java.lang.Integer.MAX_VALUE, count));
+          childrenList.add(new Property("patients", "Reference(Bundle)", "Bundle of MeasureResponse resources, one per patient in this stratum.", 0, java.lang.Integer.MAX_VALUE, patients));
         }
 
       @Override
@@ -1328,20 +1391,39 @@ public class MeasureReport extends DomainResource {
     @Block()
     public static class MeasureReportPopulationReportSupplementalDataComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The name of the supplemental data element.
+         * The identifier of the supplemental data element as defined in the measure.
          */
-        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Name of the supplemental element", formalDefinition="The name of the supplemental data element." )
-        protected StringType name;
+        @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Identifier of the supplemental data element", formalDefinition="The identifier of the supplemental data element as defined in the measure." )
+        protected Identifier identifier;
 
         /**
-         * A group of supplemental data corresponding to a supplemental data element specification in the measure.
+         * The number of patients in the supplemental data group.
          */
-        @Child(name = "group", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="A group of supplemental data", formalDefinition="A group of supplemental data corresponding to a supplemental data element specification in the measure." )
-        protected List<MeasureReportPopulationReportSupplementalDataGroupComponent> group;
+        @Child(name = "count", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Number of patients in the group", formalDefinition="The number of patients in the supplemental data group." )
+        protected IntegerType count;
 
-        private static final long serialVersionUID = -273404200L;
+        /**
+         * A bundle containing the patients in this supplemental data group.
+         */
+        @Child(name = "patients", type = {Bundle.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Bundle of patients", formalDefinition="A bundle containing the patients in this supplemental data group." )
+        protected Reference patients;
+
+        /**
+         * The actual object that is the target of the reference (A bundle containing the patients in this supplemental data group.)
+         */
+        protected Bundle patientsTarget;
+
+        /**
+         * The supplemental data for a stratum of the measure.
+         */
+        @Child(name = "stratifier", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Supplemental data strata", formalDefinition="The supplemental data for a stratum of the measure." )
+        protected List<MeasureReportPopulationReportSupplementalDataStratifierComponent> stratifier;
+
+        private static final long serialVersionUID = 871173137L;
 
     /**
      * Constructor
@@ -1353,205 +1435,34 @@ public class MeasureReport extends DomainResource {
     /**
      * Constructor
      */
-      public MeasureReportPopulationReportSupplementalDataComponent(StringType name) {
+      public MeasureReportPopulationReportSupplementalDataComponent(Identifier identifier) {
         super();
-        this.name = name;
+        this.identifier = identifier;
       }
 
         /**
-         * @return {@link #name} (The name of the supplemental data element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #identifier} (The identifier of the supplemental data element as defined in the measure.)
          */
-        public StringType getNameElement() { 
-          if (this.name == null)
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataComponent.name");
+              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataComponent.identifier");
             else if (Configuration.doAutoCreate())
-              this.name = new StringType(); // bb
-          return this.name;
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
         }
 
-        public boolean hasNameElement() { 
-          return this.name != null && !this.name.isEmpty();
-        }
-
-        public boolean hasName() { 
-          return this.name != null && !this.name.isEmpty();
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
         }
 
         /**
-         * @param value {@link #name} (The name of the supplemental data element.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #identifier} (The identifier of the supplemental data element as defined in the measure.)
          */
-        public MeasureReportPopulationReportSupplementalDataComponent setNameElement(StringType value) { 
-          this.name = value;
+        public MeasureReportPopulationReportSupplementalDataComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
           return this;
         }
-
-        /**
-         * @return The name of the supplemental data element.
-         */
-        public String getName() { 
-          return this.name == null ? null : this.name.getValue();
-        }
-
-        /**
-         * @param value The name of the supplemental data element.
-         */
-        public MeasureReportPopulationReportSupplementalDataComponent setName(String value) { 
-            if (this.name == null)
-              this.name = new StringType();
-            this.name.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #group} (A group of supplemental data corresponding to a supplemental data element specification in the measure.)
-         */
-        public List<MeasureReportPopulationReportSupplementalDataGroupComponent> getGroup() { 
-          if (this.group == null)
-            this.group = new ArrayList<MeasureReportPopulationReportSupplementalDataGroupComponent>();
-          return this.group;
-        }
-
-        public boolean hasGroup() { 
-          if (this.group == null)
-            return false;
-          for (MeasureReportPopulationReportSupplementalDataGroupComponent item : this.group)
-            if (!item.isEmpty())
-              return true;
-          return false;
-        }
-
-        /**
-         * @return {@link #group} (A group of supplemental data corresponding to a supplemental data element specification in the measure.)
-         */
-    // syntactic sugar
-        public MeasureReportPopulationReportSupplementalDataGroupComponent addGroup() { //3
-          MeasureReportPopulationReportSupplementalDataGroupComponent t = new MeasureReportPopulationReportSupplementalDataGroupComponent();
-          if (this.group == null)
-            this.group = new ArrayList<MeasureReportPopulationReportSupplementalDataGroupComponent>();
-          this.group.add(t);
-          return t;
-        }
-
-    // syntactic sugar
-        public MeasureReportPopulationReportSupplementalDataComponent addGroup(MeasureReportPopulationReportSupplementalDataGroupComponent t) { //3
-          if (t == null)
-            return this;
-          if (this.group == null)
-            this.group = new ArrayList<MeasureReportPopulationReportSupplementalDataGroupComponent>();
-          this.group.add(t);
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "The name of the supplemental data element.", 0, java.lang.Integer.MAX_VALUE, name));
-          childrenList.add(new Property("group", "", "A group of supplemental data corresponding to a supplemental data element specification in the measure.", 0, java.lang.Integer.MAX_VALUE, group));
-        }
-
-      @Override
-      public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
-          this.name = castToString(value); // StringType
-        else if (name.equals("group"))
-          this.getGroup().add((MeasureReportPopulationReportSupplementalDataGroupComponent) value);
-        else
-          super.setProperty(name, value);
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("name")) {
-          throw new FHIRException("Cannot call addChild on a primitive type MeasureReport.name");
-        }
-        else if (name.equals("group")) {
-          return addGroup();
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public MeasureReportPopulationReportSupplementalDataComponent copy() {
-        MeasureReportPopulationReportSupplementalDataComponent dst = new MeasureReportPopulationReportSupplementalDataComponent();
-        copyValues(dst);
-        dst.name = name == null ? null : name.copy();
-        if (group != null) {
-          dst.group = new ArrayList<MeasureReportPopulationReportSupplementalDataGroupComponent>();
-          for (MeasureReportPopulationReportSupplementalDataGroupComponent i : group)
-            dst.group.add(i.copy());
-        };
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof MeasureReportPopulationReportSupplementalDataComponent))
-          return false;
-        MeasureReportPopulationReportSupplementalDataComponent o = (MeasureReportPopulationReportSupplementalDataComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(group, o.group, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof MeasureReportPopulationReportSupplementalDataComponent))
-          return false;
-        MeasureReportPopulationReportSupplementalDataComponent o = (MeasureReportPopulationReportSupplementalDataComponent) other;
-        return compareValues(name, o.name, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (group == null || group.isEmpty())
-          ;
-      }
-
-  public String fhirType() {
-    return "MeasureReport.populationReport.supplementalData";
-
-  }
-
-  }
-
-    @Block()
-    public static class MeasureReportPopulationReportSupplementalDataGroupComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * The number of patients in the supplemental data group.
-         */
-        @Child(name = "count", type = {IntegerType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Number of patients in the group", formalDefinition="The number of patients in the supplemental data group." )
-        protected IntegerType count;
-
-        /**
-         * A bundle containing the patients in this supplemental data group.
-         */
-        @Child(name = "patients", type = {Bundle.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Bundle of patients", formalDefinition="A bundle containing the patients in this supplemental data group." )
-        protected Reference patients;
-
-        /**
-         * The actual object that is the target of the reference (A bundle containing the patients in this supplemental data group.)
-         */
-        protected Bundle patientsTarget;
-
-        private static final long serialVersionUID = 1153236909L;
-
-    /**
-     * Constructor
-     */
-      public MeasureReportPopulationReportSupplementalDataGroupComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public MeasureReportPopulationReportSupplementalDataGroupComponent(IntegerType count) {
-        super();
-        this.count = count;
-      }
 
         /**
          * @return {@link #count} (The number of patients in the supplemental data group.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
@@ -1559,7 +1470,7 @@ public class MeasureReport extends DomainResource {
         public IntegerType getCountElement() { 
           if (this.count == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataGroupComponent.count");
+              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataComponent.count");
             else if (Configuration.doAutoCreate())
               this.count = new IntegerType(); // bb
           return this.count;
@@ -1576,7 +1487,7 @@ public class MeasureReport extends DomainResource {
         /**
          * @param value {@link #count} (The number of patients in the supplemental data group.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
          */
-        public MeasureReportPopulationReportSupplementalDataGroupComponent setCountElement(IntegerType value) { 
+        public MeasureReportPopulationReportSupplementalDataComponent setCountElement(IntegerType value) { 
           this.count = value;
           return this;
         }
@@ -1591,7 +1502,7 @@ public class MeasureReport extends DomainResource {
         /**
          * @param value The number of patients in the supplemental data group.
          */
-        public MeasureReportPopulationReportSupplementalDataGroupComponent setCount(int value) { 
+        public MeasureReportPopulationReportSupplementalDataComponent setCount(int value) { 
             if (this.count == null)
               this.count = new IntegerType();
             this.count.setValue(value);
@@ -1604,7 +1515,7 @@ public class MeasureReport extends DomainResource {
         public Reference getPatients() { 
           if (this.patients == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataGroupComponent.patients");
+              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataComponent.patients");
             else if (Configuration.doAutoCreate())
               this.patients = new Reference(); // cc
           return this.patients;
@@ -1617,7 +1528,7 @@ public class MeasureReport extends DomainResource {
         /**
          * @param value {@link #patients} (A bundle containing the patients in this supplemental data group.)
          */
-        public MeasureReportPopulationReportSupplementalDataGroupComponent setPatients(Reference value) { 
+        public MeasureReportPopulationReportSupplementalDataComponent setPatients(Reference value) { 
           this.patients = value;
           return this;
         }
@@ -1628,7 +1539,7 @@ public class MeasureReport extends DomainResource {
         public Bundle getPatientsTarget() { 
           if (this.patientsTarget == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataGroupComponent.patients");
+              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataComponent.patients");
             else if (Configuration.doAutoCreate())
               this.patientsTarget = new Bundle(); // aa
           return this.patientsTarget;
@@ -1637,20 +1548,311 @@ public class MeasureReport extends DomainResource {
         /**
          * @param value {@link #patients} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (A bundle containing the patients in this supplemental data group.)
          */
-        public MeasureReportPopulationReportSupplementalDataGroupComponent setPatientsTarget(Bundle value) { 
+        public MeasureReportPopulationReportSupplementalDataComponent setPatientsTarget(Bundle value) { 
+          this.patientsTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #stratifier} (The supplemental data for a stratum of the measure.)
+         */
+        public List<MeasureReportPopulationReportSupplementalDataStratifierComponent> getStratifier() { 
+          if (this.stratifier == null)
+            this.stratifier = new ArrayList<MeasureReportPopulationReportSupplementalDataStratifierComponent>();
+          return this.stratifier;
+        }
+
+        public boolean hasStratifier() { 
+          if (this.stratifier == null)
+            return false;
+          for (MeasureReportPopulationReportSupplementalDataStratifierComponent item : this.stratifier)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #stratifier} (The supplemental data for a stratum of the measure.)
+         */
+    // syntactic sugar
+        public MeasureReportPopulationReportSupplementalDataStratifierComponent addStratifier() { //3
+          MeasureReportPopulationReportSupplementalDataStratifierComponent t = new MeasureReportPopulationReportSupplementalDataStratifierComponent();
+          if (this.stratifier == null)
+            this.stratifier = new ArrayList<MeasureReportPopulationReportSupplementalDataStratifierComponent>();
+          this.stratifier.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public MeasureReportPopulationReportSupplementalDataComponent addStratifier(MeasureReportPopulationReportSupplementalDataStratifierComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.stratifier == null)
+            this.stratifier = new ArrayList<MeasureReportPopulationReportSupplementalDataStratifierComponent>();
+          this.stratifier.add(t);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("identifier", "Identifier", "The identifier of the supplemental data element as defined in the measure.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("count", "integer", "The number of patients in the supplemental data group.", 0, java.lang.Integer.MAX_VALUE, count));
+          childrenList.add(new Property("patients", "Reference(Bundle)", "A bundle containing the patients in this supplemental data group.", 0, java.lang.Integer.MAX_VALUE, patients));
+          childrenList.add(new Property("stratifier", "", "The supplemental data for a stratum of the measure.", 0, java.lang.Integer.MAX_VALUE, stratifier));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("count"))
+          this.count = castToInteger(value); // IntegerType
+        else if (name.equals("patients"))
+          this.patients = castToReference(value); // Reference
+        else if (name.equals("stratifier"))
+          this.getStratifier().add((MeasureReportPopulationReportSupplementalDataStratifierComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("count")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MeasureReport.count");
+        }
+        else if (name.equals("patients")) {
+          this.patients = new Reference();
+          return this.patients;
+        }
+        else if (name.equals("stratifier")) {
+          return addStratifier();
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public MeasureReportPopulationReportSupplementalDataComponent copy() {
+        MeasureReportPopulationReportSupplementalDataComponent dst = new MeasureReportPopulationReportSupplementalDataComponent();
+        copyValues(dst);
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.count = count == null ? null : count.copy();
+        dst.patients = patients == null ? null : patients.copy();
+        if (stratifier != null) {
+          dst.stratifier = new ArrayList<MeasureReportPopulationReportSupplementalDataStratifierComponent>();
+          for (MeasureReportPopulationReportSupplementalDataStratifierComponent i : stratifier)
+            dst.stratifier.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MeasureReportPopulationReportSupplementalDataComponent))
+          return false;
+        MeasureReportPopulationReportSupplementalDataComponent o = (MeasureReportPopulationReportSupplementalDataComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(count, o.count, true) && compareDeep(patients, o.patients, true)
+           && compareDeep(stratifier, o.stratifier, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MeasureReportPopulationReportSupplementalDataComponent))
+          return false;
+        MeasureReportPopulationReportSupplementalDataComponent o = (MeasureReportPopulationReportSupplementalDataComponent) other;
+        return compareValues(count, o.count, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (count == null || count.isEmpty())
+           && (patients == null || patients.isEmpty()) && (stratifier == null || stratifier.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "MeasureReport.populationReport.supplementalData";
+
+  }
+
+  }
+
+    @Block()
+    public static class MeasureReportPopulationReportSupplementalDataStratifierComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The identifier of this stratum, as defined in the measure definition.
+         */
+        @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Identifier of the stratum", formalDefinition="The identifier of this stratum, as defined in the measure definition." )
+        protected Identifier identifier;
+
+        /**
+         * The number of members of this population in this stratum.
+         */
+        @Child(name = "count", type = {IntegerType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Size of the population in this stratum", formalDefinition="The number of members of this population in this stratum." )
+        protected IntegerType count;
+
+        /**
+         * Bundle of MeasureResponse resources, one per patient in this stratum.
+         */
+        @Child(name = "patients", type = {Bundle.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Bundle of MeasureResponse resources, one per patient", formalDefinition="Bundle of MeasureResponse resources, one per patient in this stratum." )
+        protected Reference patients;
+
+        /**
+         * The actual object that is the target of the reference (Bundle of MeasureResponse resources, one per patient in this stratum.)
+         */
+        protected Bundle patientsTarget;
+
+        private static final long serialVersionUID = -1643446909L;
+
+    /**
+     * Constructor
+     */
+      public MeasureReportPopulationReportSupplementalDataStratifierComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public MeasureReportPopulationReportSupplementalDataStratifierComponent(Identifier identifier) {
+        super();
+        this.identifier = identifier;
+      }
+
+        /**
+         * @return {@link #identifier} (The identifier of this stratum, as defined in the measure definition.)
+         */
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataStratifierComponent.identifier");
+            else if (Configuration.doAutoCreate())
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
+        }
+
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
+        }
+
+        /**
+         * @param value {@link #identifier} (The identifier of this stratum, as defined in the measure definition.)
+         */
+        public MeasureReportPopulationReportSupplementalDataStratifierComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #count} (The number of members of this population in this stratum.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
+         */
+        public IntegerType getCountElement() { 
+          if (this.count == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataStratifierComponent.count");
+            else if (Configuration.doAutoCreate())
+              this.count = new IntegerType(); // bb
+          return this.count;
+        }
+
+        public boolean hasCountElement() { 
+          return this.count != null && !this.count.isEmpty();
+        }
+
+        public boolean hasCount() { 
+          return this.count != null && !this.count.isEmpty();
+        }
+
+        /**
+         * @param value {@link #count} (The number of members of this population in this stratum.). This is the underlying object with id, value and extensions. The accessor "getCount" gives direct access to the value
+         */
+        public MeasureReportPopulationReportSupplementalDataStratifierComponent setCountElement(IntegerType value) { 
+          this.count = value;
+          return this;
+        }
+
+        /**
+         * @return The number of members of this population in this stratum.
+         */
+        public int getCount() { 
+          return this.count == null || this.count.isEmpty() ? 0 : this.count.getValue();
+        }
+
+        /**
+         * @param value The number of members of this population in this stratum.
+         */
+        public MeasureReportPopulationReportSupplementalDataStratifierComponent setCount(int value) { 
+            if (this.count == null)
+              this.count = new IntegerType();
+            this.count.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #patients} (Bundle of MeasureResponse resources, one per patient in this stratum.)
+         */
+        public Reference getPatients() { 
+          if (this.patients == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataStratifierComponent.patients");
+            else if (Configuration.doAutoCreate())
+              this.patients = new Reference(); // cc
+          return this.patients;
+        }
+
+        public boolean hasPatients() { 
+          return this.patients != null && !this.patients.isEmpty();
+        }
+
+        /**
+         * @param value {@link #patients} (Bundle of MeasureResponse resources, one per patient in this stratum.)
+         */
+        public MeasureReportPopulationReportSupplementalDataStratifierComponent setPatients(Reference value) { 
+          this.patients = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #patients} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Bundle of MeasureResponse resources, one per patient in this stratum.)
+         */
+        public Bundle getPatientsTarget() { 
+          if (this.patientsTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureReportPopulationReportSupplementalDataStratifierComponent.patients");
+            else if (Configuration.doAutoCreate())
+              this.patientsTarget = new Bundle(); // aa
+          return this.patientsTarget;
+        }
+
+        /**
+         * @param value {@link #patients} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Bundle of MeasureResponse resources, one per patient in this stratum.)
+         */
+        public MeasureReportPopulationReportSupplementalDataStratifierComponent setPatientsTarget(Bundle value) { 
           this.patientsTarget = value;
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("count", "integer", "The number of patients in the supplemental data group.", 0, java.lang.Integer.MAX_VALUE, count));
-          childrenList.add(new Property("patients", "Reference(Bundle)", "A bundle containing the patients in this supplemental data group.", 0, java.lang.Integer.MAX_VALUE, patients));
+          childrenList.add(new Property("identifier", "Identifier", "The identifier of this stratum, as defined in the measure definition.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("count", "integer", "The number of members of this population in this stratum.", 0, java.lang.Integer.MAX_VALUE, count));
+          childrenList.add(new Property("patients", "Reference(Bundle)", "Bundle of MeasureResponse resources, one per patient in this stratum.", 0, java.lang.Integer.MAX_VALUE, patients));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("count"))
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("count"))
           this.count = castToInteger(value); // IntegerType
         else if (name.equals("patients"))
           this.patients = castToReference(value); // Reference
@@ -1660,7 +1862,11 @@ public class MeasureReport extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("count")) {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("count")) {
           throw new FHIRException("Cannot call addChild on a primitive type MeasureReport.count");
         }
         else if (name.equals("patients")) {
@@ -1671,9 +1877,10 @@ public class MeasureReport extends DomainResource {
           return super.addChild(name);
       }
 
-      public MeasureReportPopulationReportSupplementalDataGroupComponent copy() {
-        MeasureReportPopulationReportSupplementalDataGroupComponent dst = new MeasureReportPopulationReportSupplementalDataGroupComponent();
+      public MeasureReportPopulationReportSupplementalDataStratifierComponent copy() {
+        MeasureReportPopulationReportSupplementalDataStratifierComponent dst = new MeasureReportPopulationReportSupplementalDataStratifierComponent();
         copyValues(dst);
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.count = count == null ? null : count.copy();
         dst.patients = patients == null ? null : patients.copy();
         return dst;
@@ -1683,29 +1890,30 @@ public class MeasureReport extends DomainResource {
       public boolean equalsDeep(Base other) {
         if (!super.equalsDeep(other))
           return false;
-        if (!(other instanceof MeasureReportPopulationReportSupplementalDataGroupComponent))
+        if (!(other instanceof MeasureReportPopulationReportSupplementalDataStratifierComponent))
           return false;
-        MeasureReportPopulationReportSupplementalDataGroupComponent o = (MeasureReportPopulationReportSupplementalDataGroupComponent) other;
-        return compareDeep(count, o.count, true) && compareDeep(patients, o.patients, true);
+        MeasureReportPopulationReportSupplementalDataStratifierComponent o = (MeasureReportPopulationReportSupplementalDataStratifierComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(count, o.count, true) && compareDeep(patients, o.patients, true)
+          ;
       }
 
       @Override
       public boolean equalsShallow(Base other) {
         if (!super.equalsShallow(other))
           return false;
-        if (!(other instanceof MeasureReportPopulationReportSupplementalDataGroupComponent))
+        if (!(other instanceof MeasureReportPopulationReportSupplementalDataStratifierComponent))
           return false;
-        MeasureReportPopulationReportSupplementalDataGroupComponent o = (MeasureReportPopulationReportSupplementalDataGroupComponent) other;
+        MeasureReportPopulationReportSupplementalDataStratifierComponent o = (MeasureReportPopulationReportSupplementalDataStratifierComponent) other;
         return compareValues(count, o.count, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (count == null || count.isEmpty()) && (patients == null || patients.isEmpty())
-          ;
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (count == null || count.isEmpty())
+           && (patients == null || patients.isEmpty());
       }
 
   public String fhirType() {
-    return "MeasureReport.populationReport.supplementalData.group";
+    return "MeasureReport.populationReport.supplementalData.stratifier";
 
   }
 
@@ -1916,9 +2124,16 @@ public class MeasureReport extends DomainResource {
     protected Measure measureTarget;
 
     /**
+     * The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.
+     */
+    @Child(name = "type", type = {CodeType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="individual | patient-list | summary", formalDefinition="The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure." )
+    protected Enumeration<MeasureReportType> type;
+
+    /**
      * Optional Patient if the report was requested for a single patient.
      */
-    @Child(name = "patient", type = {Patient.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "patient", type = {Patient.class}, order=2, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Optional Patient", formalDefinition="Optional Patient if the report was requested for a single patient." )
     protected Reference patient;
 
@@ -1930,39 +2145,39 @@ public class MeasureReport extends DomainResource {
     /**
      * Reporting period.
      */
-    @Child(name = "period", type = {Period.class}, order=2, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "period", type = {Period.class}, order=3, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Reporting period", formalDefinition="Reporting period." )
     protected Period period;
 
     /**
      * Response status.
      */
-    @Child(name = "status", type = {CodeType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="complete | pending | error", formalDefinition="Response status." )
     protected Enumeration<MeasureReportStatus> status;
 
     /**
      * Population Report.
      */
-    @Child(name = "populationReport", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "populationReport", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Population Report", formalDefinition="Population Report." )
     protected List<MeasureReportPopulationReportComponent> populationReport;
 
     /**
      * Reporting Organization.
      */
-    @Child(name = "reportingOrganization", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "reportingOrganization", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Reporting Organization", formalDefinition="Reporting Organization." )
     protected StringType reportingOrganization;
 
     /**
      * Resources used in the evaluation of this response.
      */
-    @Child(name = "evaluatedResources", type = {}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "evaluatedResources", type = {}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Evaluated Resources", formalDefinition="Resources used in the evaluation of this response." )
     protected MeasureReportEvaluatedResourcesComponent evaluatedResources;
 
-    private static final long serialVersionUID = -328170588L;
+    private static final long serialVersionUID = -2022273459L;
 
   /**
    * Constructor
@@ -2012,6 +2227,55 @@ public class MeasureReport extends DomainResource {
      */
     public MeasureReport setMeasureTarget(Measure value) { 
       this.measureTarget = value;
+      return this;
+    }
+
+    /**
+     * @return {@link #type} (The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     */
+    public Enumeration<MeasureReportType> getTypeElement() { 
+      if (this.type == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create MeasureReport.type");
+        else if (Configuration.doAutoCreate())
+          this.type = new Enumeration<MeasureReportType>(new MeasureReportTypeEnumFactory()); // bb
+      return this.type;
+    }
+
+    public boolean hasTypeElement() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    public boolean hasType() { 
+      return this.type != null && !this.type.isEmpty();
+    }
+
+    /**
+     * @param value {@link #type} (The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     */
+    public MeasureReport setTypeElement(Enumeration<MeasureReportType> value) { 
+      this.type = value;
+      return this;
+    }
+
+    /**
+     * @return The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.
+     */
+    public MeasureReportType getType() { 
+      return this.type == null ? null : this.type.getValue();
+    }
+
+    /**
+     * @param value The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.
+     */
+    public MeasureReport setType(MeasureReportType value) { 
+      if (value == null)
+        this.type = null;
+      else {
+        if (this.type == null)
+          this.type = new Enumeration<MeasureReportType>(new MeasureReportTypeEnumFactory());
+        this.type.setValue(value);
+      }
       return this;
     }
 
@@ -2248,6 +2512,7 @@ public class MeasureReport extends DomainResource {
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
         childrenList.add(new Property("measure", "Reference(Measure)", "A reference to the Measure that was evaluated to produce this report.", 0, java.lang.Integer.MAX_VALUE, measure));
+        childrenList.add(new Property("type", "code", "The type of measure report. This may be an individual report, which provides a single patient's score for the measure, a patient listing, which returns the list of patients that meet the various criteria in the measure, or a summary report, which returns a population count for each criteria in the measure.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("patient", "Reference(Patient)", "Optional Patient if the report was requested for a single patient.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("period", "Period", "Reporting period.", 0, java.lang.Integer.MAX_VALUE, period));
         childrenList.add(new Property("status", "code", "Response status.", 0, java.lang.Integer.MAX_VALUE, status));
@@ -2260,6 +2525,8 @@ public class MeasureReport extends DomainResource {
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("measure"))
           this.measure = castToReference(value); // Reference
+        else if (name.equals("type"))
+          this.type = new MeasureReportTypeEnumFactory().fromType(value); // Enumeration<MeasureReportType>
         else if (name.equals("patient"))
           this.patient = castToReference(value); // Reference
         else if (name.equals("period"))
@@ -2281,6 +2548,9 @@ public class MeasureReport extends DomainResource {
         if (name.equals("measure")) {
           this.measure = new Reference();
           return this.measure;
+        }
+        else if (name.equals("type")) {
+          throw new FHIRException("Cannot call addChild on a primitive type MeasureReport.type");
         }
         else if (name.equals("patient")) {
           this.patient = new Reference();
@@ -2316,6 +2586,7 @@ public class MeasureReport extends DomainResource {
         MeasureReport dst = new MeasureReport();
         copyValues(dst);
         dst.measure = measure == null ? null : measure.copy();
+        dst.type = type == null ? null : type.copy();
         dst.patient = patient == null ? null : patient.copy();
         dst.period = period == null ? null : period.copy();
         dst.status = status == null ? null : status.copy();
@@ -2340,8 +2611,8 @@ public class MeasureReport extends DomainResource {
         if (!(other instanceof MeasureReport))
           return false;
         MeasureReport o = (MeasureReport) other;
-        return compareDeep(measure, o.measure, true) && compareDeep(patient, o.patient, true) && compareDeep(period, o.period, true)
-           && compareDeep(status, o.status, true) && compareDeep(populationReport, o.populationReport, true)
+        return compareDeep(measure, o.measure, true) && compareDeep(type, o.type, true) && compareDeep(patient, o.patient, true)
+           && compareDeep(period, o.period, true) && compareDeep(status, o.status, true) && compareDeep(populationReport, o.populationReport, true)
            && compareDeep(reportingOrganization, o.reportingOrganization, true) && compareDeep(evaluatedResources, o.evaluatedResources, true)
           ;
       }
@@ -2353,15 +2624,15 @@ public class MeasureReport extends DomainResource {
         if (!(other instanceof MeasureReport))
           return false;
         MeasureReport o = (MeasureReport) other;
-        return compareValues(status, o.status, true) && compareValues(reportingOrganization, o.reportingOrganization, true)
+        return compareValues(type, o.type, true) && compareValues(status, o.status, true) && compareValues(reportingOrganization, o.reportingOrganization, true)
           ;
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (measure == null || measure.isEmpty()) && (patient == null || patient.isEmpty())
-           && (period == null || period.isEmpty()) && (status == null || status.isEmpty()) && (populationReport == null || populationReport.isEmpty())
-           && (reportingOrganization == null || reportingOrganization.isEmpty()) && (evaluatedResources == null || evaluatedResources.isEmpty())
-          ;
+        return super.isEmpty() && (measure == null || measure.isEmpty()) && (type == null || type.isEmpty())
+           && (patient == null || patient.isEmpty()) && (period == null || period.isEmpty()) && (status == null || status.isEmpty())
+           && (populationReport == null || populationReport.isEmpty()) && (reportingOrganization == null || reportingOrganization.isEmpty())
+           && (evaluatedResources == null || evaluatedResources.isEmpty());
       }
 
   @Override

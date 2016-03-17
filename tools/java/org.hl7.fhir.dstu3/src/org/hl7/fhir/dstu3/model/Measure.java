@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -455,20 +455,41 @@ public class Measure extends DomainResource {
     @Block()
     public static class MeasureGroupComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The name of the population group.
+         * A unique identifier for the group. This identifier will used to report data for the group in the measure report.
          */
-        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="The name of the population group." )
+        @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="A unique identifier for the group. This identifier will used to report data for the group in the measure report." )
+        protected Identifier identifier;
+
+        /**
+         * Optional name or short description of this group.
+         */
+        @Child(name = "name", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="Optional name or short description of this group." )
         protected StringType name;
+
+        /**
+         * The human readable description of this population group.
+         */
+        @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="The human readable description of this population group." )
+        protected StringType description;
 
         /**
          * A population criteria for the measure.
          */
-        @Child(name = "population", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "population", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="", formalDefinition="A population criteria for the measure." )
         protected List<MeasureGroupPopulationComponent> population;
 
-        private static final long serialVersionUID = -524073700L;
+        /**
+         * The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.
+         */
+        @Child(name = "stratifier", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path." )
+        protected List<MeasureGroupStratifierComponent> stratifier;
+
+        private static final long serialVersionUID = 1287622059L;
 
     /**
      * Constructor
@@ -480,13 +501,37 @@ public class Measure extends DomainResource {
     /**
      * Constructor
      */
-      public MeasureGroupComponent(StringType name) {
+      public MeasureGroupComponent(Identifier identifier) {
         super();
-        this.name = name;
+        this.identifier = identifier;
       }
 
         /**
-         * @return {@link #name} (The name of the population group.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #identifier} (A unique identifier for the group. This identifier will used to report data for the group in the measure report.)
+         */
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureGroupComponent.identifier");
+            else if (Configuration.doAutoCreate())
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
+        }
+
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
+        }
+
+        /**
+         * @param value {@link #identifier} (A unique identifier for the group. This identifier will used to report data for the group in the measure report.)
+         */
+        public MeasureGroupComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #name} (Optional name or short description of this group.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
           if (this.name == null)
@@ -506,7 +551,7 @@ public class Measure extends DomainResource {
         }
 
         /**
-         * @param value {@link #name} (The name of the population group.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #name} (Optional name or short description of this group.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public MeasureGroupComponent setNameElement(StringType value) { 
           this.name = value;
@@ -514,19 +559,72 @@ public class Measure extends DomainResource {
         }
 
         /**
-         * @return The name of the population group.
+         * @return Optional name or short description of this group.
          */
         public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value The name of the population group.
+         * @param value Optional name or short description of this group.
          */
         public MeasureGroupComponent setName(String value) { 
+          if (Utilities.noString(value))
+            this.name = null;
+          else {
             if (this.name == null)
               this.name = new StringType();
             this.name.setValue(value);
+          }
+          return this;
+        }
+
+        /**
+         * @return {@link #description} (The human readable description of this population group.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public StringType getDescriptionElement() { 
+          if (this.description == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureGroupComponent.description");
+            else if (Configuration.doAutoCreate())
+              this.description = new StringType(); // bb
+          return this.description;
+        }
+
+        public boolean hasDescriptionElement() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        public boolean hasDescription() { 
+          return this.description != null && !this.description.isEmpty();
+        }
+
+        /**
+         * @param value {@link #description} (The human readable description of this population group.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+         */
+        public MeasureGroupComponent setDescriptionElement(StringType value) { 
+          this.description = value;
+          return this;
+        }
+
+        /**
+         * @return The human readable description of this population group.
+         */
+        public String getDescription() { 
+          return this.description == null ? null : this.description.getValue();
+        }
+
+        /**
+         * @param value The human readable description of this population group.
+         */
+        public MeasureGroupComponent setDescription(String value) { 
+          if (Utilities.noString(value))
+            this.description = null;
+          else {
+            if (this.description == null)
+              this.description = new StringType();
+            this.description.setValue(value);
+          }
           return this;
         }
 
@@ -570,29 +668,88 @@ public class Measure extends DomainResource {
           return this;
         }
 
+        /**
+         * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
+         */
+        public List<MeasureGroupStratifierComponent> getStratifier() { 
+          if (this.stratifier == null)
+            this.stratifier = new ArrayList<MeasureGroupStratifierComponent>();
+          return this.stratifier;
+        }
+
+        public boolean hasStratifier() { 
+          if (this.stratifier == null)
+            return false;
+          for (MeasureGroupStratifierComponent item : this.stratifier)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
+         */
+    // syntactic sugar
+        public MeasureGroupStratifierComponent addStratifier() { //3
+          MeasureGroupStratifierComponent t = new MeasureGroupStratifierComponent();
+          if (this.stratifier == null)
+            this.stratifier = new ArrayList<MeasureGroupStratifierComponent>();
+          this.stratifier.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public MeasureGroupComponent addStratifier(MeasureGroupStratifierComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.stratifier == null)
+            this.stratifier = new ArrayList<MeasureGroupStratifierComponent>();
+          this.stratifier.add(t);
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "The name of the population group.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("identifier", "Identifier", "A unique identifier for the group. This identifier will used to report data for the group in the measure report.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("name", "string", "Optional name or short description of this group.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("description", "string", "The human readable description of this population group.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("population", "", "A population criteria for the measure.", 0, java.lang.Integer.MAX_VALUE, population));
+          childrenList.add(new Property("stratifier", "", "The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.", 0, java.lang.Integer.MAX_VALUE, stratifier));
         }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("name"))
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("name"))
           this.name = castToString(value); // StringType
+        else if (name.equals("description"))
+          this.description = castToString(value); // StringType
         else if (name.equals("population"))
           this.getPopulation().add((MeasureGroupPopulationComponent) value);
+        else if (name.equals("stratifier"))
+          this.getStratifier().add((MeasureGroupStratifierComponent) value);
         else
           super.setProperty(name, value);
       }
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("name")) {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type Measure.name");
+        }
+        else if (name.equals("description")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.description");
         }
         else if (name.equals("population")) {
           return addPopulation();
+        }
+        else if (name.equals("stratifier")) {
+          return addStratifier();
         }
         else
           return super.addChild(name);
@@ -601,11 +758,18 @@ public class Measure extends DomainResource {
       public MeasureGroupComponent copy() {
         MeasureGroupComponent dst = new MeasureGroupComponent();
         copyValues(dst);
+        dst.identifier = identifier == null ? null : identifier.copy();
         dst.name = name == null ? null : name.copy();
+        dst.description = description == null ? null : description.copy();
         if (population != null) {
           dst.population = new ArrayList<MeasureGroupPopulationComponent>();
           for (MeasureGroupPopulationComponent i : population)
             dst.population.add(i.copy());
+        };
+        if (stratifier != null) {
+          dst.stratifier = new ArrayList<MeasureGroupStratifierComponent>();
+          for (MeasureGroupStratifierComponent i : stratifier)
+            dst.stratifier.add(i.copy());
         };
         return dst;
       }
@@ -617,7 +781,8 @@ public class Measure extends DomainResource {
         if (!(other instanceof MeasureGroupComponent))
           return false;
         MeasureGroupComponent o = (MeasureGroupComponent) other;
-        return compareDeep(name, o.name, true) && compareDeep(population, o.population, true);
+        return compareDeep(identifier, o.identifier, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
+           && compareDeep(population, o.population, true) && compareDeep(stratifier, o.stratifier, true);
       }
 
       @Override
@@ -627,12 +792,13 @@ public class Measure extends DomainResource {
         if (!(other instanceof MeasureGroupComponent))
           return false;
         MeasureGroupComponent o = (MeasureGroupComponent) other;
-        return compareValues(name, o.name, true);
+        return compareValues(name, o.name, true) && compareValues(description, o.description, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (name == null || name.isEmpty()) && (population == null || population.isEmpty())
-          ;
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (name == null || name.isEmpty())
+           && (description == null || description.isEmpty()) && (population == null || population.isEmpty())
+           && (stratifier == null || stratifier.isEmpty());
       }
 
   public String fhirType() {
@@ -1003,6 +1169,350 @@ public class Measure extends DomainResource {
 
   }
 
+    @Block()
+    public static class MeasureGroupStratifierComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * The identifier for the stratifier used to coordinate the reported data back to this stratifier.
+         */
+        @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="The identifier for the stratifier used to coordinate the reported data back to this stratifier." )
+        protected Identifier identifier;
+
+        /**
+         * The criteria for the stratifier. This must be the name of an expression defined within a referenced library.
+         */
+        @Child(name = "criteria", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="", formalDefinition="The criteria for the stratifier. This must be the name of an expression defined within a referenced library." )
+        protected StringType criteria;
+
+        private static final long serialVersionUID = 563788640L;
+
+    /**
+     * Constructor
+     */
+      public MeasureGroupStratifierComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public MeasureGroupStratifierComponent(Identifier identifier, StringType criteria) {
+        super();
+        this.identifier = identifier;
+        this.criteria = criteria;
+      }
+
+        /**
+         * @return {@link #identifier} (The identifier for the stratifier used to coordinate the reported data back to this stratifier.)
+         */
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureGroupStratifierComponent.identifier");
+            else if (Configuration.doAutoCreate())
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
+        }
+
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
+        }
+
+        /**
+         * @param value {@link #identifier} (The identifier for the stratifier used to coordinate the reported data back to this stratifier.)
+         */
+        public MeasureGroupStratifierComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #criteria} (The criteria for the stratifier. This must be the name of an expression defined within a referenced library.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
+         */
+        public StringType getCriteriaElement() { 
+          if (this.criteria == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureGroupStratifierComponent.criteria");
+            else if (Configuration.doAutoCreate())
+              this.criteria = new StringType(); // bb
+          return this.criteria;
+        }
+
+        public boolean hasCriteriaElement() { 
+          return this.criteria != null && !this.criteria.isEmpty();
+        }
+
+        public boolean hasCriteria() { 
+          return this.criteria != null && !this.criteria.isEmpty();
+        }
+
+        /**
+         * @param value {@link #criteria} (The criteria for the stratifier. This must be the name of an expression defined within a referenced library.). This is the underlying object with id, value and extensions. The accessor "getCriteria" gives direct access to the value
+         */
+        public MeasureGroupStratifierComponent setCriteriaElement(StringType value) { 
+          this.criteria = value;
+          return this;
+        }
+
+        /**
+         * @return The criteria for the stratifier. This must be the name of an expression defined within a referenced library.
+         */
+        public String getCriteria() { 
+          return this.criteria == null ? null : this.criteria.getValue();
+        }
+
+        /**
+         * @param value The criteria for the stratifier. This must be the name of an expression defined within a referenced library.
+         */
+        public MeasureGroupStratifierComponent setCriteria(String value) { 
+            if (this.criteria == null)
+              this.criteria = new StringType();
+            this.criteria.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("identifier", "Identifier", "The identifier for the stratifier used to coordinate the reported data back to this stratifier.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("criteria", "string", "The criteria for the stratifier. This must be the name of an expression defined within a referenced library.", 0, java.lang.Integer.MAX_VALUE, criteria));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("criteria"))
+          this.criteria = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("criteria")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.criteria");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public MeasureGroupStratifierComponent copy() {
+        MeasureGroupStratifierComponent dst = new MeasureGroupStratifierComponent();
+        copyValues(dst);
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.criteria = criteria == null ? null : criteria.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MeasureGroupStratifierComponent))
+          return false;
+        MeasureGroupStratifierComponent o = (MeasureGroupStratifierComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(criteria, o.criteria, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MeasureGroupStratifierComponent))
+          return false;
+        MeasureGroupStratifierComponent o = (MeasureGroupStratifierComponent) other;
+        return compareValues(criteria, o.criteria, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (criteria == null || criteria.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "Measure.group.stratifier";
+
+  }
+
+  }
+
+    @Block()
+    public static class MeasureSupplementalDataComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * An identifier for the supplemental data.
+         */
+        @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Identifier, unique within the measure", formalDefinition="An identifier for the supplemental data." )
+        protected Identifier identifier;
+
+        /**
+         * The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.
+         */
+        @Child(name = "path", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="Path to the supplemental data element", formalDefinition="The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path." )
+        protected StringType path;
+
+        private static final long serialVersionUID = -1932995494L;
+
+    /**
+     * Constructor
+     */
+      public MeasureSupplementalDataComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public MeasureSupplementalDataComponent(Identifier identifier, StringType path) {
+        super();
+        this.identifier = identifier;
+        this.path = path;
+      }
+
+        /**
+         * @return {@link #identifier} (An identifier for the supplemental data.)
+         */
+        public Identifier getIdentifier() { 
+          if (this.identifier == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureSupplementalDataComponent.identifier");
+            else if (Configuration.doAutoCreate())
+              this.identifier = new Identifier(); // cc
+          return this.identifier;
+        }
+
+        public boolean hasIdentifier() { 
+          return this.identifier != null && !this.identifier.isEmpty();
+        }
+
+        /**
+         * @param value {@link #identifier} (An identifier for the supplemental data.)
+         */
+        public MeasureSupplementalDataComponent setIdentifier(Identifier value) { 
+          this.identifier = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #path} (The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
+         */
+        public StringType getPathElement() { 
+          if (this.path == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create MeasureSupplementalDataComponent.path");
+            else if (Configuration.doAutoCreate())
+              this.path = new StringType(); // bb
+          return this.path;
+        }
+
+        public boolean hasPathElement() { 
+          return this.path != null && !this.path.isEmpty();
+        }
+
+        public boolean hasPath() { 
+          return this.path != null && !this.path.isEmpty();
+        }
+
+        /**
+         * @param value {@link #path} (The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
+         */
+        public MeasureSupplementalDataComponent setPathElement(StringType value) { 
+          this.path = value;
+          return this;
+        }
+
+        /**
+         * @return The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.
+         */
+        public String getPath() { 
+          return this.path == null ? null : this.path.getValue();
+        }
+
+        /**
+         * @param value The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.
+         */
+        public MeasureSupplementalDataComponent setPath(String value) { 
+            if (this.path == null)
+              this.path = new StringType();
+            this.path.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("identifier", "Identifier", "An identifier for the supplemental data.", 0, java.lang.Integer.MAX_VALUE, identifier));
+          childrenList.add(new Property("path", "string", "The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.", 0, java.lang.Integer.MAX_VALUE, path));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("identifier"))
+          this.identifier = castToIdentifier(value); // Identifier
+        else if (name.equals("path"))
+          this.path = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("identifier")) {
+          this.identifier = new Identifier();
+          return this.identifier;
+        }
+        else if (name.equals("path")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Measure.path");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public MeasureSupplementalDataComponent copy() {
+        MeasureSupplementalDataComponent dst = new MeasureSupplementalDataComponent();
+        copyValues(dst);
+        dst.identifier = identifier == null ? null : identifier.copy();
+        dst.path = path == null ? null : path.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof MeasureSupplementalDataComponent))
+          return false;
+        MeasureSupplementalDataComponent o = (MeasureSupplementalDataComponent) other;
+        return compareDeep(identifier, o.identifier, true) && compareDeep(path, o.path, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof MeasureSupplementalDataComponent))
+          return false;
+        MeasureSupplementalDataComponent o = (MeasureSupplementalDataComponent) other;
+        return compareValues(path, o.path, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (path == null || path.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "Measure.supplementalData";
+
+  }
+
+  }
+
     /**
      * A reference to a ModuleMetadata resource that describes the metadata for the measure.
      */
@@ -1039,9 +1549,9 @@ public class Measure extends DomainResource {
     /**
      * The measure type, e.g. process, outcome.
      */
-    @Child(name = "type", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "type", type = {CodeType.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="process | outcome", formalDefinition="The measure type, e.g. process, outcome." )
-    protected Enumeration<MeasureType> type;
+    protected List<Enumeration<MeasureType>> type;
 
     /**
      * A description of the risk adjustment for the measure.
@@ -1107,20 +1617,13 @@ public class Measure extends DomainResource {
     protected List<MeasureGroupComponent> group;
 
     /**
-     * The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.
+     * Supplemental data to be supplied with the measure report.
      */
-    @Child(name = "stratifier", type = {StringType.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path." )
-    protected List<StringType> stratifier;
+    @Child(name = "supplementalData", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Supplemental data", formalDefinition="Supplemental data to be supplied with the measure report." )
+    protected List<MeasureSupplementalDataComponent> supplementalData;
 
-    /**
-     * The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.
-     */
-    @Child(name = "supplementalData", type = {StringType.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path." )
-    protected List<StringType> supplementalData;
-
-    private static final long serialVersionUID = -1076900406L;
+    private static final long serialVersionUID = -1000974672L;
 
   /**
    * Constructor
@@ -1313,52 +1816,57 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (The measure type, e.g. process, outcome.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     * @return {@link #type} (The measure type, e.g. process, outcome.)
      */
-    public Enumeration<MeasureType> getTypeElement() { 
+    public List<Enumeration<MeasureType>> getType() { 
       if (this.type == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Measure.type");
-        else if (Configuration.doAutoCreate())
-          this.type = new Enumeration<MeasureType>(new MeasureTypeEnumFactory()); // bb
+        this.type = new ArrayList<Enumeration<MeasureType>>();
       return this.type;
     }
 
-    public boolean hasTypeElement() { 
-      return this.type != null && !this.type.isEmpty();
-    }
-
     public boolean hasType() { 
-      return this.type != null && !this.type.isEmpty();
+      if (this.type == null)
+        return false;
+      for (Enumeration<MeasureType> item : this.type)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #type} (The measure type, e.g. process, outcome.). This is the underlying object with id, value and extensions. The accessor "getType" gives direct access to the value
+     * @return {@link #type} (The measure type, e.g. process, outcome.)
      */
-    public Measure setTypeElement(Enumeration<MeasureType> value) { 
-      this.type = value;
+    // syntactic sugar
+    public Enumeration<MeasureType> addTypeElement() {//2 
+      Enumeration<MeasureType> t = new Enumeration<MeasureType>(new MeasureTypeEnumFactory());
+      if (this.type == null)
+        this.type = new ArrayList<Enumeration<MeasureType>>();
+      this.type.add(t);
+      return t;
+    }
+
+    /**
+     * @param value {@link #type} (The measure type, e.g. process, outcome.)
+     */
+    public Measure addType(MeasureType value) { //1
+      Enumeration<MeasureType> t = new Enumeration<MeasureType>(new MeasureTypeEnumFactory());
+      t.setValue(value);
+      if (this.type == null)
+        this.type = new ArrayList<Enumeration<MeasureType>>();
+      this.type.add(t);
       return this;
     }
 
     /**
-     * @return The measure type, e.g. process, outcome.
+     * @param value {@link #type} (The measure type, e.g. process, outcome.)
      */
-    public MeasureType getType() { 
-      return this.type == null ? null : this.type.getValue();
-    }
-
-    /**
-     * @param value The measure type, e.g. process, outcome.
-     */
-    public Measure setType(MeasureType value) { 
-      if (value == null)
-        this.type = null;
-      else {
-        if (this.type == null)
-          this.type = new Enumeration<MeasureType>(new MeasureTypeEnumFactory());
-        this.type.setValue(value);
-      }
-      return this;
+    public boolean hasType(MeasureType value) { 
+      if (this.type == null)
+        return false;
+      for (Enumeration<MeasureType> v : this.type)
+        if (v.equals(value)) // code
+          return true;
+      return false;
     }
 
     /**
@@ -1794,111 +2302,43 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
+     * @return {@link #supplementalData} (Supplemental data to be supplied with the measure report.)
      */
-    public List<StringType> getStratifier() { 
-      if (this.stratifier == null)
-        this.stratifier = new ArrayList<StringType>();
-      return this.stratifier;
-    }
-
-    public boolean hasStratifier() { 
-      if (this.stratifier == null)
-        return false;
-      for (StringType item : this.stratifier)
-        if (!item.isEmpty())
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
-     */
-    // syntactic sugar
-    public StringType addStratifierElement() {//2 
-      StringType t = new StringType();
-      if (this.stratifier == null)
-        this.stratifier = new ArrayList<StringType>();
-      this.stratifier.add(t);
-      return t;
-    }
-
-    /**
-     * @param value {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
-     */
-    public Measure addStratifier(String value) { //1
-      StringType t = new StringType();
-      t.setValue(value);
-      if (this.stratifier == null)
-        this.stratifier = new ArrayList<StringType>();
-      this.stratifier.add(t);
-      return this;
-    }
-
-    /**
-     * @param value {@link #stratifier} (The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.)
-     */
-    public boolean hasStratifier(String value) { 
-      if (this.stratifier == null)
-        return false;
-      for (StringType v : this.stratifier)
-        if (v.equals(value)) // string
-          return true;
-      return false;
-    }
-
-    /**
-     * @return {@link #supplementalData} (The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.)
-     */
-    public List<StringType> getSupplementalData() { 
+    public List<MeasureSupplementalDataComponent> getSupplementalData() { 
       if (this.supplementalData == null)
-        this.supplementalData = new ArrayList<StringType>();
+        this.supplementalData = new ArrayList<MeasureSupplementalDataComponent>();
       return this.supplementalData;
     }
 
     public boolean hasSupplementalData() { 
       if (this.supplementalData == null)
         return false;
-      for (StringType item : this.supplementalData)
+      for (MeasureSupplementalDataComponent item : this.supplementalData)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #supplementalData} (The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.)
+     * @return {@link #supplementalData} (Supplemental data to be supplied with the measure report.)
      */
     // syntactic sugar
-    public StringType addSupplementalDataElement() {//2 
-      StringType t = new StringType();
+    public MeasureSupplementalDataComponent addSupplementalData() { //3
+      MeasureSupplementalDataComponent t = new MeasureSupplementalDataComponent();
       if (this.supplementalData == null)
-        this.supplementalData = new ArrayList<StringType>();
+        this.supplementalData = new ArrayList<MeasureSupplementalDataComponent>();
       this.supplementalData.add(t);
       return t;
     }
 
-    /**
-     * @param value {@link #supplementalData} (The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.)
-     */
-    public Measure addSupplementalData(String value) { //1
-      StringType t = new StringType();
-      t.setValue(value);
+    // syntactic sugar
+    public Measure addSupplementalData(MeasureSupplementalDataComponent t) { //3
+      if (t == null)
+        return this;
       if (this.supplementalData == null)
-        this.supplementalData = new ArrayList<StringType>();
+        this.supplementalData = new ArrayList<MeasureSupplementalDataComponent>();
       this.supplementalData.add(t);
       return this;
-    }
-
-    /**
-     * @param value {@link #supplementalData} (The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.)
-     */
-    public boolean hasSupplementalData(String value) { 
-      if (this.supplementalData == null)
-        return false;
-      for (StringType v : this.supplementalData)
-        if (v.equals(value)) // string
-          return true;
-      return false;
     }
 
       protected void listChildren(List<Property> childrenList) {
@@ -1917,8 +2357,7 @@ public class Measure extends DomainResource {
         childrenList.add(new Property("guidance", "markdown", "The guidance for the measure.", 0, java.lang.Integer.MAX_VALUE, guidance));
         childrenList.add(new Property("set", "string", "The measure set, e.g. Preventive Care and Screening.", 0, java.lang.Integer.MAX_VALUE, set));
         childrenList.add(new Property("group", "", "A group of population criteria for the measure.", 0, java.lang.Integer.MAX_VALUE, group));
-        childrenList.add(new Property("stratifier", "string", "The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.", 0, java.lang.Integer.MAX_VALUE, stratifier));
-        childrenList.add(new Property("supplementalData", "string", "The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path.", 0, java.lang.Integer.MAX_VALUE, supplementalData));
+        childrenList.add(new Property("supplementalData", "", "Supplemental data to be supplied with the measure report.", 0, java.lang.Integer.MAX_VALUE, supplementalData));
       }
 
       @Override
@@ -1932,7 +2371,7 @@ public class Measure extends DomainResource {
         else if (name.equals("scoring"))
           this.scoring = new MeasureScoringEnumFactory().fromType(value); // Enumeration<MeasureScoring>
         else if (name.equals("type"))
-          this.type = new MeasureTypeEnumFactory().fromType(value); // Enumeration<MeasureType>
+          this.getType().add(new MeasureTypeEnumFactory().fromType(value));
         else if (name.equals("riskAdjustment"))
           this.riskAdjustment = castToString(value); // StringType
         else if (name.equals("rateAggregation"))
@@ -1951,10 +2390,8 @@ public class Measure extends DomainResource {
           this.set = castToString(value); // StringType
         else if (name.equals("group"))
           this.getGroup().add((MeasureGroupComponent) value);
-        else if (name.equals("stratifier"))
-          this.getStratifier().add(castToString(value));
         else if (name.equals("supplementalData"))
-          this.getSupplementalData().add(castToString(value));
+          this.getSupplementalData().add((MeasureSupplementalDataComponent) value);
         else
           super.setProperty(name, value);
       }
@@ -2004,11 +2441,8 @@ public class Measure extends DomainResource {
         else if (name.equals("group")) {
           return addGroup();
         }
-        else if (name.equals("stratifier")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Measure.stratifier");
-        }
         else if (name.equals("supplementalData")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Measure.supplementalData");
+          return addSupplementalData();
         }
         else
           return super.addChild(name);
@@ -2030,7 +2464,11 @@ public class Measure extends DomainResource {
         };
         dst.disclaimer = disclaimer == null ? null : disclaimer.copy();
         dst.scoring = scoring == null ? null : scoring.copy();
-        dst.type = type == null ? null : type.copy();
+        if (type != null) {
+          dst.type = new ArrayList<Enumeration<MeasureType>>();
+          for (Enumeration<MeasureType> i : type)
+            dst.type.add(i.copy());
+        };
         dst.riskAdjustment = riskAdjustment == null ? null : riskAdjustment.copy();
         dst.rateAggregation = rateAggregation == null ? null : rateAggregation.copy();
         dst.rationale = rationale == null ? null : rationale.copy();
@@ -2044,14 +2482,9 @@ public class Measure extends DomainResource {
           for (MeasureGroupComponent i : group)
             dst.group.add(i.copy());
         };
-        if (stratifier != null) {
-          dst.stratifier = new ArrayList<StringType>();
-          for (StringType i : stratifier)
-            dst.stratifier.add(i.copy());
-        };
         if (supplementalData != null) {
-          dst.supplementalData = new ArrayList<StringType>();
-          for (StringType i : supplementalData)
+          dst.supplementalData = new ArrayList<MeasureSupplementalDataComponent>();
+          for (MeasureSupplementalDataComponent i : supplementalData)
             dst.supplementalData.add(i.copy());
         };
         return dst;
@@ -2074,8 +2507,7 @@ public class Measure extends DomainResource {
            && compareDeep(rationale, o.rationale, true) && compareDeep(clinicalRecommendationStatement, o.clinicalRecommendationStatement, true)
            && compareDeep(improvementNotation, o.improvementNotation, true) && compareDeep(definition, o.definition, true)
            && compareDeep(guidance, o.guidance, true) && compareDeep(set, o.set, true) && compareDeep(group, o.group, true)
-           && compareDeep(stratifier, o.stratifier, true) && compareDeep(supplementalData, o.supplementalData, true)
-          ;
+           && compareDeep(supplementalData, o.supplementalData, true);
       }
 
       @Override
@@ -2089,8 +2521,7 @@ public class Measure extends DomainResource {
            && compareValues(riskAdjustment, o.riskAdjustment, true) && compareValues(rateAggregation, o.rateAggregation, true)
            && compareValues(rationale, o.rationale, true) && compareValues(clinicalRecommendationStatement, o.clinicalRecommendationStatement, true)
            && compareValues(improvementNotation, o.improvementNotation, true) && compareValues(definition, o.definition, true)
-           && compareValues(guidance, o.guidance, true) && compareValues(set, o.set, true) && compareValues(stratifier, o.stratifier, true)
-           && compareValues(supplementalData, o.supplementalData, true);
+           && compareValues(guidance, o.guidance, true) && compareValues(set, o.set, true);
       }
 
       public boolean isEmpty() {
@@ -2101,8 +2532,7 @@ public class Measure extends DomainResource {
            && (clinicalRecommendationStatement == null || clinicalRecommendationStatement.isEmpty())
            && (improvementNotation == null || improvementNotation.isEmpty()) && (definition == null || definition.isEmpty())
            && (guidance == null || guidance.isEmpty()) && (set == null || set.isEmpty()) && (group == null || group.isEmpty())
-           && (stratifier == null || stratifier.isEmpty()) && (supplementalData == null || supplementalData.isEmpty())
-          ;
+           && (supplementalData == null || supplementalData.isEmpty());
       }
 
   @Override

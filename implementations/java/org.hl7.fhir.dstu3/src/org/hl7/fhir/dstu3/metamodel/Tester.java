@@ -31,7 +31,7 @@ public class Tester {
 //				String src = normalise(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\"+Utilities.changeFileExt(f, ".mm.json")));
 //				String tgt = normalise(TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\"+Utilities.changeFileExt(f, ".json")));
 				Element e = Manager.parse(context, new FileInputStream("C:\\work\\org.hl7.fhir\\build\\publish\\"+f), FhirFormat.XML, true);
-				Manager.compose(context, e,  new FileOutputStream("C:\\work\\org.hl7.fhir\\build\\publish\\"+Utilities.changeFileExt(f, ".mm.ttl")), FhirFormat.TURTLE, OutputStyle.PRETTY);
+				Manager.compose(context, e, new FileOutputStream("C:\\work\\org.hl7.fhir\\build\\publish\\"+Utilities.changeFileExt(f, ".mm.ttl")), FhirFormat.TURTLE, OutputStyle.PRETTY, null);
 				String src = TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\"+Utilities.changeFileExt(f, ".mm.ttl"));
 				String tgt = TextFile.fileToString("C:\\work\\org.hl7.fhir\\build\\publish\\"+Utilities.changeFileExt(f, ".ttl"));
 				t++;

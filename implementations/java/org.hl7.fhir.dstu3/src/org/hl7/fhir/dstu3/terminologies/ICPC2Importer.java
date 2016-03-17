@@ -160,8 +160,8 @@ public class ICPC2Importer {
     concepts.put(concept.getCode(), concept);
     List<Element> children = new ArrayList<Element>(); 
     XMLUtil.getNamedChildren(cls, "SubClass", children);
-//    if (children.size() > 0)
-//      concept.setAbstract(true);
+    if (children.size() > 0)
+      CodeSystemUtilities.setAbstract(define, concept);
     
     Element parent = XMLUtil.getNamedChild(cls, "SuperClass");
     if (parent == null) {

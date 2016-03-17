@@ -32,7 +32,7 @@ public abstract class ParserBase {
 
 	public abstract Element parse(InputStream stream) throws Exception;
 
-	public abstract void compose(Element e, OutputStream destination, OutputStyle style)  throws Exception;
+	public abstract void compose(Element e, OutputStream destination, OutputStyle style, String base)  throws Exception;
 
 	protected List<Property> getChildProperties(Property property, String elementName) throws DefinitionException {
 		ElementDefinition ed = property.getDefinition();

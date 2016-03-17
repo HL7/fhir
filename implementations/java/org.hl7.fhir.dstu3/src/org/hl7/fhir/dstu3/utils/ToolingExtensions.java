@@ -68,7 +68,7 @@ public class ToolingExtensions {
   // validated
   public static final String EXT_SUBSUMES = "http://hl7.org/fhir/StructureDefinition/codesystem-subsumes"; 
   private static final String EXT_OID = "http://hl7.org/fhir/StructureDefinition/valueset-oid";
-  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/StructureDefinition/codesystem-deprecated";
+//  public static final String EXT_DEPRECATED = "http://hl7.org/fhir/StructureDefinition/codesystem-deprecated";
   public static final String EXT_DEFINITION = "http://hl7.org/fhir/StructureDefinition/valueset-definition";
   public static final String EXT_COMMENT = "http://hl7.org/fhir/StructureDefinition/valueset-comments";
   private static final String EXT_IDENTIFIER = "http://hl7.org/fhir/StructureDefinition/identifier";
@@ -155,10 +155,10 @@ public class ToolingExtensions {
       nc.getExtension().add(Factory.newExtension(EXT_COMMENT, Factory.newString_(comment), true));   
   }
 
-  public static void markDeprecated(Element nc) {
-    setDeprecated(nc);   
-  }
-
+//  public static void markDeprecated(Element nc) {
+//    setDeprecated(nc);   
+//  }
+//
   public static void addSubsumes(ConceptDefinitionComponent nc, String code) {
     nc.getModifierExtension().add(Factory.newExtension(EXT_SUBSUMES, Factory.newCode(code), true));   
   }
@@ -239,18 +239,18 @@ public class ToolingExtensions {
   public static String getComment(ConceptDefinitionComponent c) {
     return readStringExtension(c, EXT_COMMENT);    
   }
-
-  public static Boolean getDeprecated(Element c) {
-    return readBooleanExtension(c, EXT_DEPRECATED);    
-  }
+//
+//  public static Boolean getDeprecated(Element c) {
+//    return readBooleanExtension(c, EXT_DEPRECATED);    
+//  }
 
   public static boolean hasComment(ConceptDefinitionComponent c) {
     return findStringExtension(c, EXT_COMMENT);    
   }
 
-  public static boolean hasDeprecated(Element c) {
-    return findBooleanExtension(c, EXT_DEPRECATED);    
-  }
+//  public static boolean hasDeprecated(Element c) {
+//    return findBooleanExtension(c, EXT_DEPRECATED);    
+//  }
 
   public static List<CodeType> getSubsumes(ConceptDefinitionComponent c) {
     List<CodeType> res = new ArrayList<CodeType>();
@@ -432,14 +432,14 @@ public class ToolingExtensions {
     de.getExtension().add(new Extension().setUrl(EXT_CIMI_REFERENCE).setValue(new UriType(value)));
   }
 
-  public static void setDeprecated(Element nc) {
-    for (Extension e : nc.getExtension()) 
-      if (e.getUrl().equals(EXT_DEPRECATED)) {
-        e.setValue(new BooleanType(true));
-        return;
-      }
-    nc.getExtension().add(new Extension().setUrl(EXT_DEPRECATED).setValue(new BooleanType(true)));    
-  }
+//  public static void setDeprecated(Element nc) {
+//    for (Extension e : nc.getExtension()) 
+//      if (e.getUrl().equals(EXT_DEPRECATED)) {
+//        e.setValue(new BooleanType(true));
+//        return;
+//      }
+//    nc.getExtension().add(new Extension().setUrl(EXT_DEPRECATED).setValue(new BooleanType(true)));    
+//  }
 
   public static void setExtension(Element focus, String url, Coding c) {
     for (Extension e : focus.getExtension()) 

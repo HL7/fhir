@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -825,20 +825,27 @@ public class Appointment extends DomainResource {
 
 
     /**
+     * The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.
+     */
+    @Child(name = "created", type = {DateTimeType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="The date that this appointment was initially created", formalDefinition="The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment." )
+    protected DateTimeType created;
+
+    /**
      * Additional comments about the appointment.
      */
-    @Child(name = "comment", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "comment", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Additional comments", formalDefinition="Additional comments about the appointment." )
     protected StringType comment;
 
     /**
      * List of participants involved in the appointment.
      */
-    @Child(name = "participant", type = {}, order=11, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "participant", type = {}, order=12, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Participants involved in appointment", formalDefinition="List of participants involved in the appointment." )
     protected List<AppointmentParticipantComponent> participant;
 
-    private static final long serialVersionUID = -1403944125L;
+    private static final long serialVersionUID = 1824230996L;
 
   /**
    * Constructor
@@ -1287,6 +1294,55 @@ public class Appointment extends DomainResource {
     }
 
     /**
+     * @return {@link #created} (The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
+     */
+    public DateTimeType getCreatedElement() { 
+      if (this.created == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Appointment.created");
+        else if (Configuration.doAutoCreate())
+          this.created = new DateTimeType(); // bb
+      return this.created;
+    }
+
+    public boolean hasCreatedElement() { 
+      return this.created != null && !this.created.isEmpty();
+    }
+
+    public boolean hasCreated() { 
+      return this.created != null && !this.created.isEmpty();
+    }
+
+    /**
+     * @param value {@link #created} (The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.). This is the underlying object with id, value and extensions. The accessor "getCreated" gives direct access to the value
+     */
+    public Appointment setCreatedElement(DateTimeType value) { 
+      this.created = value;
+      return this;
+    }
+
+    /**
+     * @return The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.
+     */
+    public Date getCreated() { 
+      return this.created == null ? null : this.created.getValue();
+    }
+
+    /**
+     * @param value The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.
+     */
+    public Appointment setCreated(Date value) { 
+      if (value == null)
+        this.created = null;
+      else {
+        if (this.created == null)
+          this.created = new DateTimeType();
+        this.created.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #comment} (Additional comments about the appointment.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
     public StringType getCommentElement() { 
@@ -1387,6 +1443,7 @@ public class Appointment extends DomainResource {
         childrenList.add(new Property("end", "instant", "Date/Time that the appointment is to conclude.", 0, java.lang.Integer.MAX_VALUE, end));
         childrenList.add(new Property("minutesDuration", "positiveInt", "Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request).", 0, java.lang.Integer.MAX_VALUE, minutesDuration));
         childrenList.add(new Property("slot", "Reference(Slot)", "The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot.", 0, java.lang.Integer.MAX_VALUE, slot));
+        childrenList.add(new Property("created", "dateTime", "The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.", 0, java.lang.Integer.MAX_VALUE, created));
         childrenList.add(new Property("comment", "string", "Additional comments about the appointment.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("participant", "", "List of participants involved in the appointment.", 0, java.lang.Integer.MAX_VALUE, participant));
       }
@@ -1413,6 +1470,8 @@ public class Appointment extends DomainResource {
           this.minutesDuration = castToPositiveInt(value); // PositiveIntType
         else if (name.equals("slot"))
           this.getSlot().add(castToReference(value));
+        else if (name.equals("created"))
+          this.created = castToDateTime(value); // DateTimeType
         else if (name.equals("comment"))
           this.comment = castToString(value); // StringType
         else if (name.equals("participant"))
@@ -1455,6 +1514,9 @@ public class Appointment extends DomainResource {
         else if (name.equals("slot")) {
           return addSlot();
         }
+        else if (name.equals("created")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Appointment.created");
+        }
         else if (name.equals("comment")) {
           throw new FHIRException("Cannot call addChild on a primitive type Appointment.comment");
         }
@@ -1491,6 +1553,7 @@ public class Appointment extends DomainResource {
           for (Reference i : slot)
             dst.slot.add(i.copy());
         };
+        dst.created = created == null ? null : created.copy();
         dst.comment = comment == null ? null : comment.copy();
         if (participant != null) {
           dst.participant = new ArrayList<AppointmentParticipantComponent>();
@@ -1514,8 +1577,8 @@ public class Appointment extends DomainResource {
         return compareDeep(identifier, o.identifier, true) && compareDeep(status, o.status, true) && compareDeep(type, o.type, true)
            && compareDeep(reason, o.reason, true) && compareDeep(priority, o.priority, true) && compareDeep(description, o.description, true)
            && compareDeep(start, o.start, true) && compareDeep(end, o.end, true) && compareDeep(minutesDuration, o.minutesDuration, true)
-           && compareDeep(slot, o.slot, true) && compareDeep(comment, o.comment, true) && compareDeep(participant, o.participant, true)
-          ;
+           && compareDeep(slot, o.slot, true) && compareDeep(created, o.created, true) && compareDeep(comment, o.comment, true)
+           && compareDeep(participant, o.participant, true);
       }
 
       @Override
@@ -1527,7 +1590,7 @@ public class Appointment extends DomainResource {
         Appointment o = (Appointment) other;
         return compareValues(status, o.status, true) && compareValues(priority, o.priority, true) && compareValues(description, o.description, true)
            && compareValues(start, o.start, true) && compareValues(end, o.end, true) && compareValues(minutesDuration, o.minutesDuration, true)
-           && compareValues(comment, o.comment, true);
+           && compareValues(created, o.created, true) && compareValues(comment, o.comment, true);
       }
 
       public boolean isEmpty() {
@@ -1535,7 +1598,7 @@ public class Appointment extends DomainResource {
            && (type == null || type.isEmpty()) && (reason == null || reason.isEmpty()) && (priority == null || priority.isEmpty())
            && (description == null || description.isEmpty()) && (start == null || start.isEmpty()) && (end == null || end.isEmpty())
            && (minutesDuration == null || minutesDuration.isEmpty()) && (slot == null || slot.isEmpty())
-           && (comment == null || comment.isEmpty()) && (participant == null || participant.isEmpty())
+           && (created == null || created.isEmpty()) && (comment == null || comment.isEmpty()) && (participant == null || participant.isEmpty())
           ;
       }
 

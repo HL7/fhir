@@ -41,15 +41,15 @@
   <reference value="http://hl7.org/fhir/sid/icd-10-us"/>
  </targetReference>
  <element>
-  <codeSystem value="http://snomed.info/sct"/>
+  <system value="http://snomed.info/sct"/>
      <!-- The version is not normally required for SNOMED CT - this is an example.  -->
-  <codeSystemVersion value="March 2015 US Edition"/>
+  <version value="March 2015 US Edition"/>
   <!-- Fracture of shaft of ulna -->
   <code value="263204007"/>
   <target>
-   <codeSystem value="http://hl7.org/fhir/sid/icd-10-us"/>
+   <system value="http://hl7.org/fhir/sid/icd-10-us"/>
       <!-- The specific version may be required for ICD-10-CM. -->
-   <codeSystemVersion value="2015"/>
+   <version value="2015"/>
    <!-- Unspecified fracture of shaft of unspecified ulna (initial encounter for closed fracture) -->
    <code value="S52.209A"/>
    <equivalence value="narrower"/>
@@ -57,15 +57,15 @@
   </target>
  </element>
  <element>
-  <codeSystem value="http://snomed.info/sct"/>
+  <system value="http://snomed.info/sct"/>
      <!-- The version is not normally required for SNOMED CT - this is an example.  -->
-  <codeSystemVersion value="March 2015 US Edition"/>
+  <version value="March 2015 US Edition"/>
   <!-- Fracture of shaft of ulna -->
   <code value="263204007"/>
   <target>
-   <codeSystem value="http://hl7.org/fhir/sid/icd-10-us"/>
+   <system value="http://hl7.org/fhir/sid/icd-10-us"/>
       <!-- The specific version may be required for ICD-10-CM. -->
-   <codeSystemVersion value="2015"/>
+   <version value="2015"/>
    <!-- Unspecified fracture of shaft of unspecified ulna (subsequent encounter for closed fracture with routine healing) -->
    <code value="S52.209D"/>
    <equivalence value="narrower"/>

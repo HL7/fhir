@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2389,10 +2389,10 @@ public class AuditEvent extends DomainResource {
     protected List<Coding> purposeOfEvent;
 
     /**
-     * A person, a hardware device or software process.
+     * An actor taking an active role in the event or activity that is logged.
      */
     @Child(name = "agent", type = {}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="A person, a hardware device or software process", formalDefinition="A person, a hardware device or software process." )
+    @Description(shortDefinition="Actor involved in the event", formalDefinition="An actor taking an active role in the event or activity that is logged." )
     protected List<AuditEventAgentComponent> agent;
 
     /**
@@ -2725,7 +2725,7 @@ public class AuditEvent extends DomainResource {
     }
 
     /**
-     * @return {@link #agent} (A person, a hardware device or software process.)
+     * @return {@link #agent} (An actor taking an active role in the event or activity that is logged.)
      */
     public List<AuditEventAgentComponent> getAgent() { 
       if (this.agent == null)
@@ -2743,7 +2743,7 @@ public class AuditEvent extends DomainResource {
     }
 
     /**
-     * @return {@link #agent} (A person, a hardware device or software process.)
+     * @return {@link #agent} (An actor taking an active role in the event or activity that is logged.)
      */
     // syntactic sugar
     public AuditEventAgentComponent addAgent() { //3
@@ -2837,7 +2837,7 @@ public class AuditEvent extends DomainResource {
         childrenList.add(new Property("outcome", "code", "Indicates whether the event succeeded or failed.", 0, java.lang.Integer.MAX_VALUE, outcome));
         childrenList.add(new Property("outcomeDesc", "string", "A free text description of the outcome of the event.", 0, java.lang.Integer.MAX_VALUE, outcomeDesc));
         childrenList.add(new Property("purposeOfEvent", "Coding", "The purposeOfUse (reason) that was used during the event being recorded.", 0, java.lang.Integer.MAX_VALUE, purposeOfEvent));
-        childrenList.add(new Property("agent", "", "A person, a hardware device or software process.", 0, java.lang.Integer.MAX_VALUE, agent));
+        childrenList.add(new Property("agent", "", "An actor taking an active role in the event or activity that is logged.", 0, java.lang.Integer.MAX_VALUE, agent));
         childrenList.add(new Property("source", "", "Application systems and processes.", 0, java.lang.Integer.MAX_VALUE, source));
         childrenList.add(new Property("entity", "", "Specific instances of data or objects that have been accessed.", 0, java.lang.Integer.MAX_VALUE, entity));
       }

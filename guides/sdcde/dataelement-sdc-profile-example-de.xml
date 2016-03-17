@@ -105,28 +105,28 @@
 			<sourceUri value="#vm-valueset"/>
 			<targetUri value="#pv-valueset"/>
 			<element>
-				<codeSystem value="http://loinc.org"/>
+				<system value="http://loinc.org"/>
 				<code value="a"/>
 				<target>
-					<codeSystem value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+					<system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
 					<code value="M"/>
 					<equivalence value="equivalent"/>
 				</target>
 			</element>
 			<element>
-				<codeSystem value="http://loinc.org"/>
+				<system value="http://loinc.org"/>
 				<code value="b"/>
 				<target>
-					<codeSystem value="http://hl7.org/fhir/v3/AdministrativeGender"/>
+					<system value="http://hl7.org/fhir/v3/AdministrativeGender"/>
 					<code value="F"/>
 					<equivalence value="equivalent"/>
 				</target>
 			</element>
 			<element>
-				<codeSystem value="http://loinc.org"/>
+				<system value="http://loinc.org"/>
 				<code value="c"/>
 				<target>
-					<codeSystem value="http://hl7.org/fhir/v3/Unknown"/>
+					<system value="http://hl7.org/fhir/v3/Unknown"/>
 					<code value="UNK"/>
 					<equivalence value="equivalent"/>
 				</target>

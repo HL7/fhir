@@ -145,8 +145,14 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 
   private void includeCodes(ConceptSetComponent inc, List<ValueSetExpansionParameterComponent> params) throws TerminologyServiceException, ETooCostly {
 	  if (context.supportsSystem(inc.getSystem())) {
+      try {
+        int i = codes.size();
         addCodes(context.expandVS(inc), params);
+        if (codes.size() > i)
       return;
+      } catch (Exception e) {
+        // ok, we'll try locally
+      }
 	  }
 	    
 	  CodeSystem cs = context.fetchCodeSystem(inc.getSystem());
@@ -158,7 +164,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  if (inc.getConcept().size() == 0 && inc.getFilter().size() == 0) {
 	    // special case - add all the code system
 	    for (ConceptDefinitionComponent def : cs.getConcept()) {
-        addCodeAndDescendents(inc.getSystem(), def);
+        addCodeAndDescendents(cs, inc.getSystem(), def);
 	    }
 	  }
 	    
@@ -174,7 +180,7 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
 	  		ConceptDefinitionComponent def = getConceptForCode(cs.getConcept(), fc.getValue());
 	  		if (def == null)
 	  			throw new TerminologyServiceException("Code '"+fc.getValue()+"' not found in system '"+inc.getSystem()+"'");
-	  		addCodeAndDescendents(inc.getSystem(), def);
+	  		addCodeAndDescendents(cs, inc.getSystem(), def);
 	  	} else
 	  		throw new NotImplementedException("not done yet");
 	  }
@@ -193,12 +199,12 @@ public class ValueSetExpanderSimple implements ValueSetExpander {
     }   
   }
 
-	private void addCodeAndDescendents(String system, ConceptDefinitionComponent def) {
-		if (!ToolingExtensions.hasDeprecated(def)) {  
-//			if (!def.hasAbstractElement() || !def.getAbstract())
-//				addCode(system, def.getCode(), def.getDisplay());
+	private void addCodeAndDescendents(CodeSystem cs, String system, ConceptDefinitionComponent def) {
+		if (!CodeSystemUtilities.isDeprecated(cs, def)) {  
+			if (!CodeSystemUtilities.isAbstract(cs, def))
+				addCode(system, def.getCode(), def.getDisplay());
 			for (ConceptDefinitionComponent c : def.getConcept()) 
-				addCodeAndDescendents(system, c);
+				addCodeAndDescendents(cs, system, c);
 		}
   }
 

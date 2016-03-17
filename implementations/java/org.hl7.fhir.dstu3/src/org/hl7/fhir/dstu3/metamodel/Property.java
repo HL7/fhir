@@ -73,5 +73,9 @@ public class Property {
 	  return !definition.getMax().equals("1");
 	}
 
+  public String getScopedPropertyName() {
+    return definition.getBase().getPath();
+  }
+
 
 }

@@ -37,46 +37,46 @@
 		<reference value="http://hl7.org/fhir/ValueSet/v3-AddressUse"/>
 	</targetReference>
 	<element>
-		<codeSystem value="http://hl7.org/fhir/address-use"/>
+		<system value="http://hl7.org/fhir/address-use"/>
 		<code value="home"/>
 		<target>
-			<codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
 			<code value="H"/>
 			<equivalence value="equivalent"/>
 		</target>
 	</element>
 	<element>
-		<codeSystem value="http://hl7.org/fhir/address-use"/>
+		<system value="http://hl7.org/fhir/address-use"/>
 		<code value="home"/>
 		<target>
-			<codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
 			<code value="H"/>
 			<equivalence value="equivalent"/>
 		</target>
 	</element>
 	<element>
-		<codeSystem value="http://hl7.org/fhir/address-use"/>
+		<system value="http://hl7.org/fhir/address-use"/>
 		<code value="work"/>
 		<target>
-			<codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
 			<code value="WP"/>
 			<equivalence value="equivalent"/>
 		</target>
 	</element>
 	<element>
-		<codeSystem value="http://hl7.org/fhir/address-use"/>
+		<system value="http://hl7.org/fhir/address-use"/>
 		<code value="temp"/>
 		<target>
-			<codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
 			<code value="TMP"/>
 			<equivalence value="equivalent"/>
 		</target>
 	</element>
 	<element>
-		<codeSystem value="http://hl7.org/fhir/address-use"/>
+		<system value="http://hl7.org/fhir/address-use"/>
 		<code value="old"/>
 		<target>
-			<codeSystem value="http://hl7.org/fhir/v3/AddressUse"/>
+			<system value="http://hl7.org/fhir/v3/AddressUse"/>
 			<code value="BAD"/>
 			<equivalence value="disjoint"/>
 			<comments value="In the HL7 v3 AD, old is handled by the usablePeriod element, but you have to provide a time, there&#39;s no simple equivalent of flagging an address as old"/>

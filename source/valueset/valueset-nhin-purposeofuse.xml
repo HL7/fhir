@@ -14,183 +14,183 @@
         <reference value="http://hl7.org/fhir/ValueSet/v3-PurposeOfUse"/>
       </targetReference>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="TREATMENT"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="TREAT"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="PAYMENT"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="HPAYMT"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="OPERATIONS"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="HOPERAT"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="SYSADMIN"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="SYSADMIN"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="FRAUD"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="FRAUD"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="PSYCHOTHERAPY"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="PSYCHOTHERAPY"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="TRAINING"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="TRAINING"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="LEGAL"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="HLEGAL"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="MARKETING"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="HMARKT"/>
           <equivalence value="narrower"/>
           <comments value="Not clear how much difference there is between &#39;marketing&#39; and &#39;healthcare marketing&#39;"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="DIRECTORY"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="HDIRECT"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="DISASTER"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="DISASTER"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="PUBLICHEALTH"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="PUBHLTH"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="JUDICIAL"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="HLEGAL"/>
           <equivalence value="wider"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="LAW"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="HLEGAL"/>
           <equivalence value="wider"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="DONATION"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="DONAT"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="RESEARCH"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="HRESCH"/>
           <equivalence value="narrower"/>
           <comments value="Not clear how much difference there is between &#39;research&#39; and &#39;healthcare research&#39;"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="THREAT"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="THREAT"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="GOVERNMENT"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="GOV"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="COVERAGE"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="OVAUTH"/>
           <equivalence value="equivalent"/>
         </target>
       </element>
       <element>
-        <codeSystem value="http://healthit.gov/nhin/purposeofuse"/>
+        <system value="http://healthit.gov/nhin/purposeofuse"/>
         <code value="REQUEST"/>
         <target>
-          <codeSystem value="http://hl7.org/fhir/v3/ActReason"/>
+          <system value="http://hl7.org/fhir/v3/ActReason"/>
           <code value="PATRQT"/>
           <equivalence value="equivalent"/>
         </target>

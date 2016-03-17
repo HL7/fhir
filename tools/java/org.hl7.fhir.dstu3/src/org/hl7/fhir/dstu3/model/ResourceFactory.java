@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -70,6 +70,8 @@ public class ResourceFactory extends Factory {
             return new Linkage();
         if ("OrderResponse".equals(name))
             return new OrderResponse();
+        if ("Task".equals(name))
+            return new Task();
         if ("ConceptMap".equals(name))
             return new ConceptMap();
         if ("Practitioner".equals(name))
@@ -78,10 +80,10 @@ public class ResourceFactory extends Factory {
             return new CarePlan();
         if ("Substance".equals(name))
             return new Substance();
-        if ("DeviceUseRequest".equals(name))
-            return new DeviceUseRequest();
         if ("QuestionnaireResponse".equals(name))
             return new QuestionnaireResponse();
+        if ("DeviceUseRequest".equals(name))
+            return new DeviceUseRequest();
         if ("SupplyDelivery".equals(name))
             return new SupplyDelivery();
         if ("Schedule".equals(name))
@@ -178,6 +180,8 @@ public class ResourceFactory extends Factory {
             return new DocumentReference();
         if ("Immunization".equals(name))
             return new Immunization();
+        if ("CareTeam".equals(name))
+            return new CareTeam();
         if ("Bundle".equals(name))
             return new Bundle();
         if ("Subscription".equals(name))
@@ -192,10 +196,10 @@ public class ResourceFactory extends Factory {
             return new Device();
         if ("StructureDefinition".equals(name))
             return new StructureDefinition();
-        if ("Order".equals(name))
-            return new Order();
         if ("Account".equals(name))
             return new Account();
+        if ("Order".equals(name))
+            return new Order();
         if ("Procedure".equals(name))
             return new Procedure();
         if ("OrderSet".equals(name))
@@ -224,10 +228,10 @@ public class ResourceFactory extends Factory {
             return new ListResource();
         if ("DeviceUseStatement".equals(name))
             return new DeviceUseStatement();
-        if ("GuidanceResponse".equals(name))
-            return new GuidanceResponse();
         if ("Goal".equals(name))
             return new Goal();
+        if ("GuidanceResponse".equals(name))
+            return new GuidanceResponse();
         if ("SearchParameter".equals(name))
             return new SearchParameter();
         if ("NutritionOrder".equals(name))

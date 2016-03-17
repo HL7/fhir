@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1021,10 +1021,10 @@ public class Provenance extends DomainResource {
     protected List<UriType> policy;
 
     /**
-     * An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.
+     * An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.
      */
     @Child(name = "agent", type = {}, order=7, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Agents involved in creating resource", formalDefinition="An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility." )
+    @Description(shortDefinition="Actor involved", formalDefinition="An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place." )
     protected List<ProvenanceAgentComponent> agent;
 
     /**
@@ -1339,7 +1339,7 @@ public class Provenance extends DomainResource {
     }
 
     /**
-     * @return {@link #agent} (An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.)
+     * @return {@link #agent} (An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.)
      */
     public List<ProvenanceAgentComponent> getAgent() { 
       if (this.agent == null)
@@ -1357,7 +1357,7 @@ public class Provenance extends DomainResource {
     }
 
     /**
-     * @return {@link #agent} (An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.)
+     * @return {@link #agent} (An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.)
      */
     // syntactic sugar
     public ProvenanceAgentComponent addAgent() { //3
@@ -1467,7 +1467,7 @@ public class Provenance extends DomainResource {
         childrenList.add(new Property("activity", "Coding", "An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.", 0, java.lang.Integer.MAX_VALUE, activity));
         childrenList.add(new Property("location", "Reference(Location)", "Where the activity occurred, if relevant.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("policy", "uri", "Policy or plan the activity was defined by. Typically, a single activity may have multiple applicable policy documents, such as patient consent, guarantor funding, etc.", 0, java.lang.Integer.MAX_VALUE, policy));
-        childrenList.add(new Property("agent", "", "An agent takes a role in an activity such that the agent can be assigned some degree of responsibility for the activity taking place. An agent can be a person, an organization, software, or other entities that may be ascribed responsibility.", 0, java.lang.Integer.MAX_VALUE, agent));
+        childrenList.add(new Property("agent", "", "An actor taking a role in an activity  for which it can be assigned some degree of responsibility for the activity taking place.", 0, java.lang.Integer.MAX_VALUE, agent));
         childrenList.add(new Property("entity", "", "An entity used in this activity.", 0, java.lang.Integer.MAX_VALUE, entity));
         childrenList.add(new Property("signature", "Signature", "A digital signature on the target Reference(s). The signer should match a Provenance.agent. The purpose of the signature is indicated.", 0, java.lang.Integer.MAX_VALUE, signature));
       }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1203,10 +1203,10 @@ public class Patient extends DomainResource {
     protected CodeableConcept maritalStatus;
 
     /**
-     * Indicates whether the patient is part of a multiple or indicates the actual birth order.
+     * Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).
      */
     @Child(name = "multipleBirth", type = {BooleanType.class, IntegerType.class}, order=9, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Whether patient is part of a multiple birth", formalDefinition="Indicates whether the patient is part of a multiple or indicates the actual birth order." )
+    @Description(shortDefinition="Whether patient is part of a multiple birth", formalDefinition="Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer)." )
     protected Type multipleBirth;
 
     /**
@@ -1650,14 +1650,14 @@ public class Patient extends DomainResource {
     }
 
     /**
-     * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
+     * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).)
      */
     public Type getMultipleBirth() { 
       return this.multipleBirth;
     }
 
     /**
-     * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
+     * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).)
      */
     public BooleanType getMultipleBirthBooleanType() throws FHIRException { 
       if (!(this.multipleBirth instanceof BooleanType))
@@ -1670,7 +1670,7 @@ public class Patient extends DomainResource {
     }
 
     /**
-     * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
+     * @return {@link #multipleBirth} (Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).)
      */
     public IntegerType getMultipleBirthIntegerType() throws FHIRException { 
       if (!(this.multipleBirth instanceof IntegerType))
@@ -1687,7 +1687,7 @@ public class Patient extends DomainResource {
     }
 
     /**
-     * @param value {@link #multipleBirth} (Indicates whether the patient is part of a multiple or indicates the actual birth order.)
+     * @param value {@link #multipleBirth} (Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).)
      */
     public Patient setMultipleBirth(Type value) { 
       this.multipleBirth = value;
@@ -1982,7 +1982,7 @@ public class Patient extends DomainResource {
         childrenList.add(new Property("deceased[x]", "boolean|dateTime", "Indicates if the individual is deceased or not.", 0, java.lang.Integer.MAX_VALUE, deceased));
         childrenList.add(new Property("address", "Address", "Addresses for the individual.", 0, java.lang.Integer.MAX_VALUE, address));
         childrenList.add(new Property("maritalStatus", "CodeableConcept", "This field contains a patient's most recent marital (civil) status.", 0, java.lang.Integer.MAX_VALUE, maritalStatus));
-        childrenList.add(new Property("multipleBirth[x]", "boolean|integer", "Indicates whether the patient is part of a multiple or indicates the actual birth order.", 0, java.lang.Integer.MAX_VALUE, multipleBirth));
+        childrenList.add(new Property("multipleBirth[x]", "boolean|integer", "Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).", 0, java.lang.Integer.MAX_VALUE, multipleBirth));
         childrenList.add(new Property("photo", "Attachment", "Image of the patient.", 0, java.lang.Integer.MAX_VALUE, photo));
         childrenList.add(new Property("contact", "", "A contact party (e.g. guardian, partner, friend) for the patient.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("animal", "", "This patient is known to be an animal.", 0, java.lang.Integer.MAX_VALUE, animal));

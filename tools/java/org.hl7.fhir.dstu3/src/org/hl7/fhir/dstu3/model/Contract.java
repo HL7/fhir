@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -243,14 +243,14 @@ public class Contract extends DomainResource {
         /**
          * Role of this Contract signer, e.g. notary, grantee.
          */
-        @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Contract Signer Type", formalDefinition="Role of this Contract signer, e.g. notary, grantee." )
         protected Coding type;
 
         /**
          * Party which is a signator to this Contract.
          */
-        @Child(name = "party", type = {Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "party", type = {Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Contract Signatory Party", formalDefinition="Party which is a signator to this Contract." )
         protected Reference party;
 
@@ -262,7 +262,7 @@ public class Contract extends DomainResource {
         /**
          * Legally binding Contract DSIG signature contents in Base64.
          */
-        @Child(name = "signature", type = {Signature.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "signature", type = {Signature.class}, order=3, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Contract Documentation Signature", formalDefinition="Legally binding Contract DSIG signature contents in Base64." )
         protected List<Signature> signature;
 
@@ -273,6 +273,15 @@ public class Contract extends DomainResource {
      */
       public SignatoryComponent() {
         super();
+      }
+
+    /**
+     * Constructor
+     */
+      public SignatoryComponent(Coding type, Reference party) {
+        super();
+        this.type = type;
+        this.party = party;
       }
 
         /**
@@ -1039,10 +1048,10 @@ public class Contract extends DomainResource {
         protected List<CodeableConcept> actionReason;
 
         /**
-         * Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.
+         * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
          */
         @Child(name = "agent", type = {}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Contract Term Agent List", formalDefinition="Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration." )
+        @Description(shortDefinition="Contract Term Agent List", formalDefinition="An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place." )
         protected List<TermAgentComponent> agent;
 
         /**
@@ -1350,7 +1359,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #agent} (Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.)
+         * @return {@link #agent} (An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.)
          */
         public List<TermAgentComponent> getAgent() { 
           if (this.agent == null)
@@ -1368,7 +1377,7 @@ public class Contract extends DomainResource {
         }
 
         /**
-         * @return {@link #agent} (Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.)
+         * @return {@link #agent} (An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.)
          */
     // syntactic sugar
         public TermAgentComponent addAgent() { //3
@@ -1528,7 +1537,7 @@ public class Contract extends DomainResource {
           childrenList.add(new Property("topic", "Reference(Any)", "The matter under consideration about which this Contract forms an agreement under which the disposition of this matter is governed in accordance to the Contract.terms, such as privileges and delegation of privileges, rights in property such as real estate, intellectual property or a patient’s information, a relationship or partnership, or valued items such as goods and services.", 0, java.lang.Integer.MAX_VALUE, topic));
           childrenList.add(new Property("action", "CodeableConcept", "Action stipulated by this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, action));
           childrenList.add(new Property("actionReason", "CodeableConcept", "Reason or purpose for the action stipulated by this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, actionReason));
-          childrenList.add(new Property("agent", "", "Agent to the Contract, specifically, the grantor(s) and grantee(s) such as a person or an organization which is bound by the contract to the actions specified on the Contract.topic and the terms of the Contract that either extend or restrict the overall action on the topic by, for example, stipulating specific policies or obligations constraining actions and action reasons permitted or denied on a subset of the Contract topic, actors, subject(s), and extending or limiting the Contract.period of applicability or valuation of items under consideration.", 0, java.lang.Integer.MAX_VALUE, agent));
+          childrenList.add(new Property("agent", "", "An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.", 0, java.lang.Integer.MAX_VALUE, agent));
           childrenList.add(new Property("text", "string", "Human readable form of this Contract Provision.", 0, java.lang.Integer.MAX_VALUE, text));
           childrenList.add(new Property("valuedItem", "", "Contract Provision Valued Item List.", 0, java.lang.Integer.MAX_VALUE, valuedItem));
           childrenList.add(new Property("group", "@Contract.term", "Nested group of Contract Provisions.", 0, java.lang.Integer.MAX_VALUE, group));
@@ -2890,17 +2899,17 @@ public class Contract extends DomainResource {
     protected List<CodeableConcept> actionReason;
 
     /**
-     * List of parties to the Contract.
+     * An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
      */
     @Child(name = "agent", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Contract Agent", formalDefinition="List of parties to the Contract." )
+    @Description(shortDefinition="Contract Agent", formalDefinition="An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place." )
     protected List<AgentComponent> agent;
 
     /**
-     * Party signing this Contract.
+     * Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.
      */
     @Child(name = "signer", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Contract Signer", formalDefinition="Party signing this Contract." )
+    @Description(shortDefinition="Contract Signer", formalDefinition="Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness." )
     protected List<SignatoryComponent> signer;
 
     /**
@@ -3367,7 +3376,7 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #agent} (List of parties to the Contract.)
+     * @return {@link #agent} (An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.)
      */
     public List<AgentComponent> getAgent() { 
       if (this.agent == null)
@@ -3385,7 +3394,7 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #agent} (List of parties to the Contract.)
+     * @return {@link #agent} (An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.)
      */
     // syntactic sugar
     public AgentComponent addAgent() { //3
@@ -3407,7 +3416,7 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #signer} (Party signing this Contract.)
+     * @return {@link #signer} (Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.)
      */
     public List<SignatoryComponent> getSigner() { 
       if (this.signer == null)
@@ -3425,7 +3434,7 @@ public class Contract extends DomainResource {
     }
 
     /**
-     * @return {@link #signer} (Party signing this Contract.)
+     * @return {@link #signer} (Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.)
      */
     // syntactic sugar
     public SignatoryComponent addSigner() { //3
@@ -3703,8 +3712,8 @@ public class Contract extends DomainResource {
         childrenList.add(new Property("subType", "CodeableConcept", "More specific type or specialization of an overarching or more general contract such as auto insurance, home owner  insurance, prenupial agreement, Advanced-Directive, or privacy consent.", 0, java.lang.Integer.MAX_VALUE, subType));
         childrenList.add(new Property("action", "CodeableConcept", "Action stipulated by this Contract.", 0, java.lang.Integer.MAX_VALUE, action));
         childrenList.add(new Property("actionReason", "CodeableConcept", "Reason for action stipulated by this Contract.", 0, java.lang.Integer.MAX_VALUE, actionReason));
-        childrenList.add(new Property("agent", "", "List of parties to the Contract.", 0, java.lang.Integer.MAX_VALUE, agent));
-        childrenList.add(new Property("signer", "", "Party signing this Contract.", 0, java.lang.Integer.MAX_VALUE, signer));
+        childrenList.add(new Property("agent", "", "An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.", 0, java.lang.Integer.MAX_VALUE, agent));
+        childrenList.add(new Property("signer", "", "Parties with legal standing in the Contract, including the principal parties, the grantor(s) and grantee(s), which are any person or organization bound by the contract, and any ancillary parties, which facilitate the execution of the contract such as a notary or witness.", 0, java.lang.Integer.MAX_VALUE, signer));
         childrenList.add(new Property("valuedItem", "", "Contract Valued Item List.", 0, java.lang.Integer.MAX_VALUE, valuedItem));
         childrenList.add(new Property("term", "", "One or more Contract Provisions, which may be related and conveyed as a group, and may contain nested groups.", 0, java.lang.Integer.MAX_VALUE, term));
         childrenList.add(new Property("binding[x]", "Attachment|Reference(Composition|DocumentReference|QuestionnaireResponse)", "Legally binding Contract: This is the signed and legally recognized representation of the Contract, which is considered the \"source of truth\" and which would be the basis for legal action related to enforcement of this Contract.", 0, java.lang.Integer.MAX_VALUE, binding));

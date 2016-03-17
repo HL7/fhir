@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -43,7 +43,7 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 /**
- * A code system specifies a set of codes drawn from one or more code systems.
+ * A code system resource specifies a set of codes drawn from one or more code systems.
  */
 @ResourceDef(name="CodeSystem", profile="http://hl7.org/fhir/Profile/CodeSystem")
 public class CodeSystem extends DomainResource {
@@ -189,6 +189,10 @@ public class CodeSystem extends DomainResource {
          */
         BOOLEAN, 
         /**
+         * The property is a date or a date + time
+         */
+        DATETIME, 
+        /**
          * added to help the parsers
          */
         NULL;
@@ -205,6 +209,8 @@ public class CodeSystem extends DomainResource {
           return INTEGER;
         if ("boolean".equals(codeString))
           return BOOLEAN;
+        if ("dateTime".equals(codeString))
+          return DATETIME;
         throw new FHIRException("Unknown PropertyType code '"+codeString+"'");
         }
         public String toCode() {
@@ -214,6 +220,7 @@ public class CodeSystem extends DomainResource {
             case STRING: return "string";
             case INTEGER: return "integer";
             case BOOLEAN: return "boolean";
+            case DATETIME: return "dateTime";
             default: return "?";
           }
         }
@@ -224,6 +231,7 @@ public class CodeSystem extends DomainResource {
             case STRING: return "http://hl7.org/fhir/concept-property-type";
             case INTEGER: return "http://hl7.org/fhir/concept-property-type";
             case BOOLEAN: return "http://hl7.org/fhir/concept-property-type";
+            case DATETIME: return "http://hl7.org/fhir/concept-property-type";
             default: return "?";
           }
         }
@@ -234,6 +242,7 @@ public class CodeSystem extends DomainResource {
             case STRING: return "The property value is a string";
             case INTEGER: return "The property value is a string (often used to assign ranking values to concepts for supporting score assessments)";
             case BOOLEAN: return "The property value is a boolean true | false";
+            case DATETIME: return "The property is a date or a date + time";
             default: return "?";
           }
         }
@@ -244,6 +253,7 @@ public class CodeSystem extends DomainResource {
             case STRING: return "string";
             case INTEGER: return "integer";
             case BOOLEAN: return "boolean";
+            case DATETIME: return "dateTime";
             default: return "?";
           }
         }
@@ -264,6 +274,8 @@ public class CodeSystem extends DomainResource {
           return PropertyType.INTEGER;
         if ("boolean".equals(codeString))
           return PropertyType.BOOLEAN;
+        if ("dateTime".equals(codeString))
+          return PropertyType.DATETIME;
         throw new IllegalArgumentException("Unknown PropertyType code '"+codeString+"'");
         }
         public Enumeration<PropertyType> fromType(Base code) throws FHIRException {
@@ -282,6 +294,8 @@ public class CodeSystem extends DomainResource {
           return new Enumeration<PropertyType>(this, PropertyType.INTEGER);
         if ("boolean".equals(codeString))
           return new Enumeration<PropertyType>(this, PropertyType.BOOLEAN);
+        if ("dateTime".equals(codeString))
+          return new Enumeration<PropertyType>(this, PropertyType.DATETIME);
         throw new FHIRException("Unknown PropertyType code '"+codeString+"'");
         }
     public String toCode(PropertyType code) {
@@ -295,6 +309,8 @@ public class CodeSystem extends DomainResource {
         return "integer";
       if (code == PropertyType.BOOLEAN)
         return "boolean";
+      if (code == PropertyType.DATETIME)
+        return "dateTime";
       return "?";
       }
     public String toSystem(PropertyType code) {
@@ -837,7 +853,7 @@ public class CodeSystem extends DomainResource {
          * The type of the property value.
          */
         @Child(name = "type", type = {CodeType.class}, order=3, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="code | Coding | string | integer | boolean", formalDefinition="The type of the property value." )
+        @Description(shortDefinition="code | Coding | string | integer | boolean | dateTime", formalDefinition="The type of the property value." )
         protected Enumeration<PropertyType> type;
 
         private static final long serialVersionUID = -1346176181L;
@@ -1757,7 +1773,7 @@ public class CodeSystem extends DomainResource {
         /**
          * The value of this property.
          */
-        @Child(name = "value", type = {CodeType.class, Coding.class, StringType.class, IntegerType.class, BooleanType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {CodeType.class, Coding.class, StringType.class, IntegerType.class, BooleanType.class, DateTimeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Value of the property for this concept", formalDefinition="The value of this property." )
         protected Type value;
 
@@ -1896,6 +1912,19 @@ public class CodeSystem extends DomainResource {
           return this.value instanceof BooleanType;
         }
 
+        /**
+         * @return {@link #value} (The value of this property.)
+         */
+        public DateTimeType getValueDateTimeType() throws FHIRException { 
+          if (!(this.value instanceof DateTimeType))
+            throw new FHIRException("Type mismatch: the type DateTimeType was expected, but "+this.value.getClass().getName()+" was encountered");
+          return (DateTimeType) this.value;
+        }
+
+        public boolean hasValueDateTimeType() { 
+          return this.value instanceof DateTimeType;
+        }
+
         public boolean hasValue() { 
           return this.value != null && !this.value.isEmpty();
         }
@@ -1911,7 +1940,7 @@ public class CodeSystem extends DomainResource {
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "A code that is a reference to CodeSystem.property.code.", 0, java.lang.Integer.MAX_VALUE, code));
-          childrenList.add(new Property("value[x]", "code|Coding|string|integer|boolean", "The value of this property.", 0, java.lang.Integer.MAX_VALUE, value));
+          childrenList.add(new Property("value[x]", "code|Coding|string|integer|boolean|dateTime", "The value of this property.", 0, java.lang.Integer.MAX_VALUE, value));
         }
 
       @Override
@@ -1947,6 +1976,10 @@ public class CodeSystem extends DomainResource {
         }
         else if (name.equals("valueBoolean")) {
           this.value = new BooleanType();
+          return this.value;
+        }
+        else if (name.equals("valueDateTime")) {
+          this.value = new DateTimeType();
           return this.value;
         }
         else

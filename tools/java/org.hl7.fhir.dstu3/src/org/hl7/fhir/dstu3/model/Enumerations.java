@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2165,6 +2165,10 @@ public class Enumerations {
          */
         CAREPLAN, 
         /**
+         * A Care Team includes all the people and organizations of interest who participate in the coordination and delivery of care for a patient.
+         */
+        CARETEAM, 
+        /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
         CLAIM, 
@@ -2177,7 +2181,7 @@ public class Enumerations {
          */
         CLINICALIMPRESSION, 
         /**
-         * A code system specifies a set of codes drawn from one or more code systems.
+         * A code system resource specifies a set of codes drawn from one or more code systems.
          */
         CODESYSTEM, 
         /**
@@ -2557,6 +2561,10 @@ public class Enumerations {
          */
         SUPPLYREQUEST, 
         /**
+         * A task to be performed.
+         */
+        TASK, 
+        /**
          * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
          */
         TESTSCRIPT, 
@@ -2697,6 +2705,8 @@ public class Enumerations {
           return BUNDLE;
         if ("CarePlan".equals(codeString))
           return CAREPLAN;
+        if ("CareTeam".equals(codeString))
+          return CARETEAM;
         if ("Claim".equals(codeString))
           return CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -2893,6 +2903,8 @@ public class Enumerations {
           return SUPPLYDELIVERY;
         if ("SupplyRequest".equals(codeString))
           return SUPPLYREQUEST;
+        if ("Task".equals(codeString))
+          return TASK;
         if ("TestScript".equals(codeString))
           return TESTSCRIPT;
         if ("ValueSet".equals(codeString))
@@ -2964,6 +2976,7 @@ public class Enumerations {
             case BODYSITE: return "BodySite";
             case BUNDLE: return "Bundle";
             case CAREPLAN: return "CarePlan";
+            case CARETEAM: return "CareTeam";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -3062,6 +3075,7 @@ public class Enumerations {
             case SUBSTANCE: return "Substance";
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
+            case TASK: return "Task";
             case TESTSCRIPT: return "TestScript";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -3131,6 +3145,7 @@ public class Enumerations {
             case BODYSITE: return "http://hl7.org/fhir/resource-types";
             case BUNDLE: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
+            case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
@@ -3229,6 +3244,7 @@ public class Enumerations {
             case SUBSTANCE: return "http://hl7.org/fhir/resource-types";
             case SUPPLYDELIVERY: return "http://hl7.org/fhir/resource-types";
             case SUPPLYREQUEST: return "http://hl7.org/fhir/resource-types";
+            case TASK: return "http://hl7.org/fhir/resource-types";
             case TESTSCRIPT: return "http://hl7.org/fhir/resource-types";
             case VALUESET: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -3298,10 +3314,11 @@ public class Enumerations {
             case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
+            case CARETEAM: return "A Care Team includes all the people and organizations of interest who participate in the coordination and delivery of care for a patient.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
-            case CODESYSTEM: return "A code system specifies a set of codes drawn from one or more code systems.";
+            case CODESYSTEM: return "A code system resource specifies a set of codes drawn from one or more code systems.";
             case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.";
             case COMMUNICATIONREQUEST: return "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
             case COMPARTMENTDEFINITION: return "A compartment definition that defines how resources are accessed on a server.";
@@ -3396,6 +3413,7 @@ public class Enumerations {
             case SUBSTANCE: return "A homogeneous material with a definite composition.";
             case SUPPLYDELIVERY: return "Record of delivery of what is supplied.";
             case SUPPLYREQUEST: return "A record of a request for a medication, substance or device used in the healthcare setting.";
+            case TASK: return "A task to be performed.";
             case TESTSCRIPT: return "TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.";
             case VALUESET: return "A value set specifies a set of codes drawn from one or more code systems.";
             case VISIONPRESCRIPTION: return "An authorization for the supply of glasses and/or contact lenses to a patient.";
@@ -3465,6 +3483,7 @@ public class Enumerations {
             case BODYSITE: return "BodySite";
             case BUNDLE: return "Bundle";
             case CAREPLAN: return "CarePlan";
+            case CARETEAM: return "CareTeam";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -3563,6 +3582,7 @@ public class Enumerations {
             case SUBSTANCE: return "Substance";
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
+            case TASK: return "Task";
             case TESTSCRIPT: return "TestScript";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -3698,6 +3718,8 @@ public class Enumerations {
           return FHIRDefinedType.BUNDLE;
         if ("CarePlan".equals(codeString))
           return FHIRDefinedType.CAREPLAN;
+        if ("CareTeam".equals(codeString))
+          return FHIRDefinedType.CARETEAM;
         if ("Claim".equals(codeString))
           return FHIRDefinedType.CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -3894,6 +3916,8 @@ public class Enumerations {
           return FHIRDefinedType.SUPPLYDELIVERY;
         if ("SupplyRequest".equals(codeString))
           return FHIRDefinedType.SUPPLYREQUEST;
+        if ("Task".equals(codeString))
+          return FHIRDefinedType.TASK;
         if ("TestScript".equals(codeString))
           return FHIRDefinedType.TESTSCRIPT;
         if ("ValueSet".equals(codeString))
@@ -4030,6 +4054,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.BUNDLE);
         if ("CarePlan".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CAREPLAN);
+        if ("CareTeam".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CARETEAM);
         if ("Claim".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.CLAIM);
         if ("ClaimResponse".equals(codeString))
@@ -4226,6 +4252,8 @@ public class Enumerations {
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SUPPLYDELIVERY);
         if ("SupplyRequest".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.SUPPLYREQUEST);
+        if ("Task".equals(codeString))
+          return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.TASK);
         if ("TestScript".equals(codeString))
           return new Enumeration<FHIRDefinedType>(this, FHIRDefinedType.TESTSCRIPT);
         if ("ValueSet".equals(codeString))
@@ -4357,6 +4385,8 @@ public class Enumerations {
         return "Bundle";
       if (code == FHIRDefinedType.CAREPLAN)
         return "CarePlan";
+      if (code == FHIRDefinedType.CARETEAM)
+        return "CareTeam";
       if (code == FHIRDefinedType.CLAIM)
         return "Claim";
       if (code == FHIRDefinedType.CLAIMRESPONSE)
@@ -4553,6 +4583,8 @@ public class Enumerations {
         return "SupplyDelivery";
       if (code == FHIRDefinedType.SUPPLYREQUEST)
         return "SupplyRequest";
+      if (code == FHIRDefinedType.TASK)
+        return "Task";
       if (code == FHIRDefinedType.TESTSCRIPT)
         return "TestScript";
       if (code == FHIRDefinedType.VALUESET)
@@ -5029,6 +5061,10 @@ public class Enumerations {
          */
         CAREPLAN, 
         /**
+         * A Care Team includes all the people and organizations of interest who participate in the coordination and delivery of care for a patient.
+         */
+        CARETEAM, 
+        /**
          * A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.
          */
         CLAIM, 
@@ -5041,7 +5077,7 @@ public class Enumerations {
          */
         CLINICALIMPRESSION, 
         /**
-         * A code system specifies a set of codes drawn from one or more code systems.
+         * A code system resource specifies a set of codes drawn from one or more code systems.
          */
         CODESYSTEM, 
         /**
@@ -5421,6 +5457,10 @@ public class Enumerations {
          */
         SUPPLYREQUEST, 
         /**
+         * A task to be performed.
+         */
+        TASK, 
+        /**
          * TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.
          */
         TESTSCRIPT, 
@@ -5459,6 +5499,8 @@ public class Enumerations {
           return BUNDLE;
         if ("CarePlan".equals(codeString))
           return CAREPLAN;
+        if ("CareTeam".equals(codeString))
+          return CARETEAM;
         if ("Claim".equals(codeString))
           return CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -5655,6 +5697,8 @@ public class Enumerations {
           return SUPPLYDELIVERY;
         if ("SupplyRequest".equals(codeString))
           return SUPPLYREQUEST;
+        if ("Task".equals(codeString))
+          return TASK;
         if ("TestScript".equals(codeString))
           return TESTSCRIPT;
         if ("ValueSet".equals(codeString))
@@ -5675,6 +5719,7 @@ public class Enumerations {
             case BODYSITE: return "BodySite";
             case BUNDLE: return "Bundle";
             case CAREPLAN: return "CarePlan";
+            case CARETEAM: return "CareTeam";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -5773,6 +5818,7 @@ public class Enumerations {
             case SUBSTANCE: return "Substance";
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
+            case TASK: return "Task";
             case TESTSCRIPT: return "TestScript";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -5791,6 +5837,7 @@ public class Enumerations {
             case BODYSITE: return "http://hl7.org/fhir/resource-types";
             case BUNDLE: return "http://hl7.org/fhir/resource-types";
             case CAREPLAN: return "http://hl7.org/fhir/resource-types";
+            case CARETEAM: return "http://hl7.org/fhir/resource-types";
             case CLAIM: return "http://hl7.org/fhir/resource-types";
             case CLAIMRESPONSE: return "http://hl7.org/fhir/resource-types";
             case CLINICALIMPRESSION: return "http://hl7.org/fhir/resource-types";
@@ -5889,6 +5936,7 @@ public class Enumerations {
             case SUBSTANCE: return "http://hl7.org/fhir/resource-types";
             case SUPPLYDELIVERY: return "http://hl7.org/fhir/resource-types";
             case SUPPLYREQUEST: return "http://hl7.org/fhir/resource-types";
+            case TASK: return "http://hl7.org/fhir/resource-types";
             case TESTSCRIPT: return "http://hl7.org/fhir/resource-types";
             case VALUESET: return "http://hl7.org/fhir/resource-types";
             case VISIONPRESCRIPTION: return "http://hl7.org/fhir/resource-types";
@@ -5907,10 +5955,11 @@ public class Enumerations {
             case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
+            case CARETEAM: return "A Care Team includes all the people and organizations of interest who participate in the coordination and delivery of care for a patient.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
-            case CODESYSTEM: return "A code system specifies a set of codes drawn from one or more code systems.";
+            case CODESYSTEM: return "A code system resource specifies a set of codes drawn from one or more code systems.";
             case COMMUNICATION: return "An occurrence of information being transmitted; e.g. an alert that was sent to a responsible provider, a public health agency was notified about a reportable condition.";
             case COMMUNICATIONREQUEST: return "A request to convey information; e.g. the CDS system proposes that an alert be sent to a responsible provider, the CDS system proposes that the public health agency be notified about a reportable condition.";
             case COMPARTMENTDEFINITION: return "A compartment definition that defines how resources are accessed on a server.";
@@ -6005,6 +6054,7 @@ public class Enumerations {
             case SUBSTANCE: return "A homogeneous material with a definite composition.";
             case SUPPLYDELIVERY: return "Record of delivery of what is supplied.";
             case SUPPLYREQUEST: return "A record of a request for a medication, substance or device used in the healthcare setting.";
+            case TASK: return "A task to be performed.";
             case TESTSCRIPT: return "TestScript is a resource that specifies a suite of tests against a FHIR server implementation to determine compliance against the FHIR specification.";
             case VALUESET: return "A value set specifies a set of codes drawn from one or more code systems.";
             case VISIONPRESCRIPTION: return "An authorization for the supply of glasses and/or contact lenses to a patient.";
@@ -6023,6 +6073,7 @@ public class Enumerations {
             case BODYSITE: return "BodySite";
             case BUNDLE: return "Bundle";
             case CAREPLAN: return "CarePlan";
+            case CARETEAM: return "CareTeam";
             case CLAIM: return "Claim";
             case CLAIMRESPONSE: return "ClaimResponse";
             case CLINICALIMPRESSION: return "ClinicalImpression";
@@ -6121,6 +6172,7 @@ public class Enumerations {
             case SUBSTANCE: return "Substance";
             case SUPPLYDELIVERY: return "SupplyDelivery";
             case SUPPLYREQUEST: return "SupplyRequest";
+            case TASK: return "Task";
             case TESTSCRIPT: return "TestScript";
             case VALUESET: return "ValueSet";
             case VISIONPRESCRIPTION: return "VisionPrescription";
@@ -6154,6 +6206,8 @@ public class Enumerations {
           return ResourceType.BUNDLE;
         if ("CarePlan".equals(codeString))
           return ResourceType.CAREPLAN;
+        if ("CareTeam".equals(codeString))
+          return ResourceType.CARETEAM;
         if ("Claim".equals(codeString))
           return ResourceType.CLAIM;
         if ("ClaimResponse".equals(codeString))
@@ -6350,6 +6404,8 @@ public class Enumerations {
           return ResourceType.SUPPLYDELIVERY;
         if ("SupplyRequest".equals(codeString))
           return ResourceType.SUPPLYREQUEST;
+        if ("Task".equals(codeString))
+          return ResourceType.TASK;
         if ("TestScript".equals(codeString))
           return ResourceType.TESTSCRIPT;
         if ("ValueSet".equals(codeString))
@@ -6384,6 +6440,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.BUNDLE);
         if ("CarePlan".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CAREPLAN);
+        if ("CareTeam".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.CARETEAM);
         if ("Claim".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.CLAIM);
         if ("ClaimResponse".equals(codeString))
@@ -6580,6 +6638,8 @@ public class Enumerations {
           return new Enumeration<ResourceType>(this, ResourceType.SUPPLYDELIVERY);
         if ("SupplyRequest".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.SUPPLYREQUEST);
+        if ("Task".equals(codeString))
+          return new Enumeration<ResourceType>(this, ResourceType.TASK);
         if ("TestScript".equals(codeString))
           return new Enumeration<ResourceType>(this, ResourceType.TESTSCRIPT);
         if ("ValueSet".equals(codeString))
@@ -6609,6 +6669,8 @@ public class Enumerations {
         return "Bundle";
       if (code == ResourceType.CAREPLAN)
         return "CarePlan";
+      if (code == ResourceType.CARETEAM)
+        return "CareTeam";
       if (code == ResourceType.CLAIM)
         return "Claim";
       if (code == ResourceType.CLAIMRESPONSE)
@@ -6805,6 +6867,8 @@ public class Enumerations {
         return "SupplyDelivery";
       if (code == ResourceType.SUPPLYREQUEST)
         return "SupplyRequest";
+      if (code == ResourceType.TASK)
+        return "Task";
       if (code == ResourceType.TESTSCRIPT)
         return "TestScript";
       if (code == ResourceType.VALUESET)

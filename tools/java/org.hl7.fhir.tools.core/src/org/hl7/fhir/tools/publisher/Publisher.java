@@ -5616,7 +5616,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (!Utilities.noString(c.getUserString("v2"))) {
       for (String m : c.getUserString("v2").split(",")) {
         SourceElementComponent cc = new ConceptMap.SourceElementComponent();
-        cc.setCodeSystem(srcCS);
+        cc.setSystem(srcCS);
         cc.setCode(c.getCode());
         TargetElementComponent map = new ConceptMap.TargetElementComponent();
         cc.getTarget().add(map);
@@ -5626,7 +5626,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           map.setComments(n[1].substring(0, n[1].length() - 1));
         n = n[0].split("\\.");
         tbls.add(n[0].substring(1));
-        map.setCodeSystem("http://hl7.org/fhir/v2/" + n[0].substring(1));
+        map.setSystem("http://hl7.org/fhir/v2/" + n[0].substring(1));
         map.setCode(n[1].trim());
         if (n[0].charAt(0) == '=')
           map.setEquivalence(ConceptMapEquivalence.EQUAL);
@@ -5717,7 +5717,7 @@ public class Publisher implements URIResolver, SectionNumberer {
     if (!Utilities.noString(c.getUserString("v3"))) {
       for (String m : c.getUserString("v3").split(",")) {
         SourceElementComponent cc = new SourceElementComponent();
-        cc.setCodeSystem(srcCS);
+        cc.setSystem(srcCS);
         cc.setCode(c.getCode());
         TargetElementComponent map = new TargetElementComponent();
         cc.getTarget().add(map);
@@ -5745,7 +5745,7 @@ public class Publisher implements URIResolver, SectionNumberer {
           codesystem = n[0];
         }
         tbls.add(codesystem);
-        map.setCodeSystem("http://hl7.org/fhir/v3/" + codesystem);
+        map.setSystem("http://hl7.org/fhir/v3/" + codesystem);
         map.setCode(n[1]);
       }
     }

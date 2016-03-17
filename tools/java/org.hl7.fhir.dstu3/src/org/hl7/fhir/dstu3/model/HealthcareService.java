@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -914,16 +914,16 @@ public class HealthcareService extends DomainResource {
     protected List<ServiceTypeComponent> serviceType;
 
     /**
-     * The location where this healthcare service may be provided.
+     * The location(s) where this healthcare service may be provided.
      */
-    @Child(name = "location", type = {Location.class}, order=4, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Location where service may be provided", formalDefinition="The location where this healthcare service may be provided." )
-    protected Reference location;
-
+    @Child(name = "location", type = {Location.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Location(s) where service may be provided", formalDefinition="The location(s) where this healthcare service may be provided." )
+    protected List<Reference> location;
     /**
-     * The actual object that is the target of the reference (The location where this healthcare service may be provided.)
+     * The actual objects that are the target of the reference (The location(s) where this healthcare service may be provided.)
      */
-    protected Location locationTarget;
+    protected List<Location> locationTarget;
+
 
     /**
      * Further description of the service as it would be presented to a consumer while searching.
@@ -1049,21 +1049,13 @@ public class HealthcareService extends DomainResource {
     @Description(shortDefinition="Description of availability exceptions", formalDefinition="A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times." )
     protected StringType availabilityExceptions;
 
-    private static final long serialVersionUID = 683771126L;
+    private static final long serialVersionUID = -208597574L;
 
   /**
    * Constructor
    */
     public HealthcareService() {
       super();
-    }
-
-  /**
-   * Constructor
-   */
-    public HealthcareService(Reference location) {
-      super();
-      this.location = location;
     }
 
     /**
@@ -1215,47 +1207,64 @@ public class HealthcareService extends DomainResource {
     }
 
     /**
-     * @return {@link #location} (The location where this healthcare service may be provided.)
+     * @return {@link #location} (The location(s) where this healthcare service may be provided.)
      */
-    public Reference getLocation() { 
+    public List<Reference> getLocation() { 
       if (this.location == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create HealthcareService.location");
-        else if (Configuration.doAutoCreate())
-          this.location = new Reference(); // cc
+        this.location = new ArrayList<Reference>();
       return this.location;
     }
 
     public boolean hasLocation() { 
-      return this.location != null && !this.location.isEmpty();
+      if (this.location == null)
+        return false;
+      for (Reference item : this.location)
+        if (!item.isEmpty())
+          return true;
+      return false;
     }
 
     /**
-     * @param value {@link #location} (The location where this healthcare service may be provided.)
+     * @return {@link #location} (The location(s) where this healthcare service may be provided.)
      */
-    public HealthcareService setLocation(Reference value) { 
-      this.location = value;
+    // syntactic sugar
+    public Reference addLocation() { //3
+      Reference t = new Reference();
+      if (this.location == null)
+        this.location = new ArrayList<Reference>();
+      this.location.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public HealthcareService addLocation(Reference t) { //3
+      if (t == null)
+        return this;
+      if (this.location == null)
+        this.location = new ArrayList<Reference>();
+      this.location.add(t);
       return this;
     }
 
     /**
-     * @return {@link #location} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The location where this healthcare service may be provided.)
+     * @return {@link #location} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. The location(s) where this healthcare service may be provided.)
      */
-    public Location getLocationTarget() { 
+    public List<Location> getLocationTarget() { 
       if (this.locationTarget == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create HealthcareService.location");
-        else if (Configuration.doAutoCreate())
-          this.locationTarget = new Location(); // aa
+        this.locationTarget = new ArrayList<Location>();
       return this.locationTarget;
     }
 
+    // syntactic sugar
     /**
-     * @param value {@link #location} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The location where this healthcare service may be provided.)
+     * @return {@link #location} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. The location(s) where this healthcare service may be provided.)
      */
-    public HealthcareService setLocationTarget(Location value) { 
-      this.locationTarget = value;
-      return this;
+    public Location addLocationTarget() { 
+      Location r = new Location();
+      if (this.locationTarget == null)
+        this.locationTarget = new ArrayList<Location>();
+      this.locationTarget.add(r);
+      return r;
     }
 
     /**
@@ -2006,7 +2015,7 @@ public class HealthcareService extends DomainResource {
         childrenList.add(new Property("providedBy", "Reference(Organization)", "The organization that provides this healthcare service.", 0, java.lang.Integer.MAX_VALUE, providedBy));
         childrenList.add(new Property("serviceCategory", "CodeableConcept", "Identifies the broad category of service being performed or delivered.", 0, java.lang.Integer.MAX_VALUE, serviceCategory));
         childrenList.add(new Property("serviceType", "", "A specific type of service that may be delivered or performed.", 0, java.lang.Integer.MAX_VALUE, serviceType));
-        childrenList.add(new Property("location", "Reference(Location)", "The location where this healthcare service may be provided.", 0, java.lang.Integer.MAX_VALUE, location));
+        childrenList.add(new Property("location", "Reference(Location)", "The location(s) where this healthcare service may be provided.", 0, java.lang.Integer.MAX_VALUE, location));
         childrenList.add(new Property("serviceName", "string", "Further description of the service as it would be presented to a consumer while searching.", 0, java.lang.Integer.MAX_VALUE, serviceName));
         childrenList.add(new Property("comment", "string", "Any additional description of the service and/or any specific issues not covered by the other attributes, which can be displayed as further detail under the serviceName.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("extraDetails", "string", "Extra details about the service that can't be placed in the other fields.", 0, java.lang.Integer.MAX_VALUE, extraDetails));
@@ -2037,7 +2046,7 @@ public class HealthcareService extends DomainResource {
         else if (name.equals("serviceType"))
           this.getServiceType().add((ServiceTypeComponent) value);
         else if (name.equals("location"))
-          this.location = castToReference(value); // Reference
+          this.getLocation().add(castToReference(value));
         else if (name.equals("serviceName"))
           this.serviceName = castToString(value); // StringType
         else if (name.equals("comment"))
@@ -2093,8 +2102,7 @@ public class HealthcareService extends DomainResource {
           return addServiceType();
         }
         else if (name.equals("location")) {
-          this.location = new Reference();
-          return this.location;
+          return addLocation();
         }
         else if (name.equals("serviceName")) {
           throw new FHIRException("Cannot call addChild on a primitive type HealthcareService.serviceName");
@@ -2173,7 +2181,11 @@ public class HealthcareService extends DomainResource {
           for (ServiceTypeComponent i : serviceType)
             dst.serviceType.add(i.copy());
         };
-        dst.location = location == null ? null : location.copy();
+        if (location != null) {
+          dst.location = new ArrayList<Reference>();
+          for (Reference i : location)
+            dst.location.add(i.copy());
+        };
         dst.serviceName = serviceName == null ? null : serviceName.copy();
         dst.comment = comment == null ? null : comment.copy();
         dst.extraDetails = extraDetails == null ? null : extraDetails.copy();

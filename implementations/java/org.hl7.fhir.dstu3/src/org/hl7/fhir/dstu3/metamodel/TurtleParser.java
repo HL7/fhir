@@ -13,6 +13,8 @@ import org.hl7.fhir.dstu3.utils.IWorkerContext;
 
 public class TurtleParser extends ParserBase {
 
+  private String base;
+  
   public TurtleParser(IWorkerContext context, boolean check) {
     super(context, check);
   }
@@ -21,22 +23,37 @@ public class TurtleParser extends ParserBase {
     throw new NotImplementedException("not done yet");
   }
   @Override
-  public void compose(Element e, OutputStream stream, OutputStyle style) throws Exception {
+  public void compose(Element e, OutputStream stream, OutputStyle style, String base) throws Exception {
+    this.base = base;
+    
 		RdfGenerator ttl = new RdfGenerator(stream);
 		//      ttl.setFormat(FFormat);
 		ttl.prefix("fhir", "http://hl7.org/fhir/");
 		ttl.prefix("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+		ttl.prefix("owl", "http://www.w3.org/2002/07/owl#");
+		
 		Section section = ttl.section("resource");
 		Subject subject;
-//		if (url != null) 
-//			subject = section.triple("<"+url+">", "a", "fhir:"+resource.getResourceType().toString());
-//		else
-		subject = section.triple("_:"+e.getChildValue("id"), "a", "fhir:"+e.getType());
+		String id = e.getChildValue("id");
+		if (base != null && id != null) 
+			subject = section.triple("<"+base+"/"+e.getType()+"/"+id+">", "a", "fhir:"+e.getType());
+		else
+		  subject = section.triple("_", "a", "fhir:"+e.getType());
+		subject.predicate("a", "owl:Ontology");
 
 		for (Element child : e.getChildren()) {
 			composeElement(subject, child);
 		}
 		ttl.commit(false);
+  }
+  
+  protected void decorateReference(Complex t, Element coding) {
+    String ref = coding.getChildValue("reference");
+    if (ref != null && (ref.startsWith("http://") || ref.startsWith("https://")))
+      t.predicate("fhir:reference", "<"+ref+">");
+    else if (base != null && ref != null && ref.contains("/")) {
+      t.predicate("fhir:reference", "<"+base+"/"+ref+">");
+    }
   }
   
 	protected void decorateCoding(Complex t, Element coding) {
@@ -48,7 +65,7 @@ public class TurtleParser extends ParserBase {
 		if ("http://snomed.info/sct".equals(system)) {
 			t.prefix("sct", "http://snomed.info/sct/");
 			t.predicate("a", "sct:"+code);
-		} else if ("http://snomed.info/sct".equals(system)) {
+		} else if ("http://loinc.org".equals(system)) {
 			t.prefix("loinc", "http://loinc.org/owl#");
 			t.predicate("a", "loinc:"+code);
 		}  
@@ -64,14 +81,13 @@ public class TurtleParser extends ParserBase {
 		if ("xhtml".equals(element.getType())) // need to decide what to do with this
 			return;
 		String en = element.getProperty().getDefinition().getBase().getPath();
+    if (en == null) 
+      en = element.getProperty().getDefinition().getPath();
 		boolean doType = false;
-		if (en == null) {
-			en = element.getProperty().getStructure().getName() +"."+element.getProperty().getDefinition().getPath().substring(element.getProperty().getDefinition().getPath().lastIndexOf(".")+1);
 			if (en.endsWith("[x]")) {
 				en = en.substring(0, en.length()-3);
 				doType = true;				
 			}
-		}
 
 	  Complex t = ctxt.predicate("fhir:"+en);
 	  if (doType || element.getProperty().getDefinition().getType().size() > 1)
@@ -85,6 +101,8 @@ public class TurtleParser extends ParserBase {
 	  	decorateCoding(t, element);
 	  if ("CodeableConcept".equals(element.getType()))
 	  	decorateCodeableConcept(t, element);
+    if ("Reference".equals(element.getType()))
+      decorateReference(t, element);
 	  		
 		for (Element child : element.getChildren()) {
 			composeElement(t, child);

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 8, 2016 22:13+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1724,9 +1724,14 @@ public class Claim extends DomainResource {
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Coding.class}, order=15, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "udi", type = {Device.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
-        protected Coding udi;
+        protected List<Reference> udi;
+        /**
+         * The actual objects that are the target of the reference (List of Unique Device Identifiers associated with this line item.)
+         */
+        protected List<Device> udiTarget;
+
 
         /**
          * Physical service site on the patient (limb, tooth, etc).
@@ -1763,7 +1768,7 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Prosthetic details", formalDefinition="The materials and placement date of prior fixed prosthesis." )
         protected ProsthesisComponent prosthesis;
 
-        private static final long serialVersionUID = -1588073272L;
+        private static final long serialVersionUID = -956090472L;
 
     /**
      * Constructor
@@ -2316,25 +2321,62 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public Coding getUdi() { 
+        public List<Reference> getUdi() { 
           if (this.udi == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ItemsComponent.udi");
-            else if (Configuration.doAutoCreate())
-              this.udi = new Coding(); // cc
+            this.udi = new ArrayList<Reference>();
           return this.udi;
         }
 
         public boolean hasUdi() { 
-          return this.udi != null && !this.udi.isEmpty();
+          if (this.udi == null)
+            return false;
+          for (Reference item : this.udi)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #udi} (List of Unique Device Identifiers associated with this line item.)
+         * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public ItemsComponent setUdi(Coding value) { 
-          this.udi = value;
+    // syntactic sugar
+        public Reference addUdi() { //3
+          Reference t = new Reference();
+          if (this.udi == null)
+            this.udi = new ArrayList<Reference>();
+          this.udi.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public ItemsComponent addUdi(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.udi == null)
+            this.udi = new ArrayList<Reference>();
+          this.udi.add(t);
           return this;
+        }
+
+        /**
+         * @return {@link #udi} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         */
+        public List<Device> getUdiTarget() { 
+          if (this.udiTarget == null)
+            this.udiTarget = new ArrayList<Device>();
+          return this.udiTarget;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #udi} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         */
+        public Device addUdiTarget() { 
+          Device r = new Device();
+          if (this.udiTarget == null)
+            this.udiTarget = new ArrayList<Device>();
+          this.udiTarget.add(r);
+          return r;
         }
 
         /**
@@ -2521,7 +2563,7 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
           childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
           childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
-          childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
+          childrenList.add(new Property("udi", "Reference(Device)", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("bodySite", "Coding", "Physical service site on the patient (limb, tooth, etc).", 0, java.lang.Integer.MAX_VALUE, bodySite));
           childrenList.add(new Property("subSite", "Coding", "A region or surface of the site, eg. limb region or tooth surface(s).", 0, java.lang.Integer.MAX_VALUE, subSite));
           childrenList.add(new Property("modifier", "Coding", "Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.", 0, java.lang.Integer.MAX_VALUE, modifier));
@@ -2560,7 +2602,7 @@ public class Claim extends DomainResource {
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else if (name.equals("udi"))
-          this.udi = castToCoding(value); // Coding
+          this.getUdi().add(castToReference(value));
         else if (name.equals("bodySite"))
           this.bodySite = castToCoding(value); // Coding
         else if (name.equals("subSite"))
@@ -2637,8 +2679,7 @@ public class Claim extends DomainResource {
           return this.net;
         }
         else if (name.equals("udi")) {
-          this.udi = new Coding();
-          return this.udi;
+          return addUdi();
         }
         else if (name.equals("bodySite")) {
           this.bodySite = new Coding();
@@ -2686,7 +2727,11 @@ public class Claim extends DomainResource {
         dst.factor = factor == null ? null : factor.copy();
         dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
-        dst.udi = udi == null ? null : udi.copy();
+        if (udi != null) {
+          dst.udi = new ArrayList<Reference>();
+          for (Reference i : udi)
+            dst.udi.add(i.copy());
+        };
         dst.bodySite = bodySite == null ? null : bodySite.copy();
         if (subSite != null) {
           dst.subSite = new ArrayList<Coding>();
@@ -2815,9 +2860,14 @@ public class Claim extends DomainResource {
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Coding.class}, order=9, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "udi", type = {Device.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
-        protected Coding udi;
+        protected List<Reference> udi;
+        /**
+         * The actual objects that are the target of the reference (List of Unique Device Identifiers associated with this line item.)
+         */
+        protected List<Device> udiTarget;
+
 
         /**
          * Third tier of goods and services.
@@ -2826,7 +2876,7 @@ public class Claim extends DomainResource {
         @Description(shortDefinition="Additional items", formalDefinition="Third tier of goods and services." )
         protected List<SubDetailComponent> subDetail;
 
-        private static final long serialVersionUID = 5768017L;
+        private static final long serialVersionUID = 1758405537L;
 
     /**
      * Constructor
@@ -3147,25 +3197,62 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public Coding getUdi() { 
+        public List<Reference> getUdi() { 
           if (this.udi == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create DetailComponent.udi");
-            else if (Configuration.doAutoCreate())
-              this.udi = new Coding(); // cc
+            this.udi = new ArrayList<Reference>();
           return this.udi;
         }
 
         public boolean hasUdi() { 
-          return this.udi != null && !this.udi.isEmpty();
+          if (this.udi == null)
+            return false;
+          for (Reference item : this.udi)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #udi} (List of Unique Device Identifiers associated with this line item.)
+         * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public DetailComponent setUdi(Coding value) { 
-          this.udi = value;
+    // syntactic sugar
+        public Reference addUdi() { //3
+          Reference t = new Reference();
+          if (this.udi == null)
+            this.udi = new ArrayList<Reference>();
+          this.udi.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public DetailComponent addUdi(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.udi == null)
+            this.udi = new ArrayList<Reference>();
+          this.udi.add(t);
           return this;
+        }
+
+        /**
+         * @return {@link #udi} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         */
+        public List<Device> getUdiTarget() { 
+          if (this.udiTarget == null)
+            this.udiTarget = new ArrayList<Device>();
+          return this.udiTarget;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #udi} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         */
+        public Device addUdiTarget() { 
+          Device r = new Device();
+          if (this.udiTarget == null)
+            this.udiTarget = new ArrayList<Device>();
+          this.udiTarget.add(r);
+          return r;
         }
 
         /**
@@ -3218,7 +3305,7 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
           childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
           childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
-          childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
+          childrenList.add(new Property("udi", "Reference(Device)", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
           childrenList.add(new Property("subDetail", "", "Third tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, subDetail));
         }
 
@@ -3241,7 +3328,7 @@ public class Claim extends DomainResource {
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else if (name.equals("udi"))
-          this.udi = castToCoding(value); // Coding
+          this.getUdi().add(castToReference(value));
         else if (name.equals("subDetail"))
           this.getSubDetail().add((SubDetailComponent) value);
         else
@@ -3280,8 +3367,7 @@ public class Claim extends DomainResource {
           return this.net;
         }
         else if (name.equals("udi")) {
-          this.udi = new Coding();
-          return this.udi;
+          return addUdi();
         }
         else if (name.equals("subDetail")) {
           return addSubDetail();
@@ -3301,7 +3387,11 @@ public class Claim extends DomainResource {
         dst.factor = factor == null ? null : factor.copy();
         dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
-        dst.udi = udi == null ? null : udi.copy();
+        if (udi != null) {
+          dst.udi = new ArrayList<Reference>();
+          for (Reference i : udi)
+            dst.udi.add(i.copy());
+        };
         if (subDetail != null) {
           dst.subDetail = new ArrayList<SubDetailComponent>();
           for (SubDetailComponent i : subDetail)
@@ -3409,11 +3499,16 @@ public class Claim extends DomainResource {
         /**
          * List of Unique Device Identifiers associated with this line item.
          */
-        @Child(name = "udi", type = {Coding.class}, order=9, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "udi", type = {Device.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Unique Device Identifier", formalDefinition="List of Unique Device Identifiers associated with this line item." )
-        protected Coding udi;
+        protected List<Reference> udi;
+        /**
+         * The actual objects that are the target of the reference (List of Unique Device Identifiers associated with this line item.)
+         */
+        protected List<Device> udiTarget;
 
-        private static final long serialVersionUID = 623567568L;
+
+        private static final long serialVersionUID = -1370448768L;
 
     /**
      * Constructor
@@ -3734,25 +3829,62 @@ public class Claim extends DomainResource {
         /**
          * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public Coding getUdi() { 
+        public List<Reference> getUdi() { 
           if (this.udi == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create SubDetailComponent.udi");
-            else if (Configuration.doAutoCreate())
-              this.udi = new Coding(); // cc
+            this.udi = new ArrayList<Reference>();
           return this.udi;
         }
 
         public boolean hasUdi() { 
-          return this.udi != null && !this.udi.isEmpty();
+          if (this.udi == null)
+            return false;
+          for (Reference item : this.udi)
+            if (!item.isEmpty())
+              return true;
+          return false;
         }
 
         /**
-         * @param value {@link #udi} (List of Unique Device Identifiers associated with this line item.)
+         * @return {@link #udi} (List of Unique Device Identifiers associated with this line item.)
          */
-        public SubDetailComponent setUdi(Coding value) { 
-          this.udi = value;
+    // syntactic sugar
+        public Reference addUdi() { //3
+          Reference t = new Reference();
+          if (this.udi == null)
+            this.udi = new ArrayList<Reference>();
+          this.udi.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public SubDetailComponent addUdi(Reference t) { //3
+          if (t == null)
+            return this;
+          if (this.udi == null)
+            this.udi = new ArrayList<Reference>();
+          this.udi.add(t);
           return this;
+        }
+
+        /**
+         * @return {@link #udi} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         */
+        public List<Device> getUdiTarget() { 
+          if (this.udiTarget == null)
+            this.udiTarget = new ArrayList<Device>();
+          return this.udiTarget;
+        }
+
+    // syntactic sugar
+        /**
+         * @return {@link #udi} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. List of Unique Device Identifiers associated with this line item.)
+         */
+        public Device addUdiTarget() { 
+          Device r = new Device();
+          if (this.udiTarget == null)
+            this.udiTarget = new ArrayList<Device>();
+          this.udiTarget.add(r);
+          return r;
         }
 
         protected void listChildren(List<Property> childrenList) {
@@ -3765,7 +3897,7 @@ public class Claim extends DomainResource {
           childrenList.add(new Property("factor", "decimal", "A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.", 0, java.lang.Integer.MAX_VALUE, factor));
           childrenList.add(new Property("points", "decimal", "An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.", 0, java.lang.Integer.MAX_VALUE, points));
           childrenList.add(new Property("net", "Money", "The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.", 0, java.lang.Integer.MAX_VALUE, net));
-          childrenList.add(new Property("udi", "Coding", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
+          childrenList.add(new Property("udi", "Reference(Device)", "List of Unique Device Identifiers associated with this line item.", 0, java.lang.Integer.MAX_VALUE, udi));
         }
 
       @Override
@@ -3787,7 +3919,7 @@ public class Claim extends DomainResource {
         else if (name.equals("net"))
           this.net = castToMoney(value); // Money
         else if (name.equals("udi"))
-          this.udi = castToCoding(value); // Coding
+          this.getUdi().add(castToReference(value));
         else
           super.setProperty(name, value);
       }
@@ -3824,8 +3956,7 @@ public class Claim extends DomainResource {
           return this.net;
         }
         else if (name.equals("udi")) {
-          this.udi = new Coding();
-          return this.udi;
+          return addUdi();
         }
         else
           return super.addChild(name);
@@ -3842,7 +3973,11 @@ public class Claim extends DomainResource {
         dst.factor = factor == null ? null : factor.copy();
         dst.points = points == null ? null : points.copy();
         dst.net = net == null ? null : net.copy();
-        dst.udi = udi == null ? null : udi.copy();
+        if (udi != null) {
+          dst.udi = new ArrayList<Reference>();
+          for (Reference i : udi)
+            dst.udi.add(i.copy());
+        };
         return dst;
       }
 
