@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/encounter-reason",
   "outcomes": [
     {
@@ -15,17 +15,6 @@
         "code": null,
         "definition": null,
         "display": "Retropharyngeal abscess"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|413095006|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Clinical management plan review (procedure)"
       }
     },
     {
@@ -48,6 +37,17 @@
         "code": null,
         "definition": null,
         "display": "Replacement of unspecified heart valve"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|413095006|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Clinical management plan review (procedure)"
       }
     }
   ]

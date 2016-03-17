@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/structure-definition-kind",
   "outcomes": [
-    {
-      "hash": "|null|null|resource|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "resource",
-        "definition": null,
-        "display": "Resource"
-      }
-    },
     {
       "hash": "|null|null|datatype|null",
       "severity": null,
@@ -21,6 +10,17 @@
         "code": "datatype",
         "definition": null,
         "display": "Data Type"
+      }
+    },
+    {
+      "hash": "|null|null|resource|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "resource",
+        "definition": null,
+        "display": "Resource"
       }
     }
   ]

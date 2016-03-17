@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/observation-relationshiptypes",
   "outcomes": [
     {
@@ -13,17 +13,6 @@
       }
     },
     {
-      "hash": "|null|null|sequel-to|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "sequel-to",
-        "definition": null,
-        "display": "Sequel To"
-      }
-    },
-    {
       "hash": "|null|null|has-member|null",
       "severity": null,
       "message": null,
@@ -32,6 +21,17 @@
         "code": "has-member",
         "definition": null,
         "display": "Has Member"
+      }
+    },
+    {
+      "hash": "|null|null|sequel-to|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "sequel-to",
+        "definition": null,
+        "display": "Sequel To"
       }
     }
   ]

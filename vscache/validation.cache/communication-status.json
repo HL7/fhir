@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/communication-status",
   "outcomes": [
-    {
-      "hash": "|null|null|suspended|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "suspended",
-        "definition": null,
-        "display": "Suspended"
-      }
-    },
     {
       "hash": "|null|null|completed|null",
       "severity": null,
@@ -21,6 +10,17 @@
         "code": "completed",
         "definition": null,
         "display": "Completed"
+      }
+    },
+    {
+      "hash": "|null|null|suspended|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "suspended",
+        "definition": null,
+        "display": "Suspended"
       }
     }
   ]

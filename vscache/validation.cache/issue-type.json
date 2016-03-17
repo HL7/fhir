@@ -1,6 +1,17 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/issue-type",
   "outcomes": [
+    {
+      "hash": "|null|null|code-invalid|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "code-invalid",
+        "definition": null,
+        "display": "Invalid Code"
+      }
+    },
     {
       "hash": "|null|null|exception|null",
       "severity": null,
@@ -10,17 +21,6 @@
         "code": "exception",
         "definition": null,
         "display": "Exception"
-      }
-    },
-    {
-      "hash": "|null|null|suppressed|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "suppressed",
-        "definition": null,
-        "display": "Information  Suppressed"
       }
     },
     {
@@ -35,17 +35,6 @@
       }
     },
     {
-      "hash": "|null|null|code-invalid|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "code-invalid",
-        "definition": null,
-        "display": "Invalid Code"
-      }
-    },
-    {
       "hash": "|null|null|structure|null",
       "severity": null,
       "message": null,
@@ -54,6 +43,17 @@
         "code": "structure",
         "definition": null,
         "display": "Structural Issue"
+      }
+    },
+    {
+      "hash": "|null|null|suppressed|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "suppressed",
+        "definition": null,
+        "display": "Information  Suppressed"
       }
     }
   ]

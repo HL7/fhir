@@ -1,15 +1,26 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/search-param-type",
   "outcomes": [
     {
-      "hash": "|null|null|uri|null",
+      "hash": "|null|null|composite|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "uri",
+        "code": "composite",
         "definition": null,
-        "display": "URI"
+        "display": "Composite"
+      }
+    },
+    {
+      "hash": "|null|null|date|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "date",
+        "definition": null,
+        "display": "Date/DateTime"
       }
     },
     {
@@ -35,14 +46,25 @@
       }
     },
     {
-      "hash": "|null|null|composite|null",
+      "hash": "|null|null|reference|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "composite",
+        "code": "reference",
         "definition": null,
-        "display": "Composite"
+        "display": "Reference"
+      }
+    },
+    {
+      "hash": "|null|null|string|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "string",
+        "definition": null,
+        "display": "String"
       }
     },
     {
@@ -57,36 +79,14 @@
       }
     },
     {
-      "hash": "|null|null|reference|null",
+      "hash": "|null|null|uri|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "reference",
+        "code": "uri",
         "definition": null,
-        "display": "Reference"
-      }
-    },
-    {
-      "hash": "|null|null|date|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "date",
-        "definition": null,
-        "display": "Date/DateTime"
-      }
-    },
-    {
-      "hash": "|null|null|string|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "string",
-        "definition": null,
-        "display": "String"
+        "display": "URI"
       }
     }
   ]

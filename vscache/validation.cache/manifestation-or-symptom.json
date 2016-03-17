@@ -1,6 +1,16 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/manifestation-or-symptom",
   "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|null|169068008|CT of neck",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|169069000|CT of thorax",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
+    },
     {
       "hash": "#|http://snomed.info/sct|null|258710007|degrees C",
       "severity": "error",
@@ -16,16 +26,6 @@
         "definition": null,
         "display": "Cardiac chest pain (finding)"
       }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|169068008|CT of neck",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|169069000|CT of thorax",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
     }
   ]
 }

@@ -1,15 +1,15 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/contactentity-type",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/contactentity-type|null|PRESS|null",
+      "hash": "#|http://hl7.org/fhir/contactentity-type|null|ADMIN|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "PRESS",
+        "code": "ADMIN",
         "definition": null,
-        "display": "Press"
+        "display": "Administrative"
       }
     },
     {
@@ -24,14 +24,14 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/contactentity-type|null|ADMIN|null",
+      "hash": "#|http://hl7.org/fhir/contactentity-type|null|PRESS|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "ADMIN",
+        "code": "PRESS",
         "definition": null,
-        "display": "Administrative"
+        "display": "Press"
       }
     }
   ]

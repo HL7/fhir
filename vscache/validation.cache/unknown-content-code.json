@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/unknown-content-code",
   "outcomes": [
     {
@@ -13,17 +13,6 @@
       }
     },
     {
-      "hash": "|null|null|no|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "no",
-        "definition": null,
-        "display": "Neither Elements or Extensions"
-      }
-    },
-    {
       "hash": "|null|null|extensions|null",
       "severity": null,
       "message": null,
@@ -32,6 +21,17 @@
         "code": "extensions",
         "definition": null,
         "display": "Unknown Extensions"
+      }
+    },
+    {
+      "hash": "|null|null|no|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "no",
+        "definition": null,
+        "display": "Neither Elements or Extensions"
       }
     }
   ]

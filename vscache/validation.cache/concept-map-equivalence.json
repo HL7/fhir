@@ -1,6 +1,17 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/concept-map-equivalence",
   "outcomes": [
+    {
+      "hash": "|null|null|disjoint|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "disjoint",
+        "definition": null,
+        "display": "Disjoint"
+      }
+    },
     {
       "hash": "|null|null|equal|null",
       "severity": null,
@@ -10,17 +21,6 @@
         "code": "equal",
         "definition": null,
         "display": "Equal"
-      }
-    },
-    {
-      "hash": "|null|null|wider|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "wider",
-        "definition": null,
-        "display": "Wider"
       }
     },
     {
@@ -57,14 +57,14 @@
       }
     },
     {
-      "hash": "|null|null|disjoint|null",
+      "hash": "|null|null|wider|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "disjoint",
+        "code": "wider",
         "definition": null,
-        "display": "Disjoint"
+        "display": "Wider"
       }
     }
   ]

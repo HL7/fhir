@@ -1,11 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/observation-valueabsentreason",
   "outcomes": [
-    {
-      "hash": "#|http://snomed.info/sct|null|125154007|Specimen unsatisfactory for evaluation",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
     {
       "hash": "#|http://hl7.org/fhir/data-absent-reason|null|not-asked|Not Asked",
       "severity": null,
@@ -16,6 +11,11 @@
         "definition": null,
         "display": "Not Asked"
       }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|125154007|Specimen unsatisfactory for evaluation",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

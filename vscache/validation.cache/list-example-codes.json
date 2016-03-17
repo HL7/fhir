@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/list-example-codes",
   "outcomes": [
     {
@@ -7,12 +7,12 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|182836005|Review of medication",
+      "hash": "#|http://loinc.org|null|8670-2|History of family member diseases",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://loinc.org|null|8670-2|History of family member diseases",
+      "hash": "#|http://snomed.info/sct|null|182836005|Review of medication",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

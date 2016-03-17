@@ -1,6 +1,28 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/type-restful-interaction",
   "outcomes": [
+    {
+      "hash": "|null|null|create|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "create",
+        "definition": null,
+        "display": "create"
+      }
+    },
+    {
+      "hash": "|null|null|delete|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "delete",
+        "definition": null,
+        "display": "delete"
+      }
+    },
     {
       "hash": "|null|null|history-instance|null",
       "severity": null,
@@ -13,14 +35,14 @@
       }
     },
     {
-      "hash": "|null|null|create|null",
+      "hash": "|null|null|history-type|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "create",
+        "code": "history-type",
         "definition": null,
-        "display": "create"
+        "display": "history-type"
       }
     },
     {
@@ -46,39 +68,6 @@
       }
     },
     {
-      "hash": "|null|null|history-type|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "history-type",
-        "definition": null,
-        "display": "history-type"
-      }
-    },
-    {
-      "hash": "|null|null|delete|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "delete",
-        "definition": null,
-        "display": "delete"
-      }
-    },
-    {
-      "hash": "|null|null|vread|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "vread",
-        "definition": null,
-        "display": "vread"
-      }
-    },
-    {
       "hash": "|null|null|update|null",
       "severity": null,
       "message": null,
@@ -98,6 +87,17 @@
         "code": "validate",
         "definition": null,
         "display": "validate"
+      }
+    },
+    {
+      "hash": "|null|null|vread|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "vread",
+        "definition": null,
+        "display": "vread"
       }
     }
   ]

@@ -1,15 +1,15 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/actionlist",
   "outcomes": [
     {
-      "hash": "|null|null|status|null",
+      "hash": "|null|null|cancel|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "status",
+        "code": "cancel",
         "definition": null,
-        "display": "Status Check"
+        "display": "Cancel, Reverse or Nullify"
       }
     },
     {
@@ -35,14 +35,14 @@
       }
     },
     {
-      "hash": "|null|null|cancel|null",
+      "hash": "|null|null|status|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "cancel",
+        "code": "status",
         "definition": null,
-        "display": "Cancel, Reverse or Nullify"
+        "display": "Status Check"
       }
     }
   ]

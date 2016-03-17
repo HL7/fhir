@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/encounter-type",
   "outcomes": [
     {
@@ -12,12 +12,12 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|367336001|Chemotherapy",
+      "hash": "#|http://snomed.info/sct|null|270427003|Patient-initiated encounter",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|270427003|Patient-initiated encounter",
+      "hash": "#|http://snomed.info/sct|null|367336001|Chemotherapy",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

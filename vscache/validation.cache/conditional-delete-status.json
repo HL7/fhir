@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/conditional-delete-status",
   "outcomes": [
-    {
-      "hash": "|null|null|not-supported|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "not-supported",
-        "definition": null,
-        "display": "Not Supported"
-      }
-    },
     {
       "hash": "|null|null|multiple|null",
       "severity": null,
@@ -21,6 +10,17 @@
         "code": "multiple",
         "definition": null,
         "display": "Multiple Deletes Supported"
+      }
+    },
+    {
+      "hash": "|null|null|not-supported|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "not-supported",
+        "definition": null,
+        "display": "Not Supported"
       }
     }
   ]

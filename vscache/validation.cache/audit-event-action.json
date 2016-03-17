@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/audit-event-action",
   "outcomes": [
-    {
-      "hash": "|null|null|R|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "R",
-        "definition": null,
-        "display": "Read/View/Print"
-      }
-    },
     {
       "hash": "|null|null|E|null",
       "severity": null,
@@ -21,6 +10,17 @@
         "code": "E",
         "definition": null,
         "display": "Execute"
+      }
+    },
+    {
+      "hash": "|null|null|R|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "R",
+        "definition": null,
+        "display": "Read/View/Print"
       }
     }
   ]

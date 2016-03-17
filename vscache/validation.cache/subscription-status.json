@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/subscription-status",
   "outcomes": [
-    {
-      "hash": "|null|null|requested|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "requested",
-        "definition": null,
-        "display": "Requested"
-      }
-    },
     {
       "hash": "|null|null|error|null",
       "severity": null,
@@ -21,6 +10,17 @@
         "code": "error",
         "definition": null,
         "display": "Error"
+      }
+    },
+    {
+      "hash": "|null|null|requested|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "requested",
+        "definition": null,
+        "display": "Requested"
       }
     }
   ]

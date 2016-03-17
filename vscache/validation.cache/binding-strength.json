@@ -1,15 +1,15 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/binding-strength",
   "outcomes": [
     {
-      "hash": "|null|null|required|null",
+      "hash": "|null|null|example|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "required",
+        "code": "example",
         "definition": null,
-        "display": "Required"
+        "display": "Example"
       }
     },
     {
@@ -35,14 +35,14 @@
       }
     },
     {
-      "hash": "|null|null|example|null",
+      "hash": "|null|null|required|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "example",
+        "code": "required",
         "definition": null,
-        "display": "Example"
+        "display": "Required"
       }
     }
   ]

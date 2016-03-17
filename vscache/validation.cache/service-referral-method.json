@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/service-referral-method",
   "outcomes": [
     {
@@ -10,6 +10,17 @@
         "code": "elec",
         "definition": null,
         "display": "Secure Messaging"
+      }
+    },
+    {
+      "hash": "#|null|null|fax|Fax",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "fax",
+        "definition": null,
+        "display": "Fax"
       }
     },
     {
@@ -32,17 +43,6 @@
         "code": "semail",
         "definition": null,
         "display": "Secure Email"
-      }
-    },
-    {
-      "hash": "#|null|null|fax|Fax",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "fax",
-        "definition": null,
-        "display": "Fax"
       }
     }
   ]

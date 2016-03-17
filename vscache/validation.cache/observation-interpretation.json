@@ -1,26 +1,37 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/observation-interpretation",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|low",
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|A|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "L",
+        "code": "A",
         "definition": null,
-        "display": "Low"
+        "display": "Abnormal"
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|R|null",
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|HH|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "R",
+        "code": "HH",
         "definition": null,
-        "display": "Resistant"
+        "display": "Critically high"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|H|High",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "H",
+        "definition": null,
+        "display": "High"
       }
     },
     {
@@ -35,7 +46,51 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|LL|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "LL",
+        "definition": null,
+        "display": "Critically low"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "L",
+        "definition": null,
+        "display": "Low"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|low",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "L",
+        "definition": null,
+        "display": "Low"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "L",
+        "definition": null,
+        "display": "Low"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|Normal",
       "severity": null,
       "message": null,
       "definition": {
@@ -46,7 +101,7 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|166698001|Serum bicarbonate level normal#|http://hl7.org/fhir/v2/0078|null|N|null",
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
       "severity": null,
       "message": null,
       "definition": {
@@ -68,14 +123,14 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|R|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "L",
+        "code": "R",
         "definition": null,
-        "display": "Low"
+        "display": "Resistant"
       }
     },
     {
@@ -90,14 +145,14 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|LL|null",
+      "hash": "#|http://snomed.info/sct|null|166698001|Serum bicarbonate level normal#|http://hl7.org/fhir/v2/0078|null|N|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "LL",
+        "code": "N",
         "definition": null,
-        "display": "Critically low"
+        "display": "Normal"
       }
     },
     {
@@ -109,61 +164,6 @@
         "code": "H",
         "definition": null,
         "display": "High"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|H|High",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "H",
-        "definition": null,
-        "display": "High"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "L",
-        "definition": null,
-        "display": "Low"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|HH|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "HH",
-        "definition": null,
-        "display": "Critically high"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|A|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "A",
-        "definition": null,
-        "display": "Abnormal"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|Normal",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "N",
-        "definition": null,
-        "display": "Normal"
       }
     }
   ]

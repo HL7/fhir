@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/search-entry-mode",
   "outcomes": [
-    {
-      "hash": "|null|null|match|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "match",
-        "definition": null,
-        "display": "Match"
-      }
-    },
     {
       "hash": "|null|null|include|null",
       "severity": null,
@@ -21,6 +10,17 @@
         "code": "include",
         "definition": null,
         "display": "Include"
+      }
+    },
+    {
+      "hash": "|null|null|match|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "match",
+        "definition": null,
+        "display": "Match"
       }
     }
   ]

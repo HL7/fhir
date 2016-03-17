@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/protocol-status",
   "outcomes": [
-    {
-      "hash": "|null|null|draft|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "draft",
-        "definition": null,
-        "display": "Draft"
-      }
-    },
     {
       "hash": "|null|null|active|null",
       "severity": null,
@@ -21,6 +10,17 @@
         "code": "active",
         "definition": null,
         "display": "Active"
+      }
+    },
+    {
+      "hash": "|null|null|draft|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "draft",
+        "definition": null,
+        "display": "Draft"
       }
     }
   ]

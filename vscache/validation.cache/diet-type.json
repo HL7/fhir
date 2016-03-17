@@ -1,28 +1,13 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/diet-type",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|33489005|Renal diet#|http://goodhealthhospital.org/diet-type-codes|null|1050|Renal",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|226211001|Pureed diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Pureed diet",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|435801000124108|Texture modified diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Texture modified diet",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|386619000|Low sodium diet#|http://goodhealthhospital.org/diet-type-codes|null|1040|Low Sodium Diet",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|15108003|Restricted fiber diet#|http://goodhealthhospital.org/diet-type-codes|null|1000|Fiber restricted",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|160670007|Diabetic diet#|http://goodhealthhospital.org/diet-type-codes|null|1030|DD - Diabetic diet",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -37,7 +22,22 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|160670007|Diabetic diet#|http://goodhealthhospital.org/diet-type-codes|null|1030|DD - Diabetic diet",
+      "hash": "#|http://snomed.info/sct|null|226211001|Pureed diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Pureed diet",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|33489005|Renal diet#|http://goodhealthhospital.org/diet-type-codes|null|1050|Renal",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|386619000|Low sodium diet#|http://goodhealthhospital.org/diet-type-codes|null|1040|Low Sodium Diet",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|435801000124108|Texture modified diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Texture modified diet",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

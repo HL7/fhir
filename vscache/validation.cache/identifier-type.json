@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/identifier-type",
   "outcomes": [
     {
@@ -13,17 +13,6 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0203|null|MR|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "MR",
-        "definition": null,
-        "display": "Medical record number"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/identifier-type|null|SB|null",
       "severity": null,
       "message": null,
@@ -35,14 +24,15 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v2/0203|null|SS|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v2/0203|null|NI|National unique individual identifier",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "hash": "#|http://hl7.org/fhir/identifier-type|null|SNO|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "SNO",
+        "definition": null,
+        "display": "Serial Number"
+      }
     },
     {
       "hash": "#|http://hl7.org/fhir/v2/0203|null|DL|null",
@@ -56,6 +46,22 @@
       }
     },
     {
+      "hash": "#|http://hl7.org/fhir/v2/0203|null|MR|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MR",
+        "definition": null,
+        "display": "Medical record number"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0203|null|NI|National unique individual identifier",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://hl7.org/fhir/v2/0203|null|PRN|null",
       "severity": null,
       "message": null,
@@ -67,20 +73,14 @@
       }
     },
     {
-      "hash": "#|urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd|null|IHE XDS Metadata|submission set classificationNode",
+      "hash": "#|http://hl7.org/fhir/v2/0203|null|SS|null",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://hl7.org/fhir/identifier-type|null|SNO|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "SNO",
-        "definition": null,
-        "display": "Serial Number"
-      }
+      "hash": "#|urn:uuid:a54d6aa5-d40d-43f9-88c5-b4633d873bdd|null|IHE XDS Metadata|submission set classificationNode",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

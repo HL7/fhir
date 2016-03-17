@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/nutrient-code",
   "outcomes": [
     {
@@ -13,14 +13,19 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|88480006|Potassium",
+      "hash": "#|http://snomed.info/sct|null|256674009|Fat",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Nutrient Modifier Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|30820000|Phosphorus",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "K - Potassium"
+        "display": "Phosphorus"
       }
     },
     {
@@ -35,17 +40,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|30820000|Phosphorus",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Phosphorus"
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|39972003|Sodium",
       "severity": null,
       "message": null,
@@ -57,9 +51,15 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|256674009|Fat",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Nutrient Modifier Codes"
+      "hash": "#|http://snomed.info/sct|null|88480006|Potassium",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "K - Potassium"
+      }
     }
   ]
 }

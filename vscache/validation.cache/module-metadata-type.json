@@ -1,6 +1,17 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/module-metadata-type",
   "outcomes": [
+    {
+      "hash": "|null|null|library|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "library",
+        "definition": null,
+        "display": "Library"
+      }
+    },
     {
       "hash": "|null|null|module|null",
       "severity": null,
@@ -21,17 +32,6 @@
         "code": "order-set",
         "definition": null,
         "display": "Order Set"
-      }
-    },
-    {
-      "hash": "|null|null|library|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "library",
-        "definition": null,
-        "display": "Library"
       }
     }
   ]

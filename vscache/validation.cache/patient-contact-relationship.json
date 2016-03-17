@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/patient-contact-relationship",
   "outcomes": [
     {
@@ -10,6 +10,17 @@
         "code": "owner",
         "definition": null,
         "display": "Owner of animal"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "partner",
+        "definition": null,
+        "display": "Partner"
       }
     },
     {
@@ -32,17 +43,6 @@
         "code": "guardian",
         "definition": null,
         "display": "Guardian"
-      }
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "partner",
-        "definition": null,
-        "display": "Partner"
       }
     }
   ]

@@ -1,11 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/manifestation-codes",
   "outcomes": [
-    {
-      "hash": "#|http://snomed.info/sct|null|64305001|Urticaria",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Clinical Findings"
-    },
     {
       "hash": "#|http://example.org/system|null|xxx|Hives",
       "severity": "error",
@@ -32,6 +27,11 @@
         "definition": null,
         "display": "Generalized anaphylaxis"
       }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|64305001|Urticaria",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set SNOMED CT Clinical Findings"
     }
   ]
 }

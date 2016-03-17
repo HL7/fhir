@@ -1,6 +1,17 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/slotstatus",
   "outcomes": [
+    {
+      "hash": "|null|null|busy-tentative|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "busy-tentative",
+        "definition": null,
+        "display": "Busy (Tentative)"
+      }
+    },
     {
       "hash": "|null|null|busy-unavailable|null",
       "severity": null,
@@ -21,17 +32,6 @@
         "code": "busy",
         "definition": null,
         "display": "Busy"
-      }
-    },
-    {
-      "hash": "|null|null|busy-tentative|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "busy-tentative",
-        "definition": null,
-        "display": "Busy (Tentative)"
       }
     },
     {

@@ -1,6 +1,11 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/encounter-admit-source",
   "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|null|305956004|Referral by physician",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
     {
       "hash": "#|http://snomed.info/sct|null|305997006|Referral by radiologist",
       "severity": "error",
@@ -8,11 +13,6 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|309902002|Clinical Oncology Department",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|305956004|Referral by physician",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

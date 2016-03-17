@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/filter-operator",
   "outcomes": [
-    {
-      "hash": "|null|null|in|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "in",
-        "definition": null,
-        "display": "In Set"
-      }
-    },
     {
       "hash": "|null|null|=|null",
       "severity": null,
@@ -21,6 +10,17 @@
         "code": "=",
         "definition": null,
         "display": "Equals"
+      }
+    },
+    {
+      "hash": "|null|null|in|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "in",
+        "definition": null,
+        "display": "In Set"
       }
     },
     {

@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/risk-probability",
   "outcomes": [
     {
@@ -13,29 +13,29 @@
       }
     },
     {
+      "hash": "|null|null|0.000168|null",
+      "severity": "error",
+      "message": "Unknown Code 0.000168 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+      "hash": "|null|null|0.000368|null",
+      "severity": "error",
+      "message": "Unknown Code 0.000368 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
       "hash": "|null|null|0.000594|null",
       "severity": "error",
       "message": "Unknown Code 0.000594 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
-      "hash": "|null|null|0.001663|null",
+      "hash": "|null|null|0.000838|null",
       "severity": "error",
-      "message": "Unknown Code 0.001663 in http://hl7.org/fhir/ValueSet/risk-probability"
-    },
-    {
-      "hash": "|null|null|0.02|null",
-      "severity": "error",
-      "message": "Unknown Code 0.02 in http://hl7.org/fhir/ValueSet/risk-probability"
+      "message": "Unknown Code 0.000838 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
       "hash": "|null|null|0.001089|null",
       "severity": "error",
       "message": "Unknown Code 0.001089 in http://hl7.org/fhir/ValueSet/risk-probability"
-    },
-    {
-      "hash": "|null|null|0.000168|null",
-      "severity": "error",
-      "message": "Unknown Code 0.000168 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
       "hash": "|null|null|0.001327|null",
@@ -48,14 +48,14 @@
       "message": "Unknown Code 0.001530 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
-      "hash": "|null|null|0.000368|null",
+      "hash": "|null|null|0.001663|null",
       "severity": "error",
-      "message": "Unknown Code 0.000368 in http://hl7.org/fhir/ValueSet/risk-probability"
+      "message": "Unknown Code 0.001663 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
-      "hash": "|null|null|0.000838|null",
+      "hash": "|null|null|0.02|null",
       "severity": "error",
-      "message": "Unknown Code 0.000838 in http://hl7.org/fhir/ValueSet/risk-probability"
+      "message": "Unknown Code 0.02 in http://hl7.org/fhir/ValueSet/risk-probability"
     }
   ]
 }

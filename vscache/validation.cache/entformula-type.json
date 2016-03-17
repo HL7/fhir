@@ -1,13 +1,13 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/entformula-type",
   "outcomes": [
     {
-      "hash": "#|http://snomed/sct|null|6547210000124112|Diabetic specialty enteral formula",
+      "hash": "#|http://snomed.info/sct|null|412414007|infant formula + iron",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|412414007|infant formula + iron",
+      "hash": "#|http://snomed/sct|null|6547210000124112|Diabetic specialty enteral formula",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },

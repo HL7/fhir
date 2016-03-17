@@ -1,15 +1,15 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/conformance-resource-status",
   "outcomes": [
     {
-      "hash": "|null|null|retired|null",
+      "hash": "|null|null|active|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "retired",
+        "code": "active",
         "definition": null,
-        "display": "Retired"
+        "display": "Active"
       }
     },
     {
@@ -24,14 +24,14 @@
       }
     },
     {
-      "hash": "|null|null|active|null",
+      "hash": "|null|null|retired|null",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "active",
+        "code": "retired",
         "definition": null,
-        "display": "Active"
+        "display": "Retired"
       }
     }
   ]

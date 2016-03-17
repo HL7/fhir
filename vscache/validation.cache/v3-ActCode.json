@@ -1,11 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/v3-ActCode",
   "outcomes": [
-    {
-      "hash": "#|http://ihe.net/xds/connectathon/eventCodes|null|T-D8200|Arm",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
     {
       "hash": "#|http://hl7.org/fhir/v3/ActCode|null|HEALTHREC|health record",
       "severity": null,
@@ -16,6 +11,11 @@
         "definition": null,
         "display": "health record"
       }
+    },
+    {
+      "hash": "#|http://ihe.net/xds/connectathon/eventCodes|null|T-D8200|Arm",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
     }
   ]
 }

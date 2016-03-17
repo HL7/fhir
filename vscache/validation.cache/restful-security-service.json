@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/restful-security-service",
   "outcomes": [
-    {
-      "hash": "#|http://hl7.org/fhir/restful-security-service|null|SMART-on-FHIR|SMART-on-FHIR",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "SMART-on-FHIR",
-        "definition": null,
-        "display": "SMART-on-FHIR"
-      }
-    },
     {
       "hash": "#|http://hl7.org/fhir/restful-security-service|null|Certificates|null",
       "severity": null,
@@ -21,6 +10,17 @@
         "code": "Certificates",
         "definition": null,
         "display": "Certificates"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/restful-security-service|null|SMART-on-FHIR|SMART-on-FHIR",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "SMART-on-FHIR",
+        "definition": null,
+        "display": "SMART-on-FHIR"
       }
     },
     {

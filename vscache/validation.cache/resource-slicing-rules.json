@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/resource-slicing-rules",
   "outcomes": [
-    {
-      "hash": "|null|null|open|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "open",
-        "definition": null,
-        "display": "Open"
-      }
-    },
     {
       "hash": "|null|null|closed|null",
       "severity": null,
@@ -32,6 +21,17 @@
         "code": "openAtEnd",
         "definition": null,
         "display": "Open at End"
+      }
+    },
+    {
+      "hash": "|null|null|open|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "open",
+        "definition": null,
+        "display": "Open"
       }
     }
   ]

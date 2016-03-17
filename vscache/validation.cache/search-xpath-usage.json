@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/search-xpath-usage",
   "outcomes": [
     {
@@ -24,17 +24,6 @@
       }
     },
     {
-      "hash": "|null|null|phonetic|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "phonetic",
-        "definition": null,
-        "display": "Phonetic"
-      }
-    },
-    {
       "hash": "|null|null|normal|null",
       "severity": null,
       "message": null,
@@ -43,6 +32,17 @@
         "code": "normal",
         "definition": null,
         "display": "Normal"
+      }
+    },
+    {
+      "hash": "|null|null|phonetic|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "phonetic",
+        "definition": null,
+        "display": "Phonetic"
       }
     }
   ]

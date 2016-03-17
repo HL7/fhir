@@ -1,4 +1,4 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/goal-status",
   "outcomes": [
     {
@@ -24,17 +24,6 @@
       }
     },
     {
-      "hash": "|null|null|planned|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "planned",
-        "definition": null,
-        "display": "Planned"
-      }
-    },
-    {
       "hash": "|null|null|in-progress|null",
       "severity": null,
       "message": null,
@@ -43,6 +32,17 @@
         "code": "in-progress",
         "definition": null,
         "display": "In Progress"
+      }
+    },
+    {
+      "hash": "|null|null|planned|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "planned",
+        "definition": null,
+        "display": "Planned"
       }
     },
     {

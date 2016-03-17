@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/care-plan-activity-status",
   "outcomes": [
-    {
-      "hash": "|null|null|not-started|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "not-started",
-        "definition": null,
-        "display": "Not Started"
-      }
-    },
     {
       "hash": "|null|null|completed|null",
       "severity": null,
@@ -21,6 +10,28 @@
         "code": "completed",
         "definition": null,
         "display": "Completed"
+      }
+    },
+    {
+      "hash": "|null|null|in-progress|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "in-progress",
+        "definition": null,
+        "display": "In Progress"
+      }
+    },
+    {
+      "hash": "|null|null|not-started|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "not-started",
+        "definition": null,
+        "display": "Not Started"
       }
     },
     {
@@ -43,17 +54,6 @@
         "code": "scheduled",
         "definition": null,
         "display": "Scheduled"
-      }
-    },
-    {
-      "hash": "|null|null|in-progress|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "in-progress",
-        "definition": null,
-        "display": "In Progress"
       }
     }
   ]

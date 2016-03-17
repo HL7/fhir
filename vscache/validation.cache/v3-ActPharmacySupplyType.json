@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType",
   "outcomes": [
-    {
-      "hash": "#|http:hl7.org/fhir|null|FF|First Fill",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "FF",
-        "definition": null,
-        "display": "First Fill"
-      }
-    },
     {
       "hash": "#|http:hl7.org/fhir|null|FFP|First Fill - Part Fill",
       "severity": null,
@@ -21,6 +10,17 @@
         "code": "FFP",
         "definition": null,
         "display": "First Fill - Part Fill"
+      }
+    },
+    {
+      "hash": "#|http:hl7.org/fhir|null|FF|First Fill",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "FF",
+        "definition": null,
+        "display": "First Fill"
       }
     }
   ]

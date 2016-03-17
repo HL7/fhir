@@ -7,12 +7,14 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -941,16 +943,20 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     else
       dir.mkdir();
     for (String s : validationCache.keySet()) {
-      String fn = makeFileName(s)+".json";
-      JsonWriter gson = new JsonWriter(new TextStreamWriter(new FileOutputStream(Utilities.path(validationCachePath, fn))));
-      gson.setIndent("  ");;
+      String fn = Utilities.path(validationCachePath, makeFileName(s)+".json");
+      String cnt = "";
+      if (new File(fn).exists())
+        cnt = TextFile.fileToString(fn);
+      StringWriter st = new StringWriter();
+      JsonWriter gson = new JsonWriter(st);
+      gson.setIndent("  ");
       gson.beginObject();
       gson.name("url");
       gson.value(s);
       gson.name("outcomes");
       gson.beginArray();
       Map<String, ValidationResult> t = validationCache.get(s);
-      for (String sp : t.keySet()) {
+      for (String sp : sorted(t.keySet())) {
         ValidationResult vr = t.get(sp);
         gson.beginObject();
         gson.name("hash");
@@ -980,7 +986,17 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       gson.endArray();
       gson.endObject();
       gson.close();
+      String ncnt = st.toString();
+      if (!ncnt.equals(cnt))
+        TextFile.stringToFile(ncnt, fn);
     }
+  }
+
+  private List<String> sorted(Set<String> keySet) {
+    List<String> results = new ArrayList<String>();
+    results.addAll(keySet);
+    Collections.sort(results);
+    return results;
   }
 
   private String makeFileName(String s) {

@@ -1,17 +1,6 @@
-{
+﻿{
   "url": "http://hl7.org/fhir/ValueSet/issue-severity",
   "outcomes": [
-    {
-      "hash": "|null|null|information|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "information",
-        "definition": null,
-        "display": "Information"
-      }
-    },
     {
       "hash": "|null|null|error|null",
       "severity": null,
@@ -32,6 +21,17 @@
         "code": "fatal",
         "definition": null,
         "display": "Fatal"
+      }
+    },
+    {
+      "hash": "|null|null|information|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "information",
+        "definition": null,
+        "display": "Information"
       }
     }
   ]
