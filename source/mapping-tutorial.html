@@ -347,11 +347,13 @@ to a general structure:
 This leads to some more complex mapping statements:
 </p>
 <pre>
-ef_a1: for source.e as s_e make target.e as t_e then ef_a2(s_e, t_e)
-ef_a2: for s_e make t_e.f = s_e, t_e.g = "g1"
+ef_a1: for source.e as s_e make target.e as t_e then {
+  ef_a2: for s_e make t_e.f = s_e, t_e.g = "g1"
+}
 
-ef_b1: for source.f as s_f make target.e as t_e then ef_b2(s_f, t_e) { first }
-ef_b2: for s_f make t_e.f = s_f, t_e.g = "g2"
+ef_b1: for source.f as s_f make target.e as t_e { first } then {
+  ef_b2: for s_f make t_e.f = s_f, t_e.g = "g2"
+}
 </pre>
 
 <h3>Step #10: Reworking Structure #2</h3>
@@ -380,17 +382,18 @@ while the target puts the cardinality at the next level up:
 The key to setting this mapping up is to create a variable context for source.az1, and then carry it down, performing the actual mappings at the next level down:
 </p>
 <pre>
-aza : for src.az1 as s_az1 then azb(s_az1, target) 
-  // setting up a variable for the parent
+// setting up a variable for the parent
+aza : for src.az1 as s_az1 then {
   
-azb : for s_az1.az3 as s_az3 make target.az1 as t_az1 then az2(s_az1, t_az1), az3(s_az3, t_az1) 
   // one target.az1 for each az3
-  
-az2 : for s_az1.az2 as az2 make t_az1.az2 = az2  
-  // value for az2. Note that this refers to a previous context in the source
-  
-az3 : for s_az3 make tgt_az1.az3 = src_az3       
-  // value for az3      
+  azb : for s_az1.az3 as s_az3 make target.az1 as t_az1 then {
+    // value for az2. Note that this refers to a previous context in the source
+    az2 : for s_az1.az2 as az2 make t_az1.az2 = az2  
+    
+    // value for az3      
+    az3 : for s_az3 make tgt_az1.az3 = src_az3       
+  }
+}
 </pre>
 
 <h3>Step #11: Multiple structures #1</h3>
@@ -430,8 +433,9 @@ For our first example, we're going to look at creating multiple output structure
 The key to setting this mapping up is to create a variable context for source.az1, and then carry it down, performing the actual mappings at the next level down:
 </p>
 <pre>
-f1 : for source.f1 as s_f1 make create("TRight2") as rr, target.ptr = reference(rr) then f1a(s_f1, rr).
-f1a: for s_f1 make rr.f2 = srcff
+f1 : for source.f1 as s_f1 make create("TRight2") as rr, target.ptr = reference(rr) then {
+  f1a: for s_f1 make rr.f2 = srcff
+}
 </pre>
 <p>
 This mapping statement makes use a special known value "null" for the target context to indicate that the created element/object of type "TRight2" 

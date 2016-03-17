@@ -314,12 +314,21 @@ to do with them. But if either or both the source and target types are complex, 
 to the newly created variables.
 </p>
 <p>
-Transform rules specify what additional rules are evaluated when the rule is complete, by listing either other rules
-within the same group, or other groups in the same or an imported mapping. Each rule or group is listed by name,
-and then a set of parameters are provided.
+Transform rules specify what additional rules are evaluated when the rule is complete, by containing other rules:, 
 </p>
 <pre>
- .. then rule(param, param), .
+ .. then {
+   .. other rules...
+ }
+</pre>
+<p>
+When a rule contains other rules, the variables from the containing rules are all available to the contained rules.
+Alternatively, a rule can nominating another group of rules from the same or an imported mapping. Each rule or group is listed by name,
+and then a set of parameters are provided.
+</p>
+
+<pre>
+ .. then rule(param, param)
 </pre>
 
 
