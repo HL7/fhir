@@ -484,7 +484,8 @@
   Summary = y
   Type = code
   Binding = StructureMapListMode
-  Short Label = How to handle the list mode for this element
+  Short Label = first | share | last
+  Definition = How to handle the list mode for this element
 
  -- Row 39 -----------------------------------
   Element = StructureMap.group.rule.source.variable
@@ -498,7 +499,7 @@
   Card. = 0..1
   Summary = y
   Type = string
-  Short Label = FluentPath expression - must be true for source to apply
+  Short Label = FluentPath expression  - must be true or the rule does not apply
 
  -- Row 41 -----------------------------------
   Element = StructureMap.group.rule.source.check
@@ -551,7 +552,7 @@
   Summary = y
   Type = code
   Binding = StructureMapListMode
-  Short Label = only_one | first | share
+  Short Label = first | share | last
   Definition = If field is a list, how to manage the list
 
  -- Row 48 -----------------------------------
