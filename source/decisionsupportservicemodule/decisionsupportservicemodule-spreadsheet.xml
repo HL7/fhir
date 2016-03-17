@@ -10,7 +10,7 @@
   <Author>Grahame</Author>
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-03-17T03:10:52Z</LastSaved>
+  <LastSaved>2016-03-17T21:56:11Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -24,7 +24,7 @@
   <WindowWidth>19245</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4414,7 +4414,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4449,7 +4448,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="62" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="11" ss:ExpandedRowCount="64" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="197.25"/>
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="124.5"/>
@@ -4547,6 +4546,28 @@
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s117"><Data ss:Type="String">Input Parameters</Data></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The input parameters for a request, if any. These parameters are defined by the module that is the target of the evaluation, and supply the input information to the module.</Data></Cell>
+    <Cell ss:StyleID="s133"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s116"><Data ss:Type="String">evaluate.patient</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Reference(Patient)</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Patient</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The patient in context, if any</Data></Cell>
+    <Cell ss:StyleID="s133"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s116"><Data ss:Type="String">evaluate.encounter</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Reference(Encounter)</Data></Cell>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Encounter</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The encounter in context, if any</Data></Cell>
     <Cell ss:StyleID="s133"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5174,12 +5195,13 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>3</LeftColumnRightPane>
+   <LeftColumnRightPane>6</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5194,8 +5216,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R6C1:R7C9</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5204,7 +5227,7 @@
   <AutoFilter x:Range="R1C1:R2C9" xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C8,R6C8:R14C8</Range>
+   <Range>R18C8,R8C8:R16C8</Range>
    <Condition>
     <Value1>RC6=&quot;0..0&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#F2F2F2'/>
@@ -5215,21 +5238,21 @@
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C8,R6C8:R14C8</Range>
+   <Range>R18C8,R8C8:R16C8</Range>
    <Condition>
     <Value1>(RC1=&quot;&quot;)&lt;&gt;(RC=&quot;&quot;)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C8,R6C8:R14C8</Range>
+   <Range>R18C8,R8C8:R16C8</Range>
    <Condition>
     <Value1>AND(RC14&lt;&gt;&quot;&quot;,RC14=RC15)</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:red'/>
    </Condition>
   </ConditionalFormatting>
   <ConditionalFormatting xmlns="urn:schemas-microsoft-com:office:excel">
-   <Range>R16C8,R6C8:R14C8</Range>
+   <Range>R18C8,R8C8:R16C8</Range>
    <Condition>
     <Value1>LEFT(RC1,1)=&quot;!&quot;</Value1>
     <Format Style='border:.5pt solid #D8D8D8;background:#A5A5A5'/>

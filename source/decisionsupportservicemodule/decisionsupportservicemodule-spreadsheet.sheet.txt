@@ -141,6 +141,24 @@
   Max = 1
 
  -- Row 5 -----------------------------------
+  Name = evaluate.patient
+  Use = in
+  Documentation = The patient in context, if any
+  Type = Reference(Patient)
+  Title = Patient
+  Min = 0
+  Max = 1
+
+ -- Row 6 -----------------------------------
+  Name = evaluate.encounter
+  Use = in
+  Documentation = The encounter in context, if any
+  Type = Reference(Encounter)
+  Title = Encounter
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
   Name = evaluate.initiatingOrganization
   Use = in
   Documentation = The organization initiating the request
@@ -149,7 +167,7 @@
   Min = 0
   Max = 1
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = evaluate.initiatingPerson
   Use = in
   Documentation = The person initiating the request
@@ -158,7 +176,7 @@
   Min = 0
   Max = 1
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = evaluate.userType
   Use = in
   Documentation = The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)
@@ -167,7 +185,7 @@
   Min = 0
   Max = 1
 
- -- Row 8 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = evaluate.userLanguage
   Use = in
   Documentation = Preferred language of the person using the system
@@ -176,7 +194,7 @@
   Min = 0
   Max = 1
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = evaluate.userTaskContext
   Use = in
   Documentation = The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources
@@ -185,7 +203,7 @@
   Min = 0
   Max = 1
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = evaluate.receivingOrganization
   Use = in
   Documentation = The organization that will receive the response
@@ -194,7 +212,7 @@
   Min = 0
   Max = 1
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Name = evaluate.receivingPerson
   Use = in
   Documentation = The person in the receiving organization that will receive the response
@@ -203,7 +221,7 @@
   Min = 0
   Max = 1
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Name = evaluate.recipientType
   Use = in
   Documentation = The type of individual that will consume the response content. This may be different from the requesting user type (e.g. if a clinician is getting disease management guidance for provision to a patient). E.g. patient, healthcare provider or specific type of healthcare provider (physician, nurse, etc.)
@@ -212,7 +230,7 @@
   Min = 0
   Max = 1
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Name = evaluate.recipientLanguage
   Use = in
   Documentation = Preferred language of the person that will consume the content
@@ -221,7 +239,7 @@
   Min = 0
   Max = 1
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
   Name = evaluate.setting
   Use = in
   Documentation = The current setting of the request (inpatient, outpatient, etc)
@@ -230,7 +248,7 @@
   Min = 0
   Max = 1
 
- -- Row 15 -----------------------------------
+ -- Row 17 -----------------------------------
   Name = evaluate.settingContext
   Use = in
   Documentation = Additional detail about the setting of the request, if any
@@ -239,7 +257,7 @@
   Min = 0
   Max = 1
 
- -- Row 16 -----------------------------------
+ -- Row 18 -----------------------------------
   Name = evaluate.return
   Use = out
   Documentation = The result of the request as a GuidanceResponse resource. Output parameters, if any, will be contained in the parameters element of the response

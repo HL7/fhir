@@ -24,7 +24,7 @@
   <WindowWidth>19245</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>4</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4494,7 +4494,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4529,7 +4528,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Operations!R1C1:R2C9"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="59" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="130.5"/>
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="124.5"/>
@@ -4577,91 +4576,129 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><Data ss:Type="String">place</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">Instance</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">operation</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><Data ss:Type="String">Place</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">The place operation realizes an OrderSet for a particular patient</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">place.patient</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Reference(Patient)</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Patient</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The patient that is the target of the orders to be placed</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">place.encounter</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Reference(Encounter)</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Encounter</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The encounter in context, if any</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">place.practitioner</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Reference(Practitioner)</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Practitioner</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The practitioner placing the orders</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">place.organization</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Reference(Organization)</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Organization</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The organization placing the orders</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">place.userType</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">User Type</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">place.userLanguage</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">User Language</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Preferred language of the person using the system</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s116"><Data ss:Type="String">place.userTaskContext</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s130"/>
-    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">User Task Context</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s116"><Data ss:Type="String">place.setting</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Setting</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The current setting of the request (inpatient, outpatient, etc)</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s116"><Data ss:Type="String">place.settingContext</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">in</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">CodeableConcept</Data></Cell>
     <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Setting Context</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Additional detail about the setting of the request, if any</Data></Cell>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s116"><Data ss:Type="String">place.return</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s130"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">CarePlan</Data></Cell>
     <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">Return</Data></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">The CarePlan that is the result of placing the orders</Data></Cell>
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5105,6 +5142,61 @@
     <Cell ss:StyleID="s132"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="15.75">
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s116"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s130"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s117"/>
+    <Cell ss:StyleID="s131"/>
+    <Cell ss:StyleID="s132"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s119"/>
     <Cell ss:StyleID="s121"/>
     <Cell ss:StyleID="s133"/>
@@ -5115,7 +5207,7 @@
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s135"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.75"/>
+   <Row ss:AutoFitHeight="0"/>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -5124,6 +5216,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5143,6 +5236,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>11</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

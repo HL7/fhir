@@ -289,3 +289,100 @@
 === Sheet Examples =====================================
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = place
+  Use = Instance
+  Documentation = The place operation realizes an OrderSet for a particular patient
+  Type = operation
+  Title = Place
+
+ -- Row 2 -----------------------------------
+  Name = place.patient
+  Use = in
+  Documentation = The patient that is the target of the orders to be placed
+  Type = Reference(Patient)
+  Title = Patient
+  Min = 1
+  Max = 1
+
+ -- Row 3 -----------------------------------
+  Name = place.encounter
+  Use = in
+  Documentation = The encounter in context, if any
+  Type = Reference(Encounter)
+  Title = Encounter
+  Min = 0
+  Max = 1
+
+ -- Row 4 -----------------------------------
+  Name = place.practitioner
+  Use = in
+  Documentation = The practitioner placing the orders
+  Type = Reference(Practitioner)
+  Title = Practitioner
+  Min = 0
+  Max = 1
+
+ -- Row 5 -----------------------------------
+  Name = place.organization
+  Use = in
+  Documentation = The organization placing the orders
+  Type = Reference(Organization)
+  Title = Organization
+  Min = 0
+  Max = 1
+
+ -- Row 6 -----------------------------------
+  Name = place.userType
+  Use = in
+  Documentation = The type of user initiating the request, e.g. patient, healthcare provider, or specific type of healthcare provider (physician, nurse, etc.)
+  Type = CodeableConcept
+  Title = User Type
+  Min = 0
+  Max = 1
+
+ -- Row 7 -----------------------------------
+  Name = place.userLanguage
+  Use = in
+  Documentation = Preferred language of the person using the system
+  Type = CodeableConcept
+  Title = User Language
+  Min = 0
+  Max = 1
+
+ -- Row 8 -----------------------------------
+  Name = place.userTaskContext
+  Use = in
+  Documentation = The task the system user is performing, e.g. laboratory results review, medication list review, etc. This information can be used to tailor decision support outputs, such as recommended information resources
+  Type = CodeableConcept
+  Title = User Task Context
+  Min = 0
+  Max = 1
+
+ -- Row 9 -----------------------------------
+  Name = place.setting
+  Use = in
+  Documentation = The current setting of the request (inpatient, outpatient, etc)
+  Type = CodeableConcept
+  Title = Setting
+  Min = 0
+  Max = 1
+
+ -- Row 10 -----------------------------------
+  Name = place.settingContext
+  Use = in
+  Documentation = Additional detail about the setting of the request, if any
+  Type = CodeableConcept
+  Title = Setting Context
+  Min = 0
+  Max = 1
+
+ -- Row 11 -----------------------------------
+  Name = place.return
+  Use = out
+  Documentation = The CarePlan that is the result of placing the orders
+  Type = CarePlan
+  Title = Return
+  Min = 1
+  Max = 1
