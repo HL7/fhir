@@ -4537,7 +4537,7 @@
     <Cell ss:StyleID="s73"/>
     <Cell ss:StyleID="s103"/>
     <Cell ss:StyleID="s103"><Data ss:Type="String">Extensible</Data></Cell>
-    <Cell ss:StyleID="s103"><Data ss:Type="String">To be conformant, instances of this element SHALL include a code from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the valueset does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.</Data></Cell>
+    <Cell ss:StyleID="s103"><Data ss:Type="String">To be conformant, instances of this element SHALL include a code from the specified value set if any of the codes within the value set can apply to the concept being communicated.  If the value set does not cover the concept (based on human review), alternate codings (or, data type allowing, text) may be included instead.</Data></Cell>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s102"/>
     <Cell ss:StyleID="s104"/>
