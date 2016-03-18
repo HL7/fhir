@@ -473,7 +473,7 @@
   Card. = 1..1
   Type = Coding
   Binding = PayeeType
-  Short Label = Type of party: Subscriber, Provider, other.
+  Short Label = Type of party: Subscriber, Provider, other
   Definition = Type of Party to be reimbursed: Subscriber, provider, other.
 
  -- Row 27 -----------------------------------
