@@ -321,6 +321,10 @@
         <translation lang="es">EstudioImagen</translation>
         <translation lang="fr">EtudeImagerie</translation>
     </item>
+    <item id="ImagingExcerpt">
+        <translation lang="en">ImagingExcerpt</translation>
+		
+    </item>
     <item id="ImagingObjectSelection">
         <translation lang="en">ImagingObjectSelection</translation>
         <translation lang="fr">ImagingObjectSelection</translation>
