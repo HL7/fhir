@@ -33,7 +33,7 @@ and direct searches with parameters. Consider this search:
 </pre>
 <p>
 Because the definition of the <a href="compartment-patient.html">patient compartment</a> for 
-<a href="communication.html">Commnunication</a> says that aCommunication resource is in the 
+<a href="communication.html">Communication </a> says that a Communication resource is in the 
 patient compartment if the subject, sender, or recipient is the patient, the compartment
 search is actually the same as the union of these 3 searches:
 </p>
