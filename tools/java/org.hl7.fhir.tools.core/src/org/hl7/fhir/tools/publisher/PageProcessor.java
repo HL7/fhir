@@ -2047,7 +2047,12 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       return
           "<tr bgcolor=\""+color+"\"><td><a href=\""+name.toLowerCase()+".html\">"+name+"</a></td><td>"+aliases(r.getRoot().getAliases())+"</td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
 
-    } else 
+    } else if (definitions.getBaseResources().containsKey(name)){
+      ResourceDefn r = definitions.getBaseResources().get(name);
+      return
+          "<tr bgcolor=\""+color+"\"><td><a href=\""+name.toLowerCase()+".html\">"+name+"</a></td><td>"+aliases(r.getRoot().getAliases())+"</td><td>"+Utilities.escapeXml(r.getDefinition())+"</td></tr>\r\n";
+
+    } else
       return 
           "<tr bgcolor=\""+color+"\"><td>"+name+"</td><td>(Not defined yet)</td><td></td><td></td></tr>\r\n";
 
