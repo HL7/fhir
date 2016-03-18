@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -465,7 +465,7 @@ public class ElementDefinition extends Type implements ICompositeType {
          * Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices.
          */
         @Child(name = "discriminator", type = {StringType.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Element values that used to distinguish the slices", formalDefinition="Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices." )
+        @Description(shortDefinition="Element values that are used to distinguish the slices", formalDefinition="Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices." )
         protected List<StringType> discriminator;
 
         /**
@@ -1332,7 +1332,7 @@ public class ElementDefinition extends Type implements ICompositeType {
          * Description of why this constraint is necessary or appropriate.
          */
         @Child(name = "requirements", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Why this constraint necessary or appropriate", formalDefinition="Description of why this constraint is necessary or appropriate." )
+        @Description(shortDefinition="Why this constraint is necessary or appropriate", formalDefinition="Description of why this constraint is necessary or appropriate." )
         protected StringType requirements;
 
         /**
@@ -2282,7 +2282,7 @@ public class ElementDefinition extends Type implements ICompositeType {
      * This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element.
      */
     @Child(name = "requirements", type = {MarkdownType.class}, order=9, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Why is this needed?", formalDefinition="This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element." )
+    @Description(shortDefinition="Why this resource has been created", formalDefinition="This element is for traceability of why the element was created and why the constraints exist as they do. This may be used to point to source materials or specifications that drove the structure of this element." )
     protected MarkdownType requirements;
 
     /**
@@ -2307,10 +2307,10 @@ public class ElementDefinition extends Type implements ICompositeType {
     protected StringType max;
 
     /**
-     * Information about the base definition of the element, provided to make it unncessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.
+     * Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.
      */
     @Child(name = "base", type = {}, order=13, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Base definition information for tools", formalDefinition="Information about the base definition of the element, provided to make it unncessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition." )
+    @Description(shortDefinition="Base definition information for tools", formalDefinition="Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition." )
     protected ElementDefinitionBaseComponent base;
 
     /**
@@ -2331,7 +2331,7 @@ public class ElementDefinition extends Type implements ICompositeType {
      * The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').
      */
     @Child(name = "defaultValue", type = {}, order=16, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Specified value it missing from instance", formalDefinition="The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false')." )
+    @Description(shortDefinition="Specified value if missing from instance", formalDefinition="The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false')." )
     protected org.hl7.fhir.dstu3.model.Type defaultValue;
 
     /**
@@ -2359,7 +2359,7 @@ public class ElementDefinition extends Type implements ICompositeType {
      * A sample value for this element demonstrating the type of information that would typically be captured.
      */
     @Child(name = "example", type = {}, order=20, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Example value: [as defined for type]", formalDefinition="A sample value for this element demonstrating the type of information that would typically be captured." )
+    @Description(shortDefinition="Example value (as defined for type)", formalDefinition="A sample value for this element demonstrating the type of information that would typically be captured." )
     protected org.hl7.fhir.dstu3.model.Type example;
 
     /**
@@ -3055,7 +3055,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #base} (Information about the base definition of the element, provided to make it unncessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.)
+     * @return {@link #base} (Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.)
      */
     public ElementDefinitionBaseComponent getBase() { 
       if (this.base == null)
@@ -3071,7 +3071,7 @@ public class ElementDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #base} (Information about the base definition of the element, provided to make it unncessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.)
+     * @param value {@link #base} (Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.)
      */
     public ElementDefinition setBase(ElementDefinitionBaseComponent value) { 
       this.base = value;
@@ -3683,7 +3683,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         childrenList.add(new Property("alias", "string", "Identifies additional names by which this element might also be known.", 0, java.lang.Integer.MAX_VALUE, alias));
         childrenList.add(new Property("min", "integer", "The minimum number of times this element SHALL appear in the instance.", 0, java.lang.Integer.MAX_VALUE, min));
         childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the instance.", 0, java.lang.Integer.MAX_VALUE, max));
-        childrenList.add(new Property("base", "", "Information about the base definition of the element, provided to make it unncessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.", 0, java.lang.Integer.MAX_VALUE, base));
+        childrenList.add(new Property("base", "", "Information about the base definition of the element, provided to make it unnecessary for tools to trace the deviation of the element through the derived and related profiles. This information is only provided where the element definition represents a constraint on another element definition, and must be present if there is a base element definition.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("type", "", "The data type or resource that the value of this element is permitted to be.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("nameReference", "string", "Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element.", 0, java.lang.Integer.MAX_VALUE, nameReference));
         childrenList.add(new Property("defaultValue[x]", "*", "The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false').", 0, java.lang.Integer.MAX_VALUE, defaultValue));

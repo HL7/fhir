@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -41,23 +41,23 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 /**
- * The DecisionSupportServiceModule resource describes decision support functionality that is available as a service.
+ * The DecisionSupportServiceModule describes a unit of decision support functionality that is made available as a service, such as immunization modules or drug-drug interaction checking.
  */
 @ResourceDef(name="DecisionSupportServiceModule", profile="http://hl7.org/fhir/Profile/DecisionSupportServiceModule")
 public class DecisionSupportServiceModule extends DomainResource {
 
     /**
-     * A reference to a ModuleMetadata resource describing the metadata for the decision support service module.
+     * The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence.
      */
     @Child(name = "moduleMetadata", type = {ModuleMetadata.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Metadata for the service module", formalDefinition="A reference to a ModuleMetadata resource describing the metadata for the decision support service module." )
+    @Description(shortDefinition="Metadata for the service module", formalDefinition="The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence." )
     protected ModuleMetadata moduleMetadata;
 
     /**
-     * The trigger element.
+     * The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.
      */
     @Child(name = "trigger", type = {TriggerDefinition.class}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="\"when\" the module should be invoked", formalDefinition="The trigger element." )
+    @Description(shortDefinition="\"when\" the module should be invoked", formalDefinition="The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow." )
     protected List<TriggerDefinition> trigger;
 
     /**
@@ -68,10 +68,10 @@ public class DecisionSupportServiceModule extends DomainResource {
     protected List<ParameterDefinition> parameter;
 
     /**
-     * Data requirements are a machine processable description of the data required by the module in order to successfully evaluate.
+     * Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation.
      */
     @Child(name = "dataRequirement", type = {DataRequirement.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Data requirements for the module", formalDefinition="Data requirements are a machine processable description of the data required by the module in order to successfully evaluate." )
+    @Description(shortDefinition="Data requirements for the module", formalDefinition="Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation." )
     protected List<DataRequirement> dataRequirement;
 
     private static final long serialVersionUID = 1154664442L;
@@ -84,7 +84,7 @@ public class DecisionSupportServiceModule extends DomainResource {
     }
 
     /**
-     * @return {@link #moduleMetadata} (A reference to a ModuleMetadata resource describing the metadata for the decision support service module.)
+     * @return {@link #moduleMetadata} (The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence.)
      */
     public ModuleMetadata getModuleMetadata() { 
       if (this.moduleMetadata == null)
@@ -100,7 +100,7 @@ public class DecisionSupportServiceModule extends DomainResource {
     }
 
     /**
-     * @param value {@link #moduleMetadata} (A reference to a ModuleMetadata resource describing the metadata for the decision support service module.)
+     * @param value {@link #moduleMetadata} (The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence.)
      */
     public DecisionSupportServiceModule setModuleMetadata(ModuleMetadata value) { 
       this.moduleMetadata = value;
@@ -108,7 +108,7 @@ public class DecisionSupportServiceModule extends DomainResource {
     }
 
     /**
-     * @return {@link #trigger} (The trigger element.)
+     * @return {@link #trigger} (The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.)
      */
     public List<TriggerDefinition> getTrigger() { 
       if (this.trigger == null)
@@ -126,7 +126,7 @@ public class DecisionSupportServiceModule extends DomainResource {
     }
 
     /**
-     * @return {@link #trigger} (The trigger element.)
+     * @return {@link #trigger} (The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.)
      */
     // syntactic sugar
     public TriggerDefinition addTrigger() { //3
@@ -188,7 +188,7 @@ public class DecisionSupportServiceModule extends DomainResource {
     }
 
     /**
-     * @return {@link #dataRequirement} (Data requirements are a machine processable description of the data required by the module in order to successfully evaluate.)
+     * @return {@link #dataRequirement} (Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation.)
      */
     public List<DataRequirement> getDataRequirement() { 
       if (this.dataRequirement == null)
@@ -206,7 +206,7 @@ public class DecisionSupportServiceModule extends DomainResource {
     }
 
     /**
-     * @return {@link #dataRequirement} (Data requirements are a machine processable description of the data required by the module in order to successfully evaluate.)
+     * @return {@link #dataRequirement} (Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation.)
      */
     // syntactic sugar
     public DataRequirement addDataRequirement() { //3
@@ -229,10 +229,10 @@ public class DecisionSupportServiceModule extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("moduleMetadata", "ModuleMetadata", "A reference to a ModuleMetadata resource describing the metadata for the decision support service module.", 0, java.lang.Integer.MAX_VALUE, moduleMetadata));
-        childrenList.add(new Property("trigger", "TriggerDefinition", "The trigger element.", 0, java.lang.Integer.MAX_VALUE, trigger));
+        childrenList.add(new Property("moduleMetadata", "ModuleMetadata", "The metadata for the decision support service module, including publishing, life-cycle, version, documentation, and supporting evidence.", 0, java.lang.Integer.MAX_VALUE, moduleMetadata));
+        childrenList.add(new Property("trigger", "TriggerDefinition", "The trigger element defines when the rule should be invoked. This information is used by consumers of the rule to determine how to integrate the rule into a specific workflow.", 0, java.lang.Integer.MAX_VALUE, trigger));
         childrenList.add(new Property("parameter", "ParameterDefinition", "The parameters to the module. This collection specifies both the input and output parameters. Input parameters are provided by the caller as part of the $evaluate operation. Output parameters are included in the GuidanceResponse.", 0, java.lang.Integer.MAX_VALUE, parameter));
-        childrenList.add(new Property("dataRequirement", "DataRequirement", "Data requirements are a machine processable description of the data required by the module in order to successfully evaluate.", 0, java.lang.Integer.MAX_VALUE, dataRequirement));
+        childrenList.add(new Property("dataRequirement", "DataRequirement", "Data requirements are a machine processable description of the data required by the module in order to perform a successful evaluation.", 0, java.lang.Integer.MAX_VALUE, dataRequirement));
       }
 
       @Override
@@ -331,6 +331,126 @@ public class DecisionSupportServiceModule extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.DecisionSupportServiceModule;
    }
+
+ /**
+   * Search parameter: <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="topic", path="DecisionSupportServiceModule.moduleMetadata.topic", description="Topics associated with the module", type="token" )
+  public static final String SP_TOPIC = "topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="DecisionSupportServiceModule.moduleMetadata.title", description="Text search against the title", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="DecisionSupportServiceModule.moduleMetadata.status", description="Status of the module", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search against the description</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="DecisionSupportServiceModule.moduleMetadata.description", description="Text search against the description", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search against the description</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="DecisionSupportServiceModule.moduleMetadata.identifier", description="Logical identifier for the module (e.g. CMS-143)", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>version</b>
+   * <p>
+   * Description: <b>Version of the module (e.g. 1.0.0)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.version</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="version", path="DecisionSupportServiceModule.moduleMetadata.version", description="Version of the module (e.g. 1.0.0)", type="string" )
+  public static final String SP_VERSION = "version";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <p>
+   * Description: <b>Version of the module (e.g. 1.0.0)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>DecisionSupportServiceModule.moduleMetadata.version</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam VERSION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VERSION);
 
 
 }

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -61,7 +61,7 @@ public class DiagnosticReport extends DomainResource {
          */
         FINAL, 
         /**
-         * The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed
+         * The report has been modified subsequent to being Final, and is complete and verified by an authorized person
          */
         CORRECTED, 
         /**
@@ -128,7 +128,7 @@ public class DiagnosticReport extends DomainResource {
             case REGISTERED: return "The existence of the report is registered, but there is nothing yet available.";
             case PARTIAL: return "This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified.";
             case FINAL: return "The report is complete and verified by an authorized person.";
-            case CORRECTED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed";
+            case CORRECTED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person";
             case APPENDED: return "The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn't changed.";
             case CANCELLED: return "The report is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\").";
             case ENTEREDINERROR: return "The report has been withdrawn following a previous final release.";

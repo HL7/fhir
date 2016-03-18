@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -205,7 +205,7 @@ public class DataElement extends DomainResource {
          * The name of an individual to contact regarding the data element.
          */
         @Child(name = "name", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Name of a individual to contact", formalDefinition="The name of an individual to contact regarding the data element." )
+        @Description(shortDefinition="Name of an individual to contact", formalDefinition="The name of an individual to contact regarding the data element." )
         protected StringType name;
 
         /**

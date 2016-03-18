@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1307,14 +1307,14 @@ public class AllergyIntolerance extends DomainResource {
     protected DateTimeType recordedDate;
 
     /**
-     * Individual who recorded the record and takes responsibility for its conten.
+     * Individual who recorded the record and takes responsibility for its content.
      */
     @Child(name = "recorder", type = {Practitioner.class, Patient.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Who recorded the sensitivity", formalDefinition="Individual who recorded the record and takes responsibility for its conten." )
+    @Description(shortDefinition="Who recorded the sensitivity", formalDefinition="Individual who recorded the record and takes responsibility for its content." )
     protected Reference recorder;
 
     /**
-     * The actual object that is the target of the reference (Individual who recorded the record and takes responsibility for its conten.)
+     * The actual object that is the target of the reference (Individual who recorded the record and takes responsibility for its content.)
      */
     protected Resource recorderTarget;
 
@@ -1730,7 +1730,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return {@link #recorder} (Individual who recorded the record and takes responsibility for its conten.)
+     * @return {@link #recorder} (Individual who recorded the record and takes responsibility for its content.)
      */
     public Reference getRecorder() { 
       if (this.recorder == null)
@@ -1746,7 +1746,7 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @param value {@link #recorder} (Individual who recorded the record and takes responsibility for its conten.)
+     * @param value {@link #recorder} (Individual who recorded the record and takes responsibility for its content.)
      */
     public AllergyIntolerance setRecorder(Reference value) { 
       this.recorder = value;
@@ -1754,14 +1754,14 @@ public class AllergyIntolerance extends DomainResource {
     }
 
     /**
-     * @return {@link #recorder} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Individual who recorded the record and takes responsibility for its conten.)
+     * @return {@link #recorder} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Individual who recorded the record and takes responsibility for its content.)
      */
     public Resource getRecorderTarget() { 
       return this.recorderTarget;
     }
 
     /**
-     * @param value {@link #recorder} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Individual who recorded the record and takes responsibility for its conten.)
+     * @param value {@link #recorder} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Individual who recorded the record and takes responsibility for its content.)
      */
     public AllergyIntolerance setRecorderTarget(Resource value) { 
       this.recorderTarget = value;
@@ -1995,7 +1995,7 @@ public class AllergyIntolerance extends DomainResource {
         childrenList.add(new Property("substance", "CodeableConcept", "Identification of a substance, or a class of substances, that is considered to be responsible for the adverse reaction risk.", 0, java.lang.Integer.MAX_VALUE, substance));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient who has the allergy or intolerance.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("recordedDate", "dateTime", "Date when the sensitivity was recorded.", 0, java.lang.Integer.MAX_VALUE, recordedDate));
-        childrenList.add(new Property("recorder", "Reference(Practitioner|Patient)", "Individual who recorded the record and takes responsibility for its conten.", 0, java.lang.Integer.MAX_VALUE, recorder));
+        childrenList.add(new Property("recorder", "Reference(Practitioner|Patient)", "Individual who recorded the record and takes responsibility for its content.", 0, java.lang.Integer.MAX_VALUE, recorder));
         childrenList.add(new Property("reporter", "Reference(Patient|RelatedPerson|Practitioner)", "The source of the information about the allergy that is recorded.", 0, java.lang.Integer.MAX_VALUE, reporter));
         childrenList.add(new Property("onset", "dateTime", "Record of the date and/or time of the onset of the Allergy or Intolerance.", 0, java.lang.Integer.MAX_VALUE, onset));
         childrenList.add(new Property("lastOccurence", "dateTime", "Represents the date and/or time of the last known occurrence of a reaction event.", 0, java.lang.Integer.MAX_VALUE, lastOccurence));

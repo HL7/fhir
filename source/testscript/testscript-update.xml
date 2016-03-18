@@ -15,7 +15,7 @@
 		<resource>
 			<reference value="Patient/pat1"/>
 		</resource>
-	</fixture>	
+	</fixture>
 	<setup>
 		<action>
 			<operation>
@@ -47,8 +47,8 @@
 				<conformance>
 					<reference value="Conformance/example" />
 				</conformance>
-			</capability>			
-		</metadata>			
+			</capability>
+		</metadata>
 		<action>
 			<operation>
 				<type>

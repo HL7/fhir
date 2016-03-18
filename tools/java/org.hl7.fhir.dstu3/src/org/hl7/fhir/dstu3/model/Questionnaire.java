@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -528,14 +528,14 @@ public class Questionnaire extends DomainResource {
          * If true, indicates that the item must be present in a "completed" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
          */
         @Child(name = "required", type = {BooleanType.class}, order=5, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Whether the group must be included in data results", formalDefinition="If true, indicates that the item must be present in a \"completed\" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire." )
+        @Description(shortDefinition="Whether the item must be included in data results", formalDefinition="If true, indicates that the item must be present in a \"completed\" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire." )
         protected BooleanType required;
 
         /**
          * Whether the item may occur multiple times in the instance, containing multiple sets of answers.
          */
         @Child(name = "repeats", type = {BooleanType.class}, order=6, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Whether the group may repeat", formalDefinition="Whether the item may occur multiple times in the instance, containing multiple sets of answers." )
+        @Description(shortDefinition="Whether the item may repeat", formalDefinition="Whether the item may occur multiple times in the instance, containing multiple sets of answers." )
         protected BooleanType repeats;
 
         /**

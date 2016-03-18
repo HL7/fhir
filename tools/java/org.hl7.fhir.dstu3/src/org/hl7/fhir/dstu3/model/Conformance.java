@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1482,7 +1482,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
          * The name of an individual to contact regarding the conformance.
          */
         @Child(name = "name", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Name of a individual to contact", formalDefinition="The name of an individual to contact regarding the conformance." )
+        @Description(shortDefinition="Name of an individual to contact", formalDefinition="The name of an individual to contact regarding the conformance." )
         protected StringType name;
 
         /**
@@ -4986,10 +4986,10 @@ public class Conformance extends DomainResource implements IBaseConformance {
     @Block()
     public static class ConformanceRestOperationComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * The name of a query, which is used in the _query parameter when the query is called.
+         * The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called.
          */
         @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="Name by which the operation/query is invoked", formalDefinition="The name of a query, which is used in the _query parameter when the query is called." )
+        @Description(shortDefinition="Name by which the operation/query is invoked", formalDefinition="The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called." )
         protected StringType name;
 
         /**
@@ -5023,7 +5023,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
       }
 
         /**
-         * @return {@link #name} (The name of a query, which is used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @return {@link #name} (The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public StringType getNameElement() { 
           if (this.name == null)
@@ -5043,7 +5043,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @param value {@link #name} (The name of a query, which is used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         * @param value {@link #name} (The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
          */
         public ConformanceRestOperationComponent setNameElement(StringType value) { 
           this.name = value;
@@ -5051,14 +5051,14 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return The name of a query, which is used in the _query parameter when the query is called.
+         * @return The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called.
          */
         public String getName() { 
           return this.name == null ? null : this.name.getValue();
         }
 
         /**
-         * @param value The name of a query, which is used in the _query parameter when the query is called.
+         * @param value The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called.
          */
         public ConformanceRestOperationComponent setName(String value) { 
             if (this.name == null)
@@ -5113,7 +5113,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("name", "string", "The name of a query, which is used in the _query parameter when the query is called.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("name", "string", "The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called.", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("definition", "Reference(OperationDefinition)", "Where the formal definition can be found.", 0, java.lang.Integer.MAX_VALUE, definition));
         }
 
@@ -6479,7 +6479,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
      * Explains why this conformance statement is needed and why it's been constrained as it has.
      */
     @Child(name = "requirements", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why is this needed?", formalDefinition="Explains why this conformance statement is needed and why it's been constrained as it has." )
+    @Description(shortDefinition="Why this resource has been created", formalDefinition="Explains why this conformance statement is needed and why it's been constrained as it has." )
     protected StringType requirements;
 
     /**

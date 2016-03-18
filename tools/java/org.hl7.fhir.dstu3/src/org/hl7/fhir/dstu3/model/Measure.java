@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -458,35 +458,35 @@ public class Measure extends DomainResource {
          * A unique identifier for the group. This identifier will used to report data for the group in the measure report.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="A unique identifier for the group. This identifier will used to report data for the group in the measure report." )
+        @Description(shortDefinition="Unique identifier", formalDefinition="A unique identifier for the group. This identifier will used to report data for the group in the measure report." )
         protected Identifier identifier;
 
         /**
          * Optional name or short description of this group.
          */
         @Child(name = "name", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="Optional name or short description of this group." )
+        @Description(shortDefinition="Short name", formalDefinition="Optional name or short description of this group." )
         protected StringType name;
 
         /**
          * The human readable description of this population group.
          */
         @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="The human readable description of this population group." )
+        @Description(shortDefinition="Summary description", formalDefinition="The human readable description of this population group." )
         protected StringType description;
 
         /**
          * A population criteria for the measure.
          */
         @Child(name = "population", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="A population criteria for the measure." )
+        @Description(shortDefinition="Population criteria", formalDefinition="A population criteria for the measure." )
         protected List<MeasureGroupPopulationComponent> population;
 
         /**
          * The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path.
          */
         @Child(name = "stratifier", type = {}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path." )
+        @Description(shortDefinition="Stratifier criteria for the measure", formalDefinition="The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path." )
         protected List<MeasureGroupStratifierComponent> stratifier;
 
         private static final long serialVersionUID = 1287622059L;
@@ -821,28 +821,28 @@ public class Measure extends DomainResource {
          * A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report." )
+        @Description(shortDefinition="Unique identifier", formalDefinition="A unique identifier for the population criteria. This identifier is used to report data against this criteria within the measure report." )
         protected Identifier identifier;
 
         /**
          * Optional name or short description of this population.
          */
         @Child(name = "name", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="Optional name or short description of this population." )
+        @Description(shortDefinition="Short name", formalDefinition="Optional name or short description of this population." )
         protected StringType name;
 
         /**
          * The human readable description of this population criteria.
          */
         @Child(name = "description", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="The human readable description of this population criteria." )
+        @Description(shortDefinition="The human readable description of this population criteria", formalDefinition="The human readable description of this population criteria." )
         protected StringType description;
 
         /**
          * The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria.
          */
         @Child(name = "criteria", type = {StringType.class}, order=5, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria." )
+        @Description(shortDefinition="The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria", formalDefinition="The name of a valid referenced CQL expression (may be namespaced) that defines this population criteria." )
         protected StringType criteria;
 
         private static final long serialVersionUID = 1158202275L;
@@ -1175,14 +1175,14 @@ public class Measure extends DomainResource {
          * The identifier for the stratifier used to coordinate the reported data back to this stratifier.
          */
         @Child(name = "identifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="The identifier for the stratifier used to coordinate the reported data back to this stratifier." )
+        @Description(shortDefinition="The identifier for the stratifier used to coordinate the reported data back to this stratifier", formalDefinition="The identifier for the stratifier used to coordinate the reported data back to this stratifier." )
         protected Identifier identifier;
 
         /**
          * The criteria for the stratifier. This must be the name of an expression defined within a referenced library.
          */
         @Child(name = "criteria", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="", formalDefinition="The criteria for the stratifier. This must be the name of an expression defined within a referenced library." )
+        @Description(shortDefinition="Stratifier criteria", formalDefinition="The criteria for the stratifier. This must be the name of an expression defined within a referenced library." )
         protected StringType criteria;
 
         private static final long serialVersionUID = 563788640L;
@@ -1514,10 +1514,10 @@ public class Measure extends DomainResource {
   }
 
     /**
-     * A reference to a ModuleMetadata resource that describes the metadata for the measure.
+     * The metadata for the measure, including publishing, life-cycle, version, documentation, and supporting evidence.
      */
     @Child(name = "moduleMetadata", type = {ModuleMetadata.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Metadata for the measure", formalDefinition="A reference to a ModuleMetadata resource that describes the metadata for the measure." )
+    @Description(shortDefinition="Metadata for the measure", formalDefinition="The metadata for the measure, including publishing, life-cycle, version, documentation, and supporting evidence." )
     protected ModuleMetadata moduleMetadata;
 
     /**
@@ -1533,10 +1533,10 @@ public class Measure extends DomainResource {
 
 
     /**
-     * A disclaimer for the measure.
+     * A disclaimer for the use of the measure.
      */
     @Child(name = "disclaimer", type = {MarkdownType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="A disclaimer for the measure." )
+    @Description(shortDefinition="Disclaimer for the measure", formalDefinition="A disclaimer for the use of the measure." )
     protected MarkdownType disclaimer;
 
     /**
@@ -1554,66 +1554,66 @@ public class Measure extends DomainResource {
     protected List<Enumeration<MeasureType>> type;
 
     /**
-     * A description of the risk adjustment for the measure.
+     * A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results.
      */
     @Child(name = "riskAdjustment", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="A description of the risk adjustment for the measure." )
+    @Description(shortDefinition="How is risk adjustment applied for this measure", formalDefinition="A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results." )
     protected StringType riskAdjustment;
 
     /**
      * A description of the rate aggregation for the measure.
      */
     @Child(name = "rateAggregation", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="A description of the rate aggregation for the measure." )
+    @Description(shortDefinition="How is rate aggregation performed for this measure", formalDefinition="A description of the rate aggregation for the measure." )
     protected StringType rateAggregation;
 
     /**
      * The rationale for the measure.
      */
     @Child(name = "rationale", type = {MarkdownType.class}, order=7, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="The rationale for the measure." )
+    @Description(shortDefinition="Why does this measure exist", formalDefinition="The rationale for the measure." )
     protected MarkdownType rationale;
 
     /**
      * The clinical recommendation statement for the measure.
      */
     @Child(name = "clinicalRecommendationStatement", type = {MarkdownType.class}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="The clinical recommendation statement for the measure." )
+    @Description(shortDefinition="Clinical recommendation", formalDefinition="The clinical recommendation statement for the measure." )
     protected MarkdownType clinicalRecommendationStatement;
 
     /**
      * Improvement notation for the measure, e.g. higher score indicates better quality.
      */
     @Child(name = "improvementNotation", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="Improvement notation for the measure, e.g. higher score indicates better quality." )
+    @Description(shortDefinition="Improvement notation for the measure, e.g. higher score indicates better quality", formalDefinition="Improvement notation for the measure, e.g. higher score indicates better quality." )
     protected StringType improvementNotation;
 
     /**
-     * A natural language definition of the measure.
+     * A narrative description of the complete measure calculation.
      */
     @Child(name = "definition", type = {MarkdownType.class}, order=10, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="A natural language definition of the measure." )
+    @Description(shortDefinition="A natural language definition of the measure", formalDefinition="A narrative description of the complete measure calculation." )
     protected MarkdownType definition;
 
     /**
-     * The guidance for the measure.
+     * Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure.
      */
     @Child(name = "guidance", type = {MarkdownType.class}, order=11, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="The guidance for the measure." )
+    @Description(shortDefinition="The guidance for the measure", formalDefinition="Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure." )
     protected MarkdownType guidance;
 
     /**
      * The measure set, e.g. Preventive Care and Screening.
      */
     @Child(name = "set", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="The measure set, e.g. Preventive Care and Screening." )
+    @Description(shortDefinition="The measure set, e.g. Preventive Care and Screening", formalDefinition="The measure set, e.g. Preventive Care and Screening." )
     protected StringType set;
 
     /**
      * A group of population criteria for the measure.
      */
     @Child(name = "group", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="", formalDefinition="A group of population criteria for the measure." )
+    @Description(shortDefinition="Population criteria group", formalDefinition="A group of population criteria for the measure." )
     protected List<MeasureGroupComponent> group;
 
     /**
@@ -1633,7 +1633,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #moduleMetadata} (A reference to a ModuleMetadata resource that describes the metadata for the measure.)
+     * @return {@link #moduleMetadata} (The metadata for the measure, including publishing, life-cycle, version, documentation, and supporting evidence.)
      */
     public ModuleMetadata getModuleMetadata() { 
       if (this.moduleMetadata == null)
@@ -1649,7 +1649,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @param value {@link #moduleMetadata} (A reference to a ModuleMetadata resource that describes the metadata for the measure.)
+     * @param value {@link #moduleMetadata} (The metadata for the measure, including publishing, life-cycle, version, documentation, and supporting evidence.)
      */
     public Measure setModuleMetadata(ModuleMetadata value) { 
       this.moduleMetadata = value;
@@ -1718,7 +1718,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #disclaimer} (A disclaimer for the measure.). This is the underlying object with id, value and extensions. The accessor "getDisclaimer" gives direct access to the value
+     * @return {@link #disclaimer} (A disclaimer for the use of the measure.). This is the underlying object with id, value and extensions. The accessor "getDisclaimer" gives direct access to the value
      */
     public MarkdownType getDisclaimerElement() { 
       if (this.disclaimer == null)
@@ -1738,7 +1738,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @param value {@link #disclaimer} (A disclaimer for the measure.). This is the underlying object with id, value and extensions. The accessor "getDisclaimer" gives direct access to the value
+     * @param value {@link #disclaimer} (A disclaimer for the use of the measure.). This is the underlying object with id, value and extensions. The accessor "getDisclaimer" gives direct access to the value
      */
     public Measure setDisclaimerElement(MarkdownType value) { 
       this.disclaimer = value;
@@ -1746,14 +1746,14 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return A disclaimer for the measure.
+     * @return A disclaimer for the use of the measure.
      */
     public String getDisclaimer() { 
       return this.disclaimer == null ? null : this.disclaimer.getValue();
     }
 
     /**
-     * @param value A disclaimer for the measure.
+     * @param value A disclaimer for the use of the measure.
      */
     public Measure setDisclaimer(String value) { 
       if (value == null)
@@ -1870,7 +1870,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #riskAdjustment} (A description of the risk adjustment for the measure.). This is the underlying object with id, value and extensions. The accessor "getRiskAdjustment" gives direct access to the value
+     * @return {@link #riskAdjustment} (A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results.). This is the underlying object with id, value and extensions. The accessor "getRiskAdjustment" gives direct access to the value
      */
     public StringType getRiskAdjustmentElement() { 
       if (this.riskAdjustment == null)
@@ -1890,7 +1890,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @param value {@link #riskAdjustment} (A description of the risk adjustment for the measure.). This is the underlying object with id, value and extensions. The accessor "getRiskAdjustment" gives direct access to the value
+     * @param value {@link #riskAdjustment} (A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results.). This is the underlying object with id, value and extensions. The accessor "getRiskAdjustment" gives direct access to the value
      */
     public Measure setRiskAdjustmentElement(StringType value) { 
       this.riskAdjustment = value;
@@ -1898,14 +1898,14 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return A description of the risk adjustment for the measure.
+     * @return A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results.
      */
     public String getRiskAdjustment() { 
       return this.riskAdjustment == null ? null : this.riskAdjustment.getValue();
     }
 
     /**
-     * @param value A description of the risk adjustment for the measure.
+     * @param value A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results.
      */
     public Measure setRiskAdjustment(String value) { 
       if (Utilities.noString(value))
@@ -2115,7 +2115,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #definition} (A natural language definition of the measure.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+     * @return {@link #definition} (A narrative description of the complete measure calculation.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
      */
     public MarkdownType getDefinitionElement() { 
       if (this.definition == null)
@@ -2135,7 +2135,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @param value {@link #definition} (A natural language definition of the measure.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
+     * @param value {@link #definition} (A narrative description of the complete measure calculation.). This is the underlying object with id, value and extensions. The accessor "getDefinition" gives direct access to the value
      */
     public Measure setDefinitionElement(MarkdownType value) { 
       this.definition = value;
@@ -2143,14 +2143,14 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return A natural language definition of the measure.
+     * @return A narrative description of the complete measure calculation.
      */
     public String getDefinition() { 
       return this.definition == null ? null : this.definition.getValue();
     }
 
     /**
-     * @param value A natural language definition of the measure.
+     * @param value A narrative description of the complete measure calculation.
      */
     public Measure setDefinition(String value) { 
       if (value == null)
@@ -2164,7 +2164,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return {@link #guidance} (The guidance for the measure.). This is the underlying object with id, value and extensions. The accessor "getGuidance" gives direct access to the value
+     * @return {@link #guidance} (Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure.). This is the underlying object with id, value and extensions. The accessor "getGuidance" gives direct access to the value
      */
     public MarkdownType getGuidanceElement() { 
       if (this.guidance == null)
@@ -2184,7 +2184,7 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @param value {@link #guidance} (The guidance for the measure.). This is the underlying object with id, value and extensions. The accessor "getGuidance" gives direct access to the value
+     * @param value {@link #guidance} (Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure.). This is the underlying object with id, value and extensions. The accessor "getGuidance" gives direct access to the value
      */
     public Measure setGuidanceElement(MarkdownType value) { 
       this.guidance = value;
@@ -2192,14 +2192,14 @@ public class Measure extends DomainResource {
     }
 
     /**
-     * @return The guidance for the measure.
+     * @return Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure.
      */
     public String getGuidance() { 
       return this.guidance == null ? null : this.guidance.getValue();
     }
 
     /**
-     * @param value The guidance for the measure.
+     * @param value Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure.
      */
     public Measure setGuidance(String value) { 
       if (value == null)
@@ -2343,18 +2343,18 @@ public class Measure extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("moduleMetadata", "ModuleMetadata", "A reference to a ModuleMetadata resource that describes the metadata for the measure.", 0, java.lang.Integer.MAX_VALUE, moduleMetadata));
+        childrenList.add(new Property("moduleMetadata", "ModuleMetadata", "The metadata for the measure, including publishing, life-cycle, version, documentation, and supporting evidence.", 0, java.lang.Integer.MAX_VALUE, moduleMetadata));
         childrenList.add(new Property("library", "Reference(Library)", "A reference to a Library resource containing the formal logic used by the measure.", 0, java.lang.Integer.MAX_VALUE, library));
-        childrenList.add(new Property("disclaimer", "markdown", "A disclaimer for the measure.", 0, java.lang.Integer.MAX_VALUE, disclaimer));
+        childrenList.add(new Property("disclaimer", "markdown", "A disclaimer for the use of the measure.", 0, java.lang.Integer.MAX_VALUE, disclaimer));
         childrenList.add(new Property("scoring", "code", "The measure scoring type, e.g. proportion, CV.", 0, java.lang.Integer.MAX_VALUE, scoring));
         childrenList.add(new Property("type", "code", "The measure type, e.g. process, outcome.", 0, java.lang.Integer.MAX_VALUE, type));
-        childrenList.add(new Property("riskAdjustment", "string", "A description of the risk adjustment for the measure.", 0, java.lang.Integer.MAX_VALUE, riskAdjustment));
+        childrenList.add(new Property("riskAdjustment", "string", "A description of the risk adjustment factors that may impact the resulting score for the measure and how they may be accounted for when computing and reporting measure results.", 0, java.lang.Integer.MAX_VALUE, riskAdjustment));
         childrenList.add(new Property("rateAggregation", "string", "A description of the rate aggregation for the measure.", 0, java.lang.Integer.MAX_VALUE, rateAggregation));
         childrenList.add(new Property("rationale", "markdown", "The rationale for the measure.", 0, java.lang.Integer.MAX_VALUE, rationale));
         childrenList.add(new Property("clinicalRecommendationStatement", "markdown", "The clinical recommendation statement for the measure.", 0, java.lang.Integer.MAX_VALUE, clinicalRecommendationStatement));
         childrenList.add(new Property("improvementNotation", "string", "Improvement notation for the measure, e.g. higher score indicates better quality.", 0, java.lang.Integer.MAX_VALUE, improvementNotation));
-        childrenList.add(new Property("definition", "markdown", "A natural language definition of the measure.", 0, java.lang.Integer.MAX_VALUE, definition));
-        childrenList.add(new Property("guidance", "markdown", "The guidance for the measure.", 0, java.lang.Integer.MAX_VALUE, guidance));
+        childrenList.add(new Property("definition", "markdown", "A narrative description of the complete measure calculation.", 0, java.lang.Integer.MAX_VALUE, definition));
+        childrenList.add(new Property("guidance", "markdown", "Additional guidance for the measure including how it can be used in a clinical context, and the intent of the measure.", 0, java.lang.Integer.MAX_VALUE, guidance));
         childrenList.add(new Property("set", "string", "The measure set, e.g. Preventive Care and Screening.", 0, java.lang.Integer.MAX_VALUE, set));
         childrenList.add(new Property("group", "", "A group of population criteria for the measure.", 0, java.lang.Integer.MAX_VALUE, group));
         childrenList.add(new Property("supplementalData", "", "Supplemental data to be supplied with the measure report.", 0, java.lang.Integer.MAX_VALUE, supplementalData));
@@ -2539,6 +2539,126 @@ public class Measure extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.Measure;
    }
+
+ /**
+   * Search parameter: <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.topic</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="topic", path="Measure.moduleMetadata.topic", description="Topics associated with the module", type="token" )
+  public static final String SP_TOPIC = "topic";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
+   * <p>
+   * Description: <b>Topics associated with the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.topic</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
+
+ /**
+   * Search parameter: <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.title</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="title", path="Measure.moduleMetadata.title", description="Text search against the title", type="string" )
+  public static final String SP_TITLE = "title";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>title</b>
+   * <p>
+   * Description: <b>Text search against the title</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.title</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="Measure.moduleMetadata.status", description="Status of the module", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>Status of the module</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
+
+ /**
+   * Search parameter: <b>description</b>
+   * <p>
+   * Description: <b>Text search against the description</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.description</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="description", path="Measure.moduleMetadata.description", description="Text search against the description", type="string" )
+  public static final String SP_DESCRIPTION = "description";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>description</b>
+   * <p>
+   * Description: <b>Text search against the description</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.description</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
+
+ /**
+   * Search parameter: <b>identifier</b>
+   * <p>
+   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.identifier</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="identifier", path="Measure.moduleMetadata.identifier", description="Logical identifier for the module (e.g. CMS-143)", type="token" )
+  public static final String SP_IDENTIFIER = "identifier";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
+   * <p>
+   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Measure.moduleMetadata.identifier</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
+
+ /**
+   * Search parameter: <b>version</b>
+   * <p>
+   * Description: <b>Version of the module (e.g. 1.0.0)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.version</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="version", path="Measure.moduleMetadata.version", description="Version of the module (e.g. 1.0.0)", type="string" )
+  public static final String SP_VERSION = "version";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <p>
+   * Description: <b>Version of the module (e.g. 1.0.0)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>Measure.moduleMetadata.version</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam VERSION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VERSION);
 
 
 }

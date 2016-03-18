@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -47,212 +47,6 @@ import org.hl7.fhir.dstu3.exceptions.FHIRException;
  */
 @ResourceDef(name="TestScript", profile="http://hl7.org/fhir/Profile/TestScript")
 public class TestScript extends DomainResource {
-
-    public enum ProfileOriginType {
-        /**
-         * General DSTU2 client initiating against a DSTU2 Server.
-         */
-        FHIRDSTU2CLIENT, 
-        /**
-         * DSTU2 client that serves as an SDC-FormFiller.
-         */
-        FHIRDSTU2SDCFORMFILLER, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ProfileOriginType fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("FHIR-DSTU2-Client".equals(codeString))
-          return FHIRDSTU2CLIENT;
-        if ("FHIR-DSTU2-SDC-FormFiller".equals(codeString))
-          return FHIRDSTU2SDCFORMFILLER;
-        throw new FHIRException("Unknown ProfileOriginType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case FHIRDSTU2CLIENT: return "FHIR-DSTU2-Client";
-            case FHIRDSTU2SDCFORMFILLER: return "FHIR-DSTU2-SDC-FormFiller";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case FHIRDSTU2CLIENT: return "http://hl7.org/fhir/profile-origin-types";
-            case FHIRDSTU2SDCFORMFILLER: return "http://hl7.org/fhir/profile-origin-types";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case FHIRDSTU2CLIENT: return "General DSTU2 client initiating against a DSTU2 Server.";
-            case FHIRDSTU2SDCFORMFILLER: return "DSTU2 client that serves as an SDC-FormFiller.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case FHIRDSTU2CLIENT: return "FHIR-DSTU2-Client";
-            case FHIRDSTU2SDCFORMFILLER: return "FHIR-DSTU2-SDC-FormFiller";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ProfileOriginTypeEnumFactory implements EnumFactory<ProfileOriginType> {
-    public ProfileOriginType fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("FHIR-DSTU2-Client".equals(codeString))
-          return ProfileOriginType.FHIRDSTU2CLIENT;
-        if ("FHIR-DSTU2-SDC-FormFiller".equals(codeString))
-          return ProfileOriginType.FHIRDSTU2SDCFORMFILLER;
-        throw new IllegalArgumentException("Unknown ProfileOriginType code '"+codeString+"'");
-        }
-        public Enumeration<ProfileOriginType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("FHIR-DSTU2-Client".equals(codeString))
-          return new Enumeration<ProfileOriginType>(this, ProfileOriginType.FHIRDSTU2CLIENT);
-        if ("FHIR-DSTU2-SDC-FormFiller".equals(codeString))
-          return new Enumeration<ProfileOriginType>(this, ProfileOriginType.FHIRDSTU2SDCFORMFILLER);
-        throw new FHIRException("Unknown ProfileOriginType code '"+codeString+"'");
-        }
-    public String toCode(ProfileOriginType code) {
-      if (code == ProfileOriginType.FHIRDSTU2CLIENT)
-        return "FHIR-DSTU2-Client";
-      if (code == ProfileOriginType.FHIRDSTU2SDCFORMFILLER)
-        return "FHIR-DSTU2-SDC-FormFiller";
-      return "?";
-      }
-    public String toSystem(ProfileOriginType code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum ProfileDestinationType {
-        /**
-         * General DSTU2 server.
-         */
-        FHIRDSTU2SERVER, 
-        /**
-         * DSTU2 server that serves as an SDC-FormManager.
-         */
-        FHIRDSTU2SDCFORMMANAGER, 
-        /**
-         * DSTU2 server that serves as an SDC-FormReceiver.
-         */
-        FHIRDSTU2SDCFORMRECEIVER, 
-        /**
-         * DSTU2 server that serves as an SDC-FormProcessor.
-         */
-        FHIRDSTU2SDCFORMPROCESSOR, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ProfileDestinationType fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("FHIR-DSTU2-Server".equals(codeString))
-          return FHIRDSTU2SERVER;
-        if ("FHIR-DSTU2-SDC-FormManager".equals(codeString))
-          return FHIRDSTU2SDCFORMMANAGER;
-        if ("FHIR-DSTU2-SDC-FormReceiver".equals(codeString))
-          return FHIRDSTU2SDCFORMRECEIVER;
-        if ("FHIR-DSTU2-SDC-FormProcessor".equals(codeString))
-          return FHIRDSTU2SDCFORMPROCESSOR;
-        throw new FHIRException("Unknown ProfileDestinationType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case FHIRDSTU2SERVER: return "FHIR-DSTU2-Server";
-            case FHIRDSTU2SDCFORMMANAGER: return "FHIR-DSTU2-SDC-FormManager";
-            case FHIRDSTU2SDCFORMRECEIVER: return "FHIR-DSTU2-SDC-FormReceiver";
-            case FHIRDSTU2SDCFORMPROCESSOR: return "FHIR-DSTU2-SDC-FormProcessor";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case FHIRDSTU2SERVER: return "http://hl7.org/fhir/profile-destination-types";
-            case FHIRDSTU2SDCFORMMANAGER: return "http://hl7.org/fhir/profile-destination-types";
-            case FHIRDSTU2SDCFORMRECEIVER: return "http://hl7.org/fhir/profile-destination-types";
-            case FHIRDSTU2SDCFORMPROCESSOR: return "http://hl7.org/fhir/profile-destination-types";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case FHIRDSTU2SERVER: return "General DSTU2 server.";
-            case FHIRDSTU2SDCFORMMANAGER: return "DSTU2 server that serves as an SDC-FormManager.";
-            case FHIRDSTU2SDCFORMRECEIVER: return "DSTU2 server that serves as an SDC-FormReceiver.";
-            case FHIRDSTU2SDCFORMPROCESSOR: return "DSTU2 server that serves as an SDC-FormProcessor.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case FHIRDSTU2SERVER: return "FHIR-DSTU2-Server";
-            case FHIRDSTU2SDCFORMMANAGER: return "FHIR-DSTU2-SDC-FormManager";
-            case FHIRDSTU2SDCFORMRECEIVER: return "FHIR-DSTU2-SDC-FormReceiver";
-            case FHIRDSTU2SDCFORMPROCESSOR: return "FHIR-DSTU2-SDC-FormProcessor";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ProfileDestinationTypeEnumFactory implements EnumFactory<ProfileDestinationType> {
-    public ProfileDestinationType fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("FHIR-DSTU2-Server".equals(codeString))
-          return ProfileDestinationType.FHIRDSTU2SERVER;
-        if ("FHIR-DSTU2-SDC-FormManager".equals(codeString))
-          return ProfileDestinationType.FHIRDSTU2SDCFORMMANAGER;
-        if ("FHIR-DSTU2-SDC-FormReceiver".equals(codeString))
-          return ProfileDestinationType.FHIRDSTU2SDCFORMRECEIVER;
-        if ("FHIR-DSTU2-SDC-FormProcessor".equals(codeString))
-          return ProfileDestinationType.FHIRDSTU2SDCFORMPROCESSOR;
-        throw new IllegalArgumentException("Unknown ProfileDestinationType code '"+codeString+"'");
-        }
-        public Enumeration<ProfileDestinationType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("FHIR-DSTU2-Server".equals(codeString))
-          return new Enumeration<ProfileDestinationType>(this, ProfileDestinationType.FHIRDSTU2SERVER);
-        if ("FHIR-DSTU2-SDC-FormManager".equals(codeString))
-          return new Enumeration<ProfileDestinationType>(this, ProfileDestinationType.FHIRDSTU2SDCFORMMANAGER);
-        if ("FHIR-DSTU2-SDC-FormReceiver".equals(codeString))
-          return new Enumeration<ProfileDestinationType>(this, ProfileDestinationType.FHIRDSTU2SDCFORMRECEIVER);
-        if ("FHIR-DSTU2-SDC-FormProcessor".equals(codeString))
-          return new Enumeration<ProfileDestinationType>(this, ProfileDestinationType.FHIRDSTU2SDCFORMPROCESSOR);
-        throw new FHIRException("Unknown ProfileDestinationType code '"+codeString+"'");
-        }
-    public String toCode(ProfileDestinationType code) {
-      if (code == ProfileDestinationType.FHIRDSTU2SERVER)
-        return "FHIR-DSTU2-Server";
-      if (code == ProfileDestinationType.FHIRDSTU2SDCFORMMANAGER)
-        return "FHIR-DSTU2-SDC-FormManager";
-      if (code == ProfileDestinationType.FHIRDSTU2SDCFORMRECEIVER)
-        return "FHIR-DSTU2-SDC-FormReceiver";
-      if (code == ProfileDestinationType.FHIRDSTU2SDCFORMPROCESSOR)
-        return "FHIR-DSTU2-SDC-FormProcessor";
-      return "?";
-      }
-    public String toSystem(ProfileDestinationType code) {
-      return code.getSystem();
-      }
-    }
 
     public enum ContentType {
         /**
@@ -896,7 +690,7 @@ public class TestScript extends DomainResource {
          * The name of an individual to contact regarding the Test Script.
          */
         @Child(name = "name", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Name of a individual to contact", formalDefinition="The name of an individual to contact regarding the Test Script." )
+        @Description(shortDefinition="Name of an individual to contact", formalDefinition="The name of an individual to contact regarding the Test Script." )
         protected StringType name;
 
         /**
@@ -1071,6 +865,350 @@ public class TestScript extends DomainResource {
 
   public String fhirType() {
     return "TestScript.contact";
+
+  }
+
+  }
+
+    @Block()
+    public static class TestScriptOriginComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.
+         */
+        @Child(name = "index", type = {IntegerType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="The index of the abstract origin server starting at 1", formalDefinition="Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1." )
+        protected IntegerType index;
+
+        /**
+         * The type of origin profile the test system supports.
+         */
+        @Child(name = "profile", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="FHIR-Client | FHIR-SDC-FormFiller", formalDefinition="The type of origin profile the test system supports." )
+        protected Coding profile;
+
+        private static final long serialVersionUID = -1239935149L;
+
+    /**
+     * Constructor
+     */
+      public TestScriptOriginComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public TestScriptOriginComponent(IntegerType index, Coding profile) {
+        super();
+        this.index = index;
+        this.profile = profile;
+      }
+
+        /**
+         * @return {@link #index} (Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
+         */
+        public IntegerType getIndexElement() { 
+          if (this.index == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptOriginComponent.index");
+            else if (Configuration.doAutoCreate())
+              this.index = new IntegerType(); // bb
+          return this.index;
+        }
+
+        public boolean hasIndexElement() { 
+          return this.index != null && !this.index.isEmpty();
+        }
+
+        public boolean hasIndex() { 
+          return this.index != null && !this.index.isEmpty();
+        }
+
+        /**
+         * @param value {@link #index} (Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
+         */
+        public TestScriptOriginComponent setIndexElement(IntegerType value) { 
+          this.index = value;
+          return this;
+        }
+
+        /**
+         * @return Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.
+         */
+        public int getIndex() { 
+          return this.index == null || this.index.isEmpty() ? 0 : this.index.getValue();
+        }
+
+        /**
+         * @param value Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.
+         */
+        public TestScriptOriginComponent setIndex(int value) { 
+            if (this.index == null)
+              this.index = new IntegerType();
+            this.index.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #profile} (The type of origin profile the test system supports.)
+         */
+        public Coding getProfile() { 
+          if (this.profile == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptOriginComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profile = new Coding(); // cc
+          return this.profile;
+        }
+
+        public boolean hasProfile() { 
+          return this.profile != null && !this.profile.isEmpty();
+        }
+
+        /**
+         * @param value {@link #profile} (The type of origin profile the test system supports.)
+         */
+        public TestScriptOriginComponent setProfile(Coding value) { 
+          this.profile = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("index", "integer", "Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.", 0, java.lang.Integer.MAX_VALUE, index));
+          childrenList.add(new Property("profile", "Coding", "The type of origin profile the test system supports.", 0, java.lang.Integer.MAX_VALUE, profile));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("index"))
+          this.index = castToInteger(value); // IntegerType
+        else if (name.equals("profile"))
+          this.profile = castToCoding(value); // Coding
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("index")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.index");
+        }
+        else if (name.equals("profile")) {
+          this.profile = new Coding();
+          return this.profile;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public TestScriptOriginComponent copy() {
+        TestScriptOriginComponent dst = new TestScriptOriginComponent();
+        copyValues(dst);
+        dst.index = index == null ? null : index.copy();
+        dst.profile = profile == null ? null : profile.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof TestScriptOriginComponent))
+          return false;
+        TestScriptOriginComponent o = (TestScriptOriginComponent) other;
+        return compareDeep(index, o.index, true) && compareDeep(profile, o.profile, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof TestScriptOriginComponent))
+          return false;
+        TestScriptOriginComponent o = (TestScriptOriginComponent) other;
+        return compareValues(index, o.index, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (index == null || index.isEmpty()) && (profile == null || profile.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "TestScript.origin";
+
+  }
+
+  }
+
+    @Block()
+    public static class TestScriptDestinationComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.
+         */
+        @Child(name = "index", type = {IntegerType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="The index of the abstract destination server starting at 1", formalDefinition="Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1." )
+        protected IntegerType index;
+
+        /**
+         * The type of destination profile the test system supports.
+         */
+        @Child(name = "profile", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="FHIR-Server | FHIR-SDC-FormManager | FHIR-SDC-FormReceiver | FHIR-SDC-FormProcessor", formalDefinition="The type of destination profile the test system supports." )
+        protected Coding profile;
+
+        private static final long serialVersionUID = -1239935149L;
+
+    /**
+     * Constructor
+     */
+      public TestScriptDestinationComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public TestScriptDestinationComponent(IntegerType index, Coding profile) {
+        super();
+        this.index = index;
+        this.profile = profile;
+      }
+
+        /**
+         * @return {@link #index} (Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
+         */
+        public IntegerType getIndexElement() { 
+          if (this.index == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptDestinationComponent.index");
+            else if (Configuration.doAutoCreate())
+              this.index = new IntegerType(); // bb
+          return this.index;
+        }
+
+        public boolean hasIndexElement() { 
+          return this.index != null && !this.index.isEmpty();
+        }
+
+        public boolean hasIndex() { 
+          return this.index != null && !this.index.isEmpty();
+        }
+
+        /**
+         * @param value {@link #index} (Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
+         */
+        public TestScriptDestinationComponent setIndexElement(IntegerType value) { 
+          this.index = value;
+          return this;
+        }
+
+        /**
+         * @return Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.
+         */
+        public int getIndex() { 
+          return this.index == null || this.index.isEmpty() ? 0 : this.index.getValue();
+        }
+
+        /**
+         * @param value Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.
+         */
+        public TestScriptDestinationComponent setIndex(int value) { 
+            if (this.index == null)
+              this.index = new IntegerType();
+            this.index.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #profile} (The type of destination profile the test system supports.)
+         */
+        public Coding getProfile() { 
+          if (this.profile == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptDestinationComponent.profile");
+            else if (Configuration.doAutoCreate())
+              this.profile = new Coding(); // cc
+          return this.profile;
+        }
+
+        public boolean hasProfile() { 
+          return this.profile != null && !this.profile.isEmpty();
+        }
+
+        /**
+         * @param value {@link #profile} (The type of destination profile the test system supports.)
+         */
+        public TestScriptDestinationComponent setProfile(Coding value) { 
+          this.profile = value;
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("index", "integer", "Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.", 0, java.lang.Integer.MAX_VALUE, index));
+          childrenList.add(new Property("profile", "Coding", "The type of destination profile the test system supports.", 0, java.lang.Integer.MAX_VALUE, profile));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("index"))
+          this.index = castToInteger(value); // IntegerType
+        else if (name.equals("profile"))
+          this.profile = castToCoding(value); // Coding
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("index")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.index");
+        }
+        else if (name.equals("profile")) {
+          this.profile = new Coding();
+          return this.profile;
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public TestScriptDestinationComponent copy() {
+        TestScriptDestinationComponent dst = new TestScriptDestinationComponent();
+        copyValues(dst);
+        dst.index = index == null ? null : index.copy();
+        dst.profile = profile == null ? null : profile.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof TestScriptDestinationComponent))
+          return false;
+        TestScriptDestinationComponent o = (TestScriptDestinationComponent) other;
+        return compareDeep(index, o.index, true) && compareDeep(profile, o.profile, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof TestScriptDestinationComponent))
+          return false;
+        TestScriptDestinationComponent o = (TestScriptDestinationComponent) other;
+        return compareValues(index, o.index, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (index == null || index.isEmpty()) && (profile == null || profile.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "TestScript.destination";
 
   }
 
@@ -1974,390 +2112,6 @@ public class TestScript extends DomainResource {
 
   public String fhirType() {
     return "TestScript.metadata.capability";
-
-  }
-
-  }
-
-    @Block()
-    public static class TestScriptOriginComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.
-         */
-        @Child(name = "index", type = {IntegerType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The index of the abstract origin server starting at 1", formalDefinition="Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1." )
-        protected IntegerType index;
-
-        /**
-         * The type of profile the server supports.
-         */
-        @Child(name = "profile", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="FHIR-DSTU2-Client | FHIR-DSTU2-SDC-FormFiller", formalDefinition="The type of profile the server supports." )
-        protected Enumeration<ProfileOriginType> profile;
-
-        private static final long serialVersionUID = -1472818765L;
-
-    /**
-     * Constructor
-     */
-      public TestScriptOriginComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public TestScriptOriginComponent(IntegerType index, Enumeration<ProfileOriginType> profile) {
-        super();
-        this.index = index;
-        this.profile = profile;
-      }
-
-        /**
-         * @return {@link #index} (Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
-         */
-        public IntegerType getIndexElement() { 
-          if (this.index == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptOriginComponent.index");
-            else if (Configuration.doAutoCreate())
-              this.index = new IntegerType(); // bb
-          return this.index;
-        }
-
-        public boolean hasIndexElement() { 
-          return this.index != null && !this.index.isEmpty();
-        }
-
-        public boolean hasIndex() { 
-          return this.index != null && !this.index.isEmpty();
-        }
-
-        /**
-         * @param value {@link #index} (Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
-         */
-        public TestScriptOriginComponent setIndexElement(IntegerType value) { 
-          this.index = value;
-          return this;
-        }
-
-        /**
-         * @return Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.
-         */
-        public int getIndex() { 
-          return this.index == null || this.index.isEmpty() ? 0 : this.index.getValue();
-        }
-
-        /**
-         * @param value Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.
-         */
-        public TestScriptOriginComponent setIndex(int value) { 
-            if (this.index == null)
-              this.index = new IntegerType();
-            this.index.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #profile} (The type of profile the server supports.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
-         */
-        public Enumeration<ProfileOriginType> getProfileElement() { 
-          if (this.profile == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptOriginComponent.profile");
-            else if (Configuration.doAutoCreate())
-              this.profile = new Enumeration<ProfileOriginType>(new ProfileOriginTypeEnumFactory()); // bb
-          return this.profile;
-        }
-
-        public boolean hasProfileElement() { 
-          return this.profile != null && !this.profile.isEmpty();
-        }
-
-        public boolean hasProfile() { 
-          return this.profile != null && !this.profile.isEmpty();
-        }
-
-        /**
-         * @param value {@link #profile} (The type of profile the server supports.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
-         */
-        public TestScriptOriginComponent setProfileElement(Enumeration<ProfileOriginType> value) { 
-          this.profile = value;
-          return this;
-        }
-
-        /**
-         * @return The type of profile the server supports.
-         */
-        public ProfileOriginType getProfile() { 
-          return this.profile == null ? null : this.profile.getValue();
-        }
-
-        /**
-         * @param value The type of profile the server supports.
-         */
-        public TestScriptOriginComponent setProfile(ProfileOriginType value) { 
-            if (this.profile == null)
-              this.profile = new Enumeration<ProfileOriginType>(new ProfileOriginTypeEnumFactory());
-            this.profile.setValue(value);
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("index", "integer", "Abstract name given to an origin server in this test script.  The name is provided as a number starting at 1.", 0, java.lang.Integer.MAX_VALUE, index));
-          childrenList.add(new Property("profile", "code", "The type of profile the server supports.", 0, java.lang.Integer.MAX_VALUE, profile));
-        }
-
-      @Override
-      public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("index"))
-          this.index = castToInteger(value); // IntegerType
-        else if (name.equals("profile"))
-          this.profile = new ProfileOriginTypeEnumFactory().fromType(value); // Enumeration<ProfileOriginType>
-        else
-          super.setProperty(name, value);
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("index")) {
-          throw new FHIRException("Cannot call addChild on a primitive type TestScript.index");
-        }
-        else if (name.equals("profile")) {
-          throw new FHIRException("Cannot call addChild on a primitive type TestScript.profile");
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public TestScriptOriginComponent copy() {
-        TestScriptOriginComponent dst = new TestScriptOriginComponent();
-        copyValues(dst);
-        dst.index = index == null ? null : index.copy();
-        dst.profile = profile == null ? null : profile.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof TestScriptOriginComponent))
-          return false;
-        TestScriptOriginComponent o = (TestScriptOriginComponent) other;
-        return compareDeep(index, o.index, true) && compareDeep(profile, o.profile, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof TestScriptOriginComponent))
-          return false;
-        TestScriptOriginComponent o = (TestScriptOriginComponent) other;
-        return compareValues(index, o.index, true) && compareValues(profile, o.profile, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (index == null || index.isEmpty()) && (profile == null || profile.isEmpty())
-          ;
-      }
-
-  public String fhirType() {
-    return "TestScript.origin";
-
-  }
-
-  }
-
-    @Block()
-    public static class TestScriptDestinationComponent extends BackboneElement implements IBaseBackboneElement {
-        /**
-         * Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.
-         */
-        @Child(name = "index", type = {IntegerType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The index of the abstract destination server starting at 1", formalDefinition="Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1." )
-        protected IntegerType index;
-
-        /**
-         * The type of profile the server supports.
-         */
-        @Child(name = "profile", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="FHIR-DSTU2-Server | FHIR-DSTU2-SDC-FormManager | FHIR-DSTU2-SDC-FormReceiver | FHIR-DSTU2-SDC-FormProcessor", formalDefinition="The type of profile the server supports." )
-        protected Enumeration<ProfileDestinationType> profile;
-
-        private static final long serialVersionUID = 399132503L;
-
-    /**
-     * Constructor
-     */
-      public TestScriptDestinationComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public TestScriptDestinationComponent(IntegerType index, Enumeration<ProfileDestinationType> profile) {
-        super();
-        this.index = index;
-        this.profile = profile;
-      }
-
-        /**
-         * @return {@link #index} (Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
-         */
-        public IntegerType getIndexElement() { 
-          if (this.index == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptDestinationComponent.index");
-            else if (Configuration.doAutoCreate())
-              this.index = new IntegerType(); // bb
-          return this.index;
-        }
-
-        public boolean hasIndexElement() { 
-          return this.index != null && !this.index.isEmpty();
-        }
-
-        public boolean hasIndex() { 
-          return this.index != null && !this.index.isEmpty();
-        }
-
-        /**
-         * @param value {@link #index} (Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.). This is the underlying object with id, value and extensions. The accessor "getIndex" gives direct access to the value
-         */
-        public TestScriptDestinationComponent setIndexElement(IntegerType value) { 
-          this.index = value;
-          return this;
-        }
-
-        /**
-         * @return Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.
-         */
-        public int getIndex() { 
-          return this.index == null || this.index.isEmpty() ? 0 : this.index.getValue();
-        }
-
-        /**
-         * @param value Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.
-         */
-        public TestScriptDestinationComponent setIndex(int value) { 
-            if (this.index == null)
-              this.index = new IntegerType();
-            this.index.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #profile} (The type of profile the server supports.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
-         */
-        public Enumeration<ProfileDestinationType> getProfileElement() { 
-          if (this.profile == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TestScriptDestinationComponent.profile");
-            else if (Configuration.doAutoCreate())
-              this.profile = new Enumeration<ProfileDestinationType>(new ProfileDestinationTypeEnumFactory()); // bb
-          return this.profile;
-        }
-
-        public boolean hasProfileElement() { 
-          return this.profile != null && !this.profile.isEmpty();
-        }
-
-        public boolean hasProfile() { 
-          return this.profile != null && !this.profile.isEmpty();
-        }
-
-        /**
-         * @param value {@link #profile} (The type of profile the server supports.). This is the underlying object with id, value and extensions. The accessor "getProfile" gives direct access to the value
-         */
-        public TestScriptDestinationComponent setProfileElement(Enumeration<ProfileDestinationType> value) { 
-          this.profile = value;
-          return this;
-        }
-
-        /**
-         * @return The type of profile the server supports.
-         */
-        public ProfileDestinationType getProfile() { 
-          return this.profile == null ? null : this.profile.getValue();
-        }
-
-        /**
-         * @param value The type of profile the server supports.
-         */
-        public TestScriptDestinationComponent setProfile(ProfileDestinationType value) { 
-            if (this.profile == null)
-              this.profile = new Enumeration<ProfileDestinationType>(new ProfileDestinationTypeEnumFactory());
-            this.profile.setValue(value);
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("index", "integer", "Abstract name given to a destination server in this test script.  The name is provided as a number starting at 1.", 0, java.lang.Integer.MAX_VALUE, index));
-          childrenList.add(new Property("profile", "code", "The type of profile the server supports.", 0, java.lang.Integer.MAX_VALUE, profile));
-        }
-
-      @Override
-      public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("index"))
-          this.index = castToInteger(value); // IntegerType
-        else if (name.equals("profile"))
-          this.profile = new ProfileDestinationTypeEnumFactory().fromType(value); // Enumeration<ProfileDestinationType>
-        else
-          super.setProperty(name, value);
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("index")) {
-          throw new FHIRException("Cannot call addChild on a primitive type TestScript.index");
-        }
-        else if (name.equals("profile")) {
-          throw new FHIRException("Cannot call addChild on a primitive type TestScript.profile");
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public TestScriptDestinationComponent copy() {
-        TestScriptDestinationComponent dst = new TestScriptDestinationComponent();
-        copyValues(dst);
-        dst.index = index == null ? null : index.copy();
-        dst.profile = profile == null ? null : profile.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof TestScriptDestinationComponent))
-          return false;
-        TestScriptDestinationComponent o = (TestScriptDestinationComponent) other;
-        return compareDeep(index, o.index, true) && compareDeep(profile, o.profile, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof TestScriptDestinationComponent))
-          return false;
-        TestScriptDestinationComponent o = (TestScriptDestinationComponent) other;
-        return compareValues(index, o.index, true) && compareValues(profile, o.profile, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (index == null || index.isEmpty()) && (profile == null || profile.isEmpty())
-          ;
-      }
-
-  public String fhirType() {
-    return "TestScript.destination";
 
   }
 
@@ -6435,44 +6189,37 @@ public class TestScript extends DomainResource {
     protected StringType copyright;
 
     /**
-     * The required capability must exist and are assumed to function correctly on the FHIR server being tested.
-     */
-    @Child(name = "metadata", type = {}, order=13, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Required capability that is assumed to function correctly on the FHIR server being tested", formalDefinition="The required capability must exist and are assumed to function correctly on the FHIR server being tested." )
-    protected TestScriptMetadataComponent metadata;
-
-    /**
      * An abstract server used in operations within this test script in the origin element.
      */
-    @Child(name = "origin", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "origin", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="An abstract server representing a client or sender in a message exchange", formalDefinition="An abstract server used in operations within this test script in the origin element." )
     protected List<TestScriptOriginComponent> origin;
 
     /**
      * An abstract server used in operations within this test script in the destination element.
      */
-    @Child(name = "destination", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "destination", type = {}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="An abstract server representing a destination or receiver in a message exchange", formalDefinition="An abstract server used in operations within this test script in the destination element." )
     protected List<TestScriptDestinationComponent> destination;
 
     /**
-     * If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.
+     * The required capability must exist and are assumed to function correctly on the FHIR server being tested.
      */
-    @Child(name = "multiserver", type = {BooleanType.class}, order=16, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Whether or not the tests apply to more than one FHIR server", formalDefinition="If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified." )
-    protected BooleanType multiserver;
+    @Child(name = "metadata", type = {}, order=15, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Required capability that is assumed to function correctly on the FHIR server being tested", formalDefinition="The required capability must exist and are assumed to function correctly on the FHIR server being tested." )
+    protected TestScriptMetadataComponent metadata;
 
     /**
      * Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute.
      */
-    @Child(name = "fixture", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "fixture", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Fixture in the test script - by reference (uri)", formalDefinition="Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute." )
     protected List<TestScriptFixtureComponent> fixture;
 
     /**
      * Reference to the profile to be used for validation.
      */
-    @Child(name = "profile", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "profile", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Reference of the validation profile", formalDefinition="Reference to the profile to be used for validation." )
     protected List<Reference> profile;
     /**
@@ -6484,32 +6231,32 @@ public class TestScript extends DomainResource {
     /**
      * Variable is set based either on element value in response body or on header field value in the response headers.
      */
-    @Child(name = "variable", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "variable", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Placeholder for evaluated elements", formalDefinition="Variable is set based either on element value in response body or on header field value in the response headers." )
     protected List<TestScriptVariableComponent> variable;
 
     /**
      * A series of required setup operations before tests are executed.
      */
-    @Child(name = "setup", type = {}, order=20, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "setup", type = {}, order=19, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="A series of required setup operations before tests are executed", formalDefinition="A series of required setup operations before tests are executed." )
     protected TestScriptSetupComponent setup;
 
     /**
      * A test in this script.
      */
-    @Child(name = "test", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "test", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A test in this script", formalDefinition="A test in this script." )
     protected List<TestScriptTestComponent> test;
 
     /**
      * A series of operations required to clean up after the all the tests are executed (successfully or otherwise).
      */
-    @Child(name = "teardown", type = {}, order=22, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "teardown", type = {}, order=21, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="A series of required clean up steps", formalDefinition="A series of operations required to clean up after the all the tests are executed (successfully or otherwise)." )
     protected TestScriptTeardownComponent teardown;
 
-    private static final long serialVersionUID = -1185376163L;
+    private static final long serialVersionUID = 1603560589L;
 
   /**
    * Constructor
@@ -7107,30 +6854,6 @@ public class TestScript extends DomainResource {
     }
 
     /**
-     * @return {@link #metadata} (The required capability must exist and are assumed to function correctly on the FHIR server being tested.)
-     */
-    public TestScriptMetadataComponent getMetadata() { 
-      if (this.metadata == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create TestScript.metadata");
-        else if (Configuration.doAutoCreate())
-          this.metadata = new TestScriptMetadataComponent(); // cc
-      return this.metadata;
-    }
-
-    public boolean hasMetadata() { 
-      return this.metadata != null && !this.metadata.isEmpty();
-    }
-
-    /**
-     * @param value {@link #metadata} (The required capability must exist and are assumed to function correctly on the FHIR server being tested.)
-     */
-    public TestScript setMetadata(TestScriptMetadataComponent value) { 
-      this.metadata = value;
-      return this;
-    }
-
-    /**
      * @return {@link #origin} (An abstract server used in operations within this test script in the origin element.)
      */
     public List<TestScriptOriginComponent> getOrigin() { 
@@ -7211,47 +6934,26 @@ public class TestScript extends DomainResource {
     }
 
     /**
-     * @return {@link #multiserver} (If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.). This is the underlying object with id, value and extensions. The accessor "getMultiserver" gives direct access to the value
+     * @return {@link #metadata} (The required capability must exist and are assumed to function correctly on the FHIR server being tested.)
      */
-    public BooleanType getMultiserverElement() { 
-      if (this.multiserver == null)
+    public TestScriptMetadataComponent getMetadata() { 
+      if (this.metadata == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create TestScript.multiserver");
+          throw new Error("Attempt to auto-create TestScript.metadata");
         else if (Configuration.doAutoCreate())
-          this.multiserver = new BooleanType(); // bb
-      return this.multiserver;
+          this.metadata = new TestScriptMetadataComponent(); // cc
+      return this.metadata;
     }
 
-    public boolean hasMultiserverElement() { 
-      return this.multiserver != null && !this.multiserver.isEmpty();
-    }
-
-    public boolean hasMultiserver() { 
-      return this.multiserver != null && !this.multiserver.isEmpty();
+    public boolean hasMetadata() { 
+      return this.metadata != null && !this.metadata.isEmpty();
     }
 
     /**
-     * @param value {@link #multiserver} (If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.). This is the underlying object with id, value and extensions. The accessor "getMultiserver" gives direct access to the value
+     * @param value {@link #metadata} (The required capability must exist and are assumed to function correctly on the FHIR server being tested.)
      */
-    public TestScript setMultiserverElement(BooleanType value) { 
-      this.multiserver = value;
-      return this;
-    }
-
-    /**
-     * @return If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.
-     */
-    public boolean getMultiserver() { 
-      return this.multiserver == null || this.multiserver.isEmpty() ? false : this.multiserver.getValue();
-    }
-
-    /**
-     * @param value If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.
-     */
-    public TestScript setMultiserver(boolean value) { 
-        if (this.multiserver == null)
-          this.multiserver = new BooleanType();
-        this.multiserver.setValue(value);
+    public TestScript setMetadata(TestScriptMetadataComponent value) { 
+      this.metadata = value;
       return this;
     }
 
@@ -7487,10 +7189,9 @@ public class TestScript extends DomainResource {
         childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of Test Scripts.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("requirements", "string", "Explains why this Test Script is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the Test Script and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the constraints and mappings.", 0, java.lang.Integer.MAX_VALUE, copyright));
-        childrenList.add(new Property("metadata", "", "The required capability must exist and are assumed to function correctly on the FHIR server being tested.", 0, java.lang.Integer.MAX_VALUE, metadata));
         childrenList.add(new Property("origin", "", "An abstract server used in operations within this test script in the origin element.", 0, java.lang.Integer.MAX_VALUE, origin));
         childrenList.add(new Property("destination", "", "An abstract server used in operations within this test script in the destination element.", 0, java.lang.Integer.MAX_VALUE, destination));
-        childrenList.add(new Property("multiserver", "boolean", "If the tests apply to more than one FHIR server (e.g. cross-server interoperability tests) then multiserver=true. Defaults to false if value is unspecified.", 0, java.lang.Integer.MAX_VALUE, multiserver));
+        childrenList.add(new Property("metadata", "", "The required capability must exist and are assumed to function correctly on the FHIR server being tested.", 0, java.lang.Integer.MAX_VALUE, metadata));
         childrenList.add(new Property("fixture", "", "Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute.", 0, java.lang.Integer.MAX_VALUE, fixture));
         childrenList.add(new Property("profile", "Reference(Any)", "Reference to the profile to be used for validation.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("variable", "", "Variable is set based either on element value in response body or on header field value in the response headers.", 0, java.lang.Integer.MAX_VALUE, variable));
@@ -7527,14 +7228,12 @@ public class TestScript extends DomainResource {
           this.requirements = castToString(value); // StringType
         else if (name.equals("copyright"))
           this.copyright = castToString(value); // StringType
-        else if (name.equals("metadata"))
-          this.metadata = (TestScriptMetadataComponent) value; // TestScriptMetadataComponent
         else if (name.equals("origin"))
           this.getOrigin().add((TestScriptOriginComponent) value);
         else if (name.equals("destination"))
           this.getDestination().add((TestScriptDestinationComponent) value);
-        else if (name.equals("multiserver"))
-          this.multiserver = castToBoolean(value); // BooleanType
+        else if (name.equals("metadata"))
+          this.metadata = (TestScriptMetadataComponent) value; // TestScriptMetadataComponent
         else if (name.equals("fixture"))
           this.getFixture().add((TestScriptFixtureComponent) value);
         else if (name.equals("profile"))
@@ -7593,18 +7292,15 @@ public class TestScript extends DomainResource {
         else if (name.equals("copyright")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.copyright");
         }
-        else if (name.equals("metadata")) {
-          this.metadata = new TestScriptMetadataComponent();
-          return this.metadata;
-        }
         else if (name.equals("origin")) {
           return addOrigin();
         }
         else if (name.equals("destination")) {
           return addDestination();
         }
-        else if (name.equals("multiserver")) {
-          throw new FHIRException("Cannot call addChild on a primitive type TestScript.multiserver");
+        else if (name.equals("metadata")) {
+          this.metadata = new TestScriptMetadataComponent();
+          return this.metadata;
         }
         else if (name.equals("fixture")) {
           return addFixture();
@@ -7659,7 +7355,6 @@ public class TestScript extends DomainResource {
         };
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.copyright = copyright == null ? null : copyright.copy();
-        dst.metadata = metadata == null ? null : metadata.copy();
         if (origin != null) {
           dst.origin = new ArrayList<TestScriptOriginComponent>();
           for (TestScriptOriginComponent i : origin)
@@ -7670,7 +7365,7 @@ public class TestScript extends DomainResource {
           for (TestScriptDestinationComponent i : destination)
             dst.destination.add(i.copy());
         };
-        dst.multiserver = multiserver == null ? null : multiserver.copy();
+        dst.metadata = metadata == null ? null : metadata.copy();
         if (fixture != null) {
           dst.fixture = new ArrayList<TestScriptFixtureComponent>();
           for (TestScriptFixtureComponent i : fixture)
@@ -7712,10 +7407,10 @@ public class TestScript extends DomainResource {
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true)
            && compareDeep(description, o.description, true) && compareDeep(useContext, o.useContext, true)
            && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
-           && compareDeep(metadata, o.metadata, true) && compareDeep(origin, o.origin, true) && compareDeep(destination, o.destination, true)
-           && compareDeep(multiserver, o.multiserver, true) && compareDeep(fixture, o.fixture, true) && compareDeep(profile, o.profile, true)
-           && compareDeep(variable, o.variable, true) && compareDeep(setup, o.setup, true) && compareDeep(test, o.test, true)
-           && compareDeep(teardown, o.teardown, true);
+           && compareDeep(origin, o.origin, true) && compareDeep(destination, o.destination, true) && compareDeep(metadata, o.metadata, true)
+           && compareDeep(fixture, o.fixture, true) && compareDeep(profile, o.profile, true) && compareDeep(variable, o.variable, true)
+           && compareDeep(setup, o.setup, true) && compareDeep(test, o.test, true) && compareDeep(teardown, o.teardown, true)
+          ;
       }
 
       @Override
@@ -7728,7 +7423,7 @@ public class TestScript extends DomainResource {
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
            && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
            && compareValues(date, o.date, true) && compareValues(description, o.description, true) && compareValues(requirements, o.requirements, true)
-           && compareValues(copyright, o.copyright, true) && compareValues(multiserver, o.multiserver, true);
+           && compareValues(copyright, o.copyright, true);
       }
 
       public boolean isEmpty() {
@@ -7737,11 +7432,10 @@ public class TestScript extends DomainResource {
            && (experimental == null || experimental.isEmpty()) && (publisher == null || publisher.isEmpty())
            && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty()) && (description == null || description.isEmpty())
            && (useContext == null || useContext.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (copyright == null || copyright.isEmpty()) && (metadata == null || metadata.isEmpty())
-           && (origin == null || origin.isEmpty()) && (destination == null || destination.isEmpty())
-           && (multiserver == null || multiserver.isEmpty()) && (fixture == null || fixture.isEmpty())
-           && (profile == null || profile.isEmpty()) && (variable == null || variable.isEmpty()) && (setup == null || setup.isEmpty())
-           && (test == null || test.isEmpty()) && (teardown == null || teardown.isEmpty());
+           && (copyright == null || copyright.isEmpty()) && (origin == null || origin.isEmpty()) && (destination == null || destination.isEmpty())
+           && (metadata == null || metadata.isEmpty()) && (fixture == null || fixture.isEmpty()) && (profile == null || profile.isEmpty())
+           && (variable == null || variable.isEmpty()) && (setup == null || setup.isEmpty()) && (test == null || test.isEmpty())
+           && (teardown == null || teardown.isEmpty());
       }
 
   @Override

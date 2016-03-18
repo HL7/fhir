@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/testscript-profile-origin-types"/>
+  <name value="TestScriptProfileOriginTypes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set defines a set of codes that are used to indicate the profile type of a test system when acting as the origin within a TestScript."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="FHIR-Client"/>
+    <display value="FHIR Client"/>
+    <definition value="General FHIR client used to initiate operations against a FHIR server."/>
+  </concept>
+  <concept>
+    <code value="FHIR-SDC-FormFiller"/>
+    <display value="FHIR SDC FormFiller"/>
+    <definition value="A FHIR client acting as a Structured Data Capture Form Filler."/>
+  </concept>
+</CodeSystem>

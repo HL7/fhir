@@ -1,0 +1,16 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/action-participant-type",
+  "outcomes": [
+    {
+      "hash": "|null|null|practitioner|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "practitioner",
+        "definition": null,
+        "display": "Practitioner"
+      }
+    }
+  ]
+}

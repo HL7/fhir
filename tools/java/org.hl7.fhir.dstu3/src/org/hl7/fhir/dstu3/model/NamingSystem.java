@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -276,7 +276,7 @@ public class NamingSystem extends DomainResource {
          * The name of an individual to contact regarding the naming system.
          */
         @Child(name = "name", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Name of a individual to contact", formalDefinition="The name of an individual to contact regarding the naming system." )
+        @Description(shortDefinition="Name of an individual to contact", formalDefinition="The name of an individual to contact regarding the naming system." )
         protected StringType name;
 
         /**
@@ -1707,17 +1707,17 @@ public class NamingSystem extends DomainResource {
  /**
    * Search parameter: <b>contact</b>
    * <p>
-   * Description: <b>Name of a individual to contact</b><br>
+   * Description: <b>Name of an individual to contact</b><br>
    * Type: <b>string</b><br>
    * Path: <b>NamingSystem.contact.name</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="contact", path="NamingSystem.contact.name", description="Name of a individual to contact", type="string" )
+  @SearchParamDefinition(name="contact", path="NamingSystem.contact.name", description="Name of an individual to contact", type="string" )
   public static final String SP_CONTACT = "contact";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>contact</b>
    * <p>
-   * Description: <b>Name of a individual to contact</b><br>
+   * Description: <b>Name of an individual to contact</b><br>
    * Type: <b>string</b><br>
    * Path: <b>NamingSystem.contact.name</b><br>
    * </p>

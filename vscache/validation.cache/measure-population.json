@@ -1,0 +1,43 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/measure-population",
+  "outcomes": [
+    {
+      "hash": "|null|null|denominator-exclusions|null",
+      "severity": "error",
+      "message": "Unknown Code denominator-exclusions in http://hl7.org/fhir/ValueSet/measure-population"
+    },
+    {
+      "hash": "|null|null|denominator|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "denominator",
+        "definition": null,
+        "display": "Denominator"
+      }
+    },
+    {
+      "hash": "|null|null|initial-population|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "initial-population",
+        "definition": null,
+        "display": "Initial Population"
+      }
+    },
+    {
+      "hash": "|null|null|numerator|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "numerator",
+        "definition": null,
+        "display": "Numerator"
+      }
+    }
+  ]
+}

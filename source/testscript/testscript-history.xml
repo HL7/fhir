@@ -18,14 +18,14 @@
 				<reference value="Conformance/example" />
 			</conformance>
 		</capability>
-	</metadata>	
+	</metadata>
 	<fixture id="example-patient">
-		<resource>	
+		<resource>
 			<reference value="Patient/example"/>
 		</resource>
 	</fixture>
 	<fixture id="example-patient-updated">
-		<resource>	
+		<resource>
 			<reference value="Patient/pat1"/>
 		</resource>
 	</fixture>
@@ -60,7 +60,7 @@
 					<reference value="Conformance/example" />
 				</conformance>
 			</capability>
-		</metadata>	
+		</metadata>
 		<action>
 			<operation>
 				<type>

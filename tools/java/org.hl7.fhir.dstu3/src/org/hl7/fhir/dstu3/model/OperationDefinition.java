@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 09:23+1100 for FHIR v1.3.0
+// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -228,7 +228,7 @@ public class OperationDefinition extends DomainResource {
          * The name of an individual to contact regarding the operation definition.
          */
         @Child(name = "name", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Name of a individual to contact", formalDefinition="The name of an individual to contact regarding the operation definition." )
+        @Description(shortDefinition="Name of an individual to contact", formalDefinition="The name of an individual to contact regarding the operation definition." )
         protected StringType name;
 
         /**
@@ -1285,14 +1285,14 @@ public class OperationDefinition extends DomainResource {
      * Explains why this operation definition is needed and why it's been constrained as it has.
      */
     @Child(name = "requirements", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Why is this needed?", formalDefinition="Explains why this operation definition is needed and why it's been constrained as it has." )
+    @Description(shortDefinition="Why this resource has been created", formalDefinition="Explains why this operation definition is needed and why it's been constrained as it has." )
     protected StringType requirements;
 
     /**
      * Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
      */
     @Child(name = "idempotent", type = {BooleanType.class}, order=11, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Whether content is unchanged by operation", formalDefinition="Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST." )
+    @Description(shortDefinition="Whether content is unchanged by the operation", formalDefinition="Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST." )
     protected BooleanType idempotent;
 
     /**

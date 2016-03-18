@@ -1,0 +1,16 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/measure-type",
+  "outcomes": [
+    {
+      "hash": "|null|null|outcome|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "outcome",
+        "definition": null,
+        "display": "Outcome"
+      }
+    }
+  ]
+}

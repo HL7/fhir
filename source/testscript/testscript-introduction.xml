@@ -39,7 +39,7 @@ The TestScript resource is an infrastructure support resource used to represent 
 implementation's level of adherence to the FHIR specification.
 </p>
 <p>
-The TestScript resource relies is a part of the conformance framework; its purpose is to 
+The TestScript resource is a part of the conformance framework; its purpose is to 
 test whether systems conform to a set of expectations. The expectations are expressed
 using a combination of the following resources:
 </p>
@@ -63,10 +63,10 @@ using a combination of the following resources:
 <p>
 <h3>Background</h3>
 <p>
-  The TestScript resource is designed to establish testing as a first class artifact within the FHIR specification.  This resource allows defining a suite of tests that can be executed on one or more FHIR servers.  The TestScript resource provides an implementation agnostic description of tests that allows test execution engines to evaluate if a server implementation conforms with the FHIR specification.  Providing a clear and concise test methodology for the FHIR specification through the TestScript resource helps to enable interoperability among various FHIR server and client implementations.
+  The TestScript resource is designed to establish testing as a first class artifact within the FHIR specification.  This resource allows defining a suite of tests that can be executed on one or more FHIR servers and clients.  The TestScript resource provides an implementation agnostic description of tests that allows test execution engines to evaluate if a FHIR implementation conforms with the FHIR specification.  Providing a clear and concise test methodology for the FHIR specification through the TestScript resource helps to enable interoperability among various FHIR server and client implementations.
 </p>
 <p>
-Furthermore, the TestScript resource provides clear examples of the appropriate use of the FHIR specification through test-based documentation.  The TestScript resource stands as a form of executable documentation allowing developers to examine the operations defined by the tests to understand how various RESTful API interactions and resources should be used in coordination.  The tests can also be automatically executed against systems under development to determine how well the systems adhere to the specification.
+Furthermore, the TestScript resource provides clear examples of the appropriate use of the FHIR specification through test-based documentation.  The TestScript resource stands as a form of executable documentation allowing developers to examine the operations defined by the tests in order to understand how various RESTful API interactions and resources should be used in coordination.  The tests can also be automatically executed against systems under development to determine how well the systems adhere to the specification.
 </p>
 <div>
   <p>
@@ -130,7 +130,7 @@ Furthermore, the TestScript resource provides clear examples of the appropriate 
 
 <h4 id="fixtures">Fixtures</h4>
 <p>
-  The fixtures section of the TestScript defines a set of resource instances that will be used as part of the setup, test, and teardown sections during TestScript execution.  The fixtures are required for the test script to execute.  Each fixture defines a resource instance by URI, and must be identified by an ID.  The URI can be local or remote (i.e. another server than the one the TestScript resource resides), absolute or relative.  The ID on the fixture is considered the "source" identifier of the fixture -- it is not the same thing as the resource ID on the server where it was hosted.  The "source" identifier is used to define the fixture instance within the context of the TestScript.  Operations reference the ID of a fixture to uniquely identify the fixture instance the operation is using ("sourceId") or acting against ("targetId").  Once a fixture has been instantiated on a server (typically by the use of a create operation), the fixture ID is mapped to the ID of the corresponding resource instance on the server.  TestScript execution engines must maintain this relationship between fixture IDs and server resource IDs.  The TestScript execution engine is responsible for translating the fixture IDs (whether provided to the operation as "source" or "target")  to the ID of the resource on the server during execution.
+  The fixtures section of the TestScript defines a set of resource instances that will be used as part of the setup, test, and teardown sections during TestScript execution.  All defined fixtures are expected to be required in order for the test script to execute.  Each fixture defines a resource instance by URI, and must be identified by an ID.  The URI can be local or remote (i.e. another server than the one the TestScript resource resides), absolute or relative.  The ID on the fixture is considered the "source" identifier of the fixture -- it is not the same thing as the resource ID on the server where it was hosted.  The "source" identifier is used to define the fixture instance within the context of the TestScript.  Operations reference the ID of a fixture to uniquely identify the fixture instance the operation is using ("sourceId") or acting against ("targetId").  Once a fixture has been instantiated on a server (typically by the use of a create operation), the fixture ID is mapped to the ID of the corresponding resource instance on the server.  TestScript execution engines must maintain this relationship between fixture IDs and server resource IDs.  The TestScript execution engine is responsible for translating the fixture IDs (whether provided to the operation as "source" or "target") to the ID of the resource on the server during execution.
 </p>
 <p>
   Using the optional "autocreate" and "autodelete" elements (missing values default to false), fixtures can be configured to automatically be created during TestScript setup and automatically deleted during TestScript teardown. This means that additional "create" and "delete" operations in the TestScript.setup and TestScript.teardown sections are unnecessary.
@@ -144,7 +144,7 @@ Furthermore, the TestScript resource provides clear examples of the appropriate 
   Without variables, search parameters and request headers (such as If-Modified-Since) would be specified in outgoing requests as literal values.  Variables allow the values to be managed externally in fixtures or dynamically in server response fixtures.  They would be defined to hold path expressions against the fixtures. The path expressions would not change from one server to another but the fixture data could.
 </p>
 <p>  
-  Using variables allows for the same test scripts to be executed against the same servers by different clients at the same time.  Each client would change the fixture data (external to the test script) to make the data unique to that client.  This ensures that the same delete/create/read operations executed concurrently by one client does not interfere with those of a another client.  That can be important in testing environments such as a Connectathon.  It can be very useful in year-round testing against public servers as well.
+  Using variables allows for the same test scripts to be executed against the same servers by different clients at the same time.  Each client would change the fixture data (external to the test script) to make the data unique to that client.  This ensures that the same delete/create/read operations executed concurrently by one client does not interfere with those of a another client.  That can be important within the context of a testing event such as a Connectathon.  It can be very useful in year-round testing against public servers as well.
 </p>
 <p>
   See <a href="#howToUseVariables">Use variables</a> for more information.

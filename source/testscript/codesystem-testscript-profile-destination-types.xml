@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/testscript-profile-destination-types"/>
+  <name value="TestScriptProfileDestinationTypes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set defines a set of codes that are used to indicate the profile type of a test system when acting as the destination within a TestScript."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="FHIR-Server"/>
+    <display value="FHIR Server"/>
+    <definition value="General FHIR server used to respond to operations sent from a FHIR client."/>
+  </concept>
+  <concept>
+    <code value="FHIR-SDC-FormManager"/>
+    <display value="FHIR SDC FormManager"/>
+    <definition value="A FHIR server acting as a Structured Data Capture Form Manager."/>
+  </concept>
+  <concept>
+    <code value="FHIR-SDC-FormProcessor"/>
+    <display value="FHIR SDC FormProcessor"/>
+    <definition value="A FHIR server acting as a Structured Data Capture Form Processor."/>
+  </concept>
+  <concept>
+    <code value="FHIR-SDC-FormReceiver"/>
+    <display value="FHIR SDC FormReceiver"/>
+    <definition value="A FHIR server acting as a Structured Data Capture Form Receiver."/>
+  </concept>
+</CodeSystem>
