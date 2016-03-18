@@ -480,7 +480,7 @@ The conditional update interaction allows a client to update an existing resourc
 rather than by  <a href="resource.html#meta">logical id</a>. To accomplish this, the client issues a <code>PUT</code> as shown:
 </p>
 <pre>
-  PUT [base]/[type]/?[search parameters]
+  PUT [base]/[type]?[search parameters]
 </pre>
 <p>
 When the server processes this update, it performs a search using its standard
@@ -496,7 +496,7 @@ on how many matches are found:
 This variant can be used to allow a stateless client (such as an interface engine) to submit
 updated results to a server, without having to remember the logical ids that the server has assigned.
 For example, a client updating the status of a lab result from "preliminary" to "final"
-might submit the finalized result using <code>PUT /Observation?identifier=http://my-lab-system|123</code>
+might submit the finalized result using <code>PUT path/Observation?identifier=http://my-lab-system|123</code>
 </p>
 <p>
 Note that transactions and conditional create/update/delete are complex interactions and it is 
