@@ -739,10 +739,41 @@ errors.
 [%dt Identifier 9%]
 
 <p>
+The <code>value</code> SHALL be unique within the defined <code>system</code>
+and have a consistent meaning wherever it appears. Both <code>system</code> and <code>value</code> are always case sensitive.
+</p>
+<p>
 The <code>system</code> referred to by means of a URI defines how the identifier is defined (i.e. how the value is made unique). 
 It might be a specific application or a recognized standard/specification for a set or identifiers
-or a way of making identifiers unique. The <code>value</code> SHALL be unique within the defined <code>system</code>
-and have a consistent meaning wherever it appears. Both <code>system</code> and <code>value</code> are always case sensitive.
+or a way of making identifiers unique. 
+FHIR defines <a href="identifier-registry.html">some useful or important URIs directly</a>. 
+</p>
+<p>
+If the system is a URL, it SHOULD resolve. Resolution might be to a web page that describes the identifier 
+system and/or supports look-up of identifiers.  Alternatively it could be to a NamingSystem resource 
+instance. Resolvable URLs are generally preferred by implementers over non-resolvable URNs, particularly 
+opaque URNs such as OIDs (urn:oid:) or UUIDs (urn:uuid:). If used, OIDs and UUIDs may be registered in 
+the <a href="http://hl7.org/oid">HL7 OID registry</a> and SHOULD be registered if the content is shared 
+or exchanged across institutional boundaries.
+</p>
+<p>
+It is up to the implementer organization to determine an appropriate URL or URN structure that will 
+avoid collisions and to manage that space (and the resolvability of URLs) over time. 
+</p>
+<p>
+Note that the scope of a given identifier system may extend beyond identifiers that might be captured 
+by a single resource.  For example, some systems might draw all "order" identifiers from a single 
+namespace, though some might be used on <a href="medicationorder.html">MedicationOrder</a> while 
+others would appear on <a href="procedurerequest.html">ProcedureRequest</a> or <a href="diagnosticorder.html">DiagnosticOrder</a>.
+</p>
+<p>
+If the identifier itself is naturally globally unique (e.g. an OID, a UUID, or a URI with no trailing local part), 
+then the <code>system</code> SHALL be "urn:ietf:rfc:3986", and the URI is in the <code>value</code>.
+In some cases, the system may not be known - only the value is known (e.g. a simple device that scans a barcode), 
+or the system is known implicitly (simple exchange in a limited context, often driven by barcode readers). 
+In this case, no useful matching may be performed using the value unless the system can be safely inferred by the 
+context. This practice should be avoided where possible, as 
+information sharing in a wider context is very likely to arise eventually, and values without a system are inherently limited in use.
 </p>
 <p>
 In addition to the <code>system</code> (which provides a uniqueness scope) and the <code>value</code>, identifiers may also have a
@@ -751,20 +782,6 @@ Note, however, that the type of an identifier is not a well controlled vocabular
 in practice. The <code>type</code> deals only with general categories of identifiers and SHOULD not be 
 used for codes that correspond 1..1 with the Identifier.system. Some identifiers may fall into multiple 
 categories due to variations in common usage.
-</p>
-<p>
-FHIR defines <a href="identifier-registry.html">some useful URIs directly</a>. OIDs (urn:oid:) and UUIDs (urn:uuid:) 
-may be registered in the <a href="http://hl7.org/oid">HL7 OID registry</a> and should be if the 
-content is shared or exchanged across institutional boundaries. If the identifier itself 
-is naturally globally unique (e.g. an OID, a UUID, or a URI with no trailing local part), 
-then the <code>system</code> SHALL be "urn:ietf:rfc:3986", and the URI is in the <code>value</code>.
-</p>
-<p>
-In some cases, the system may not be known - only the value is known (e.g. a simple device that scans a barcode), 
-or the system is known implicitly (simple exchange in a limited context, often driven by barcode readers). 
-In this case, no useful matching may be performed using the value unless the system can be safely inferred by the 
-context. This practice should be avoided where possible, as 
-information sharing in a wider context is very likely to arise eventually, and values without a system are inherently limited in use.
 </p>
 <p>
 The <code>assigner</code> is used to indicate what registry/state/facility/etc. assigned the identifier. 
