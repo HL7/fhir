@@ -64,7 +64,7 @@
   Id = 4
   Code = corrected
   Display = Corrected
-  Definition = The report has been modified subsequent to being Final, and is complete and verified by an authorized person. New content has been added, but existing content hasn\'t changed
+  Definition = The report has been modified subsequent to being Final, and is complete and verified by an authorized person
 
  -- Row 5 -----------------------------------
   Id = 6
