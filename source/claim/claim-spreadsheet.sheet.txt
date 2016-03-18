@@ -105,7 +105,6 @@
   Binding = value set
   Reference = valueset-fm-itemtype
   Definition = Group, Service, Product.
-  Description = Suggest we reduce this to just Group, service, product
   Conformance = required
 
  -- Row 16 -----------------------------------
@@ -415,14 +414,14 @@
   Card. = 0..*
   UML = 550;120
   Type = =RelatedClaims
-  Short Label = Related Claims
+  Short Label = Related Claims which may be revelant to processing this claimn
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
 
  -- Row 19 -----------------------------------
   Element = Claim.related.claim[x]
   Card. = 0..1
   Type = Identifier|Reference(Claim)
-  Short Label = Related Claims
+  Short Label = Reference to the related claim
   Definition = Other claims which are related to this claim such as prior claim versions or for related services.
   Comments = Do we need a relationship code?
 
@@ -466,7 +465,7 @@
   Card. = 0..1
   UML = 360;0
   Type = =Payee
-  Short Label = Payee
+  Short Label = Party to be paid any benefits payable
   Definition = The party to be reimbursed for the services.
 
  -- Row 26 -----------------------------------
@@ -474,14 +473,14 @@
   Card. = 1..1
   Type = Coding
   Binding = PayeeType
-  Short Label = Payee type
+  Short Label = Type of party: Subscriber, Provider, other.
   Definition = Type of Party to be reimbursed: Subscriber, provider, other.
 
  -- Row 27 -----------------------------------
   Element = Claim.payee.party[x]
   Card. = 0..1
   Type = Identifier|Reference(Practitioner|Organization|Patient|RelatedPerson)
-  Short Label = Party to be paid any benefits payable
+  Short Label = Party to receive the payable
   Definition = Party to be reimbursed: Subscriber, provider, other.
   Comments = Consider makig this a choice (payee[x])
 
@@ -559,7 +558,7 @@
   Element = Claim.diagnosis.sequence
   Card. = 1..1
   Type = positiveInt
-  Short Label = Sequence of diagnosis
+  Short Label = Number to covey order of diagnosis
   Definition = Sequence of diagnosis which serves to order and provide a link.
   Requirements = Required to maintain order of the diagnoses.
 
@@ -732,7 +731,7 @@
   Element = Claim.accidentDate
   Card. = 0..1
   Type = date
-  Short Label = Accident Date
+  Short Label = When the accident occurred
   Definition = Date of an accident which these services are addressing.
   Requirements = Coverage may be dependant on accidents.
 
@@ -741,7 +740,7 @@
   Card. = 0..1
   Type = Coding
   Binding = AccidentType
-  Short Label = Accident Type
+  Short Label = The nature of the accident
   Definition = Type of accident: work, auto, etc.
   Requirements = Coverage may be dependant on the type of accident.
 
@@ -769,7 +768,6 @@
   Type = date|Period
   Short Label = Illness, injury or treatable condition date
   Definition = The start or start and end dates for the treatable condition.
-  To Do = CMS15 has some additional qualifiers
 
  -- Row 68 -----------------------------------
   Element = Claim.employmentImpacted
@@ -817,7 +815,6 @@
   Type = Identifier|Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient
-  To Do = 24G&H not sure
 
  -- Row 75 -----------------------------------
   Element = Claim.item.providerQualification
@@ -831,7 +828,7 @@
   Element = Claim.item.diagnosisLinkId
   Card. = 0..*
   Type = positiveInt
-  Short Label = Diagnosis Link
+  Short Label = Applicable diagnoses
   Definition = Diagnosis applicable for this service or product line.
 
  -- Row 77 -----------------------------------
@@ -1173,11 +1170,11 @@
   Element = !Additional Materials
 
  -- Row 122 -----------------------------------
-  Element = Claim.additionalMaterials
+  Element = Claim.additionalMaterial
   Card. = 0..*
   Type = Coding
   Binding = AdditionalMaterials
-  Short Label = Additional materials, documents, etc.
+  Short Label = Additional supporting materials and documents
   Definition = Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.
 
  -- Row 123 -----------------------------------
@@ -1216,7 +1213,7 @@
   Card. = 0..1
   Type = Coding
   Binding = MissingReason
-  Short Label = Reason for missing
+  Short Label = Indicates whether it was extracted or other reason
   Definition = Missing reason may be: E-extraction, O-other
   Requirements = Provides the reason for the missing tooth.
 
@@ -1224,9 +1221,15 @@
   Element = Claim.missingTeeth.extractionDate
   Card. = 0..1
   Type = date
-  Short Label = Date of Extraction
+  Short Label = Date tooth was extracted if known
   Definition = The date of the extraction either known from records or patient reported estimate.
   Requirements = Some services and adjudications require this information.
+
+ -- Row 130 -----------------------------------
+  Element = ! CMS 1500: 24G&H not sure
+
+ -- Row 131 -----------------------------------
+  Element = !Onset: CMS15 has some additional qualifiers
 
 === Sheet Search =====================================
 

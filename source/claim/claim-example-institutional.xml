@@ -30,6 +30,16 @@
     <code value="normal"/>
  </priority>
 
+ <entererIdentifier>
+    <system value="http://jurisdiction.org/facilities/HOSP1234/users"/>
+    <value value="UC1234"/>
+</entererIdentifier>
+
+ <facilityIdentifier>
+    <system value="http://jurisdiction.org/facilities"/>
+    <value value="HOSP1234"/>
+</facilityIdentifier>
+ 
  <payee>
    <type>
      <code value="provider"/>
@@ -80,4 +90,9 @@
    </net> 
   </item>
 
+  <total>
+    <value value="125.00"/>
+	<system value="urn:iso:std:iso:4217"/>
+    <code value="USD"/>  
+  </total>
 </Claim>

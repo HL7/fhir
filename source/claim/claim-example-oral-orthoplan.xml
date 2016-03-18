@@ -30,6 +30,10 @@
     <code value="normal"/>
   </priority>
 
+  <fundsReserve>
+    <code value="provider"/>
+  </fundsReserve>
+  
   <payee>
     <type>
       <code value="provider"/>

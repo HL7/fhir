@@ -9,19 +9,18 @@
   <Author>Grahame</Author>
   <LastAuthor>Paul</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2016-03-13T07:48:03Z</LastSaved>
+  <LastSaved>2016-03-18T11:45:41Z</LastSaved>
   <Version>15.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7770</WindowHeight>
-  <WindowWidth>17880</WindowWidth>
+  <WindowHeight>7065</WindowHeight>
+  <WindowWidth>20520</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>8</ActiveSheet>
-  <FirstVisibleSheet>2</FirstVisibleSheet>
+  <ActiveSheet>1</ActiveSheet>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1129,11 +1128,26 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
-  <Style ss:ID="s208">
+  <Style ss:ID="s214">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
     ss:WrapText="1"/>
    <Borders/>
-   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+   <Interior ss:Color="#D9E1F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s216">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#D9E1F2" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s227">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#D9E1F2" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
   </Style>
  </Styles>
  <Names>
@@ -1181,7 +1195,7 @@
    <NamedRange ss:Name="_FilterDatabase"
     ss:RefersTo="='Data Elements'!R1C1:R117C26" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="131" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="26" ss:ExpandedRowCount="133" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:Width="227.25"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77.25"/>
@@ -1902,7 +1916,7 @@
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Related Claims</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Related Claims which may be revelant to processing this claimn</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Other claims which are related to this claim such as prior claim versions or for related services.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1936,7 +1950,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">Related Claims</Data><NamedCell
+    <Cell ss:StyleID="s214"><Data ss:Type="String">Reference to the related claim</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">Other claims which are related to this claim such as prior claim versions or for related services.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1972,7 +1986,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s99"><Data ss:Type="String">How the reference claim is related</Data><NamedCell
+    <Cell ss:StyleID="s214"><Data ss:Type="String">How the reference claim is related</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><Data ss:Type="String">For example prior or umbrella.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2138,7 +2152,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Payee</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Party to be paid any benefits payable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The party to be reimbursed for the services.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2174,7 +2188,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Payee type</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Type of party: Subscriber, Provider, other.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Type of Party to be reimbursed: Subscriber, provider, other.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2208,7 +2222,7 @@
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s116"><Data ss:Type="String">Party to be paid any benefits payable</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Party to receive the payable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s95"><Data ss:Type="String">Party to be reimbursed: Subscriber, provider, other.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2576,7 +2590,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Sequence of diagnosis</Data><NamedCell
+    <Cell ss:StyleID="s214"><Data ss:Type="String">Number to covey order of diagnosis</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Sequence of diagnosis which serves to order and provide a link.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3385,7 +3399,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Accident Date</Data><NamedCell
+    <Cell ss:StyleID="s214"><Data ss:Type="String">When the accident occurred</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Date of an accident which these services are addressing.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3420,7 +3434,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Accident Type</Data><NamedCell
+    <Cell ss:StyleID="s214"><Data ss:Type="String">The nature of the accident</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Type of accident: work, auto, etc.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3561,9 +3575,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><Data ss:Type="String" x:Ticked="1">14 and maybe '15</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">CMS15 has some additional qualifiers</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="20" ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3795,9 +3807,7 @@
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">24.I, 24.J</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">24G&amp;H not sure</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="20" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">not used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3858,7 +3868,7 @@
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Diagnosis Link</Data><NamedCell
+    <Cell ss:StyleID="s214"><Data ss:Type="String">Applicable diagnoses</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Diagnosis applicable for this service or product line.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4231,10 +4241,10 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.udi</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s208"><Data ss:Type="String">0..*</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s208"><Data ss:Type="String">Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -4746,10 +4756,10 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.detail.udi</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s208"><Data ss:Type="String">0..*</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s208"><Data ss:Type="String">Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5154,10 +5164,10 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.detail.subDetail.udi</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s208"><Data ss:Type="String">0..*</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">0..*</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s208"><Data ss:Type="String">Reference(Device)</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">Reference(Device)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5287,11 +5297,11 @@
     <Cell><Data ss:Type="String">!Additional Materials</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell><Data ss:Type="String">Claim.additionalMaterials</Data></Cell>
+    <Cell ss:StyleID="s216"><Data ss:Type="String">Claim.additionalMaterial</Data></Cell>
     <Cell ss:Index="3"><Data ss:Type="String">0..*</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">Coding</Data></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">AdditionalMaterials</Data></Cell>
-    <Cell ss:Index="13"><Data ss:Type="String">Additional materials, documents, etc.</Data></Cell>
+    <Cell ss:Index="13"><Data ss:Type="String">Additional supporting materials and documents</Data></Cell>
     <Cell><Data ss:Type="String">Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.</Data></Cell>
     <Cell ss:Index="22"><Data ss:Type="String">A08</Data></Cell>
    </Row>
@@ -5402,7 +5412,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Reason for missing</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Indicates whether it was extracted or other reason</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Missing reason may be: E-extraction, O-other</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Provides the reason for the missing tooth.</Data></Cell>
     <Cell ss:StyleID="s89"/>
@@ -5430,7 +5440,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s88"/>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Date of Extraction</Data></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Date tooth was extracted if known</Data></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">The date of the extraction either known from records or patient reported estimate.</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Some services and adjudications require this information.</Data></Cell>
     <Cell ss:StyleID="s89"/>
@@ -5445,6 +5455,12 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s93"/>
    </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s227"><Data ss:Type="String">! CMS 1500: 24G&amp;H not sure</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s227"><Data ss:Type="String">!Onset: CMS15 has some additional qualifiers</Data></Cell>
+   </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
    <PageSetup>
@@ -5458,10 +5474,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>113</TopRowBottomPane>
+   <TopRowBottomPane>112</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5478,7 +5495,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>114</ActiveRow>
+     <ActiveRow>15</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -6315,8 +6332,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>16</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8348,7 +8365,7 @@
     <Cell ss:StyleID="s197"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s197"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s164"><Data ss:Type="String">valueset-fm-itemtype</Data></Cell>
-    <Cell ss:StyleID="s198"><Data ss:Type="String">Suggest we reduce this to just Group, service, product</Data></Cell>
+    <Cell ss:StyleID="s198"/>
     <Cell ss:StyleID="s197"/>
     <Cell ss:StyleID="s197"/>
     <Cell ss:StyleID="s197"/>
@@ -8716,7 +8733,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -8737,8 +8753,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>15</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

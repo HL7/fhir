@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/module-metadata-type",
   "outcomes": [
     {
+      "hash": "|null|null|eca-rule|null",
+      "severity": "error",
+      "message": "Unknown Code eca-rule in http://hl7.org/fhir/ValueSet/module-metadata-type"
+    },
+    {
       "hash": "|null|null|library|null",
       "severity": null,
       "message": null,

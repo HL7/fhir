@@ -40,6 +40,17 @@
       }
     },
     {
+      "hash": "|null|null|CarePlan|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "CarePlan",
+        "definition": null,
+        "display": "CarePlan"
+      }
+    },
+    {
       "hash": "|null|null|CodeableConcept|null",
       "severity": null,
       "message": null,
@@ -109,6 +120,11 @@
       "hash": "|null|null|GuidanceResponse|null",
       "severity": "error",
       "message": "Unknown Code GuidanceResponse in http://hl7.org/fhir/ValueSet/operation-parameter-type"
+    },
+    {
+      "hash": "|null|null|MeasureReport|null",
+      "severity": "error",
+      "message": "Unknown Code MeasureReport in http://hl7.org/fhir/ValueSet/operation-parameter-type"
     },
     {
       "hash": "|null|null|Meta|null",

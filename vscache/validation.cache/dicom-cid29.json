@@ -1,4 +1,10 @@
 ﻿{
   "url": "http://hl7.org/fhir/ValueSet/dicom-cid29",
-  "outcomes": []
+  "outcomes": [
+    {
+      "hash": "|http://nema.org/dicom/dicm|null|CT|null",
+      "severity": "error",
+      "message": "No Message returned"
+    }
+  ]
 }
