@@ -210,4 +210,22 @@
 
 === Sheet Examples =====================================
 
+ -- Row 1 -----------------------------------
+  Name = CSCommon
+  Identity = example
+  Description = Chlamydia Screening Common Library
+  Filename = library-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = CMS9CDSLogic
+  Identity = library-exclusive-breastfeeding-cds-logic
+  Description = Exclusive Breastfeeding Intervention Logic
+  Filename = library-exclusive-breastfeeding-cds-logic.xml
+
+ -- Row 3 -----------------------------------
+  Name = CMS9CQMLogic
+  Identity = library-exclusive-breastfeeding-cqm-logic
+  Description = Exclusive Breastfeeding Measurement Logic
+  Filename = library-exclusive-breastfeeding-cqm-logic.xml
+
 === Sheet Examples =====================================

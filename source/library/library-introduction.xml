@@ -4,9 +4,13 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>. Future updates to this resource will incorporate documentation from that guide.</i>
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>.</i>
 </p>
+
+<p>The Library resource represents a shareable library of clinical logic, written in Clinical Quality Language (CQL). In addition to representing the metadata of the library, the resource has elements that expose the components defined within the library such as code system and value set references, named expressions and parameters.</p>
+
+<p>The actual content of the library is represented using the Attachment data type, and may either be referenced with a url to some CQL repository, or the content may be embedded as a base-64 encoded string. Either way, the content may be shared as a CQL text document, or, for a more computable representation, as an (Expression Logical Model) ELM XML or JSON document.</p>
+
 </div>
 
 <!-- (recommended): 

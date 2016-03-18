@@ -1,0 +1,49 @@
+<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+  <id value="library-exclusive-breastfeeding-cqm-logic"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Exclusive Breastfeeding CQM Logic</div>
+  </text>
+  
+  <moduleMetadata>
+	  <identifier>
+		<use value="official"/>
+		<value value="Exclusive_Breastfeeding_CQM_Logic"/>
+	  </identifier>
+	  <version value="1.0.0"/>
+	  <title value="Exclusive Breastfeeding CQM Logic"/>
+	  <type value="library"/>
+	  <status value="active"/>
+	  <experimental value="true"/>
+	  <description value="Quality measure logic for measuring outcomes for exclusive breastmilk feeding of newborns"/>
+	  <publicationDate value="2016-03-08"/>
+	  <topic>
+		<text value="Exclusive Breastfeeding"/>
+	  </topic>
+  </moduleMetadata>
+  
+  <model>
+    <identifier value="QUICK"/>
+  </model>
+
+  <valueSet>
+    <name value="Female Administrative Sex"/>
+    <identifier value="2.16.840.1.113883.3.560.100.2"/>
+  </valueSet>
+  <!--   ... other value sets as defined in the library   -->
+
+  <dataRequirement>
+    <type value="Condition"/>
+    <codeFilter>
+      <path value="code"/>
+      <valueSetString value="Single Live Birth"/>
+    </codeFilter>
+  </dataRequirement>
+  <!--   ... other data requirements as defined in the library   -->
+
+  <document>
+    <contentType value="application/cql+text"/>
+    <url value="http://cqlrepository.org/CMS9v4_CQM.cql"/>
+  </document>
+  
+</Library>

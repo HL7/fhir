@@ -4,19 +4,33 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>. Future updates to this resource will incorporate documentation from that guide.</i>
-<!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
+<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>.</i>
 </p>
+
+<p>The DecisionSupportServiceModule defines a module of clinical decision support functionality made available by a decision support service. For example, a service may provide immunization modules, drug-drug interaction checking, or appropriate use assessment.</p>
+
+<p>Each module defines three main features related to its functionality:</p>
+
+<ul>
+	<li>Input and output parameters</li>
+	<li>Data requirements</li>
+	<li>Triggers</li>
+</ul>
+
+<p>Input and output parameters are used to specify any named parameters used by the module. These are typically patient-independent configuration parameters such as an A1C threshold for a diabetes control module, but they may also be used to return calculations performed by the module.</p>
+
+<p>Data requirements are used to specify the set of data that must be provided (or available) to the module in order to achieve a successful evaluation. For more information on data requirements, see the <a href="cqif/cqif-common.html#data-requirements">Data Requirements</a> discussion in the CQIF IG.</p>
+
+<p>Triggers are used to advertise when the module should be invoked. On encountering a specific trigger, a clinical application can invoke the modules associated with the trigger using the <a href="decisionsupportservicemodule-operations.html#evaluate">$evaluate</a> operation. Any data required by the module can be sent as part of the request, and any suggested <i>actions</i> and other output data are returned via the <a href="GuidanceResponse.html">GuidanceResponse</a> resource.</p>
+
 </div>
 
-<!-- (recommended): 
 <div>
 <h2>Boundaries and Relationships</h2>
 <p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
+The DecisionSupportServiceModule is similar in structure to the DecisionSupportRule, and supports an identical $evaluate operation. The difference between the two is that the DecisionSupportRule is designed to enable the sharing of the rule definition, as opposed to the DecisionSupportServiceModule, which only supports evaluation of the module; the internal functionality is opaque.
 </p>
 </div>
--->
 
 <!-- (optional):
 <div>

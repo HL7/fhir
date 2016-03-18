@@ -4,21 +4,20 @@
 <a name="bnc"> </a>
 <h2>Scope and Usage</h2>
 <p>
-<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>. Future updates to this resource will incorporate documentation from that guide.</i>
-
-
+<i>This resource is a draft proposal for use as part of an approach to Clinical Quality within FHIR, and is documented as part of the <a href="cqif/cqif.html">Clinical Quality Improvement Framework Implementation Guide</a>.</i>
 <!-- Describes some of the situations/use cases intended to be managed with the resource. May include a child div for "Storyboards" and "Related Specifications". The purpose of this section is to help implementers understand why the resource is needed and how it might be used. -->
 </p>
+
+<p>The DecisionSupportRule resource represents an Event-Condition-Action (ECA) rule, defining actions that should be taken whenever some condition is met in response to a particular event. This is of course not the only type of "rule" that can be used in a clinical decision support context, but it is a very common and flexible pattern that can be applied to a broad variety of applications.</p>
+
+<p>In particular, ECA rules lend themselves very well to describing the logic that should be invoked from specific points in a clinical workflow, identified by <i>triggers</i>. On encountering a specific trigger, a clinical application can invoke the rules associated with the trigger using the <a href="decisionsupportrule-operations.html#evaluate">$evaluate</a> operation. Any data required by the ECA rule to test its <i>condition</i> can be sent as part of the request, and, if the condition is satisfied, any <i>actions</i> defined by the rule are returned via the <a href="GuidanceResponse.html">GuidanceResponse</a> resource.</p>
+
 </div>
 
-<!-- (recommended): 
 <div>
 <h2>Boundaries and Relationships</h2>
-<p>
-Explains how this resource relates to others. Particularly important is to differentiate between appropriate usages for related resources when an implementer might be confused about what to reference when.
-</p>
+<p>The DecisionSupportRule resource is one of several resources defined to support the representation of knowledge artifacts, as well as the evaluation of decision support functionality. In particular, the same pattern of evaluation is defined for the <a href="DecisionSupportServiceModule">DecisionSupportServiceModule</a> resource. The difference between the two resources is that DecisionSupportRule can also be used as a mechanism to share the rule definition, whereas the DecisionSupportServiceModule only defines the information required to perform an evaluation.</p>
 </div>
--->
 
 <!-- (optional):
 <div>

@@ -379,6 +379,12 @@
 
 === Sheet Examples =====================================
 
+ -- Row 1 -----------------------------------
+  Name = CMS9v4
+  Identity = measure-exclusive-breastfeeding
+  Description = Exclusive Breastfeeding Measure
+  Filename = measure-exclusive-breastfeeding.xml
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

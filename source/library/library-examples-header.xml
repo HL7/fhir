@@ -1,5 +1,9 @@
-﻿<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- content goes here -->
+These examples illustrate the use of the Library resource to share quality measurement and improvement logic as a FHIR resource.
+
+The first example is the Chlamydia Screening Common library developed as the running example in the Author's Guide of the Clinical Quality Language specification.
+
+The next two examples are derived from the Exclusive Breastfeeding Measure and are referenced by the <a href="DecisionSupportRule.html">DecisionSupportRule</a> and <a href="Measure.html">Measure</a> examples, respectively.
 
 </div>
