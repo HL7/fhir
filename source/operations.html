@@ -58,7 +58,7 @@ Operations can be invoked on four types of FHIR endpoints:
 <ul>
  <li>The "base" FHIR service endpoint (e.g. http://fhir.someserver.org/fhir): These are operations that operate on the full scale of the server. For example, "return me all extensions known by this server"</li>
  <li>A Resource type (e.g. http://fhir.someserver.org/fhir/Patient): These are operations that operate across all instances of a given resource type</li>
- <li>A Resource instance (e.g. http://fhir.someserver.org/fhir/Patient/1): These are operations involve only a single instance of a Resource, like the $everything operation above does</li>
+ <li>A Resource instance (e.g. http://fhir.someserver.org/fhir/Patient/1): These are operations that involve only a single instance of a Resource, like the $everything operation above does</li>
  <li>A specific version of a resource instance (http://fhir.someserver.org/fhir/Patient/1/_history/4): These operations involve only a specific version of a single instance of a FHIR Resource and exists only to allow manipulation of profile and tag metadata of past versions</li>
 </ul>
 <p>
@@ -69,7 +69,7 @@ formatted as search parameter types.
 </p>
 <p>
 Upon completion, the operation returns another <code>Parameters</code> resource, containing one or 
-more output parameters. This means that a FHIR operation can take any parameter <i>in</i> and return a set of 
+more output parameters. This means that a FHIR operation can take a set of zero or more parameters <i>in</i> and return a set of zero or more 
 result parameters <i>out</i>. Both the body of the POST and the returned result are always a Resource. 
 </p>
 <p>
@@ -159,7 +159,7 @@ Note that the FHIR specification will never define any parameter names starting 
 <p>
 Operations are typically executed synchronously: a client sends a request
 to a server that includes the operation's <i>in</i> parameters and the server replies with the
-operation' <i>out</i> parameters.
+operation's <i>out</i> parameters.
 </p>
 
 <p>
@@ -199,7 +199,7 @@ which can be useful when testing an operation using HTML forms.
 <h4>Operation Response</h4>
 
 <p>
-If an operation succeeds, an HTTP Status code of 200 OK is retruned. An
+If an operation succeeds, an HTTP Status code of 200 OK is returned. An
 HTTP status code of 4xx or 5xx indicates an error, and an
 <a href="operationoutcome.html">OperationOutcome</a> may be returned.
 User agents should note that servers may issue redirects, etc. to
@@ -221,7 +221,7 @@ The resources that are returned by the operation may be
 retained and made available in the resource repository
 on the operation server. In that case, the server will
 provide the identity of the resource in the returned resources. When
-resources that are not persisted are returned in the a response,
+resources that are not persisted are returned in the response,
 they will have no <code>id</code> property.
 </p>
 
@@ -232,7 +232,7 @@ they will have no <code>id</code> property.
 <blockquote class="dstu-note">
 <a name="dstu"> </a>
 <p>
-<b>DSTU Note:</b> there is presentlly no mechanism to execute
+<b>DSTU Note:</b> there is presently no mechanism to execute
 operations asynchronously in a RESTful manner. However, the <a href="messaging.html#operations">messaging page</a>
 describes a way to execute operations asynchronously using messages.
 </p>
