@@ -124,7 +124,7 @@ In some cases, parameters may cause an error. For instance:
  <li>A data time parameter may have incorrect format e.g. <code>GET [base]/Condition?onset=23%20May%202009</code></li>
 </ul>
 <p>
-Where the content of the parameter is syntactically correct, servers SHOULD return an error. 
+Where the content of the parameter is syntactically incorrect, servers SHOULD return an error. 
 However where the issue is a logical condition (e.g. unknown subject or code), the server 
 SHOULD process the search, including processing the parameter - with the result of returning
 an empty search set, since the parameter cannot be satisfied. 
