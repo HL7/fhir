@@ -15,7 +15,7 @@ the same logical identity.
 </p>
 
 <p>
-The literal identity of a resource - the actual HTTP address it which it can be accessed - is an 
+The literal identity of a resource - the actual HTTP address at which it can be accessed - is an 
 absolute URL constructed from the server base address at which it is found, the resource type, and the Logical Id, 
 such as http://test.fhir.org/rest/Patient/123 (where 123 is the Logical Id). Note that 
 implementations SHOULD NOT assume that the identity of a resource is always resolvable 
