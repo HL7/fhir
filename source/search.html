@@ -120,7 +120,7 @@ In some cases, parameters may cause an error. For instance:
  <li>A parameter may refer to a non-existent resource e.g. <code>GET [base]/Observation?subject=101</code>, where "101" does not exist</li>
  <li>A parameter may refer to an unknown code e.g. <code>GET [base]/Observation?code=loinc|1234-1</code>, where the LOINC code "1234-1" is not known to the server</li>
  <li>A parameter may refer to a time that is out of scope e.g. <code>GET [base]/Condition?onset=le1995</code>, where the system only has data going back to 2001</li>
- <li>A parameter may use an illegal or unaaceptable modifier e.g. <code>GET [base]/Condition?onset:text=1995</code>, where the modifier cannot be processed by the server</li>
+ <li>A parameter may use an illegal or unacceptable modifier e.g. <code>GET [base]/Condition?onset:text=1995</code>, where the modifier cannot be processed by the server</li>
  <li>A data time parameter may have incorrect format e.g. <code>GET [base]/Condition?onset=23%20May%202009</code></li>
 </ul>
 <p>
@@ -808,7 +808,7 @@ Examples of using composite parameters:
 <table>
  <tr><td width="50%"><b>Search</b></td><td><b>Description</b></td></tr>
  <tr><td><pre> GET [base]/DiagnosticReport?result.code-value-quantity=http://loinc.org|2823-3$gt5.4|http://unitsofmeasure.org|mmol/L</pre></td><td>Search for all diagnostic reports that contain on observation with a potassium value of >5.4 mmol/L (UCUM)</td></tr>
- <tr><td><pre> GET [base]/Observation?component-code-value-quantity=http://loinc.org|8480-6$lt60</pre></td><td>Search for all the observations with a systolic blood pressure &lt; 60. Note that in this case, the unit is assumed (eveyone uses mmHg)</td></tr>
+ <tr><td><pre> GET [base]/Observation?component-code-value-quantity=http://loinc.org|8480-6$lt60</pre></td><td>Search for all the observations with a systolic blood pressure &lt; 60. Note that in this case, the unit is assumed (everyone uses mmHg)</td></tr>
  <tr><td><pre> GET [base]/Group?characteristic-value=gender$mixed</pre></td><td>Search for all groups that have a characteristic "gender" with a text value of "mixed"</td></tr>
 </table>
 
@@ -828,7 +828,7 @@ and the parameter value <code>param=xx\\xx</code> indicates a literal value of <
 <p>
 This specification defines this additional form of escape
 for a reason. The classic <code>%xx</code> escaping which is part of 
-normal HTTP URLs ensures thatthe character appears at the FHIR server 
+normal HTTP URLs ensures that the character appears at the FHIR server 
 correctly, while the <code>,</code> versus <code>\</code> becomes important once it has 
 reached the server and the query is parsed. Therefore:
 </p>
@@ -921,7 +921,7 @@ In addition, a system can support searching by lists by their logical function. 
  GET [base]/AllergyIntolerance?patient=42&amp;_list=$current-allergies
 </pre>
 <p>
-This request will return all allergies in patient 42's "Currrent Allergy List".
+This request will return all allergies in patient 42's "Current Allergy List".
 The server returns all relevant AllergyIntolerance resources, and can also choose
 to return the list. For further information, refer to the <a href="lifecycle.html#current">definition of "$current-allergies"</a>,
 and the <a href="list-operations.html#find">List Operation "Find"</a>.
@@ -1023,7 +1023,7 @@ is proceeding.
 <p>
 Note: The combination of <code>_sort</code> and <code>_count</code> can be used to return
 only the latest resource that meets a particular criteria - set the
-critera, and then sort by date in descending order, with <code>_count=1</code>.
+criteria, and then sort by date in descending order, with <code>_count=1</code>.
 This way, the last matching resource will be returned.
 </p>
 
