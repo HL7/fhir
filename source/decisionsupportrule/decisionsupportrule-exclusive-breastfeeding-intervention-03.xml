@@ -1,0 +1,72 @@
+<DecisionSupportRule xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/decisionsupportrule.xsd">
+  <id value="decisionsupportrule-exclusive-breastfeeding-intervention-03"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">Exclusive Breastfeeding Intervention-03</div>
+  </text>
+
+  <moduleMetadata>
+	  <identifier>
+		<use value="official"/>
+		<value value="exclusive-breastfeeding-intervention-03"/>
+	  </identifier>
+	  <version value="1.0.0"/>
+	  <title value="Exclusive Breastfeeding Intervention-03"/>
+	  <type value="eca-rule"/>
+	  <status value="active"/>
+	  <description value="Exclusive breastfeeding intervention intended to improve outcomes for exclusive breastmilk feeding of newborns by notifying the charge and/or bedside nurse to perform the breastfeeding readiness assessment."/>
+	  <publicationDate value="2015-03-08"/>
+	  <topic>
+		<text value="Exclusive Breastfeeding"/>
+	  </topic>
+  </moduleMetadata>
+  
+  <library>
+    <reference value="Library/library-exclusive-breastfeeding-cds-logic"/>
+  </library>
+  
+  <trigger>
+	  <type value="named-event"/>
+	  <eventName value="Admission"/>
+  </trigger>
+  <trigger>
+	  <type value="named-event"/>
+	  <eventName value="Birth"/>
+  </trigger>
+  <trigger>
+	  <type value="named-event"/>
+	  <eventName value="Infant Transfer to Recovery"/>
+  </trigger>
+  <trigger>
+	  <type value="named-event"/>
+	  <eventName value="Transfer to Post-Partum"/>
+  </trigger>
+  
+  <condition value="Should Notify Nurse to Perform Assessment"/>
+  
+  <action>
+    <title value="Mother should be administered a breastfeeding readiness assessment."/>
+    <action>
+		<title value="Notify the charge nurse to perform the assessment."/>
+		<textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please administer the assessment."/>
+		<!-- TODO: Needs to be able to specify role of the practitioner... -->
+		<participantType value="practitioner"/>
+		<type value="create"/>
+		<customization>
+			<path value="/"/>
+			<expression value="Communication Request to Charge Nurse"/>
+		</customization>
+    </action>
+    <action>
+		<title value="Notify the bedside nurse to perform the assessment."/>
+		<textEquivalent value="A Breastfeeding Readiness Assessment is recommended, please administer the assessment."/>
+		<!-- TODO: Needs to be able to specify role of the practitioner... -->
+		<participantType value="practitioner"/>
+		<type value="create"/>
+		<customization>
+			<path value="/"/>
+			<expression value="Communication Request to Bedside Nurse"/>
+		</customization>
+    </action>
+  </action>
+</DecisionSupportRule>

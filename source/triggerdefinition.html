@@ -14,7 +14,19 @@
 <h1>Trigger Definition</h1>
 <table class="cols"><tr><td id="wg"><a _target="blank" href="[%wg cds%]">[%wgt cds%]</a> Work Group</td><td id="fmm"><a href="resource.html#maturity">Maturity Level</a>: N/A</td><td id="ballot"><a href="help.html#status">Ballot Status</a>: <a href="history.html#pubs">DSTU 2</a></td></tr></table>
 
-<p>The TriggerDefinition structure defines when a knowledge artifact is expected to be evaluated.</p>
+<p>The TriggerDefinition structure defines when a knowledge artifact is expected to be evaluated. The structure can represent three main kinds of triggering events:</p>
+
+<ul>
+	<li>Named Event</li>
+	<li>Scheduled Event</li>
+	<li>Data Event</li>
+</ul>
+
+<p>A named event is an event identified by the implementation environment. This allows any event generated within the implementation environment to be used as a trigger, but it requires pre-coordination of the names involved with the consuming environments.</p>
+
+<p>A scheduled event occurs on a fixed or periodic schedule.</p>
+
+<p>And finally, a data event occurs in response to some data-related event in the integrated environment such as a record being added or updated. The data-of-interest for a data event is described using a DataRequirement. This allows for systems to automatically invoke based on data activity occurring within the system.</p>
 
 <a name="definition"></a>
 <h2 style="margin-bottom: 1px">
