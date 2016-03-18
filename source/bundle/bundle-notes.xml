@@ -85,10 +85,10 @@ and that may be returned by following the "next" <a href="bundle-definitions.htm
 <p>Example to do</p>
 
 <a name="transaction"> </a>
-<h4>Transaction</h4>
+<h4>Transaction / Batch</h4>
 
 <p>
-A transaction (type = "transaction") consists of a series of 0 or more entries. Each entry element 
+A transaction (type = "transaction") or batch (type = "batch") consists of a series of 0 or more entries. Each entry element 
 SHALL contain either a request element, or a resource element (or both). See <a href="http.html#transaction">Transactions</a> 
 for further information. Each entry in a transaction has the details of an HTTP operation that informs the system 
 processing the transaction what to do with the entry. If the entry method is a 'PUT' or 
@@ -102,11 +102,11 @@ infer whether this is a create or an update from the resource identity supplied.
 <p><a href="bundle-transaction.html">Example</a></p>
 
 <a name="transaction-response"> </a>
-<h4>Transaction Response</h4>
+<h4>Transaction/batch Response</h4>
 
 <p>
-A transaction response (type = "transaction-response") consists of a series of 
-0 or more entries, 1 for each entry in the transaction it is in response to. 
+A transaction response (type = "transaction-response") or batch response (type="batch-response") 
+consists of a series of 0 or more entries, 1 for each entry in the transaction or batch it is in response to. 
 Each entry element SHALL contain a <code>response</code> element which indicates 
 the outcome of the HTTP operation that the server performed for the entry. 
 </p>

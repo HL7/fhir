@@ -24,6 +24,17 @@
       }
     },
     {
+      "hash": "#|http://snomed.info/sct|null|303653007|Computed tomography of head",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Computed tomography of structures of the head (procedure)"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|323418000|Fix me up",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Procedure Codes (SNOMED CT)"
