@@ -2099,6 +2099,16 @@
     <display value="Postmortem period"/>
     <display value="Postmortem period (qualifier value)"/>
   </concept>
+  <concept id="303653007" display="Computed tomography of head (procedure)">
+    <display value="Computed tomography of structures of the head (procedure)"/>
+    <display value="Computed tomography of structures of the head"/>
+    <display value="Head CT"/>
+    <display value="CT of head"/>
+    <display value="Computed tomography of head (procedure)"/>
+    <display value="Computed tomography of head"/>
+    <display value="CT of structures of the head"/>
+    <display value="CT of structures of the head (procedure)"/>
+  </concept>
   <concept id="303949008" display="Lumbar spinal cerebrospinal fluid pathway (body structure)">
     <display value="Lumbar spinal cerebrospinal fluid pathway"/>
     <display value="Lumbar spinal cerebrospinal fluid pathway (body structure)"/>

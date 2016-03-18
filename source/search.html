@@ -1072,7 +1072,7 @@ Parameter values for both <code>_include</code> and <code>_revinclude</code> hav
  <li>(Optional) A specific of type of target resource (for when the search parameter refers to multiple possible target types)</li>
 </ol>
 <p>
-<code>_include</code> and <code>_reverseInclude</code> parameters do not include multiple values. Instead, the 
+<code>_include</code> and <code>_revInclude</code> parameters do not include multiple values. Instead, the 
 parameters are repeated for each different include criteria.
 </p>
 <p>
@@ -1105,7 +1105,7 @@ GET [base]/Observation?_include=Observation:related-target&amp;criteria...
 GET [base]/Observation?_include:recurse=Observation.related-target&amp;criteria...
 </pre>
 <p>
-Both <code>_include</code> and <code>_reverseInclude</code> use the wild card "*" for the search parameter
+Both <code>_include</code> and <code>_revInclude</code> use the wild card "*" for the search parameter
 name, indicating that any search parameter of type=reference be included.  Though 
 though both clients and servers need to take care not to request or return too many resources
 when doing this. Most notably, using recursive inclusions might lead to the retrieval of the 
