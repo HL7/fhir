@@ -4,11 +4,14 @@ POST /fhir/Patient/example/$meta-add
 [Other headers]
 
 <Parameters>
-  <meta>
-    <tag>
-      <system value="http://example.org/codes/tags"/>
-      <code value="record-lost"/>
-      <display value="Patient File Lost"/>
-    </tag>
-  </meta>
+  <parameter>
+    <name value="meta"/>
+    <valueMeta>
+      <tag>
+        <system value="http://example.org/codes/tags"/>
+        <code value="record-lost"/>
+        <display value="Patient File Lost"/>
+      </tag>
+    </valueMeta>
+  </parameter>
 </Parameters>
