@@ -1060,7 +1060,7 @@
   Card. = 1..1
   Type = string
   Short Label = Name by which the operation/query is invoked
-  Definition = The name of a query, which is used in the _query parameter when the query is called
+  Definition = The name of the operation or query. For an operation, this is the name  prefixed with $ and used in the url. For a query, this is the name used in the _query parameter when the query is called
   Comments = The name here SHOULD be the same as the name in the definition, unless there is a name clash and the name cannot be used
 
  -- Row 66 -----------------------------------
