@@ -344,6 +344,9 @@
  -- Row 17 -----------------------------------
   Element = ImagingExcerpt.study.viewable
   Card. = 0..*
+  Short Label = viewable format
+  Definition = A set of viewable reference images of various  types.
+  Requirements = Accessible viewable forms that can be directly pulled and displayed without knowing DICOM Web protocols.
 
  -- Row 18 -----------------------------------
   Element = !ImagingExcerpt.study.viewable.type
@@ -502,6 +505,9 @@
  -- Row 35 -----------------------------------
   Element = ImagingExcerpt.study.series.viewable
   Card. = 0..*
+  Short Label = viewable format
+  Definition = A set of viewable reference images of various  types.
+  Requirements = Accessible viewable forms that can be directly pulled and displayed without knowing DICOM Web protocols.
 
  -- Row 36 -----------------------------------
   Element = !ImagingExcerpt.study.series.viewable.type
