@@ -349,7 +349,7 @@
   Summary = y
   Type = Reference(Practitioner|Patient)
   Short Label = Who recorded the sensitivity
-  Definition = Individual who recorded the record and takes responsibility for its conten
+  Definition = Individual who recorded the record and takes responsibility for its content
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.author
 
