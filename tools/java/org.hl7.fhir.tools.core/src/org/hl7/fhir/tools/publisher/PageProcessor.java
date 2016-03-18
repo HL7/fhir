@@ -6426,8 +6426,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
     
     // 3. markdown
-    String s = Processor.process(text);
+    String s = Processor.process(checkEscape(text));
     return s;
+  }
+
+  private String checkEscape(String text) {
+    if (text.startsWith("```"))
+      return text.substring(3);
+    else
+      return Utilities.escapeXml(text);
   }
 
   public BuildWorkerContext getWorkerContext() {
