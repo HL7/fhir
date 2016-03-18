@@ -369,7 +369,7 @@
   Card. = 0..1
   Inv. = 6
   Type = boolean
-  Short Label = Whether the group must be included in data results
+  Short Label = Whether the item must be included in data results
   Definition = If true, indicates that the item must be present in a \"completed\" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
   RIM Mapping = Not supported - MIF/templating layer
   Default Value = False
@@ -379,7 +379,7 @@
   Card. = 0..1
   Inv. = 6
   Type = boolean
-  Short Label = Whether the group may repeat
+  Short Label = Whether the item may repeat
   Definition = Whether the item may occur multiple times in the instance, containing multiple sets of answers
   Requirements = Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set
   RIM Mapping = Not supported - MIF/templating layer

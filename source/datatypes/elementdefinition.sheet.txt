@@ -308,7 +308,7 @@
   Element = ElementDefinition.slicing.discriminator
   Card. = 0..*
   Type = string
-  Short Label = Element values that used to distinguish the slices
+  Short Label = Element values that are used to distinguish the slices
   Definition = Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices
   Comments = If there is no discriminator, the content is hard to process, so this should be avoided. If the base element has a cardinality of ..1, and there is a choice of types, the discriminator most be \"@type\"
   RIM Mapping = N/A
@@ -528,7 +528,7 @@
   Card. = 0..1
   Inv. = 15
   Type = *
-  Short Label = Specified value it missing from instance
+  Short Label = Specified value if missing from instance
   Definition = The value that should be used if there is no value stated in the instance (e.g. \'if not otherwise specified, the abstract is false\')
   Comments = Default values can only be specified on a resource, data type, or extension definition, and never in a profile that applies to one of these. Specifying a default value means that the property can never been unknown - it must always have a value. Further, the default value can never be changed. For these reasons, default values are (and should be) used extremely sparingly.
   RIM Mapping = N/A (MIF territory)
@@ -568,7 +568,7 @@
   Element = ElementDefinition.example[x]
   Card. = 0..1
   Type = *
-  Short Label = Example value: [as defined for type]
+  Short Label = Example value (as defined for type)
   Definition = A sample value for this element demonstrating the type of information that would typically be captured.
   Comments = This will most commonly be present for data where it\'s not implicitly obvious from either the data type or value set what the values might be.  (I.e. Example values for dates or quantities would generally be unnecessary.)  If the example value is fully populated, the publication tool can generate an instance automatically.
   LOINC Code = EXMPL_ANSWERS
@@ -632,7 +632,7 @@
   Element = ElementDefinition.constraint.requirements
   Card. = 0..1
   Type = string
-  Short Label = Why this constraint necessary or appropriate
+  Short Label = Why this constraint is necessary or appropriate
   Definition = Description of why this constraint is necessary or appropriate
   Comments = To be used if the reason for the constraint may not be intuitive to all implementers
 

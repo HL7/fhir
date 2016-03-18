@@ -1542,7 +1542,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Whether the group must be included in data results</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Whether the item must be included in data results</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">If true, indicates that the item must be present in a &quot;completed&quot; QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1577,7 +1577,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Whether the group may repeat</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Whether the item may repeat</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Whether the item may occur multiple times in the instance, containing multiple sets of answers</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
