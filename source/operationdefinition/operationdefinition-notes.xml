@@ -22,7 +22,7 @@ resources, not data types etc.
 
 <p>
 There are two ways to pass resources to an operation - directly, or by reference.
-Since the two forms havevery different behaviors and consequences, the definition of 
+Since the two forms have very different behaviors and consequences, the definition of 
 an Operation distinguishes between these two. 
 </p>
 <p>
