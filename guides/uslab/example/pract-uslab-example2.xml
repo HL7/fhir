@@ -33,23 +33,11 @@ Authored by: Eric M Haas  Health eData Inc.
 		<value value="docbill@healthedatainc.com"/>
 	</telecom>
 	<address>
-				<!-- EH replace with example.org temporarily to pass validation
-		<extension url="http://hl7.org/fhir/StructureDefinition/us-core-county">
-			<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-SC-coding">
--->
-		<extension url="http://example.org/us-core-county">
-			<extension url="http://example.org//iso21090-SC-coding">
-
-				<valueCoding>
-					<system value="https://www.census.gov/geo/reference"/>
-					<code value="42043"/>
-				</valueCoding>
-			</extension>
-		</extension>
 		<use value="work"/>
 		<line value="100 Medical Drive"/>
 		<line value="Suite 6"/>
 		<city value="Boston"/>
+		<district value="42043"/>
 		<state value="MA"/>
 		<postalCode value="01236"/>
 		<country value="USA"/>

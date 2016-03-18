@@ -65,7 +65,7 @@
   Id = 2
   Context = ValueSet
   English = A value set with only one import SHALL also have an include and/or an exclude unless the value set includes an inline code system
-  XPath = not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude)
+  XPath = not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude))
   Expression = compose.import.count() != 1 or compose.include or compose.exclude
 
  -- Row 3 -----------------------------------

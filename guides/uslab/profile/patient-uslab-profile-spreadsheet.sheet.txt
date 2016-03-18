@@ -310,21 +310,19 @@
   Committee Notes = 11/19/2014 EH:PID.11[2]:Patient Address:XAD:RE::[0..*]::: for PH create the slice for business and home
 
  -- Row 37 -----------------------------------
-  Element = !Patient.address.extension
+  Element = !Patient.address.district
   Profile Name = USLabCounty
   Card. = 0..1
   Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
   Short Label = County/Parish FIPS codes
   Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
   Committee Notes = 11/18/2014 EH: must support
 
  -- Row 38 -----------------------------------
-  Element = !Patient.address.extension.extension
+  Element = !Patient.address.district
   Profile Name = USLabCountycodes
-  Card. = 1..1
+  Card. = 0..1
   Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-SC-coding}
   Binding = USFIPSCounty
   Committee Notes = limit to coding
 
@@ -450,21 +448,19 @@
   Committee Notes = 11/19/2014 EH:NK1.4:Address:XAD:RE:[0..*]:::
 
  -- Row 60 -----------------------------------
-  Element = !Patient.address.extension
+  Element = !Patient.address.district
   Profile Name = USLabCounty
   Card. = 0..1
   Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
   Short Label = County/Parish FIPS codes
   Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
   Committee Notes = 11/18/2014 EH: must support
 
  -- Row 61 -----------------------------------
-  Element = !Patient.address.extension.extension
+  Element = !Patient.address.extension.district
   Profile Name = USLabCountycodes
-  Card. = 1..1
+  Card. = 0..1
   Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/iso21090-SC-coding}
   Binding = USFIPSCounty
   Committee Notes = limit to coding
 
@@ -773,17 +769,6 @@
   Committee Notes = 11/19/2014 EH:PID.11[2]:Patient Address:XAD:RE::[0..*]::: Slice by home and work?
 
  -- Row 38 -----------------------------------
-  Element = Patient.address.extension
-  Profile Name = USLabPHCountry
-  Card. = 0..1
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
-  Binding = USFIPSCounty
-  Short Label = County/Parish FIPS codes
-  Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
-  Committee Notes = 11/18/2014 EH: must support 3/11/2015 eh: flatten out structure and force string to code
-
- -- Row 39 -----------------------------------
   Element = !Patient.address.extension.extension
   Card. = 1..1
   Must Support = Y
@@ -791,36 +776,46 @@
   Binding = USFIPSCounty
   Committee Notes = limit to coding
 
- -- Row 40 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = !Patient.address.extension.system
   Card. = 1..1
   Must Support = Y
   Binding = USFIPSCounty
   Committee Notes = system
 
- -- Row 41 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = !Patient.address.extension.code
   Card. = 1..1
   Must Support = Y
   Committee Notes = code
 
- -- Row 42 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = Patient.address.use
   Card. = 0..1
   Must Support = Y
   Committee Notes = PID.11[1].7:Address Type:ID:RE:::1..3::HL70190
 
- -- Row 43 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = Patient.address.line
   Card. = 0..2
   Must Support = Y
   Committee Notes = PID.11[1].1.1:Street or Mailing Address:ST:R:::1..120:#:/PID.11[1].2:Other Designation:ST:RE:::1..120:#:
 
- -- Row 44 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = Patient.address.city
   Card. = 0..1
   Must Support = Y
   Committee Notes = PID.11[2].3:City:ST:RE:::1..50:#:
+
+ -- Row 44 -----------------------------------
+  Element = Patient.address.district
+  Profile Name = USLabPHCountry
+  Card. = 0..1
+  Must Support = Y
+  Binding = USFIPSCounty
+  Short Label = County/Parish FIPS codes
+  Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
+  Committee Notes = 11/18/2014 EH: must support 3/11/2015 eh: flatten out structure and force string to code
 
  -- Row 45 -----------------------------------
   Element = Patient.address.state
@@ -926,11 +921,10 @@
   Committee Notes = 11/19/2014 EH:NK1.4:Address:XAD:RE:[0..*]::: 3/11/2015 eh: flatten out structure and force string to code
 
  -- Row 61 -----------------------------------
-  Element = Patient.contact.address.extension
+  Element = Patient.contact.address.district
   Profile Name = CountyCountact
   Card. = 0..1
   Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
   Binding = USFIPSCounty
   Short Label = County/Parish FIPS codes
   Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).

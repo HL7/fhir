@@ -149,11 +149,10 @@
   Committee Notes = 11/19/2014 EH:ORC.24:Ordering Provider Address:XAD:O:O::[0..1]  for ELR? How useful is a physical address in PH? For pattern only thing that is required is single address line.
 
  -- Row 19 -----------------------------------
-  Element = !Practitioner.address.extension
+  Element = !Practitioner.address.district
   Profile Name = USLabCounty
   Card. = 0..1
   Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
   Short Label = County/Parish FIPS codes
   Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
   Committee Notes = 11/18/2014 EH:
@@ -381,17 +380,6 @@
   Committee Notes = 11/19/2014 EH:ORC.24:Ordering Provider Address:XAD:O:O::[0..1]  for ELR? How useful is a physical address in PH? For pattern only thing that is required is single address line.
 
  -- Row 19 -----------------------------------
-  Element = Practitioner.address.extension
-  Profile Name = USLabCounty
-  Card. = 0..1
-  Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
-  Binding = USFIPSCounty
-  Short Label = County/Parish FIPS codes
-  Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
-  Committee Notes = 11/18/2014 EH: must support
-
- -- Row 20 -----------------------------------
   Element = !Practitioner.address.extension.extension
   Profile Name = USLabCountycodes
   Card. = 1..1
@@ -400,27 +388,37 @@
   Binding = USFIPSCounty
   Committee Notes = limit to coding
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = !Practitioner.address.extension.system
   Card. = 1..1
   Must Support = Y
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = !Practitioner.address.extension.code
   Card. = 1..1
   Must Support = Y
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Practitioner.address.use
   Card. = 0..1
   Must Support = Y
   To Do = map codes
   Committee Notes = 11/18/2014 EH: must support
 
- -- Row 24 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Practitioner.address.line
   Card. = 0..2
   Must Support = Y
+  Committee Notes = 11/18/2014 EH: must support
+
+ -- Row 24 -----------------------------------
+  Element = Practitioner.address.district
+  Profile Name = USLabCounty
+  Card. = 0..1
+  Must Support = Y
+  Binding = USFIPSCounty
+  Short Label = County/Parish FIPS codes
+  Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
   Committee Notes = 11/18/2014 EH: must support
 
  -- Row 25 -----------------------------------

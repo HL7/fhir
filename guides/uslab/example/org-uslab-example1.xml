@@ -28,14 +28,11 @@ Authored by: Eric M Haas  Health eData Inc.
     <value value="(+1) 555-227-6622"/>
   </telecom>
   <address>
-  <!--  EH extension for us county  -->
-    <extension url="http://hl7.org/fhir/StructureDefinition/us-core-county">
-      <valueString value="42043"/>
-    </extension>
     <use value="work"/>
     <line value="Firstcare Way"/>
     <line value="Building 1"/>
     <city value="Harrisburg"/>
+    <district value="42043"/>
     <state value="PA"/>
     <postalCode value="17111"/>
     <country value="USA"/>

@@ -56,22 +56,11 @@ Authored by: Eric M Haas  Health eData Inc.
   <birthDate value="2012-06-07"/>
   <deceasedBoolean value="false"/>
   <address>
-  <!--  EH replace with example.org temporarily to pass validation
-<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-ADXP-county">
-			<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-SC-coding">
- -->
-    <extension url="http://example.org/us-core-county">
-      <extension url="http://example.org//iso21090-SC-coding">
-        <valueCoding>
-          <system value="https://www.census.gov/geo/reference"/>
-          <code value="42043"/>
-        </valueCoding>
-      </extension>
-    </extension>
     <use value="home"/>
     <line value="123 North 102nd Street"/>
     <line value="Apt 4d"/>
     <city value="Harrisburg"/>
+    <district value="42043"/>
     <state value="PA"/>
     <postalCode value="17102"/>
     <country value="USA"/>
@@ -92,22 +81,11 @@ Authored by: Eric M Haas  Health eData Inc.
       <value value="(555)7259890"/>
     </telecom>
     <address>
-      <extension url="http://example.org/us-core-county">
-        <extension url="http://example.org//iso21090-SC-coding">
-        <!--  EH replace with example.org temporarily to pass validation
-			<extension url="http://hl7.org/fhir/StructureDefinition/us-core-county">
-				<extension url="http://hl7.org/fhir/StructureDefinition/iso21090-SC-coding">
- -->
-          <valueCoding>
-            <system value="https://www.census.gov/geo/reference"/>
-            <code value="42043"/>
-          </valueCoding>
-        </extension>
-      </extension>
       <use value="home"/>
       <line value="123 North 102nd Street"/>
       <line value="Apt 4d"/>
       <city value="Harrisburg"/>
+      <district value="42043"/>
       <state value="PA"/>
       <postalCode value="17102"/>
       <country value="USA"/>

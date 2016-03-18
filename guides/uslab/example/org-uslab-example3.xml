@@ -21,14 +21,11 @@ Authored by: Eric M Haas  Health eData Inc.
   </identifier>
   <name value="Acme Labs"/>
   <address>
-  <!--  EH extension for us county  -->
-    <extension url="http://hl7.org/fhir/StructureDefinition/us-core-county">
-      <valueString value="42043"/>
-    </extension>
     <use value="work"/>
     <line value="Firstcare Way"/>
     <line value="Building 2"/>
     <city value="Harrisburg"/>
+    <district value="42043"/>
     <state value="PA"/>
     <postalCode value="42043"/>
     <country value="USA"/>

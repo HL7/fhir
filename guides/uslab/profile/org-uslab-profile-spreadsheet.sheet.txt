@@ -116,11 +116,10 @@
   Committee Notes = ORC.22:Ordering Facility Address:XAD:R::[1..*]:::  EH need to map to codes for State, City, County, Zip as invarient
 
  -- Row 14 -----------------------------------
-  Element = Organization.address.extension
+  Element = Organization.address.district
   Profile Name = USLabCountycodes
   Card. = 0..1
   Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
   Binding = USFIPSCounty
   Short Label = County/Parish FIPS codes
   Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
@@ -287,11 +286,10 @@
   Committee Notes = OBX.24:Performing Organization Address:XAD:R::[1..1]
 
  -- Row 10 -----------------------------------
-  Element = Organization.address.extension
+  Element = Organization.address.district
   Profile Name = USLabCountycodes
   Card. = 0..1
   Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
   Binding = USFIPSCounty
   Short Label = County/Parish FIPS codes
   Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
@@ -520,11 +518,10 @@
   Committee Notes = 11/18/2014 EH: must support
 
  -- Row 14 -----------------------------------
-  Element = !Organization.address.extension
+  Element = !Organization.address.district
   Profile Name = USLabCounty
   Card. = 0..1
   Must Support = Y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/us-core-county}
   Short Label = County/Parish FIPS codes
   Requirements = County/Parish Code SHALL use FIPS 6-4  ( INCITS 31:2009).
   Committee Notes = 11/18/2014 EH: must support

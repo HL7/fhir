@@ -88,12 +88,10 @@
     <use value="work"/>
   </telecom>
   <address>
-    <extension url="http://hl7.org/fhir/StructureDefinition/us-core-county">
-      <valueString value="Orange County"/>
-    </extension>
     <use value="home"/>
     <line value="534 Erewhon St"/>
     <city value="PleasantVille"/>
+    <district value="Orange County"/>
     <state value="Vic"/>
     <postalCode value="3999"/>
   </address>

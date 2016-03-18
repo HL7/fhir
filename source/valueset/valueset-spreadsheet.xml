@@ -4541,7 +4541,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">ValueSet</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">A value set with only one import SHALL also have an include and/or an exclude unless the value set includes an inline code system</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">compose.import.count() != 1 or compose.include or compose.exclude</Data></Cell>
-    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude)</Data></Cell>
+    <Cell ss:StyleID="s111"><Data ss:Type="String">not(exists(f:compose)) or (count(f:compose/f:import)!=1 or exists(f:compose/f:include) or exists(f:compose/f:exclude))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s110"><Data ss:Type="Number">5</Data><NamedCell
@@ -4979,7 +4979,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>3</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
