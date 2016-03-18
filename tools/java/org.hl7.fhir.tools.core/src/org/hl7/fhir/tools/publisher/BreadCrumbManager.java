@@ -278,9 +278,9 @@ public class BreadCrumbManager {
         b.append("        <li><b>Example</b></li>");
       } else {
         String s = map.get(type.substring(type.indexOf(":")+1).toLowerCase());
-        if (s == null)
-          throw new Exception("Unable to find map for "+type);
         if (type.startsWith("resource-instance") && type.contains(":")) {
+          if (s == null)
+            throw new Exception("Unable to find map for "+type);
           String[] path = s.split("\\.");
           Page focus = home;
           for (int i = 0; i < path.length; i++) {
@@ -295,6 +295,8 @@ public class BreadCrumbManager {
           else
             b.append("        <li><b>Profile Instance</b></li>");
         } else if (type.startsWith("resource-questionnaire") && type.contains(":")) {
+          if (s == null)
+            throw new Exception("Unable to find map for "+type);
           String[] path = s.split("\\.");
           Page focus = home;
           for (int i = 0; i < path.length; i++) {
