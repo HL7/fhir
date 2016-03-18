@@ -9,6 +9,9 @@
 </p>
 </div>
 
+<p>Note that the Measure itself does not contain any logic; rather a Library resource is referenced that contains the logic required by the measure, and the various expression elements, such as poulation criteria, reference named expressions within that library (or libraries). In addition, if the Measure references multiple libraries, then any expression references within the resource must be qualified with the name of the library that contains the referenced expression.</p>
+
+
 <!-- (recommended): 
 <div>
 <h2>Boundaries and Relationships</h2>

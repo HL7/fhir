@@ -23,6 +23,8 @@
 
 <p>However, each orderable item usually needs to be completed with contextual information based on the particular patient that the order set is being used with. In this case, either the user completing the order set must provide a value, or the order set definition can provide an expression that provides the necessary value based on the patient in context. These expressions are defined for each item using the customization element. Each customization specifies a <i>path</i> and the name of an <i>expression</i> that, when evaluated in context, provides a value for the element defined by the path.</p>
 
+<p>Note that the OrderSet itself does not contain any logic; rather a Library resource is referenced that contains the logic required by the order set, and the various expression elements, such as customization expression, reference named expressions within that library (or libraries). In addition, if the OrderSet references multiple libraries, then any expression references within the resource must be qualified with the name of the library that contains the referenced expression.</p>
+
 <p>This mixture of static and dynamic description of each orderable allows the order set to be presented structurally in terms of native resources, while still allowing for complete flexibility and customization of the contents based on the patient, encounter, and setting at the point-of-care.</p>
 
 <p>As an example, the Low Suicide Risk example order set from the Clinical Decision Support Knowledge Artifact Specification was represented using the OrderSet structure: <a href="orderset-example.html">Low Suicide Risk Example Order Set</a>.</p>

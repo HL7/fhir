@@ -11,6 +11,8 @@
 
 <p>The actual content of the library is represented using the Attachment data type, and may either be referenced with a url to some CQL repository, or the content may be embedded as a base-64 encoded string. Either way, the content may be shared as a CQL text document, or, for a more computable representation, as an (Expression Logical Model) ELM XML or JSON document.</p>
 
+<p>Note that because the library content may be embedded as well as retrievable from a CQL repository via the attachment URL, the possibility exists for the embedded content to be different from the content on the repository. With proper versioning and governance, this should never occur, but to minimize the potential impact of this possibility, implementers SHALL give precedence to the embedded content of a library when it is present.</p>
+
 </div>
 
 <!-- (recommended): 
