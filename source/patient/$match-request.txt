@@ -1,0 +1,24 @@
+// patient match using parameters:
+
+GET /open/Patient/$match?family=chalmers&given=peter&birthdate=1974-12-25
+[some headers]
+
+// patient match using patient resource:
+
+POST /open/Patient/$match
+[some headers]
+
+{
+  "resourceType": "Patient",
+  "name": [
+    {
+      "family": [
+        "Chalmers"
+      ],
+      "given": [
+        "Peter"
+      ]
+    }
+  ],
+  "birthDate": "1974-12-25"
+}

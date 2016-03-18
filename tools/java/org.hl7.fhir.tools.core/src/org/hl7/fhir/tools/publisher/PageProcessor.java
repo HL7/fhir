@@ -6426,7 +6426,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     
     
     // 3. markdown
-    String s = Processor.process(Utilities.escapeXml(text));
+    String s = Processor.process(text);
     return s;
   }
 
