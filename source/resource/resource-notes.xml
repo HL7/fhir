@@ -219,8 +219,10 @@ ValueSet.meta.versionId = 1 and the other has ValueSet.id = x2, ValueSet.version
 <a name="implicitRules"> </a>  
 <h3>Implicit Rules</h3>
 <p>
-A reference to a <a href="profiling.html#agreement">custom agreement</a> about how the resources are used 
-that was followed when the resource was constructed, and which must be understood when processing the content.
+A reference to a custom agreement that describes 
+how the resource is being used (e.g. an <a href="profiling.html#glossary">implementation guide</a>)  
+that was followed when the resource was constructed, where the implemenation guide must be 
+known and understood in order to safely processing the content.
 </p>
 <p>
 Asserting this rule set restricts the content to be only understood by a limited set of 
@@ -231,10 +233,12 @@ data in a generally exchangeable sense.
 </p>
 <p>
 Note that resources are almost always constructed following some custom agreement.
-Best practice is that such agreements make all knowledge about the content 
-of the resource explicit; if custom agreements do this, and declare their extensions
-as required, then it is not necessary to understand the agreement when processing the 
-resource content.
+Best practice - which is recommended through out the conformance resources - is that 
+such agreements make all knowledge about the content of the resource explicit in 
+the content of the resource (e.g. no default values in profiles); if custom agreements 
+follow this advice, and declare their extensions as required, then it is not necessary 
+to understand the agreement in order to safely process the resource content. For this 
+reason, use of <code>implicitRules</code> is rare.
 </p>
 
 <a name="lang"> </a>
