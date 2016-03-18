@@ -1,35 +1,17 @@
 package org.hl7.fhir.tools.converters;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.util.List;
 import java.util.Map;
 
-import org.hl7.fhir.dstu3.formats.IParser.OutputStyle;
-import org.hl7.fhir.dstu3.exceptions.FHIRFormatError;
 import org.hl7.fhir.dstu3.formats.IParser;
-import org.hl7.fhir.dstu3.formats.XmlParser;
-import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContentMode;
-import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemPropertyComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionPropertyComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem.PropertyType;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.ContactPoint;
-import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
-import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent;
-import org.hl7.fhir.utilities.TextFile;
+import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.utilities.Utilities;
 
 public class CodeSystemConvertor {

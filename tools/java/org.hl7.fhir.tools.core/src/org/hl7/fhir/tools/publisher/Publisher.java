@@ -94,7 +94,6 @@ import org.hl7.fhir.definitions.model.Compartment;
 import org.hl7.fhir.definitions.model.ConstraintStructure;
 import org.hl7.fhir.definitions.model.DefinedCode;
 import org.hl7.fhir.definitions.model.DefinedStringPattern;
-import org.hl7.fhir.definitions.model.DefinitionDumper;
 import org.hl7.fhir.definitions.model.Definitions;
 import org.hl7.fhir.definitions.model.Definitions.NamespacePair;
 import org.hl7.fhir.definitions.model.Definitions.PageInformation;
@@ -128,6 +127,8 @@ import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
+import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent;
+import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.CompartmentDefinition;
 import org.hl7.fhir.dstu3.model.CompartmentDefinition.CompartmentDefinitionResourceComponent;
@@ -152,7 +153,6 @@ import org.hl7.fhir.dstu3.model.Conformance.UnknownContentCode;
 import org.hl7.fhir.dstu3.model.ContactPoint;
 import org.hl7.fhir.dstu3.model.ContactPoint.ContactPointSystem;
 import org.hl7.fhir.dstu3.model.DataElement;
-import org.hl7.fhir.dstu3.model.DateTimeType;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
@@ -162,7 +162,6 @@ import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
 import org.hl7.fhir.dstu3.model.Factory;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.GuidePageKind;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
-import org.hl7.fhir.dstu3.model.InstantType;
 import org.hl7.fhir.dstu3.model.Meta;
 import org.hl7.fhir.dstu3.model.NamingSystem;
 import org.hl7.fhir.dstu3.model.NamingSystem.NamingSystemContactComponent;
@@ -185,17 +184,9 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
-import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemContactComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionComponent;
-import org.hl7.fhir.dstu3.model.CodeSystem.ConceptDefinitionDesignationComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.ConceptSetFilterComponent;
-import org.hl7.fhir.dstu3.model.ValueSet.FilterOperator;
-import org.hl7.fhir.dstu3.model.ValueSet.ValueSetComposeComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetContactComponent;
 import org.hl7.fhir.dstu3.terminologies.LoincToDEConvertor;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
-import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine;
 import org.hl7.fhir.dstu3.utils.LogicalModelUtilities;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
@@ -244,7 +235,6 @@ import org.stringtemplate.v4.ST;
 import org.tigris.subversion.javahl.ClientException;
 import org.tigris.subversion.javahl.SVNClient;
 import org.tigris.subversion.javahl.Status;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -583,6 +573,9 @@ public class Publisher implements URIResolver, SectionNumberer {
       page.loadUcum();
 
       prsr.parse(page.getGenDate(), page.getValidationErrors());
+      for (String n : page.getDefinitions().sortedResourceNames())
+        if (!page.getBreadCrumbManager().knowsResource(n))
+          page.getValidationErrors().add(new ValidationMessage(Source.Publisher, IssueType.INVALID, -1, -1, "hierarchy.xml", "Resource not found: "+n,IssueSeverity.ERROR));
 
       if (web) {
         page.log("Clear Directory", LogMessageType.Process);

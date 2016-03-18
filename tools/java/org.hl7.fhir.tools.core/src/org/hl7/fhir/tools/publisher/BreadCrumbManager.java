@@ -114,7 +114,6 @@ public class BreadCrumbManager {
   private Map<String, Page> pages = new HashMap<String, BreadCrumbManager.Page>();
   private Map<String, Pages> pagesMap = new HashMap<String, BreadCrumbManager.Pages>();
   
-  
   public void parse(String filename) throws Exception {
     DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     factory.setNamespaceAware(true);
@@ -625,6 +624,10 @@ public class BreadCrumbManager {
 
   public void setDefinitions(Definitions definitions) {
     this.definitions = definitions;
+  }
+
+  public boolean knowsResource(String n) {
+    return map.containsKey(n.toLowerCase());
   }
   
 }

@@ -35,7 +35,6 @@ import org.hl7.fhir.dstu3.terminologies.CodeSystemUtilities;
 import org.hl7.fhir.dstu3.terminologies.ValueSetUtilities;
 import org.hl7.fhir.dstu3.utils.ToolingExtensions;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
-import org.hl7.fhir.tools.converters.ValueSetImporterV2.VSPack;
 import org.hl7.fhir.tools.publisher.PageProcessor;
 import org.hl7.fhir.tools.publisher.SectionNumberer;
 import org.hl7.fhir.utilities.CSFile;

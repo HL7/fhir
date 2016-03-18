@@ -65,7 +65,6 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.Constants;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
-import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.test.ToolsHelper;
 import org.hl7.fhir.dstu3.utils.Version;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
