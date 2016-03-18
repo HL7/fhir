@@ -8,7 +8,7 @@
   <experimental value="false"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
   <contact>
-  <name value="[string]"/><!-- 0..1 Name of a individual to contact -->
+  <name value="[string]"/><!-- 0..1 Name of an individual to contact -->
     <telecom>
       <system value="other"/>
       <value value="http://hl7.org/fhir"/>

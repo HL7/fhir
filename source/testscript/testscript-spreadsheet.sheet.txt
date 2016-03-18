@@ -465,7 +465,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Name of a individual to contact
+  Short Label = Name of an individual to contact
   Definition = The name of an individual to contact regarding the Test Script
   Comments = If there is no named individual, the telecom is for the organization as a whole
 
