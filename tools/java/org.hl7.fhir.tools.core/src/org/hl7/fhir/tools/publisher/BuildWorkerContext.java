@@ -438,7 +438,9 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (!snomedCodes.containsKey(code))
       response = queryForTerm(code);
     if (snomedCodes.containsKey(code))
-      if (display == null || snomedCodes.get(code).has(display))
+      if (display == null)
+        return new ValidationResult(new ConceptDefinitionComponent().setCode(code).setDisplay(snomedCodes.get(code).display));
+      else if (snomedCodes.get(code).has(display))
         return new ValidationResult(new ConceptDefinitionComponent().setCode(code).setDisplay(display));
       else 
         return new ValidationResult(IssueSeverity.WARNING, "Snomed Display Name for "+code+" must be one of '"+snomedCodes.get(code).summary()+"'");
