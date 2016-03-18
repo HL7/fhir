@@ -389,7 +389,7 @@ The <code>system</code> is a URI that references the code system that defines th
 Choosing the correct system is important; for more information about the code system 
 URI, read <a href="terminologies.html#system">Managing Terminology System URIs</a>.
 The system URI SHALL NOT contain a reference to a value set (e.g. ValueSet.url). 
-If the code is taken from a ValueSet with an inline code system, <code>ValueSet.codeSystem.system</code>,
+If the code is taken from a CodeSystem resource, <code>CodeSystem.url</code>
 is the correct value for the system uri.
 </p>
 <p>
@@ -403,7 +403,7 @@ Note that the following systems SHOULD always have a version specified:
 </ul>
 <p>
 More generally, any classification (e.g.  a code system that includes concepts with relative definitions such as "not otherwise coded"
-will require a version. See the <a href="valueset.html#versioning">discussion of code system versions in the Value Set resource</a> for 
+will require a version. See the <a href="codesystem.html#versioning">discussion of code system versions in the Code System resource</a> for 
 further discussion on versioning.
 </p>
 
