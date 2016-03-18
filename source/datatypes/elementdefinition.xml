@@ -1252,7 +1252,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Element values that used to distinguish the slices</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Element values that are used to distinguish the slices</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Designates which child elements are used to discriminate between the slices when processing an instance. If one or more discriminators are provided, the value of the child elements in the instance data SHALL completely distinguish which slice the element in the resource matches based on the allowed values for those elements in each of the slices</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1993,7 +1993,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Specified value it missing from instance</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Specified value if missing from instance</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">The value that should be used if there is no value stated in the instance (e.g. 'if not otherwise specified, the abstract is false')</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2137,7 +2137,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Example value: [as defined for type]</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Example value (as defined for type)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">A sample value for this element demonstrating the type of information that would typically be captured.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2383,7 +2383,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Why this constraint necessary or appropriate</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Why this constraint is necessary or appropriate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">Description of why this constraint is necessary or appropriate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
