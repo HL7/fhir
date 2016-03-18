@@ -422,7 +422,7 @@ private boolean elementIsOk(String name) throws FHIRFormatError  {
     parseAttributes(node);
     if (readChar() == '/') {
       if (peekChar() != '>')
-        throw new FHIRFormatError("unexpected non-end of element"+descLoc());
+        throw new FHIRFormatError("unexpected non-end of element "+name+" "+descLoc());
       readChar();
     } else {
        parseElementInner(node, newParents);
