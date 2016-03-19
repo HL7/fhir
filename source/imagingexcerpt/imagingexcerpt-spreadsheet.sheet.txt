@@ -259,7 +259,6 @@
   Element = ImagingExcerpt.study
   Card. = 1..*
   Summary = y
-  UML = 400;40
   Type = =Study
   Short Label = Study identity of the selected instances
   Definition = Study identity and locating information of the DICOM SOP instances in the selection.
@@ -344,7 +343,7 @@
  -- Row 17 -----------------------------------
   Element = ImagingExcerpt.study.viewable
   Card. = 0..*
-  Short Label = viewable format
+  Short Label = Viewable format
   Definition = A set of viewable reference images of various  types.
   Requirements = Accessible viewable forms that can be directly pulled and displayed without knowing DICOM Web protocols.
 
@@ -367,7 +366,7 @@
 
  -- Row 20 -----------------------------------
   Element = ImagingExcerpt.study.viewable.contentType
-  Card. = 0..1
+  Card. = 1..1
   Type = code
   Binding = MimeType
   Short Label = Mime type of the content, with charset etc.
@@ -417,26 +416,34 @@
   Comments = The number of bytes is redundant if the data is provided as a base64binary, but is useful if the data is provided as a url reference
 
  -- Row 26 -----------------------------------
-  Element = ImagingExcerpt.study.viewable.url
+  Element = ImagingExcerpt.study.viewable.title
   Card. = 0..1
+  Type = string
+  Short Label = Label to display in place of the data
+  Definition = A label or set of text to display in place of the data
+  Requirements = Applications need a label to display to a human user in place of the actual data if the data cannot be rendered or perceived by the viewer.
+  Example = \"Official Corporate Logo\"
+
+ -- Row 27 -----------------------------------
+  Element = ImagingExcerpt.study.viewable.url
+  Card. = 1..1
   Type = uri
   Short Label = Uri where the data can be found
   Definition = A location where the data can be accessed
   Requirements = The data needs to be transmitted by reference
   Example = http://www.acme.com/logo-small.png
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ImagingExcerpt.study.series
   Card. = 1..*
   Summary = y
-  UML = 480;200
   Type = =Series
   Short Label = Series identity of the selected instances
   Definition = Series identity and locating information of the DICOM SOP instances in the selection
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. In addition, the locator at the series level provide a means of retrieving the entire series
   Comments = Series component represents the series level identity and locator information of the DICOM SOP instances in the selection.
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ImagingExcerpt.study.series.uid
   Card. = 1..1
   Aliases = SeriesInstanceUID, Referenced series instance UID
@@ -447,7 +454,7 @@
   Requirements = Series instance UID is required to fully identify the DICOM SOP instances in the selection
   DICOM Mapping = (0020,000E) - Series Instance UID
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = !ImagingExcerpt.study.series.retrieveAETitle
   Card. = 0..1
   Type = id
@@ -457,7 +464,7 @@
   Comments = Series level locator information is optional. If provided, this is the AE Title which supports retrieval of the entire series, though only a subset of these are selected in the selection.
   DICOM Mapping = (0008,0054) Retrieve AE Title
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = !ImagingExcerpt.study.series.retrieveLocationUid
   Card. = 0..*
   Type = oid
@@ -467,7 +474,7 @@
   Comments = Series level locator information is optional.
   DICOM Mapping = (0040,E011) - Retrieve Location UID
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = !ImagingExcerpt.study.series.url
   Card. = 0..1
   Aliases = RetrieveURL
@@ -478,7 +485,7 @@
   Comments = Series level locator information is optional. If provided, this is the URL to retrieve the entire series with WADO-RS interaction, though only a subset of these are selected in the selection.
   DICOM Mapping = (0008,1190) - Retrieve URL
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ImagingExcerpt.study.series.dWeb
   Card. = 0..*
   Short Label = Dicom web access
@@ -486,7 +493,7 @@
   Requirements = access methods available using DICOM web protocols
   Comments = Access method for applications that understand the DICOM web protocols for higher fidelity access.
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = ImagingExcerpt.study.series.dWeb.type
   Card. = 1..1
   Type = code
@@ -494,7 +501,7 @@
   Short Label = WADO-RS | WADO-URI | IID | WADO-WS | AE
   Definition = Access type for DICOM web
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ImagingExcerpt.study.series.dWeb.url
   Card. = 1..1
   Type = uri
@@ -502,14 +509,14 @@
   Definition = To retrieve the study. Note that this URL retrieves all SOP instances of the study, not only those in the selection.
   Requirements = URL enables retrieval of the entire study using DICOM Web API.
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ImagingExcerpt.study.series.viewable
   Card. = 0..*
-  Short Label = viewable format
+  Short Label = Viewable format
   Definition = A set of viewable reference images of various  types.
   Requirements = Accessible viewable forms that can be directly pulled and displayed without knowing DICOM Web protocols.
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = !ImagingExcerpt.study.series.viewable.type
   Card. = 1..1
   Type = code
@@ -517,7 +524,7 @@
   Short Label = photo | video | audio
   Definition = Whether the media is a photo (still image), an audio recording, or a video recording
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = !ImagingExcerpt.study.series.viewable.subtype
   Card. = 0..1
   Type = CodeableConcept
@@ -526,9 +533,9 @@
   Definition = Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality
   DICOM Mapping = 0008,0060 | 0008,1032
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = ImagingExcerpt.study.series.viewable.contentType
-  Card. = 0..1
+  Card. = 1..1
   Type = code
   Binding = MimeType
   Short Label = Mime type of the content, with charset etc.
@@ -536,7 +543,7 @@
   Requirements = Processors of the data need to be able to know how to interpret the data
   Example = text/plain; charset=UTF-8, image/png
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = ImagingExcerpt.study.series.viewable.height
   Card. = 0..1
   Type = positiveInt
@@ -544,7 +551,7 @@
   Definition = Height of the image in pixels (photo/video)
   DICOM Mapping = 0028,0010
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = ImagingExcerpt.study.series.viewable.width
   Card. = 0..1
   Type = positiveInt
@@ -552,7 +559,7 @@
   Definition = Width of the image in pixels (photo/video)
   DICOM Mapping = 0028,0011
 
- -- Row 41 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = ImagingExcerpt.study.series.viewable.frames
   Card. = 0..1
   Type = positiveInt
@@ -560,7 +567,7 @@
   Definition = The number of frames in a photo. This is used with a multi-page fax, or an imaging acquisition context that takes multiple slices in a single image, or an animated gif. If there is more than one frame, this SHALL have a value in order to alert interface software that a multi-frame capable rendering widget is required
   Default Value = 1
 
- -- Row 42 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = ImagingExcerpt.study.series.viewable.duration
   Card. = 0..1
   Type = unsignedInt
@@ -568,7 +575,7 @@
   Definition = The duration of the recording in seconds - for audio and video
   DICOM Mapping = ~0028,0002
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = ImagingExcerpt.study.series.viewable.size
   Card. = 0..1
   Type = unsignedInt
@@ -577,27 +584,35 @@
   Requirements = Representing the size allows applications to determine whether they should fetch the content automatically in advance, or refuse to fetch it at all
   Comments = The number of bytes is redundant if the data is provided as a base64binary, but is useful if the data is provided as a url reference
 
- -- Row 44 -----------------------------------
-  Element = ImagingExcerpt.study.series.viewable.url
+ -- Row 45 -----------------------------------
+  Element = ImagingExcerpt.study.series.viewable.title
   Card. = 0..1
+  Type = string
+  Short Label = Label to display in place of the data
+  Definition = A label or set of text to display in place of the data
+  Requirements = Applications need a label to display to a human user in place of the actual data if the data cannot be rendered or perceived by the viewer.
+  Example = \"Official Corporate Logo\"
+
+ -- Row 46 -----------------------------------
+  Element = ImagingExcerpt.study.series.viewable.url
+  Card. = 1..1
   Type = uri
   Short Label = Uri where the data can be found
   Definition = A location where the data can be accessed
   Requirements = The data needs to be transmitted by reference
   Example = http://www.acme.com/logo-small.png
 
- -- Row 45 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = ImagingExcerpt.study.series.instance
   Card. = 1..*
   Summary = y
-  UML = 280;200
   Type = =Instance
   Short Label = The selected instance
   Definition = Identity and locating information of the selected DICOM SOP instances
   Requirements = DICOM SOP instances are identified through the UIDs of the study - series - instance hierarchy. This is the instance level identity of the instance in the selection.
   Comments = SOP Instance component identify the instance selected, along with the study and series identities to form the DICOM identity hierachy.
 
- -- Row 46 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = ImagingExcerpt.study.series.instance.sopClass
   Card. = 1..1
   Aliases = SOPClassUID
@@ -610,7 +625,7 @@
   DICOM Mapping = (0008,0016) SOP Class UID
   Committee Notes = Define proficiency and mode as extensions
 
- -- Row 47 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = ImagingExcerpt.study.series.instance.uid
   Card. = 1..1
   Aliases = SOPInstanceUID, Referenced SOP instance UID
@@ -623,7 +638,7 @@
   DICOM Mapping = (0008,0018) - SOP Instance UID
   Committee Notes = Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that isModifier is \"no\" on modeCode and preferenceInd.
 
- -- Row 48 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = !ImagingExcerpt.study.series.instance.retrieveAETitle
   Card. = 0..1
   Type = id
@@ -633,7 +648,7 @@
   Comments = Instance level locator information is required.
   DICOM Mapping = (0008,0054) Retrieve AE Title
 
- -- Row 49 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = !ImagingExcerpt.study.series.instance.retrieveLocationUid
   Card. = 0..1
   Type = oid
@@ -642,7 +657,7 @@
   Requirements = Retrieve Location UID identifies the system which provides the retrieve service.
   DICOM Mapping = (0040,E011) - Retrieve Location UID
 
- -- Row 50 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = !ImagingExcerpt.study.series.instance.url
   Card. = 1..1
   Aliases = RetrieveURL
@@ -653,17 +668,16 @@
   Comments = Instance level locator information is required.
   DICOM Mapping = (0008,1190) - Retrieve URL
 
- -- Row 51 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = ImagingExcerpt.study.series.instance.frame
   Card. = 0..*
-  UML = 40;200
   Type = =Frames
   Short Label = The frame set
   Definition = Identity and location information of the frames in the selected instance
   Requirements = The specific set of frames referenced in this imaging object selection. The URL retrieves the pixel data, and is encapsulated in a multipart MIME response.
   Comments = This component may be used if the referenced image SOP Instance is a multi-frame image.
 
- -- Row 52 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = ImagingExcerpt.study.series.instance.frame.number
   Card. = 1..*
   Aliases = FrameNumber
@@ -672,7 +686,7 @@
   Definition = The specific frame reference within a multi-frame object
   Requirements = One or more non-duplicate frame numbers in the selected instance.
 
- -- Row 53 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = ImagingExcerpt.study.series.instance.frame.url
   Card. = 1..1
   Type = uri
