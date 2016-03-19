@@ -77,14 +77,14 @@
 
  -- Row 2 -----------------------------------
   Element = MeasureReport.measure
-  Card. = 0..1
+  Card. = 1..1
   Type = Reference(Measure)
   Short Label = Measure that was evaluated
   Definition = A reference to the Measure that was evaluated to produce this report
 
  -- Row 3 -----------------------------------
   Element = MeasureReport.type
-  Card. = 0..1
+  Card. = 1..1
   Type = code
   Binding = MeasureReportType
   Short Label = individual | patient-list | summary
@@ -99,195 +99,188 @@
 
  -- Row 5 -----------------------------------
   Element = MeasureReport.period
-  Card. = 0..1
+  Card. = 1..1
   Type = Period
   Short Label = Reporting period
-  Definition = Reporting period
+  Definition = The reporting period for which the report was calculated
 
  -- Row 6 -----------------------------------
   Element = MeasureReport.status
-  Card. = 0..1
+  Card. = 1..1
   Type = code
   Binding = MeasureReportStatus
   Short Label = complete | pending | error
-  Definition = Response status
+  Definition = The report status. No data will be available until the report status is complete
 
  -- Row 7 -----------------------------------
-  Element = MeasureReport.populationReport
-  Card. = 0..*
-  Short Label = Population Report
-  Definition = Population Report
+  Element = MeasureReport.date
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Date the report was generated
+  Definition = The date this measure report was generated
 
  -- Row 8 -----------------------------------
-  Element = MeasureReport.populationReport.identifier
+  Element = MeasureReport.reportingOrganization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Reporting Organization
+  Definition = Reporting Organization
+
+ -- Row 9 -----------------------------------
+  Element = MeasureReport.group
+  Card. = 0..*
+  Short Label = Measure results for each group
+  Definition = The results of the calculation, one for each population group in the measure
+
+ -- Row 10 -----------------------------------
+  Element = MeasureReport.group.identifier
   Card. = 1..1
   Type = Identifier
   Short Label = Identifier of the population group being reported
   Definition = The identifier of the population group as defined in the measure definition
 
- -- Row 9 -----------------------------------
-  Element = MeasureReport.populationReport.population
+ -- Row 11 -----------------------------------
+  Element = MeasureReport.group.population
   Card. = 0..*
   Short Label = The populations in the group
   Definition = The populations that make up the population group, one for each type of population appropriate for the measure
 
- -- Row 10 -----------------------------------
-  Element = MeasureReport.populationReport.population.type
+ -- Row 12 -----------------------------------
+  Element = MeasureReport.group.population.type
   Card. = 1..1
   Type = code
   Binding = MeasurePopulation
   Short Label = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
   Definition = The type of the population
 
- -- Row 11 -----------------------------------
-  Element = MeasureReport.populationReport.population.count
+ -- Row 13 -----------------------------------
+  Element = MeasureReport.group.population.count
   Card. = 0..1
   Type = integer
   Short Label = Size of the population
   Definition = The number of members of the population
 
- -- Row 12 -----------------------------------
-  Element = MeasureReport.populationReport.population.patients
+ -- Row 14 -----------------------------------
+  Element = MeasureReport.group.population.patients
   Card. = 0..1
   Type = Reference(Bundle)
-  Short Label = Bundle of MeasureResponse resources, one per patient
-  Definition = Bundle of MeasureResponse resources, one per patient
+  Short Label = For patient-list reports, the patients in this population
+  Definition = This element refers to a Bundle of patient level MeasureReport resources, one for each patient in this population
 
- -- Row 13 -----------------------------------
-  Element = MeasureReport.populationReport.measureScore
+ -- Row 15 -----------------------------------
+  Element = MeasureReport.group.measureScore
   Card. = 0..1
   Type = decimal
   Short Label = The measure score
   Definition = The measure score
 
- -- Row 14 -----------------------------------
-  Element = MeasureReport.populationReport.stratifier
+ -- Row 16 -----------------------------------
+  Element = MeasureReport.group.stratifier
   Card. = 0..*
   Short Label = Stratification results
   Definition = When a measure includes multiple stratifiers, there will be a stratifier group for each stratifier defined by the measure
 
- -- Row 15 -----------------------------------
-  Element = MeasureReport.populationReport.stratifier.identifier
+ -- Row 17 -----------------------------------
+  Element = MeasureReport.group.stratifier.identifier
   Card. = 1..1
   Type = Identifier
-  Short Label = Identifier of the stratum
-  Definition = The identifier of this stratum, as defined in the measure definition
+  Short Label = Identifier of the stratifier
+  Definition = The identifier of this stratifier, as defined in the measure definition
 
- -- Row 16 -----------------------------------
-  Element = MeasureReport.populationReport.stratifier.population
+ -- Row 18 -----------------------------------
+  Element = MeasureReport.group.stratifier.group
   Card. = 0..*
-  Short Label = The populations in the stratifier
-  Definition = The populations that make up the stratifier, one for each type of population appropriate to the measure
+  Short Label = Stratum results, one for each unique value in the stratifier
+  Definition = This element contains the results for a single stratum within the stratifier. For example, when stratifying on administrative gender, there will be four strata, one for each possible gender value
 
- -- Row 17 -----------------------------------
-  Element = MeasureReport.populationReport.stratifier.population.type
+ -- Row 19 -----------------------------------
+  Element = MeasureReport.group.stratifier.group.value
+  Card. = 1..1
+  Type = string
+  Short Label = The stratum value, e.g. male
+  Definition = The value for this stratum, expressed as a string. When defining stratifiers on complex values, the value must be rendered such that the value for each stratum within the stratifier is unique
+
+ -- Row 20 -----------------------------------
+  Element = MeasureReport.group.stratifier.group.population
+  Card. = 0..*
+  Short Label = Population results in this stratum
+  Definition = The populations that make up the stratum, one for each type of population appropriate to the measure
+
+ -- Row 21 -----------------------------------
+  Element = MeasureReport.group.stratifier.group.population.type
   Card. = 1..1
   Type = code
   Binding = MeasurePopulation
   Short Label = initial-population | numerator | numerator-exclusion | denominator | denominator-exclusion | denominator-exception | measure-population | measure-population-exclusion | measure-score
   Definition = The type of the population
 
- -- Row 18 -----------------------------------
-  Element = MeasureReport.populationReport.stratifier.population.count
+ -- Row 22 -----------------------------------
+  Element = MeasureReport.group.stratifier.group.population.count
   Card. = 0..1
   Type = integer
   Short Label = Size of the population
   Definition = The number of members of the population in this stratum
 
- -- Row 19 -----------------------------------
-  Element = MeasureReport.populationReport.stratifier.population.patients
+ -- Row 23 -----------------------------------
+  Element = MeasureReport.group.stratifier.group.population.patients
   Card. = 0..1
   Type = Reference(Bundle)
-  Short Label = Bundle of MeasureResponse resources, one per patient
-  Definition = Bundle of MeasureResponse resources, one per patient in this stratum
+  Short Label = For patient-list reports, the patients in this population
+  Definition = This element refers to a Bundle of patient level MeasureReport resources, one for each patient in this population in this stratum
 
- -- Row 20 -----------------------------------
-  Element = MeasureReport.populationReport.stratifier.measureScore
+ -- Row 24 -----------------------------------
+  Element = MeasureReport.group.stratifier.group.measureScore
   Card. = 0..1
   Type = decimal
   Short Label = The measure score
   Definition = The measure score for this stratum
 
- -- Row 21 -----------------------------------
-  Element = MeasureReport.populationReport.supplementalData
+ -- Row 25 -----------------------------------
+  Element = MeasureReport.group.supplementalData
   Card. = 0..*
   Short Label = Supplemental data elements for the measure
   Definition = Supplemental data elements for the measure provide additional information requested by the measure for each patient involved in the populations
 
- -- Row 22 -----------------------------------
-  Element = MeasureReport.populationReport.supplementalData.identifier
+ -- Row 26 -----------------------------------
+  Element = MeasureReport.group.supplementalData.identifier
   Card. = 1..1
   Type = Identifier
   Short Label = Identifier of the supplemental data element
   Definition = The identifier of the supplemental data element as defined in the measure
 
- -- Row 23 -----------------------------------
-  Element = MeasureReport.populationReport.supplementalData.count
-  Card. = 0..1
-  Type = integer
-  Short Label = Number of patients in the group
-  Definition = The number of patients in the supplemental data group
-
- -- Row 24 -----------------------------------
-  Element = MeasureReport.populationReport.supplementalData.patients
-  Card. = 0..1
-  Type = Reference(Bundle)
-  Short Label = Bundle of patients
-  Definition = A bundle containing the patients in this supplemental data group
-
- -- Row 25 -----------------------------------
-  Element = MeasureReport.populationReport.supplementalData.stratifier
-  Card. = 0..*
-  Short Label = Supplemental data strata
-  Definition = The supplemental data for a stratum of the measure
-
- -- Row 26 -----------------------------------
-  Element = MeasureReport.populationReport.supplementalData.stratifier.identifier
-  Card. = 1..1
-  Type = Identifier
-  Short Label = Identifier of the stratum
-  Definition = The identifier of this stratum, as defined in the measure definition
-
  -- Row 27 -----------------------------------
-  Element = MeasureReport.populationReport.supplementalData.stratifier.count
-  Card. = 0..1
-  Type = integer
-  Short Label = Size of the population in this stratum
-  Definition = The number of members of this population in this stratum
+  Element = MeasureReport.group.supplementalData.group
+  Card. = 0..*
+  Short Label = Supplemental data results, one for each unique supplemental data value
+  Definition = This element contains the results for a single value within the supplemental data. For example, when reporting supplemental data for administrative gender, there will be four groups, one for each possible gender value
 
  -- Row 28 -----------------------------------
-  Element = MeasureReport.populationReport.supplementalData.stratifier.patients
-  Card. = 0..1
-  Type = Reference(Bundle)
-  Short Label = Bundle of MeasureResponse resources, one per patient
-  Definition = Bundle of MeasureResponse resources, one per patient in this stratum
+  Element = MeasureReport.group.supplementalData.group.value
+  Card. = 1..1
+  Type = string
+  Short Label = The data value, e.g. male
+  Definition = The value for this supplemental data element, expressed as a string.  When defining supplemental data  on complex values, the value must be rendered such that the value for each group within the supplemental data element is unique
 
  -- Row 29 -----------------------------------
-  Element = MeasureReport.reportingOrganization
+  Element = MeasureReport.group.supplementalData.group.count
   Card. = 0..1
-  Type = string
-  Short Label = Reporting Organization
-  Definition = Reporting Organization
+  Type = integer
+  Short Label = Number of members in the group
+  Definition = The number of members in the supplemental data group
 
  -- Row 30 -----------------------------------
-  Element = MeasureReport.evaluatedResources
+  Element = MeasureReport.group.supplementalData.group.patients
   Card. = 0..1
-  Short Label = Evaluated Resources
-  Definition = Resources used in the evaluation of this response.
+  Type = Reference(Bundle)
+  Short Label = For patient-list reports, the patients in this population
+  Definition = This element refers to a Bundle of patient level MeasureReport resources, one for each patient in this population
 
  -- Row 31 -----------------------------------
-  Element = MeasureReport.evaluatedResources.url
-  Card. = 1..1
-  Type = uri
-  Short Label = Evaluated Resources URL
-  Definition = Evaluated Resources URL
-
- -- Row 32 -----------------------------------
-  Element = MeasureReport.evaluatedResources.value
-  Card. = 1..1
-  Type = string
-  Short Label = Evaluated Resources value
-  Definition = Evaluated Resources value
+  Element = MeasureReport.evaluatedResources
+  Card. = 0..1
+  Type = Reference(Bundle)
+  Short Label = Evaluated Resources
+  Definition = A reference to a Bundle containing the Resources that were used in the evaluation of this report.
 
 === Sheet Search =====================================
 
@@ -300,5 +293,11 @@
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = CMS146Summary
+  Identity = measurereport-cms146-cat3-example
+  Description = CMS 146 Summary Report
+  Filename = measurereport-cms146-cat3-example.xml
 
 === Sheet Examples =====================================

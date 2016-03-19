@@ -42,7 +42,7 @@
 	<!-- ... other data requirements as defined in the library -->
 
   <document>
-    <contentType value="application/x-cql+text"/>
+    <contentType value="application/cql+text"/>
     <url value="http://cqlrepository.org/ChlamydiaScreening_Common.cql"/>
   </document>
   

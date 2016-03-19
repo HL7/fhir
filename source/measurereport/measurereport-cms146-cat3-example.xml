@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MeasureReport xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/measurereport.xsd">
+  <id value="measurereport-cms146-cat3-example"/>
+  <text>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      Calculated Summary Report for CMS146:
+      Percentage of children 2-18 years of age who were diagnosed with
+      pharyngitis, ordered an antibiotic and received a group A streptococcus
+      (strep) test for the episode.
+    </div>
+  </text>
+  <!--code>
+    <coding>
+      <system value="http://hl7.org/fhir/ValueSet/c80-doc-typecodes" />
+      <code value="55184-6" />
+    </coding>
+  </code-->
+  <contained>
+    <Organization>
+      <id value="reporter"/>
+      <name value="Good Health Hospital"/>
+    </Organization>
+  </contained>
+  <measure>
+	  <reference value="Measure/CMS146"/>
+  </measure>
+  <type value="summary"/>
+  <period>
+      <start value="2014-01-01" />
+      <end value="2014-03-31" />
+  </period>
+  <status value="complete"/>
+  <reportingOrganization>
+	  <reference value="#reporter"/>
+  </reportingOrganization>
+  <group>
+		<identifier><value value="CMS146-group-1"/></identifier>
+		<population>
+			<type value="initial-population"/>
+			<count value="500"/>
+		</population>
+		<population>
+			<type value="numerator"/>
+			<count value="200"/>
+		</population>
+		<population>
+			<type value="denominator"/>
+			<count value="500"/>
+		</population>
+		<population>
+			<type value="denominator-exclusions"/>
+			<count value="100"/>
+		</population>
+		<stratifier>
+			<identifier><value value="stratifier-ages-up-to-9"/></identifier>
+			<group>
+				<value value="true"/>
+				<population>
+					<type value="initial-population"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="numerator"/>
+					<count value="100"/>
+				</population>
+				<population>
+					<type value="denominator"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="denominator-exclusions"/>
+					<count value="50"/>
+				</population>
+			</group>
+			<group>
+				<value value="false"/>
+				<population>
+					<type value="initial-population"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="numerator"/>
+					<count value="100"/>
+				</population>
+				<population>
+					<type value="denominator"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="denominator-exclusions"/>
+					<count value="50"/>
+				</population>
+			</group>
+		</stratifier>
+		<stratifier>
+			<identifier><value value="stratifier-ages-10-plus"/></identifier>
+			<group>
+				<value value="true"/>
+				<population>
+					<type value="initial-population"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="numerator"/>
+					<count value="100"/>
+				</population>
+				<population>
+					<type value="denominator"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="denominator-exclusions"/>
+					<count value="50"/>
+				</population>
+			</group>
+			<group>
+				<value value="false"/>
+				<population>
+					<type value="initial-population"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="numerator"/>
+					<count value="100"/>
+				</population>
+				<population>
+					<type value="denominator"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="denominator-exclusions"/>
+					<count value="50"/>
+				</population>
+			</group>
+		</stratifier>
+		<stratifier>
+			<identifier><value value="stratifier-gender"/></identifier>
+			<group>
+				<value value="male"/>
+				<population>
+					<type value="initial-population"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="numerator"/>
+					<count value="100"/>
+				</population>
+				<population>
+					<type value="denominator"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="denominator-exclusions"/>
+					<count value="50"/>
+				</population>
+			</group>
+			<group>
+				<value value="female"/>
+				<population>
+					<type value="initial-population"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="numerator"/>
+					<count value="100"/>
+				</population>
+				<population>
+					<type value="denominator"/>
+					<count value="250"/>
+				</population>
+				<population>
+					<type value="denominator-exclusions"/>
+					<count value="50"/>
+				</population>
+			</group>
+			<group>
+				<value value="other"/>
+				<population>
+					<type value="initial-population"/>
+					<count value="0"/>
+				</population>
+				<population>
+					<type value="numerator"/>
+					<count value="0"/>
+				</population>
+				<population>
+					<type value="denominator"/>
+					<count value="0"/>
+				</population>
+				<population>
+					<type value="denominator-exclusions"/>
+					<count value="0"/>
+				</population>
+			</group>
+			<group>
+				<value value="unknown"/>
+				<population>
+					<type value="initial-population"/>
+					<count value="0"/>
+				</population>
+				<population>
+					<type value="numerator"/>
+					<count value="0"/>
+				</population>
+				<population>
+					<type value="denominator"/>
+					<count value="0"/>
+				</population>
+				<population>
+					<type value="denominator-exclusions"/>
+					<count value="0"/>
+				</population>
+			</group>
+		</stratifier>
+		<supplementalData>
+			<identifier><value value="supplemental-data-gender"/></identifier>
+			<group>
+				<value value="male"/>
+				<count value="250"/>
+			</group>
+			<group>
+				<value value="female"/>
+				<count value="250"/>
+			</group>
+			<group>
+				<value value="other"/>
+				<count value="0"/>
+			</group>
+			<group>
+				<value value="unknown"/>
+				<count value="0"/>
+			</group>
+		</supplementalData>
+		<supplementalData>
+			<identifier><value value="supplemental-data-deceased"/></identifier>
+			<group>
+				<value value="true"/>
+				<count value="0"/>
+			</group>
+			<group>
+				<value value="false"/>
+				<count value="500"/>
+			</group>
+		</supplementalData>
+  </group>
+</MeasureReport>

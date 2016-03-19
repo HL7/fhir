@@ -57,30 +57,44 @@
   Element = DataRequirement.codeFilter.valueSet[x]
   Card. = 0..1
   Type = string|Reference(ValueSet)
-  Short Label = The valueset for the code filter
-  Definition = The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset
+  Short Label = Valueset for the filter
+  Definition = The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset
 
  -- Row 8 -----------------------------------
-  Element = DataRequirement.codeFilter.codeableConcept
+  Element = DataRequirement.codeFilter.valueCode
   Card. = 0..*
-  Type = CodeableConcept
-  Short Label = The codeableConcepts for the filter
-  Definition = The codeable concept for the code filter. Only one of valueSet or codeableConcept may be specified. If codeableConcepts are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codeable concepts
+  Type = code
+  Short Label = Code value of the filter
+  Definition = The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes
 
  -- Row 9 -----------------------------------
+  Element = DataRequirement.codeFilter.valueCoding
+  Card. = 0..*
+  Type = Coding
+  Short Label = Coding value of the filter
+  Definition = The Codings for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified Codings
+
+ -- Row 10 -----------------------------------
+  Element = DataRequirement.codeFilter.valueCodeableConcept
+  Card. = 0..*
+  Type = CodeableConcept
+  Short Label = CodeableConcept value of the filter
+  Definition = The CodeableConcepts for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified CodeableConcepts
+
+ -- Row 11 -----------------------------------
   Element = DataRequirement.dateFilter
   Card. = 0..*
   Short Label = Date filters for the data
   Definition = Date filters specify additional constraints on the data in terms of the applicable date range for specific elements
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = DataRequirement.dateFilter.path
   Card. = 1..1
   Type = string
   Short Label = The date-valued attribute of the filter
   Definition = The date-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type dateTime, Period, Schedule, or Timing
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = DataRequirement.dateFilter.value[x]
   Card. = 0..1
   Type = dateTime|Period

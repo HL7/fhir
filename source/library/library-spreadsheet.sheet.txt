@@ -228,4 +228,10 @@
   Description = Exclusive Breastfeeding Measurement Logic
   Filename = library-exclusive-breastfeeding-cqm-logic.xml
 
+ -- Row 4 -----------------------------------
+  Name = CMS146Logic
+  Identity = library-cms146-example
+  Description = CMS146 Measure Logic
+  Filename = library-cms146-example.xml
+
 === Sheet Examples =====================================

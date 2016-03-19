@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Library xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/library.xsd">
+  <id value="library-cms146-example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">CMS 146 Logic</div>
+  </text>
+  
+  <moduleMetadata>
+	<identifier>
+	  <use value="official"/>
+	  <value value="CMS146"/>
+	</identifier>
+	<version value="2.0.0"/>
+	<title value="Appropriate Testing for Children with Pharyngitis"/>
+	<type value="library"/>
+	<status value="draft"/>
+	<description value="Logic for CMS 146: Appropriate Testing for Children with Pharyngitis"/>
+	<publicationDate value="2015-07-22"/>
+  </moduleMetadata>
+  
+	<model>
+		<identifier value="QUICK"/>
+	</model>
+
+	<valueSet>
+		<name value="Female Administrative Sex"/>
+		<identifier value="2.16.840.1.113883.3.560.100.2"/>
+	</valueSet>
+	<!-- ... other value sets as defined in the library -->
+
+	<dataRequirement>
+		<type value="Condition"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="Other Female Reproductive Conditions"/>
+		</codeFilter>
+	</dataRequirement>
+	<!-- ... other data requirements as defined in the library -->
+	
+	<dataRequirement>
+		<type value="Patient"/>
+	</dataRequirement>
+	
+	<dataRequirement>
+		<type value="Condition"/>
+		<codeFilter>
+			<path value="category"/>
+			<valueCode value="diagnosis"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="clinicalStatus"/>
+			<valueCode value="confirmed"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="2.16.840.1.113883.3.464.1003.102.12.1011"/>
+		</codeFilter>
+	</dataRequirement>
+
+	<dataRequirement>
+		<type value="Condition"/>
+		<codeFilter>
+			<path value="category"/>
+			<valueCode value="diagnosis"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="clinicalStatus"/>
+			<valueCode value="confirmed"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="2.16.840.1.113883.3.464.1003.102.12.1012"/>
+		</codeFilter>
+	</dataRequirement>
+
+	<dataRequirement>
+		<type value="Encounter"/>
+		<codeFilter>
+			<path value="status"/>
+			<valueCode value="finished"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="class"/>
+			<valueCode value="ambulatory"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="type"/>
+			<valueSetString value="2.16.840.1.113883.3.464.1003.101.12.1061"/>
+		</codeFilter>
+	</dataRequirement>
+	
+	<dataRequirement>
+		<type value="DiagnosticReport"/>
+		<codeFilter>
+			<path value="diagnosis"/>
+			<valueSetString value="2.16.840.1.113883.3.464.1003.198.12.1012"/>
+		</codeFilter>
+	</dataRequirement>
+	
+	<dataRequirement>
+		<type value="Medication"/>
+		<codeFilter>
+			<path value="code"/>
+			<valueSetString value="2.16.840.1.113883.3.464.1003.196.12.1001"/>
+		</codeFilter>
+	</dataRequirement>
+	
+	<dataRequirement>
+		<type value="MedicationPrescription"/>
+		<codeFilter>
+			<path value="status"/>
+			<valueCode value="active"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="medication.code"/>
+			<valueSetString value="2.16.840.1.113883.3.464.1003.196.12.1001"/>
+		</codeFilter>
+	</dataRequirement>
+	
+	<dataRequirement>
+		<type value="MedicationStatement"/>
+		<codeFilter>
+			<path value="status"/>
+			<valueCode value="completed"/>
+		</codeFilter>
+		<codeFilter>
+			<path value="medication.code"/>
+			<valueSetString value="2.16.840.1.113883.3.464.1003.196.12.1001"/>
+		</codeFilter>
+	</dataRequirement>
+
+  <document>
+    <contentType value="application/cql+text"/>
+    <url value="http://cqlrepository.org/CMS146.cql"/>
+  </document>
+  
+</Library>
+
+

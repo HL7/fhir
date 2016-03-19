@@ -144,10 +144,35 @@
       <kind value="toc"/>
     </page>
     <page>
+		<source value="cqif-knowledge-artifact-representation.html"/>
+		<name value="Representation Knowledge Artifacts"/>
+		<kind value="page"/>
+    </page>
+    <page>
+		<source value="cqif-integrating-decision-support.html"/>
+		<name value="Integration Decision Support in a Clinical Workflow"/>
+		<kind value="page"/>
+    </page>
+    <page>
+		<source value="cqif-documentation-templates.html"/>
+		<name value="Using a Documentation Template in a Clinical Workflow"/>
+		<kind value="page"/>
+    </page>
+    <page>
+		<source value="cqif-order-sets.html"/>
+		<name value="Using an Order Set in a Clinical Workflow"/>
+		<kind value="page"/>
+    </page>
+    <page>
+		<source value="cqif-quality-reporting.html"/>
+		<name value="Quality Reporting"/>
+		<kind value="page"/>
+    </page>
+    <!--page>
       <source value="cqif-common.html"/>
       <name value="Common Properties Page"/>
       <kind value="page"/>
-      <!--page>
+      <page>
 		  <source value="knowledgemodule-cqif.html"/>
 		  <name value="Knowledge Module"/>
 		  <kind value="page"/>
@@ -194,13 +219,13 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-      </page-->
-    </page>
-    <page>
+      </page>
+    </page-->
+    <!--page>
       <source value="cqif-cds-on-fhir.html"/>
       <name value="Clinical Decision Support API"/>
       <kind value="page"/>
-      <!--page>
+      <page>
 		  <source value="guidanceartifact-cqif.html"/>
 		  <name value="Guidance Artifact"/>
 		  <kind value="page"/>
@@ -241,26 +266,8 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-      </page-->
-      <page>
-		  <source value="questionnaire-cqif.html"/>
-		  <name value="Questionnaire"/>
-		  <kind value="page"/>
-		  <format value="generated"/>
-		  <page>
-			  <source value="cqif-questionnaire.html"/>
-			  <name value="Questionnaire - Details"/>
-			  <kind value="page"/>
-			  <format value="generated"/>
-		  </page>
-		  <page>
-			  <source value="questionnaire-cqif-example.html"/>
-			  <name value="Questionnaire - Example"/>
-			  <kind value="page"/>
-			  <format value="generated"/>
-		  </page>
       </page>
-      <!--page>
+      <page>
 		  <source value="guidancerequest-cqif.html"/>
 		  <name value="Guidance Request"/>
 		  <kind value="page"/>
@@ -277,8 +284,8 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-      </page-->
-      <!--page>
+      </page>
+      <page>
 		  <source value="guidanceresponse-cqif.html"/>
 		  <name value="Guidance Response"/>
 		  <kind value="page"/>
@@ -295,8 +302,8 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-      </page-->
-      <!--page>
+      </page>
+      <page>
   		  <source value="operation-guidancerequest-cqif-guidance.html"/>
 	  	  <name value="Guidance Operation"/>
 		    <kind value="page"/>
@@ -313,20 +320,38 @@
 			  <kind value="page"/>
 			  <format value="generated"/>
 		  </page>
-      </page-->
-      <!--page>
+      </page>
+      <page>
   		  <source value="operation-guidancerequest-cqif-guidance-requirements.html"/>
 	  	  <name value="Guidance Operation (Requirements)"/>
 		    <kind value="page"/>
 		    <format value="generated"/>
-      </page-->
-    </page>
-    <page>
+      </page>
+    </page-->
+  <page>
+	  <source value="questionnaire-cqif.html"/>
+	  <name value="Questionnaire"/>
+	  <kind value="page"/>
+	  <format value="generated"/>
+	  <page>
+		  <source value="cqif-questionnaire.html"/>
+		  <name value="Questionnaire - Details"/>
+		  <kind value="page"/>
+		  <format value="generated"/>
+	  </page>
+	  <page>
+		  <source value="questionnaire-cqif-example.html"/>
+		  <name value="Questionnaire - Example"/>
+		  <kind value="page"/>
+		  <format value="generated"/>
+	  </page>
+  </page>
+    <!--page>
       <source value="cqif-evidence.html"/>
       <name value="Evidence Profile"/>
       <kind value="resource"/>
       <format value="generated"/>
-    </page>
+    </page-->
     <page>
       <source value="registry.html"/>
       <name value="Registry"/>

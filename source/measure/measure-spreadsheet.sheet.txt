@@ -306,25 +306,32 @@
 
  -- Row 27 -----------------------------------
   Element = Measure.group.stratifier.criteria
-  Card. = 1..1
+  Card. = 0..1
   Type = string
   Short Label = Stratifier criteria
   Definition = The criteria for the stratifier. This must be the name of an expression defined within a referenced library
 
  -- Row 28 -----------------------------------
+  Element = Measure.group.stratifier.path
+  Card. = 0..1
+  Type = string
+  Short Label = Path to the stratifier
+  Definition = The path to an element that defines the stratifier, specified as a valid FHIR resource path
+
+ -- Row 29 -----------------------------------
   Element = Measure.supplementalData
   Card. = 0..*
   Short Label = Supplemental data
   Definition = Supplemental data to be supplied with the measure report
 
- -- Row 29 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Measure.supplementalData.identifier
   Card. = 1..1
   Type = Identifier
   Short Label = Identifier, unique within the measure
   Definition = An identifier for the supplemental data
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = Measure.supplementalData.path
   Card. = 1..1
   Type = string
