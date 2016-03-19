@@ -44,6 +44,13 @@ func (m *MongoSearcher) CreateQueryWithoutOptions(query Query) *mgo.Query {
 	return m.createQuery(query, false)
 }
 
+// CreateQueryObject is temporarily exposed as public to support ConditionalDelete.
+// This should be made private again when all mongo implementations are in a single
+// package.
+func (m *MongoSearcher) CreateQueryObject(query Query) bson.M {
+	return m.createQueryObject(query)
+}
+
 func (m *MongoSearcher) createQuery(query Query, withOptions bool) *mgo.Query {
 	c := m.db.C(models.PluralizeLowerResourceName(query.Resource))
 	q := m.createQueryObject(query)

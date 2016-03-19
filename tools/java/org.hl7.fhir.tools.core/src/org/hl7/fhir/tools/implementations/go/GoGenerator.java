@@ -133,6 +133,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         generateSearchParameterDictionary(definitions, dirs.get("searchDir"), templateGroup);
 
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "codeableconcept_ext.go")), new File(dirs.get("modelDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "operationoutcome_ext.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference_ext.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "reference.go")), new File(dirs.get("modelDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "models", "fhirdatetime.go")), new File(dirs.get("modelDir")));
@@ -142,6 +143,8 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "search", "url_query_parser.go")), new File(dirs.get("searchDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "batch_controller.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "config.go")), new File(dirs.get("serverDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "data_access.go")), new File(dirs.get("serverDir")));
+        Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "mongo_data_access.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "resource_controller.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "server_setup.go")), new File(dirs.get("serverDir")));
         Utilities.copyFileToDirectory(new File(Utilities.path(basedDir, "static", "server", "smart_auth.go")), new File(dirs.get("serverDir")));
@@ -176,15 +179,17 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.write("import \"github.com/labstack/echo\"");
         serverWriter.newLine();
         serverWriter.newLine();
-        serverWriter.write("func RegisterController(name string, e *echo.Echo, m []echo.Middleware, config Config) {");
+        serverWriter.write("func RegisterController(name string, e *echo.Echo, m []echo.Middleware, dal DataAccessLayer, config Config) {");
         serverWriter.newLine();
-        serverWriter.write("\trc := ResourceController{name}");
+        serverWriter.write("\trc := NewResourceController(name, dal)");
         serverWriter.newLine();
         serverWriter.write("\trcBase := e.Group(\"/\" + name)");
         serverWriter.newLine();
         serverWriter.write("\trcBase.Get(\"\", rc.IndexHandler)");
         serverWriter.newLine();
         serverWriter.write("\trcBase.Post(\"\", rc.CreateHandler)");
+        serverWriter.newLine();
+        serverWriter.write("\trcBase.Delete(\"\", rc.ConditionalDeleteHandler)");
         serverWriter.newLine();
         serverWriter.newLine();
         serverWriter.write("\trcItem := rcBase.Group(\"/:id\")");
@@ -211,13 +216,14 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.write("}");
         serverWriter.newLine();
         serverWriter.newLine();
-        serverWriter.write("func RegisterRoutes(e *echo.Echo, config map[string][]echo.Middleware, serverConfig Config) {");
+        serverWriter.write("func RegisterRoutes(e *echo.Echo, config map[string][]echo.Middleware, dal DataAccessLayer, serverConfig Config) {");
         serverWriter.newLine();
         serverWriter.newLine();
         serverWriter.write("\t// Batch Support");
         serverWriter.newLine();
+        serverWriter.write("\tbatch := NewBatchController(dal)");
         serverWriter.newLine();
-        serverWriter.write("\te.Post(\"/\", BatchHandler)");
+        serverWriter.write("\te.Post(\"/\", batch.Post)");
         serverWriter.newLine();
         serverWriter.newLine();
         serverWriter.write("\t// Resources");
@@ -225,7 +231,7 @@ public class GoGenerator extends BaseGenerator implements PlatformGenerator {
         serverWriter.newLine();
 
         for (String name : namesAndDefinitions.keySet()) {
-            serverWriter.write("\tRegisterController(\""+ name + "\", e, config[\"" + name + "\"], serverConfig)");
+            serverWriter.write("\tRegisterController(\""+ name + "\", e, config[\"" + name + "\"], dal, serverConfig)");
             serverWriter.newLine();
         }
 

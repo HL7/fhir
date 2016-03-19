@@ -1,13 +1,10 @@
 package server
 
-import (
-	"gopkg.in/mgo.v2"
-)
+import "gopkg.in/mgo.v2"
 
-var (
-	MongoSession *mgo.Session
-	Database     *mgo.Database
-)
+// Although we got rid of the global in the fhir package, the ie project still needs it
+// Once ie removes the dependency on the global, this should go away
+var Database *mgo.Database
 
 // Config is used to hold information about the configuration of the FHIR
 // server.

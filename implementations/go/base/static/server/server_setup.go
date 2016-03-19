@@ -28,17 +28,19 @@ func (f *FHIRServer) Run(config Config) {
 	var err error
 
 	// Setup the database
-	if MongoSession, err = mgo.Dial(f.DatabaseHost); err != nil {
+	session, err := mgo.Dial(f.DatabaseHost)
+	if err != nil {
 		panic(err)
 	}
 	log.Println("Connected to mongodb")
-	defer MongoSession.Close()
+	defer session.Close()
 
-	Database = MongoSession.DB("fhir")
+	Database = session.DB("fhir")
 
 	if config.UseLoggingMiddleware {
 		f.Echo.Use(middleware.Logger())
 	}
-	RegisterRoutes(f.Echo, f.MiddlewareConfig, config)
+	RegisterRoutes(f.Echo, f.MiddlewareConfig, NewMongoDataAccessLayer(Database), config)
+
 	f.Echo.Run(":3001")
 }
