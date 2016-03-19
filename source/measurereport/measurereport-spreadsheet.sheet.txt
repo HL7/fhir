@@ -165,7 +165,7 @@
   Card. = 0..1
   Type = Reference(Bundle)
   Short Label = For patient-list reports, the patients in this population
-  Definition = This element refers to a Bundle of patient level MeasureReport resources, one for each patient in this population
+  Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population
 
  -- Row 15 -----------------------------------
   Element = MeasureReport.group.measureScore
@@ -226,7 +226,7 @@
   Card. = 0..1
   Type = Reference(Bundle)
   Short Label = For patient-list reports, the patients in this population
-  Definition = This element refers to a Bundle of patient level MeasureReport resources, one for each patient in this population in this stratum
+  Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum
 
  -- Row 24 -----------------------------------
   Element = MeasureReport.group.stratifier.group.measureScore
@@ -273,7 +273,7 @@
   Card. = 0..1
   Type = Reference(Bundle)
   Short Label = For patient-list reports, the patients in this population
-  Definition = This element refers to a Bundle of patient level MeasureReport resources, one for each patient in this population
+  Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population
 
  -- Row 31 -----------------------------------
   Element = MeasureReport.evaluatedResources
@@ -299,5 +299,17 @@
   Identity = measurereport-cms146-cat3-example
   Description = CMS 146 Summary Report
   Filename = measurereport-cms146-cat3-example.xml
+
+ -- Row 2 -----------------------------------
+  Name = CMS146PatientList
+  Identity = measurereport-cms146-cat2-example
+  Description = CMS 146 Patient Listing Report
+  Filename = measurereport-cms146-cat2-example.xml
+
+ -- Row 3 -----------------------------------
+  Name = CMS146Individual
+  Identity = measurereport-cms146-cat1-example
+  Description = CMS 146 Individual Report
+  Filename = measurereport-cms146-cat1-example.xml
 
 === Sheet Examples =====================================

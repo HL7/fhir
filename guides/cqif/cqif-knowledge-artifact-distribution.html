@@ -12,6 +12,31 @@
 
 <h3>Knowledge Artifact Distribution</h3>
 
+<p>One of the primary goals of the Clinical Quality Framework is to enable the sharing and distribution of computable clinical knowledge artifacts:</p>
+
+<img alt="Knowledge Artifact Sharing" src="cqif-knowledge-artifact-distribution.png"/>
+
+<p>The distribution use case involves enabling knowledge artifacts to be distributed as documents via a FHIR server. The search and read interactions defined by the FHIR infrastructure can be used for this purpose. The <a href="[%fhir-path%]modulemetadata.html">ModuleMetadata</a> structure defines several search parameters to enable searching based on the various attributes of a knowledge module. The FHIR search interaction specifies that search results are returned in a Bundle, and the entries in that bundle allow a score to be specified, consistent with the Decision Support Service (DSS) relevance result. Note that the DSS score range is 1 to 100, while the FHIR score range is 0..1.</p>
+
+<p>The following table lists the search criteria elements defined by the Decision Support Service (DSS) standard along with their appropriate representation in FHIR:</p>
+
+<table class="grid">
+	<thead>
+		<tr><th>DSS Search Criteria</th><th>FHIR Equivalent</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>Maximum Results</td><td>_count global search parameter</td></tr>
+		<tr><td>Minimum Score</td><td>KnowledgeModule.minScore search parameter</td></tr>
+		<tr><td>Knowledge Module Trait</td><td>Knowledge search parameters (identifier, keyword, topic, title, description, version)</td></tr>
+		<tr><td>Knowledge Module Status</td><td>KnowledgeModule.status search parameter</td></tr>
+		<tr><td>Evaluation Result Semantics</td><td>Not Implemented</td></tr>
+		<tr><td>Data Requirements</td><td>Not Implemented</td></tr>
+		<tr><td>Relationships to specific Knowledge Modules</td><td>Not Implemented</td></tr>
+	</tbody>
+</table>
+
+<p>Support for exclusion criteria as described in the DSS is provided by the :not search parameter modifier of FHIR.</p>
+
 </div>
 [%file newfooter%]
 </body>
