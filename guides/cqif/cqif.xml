@@ -134,6 +134,13 @@
 	-->
   </package>
   <binary value="cqframework-components-diagram.jpg"/>
+  <binary value="cqif-integrating-decision-support-conversation.png"/>
+  <binary value="cqif-integrating-decision-support-radiology-request.png"/>
+  <binary value="cqif-integrating-decision-support-service-scenario.png"/>
+  <binary value="cqif-integrating-decision-support-simple-request.png"/>
+  <binary value="cqif-knowledge-artifact-components.png"/>
+  <binary value="cqif-knowledge-artifact-distribution.png"/>
+  <binary value="cqif-knowledge-artifact-types.png"/>
   <page>
     <source value="cqif.html"/>
     <name value="Home Page"/>
@@ -161,6 +168,11 @@
     <page>
 		<source value="cqif-order-sets.html"/>
 		<name value="Using an Order Set in a Clinical Workflow"/>
+		<kind value="page"/>
+    </page>
+    <page>
+		<source value="cqif-knowledge-artifact-distribution.html"/>
+		<name value="Sharing Knowledge Artifacts"/>
 		<kind value="page"/>
     </page>
     <page>
