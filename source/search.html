@@ -697,7 +697,7 @@ the logical id refers to more than one matching resource across different types.
 In order to allow the client to perform a search in these situations the type is specified explicitly:
 </p>
 <pre>
- GET [base]/Condition?subject=Patient/23
+ GET [base]/Observation?subject=Patient/23
 </pre>
 <p>
 This searches for any conditions where the subject refers to the patient resource with the
@@ -705,7 +705,7 @@ logical identifier "23". A modifier is also defined to to allow the client to be
 about the intended type:
 </p>
 <pre>
- GET [base]/Condition?subject:Patient=23
+ GET [base]/Observation?subject:Patient=23
 </pre>
 <p>
 This has the same effect as the previous search. The modifier becomes useful when used with chaining
