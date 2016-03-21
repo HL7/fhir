@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 21, 2016 22:25+1100 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 22:53+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1254,25 +1254,25 @@ public class OperationDefinition extends DomainResource {
     protected BooleanType experimental;
 
     /**
+     * The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.
+     */
+    @Child(name = "date", type = {DateTimeType.class}, order=6, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Date for this version of the operation definition", formalDefinition="The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes." )
+    protected DateTimeType date;
+
+    /**
      * The name of the individual or organization that published the operation definition.
      */
-    @Child(name = "publisher", type = {StringType.class}, order=6, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "publisher", type = {StringType.class}, order=7, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Name of the publisher (Organization or individual)", formalDefinition="The name of the individual or organization that published the operation definition." )
     protected StringType publisher;
 
     /**
      * Contacts to assist a user in finding and communicating with the publisher.
      */
-    @Child(name = "contact", type = {}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "contact", type = {}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Contact details of the publisher", formalDefinition="Contacts to assist a user in finding and communicating with the publisher." )
     protected List<OperationDefinitionContactComponent> contact;
-
-    /**
-     * The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.
-     */
-    @Child(name = "date", type = {DateTimeType.class}, order=8, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Date for this version of the operation definition", formalDefinition="The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes." )
-    protected DateTimeType date;
 
     /**
      * A free text natural language description of the profile and its use.
@@ -1349,7 +1349,7 @@ public class OperationDefinition extends DomainResource {
     @Description(shortDefinition="Parameters for the operation/query", formalDefinition="The parameters for the operation/query." )
     protected List<OperationDefinitionParameterComponent> parameter;
 
-    private static final long serialVersionUID = -1063219522L;
+    private static final long serialVersionUID = -1568019008L;
 
   /**
    * Constructor
@@ -1650,6 +1650,55 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
+     * @return {@link #date} (The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public DateTimeType getDateElement() { 
+      if (this.date == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create OperationDefinition.date");
+        else if (Configuration.doAutoCreate())
+          this.date = new DateTimeType(); // bb
+      return this.date;
+    }
+
+    public boolean hasDateElement() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    public boolean hasDate() { 
+      return this.date != null && !this.date.isEmpty();
+    }
+
+    /**
+     * @param value {@link #date} (The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
+     */
+    public OperationDefinition setDateElement(DateTimeType value) { 
+      this.date = value;
+      return this;
+    }
+
+    /**
+     * @return The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.
+     */
+    public Date getDate() { 
+      return this.date == null ? null : this.date.getValue();
+    }
+
+    /**
+     * @param value The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.
+     */
+    public OperationDefinition setDate(Date value) { 
+      if (value == null)
+        this.date = null;
+      else {
+        if (this.date == null)
+          this.date = new DateTimeType();
+        this.date.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #publisher} (The name of the individual or organization that published the operation definition.). This is the underlying object with id, value and extensions. The accessor "getPublisher" gives direct access to the value
      */
     public StringType getPublisherElement() { 
@@ -1735,55 +1784,6 @@ public class OperationDefinition extends DomainResource {
       if (this.contact == null)
         this.contact = new ArrayList<OperationDefinitionContactComponent>();
       this.contact.add(t);
-      return this;
-    }
-
-    /**
-     * @return {@link #date} (The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public DateTimeType getDateElement() { 
-      if (this.date == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create OperationDefinition.date");
-        else if (Configuration.doAutoCreate())
-          this.date = new DateTimeType(); // bb
-      return this.date;
-    }
-
-    public boolean hasDateElement() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    public boolean hasDate() { 
-      return this.date != null && !this.date.isEmpty();
-    }
-
-    /**
-     * @param value {@link #date} (The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.). This is the underlying object with id, value and extensions. The accessor "getDate" gives direct access to the value
-     */
-    public OperationDefinition setDateElement(DateTimeType value) { 
-      this.date = value;
-      return this;
-    }
-
-    /**
-     * @return The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.
-     */
-    public Date getDate() { 
-      return this.date == null ? null : this.date.getValue();
-    }
-
-    /**
-     * @param value The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.
-     */
-    public OperationDefinition setDate(Date value) { 
-      if (value == null)
-        this.date = null;
-      else {
-        if (this.date == null)
-          this.date = new DateTimeType();
-        this.date.setValue(value);
-      }
       return this;
     }
 
@@ -2260,9 +2260,9 @@ public class OperationDefinition extends DomainResource {
         childrenList.add(new Property("status", "code", "The status of the profile.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("kind", "code", "Whether this is an operation or a named query.", 0, java.lang.Integer.MAX_VALUE, kind));
         childrenList.add(new Property("experimental", "boolean", "This profile was authored for testing purposes (or education/evaluation/marketing), and is not intended to be used for genuine usage.", 0, java.lang.Integer.MAX_VALUE, experimental));
+        childrenList.add(new Property("date", "dateTime", "The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the operation definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
-        childrenList.add(new Property("date", "dateTime", "The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes.", 0, java.lang.Integer.MAX_VALUE, date));
         childrenList.add(new Property("description", "string", "A free text natural language description of the profile and its use.", 0, java.lang.Integer.MAX_VALUE, description));
         childrenList.add(new Property("requirements", "string", "Explains why this operation definition is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("idempotent", "boolean", "Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.", 0, java.lang.Integer.MAX_VALUE, idempotent));
@@ -2289,12 +2289,12 @@ public class OperationDefinition extends DomainResource {
           this.kind = new OperationKindEnumFactory().fromType(value); // Enumeration<OperationKind>
         else if (name.equals("experimental"))
           this.experimental = castToBoolean(value); // BooleanType
+        else if (name.equals("date"))
+          this.date = castToDateTime(value); // DateTimeType
         else if (name.equals("publisher"))
           this.publisher = castToString(value); // StringType
         else if (name.equals("contact"))
           this.getContact().add((OperationDefinitionContactComponent) value);
-        else if (name.equals("date"))
-          this.date = castToDateTime(value); // DateTimeType
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
         else if (name.equals("requirements"))
@@ -2339,14 +2339,14 @@ public class OperationDefinition extends DomainResource {
         else if (name.equals("experimental")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.experimental");
         }
+        else if (name.equals("date")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.date");
+        }
         else if (name.equals("publisher")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.publisher");
         }
         else if (name.equals("contact")) {
           return addContact();
-        }
-        else if (name.equals("date")) {
-          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.date");
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.description");
@@ -2397,13 +2397,13 @@ public class OperationDefinition extends DomainResource {
         dst.status = status == null ? null : status.copy();
         dst.kind = kind == null ? null : kind.copy();
         dst.experimental = experimental == null ? null : experimental.copy();
+        dst.date = date == null ? null : date.copy();
         dst.publisher = publisher == null ? null : publisher.copy();
         if (contact != null) {
           dst.contact = new ArrayList<OperationDefinitionContactComponent>();
           for (OperationDefinitionContactComponent i : contact)
             dst.contact.add(i.copy());
         };
-        dst.date = date == null ? null : date.copy();
         dst.description = description == null ? null : description.copy();
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.idempotent = idempotent == null ? null : idempotent.copy();
@@ -2438,7 +2438,7 @@ public class OperationDefinition extends DomainResource {
         OperationDefinition o = (OperationDefinition) other;
         return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
            && compareDeep(status, o.status, true) && compareDeep(kind, o.kind, true) && compareDeep(experimental, o.experimental, true)
-           && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true)
+           && compareDeep(date, o.date, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
            && compareDeep(description, o.description, true) && compareDeep(requirements, o.requirements, true)
            && compareDeep(idempotent, o.idempotent, true) && compareDeep(code, o.code, true) && compareDeep(comment, o.comment, true)
            && compareDeep(base, o.base, true) && compareDeep(system, o.system, true) && compareDeep(type, o.type, true)
@@ -2454,7 +2454,7 @@ public class OperationDefinition extends DomainResource {
         OperationDefinition o = (OperationDefinition) other;
         return compareValues(url, o.url, true) && compareValues(version, o.version, true) && compareValues(name, o.name, true)
            && compareValues(status, o.status, true) && compareValues(kind, o.kind, true) && compareValues(experimental, o.experimental, true)
-           && compareValues(publisher, o.publisher, true) && compareValues(date, o.date, true) && compareValues(description, o.description, true)
+           && compareValues(date, o.date, true) && compareValues(publisher, o.publisher, true) && compareValues(description, o.description, true)
            && compareValues(requirements, o.requirements, true) && compareValues(idempotent, o.idempotent, true)
            && compareValues(code, o.code, true) && compareValues(comment, o.comment, true) && compareValues(system, o.system, true)
            && compareValues(type, o.type, true) && compareValues(instance, o.instance, true);
@@ -2463,8 +2463,8 @@ public class OperationDefinition extends DomainResource {
       public boolean isEmpty() {
         return super.isEmpty() && (url == null || url.isEmpty()) && (version == null || version.isEmpty())
            && (name == null || name.isEmpty()) && (status == null || status.isEmpty()) && (kind == null || kind.isEmpty())
-           && (experimental == null || experimental.isEmpty()) && (publisher == null || publisher.isEmpty())
-           && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty()) && (description == null || description.isEmpty())
+           && (experimental == null || experimental.isEmpty()) && (date == null || date.isEmpty()) && (publisher == null || publisher.isEmpty())
+           && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
            && (requirements == null || requirements.isEmpty()) && (idempotent == null || idempotent.isEmpty())
            && (code == null || code.isEmpty()) && (comment == null || comment.isEmpty()) && (base == null || base.isEmpty())
            && (system == null || system.isEmpty()) && (type == null || type.isEmpty()) && (instance == null || instance.isEmpty())
@@ -2475,166 +2475,6 @@ public class OperationDefinition extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.OperationDefinition;
    }
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>draft | active | retired</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="OperationDefinition.status", description="draft | active | retired", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>draft | active | retired</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>code</b>
-   * <p>
-   * Description: <b>Name used to invoke the operation</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.code</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="code", path="OperationDefinition.code", description="Name used to invoke the operation", type="token" )
-  public static final String SP_CODE = "code";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>code</b>
-   * <p>
-   * Description: <b>Name used to invoke the operation</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.code</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
-
- /**
-   * Search parameter: <b>date</b>
-   * <p>
-   * Description: <b>Date for this version of the operation definition</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>OperationDefinition.date</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="date", path="OperationDefinition.date", description="Date for this version of the operation definition", type="date" )
-  public static final String SP_DATE = "date";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
-   * <p>
-   * Description: <b>Date for this version of the operation definition</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>OperationDefinition.date</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
-
- /**
-   * Search parameter: <b>type</b>
-   * <p>
-   * Description: <b>Invoke at resource level for these type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.type</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="type", path="OperationDefinition.type", description="Invoke at resource level for these type", type="token" )
-  public static final String SP_TYPE = "type";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>type</b>
-   * <p>
-   * Description: <b>Invoke at resource level for these type</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.type</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
-
- /**
-   * Search parameter: <b>url</b>
-   * <p>
-   * Description: <b>Logical URL to reference this operation definition</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>OperationDefinition.url</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="url", path="OperationDefinition.url", description="Logical URL to reference this operation definition", type="uri" )
-  public static final String SP_URL = "url";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>url</b>
-   * <p>
-   * Description: <b>Logical URL to reference this operation definition</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>OperationDefinition.url</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
-
- /**
-   * Search parameter: <b>kind</b>
-   * <p>
-   * Description: <b>operation | query</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.kind</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="kind", path="OperationDefinition.kind", description="operation | query", type="token" )
-  public static final String SP_KIND = "kind";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>kind</b>
-   * <p>
-   * Description: <b>operation | query</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.kind</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam KIND = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_KIND);
-
- /**
-   * Search parameter: <b>version</b>
-   * <p>
-   * Description: <b>Logical id for this version of the operation definition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.version</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="version", path="OperationDefinition.version", description="Logical id for this version of the operation definition", type="token" )
-  public static final String SP_VERSION = "version";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
-   * <p>
-   * Description: <b>Logical id for this version of the operation definition</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.version</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
-
- /**
-   * Search parameter: <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher (Organization or individual)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OperationDefinition.publisher</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="publisher", path="OperationDefinition.publisher", description="Name of the publisher (Organization or individual)", type="string" )
-  public static final String SP_PUBLISHER = "publisher";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
-   * <p>
-   * Description: <b>Name of the publisher (Organization or individual)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OperationDefinition.publisher</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
    * Search parameter: <b>system</b>
@@ -2655,6 +2495,26 @@ public class OperationDefinition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam SYSTEM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SYSTEM);
+
+ /**
+   * Search parameter: <b>status</b>
+   * <p>
+   * Description: <b>draft | active | retired</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.status</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="status", path="OperationDefinition.status", description="draft | active | retired", type="token" )
+  public static final String SP_STATUS = "status";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>status</b>
+   * <p>
+   * Description: <b>draft | active | retired</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.status</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
 
  /**
    * Search parameter: <b>name</b>
@@ -2703,6 +2563,52 @@ public class OperationDefinition extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_BASE = new ca.uhn.fhir.model.api.Include("OperationDefinition:base").toLocked();
 
  /**
+   * Search parameter: <b>paramprofile</b>
+   * <p>
+   * Description: <b>Profile on the type</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OperationDefinition.parameter.profile</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="paramprofile", path="OperationDefinition.parameter.profile", description="Profile on the type", type="reference" )
+  public static final String SP_PARAMPROFILE = "paramprofile";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>paramprofile</b>
+   * <p>
+   * Description: <b>Profile on the type</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OperationDefinition.parameter.profile</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARAMPROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARAMPROFILE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>OperationDefinition:paramprofile</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARAMPROFILE = new ca.uhn.fhir.model.api.Include("OperationDefinition:paramprofile").toLocked();
+
+ /**
+   * Search parameter: <b>code</b>
+   * <p>
+   * Description: <b>Name used to invoke the operation</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.code</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="code", path="OperationDefinition.code", description="Name used to invoke the operation", type="token" )
+  public static final String SP_CODE = "code";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>code</b>
+   * <p>
+   * Description: <b>Name used to invoke the operation</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.code</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
+
+ /**
    * Search parameter: <b>instance</b>
    * <p>
    * Description: <b>Invoke on an instance?</b><br>
@@ -2723,30 +2629,124 @@ public class OperationDefinition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam INSTANCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INSTANCE);
 
  /**
-   * Search parameter: <b>profile</b>
+   * Search parameter: <b>type</b>
    * <p>
-   * Description: <b>Profile on the type</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OperationDefinition.parameter.profile</b><br>
+   * Description: <b>Invoke at resource level for these type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.type</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="profile", path="OperationDefinition.parameter.profile", description="Profile on the type", type="reference" )
-  public static final String SP_PROFILE = "profile";
+  @SearchParamDefinition(name="type", path="OperationDefinition.type", description="Invoke at resource level for these type", type="token" )
+  public static final String SP_TYPE = "type";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>profile</b>
+   * <b>Fluent Client</b> search parameter constant for <b>type</b>
    * <p>
-   * Description: <b>Profile on the type</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OperationDefinition.parameter.profile</b><br>
+   * Description: <b>Invoke at resource level for these type</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.type</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PROFILE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PROFILE);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>OperationDefinition:profile</b>".
+ /**
+   * Search parameter: <b>date</b>
+   * <p>
+   * Description: <b>Date for this version of the operation definition</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OperationDefinition.date</b><br>
+   * </p>
    */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_PROFILE = new ca.uhn.fhir.model.api.Include("OperationDefinition:profile").toLocked();
+  @SearchParamDefinition(name="date", path="OperationDefinition.date", description="Date for this version of the operation definition", type="date" )
+  public static final String SP_DATE = "date";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <p>
+   * Description: <b>Date for this version of the operation definition</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OperationDefinition.date</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+
+ /**
+   * Search parameter: <b>kind</b>
+   * <p>
+   * Description: <b>operation | query</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.kind</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="kind", path="OperationDefinition.kind", description="operation | query", type="token" )
+  public static final String SP_KIND = "kind";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>kind</b>
+   * <p>
+   * Description: <b>operation | query</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.kind</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam KIND = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_KIND);
+
+ /**
+   * Search parameter: <b>url</b>
+   * <p>
+   * Description: <b>Logical URL to reference this operation definition</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>OperationDefinition.url</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="url", path="OperationDefinition.url", description="Logical URL to reference this operation definition", type="uri" )
+  public static final String SP_URL = "url";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <p>
+   * Description: <b>Logical URL to reference this operation definition</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>OperationDefinition.url</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+
+ /**
+   * Search parameter: <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher (Organization or individual)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>OperationDefinition.publisher</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="publisher", path="OperationDefinition.publisher", description="Name of the publisher (Organization or individual)", type="string" )
+  public static final String SP_PUBLISHER = "publisher";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>publisher</b>
+   * <p>
+   * Description: <b>Name of the publisher (Organization or individual)</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>OperationDefinition.publisher</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>version</b>
+   * <p>
+   * Description: <b>Logical id for this version of the operation definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.version</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="version", path="OperationDefinition.version", description="Logical id for this version of the operation definition", type="token" )
+  public static final String SP_VERSION = "version";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <p>
+   * Description: <b>Logical id for this version of the operation definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.version</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
 
 }

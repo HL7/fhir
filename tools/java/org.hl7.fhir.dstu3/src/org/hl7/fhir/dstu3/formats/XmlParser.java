@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Mar 21, 2016 22:25+1100 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 22:53+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -9898,12 +9898,12 @@ public class XmlParser extends XmlParserBase {
         res.setKindElement(parseEnumeration(xpp, OperationDefinition.OperationKind.NULL, new OperationDefinition.OperationKindEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("experimental")) {
         res.setExperimentalElement(parseBoolean(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("date")) {
+        res.setDateElement(parseDateTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("publisher")) {
         res.setPublisherElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contact")) {
         res.getContact().add(parseOperationDefinitionOperationDefinitionContactComponent(xpp, res));
-      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("date")) {
-        res.setDateElement(parseDateTime(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requirements")) {
@@ -24881,15 +24881,15 @@ public class XmlParser extends XmlParserBase {
       if (element.hasExperimentalElement()) {
         composeBoolean("experimental", element.getExperimentalElement());
       }
+      if (element.hasDateElement()) {
+        composeDateTime("date", element.getDateElement());
+      }
       if (element.hasPublisherElement()) {
         composeString("publisher", element.getPublisherElement());
       }
       if (element.hasContact()) { 
         for (OperationDefinition.OperationDefinitionContactComponent e : element.getContact()) 
           composeOperationDefinitionOperationDefinitionContactComponent("contact", e);
-      }
-      if (element.hasDateElement()) {
-        composeDateTime("date", element.getDateElement());
       }
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Mar 21, 2016 22:25+1100 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 22:53+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -10866,6 +10866,10 @@ public class JsonParser extends JsonParserBase {
       res.setExperimentalElement(parseBoolean(json.get("experimental").getAsBoolean()));
     if (json.has("_experimental"))
       parseElementProperties(json.getAsJsonObject("_experimental"), res.getExperimentalElement());
+    if (json.has("date"))
+      res.setDateElement(parseDateTime(json.get("date").getAsString()));
+    if (json.has("_date"))
+      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("publisher"))
       res.setPublisherElement(parseString(json.get("publisher").getAsString()));
     if (json.has("_publisher"))
@@ -10876,10 +10880,6 @@ public class JsonParser extends JsonParserBase {
         res.getContact().add(parseOperationDefinitionOperationDefinitionContactComponent(array.get(i).getAsJsonObject(), res));
       }
     };
-    if (json.has("date"))
-      res.setDateElement(parseDateTime(json.get("date").getAsString()));
-    if (json.has("_date"))
-      parseElementProperties(json.getAsJsonObject("_date"), res.getDateElement());
     if (json.has("description"))
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
@@ -29185,6 +29185,10 @@ public class JsonParser extends JsonParserBase {
         composeBooleanCore("experimental", element.getExperimentalElement(), false);
         composeBooleanExtras("experimental", element.getExperimentalElement(), false);
       }
+      if (element.hasDateElement()) {
+        composeDateTimeCore("date", element.getDateElement(), false);
+        composeDateTimeExtras("date", element.getDateElement(), false);
+      }
       if (element.hasPublisherElement()) {
         composeStringCore("publisher", element.getPublisherElement(), false);
         composeStringExtras("publisher", element.getPublisherElement(), false);
@@ -29195,10 +29199,6 @@ public class JsonParser extends JsonParserBase {
           composeOperationDefinitionOperationDefinitionContactComponent(null, e);
         closeArray();
       };
-      if (element.hasDateElement()) {
-        composeDateTimeCore("date", element.getDateElement(), false);
-        composeDateTimeExtras("date", element.getDateElement(), false);
-      }
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
