@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8190</WindowHeight>
-  <WindowWidth>15390</WindowWidth>
+  <WindowHeight>17610</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>4</ActiveSheet>
@@ -4750,7 +4750,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s119"><Data ss:Type="String">populate.return</Data></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">populate.questionnaire</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
@@ -4761,14 +4761,14 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s119"/>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">populate.issues</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">out</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">0</Data></Cell>
+    <Cell ss:StyleID="s133"><Data ss:Type="Number">1</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">OperationOutcome</Data></Cell>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s133"/>
-    <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s134"/>
+    <Cell ss:StyleID="s134"><Data ss:Type="String">A list of hints and warnings about problems encountered while populating the questionnaire. These might be show to the user as an advisory note. Note: if the questionnaire cannot be populated at all, then the operation should fail, and an OperationOutcome is returned directly with the failure, rather than using this parameter</Data></Cell>
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5235,9 +5235,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>7</LeftColumnRightPane>
+   <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -5245,15 +5245,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>8</ActiveCol>
+     <ActiveRow>8</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
