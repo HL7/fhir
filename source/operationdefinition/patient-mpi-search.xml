@@ -17,7 +17,7 @@
   <requirements value="This query is defined to allow an MPI to be integrated in a FHIR server environment, and to allow a client to delegate the matching process to a specialist. MPI algorithms are often highly tailored to a particular patient set"/>
   <idempotent value="true"/>
   <code value="mpi"/>
-  <notes value="All the standard search parameters apply, and are interpreted as inputs to the MPI algorithm. The _sort parameter is not used. Matches are returned in order of highest match to lowest match, with both a % in the score, and an asessement of the match using the extension http://hl7.org/fhir/StructureDefinition/patient-mpi-match"/>
+  <comment value="All the standard search parameters apply, and are interpreted as inputs to the MPI algorithm. The _sort parameter is not used. Matches are returned in order of highest match to lowest match, with both a % in the score, and an asessement of the match using the extension http://hl7.org/fhir/StructureDefinition/patient-mpi-match"/>
   <system value="false"/>
   <type value="Patient"/>
   <instance value="false"/>

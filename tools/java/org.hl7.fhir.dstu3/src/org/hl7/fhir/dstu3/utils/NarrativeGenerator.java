@@ -2813,7 +2813,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     for (OperationDefinitionParameterComponent p : opd.getParameter()) {
       genOpParam(tbl, "", p);
     }
-    addMarkdown(x, opd.getNotes());
+    addMarkdown(x, opd.getComment());
     inject(opd, x, NarrativeStatus.GENERATED);
 	}
 

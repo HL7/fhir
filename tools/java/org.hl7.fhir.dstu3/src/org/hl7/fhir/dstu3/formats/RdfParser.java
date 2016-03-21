@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Mar 21, 2016 15:58+1100 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 22:25+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -8235,14 +8235,14 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "NamingSystem", "status", element.getStatusElement(), -1);
     if (element.hasKindElement())
       composeEnum(t, "NamingSystem", "kind", element.getKindElement(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "NamingSystem", "date", element.getDateElement(), -1);
     if (element.hasPublisherElement())
       composeString(t, "NamingSystem", "publisher", element.getPublisherElement(), -1);
     for (int i = 0; i < element.getContact().size(); i++)
       composeNamingSystemNamingSystemContactComponent(t, "NamingSystem", "contact", element.getContact().get(i), i);
     if (element.hasResponsibleElement())
       composeString(t, "NamingSystem", "responsible", element.getResponsibleElement(), -1);
-    if (element.hasDateElement())
-      composeDateTime(t, "NamingSystem", "date", element.getDateElement(), -1);
     if (element.hasType())
       composeCodeableConcept(t, "NamingSystem", "type", element.getType(), -1);
     if (element.hasDescriptionElement())
@@ -8601,8 +8601,8 @@ public class RdfParser extends RdfParserBase {
       composeBoolean(t, "OperationDefinition", "idempotent", element.getIdempotentElement(), -1);
     if (element.hasCodeElement())
       composeCode(t, "OperationDefinition", "code", element.getCodeElement(), -1);
-    if (element.hasNotesElement())
-      composeString(t, "OperationDefinition", "notes", element.getNotesElement(), -1);
+    if (element.hasCommentElement())
+      composeString(t, "OperationDefinition", "comment", element.getCommentElement(), -1);
     if (element.hasBase())
       composeReference(t, "OperationDefinition", "base", element.getBase(), -1);
     if (element.hasSystemElement())

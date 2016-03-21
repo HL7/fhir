@@ -1597,7 +1597,7 @@ public class ProfileGenerator {
       throw new Exception("Unrecognized operation kind: '" + op.getKind() + "' for operation " + name);
     }
     opd.setCode(op.getName());
-    opd.setNotes(op.getFooter());
+    opd.setComment(op.getFooter());
     opd.setSystem(op.isSystem());
     if (op.isType())
       opd.addType(resourceName);

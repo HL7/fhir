@@ -11,6 +11,7 @@
         <name value="United States Social Security Number"/>
         <status value="active"/>
         <kind value="identifier"/>
+        <date value="2015-07-31"/>
         <publisher value="United States Social Security Administration"/>
         <contact>  
           <telecom>
@@ -18,7 +19,6 @@
             <value value="http://www.ssa.gov/"/>
           </telecom>
         </contact>
-        <date value="2015-07-31"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/identifier-type"/>
@@ -52,6 +52,7 @@
         <name value="United States National Provider Identifier"/>
         <status value="active"/>
         <kind value="identifier"/>
+        <date value="2015-07-31"/>
         <publisher value="Centers for Medicare and Medicaid Services"/>
         <contact>  
           <telecom>
@@ -59,7 +60,6 @@
             <value value="http://www.cms.gov/"/>
           </telecom>
         </contact>
-        <date value="2015-07-31"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -92,8 +92,8 @@
         <name value="Alaska Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -125,8 +125,8 @@
         <name value="Alabama Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -158,8 +158,8 @@
         <name value="Arkansas Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -191,8 +191,8 @@
         <name value="Arizona Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -224,8 +224,8 @@
         <name value="California Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -257,8 +257,8 @@
         <name value="Colorado Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -290,8 +290,8 @@
         <name value="Connecticut Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -323,8 +323,8 @@
         <name value="DC Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -356,8 +356,8 @@
         <name value="Delaware Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -389,8 +389,8 @@
         <name value="Florida Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -422,8 +422,8 @@
         <name value="Georgia Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -455,8 +455,8 @@
         <name value="Hawaii Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -488,8 +488,8 @@
         <name value="Indiana Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -521,8 +521,8 @@
         <name value="Iowa Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -554,8 +554,8 @@
         <name value="Idaho Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -587,8 +587,8 @@
         <name value="Illinois Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -620,8 +620,8 @@
         <name value="Kansas Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -653,8 +653,8 @@
         <name value="Kentucky Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -686,8 +686,8 @@
         <name value="Louisiana Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -719,8 +719,8 @@
         <name value="Massachusetts Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -752,8 +752,8 @@
         <name value="Maryland Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -785,8 +785,8 @@
         <name value="Maine Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -818,8 +818,8 @@
         <name value="Michigan Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -851,8 +851,8 @@
         <name value="Minnesota Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -884,8 +884,8 @@
         <name value="Missouri Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -917,8 +917,8 @@
         <name value="Mississippi Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -950,8 +950,8 @@
         <name value="Montana Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -983,8 +983,8 @@
         <name value="New York Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1016,8 +1016,8 @@
         <name value="North Carolina Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1049,8 +1049,8 @@
         <name value="North Dakota Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1082,8 +1082,8 @@
         <name value="Nebraska Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1115,8 +1115,8 @@
         <name value="New Hampshire Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1148,8 +1148,8 @@
         <name value="New Jersey Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1181,8 +1181,8 @@
         <name value="New Mexico Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1214,8 +1214,8 @@
         <name value="Nevada Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1247,8 +1247,8 @@
         <name value="Ohio Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1280,8 +1280,8 @@
         <name value="Oklahoma Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1313,8 +1313,8 @@
         <name value="Oregon Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1346,8 +1346,8 @@
         <name value="Pennsylvania Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1379,8 +1379,8 @@
         <name value="Rhode Island Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1412,8 +1412,8 @@
         <name value="South Carolina Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1445,8 +1445,8 @@
         <name value="South Dakota Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1478,8 +1478,8 @@
         <name value="Tennessee Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1511,8 +1511,8 @@
         <name value="Texas Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1544,8 +1544,8 @@
         <name value="Utah Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1577,8 +1577,8 @@
         <name value="Virginia Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1610,8 +1610,8 @@
         <name value="Vermont Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1643,8 +1643,8 @@
         <name value="Washington Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1676,8 +1676,8 @@
         <name value="Wisconsin Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1709,8 +1709,8 @@
         <name value="West Virginia Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>
@@ -1742,8 +1742,8 @@
         <name value="Wyoming Driver&#39;s License"/>
         <status value="active"/>
         <kind value="identifier"/>
-        <publisher value="HL7 International"/>
         <date value="2015-07-03"/>
+        <publisher value="HL7 International"/>
         <type>
           <coding>
             <system value="http://hl7.org/fhir/v2/0203"/>

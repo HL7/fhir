@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 21, 2016 15:58+1100 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 22:25+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1305,9 +1305,9 @@ public class OperationDefinition extends DomainResource {
     /**
      * Additional information about how to use this operation or named query.
      */
-    @Child(name = "notes", type = {StringType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "comment", type = {StringType.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Additional information about use", formalDefinition="Additional information about how to use this operation or named query." )
-    protected StringType notes;
+    protected StringType comment;
 
     /**
      * Indicates that this operation definition is a constraining profile on the base.
@@ -1349,7 +1349,7 @@ public class OperationDefinition extends DomainResource {
     @Description(shortDefinition="Parameters for the operation/query", formalDefinition="The parameters for the operation/query." )
     protected List<OperationDefinitionParameterComponent> parameter;
 
-    private static final long serialVersionUID = 148203484L;
+    private static final long serialVersionUID = -1063219522L;
 
   /**
    * Constructor
@@ -1976,50 +1976,50 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #notes} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
+     * @return {@link #comment} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public StringType getNotesElement() { 
-      if (this.notes == null)
+    public StringType getCommentElement() { 
+      if (this.comment == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create OperationDefinition.notes");
+          throw new Error("Attempt to auto-create OperationDefinition.comment");
         else if (Configuration.doAutoCreate())
-          this.notes = new StringType(); // bb
-      return this.notes;
+          this.comment = new StringType(); // bb
+      return this.comment;
     }
 
-    public boolean hasNotesElement() { 
-      return this.notes != null && !this.notes.isEmpty();
+    public boolean hasCommentElement() { 
+      return this.comment != null && !this.comment.isEmpty();
     }
 
-    public boolean hasNotes() { 
-      return this.notes != null && !this.notes.isEmpty();
+    public boolean hasComment() { 
+      return this.comment != null && !this.comment.isEmpty();
     }
 
     /**
-     * @param value {@link #notes} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getNotes" gives direct access to the value
+     * @param value {@link #comment} (Additional information about how to use this operation or named query.). This is the underlying object with id, value and extensions. The accessor "getComment" gives direct access to the value
      */
-    public OperationDefinition setNotesElement(StringType value) { 
-      this.notes = value;
+    public OperationDefinition setCommentElement(StringType value) { 
+      this.comment = value;
       return this;
     }
 
     /**
      * @return Additional information about how to use this operation or named query.
      */
-    public String getNotes() { 
-      return this.notes == null ? null : this.notes.getValue();
+    public String getComment() { 
+      return this.comment == null ? null : this.comment.getValue();
     }
 
     /**
      * @param value Additional information about how to use this operation or named query.
      */
-    public OperationDefinition setNotes(String value) { 
+    public OperationDefinition setComment(String value) { 
       if (Utilities.noString(value))
-        this.notes = null;
+        this.comment = null;
       else {
-        if (this.notes == null)
-          this.notes = new StringType();
-        this.notes.setValue(value);
+        if (this.comment == null)
+          this.comment = new StringType();
+        this.comment.setValue(value);
       }
       return this;
     }
@@ -2267,7 +2267,7 @@ public class OperationDefinition extends DomainResource {
         childrenList.add(new Property("requirements", "string", "Explains why this operation definition is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("idempotent", "boolean", "Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.", 0, java.lang.Integer.MAX_VALUE, idempotent));
         childrenList.add(new Property("code", "code", "The name used to invoke the operation.", 0, java.lang.Integer.MAX_VALUE, code));
-        childrenList.add(new Property("notes", "string", "Additional information about how to use this operation or named query.", 0, java.lang.Integer.MAX_VALUE, notes));
+        childrenList.add(new Property("comment", "string", "Additional information about how to use this operation or named query.", 0, java.lang.Integer.MAX_VALUE, comment));
         childrenList.add(new Property("base", "Reference(OperationDefinition)", "Indicates that this operation definition is a constraining profile on the base.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("system", "boolean", "Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).", 0, java.lang.Integer.MAX_VALUE, system));
         childrenList.add(new Property("type", "code", "Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).", 0, java.lang.Integer.MAX_VALUE, type));
@@ -2303,8 +2303,8 @@ public class OperationDefinition extends DomainResource {
           this.idempotent = castToBoolean(value); // BooleanType
         else if (name.equals("code"))
           this.code = castToCode(value); // CodeType
-        else if (name.equals("notes"))
-          this.notes = castToString(value); // StringType
+        else if (name.equals("comment"))
+          this.comment = castToString(value); // StringType
         else if (name.equals("base"))
           this.base = castToReference(value); // Reference
         else if (name.equals("system"))
@@ -2360,8 +2360,8 @@ public class OperationDefinition extends DomainResource {
         else if (name.equals("code")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.code");
         }
-        else if (name.equals("notes")) {
-          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.notes");
+        else if (name.equals("comment")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.comment");
         }
         else if (name.equals("base")) {
           this.base = new Reference();
@@ -2408,7 +2408,7 @@ public class OperationDefinition extends DomainResource {
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.idempotent = idempotent == null ? null : idempotent.copy();
         dst.code = code == null ? null : code.copy();
-        dst.notes = notes == null ? null : notes.copy();
+        dst.comment = comment == null ? null : comment.copy();
         dst.base = base == null ? null : base.copy();
         dst.system = system == null ? null : system.copy();
         if (type != null) {
@@ -2440,7 +2440,7 @@ public class OperationDefinition extends DomainResource {
            && compareDeep(status, o.status, true) && compareDeep(kind, o.kind, true) && compareDeep(experimental, o.experimental, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true)
            && compareDeep(description, o.description, true) && compareDeep(requirements, o.requirements, true)
-           && compareDeep(idempotent, o.idempotent, true) && compareDeep(code, o.code, true) && compareDeep(notes, o.notes, true)
+           && compareDeep(idempotent, o.idempotent, true) && compareDeep(code, o.code, true) && compareDeep(comment, o.comment, true)
            && compareDeep(base, o.base, true) && compareDeep(system, o.system, true) && compareDeep(type, o.type, true)
            && compareDeep(instance, o.instance, true) && compareDeep(parameter, o.parameter, true);
       }
@@ -2456,7 +2456,7 @@ public class OperationDefinition extends DomainResource {
            && compareValues(status, o.status, true) && compareValues(kind, o.kind, true) && compareValues(experimental, o.experimental, true)
            && compareValues(publisher, o.publisher, true) && compareValues(date, o.date, true) && compareValues(description, o.description, true)
            && compareValues(requirements, o.requirements, true) && compareValues(idempotent, o.idempotent, true)
-           && compareValues(code, o.code, true) && compareValues(notes, o.notes, true) && compareValues(system, o.system, true)
+           && compareValues(code, o.code, true) && compareValues(comment, o.comment, true) && compareValues(system, o.system, true)
            && compareValues(type, o.type, true) && compareValues(instance, o.instance, true);
       }
 
@@ -2466,7 +2466,7 @@ public class OperationDefinition extends DomainResource {
            && (experimental == null || experimental.isEmpty()) && (publisher == null || publisher.isEmpty())
            && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty()) && (description == null || description.isEmpty())
            && (requirements == null || requirements.isEmpty()) && (idempotent == null || idempotent.isEmpty())
-           && (code == null || code.isEmpty()) && (notes == null || notes.isEmpty()) && (base == null || base.isEmpty())
+           && (code == null || code.isEmpty()) && (comment == null || comment.isEmpty()) && (base == null || base.isEmpty())
            && (system == null || system.isEmpty()) && (type == null || type.isEmpty()) && (instance == null || instance.isEmpty())
            && (parameter == null || parameter.isEmpty());
       }

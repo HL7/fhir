@@ -125,7 +125,7 @@
     value="This operation enables clinical decision support to be invoked prior to ordering to ensure appropriate use of resources."/>
   <idempotent value="true"/>
   <code value="evaluate"/>
-  <notes value="This operation is normally idempotent, but can depend upon the algorithm used."/>
+  <comment value="This operation is normally idempotent, but can depend upon the algorithm used."/>
   <system value="false"/>
   <type value="Order"/>
   <instance value="false"/>

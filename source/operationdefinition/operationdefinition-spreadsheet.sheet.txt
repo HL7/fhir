@@ -127,6 +127,15 @@
   Requirements = Allows filtering of profiles that are appropriate for use vs. not
 
  -- Row 8 -----------------------------------
+  Element = OperationDefinition.date
+  Card. = 0..1
+  Type = dateTime
+  Short Label = Date for this version of the operation definition
+  Definition = The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes
+  Comments = Additional specific dates may be added as extensions
+  w5 = when.recorded
+
+ -- Row 9 -----------------------------------
   Element = OperationDefinition.publisher
   Card. = 0..1
   Summary = y
@@ -137,7 +146,7 @@
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
   w5 = who.witness
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = OperationDefinition.contact
   Card. = 0..*
   Summary = y
@@ -146,7 +155,7 @@
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = OperationDefinition.contact.name
   Card. = 0..1
   Summary = Y
@@ -155,22 +164,13 @@
   Definition = The name of an individual to contact regarding the operation definition
   Comments = If there is no named individual, the telecom is for the organization as a whole
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = OperationDefinition.contact.telecom
   Card. = 0..*
   Summary = Y
   Type = ContactPoint
   Short Label = Contact details for individual or publisher
   Definition = Contact details for individual (if a name was provided) or the publisher
-
- -- Row 12 -----------------------------------
-  Element = OperationDefinition.date
-  Card. = 0..1
-  Type = dateTime
-  Short Label = Date for this version of the operation definition
-  Definition = The date this version of the operation definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the Operation Definition changes
-  Comments = Additional specific dates may be added as extensions
-  w5 = when.recorded
 
  -- Row 13 -----------------------------------
   Element = OperationDefinition.description
@@ -204,7 +204,7 @@
   Definition = The name used to invoke the operation
 
  -- Row 17 -----------------------------------
-  Element = OperationDefinition.notes
+  Element = OperationDefinition.comment
   Card. = 0..1
   Type = string
   Short Label = Additional information about use
@@ -447,7 +447,7 @@
   Path = OperationDefinition.instance
 
  -- Row 13 -----------------------------------
-  Name = profile
+  Name = paramprofile
   Type = reference
   Path = OperationDefinition.parameter.profile
 

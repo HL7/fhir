@@ -16,8 +16,8 @@
   <name value="SNOMED CT Spanish"/>
   <status value="retired"/>
   <kind value="codesystem"/>
-  <publisher value="Not HL7!"/>
   <date value="2005-01-25"/>
+  <publisher value="Not HL7!"/>
   <description value="This was a wrong registration for the spanish editions of SNOMED CT. Do not use"/>
   <uniqueId>
     <type value="oid"/>

@@ -150,9 +150,9 @@
  -- Row 5 -----------------------------------
   Id = 5
   Context = ElementDefinition
-  English = Either a namereference or a fixed value (but not both) is permitted
-  XPath = not(exists(f:contentReference) and exists(f:*[starts-with(local-name(.), \'value\')]))
-  Expression = contentReference.empty() or fixed[x].empty()
+  English = if the element definition has a contentReference, it cannot have type, defaultValue, fixed, pattern, example, minValue, maxValue, maxLength, or binding
+  XPath = not(exists(f:contentReference) and (exists(f:type) or exists(f:*[starts-with(local-name(.), \'value\')]) or exists(f:*[starts-with(local-name(.), \'defaultValue\')])  or exists(f:*[starts-with(local-name(.), \'fixed\')]) or exists(f:*[starts-with(local-name(.), \'pattern\')]) or exists(f:*[starts-with(local-name(.), \'example\')]) or exists(f:*[starts-with(local-name(.), \'f:minValue\')]) or exists(f:*[starts-with(local-name(.), \'f:maxValue\')]) or exists(f:maxLength) or exists(f:binding)))
+  Expression = contentReference.empty() or (type.empty() and defaultValue[x].empty() and fixed[x].empty() and pattern[x].empty() and example[x].empty() and minValue[x].empty() and maxValue[x].empty() and maxLength.empty() and binding.empty())
 
  -- Row 6 -----------------------------------
   Id = 6

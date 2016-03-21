@@ -134,6 +134,16 @@
   w5 = class
 
  -- Row 5 -----------------------------------
+  Element = NamingSystem.date
+  Card. = 1..1
+  Summary = y
+  Type = dateTime
+  Short Label = Publication Date(/time)
+  Definition = The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the registration changes
+  Comments = Additional specific dates may be added as extensions
+  w5 = when.recorded
+
+ -- Row 6 -----------------------------------
   Element = NamingSystem.publisher
   Card. = 0..1
   Summary = y
@@ -144,7 +154,7 @@
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
   w5 = who.witness
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = NamingSystem.contact
   Card. = 0..*
   Summary = y
@@ -153,7 +163,7 @@
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = NamingSystem.contact.name
   Card. = 0..1
   Summary = Y
@@ -162,7 +172,7 @@
   Definition = The name of an individual to contact regarding the naming system
   Comments = If there is no named individual, the telecom is for the organization as a whole
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = NamingSystem.contact.telecom
   Card. = 0..*
   Summary = Y
@@ -170,7 +180,7 @@
   Short Label = Contact details for individual or publisher
   Definition = Contact details for individual (if a name was provided) or the publisher
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = NamingSystem.responsible
   Card. = 0..1
   Type = string
@@ -178,16 +188,6 @@
   Definition = The name of the organization that is responsible for issuing identifiers or codes for this namespace and ensuring their non-collision.
   Comments = This is the primary organization.  Responsibility for some aspects of a namespace may be delegated
   w5 = who.witness
-
- -- Row 10 -----------------------------------
-  Element = NamingSystem.date
-  Card. = 1..1
-  Summary = y
-  Type = dateTime
-  Short Label = Publication Date(/time)
-  Definition = The date  (and optionally time) when the system was registered or published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the registration changes
-  Comments = Additional specific dates may be added as extensions
-  w5 = when.recorded
 
  -- Row 11 -----------------------------------
   Element = NamingSystem.type

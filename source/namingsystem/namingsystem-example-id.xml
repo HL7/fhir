@@ -18,6 +18,7 @@
   <name value="Austalian Healthcare Identifier - Individual"/>
   <status value="active"/>
   <kind value="identifier"/>
+  <date value="2015-08-31"/>
   <publisher value="HL7 Australia on behalf of NEHTA"/>
   <contact>
     <name value="HL7 Australia FHIR Team"/>
@@ -27,7 +28,6 @@
     </telecom>
   </contact> 
   <responsible value="HI Service Operator / NEHTA"/>
-  <date value="2015-08-31"/>
   <type> 
     <coding> 
       <system value="http://hl7.org/fhir/v2/0203"/>

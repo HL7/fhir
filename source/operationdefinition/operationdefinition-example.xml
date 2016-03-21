@@ -18,7 +18,7 @@
   <date value="2015-08-04"/>
   <description value="Limited implementation of the Populate Questionnaire implemenation"/>
   <code value="populate"/>
-  <notes value="Only implemented for Labs and Medications so far"/>
+  <comment value="Only implemented for Labs and Medications so far"/>
   <base>
     <reference value="OperationDefinition/Questionnaire-populate"/>
   </base>

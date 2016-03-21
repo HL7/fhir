@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17610</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>14010</WindowHeight>
+  <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>694</TabRatio>
@@ -4538,10 +4538,10 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">Either a namereference or a fixed value (but not both) is permitted</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">if the element definition has a contentReference, it cannot have type, defaultValue, fixed, pattern, example, minValue, maxValue, maxLength, or binding</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">contentReference.empty() or fixed[x].empty()</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:contentReference) and exists(f:*[starts-with(local-name(.), 'value')]))</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">contentReference.empty() or (type.empty() and defaultValue[x].empty() and fixed[x].empty() and pattern[x].empty() and example[x].empty() and minValue[x].empty() and maxValue[x].empty() and maxLength.empty() and binding.empty())</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:contentReference) and (exists(f:type) or exists(f:*[starts-with(local-name(.), 'value')]) or exists(f:*[starts-with(local-name(.), 'defaultValue')])  or exists(f:*[starts-with(local-name(.), 'fixed')]) or exists(f:*[starts-with(local-name(.), 'pattern')]) or exists(f:*[starts-with(local-name(.), 'example')]) or exists(f:*[starts-with(local-name(.), 'f:minValue')]) or exists(f:*[starts-with(local-name(.), 'f:maxValue')]) or exists(f:maxLength) or exists(f:binding)))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">6</Data><NamedCell
@@ -5008,7 +5008,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>6</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
