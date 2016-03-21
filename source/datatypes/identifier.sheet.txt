@@ -112,7 +112,7 @@
   Type = Reference(Organization)
   Short Label = Organization that issued id (may be just text)
   Definition = Organization that issued/manages the identifier
-  Comments = The reference may be just a text description of the assigner
+  Comments = The Identifier.assigner may omit the .reference element and only contain a .display element reflecting the name or other textual information about the assigning organization
   v2 Mapping = CX.4 / (CX.4,CX.9,CX.10)
   RIM Mapping = II.assigningAuthorityName but note that this is an improper use by the definition of the field.  Also Role.scoper
   ServD Mapping = ./IdentifierIssuingAuthority
