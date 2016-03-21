@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 11:55+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -41,184 +41,10 @@ import ca.uhn.fhir.model.api.annotation.Block;
 import org.hl7.fhir.instance.model.api.*;
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 /**
- * The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.
+ * The definition of the actions that should be returned by evaluation of the artifact.
  */
 @DatatypeDef(name="ActionDefinition")
 public class ActionDefinition extends Type implements ICompositeType {
-
-    public enum ActionRelationshipType {
-        /**
-         * The action must be performed before the related action
-         */
-        BEFORE, 
-        /**
-         * The action must be performed after the related action
-         */
-        AFTER, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ActionRelationshipType fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("before".equals(codeString))
-          return BEFORE;
-        if ("after".equals(codeString))
-          return AFTER;
-        throw new FHIRException("Unknown ActionRelationshipType code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case BEFORE: return "before";
-            case AFTER: return "after";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case BEFORE: return "http://hl7.org/fhir/action-relationship-type";
-            case AFTER: return "http://hl7.org/fhir/action-relationship-type";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case BEFORE: return "The action must be performed before the related action";
-            case AFTER: return "The action must be performed after the related action";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case BEFORE: return "Before";
-            case AFTER: return "After";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ActionRelationshipTypeEnumFactory implements EnumFactory<ActionRelationshipType> {
-    public ActionRelationshipType fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("before".equals(codeString))
-          return ActionRelationshipType.BEFORE;
-        if ("after".equals(codeString))
-          return ActionRelationshipType.AFTER;
-        throw new IllegalArgumentException("Unknown ActionRelationshipType code '"+codeString+"'");
-        }
-        public Enumeration<ActionRelationshipType> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("before".equals(codeString))
-          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.BEFORE);
-        if ("after".equals(codeString))
-          return new Enumeration<ActionRelationshipType>(this, ActionRelationshipType.AFTER);
-        throw new FHIRException("Unknown ActionRelationshipType code '"+codeString+"'");
-        }
-    public String toCode(ActionRelationshipType code) {
-      if (code == ActionRelationshipType.BEFORE)
-        return "before";
-      if (code == ActionRelationshipType.AFTER)
-        return "after";
-      return "?";
-      }
-    public String toSystem(ActionRelationshipType code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum ActionRelationshipAnchor {
-        /**
-         * The action relationship is anchored to the start of the related action
-         */
-        START, 
-        /**
-         * The action relationship is anchored to the end of the related action
-         */
-        END, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static ActionRelationshipAnchor fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("start".equals(codeString))
-          return START;
-        if ("end".equals(codeString))
-          return END;
-        throw new FHIRException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case START: return "start";
-            case END: return "end";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case START: return "http://hl7.org/fhir/action-relationship-anchor";
-            case END: return "http://hl7.org/fhir/action-relationship-anchor";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case START: return "The action relationship is anchored to the start of the related action";
-            case END: return "The action relationship is anchored to the end of the related action";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case START: return "Start";
-            case END: return "End";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class ActionRelationshipAnchorEnumFactory implements EnumFactory<ActionRelationshipAnchor> {
-    public ActionRelationshipAnchor fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("start".equals(codeString))
-          return ActionRelationshipAnchor.START;
-        if ("end".equals(codeString))
-          return ActionRelationshipAnchor.END;
-        throw new IllegalArgumentException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
-        }
-        public Enumeration<ActionRelationshipAnchor> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("start".equals(codeString))
-          return new Enumeration<ActionRelationshipAnchor>(this, ActionRelationshipAnchor.START);
-        if ("end".equals(codeString))
-          return new Enumeration<ActionRelationshipAnchor>(this, ActionRelationshipAnchor.END);
-        throw new FHIRException("Unknown ActionRelationshipAnchor code '"+codeString+"'");
-        }
-    public String toCode(ActionRelationshipAnchor code) {
-      if (code == ActionRelationshipAnchor.START)
-        return "start";
-      if (code == ActionRelationshipAnchor.END)
-        return "end";
-      return "?";
-      }
-    public String toSystem(ActionRelationshipAnchor code) {
-      return code.getSystem();
-      }
-    }
 
     public enum ParticipantType {
         /**
@@ -443,319 +269,19 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     @Block()
-    public static class ActionDefinitionRelatedActionComponent extends Element implements IBaseDatatypeElement {
-        /**
-         * The unique identifier of the related action.
-         */
-        @Child(name = "actionIdentifier", type = {Identifier.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Identifier of the related action", formalDefinition="The unique identifier of the related action." )
-        protected Identifier actionIdentifier;
-
-        /**
-         * The relationship of this action to the related action.
-         */
-        @Child(name = "relationship", type = {CodeType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="before | after", formalDefinition="The relationship of this action to the related action." )
-        protected Enumeration<ActionRelationshipType> relationship;
-
-        /**
-         * A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.
-         */
-        @Child(name = "offset", type = {Duration.class, Range.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Time offset for the relationship", formalDefinition="A duration or range of durations to apply to the relationship. For example, 30-60 minutes before." )
-        protected Type offset;
-
-        /**
-         * An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
-         */
-        @Child(name = "anchor", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="start | end", formalDefinition="An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action." )
-        protected Enumeration<ActionRelationshipAnchor> anchor;
-
-        private static final long serialVersionUID = 451097227L;
-
-    /**
-     * Constructor
-     */
-      public ActionDefinitionRelatedActionComponent() {
-        super();
-      }
-
-    /**
-     * Constructor
-     */
-      public ActionDefinitionRelatedActionComponent(Identifier actionIdentifier, Enumeration<ActionRelationshipType> relationship) {
-        super();
-        this.actionIdentifier = actionIdentifier;
-        this.relationship = relationship;
-      }
-
-        /**
-         * @return {@link #actionIdentifier} (The unique identifier of the related action.)
-         */
-        public Identifier getActionIdentifier() { 
-          if (this.actionIdentifier == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActionDefinitionRelatedActionComponent.actionIdentifier");
-            else if (Configuration.doAutoCreate())
-              this.actionIdentifier = new Identifier(); // cc
-          return this.actionIdentifier;
-        }
-
-        public boolean hasActionIdentifier() { 
-          return this.actionIdentifier != null && !this.actionIdentifier.isEmpty();
-        }
-
-        /**
-         * @param value {@link #actionIdentifier} (The unique identifier of the related action.)
-         */
-        public ActionDefinitionRelatedActionComponent setActionIdentifier(Identifier value) { 
-          this.actionIdentifier = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #relationship} (The relationship of this action to the related action.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
-         */
-        public Enumeration<ActionRelationshipType> getRelationshipElement() { 
-          if (this.relationship == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActionDefinitionRelatedActionComponent.relationship");
-            else if (Configuration.doAutoCreate())
-              this.relationship = new Enumeration<ActionRelationshipType>(new ActionRelationshipTypeEnumFactory()); // bb
-          return this.relationship;
-        }
-
-        public boolean hasRelationshipElement() { 
-          return this.relationship != null && !this.relationship.isEmpty();
-        }
-
-        public boolean hasRelationship() { 
-          return this.relationship != null && !this.relationship.isEmpty();
-        }
-
-        /**
-         * @param value {@link #relationship} (The relationship of this action to the related action.). This is the underlying object with id, value and extensions. The accessor "getRelationship" gives direct access to the value
-         */
-        public ActionDefinitionRelatedActionComponent setRelationshipElement(Enumeration<ActionRelationshipType> value) { 
-          this.relationship = value;
-          return this;
-        }
-
-        /**
-         * @return The relationship of this action to the related action.
-         */
-        public ActionRelationshipType getRelationship() { 
-          return this.relationship == null ? null : this.relationship.getValue();
-        }
-
-        /**
-         * @param value The relationship of this action to the related action.
-         */
-        public ActionDefinitionRelatedActionComponent setRelationship(ActionRelationshipType value) { 
-            if (this.relationship == null)
-              this.relationship = new Enumeration<ActionRelationshipType>(new ActionRelationshipTypeEnumFactory());
-            this.relationship.setValue(value);
-          return this;
-        }
-
-        /**
-         * @return {@link #offset} (A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.)
-         */
-        public Type getOffset() { 
-          return this.offset;
-        }
-
-        /**
-         * @return {@link #offset} (A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.)
-         */
-        public Duration getOffsetDuration() throws FHIRException { 
-          if (!(this.offset instanceof Duration))
-            throw new FHIRException("Type mismatch: the type Duration was expected, but "+this.offset.getClass().getName()+" was encountered");
-          return (Duration) this.offset;
-        }
-
-        public boolean hasOffsetDuration() { 
-          return this.offset instanceof Duration;
-        }
-
-        /**
-         * @return {@link #offset} (A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.)
-         */
-        public Range getOffsetRange() throws FHIRException { 
-          if (!(this.offset instanceof Range))
-            throw new FHIRException("Type mismatch: the type Range was expected, but "+this.offset.getClass().getName()+" was encountered");
-          return (Range) this.offset;
-        }
-
-        public boolean hasOffsetRange() { 
-          return this.offset instanceof Range;
-        }
-
-        public boolean hasOffset() { 
-          return this.offset != null && !this.offset.isEmpty();
-        }
-
-        /**
-         * @param value {@link #offset} (A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.)
-         */
-        public ActionDefinitionRelatedActionComponent setOffset(Type value) { 
-          this.offset = value;
-          return this;
-        }
-
-        /**
-         * @return {@link #anchor} (An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.). This is the underlying object with id, value and extensions. The accessor "getAnchor" gives direct access to the value
-         */
-        public Enumeration<ActionRelationshipAnchor> getAnchorElement() { 
-          if (this.anchor == null)
-            if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ActionDefinitionRelatedActionComponent.anchor");
-            else if (Configuration.doAutoCreate())
-              this.anchor = new Enumeration<ActionRelationshipAnchor>(new ActionRelationshipAnchorEnumFactory()); // bb
-          return this.anchor;
-        }
-
-        public boolean hasAnchorElement() { 
-          return this.anchor != null && !this.anchor.isEmpty();
-        }
-
-        public boolean hasAnchor() { 
-          return this.anchor != null && !this.anchor.isEmpty();
-        }
-
-        /**
-         * @param value {@link #anchor} (An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.). This is the underlying object with id, value and extensions. The accessor "getAnchor" gives direct access to the value
-         */
-        public ActionDefinitionRelatedActionComponent setAnchorElement(Enumeration<ActionRelationshipAnchor> value) { 
-          this.anchor = value;
-          return this;
-        }
-
-        /**
-         * @return An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
-         */
-        public ActionRelationshipAnchor getAnchor() { 
-          return this.anchor == null ? null : this.anchor.getValue();
-        }
-
-        /**
-         * @param value An optional indicator for how the relationship is anchored to the related action. For example "before the start" or "before the end" of the related action.
-         */
-        public ActionDefinitionRelatedActionComponent setAnchor(ActionRelationshipAnchor value) { 
-          if (value == null)
-            this.anchor = null;
-          else {
-            if (this.anchor == null)
-              this.anchor = new Enumeration<ActionRelationshipAnchor>(new ActionRelationshipAnchorEnumFactory());
-            this.anchor.setValue(value);
-          }
-          return this;
-        }
-
-        protected void listChildren(List<Property> childrenList) {
-          super.listChildren(childrenList);
-          childrenList.add(new Property("actionIdentifier", "Identifier", "The unique identifier of the related action.", 0, java.lang.Integer.MAX_VALUE, actionIdentifier));
-          childrenList.add(new Property("relationship", "code", "The relationship of this action to the related action.", 0, java.lang.Integer.MAX_VALUE, relationship));
-          childrenList.add(new Property("offset[x]", "Duration|Range", "A duration or range of durations to apply to the relationship. For example, 30-60 minutes before.", 0, java.lang.Integer.MAX_VALUE, offset));
-          childrenList.add(new Property("anchor", "code", "An optional indicator for how the relationship is anchored to the related action. For example \"before the start\" or \"before the end\" of the related action.", 0, java.lang.Integer.MAX_VALUE, anchor));
-        }
-
-      @Override
-      public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("actionIdentifier"))
-          this.actionIdentifier = castToIdentifier(value); // Identifier
-        else if (name.equals("relationship"))
-          this.relationship = new ActionRelationshipTypeEnumFactory().fromType(value); // Enumeration<ActionRelationshipType>
-        else if (name.equals("offset[x]"))
-          this.offset = (Type) value; // Type
-        else if (name.equals("anchor"))
-          this.anchor = new ActionRelationshipAnchorEnumFactory().fromType(value); // Enumeration<ActionRelationshipAnchor>
-        else
-          super.setProperty(name, value);
-      }
-
-      @Override
-      public Base addChild(String name) throws FHIRException {
-        if (name.equals("actionIdentifier")) {
-          this.actionIdentifier = new Identifier();
-          return this.actionIdentifier;
-        }
-        else if (name.equals("relationship")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActionDefinition.relationship");
-        }
-        else if (name.equals("offsetDuration")) {
-          this.offset = new Duration();
-          return this.offset;
-        }
-        else if (name.equals("offsetRange")) {
-          this.offset = new Range();
-          return this.offset;
-        }
-        else if (name.equals("anchor")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActionDefinition.anchor");
-        }
-        else
-          return super.addChild(name);
-      }
-
-      public ActionDefinitionRelatedActionComponent copy() {
-        ActionDefinitionRelatedActionComponent dst = new ActionDefinitionRelatedActionComponent();
-        copyValues(dst);
-        dst.actionIdentifier = actionIdentifier == null ? null : actionIdentifier.copy();
-        dst.relationship = relationship == null ? null : relationship.copy();
-        dst.offset = offset == null ? null : offset.copy();
-        dst.anchor = anchor == null ? null : anchor.copy();
-        return dst;
-      }
-
-      @Override
-      public boolean equalsDeep(Base other) {
-        if (!super.equalsDeep(other))
-          return false;
-        if (!(other instanceof ActionDefinitionRelatedActionComponent))
-          return false;
-        ActionDefinitionRelatedActionComponent o = (ActionDefinitionRelatedActionComponent) other;
-        return compareDeep(actionIdentifier, o.actionIdentifier, true) && compareDeep(relationship, o.relationship, true)
-           && compareDeep(offset, o.offset, true) && compareDeep(anchor, o.anchor, true);
-      }
-
-      @Override
-      public boolean equalsShallow(Base other) {
-        if (!super.equalsShallow(other))
-          return false;
-        if (!(other instanceof ActionDefinitionRelatedActionComponent))
-          return false;
-        ActionDefinitionRelatedActionComponent o = (ActionDefinitionRelatedActionComponent) other;
-        return compareValues(relationship, o.relationship, true) && compareValues(anchor, o.anchor, true);
-      }
-
-      public boolean isEmpty() {
-        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (relationship == null || relationship.isEmpty())
-           && (offset == null || offset.isEmpty()) && (anchor == null || anchor.isEmpty());
-      }
-
-  public String fhirType() {
-    return "ActionDefinition.relatedAction";
-
-  }
-
-  }
-
-    @Block()
     public static class ActionDefinitionBehaviorComponent extends Element implements IBaseDatatypeElement {
         /**
          * The type of the behavior to be described, such as grouping, visual, or selection behaviors.
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The type of behavior (grouping, precheck, selection, cardinality, etc)", formalDefinition="The type of the behavior to be described, such as grouping, visual, or selection behaviors." )
+        @Description(shortDefinition="", formalDefinition="The type of the behavior to be described, such as grouping, visual, or selection behaviors." )
         protected Coding type;
 
         /**
          * The specific behavior. The code used here is determined by the type of behavior being described. For example, the grouping behavior uses the grouping-behavior-type valueset.
          */
         @Child(name = "value", type = {Coding.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Specific behavior (e.g. required, at-most-one, single, etc)", formalDefinition="The specific behavior. The code used here is determined by the type of behavior being described. For example, the grouping behavior uses the grouping-behavior-type valueset." )
+        @Description(shortDefinition="", formalDefinition="The specific behavior. The code used here is determined by the type of behavior being described. For example, the grouping behavior uses the grouping-behavior-type valueset." )
         protected Coding value;
 
         private static final long serialVersionUID = -1054119695L;
@@ -897,17 +423,17 @@ public class ActionDefinition extends Type implements ICompositeType {
     @Block()
     public static class ActionDefinitionCustomizationComponent extends Element implements IBaseDatatypeElement {
         /**
-         * The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.
+         * The path to the element to be customized.
          */
         @Child(name = "path", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The path to the element to be set dynamically", formalDefinition="The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression." )
+        @Description(shortDefinition="", formalDefinition="The path to the element to be customized." )
         protected StringType path;
 
         /**
          * An expression specifying the value of the customized element.
          */
         @Child(name = "expression", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="An expression that provides the dynamic value for the customization", formalDefinition="An expression specifying the value of the customized element." )
+        @Description(shortDefinition="", formalDefinition="An expression specifying the value of the customized element." )
         protected StringType expression;
 
         private static final long serialVersionUID = -252690483L;
@@ -929,7 +455,7 @@ public class ActionDefinition extends Type implements ICompositeType {
       }
 
         /**
-         * @return {@link #path} (The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
+         * @return {@link #path} (The path to the element to be customized.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
         public StringType getPathElement() { 
           if (this.path == null)
@@ -949,7 +475,7 @@ public class ActionDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #path} (The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
+         * @param value {@link #path} (The path to the element to be customized.). This is the underlying object with id, value and extensions. The accessor "getPath" gives direct access to the value
          */
         public ActionDefinitionCustomizationComponent setPathElement(StringType value) { 
           this.path = value;
@@ -957,14 +483,14 @@ public class ActionDefinition extends Type implements ICompositeType {
         }
 
         /**
-         * @return The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.
+         * @return The path to the element to be customized.
          */
         public String getPath() { 
           return this.path == null ? null : this.path.getValue();
         }
 
         /**
-         * @param value The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.
+         * @param value The path to the element to be customized.
          */
         public ActionDefinitionCustomizationComponent setPath(String value) { 
             if (this.path == null)
@@ -1020,7 +546,7 @@ public class ActionDefinition extends Type implements ICompositeType {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("path", "string", "The path to the element to be customized. This is the path on the resource that will hold the result of the calculation defined by the expression.", 0, java.lang.Integer.MAX_VALUE, path));
+          childrenList.add(new Property("path", "string", "The path to the element to be customized.", 0, java.lang.Integer.MAX_VALUE, path));
           childrenList.add(new Property("expression", "string", "An expression specifying the value of the customized element.", 0, java.lang.Integer.MAX_VALUE, expression));
         }
 
@@ -1087,116 +613,109 @@ public class ActionDefinition extends Type implements ICompositeType {
   }
 
     /**
-     * A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.
+     * A unique identifier for the action.
      */
     @Child(name = "actionIdentifier", type = {Identifier.class}, order=0, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Unique identifier", formalDefinition="A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique." )
+    @Description(shortDefinition="", formalDefinition="A unique identifier for the action." )
     protected Identifier actionIdentifier;
 
     /**
-     * A user-visible label for the action.
+     * A user-visible number for the action.
      */
-    @Child(name = "label", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="User-visible label for the action (e.g. 1. or A.)", formalDefinition="A user-visible label for the action." )
-    protected StringType label;
+    @Child(name = "number", type = {StringType.class}, order=1, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="A user-visible number for the action." )
+    protected StringType number;
 
     /**
-     * The title of the action displayed to a user.
+     * The title of the action.
      */
     @Child(name = "title", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="User-visible title", formalDefinition="The title of the action displayed to a user." )
+    @Description(shortDefinition="", formalDefinition="The title of the action." )
     protected StringType title;
 
     /**
-     * A short description of the action used to provide a summary to display to the user.
+     * A short description of the action.
      */
     @Child(name = "description", type = {StringType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Short description of the action", formalDefinition="A short description of the action used to provide a summary to display to the user." )
+    @Description(shortDefinition="", formalDefinition="A short description of the action." )
     protected StringType description;
 
     /**
-     * A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.
+     * A text equivalent of the action to be performed.
      */
     @Child(name = "textEquivalent", type = {StringType.class}, order=4, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Static text equivalent of the action, used if the dynamic aspects cannot be interpreted by the receiving system", formalDefinition="A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically." )
+    @Description(shortDefinition="", formalDefinition="A text equivalent of the action to be performed." )
     protected StringType textEquivalent;
 
     /**
-     * The concept represented by this action or its sub-actions.
+     * Concepts associated with the action.
      */
     @Child(name = "concept", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="The meaning of the action or its sub-actions", formalDefinition="The concept represented by this action or its sub-actions." )
+    @Description(shortDefinition="", formalDefinition="Concepts associated with the action." )
     protected List<CodeableConcept> concept;
 
     /**
-     * The evidence grade and the sources of evidence for this action.
+     * Supporting evidence for the action.
      */
     @Child(name = "supportingEvidence", type = {Attachment.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Evidence that supports taking the action", formalDefinition="The evidence grade and the sources of evidence for this action." )
+    @Description(shortDefinition="", formalDefinition="Supporting evidence for the action." )
     protected List<Attachment> supportingEvidence;
 
     /**
-     * Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.
+     * Supporting documentation for the action.
      */
     @Child(name = "documentation", type = {Attachment.class}, order=7, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Supporting documentation for the intended performer of the action", formalDefinition="Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources." )
+    @Description(shortDefinition="", formalDefinition="Supporting documentation for the action." )
     protected List<Attachment> documentation;
-
-    /**
-     * A relationship to another action such as "before" or "30-60 minutes after start of".
-     */
-    @Child(name = "relatedAction", type = {}, order=8, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Relationship to another action", formalDefinition="A relationship to another action such as \"before\" or \"30-60 minutes after start of\"." )
-    protected ActionDefinitionRelatedActionComponent relatedAction;
 
     /**
      * The type of participant in the action.
      */
-    @Child(name = "participantType", type = {CodeType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "participantType", type = {CodeType.class}, order=8, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="patient | practitioner | related-person", formalDefinition="The type of participant in the action." )
     protected List<Enumeration<ParticipantType>> participantType;
 
     /**
      * The type of action to perform (create, update, remove).
      */
-    @Child(name = "type", type = {CodeType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "type", type = {CodeType.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="create | update | remove | fire-event", formalDefinition="The type of action to perform (create, update, remove)." )
     protected Enumeration<ActionType> type;
 
     /**
      * A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment.
      */
-    @Child(name = "behavior", type = {}, order=11, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Defines behaviors such as selection and grouping", formalDefinition="A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment." )
+    @Child(name = "behavior", type = {}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment." )
     protected List<ActionDefinitionBehaviorComponent> behavior;
 
     /**
-     * The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition).
+     * The resource that is the target of the action (e.g. CommunicationRequest).
      */
-    @Child(name = "resource", type = {}, order=12, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Static portion of the action definition", formalDefinition="The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition)." )
+    @Child(name = "resource", type = {}, order=11, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="The resource that is the target of the action (e.g. CommunicationRequest)." )
     protected Reference resource;
 
     /**
-     * The actual object that is the target of the reference (The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition).)
+     * The actual object that is the target of the reference (The resource that is the target of the action (e.g. CommunicationRequest).)
      */
     protected Resource resourceTarget;
 
     /**
-     * Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.
+     * Customizations that should be applied to the statically defined resource.
      */
-    @Child(name = "customization", type = {}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Dynamic aspects of the definition", formalDefinition="Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result." )
+    @Child(name = "customization", type = {}, order=12, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="Customizations that should be applied to the statically defined resource." )
     protected List<ActionDefinitionCustomizationComponent> customization;
 
     /**
-     * Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.
+     * Sub actions.
      */
-    @Child(name = "action", type = {ActionDefinition.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="A sub-action", formalDefinition="Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition." )
-    protected List<ActionDefinition> action;
+    @Child(name = "actions", type = {ActionDefinition.class}, order=13, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="", formalDefinition="Sub actions." )
+    protected List<ActionDefinition> actions;
 
-    private static final long serialVersionUID = -1659761573L;
+    private static final long serialVersionUID = -452767919L;
 
   /**
    * Constructor
@@ -1206,7 +725,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #actionIdentifier} (A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.)
+     * @return {@link #actionIdentifier} (A unique identifier for the action.)
      */
     public Identifier getActionIdentifier() { 
       if (this.actionIdentifier == null)
@@ -1222,7 +741,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #actionIdentifier} (A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.)
+     * @param value {@link #actionIdentifier} (A unique identifier for the action.)
      */
     public ActionDefinition setActionIdentifier(Identifier value) { 
       this.actionIdentifier = value;
@@ -1230,56 +749,56 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #label} (A user-visible label for the action.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
+     * @return {@link #number} (A user-visible number for the action.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
      */
-    public StringType getLabelElement() { 
-      if (this.label == null)
+    public StringType getNumberElement() { 
+      if (this.number == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ActionDefinition.label");
+          throw new Error("Attempt to auto-create ActionDefinition.number");
         else if (Configuration.doAutoCreate())
-          this.label = new StringType(); // bb
-      return this.label;
+          this.number = new StringType(); // bb
+      return this.number;
     }
 
-    public boolean hasLabelElement() { 
-      return this.label != null && !this.label.isEmpty();
+    public boolean hasNumberElement() { 
+      return this.number != null && !this.number.isEmpty();
     }
 
-    public boolean hasLabel() { 
-      return this.label != null && !this.label.isEmpty();
+    public boolean hasNumber() { 
+      return this.number != null && !this.number.isEmpty();
     }
 
     /**
-     * @param value {@link #label} (A user-visible label for the action.). This is the underlying object with id, value and extensions. The accessor "getLabel" gives direct access to the value
+     * @param value {@link #number} (A user-visible number for the action.). This is the underlying object with id, value and extensions. The accessor "getNumber" gives direct access to the value
      */
-    public ActionDefinition setLabelElement(StringType value) { 
-      this.label = value;
+    public ActionDefinition setNumberElement(StringType value) { 
+      this.number = value;
       return this;
     }
 
     /**
-     * @return A user-visible label for the action.
+     * @return A user-visible number for the action.
      */
-    public String getLabel() { 
-      return this.label == null ? null : this.label.getValue();
+    public String getNumber() { 
+      return this.number == null ? null : this.number.getValue();
     }
 
     /**
-     * @param value A user-visible label for the action.
+     * @param value A user-visible number for the action.
      */
-    public ActionDefinition setLabel(String value) { 
+    public ActionDefinition setNumber(String value) { 
       if (Utilities.noString(value))
-        this.label = null;
+        this.number = null;
       else {
-        if (this.label == null)
-          this.label = new StringType();
-        this.label.setValue(value);
+        if (this.number == null)
+          this.number = new StringType();
+        this.number.setValue(value);
       }
       return this;
     }
 
     /**
-     * @return {@link #title} (The title of the action displayed to a user.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     * @return {@link #title} (The title of the action.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
     public StringType getTitleElement() { 
       if (this.title == null)
@@ -1299,7 +818,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #title} (The title of the action displayed to a user.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
+     * @param value {@link #title} (The title of the action.). This is the underlying object with id, value and extensions. The accessor "getTitle" gives direct access to the value
      */
     public ActionDefinition setTitleElement(StringType value) { 
       this.title = value;
@@ -1307,14 +826,14 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return The title of the action displayed to a user.
+     * @return The title of the action.
      */
     public String getTitle() { 
       return this.title == null ? null : this.title.getValue();
     }
 
     /**
-     * @param value The title of the action displayed to a user.
+     * @param value The title of the action.
      */
     public ActionDefinition setTitle(String value) { 
       if (Utilities.noString(value))
@@ -1328,7 +847,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #description} (A short description of the action used to provide a summary to display to the user.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @return {@link #description} (A short description of the action.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public StringType getDescriptionElement() { 
       if (this.description == null)
@@ -1348,7 +867,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #description} (A short description of the action used to provide a summary to display to the user.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
+     * @param value {@link #description} (A short description of the action.). This is the underlying object with id, value and extensions. The accessor "getDescription" gives direct access to the value
      */
     public ActionDefinition setDescriptionElement(StringType value) { 
       this.description = value;
@@ -1356,14 +875,14 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return A short description of the action used to provide a summary to display to the user.
+     * @return A short description of the action.
      */
     public String getDescription() { 
       return this.description == null ? null : this.description.getValue();
     }
 
     /**
-     * @param value A short description of the action used to provide a summary to display to the user.
+     * @param value A short description of the action.
      */
     public ActionDefinition setDescription(String value) { 
       if (Utilities.noString(value))
@@ -1377,7 +896,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #textEquivalent} (A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
+     * @return {@link #textEquivalent} (A text equivalent of the action to be performed.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
      */
     public StringType getTextEquivalentElement() { 
       if (this.textEquivalent == null)
@@ -1397,7 +916,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #textEquivalent} (A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
+     * @param value {@link #textEquivalent} (A text equivalent of the action to be performed.). This is the underlying object with id, value and extensions. The accessor "getTextEquivalent" gives direct access to the value
      */
     public ActionDefinition setTextEquivalentElement(StringType value) { 
       this.textEquivalent = value;
@@ -1405,14 +924,14 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.
+     * @return A text equivalent of the action to be performed.
      */
     public String getTextEquivalent() { 
       return this.textEquivalent == null ? null : this.textEquivalent.getValue();
     }
 
     /**
-     * @param value A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.
+     * @param value A text equivalent of the action to be performed.
      */
     public ActionDefinition setTextEquivalent(String value) { 
       if (Utilities.noString(value))
@@ -1426,7 +945,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #concept} (The concept represented by this action or its sub-actions.)
+     * @return {@link #concept} (Concepts associated with the action.)
      */
     public List<CodeableConcept> getConcept() { 
       if (this.concept == null)
@@ -1444,7 +963,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #concept} (The concept represented by this action or its sub-actions.)
+     * @return {@link #concept} (Concepts associated with the action.)
      */
     // syntactic sugar
     public CodeableConcept addConcept() { //3
@@ -1466,7 +985,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #supportingEvidence} (The evidence grade and the sources of evidence for this action.)
+     * @return {@link #supportingEvidence} (Supporting evidence for the action.)
      */
     public List<Attachment> getSupportingEvidence() { 
       if (this.supportingEvidence == null)
@@ -1484,7 +1003,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #supportingEvidence} (The evidence grade and the sources of evidence for this action.)
+     * @return {@link #supportingEvidence} (Supporting evidence for the action.)
      */
     // syntactic sugar
     public Attachment addSupportingEvidence() { //3
@@ -1506,7 +1025,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #documentation} (Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.)
+     * @return {@link #documentation} (Supporting documentation for the action.)
      */
     public List<Attachment> getDocumentation() { 
       if (this.documentation == null)
@@ -1524,7 +1043,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #documentation} (Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.)
+     * @return {@link #documentation} (Supporting documentation for the action.)
      */
     // syntactic sugar
     public Attachment addDocumentation() { //3
@@ -1542,30 +1061,6 @@ public class ActionDefinition extends Type implements ICompositeType {
       if (this.documentation == null)
         this.documentation = new ArrayList<Attachment>();
       this.documentation.add(t);
-      return this;
-    }
-
-    /**
-     * @return {@link #relatedAction} (A relationship to another action such as "before" or "30-60 minutes after start of".)
-     */
-    public ActionDefinitionRelatedActionComponent getRelatedAction() { 
-      if (this.relatedAction == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create ActionDefinition.relatedAction");
-        else if (Configuration.doAutoCreate())
-          this.relatedAction = new ActionDefinitionRelatedActionComponent(); // cc
-      return this.relatedAction;
-    }
-
-    public boolean hasRelatedAction() { 
-      return this.relatedAction != null && !this.relatedAction.isEmpty();
-    }
-
-    /**
-     * @param value {@link #relatedAction} (A relationship to another action such as "before" or "30-60 minutes after start of".)
-     */
-    public ActionDefinition setRelatedAction(ActionDefinitionRelatedActionComponent value) { 
-      this.relatedAction = value;
       return this;
     }
 
@@ -1713,7 +1208,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #resource} (The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition).)
+     * @return {@link #resource} (The resource that is the target of the action (e.g. CommunicationRequest).)
      */
     public Reference getResource() { 
       if (this.resource == null)
@@ -1729,7 +1224,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @param value {@link #resource} (The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition).)
+     * @param value {@link #resource} (The resource that is the target of the action (e.g. CommunicationRequest).)
      */
     public ActionDefinition setResource(Reference value) { 
       this.resource = value;
@@ -1737,14 +1232,14 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition).)
+     * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (The resource that is the target of the action (e.g. CommunicationRequest).)
      */
     public Resource getResourceTarget() { 
       return this.resourceTarget;
     }
 
     /**
-     * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition).)
+     * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (The resource that is the target of the action (e.g. CommunicationRequest).)
      */
     public ActionDefinition setResourceTarget(Resource value) { 
       this.resourceTarget = value;
@@ -1752,7 +1247,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #customization} (Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.)
+     * @return {@link #customization} (Customizations that should be applied to the statically defined resource.)
      */
     public List<ActionDefinitionCustomizationComponent> getCustomization() { 
       if (this.customization == null)
@@ -1770,7 +1265,7 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #customization} (Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.)
+     * @return {@link #customization} (Customizations that should be applied to the statically defined resource.)
      */
     // syntactic sugar
     public ActionDefinitionCustomizationComponent addCustomization() { //3
@@ -1792,70 +1287,69 @@ public class ActionDefinition extends Type implements ICompositeType {
     }
 
     /**
-     * @return {@link #action} (Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.)
+     * @return {@link #actions} (Sub actions.)
      */
-    public List<ActionDefinition> getAction() { 
-      if (this.action == null)
-        this.action = new ArrayList<ActionDefinition>();
-      return this.action;
+    public List<ActionDefinition> getActions() { 
+      if (this.actions == null)
+        this.actions = new ArrayList<ActionDefinition>();
+      return this.actions;
     }
 
-    public boolean hasAction() { 
-      if (this.action == null)
+    public boolean hasActions() { 
+      if (this.actions == null)
         return false;
-      for (ActionDefinition item : this.action)
+      for (ActionDefinition item : this.actions)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #action} (Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.)
+     * @return {@link #actions} (Sub actions.)
      */
     // syntactic sugar
-    public ActionDefinition addAction() { //3
+    public ActionDefinition addActions() { //3
       ActionDefinition t = new ActionDefinition();
-      if (this.action == null)
-        this.action = new ArrayList<ActionDefinition>();
-      this.action.add(t);
+      if (this.actions == null)
+        this.actions = new ArrayList<ActionDefinition>();
+      this.actions.add(t);
       return t;
     }
 
     // syntactic sugar
-    public ActionDefinition addAction(ActionDefinition t) { //3
+    public ActionDefinition addActions(ActionDefinition t) { //3
       if (t == null)
         return this;
-      if (this.action == null)
-        this.action = new ArrayList<ActionDefinition>();
-      this.action.add(t);
+      if (this.actions == null)
+        this.actions = new ArrayList<ActionDefinition>();
+      this.actions.add(t);
       return this;
     }
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("actionIdentifier", "Identifier", "A unique identifier for the action. The identifier SHALL be unique within the container in which it appears, and MAY be universally unique.", 0, java.lang.Integer.MAX_VALUE, actionIdentifier));
-        childrenList.add(new Property("label", "string", "A user-visible label for the action.", 0, java.lang.Integer.MAX_VALUE, label));
-        childrenList.add(new Property("title", "string", "The title of the action displayed to a user.", 0, java.lang.Integer.MAX_VALUE, title));
-        childrenList.add(new Property("description", "string", "A short description of the action used to provide a summary to display to the user.", 0, java.lang.Integer.MAX_VALUE, description));
-        childrenList.add(new Property("textEquivalent", "string", "A text equivalent of the action to be performed. This provides a human-interpretable description of the action when the definition is consumed by a system that may not be capable of interpreting it dynamically.", 0, java.lang.Integer.MAX_VALUE, textEquivalent));
-        childrenList.add(new Property("concept", "CodeableConcept", "The concept represented by this action or its sub-actions.", 0, java.lang.Integer.MAX_VALUE, concept));
-        childrenList.add(new Property("supportingEvidence", "Attachment", "The evidence grade and the sources of evidence for this action.", 0, java.lang.Integer.MAX_VALUE, supportingEvidence));
-        childrenList.add(new Property("documentation", "Attachment", "Didactic or other informational resources associated with the action that can be provided to the CDS recipient. Information resources can include inline text commentary and links to web resources.", 0, java.lang.Integer.MAX_VALUE, documentation));
-        childrenList.add(new Property("relatedAction", "", "A relationship to another action such as \"before\" or \"30-60 minutes after start of\".", 0, java.lang.Integer.MAX_VALUE, relatedAction));
+        childrenList.add(new Property("actionIdentifier", "Identifier", "A unique identifier for the action.", 0, java.lang.Integer.MAX_VALUE, actionIdentifier));
+        childrenList.add(new Property("number", "string", "A user-visible number for the action.", 0, java.lang.Integer.MAX_VALUE, number));
+        childrenList.add(new Property("title", "string", "The title of the action.", 0, java.lang.Integer.MAX_VALUE, title));
+        childrenList.add(new Property("description", "string", "A short description of the action.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("textEquivalent", "string", "A text equivalent of the action to be performed.", 0, java.lang.Integer.MAX_VALUE, textEquivalent));
+        childrenList.add(new Property("concept", "CodeableConcept", "Concepts associated with the action.", 0, java.lang.Integer.MAX_VALUE, concept));
+        childrenList.add(new Property("supportingEvidence", "Attachment", "Supporting evidence for the action.", 0, java.lang.Integer.MAX_VALUE, supportingEvidence));
+        childrenList.add(new Property("documentation", "Attachment", "Supporting documentation for the action.", 0, java.lang.Integer.MAX_VALUE, documentation));
         childrenList.add(new Property("participantType", "code", "The type of participant in the action.", 0, java.lang.Integer.MAX_VALUE, participantType));
         childrenList.add(new Property("type", "code", "The type of action to perform (create, update, remove).", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("behavior", "", "A behavior associated with the action. Behaviors define how the action is to be presented and/or executed within the receiving environment.", 0, java.lang.Integer.MAX_VALUE, behavior));
-        childrenList.add(new Property("resource", "Reference(Any)", "The resource that is the target of the action (e.g. CommunicationRequest). The resource described here defines any aspects of the action that can be specified statically (i.e. are known at the time of definition).", 0, java.lang.Integer.MAX_VALUE, resource));
-        childrenList.add(new Property("customization", "", "Customizations that should be applied to the statically defined resource. For example, if the dosage of a medication must be computed based on the patient's weight, a customization would be used to specify an expression that calculated the weight, and the path on the resource that would contain the result.", 0, java.lang.Integer.MAX_VALUE, customization));
-        childrenList.add(new Property("action", "ActionDefinition", "Sub actions that are contained within the action. The behavior of this action determines the functionality of the sub-actions. For example, a selection behavior of at-most-one indicates that of the sub-actions, at most one may be chosen as part of realizing the action definition.", 0, java.lang.Integer.MAX_VALUE, action));
+        childrenList.add(new Property("resource", "Reference(Any)", "The resource that is the target of the action (e.g. CommunicationRequest).", 0, java.lang.Integer.MAX_VALUE, resource));
+        childrenList.add(new Property("customization", "", "Customizations that should be applied to the statically defined resource.", 0, java.lang.Integer.MAX_VALUE, customization));
+        childrenList.add(new Property("actions", "ActionDefinition", "Sub actions.", 0, java.lang.Integer.MAX_VALUE, actions));
       }
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
         if (name.equals("actionIdentifier"))
           this.actionIdentifier = castToIdentifier(value); // Identifier
-        else if (name.equals("label"))
-          this.label = castToString(value); // StringType
+        else if (name.equals("number"))
+          this.number = castToString(value); // StringType
         else if (name.equals("title"))
           this.title = castToString(value); // StringType
         else if (name.equals("description"))
@@ -1868,8 +1362,6 @@ public class ActionDefinition extends Type implements ICompositeType {
           this.getSupportingEvidence().add(castToAttachment(value));
         else if (name.equals("documentation"))
           this.getDocumentation().add(castToAttachment(value));
-        else if (name.equals("relatedAction"))
-          this.relatedAction = (ActionDefinitionRelatedActionComponent) value; // ActionDefinitionRelatedActionComponent
         else if (name.equals("participantType"))
           this.getParticipantType().add(new ParticipantTypeEnumFactory().fromType(value));
         else if (name.equals("type"))
@@ -1880,8 +1372,8 @@ public class ActionDefinition extends Type implements ICompositeType {
           this.resource = castToReference(value); // Reference
         else if (name.equals("customization"))
           this.getCustomization().add((ActionDefinitionCustomizationComponent) value);
-        else if (name.equals("action"))
-          this.getAction().add(castToActionDefinition(value));
+        else if (name.equals("actions"))
+          this.getActions().add(castToActionDefinition(value));
         else
           super.setProperty(name, value);
       }
@@ -1892,8 +1384,8 @@ public class ActionDefinition extends Type implements ICompositeType {
           this.actionIdentifier = new Identifier();
           return this.actionIdentifier;
         }
-        else if (name.equals("label")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ActionDefinition.label");
+        else if (name.equals("number")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ActionDefinition.number");
         }
         else if (name.equals("title")) {
           throw new FHIRException("Cannot call addChild on a primitive type ActionDefinition.title");
@@ -1913,10 +1405,6 @@ public class ActionDefinition extends Type implements ICompositeType {
         else if (name.equals("documentation")) {
           return addDocumentation();
         }
-        else if (name.equals("relatedAction")) {
-          this.relatedAction = new ActionDefinitionRelatedActionComponent();
-          return this.relatedAction;
-        }
         else if (name.equals("participantType")) {
           throw new FHIRException("Cannot call addChild on a primitive type ActionDefinition.participantType");
         }
@@ -1933,8 +1421,8 @@ public class ActionDefinition extends Type implements ICompositeType {
         else if (name.equals("customization")) {
           return addCustomization();
         }
-        else if (name.equals("action")) {
-          return addAction();
+        else if (name.equals("actions")) {
+          return addActions();
         }
         else
           return super.addChild(name);
@@ -1949,7 +1437,7 @@ public class ActionDefinition extends Type implements ICompositeType {
         ActionDefinition dst = new ActionDefinition();
         copyValues(dst);
         dst.actionIdentifier = actionIdentifier == null ? null : actionIdentifier.copy();
-        dst.label = label == null ? null : label.copy();
+        dst.number = number == null ? null : number.copy();
         dst.title = title == null ? null : title.copy();
         dst.description = description == null ? null : description.copy();
         dst.textEquivalent = textEquivalent == null ? null : textEquivalent.copy();
@@ -1968,7 +1456,6 @@ public class ActionDefinition extends Type implements ICompositeType {
           for (Attachment i : documentation)
             dst.documentation.add(i.copy());
         };
-        dst.relatedAction = relatedAction == null ? null : relatedAction.copy();
         if (participantType != null) {
           dst.participantType = new ArrayList<Enumeration<ParticipantType>>();
           for (Enumeration<ParticipantType> i : participantType)
@@ -1986,10 +1473,10 @@ public class ActionDefinition extends Type implements ICompositeType {
           for (ActionDefinitionCustomizationComponent i : customization)
             dst.customization.add(i.copy());
         };
-        if (action != null) {
-          dst.action = new ArrayList<ActionDefinition>();
-          for (ActionDefinition i : action)
-            dst.action.add(i.copy());
+        if (actions != null) {
+          dst.actions = new ArrayList<ActionDefinition>();
+          for (ActionDefinition i : actions)
+            dst.actions.add(i.copy());
         };
         return dst;
       }
@@ -2005,13 +1492,12 @@ public class ActionDefinition extends Type implements ICompositeType {
         if (!(other instanceof ActionDefinition))
           return false;
         ActionDefinition o = (ActionDefinition) other;
-        return compareDeep(actionIdentifier, o.actionIdentifier, true) && compareDeep(label, o.label, true)
+        return compareDeep(actionIdentifier, o.actionIdentifier, true) && compareDeep(number, o.number, true)
            && compareDeep(title, o.title, true) && compareDeep(description, o.description, true) && compareDeep(textEquivalent, o.textEquivalent, true)
            && compareDeep(concept, o.concept, true) && compareDeep(supportingEvidence, o.supportingEvidence, true)
-           && compareDeep(documentation, o.documentation, true) && compareDeep(relatedAction, o.relatedAction, true)
-           && compareDeep(participantType, o.participantType, true) && compareDeep(type, o.type, true) && compareDeep(behavior, o.behavior, true)
-           && compareDeep(resource, o.resource, true) && compareDeep(customization, o.customization, true)
-           && compareDeep(action, o.action, true);
+           && compareDeep(documentation, o.documentation, true) && compareDeep(participantType, o.participantType, true)
+           && compareDeep(type, o.type, true) && compareDeep(behavior, o.behavior, true) && compareDeep(resource, o.resource, true)
+           && compareDeep(customization, o.customization, true) && compareDeep(actions, o.actions, true);
       }
 
       @Override
@@ -2021,19 +1507,19 @@ public class ActionDefinition extends Type implements ICompositeType {
         if (!(other instanceof ActionDefinition))
           return false;
         ActionDefinition o = (ActionDefinition) other;
-        return compareValues(label, o.label, true) && compareValues(title, o.title, true) && compareValues(description, o.description, true)
+        return compareValues(number, o.number, true) && compareValues(title, o.title, true) && compareValues(description, o.description, true)
            && compareValues(textEquivalent, o.textEquivalent, true) && compareValues(participantType, o.participantType, true)
            && compareValues(type, o.type, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (label == null || label.isEmpty())
+        return super.isEmpty() && (actionIdentifier == null || actionIdentifier.isEmpty()) && (number == null || number.isEmpty())
            && (title == null || title.isEmpty()) && (description == null || description.isEmpty()) && (textEquivalent == null || textEquivalent.isEmpty())
            && (concept == null || concept.isEmpty()) && (supportingEvidence == null || supportingEvidence.isEmpty())
-           && (documentation == null || documentation.isEmpty()) && (relatedAction == null || relatedAction.isEmpty())
-           && (participantType == null || participantType.isEmpty()) && (type == null || type.isEmpty())
-           && (behavior == null || behavior.isEmpty()) && (resource == null || resource.isEmpty()) && (customization == null || customization.isEmpty())
-           && (action == null || action.isEmpty());
+           && (documentation == null || documentation.isEmpty()) && (participantType == null || participantType.isEmpty())
+           && (type == null || type.isEmpty()) && (behavior == null || behavior.isEmpty()) && (resource == null || resource.isEmpty())
+           && (customization == null || customization.isEmpty()) && (actions == null || actions.isEmpty())
+          ;
       }
 
 

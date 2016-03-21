@@ -32,7 +32,7 @@
         <!-- twice per day -->
         <frequency value="2"/>
         <period value="1"/>
-        <periodUnits value="d"/>
+        <periodUnit value="d"/>
       </repeat>
     </timing>
     <siteCodeableConcept>

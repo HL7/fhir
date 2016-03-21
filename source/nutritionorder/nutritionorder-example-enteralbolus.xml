@@ -80,7 +80,7 @@ Tube feedings are given in boluses several times a day   edited by Eric Haas Hea
 				</boundsPeriod>
 					<frequency value="1"/>
 					<period value="4"/>
-					<periodUnits value="h"/>
+					<periodUnit value="h"/>
 				</repeat>
 			</schedule>
 			<quantity>

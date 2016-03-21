@@ -192,15 +192,15 @@
   Id = 1
   Context = Timing.repeat
   English = if there\'s a duration, there needs to be duration units
-  XPath = not(exists(f:duration)) or exists(f:durationUnits)
-  Expression = duration.empty() or durationUnits
+  XPath = not(exists(f:duration)) or exists(f:durationUnit)
+  Expression = duration.empty() or durationUnit
 
  -- Row 2 -----------------------------------
   Id = 2
   Context = Timing.repeat
   English = if there\'s a period, there needs to be period units
-  XPath = not(exists(f:period)) or exists(f:periodUnits)
-  Expression = period.empty() or periodUnits
+  XPath = not(exists(f:period)) or exists(f:periodUnit)
+  Expression = period.empty() or periodUnit
 
  -- Row 3 -----------------------------------
   Id = 3
@@ -306,7 +306,7 @@
   RIM Mapping = PIVL.phase / EIVL.offset
 
  -- Row 8 -----------------------------------
-  Element = Timing.repeat.durationUnits
+  Element = Timing.repeat.durationUnit
   Card. = 0..1
   Type = code
   Binding = UnitsOfTime
@@ -348,7 +348,7 @@
   RIM Mapping = PIVL.phase
 
  -- Row 13 -----------------------------------
-  Element = Timing.repeat.periodUnits
+  Element = Timing.repeat.periodUnit
   Card. = 0..1
   Type = code
   Binding = UnitsOfTime

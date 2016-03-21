@@ -132,6 +132,16 @@ public class ToolingExtensions {
     }
   }
 
+  public static void addMarkdownExtension(DomainResource dr, String url, String content) {
+    if (!StringUtils.isBlank(content)) {
+      Extension ex = getExtension(dr, url);
+      if (ex != null)
+        ex.setValue(new StringType(content));
+      else
+        dr.getExtension().add(Factory.newExtension(url, new MarkdownType(content), true));   
+    }
+  }
+
   public static void addStringExtension(Element e, String url, String content) {
     if (!StringUtils.isBlank(content)) {
       Extension ex = getExtension(e, url);

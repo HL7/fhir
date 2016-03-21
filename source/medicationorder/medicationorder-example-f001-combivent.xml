@@ -45,7 +45,7 @@
                 </boundsPeriod>
                 <frequency value="3"/>
                 <period value="1"/>
-                <periodUnits value="d"/>
+                <periodUnit value="d"/>
             </repeat>
         </timing>
         <siteCodeableConcept>

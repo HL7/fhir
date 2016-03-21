@@ -39,10 +39,10 @@
         <timing>
             <repeat>
                 <duration value="3"/>
-                <durationUnits value="d"/>
+                <durationUnit value="d"/>
                 <frequency value="2"/>
                 <period value="1"/>
-                <periodUnits value="d"/>
+                <periodUnit value="d"/>
             </repeat>
         </timing>
         <asNeededBoolean value="true"></asNeededBoolean>

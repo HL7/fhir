@@ -1432,7 +1432,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       if (rep.hasCount())
         b.append("Count "+Integer.toString(rep.getCount())+" times");
       if (rep.hasDuration())
-        b.append("Duration "+rep.getDuration().toPlainString()+displayTimeUnits(rep.getPeriodUnits()));
+        b.append("Duration "+rep.getDuration().toPlainString()+displayTimeUnits(rep.getPeriodUnit()));
 
       if (rep.hasWhen()) {
         String st = "";
@@ -1440,7 +1440,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
           st = rep.getPeriod().toPlainString();
           if (rep.hasPeriodMax())
             st = st + "-"+rep.getPeriodMax().toPlainString();
-          st = st + displayTimeUnits(rep.getPeriodUnits());
+          st = st + displayTimeUnits(rep.getPeriodUnit());
         }
         b.append("Do "+st+displayEventCode(rep.getWhen()));
       } else {
@@ -1456,7 +1456,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
         st = st + " per "+rep.getPeriod().toPlainString();
         if (rep.hasPeriodMax())
           st = st + "-"+rep.getPeriodMax().toPlainString();
-        	st = st + " "+displayTimeUnits(rep.getPeriodUnits());
+        	st = st + " "+displayTimeUnits(rep.getPeriodUnit());
         }
         b.append("Do "+st);
       }

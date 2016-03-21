@@ -830,14 +830,14 @@
         <name value="duration units" />
         <severity value="error" />
         <human value="if there's a duration, there needs to be duration units" />
-        <xpath value="not(exists(f:duration)) or exists(f:durationUnits)" />
+        <xpath value="not(exists(f:duration)) or exists(f:durationUnit)" />
       </constraint>
       <constraint>
         <key value="tim-2" />
         <name value="Period units" />
         <severity value="error" />
         <human value="if there's a period, there needs to be duration units" />
-        <xpath value="not(exists(f:period)) or exists(f:periodUnits)" />
+        <xpath value="not(exists(f:period)) or exists(f:periodUnit)" />
       </constraint>
       <constraint>
         <key value="tim-6" />
@@ -952,7 +952,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Order.when.schedule.repeat.durationUnits" />
+      <path value="Order.when.schedule.repeat.durationUnit" />
       <short value="s | min | h | d | wk | mo | a - unit of time (UCUM)" />
       <definition value="The units of time for the duration, in UCUM units." />
       <min value="0" />
@@ -1038,7 +1038,7 @@
       </mapping>
     </element>
     <element>
-      <path value="Order.when.schedule.repeat.periodUnits" />
+      <path value="Order.when.schedule.repeat.periodUnit" />
       <short value="s | min | h | d | wk | mo | a - unit of time (UCUM)" />
       <definition value="The units of time for the period in UCUM units." />
       <min value="0" />

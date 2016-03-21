@@ -99,7 +99,7 @@
           <repeat>
             <count value="12"/>
             <period value="1"/>
-            <periodUnits value="d"/>
+            <periodUnit value="d"/>
           </repeat>
         </timing>
       </dosageInstruction>
@@ -109,7 +109,7 @@
           <repeat>
             <count value="10"/>
             <period value="1"/>
-            <periodUnits value="d"/>
+            <periodUnit value="d"/>
           </repeat>
         </timing>
         <doseQuantity>
@@ -122,7 +122,7 @@
           <repeat>
             <count value="8"/>
             <period value="1"/>
-            <periodUnits value="d"/>
+            <periodUnit value="d"/>
           </repeat>
         </timing>
         <doseQuantity>
@@ -135,7 +135,7 @@
           <repeat>
             <count value="6"/>
             <period value="1"/>
-            <periodUnits value="d"/>
+            <periodUnit value="d"/>
           </repeat>
         </timing>
         <doseQuantity>
@@ -148,7 +148,7 @@
           <repeat>
             <count value="4"/>
             <period value="1"/>
-            <periodUnits value="d"/>
+            <periodUnit value="d"/>
           </repeat>
         </timing>
         <doseQuantity>
@@ -161,7 +161,7 @@
           <repeat>
             <count value="2"/>
             <period value="1"/>
-            <periodUnits value="d"/>
+            <periodUnit value="d"/>
           </repeat>
         </timing>
         <doseQuantity>
@@ -245,7 +245,7 @@
       <scheduledTiming>
         <repeat>
           <period value="1"/>
-          <periodUnits value="d"/>
+          <periodUnit value="d"/>
         </repeat>
       </scheduledTiming>
       <performer>

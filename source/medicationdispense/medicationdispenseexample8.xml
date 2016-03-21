@@ -34,7 +34,7 @@
 			<repeat>
 				<frequency value="2"/>
 				<period value="21"/>
-				<periodUnits value="d"/>
+				<periodUnit value="d"/>
 			</repeat>
 		</timing>
 		<route>

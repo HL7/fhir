@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 11:55+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -66,10 +66,10 @@ public class OrderSet extends DomainResource {
 
 
     /**
-     * The definition of the actions that make up the order set. Order set groups and sections are represented as actions which contain sub-actions.
+     * The definition of the actions that make up the order set.
      */
     @Child(name = "action", type = {ActionDefinition.class}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Groups, sections, and line items of the order set", formalDefinition="The definition of the actions that make up the order set. Order set groups and sections are represented as actions which contain sub-actions." )
+    @Description(shortDefinition="", formalDefinition="The definition of the actions that make up the order set." )
     protected List<ActionDefinition> action;
 
     private static final long serialVersionUID = -728217200L;
@@ -167,7 +167,7 @@ public class OrderSet extends DomainResource {
     }
 
     /**
-     * @return {@link #action} (The definition of the actions that make up the order set. Order set groups and sections are represented as actions which contain sub-actions.)
+     * @return {@link #action} (The definition of the actions that make up the order set.)
      */
     public List<ActionDefinition> getAction() { 
       if (this.action == null)
@@ -185,7 +185,7 @@ public class OrderSet extends DomainResource {
     }
 
     /**
-     * @return {@link #action} (The definition of the actions that make up the order set. Order set groups and sections are represented as actions which contain sub-actions.)
+     * @return {@link #action} (The definition of the actions that make up the order set.)
      */
     // syntactic sugar
     public ActionDefinition addAction() { //3
@@ -210,7 +210,7 @@ public class OrderSet extends DomainResource {
         super.listChildren(childrenList);
         childrenList.add(new Property("moduleMetadata", "ModuleMetadata", "A reference to a ModuleMetadata resource containing metadata for the orderset.", 0, java.lang.Integer.MAX_VALUE, moduleMetadata));
         childrenList.add(new Property("library", "Reference(Library)", "A reference to a Library resource containing any formal logic used by the orderset.", 0, java.lang.Integer.MAX_VALUE, library));
-        childrenList.add(new Property("action", "ActionDefinition", "The definition of the actions that make up the order set. Order set groups and sections are represented as actions which contain sub-actions.", 0, java.lang.Integer.MAX_VALUE, action));
+        childrenList.add(new Property("action", "ActionDefinition", "The definition of the actions that make up the order set.", 0, java.lang.Integer.MAX_VALUE, action));
       }
 
       @Override
@@ -297,126 +297,6 @@ public class OrderSet extends DomainResource {
   public ResourceType getResourceType() {
     return ResourceType.OrderSet;
    }
-
- /**
-   * Search parameter: <b>topic</b>
-   * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OrderSet.moduleMetadata.topic</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="topic", path="OrderSet.moduleMetadata.topic", description="Topics associated with the module", type="token" )
-  public static final String SP_TOPIC = "topic";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>topic</b>
-   * <p>
-   * Description: <b>Topics associated with the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OrderSet.moduleMetadata.topic</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam TOPIC = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TOPIC);
-
- /**
-   * Search parameter: <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OrderSet.moduleMetadata.title</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="title", path="OrderSet.moduleMetadata.title", description="Text search against the title", type="string" )
-  public static final String SP_TITLE = "title";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>title</b>
-   * <p>
-   * Description: <b>Text search against the title</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OrderSet.moduleMetadata.title</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam TITLE = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_TITLE);
-
- /**
-   * Search parameter: <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OrderSet.moduleMetadata.status</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="status", path="OrderSet.moduleMetadata.status", description="Status of the module", type="token" )
-  public static final String SP_STATUS = "status";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>status</b>
-   * <p>
-   * Description: <b>Status of the module</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OrderSet.moduleMetadata.status</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>description</b>
-   * <p>
-   * Description: <b>Text search against the description</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OrderSet.moduleMetadata.description</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="description", path="OrderSet.moduleMetadata.description", description="Text search against the description", type="string" )
-  public static final String SP_DESCRIPTION = "description";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>description</b>
-   * <p>
-   * Description: <b>Text search against the description</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OrderSet.moduleMetadata.description</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam DESCRIPTION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_DESCRIPTION);
-
- /**
-   * Search parameter: <b>identifier</b>
-   * <p>
-   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OrderSet.moduleMetadata.identifier</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="identifier", path="OrderSet.moduleMetadata.identifier", description="Logical identifier for the module (e.g. CMS-143)", type="token" )
-  public static final String SP_IDENTIFIER = "identifier";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>identifier</b>
-   * <p>
-   * Description: <b>Logical identifier for the module (e.g. CMS-143)</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OrderSet.moduleMetadata.identifier</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam IDENTIFIER = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_IDENTIFIER);
-
- /**
-   * Search parameter: <b>version</b>
-   * <p>
-   * Description: <b>Version of the module (e.g. 1.0.0)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OrderSet.moduleMetadata.version</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="version", path="OrderSet.moduleMetadata.version", description="Version of the module (e.g. 1.0.0)", type="string" )
-  public static final String SP_VERSION = "version";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
-   * <p>
-   * Description: <b>Version of the module (e.g. 1.0.0)</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OrderSet.moduleMetadata.version</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam VERSION = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_VERSION);
 
 
 }

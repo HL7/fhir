@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Fri, Mar 18, 2016 11:10-0400 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 11:55+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -526,9 +526,9 @@ public class Timing extends Type implements ICompositeType {
         /**
          * The units of time for the duration, in UCUM units.
          */
-        @Child(name = "durationUnits", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "durationUnit", type = {CodeType.class}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="s | min | h | d | wk | mo | a - unit of time (UCUM)", formalDefinition="The units of time for the duration, in UCUM units." )
-        protected Enumeration<UnitsOfTime> durationUnits;
+        protected Enumeration<UnitsOfTime> durationUnit;
 
         /**
          * The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).
@@ -561,9 +561,9 @@ public class Timing extends Type implements ICompositeType {
         /**
          * The units of time for the period in UCUM units.
          */
-        @Child(name = "periodUnits", type = {CodeType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "periodUnit", type = {CodeType.class}, order=10, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="s | min | h | d | wk | mo | a - unit of time (UCUM)", formalDefinition="The units of time for the period in UCUM units." )
-        protected Enumeration<UnitsOfTime> periodUnits;
+        protected Enumeration<UnitsOfTime> periodUnit;
 
         /**
          * A real world event that the occurrence of the event should be tied to.
@@ -572,7 +572,7 @@ public class Timing extends Type implements ICompositeType {
         @Description(shortDefinition="Regular life events the event is tied to", formalDefinition="A real world event that the occurrence of the event should be tied to." )
         protected Enumeration<EventTiming> when;
 
-        private static final long serialVersionUID = -585686982L;
+        private static final long serialVersionUID = -407850020L;
 
     /**
      * Constructor
@@ -819,50 +819,50 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #durationUnits} (The units of time for the duration, in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getDurationUnits" gives direct access to the value
+         * @return {@link #durationUnit} (The units of time for the duration, in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getDurationUnit" gives direct access to the value
          */
-        public Enumeration<UnitsOfTime> getDurationUnitsElement() { 
-          if (this.durationUnits == null)
+        public Enumeration<UnitsOfTime> getDurationUnitElement() { 
+          if (this.durationUnit == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TimingRepeatComponent.durationUnits");
+              throw new Error("Attempt to auto-create TimingRepeatComponent.durationUnit");
             else if (Configuration.doAutoCreate())
-              this.durationUnits = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory()); // bb
-          return this.durationUnits;
+              this.durationUnit = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory()); // bb
+          return this.durationUnit;
         }
 
-        public boolean hasDurationUnitsElement() { 
-          return this.durationUnits != null && !this.durationUnits.isEmpty();
+        public boolean hasDurationUnitElement() { 
+          return this.durationUnit != null && !this.durationUnit.isEmpty();
         }
 
-        public boolean hasDurationUnits() { 
-          return this.durationUnits != null && !this.durationUnits.isEmpty();
+        public boolean hasDurationUnit() { 
+          return this.durationUnit != null && !this.durationUnit.isEmpty();
         }
 
         /**
-         * @param value {@link #durationUnits} (The units of time for the duration, in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getDurationUnits" gives direct access to the value
+         * @param value {@link #durationUnit} (The units of time for the duration, in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getDurationUnit" gives direct access to the value
          */
-        public TimingRepeatComponent setDurationUnitsElement(Enumeration<UnitsOfTime> value) { 
-          this.durationUnits = value;
+        public TimingRepeatComponent setDurationUnitElement(Enumeration<UnitsOfTime> value) { 
+          this.durationUnit = value;
           return this;
         }
 
         /**
          * @return The units of time for the duration, in UCUM units.
          */
-        public UnitsOfTime getDurationUnits() { 
-          return this.durationUnits == null ? null : this.durationUnits.getValue();
+        public UnitsOfTime getDurationUnit() { 
+          return this.durationUnit == null ? null : this.durationUnit.getValue();
         }
 
         /**
          * @param value The units of time for the duration, in UCUM units.
          */
-        public TimingRepeatComponent setDurationUnits(UnitsOfTime value) { 
+        public TimingRepeatComponent setDurationUnit(UnitsOfTime value) { 
           if (value == null)
-            this.durationUnits = null;
+            this.durationUnit = null;
           else {
-            if (this.durationUnits == null)
-              this.durationUnits = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory());
-            this.durationUnits.setValue(value);
+            if (this.durationUnit == null)
+              this.durationUnit = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory());
+            this.durationUnit.setValue(value);
           }
           return this;
         }
@@ -1092,50 +1092,50 @@ public class Timing extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #periodUnits} (The units of time for the period in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getPeriodUnits" gives direct access to the value
+         * @return {@link #periodUnit} (The units of time for the period in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getPeriodUnit" gives direct access to the value
          */
-        public Enumeration<UnitsOfTime> getPeriodUnitsElement() { 
-          if (this.periodUnits == null)
+        public Enumeration<UnitsOfTime> getPeriodUnitElement() { 
+          if (this.periodUnit == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create TimingRepeatComponent.periodUnits");
+              throw new Error("Attempt to auto-create TimingRepeatComponent.periodUnit");
             else if (Configuration.doAutoCreate())
-              this.periodUnits = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory()); // bb
-          return this.periodUnits;
+              this.periodUnit = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory()); // bb
+          return this.periodUnit;
         }
 
-        public boolean hasPeriodUnitsElement() { 
-          return this.periodUnits != null && !this.periodUnits.isEmpty();
+        public boolean hasPeriodUnitElement() { 
+          return this.periodUnit != null && !this.periodUnit.isEmpty();
         }
 
-        public boolean hasPeriodUnits() { 
-          return this.periodUnits != null && !this.periodUnits.isEmpty();
+        public boolean hasPeriodUnit() { 
+          return this.periodUnit != null && !this.periodUnit.isEmpty();
         }
 
         /**
-         * @param value {@link #periodUnits} (The units of time for the period in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getPeriodUnits" gives direct access to the value
+         * @param value {@link #periodUnit} (The units of time for the period in UCUM units.). This is the underlying object with id, value and extensions. The accessor "getPeriodUnit" gives direct access to the value
          */
-        public TimingRepeatComponent setPeriodUnitsElement(Enumeration<UnitsOfTime> value) { 
-          this.periodUnits = value;
+        public TimingRepeatComponent setPeriodUnitElement(Enumeration<UnitsOfTime> value) { 
+          this.periodUnit = value;
           return this;
         }
 
         /**
          * @return The units of time for the period in UCUM units.
          */
-        public UnitsOfTime getPeriodUnits() { 
-          return this.periodUnits == null ? null : this.periodUnits.getValue();
+        public UnitsOfTime getPeriodUnit() { 
+          return this.periodUnit == null ? null : this.periodUnit.getValue();
         }
 
         /**
          * @param value The units of time for the period in UCUM units.
          */
-        public TimingRepeatComponent setPeriodUnits(UnitsOfTime value) { 
+        public TimingRepeatComponent setPeriodUnit(UnitsOfTime value) { 
           if (value == null)
-            this.periodUnits = null;
+            this.periodUnit = null;
           else {
-            if (this.periodUnits == null)
-              this.periodUnits = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory());
-            this.periodUnits.setValue(value);
+            if (this.periodUnit == null)
+              this.periodUnit = new Enumeration<UnitsOfTime>(new UnitsOfTimeEnumFactory());
+            this.periodUnit.setValue(value);
           }
           return this;
         }
@@ -1195,12 +1195,12 @@ public class Timing extends Type implements ICompositeType {
           childrenList.add(new Property("count", "integer", "A total count of the desired number of repetitions.", 0, java.lang.Integer.MAX_VALUE, count));
           childrenList.add(new Property("duration", "decimal", "How long this thing happens for when it happens.", 0, java.lang.Integer.MAX_VALUE, duration));
           childrenList.add(new Property("durationMax", "decimal", "The upper limit of how long this thing happens for when it happens.", 0, java.lang.Integer.MAX_VALUE, durationMax));
-          childrenList.add(new Property("durationUnits", "code", "The units of time for the duration, in UCUM units.", 0, java.lang.Integer.MAX_VALUE, durationUnits));
+          childrenList.add(new Property("durationUnit", "code", "The units of time for the duration, in UCUM units.", 0, java.lang.Integer.MAX_VALUE, durationUnit));
           childrenList.add(new Property("frequency", "integer", "The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).", 0, java.lang.Integer.MAX_VALUE, frequency));
           childrenList.add(new Property("frequencyMax", "integer", "If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range.", 0, java.lang.Integer.MAX_VALUE, frequencyMax));
           childrenList.add(new Property("period", "decimal", "Indicates the duration of time over which repetitions are to occur; e.g. to express \"3 times per day\", 3 would be the frequency and \"1 day\" would be the period.", 0, java.lang.Integer.MAX_VALUE, period));
           childrenList.add(new Property("periodMax", "decimal", "If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as \"do this once every 3-5 days.", 0, java.lang.Integer.MAX_VALUE, periodMax));
-          childrenList.add(new Property("periodUnits", "code", "The units of time for the period in UCUM units.", 0, java.lang.Integer.MAX_VALUE, periodUnits));
+          childrenList.add(new Property("periodUnit", "code", "The units of time for the period in UCUM units.", 0, java.lang.Integer.MAX_VALUE, periodUnit));
           childrenList.add(new Property("when", "code", "A real world event that the occurrence of the event should be tied to.", 0, java.lang.Integer.MAX_VALUE, when));
         }
 
@@ -1214,8 +1214,8 @@ public class Timing extends Type implements ICompositeType {
           this.duration = castToDecimal(value); // DecimalType
         else if (name.equals("durationMax"))
           this.durationMax = castToDecimal(value); // DecimalType
-        else if (name.equals("durationUnits"))
-          this.durationUnits = new UnitsOfTimeEnumFactory().fromType(value); // Enumeration<UnitsOfTime>
+        else if (name.equals("durationUnit"))
+          this.durationUnit = new UnitsOfTimeEnumFactory().fromType(value); // Enumeration<UnitsOfTime>
         else if (name.equals("frequency"))
           this.frequency = castToInteger(value); // IntegerType
         else if (name.equals("frequencyMax"))
@@ -1224,8 +1224,8 @@ public class Timing extends Type implements ICompositeType {
           this.period = castToDecimal(value); // DecimalType
         else if (name.equals("periodMax"))
           this.periodMax = castToDecimal(value); // DecimalType
-        else if (name.equals("periodUnits"))
-          this.periodUnits = new UnitsOfTimeEnumFactory().fromType(value); // Enumeration<UnitsOfTime>
+        else if (name.equals("periodUnit"))
+          this.periodUnit = new UnitsOfTimeEnumFactory().fromType(value); // Enumeration<UnitsOfTime>
         else if (name.equals("when"))
           this.when = new EventTimingEnumFactory().fromType(value); // Enumeration<EventTiming>
         else
@@ -1255,8 +1255,8 @@ public class Timing extends Type implements ICompositeType {
         else if (name.equals("durationMax")) {
           throw new FHIRException("Cannot call addChild on a primitive type Timing.durationMax");
         }
-        else if (name.equals("durationUnits")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Timing.durationUnits");
+        else if (name.equals("durationUnit")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Timing.durationUnit");
         }
         else if (name.equals("frequency")) {
           throw new FHIRException("Cannot call addChild on a primitive type Timing.frequency");
@@ -1270,8 +1270,8 @@ public class Timing extends Type implements ICompositeType {
         else if (name.equals("periodMax")) {
           throw new FHIRException("Cannot call addChild on a primitive type Timing.periodMax");
         }
-        else if (name.equals("periodUnits")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Timing.periodUnits");
+        else if (name.equals("periodUnit")) {
+          throw new FHIRException("Cannot call addChild on a primitive type Timing.periodUnit");
         }
         else if (name.equals("when")) {
           throw new FHIRException("Cannot call addChild on a primitive type Timing.when");
@@ -1287,12 +1287,12 @@ public class Timing extends Type implements ICompositeType {
         dst.count = count == null ? null : count.copy();
         dst.duration = duration == null ? null : duration.copy();
         dst.durationMax = durationMax == null ? null : durationMax.copy();
-        dst.durationUnits = durationUnits == null ? null : durationUnits.copy();
+        dst.durationUnit = durationUnit == null ? null : durationUnit.copy();
         dst.frequency = frequency == null ? null : frequency.copy();
         dst.frequencyMax = frequencyMax == null ? null : frequencyMax.copy();
         dst.period = period == null ? null : period.copy();
         dst.periodMax = periodMax == null ? null : periodMax.copy();
-        dst.periodUnits = periodUnits == null ? null : periodUnits.copy();
+        dst.periodUnit = periodUnit == null ? null : periodUnit.copy();
         dst.when = when == null ? null : when.copy();
         return dst;
       }
@@ -1305,9 +1305,9 @@ public class Timing extends Type implements ICompositeType {
           return false;
         TimingRepeatComponent o = (TimingRepeatComponent) other;
         return compareDeep(bounds, o.bounds, true) && compareDeep(count, o.count, true) && compareDeep(duration, o.duration, true)
-           && compareDeep(durationMax, o.durationMax, true) && compareDeep(durationUnits, o.durationUnits, true)
+           && compareDeep(durationMax, o.durationMax, true) && compareDeep(durationUnit, o.durationUnit, true)
            && compareDeep(frequency, o.frequency, true) && compareDeep(frequencyMax, o.frequencyMax, true)
-           && compareDeep(period, o.period, true) && compareDeep(periodMax, o.periodMax, true) && compareDeep(periodUnits, o.periodUnits, true)
+           && compareDeep(period, o.period, true) && compareDeep(periodMax, o.periodMax, true) && compareDeep(periodUnit, o.periodUnit, true)
            && compareDeep(when, o.when, true);
       }
 
@@ -1319,17 +1319,17 @@ public class Timing extends Type implements ICompositeType {
           return false;
         TimingRepeatComponent o = (TimingRepeatComponent) other;
         return compareValues(count, o.count, true) && compareValues(duration, o.duration, true) && compareValues(durationMax, o.durationMax, true)
-           && compareValues(durationUnits, o.durationUnits, true) && compareValues(frequency, o.frequency, true)
+           && compareValues(durationUnit, o.durationUnit, true) && compareValues(frequency, o.frequency, true)
            && compareValues(frequencyMax, o.frequencyMax, true) && compareValues(period, o.period, true) && compareValues(periodMax, o.periodMax, true)
-           && compareValues(periodUnits, o.periodUnits, true) && compareValues(when, o.when, true);
+           && compareValues(periodUnit, o.periodUnit, true) && compareValues(when, o.when, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (bounds == null || bounds.isEmpty()) && (count == null || count.isEmpty())
            && (duration == null || duration.isEmpty()) && (durationMax == null || durationMax.isEmpty())
-           && (durationUnits == null || durationUnits.isEmpty()) && (frequency == null || frequency.isEmpty())
+           && (durationUnit == null || durationUnit.isEmpty()) && (frequency == null || frequency.isEmpty())
            && (frequencyMax == null || frequencyMax.isEmpty()) && (period == null || period.isEmpty())
-           && (periodMax == null || periodMax.isEmpty()) && (periodUnits == null || periodUnits.isEmpty())
+           && (periodMax == null || periodMax.isEmpty()) && (periodUnit == null || periodUnit.isEmpty())
            && (when == null || when.isEmpty());
       }
 

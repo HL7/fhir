@@ -62,13 +62,13 @@ edited by Eric Haas Health eData Inc
 				</boundsPeriod>
 				<frequency value="1"/>
 				<period value="24"/>
-				<periodUnits value="h"/>
+				<periodUnit value="h"/>
 			</repeat>
 		</schedule>
 		<schedule>
 			<repeat>
 				<duration value="1"/>
-				<durationUnits value="h"/>
+				<durationUnit value="h"/>
 				<when value="HS"/>
 			</repeat>
 		</schedule>

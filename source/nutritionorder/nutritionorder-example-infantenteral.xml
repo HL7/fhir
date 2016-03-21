@@ -61,7 +61,7 @@ edited by Eric Haas Health eData Inc
 			</boundsPeriod>
 				<frequency value="1"/>
 				<period value="3"/>
-				<periodUnits value="h"/>
+				<periodUnit value="h"/>
 			</repeat>
 		</schedule>
 		<quantity>

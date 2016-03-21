@@ -74,7 +74,7 @@ edited by Eric Haas Health eData Inc
         </boundsPeriod>
 				<frequency value="3"/>
 				<period value="1"/>
-				<periodUnits value="d"/>
+				<periodUnit value="d"/>
 			</repeat>
 		</schedule>
 		<nutrient>
