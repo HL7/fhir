@@ -950,7 +950,7 @@
   Card. = 0..1
   Type = string
   Short Label = Fixture Id of minimum content resource
-  Definition = The ID of a fixture.  Asserts that the response contains at a minimumId the fixture specified by minimumId.
+  Definition = The ID of a fixture.  Asserts that the response contains at a minimum the fixture specified by minimumId.
   Comments = Asserts that the response contains all the element/content in another fixture pointed to by minimumId.  This can be a statically defined fixture or one that is dynamically set via responseId.
 
  -- Row 76 -----------------------------------

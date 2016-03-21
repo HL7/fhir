@@ -71,11 +71,6 @@
     </concept>
   </concept>
   <concept>
-    <code value="validate"/>
-    <display value="validate"/>
-    <definition value="Check that the content would be acceptable as an update."/>
-  </concept>
-  <concept>
     <code value="conformance"/>
     <display value="conformance"/>
     <definition value="Get a conformance statement for the system."/>
@@ -84,6 +79,11 @@
     <code value="transaction"/>
     <display value="transaction"/>
     <definition value="Update, create or delete a set of resources as a single transaction."/>
+  </concept>
+  <concept>
+    <code value="batch"/>
+    <display value="batch"/>
+    <definition value="perform a set of a separate interactions in a single http operation"/>
   </concept>
   <concept>
     <code value="operation"/>

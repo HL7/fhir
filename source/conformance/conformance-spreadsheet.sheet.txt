@@ -163,17 +163,13 @@
 
  -- Row 6 -----------------------------------
   System = http://hl7.org/fhir/restful-interaction
-  Code = validate
+  Code = history-type
 
  -- Row 7 -----------------------------------
   System = http://hl7.org/fhir/restful-interaction
-  Code = history-type
-
- -- Row 8 -----------------------------------
-  System = http://hl7.org/fhir/restful-interaction
   Code = create
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   System = http://hl7.org/fhir/restful-interaction
   Code = search-type
 
@@ -866,7 +862,7 @@
   Card. = 1..1
   Type = code
   Binding = TypeRestfulInteraction
-  Short Label = read | vread | update | delete | history-instance | validate | history-type | create | search-type
+  Short Label = read | vread | update | delete | history-instance | history-type | create | search-type
   Definition = Coded identifier of the operation, supported by the system resource
 
  -- Row 42 -----------------------------------
