@@ -660,7 +660,7 @@ public class XSDBaseGenerator {
       } else {
         String close = " minOccurs=\"0\">";;
         if (!forCodeGeneration) {
-          write("          <xs:choice minOccurs=\"" + checkRule(e.getMinCardinality().toString(), e.getName()+".min", rules) + "\">\r\n");
+          write("          <xs:choice minOccurs=\"" + checkRule(e.getMinCardinality().toString(), e.getName()+".min", rules) + "\" maxOccurs=\"1\">\r\n");
           if (e.hasDefinition()) {
             write("            <xs:annotation>\r\n");
             write("              <xs:documentation xml:lang=\"en\">"+Utilities.escapeXml(checkRule(e.getDefinition(), e.getName()+".defn", rules))+"</xs:documentation>\r\n");
