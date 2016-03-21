@@ -491,14 +491,6 @@
 				<code value="delete"/>
 				<documentation value="Not all servers will support deletion of forms.  Status change to 'retired' will be more typical, though deletion of draft profiles may keep repositories cleaner."/>
 			</interaction>
-			<!--  Should we include this in the conformance statement at all?  -->
-			<interaction>
-				<extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-					<valueCode value="MAY"/>
-				</extension>
-				<code value="validate"/>
-				<documentation value="Allows verification that form is valid prior to submission - useful for some workflows."/>
-			</interaction>
 		</resource>
 		<!--  Do we want to define what search criteria must be supported?  -->
 		<resource>
@@ -554,14 +546,6 @@
 				</extension>
 				<code value="delete"/>
 				<documentation value="Not all servers will support deletion of value sets.  Status change to 'retired' will be more typical, though deletion of draft value sets may keep repositories cleaner."/>
-			</interaction>
-			<!--  Should we include this in the conformance statement at all?  -->
-			<interaction>
-				<extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-					<valueCode value="MAY"/>
-				</extension>
-				<code value="validate"/>
-				<documentation value="Allows verification that a value set is valid prior to submission - useful for some workflows."/>
 			</interaction>
 		</resource>
 		<!--  Do we want to define what search criteria must be supported?  -->
@@ -619,13 +603,6 @@
 				</extension>
 				<code value="delete"/>
 				<documentation value="Allows maintaining data elements while creating and editing forms.  Note that not all servers will support deleting data elements."/>
-			</interaction>
-			<interaction>
-				<extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-					<valueCode value="MAY"/>
-				</extension>
-				<code value="validate"/>
-				<documentation value="Allows maintaining data elements while creating and editing forms - user can check that proposed data element is valid prior to submission"/>
 			</interaction>
 		</resource>
 	</rest>

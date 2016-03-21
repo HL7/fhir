@@ -526,6 +526,11 @@
       }
     },
     {
+      "hash": "|null|null|ImagingExcerpt|null",
+      "severity": "error",
+      "message": "Unknown Code ImagingExcerpt in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
       "hash": "|null|null|ImagingObjectSelection|null",
       "severity": null,
       "message": null,

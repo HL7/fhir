@@ -503,13 +503,6 @@
 			</interaction>
 			<interaction>
 				<extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-					<valueCode value="SHOULD"/>
-				</extension>
-				<code value="validate"/>
-				<documentation value="SHOULD. Allows a client to verify whether a particular new form or revision of an existing form would be accepted based on validation and other business rules.  Useful for some workflows"/>
-			</interaction>
-			<interaction>
-				<extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
 					<valueCode value="MAY"/>
 				</extension>
 				<code value="delete"/>
@@ -627,13 +620,6 @@
 				</extension>
 				<code value="update"/>
 				<documentation value="Allows existing value sets referenced by one or more questionnaires to be maintained"/>
-			</interaction>
-			<interaction>
-				<extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-					<valueCode value="SHOULD"/>
-				</extension>
-				<code value="validate"/>
-				<documentation value="Allows verification that a value set is valid prior to submission - useful for some workflows."/>
 			</interaction>
 			<interaction>
 				<extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">

@@ -676,13 +676,6 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
         <code value="update"/>
         <documentation value="Allows editing of an existing DiagnosticReport.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticReport (and potentially the retiring of the existing DiagnosticReport).  Servers may also limit who can change particular DiagnosticReport."/>
       </interaction>
-      <interaction>
-      <!--  EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-          <valueCode value="SHOULD"/>
-        </extension -->
-        <code value="validate"/>
-        <documentation value="Allows a client to verify whether a particular new DiagnosticReport or revision of an existing DiagnosticReport would be accepted based on validation and other business rules.  Useful for some workflows"/>
-      </interaction>
     <!--  interaction>
         EH: comment out for now since deleting is probably not allowed  <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
           <valueCode value="MAY"/>
@@ -758,13 +751,6 @@ or when laboratory in client  mode  =Push: The source is a client, and when new 
         </extension -->
         <code value="update"/>
         <documentation value="Allows editing of an existing DiagnosticReport.  Servers may choose to prohibit certain types of edits, instead requiring the creation of a new DiagnosticReport (and potentially the retiring of the existing DiagnosticReport).  Servers may also limit who can change particular DiagnosticReport."/>
-      </interaction>
-      <interaction>
-      <!--  EH: comment out for now  extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-          <valueCode value="SHOULD"/>
-        </extension -->
-        <code value="validate"/>
-        <documentation value="Allows a client to verify whether a particular new DiagnosticReport or revision of an existing DiagnosticReport would be accepted based on validation and other business rules.  Useful for some workflows"/>
       </interaction>
     <!--  interaction>
         EH: comment out for now since deleting is probably not allowed  <extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">

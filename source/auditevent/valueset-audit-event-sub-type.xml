@@ -97,9 +97,6 @@
         <code value="delete"/>
       </concept>
       <concept>
-        <code value="validate"/>
-      </concept>
-      <concept>
         <code value="create"/>
       </concept>
       <concept>

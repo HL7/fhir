@@ -119,11 +119,6 @@
     <definition value="Concept Translation."/>
   </concept>
   <concept>
-    <code value="validate"/>
-    <display value="$validate"/>
-    <definition value="Validate a resource."/>
-  </concept>
-  <concept>
     <code value="validate-code"/>
     <display value="$validate-code"/>
     <definition value="Value Set based Validation."/>

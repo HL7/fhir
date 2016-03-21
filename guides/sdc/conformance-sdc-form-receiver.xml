@@ -257,13 +257,6 @@
 				<code value="history-instance"/>
 				<documentation value="Allows review of prior versions of an answer set - allows reversion to previously recorded versions"/>
 			</interaction>
-			<interaction>
-				<extension url="http://hl7.org/fhir/StructureDefinition/conformance-expectation">
-					<valueCode value="SHALL"/>
-				</extension>
-				<code value="validate"/>
-				<documentation value="Allows checking an answer set for validity against submission rules without persisting any data"/>
-			</interaction>
 			<searchInclude value="QuestionnaireResponse.questionnaire"/>
 			<searchInclude value="Questionnaire.group.question.options"/>
 			<searchParam>
