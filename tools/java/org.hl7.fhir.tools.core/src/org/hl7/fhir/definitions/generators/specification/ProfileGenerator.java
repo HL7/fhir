@@ -728,6 +728,8 @@ public class ProfileGenerator {
     p.setFhirVersion(version);
 
 
+    if (pack.hasMetadata("summary-"+profile.getTitle()))
+      ToolingExtensions.addStringExtension(p, "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary", pack.metadata("summary-"+profile.getTitle()));
     ToolResourceUtilities.updateUsage(p, usage.getCode());
     p.setName(pack.metadata("name"));
     p.setPublisher(pack.metadata("author.name"));

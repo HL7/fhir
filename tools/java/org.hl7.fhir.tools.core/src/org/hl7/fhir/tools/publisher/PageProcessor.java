@@ -5551,6 +5551,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         }
       }
       StringBuilder res = new StringBuilder("<a name=\"summary\"> </a>\r\n<p><b>\r\nSummary\r\n</b></p>\r\n");
+      if (ToolingExtensions.hasExtension(profile, "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary")) {
+        res.append(processMarkdown("Profile.summary", ToolingExtensions.readStringExtension(profile, "http://hl7.org/fhir/StructureDefinition/structuredefinition-summary"), prefix));
+      }
       if (supports + requiredOutrights + requiredNesteds + fixeds + prohibits > 0) {
         boolean started = false;
         res.append("<p>");
