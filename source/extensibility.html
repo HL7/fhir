@@ -68,12 +68,18 @@ Notes:
  <li>The <i>value[x]</i> element has an actual name of "value" and then the TitleCased name of one of these defined types, and its contents are those as defined for that type:
   <ul class="dense">
    <li>valueInteger : <a href="datatypes.html#integer">integer</a></li>
+   <li>valueUnsignedInt : <a href="datatypes.html#unsignedInt">unsignedInt</a></li>
+   <li>valuePositiveInt : <a href="datatypes.html#positiveInt">positiveInt</a></li>
    <li>valueDecimal : <a href="datatypes.html#decimal">decimal</a></li>
    <li>valueDateTime : <a href="datatypes.html#dateTime">dateTime</a></li>
    <li>valueDate : <a href="datatypes.html#date">date</a></li>
+   <li>valueTime : <a href="datatypes.html#time">time</a></li>
    <li>valueInstant : <a href="datatypes.html#instant">instant</a></li>
    <li>valueString : <a href="datatypes.html#string">string</a></li>
    <li>valueUri : <a href="datatypes.html#uri">uri</a></li>
+   <li>valueOid : <a href="datatypes.html#oid">oid</a></li>
+   <li>valueUuid : <a href="datatypes.html#uuid">uuid</a></li>
+   <li>valueId : <a href="datatypes.html#id">id</a></li>
    <li>valueBoolean : <a href="datatypes.html#boolean">boolean</a></li>
    <li>valueCode : <a href="datatypes.html#code">code</a> (only if the extension definition provides a <a href="terminologies.html#code">fixed</a> binding to a suitable set of codes)</li>
    <li>valueMarkdown : <a href="datatypes.html#markdown">markdown</a></li>
@@ -83,6 +89,7 @@ Notes:
    <li>valueAttachment : <a href="datatypes.html#Attachment">Attachment</a></li>
    <li>valueIdentifier : <a href="datatypes.html#Identifier">Identifier</a></li>
    <li>valueQuantity : <a href="datatypes.html#Quantity">Quantity</a></li>
+   <li>valueSampledData : <a href="datatypes.html#SampledData">SampledData</a></li>
    <li>valueRange : <a href="datatypes.html#Range">Range</a></li>
    <li>valuePeriod : <a href="datatypes.html#Period">Period</a></li>
    <li>valueRatio : <a href="datatypes.html#Ratio">Ratio</a></li>
@@ -90,8 +97,11 @@ Notes:
    <li>valueAddress : <a href="datatypes.html#Address">Address</a></li>
    <li>valueContactPoint : <a href="datatypes.html#ContactPoint">ContactPoint</a></li>
    <li>valueTiming : <a href="datatypes.html#Timing">Timing</a></li>
-   <li>valueSignature : <a href="datatypes.html#Signature">Signature</a></li>
    <li>valueReference : <a href="references.html#Reference">Reference</a> - a reference to another resource</li>
+   <li>valueAnnotation : <a href="datatypes.html#Annotation">Annotation</a></li>
+   <li>valueSignature : <a href="datatypes.html#Signature">Signature</a></li>
+   <li>valueMeta : A <a href="resource.html#Meta">Meta</a> heading from a resource</li>
+           
   </ul>
  </li> 
 </ul>
