@@ -172,27 +172,27 @@ public class ProfileUtilities {
  * @throws DefinitionException 
  * @throws Exception
  */
-  public static List<ElementDefinition> getChildMap(StructureDefinition profile, String name, String path, String nameReference) throws DefinitionException {
+  public static List<ElementDefinition> getChildMap(StructureDefinition profile, String name, String path, String contentReference) throws DefinitionException {
     List<ElementDefinition> res = new ArrayList<ElementDefinition>();
 
     // if we have a name reference, we have to find it, and iterate it's children
-    if (nameReference != null) {
+    if (contentReference != null) {
     	boolean found = false;
       for (ElementDefinition e : profile.getSnapshot().getElement()) {
-      	if (nameReference.equals(e.getName())) {
+      	if (contentReference.equals("#"+e.getId())) {
       		found = true;
       		path = e.getPath();
       	}
       }
       if (!found)
-      	throw new DefinitionException("Unable to resolve name reference "+nameReference+" at path "+path);
+      	throw new DefinitionException("Unable to resolve name reference "+contentReference+" at path "+path);
     }
 
     for (ElementDefinition e : profile.getSnapshot().getElement())
     {
       String p = e.getPath();
 
-      if (path != null && !Utilities.noString(e.getNameReference()) && path.startsWith(p))
+      if (path != null && !Utilities.noString(e.getContentReference()) && path.startsWith(p))
       {
     	/* The path we are navigating to is on or below this element, but the element defers its definition to another named part of the
     	 * structure.
@@ -200,12 +200,12 @@ public class ProfileUtilities {
         if (path.length() > p.length())
         {
           // The path navigates further into the referenced element, so go ahead along the path over there
-          return getChildMap(profile, name, e.getNameReference()+"."+path.substring(p.length()+1), null);
+          return getChildMap(profile, name, e.getContentReference()+"."+path.substring(p.length()+1), null);
         }
         else
         {
           // The path we are looking for is actually this element, but since it defers it definition, go get the referenced element
-          return getChildMap(profile, name, e.getNameReference(), null);
+          return getChildMap(profile, name, e.getContentReference(), null);
         }
       }
       else if (p.startsWith(path+"."))
@@ -226,7 +226,7 @@ public class ProfileUtilities {
 
 
   public static List<ElementDefinition> getChildMap(StructureDefinition profile, ElementDefinition element) throws DefinitionException {
-	  	return getChildMap(profile, element.getName(), element.getPath(), element.getNameReference());
+	  	return getChildMap(profile, element.getName(), element.getPath(), element.getContentReference());
   }
 
 
@@ -244,12 +244,12 @@ public class ProfileUtilities {
     {
       String p = e.getPath();
 
-      if (!Utilities.noString(e.getNameReference()) && path.startsWith(p))
+      if (!Utilities.noString(e.getContentReference()) && path.startsWith(p))
       {
         if (path.length() > p.length())
-          return getChildList(profile, e.getNameReference()+"."+path.substring(p.length()+1));
+          return getChildList(profile, e.getContentReference()+"."+path.substring(p.length()+1));
         else
-          return getChildList(profile, e.getNameReference());
+          return getChildList(profile, e.getContentReference());
       }
       else if (p.startsWith(path+".") && !p.equals(path))
       {
@@ -1231,7 +1231,7 @@ public class ProfileUtilities {
     r.getCells().add(c);
     List<TypeRefComponent> types = e.getType();
     if (!e.hasType()) {
-      if (e.hasNameReference()) {
+      if (e.hasContentReference()) {
         return c;
       } else {
       ElementDefinition d = (ElementDefinition) e.getUserData(DERIVATION_POINTER);
@@ -1310,9 +1310,9 @@ public class ProfileUtilities {
     return c;
   }
 
-  private ElementDefinition getElementByName(List<ElementDefinition> elements, String nameReference) {
+  private ElementDefinition getElementByName(List<ElementDefinition> elements, String contentReference) {
     for (ElementDefinition ed : elements)
-      if (ed.hasName() && ed.getName().equals(nameReference))
+      if (ed.hasName() && ("#"+ed.getName()).equals(contentReference))
         return ed;
     return null;
   }
@@ -1639,10 +1639,10 @@ public class ProfileUtilities {
         }
       }
       
-      if (definition.hasNameReference()) {
-        ElementDefinition ed = getElementByName(profile.getSnapshot().getElement(), definition.getNameReference());
+      if (definition.hasContentReference()) {
+        ElementDefinition ed = getElementByName(profile.getSnapshot().getElement(), definition.getContentReference());
         if (ed == null)
-          c.getPieces().add(gen.new Piece(null, "Unknown reference to "+definition.getNameReference(), null));
+          c.getPieces().add(gen.new Piece(null, "Unknown reference to "+definition.getContentReference(), null));
         else
           c.getPieces().add(gen.new Piece("#"+ed.getPath(), "See "+ed.getPath(), null));
       }
@@ -1745,7 +1745,7 @@ public class ProfileUtilities {
   private boolean onlyInformationIsMapping(ElementDefinition d) {
     return !d.hasShort() && !d.hasDefinition() &&
         !d.hasRequirements() && !d.getAlias().isEmpty() && !d.hasMinElement() &&
-        !d.hasMax() && !d.getType().isEmpty() && !d.hasNameReference() &&
+        !d.hasMax() && !d.getType().isEmpty() && !d.hasContentReference() &&
         !d.hasExample() && !d.hasFixed() && !d.hasMaxLengthElement() &&
         !d.getCondition().isEmpty() && !d.getConstraint().isEmpty() && !d.hasMustSupportElement() &&
         !d.hasBinding();

@@ -1,5 +1,7 @@
 package org.hl7.fhir.dstu3.terminologies;
 
+import java.util.List;
+
 import org.hl7.fhir.dstu3.model.BooleanType;
 import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeSystem.CodeSystemPropertyComponent;
@@ -49,6 +51,21 @@ public class CodeSystemUtilities {
         return;
     }
     cs.addProperty().setCode(code).setDescription(description).setType(type);
+  }
+
+  public static String getCodeDefinition(CodeSystem cs, String code) {
+    return getCodeDefinition(cs.getConcept(), code);
+  }
+
+  private static String getCodeDefinition(List<ConceptDefinitionComponent> list, String code) {
+    for (ConceptDefinitionComponent c : list) {
+      if (c.getCode().equals(code))
+        return c.getDefinition();
+      String s = getCodeDefinition(c.getConcept(), code);
+      if (s != null)
+        return s;
+    }
+    return null;
   }
 
 

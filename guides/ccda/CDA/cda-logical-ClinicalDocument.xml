@@ -1060,7 +1060,7 @@
       <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization.asOrganizationPartOf.wholeOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.recordTarget.patientRole.patient.birthplace"/>
@@ -1343,7 +1343,7 @@
       <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.author"/>
@@ -1570,7 +1570,7 @@
       <path value="ClinicalDocument.author.assignedAuthor.assignedPerson"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice"/>
@@ -1784,13 +1784,13 @@
       <path value="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.asMaintainedEntity.maintainingPerson"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.author.assignedAuthor.representedOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.dataEnterer"/>
@@ -2002,13 +2002,13 @@
       <path value="ClinicalDocument.dataEnterer.assignedEntity.assignedPerson"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.dataEnterer.assignedEntity.representedOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.informant"/>
@@ -2103,7 +2103,7 @@
       <path value="ClinicalDocument.informant.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.informant.relatedEntity"/>
@@ -2215,7 +2215,7 @@
       <path value="ClinicalDocument.informant.relatedEntity.relatedPerson"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.custodian"/>
@@ -2633,13 +2633,13 @@
       <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.legalAuthenticator"/>
@@ -2751,7 +2751,7 @@
       <path value="ClinicalDocument.legalAuthenticator.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.authenticator"/>
@@ -2845,7 +2845,7 @@
       <path value="ClinicalDocument.authenticator.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.participant"/>
@@ -3065,13 +3065,13 @@
       <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.participant.associatedEntity.scopingOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.inFulfillmentOf"/>
@@ -3542,7 +3542,7 @@
       <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.relatedDocument"/>
@@ -4226,7 +4226,7 @@
       <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
@@ -4302,7 +4302,7 @@
       <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.componentOf.encompassingEncounter.location"/>
@@ -4469,13 +4469,13 @@
       <path value="ClinicalDocument.componentOf.encompassingEncounter.location.healthCareFacility.location"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.birthplace.place"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.birthplace.place"/>
     </element>
     <element>
       <path value="ClinicalDocument.componentOf.encompassingEncounter.location.healthCareFacility.serviceProviderOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.component"/>
@@ -5368,13 +5368,13 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
@@ -6012,7 +6012,7 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
@@ -6386,19 +6386,19 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
@@ -6749,7 +6749,7 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant.participantRole.playingEntity"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen.specimenRole.specimenPlayingEntity"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen.specimenRole.specimenPlayingEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant.participantRole.scopingEntity"/>
@@ -6980,7 +6980,7 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observation"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest"/>
@@ -7102,43 +7102,43 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
@@ -8069,55 +8069,55 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration"/>
@@ -8740,61 +8740,61 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.consumable.manufacturedProduct.manufacturerOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply"/>
@@ -9060,62 +9060,62 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.product.manufacturedProduct"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.consumable.manufacturedProduct"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.consumable.manufacturedProduct"/>
       <mustSupport value="true"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure"/>
@@ -9333,55 +9333,55 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter"/>
@@ -9533,55 +9533,55 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer"/>
@@ -9810,49 +9810,49 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.observation"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.regionOfInterest"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.observationMedia"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.substanceAdministration"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.supply"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.procedure"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.encounter"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.organizer"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act"/>
@@ -10021,175 +10021,175 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.act"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.regionOfInterest"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observationMedia"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.substanceAdministration"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.supply"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.procedure"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.encounter"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.organizer"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.act"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.component"/>
@@ -10276,7 +10276,7 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.component.section"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section"/>
     </element>
   </snapshot>
   <differential>
@@ -10973,7 +10973,7 @@
       <path value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization.asOrganizationPartOf.wholeOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.recordTarget.patientRole.patient.birthplace"/>
@@ -11124,7 +11124,7 @@
       <path value="ClinicalDocument.recordTarget.patientRole.providerOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.author"/>
@@ -11263,7 +11263,7 @@
       <path value="ClinicalDocument.author.assignedAuthor.assignedPerson"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice"/>
@@ -11389,13 +11389,13 @@
       <path value="ClinicalDocument.author.assignedAuthor.assignedAuthoringDevice.asMaintainedEntity.maintainingPerson"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.author.assignedAuthor.representedOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.dataEnterer"/>
@@ -11519,13 +11519,13 @@
       <path value="ClinicalDocument.dataEnterer.assignedEntity.assignedPerson"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.dataEnterer.assignedEntity.representedOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.informant"/>
@@ -11576,7 +11576,7 @@
       <path value="ClinicalDocument.informant.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.informant.relatedEntity"/>
@@ -11644,7 +11644,7 @@
       <path value="ClinicalDocument.informant.relatedEntity.relatedPerson"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.custodian"/>
@@ -11842,13 +11842,13 @@
       <path value="ClinicalDocument.informationRecipient.intendedRecipient.informationRecipient"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.informationRecipient.intendedRecipient.receivedOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.legalAuthenticator"/>
@@ -11916,7 +11916,7 @@
       <path value="ClinicalDocument.legalAuthenticator.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.authenticator"/>
@@ -11966,7 +11966,7 @@
       <path value="ClinicalDocument.authenticator.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.participant"/>
@@ -12098,13 +12098,13 @@
       <path value="ClinicalDocument.participant.associatedEntity.associatedPerson"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianPerson"/>
     </element>
     <element>
       <path value="ClinicalDocument.participant.associatedEntity.scopingOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.inFulfillmentOf"/>
@@ -12355,7 +12355,7 @@
       <path value="ClinicalDocument.documentationOf.serviceEvent.performer.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.relatedDocument"/>
@@ -12731,7 +12731,7 @@
       <path value="ClinicalDocument.componentOf.encompassingEncounter.responsibleParty.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant"/>
@@ -12763,7 +12763,7 @@
       <path value="ClinicalDocument.componentOf.encompassingEncounter.encounterParticipant.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.componentOf.encompassingEncounter.location"/>
@@ -12842,13 +12842,13 @@
       <path value="ClinicalDocument.componentOf.encompassingEncounter.location.healthCareFacility.location"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.birthplace.place"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.birthplace.place"/>
     </element>
     <element>
       <path value="ClinicalDocument.componentOf.encompassingEncounter.location.healthCareFacility.serviceProviderOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.component"/>
@@ -13389,13 +13389,13 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry"/>
@@ -13857,7 +13857,7 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
@@ -14055,19 +14055,19 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer.assignedEntity"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.dataEnterer.assignedEntity"/>
+      <contentReference value="#ClinicalDocument.dataEnterer.assignedEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
@@ -14286,7 +14286,7 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant.participantRole.playingEntity"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen.specimenRole.specimenPlayingEntity"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen.specimenRole.specimenPlayingEntity"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant.participantRole.scopingEntity"/>
@@ -14429,7 +14429,7 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observation"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest"/>
@@ -14507,43 +14507,43 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
@@ -15122,55 +15122,55 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration"/>
@@ -15573,61 +15573,61 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.consumable.manufacturedProduct.manufacturerOrganization"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
+      <contentReference value="#ClinicalDocument.recordTarget.patientRole.patient.guardian.guardianOrganization"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply"/>
@@ -15805,62 +15805,62 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.product.manufacturedProduct"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.consumable.manufacturedProduct"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration.consumable.manufacturedProduct"/>
       <mustSupport value="true"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure"/>
@@ -16034,55 +16034,55 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter"/>
@@ -16190,55 +16190,55 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer"/>
@@ -16379,49 +16379,49 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.observation"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.regionOfInterest"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.observationMedia"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.substanceAdministration"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.supply"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.procedure"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.encounter"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.organizer"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act"/>
@@ -16546,175 +16546,175 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.subject"/>
       <min value="0"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.subject"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.subject"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.specimen"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.specimen"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.performer"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.performer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.author"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.author"/>
+      <contentReference value="#ClinicalDocument.author"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.informant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.informant"/>
+      <contentReference value="#ClinicalDocument.informant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.participant"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.participant"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.entryRelationship"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.act"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.reference"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.reference"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observation.precondition"/>
       <min value="0"/>
       <max value="*"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest.precondition"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.regionOfInterest"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.regionOfInterest"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.observationMedia"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.observationMedia"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.substanceAdministration"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.substanceAdministration"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.supply"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.supply"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.procedure"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.procedure"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.encounter"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.encounter"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.organizer"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.entry.act"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section.entry.observation.entryRelationship.organizer.component.act"/>
     </element>
     <element>
       <path value="ClinicalDocument.component.structuredBody.component.section.component"/>
@@ -16757,7 +16757,7 @@
       <path value="ClinicalDocument.component.structuredBody.component.section.component.section"/>
       <min value="1"/>
       <max value="1"/>
-      <nameReference value="ClinicalDocument.component.structuredBody.component.section"/>
+      <contentReference value="#ClinicalDocument.component.structuredBody.component.section"/>
     </element>
   </differential>
 </StructureDefinition>

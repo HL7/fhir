@@ -1009,7 +1009,7 @@ public class ProfileGenerator {
 
     if (!root) {
       if (e.typeCode().startsWith("@"))  {
-        ce.setNameReference(getNameForPath(myParents, e.typeCode().substring(1)));
+        ce.setContentReference("#"+getNameForPath(myParents, e.typeCode().substring(1)));
       } else {
         List<TypeRef> expandedTypes = new ArrayList<TypeRef>();
         for (TypeRef t : e.getTypes()) {
@@ -1291,14 +1291,14 @@ public class ProfileGenerator {
   }
 
   private String getNameForElement(ElementDefinition ce) throws Exception {
-    if (ce.getName() == null) {
+    if (ce.getId() == null) {
       String name = tail(ce.getPath());
       if (pathNames.contains(name))
         throw new Exception("Need to improve name generation algorithm (name = "+name+", on path = "+ce.getPath()+")");
       pathNames.add(name);
-      ce.setName(name);
+      ce.setId(name);
     }
-    return ce.getName();
+    return ce.getId();
   }
 
   private String getNameForPath(List<SliceHandle> myParents, String path) throws Exception {
@@ -1652,7 +1652,7 @@ public class ProfileGenerator {
 
   private void checkHasTypes(StructureDefinition p) {
     for (ElementDefinition ed : p.getSnapshot().getElement())
-      if (!ed.hasType() && !ed.hasNameReference() && !(ed.getPath().equals("Resource") || ed.getPath().equals("Element")) && !ed.hasRepresentation())
+      if (!ed.hasType() && !ed.hasContentReference() && !(ed.getPath().equals("Resource") || ed.getPath().equals("Element")) && !ed.hasRepresentation())
         throw new Error("No Type on "+ed.getPath());
   }
 

@@ -151,8 +151,8 @@
   Id = 5
   Context = ElementDefinition
   English = Either a namereference or a fixed value (but not both) is permitted
-  XPath = not(exists(f:nameReference) and exists(f:*[starts-with(local-name(.), \'value\')]))
-  Expression = nameReference.empty() or fixed[x].empty()
+  XPath = not(exists(f:contentReference) and exists(f:*[starts-with(local-name(.), \'value\')]))
+  Expression = contentReference.empty() or fixed[x].empty()
 
  -- Row 6 -----------------------------------
   Id = 6
@@ -192,9 +192,9 @@
  -- Row 11 -----------------------------------
   Id = 12
   Context = ElementDefinition.binding.valueSetUri
-  English = URI SHALL start with http:// or https://
-  XPath = starts-with(string(@value), \'http:\') or starts-with(string(@value), \'https:\')
-  Expression = startsWith(\'http:\') or startsWith(\'https\')
+  English = URI SHALL start with http:// or https:// urn:
+  XPath = starts-with(string(@value), \'http:\') or starts-with(string(@value), \'https:\') or starts-with(string(@value), \'urn:\')
+  Expression = startsWith(\'http:\') or startsWith(\'https\') or startsWith(\'urn:\')
 
  -- Row 12 -----------------------------------
   Id = 13
@@ -263,8 +263,8 @@
   Card. = 0..1
   Type = string
   Short Label = Name for this particular element definition (reference target)
-  Definition = The name of this element definition (to refer to it from other element definitions using ElementDefinition.nameReference). This is a unique name referring to a specific set of constraints applied to this element. One use of this is to provide a name to different slices of the same element
-  Requirements = Allows referencing a defined element.  May also be used for code generation purposes
+  Definition = The name of this element definition. This is a unique name referring to a specific set of constraints applied to this element, used to provide a name to different slices of the same element
+  Requirements = May also be used for code generation purposes
   Comments = The name SHALL be unique within the structure within the context of the constrained resource element.  (Though to avoid confusion, uniqueness across all elements is recommended.)
   v2 Mapping = N/A
   RIM Mapping = N/A
@@ -466,6 +466,15 @@
   11179 Mapping = n/a
 
  -- Row 23 -----------------------------------
+  Element = ElementDefinition.contentReference
+  Card. = 0..1
+  Inv. = 5
+  Type = uri
+  Short Label = Reference to definition of content for the element
+  Definition = Identifies the identity of an element defined elsewhere in the profile whose content rules should be applied to the current element
+  RIM Mapping = N/A
+
+ -- Row 24 -----------------------------------
   Element = ElementDefinition.type
   Card. = 0..*
   UML = 0;490
@@ -480,7 +489,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.data+Q14type
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ElementDefinition.type.code
   Card. = 1..1
   Type = code
@@ -493,7 +502,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.data+Q14type
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = ElementDefinition.type.profile
   Card. = 0..*
   Type = uri
@@ -502,7 +511,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ElementDefinition.type.aggregation
   Card. = 0..*
   Inv. = 4
@@ -512,16 +521,6 @@
   Definition = If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = n/a
-
- -- Row 27 -----------------------------------
-  Element = ElementDefinition.nameReference
-  Card. = 0..1
-  Inv. = 5
-  Type = string
-  Short Label = To another element constraint (by element.name)
-  Definition = Identifies the name of a slice defined elsewhere in the profile whose constraints should be applied to the current element
-  Comments = If child components of this element are defined, they act as constraints on the referenced slice
-  RIM Mapping = N/A
 
  -- Row 28 -----------------------------------
   Element = ElementDefinition.defaultValue[x]

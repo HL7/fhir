@@ -1,0 +1,38 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/measure-report-type",
+  "outcomes": [
+    {
+      "hash": "|null|null|individual|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "individual",
+        "definition": null,
+        "display": "Individual"
+      }
+    },
+    {
+      "hash": "|null|null|patient-list|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "patient-list",
+        "definition": null,
+        "display": "Patient List"
+      }
+    },
+    {
+      "hash": "|null|null|summary|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "summary",
+        "definition": null,
+        "display": "Summary"
+      }
+    }
+  ]
+}

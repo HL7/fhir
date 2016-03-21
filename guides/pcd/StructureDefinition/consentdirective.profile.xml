@@ -1103,7 +1103,7 @@
         <code value="string" />
       </type>
     </element>
-    <element>
+    <element id="term">
       <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name">
         <valueString value="Term" />
       </extension>
@@ -1861,7 +1861,7 @@
         <min value="0" />
         <max value="*" />
       </base>
-      <nameReference value="term" />
+      <contentReference value="#term" />
     </element>
     <element>
       <path value="Contract.binding[x]" />
@@ -3117,7 +3117,7 @@
       <definition value="Nested group of Consent Directive Provision." />
       <min value="0" />
       <max value="*" />
-      <nameReference value="ConsentDirective.term" />
+      <contentReference value="#term" />
     </element>
     <element>
       <path value="Contract.binding[x]" />

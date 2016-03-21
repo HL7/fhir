@@ -117,6 +117,28 @@
       }
     },
     {
+      "hash": "|null|null|DiagnosticReport|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DiagnosticReport",
+        "definition": null,
+        "display": "DiagnosticReport"
+      }
+    },
+    {
+      "hash": "|null|null|Encounter|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Encounter",
+        "definition": null,
+        "display": "Encounter"
+      }
+    },
+    {
       "hash": "|null|null|GuidanceResponse|null",
       "severity": "error",
       "message": "Unknown Code GuidanceResponse in http://hl7.org/fhir/ValueSet/operation-parameter-type"
@@ -125,6 +147,33 @@
       "hash": "|null|null|MeasureReport|null",
       "severity": "error",
       "message": "Unknown Code MeasureReport in http://hl7.org/fhir/ValueSet/operation-parameter-type"
+    },
+    {
+      "hash": "|null|null|MedicationPrescription|null",
+      "severity": "error",
+      "message": "Unknown Code MedicationPrescription in http://hl7.org/fhir/ValueSet/operation-parameter-type"
+    },
+    {
+      "hash": "|null|null|MedicationStatement|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MedicationStatement",
+        "definition": null,
+        "display": "MedicationStatement"
+      }
+    },
+    {
+      "hash": "|null|null|Medication|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Medication",
+        "definition": null,
+        "display": "Medication"
+      }
     },
     {
       "hash": "|null|null|Meta|null",

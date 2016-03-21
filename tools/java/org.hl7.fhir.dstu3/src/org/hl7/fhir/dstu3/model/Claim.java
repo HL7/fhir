@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 21, 2016 11:55+1100 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 15:58+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -309,7 +309,7 @@ public class Claim extends DomainResource {
          * Other claims which are related to this claim such as prior claim versions or for related services.
          */
         @Child(name = "claim", type = {Identifier.class, Claim.class}, order=1, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Related Claims", formalDefinition="Other claims which are related to this claim such as prior claim versions or for related services." )
+        @Description(shortDefinition="Reference to the related claim", formalDefinition="Other claims which are related to this claim such as prior claim versions or for related services." )
         protected Type claim;
 
         /**
@@ -517,14 +517,14 @@ public class Claim extends DomainResource {
          * Type of Party to be reimbursed: Subscriber, provider, other.
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Payee type", formalDefinition="Type of Party to be reimbursed: Subscriber, provider, other." )
+        @Description(shortDefinition="Type of party: Subscriber, Provider, other", formalDefinition="Type of Party to be reimbursed: Subscriber, provider, other." )
         protected Coding type;
 
         /**
          * Party to be reimbursed: Subscriber, provider, other.
          */
         @Child(name = "party", type = {Identifier.class, Practitioner.class, Organization.class, Patient.class, RelatedPerson.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Party to be paid any benefits payable", formalDefinition="Party to be reimbursed: Subscriber, provider, other." )
+        @Description(shortDefinition="Party to receive the payable", formalDefinition="Party to be reimbursed: Subscriber, provider, other." )
         protected Type party;
 
         private static final long serialVersionUID = 1304353420L;
@@ -693,7 +693,7 @@ public class Claim extends DomainResource {
          * Sequence of diagnosis which serves to order and provide a link.
          */
         @Child(name = "sequence", type = {PositiveIntType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Sequence of diagnosis", formalDefinition="Sequence of diagnosis which serves to order and provide a link." )
+        @Description(shortDefinition="Number to covey order of diagnosis", formalDefinition="Sequence of diagnosis which serves to order and provide a link." )
         protected PositiveIntType sequence;
 
         /**
@@ -1655,7 +1655,7 @@ public class Claim extends DomainResource {
          * Diagnosis applicable for this service or product line.
          */
         @Child(name = "diagnosisLinkId", type = {PositiveIntType.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="Diagnosis Link", formalDefinition="Diagnosis applicable for this service or product line." )
+        @Description(shortDefinition="Applicable diagnoses", formalDefinition="Diagnosis applicable for this service or product line." )
         protected List<PositiveIntType> diagnosisLinkId;
 
         /**
@@ -4259,14 +4259,14 @@ public class Claim extends DomainResource {
          * Missing reason may be: E-extraction, O-other.
          */
         @Child(name = "reason", type = {Coding.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Reason for missing", formalDefinition="Missing reason may be: E-extraction, O-other." )
+        @Description(shortDefinition="Indicates whether it was extracted or other reason", formalDefinition="Missing reason may be: E-extraction, O-other." )
         protected Coding reason;
 
         /**
          * The date of the extraction either known from records or patient reported estimate.
          */
         @Child(name = "extractionDate", type = {DateType.class}, order=3, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="Date of Extraction", formalDefinition="The date of the extraction either known from records or patient reported estimate." )
+        @Description(shortDefinition="Date tooth was extracted if known", formalDefinition="The date of the extraction either known from records or patient reported estimate." )
         protected DateType extractionDate;
 
         private static final long serialVersionUID = 352913313L;
@@ -4570,7 +4570,7 @@ public class Claim extends DomainResource {
      * Other claims which are related to this claim such as prior claim versions or for related services.
      */
     @Child(name = "related", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Related Claims", formalDefinition="Other claims which are related to this claim such as prior claim versions or for related services." )
+    @Description(shortDefinition="Related Claims which may be revelant to processing this claimn", formalDefinition="Other claims which are related to this claim such as prior claim versions or for related services." )
     protected List<RelatedClaimsComponent> related;
 
     /**
@@ -4591,7 +4591,7 @@ public class Claim extends DomainResource {
      * The party to be reimbursed for the services.
      */
     @Child(name = "payee", type = {}, order=18, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Payee", formalDefinition="The party to be reimbursed for the services." )
+    @Description(shortDefinition="Party to be paid any benefits payable", formalDefinition="The party to be reimbursed for the services." )
     protected PayeeComponent payee;
 
     /**
@@ -4661,14 +4661,14 @@ public class Claim extends DomainResource {
      * Date of an accident which these services are addressing.
      */
     @Child(name = "accidentDate", type = {DateType.class}, order=28, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Accident Date", formalDefinition="Date of an accident which these services are addressing." )
+    @Description(shortDefinition="When the accident occurred", formalDefinition="Date of an accident which these services are addressing." )
     protected DateType accidentDate;
 
     /**
      * Type of accident: work, auto, etc.
      */
     @Child(name = "accidentType", type = {Coding.class}, order=29, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Accident Type", formalDefinition="Type of accident: work, auto, etc." )
+    @Description(shortDefinition="The nature of the accident", formalDefinition="Type of accident: work, auto, etc." )
     protected Coding accidentType;
 
     /**
@@ -4723,9 +4723,9 @@ public class Claim extends DomainResource {
     /**
      * Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.
      */
-    @Child(name = "additionalMaterials", type = {Coding.class}, order=37, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Additional materials, documents, etc.", formalDefinition="Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission." )
-    protected List<Coding> additionalMaterials;
+    @Child(name = "additionalMaterial", type = {Coding.class}, order=37, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Additional supporting materials and documents", formalDefinition="Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission." )
+    protected List<Coding> additionalMaterial;
 
     /**
      * A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
@@ -4734,7 +4734,7 @@ public class Claim extends DomainResource {
     @Description(shortDefinition="Only if type = oral", formalDefinition="A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons." )
     protected List<MissingTeethComponent> missingTeeth;
 
-    private static final long serialVersionUID = 659457395L;
+    private static final long serialVersionUID = -369222342L;
 
   /**
    * Constructor
@@ -6160,42 +6160,42 @@ public class Claim extends DomainResource {
     }
 
     /**
-     * @return {@link #additionalMaterials} (Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.)
+     * @return {@link #additionalMaterial} (Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.)
      */
-    public List<Coding> getAdditionalMaterials() { 
-      if (this.additionalMaterials == null)
-        this.additionalMaterials = new ArrayList<Coding>();
-      return this.additionalMaterials;
+    public List<Coding> getAdditionalMaterial() { 
+      if (this.additionalMaterial == null)
+        this.additionalMaterial = new ArrayList<Coding>();
+      return this.additionalMaterial;
     }
 
-    public boolean hasAdditionalMaterials() { 
-      if (this.additionalMaterials == null)
+    public boolean hasAdditionalMaterial() { 
+      if (this.additionalMaterial == null)
         return false;
-      for (Coding item : this.additionalMaterials)
+      for (Coding item : this.additionalMaterial)
         if (!item.isEmpty())
           return true;
       return false;
     }
 
     /**
-     * @return {@link #additionalMaterials} (Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.)
+     * @return {@link #additionalMaterial} (Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.)
      */
     // syntactic sugar
-    public Coding addAdditionalMaterials() { //3
+    public Coding addAdditionalMaterial() { //3
       Coding t = new Coding();
-      if (this.additionalMaterials == null)
-        this.additionalMaterials = new ArrayList<Coding>();
-      this.additionalMaterials.add(t);
+      if (this.additionalMaterial == null)
+        this.additionalMaterial = new ArrayList<Coding>();
+      this.additionalMaterial.add(t);
       return t;
     }
 
     // syntactic sugar
-    public Claim addAdditionalMaterials(Coding t) { //3
+    public Claim addAdditionalMaterial(Coding t) { //3
       if (t == null)
         return this;
-      if (this.additionalMaterials == null)
-        this.additionalMaterials = new ArrayList<Coding>();
-      this.additionalMaterials.add(t);
+      if (this.additionalMaterial == null)
+        this.additionalMaterial = new ArrayList<Coding>();
+      this.additionalMaterial.add(t);
       return this;
     }
 
@@ -6278,7 +6278,7 @@ public class Claim extends DomainResource {
         childrenList.add(new Property("hospitalization", "Period", "The start and optional end dates of when the patient was confined to a treatment center.", 0, java.lang.Integer.MAX_VALUE, hospitalization));
         childrenList.add(new Property("item", "", "First tier of goods and services.", 0, java.lang.Integer.MAX_VALUE, item));
         childrenList.add(new Property("total", "Money", "The total value of the claim.", 0, java.lang.Integer.MAX_VALUE, total));
-        childrenList.add(new Property("additionalMaterials", "Coding", "Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.", 0, java.lang.Integer.MAX_VALUE, additionalMaterials));
+        childrenList.add(new Property("additionalMaterial", "Coding", "Code to indicate that Xrays, images, emails, documents, models or attachments are being sent in support of this submission.", 0, java.lang.Integer.MAX_VALUE, additionalMaterial));
         childrenList.add(new Property("missingTeeth", "", "A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.", 0, java.lang.Integer.MAX_VALUE, missingTeeth));
       }
 
@@ -6358,8 +6358,8 @@ public class Claim extends DomainResource {
           this.getItem().add((ItemsComponent) value);
         else if (name.equals("total"))
           this.total = castToMoney(value); // Money
-        else if (name.equals("additionalMaterials"))
-          this.getAdditionalMaterials().add(castToCoding(value));
+        else if (name.equals("additionalMaterial"))
+          this.getAdditionalMaterial().add(castToCoding(value));
         else if (name.equals("missingTeeth"))
           this.getMissingTeeth().add((MissingTeethComponent) value);
         else
@@ -6544,8 +6544,8 @@ public class Claim extends DomainResource {
           this.total = new Money();
           return this.total;
         }
-        else if (name.equals("additionalMaterials")) {
-          return addAdditionalMaterials();
+        else if (name.equals("additionalMaterial")) {
+          return addAdditionalMaterial();
         }
         else if (name.equals("missingTeeth")) {
           return addMissingTeeth();
@@ -6647,10 +6647,10 @@ public class Claim extends DomainResource {
             dst.item.add(i.copy());
         };
         dst.total = total == null ? null : total.copy();
-        if (additionalMaterials != null) {
-          dst.additionalMaterials = new ArrayList<Coding>();
-          for (Coding i : additionalMaterials)
-            dst.additionalMaterials.add(i.copy());
+        if (additionalMaterial != null) {
+          dst.additionalMaterial = new ArrayList<Coding>();
+          for (Coding i : additionalMaterial)
+            dst.additionalMaterial.add(i.copy());
         };
         if (missingTeeth != null) {
           dst.missingTeeth = new ArrayList<MissingTeethComponent>();
@@ -6685,7 +6685,7 @@ public class Claim extends DomainResource {
            && compareDeep(accidentType, o.accidentType, true) && compareDeep(accidentLocation, o.accidentLocation, true)
            && compareDeep(interventionException, o.interventionException, true) && compareDeep(onset, o.onset, true)
            && compareDeep(employmentImpacted, o.employmentImpacted, true) && compareDeep(hospitalization, o.hospitalization, true)
-           && compareDeep(item, o.item, true) && compareDeep(total, o.total, true) && compareDeep(additionalMaterials, o.additionalMaterials, true)
+           && compareDeep(item, o.item, true) && compareDeep(total, o.total, true) && compareDeep(additionalMaterial, o.additionalMaterial, true)
            && compareDeep(missingTeeth, o.missingTeeth, true);
       }
 
@@ -6717,7 +6717,7 @@ public class Claim extends DomainResource {
            && (accidentType == null || accidentType.isEmpty()) && (accidentLocation == null || accidentLocation.isEmpty())
            && (interventionException == null || interventionException.isEmpty()) && (onset == null || onset.isEmpty())
            && (employmentImpacted == null || employmentImpacted.isEmpty()) && (hospitalization == null || hospitalization.isEmpty())
-           && (item == null || item.isEmpty()) && (total == null || total.isEmpty()) && (additionalMaterials == null || additionalMaterials.isEmpty())
+           && (item == null || item.isEmpty()) && (total == null || total.isEmpty()) && (additionalMaterial == null || additionalMaterial.isEmpty())
            && (missingTeeth == null || missingTeeth.isEmpty());
       }
 

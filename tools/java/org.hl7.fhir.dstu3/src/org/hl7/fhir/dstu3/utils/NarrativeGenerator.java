@@ -1597,16 +1597,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private List<ElementDefinition> getChildrenForPath(List<ElementDefinition> elements, String path) throws DefinitionException {
     // do we need to do a name reference substitution?
     for (ElementDefinition e : elements) {
-      if (e.getPath().equals(path) && e.hasNameReference()) {
-      	String name = e.getNameReference();
+      if (e.getPath().equals(path) && e.hasContentReference()) {
+      	String ref = e.getContentReference();
       	ElementDefinition t = null;
       	// now, resolve the name
         for (ElementDefinition e1 : elements) {
-        	if (name.equals(e1.getName()))
+        	if (ref.equals("#"+e1.getId()))
         		t = e1;
         }
         if (t == null)
-        	throw new DefinitionException("Unable to resolve name reference "+name+" trying to resolve "+path);
+        	throw new DefinitionException("Unable to resolve content reference "+ref+" trying to resolve "+path);
         path = t.getPath();
         break;
       }

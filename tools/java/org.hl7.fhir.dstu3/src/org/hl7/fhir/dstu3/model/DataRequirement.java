@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 21, 2016 11:55+1100 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 15:58+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -56,20 +56,34 @@ public class DataRequirement extends Type implements ICompositeType {
         protected StringType path;
 
         /**
-         * The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.
+         * The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.
          */
         @Child(name = "valueSet", type = {StringType.class, ValueSet.class}, order=2, min=0, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="The valueset for the code filter", formalDefinition="The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset." )
+        @Description(shortDefinition="Valueset for the filter", formalDefinition="The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset." )
         protected Type valueSet;
 
         /**
-         * The codeable concept for the code filter. Only one of valueSet or codeableConcept may be specified. If codeableConcepts are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codeable concepts.
+         * The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes.
          */
-        @Child(name = "codeableConcept", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-        @Description(shortDefinition="The codeableConcepts for the filter", formalDefinition="The codeable concept for the code filter. Only one of valueSet or codeableConcept may be specified. If codeableConcepts are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codeable concepts." )
-        protected List<CodeableConcept> codeableConcept;
+        @Child(name = "valueCode", type = {CodeType.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Code value of the filter", formalDefinition="The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes." )
+        protected List<CodeType> valueCode;
 
-        private static final long serialVersionUID = -666343535L;
+        /**
+         * The Codings for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified Codings.
+         */
+        @Child(name = "valueCoding", type = {Coding.class}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="Coding value of the filter", formalDefinition="The Codings for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified Codings." )
+        protected List<Coding> valueCoding;
+
+        /**
+         * The CodeableConcepts for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified CodeableConcepts.
+         */
+        @Child(name = "valueCodeableConcept", type = {CodeableConcept.class}, order=5, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="CodeableConcept value of the filter", formalDefinition="The CodeableConcepts for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified CodeableConcepts." )
+        protected List<CodeableConcept> valueCodeableConcept;
+
+        private static final long serialVersionUID = -888422840L;
 
     /**
      * Constructor
@@ -132,14 +146,14 @@ public class DataRequirement extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #valueSet} (The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
+         * @return {@link #valueSet} (The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
         public Type getValueSet() { 
           return this.valueSet;
         }
 
         /**
-         * @return {@link #valueSet} (The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
+         * @return {@link #valueSet} (The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
         public StringType getValueSetStringType() throws FHIRException { 
           if (!(this.valueSet instanceof StringType))
@@ -152,7 +166,7 @@ public class DataRequirement extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #valueSet} (The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
+         * @return {@link #valueSet} (The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
         public Reference getValueSetReference() throws FHIRException { 
           if (!(this.valueSet instanceof Reference))
@@ -169,7 +183,7 @@ public class DataRequirement extends Type implements ICompositeType {
         }
 
         /**
-         * @param value {@link #valueSet} (The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
+         * @param value {@link #valueSet} (The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.)
          */
         public DataRequirementCodeFilterComponent setValueSet(Type value) { 
           this.valueSet = value;
@@ -177,50 +191,146 @@ public class DataRequirement extends Type implements ICompositeType {
         }
 
         /**
-         * @return {@link #codeableConcept} (The codeable concept for the code filter. Only one of valueSet or codeableConcept may be specified. If codeableConcepts are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codeable concepts.)
+         * @return {@link #valueCode} (The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes.)
          */
-        public List<CodeableConcept> getCodeableConcept() { 
-          if (this.codeableConcept == null)
-            this.codeableConcept = new ArrayList<CodeableConcept>();
-          return this.codeableConcept;
+        public List<CodeType> getValueCode() { 
+          if (this.valueCode == null)
+            this.valueCode = new ArrayList<CodeType>();
+          return this.valueCode;
         }
 
-        public boolean hasCodeableConcept() { 
-          if (this.codeableConcept == null)
+        public boolean hasValueCode() { 
+          if (this.valueCode == null)
             return false;
-          for (CodeableConcept item : this.codeableConcept)
+          for (CodeType item : this.valueCode)
             if (!item.isEmpty())
               return true;
           return false;
         }
 
         /**
-         * @return {@link #codeableConcept} (The codeable concept for the code filter. Only one of valueSet or codeableConcept may be specified. If codeableConcepts are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codeable concepts.)
+         * @return {@link #valueCode} (The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes.)
          */
     // syntactic sugar
-        public CodeableConcept addCodeableConcept() { //3
-          CodeableConcept t = new CodeableConcept();
-          if (this.codeableConcept == null)
-            this.codeableConcept = new ArrayList<CodeableConcept>();
-          this.codeableConcept.add(t);
+        public CodeType addValueCodeElement() {//2 
+          CodeType t = new CodeType();
+          if (this.valueCode == null)
+            this.valueCode = new ArrayList<CodeType>();
+          this.valueCode.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #valueCode} (The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes.)
+         */
+        public DataRequirementCodeFilterComponent addValueCode(String value) { //1
+          CodeType t = new CodeType();
+          t.setValue(value);
+          if (this.valueCode == null)
+            this.valueCode = new ArrayList<CodeType>();
+          this.valueCode.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #valueCode} (The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes.)
+         */
+        public boolean hasValueCode(String value) { 
+          if (this.valueCode == null)
+            return false;
+          for (CodeType v : this.valueCode)
+            if (v.equals(value)) // code
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #valueCoding} (The Codings for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified Codings.)
+         */
+        public List<Coding> getValueCoding() { 
+          if (this.valueCoding == null)
+            this.valueCoding = new ArrayList<Coding>();
+          return this.valueCoding;
+        }
+
+        public boolean hasValueCoding() { 
+          if (this.valueCoding == null)
+            return false;
+          for (Coding item : this.valueCoding)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #valueCoding} (The Codings for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified Codings.)
+         */
+    // syntactic sugar
+        public Coding addValueCoding() { //3
+          Coding t = new Coding();
+          if (this.valueCoding == null)
+            this.valueCoding = new ArrayList<Coding>();
+          this.valueCoding.add(t);
           return t;
         }
 
     // syntactic sugar
-        public DataRequirementCodeFilterComponent addCodeableConcept(CodeableConcept t) { //3
+        public DataRequirementCodeFilterComponent addValueCoding(Coding t) { //3
           if (t == null)
             return this;
-          if (this.codeableConcept == null)
-            this.codeableConcept = new ArrayList<CodeableConcept>();
-          this.codeableConcept.add(t);
+          if (this.valueCoding == null)
+            this.valueCoding = new ArrayList<Coding>();
+          this.valueCoding.add(t);
+          return this;
+        }
+
+        /**
+         * @return {@link #valueCodeableConcept} (The CodeableConcepts for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified CodeableConcepts.)
+         */
+        public List<CodeableConcept> getValueCodeableConcept() { 
+          if (this.valueCodeableConcept == null)
+            this.valueCodeableConcept = new ArrayList<CodeableConcept>();
+          return this.valueCodeableConcept;
+        }
+
+        public boolean hasValueCodeableConcept() { 
+          if (this.valueCodeableConcept == null)
+            return false;
+          for (CodeableConcept item : this.valueCodeableConcept)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #valueCodeableConcept} (The CodeableConcepts for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified CodeableConcepts.)
+         */
+    // syntactic sugar
+        public CodeableConcept addValueCodeableConcept() { //3
+          CodeableConcept t = new CodeableConcept();
+          if (this.valueCodeableConcept == null)
+            this.valueCodeableConcept = new ArrayList<CodeableConcept>();
+          this.valueCodeableConcept.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public DataRequirementCodeFilterComponent addValueCodeableConcept(CodeableConcept t) { //3
+          if (t == null)
+            return this;
+          if (this.valueCodeableConcept == null)
+            this.valueCodeableConcept = new ArrayList<CodeableConcept>();
+          this.valueCodeableConcept.add(t);
           return this;
         }
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("path", "string", "The code-valued attribute of the filter. The specified path must be resolvable from the type of the required data. The path is allowed to contain qualifiers (.) to traverse sub-elements, as well as indexers ([x]) to traverse multiple-cardinality sub-elements. Note that the index must be an integer constant. The path must resolve to an element of type code, Coding, or CodeableConcept.", 0, java.lang.Integer.MAX_VALUE, path));
-          childrenList.add(new Property("valueSet[x]", "string|Reference(ValueSet)", "The valueset for the code filter. The valueSet or codeableConcept elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.", 0, java.lang.Integer.MAX_VALUE, valueSet));
-          childrenList.add(new Property("codeableConcept", "CodeableConcept", "The codeable concept for the code filter. Only one of valueSet or codeableConcept may be specified. If codeableConcepts are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codeable concepts.", 0, java.lang.Integer.MAX_VALUE, codeableConcept));
+          childrenList.add(new Property("valueSet[x]", "string|Reference(ValueSet)", "The valueset for the code filter. The valueSet and value elements are exclusive. If valueSet is specified, the filter will return only those data items for which the value of the code-valued element specified in the path is a member of the specified valueset.", 0, java.lang.Integer.MAX_VALUE, valueSet));
+          childrenList.add(new Property("valueCode", "code", "The codes for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified codes.", 0, java.lang.Integer.MAX_VALUE, valueCode));
+          childrenList.add(new Property("valueCoding", "Coding", "The Codings for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified Codings.", 0, java.lang.Integer.MAX_VALUE, valueCoding));
+          childrenList.add(new Property("valueCodeableConcept", "CodeableConcept", "The CodeableConcepts for the code filter. Only one of valueSet, valueCode, valueConding, or valueCodeableConcept may be specified. If values are given, the filter will return only those data items for which the code-valued attribute specified by the path has a value that is one of the specified CodeableConcepts.", 0, java.lang.Integer.MAX_VALUE, valueCodeableConcept));
         }
 
       @Override
@@ -229,8 +339,12 @@ public class DataRequirement extends Type implements ICompositeType {
           this.path = castToString(value); // StringType
         else if (name.equals("valueSet[x]"))
           this.valueSet = (Type) value; // Type
-        else if (name.equals("codeableConcept"))
-          this.getCodeableConcept().add(castToCodeableConcept(value));
+        else if (name.equals("valueCode"))
+          this.getValueCode().add(castToCode(value));
+        else if (name.equals("valueCoding"))
+          this.getValueCoding().add(castToCoding(value));
+        else if (name.equals("valueCodeableConcept"))
+          this.getValueCodeableConcept().add(castToCodeableConcept(value));
         else
           super.setProperty(name, value);
       }
@@ -248,8 +362,14 @@ public class DataRequirement extends Type implements ICompositeType {
           this.valueSet = new Reference();
           return this.valueSet;
         }
-        else if (name.equals("codeableConcept")) {
-          return addCodeableConcept();
+        else if (name.equals("valueCode")) {
+          throw new FHIRException("Cannot call addChild on a primitive type DataRequirement.valueCode");
+        }
+        else if (name.equals("valueCoding")) {
+          return addValueCoding();
+        }
+        else if (name.equals("valueCodeableConcept")) {
+          return addValueCodeableConcept();
         }
         else
           return super.addChild(name);
@@ -260,10 +380,20 @@ public class DataRequirement extends Type implements ICompositeType {
         copyValues(dst);
         dst.path = path == null ? null : path.copy();
         dst.valueSet = valueSet == null ? null : valueSet.copy();
-        if (codeableConcept != null) {
-          dst.codeableConcept = new ArrayList<CodeableConcept>();
-          for (CodeableConcept i : codeableConcept)
-            dst.codeableConcept.add(i.copy());
+        if (valueCode != null) {
+          dst.valueCode = new ArrayList<CodeType>();
+          for (CodeType i : valueCode)
+            dst.valueCode.add(i.copy());
+        };
+        if (valueCoding != null) {
+          dst.valueCoding = new ArrayList<Coding>();
+          for (Coding i : valueCoding)
+            dst.valueCoding.add(i.copy());
+        };
+        if (valueCodeableConcept != null) {
+          dst.valueCodeableConcept = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : valueCodeableConcept)
+            dst.valueCodeableConcept.add(i.copy());
         };
         return dst;
       }
@@ -275,7 +405,8 @@ public class DataRequirement extends Type implements ICompositeType {
         if (!(other instanceof DataRequirementCodeFilterComponent))
           return false;
         DataRequirementCodeFilterComponent o = (DataRequirementCodeFilterComponent) other;
-        return compareDeep(path, o.path, true) && compareDeep(valueSet, o.valueSet, true) && compareDeep(codeableConcept, o.codeableConcept, true)
+        return compareDeep(path, o.path, true) && compareDeep(valueSet, o.valueSet, true) && compareDeep(valueCode, o.valueCode, true)
+           && compareDeep(valueCoding, o.valueCoding, true) && compareDeep(valueCodeableConcept, o.valueCodeableConcept, true)
           ;
       }
 
@@ -286,12 +417,13 @@ public class DataRequirement extends Type implements ICompositeType {
         if (!(other instanceof DataRequirementCodeFilterComponent))
           return false;
         DataRequirementCodeFilterComponent o = (DataRequirementCodeFilterComponent) other;
-        return compareValues(path, o.path, true);
+        return compareValues(path, o.path, true) && compareValues(valueCode, o.valueCode, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (path == null || path.isEmpty()) && (valueSet == null || valueSet.isEmpty())
-           && (codeableConcept == null || codeableConcept.isEmpty());
+           && (valueCode == null || valueCode.isEmpty()) && (valueCoding == null || valueCoding.isEmpty())
+           && (valueCodeableConcept == null || valueCodeableConcept.isEmpty());
       }
 
   public String fhirType() {

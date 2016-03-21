@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 21, 2016 11:55+1100 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 15:58+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.exceptions.FHIRException;
 
@@ -172,6 +172,8 @@ public class ResourceFactory extends Factory {
             return new FamilyMemberHistory();
         if ("Media".equals(name))
             return new Media();
+        if ("ImagingExcerpt".equals(name))
+            return new ImagingExcerpt();
         if ("Binary".equals(name))
             return new Binary();
         if ("VisionPrescription".equals(name))

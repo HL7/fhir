@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 21, 2016 11:55+1100 for FHIR v1.3.0
+// Generated on Mon, Mar 21, 2016 15:58+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -381,10 +381,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * null
          */
-        VALIDATE, 
-        /**
-         * null
-         */
         HISTORYTYPE, 
         /**
          * null
@@ -411,8 +407,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return DELETE;
         if ("history-instance".equals(codeString))
           return HISTORYINSTANCE;
-        if ("validate".equals(codeString))
-          return VALIDATE;
         if ("history-type".equals(codeString))
           return HISTORYTYPE;
         if ("create".equals(codeString))
@@ -428,7 +422,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             case UPDATE: return "update";
             case DELETE: return "delete";
             case HISTORYINSTANCE: return "history-instance";
-            case VALIDATE: return "validate";
             case HISTORYTYPE: return "history-type";
             case CREATE: return "create";
             case SEARCHTYPE: return "search-type";
@@ -442,7 +435,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             case UPDATE: return "http://hl7.org/fhir/restful-interaction";
             case DELETE: return "http://hl7.org/fhir/restful-interaction";
             case HISTORYINSTANCE: return "http://hl7.org/fhir/restful-interaction";
-            case VALIDATE: return "http://hl7.org/fhir/restful-interaction";
             case HISTORYTYPE: return "http://hl7.org/fhir/restful-interaction";
             case CREATE: return "http://hl7.org/fhir/restful-interaction";
             case SEARCHTYPE: return "http://hl7.org/fhir/restful-interaction";
@@ -456,7 +448,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             case UPDATE: return "";
             case DELETE: return "";
             case HISTORYINSTANCE: return "";
-            case VALIDATE: return "";
             case HISTORYTYPE: return "";
             case CREATE: return "";
             case SEARCHTYPE: return "";
@@ -470,7 +461,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
             case UPDATE: return "update";
             case DELETE: return "delete";
             case HISTORYINSTANCE: return "history-instance";
-            case VALIDATE: return "validate";
             case HISTORYTYPE: return "history-type";
             case CREATE: return "create";
             case SEARCHTYPE: return "search-type";
@@ -494,8 +484,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return TypeRestfulInteraction.DELETE;
         if ("history-instance".equals(codeString))
           return TypeRestfulInteraction.HISTORYINSTANCE;
-        if ("validate".equals(codeString))
-          return TypeRestfulInteraction.VALIDATE;
         if ("history-type".equals(codeString))
           return TypeRestfulInteraction.HISTORYTYPE;
         if ("create".equals(codeString))
@@ -520,8 +508,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
           return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.DELETE);
         if ("history-instance".equals(codeString))
           return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.HISTORYINSTANCE);
-        if ("validate".equals(codeString))
-          return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.VALIDATE);
         if ("history-type".equals(codeString))
           return new Enumeration<TypeRestfulInteraction>(this, TypeRestfulInteraction.HISTORYTYPE);
         if ("create".equals(codeString))
@@ -541,8 +527,6 @@ public class Conformance extends DomainResource implements IBaseConformance {
         return "delete";
       if (code == TypeRestfulInteraction.HISTORYINSTANCE)
         return "history-instance";
-      if (code == TypeRestfulInteraction.VALIDATE)
-        return "validate";
       if (code == TypeRestfulInteraction.HISTORYTYPE)
         return "history-type";
       if (code == TypeRestfulInteraction.CREATE)
@@ -4059,7 +4043,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
          * Coded identifier of the operation, supported by the system resource.
          */
         @Child(name = "code", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="read | vread | update | delete | history-instance | validate | history-type | create | search-type", formalDefinition="Coded identifier of the operation, supported by the system resource." )
+        @Description(shortDefinition="read | vread | update | delete | history-instance | history-type | create | search-type", formalDefinition="Coded identifier of the operation, supported by the system resource." )
         protected Enumeration<TypeRestfulInteraction> code;
 
         /**

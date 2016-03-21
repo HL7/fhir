@@ -149,8 +149,8 @@ public class CDAGenerator {
           if (!r.asStringValue().equals("typeAttr"))
             b2.append(r.asStringValue());
         String s = Utilities.noString(b2.toString()) ? "" : " <<"+b2.toString()+">>";
-        if (ed.hasNameReference())
-          s = " <<see "+ed.getNameReference()+">>";
+        if (ed.hasContentReference())
+          s = " <<see "+ed.getContentReference().substring(1)+">>";
         System.out.println("  "+ed.getPath()+" ["+ed.getMin()+".."+ed.getMax()+"] : "+b.toString()+s);
       }
     }    
@@ -952,12 +952,12 @@ public class CDAGenerator {
 
     if (classMap.containsKey(target)) {
       ElementDefinition nr = classMap.get(target);
-      nr.setName(nr.getPath());
-      ed.setNameReference(nr.getPath());
+      nr.setId(nr.getPath());
+      ed.setContentReference("#"+nr.getPath());
       ed.getType().clear();
       System.out.println(path+"+ - "+nr.getPath());
     } else if (shadows.containsKey(ipath)) {
-      ed.setNameReference(shadows.get(ipath));
+      ed.setContentReference("#"+shadows.get(ipath));
       ed.getType().clear();
     } else {
       classMap.put(target, ed);

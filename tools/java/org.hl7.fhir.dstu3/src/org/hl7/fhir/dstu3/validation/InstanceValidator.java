@@ -117,7 +117,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 		private ElementDefinitionOutcome getDefinition(String name) throws DefinitionException {
 			if (childDefinitions == null) 
-				childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
+				childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getContentReference());
 			for (ElementDefinition ed : childDefinitions) {
 				String tail = ed.getPath().substring(ed.getPath().lastIndexOf('.')+1);
 				if (tail.equals(name)) {
@@ -219,7 +219,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 
 		private ElementDefinitionOutcome getDefinition(String name) throws DefinitionException {
 			if (childDefinitions == null) 
-				childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
+				childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getContentReference());
 
 			if (childDefinitions.size() == 0) {
 				String pn = typeProfile;
@@ -1428,9 +1428,9 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		}
 	}
 
-	private ElementDefinition resolveNameReference(StructureDefinitionSnapshotComponent snapshot, String name) {
+  private ElementDefinition resolveNameReference(StructureDefinitionSnapshotComponent snapshot, String contentReference) {
 		for (ElementDefinition ed : snapshot.getElement())
-			if (name.equals(ed.getName()))
+      if (contentReference.equals("#"+ed.getId()))
 				return ed;
 		return null;
 	}
@@ -2250,7 +2250,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 		checkInvariants(errors, stack.getLiteralPath(), profile, definition, null, null, resource, element);
 
 		// get the list of direct defined children, including slices
-		List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getNameReference());
+		List<ElementDefinition> childDefinitions = ProfileUtilities.getChildMap(profile, definition.getName(), definition.getPath(), definition.getContentReference());
 
 		// 1. List the children, and remember their exact path (convenience)
 		List<ElementInfo> children = new ArrayList<InstanceValidator.ElementInfo>();
@@ -2346,8 +2346,8 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 							rule(errors, IssueType.STRUCTURE, ei.line(), ei.col(), stack.getLiteralPath(), false,
 									"The element " + ei.name + " is illegal. Valid types at this point are " + describeTypes(ei.definition.getType()));
 					}
-				} else if (ei.definition.getNameReference() != null) {
-					typeDefn = resolveNameReference(profile.getSnapshot(), ei.definition.getNameReference());
+        } else if (ei.definition.getContentReference() != null) {
+          typeDefn = resolveNameReference(profile.getSnapshot(), ei.definition.getContentReference());
 				}
 
 				if (type != null) {

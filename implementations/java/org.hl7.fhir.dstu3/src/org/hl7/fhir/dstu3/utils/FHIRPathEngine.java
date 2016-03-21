@@ -1676,15 +1676,15 @@ public class FHIRPathEngine {
 	private ElementDefinitionMatch getElementDefinition(StructureDefinition sd, String path) {
 		for (ElementDefinition ed : sd.getSnapshot().getElement()) {
 			if (ed.getPath().equals(path)) {
-				if (ed.hasNameReference()) {
-					return getElementDefinitionByName(sd, ed.getNameReference());
+				if (ed.hasContentReference()) {
+					return getElementDefinitionById(sd, ed.getContentReference());
 				} else
 					return new ElementDefinitionMatch(ed, null);
 			}
 			if (ed.getPath().endsWith("[x]") && path.startsWith(ed.getPath().substring(0, ed.getPath().length()-3)) && hasType(ed, path.substring(ed.getPath().length()-3)))
 				return new ElementDefinitionMatch(ed, path.substring(ed.getPath().length()-3));
-			if (ed.hasNameReference() && path.startsWith(ed.getPath()+".")) {
-				ElementDefinitionMatch m = getElementDefinitionByName(sd, ed.getNameReference());
+			if (ed.hasContentReference() && path.startsWith(ed.getPath()+".")) {
+				ElementDefinitionMatch m = getElementDefinitionById(sd, ed.getContentReference());
 				return getElementDefinition(sd, m.definition.getPath()+path.substring(ed.getPath().length()));
 			}
 		}
@@ -1702,9 +1702,9 @@ public class FHIRPathEngine {
 		return ed.hasType() && !(ed.getType().get(0).getCode().equals("Element") || ed.getType().get(0).getCode().equals("BackboneElement"));
 	}
 
-	private ElementDefinitionMatch getElementDefinitionByName(StructureDefinition sd, String name) {
+	private ElementDefinitionMatch getElementDefinitionById(StructureDefinition sd, String ref) {
 		for (ElementDefinition ed : sd.getSnapshot().getElement()) {
-			if (name.equals(ed.getName())) 
+			if (ref.equals("#"+ed.getId())) 
 				return new ElementDefinitionMatch(ed, null);
 		}
 		return null;

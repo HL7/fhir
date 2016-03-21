@@ -1596,16 +1596,16 @@ public class NarrativeGenerator implements INarrativeGenerator {
   private List<ElementDefinition> getChildrenForPath(List<ElementDefinition> elements, String path) throws DefinitionException {
     // do we need to do a name reference substitution?
     for (ElementDefinition e : elements) {
-      if (e.getPath().equals(path) && e.hasNameReference()) {
-      	String name = e.getNameReference();
+      if (e.getPath().equals(path) && e.hasContentReference()) {
+      	String ref = e.getContentReference();
       	ElementDefinition t = null;
       	// now, resolve the name
         for (ElementDefinition e1 : elements) {
-        	if (name.equals(e1.getName()))
+        	if (ref.equals("#"+e1.getId()))
         		t = e1;
         }
         if (t == null)
-        	throw new DefinitionException("Unable to resolve name reference "+name+" trying to resolve "+path);
+        	throw new DefinitionException("Unable to resolve content reference "+ref+" trying to resolve "+path);
         path = t.getPath();
         break;
       }
@@ -2105,12 +2105,21 @@ public class NarrativeGenerator implements INarrativeGenerator {
         x.addTag("p").addText("This value set contains "+count.toString()+" concepts");
     }
 
+    CodeSystem allCS = null;
     boolean doSystem = checkDoSystem(vs, src);
+    boolean doDefinition = checkDoDefinition(vs.getExpansion().getContains());
     if (doSystem && allFromOneSystem(vs)) {
       doSystem = false;
       XhtmlNode p = x.addTag("p");
       p.addText("All codes from system ");
+      allCS = context.fetchCodeSystem(vs.getExpansion().getContains().get(0).getSystem());
+      String ref = null;
+      if (allCS != null)
+        ref = getCsRef(allCS);
+      if (ref == null) 
       p.addTag("code").addText(vs.getExpansion().getContains().get(0).getSystem());
+      else
+        p.addTag("a").setAttribute("href", ref).addTag("code").addText(vs.getExpansion().getContains().get(0).getSystem());
     }
     XhtmlNode t = x.addTag("table").setAttribute("class", "codes");
     XhtmlNode tr = t.addTag("tr");
@@ -2118,13 +2127,27 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (doSystem)
       tr.addTag("td").addTag("b").addText("System");
     tr.addTag("td").addTag("b").addText("Display");
+    if (doDefinition)
+      tr.addTag("td").addTag("b").addText("Definition");
 
     addMapHeaders(tr, mymaps);
     for (ValueSetExpansionContainsComponent c : vs.getExpansion().getContains()) {
-      addExpansionRowToTable(t, c, 0, doSystem, mymaps);
+      addExpansionRowToTable(t, c, 0, doSystem, doDefinition, mymaps, allCS);
     }
     return hasExtensions;
   }
+
+  private boolean checkDoDefinition(List<ValueSetExpansionContainsComponent> contains) {
+    for (ValueSetExpansionContainsComponent c : contains) {
+      CodeSystem cs = context.fetchCodeSystem(c.getSystem());
+      if (cs != null)
+        return true;
+      if (checkDoDefinition(c.getContains()))
+        return true;
+    }
+    return false;
+  }
+
 
   private boolean allFromOneSystem(ValueSet vs) {
     if (vs.getExpansion().getContains().isEmpty())
@@ -2267,7 +2290,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return tr;
   }
 
-  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, Map<ConceptMap, String> mymaps) {
+  private void addExpansionRowToTable(XhtmlNode t, ValueSetExpansionContainsComponent c, int i, boolean doSystem, boolean doDefinition, Map<ConceptMap, String> mymaps, CodeSystem allCS) {
     XhtmlNode tr = t.addTag("tr");
     XhtmlNode td = tr.addTag("td");
 
@@ -2293,6 +2316,14 @@ public class NarrativeGenerator implements INarrativeGenerator {
     if (c.hasDisplayElement())
       td.addText(c.getDisplay());
 
+    if (doDefinition) {
+      CodeSystem cs = allCS;
+      if (cs == null)
+        cs = context.fetchCodeSystem(c.getSystem());
+      td = tr.addTag("td");
+      if (cs != null)
+        td.addText(CodeSystemUtilities.getCodeDefinition(cs, c.getCode()));
+    }
     for (ConceptMap m : mymaps.keySet()) {
       td = tr.addTag("td");
       List<TargetElementComponent> mappings = findMappingsForCode(c.getCode(), m);
@@ -2312,7 +2343,7 @@ public class NarrativeGenerator implements INarrativeGenerator {
       }
     }
     for (ValueSetExpansionContainsComponent cc : c.getContains()) {
-      addExpansionRowToTable(t, cc, i+1, doSystem, mymaps);
+      addExpansionRowToTable(t, cc, i+1, doSystem, doDefinition, mymaps, allCS);
     }
   }
 
@@ -2639,6 +2670,11 @@ public class NarrativeGenerator implements INarrativeGenerator {
       li.addText(inc.getSystem().toString());
   }
 
+  private String getCsRef(String system) {
+    CodeSystem cs = context.fetchCodeSystem(system);
+    return getCsRef(cs);
+  }
+  
   private  <T extends Resource> String getCsRef(T cs) {
     String ref = (String) cs.getUserData("filename");
     if (ref == null)

@@ -188,8 +188,8 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     tableRowNE("Note", null, businessIdWarning(tail(d.getPath())));
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
     tableRowNE("Binding", "terminologies.html", describeBinding(d));
-    if (d.hasNameReference())
-      tableRow("Type", null, "See "+d.getNameReference());
+    if (d.hasContentReference())
+      tableRow("Type", null, "See "+d.getContentReference().substring(1));
     else
       tableRowNE("Type", "datatypes.html", describeTypes(d.getType()) + processSecondary(mode, value));
     if (d.getPath().endsWith("[x]"))
