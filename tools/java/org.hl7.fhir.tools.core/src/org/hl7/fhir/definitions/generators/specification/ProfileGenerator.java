@@ -461,7 +461,8 @@ public class ProfileGenerator {
     // first, the differential
     p.setDifferential(new StructureDefinitionDifferentialComponent());
     defineElement(null, p, p.getDifferential().getElement(), t, t.getName(), containedSlices, new ArrayList<ProfileGenerator.SliceHandle>(), SnapShotMode.None, true, "Element");
-
+    p.getDifferential().getElement().get(0).setIsSummaryElement(null);
+    
     reset();
     // now. the snapshot
     p.setSnapshot(new StructureDefinitionSnapshotComponent());
@@ -478,6 +479,7 @@ public class ProfileGenerator {
       p.getDifferential().getElement().get(0).addType().setCode("Element");
       p.getSnapshot().getElement().get(0).addType().setCode("Element");
     }
+    p.getSnapshot().getElement().get(0).setIsSummaryElement(null);
 
     XhtmlNode div = new XhtmlNode(NodeType.Element, "div");
     div.addText("to do");
