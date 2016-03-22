@@ -348,8 +348,8 @@
   Element = Bundle.entry.response.status
   Card. = 1..1
   Type = string
-  Short Label = Status return code for entry
-  Definition = The status code returned by processing this entry
+  Short Label = Status response code (text optional)
+  Definition = The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code
 
  -- Row 23 -----------------------------------
   Element = Bundle.entry.response.location
