@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1352,7 +1352,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         /**
          * A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met.
          */
-        @Child(name = "expression", type = {StringType.class}, order=5, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "expression", type = {StringType.class}, order=5, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="FluentPath expression of constraint", formalDefinition="A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met." )
         protected StringType expression;
 
@@ -1375,12 +1375,11 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * Constructor
      */
-      public ElementDefinitionConstraintComponent(IdType key, Enumeration<ConstraintSeverity> severity, StringType human, StringType expression, StringType xpath) {
+      public ElementDefinitionConstraintComponent(IdType key, Enumeration<ConstraintSeverity> severity, StringType human, StringType xpath) {
         super();
         this.key = key;
         this.severity = severity;
         this.human = human;
-        this.expression = expression;
         this.xpath = xpath;
       }
 
@@ -1607,9 +1606,13 @@ public class ElementDefinition extends Type implements ICompositeType {
          * @param value A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met.
          */
         public ElementDefinitionConstraintComponent setExpression(String value) { 
+          if (Utilities.noString(value))
+            this.expression = null;
+          else {
             if (this.expression == null)
               this.expression = new StringType();
             this.expression.setValue(value);
+          }
           return this;
         }
 

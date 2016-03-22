@@ -73,8 +73,8 @@ more output parameters. This means that a FHIR operation can take a set of zero 
 result parameters <i>out</i>. Both the body of the POST and the returned result are always a Resource. 
 </p>
 <p>
-Some Operations with simple input types and a single Resource output parameter named '<code>return</code>' can be invoked using a GET directly, with parameters as HTTP URL parameters. 
-In this case, the response is simply the resource that is the return value, with no Parameters resource.
+Some Operations with primtive input types and a single Resource output parameter named '<code>return</code>' can be invoked using a GET directly, with parameters as HTTP URL parameters. 
+In this case, the response is simply the resource that is the return value, with no Parameters resource. These kinds of usage are discussed further below.
 </p>
 
 <a name="defined"> </a>
@@ -126,6 +126,7 @@ For each parameter, the following information is needed:
  <li>Type - a data type or a Resource type</li>
  <li>Profile - a <a href="structuredefinition.html">StructureDefinition</a> that applies additional restrictions about the resource</li>
  <li>Documentation - a description of the parameter's use</li>
+ <li>(Optional) Search Type - if the type is a string, and the parameter is being used like a search parameter, which kind of search type applies</li>
 </ul>
 <p>
 There is a special parameter type called "Tuple" which is a parameter type that has additional
@@ -183,10 +184,10 @@ Note that the same arrangement as for the RESTful interface applies
 with respect to <a href="http.html#mime-type">content types</a>.
 </p>
 <p>
-If there are no parameters with complex types (including resources) to the operation, and the operation
+If there are all the parameters for the operation are <a href="datatypes.html#primitive">primitive types</a>, and the operation
 is <i>idempotent</i> (see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">HTTP specification
 definition of idempotent</a>), the operation may be invoked by performing an HTTP GET operation where
-all of the parameters are appended to the URL in the search portion of the URL (e.g. after the '?' character).
+all of the values of the parameters are appended to the URL in the search portion of the URL (e.g. after the '?' character).
 Servers SHALL support this method of invocation.
 </p>
 <p>

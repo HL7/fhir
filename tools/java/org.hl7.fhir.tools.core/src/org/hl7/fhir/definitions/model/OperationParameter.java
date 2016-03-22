@@ -10,20 +10,22 @@ public class OperationParameter {
   private String doc;
   private int min;
   private String max;
-  private String type;
+  private String fhirType;
+  private String searchType;
   private String profile;
   private List<OperationParameter> parts;
   private BindingSpecification bs;
 
-  public OperationParameter(String name, String use, String doco, int min, String max, String type, String profile) {
+  public OperationParameter(String name, String use, String doco, int min, String max, String fhirType, String searchType, String profile) {
     this.name = name; 
     this.use = use;
     this.doc = doco; 
     this.min = min; 
     this.max = max; 
-    this.type = type;
+    this.fhirType = fhirType;
+    this.searchType = searchType;
     this.profile = profile;
-    if (type.equals("Tuple"))
+    if (fhirType.equals("Tuple"))
       parts = new ArrayList<OperationParameter>();
   }
 
@@ -51,17 +53,10 @@ public class OperationParameter {
     this.doc = doc;
   }
 
-  public String getType() {
-    return type;
-  }
-
   public String getProfile() {
     return profile;
   }
 
-  public void setType(String type) {
-    this.type = type;
-  }
 
   public void setProfile(String profile) {
     this.profile = profile;
@@ -97,6 +92,22 @@ public class OperationParameter {
 
   public void setBs(BindingSpecification bs) {
     this.bs = bs;
+  }
+
+  public String getFhirType() {
+    return fhirType;
+  }
+
+  public void setFhirType(String fhirType) {
+    this.fhirType = fhirType;
+  }
+
+  public String getSearchType() {
+    return searchType;
+  }
+
+  public void setSearchType(String searchType) {
+    this.searchType = searchType;
   }
 
 }

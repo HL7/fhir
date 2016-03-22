@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -10981,6 +10981,10 @@ public class JsonParser extends JsonParserBase {
       res.setTypeElement(parseCode(json.get("type").getAsString()));
     if (json.has("_type"))
       parseElementProperties(json.getAsJsonObject("_type"), res.getTypeElement());
+    if (json.has("searchType"))
+      res.setSearchTypeElement(parseEnumeration(json.get("searchType").getAsString(), Enumerations.SearchParamType.NULL, new Enumerations.SearchParamTypeEnumFactory()));
+    if (json.has("_searchType"))
+      parseElementProperties(json.getAsJsonObject("_searchType"), res.getSearchTypeElement());
     if (json.has("profile"))
       res.setProfile(parseReference(json.getAsJsonObject("profile")));
     if (json.has("binding"))
@@ -29332,6 +29336,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasTypeElement()) {
         composeCodeCore("type", element.getTypeElement(), false);
         composeCodeExtras("type", element.getTypeElement(), false);
+      }
+      if (element.hasSearchTypeElement()) {
+        composeEnumerationCore("searchType", element.getSearchTypeElement(), new Enumerations.SearchParamTypeEnumFactory(), false);
+        composeEnumerationExtras("searchType", element.getSearchTypeElement(), new Enumerations.SearchParamTypeEnumFactory(), false);
       }
       if (element.hasProfile()) {
         composeReference("profile", element.getProfile());

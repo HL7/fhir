@@ -4680,7 +4680,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     b.append("</td><td>");
     b.append(p.describeCardinality());
     b.append("</td><td>");
-    String t = p.getType();
+    String t = p.getFhirType();
+    String st = p.getSearchType();
     if (definitions.hasResource(t)) {
       b.append("<a href=\"");
       b.append(prefix);
@@ -4694,7 +4695,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append("\">");
       b.append(t);
       b.append("</a>");
-
+      if (!Utilities.noString(st)) {
+        b.append("<a href=\""+prefix+"search.html#");
+        b.append(st);
+        b.append("\">");
+        b.append(st);
+        b.append("</a>");
+      }
     } else if (definitions.hasElementDefn(t)) {
       b.append("<a href=\"");
       b.append(prefix);

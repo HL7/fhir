@@ -42,12 +42,10 @@ public class ProfileValidator extends BaseValidator {
         checkExtensions(profile, errors, "snapshot", ed);
         for (ElementDefinitionConstraintComponent inv : ed.getConstraint()) {
           if (forBuild) {
-            Extension exprExt = ToolingExtensions.getExtension(inv, ToolingExtensions.EXT_EXPRESSION);
             if (!inExemptList(inv.getKey())) {
-              if (rule(errors, IssueType.BUSINESSRULE, profile.getId()+"::"+ed.getPath()+"::"+inv.getKey(), exprExt != null, "The invariant has no FHIR Path expression ("+inv.getXpath()+")")) {
-                String expr = ((StringType) exprExt.getValue()).asStringValue();
+              if (rule(errors, IssueType.BUSINESSRULE, profile.getId()+"::"+ed.getPath()+"::"+inv.getKey(), inv.hasExpression(), "The invariant has no FHIR Path expression ("+inv.getXpath()+")")) {
                 try {
-                  new FHIRPathEngine(context).check(null, profile.getConstrainedType(), ed.getPath(), expr, inv.hasXpath() && inv.getXpath().startsWith("@value"));
+                  new FHIRPathEngine(context).check(null, profile.getConstrainedType(), ed.getPath(), inv.getExpression(), inv.hasXpath() && inv.getXpath().startsWith("@value"));
                 } catch (Exception e) {
 //                  rule(errors, IssueType.STRUCTURE, profile.getId()+"::"+ed.getPath()+"::"+inv.getId(), exprExt != null, e.getMessage());
                 }

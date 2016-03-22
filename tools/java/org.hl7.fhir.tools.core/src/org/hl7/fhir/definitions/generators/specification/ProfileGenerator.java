@@ -1632,17 +1632,19 @@ public class ProfileGenerator {
       pp.setProfile(ref);
     }
     opd.add(pp);
-    if (p.getType().equals("Tuple")) {
+    if (p.getFhirType().equals("Tuple")) {
       for (OperationParameter part : p.getParts()) {
         produceOpParam(path+"."+p.getName(), pp.getPart(), part, pp.getUse());
       }
     } else {
-      TypeRef tr = new TypeParser().parse(p.getType(), false, null, null, false).get(0);
+      TypeRef tr = new TypeParser().parse(p.getFhirType(), false, null, null, false).get(0);
       if (definitions.getConstraints().containsKey(tr.getName())) {
         ProfiledType pt = definitions.getConstraints().get(tr.getName());
         pp.setType(pt.getBaseType());
         pp.setProfile(new Reference().setReference("http://hl7.org/fhir/StructureDefinition/"+pt.getName()));
       } else { 
+        if (p.getSearchType() != null)
+          pp.setSearchType(SearchParamType.fromCode(p.getSearchType()));
         pp.setType(tr.getName());
         if (tr.getParams().size() == 1 && !tr.getParams().get(0).equals("Any"))
           pp.setProfile(new Reference().setReference("http://hl7.org/fhir/StructureDefinition/"+tr.getParams().get(0)));

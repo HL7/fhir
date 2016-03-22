@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>14010</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>17610</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>3</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -863,9 +863,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R105C24" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R106C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="27" ss:ExpandedRowCount="105" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="27" ss:ExpandedRowCount="106" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s69" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s70" ss:Width="227.25"/>
    <Column ss:StyleID="s69" ss:AutoFitWidth="0" ss:Width="77.25"/>
@@ -1872,7 +1872,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">OperationParameterType</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">FHIRDefinedType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1886,6 +1886,39 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">if there is no stated parameter, then the parameter is a &quot;Tuple&quot; type and must have at least one part defined</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30">
+    <Cell ss:StyleID="s87"><Data ss:Type="String">OperationDefinition.parameter.searchType</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="Number">2</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">SearchParamType</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">number | date | string | token | reference | composite | quantity | uri</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3949,10 +3982,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>19</TopRowBottomPane>
+   <TopRowBottomPane>23</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3969,14 +4003,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>26</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>28</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R105C24"
+  <AutoFilter x:Range="R1C1:R106C24"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -4040,13 +4074,14 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s110"/>
+    <Cell ss:StyleID="s109"><Data ss:Type="Number">2</Data><NamedCell
+      ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">Search Type</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">error</Data></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">OperationDefinition.parameter</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">A search type can only be specified for parameters of type string</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">searchType implies type = 'string'</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:searchType)) or (f:type/@value = 'string')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s109"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4504,8 +4539,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4752,7 +4787,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4773,7 +4807,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>11</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6489,7 +6523,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:Width="114.75"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="274.5"/>
@@ -6575,21 +6609,6 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">code list</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">required</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">#operation-parameter-use</Data></Cell>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s121"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s149"><Data ss:Type="String">OperationParameterType</Data></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">The type of a parameter.</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">valueset-operation-parameter-type</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
@@ -7022,7 +7041,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

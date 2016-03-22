@@ -1,13 +1,6 @@
 ﻿
 === Sheet Bindings =====================================
 
- -- Row 1 -----------------------------------
-  Binding Name = DataRequirementType
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/operation-parameter-type
-  Definition = The type of the required data
-  Conformance = required
-
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -22,7 +15,7 @@
   Element = DataRequirement.type
   Card. = 1..1
   Type = code
-  Binding = DataRequirementType
+  Binding = FHIRDefinedType
   Short Label = The type of the required data
   Definition = The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile
 

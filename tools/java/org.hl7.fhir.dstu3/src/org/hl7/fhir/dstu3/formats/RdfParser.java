@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -8655,6 +8655,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "OperationDefinition", "documentation", element.getDocumentationElement(), -1);
     if (element.hasTypeElement())
       composeCode(t, "OperationDefinition", "type", element.getTypeElement(), -1);
+    if (element.hasSearchTypeElement())
+      composeEnum(t, "OperationDefinition", "searchType", element.getSearchTypeElement(), -1);
     if (element.hasProfile())
       composeReference(t, "OperationDefinition", "profile", element.getProfile(), -1);
     if (element.hasBinding())

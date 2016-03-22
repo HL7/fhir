@@ -11,7 +11,7 @@
   <LastAuthor>Bryn</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2016-02-17T05:59:02Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">cfee2c1e-5582-4b00-a8ce-750c2cd977f7</WorkbookGuid>
@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7995</WindowHeight>
-  <WindowWidth>19245</WindowWidth>
+  <WindowHeight>4980</WindowHeight>
+  <WindowWidth>7470</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -988,7 +988,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">DataRequirementType</Data><NamedCell
+    <Cell ss:StyleID="s80"><Data ss:Type="String">FHIRDefinedType</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s80"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3569,8 +3569,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
-     <ActiveCol>12</ActiveCol>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6043,7 +6043,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="31" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="30" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s111" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s111" ss:Width="114.75"/>
    <Column ss:StyleID="s111" ss:AutoFitWidth="0" ss:Width="274.5"/>
@@ -6110,22 +6110,6 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unpublished notes</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s145"><Data ss:Type="String">DataRequirementType</Data></Cell>
-    <Cell ss:StyleID="s80"><Data ss:Type="String">The type of the required data</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">required</Data></Cell>
-    <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/ValueSet/operation-parameter-type"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/operation-parameter-type</Data></Cell>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s114"/>
-    <Cell ss:StyleID="s115"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s145"/>
@@ -6580,8 +6564,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R2</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

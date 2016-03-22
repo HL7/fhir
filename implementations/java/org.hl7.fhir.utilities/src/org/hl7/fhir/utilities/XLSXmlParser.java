@@ -56,6 +56,14 @@ public class XLSXmlParser {
     public Row columns;
     public List<Row> rows = new ArrayList<Row>();
 
+    public boolean hasColumn(String column)  {
+      for (int i = 0; i < columns.size(); i++) {
+        if (columns.get(i).equalsIgnoreCase(column))
+          return true;
+      }
+      return false;
+    }
+    
     public boolean hasColumn(int row, String column)  {
       String s = getColumn(row, column);
       return s != null && !s.equals("");     

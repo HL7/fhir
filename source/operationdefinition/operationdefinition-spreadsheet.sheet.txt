@@ -15,13 +15,6 @@
   Definition = Whether an operation parameter is an input or an output parameter.
   Conformance = required
 
- -- Row 3 -----------------------------------
-  Binding Name = OperationParameterType
-  Binding = value set
-  Reference = valueset-operation-parameter-type
-  Definition = The type of a parameter.
-  Conformance = required
-
 === Sheet operation-kind =====================================
 
  -- Row 1 -----------------------------------
@@ -58,6 +51,14 @@
   English = Either a type must be provided, or parts
   XPath = exists(f:type) or exists(f:part)
   Expression = type or part
+  Severity = error
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Context = OperationDefinition.parameter
+  English = A search type can only be specified for parameters of type string
+  XPath = not(exists(f:searchType)) or (f:type/@value = \'string\')
+  Expression = searchType implies type = \'string\'
   Severity = error
 
 === Sheet Data Elements =====================================
@@ -292,26 +293,35 @@
   Card. = 0..1
   Inv. = 1
   Type = code
-  Binding = OperationParameterType
+  Binding = FHIRDefinedType
   Short Label = What type this parameter has
   Definition = The type for this parameter
   Comments = if there is no stated parameter, then the parameter is a \"Tuple\" type and must have at least one part defined
 
  -- Row 29 -----------------------------------
+  Element = OperationDefinition.parameter.searchType
+  Card. = 0..1
+  Inv. = 2
+  Type = code
+  Binding = SearchParamType
+  Short Label = number | date | string | token | reference | composite | quantity | uri
+  Definition = How the parameter is understood as a search parameter. This is only used if the parameter type is \'string\'
+
+ -- Row 30 -----------------------------------
   Element = OperationDefinition.parameter.profile
   Card. = 0..1
   Type = Reference(StructureDefinition)
   Short Label = Profile on the type
   Definition = A profile the specifies the rules that this parameter must conform to
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
   Element = OperationDefinition.parameter.binding
   Card. = 0..1
   UML = 300;150
   Short Label = ValueSet details if this is coded
   Definition = Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)
 
- -- Row 31 -----------------------------------
+ -- Row 32 -----------------------------------
   Element = OperationDefinition.parameter.binding.strength
   Card. = 1..1
   Aliases = conformance; extensibility
@@ -321,7 +331,7 @@
   Definition = Indicates the degree of conformance expectations associated with this binding - that is, the degree to which the provided value set must be adhered to in the instances
   Comments = For further discussion, see [[[Using Terminologies]]]
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = OperationDefinition.parameter.binding.valueSet[x]
   Card. = 1..1
   Type = uri | Reference(ValueSet)
@@ -329,7 +339,7 @@
   Definition = Points to the value set or external definition (e.g. implicit value set) that identifies the set of codes to be used
   Comments = For value sets with a referenceResource, the display can contain the value set description.  The reference may be version-specific or not
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = OperationDefinition.parameter.part
   Card. = 0..*
   UML = right
@@ -339,7 +349,7 @@
   Definition = The parts of a Tuple Parameter
   Comments = Query Definitions only have one output parameter, named \"result\". This may not be described, but can be to allow a profile to be defined
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = !OperationDefinition.parameter.part.name
   Card. = 1..1
   Type = code
@@ -348,28 +358,28 @@
   Definition = The name of used to identify the parameter
   Comments = This name must be a token (start with a letter in a..z, and only contain letters, numerals, and underscore
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = !OperationDefinition.parameter.part.min
   Card. = 1..1
   Type = unsignedInt
   Short Label = Minimum Cardinality
   Definition = The minimum number of times this parameter SHALL appear in the request or response
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = !OperationDefinition.parameter.part.max
   Card. = 1..1
   Type = string
   Short Label = Maximum Cardinality (a number or *)
   Definition = The maximum number of times this element is permitted to appear in the request or response
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = !OperationDefinition.parameter.part.documentation
   Card. = 0..1
   Type = string
   Short Label = Description of meaning/use
   Definition = Describes the meaning or use of this parameter
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = !OperationDefinition.parameter.part.type
   Card. = 1..1
   Type = code
@@ -377,7 +387,7 @@
   Short Label = What type this parameter has
   Definition = The type for this parameter
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = !OperationDefinition.parameter.part.profile
   Card. = 0..1
   Type = Reference(StructureDefinition)

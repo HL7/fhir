@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -9972,6 +9972,8 @@ public class XmlParser extends XmlParserBase {
         res.setDocumentationElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("type")) {
         res.setTypeElement(parseCode(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("searchType")) {
+        res.setSearchTypeElement(parseEnumeration(xpp, Enumerations.SearchParamType.NULL, new Enumerations.SearchParamTypeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("profile")) {
         res.setProfile(parseReference(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("binding")) {
@@ -24977,6 +24979,8 @@ public class XmlParser extends XmlParserBase {
       if (element.hasTypeElement()) {
         composeCode("type", element.getTypeElement());
       }
+      if (element.hasSearchTypeElement())
+        composeEnumeration("searchType", element.getSearchTypeElement(), new Enumerations.SearchParamTypeEnumFactory());
       if (element.hasProfile()) {
         composeReference("profile", element.getProfile());
       }

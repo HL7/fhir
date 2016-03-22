@@ -424,11 +424,13 @@ public class SpreadsheetParser {
     Map<String, OperationParameter> params = new HashMap<String, OperationParameter>();
 	  
 	  if (sheet != null) {
+	    
       tabfmt.sheet("Examples");
       tabfmt.column("Name");
       tabfmt.column("Use");
       tabfmt.column("Documentation");
       tabfmt.column("Type");
+      tabfmt.column("Search Type");
       tabfmt.column("Example.Request");
       tabfmt.column("Example.Response");
       tabfmt.column("Title");
@@ -444,6 +446,7 @@ public class SpreadsheetParser {
         tabfmt.cell(sheet.getColumn(row, "Use"));
         tabfmt.cell(sheet.getColumn(row, "Documentation"));
         tabfmt.cell(sheet.getColumn(row, "Type"));
+        tabfmt.cell(sheet.getColumn(row, "Search Type"));
         tabfmt.cell(sheet.getColumn(row, "Example.Request"));
         tabfmt.cell(sheet.getColumn(row, "Example.Response"));
         tabfmt.cell(sheet.getColumn(row, "Title"));
@@ -502,7 +505,7 @@ public class SpreadsheetParser {
               OperationParameter param = params.get(context);
               if (param == null)
                 throw new Exception("Tuple parameter '"+context+"' not found at "+getLocation(row));
-              if (!param.getType().equals("Tuple"))
+              if (!param.getFhirType().equals("Tuple"))
                 throw new Exception("Tuple parameter '"+context+"' type must be Tuple at "+getLocation(row));
               plist = param.getParts();
 	          } else {
@@ -516,7 +519,7 @@ public class SpreadsheetParser {
             String profile = sheet.getColumn(row, "Profile");
             String min = sheet.getColumn(row, "Min");
             String max = sheet.getColumn(row, "Max");
-            OperationParameter p = new OperationParameter(pname, use, doco, Integer.parseInt(min), max, type, profile);
+            OperationParameter p = new OperationParameter(pname, use, doco, Integer.parseInt(min), max, type, sheet.getColumn(row, "Search Type"), profile);
             String bs = sheet.getColumn(row, "Binding");
             if (!Utilities.noString(bs))
               p.setBs(bindings.get(bs));

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -453,9 +453,16 @@ public class OperationDefinition extends DomainResource {
         protected CodeType type;
 
         /**
+         * How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.
+         */
+        @Child(name = "searchType", type = {CodeType.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="number | date | string | token | reference | composite | quantity | uri", formalDefinition="How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'." )
+        protected Enumeration<SearchParamType> searchType;
+
+        /**
          * A profile the specifies the rules that this parameter must conform to.
          */
-        @Child(name = "profile", type = {StructureDefinition.class}, order=7, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "profile", type = {StructureDefinition.class}, order=8, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Profile on the type", formalDefinition="A profile the specifies the rules that this parameter must conform to." )
         protected Reference profile;
 
@@ -467,18 +474,18 @@ public class OperationDefinition extends DomainResource {
         /**
          * Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).
          */
-        @Child(name = "binding", type = {}, order=8, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "binding", type = {}, order=9, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="ValueSet details if this is coded", formalDefinition="Binds to a value set if this parameter is coded (code, Coding, CodeableConcept)." )
         protected OperationDefinitionParameterBindingComponent binding;
 
         /**
          * The parts of a Tuple Parameter.
          */
-        @Child(name = "part", type = {OperationDefinitionParameterComponent.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Child(name = "part", type = {OperationDefinitionParameterComponent.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
         @Description(shortDefinition="Parts of a Tuple Parameter", formalDefinition="The parts of a Tuple Parameter." )
         protected List<OperationDefinitionParameterComponent> part;
 
-        private static final long serialVersionUID = -1514145741L;
+        private static final long serialVersionUID = -885506257L;
 
     /**
      * Constructor
@@ -777,6 +784,55 @@ public class OperationDefinition extends DomainResource {
         }
 
         /**
+         * @return {@link #searchType} (How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.). This is the underlying object with id, value and extensions. The accessor "getSearchType" gives direct access to the value
+         */
+        public Enumeration<SearchParamType> getSearchTypeElement() { 
+          if (this.searchType == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create OperationDefinitionParameterComponent.searchType");
+            else if (Configuration.doAutoCreate())
+              this.searchType = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory()); // bb
+          return this.searchType;
+        }
+
+        public boolean hasSearchTypeElement() { 
+          return this.searchType != null && !this.searchType.isEmpty();
+        }
+
+        public boolean hasSearchType() { 
+          return this.searchType != null && !this.searchType.isEmpty();
+        }
+
+        /**
+         * @param value {@link #searchType} (How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.). This is the underlying object with id, value and extensions. The accessor "getSearchType" gives direct access to the value
+         */
+        public OperationDefinitionParameterComponent setSearchTypeElement(Enumeration<SearchParamType> value) { 
+          this.searchType = value;
+          return this;
+        }
+
+        /**
+         * @return How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.
+         */
+        public SearchParamType getSearchType() { 
+          return this.searchType == null ? null : this.searchType.getValue();
+        }
+
+        /**
+         * @param value How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.
+         */
+        public OperationDefinitionParameterComponent setSearchType(SearchParamType value) { 
+          if (value == null)
+            this.searchType = null;
+          else {
+            if (this.searchType == null)
+              this.searchType = new Enumeration<SearchParamType>(new SearchParamTypeEnumFactory());
+            this.searchType.setValue(value);
+          }
+          return this;
+        }
+
+        /**
          * @return {@link #profile} (A profile the specifies the rules that this parameter must conform to.)
          */
         public Reference getProfile() { 
@@ -892,6 +948,7 @@ public class OperationDefinition extends DomainResource {
           childrenList.add(new Property("max", "string", "The maximum number of times this element is permitted to appear in the request or response.", 0, java.lang.Integer.MAX_VALUE, max));
           childrenList.add(new Property("documentation", "string", "Describes the meaning or use of this parameter.", 0, java.lang.Integer.MAX_VALUE, documentation));
           childrenList.add(new Property("type", "code", "The type for this parameter.", 0, java.lang.Integer.MAX_VALUE, type));
+          childrenList.add(new Property("searchType", "code", "How the parameter is understood as a search parameter. This is only used if the parameter type is 'string'.", 0, java.lang.Integer.MAX_VALUE, searchType));
           childrenList.add(new Property("profile", "Reference(StructureDefinition)", "A profile the specifies the rules that this parameter must conform to.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("binding", "", "Binds to a value set if this parameter is coded (code, Coding, CodeableConcept).", 0, java.lang.Integer.MAX_VALUE, binding));
           childrenList.add(new Property("part", "@OperationDefinition.parameter", "The parts of a Tuple Parameter.", 0, java.lang.Integer.MAX_VALUE, part));
@@ -911,6 +968,8 @@ public class OperationDefinition extends DomainResource {
           this.documentation = castToString(value); // StringType
         else if (name.equals("type"))
           this.type = castToCode(value); // CodeType
+        else if (name.equals("searchType"))
+          this.searchType = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
         else if (name.equals("profile"))
           this.profile = castToReference(value); // Reference
         else if (name.equals("binding"))
@@ -941,6 +1000,9 @@ public class OperationDefinition extends DomainResource {
         else if (name.equals("type")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.type");
         }
+        else if (name.equals("searchType")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.searchType");
+        }
         else if (name.equals("profile")) {
           this.profile = new Reference();
           return this.profile;
@@ -965,6 +1027,7 @@ public class OperationDefinition extends DomainResource {
         dst.max = max == null ? null : max.copy();
         dst.documentation = documentation == null ? null : documentation.copy();
         dst.type = type == null ? null : type.copy();
+        dst.searchType = searchType == null ? null : searchType.copy();
         dst.profile = profile == null ? null : profile.copy();
         dst.binding = binding == null ? null : binding.copy();
         if (part != null) {
@@ -984,8 +1047,8 @@ public class OperationDefinition extends DomainResource {
         OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other;
         return compareDeep(name, o.name, true) && compareDeep(use, o.use, true) && compareDeep(min, o.min, true)
            && compareDeep(max, o.max, true) && compareDeep(documentation, o.documentation, true) && compareDeep(type, o.type, true)
-           && compareDeep(profile, o.profile, true) && compareDeep(binding, o.binding, true) && compareDeep(part, o.part, true)
-          ;
+           && compareDeep(searchType, o.searchType, true) && compareDeep(profile, o.profile, true) && compareDeep(binding, o.binding, true)
+           && compareDeep(part, o.part, true);
       }
 
       @Override
@@ -997,14 +1060,14 @@ public class OperationDefinition extends DomainResource {
         OperationDefinitionParameterComponent o = (OperationDefinitionParameterComponent) other;
         return compareValues(name, o.name, true) && compareValues(use, o.use, true) && compareValues(min, o.min, true)
            && compareValues(max, o.max, true) && compareValues(documentation, o.documentation, true) && compareValues(type, o.type, true)
-          ;
+           && compareValues(searchType, o.searchType, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (name == null || name.isEmpty()) && (use == null || use.isEmpty())
            && (min == null || min.isEmpty()) && (max == null || max.isEmpty()) && (documentation == null || documentation.isEmpty())
-           && (type == null || type.isEmpty()) && (profile == null || profile.isEmpty()) && (binding == null || binding.isEmpty())
-           && (part == null || part.isEmpty());
+           && (type == null || type.isEmpty()) && (searchType == null || searchType.isEmpty()) && (profile == null || profile.isEmpty())
+           && (binding == null || binding.isEmpty()) && (part == null || part.isEmpty());
       }
 
   public String fhirType() {

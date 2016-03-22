@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -53,14 +53,14 @@ public class Contract extends DomainResource {
         /**
          * Who or what parties are assigned roles in this Contract.
          */
-        @Child(name = "actor", type = {Contract.class, Device.class, Group.class, Location.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class, Substance.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Child(name = "actor", type = {ListResource.class}, order=1, min=1, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Contract Agent Type", formalDefinition="Who or what parties are assigned roles in this Contract." )
         protected Reference actor;
 
         /**
          * The actual object that is the target of the reference (Who or what parties are assigned roles in this Contract.)
          */
-        protected Resource actorTarget;
+        protected ListResource actorTarget;
 
         /**
          * Role type of agent assigned roles in this Contract.
@@ -69,7 +69,7 @@ public class Contract extends DomainResource {
         @Description(shortDefinition="Contract  Agent Role", formalDefinition="Role type of agent assigned roles in this Contract." )
         protected List<CodeableConcept> role;
 
-        private static final long serialVersionUID = -454551165L;
+        private static final long serialVersionUID = -1016165951L;
 
     /**
      * Constructor
@@ -113,14 +113,19 @@ public class Contract extends DomainResource {
         /**
          * @return {@link #actor} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Who or what parties are assigned roles in this Contract.)
          */
-        public Resource getActorTarget() { 
+        public ListResource getActorTarget() { 
+          if (this.actorTarget == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create AgentComponent.actor");
+            else if (Configuration.doAutoCreate())
+              this.actorTarget = new ListResource(); // aa
           return this.actorTarget;
         }
 
         /**
          * @param value {@link #actor} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Who or what parties are assigned roles in this Contract.)
          */
-        public AgentComponent setActorTarget(Resource value) { 
+        public AgentComponent setActorTarget(ListResource value) { 
           this.actorTarget = value;
           return this;
         }
@@ -167,7 +172,7 @@ public class Contract extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("actor", "Reference(Contract|Device|Group|Location|Organization|Patient|Practitioner|RelatedPerson|Substance)", "Who or what parties are assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, actor));
+          childrenList.add(new Property("actor", "Reference(List)", "Who or what parties are assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, actor));
           childrenList.add(new Property("role", "CodeableConcept", "Role type of agent assigned roles in this Contract.", 0, java.lang.Integer.MAX_VALUE, role));
         }
 

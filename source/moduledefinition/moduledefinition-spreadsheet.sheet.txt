@@ -2,13 +2,6 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = ModuleDefinitionParameterType
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/operation-parameter-type
-  Definition = The type of the parameter
-  Conformance = required
-
- -- Row 2 -----------------------------------
   Binding Name = ModuleDefinitionParameterUse
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/operation-parameter-use
@@ -178,7 +171,7 @@
   Element = ModuleDefinition.parameter.type
   Card. = 1..1
   Type = code
-  Binding = ModuleDefinitionParameterType
+  Binding = FHIRDefinedType
   Definition = The type of the parameter
 
  -- Row 27 -----------------------------------
@@ -197,7 +190,7 @@
   Element = ModuleDefinition.data.type
   Card. = 1..1
   Type = code
-  Binding = ModuleDefinitionParameterType
+  Binding = FHIRDefinedType
   Short Label = The type of the required data
   Definition = The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile
 

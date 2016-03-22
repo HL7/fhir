@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/defined-types",
   "outcomes": [
     {
+      "hash": "|null|null|*|null",
+      "severity": "error",
+      "message": "Unknown Code * in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
       "hash": "|null|null|ActionDefinition|null",
       "severity": "error",
       "message": "Unknown Code ActionDefinition in http://hl7.org/fhir/ValueSet/defined-types"
@@ -38,6 +43,11 @@
         "definition": null,
         "display": "Annotation"
       }
+    },
+    {
+      "hash": "|null|null|Any|null",
+      "severity": "error",
+      "message": "Unknown Code Any in http://hl7.org/fhir/ValueSet/defined-types"
     },
     {
       "hash": "|null|null|Attachment|null",
@@ -177,6 +187,17 @@
       }
     },
     {
+      "hash": "|null|null|ConceptMap|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ConceptMap",
+        "definition": null,
+        "display": "ConceptMap"
+      }
+    },
+    {
       "hash": "|null|null|Condition|null",
       "severity": null,
       "message": null,
@@ -207,6 +228,17 @@
         "code": "Contract",
         "definition": null,
         "display": "Contract"
+      }
+    },
+    {
+      "hash": "|null|null|Coverage|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Coverage",
+        "definition": null,
+        "display": "Coverage"
       }
     },
     {
@@ -391,6 +423,11 @@
       }
     },
     {
+      "hash": "|null|null|GuidanceResponse|null",
+      "severity": "error",
+      "message": "Unknown Code GuidanceResponse in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
       "hash": "|null|null|HumanName|null",
       "severity": null,
       "message": null,
@@ -468,6 +505,11 @@
       }
     },
     {
+      "hash": "|null|null|MeasureReport|null",
+      "severity": "error",
+      "message": "Unknown Code MeasureReport in http://hl7.org/fhir/ValueSet/defined-types"
+    },
+    {
       "hash": "|null|null|MedicationAdministration|null",
       "severity": null,
       "message": null,
@@ -499,6 +541,11 @@
         "definition": null,
         "display": "MedicationOrder"
       }
+    },
+    {
+      "hash": "|null|null|MedicationPrescription|null",
+      "severity": "error",
+      "message": "Unknown Code MedicationPrescription in http://hl7.org/fhir/ValueSet/defined-types"
     },
     {
       "hash": "|null|null|MedicationStatement|null",
@@ -558,6 +605,17 @@
         "code": "Observation",
         "definition": null,
         "display": "Observation"
+      }
+    },
+    {
+      "hash": "|null|null|OperationOutcome|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "OperationOutcome",
+        "definition": null,
+        "display": "OperationOutcome"
       }
     },
     {
@@ -987,6 +1045,11 @@
         "definition": null,
         "display": "time"
       }
+    },
+    {
+      "hash": "|null|null|token|null",
+      "severity": "error",
+      "message": "Unknown Code token in http://hl7.org/fhir/ValueSet/defined-types"
     },
     {
       "hash": "|null|null|unsignedInt|null",

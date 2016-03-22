@@ -2,13 +2,6 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = ParameterType
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/operation-parameter-type
-  Definition = The type of the parameter
-  Conformance = required
-
- -- Row 2 -----------------------------------
   Binding Name = ParameterUse
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/operation-parameter-use
@@ -65,7 +58,7 @@
   Element = ParameterDefinition.type
   Card. = 1..1
   Type = code
-  Binding = ParameterType
+  Binding = FHIRDefinedType
   Definition = The type of the parameter
 
  -- Row 8 -----------------------------------
