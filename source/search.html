@@ -1031,6 +1031,12 @@ criteria, and then sort by date in descending order, with <code>_count=1</code>.
 This way, the last matching resource will be returned.
 </p>
 
+<p>
+if <code>_count</code> has the value 0, this shall be treated the same as <code>_summary=count</code>: the
+server resturns a bundle that reports the total number of matches in Bundle.total, 
+but with no entries, and no prev/next/last links.
+</p>
+
 <a name="include"> </a>
 <a name="revinclude"> </a>
 <h4>Including other resources in result (<code>_include</code> and <code>_revinclude</code>)</h4>
