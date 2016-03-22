@@ -3558,6 +3558,7 @@ public class Publisher implements URIResolver, SectionNumberer {
       cs.setUserData("example", "true");
       cs.setUserData("filename", Utilities.changeFileExt(file.getName(), ""));
       cs.setUserData("committee", "fhir");
+      cs.setUserData("path", prefix +n + ".html");
       page.getCodeSystems().put(cs.getUrl(), cs);
     } else if (rt.equals("ConceptMap")) {
       ConceptMap cm = (ConceptMap) new XmlParser().parse(new FileInputStream(file));

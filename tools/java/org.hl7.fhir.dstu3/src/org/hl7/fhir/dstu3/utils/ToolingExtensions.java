@@ -84,8 +84,6 @@ public class ToolingExtensions {
   public static final String EXT_MAXOCCURS = "http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs";
   public static final String EXT_ALLOWEDRESOURCE = "http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource";
   public static final String EXT_REFERENCEFILTER = "http://hl7.org/fhir/StructureDefinition/questionnaire-referenceFilter";
-  public static final String EXT_EXPRESSION = "http://hl7.org/fhir/StructureDefinition/structuredefinition-expression";
-  public static final String EXT_SEARCH_EXPRESSION = "http://hl7.org/fhir/StructureDefinition/searchparameter-expression";
 
   // unregistered?
 

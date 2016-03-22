@@ -532,7 +532,7 @@ public class ProfileGenerator {
     inv.setHuman(pt.getInvariant().getEnglish());
     if (!"n/a".equals(pt.getInvariant().getExpression())) {
       fpUsages.add(new FHIRPathUsage(pt.getName(), pt.getName(), pt.getName(), null, pt.getInvariant().getExpression()));
-      ToolingExtensions.addStringExtension(inv, ToolingExtensions.EXT_EXPRESSION, pt.getInvariant().getExpression());
+      inv.setExpression(pt.getInvariant().getExpression());
     }
     inv.setXpath(pt.getInvariant().getXpath());
     e.getConstraint().add(inv);
@@ -845,7 +845,7 @@ public class ProfileGenerator {
     sp.setType(getSearchParamType(spd.getType()));
     sp.setDescription(spd.getDescription());
     if (!Utilities.noString(spd.getExpression())) 
-      ToolingExtensions.addStringExtension(sp, ToolingExtensions.EXT_SEARCH_EXPRESSION, spd.getExpression());
+      sp.setExpression(spd.getExpression());
     String xpath = new XPathQueryGenerator(this.definitions, null, null).generateXpath(spd.getPaths());
     if (xpath != null) {
       if (xpath.contains("[x]"))
@@ -1166,7 +1166,7 @@ public class ProfileGenerator {
       con.setHuman(inv.getEnglish());
       con.setXpath(inv.getXpath());
       if (!"n/a".equals(inv.getExpression()))
-        ToolingExtensions.addStringExtension(con, ToolingExtensions.EXT_EXPRESSION, inv.getExpression());
+        con.setExpression(inv.getExpression());
       ce.getConstraint().add(con);
     }
     // we don't have anything to say about constraints on resources
@@ -1511,7 +1511,7 @@ public class ProfileGenerator {
       con.setHuman(inv.getEnglish());
       con.setXpath(inv.getXpath());
       if (!"n/a".equals(inv.getExpression()))
-        ToolingExtensions.addStringExtension(con, ToolingExtensions.EXT_EXPRESSION, inv.getExpression());
+        con.setExpression(inv.getExpression());
       dst.getConstraint().add(con);
     }
 

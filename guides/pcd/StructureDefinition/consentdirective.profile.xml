@@ -783,6 +783,7 @@
         <key value="qty-3" />
         <severity value="error" />
         <human value="If a code for the unit is present, the system SHALL also be present" />
+        <expression value="code.empty() or system"/>
         <xpath value="not(exists(f:code)) or exists(f:system)" />
       </constraint>
       <constraint>
@@ -792,6 +793,7 @@
         <key value="sqty-1" />
         <severity value="error" />
         <human value="The comparator is not used on a SimpleQuantity" />
+        <expression value="comparator.empty()"/>
         <xpath value="not(exists(f:comparator))" />
       </constraint>
       <isSummary value="true" />
@@ -828,6 +830,7 @@
         <key value="qty-3" />
         <severity value="error" />
         <human value="If a code for the unit is present, the system SHALL also be present" />
+        <expression value="code.empty() or system"/>
         <xpath value="not(exists(f:code)) or exists(f:system)" />
       </constraint>
       <constraint>
@@ -837,6 +840,7 @@
         <key value="mny-1" />
         <severity value="error" />
         <human value="There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = &quot;urn:iso:std:iso:4217&quot; - currency)." />
+        <expression value="(code or value.empty()) and (system.empty() or system = 'urn:iso:std:iso:4217')"/>
         <xpath value="(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:iso:std:iso:4217')" />
       </constraint>
       <isSummary value="true" />
@@ -925,6 +929,7 @@
         <key value="qty-3" />
         <severity value="error" />
         <human value="If a code for the unit is present, the system SHALL also be present" />
+        <expression value="code.empty() or system"/>
         <xpath value="not(exists(f:code)) or exists(f:system)" />
       </constraint>
       <constraint>
@@ -934,6 +939,7 @@
         <key value="mny-1" />
         <severity value="error" />
         <human value="There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = &quot;urn:iso:std:iso:4217&quot; - currency)." />
+        <expression value="(code or value.empty()) and (system.empty() or system = 'urn:iso:std:iso:4217')"/>
         <xpath value="(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:iso:std:iso:4217')" />
       </constraint>
       <isSummary value="true" />
@@ -1698,6 +1704,7 @@
         <key value="qty-3" />
         <severity value="error" />
         <human value="If a code for the unit is present, the system SHALL also be present" />
+        <expression value="code.empty() or system"/>
         <xpath value="not(exists(f:code)) or exists(f:system)" />
       </constraint>
       <constraint>
@@ -1707,6 +1714,7 @@
         <key value="sqty-1" />
         <severity value="error" />
         <human value="The comparator is not used on a SimpleQuantity" />
+        <expression value="comparator.empty()"/>
         <xpath value="not(exists(f:comparator))" />
       </constraint>
       <isSummary value="true" />
@@ -1743,6 +1751,7 @@
         <key value="qty-3" />
         <severity value="error" />
         <human value="If a code for the unit is present, the system SHALL also be present" />
+        <expression value="code.empty() or system"/>
         <xpath value="not(exists(f:code)) or exists(f:system)" />
       </constraint>
       <constraint>
@@ -1752,6 +1761,7 @@
         <key value="mny-1" />
         <severity value="error" />
         <human value="There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = &quot;urn:iso:std:iso:4217&quot; - currency)." />
+        <expression value="(code or value.empty()) and (system.empty() or system = 'urn:iso:std:iso:4217')"/>
         <xpath value="(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:iso:std:iso:4217')" />
       </constraint>
       <isSummary value="true" />
@@ -1828,6 +1838,7 @@
         <key value="qty-3" />
         <severity value="error" />
         <human value="If a code for the unit is present, the system SHALL also be present" />
+        <expression value="code.empty() or system"/>
         <xpath value="not(exists(f:code)) or exists(f:system)" />
       </constraint>
       <constraint>
@@ -1837,6 +1848,7 @@
         <key value="mny-1" />
         <severity value="error" />
         <human value="There SHALL be a code if there is a value and it SHALL be an expression of currency.  If system is present, it SHALL be ISO 4217 (system = &quot;urn:iso:std:iso:4217&quot; - currency)." />
+        <expression value="(code or value.empty()) and (system.empty() or system = 'urn:iso:std:iso:4217')"/>
         <xpath value="(f:code or not(f:value)) and (not(exists(f:system)) or f:system/@value='urn:iso:std:iso:4217')" />
       </constraint>
       <isSummary value="true" />

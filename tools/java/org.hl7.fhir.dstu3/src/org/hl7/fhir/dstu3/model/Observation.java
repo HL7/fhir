@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 22, 2016 11:08+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -57,7 +57,7 @@ public class Observation extends DomainResource {
          */
         PRELIMINARY, 
         /**
-         * The observation is complete and verified by an authorized person.
+         * The observation is complete and verified by an authorized person  (who may be the same person who entered the observation based on policy).
          */
         FINAL, 
         /**
@@ -127,7 +127,7 @@ public class Observation extends DomainResource {
           switch (this) {
             case REGISTERED: return "The existence of the observation is registered, but there is no result yet available.";
             case PRELIMINARY: return "This is an initial or interim observation: data may be incomplete or unverified.";
-            case FINAL: return "The observation is complete and verified by an authorized person.";
+            case FINAL: return "The observation is complete and verified by an authorized person  (who may be the same person who entered the observation based on policy).";
             case AMENDED: return "The observation has been modified subsequent to being Final, and is complete and verified by an authorized person.";
             case CANCELLED: return "The observation is unavailable because the measurement was not started or not completed (also sometimes called \"aborted\").";
             case ENTEREDINERROR: return "The observation has been withdrawn following previous final release.";

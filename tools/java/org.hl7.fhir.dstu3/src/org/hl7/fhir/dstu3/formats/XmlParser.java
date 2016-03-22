@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Mar 22, 2016 11:08+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -1002,6 +1002,8 @@ public class XmlParser extends XmlParserBase {
         res.setSeverityElement(parseEnumeration(xpp, ElementDefinition.ConstraintSeverity.NULL, new ElementDefinition.ConstraintSeverityEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("human")) {
         res.setHumanElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("expression")) {
+        res.setExpressionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("xpath")) {
         res.setXpathElement(parseString(xpp));
       } else if (!parseElementContent(eventType, xpp, res))
@@ -10037,6 +10039,8 @@ public class XmlParser extends XmlParserBase {
         res.setDiagnosticsElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("location")) {
         res.getLocation().add(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("expression")) {
+        res.getExpression().add(parseString(xpp));
       } else if (!parseBackboneContent(eventType, xpp, res))
         unknownContent(xpp);
       eventType = nextNoWhitespace(xpp);
@@ -11522,6 +11526,8 @@ public class XmlParser extends XmlParserBase {
         res.setTypeElement(parseEnumeration(xpp, Enumerations.SearchParamType.NULL, new Enumerations.SearchParamTypeEnumFactory()));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("expression")) {
+        res.setExpressionElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("xpath")) {
         res.setXpathElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("xpathUsage")) {
@@ -15312,6 +15318,9 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("severity", element.getSeverityElement(), new ElementDefinition.ConstraintSeverityEnumFactory());
       if (element.hasHumanElement()) {
         composeString("human", element.getHumanElement());
+      }
+      if (element.hasExpressionElement()) {
+        composeString("expression", element.getExpressionElement());
       }
       if (element.hasXpathElement()) {
         composeString("xpath", element.getXpathElement());
@@ -25030,6 +25039,10 @@ public class XmlParser extends XmlParserBase {
         for (StringType e : element.getLocation()) 
           composeString("location", e);
       }
+      if (element.hasExpression()) { 
+        for (StringType e : element.getExpression()) 
+          composeString("expression", e);
+      }
       composeElementClose(element);
       xml.exit(FHIR_NS, name);
     }
@@ -26691,6 +26704,9 @@ public class XmlParser extends XmlParserBase {
         composeEnumeration("type", element.getTypeElement(), new Enumerations.SearchParamTypeEnumFactory());
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
+      }
+      if (element.hasExpressionElement()) {
+        composeString("expression", element.getExpressionElement());
       }
       if (element.hasXpathElement()) {
         composeString("xpath", element.getXpathElement());

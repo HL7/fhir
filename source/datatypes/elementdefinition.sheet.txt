@@ -653,6 +653,14 @@
   Comments = Should be expressed in business terms as much as possible
 
  -- Row 42 -----------------------------------
+  Element = ElementDefinition.constraint.expression
+  Card. = 0..1
+  Type = string
+  Short Label = FluentPath expression of constraint
+  Definition = A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met
+  Requirements = Used by validation tooling tests of the validity of the resource
+
+ -- Row 43 -----------------------------------
   Element = ElementDefinition.constraint.xpath
   Card. = 1..1
   Type = string
@@ -661,7 +669,7 @@
   Requirements = Used in Schematron tests of the validity of the resource
   Comments = Elements SHALL use \"f\" as the namespace prefix for the FHIR namespace, and \"x\" for the xhtml namespace, and SHALL NOT use any other prefixes
 
- -- Row 43 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = ElementDefinition.mustSupport
   Card. = 0..1
   Type = boolean
@@ -672,7 +680,7 @@
   11179 Mapping = ??
   Default Value = False
 
- -- Row 44 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = ElementDefinition.isModifier
   Card. = 0..1
   Type = boolean
@@ -683,7 +691,7 @@
   11179 Mapping = ??
   Default Value = False
 
- -- Row 45 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = ElementDefinition.isSummary
   Card. = 0..1
   Type = boolean
@@ -694,7 +702,7 @@
   11179 Mapping = ??
   Default Value = False
 
- -- Row 46 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = ElementDefinition.binding
   Card. = 0..1
   UML = 480;390
@@ -706,7 +714,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain
 
- -- Row 47 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = ElementDefinition.binding.strength
   Card. = 1..1
   Aliases = conformance; extensibility
@@ -719,7 +727,7 @@
   v2 Mapping = N/A
   RIM Mapping = N/A (MIF territory)
 
- -- Row 48 -----------------------------------
+ -- Row 49 -----------------------------------
   Element = ElementDefinition.binding.description
   Card. = 0..1
   Inv. = 10
@@ -729,7 +737,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = .domain.description
 
- -- Row 49 -----------------------------------
+ -- Row 50 -----------------------------------
   Element = ElementDefinition.binding.valueSet[x]
   Card. = 0..1
   Inv. = 10,12
@@ -742,7 +750,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = points to explicit list or expression that evaluates to list of (Enumerated_Value_Domain).member
 
- -- Row 50 -----------------------------------
+ -- Row 51 -----------------------------------
   Element = ElementDefinition.mapping
   Card. = 0..*
   UML = 480;540
@@ -754,7 +762,7 @@
   RIM Mapping = N/A (MIF territory)
   11179 Mapping = Registered_item).document_reference[document_type=mapping]  Also, .meaning linkage to Data_Element_Concept is done as a mapping to a reference model.  (Data_Element_Concepts are all defined in some sort of reference model, be that Object_Class and Property or some other mechanism)
 
- -- Row 51 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = ElementDefinition.mapping.identity
   Card. = 1..1
   Type = id
@@ -762,7 +770,7 @@
   Definition = An internal reference to the definition of a mapping
   RIM Mapping = N/A (MIF territory)
 
- -- Row 52 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = ElementDefinition.mapping.language
   Card. = 0..1
   Type = code
@@ -772,7 +780,7 @@
   Comments = If omitted, then there can be no expectation of computational interpretation of the mapping
   RIM Mapping = N/A (MIF territory)
 
- -- Row 53 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = ElementDefinition.mapping.map
   Card. = 1..1
   Type = string

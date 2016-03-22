@@ -25,6 +25,7 @@
     </div>
   </text>
   <name value="PHR Template"/>
+  <status value="draft"/>
   <date value="2013-06-18"/>
   <publisher value="FHIR Project"/>
   <contact>

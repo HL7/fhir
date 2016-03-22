@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 22, 2016 11:08+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -6420,7 +6420,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * The status of this conformance statement.
      */
-    @Child(name = "status", type = {CodeType.class}, order=3, min=0, max=1, modifier=true, summary=true)
+    @Child(name = "status", type = {CodeType.class}, order=3, min=1, max=1, modifier=true, summary=true)
     @Description(shortDefinition="draft | active | retired", formalDefinition="The status of this conformance statement." )
     protected Enumeration<ConformanceResourceStatus> status;
 
@@ -6560,8 +6560,9 @@ public class Conformance extends DomainResource implements IBaseConformance {
   /**
    * Constructor
    */
-    public Conformance(DateTimeType date, Enumeration<ConformanceStatementKind> kind, IdType fhirVersion, Enumeration<UnknownContentCode> acceptUnknown) {
+    public Conformance(Enumeration<ConformanceResourceStatus> status, DateTimeType date, Enumeration<ConformanceStatementKind> kind, IdType fhirVersion, Enumeration<UnknownContentCode> acceptUnknown) {
       super();
+      this.status = status;
       this.date = date;
       this.kind = kind;
       this.fhirVersion = fhirVersion;
@@ -6754,13 +6755,9 @@ public class Conformance extends DomainResource implements IBaseConformance {
      * @param value The status of this conformance statement.
      */
     public Conformance setStatus(ConformanceResourceStatus value) { 
-      if (value == null)
-        this.status = null;
-      else {
         if (this.status == null)
           this.status = new Enumeration<ConformanceResourceStatus>(new ConformanceResourceStatusEnumFactory());
         this.status.setValue(value);
-      }
       return this;
     }
 

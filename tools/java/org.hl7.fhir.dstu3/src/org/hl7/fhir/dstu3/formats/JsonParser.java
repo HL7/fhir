@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Mar 22, 2016 11:08+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -898,6 +898,10 @@ public class JsonParser extends JsonParserBase {
       res.setHumanElement(parseString(json.get("human").getAsString()));
     if (json.has("_human"))
       parseElementProperties(json.getAsJsonObject("_human"), res.getHumanElement());
+    if (json.has("expression"))
+      res.setExpressionElement(parseString(json.get("expression").getAsString()));
+    if (json.has("_expression"))
+      parseElementProperties(json.getAsJsonObject("_expression"), res.getExpressionElement());
     if (json.has("xpath"))
       res.setXpathElement(parseString(json.get("xpath").getAsString()));
     if (json.has("_xpath"))
@@ -11047,6 +11051,21 @@ public class JsonParser extends JsonParserBase {
           parseElementProperties(array.get(i).getAsJsonObject(), res.getLocation().get(i));
       }
     };
+    if (json.has("expression")) {
+      JsonArray array = json.getAsJsonArray("expression");
+      for (int i = 0; i < array.size(); i++) {
+        res.getExpression().add(parseString(array.get(i).getAsString()));
+      }
+    };
+    if (json.has("_expression")) {
+      JsonArray array = json.getAsJsonArray("_expression");
+      for (int i = 0; i < array.size(); i++) {
+        if (i == res.getExpression().size())
+          res.getExpression().add(parseString(null));
+        if (array.get(i) instanceof JsonObject) 
+          parseElementProperties(array.get(i).getAsJsonObject(), res.getExpression().get(i));
+      }
+    };
     return res;
   }
 
@@ -12760,6 +12779,10 @@ public class JsonParser extends JsonParserBase {
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("expression"))
+      res.setExpressionElement(parseString(json.get("expression").getAsString()));
+    if (json.has("_expression"))
+      parseElementProperties(json.getAsJsonObject("_expression"), res.getExpressionElement());
     if (json.has("xpath"))
       res.setXpathElement(parseString(json.get("xpath").getAsString()));
     if (json.has("_xpath"))
@@ -16807,6 +16830,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasHumanElement()) {
         composeStringCore("human", element.getHumanElement(), false);
         composeStringExtras("human", element.getHumanElement(), false);
+      }
+      if (element.hasExpressionElement()) {
+        composeStringCore("expression", element.getExpressionElement(), false);
+        composeStringExtras("expression", element.getExpressionElement(), false);
       }
       if (element.hasXpathElement()) {
         composeStringCore("xpath", element.getXpathElement(), false);
@@ -29393,6 +29420,18 @@ public class JsonParser extends JsonParserBase {
           closeArray();
         }
       };
+      if (element.hasExpression()) {
+        openArray("expression");
+        for (StringType e : element.getExpression()) 
+          composeStringCore(null, e, true);
+        closeArray();
+        if (anyHasExtras(element.getExpression())) {
+          openArray("_expression");
+          for (StringType e : element.getExpression()) 
+            composeStringExtras(null, e, true);
+          closeArray();
+        }
+      };
   }
 
   protected void composeOrder(String name, Order element) throws IOException {
@@ -31516,6 +31555,10 @@ public class JsonParser extends JsonParserBase {
       if (element.hasDescriptionElement()) {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
+      }
+      if (element.hasExpressionElement()) {
+        composeStringCore("expression", element.getExpressionElement(), false);
+        composeStringExtras("expression", element.getExpressionElement(), false);
       }
       if (element.hasXpathElement()) {
         composeStringCore("xpath", element.getXpathElement(), false);

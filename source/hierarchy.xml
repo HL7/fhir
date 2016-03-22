@@ -89,6 +89,7 @@ signatures.html
 				<page title="TriggerDefinition Detailed Descriptions" filename="triggerdefinition-definitions.html"/>
 				<page title="TriggerDefinition Mappings" filename="triggerdefinition-mappings.html"/>
 			</page>
+			<page title="FluentPath" filename="fluentpath.html"/>
 			<page title="Ontology" filename="ontology.html"/>
 
 			<page title="Using Codes" filename="terminologies.html">

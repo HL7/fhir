@@ -63,6 +63,8 @@ public class Definitions {
     private boolean notUnique;
 
     public NamespacePair(String desc, String page, boolean notUnique) {
+      if (page == null)
+        throw new Error("Page is null for "+desc); 
       this.desc = desc;
       this.page = page;
       this.notUnique = notUnique;

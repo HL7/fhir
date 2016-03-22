@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 22, 2016 11:08+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -454,27 +454,34 @@ public class SearchParameter extends DomainResource {
     protected StringType description;
 
     /**
+     * A FluentPath expression that returns a set of elements for the search parameter.
+     */
+    @Child(name = "expression", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="FluentPath expression that extracts the values", formalDefinition="A FluentPath expression that returns a set of elements for the search parameter." )
+    protected StringType expression;
+
+    /**
      * An XPath expression that returns a set of elements for the search parameter.
      */
-    @Child(name = "xpath", type = {StringType.class}, order=12, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "xpath", type = {StringType.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="XPath that extracts the values", formalDefinition="An XPath expression that returns a set of elements for the search parameter." )
     protected StringType xpath;
 
     /**
      * How the search parameter relates to the set of elements returned by evaluating the xpath query.
      */
-    @Child(name = "xpathUsage", type = {CodeType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "xpathUsage", type = {CodeType.class}, order=14, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="normal | phonetic | nearby | distance | other", formalDefinition="How the search parameter relates to the set of elements returned by evaluating the xpath query." )
     protected Enumeration<XPathUsageType> xpathUsage;
 
     /**
      * Types of resource (if a resource is referenced).
      */
-    @Child(name = "target", type = {CodeType.class}, order=14, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "target", type = {CodeType.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Types of resource (if a resource reference)", formalDefinition="Types of resource (if a resource is referenced)." )
     protected List<CodeType> target;
 
-    private static final long serialVersionUID = -742596414L;
+    private static final long serialVersionUID = 50317471L;
 
   /**
    * Constructor
@@ -1048,6 +1055,55 @@ public class SearchParameter extends DomainResource {
     }
 
     /**
+     * @return {@link #expression} (A FluentPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+     */
+    public StringType getExpressionElement() { 
+      if (this.expression == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create SearchParameter.expression");
+        else if (Configuration.doAutoCreate())
+          this.expression = new StringType(); // bb
+      return this.expression;
+    }
+
+    public boolean hasExpressionElement() { 
+      return this.expression != null && !this.expression.isEmpty();
+    }
+
+    public boolean hasExpression() { 
+      return this.expression != null && !this.expression.isEmpty();
+    }
+
+    /**
+     * @param value {@link #expression} (A FluentPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+     */
+    public SearchParameter setExpressionElement(StringType value) { 
+      this.expression = value;
+      return this;
+    }
+
+    /**
+     * @return A FluentPath expression that returns a set of elements for the search parameter.
+     */
+    public String getExpression() { 
+      return this.expression == null ? null : this.expression.getValue();
+    }
+
+    /**
+     * @param value A FluentPath expression that returns a set of elements for the search parameter.
+     */
+    public SearchParameter setExpression(String value) { 
+      if (Utilities.noString(value))
+        this.expression = null;
+      else {
+        if (this.expression == null)
+          this.expression = new StringType();
+        this.expression.setValue(value);
+      }
+      return this;
+    }
+
+    /**
      * @return {@link #xpath} (An XPath expression that returns a set of elements for the search parameter.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
      */
     public StringType getXpathElement() { 
@@ -1213,6 +1269,7 @@ public class SearchParameter extends DomainResource {
         childrenList.add(new Property("base", "code", "The base resource type that this search parameter refers to.", 0, java.lang.Integer.MAX_VALUE, base));
         childrenList.add(new Property("type", "code", "The type of value a search parameter refers to, and how the content is interpreted.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("description", "string", "A description of the search parameters and how it used.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("expression", "string", "A FluentPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, expression));
         childrenList.add(new Property("xpath", "string", "An XPath expression that returns a set of elements for the search parameter.", 0, java.lang.Integer.MAX_VALUE, xpath));
         childrenList.add(new Property("xpathUsage", "code", "How the search parameter relates to the set of elements returned by evaluating the xpath query.", 0, java.lang.Integer.MAX_VALUE, xpathUsage));
         childrenList.add(new Property("target", "code", "Types of resource (if a resource is referenced).", 0, java.lang.Integer.MAX_VALUE, target));
@@ -1244,6 +1301,8 @@ public class SearchParameter extends DomainResource {
           this.type = new SearchParamTypeEnumFactory().fromType(value); // Enumeration<SearchParamType>
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
+        else if (name.equals("expression"))
+          this.expression = castToString(value); // StringType
         else if (name.equals("xpath"))
           this.xpath = castToString(value); // StringType
         else if (name.equals("xpathUsage"))
@@ -1292,6 +1351,9 @@ public class SearchParameter extends DomainResource {
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.description");
         }
+        else if (name.equals("expression")) {
+          throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.expression");
+        }
         else if (name.equals("xpath")) {
           throw new FHIRException("Cannot call addChild on a primitive type SearchParameter.xpath");
         }
@@ -1329,6 +1391,7 @@ public class SearchParameter extends DomainResource {
         dst.base = base == null ? null : base.copy();
         dst.type = type == null ? null : type.copy();
         dst.description = description == null ? null : description.copy();
+        dst.expression = expression == null ? null : expression.copy();
         dst.xpath = xpath == null ? null : xpath.copy();
         dst.xpathUsage = xpathUsage == null ? null : xpathUsage.copy();
         if (target != null) {
@@ -1354,8 +1417,9 @@ public class SearchParameter extends DomainResource {
            && compareDeep(experimental, o.experimental, true) && compareDeep(publisher, o.publisher, true)
            && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true) && compareDeep(requirements, o.requirements, true)
            && compareDeep(code, o.code, true) && compareDeep(base, o.base, true) && compareDeep(type, o.type, true)
-           && compareDeep(description, o.description, true) && compareDeep(xpath, o.xpath, true) && compareDeep(xpathUsage, o.xpathUsage, true)
-           && compareDeep(target, o.target, true);
+           && compareDeep(description, o.description, true) && compareDeep(expression, o.expression, true)
+           && compareDeep(xpath, o.xpath, true) && compareDeep(xpathUsage, o.xpathUsage, true) && compareDeep(target, o.target, true)
+          ;
       }
 
       @Override
@@ -1369,8 +1433,8 @@ public class SearchParameter extends DomainResource {
            && compareValues(experimental, o.experimental, true) && compareValues(publisher, o.publisher, true)
            && compareValues(date, o.date, true) && compareValues(requirements, o.requirements, true) && compareValues(code, o.code, true)
            && compareValues(base, o.base, true) && compareValues(type, o.type, true) && compareValues(description, o.description, true)
-           && compareValues(xpath, o.xpath, true) && compareValues(xpathUsage, o.xpathUsage, true) && compareValues(target, o.target, true)
-          ;
+           && compareValues(expression, o.expression, true) && compareValues(xpath, o.xpath, true) && compareValues(xpathUsage, o.xpathUsage, true)
+           && compareValues(target, o.target, true);
       }
 
       public boolean isEmpty() {
@@ -1378,8 +1442,9 @@ public class SearchParameter extends DomainResource {
            && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty()) && (date == null || date.isEmpty())
            && (requirements == null || requirements.isEmpty()) && (code == null || code.isEmpty()) && (base == null || base.isEmpty())
-           && (type == null || type.isEmpty()) && (description == null || description.isEmpty()) && (xpath == null || xpath.isEmpty())
-           && (xpathUsage == null || xpathUsage.isEmpty()) && (target == null || target.isEmpty());
+           && (type == null || type.isEmpty()) && (description == null || description.isEmpty()) && (expression == null || expression.isEmpty())
+           && (xpath == null || xpath.isEmpty()) && (xpathUsage == null || xpathUsage.isEmpty()) && (target == null || target.isEmpty())
+          ;
       }
 
   @Override

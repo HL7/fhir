@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 22, 2016 11:08+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1350,13 +1350,20 @@ public class ElementDefinition extends Type implements ICompositeType {
         protected StringType human;
 
         /**
+         * A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met.
+         */
+        @Child(name = "expression", type = {StringType.class}, order=5, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="FluentPath expression of constraint", formalDefinition="A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met." )
+        protected StringType expression;
+
+        /**
          * An XPath expression of constraint that can be executed to see if this constraint is met.
          */
-        @Child(name = "xpath", type = {StringType.class}, order=5, min=1, max=1, modifier=false, summary=true)
+        @Child(name = "xpath", type = {StringType.class}, order=6, min=1, max=1, modifier=false, summary=true)
         @Description(shortDefinition="XPath expression of constraint", formalDefinition="An XPath expression of constraint that can be executed to see if this constraint is met." )
         protected StringType xpath;
 
-        private static final long serialVersionUID = 854521265L;
+        private static final long serialVersionUID = -1412249932L;
 
     /**
      * Constructor
@@ -1368,11 +1375,12 @@ public class ElementDefinition extends Type implements ICompositeType {
     /**
      * Constructor
      */
-      public ElementDefinitionConstraintComponent(IdType key, Enumeration<ConstraintSeverity> severity, StringType human, StringType xpath) {
+      public ElementDefinitionConstraintComponent(IdType key, Enumeration<ConstraintSeverity> severity, StringType human, StringType expression, StringType xpath) {
         super();
         this.key = key;
         this.severity = severity;
         this.human = human;
+        this.expression = expression;
         this.xpath = xpath;
       }
 
@@ -1561,6 +1569,51 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
 
         /**
+         * @return {@link #expression} (A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         */
+        public StringType getExpressionElement() { 
+          if (this.expression == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create ElementDefinitionConstraintComponent.expression");
+            else if (Configuration.doAutoCreate())
+              this.expression = new StringType(); // bb
+          return this.expression;
+        }
+
+        public boolean hasExpressionElement() { 
+          return this.expression != null && !this.expression.isEmpty();
+        }
+
+        public boolean hasExpression() { 
+          return this.expression != null && !this.expression.isEmpty();
+        }
+
+        /**
+         * @param value {@link #expression} (A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met.). This is the underlying object with id, value and extensions. The accessor "getExpression" gives direct access to the value
+         */
+        public ElementDefinitionConstraintComponent setExpressionElement(StringType value) { 
+          this.expression = value;
+          return this;
+        }
+
+        /**
+         * @return A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met.
+         */
+        public String getExpression() { 
+          return this.expression == null ? null : this.expression.getValue();
+        }
+
+        /**
+         * @param value A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met.
+         */
+        public ElementDefinitionConstraintComponent setExpression(String value) { 
+            if (this.expression == null)
+              this.expression = new StringType();
+            this.expression.setValue(value);
+          return this;
+        }
+
+        /**
          * @return {@link #xpath} (An XPath expression of constraint that can be executed to see if this constraint is met.). This is the underlying object with id, value and extensions. The accessor "getXpath" gives direct access to the value
          */
         public StringType getXpathElement() { 
@@ -1611,6 +1664,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           childrenList.add(new Property("requirements", "string", "Description of why this constraint is necessary or appropriate.", 0, java.lang.Integer.MAX_VALUE, requirements));
           childrenList.add(new Property("severity", "code", "Identifies the impact constraint violation has on the conformance of the instance.", 0, java.lang.Integer.MAX_VALUE, severity));
           childrenList.add(new Property("human", "string", "Text that can be used to describe the constraint in messages identifying that the constraint has been violated.", 0, java.lang.Integer.MAX_VALUE, human));
+          childrenList.add(new Property("expression", "string", "A [FluentPath](fluentpath.html) expression of constraint that can be executed to see if this constraint is met.", 0, java.lang.Integer.MAX_VALUE, expression));
           childrenList.add(new Property("xpath", "string", "An XPath expression of constraint that can be executed to see if this constraint is met.", 0, java.lang.Integer.MAX_VALUE, xpath));
         }
 
@@ -1624,6 +1678,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.severity = new ConstraintSeverityEnumFactory().fromType(value); // Enumeration<ConstraintSeverity>
         else if (name.equals("human"))
           this.human = castToString(value); // StringType
+        else if (name.equals("expression"))
+          this.expression = castToString(value); // StringType
         else if (name.equals("xpath"))
           this.xpath = castToString(value); // StringType
         else
@@ -1644,6 +1700,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         else if (name.equals("human")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.human");
         }
+        else if (name.equals("expression")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.expression");
+        }
         else if (name.equals("xpath")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.xpath");
         }
@@ -1658,6 +1717,7 @@ public class ElementDefinition extends Type implements ICompositeType {
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.severity = severity == null ? null : severity.copy();
         dst.human = human == null ? null : human.copy();
+        dst.expression = expression == null ? null : expression.copy();
         dst.xpath = xpath == null ? null : xpath.copy();
         return dst;
       }
@@ -1670,7 +1730,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           return false;
         ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other;
         return compareDeep(key, o.key, true) && compareDeep(requirements, o.requirements, true) && compareDeep(severity, o.severity, true)
-           && compareDeep(human, o.human, true) && compareDeep(xpath, o.xpath, true);
+           && compareDeep(human, o.human, true) && compareDeep(expression, o.expression, true) && compareDeep(xpath, o.xpath, true)
+          ;
       }
 
       @Override
@@ -1681,13 +1742,14 @@ public class ElementDefinition extends Type implements ICompositeType {
           return false;
         ElementDefinitionConstraintComponent o = (ElementDefinitionConstraintComponent) other;
         return compareValues(key, o.key, true) && compareValues(requirements, o.requirements, true) && compareValues(severity, o.severity, true)
-           && compareValues(human, o.human, true) && compareValues(xpath, o.xpath, true);
+           && compareValues(human, o.human, true) && compareValues(expression, o.expression, true) && compareValues(xpath, o.xpath, true)
+          ;
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (key == null || key.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (severity == null || severity.isEmpty()) && (human == null || human.isEmpty()) && (xpath == null || xpath.isEmpty())
-          ;
+           && (severity == null || severity.isEmpty()) && (human == null || human.isEmpty()) && (expression == null || expression.isEmpty())
+           && (xpath == null || xpath.isEmpty());
       }
 
   public String fhirType() {

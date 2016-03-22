@@ -197,6 +197,15 @@
   Definition = A description of the search parameters and how it used
 
  -- Row 16 -----------------------------------
+  Element = SearchParameter.expression
+  Card. = 0..1
+  Inv. = 1
+  Type = string
+  Short Label = FluentPath expression that extracts the values
+  Definition = A FluentPath expression that returns a set of elements for the search parameter
+  Comments = Note that the elements returned by the expression are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
+
+ -- Row 17 -----------------------------------
   Element = SearchParameter.xpath
   Card. = 0..1
   Inv. = 1
@@ -205,7 +214,7 @@
   Definition = An XPath expression that returns a set of elements for the search parameter
   Comments = Note that the elements returned by the XPath are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = SearchParameter.xpathUsage
   Card. = 0..1
   Inv. = 1
@@ -214,7 +223,7 @@
   Short Label = normal | phonetic | nearby | distance | other
   Definition = How the search parameter relates to the set of elements returned by evaluating the xpath query
 
- -- Row 18 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = SearchParameter.target
   Card. = 0..*
   Type = code

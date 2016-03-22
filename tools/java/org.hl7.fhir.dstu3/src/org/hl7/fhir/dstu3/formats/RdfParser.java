@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Mar 22, 2016 11:08+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -676,6 +676,8 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "ElementDefinition", "severity", element.getSeverityElement(), -1);
     if (element.hasHumanElement())
       composeString(t, "ElementDefinition", "human", element.getHumanElement(), -1);
+    if (element.hasExpressionElement())
+      composeString(t, "ElementDefinition", "expression", element.getExpressionElement(), -1);
     if (element.hasXpathElement())
       composeString(t, "ElementDefinition", "xpath", element.getXpathElement(), -1);
   }
@@ -8711,6 +8713,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "OperationOutcome", "diagnostics", element.getDiagnosticsElement(), -1);
     for (int i = 0; i < element.getLocation().size(); i++)
       composeString(t, "OperationOutcome", "location", element.getLocation().get(i), i);
+    for (int i = 0; i < element.getExpression().size(); i++)
+      composeString(t, "OperationOutcome", "expression", element.getExpression().get(i), i);
   }
 
   protected void composeOrder(Complex parent, String parentType, String name, Order element, int index) {
@@ -10043,6 +10047,8 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "SearchParameter", "type", element.getTypeElement(), -1);
     if (element.hasDescriptionElement())
       composeString(t, "SearchParameter", "description", element.getDescriptionElement(), -1);
+    if (element.hasExpressionElement())
+      composeString(t, "SearchParameter", "expression", element.getExpressionElement(), -1);
     if (element.hasXpathElement())
       composeString(t, "SearchParameter", "xpath", element.getXpathElement(), -1);
     if (element.hasXpathUsageElement())

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 22, 2016 11:08+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 22, 2016 21:35+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -722,7 +722,14 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         @Description(shortDefinition="XPath of element(s) related to issue", formalDefinition="A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised." )
         protected List<StringType> location;
 
-        private static final long serialVersionUID = 930165515L;
+        /**
+         * A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.
+         */
+        @Child(name = "expression", type = {StringType.class}, order=6, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Description(shortDefinition="FluentPath of element(s) related to issue", formalDefinition="A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised." )
+        protected List<StringType> expression;
+
+        private static final long serialVersionUID = -1681095438L;
 
     /**
      * Constructor
@@ -957,6 +964,60 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           return false;
         }
 
+        /**
+         * @return {@link #expression} (A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
+         */
+        public List<StringType> getExpression() { 
+          if (this.expression == null)
+            this.expression = new ArrayList<StringType>();
+          return this.expression;
+        }
+
+        public boolean hasExpression() { 
+          if (this.expression == null)
+            return false;
+          for (StringType item : this.expression)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #expression} (A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
+         */
+    // syntactic sugar
+        public StringType addExpressionElement() {//2 
+          StringType t = new StringType();
+          if (this.expression == null)
+            this.expression = new ArrayList<StringType>();
+          this.expression.add(t);
+          return t;
+        }
+
+        /**
+         * @param value {@link #expression} (A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
+         */
+        public OperationOutcomeIssueComponent addExpression(String value) { //1
+          StringType t = new StringType();
+          t.setValue(value);
+          if (this.expression == null)
+            this.expression = new ArrayList<StringType>();
+          this.expression.add(t);
+          return this;
+        }
+
+        /**
+         * @param value {@link #expression} (A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.)
+         */
+        public boolean hasExpression(String value) { 
+          if (this.expression == null)
+            return false;
+          for (StringType v : this.expression)
+            if (v.equals(value)) // string
+              return true;
+          return false;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("severity", "code", "Indicates whether the issue indicates a variation from successful processing.", 0, java.lang.Integer.MAX_VALUE, severity));
@@ -964,6 +1025,7 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           childrenList.add(new Property("details", "CodeableConcept", "Additional details about the error. This may be a text description of the error, or a system code that identifies the error.", 0, java.lang.Integer.MAX_VALUE, details));
           childrenList.add(new Property("diagnostics", "string", "Additional diagnostic information about the issue.  Typically, this may be a description of how a value is erroneous, or a stack dump to help trace the issue.", 0, java.lang.Integer.MAX_VALUE, diagnostics));
           childrenList.add(new Property("location", "string", "A simple XPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.", 0, java.lang.Integer.MAX_VALUE, location));
+          childrenList.add(new Property("expression", "string", "A simple FluentPath limited to element names, repetition indicators and the default child access that identifies one of the elements in the resource that caused this issue to be raised.", 0, java.lang.Integer.MAX_VALUE, expression));
         }
 
       @Override
@@ -978,6 +1040,8 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           this.diagnostics = castToString(value); // StringType
         else if (name.equals("location"))
           this.getLocation().add(castToString(value));
+        else if (name.equals("expression"))
+          this.getExpression().add(castToString(value));
         else
           super.setProperty(name, value);
       }
@@ -1000,6 +1064,9 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
         else if (name.equals("location")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationOutcome.location");
         }
+        else if (name.equals("expression")) {
+          throw new FHIRException("Cannot call addChild on a primitive type OperationOutcome.expression");
+        }
         else
           return super.addChild(name);
       }
@@ -1016,6 +1083,11 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           for (StringType i : location)
             dst.location.add(i.copy());
         };
+        if (expression != null) {
+          dst.expression = new ArrayList<StringType>();
+          for (StringType i : expression)
+            dst.expression.add(i.copy());
+        };
         return dst;
       }
 
@@ -1027,7 +1099,8 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           return false;
         OperationOutcomeIssueComponent o = (OperationOutcomeIssueComponent) other;
         return compareDeep(severity, o.severity, true) && compareDeep(code, o.code, true) && compareDeep(details, o.details, true)
-           && compareDeep(diagnostics, o.diagnostics, true) && compareDeep(location, o.location, true);
+           && compareDeep(diagnostics, o.diagnostics, true) && compareDeep(location, o.location, true) && compareDeep(expression, o.expression, true)
+          ;
       }
 
       @Override
@@ -1038,13 +1111,14 @@ public class OperationOutcome extends DomainResource implements IBaseOperationOu
           return false;
         OperationOutcomeIssueComponent o = (OperationOutcomeIssueComponent) other;
         return compareValues(severity, o.severity, true) && compareValues(code, o.code, true) && compareValues(diagnostics, o.diagnostics, true)
-           && compareValues(location, o.location, true);
+           && compareValues(location, o.location, true) && compareValues(expression, o.expression, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (severity == null || severity.isEmpty()) && (code == null || code.isEmpty())
            && (details == null || details.isEmpty()) && (diagnostics == null || diagnostics.isEmpty())
-           && (location == null || location.isEmpty());
+           && (location == null || location.isEmpty()) && (expression == null || expression.isEmpty())
+          ;
       }
 
   public String fhirType() {
