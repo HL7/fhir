@@ -932,12 +932,29 @@ Servers SHALL replace all matching links in the bundle, whether they are found i
 resource references, url elements, or <code>&lt;a href="" &amp; &lt;img src=""</code> in the narrative.
 </p>
 <p>
+When processing a "POST" (create), the full URL is treated as the id of the resource on the 
+source, and is ignored; the server generates an id for the resource. For updates, 
+the server performs a mapping between the fullUrl specified and the local URL the server 
+knows that instance as, if possible. If the server does not have a mapping for the fullUrl, 
+the server ignores the base URL and attempts an update assuming the base is the same 
+as the server base.  This allows the same transaction bundle to be sent to multiple systems 
+without changing the fullUrls for each target.
+</p>
+<p>
 When processing a batch or transaction, a server MAY choose to honor existing 
 logical ids (e.g. <code>Observation/1234</code> remains as <code>Observation/1234</code> on the server), but 
 since this is only <a href="#upsert">safe in controlled circumstances</a>, servers
 may choose to assign new ids to all submitted resources, irrespective of any claimed
 logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in the batch/transaction.
 </p>
+<blockquote class="dstu-note">
+<a name="dstu-2a"> </a>
+<p>
+<b>Note:</b> this behavior is subject to verification based on implementation experience and may change.
+</p>
+</blockquote>
+
+
 
 <a name="transaction-response"> </a>
 <h4>Batch/Transaction Response</h4>
