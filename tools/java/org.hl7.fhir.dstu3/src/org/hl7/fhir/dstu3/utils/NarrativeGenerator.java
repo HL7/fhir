@@ -2511,32 +2511,35 @@ public class NarrativeGenerator implements INarrativeGenerator {
     return hasExtensions;
   }
 
-  private void AddVsRef(String value, XhtmlNode li) {
+	private void AddVsRef(String value, XhtmlNode li) {
 
-    ValueSet vs = context.fetchResource(ValueSet.class, value);
-    if (vs != null) {
-      String ref = (String) vs.getUserData("path");
-      ref = adjustForPath(ref);
-      XhtmlNode a = li.addTag("a");
-      a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
-      a.addText(value);
-    } else {
-    	CodeSystem cs = context.fetchCodeSystem(value);
-    	if (cs != null) {
-        String ref = (String) cs.getUserData("path");
-        ref = adjustForPath(ref);
-        XhtmlNode a = li.addTag("a");
-        a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
-        a.addText(value);   
-    } else if (value.equals("http://snomed.info/sct") || value.equals("http://snomed.info/id")) {
-      XhtmlNode a = li.addTag("a");
-      a.setAttribute("href", value);
-      a.addText("SNOMED-CT");
-    }
-    else
-      li.addText(value);
-  }
-  }
+	  ValueSet vs = context.fetchResource(ValueSet.class, value);
+	  if (vs != null) {
+	    String ref = (String) vs.getUserData("path");
+	    ref = adjustForPath(ref);
+	    XhtmlNode a = li.addTag("a");
+	    a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
+	    a.addText(value);
+	  } else {
+	    CodeSystem cs = context.fetchCodeSystem(value);
+	    if (cs != null) {
+	      String ref = (String) cs.getUserData("path");
+	      ref = adjustForPath(ref);
+	      XhtmlNode a = li.addTag("a");
+	      a.setAttribute("href", ref == null ? "??" : ref.replace("\\", "/"));
+	      a.addText(value);   
+	    } else if (value.equals("http://snomed.info/sct") || value.equals("http://snomed.info/id")) {
+	      XhtmlNode a = li.addTag("a");
+	      a.setAttribute("href", value);
+	      a.addText("SNOMED-CT");
+	    }
+	    else {
+	      if (value.startsWith("http://hl7.org") && !Utilities.existsInList(value, "http://hl7.org/fhir/sid/icd-10-us"))
+	        throw new Error("Unable to resolve value set "+value);
+	      li.addText(value);
+	    }
+	  }
+	}
 
   private String adjustForPath(String ref) {
     if (prefix == null)

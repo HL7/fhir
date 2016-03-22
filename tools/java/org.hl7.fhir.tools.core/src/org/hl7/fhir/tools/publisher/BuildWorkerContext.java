@@ -312,7 +312,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
       
     if (class_ == Questionnaire.class)
       return null;
-    throw new Error("not done yet");
+    throw new Error("not done yet: can't fetch "+uri);
   }
 
   @Override
@@ -788,7 +788,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
           parser.compose(s, e.getServerErrors().get(0));
         s.close();
 
-        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDiagnostics());
+        throw new Exception(e.getServerErrors().get(0).getIssue().get(0).getDetails().getText());
       } catch (Exception e) {
         serverOk = false;
         throw e;

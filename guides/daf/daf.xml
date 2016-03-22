@@ -95,19 +95,19 @@
   <!--  value sets that are imported by directly referenced value sets in the profiles  -->
     <resource>
       <example value="false"/>
-      <sourceUri value="profiles\valueset-substance-ndfrt.xml"/>
+      <sourceUri value="profiles\valueset-daf-substance-ndfrt.xml"/>
     </resource>
     <resource>
       <example value="false"/>
-      <sourceUri value="profiles\valueset-substance-rxnorm.xml"/>
+      <sourceUri value="profiles\valueset-daf-substance-rxnorm.xml"/>
     </resource>
     <resource>
       <example value="false"/>
-      <sourceUri value="profiles\valueset-substance-sct.xml"/>
+      <sourceUri value="profiles\valueset-daf-substance-sct.xml"/>
     </resource>
     <resource>
       <example value="false"/>
-      <sourceUri value="profiles\valueset-substance-unii.xml"/>
+      <sourceUri value="profiles\valueset-daf-substance-unii.xml"/>
     </resource>
     <resource>
       <example value="true"/>
