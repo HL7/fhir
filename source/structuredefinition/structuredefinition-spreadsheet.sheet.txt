@@ -93,10 +93,11 @@
 
  -- Row 4 -----------------------------------
   Id = 4
+  Requirements = Ensure that there\'s a base unless the type is abstract and there\'s no constrainedType
   Context = StructureDefinition
-  English = A structure must have a base unless abstract = true
-  XPath = (f:abstract/@value =true()) or exists(f:base)
-  Expression = base or abstract = \'true\'
+  English = If the structure is not abstract, or there\'s a constrained type, then there SHALL be a base
+  XPath = (f:abstract/@value=true()) or not(exists(f:constrainedType)) or exists(f:base)
+  Expression = base or abstract = \'true\' or constrainedType
 
  -- Row 5 -----------------------------------
   Id = 5
@@ -135,14 +136,6 @@
   Expression = *.element.first().label.empty() and *.element.first().code.empty() and *.element.first().requirements.empty()
 
  -- Row 10 -----------------------------------
-  Id = 10
-  Requirements = Ensure that there\'s a base unless the type is abstract and there\'s no constrainedType
-  Context = StructureDefinition
-  English = If the structure is not abstract, or there\'s a constrained type, then there SHALL be a base
-  XPath = (f:abstract/@value=true()) or not(exists(f:constrainedType)) or exists(f:base)
-  Expression = base or abstract = \'true\' or constrainedType
-
- -- Row 11 -----------------------------------
   Id = 11
   Requirements = Ensure that the constrainedType is not inconsistent with the other information in the structure
   Context = StructureDefinition
@@ -150,7 +143,7 @@
   XPath = not(exists(f:constrainedType)) or not(exists(f:snapshot)) or (f:constrainedType/@value = f:snapshot/f:element[1]/f:path/@value)
   Expression = constrainedType.empty() or snapshot.empty() or snapshot.element.first().path = constrainedType
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Id = 12
   Requirements = Ensure that element.base appears with base or not
   Context = StructureDefinition
@@ -403,7 +396,7 @@
   Element = StructureDefinition.constrainedType
   Card. = 0..1
   Summary = Y
-  Inv. = 10,11
+  Inv. = 4,11
   Type = code
   Binding = FHIRDefinedType
   Short Label = Any datatype or resource, including abstract ones
@@ -443,7 +436,7 @@
   Element = StructureDefinition.base
   Card. = 0..1
   Summary = Y
-  Inv. = 4,10
+  Inv. = 4
   Type = uri
   Short Label = Structure that this set of constraints applies to
   Definition = An absolute URI that is the base structure from which this set of constraints is derived

@@ -10,7 +10,7 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-11-13T09:34:33Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -92,11 +92,11 @@
     <SheetIndex>10</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>12975</WindowHeight>
-  <WindowWidth>24000</WindowWidth>
+  <WindowHeight>17610</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -891,7 +891,7 @@
   </Style>
  </Styles>
  <Names>
-  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R49C1"/>
+  <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R48C1"/>
  </Names>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1939,7 +1939,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">10,11</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">4,11</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2079,7 +2079,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">4,10</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="Number">4</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">uri</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4315,6 +4315,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4334,7 +4335,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4349,7 +4351,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Invariants!R1C1:R2C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="50" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="49" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s102" ss:DefaultRowHeight="15">
    <Column ss:Index="2" ss:StyleID="s102" ss:AutoFitWidth="0" ss:Width="69.75"/>
    <Column ss:StyleID="s102" ss:Width="55.5"/>
@@ -4424,12 +4426,12 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">4</Data><NamedCell
       ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Ensure that there's a base unless the type is abstract and there's no constrainedType</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">A structure must have a base unless abstract = true</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">base or abstract = 'true'</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">(f:abstract/@value =true()) or exists(f:base)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure is not abstract, or there's a constrained type, then there SHALL be a base</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">base or abstract = 'true' or constrainedType</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">(f:abstract/@value=true()) or not(exists(f:constrainedType)) or exists(f:base)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">5</Data><NamedCell
@@ -4480,16 +4482,6 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">In any snapshot or differential, no label, code or requirements on the an element without a &quot;.&quot; in the path (e.g. the first element)</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">*.element.first().label.empty() and *.element.first().code.empty() and *.element.first().requirements.empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:snapshot/f:element[not(contains(f:path/@value, '.')) and (f:label or f:code or f:requirements)])) and not(exists(f:differential/f:element[not(contains(f:path/@value, '.')) and (f:label or f:code or f:requirements)]))</Data></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s108"><Data ss:Type="Number">10</Data><NamedCell
-      ss:Name="Invariantids"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">Ensure that there's a base unless the type is abstract and there's no constrainedType</Data></Cell>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">StructureDefinition</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">If the structure is not abstract, or there's a constrained type, then there SHALL be a base</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">base or abstract = 'true' or constrainedType</Data></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">(f:abstract/@value=true()) or not(exists(f:constrainedType)) or exists(f:base)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
     <Cell ss:StyleID="s108"><Data ss:Type="Number">11</Data><NamedCell
@@ -4849,13 +4841,12 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -4863,14 +4854,14 @@
     </Pane>
     <Pane>
      <Number>1</Number>
-     <ActiveCol>2</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>12</ActiveRow>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>3</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
