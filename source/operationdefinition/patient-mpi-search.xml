@@ -5,6 +5,7 @@
   <status value="draft"/>
   <kind value="query"/>
   <experimental value="false"/>
+  <date value="2015-08-18"/> 
   <publisher value="HL7, Inc"/>
   <contact>  
     <telecom>
@@ -12,7 +13,6 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <date value="2015-08-18"/>
   <description value="An MPI search differs from a normal search because the parameters are interpreted as inputs to an MPI match process, rather than as direct match criteria on the returned resources"/>
   <requirements value="This query is defined to allow an MPI to be integrated in a FHIR server environment, and to allow a client to delegate the matching process to a specialist. MPI algorithms are often highly tailored to a particular patient set"/>
   <idempotent value="true"/>
