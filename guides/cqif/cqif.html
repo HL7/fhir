@@ -18,7 +18,7 @@
 <p><i>This Implementation Guide is prepared as a Universal Realm Specification with support from the <a href="http://cqframework.info">Clinical Quality Framework (CQF) initiative</a>, which is a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S. Office of the National Coordinator for Health Information Technology (ONC) to harmonize standards for clinical decision support and electronic clinical quality measurement.</i></p>
 
 <a name="introduction"/>
-<h3>Introduction</h3>
+<h4>Introduction</h4>
 
 <p>The CQIF Implementation Guide describes a framework for health quality measurement and improvement using Fast Healthcare Interoperability Resources (FHIR). The IG covers a broad range of topics related to healthcare quality in both the decision support and quality measurement domains.</p>
 
@@ -38,7 +38,7 @@
 </table>
 
 <a name="background"/>
-<h3>Background</h3>
+<h4>Background</h4>
 
 <p>The CQIF Implementation Guide is sponsored by the Clinical Decision Support (CDS) and Clinical Quality Information (CQI) HL7 Work Groups, with input and coordination from the FHIR Infrastructure and Service Oriented Architecture HL7 Work Groups.</p>
 
@@ -76,7 +76,7 @@
 <p>And finally, from the perspective of a Knowledge Service Consumer, this IG defines the expected available operations and behavior of a knowledge service.</p>
 
 <a name="scope"/>
-<h3>Scope</h3>
+<h4>Scope</h4>
 
 <p>This implementation guide focuses on several primary use cases:</p>
 
@@ -94,8 +94,38 @@
 
 <p>And finally, <a href="cqif-quality-reporting.html">Quality Reporting</a> is covered in a separate topic focused on how to use the Measure and MeasureReport resources to define and report on quality measures.</p>
 
+<a name="conventions"/>
+<h4>Conventions</h4>
+
+<p>
+The keywords SHALL, SHOULD, MAY, NEED NOT, SHOULD NOT, and SHALL NOT in
+this document are to be interpreted as described in the HL7 Version 3
+Publishing Facilitator's Guide.
+</p>
+
+<ul>
+<li>
+<b>SHALL</b>: an absolute requirement for the particular
+element. Where a SHALL constraint is applied to an XML element, that
+element must be present in an instance when the cardinality is greater than zero.
+Where a SHALL constraint is applied to an XML attribute, that attribute must
+be present, and must contain a conformant value.
+</li>
+<li>
+<b>SHALL NOT</b>: an absolute prohibition against inclusion</li>
+<li>
+<b>SHOULD/SHOULD NOT</b>: best practice or recommendation. There may be valid
+reasons to ignore an item, but the full implications must be understood and
+carefully weighed before choosing a different course
+</li>
+<li>
+<b>MAY/NEED NOT</b>: truly optional; can be included or omitted
+as the author decides with no implications
+</li>
+</ul>
+
 <a name="related-specifications"/>
-<h3>Related Specifications</h3>
+<h4>Related Specifications</h4>
 
 <p>The approach and representations within this guide are intended to be consistent with the following specifications:</p>
 
@@ -107,7 +137,7 @@
 </ul>
 
 <a name="ballot-objectives"/>
-<h3>Ballot Objectives</h3>
+<h4>Ballot Objectives</h4>
 
 <p>For this ballot cycle, we are presenting this implementation guide as a comment-only ballot with the objective of gathering community feedback. We welcome any comments, criticisms and suggestions on any topic, but in particular, we seek feedback on the following areas:</p>
 
@@ -117,7 +147,7 @@
 </ul>
 
 <a name="copyright-information"/>
-<h3>Copyright Information</h3>
+<h4>Copyright Information</h4>
 
 <p>This material includes SNOMED Clinical Terms &reg; (SNOMED CT&reg;), which are used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT was originally created by The College of American Pathologists. "SNOMED &reg;" and "SNOMED CT &reg;" are registered trademarks of the IHTSDO.</p>
 
@@ -127,31 +157,32 @@
 
 <p>This material contains quality measure content developed by the National Committee for Quality Assurance (NCQA). The measure content is copyright (c) 2008-2013 National Committee for Quality Assurance and used in accordance with the NCQA license terms for non-commercial use.</p>
 
-<a name="authors"></a>
-<h3>Author Information</h3>
+<a name="acknowledgements"></a>
+<h4>Acknowledgements</h4>
 
-<table class="grid">
-	<thead>
-		<tr>
-			<th>Author Name</th>
-		</tr>
-	</thead>
+This implementation guide is the work of a joint project between the HL7 Clinical Quality Information and  Clinical Decision Support Working Groups with the co-sponsorhip of the FHIR Infrastructure, Implementable Technology Specifications, and Service Oriented Architecture Work Groups. The project team was:
+
+<table class="list">
 	<tbody>
-		<tr>
-			<td>Bryn Rhodes</td>
-		</tr>
-		<tr>
-			<td>Jason Walonoski</td>
-		</tr>
-		<tr>
-			<td>Marc Hadley</td>
-		</tr>
-		<tr>
-			<td>Lloyd McKenzie (Supporting)</td>
-		</tr>
-		<tr>
-			<td>Chris Moesel (Supporting)</td>
-		</tr>
+		<tr><td><b>Project Facilitator/Editor</b></td><td>Bryn Rhodes</td><td>Database Consulting Group</td><td>bryn@databaseconsultinggroup.com</td></tr>
+		<tr><td><b>Project Facilitator/Editor</b></td><td>Jason Walonoski</td><td>The MITRE Corporation</td><td>jwalonoski@mitre.org</td></tr>
+		<tr><td><b>Editor</b></td><td>Marc Hadley</td><td>The MITRE Corporation</td><td>mhadley@mitre.org</td></tr>
+		<tr><td><b>Modeling Facilitator</b></td><td>Gay Dolin</td><td>Intelligent Medical Objects</td><td>gdolin@imo-online.com</td></tr>
+		<tr><td><b>Publishing Facilitator</b></td><td>Lloyd McKenzie</td><td>Gevity</td><td>lmckenzie@gevityinc.com</td></tr>
+		<tr><td><b>Domain Expert</b></td><td>KP Sethi</td><td>Lantana Consulting Group</td><td>kp.sethi@lantanagroup.com</td></tr>
+		<tr><td><b>Domain Expert</b></td><td>Chris Moesel</td><td>The MITRE Corporation</td><td>cmoesel@mitre.org</td></tr>
+		<tr><td><b>Domain Expert</b></td><td>Darrell Woelk</td><td>SocialCare</td><td>dwoelk@socialcare.com</td></tr>
+		<tr><td><b>Vocabulary Facilitator</b></td><td>Sarah Ryan</td><td>The MITRE Corporation</td><td>sarahryan@mitre.org</td></tr>
+		<tr><td><b>Vocabulary Facilitator</b></td><td>Rob McClure</td><td>MD Partners</td><td>rmcclure@mdpartners.com</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Crystal Kallem</td><td>Lantana Consulting Group</td><td>crystal.kallem@lantanagroup.com</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Patricia Craig</td><td>The Joint Commission</td><td>pcraig@jointcommission.org</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Floyd Eisenberg</td><td>iParsimony LLC</td><td>feisenberg@iparsimony.com</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Chris Millet</td><td>National Quality Forum</td><td>cmillet@qualityforum.org</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Walter Suarez</td><td>Kaiser Permanente</td><td>walter.g.suarez@kp.org</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Guilherme Del Fiol</td><td>University of Utah Health Care</td><td>guilherme.delfiol@utah.edu</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Ken Kawamoto</td><td>University of Utah Health Care</td><td>kensaku.kawamoto@utah.edu</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Robert Jenders</td><td>Charles Drew University/UCLA</td><td>jenders@ucla.edu</td></tr>
+		<tr><td><b>Co-Chair</b></td><td>Howard Strasberg</td><td>Wolters Kluwer Health</td><td>howard.strasberg@wolterskluwer.com</td></tr>
 	</tbody>
 </table>
 </div>

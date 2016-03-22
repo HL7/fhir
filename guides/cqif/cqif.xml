@@ -136,11 +136,15 @@
   <binary value="cqframework-components-diagram.jpg"/>
   <binary value="cqif-integrating-decision-support-conversation.png"/>
   <binary value="cqif-integrating-decision-support-radiology-request.png"/>
-  <binary value="cqif-integrating-decision-support-service-scenario.png"/>
+  <binary value="cqif-integrating-decision-support-service-scenario.jpg"/>
   <binary value="cqif-integrating-decision-support-simple-request.png"/>
   <binary value="cqif-knowledge-artifact-components.png"/>
   <binary value="cqif-knowledge-artifact-distribution.png"/>
   <binary value="cqif-knowledge-artifact-types.png"/>
+  <binary value="cqif-measure-structure.png"/>
+  <binary value="cqif-measure-report-population.png"/>
+  <binary value="cqif-measure-report-patient-list.png"/>
+  <binary value="cqif-measure-report-individual.png"/>
   <page>
     <source value="cqif.html"/>
     <name value="Home Page"/>
