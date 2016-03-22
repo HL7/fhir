@@ -22,10 +22,10 @@
     </Practitioner>
   </contained>
 
-  <patient>
+  <subject>
     <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>
-  </patient>
+  </subject>
 
   <period>
     <end value="2013-01-01"/>

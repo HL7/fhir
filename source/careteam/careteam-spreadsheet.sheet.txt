@@ -15,6 +15,8 @@
  -- Row 1 -----------------------------------
   Element = CareTeam
   Type = DomainResource
+  Short Label = Planned participants in the coordination and delivery of care for a patient or group
+  Definition = The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient
   w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------
@@ -27,7 +29,17 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = CareTeam.category
+  Element = CareTeam.status
+  Card. = 0..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Short Label = active | suspended | inactive | entered in error
+  Definition = Indicates whether the care team is currently active, suspended, inactive, or entered in error
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = CareTeam.type
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
@@ -38,24 +50,25 @@
   To Do = Need a value set for this
   w5 = class
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = CareTeam.name
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Name of the team
+  Short Label = Name of the team, such as crisis assessment team
   Definition = Name of the care team
 
- -- Row 5 -----------------------------------
-  Element = CareTeam.patient
+ -- Row 6 -----------------------------------
+  Element = CareTeam.subject
   Card. = 0..1
   Summary = Y
-  Type = Reference(Patient)
+  Type = Reference(Patient | Group)
   Short Label = Who care team is for
-  Definition = Identifies the patient whose intended care is handled by the team
+  Definition = Identifies the patient or group whose intended care is handled by the team
+  Requirements = Allows the team to care for a group (e.g. marriage) therapy
   w5 = who.focus
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = CareTeam.period
   Card. = 0..1
   Summary = Y
@@ -65,7 +78,7 @@
   Requirements = Allows tracking what team(s) are in effect at a particular time.
   w5 = when.init
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = CareTeam.participant
   Card. = 0..*
   Short Label = Members of the team
@@ -73,7 +86,7 @@
   v2 Mapping = REL (REL.4 is always the Patient) ( or PRT?)
   RIM Mapping = .participation[typeCode=PFM]
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = CareTeam.participant.role
   Card. = 0..1
   Summary = Y
@@ -85,7 +98,7 @@
   v2 Mapping = REL.2 (or PRT-4?)
   RIM Mapping = .functionCode
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = CareTeam.participant.member
   Card. = 0..1
   Summary = Y
@@ -97,35 +110,58 @@
   RIM Mapping = .role
   w5 = who.actor
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = CareTeam.participant.period
   Card. = 0..1
   Type = Period
   Short Label = Time period of participant
   Definition = Indicates when the specific member or organization did (or is intended to) come into effect and end.
 
+ -- Row 12 -----------------------------------
+  Element = CareTeam.managingOrganization
+  Card. = 0..1
+  Summary = Y
+  Type = Reference(Organization)
+  Short Label = Organization responsible for the care team
+  Definition = The organization responsible for the care team
+
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
   Name = patient
   Type = reference
-  Path = CareTeam.patient
+  Path = CareTeam.subject
   Target Types = Patient
 
  -- Row 2 -----------------------------------
+  Name = subject
+  Type = reference
+  Path = CareTeam.subject
+
+ -- Row 3 -----------------------------------
   Name = date
   Type = date
   Path = CareTeam.period
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = participant
   Type = reference
   Path = CareTeam.participant.member
 
- -- Row 4 -----------------------------------
-  Name = category
+ -- Row 5 -----------------------------------
+  Name = type
   Type = token
-  Path = CareTeam.category
+  Path = CareTeam.type
+
+ -- Row 6 -----------------------------------
+  Name = status
+  Type = token
+  Path = CareTeam.status
+
+ -- Row 7 -----------------------------------
+  Name = identifier
+  Type = token
+  Path = CareTeam.identifier
 
 === Sheet Profiles =====================================
 
