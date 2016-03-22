@@ -31,7 +31,7 @@
   <concept>
     <code value="history"/>
     <display value="History"/>
-    <definition value="Retrieve the update history for a particular resource or resource type."/>
+    <definition value="Retrieve the change history for a particular resource or resource type."/>
   </concept>
   <concept>
     <code value="create"/>

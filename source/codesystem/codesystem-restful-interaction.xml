@@ -33,21 +33,21 @@
   <concept>
     <code value="history"/>
     <display value="history"/>
-    <definition value="Retrieve the update history for a particular resource, type of resource, or the entire system."/>
+    <definition value="Retrieve the change history for a particular resource, type of resource, or the entire system."/>
     <concept>
       <code value="history-instance"/>
       <display value="history-instance"/>
-      <definition value="Retrieve the update history for a particular resource."/>
+      <definition value="Retrieve the change history for a particular resource."/>
     </concept>
     <concept>
       <code value="history-type"/>
       <display value="history-type"/>
-      <definition value="Retrieve the update history for a all resources of a particular type."/>
+      <definition value="Retrieve the change history for a all resources of a particular type."/>
     </concept>
     <concept>
       <code value="history-system"/>
       <display value="history-system"/>
-      <definition value="Retrieve the update history for all resources on a system."/>
+      <definition value="Retrieve the change history for all resources on a system."/>
     </concept>
   </concept>
   <concept>

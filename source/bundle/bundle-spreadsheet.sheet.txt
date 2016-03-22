@@ -298,7 +298,7 @@
   Type = code
   Binding = HTTPVerb
   Short Label = GET | POST | PUT | DELETE
-  Definition = The HTTP verb for this entry in either a update history, or a transaction/ transaction response
+  Definition = The HTTP verb for this entry in either a change history, or a transaction/ transaction response
 
  -- Row 16 -----------------------------------
   Element = Bundle.entry.request.url
