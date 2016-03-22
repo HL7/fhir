@@ -9,357 +9,357 @@
 	<package>
 		<name value="base"/>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="AbstractResourceDescription"/>
 			<sourceUri value="AbstractResourceDescription.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="AbstractResourceDescriptionDirectoryEntry"/>
 			<sourceUri value="AbstractResourceDescriptionDirectoryEntry.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="AnonymousStatement"/>
 			<sourceUri value="AnonymousStatement.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="Changeable"/>
 			<sourceUri value="Changeable.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemCatalogEntry"/>
 			<sourceUri value="CodeSystemCatalogEntry.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemCatalogEntryDirectory"/>
 			<sourceUri value="CodeSystemCatalogEntryDirectory.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemCatalogEntryList"/>
 			<sourceUri value="CodeSystemCatalogEntryList.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemCatalogEntryListEntry"/>
 			<sourceUri value="CodeSystemCatalogEntryListEntry.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemCatalogEntryMsg"/>
 			<sourceUri value="CodeSystemCatalogEntryMsg.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemCatalogEntrySummary"/>
 			<sourceUri value="CodeSystemCatalogEntrySummary.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemCategoryReference"/>
 			<sourceUri value="CodeSystemCategoryReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemName"/>
 			<sourceUri value="CodeSystemName.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemReference"/>
 			<sourceUri value="CodeSystemReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemVersionCatalogEntryDirectoryURI"/>
 			<sourceUri value="CodeSystemVersionCatalogEntryDirectoryURI.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemVersionName"/>
 			<sourceUri value="CodeSystemVersionName.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CodeSystemVersionReference"/>
 			<sourceUri value="CodeSystemVersionReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="Comment"/>
 			<sourceUri value="Comment.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="CompleteDirectory"/>
 			<sourceUri value="CompleteDirectory.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="ComponentReference"/>
 			<sourceUri value="ComponentReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="DateAndTime"/>
 			<sourceUri value="DateAndTime.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="Directory"/>
 			<sourceUri value="Directory.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="DirectoryEntry"/>
 			<sourceUri value="DirectoryEntry.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="DirectoryURI"/>
 			<sourceUri value="DirectoryURI.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="DocumentURI"/>
 			<sourceUri value="DocumentURI.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="EntryDescription"/>
 			<sourceUri value="EntryDescription.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="EntryState"/>
 			<sourceUri value="EntryState.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="Enumeration"/>
 			<sourceUri value="Enumeration.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="ExternalURI"/>
 			<sourceUri value="ExternalURI.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="Filter"/>
 			<sourceUri value="Filter.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="FilterComponent"/>
 			<sourceUri value="FilterComponent.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="FormatReference"/>
 			<sourceUri value="FormatReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="LanguageReference"/>
 			<sourceUri value="LanguageReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="LocalIdentifier"/>
 			<sourceUri value="LocalIdentifier.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="LocalURI"/>
 			<sourceUri value="LocalURI.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="MatchAlgorithmReference"/>
 			<sourceUri value="MatchAlgorithmReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="MatchStrength"/>
 			<sourceUri value="MatchStrength.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="Message"/>
 			<sourceUri value="Message.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="NameAndMeaningReference"/>
 			<sourceUri value="NameAndMeaningReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="NamespaceIdentifier"/>
 			<sourceUri value="NamespaceIdentifier.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="NaturalNumber"/>
 			<sourceUri value="NaturalNumber.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="Note"/>
 			<sourceUri value="Note.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="NoteType"/>
 			<sourceUri value="NoteType.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="OntologyDomainReference"/>
 			<sourceUri value="OntologyDomainReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="OntologyEngineeringToolReference"/>
 			<sourceUri value="OntologyEngineeringToolReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="OntologyLanguageReference"/>
 			<sourceUri value="OntologyLanguageReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="OntologySyntaxReference"/>
 			<sourceUri value="OntologySyntaxReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="OntologyTaskReference"/>
 			<sourceUri value="OntologyTaskReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="OntologyTypeReference"/>
 			<sourceUri value="OntologyTypeReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="OpaqueData"/>
 			<sourceUri value="OpaqueData.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="Parameter"/>
 			<sourceUri value="Parameter.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="PersistentURI"/>
 			<sourceUri value="PersistentURI.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="PredicateReference"/>
 			<sourceUri value="PredicateReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="Property"/>
 			<sourceUri value="Property.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="RESTResource"/>
 			<sourceUri value="RESTResource.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="RenderingURI"/>
 			<sourceUri value="RenderingURI.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="ResourceDescription"/>
 			<sourceUri value="ResourceDescription.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="ResourceDescriptionDirectoryEntry"/>
 			<sourceUri value="ResourceDescriptionDirectoryEntry.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="RoleReference"/>
 			<sourceUri value="RoleReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="ServiceURI"/>
 			<sourceUri value="ServiceURI.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="SortCriteria"/>
 			<sourceUri value="SortCriteria.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="SortCriterion"/>
 			<sourceUri value="SortCriterion.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="SortDirection"/>
 			<sourceUri value="SortDirection.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="SourceAndNotation"/>
 			<sourceUri value="SourceAndNotation.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="SourceAndRoleReference"/>
 			<sourceUri value="SourceAndRoleReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="SourceReference"/>
 			<sourceUri value="SourceReference.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="StatementDirectoryURI"/>
 			<sourceUri value="StatementDirectoryURI.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="StatementTarget"/>
 			<sourceUri value="StatementTarget.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="String"/>
 			<sourceUri value="String.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="URI"/>
 			<sourceUri value="URI.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="URIAndEntityName"/>
 			<sourceUri value="URIAndEntityName.xml"/>
 		</resource>
 		<resource>
-			<purpose value="logical"/>
+			<example value="false"/>
 			<name value="tsAnyType"/>
 			<sourceUri value="tsAnyType.xml"/>
 		</resource>

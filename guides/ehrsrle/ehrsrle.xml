@@ -16,7 +16,7 @@
     </extension>
     <name value="base"/>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="EHRS FM Record Lifecycle Event"/>
       <description value="System which records information about EHR events"/>
       <sourceUri value="conformance-ehrs-rle.xml"/>

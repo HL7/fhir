@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Mon, Mar 21, 2016 22:53+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 22, 2016 11:08+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -131,157 +131,6 @@ public class ImplementationGuide extends DomainResource {
       return "?";
       }
     public String toSystem(GuideDependencyType code) {
-      return code.getSystem();
-      }
-    }
-
-    public enum GuideResourcePurpose {
-        /**
-         * The resource is intended as an example.
-         */
-        EXAMPLE, 
-        /**
-         * The resource defines a value set or concept map used in the implementation guide.
-         */
-        TERMINOLOGY, 
-        /**
-         * The resource defines a profile (StructureDefinition) that is used in the implementation guide.
-         */
-        PROFILE, 
-        /**
-         * The resource defines an extension (StructureDefinition) that is used in the implementation guide.
-         */
-        EXTENSION, 
-        /**
-         * The resource contains a dictionary that is part of the implementation guide.
-         */
-        DICTIONARY, 
-        /**
-         * The resource defines a logical model (in a StructureDefinition) that is used in the implementation guide.
-         */
-        LOGICAL, 
-        /**
-         * added to help the parsers
-         */
-        NULL;
-        public static GuideResourcePurpose fromCode(String codeString) throws FHIRException {
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("example".equals(codeString))
-          return EXAMPLE;
-        if ("terminology".equals(codeString))
-          return TERMINOLOGY;
-        if ("profile".equals(codeString))
-          return PROFILE;
-        if ("extension".equals(codeString))
-          return EXTENSION;
-        if ("dictionary".equals(codeString))
-          return DICTIONARY;
-        if ("logical".equals(codeString))
-          return LOGICAL;
-        throw new FHIRException("Unknown GuideResourcePurpose code '"+codeString+"'");
-        }
-        public String toCode() {
-          switch (this) {
-            case EXAMPLE: return "example";
-            case TERMINOLOGY: return "terminology";
-            case PROFILE: return "profile";
-            case EXTENSION: return "extension";
-            case DICTIONARY: return "dictionary";
-            case LOGICAL: return "logical";
-            default: return "?";
-          }
-        }
-        public String getSystem() {
-          switch (this) {
-            case EXAMPLE: return "http://hl7.org/fhir/guide-resource-purpose";
-            case TERMINOLOGY: return "http://hl7.org/fhir/guide-resource-purpose";
-            case PROFILE: return "http://hl7.org/fhir/guide-resource-purpose";
-            case EXTENSION: return "http://hl7.org/fhir/guide-resource-purpose";
-            case DICTIONARY: return "http://hl7.org/fhir/guide-resource-purpose";
-            case LOGICAL: return "http://hl7.org/fhir/guide-resource-purpose";
-            default: return "?";
-          }
-        }
-        public String getDefinition() {
-          switch (this) {
-            case EXAMPLE: return "The resource is intended as an example.";
-            case TERMINOLOGY: return "The resource defines a value set or concept map used in the implementation guide.";
-            case PROFILE: return "The resource defines a profile (StructureDefinition) that is used in the implementation guide.";
-            case EXTENSION: return "The resource defines an extension (StructureDefinition) that is used in the implementation guide.";
-            case DICTIONARY: return "The resource contains a dictionary that is part of the implementation guide.";
-            case LOGICAL: return "The resource defines a logical model (in a StructureDefinition) that is used in the implementation guide.";
-            default: return "?";
-          }
-        }
-        public String getDisplay() {
-          switch (this) {
-            case EXAMPLE: return "Example";
-            case TERMINOLOGY: return "Terminology";
-            case PROFILE: return "Profile";
-            case EXTENSION: return "Extension";
-            case DICTIONARY: return "Dictionary";
-            case LOGICAL: return "Logical Model";
-            default: return "?";
-          }
-        }
-    }
-
-  public static class GuideResourcePurposeEnumFactory implements EnumFactory<GuideResourcePurpose> {
-    public GuideResourcePurpose fromCode(String codeString) throws IllegalArgumentException {
-      if (codeString == null || "".equals(codeString))
-            if (codeString == null || "".equals(codeString))
-                return null;
-        if ("example".equals(codeString))
-          return GuideResourcePurpose.EXAMPLE;
-        if ("terminology".equals(codeString))
-          return GuideResourcePurpose.TERMINOLOGY;
-        if ("profile".equals(codeString))
-          return GuideResourcePurpose.PROFILE;
-        if ("extension".equals(codeString))
-          return GuideResourcePurpose.EXTENSION;
-        if ("dictionary".equals(codeString))
-          return GuideResourcePurpose.DICTIONARY;
-        if ("logical".equals(codeString))
-          return GuideResourcePurpose.LOGICAL;
-        throw new IllegalArgumentException("Unknown GuideResourcePurpose code '"+codeString+"'");
-        }
-        public Enumeration<GuideResourcePurpose> fromType(Base code) throws FHIRException {
-          if (code == null || code.isEmpty())
-            return null;
-          String codeString = ((PrimitiveType) code).asStringValue();
-          if (codeString == null || "".equals(codeString))
-            return null;
-        if ("example".equals(codeString))
-          return new Enumeration<GuideResourcePurpose>(this, GuideResourcePurpose.EXAMPLE);
-        if ("terminology".equals(codeString))
-          return new Enumeration<GuideResourcePurpose>(this, GuideResourcePurpose.TERMINOLOGY);
-        if ("profile".equals(codeString))
-          return new Enumeration<GuideResourcePurpose>(this, GuideResourcePurpose.PROFILE);
-        if ("extension".equals(codeString))
-          return new Enumeration<GuideResourcePurpose>(this, GuideResourcePurpose.EXTENSION);
-        if ("dictionary".equals(codeString))
-          return new Enumeration<GuideResourcePurpose>(this, GuideResourcePurpose.DICTIONARY);
-        if ("logical".equals(codeString))
-          return new Enumeration<GuideResourcePurpose>(this, GuideResourcePurpose.LOGICAL);
-        throw new FHIRException("Unknown GuideResourcePurpose code '"+codeString+"'");
-        }
-    public String toCode(GuideResourcePurpose code) {
-      if (code == GuideResourcePurpose.EXAMPLE)
-        return "example";
-      if (code == GuideResourcePurpose.TERMINOLOGY)
-        return "terminology";
-      if (code == GuideResourcePurpose.PROFILE)
-        return "profile";
-      if (code == GuideResourcePurpose.EXTENSION)
-        return "extension";
-      if (code == GuideResourcePurpose.DICTIONARY)
-        return "dictionary";
-      if (code == GuideResourcePurpose.LOGICAL)
-        return "logical";
-      return "?";
-      }
-    public String toSystem(GuideResourcePurpose code) {
       return code.getSystem();
       }
     }
@@ -1104,11 +953,11 @@ public class ImplementationGuide extends DomainResource {
     @Block()
     public static class ImplementationGuidePackageResourceComponent extends BackboneElement implements IBaseBackboneElement {
         /**
-         * Why the resource is included in the guide.
+         * Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide.
          */
-        @Child(name = "purpose", type = {CodeType.class}, order=1, min=1, max=1, modifier=false, summary=true)
-        @Description(shortDefinition="example | terminology | profile | extension | dictionary | logical", formalDefinition="Why the resource is included in the guide." )
-        protected Enumeration<GuideResourcePurpose> purpose;
+        @Child(name = "example", type = {BooleanType.class}, order=1, min=1, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="If not an example, has it's normal meaning", formalDefinition="Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide." )
+        protected BooleanType example;
 
         /**
          * A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).
@@ -1150,7 +999,7 @@ public class ImplementationGuide extends DomainResource {
          */
         protected StructureDefinition exampleForTarget;
 
-        private static final long serialVersionUID = 428339533L;
+        private static final long serialVersionUID = 2085404852L;
 
     /**
      * Constructor
@@ -1162,54 +1011,54 @@ public class ImplementationGuide extends DomainResource {
     /**
      * Constructor
      */
-      public ImplementationGuidePackageResourceComponent(Enumeration<GuideResourcePurpose> purpose, Type source) {
+      public ImplementationGuidePackageResourceComponent(BooleanType example, Type source) {
         super();
-        this.purpose = purpose;
+        this.example = example;
         this.source = source;
       }
 
         /**
-         * @return {@link #purpose} (Why the resource is included in the guide.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
+         * @return {@link #example} (Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide.). This is the underlying object with id, value and extensions. The accessor "getExample" gives direct access to the value
          */
-        public Enumeration<GuideResourcePurpose> getPurposeElement() { 
-          if (this.purpose == null)
+        public BooleanType getExampleElement() { 
+          if (this.example == null)
             if (Configuration.errorOnAutoCreate())
-              throw new Error("Attempt to auto-create ImplementationGuidePackageResourceComponent.purpose");
+              throw new Error("Attempt to auto-create ImplementationGuidePackageResourceComponent.example");
             else if (Configuration.doAutoCreate())
-              this.purpose = new Enumeration<GuideResourcePurpose>(new GuideResourcePurposeEnumFactory()); // bb
-          return this.purpose;
+              this.example = new BooleanType(); // bb
+          return this.example;
         }
 
-        public boolean hasPurposeElement() { 
-          return this.purpose != null && !this.purpose.isEmpty();
+        public boolean hasExampleElement() { 
+          return this.example != null && !this.example.isEmpty();
         }
 
-        public boolean hasPurpose() { 
-          return this.purpose != null && !this.purpose.isEmpty();
+        public boolean hasExample() { 
+          return this.example != null && !this.example.isEmpty();
         }
 
         /**
-         * @param value {@link #purpose} (Why the resource is included in the guide.). This is the underlying object with id, value and extensions. The accessor "getPurpose" gives direct access to the value
+         * @param value {@link #example} (Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide.). This is the underlying object with id, value and extensions. The accessor "getExample" gives direct access to the value
          */
-        public ImplementationGuidePackageResourceComponent setPurposeElement(Enumeration<GuideResourcePurpose> value) { 
-          this.purpose = value;
+        public ImplementationGuidePackageResourceComponent setExampleElement(BooleanType value) { 
+          this.example = value;
           return this;
         }
 
         /**
-         * @return Why the resource is included in the guide.
+         * @return Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide.
          */
-        public GuideResourcePurpose getPurpose() { 
-          return this.purpose == null ? null : this.purpose.getValue();
+        public boolean getExample() { 
+          return this.example == null || this.example.isEmpty() ? false : this.example.getValue();
         }
 
         /**
-         * @param value Why the resource is included in the guide.
+         * @param value Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide.
          */
-        public ImplementationGuidePackageResourceComponent setPurpose(GuideResourcePurpose value) { 
-            if (this.purpose == null)
-              this.purpose = new Enumeration<GuideResourcePurpose>(new GuideResourcePurposeEnumFactory());
-            this.purpose.setValue(value);
+        public ImplementationGuidePackageResourceComponent setExample(boolean value) { 
+            if (this.example == null)
+              this.example = new BooleanType();
+            this.example.setValue(value);
           return this;
         }
 
@@ -1451,7 +1300,7 @@ public class ImplementationGuide extends DomainResource {
 
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
-          childrenList.add(new Property("purpose", "code", "Why the resource is included in the guide.", 0, java.lang.Integer.MAX_VALUE, purpose));
+          childrenList.add(new Property("example", "boolean", "Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide.", 0, java.lang.Integer.MAX_VALUE, example));
           childrenList.add(new Property("name", "string", "A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).", 0, java.lang.Integer.MAX_VALUE, name));
           childrenList.add(new Property("description", "string", "A description of the reason that a resource has been included in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, description));
           childrenList.add(new Property("acronym", "string", "A short code that may be used to identify the resource throughout the implementation guide.", 0, java.lang.Integer.MAX_VALUE, acronym));
@@ -1461,8 +1310,8 @@ public class ImplementationGuide extends DomainResource {
 
       @Override
       public void setProperty(String name, Base value) throws FHIRException {
-        if (name.equals("purpose"))
-          this.purpose = new GuideResourcePurposeEnumFactory().fromType(value); // Enumeration<GuideResourcePurpose>
+        if (name.equals("example"))
+          this.example = castToBoolean(value); // BooleanType
         else if (name.equals("name"))
           this.name = castToString(value); // StringType
         else if (name.equals("description"))
@@ -1479,8 +1328,8 @@ public class ImplementationGuide extends DomainResource {
 
       @Override
       public Base addChild(String name) throws FHIRException {
-        if (name.equals("purpose")) {
-          throw new FHIRException("Cannot call addChild on a primitive type ImplementationGuide.purpose");
+        if (name.equals("example")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ImplementationGuide.example");
         }
         else if (name.equals("name")) {
           throw new FHIRException("Cannot call addChild on a primitive type ImplementationGuide.name");
@@ -1510,7 +1359,7 @@ public class ImplementationGuide extends DomainResource {
       public ImplementationGuidePackageResourceComponent copy() {
         ImplementationGuidePackageResourceComponent dst = new ImplementationGuidePackageResourceComponent();
         copyValues(dst);
-        dst.purpose = purpose == null ? null : purpose.copy();
+        dst.example = example == null ? null : example.copy();
         dst.name = name == null ? null : name.copy();
         dst.description = description == null ? null : description.copy();
         dst.acronym = acronym == null ? null : acronym.copy();
@@ -1526,7 +1375,7 @@ public class ImplementationGuide extends DomainResource {
         if (!(other instanceof ImplementationGuidePackageResourceComponent))
           return false;
         ImplementationGuidePackageResourceComponent o = (ImplementationGuidePackageResourceComponent) other;
-        return compareDeep(purpose, o.purpose, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
+        return compareDeep(example, o.example, true) && compareDeep(name, o.name, true) && compareDeep(description, o.description, true)
            && compareDeep(acronym, o.acronym, true) && compareDeep(source, o.source, true) && compareDeep(exampleFor, o.exampleFor, true)
           ;
       }
@@ -1538,12 +1387,12 @@ public class ImplementationGuide extends DomainResource {
         if (!(other instanceof ImplementationGuidePackageResourceComponent))
           return false;
         ImplementationGuidePackageResourceComponent o = (ImplementationGuidePackageResourceComponent) other;
-        return compareValues(purpose, o.purpose, true) && compareValues(name, o.name, true) && compareValues(description, o.description, true)
+        return compareValues(example, o.example, true) && compareValues(name, o.name, true) && compareValues(description, o.description, true)
            && compareValues(acronym, o.acronym, true);
       }
 
       public boolean isEmpty() {
-        return super.isEmpty() && (purpose == null || purpose.isEmpty()) && (name == null || name.isEmpty())
+        return super.isEmpty() && (example == null || example.isEmpty()) && (name == null || name.isEmpty())
            && (description == null || description.isEmpty()) && (acronym == null || acronym.isEmpty())
            && (source == null || source.isEmpty()) && (exampleFor == null || exampleFor.isEmpty());
       }

@@ -32,11 +32,11 @@
       <valueUri value="australian-organ-donor-register-spreadsheet.xml"/>
     </extension>
     <name value="base"/>
-    <resource>
-      <purpose value="logical"/>
+<!--    <resource>
+      <example value="false"/>
       <name value="Pregnancy Summary"/>
       <sourceUri value="pregnancy.xml"/>
-    </resource>
+    </resource> -->
   </package>
   <page>
     <source value="nehta.html"/>

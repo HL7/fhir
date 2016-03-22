@@ -24,7 +24,7 @@
     <description
       value="Resource profiles and extensions necessary to support Guideline Appropriate Ordering."/>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="GAO Evaluate Order"/>
       <description
         value="The evaluate operation examines an order, comparing it against known guidelines for appropriate use and returns the result of that evaluation to the caller."/>
@@ -32,7 +32,7 @@
       <sourceUri value="OperationDefinition/gao-order-evaluate.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="Guideline Appropriate Order"/>
       <description
         value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals), and is used to link the order details to the reason(s), date, patient and provider placing the order. "/>
@@ -40,7 +40,7 @@
       <sourceUri value="StructureDefinition/gao-order.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="GAO Patient"/>
       <description
         value="The patient resource is required to provide relevant demographics associated with the patient. Other details may be provided according to local implementation requirements. "/>
@@ -48,7 +48,7 @@
       <sourceUri value="StructureDefinition/gao-patient.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="GAO Practitioner"/>
       <description
         value="The practitioner resource is required to identify the provider placing the order. "/>
@@ -56,7 +56,7 @@
       <sourceUri value="StructureDefinition/gao-practitioner.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="GAO Diagnostic Order"/>
       <description
         value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
@@ -64,7 +64,7 @@
       <sourceUri value="StructureDefinition/gao-diagnosticorder.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="GAO Referral Request"/>
       <description
         value="The referral request resource is required to identify the referral service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
@@ -72,7 +72,7 @@
       <sourceUri value="StructureDefinition/gao-referralrequest.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="GAO Medication Order"/>
       <description
         value="The medication prescription resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
@@ -80,7 +80,7 @@
       <sourceUri value="StructureDefinition/gao-medicationorder.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="GAO Procedure Request"/>
       <description
         value="The procedure request resource is required to identify the procedures that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
@@ -88,7 +88,7 @@
       <sourceUri value="StructureDefinition/gao-procedurerequest.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="GAO Questionnaire"/>
       <description
         value="The Questionnaire resource is used to support an interactive question/answer implementation driven by the client.  This interaction may result in a more favorable evaluation of the proposed order."/>
@@ -96,7 +96,7 @@
       <sourceUri value="StructureDefinition/gao-questionnaire.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="GAO Questionnaire Response"/>
       <description
         value="A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary."/>
@@ -104,14 +104,14 @@
       <sourceUri value="StructureDefinition/gao-questionnaireresponse.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="GAO Result"/>
       <description value="The result resource provides the result of the evaluation."/>
       <acronym value="gao-result"/>
       <sourceUri value="StructureDefinition/gao-result.xml"/>
     </resource>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="GAO Alternate"/>
       <description
         value="The alternate resource is used to reflect evaluations of alternate services that may be suggested by the decision support service."/>
@@ -119,61 +119,61 @@
       <sourceUri value="StructureDefinition/gao-alternate.xml"/>
     </resource>
     <resource>
-      <purpose value="extension"/>
+      <example value="false"/>
       <name value="GAO Score"/>
       <description value="Supports capture of evaluation score from the decision support system."/>
       <sourceUri value="StructureDefinition/gao-extension-score.xml"/>
     </resource>
     <resource>
-      <purpose value="extension"/>
+      <example value="false"/>
       <name value="GAO Device"/>
       <description
         value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri value="StructureDefinition/gao-extension-device.xml"/>
     </resource>
     <resource>
-      <purpose value="extension"/>
+      <example value="false"/>
       <name value="GAO Guideline"/>
       <description
         value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri value="StructureDefinition/gao-extension-guideline.xml"/>
     </resource>
     <resource>
-      <purpose value="extension"/>
+      <example value="false"/>
       <name value="GAO Item"/>
       <description
         value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri value="StructureDefinition/gao-extension-item.xml"/>
     </resource>
     <resource>
-      <purpose value="extension"/>
+      <example value="false"/>
       <name value="GAO Period"/>
       <description
         value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri value="StructureDefinition/gao-extension-period.xml"/>
     </resource>
     <resource>
-      <purpose value="extension"/>
+      <example value="false"/>
       <name value="GAO Practitioner Identifier"/>
       <description value="Supports identification of the ordering practitioner."/>
       <sourceUri value="StructureDefinition/gao-extension-practitioner.xml"/>
     </resource>
     <resource>
-      <purpose value="extension"/>
+      <example value="false"/>
       <name value="GAO Signature"/>
       <description
         value="Supports identification of the decision support system used to evaluate the order."/>
       <sourceUri value="StructureDefinition/gao-extension-signature.xml"/>
     </resource>
     <resource>
-      <purpose value="terminology"/>
+      <example value="false"/>
       <name value="GAO Evaluation Result Codes"/>
       <description value="A set of codes which indicates the result of an evaluation of an order."/>
       <acronym value="gao-result-code"/>
       <sourceUri value="ValueSet/gao-evaluation-result-code.xml"/>
     </resource>
     <resource>
-      <purpose value="terminology"/>
+      <example value="false"/>
       <name value="GAO Answer Format Codes"/>
       <description
         value="The set of question types allowed in a questionnaire used for evaluation of orders."/>
@@ -181,7 +181,7 @@
       <sourceUri value="ValueSet/gao-answer-format.xml"/>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="GAO Decision Support Service"/>
       <description
         value="The Decision Support Service actor implements the $evaluate operation to determine 
@@ -190,7 +190,7 @@
       <sourceUri value="Conformance/gao-decision-support-service.xml"/>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="GAO Order Evaluation Requester"/>
       <description
         value="The Order Evaluation Requester actor invokes the $evaluate operation to determine 
@@ -199,7 +199,7 @@
       <sourceUri value="Conformance/gao-order-evaluation-requester.xml"/>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Example GAO response parameters CT head outside of guidelines"/>
       <description
         value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
@@ -210,7 +210,7 @@
       </exampleFor>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Example GAO response parameters CT head outside of guidelines with alternate"/>
       <description
         value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
@@ -223,7 +223,7 @@
       </exampleFor>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Example GAO response parameters CT head no guidelines"/>
       <description
         value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
@@ -234,7 +234,7 @@
       </exampleFor>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Example GAO request parameters MRI head"/>
       <description
         value="A 50-year-old male is ordered an MRI of the the Head for his headache by an identified practitioner."/>
@@ -245,7 +245,7 @@
       </exampleFor>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Example GAO request CT head"/>
       <description
         value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>
@@ -256,7 +256,7 @@
       </exampleFor>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Example GAO practitioner"/>
       <description value="Identified Practitioner: 9999999999"/>
       <acronym value="example-gao-practitioner"/>
@@ -266,7 +266,7 @@
       </exampleFor>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Example GAO patient"/>
       <description value="A 50-year-old male."/>
       <acronym value="example-gao-patient"/>
@@ -276,7 +276,7 @@
       </exampleFor>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Example GAO order"/>
       <description
         value="A 50-year-old male is ordered a CT of the Head for his headache by an identified practitioner."/>

@@ -14,7 +14,7 @@
     <name value="GAO Package" />
     <description value="Resource profiles and extensions necessary to support Guideline Appropriate Ordering." />
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="Guideline Appropriate Order" />
       <description value="The Order resource references the request being evaluated (for diagnostic tests, medications, procedures, referrals), and is used to link the order details to the reason(s), date, patient and provider placing the order. " />
       <acronym value="gao-order" />
@@ -23,7 +23,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Patient" />
       <description value="The patient resource is required to provide relevant demographics associated with the patient. Other details may be provided according to local implementation requirements. " />
       <acronym value="gao-patient" />
@@ -32,7 +32,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Practitioner" />
       <description value="The practitioner resource is required to identify the provider placing the order. " />
       <acronym value="gao-practitioner" />
@@ -41,7 +41,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Diagnostic Order" />
       <description value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
       <acronym value="gao-diagnosticorder" />
@@ -50,7 +50,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Referral Request" />
       <description value="The referral request resource is required to identify the referral service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
       <acronym value="gao-referralrequest" />
@@ -59,7 +59,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Medication Order" />
       <description value="The medication prescription resource is required to identify the medications ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
       <acronym value="gao-medicationorder" />
@@ -68,7 +68,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Procedure Request" />
       <description value="The procedure request resource is required to identify the procedures that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness." />
       <acronym value="gao-procedurerequest" />
@@ -77,7 +77,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Questionnaire" />
       <description value="The Questionnaire resource is used to support an interactive question/answer implementation driven by the client.  This interaction may result in a more favorable evaluation of the proposed order." />
       <acronym value="gao-questionnaire" />
@@ -86,7 +86,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Questionnaire Response" />
       <description value="A QuestionnaireAnswers resource is used to answer questions that have been asked in order to determine the appropriateness of the order. A requester may pre-emptively provide answers to questions for orders it suspects may be necessary." />
       <acronym value="gao-questionnaireresponse" />
@@ -95,7 +95,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Result" />
       <description value="The result resource provides the result of the evaluation." />
       <acronym value="gao-result" />
@@ -104,7 +104,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Alternate" />
       <description value="The alternate resource is used to reflect evaluations of alternate services that may be suggested by the decision support service." />
       <acronym value="gao-alternate" />
@@ -113,7 +113,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="profile" />
+      <example value="false"/>
       <name value="GAO Provenance" />
       <description value="The provenance resource is profiled to support expression of the digital signature on a Result or Alternate." />
       <acronym value="gao-provenance" />
@@ -122,7 +122,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="extension" />
+      <example value="false"/>
       <name value="GAO Score" />
       <description value="Supports capture of evaluation score from the decision support system." />
       <sourceReference>
@@ -130,7 +130,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="extension" />
+      <example value="false"/>
       <name value="GAO Device" />
       <description value="Supports identification of the decision support system used to evaluate the order." />
       <sourceReference>
@@ -138,7 +138,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="extension" />
+      <example value="false"/>
       <name value="GAO Guideline" />
       <description value="Supports identification of the decision support system used to evaluate the order." />
       <sourceReference>
@@ -146,7 +146,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="extension" />
+      <example value="false"/>
       <name value="GAO Item" />
       <description value="Supports identification of the decision support system used to evaluate the order." />
       <sourceReference>
@@ -154,7 +154,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="extension" />
+      <example value="false"/>
       <name value="GAO Period" />
       <description value="Supports identification of the decision support system used to evaluate the order." />
       <sourceReference>
@@ -162,7 +162,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="extension" />
+      <example value="false"/>
       <name value="GAO Practitioner Identifier" />
       <description value="Supports identification of the ordering practitioner." />
       <sourceReference>
@@ -170,7 +170,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="extension" />
+      <example value="false"/>
       <name value="GAO Signature" />
       <description value="Supports identification of the decision support system used to evaluate the order." />
       <sourceReference>
@@ -178,7 +178,7 @@
       </sourceReference>
     </resource>
     <resource>
-      <purpose value="terminology" />
+      <example value="false"/>
       <name value="GAO Evaluation Result Codes" />
       <description value="A set of codes which indicates the result of an evaluation of an order." />
       <acronym value="gao-result-code" />

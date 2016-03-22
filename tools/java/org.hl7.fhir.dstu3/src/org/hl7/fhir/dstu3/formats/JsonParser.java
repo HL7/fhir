@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Mon, Mar 21, 2016 22:53+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 22, 2016 11:08+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -8858,10 +8858,10 @@ public class JsonParser extends JsonParserBase {
   protected ImplementationGuide.ImplementationGuidePackageResourceComponent parseImplementationGuideImplementationGuidePackageResourceComponent(JsonObject json, ImplementationGuide owner) throws IOException, FHIRFormatError {
     ImplementationGuide.ImplementationGuidePackageResourceComponent res = new ImplementationGuide.ImplementationGuidePackageResourceComponent();
     parseBackboneProperties(json, res);
-    if (json.has("purpose"))
-      res.setPurposeElement(parseEnumeration(json.get("purpose").getAsString(), ImplementationGuide.GuideResourcePurpose.NULL, new ImplementationGuide.GuideResourcePurposeEnumFactory()));
-    if (json.has("_purpose"))
-      parseElementProperties(json.getAsJsonObject("_purpose"), res.getPurposeElement());
+    if (json.has("example"))
+      res.setExampleElement(parseBoolean(json.get("example").getAsBoolean()));
+    if (json.has("_example"))
+      parseElementProperties(json.getAsJsonObject("_example"), res.getExampleElement());
     if (json.has("name"))
       res.setNameElement(parseString(json.get("name").getAsString()));
     if (json.has("_name"))
@@ -26634,9 +26634,9 @@ public class JsonParser extends JsonParserBase {
 
   protected void composeImplementationGuideImplementationGuidePackageResourceComponentInner(ImplementationGuide.ImplementationGuidePackageResourceComponent element) throws IOException {
       composeBackbone(element);
-      if (element.hasPurposeElement()) {
-        composeEnumerationCore("purpose", element.getPurposeElement(), new ImplementationGuide.GuideResourcePurposeEnumFactory(), false);
-        composeEnumerationExtras("purpose", element.getPurposeElement(), new ImplementationGuide.GuideResourcePurposeEnumFactory(), false);
+      if (element.hasExampleElement()) {
+        composeBooleanCore("example", element.getExampleElement(), false);
+        composeBooleanExtras("example", element.getExampleElement(), false);
       }
       if (element.hasNameElement()) {
         composeStringCore("name", element.getNameElement(), false);

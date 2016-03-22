@@ -32,23 +32,23 @@
     </extension>
     <name value="base"/>
     <resource>
-      <purpose value="terminology"/>
+      <example value="false"/>
       <sourceUri value="valueset-dataelement-sdccode.xml"/>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="SDC DE Registry"/>
       <description value="SDC Repository for Data Elements"/>
       <sourceUri value="conformance-sdc-de-registry.xml"/>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="SDC DE Curator"/>
       <description value="SDC Data Elements author/maintenance system"/>
       <sourceUri value="conformance-sdc-de-curator.xml"/>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="SDC-Gender"/>
       <description value="Patient gender represented according to SDC rules"/>
       <sourceUri value="dataelement-sdc-profile-example-de.xml"/>

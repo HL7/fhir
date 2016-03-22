@@ -23,7 +23,7 @@
     </extension>
     <name value="base"/>
     <resource>
-      <purpose value="profile"/>
+      <example value="false"/>
       <name value="Provider Directory Practitioner Profile"/>
       <acronym value="argo-pd"/>
       <sourceUri value="argonaut-provider.xml"/>

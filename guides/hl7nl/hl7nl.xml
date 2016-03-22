@@ -10,37 +10,37 @@
     <package>
         <name value="base"/>
         <resource>
-            <purpose value="profile"/>
+            <example value="false"/>
             <name value="Patient"/>
             <sourceUri value="nl-core-patient.xml"/>
         </resource>
         <resource>
-            <purpose value="profile"/>
+            <example value="false"/>
             <name value="Address"/>
             <sourceUri value="nl-core-address.xml"/>
         </resource>
         <resource>
-            <purpose value="extension"/>
+            <example value="false"/>
             <name value="Address.official"/>
             <sourceUri value="nl-core-address-official.xml"/>
         </resource>
         <resource>
-            <purpose value="extension"/>
+            <example value="false"/>
             <name value="HumanName.family"/>
             <sourceUri value="nl-core-humanname-family.xml"/>
         </resource>
         <resource>
-            <purpose value="extension"/>
+            <example value="false"/>
             <name value="HumanName.familyname"/>
             <sourceUri value="nl-core-humanname-familyname.xml"/>
         </resource>
         <resource>
-            <purpose value="extension"/>
+            <example value="false"/>
             <name value="HumanName.family.prefix"/>
             <sourceUri value="nl-core-humanname-familyname-prefix.xml"/>
         </resource>
         <resource>
-            <purpose value="profile"/>
+            <example value="false"/>
             <name value="HumanName"/>
             <sourceUri value="nl-core-humanname.xml"/>
         </resource>

@@ -192,7 +192,7 @@
     </extension>
     <name value="base"/>
     <resource>
-      <purpose value="dictionary"/>
+      <example value="false"/>
       <name value="HSPC Quantitative Labs dictionary"/>
       <sourceUri value="hspc-qnlab-de.xml"/>
     </resource>

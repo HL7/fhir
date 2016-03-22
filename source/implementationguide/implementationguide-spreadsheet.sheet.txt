@@ -15,13 +15,6 @@
   Definition = The kind of an included page.
   Conformance = required
 
- -- Row 3 -----------------------------------
-  Binding Name = GuideResourcePurpose
-  Binding = code list
-  Reference = #guide-resource-purpose
-  Definition = Why a resource is included in the guide.
-  Conformance = required
-
 === Sheet guide-dependency-type =====================================
 
  -- Row 1 -----------------------------------
@@ -86,44 +79,6 @@
   Code = resource
   Display = Resource
   Definition = This is a page that represents a presented resource. This is typically used for generated conformance resource presentations.
-
-=== Sheet guide-resource-purpose =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = example
-  Display = Example
-  Definition = The resource is intended as an example.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = terminology
-  Display = Terminology
-  Definition = The resource defines a value set or concept map used in the implementation guide.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = profile
-  Display = Profile
-  Definition = The resource defines a profile (StructureDefinition) that is used in the implementation guide.
-
- -- Row 4 -----------------------------------
-  Id = 6
-  Code = extension
-  Display = Extension
-  Definition = The resource defines an extension (StructureDefinition) that is used in the implementation guide.
-
- -- Row 5 -----------------------------------
-  Id = 4
-  Code = dictionary
-  Display = Dictionary
-  Definition = The resource contains a dictionary that is part of the implementation guide.
-
- -- Row 6 -----------------------------------
-  Id = 5
-  Code = logical
-  Display = Logical Model
-  Definition = The resource defines a logical model (in a StructureDefinition) that is used in the implementation guide.
 
 === Sheet Invariants =====================================
 
@@ -333,15 +288,13 @@
   Definition = A resource that is part of the implementation guide. Conformance resources (value set, structure definition, conformance statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource
 
  -- Row 23 -----------------------------------
-  Element = ImplementationGuide.package.resource.purpose
+  Element = ImplementationGuide.package.resource.example
   Card. = 1..1
   Summary = Y
-  Type = code
-  Binding = GuideResourcePurpose
-  Short Label = example | terminology | profile | extension | dictionary | logical
-  Definition = Why the resource is included in the guide
-  Requirements = This element is provided so that implementation guide tooling does not have to guess the purpose of including a resource in the implementation guide based on the type or context
-  Comments = The purpose alters the way that a resource is handled when a guide is built. At present, only value set and concept map resources are allowed for terminology resources, and only StructureDefinition, SearchParameter, and OperationDefinition for profile. Dictionaries must be bundles of DataElement or Medication at this time
+  Type = boolean
+  Short Label = If not an example, has it\'s normal meaning
+  Definition = Whether a resource is included in the guide as part of the rules defined by the guide, or just as an example of a resource that conforms to the rules and/or help implementers understand the intent of the guide
+  Comments = Typically, conformance resources and knowledge resources are directly part of the implementation guide, with their normal meaning, and patient linked resources are usually examples. However this is not always true
 
  -- Row 24 -----------------------------------
   Element = ImplementationGuide.package.resource.name

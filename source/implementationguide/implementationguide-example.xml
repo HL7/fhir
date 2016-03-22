@@ -42,7 +42,7 @@
     <name value="test"/>
     <description value="Base package (not broken up into multiple packages)"/>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Test Example"/>
       <description value="A test example to show how a package works"/>
       <!-- used when generating invariants -->

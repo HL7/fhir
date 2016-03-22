@@ -41,7 +41,7 @@
     </extension>
     <name value="base"/>
     <!--resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Knowledge Module - Stand-Alone Module"/>
       <description value="KnowledgeModule used to define a Guideline Appropriate Ordering module"/>
       <sourceUri value="knowledgemodule-example.xml"/>
@@ -50,7 +50,7 @@
       </exampleFor>
     </resource-->
     <!--resource>
-		<purpose value="example"/>
+		<example value="true"/>
 		<name value="Knowledge Module - Library"/>
 		<description value="KnowledgeModule used to expose a CQL library as a knowledge module"/>
 		<sourceUri value="knowledgemodule-library-example.xml"/>
@@ -59,7 +59,7 @@
 		</exampleFor>
     </resource-->
 	<!--resource>
-		<purpose value="example"/>
+		<example value="true"/>
 		<name value="Guidance Artifact - HeD Reference"/>
 		<description value="GuidanceArtifact used to expose an existing HeD artifact as a knowledge module"/>
 		<sourceUri value="guidanceartifact-hedreference-example.xml"/>
@@ -68,7 +68,7 @@
 		</exampleFor>
     </resource-->
     <!--resource>
-		<purpose value="example"/>
+		<example value="true"/>
 		<name value="Guidance Artifact - ECA Rule"/>
 		<description value="GuidanceArtifact used to define an ECA Rule"/>
 		<sourceUri value="guidanceartifact-ecarule-example.xml"/>
@@ -77,7 +77,7 @@
 		</exampleFor>
     </resource-->
     <!--resource>
-		<purpose value="example"/>
+		<example value="true"/>
 		<name value="Guidance Artifact - Documentation Template"/>
 		<description value="GuidanceArtifact used to define a Documentation Template"/>
 		<sourceUri value="guidanceartifact-documentationtemplate-example.xml"/>
@@ -86,7 +86,7 @@
 		</exampleFor>
     </resource-->
     <!--resource>
-		<purpose value="example"/>
+		<example value="true"/>
 		<name value="Guidance Artifact - Order Set"/>
 		<description value="GuidanceArtifact used to define an Order Set"/>
 		<sourceUri value="guidanceartifact-orderset-example.xml"/>
@@ -95,7 +95,7 @@
 		</exampleFor>
     </resource-->
     <!--resource>
-		<purpose value="example"/>
+		<example value="true"/>
 		<name value="Guidance Artifact - Suicide Risk Order Set"/>
 		<description value="GuidanceArtifact used to define a suicide risk management Order Set"/>
 		<sourceUri value="mmi-suiciderisk-orderset-example.xml"/>
@@ -104,7 +104,7 @@
 		</exampleFor>
     </resource-->
     <resource>
-		<purpose value="example"/>
+		<example value="true"/>
 		<name value="Questionnaire - PHQ-9"/>
 		<description value="Questionnaire used to define the questions involved in the PHQ-9 health questionnaire"/>
 		<sourceUri value="questionnaire-cqif-example.xml"/>
@@ -114,7 +114,7 @@
     </resource>
 	<!--    
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Guidance Request"/>
       <description value="GuidanceRequest for a Guideline Appropriate Ordering module evaluation"/>
       <sourceUri value="guidance-operation-request-example-v2.xml"/>
@@ -123,7 +123,7 @@
       </exampleFor>
     </resource>
     <resource>
-      <purpose value="example"/>
+      <example value="true"/>
       <name value="Guidance Response"/>
       <description value="GuidanceResponse for a Guideline Appropriate Ordering module evaluation"/>
       <sourceUri value="guidance-operation-response-example-v2.xml"/>

@@ -34,37 +34,37 @@
 		</extension>
 		<name value="base"/>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC Form Designer"/>
 			<description value="SDC Form authoring system"/>
 			<sourceUri value="conformance-sdc-form-designer.xml"/>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC Form Filler"/>
 			<description value="SDC System for completing forms"/>
 			<sourceUri value="conformance-sdc-form-filler.xml"/>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC Form Manager"/>
 			<description value="SDC Repository for forms"/>
 			<sourceUri value="conformance-sdc-form-manager.xml"/>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC Form Receiver"/>
 			<description value="SDC Repository for completed forms"/>
 			<sourceUri value="conformance-sdc-form-receiver.xml"/>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC Form Archiver"/>
 			<description value="SDC System for archiving and retrieving the completed forms"/>
 			<sourceUri value="conformance-sdc-form-archiver.xml"/>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="C-CDA-Gender"/>
 			<description value="FHIR Gender with mapping to C-CDA"/>
 			<sourceUri value="dataelement-sdc-profile-example.xml"/>
@@ -73,7 +73,7 @@
 			</exampleFor>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC - Combination"/>
 			<description value="Set of several examples - medication, AHRQ and NCI forms"/>
 			<sourceUri value="questionnaire-sdc-profile-example.xml"/>
@@ -82,7 +82,7 @@
 			</exampleFor>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC-Pathology"/>
 			<description value="Cancer pathology questionnaire with flow-control extensions"/>
 			<sourceUri value="questionnaire-sdc-profile-example-cap.xml"/>
@@ -91,7 +91,7 @@
 			</exampleFor>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC-LOINC AHRQ"/>
 			<description value="LOINC perspective on the AHRQ form found in the SDC - Combination set of questionnaires"/>
 			<sourceUri value="questionnaire-sdc-profile-example-loinc.xml"/>
@@ -100,7 +100,7 @@
 			</exampleFor>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC-LOINC USSG Family History"/>
 			<description value="LOINC US Surgeon General family history including data elements &amp; value sets.  Note: This example isn't strictly valid against SDC as data elements do not have definitions and don't include mappings to SDC-approved specificaitons for auto-population"/>
 			<sourceUri value="questionnaire-sdc-profile-example-ussg-fht.xml"/>
@@ -109,7 +109,7 @@
 			</exampleFor>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC - Response to Diagnosis NCI Standard Template"/>
 			<description value="Responses to the questionnaire found in the SDC - Combination list of questionnaires"/>
 			<sourceUri value="questionnaireresponse-sdc-profile-example.xml"/>
@@ -118,7 +118,7 @@
 			</exampleFor>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC-LOINC USSG Family History Response"/>
 			<description value="Example response to the SDC-LOINC USSG Family History questionnaire"/>
 			<sourceUri value="questionnaireresponse-sdc-example-ussg-fht-answers.xml"/>
@@ -127,7 +127,7 @@
 			</exampleFor>
 		</resource>
 		<resource>
-			<purpose value="example"/>
+			<example value="true"/>
 			<name value="SDC-ValueSet AHRQ_Medication_Q1"/>
 			<description value="The answer list for question 1 on the AHRQ &#39;Medication or Other Substance&#39; form"/>
 			<sourceUri value="valueset-sdc-profile-example.xml"/>

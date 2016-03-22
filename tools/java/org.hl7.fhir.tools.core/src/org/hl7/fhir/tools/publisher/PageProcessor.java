@@ -125,7 +125,6 @@ import org.hl7.fhir.dstu3.model.ElementDefinition.ElementDefinitionSlicingCompon
 import org.hl7.fhir.dstu3.model.ElementDefinition.SlicingRules;
 import org.hl7.fhir.dstu3.model.ElementDefinition.TypeRefComponent;
 import org.hl7.fhir.dstu3.model.Enumerations.SearchParamType;
-import org.hl7.fhir.dstu3.model.ImplementationGuide.GuideResourcePurpose;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePackageResourceComponent;
 import org.hl7.fhir.dstu3.model.ImplementationGuide.ImplementationGuidePageComponent;
@@ -974,7 +973,9 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     StringBuilder b = new StringBuilder();
     b.append("<table class=\"codes\">\r\n");
     b.append("<tr><td><b>Id</b></td><td><b>Name</b></td><td><b>Description</b></td></tr>\r\n");
-    for (GuideResourcePurpose purpose : GuideResourcePurpose.values()) {
+    // examples second:
+    boolean example = false;
+    while (true) {
       boolean usedPurpose = false;
       for (String type : types.split("\\,")) {
         List<String> ids = new ArrayList<String>();
@@ -982,13 +983,13 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         for (ImplementationGuidePackageComponent p : ig.getIg().getPackage()) {
           for (ImplementationGuidePackageResourceComponent r : p.getResource()) {
             Resource ar = (Resource) r.getUserData(ToolResourceUtilities.RES_ACTUAL_RESOURCE);
-            if (ar != null && ar.getResourceType().toString().equals(type) && r.getPurpose() == purpose) {
+            if (ar != null && ar.getResourceType().toString().equals(type) && r.getExample() == example) {
               String id = ar.getId();
               ids.add(id);
               map.put(id, r);
             }
             Example ex = (Example) r.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
-            if (ex != null && ex.getResourceName().equals(type) && r.getPurpose() == purpose) {
+            if (ex != null && ex.getResourceName().equals(type) && r.getExample() == example) {
               String id = ex.getId();
               ids.add(id);
               map.put(id, r);
@@ -997,7 +998,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         }
         if (ids.size() > 0) {
           if (!usedPurpose) {
-            b.append("<tr><td colspan=\"3\" style=\"background: #DFDFDF\"><b>"+purpose.getDisplay()+"</b><a name=\""+purpose.toCode()+"\"> </a></td></tr>\r\n");
+            b.append("<tr><td colspan=\"3\" style=\"background: #DFDFDF\"><b>"+(example ? "Specification" : "Example")+"</b> </td></tr>\r\n");
             usedPurpose = true;
           }
           Collections.sort(ids);
@@ -1008,6 +1009,10 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           }
         }
       }
+      if (example)
+        break;
+      else
+        example = true;
     }
     b.append("</table>\r\n");
     return b.toString();
@@ -4976,7 +4981,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           for (ImplementationGuidePackageComponent pp : ig.getIg().getPackage()) {
             for (ImplementationGuidePackageResourceComponent res : pp.getResource()) {
               Example e = (Example) res.getUserData(ToolResourceUtilities.NAME_RES_EXAMPLE);
-              if (res.getPurpose() == GuideResourcePurpose.EXAMPLE && e != null && e.getResourceName().equals(resource.getName()))
+              if (res.getExample() && e != null && e.getResourceName().equals(resource.getName()))
                 produceExampleListEntry(s, res, pp, ig);
             }
           }
@@ -6051,6 +6056,8 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String baseLink(StructureDefinition structure, String prefix) throws Exception {
+    if (!structure.hasBase())
+      return "";
     if (structure.getBase().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
       String name = structure.getBase().substring(40);
       if (definitions.hasResource(name))
