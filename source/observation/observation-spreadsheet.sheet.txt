@@ -84,7 +84,7 @@
   Id = 3
   Code = final
   Display = Final
-  Definition = The observation is complete and verified by an authorized person.
+  Definition = The observation is complete and verified by an authorized person  (who may be the same person who entered the observation based on policy).
 
  -- Row 4 -----------------------------------
   Id = 4
