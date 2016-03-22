@@ -4690,7 +4690,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
       b.append(t);
       b.append("</a>");
     } else if (definitions.hasPrimitiveType(t)) {
-      b.append("<a href=\""+prefix+"datatypes.html#");
+      b.append(" (<a href=\""+prefix+"datatypes.html#");
       b.append(t);
       b.append("\">");
       b.append(t);
@@ -4700,7 +4700,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
         b.append(st);
         b.append("\">");
         b.append(st);
-        b.append("</a>");
+        b.append("</a>)");
       }
     } else if (definitions.hasElementDefn(t)) {
       b.append("<a href=\"");
