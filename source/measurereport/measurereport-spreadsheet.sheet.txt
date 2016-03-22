@@ -163,7 +163,7 @@
  -- Row 14 -----------------------------------
   Element = MeasureReport.group.population.patients
   Card. = 0..1
-  Type = Reference(Bundle)
+  Type = Reference(List)
   Short Label = For patient-list reports, the patients in this population
   Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population
 
@@ -224,7 +224,7 @@
  -- Row 23 -----------------------------------
   Element = MeasureReport.group.stratifier.group.population.patients
   Card. = 0..1
-  Type = Reference(Bundle)
+  Type = Reference(List)
   Short Label = For patient-list reports, the patients in this population
   Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum
 
@@ -271,7 +271,7 @@
  -- Row 30 -----------------------------------
   Element = MeasureReport.group.supplementalData.group.patients
   Card. = 0..1
-  Type = Reference(Bundle)
+  Type = Reference(List)
   Short Label = For patient-list reports, the patients in this population
   Definition = This element refers to a List of patient level MeasureReport resources, one for each patient in this population
 
