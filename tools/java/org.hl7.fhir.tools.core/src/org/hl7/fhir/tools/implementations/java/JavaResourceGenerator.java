@@ -1575,7 +1575,7 @@ public class JavaResourceGenerator extends JavaBaseGenerator {
         for (String p : tr.getParams())
           if (!p.equalsIgnoreCase("Any"))
             if (p.equals("List"))
-              b.append(p+"_.class");
+              b.append(p+"Resource.class");
             else
               b.append(p+".class");
       } else if (definitions.hasPrimitiveType(tr.getName())) {
