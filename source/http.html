@@ -288,6 +288,10 @@ Note: the <code>_format</code> parameter does not override the <code>content-typ
 <p>
 The content types <code>application/x-www-form-urlencoded</code> is also accepted for posting <code>search</code> requests.
 </p>
+<p>
+If neither the accept header nor the _format parameter are specified, the MIME-type 
+of the content returned by the server is undefined and may vary.
+</p>
 
 <a name="versioning"> </a>
 <h3>Support for Versions</h3>
