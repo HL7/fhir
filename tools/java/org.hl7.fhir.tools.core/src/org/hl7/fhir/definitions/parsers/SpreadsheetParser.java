@@ -191,9 +191,10 @@ public class SpreadsheetParser {
 		this.codeSystems = definitions.getCodeSystems();
 	}
 
-  public SpreadsheetParser(String usageContext, InputStream in, String name,  ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems) throws Exception {
+  public SpreadsheetParser(String usageContext, InputStream in, String name, ImplementationGuideDefn ig, String root, Logger log, BindingNameRegistry registry, String version, BuildWorkerContext context, Calendar genDate, boolean isAbstract, Map<String, StructureDefinition> extensionDefinitions, ProfileKnowledgeProvider pkp, boolean isType, String committee, Map<String, MappingSpace> mappings, Map<String, ConstraintStructure> profileIds, Map<String, CodeSystem> codeSystems) throws Exception {
     this.usageContext = usageContext;
     this.name = name;
+    this.registry = registry;
     xls = new XLSXmlParser(in, name); 
     this.definitions = null;
     this.mappings = mappings;
@@ -1149,7 +1150,7 @@ public class SpreadsheetParser {
       cd.setReference(sheet.getColumn(row, "Reference")); // do this anyway in the short term
       
       if (registry == null)
-        cd.setId("0"); // igtodo: how to generate this when not doing a full build?
+        throw new Error("No id registry available"); // igtodo: how to generate this when not doing a full build?
       else
         cd.setId(registry.idForName(cd.getName()));
       
