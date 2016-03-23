@@ -89,8 +89,8 @@
   Card. = 0..1
   Type = string
   Short Label = The value that is unique
-  Definition = The portion of the identifier typically displayed to the user and which is unique within the context of the system.
-  Comments = If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986
+  Definition = The portion of the identifier typically relevant to the user and which is unique within the context of the system
+  Comments = If the value is a full URI, then the system SHALL be urn:ietf:rfc:3986.  The value\'s primary purpose is computational mapping.  As a result, it may be normalized for comparison purposes (e.g. removing non-significant whitespace, dashes, etc.)  A value formatted for human display can be conveyed using the [Rendered Value extension](extension-rendered-value.html)
   v2 Mapping = CX.1 / EI.1
   RIM Mapping = II.extension or II.root if system indicates OID or GUID (Or Role.id.extension or root)
   ServD Mapping = ./Value
