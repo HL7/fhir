@@ -10,9 +10,9 @@ import (
 
 	"gopkg.in/mgo.v2/bson"
 
+	"github.com/gin-gonic/gin"
 	"github.com/intervention-engine/fhir/models"
 	"github.com/intervention-engine/fhir/search"
-	"github.com/labstack/echo"
 )
 
 // BatchController handles FHIR batch operations via input bundles
@@ -26,11 +26,12 @@ func NewBatchController(dal DataAccessLayer) *BatchController {
 }
 
 // Post processes and incoming batch request
-func (b *BatchController) Post(c *echo.Context) error {
+func (b *BatchController) Post(c *gin.Context) {
 	bundle := &models.Bundle{}
 	err := c.Bind(bundle)
 	if err != nil {
-		return err
+		c.AbortWithError(http.StatusInternalServerError, err)
+		return
 	}
 
 	// TODO: If type is batch, ensure there are no interdendent resources
@@ -40,23 +41,24 @@ func (b *BatchController) Post(c *echo.Context) error {
 	entries := make([]*models.BundleEntryComponent, len(bundle.Entry))
 	for i := range bundle.Entry {
 		if bundle.Entry[i].Request == nil {
-			// TODO: Use correct response code
-			return errors.New("Entries in a batch operation require a request")
+			c.AbortWithError(http.StatusBadRequest, errors.New("Entries in a batch operation require a request"))
+			return
 		}
 
 		switch bundle.Entry[i].Request.Method {
 		default:
-			// TODO: Use correct response code
-			return errors.New("Operation currently unsupported in batch requests: " + bundle.Entry[i].Request.Method)
+			c.AbortWithError(http.StatusNotImplemented,
+				errors.New("Operation currently unsupported in batch requests: "+bundle.Entry[i].Request.Method))
+			return
 		case "DELETE":
 			if bundle.Entry[i].Request.Url == "" {
-				// TODO: Use correct response code
-				return errors.New("Batch DELETE must have a URL")
+				c.AbortWithError(http.StatusBadRequest, errors.New("Batch DELETE must have a URL"))
+				return
 			}
 		case "POST":
 			if bundle.Entry[i].Resource == nil {
-				// TODO: Use correct response code
-				return errors.New("Batch POST must have a resource body")
+				c.AbortWithError(http.StatusBadRequest, errors.New("Batch POST must have a resource body"))
+				return
 			}
 		}
 		entries[i] = &bundle.Entry[i]
@@ -78,7 +80,7 @@ func (b *BatchController) Post(c *echo.Context) error {
 				ReferencedID: id,
 				External:     new(bool),
 			}
-			entry.FullUrl = responseURL(c.Request(), entry.Request.Url, id).String()
+			entry.FullUrl = responseURL(c.Request, entry.Request.Url, id).String()
 		}
 	}
 	// Update all the references to the entries (to reflect newly assigned IDs)
@@ -93,17 +95,21 @@ func (b *BatchController) Post(c *echo.Context) error {
 				// It's a normal DELETE
 				parts := strings.SplitN(entry.Request.Url, "/", 2)
 				if len(parts) != 2 {
-					return fmt.Errorf("Couldn't identify resource and id to delete from %s", entry.Request.Url)
+					c.AbortWithError(http.StatusInternalServerError,
+						fmt.Errorf("Couldn't identify resource and id to delete from %s", entry.Request.Url))
+					return
 				}
 				if err := b.DAL.Delete(parts[1], parts[0]); err != nil && err != ErrNotFound {
-					return err
+					c.AbortWithError(http.StatusInternalServerError, err)
+					return
 				}
 			} else {
 				// It's a conditional (query-based) delete
 				parts := strings.SplitN(entry.Request.Url, "?", 2)
 				query := search.Query{Resource: parts[0], Query: parts[1]}
 				if _, err := b.DAL.ConditionalDelete(query); err != nil {
-					return err
+					c.AbortWithError(http.StatusInternalServerError, err)
+					return
 				}
 			}
 
@@ -113,7 +119,8 @@ func (b *BatchController) Post(c *echo.Context) error {
 			}
 		case "POST":
 			if err := b.DAL.PostWithID(newIDs[i], entry.Resource); err != nil {
-				return err
+				c.AbortWithError(http.StatusInternalServerError, err)
+				return
 			}
 			entry.Request = nil
 			entry.Response = &models.BundleEntryResponseComponent{
@@ -136,8 +143,8 @@ func (b *BatchController) Post(c *echo.Context) error {
 
 	// Send the response
 
-	c.Response().Header().Set("Access-Control-Allow-Origin", "*")
-	return c.JSON(http.StatusOK, bundle)
+	c.Header("Access-Control-Allow-Origin", "*")
+	c.JSON(http.StatusOK, bundle)
 }
 
 func updateAllReferences(entries []*models.BundleEntryComponent, refMap map[string]models.Reference) {
