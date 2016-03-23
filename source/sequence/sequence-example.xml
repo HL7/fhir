@@ -2,30 +2,9 @@
 <Sequence xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\..\schema\sequence.xsd">
     <id value="example"/>
     <type value="DNA"/>
-    <variationID>
-        <coding>
-            <system value="http://www.ncbi.nlm.nih.gov/projects/SNP"/>
-            <code value="587778247"/>
-        </coding>
-        <text value="rs587778247"/>
-    </variationID>
-    <referenceSeq>
-        <coding>
-            <system value="http://www.ensembl.org"/>
-            <code value="ENSESTT00000085772.1"/>
-        </coding>
-        <text value="ENSESTT00000085772.1"/>
-    </referenceSeq>
-    <coordinate>
-        <chromosome>
-            <coding>
-                <code value="7"/>
-            </coding>
-        </chromosome>
-        <start value="55227976"/>
-        <end value="55227977"/>
-        <genomeBuild value="GRCh37"/>
-    </coordinate>
+    <patient>
+        <reference value="Patient/example"/>
+    </patient>
     <species>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -33,12 +12,25 @@
         </coding>
         <text value="Homo sapiens"/>
     </species>
-    <observedAllele value="T"/>
-    <referenceAllele value="A"/>
+    <referenceSeq>
+        <chromosome>
+            <coding>
+                <code value="7"/>
+            </coding>
+        </chromosome>
+        <genomeBuild value="GRCh37"/>
+        <windowStart value="55227970"/>
+        <windowEnd value="55227980"/>
+    </referenceSeq>
+    <variation>
+        <start value="55227976"/>
+        <end value="55227977"/>
+        <observedAllele value="T"/>
+        <referenceAllele value="A"/>
+    </variation>
     <repository>
         <url value="https://www.googleapis.com/genomics/v1beta2"/>
         <name value="ga4gh"/>
         <variantId value="A1A2"/>
-        <readGroupSetId value="B1B2"/>
     </repository>
 </Sequence> 

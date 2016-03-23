@@ -3,30 +3,6 @@
 <Sequence>
     <id value="seq4"/>
     <type value="DNA"/>
-    <variationID>
-        <coding>
-            <system value="http://www.ncbi.nlm.nih.gov/dbvar/"/>
-            <code value="essv25820997"/>
-        </coding>
-        <text value="essv25820997"/>
-    </variationID>
-    <referenceSeq>
-        <coding>
-            <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
-            <code value="NC_000007.14"/>
-        </coding>
-        <text value="NC_000007.14"/>
-    </referenceSeq>
-    <coordinate>
-        <chromosome>
-            <coding>
-                <code value="7"/>
-            </coding>
-        </chromosome>
-        <start value="87627621"/>
-        <end value="87642522"/>
-        <genomeBuild value="GRCh38"/>
-    </coordinate>
     <species>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -34,6 +10,30 @@
         </coding>
         <text value="Homo sapiens"/>
     </species>
+    <referenceSeq>
+        <referenceSeqId>
+            <coding>
+                <system value="http://www.ncbi.nlm.nih.gov/nuccore/"/>
+                <code value="NC_000007.14"/>
+            </coding>
+            <text value="NC_000007.14"/>
+        </referenceSeqId>
+        <windowStart value="87627610"/>
+        <windowEnd value="87627635"/>
+    </referenceSeq>
+    <variation>
+        <variationId>
+            <coding>
+                <system value="http://www.ncbi.nlm.nih.gov/dbvar/"/>
+                <code value="essv25820997"/>
+            </coding>
+            <text value="essv25820997"/>
+        </variationId>
+        <start value="87627621"/>
+        <end value="87642522"/>
+        <observedAllele value="T"/>
+        <referenceAllele value="A"/>
+    </variation>
     <copyNumberEvent>
         <text value="deletion"/>
     </copyNumberEvent>

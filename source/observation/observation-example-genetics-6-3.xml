@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Observation xmlns="http://hl7.org/fhir">
+  <id value="example-observation-genetics-1"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/" >
+    <valueString value="" />
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/" >
+    <valueCodeableConcept>
+      <coding>
+        <system value="" />
+        <code value="" />
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+</Observation>
+
+
+<Observation xmlns="http://hl7.org/fhir">
   <id value="ob-genetics-6-3"/>
   <contained>
       <Sequence>

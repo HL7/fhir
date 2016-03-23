@@ -3,7 +3,7 @@
     
 <h2>Scope and Usage</h2>
 <p>
-    The Sequence resource is designed to describe a sequence variant or a sequence without variant information. Complete genetic sequence information, of which specific genetic variations are a part, is reported by reference to the GA4GH repository.  Thus, the FHIR Sequence resource avoids large genomic payloads in a manner analogous to how the FHIR ImagingStudy resource references large images maintained in other systems.
+    The Sequence resource is designed to describe an atomic sequence which contains more than one bases but has at most one variation. Atomic sequences can be connected by link element and they will lead to sequence graph. By this method, a sequence can be reported. Complete genetic sequence information, of which specific genetic variations are a part, is reported by reference to the GA4GH repository.  Thus, the FHIR Sequence resource avoids large genomic payloads in a manner analogous to how the FHIR ImagingStudy resource references large images maintained in other systems.
     This resource contextualizes well established standards from the field of clinical genetics into the standards of healthcare (e.g. HGNC - HUGO Gene Nomenclature Committee's international standard for gene names, symbols, and identifiers).
 </p>
 <h3>Genetic Standards and Resources include:</h3>

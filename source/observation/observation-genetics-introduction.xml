@@ -1,31 +1,38 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
+<head>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+			border-collapse: collapse;
+		}
+	</style>
+</head>
 
 <h3>Overview</h3>
 <p>
-Observation-genetics-profile (i.e. Standard Profile for Genetics) extends <a href="observation.html">Observation</a> resource to enable reporting of structured genetic test results. In addition, the genetics profile contextualizes well established standards from the field of clinical genetics into the standards of healthcare (e.g. HGNC - HUGO Gene Nomenclature Committee's international standard for gene names, symbols, and identifiers).
+Observation-genetics-profile extends <a href="observation.html">Observation</a> resource to enable reporting of structured genetic test results. In addition, the genetics profile contextualizes well established standards from the field of clinical genetics into the standards of healthcare (e.g. HGNC - HUGO Gene Nomenclature Committee's international standard for gene names, symbols, and identifiers).
 </p>
 <p>
 <h4>Genetic Standards and Resources include:</h4>
-			<ul> 
+			<ul>
 				<li>Variant Databases: <a href="http://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi">dbSNP</a> , <a href="http://www.ncbi.nlm.nih.gov/clinvar/">ClinVar</a>, and <a href="http://cancer.sanger.ac.uk/cosmic/">COSMIC</a> </li>
 				<li>Reference Sequences: <a href="http://www.ncbi.nlm.nih.gov/refseq/">RefSeq</a> and <a href="http://www.ensembl.org/index.html">ENSEMBL</a> </li>
 				<li> Gene Symbols and Identifiers: <a href="http://www.genenames.org">HGNC</a> - Human Genee Nomenclature Committee</li>
 				<li>Variant Nomenclature: <a href="http://www.hgvs.org">HGVS</a> nomenclature from the Human Genome Variantion Society</li>
-				<li>Variant Feature Annotation: <a href="http://www.sequenceontology.org">Sequence Ontology (SO)</a> and <a href="https://loinc.org">LOINC</a> </li>
                 <li>Locus: <a href="http://www.ncbi.nlm.nih.gov/gene">Gene</a></li>
 			</ul>
 </p>
 <h3>Scope and Usage</h3>
 <p>
-The Standard Profile for Genetics supports reporting of a DNA variant at the genomic, cDNA, and protein change level. In addition, a condition context may be provided, as AssessedCondition. For large genomic tests, a condition may be used as an input into the analytic pipeline to aid in the identification of clinically relevant variants related to the test order. It is strongly encouraged to provide all available information in this profile for any reported variants, because receiving systems (e.g. discovery research, outcomes analysis, and public health reporting) may use this information to normalize variants over time or across sources.  However, these data should not be used to dynamically correct/change variant representations for clinical use outside of the laboratory, due to insufficient information.
+The Observation-genetics profile supports reporting of a DNA variant at the genomic, cDNA, and protein change level. In addition, a condition context may be provided, as AssessedCondition. For large genomic tests, a condition may be used as an input into the analytic pipeline to aid in the identification of clinically relevant variants related to the test order. It is strongly encouraged to provide all available information in this profile for any reported variants, because receiving systems (e.g. discovery research, outcomes analysis, and public health reporting) may use this information to normalize variants over time or across sources.  However, these data should not be used to dynamically correct/change variant representations for clinical use outside of the laboratory, due to insufficient information.
 
 </p>
 <p>
 Implementers should be aware that semantic equivalency of results of genetic variants cannot be guaranteed unless there is an agreed upon standard between sending and receiving systems.
 </p>
 <p>
-This FHIR genomics work is based on work of the HL7 Clinical Genomics Workgroup and modeled based on the Domain Analysis Model and SMART on FHIR Genomics as published in JAMIA 2015 (http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long). 
+This FHIR genomics work is based on work of the HL7 Clinical Genomics Workgroup and modeled based on the Domain Analysis Model and SMART on FHIR Genomics as published in JAMIA 2015 (http://jamia.oxfordjournals.org/content/early/2015/07/21/jamia.ocv045.long).
 </p>
 <p>
 The HL7 Clinical Genomics Work Group emphasizes the importance of transmitting structured genetic findings within the clinical, translational, and research environments fully integrated with other clinical data, in order to drive outcomes analysis, operational decision making, discovery research, and public health reporting. The standard doesn't currently cover the reporting of clinically relevant negative or wild type results within genetic data portion of the message.
@@ -34,33 +41,134 @@ The HL7 Clinical Genomics Work Group emphasizes the importance of transmitting s
     <a href="https://www.hl7.org/documentcenter/public_temp_65DE7F6D-1C23-BA17-0CB30D7343EDE16D/wg/clingenomics/docs/V3DAM_CG_CLINSEQ_R1_O1_2013JAN.pdf">Here</a> is the document of HL7 Version 3 Domain Analysis Model where the examples used in genetics profile are from (Page 5).
 </p>
 
-<h3>Component</h3>
+<h3>Interpretation</h3>
 
-<p>Observation.component should be used in genetic profile for observations without sequence information while Observation.extension still be used for sequence information as component is only suitable for flat observations. </p>
-<p>Here is a LOINC panel that could be supported by Observation.component, for example:</p>
-<p><strong>55232-3 Genetic analysis summary panel ­ Blood or Tissue by Molecular genetics method</strong></p>
+<p>Extension - geneticsInterpretation points to an Observation entity. In this Observation entity, Observation.component is used for recording clinical interpretations for variation.  </p>
+<p>Here is a LOINC panel that could be supported by Observation.component:</p>
 
-<ul>
-    <li>51967­8 Genetic disease assessed [Identifier] in Blood or Tissue by Molecular genetics method</li>
-    <li>51963­7 Medication assessed [Identifier] in Blood or Tissue by Molecular genetics method </li>
-    <li>53039­4 Genetic disease analysis overall carrier interpretation [interpretation] in Blood or Tissue by Molecular genetics method</li>
-    <li>51964­5 Drug efficacy analysis overall interpretation [interpretation] in Blood or Tissue by Molecular genetics method</li>
-    <li>51971­0 Drug metabolism analysis overall interpretation [interpretation] in Blood or Tissue by Molecular genetics method</li>
-    <li>51969­4 Genetic analysis summary report in Blood or Tissue Document by Molecular genetics method</li>
-    <li>53577­3 Reason for study additional note [Text] in Blood or Tissue by Molecular genetics method Narrative</li>
+<table border="1" style="width:100%">
+	<caption>LOINC Codes</caption>
+	<tr>
+		<th><span style="white-space: nowrap">LOINC #</span></th>
+		<th>Component</th>
+		<th>Description/Comments</th>
+	</tr>
+	<tr>
+		<td><span style="white-space: nowrap">51963-7</span></td>
+		<td>Medication Assessed</td>
+		<td>A coded medication accessed in a pharmacogenetic test (recommend RxNorm).</td>
+	</tr>
+	<tr>
+		<td><span style="white-space: nowrap">51964-5</span></td>
+		<td>Drug Efficacy Analysis Overall Interpretation</td>
+		<td>Overall predicted phenotype for drug efficacy for all DNA Sequence Variations identified in a single case. LOINC Answer List values can be seen in table below.</td>
+	</tr>
+	<tr>
+		<td><span style="white-space: nowrap">51967-8</span></td>
+		<td>Genetic disease assessed</td>
+		<td>A coded disease which is associated with the region of DNA covered by the genetic test (recommend SNOMED).</td>
+	</tr>
+	<tr>
+		<td><span style="white-space: nowrap">51969-4</span></td>
+		<td>Genetic analysis summary report</td>
+		<td>Narrative report in disease diagnostic-based format, which is used for pharmacogenomic reporting as well and disease risk or diagnosis. These reports currently follow the same formatting recommendations.</td>
+	</tr>
+	<tr>
+		<td><span style="white-space: nowrap">51971-0</span></td>
+		<td>Drug metabolism analysis overall interpretation</td>
+		<td>Overall predicted phenotype for drug metabolism for all DNA Sequence Variations identified in a single case. LOINC Answer List values can be seen in table below.</td>
+	</tr>
+	<tr>
+		<td><span style="white-space: nowrap">53039-4</span></td>
+		<td>Genetic Disease Analysis Overall Carrier Interpretation</td>
+		<td>Carrier Identification interpretation of all identified DNA Sequence Variations along with any known clinical information for the benefit of aiding clinicians in understanding the results overall. LOINC Answer List values can be seen in table below.</td>
+	</tr>
+</table>
 
-</ul>
+<table border="1" style="width:100%">
+	<caption>LOINC Answer Lists</caption>
+	<tr>
+		<th>LOINC Code</th>
+		<th>Sequence</th>
+		<th>Answer text</th>
+		<th>LOINC answer code</th>
+	</tr>
+	<tr>
+		<td rowspan="5"><span style="white-space: nowrap">51964-5</span></td>
+		<td>1</td>
+	  <td>Responsive</td>
+		<td><span style="white-space: nowrap">LA6677-4</span></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>Resistant</td>
+		<td><span style="white-space: nowrap">LA6676-6</span></td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>Negative</td>
+		<td><span style="white-space: nowrap">LA6577-6</span></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>Inconclusive</td>
+		<td><span style="white-space: nowrap">LA9663-1</span></td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>Failure</td>
+		<td><span style="white-space: nowrap">LA9664-9</span></td>
+	</tr>
+	<tr>
+		<td rowspan="5"><span style="white-space: nowrap">51971-0</span></td>
+		<td>1</td>
+		<td><span style="white-space: nowrap">Ultrarapid metabolizer</span></td>
+		<td><span style="white-space: nowrap">LA10315-2</span></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td><span style="white-space: nowrap">Extensive metabolizer</span></td>
+		<td><span style="white-space: nowrap">LA10316-0</span></td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td><span style="white-space: nowrap">Intermediate metabolizer</span></td>
+		<td><span style="white-space: nowrap">LA10317-8</span></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td><span style="white-space: nowrap">Poor metabolizer</span></td>
+		<td><span style="white-space: nowrap">LA9657-3</span></td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>Inconclusive</td>
+		<td><span style="white-space: nowrap">LA9663-1</span></td>
+	</tr>
+	<tr>
+		<td rowspan="4"><span style="white-space: nowrap">53039-4</span></td>
+		<td>1</td>
+		<td>Carrier</td>
+		<td><span style="white-space: nowrap">LA10314-5</span></td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>Negative</td>
+		<td><span style="white-space: nowrap">LA6577-6</span></td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>Inconclusive</td>
+		<td><span style="white-space: nowrap">LA9663-1</span></td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>Failure</td>
+		<td><span style="white-space: nowrap">LA9664-9</span></td>
+	</tr>
+</table>
 
 
-<p>The usage of component is shown in example3-mutationlist-1/2/3/4.</p>
-
-<h3>Category</h3>
-<p>Extensions added in genetics profile can be grouped into 4 categories:</p>
-<ul>
-    <li><strong>Sequence Information:</strong> geneticsGenomeBuild, geneticsChromosome, geneticsGenomicStart, geneticsGenomicStop, geneticsReferenceAllele, geneticsObservedAllele, geneticsTranscriptReferenceSequenceId, geneticsProteinReferenceSequenceId, geneticsCIGAR</li>
-    <li><strong>Variation:</strong> geneticsDNASequenceVariation, geneticsVariationId, geneticsDNASequenceVariationType, geneticsAminoAcidChange, geneticsAminoAcidChangeType</li>
-    <li><strong>Context:</strong> geneticsGene, geneticsDNARegionName, geneticsAlleleName, geneticsGenomicSourceClass, geneticsAminoSpecies, geneticsResult</li>
-    <li><strong>State:</strong> geneticsAllelicState, geneticsAllelicFrequency, geneticsCopyNumberEvent, geneticsReadCoverage</li>
-</ul>
-    
+<p> In addition, in this Observation entity, Observation.related is used to link itself with Observation-genetics profile. Observation.related.type is 'derived-from' as it provides clinical interpretation for variation recoreded in Observation-genetics entity.
+</p>
 </div>

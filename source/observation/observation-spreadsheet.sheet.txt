@@ -817,27 +817,15 @@
   Type = spreadsheet
 
  -- Row 10 -----------------------------------
-  Name = Standard Profile for Genetics
-  IG Name = core
-  Filename = observation-genetics-cg-prf-1a.xml
-  Type = spreadsheet
-
- -- Row 11 -----------------------------------
   Name = observation-core
   IG Name = core
   Filename = observation-core.xml
   Type = spreadsheet
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = Observation for Genetics
   IG Name = core
   Filename = observation-genetics.xml
-  Type = spreadsheet
-
- -- Row 13 -----------------------------------
-  Name = Profile for Consensus Sequence Block
-  IG Name = core
-  Filename = observation-consensus-sequence-block-spreadsheet.xml
   Type = spreadsheet
 
 === Sheet Examples =====================================
@@ -963,131 +951,33 @@
   Filename = observation-example-glasgow-qa.xml
 
  -- Row 21 -----------------------------------
-  Name = Genetics Observation Example1 Somatic
-  Identity = genetics-example1-somatic
-  Description = Genetics Observation of Somatic Variant in Lung Cancer
-  Filename = obs-genetics-example1-somatic.xml
-  Profile = Standard Profile for Genetics
+  Name = Genetics 1
+  Identity = example-observation-genetics-1
+  Description = Genetics example 1
+  Filename = observation-example-genetics-1.xml
 
  -- Row 22 -----------------------------------
-  Name = Genetics Observation Example2 Germline
-  Identity = genetics-example2-germline
-  Description = Genetics Observation of Germline BRCA1 Variant
-  Filename = obs-genetics-example2-germline.xml
-  Profile = Standard Profile for Genetics
+  Name = Genetics 2
+  Identity = example-observation-genetics-2
+  Description = Genetics example 2
+  Filename = observation-example-genetics-2.xml
 
  -- Row 23 -----------------------------------
-  Name = Genetics Observation Example3 Mutation list
-  Identity = genetics-example3-mutationlist
-  Description = ABCB4 gene mutation analysis
-  Filename = obs-genetics-example3-mutationlist.xml
-  Profile = Standard Profile for Genetics
+  Name = Genetics 3
+  Identity = example-observation-genetics-3
+  Description = Genetics example 3
+  Filename = observation-example-genetics-3.xml
 
  -- Row 24 -----------------------------------
-  Name = Genetics Observation Example3-1
-  Identity = genetics-example3-mutationlist-1
-  Description = ABCB4 gene mutation analysis - variant 1
-  Filename = obs-genetics-example3-mutationlist-1.xml
-  Profile = Standard Profile for Genetics
+  Name = Genetics 4
+  Identity = example-observation-genetics-4
+  Description = Genetics example 4
+  Filename = observation-example-genetics-4.xml
 
  -- Row 25 -----------------------------------
-  Name = Genetics Observation Example3-2
-  Identity = genetics-example3-mutationlist-2
-  Description = ABCB4 gene mutation analysis - variant 2
-  Filename = obs-genetics-example3-mutationlist-2.xml
-  Profile = Standard Profile for Genetics
-
- -- Row 26 -----------------------------------
-  Name = Genetics Observation Example3-3
-  Identity = genetics-example3-mutationlist-3
-  Description = ABCB4 gene mutation analysis - variant 3
-  Filename = obs-genetics-example3-mutationlist-3.xml
-  Profile = Standard Profile for Genetics
-
- -- Row 27 -----------------------------------
-  Name = Genetics Observation Example3-4
-  Identity = genetics-example3-mutationlist-4
-  Description = ABCB4 gene mutation analysis - variant 4
-  Filename = obs-genetics-example3-mutationlist-4.xml
-  Profile = Standard Profile for Genetics
-
- -- Row 28 -----------------------------------
-  Name = Genetics Observation -1
-  Identity = ob-genetics-1
-  Description = Genetics Observation of Somatic Variant in Lung Cancer
-  Filename = observation-example-genetics-1.xml
-  Profile = Observation for Genetics
-
- -- Row 29 -----------------------------------
-  Name = Genetics Observation -2
-  Identity = ob-genetics-3-1
-  Description = BRACAnalysis -1
-  Filename = obs-genetics-example3-bcr1 and bcr2 sequencing with FamilyHistory -1.xml
-  Profile = Observation for Genetics
-
- -- Row 30 -----------------------------------
-  Name = Genetics Observation -3
-  Identity = ob-genetics-3-2
-  Description = BRACAnalysis -2
-  Filename = obs-genetics-example3-bcr1 and bcr2 sequencing with FamilyHistory -2.xml
-  Profile = Observation for Genetics
-
- -- Row 31 -----------------------------------
-  Name = Genetics Observation -4
-  Identity = ob-genetics-4
-  Description = Allele with multiple variants
-  Filename = observation-example-genetics-4.xml
-  Profile = Observation for Genetics
-
- -- Row 32 -----------------------------------
-  Name = Genetics Observation -5
-  Identity = ob-genetics-5
-  Description = Further analysis for a variant - using related element
-  Filename = observation-example-genetics-2.xml
-  Profile = Observation for Genetics
-
- -- Row 33 -----------------------------------
-  Name = Genetics Observation -6-1
-  Identity = ob-genetics-6-1
-  Description = Genetics Observation for BRCA1 c.181T>G
-  Filename = observation-example-genetics-6-1.xml
-  Profile = Observation for Genetics
-
- -- Row 34 -----------------------------------
-  Name = Genetics Observation -6-2
-  Identity = ob-genetics-6-2
-  Description = Genetics Observation for BRCA1 c.181T>A
-  Filename = observation-example-genetics-6-2.xml
-  Profile = Observation for Genetics
-
- -- Row 35 -----------------------------------
-  Name = Genetics Observation -6-3
-  Identity = ob-genetics-6-3
-  Description = Genetics Observation for BRCA1 n.342T>G
-  Filename = observation-example-genetics-6-3.xml
-  Profile = Observation for Genetics
-
- -- Row 36 -----------------------------------
-  Name = Genetics Observation -7
-  Identity = ob-genetics-7
-  Description = PCR genetics observation
-  Filename = observation-example-genetics-7.xml
-  Profile = Observation for Genetics
-
- -- Row 37 -----------------------------------
-  Name = consensus-sequence-block-1
-  Identity = consensus-sequence-block-example-1
-  Description = Example of HLA genotyping results - consensus sequence block 1
-  Filename = observation-consensus-sequence-block-example-1.xml
-  Type = xml
-  Profile = Profile for Consensus Sequence Block
-
- -- Row 38 -----------------------------------
-  Name = consensus-sequence-block-2
-  Identity = consensus-sequence-block-example-2
-  Description = Example of HLA genotyping results - consensus sequence block 2
-  Filename = observation-consensus-sequence-block-example-2.xml
-  Type = xml
-  Profile = Profile for Consensus Sequence Block
+  Name = Genetics 5
+  Identity = example-observation-genetics-5
+  Description = Genetics example 5
+  Filename = observation-example-genetics-5.xml
 
 === Sheet Examples =====================================

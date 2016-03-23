@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Observation xmlns="http://hl7.org/fhir">
-  <id value="ob-genetics-4"/>
+  <id value="example-observation-genetics-4"/>
   <status value="final"/>
   <code>
-      <text value="allele ABC"/>
+    <text value="Allele ABC"/>
   </code>
   <subject>
-      <reference value="Patient/genetics-example1-somatic"/>
-      <display value="Molecular Lab Patient ID: HOSP-23456"/>
+    <reference value="Patient/example-genetics-somatic"/>
+    <display value="Molecular Lab Patient ID: HOSP-23456"/>
   </subject>
-  <issued value="2013-03-11T10:28:00+01:00"/>
+  <issued value="2013-04-03T15:30:10+01:00"/>
   <performer>
-      <reference value="Practitioner/genetics-example1-somatic"/>
-      <display value="Molecular Diagnostic Laboratory"/>
+    <reference value="Practitioner/example-genetics-somatic"/>
+    <display value="Molecular Diagnostics Laboratory"/>
   </performer>
   <interpretation>
-      <coding>
-          <system value="http://hl7.org/fhir/v2/0078"/>
-          <code value="POS"/>
-      </coding>
-      <text value="positive"/>
+    <coding>
+      <system value="http://hl7.org/fhir/v2/0078"/>
+      <code value="POS"/>
+    </coding>
+    <text value="Positive"/>
   </interpretation>
   <specimen>
-      <reference value="Specimen/genetics-example1-somatic"/>
-      <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
+    <reference value="Specimen/genetics-example1-somatic"/>
+    <display value="Molecular Specimen ID: MLD45-Z4-1234"/>
   </specimen>
   <related>
-      <type value="has-member"/>
-      <target>
-          <reference value="Observation/geneticsexample-1"/>
-          <display value="Variant-1"/>
-      </target>
+    <type value="has-member"/>
+    <target>
+      <reference value="Observation/example-observation-genetics-1"/>
+      <display value="Variant-1"/>
+    </target>
   </related>
   <related>
-      <type value="has-member"/>
-      <target>
-          <reference value="Observation/geneticsexample-2"/>
-          <display value="Variant-2"/>
-      </target>
+    <type value="has-member"/>
+    <target>
+      <reference value="Observation/example-observation-genetics-2"/>
+      <display value="Variant-2"/>
+    </target>
   </related>
   <related>
-      <type value="has-member"/>
-      <target>
-          <reference value="Observation/geneticsexample-3"/>
-          <display value="Variant-3"/>
-      </target>
+    <type value="has-member"/>
+    <target>
+      <reference value="Observation/example-observation-genetics-3"/>
+      <display value="Variant-3"/>
+    </target>
   </related>
 </Observation>

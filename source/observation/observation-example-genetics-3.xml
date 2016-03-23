@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="example-observation-genetics-3"/>
+  <status value="final"/>
+  <code>
+    <text value="Further analysis"/>
+  </code>
+  <subject>
+    <reference value="Patient/example-genetics-somatic"/>
+    <display value="Molecular Lab Patient ID: HOSP-23456"/>
+  </subject>
+  <issued value="2013-04-03T15:30:10+01:00"/>
+  <performer>
+    <reference value="Practitioner/example"/>
+    <display value="Sequence Analysis Laboratory"/>
+  </performer>
+  <comment value="The EGFR p.L858R mutation has been associated with response to anti-EGFR therapy"/>
+  <related>
+    <type value="derived-from"/>
+    <target>
+      <reference value="Observation/example-observation-genetics-1"/>
+      <display value="ObservationForGenetics profile example 1"/>
+    </target>
+  </related>
+</Observation>

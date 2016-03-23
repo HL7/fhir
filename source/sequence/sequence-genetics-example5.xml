@@ -3,17 +3,6 @@
 <Sequence>
     <id value="seq5"/>
     <type value="AA"/>
-    <referenceSeq>
-        <coding>
-            <system value="http://www.ensembl.org/"/>
-            <code value="ENSP00000252486"/>
-        </coding>
-        <text value="ENSP00000252486"/>
-    </referenceSeq>
-    <coordinate>
-        <start value="46"/>
-        <end value="47"/>
-    </coordinate>
     <species>
         <coding>
             <system value="http://snomed.info/sct"/>
@@ -21,6 +10,20 @@
         </coding>
         <text value="Homo sapiens"/>
     </species>
-    <observedAllele value="L"/>
-    <referenceAllele value="P"/>
+    <referenceSeq>
+        <referenceSeqId>
+            <coding>
+                <system value="http://www.ensembl.org/"/>
+                <code value="ENSP00000252486"/>
+            </coding>
+        <referenceSeqId/>
+        <windowStart value="40"/>
+        <windowEnd value="52"/>
+    </referenceSeq>
+    <variation>
+        <start value="46"/>
+        <end value="47"/>
+        <observedAllele value="L"/>
+        <referenceAllele value="P"/>
+    </variation>
 </Sequence>
