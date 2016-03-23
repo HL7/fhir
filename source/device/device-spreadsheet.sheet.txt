@@ -2,7 +2,7 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = DeviceKind
+  Binding Name = !DeviceKind
   Binding = reference
   Reference = https://www.gmdnagency.org/Info.aspx?pageid=1091
   Definition = Defines the nature of the device and the kind of functionality/services/behavior that may be expected from it.
@@ -11,6 +11,14 @@
   Copyright = ‘GMDN’ is a registered trade mark owned by GMDN Agency Ltd.
 
  -- Row 2 -----------------------------------
+  Binding Name = DeviceKind
+  Binding = value set
+  Reference = valueset-device-kind
+  Definition = Codes to identify medical devices
+  Conformance = example
+  Copyright = ‘GMDN’ is a registered trade mark owned by GMDN Agency Ltd.
+
+ -- Row 3 -----------------------------------
   Binding Name = DeviceStatus
   Binding = code list
   Reference = #devicestatus
@@ -47,7 +55,9 @@
   Short Label = Item used in healthcare
   Definition = This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.
   Requirements = Allows institutions to track their devices.
+  UDI Mapping = N/A
   RIM Mapping = Device
+  To Do = Determine whether HCT/TP stuff gos here or in new resource and determine boundaries.
   Committee Notes = 6209
   w5 = administrative.device
 
@@ -56,9 +66,10 @@
   Card. = 0..*
   Aliases = Serial Number
   Type = Identifier
-  Short Label = Instance id from manufacturer, owner, and others
-  Definition = Unique instance identifiers assigned to a device by organizations like manufacturers or owners. If the identifier identifies the type of device, Device.type should be used.
-  Comments = Often fixed to the device as a barcode and may include names given to the device in local usage.  Note that some of the barcodes affixed to the device identify its type, not its instance.  For the FDA mandated Unique Device Identifier (UDI) use the Device.udiCarrier element.
+  Short Label = Instance identifier
+  Definition = Unique instance identifiers assigned to a device by manufacturers other organizations or owners.
+  Comments = The barcode string from a barcode present on a device label or package may identify the instance, include names given to the device in local usage, or may identify the type of device. If the identifier identifies the type of device, Device.type element should be used.  For [UDI](device.html#5.11.3.2.2),  this element corresponds to the variable portion of the UDI that identifies the serial number of a specific device. See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
+  UDI Mapping = The serial number which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.   The identifier.type code should be set to “SNO”(Serial Number) and the system left empty.
   RIM Mapping = .id
   Committee Notes = 7662
   w5 = id
@@ -69,8 +80,9 @@
   Aliases = UDI,  Barcode String
   Type = Identifier
   Short Label = Unique Device Identifier (UDI) Barcode string
-  Definition = United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm
-  Comments = The unique identifier may identify an instance of a device uniquely, or it may only identify the type of the device. A portion of the UDI - the DI part - can be extracted from the UDI when required, and used to look up information about the device through the GUDID.
+  Definition = [Unique device identifier (UDI)](device.html#5.11.3.2.2) barcode or rfid string assigned to device label or package
+  Comments = The udiCarrier string may identify an unique instance of a device, or it may only identify the type of the device. The Human Readable format (HRF) is required in FHIR. AIDC identifiers cannot be conveyed in FHIR, Because of limitations on character sets in XML and the need to round-trip JSON data through XML.  See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
+  UDI Mapping = The full UDI carrier - The Human Readable Form (HRF) representation of the barcode string as printed on the packaging of the device.  The  \'type\' component should be set to “UDI” and the \'system\' component to the the appropriate repository url.  the additional URL is needed to identify the authoritative source for UDI generation within the jurisdiction.  All UDIs are globally unique within a single namespace. with the appropriate repository uri as the system.  This allows a recipient of a UDI to know which database will contain the UDI-associated metadata.  For example,  UDIs of devices managed in the U.S. by the FDA, the value is  http://hl7.org/fhir/NamingSystem/fda-udi.  Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC identifiers cannot be conveyed in FHIR.
   RIM Mapping = .id[where root is root for UDI]
   Committee Notes = #7662
   w5 = id
@@ -84,6 +96,7 @@
   Binding = DeviceStatus
   Short Label = available | not-available | entered-in-error
   Definition = Status of the Device availability.
+  UDI Mapping = N/A
   RIM Mapping = .statusCode
   w5 = status
 
@@ -94,7 +107,8 @@
   Binding = DeviceKind
   Short Label = What kind of device this is
   Definition = Code or identifier to identify a kind of device.
-  Comments = For the FDA mandated Unique Device Identifier (UDI) use  the Device.udiCarrier element.
+  Comments = There can be different code values thath may correspond to different granularities of the same concept.  These can be represented as translations using  the [codeableConcept](datatypes.html#codeableconcept) datatype.  For [UDI](device.html#5.11.3.2.2), this element corresponds to the UDI device identifier (DI) part. See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
+  UDI Mapping = The device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a devicet.  The system uri should be included. Possible URIs include\nGS1 DIs: \n http://hl7.org/fhir/NamingSystem/gs1-di\nHIBCC DIs:\n http://hl7.org/fhir/NamingSystem/hibcc-di\nICCBBA DIs for blood containers:\n http://hl7.org/fhir/NamingSystem/iccbba-blood-di\nICCBA DIs for other devices:\n http://hl7.org/fhir/NamingSystem/iccbba-other-di
   RIM Mapping = .code
   Committee Notes = #7590,#7662
   w5 = what
@@ -105,7 +119,8 @@
   Type = string
   Short Label = Lot number of manufacture
   Definition = Lot number assigned by the manufacturer
-  Comments = Alphanumeric Maximum 20
+  Comments = Alphanumeric. For [UDI](device.html#5.11.3.2.2), this element corresponds to the variable portion of a UDI that identifies the lot or batch number within which a physical instance of a device was manufactured. See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
+  UDI Mapping = The lot or batch number within which a device was manufactured - which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.
   RIM Mapping = .lotNumberText
   Committee Notes = W5 note what = what.productidentification
   w5 = what
@@ -116,6 +131,7 @@
   Type = string
   Short Label = Name of device manufacturer
   Definition = A name of the manufacturer
+  UDI Mapping = N/A
   RIM Mapping = .playedRole[typeCode=MANU].scoper.name
   w5 = what
 
@@ -125,6 +141,8 @@
   Type = dateTime
   Short Label = Date when the device was made
   Definition = The date and time when the device was manufactured.
+  Comments = For [UDI](device.html#5.11.3.2.2), this element corresponds to the variable portion of a UDI that identifies the date a physical instance of a device was manufactured. See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
+  UDI Mapping = The date a specific device was manufactured - which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.  For FHIR, The datetime syntax must converted to YYYY-MM-DD[THH:MM:SS].  If hour is present, the minutes and seconds should both be set to “00”.
   RIM Mapping = .existenceTime.low
   Committee Notes = W5 note what = what.productidentification
   w5 = what
@@ -135,6 +153,8 @@
   Type = dateTime
   Short Label = Date and time of expiry of this device (if applicable)
   Definition = The date and time beyond which this device is no longer valid or should not be used (if applicable)
+  Comments = For [UDI](device.html#5.11.3.2.2), this element corresponds to the variable portion of a UDI that identifies the expiration date of a physical instance of a device. See [UDI mappings](device-mappings.html#udi) for a complete mapping of UDI parts to Device.
+  UDI Mapping = the expiration date of a specific device -  which is a component of the the production identifier (PI), a conditional, variable portion of a UDI.  For FHIR, The datetime syntax must converted to YYYY-MM-DD[THH:MM:SS].  If hour is present, the minutes and seconds should both be set to “00”.
   RIM Mapping = .expirationTime
   Committee Notes = W5 note what = what.productidentification
   w5 = what
@@ -145,6 +165,7 @@
   Type = string
   Short Label = Model id assigned by the manufacturer
   Definition = The \"model\" is an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.
+  UDI Mapping = N/A
   RIM Mapping = .playedRole[typeCode=MANU].code
   Committee Notes = W5 note what = what.productidentification
   w5 = what
@@ -155,6 +176,7 @@
   Type = string
   Short Label = Version number (i.e. software)
   Definition = The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.
+  UDI Mapping = N/A
   RIM Mapping = .softwareName (included as part)
   Committee Notes = W5 note what = what.productidentification
   w5 = what
@@ -166,6 +188,7 @@
   Short Label = Serial number assigned by the manufacturer
   Definition = The serial number assigned by the organization when the device was manufactured
   Comments = Alphanumeric Maximum 20
+  UDI Mapping = N/A
   RIM Mapping = .playedRole[typeCode=MANU].id
   Committee Notes = W5 note what = what.productidentification
   w5 = what
@@ -174,8 +197,10 @@
   Element = Device.patient
   Card. = 0..1
   Type = Reference(Patient)
-  Short Label = If the resource is affixed to a person
-  Definition = Patient information, if the resource is affixed to a person
+  Short Label = Patient to whom Device is affixed
+  Definition = Patient information, If the device is affixed to a person
+  Requirements = If the device is implanted in a patient, then need to associate the device to the patient
+  UDI Mapping = N/A
   RIM Mapping = .playedRole[typeCode=USED].scoper.playedRole[typeCode=PAT]
   w5 = who.focus
 
@@ -185,6 +210,7 @@
   Type = Reference(Organization)
   Short Label = Organization responsible for device
   Definition = An organization that is responsible for the provision and ongoing maintenance of the device.
+  UDI Mapping = N/A
   RIM Mapping = .playedRole[typeCode=OWN].scoper
   w5 = who.source
 
@@ -195,6 +221,7 @@
   Short Label = Details for human/organization for support
   Definition = Contact details for an organization or a particular human that is responsible for the device
   Comments = used for troubleshooting etc.
+  UDI Mapping = N/A
   RIM Mapping = .scopedRole[typeCode=CON].player
   w5 = who.source
 
@@ -204,6 +231,8 @@
   Type = Reference(Location)
   Short Label = Where the resource is found
   Definition = The place where the device can be found.
+  Requirements = Device.location can be used to track device location
+  UDI Mapping = N/A
   RIM Mapping = .playedRole[typeCode=LOCE].scoper
   Committee Notes = #7418
   w5 = where
@@ -215,6 +244,7 @@
   Short Label = Network address to contact device
   Definition = A network address on which the device may be contacted directly
   Comments = If the device is running a FHIR server, the network address should  be the root URL from which a conformance statement may be retrieved.
+  UDI Mapping = N/A
   RIM Mapping = .telecom
   w5 = where
 
@@ -224,6 +254,7 @@
   Type = Annotation
   Short Label = Device notes and comments
   Definition = Descriptive information, usage information or implantation information that is not captured in an existing element.
+  UDI Mapping = N/A
   RIM Mapping = .text
 
 === Sheet Search =====================================
@@ -327,5 +358,11 @@
   Identity = software
   Description = Example of an EHR software installation
   Filename = device-example-software.xml
+
+ -- Row 6 -----------------------------------
+  Name = UDI Implant 1
+  Identity = example-udi1
+  Description = Implantable device/UDI example
+  Filename = device-example-udi1.xml
 
 === Sheet Examples =====================================

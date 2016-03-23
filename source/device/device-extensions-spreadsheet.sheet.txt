@@ -2,3 +2,9 @@
 === Sheet Bindings =====================================
 
 === Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = !din
+  Type = token
+  Description = The donation identification number (DIN)
+  Path = din.valueidentifier

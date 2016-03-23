@@ -4,8 +4,7 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-This resource is primarily used for recording which device performed an action and can also be used to track device location. It is also used for prescribing and dispensing devices for patient use. 
-If the device is implanted in a patient, then the patient element will be present, and there would be no location. 
+This resource an administrative resource that tracks individual device types or instances of a device and their location. It is referenced by other resource for recording which device performed an action such as a procedure or an observation. It is also referenced when prescribing and dispensing devices for patient use or for ordering supplies.  It is used to record and transmit  <a href="device.html#5.11.3.2.2">Unique Device Identifer (UDI)</a> information about a device such as a patient's implant.
 </p>
 
 </div>
@@ -17,7 +16,7 @@ If the device is implanted in a patient, then the patient element will be presen
 These are the device related resources
 </p>
 <ul>
- <li>Device (this resource) - An administrative resource that tracks individual device types or instances of a device and their location. It Is referenced by other resource for recording which device performed an action such as a procedure or an observation.  It is also referenced when prescribing and dispensing devices for patient use or for ordering supplies.</li>
+ <li>Device (this resource)</li>
  <li><a href="devicemetric.html">DeviceMetric</a> - Describes a measurement, calculation or setting  capability of a medical device.</li>
  <li><a href="devicecomponent.html">DeviceComponent</a> that the DeviceMetric is part of. This can be a DeviceComponent of any kind like a VirtualMedicalDevice (VMD), a MedicalDeviceSystem (MDS) , or a Channel</li>
 </ul>
@@ -26,10 +25,10 @@ In FHIR, the "Device" is the "administrative" resource for the device (it does n
 
 The physical composition of a Device is done by the DeviceComponents pointing to their "parent" component using <a href="devicecomponent-definitions.html#DeviceComponent.parent">DeviceComponent.parent</a>, e.g. channel to VMD and VMD to the MDS. All components point to the "logical" Device they belong to, using <a href="devicecomponent-definitions.html#DeviceComponent.source">DeviceComponent.source</a>.  Similarly, if for example you want to express which logical device your observation came from, you can just use Device, but if you need to be more specific observation can point to DeviceMetric which in turn points to the "logical" Device it belongs to, using <a href="devicecomponent-definitions.html#DeviceMetric.source">DeviceMetric.source</a>.</p>
 <p>
-Devices that are implanted in a patient differ from medications because they are not "used up" - they remain active in a patient in an ongoing fashion.
-The <a href="medication.html">Medication resource</a> SHOULD not be used to represent implanted devices.
+Devices differ from medications because they are not "used up" - they remain active in a patient in an ongoing fashion.  However, the specific boundary between medications and devices is defined at the implementation level and this standard does not enforce a boundary with the exception of devices that are implanted in a patient.   The <a href="medication.html">Medication</a> resource should not be used to represent implanted devices.
 </p>
 
 </div>
 
 </div>
+

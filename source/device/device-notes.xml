@@ -2,9 +2,15 @@
 	<h3>Notes</h3>
 	<h4>Device Types</h4>
 	<p>
-		There are many sources of possible codes for device type. The example uses device codes from Global Medical Device Nomenclature (GMDN&reg;).  Another source which may be appropriate is RTM (Rosetta Terminology Mapping). The local UDI repository (in the US this is the GUDID database) is another source as well, however, the full UDI string is placed in the Device.udi element.  Alternatively, many jurisdictions have their own supply chain arrangements which define many useful codes.
+		The example binding used for the device element is from SNOMED CT. However, there are many other sources of possible codes for device type including:</p>
+		<ul>
+			<li><a href="https://www.gmdnagency.org/Info.aspx?pageid=1091">Global Medical Device Nomenclature (GMDN&reg;)</a></li>
+			<li><a href="https://rtmms.nist.gov/rtmms/index.htm">Rosetta Terminology Mapping (RTM)</a></li>
+			<li>A uniform device identifier (UDI) repository (in the US this is the GUDID database)</li>
+			<li>The DI (GTIN) portion of the device’s UDI</li>
+		</ul>
+		<p>Note that there may be translations of type code using one or more of these and other vocabularies</p>
 
-	</p>
 	<h4>Device Identifiers</h4>
 	<p>
 Nearly all devices are assigned one or more identifiers, which are usually printed or affixed to the device using either barcodes or RFIDs.
@@ -12,28 +18,22 @@ The identifiers can come from the manufacturer (often called the "serial number,
 these identifiers assigned to the device can and should be recorded in the device resource. The different identifiers are
 differentiated by their use, label, and system values.
 </p>
-	<p>
-The most important of the identifiers is the
-<a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">US Realm FDA Mandated Unique Device Identifier </a>(UDI)
-required by the FDA for every medical device to bear on its label (unless excepted). The UDI has 2 components - the device identifier (DI), which is assigned at the version/model level of the device and the production identifier(s)(PI) which provide the means to track a device through its manufacture, distribution and use. The UDI string may also contain additional elements which are not formally part of the local defined UDI elements but which are non-the-less contained within the same string and are of value locally. The DI of the UDI may be stored in a jurisdictional repository and used as the primary key to access other device information. The UDI may identify an instance of a device uniquely (when the PI(s) include a serial number), or it may just identify the type of the device. The UDI can be broken into its constituent parts (DI, PI and other elements) by parsing rules developed by each Issuing Agency standard. Where the device has an assigned UDI, the other details carried in the resource (e.g., lot, expiry date, etc.) SHALL be consistent with the information encoded in the UDI string or registered in the local repository.
-In the US, a UDI will be required by the FDA for every medical device to bear on its label (unless excepted). The DI of the UDI is submitted in a device record to the <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/ucm20038750.htm">Global
-Unique Device Identification Database</a> (GUDID) and is used as the primary key to access other device information.
 
-
-</p>
+<h4>Unique Device Identifier (UDI)</h4>
 	<p>
-Note that a GTIN (sometimes also called an EAN number) is a code developed by GS1 for the kind of device  not an identifier for the device. A GTIN may appear on its own or it may appear in a UDI string as the DI component.
+The International Medical Device Regulators Forum IMDRF UDI Working Group published <a href="http://www.imdrf.org/consultations/cons-udi.asp">UDI System for Medical Devices (Version 2.0)</a>, the base specification for Unique Device Identifiers (UDI). The United States Food and Drug Administration has produced an <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm">implementation guide</a> for Unique Device Identifiers (UDI) which implements the IMDRF specification and other jurisdictions may produce similar IMDRF implementation guides as well.  The full UDI string that represents the barcode as printed on the packaging of the device or Automatic Identification and Data Capture (AIDC) representation is called the "UDI carrier".  The UDI has 2 components*: 
+</p><ul>
+	<li>Device identifier (DI)**, which is the actual identification component</li>
+	<li>Production identifier(s)(PI) which provide the means to track a device through its manufacture, distribution and use.</li>
+</ul>
+<p>
+*non-UDI elements may also appear within the UDI carrier.
+
+**a "GTIN" (sometimes also called an EAN number) is a code developed by <a href="http://www.gs1.org/">GS1</a> for the kind of device not an identifier for the device. A GTIN may appear on its own or it may appear in a UDI string as the DI component. 
 </p>
-	<div class="example">
-		<p>GTIN example</p>
-		<pre>
-  &lt;type&gt;
-    &lt;coding&gt;
-      &lt;system value=&quot;urn:oid:1.3.160‎&quot;/&gt;
-      &lt;value value=&quot;00614141999996&quot;/&gt;
-    &lt;/coding&gt;
-    &lt;!-- other codes for type --&gt;
-  &lt;/type&gt;
-</pre>
-	</div>
+
+<p>
+The DI of the UDI may be stored in a jurisdictional repository and used as the primary key to access other device information. For example, in the United States, the DI of the UDI is submitted in a device record to the <a href="http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/GlobalUDIDatabaseGUDID/default.htm">Global Unique Device Identification Database (GUDID)</a>.  the The UDI may identify an instance of a device uniquely (when the PI includes a serial number), or it may just identify the type of the device. The UDI is parsed into its constituent parts (DI, PI and other elements) by parsing rules developed by each Issuing Agency standard. Where the device has an assigned UDI, the other details carried in the resource (e.g., lot, expiriation date, etc.) SHALL be consistent with the information encoded in the UDI string or registered in the local repository.
+</p>
+<p>Best practice guidelines for transmitting UDI data using the Device resource dictate transmitting both the UDI Carrier and all components found within the UDI as described in Device <a href="device-mappings.html#udi)">UDI Mapping</a>.   Several  <a href="device-examples.html">examples</a> are provided for futher guidance.</p>
 </div>

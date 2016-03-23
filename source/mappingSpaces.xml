@@ -1,5 +1,5 @@
 <mappingSpaces>
-  <!-- 
+	<!-- 
   <space>
     <url>[the formal URL - should also resolve to a useful document if possible]</url>
     <columnName>The name for the mapping in the spreadsheet</columnName>
@@ -9,69 +9,69 @@
     <sort>[int: The order in which the mappings appear on the mapping page]</sort>
   </space>
   -->
-  <space>
-    <url>http://hl7.org/v3</url>
-    <columnName>RIM Mapping</columnName>
-    <title>RIM</title>
-    <id>rim</id>
-    <sort>1</sort>
-  </space>
-  <space>
-    <url>http://loinc.org</url>
-    <columnName>LOINC Code</columnName>
-    <title>LOINC</title>
-    <id>loinc</id>
-    <sort>2</sort>
-  </space>
-  <space>
-    <url>http://snomed.info</url>
-    <columnName>Snomed Code</columnName>
-    <title>SNOMED-CT</title>
-    <id>sct</id>
-    <sort>3</sort>
-  </space>
-  <space>
-    <url>http://hl7.org/v3/cda</url>
-    <columnName>CDA Mapping</columnName>
-    <title>CDA (R2)</title>
-    <id>cda</id>
-    <sort>4</sort>
-  </space>
-  <space>
-    <url>http://hl7.org/v2</url>
-    <columnName>v2 Mapping</columnName>
-    <title>HL7 v2</title>
-    <id>v2</id>
-    <sort>5</sort>
-  </space>
-  <space>
-    <url>http://nema.org/dicom</url>
-    <columnName>DICOM Mapping</columnName>
-    <title>DICOM</title>
-    <id>dicom</id>
-    <sort>6</sort>
-  </space>
-  <space>
-    <url>http://w3.org/vcard</url>
-    <columnName>vCard Mapping</columnName>
-    <title>vCard</title>
-    <id>vcard</id>
-    <sort>7</sort>
-  </space>
-  <space>
-    <url>http://ihe.net/xds</url>
-    <columnName>XDS Mapping</columnName>
-    <title>XDS</title>
-    <id>xds</id>
-    <sort>8</sort>
-  </space>
-  <space>
-    <url>http://www.w3.org/ns/prov</url>
-    <columnName>Prov Mapping</columnName>
-    <title>W3C PROV</title>
-    <id>w3c.prov</id>
-    <preamble>
-     <p>
+	<space>
+		<url>http://hl7.org/v3</url>
+		<columnName>RIM Mapping</columnName>
+		<title>RIM</title>
+		<id>rim</id>
+		<sort>1</sort>
+	</space>
+	<space>
+		<url>http://loinc.org</url>
+		<columnName>LOINC Code</columnName>
+		<title>LOINC</title>
+		<id>loinc</id>
+		<sort>2</sort>
+	</space>
+	<space>
+		<url>http://snomed.info</url>
+		<columnName>Snomed Code</columnName>
+		<title>SNOMED-CT</title>
+		<id>sct</id>
+		<sort>3</sort>
+	</space>
+	<space>
+		<url>http://hl7.org/v3/cda</url>
+		<columnName>CDA Mapping</columnName>
+		<title>CDA (R2)</title>
+		<id>cda</id>
+		<sort>4</sort>
+	</space>
+	<space>
+		<url>http://hl7.org/v2</url>
+		<columnName>v2 Mapping</columnName>
+		<title>HL7 v2</title>
+		<id>v2</id>
+		<sort>5</sort>
+	</space>
+	<space>
+		<url>http://nema.org/dicom</url>
+		<columnName>DICOM Mapping</columnName>
+		<title>DICOM</title>
+		<id>dicom</id>
+		<sort>6</sort>
+	</space>
+	<space>
+		<url>http://w3.org/vcard</url>
+		<columnName>vCard Mapping</columnName>
+		<title>vCard</title>
+		<id>vcard</id>
+		<sort>7</sort>
+	</space>
+	<space>
+		<url>http://ihe.net/xds</url>
+		<columnName>XDS Mapping</columnName>
+		<title>XDS</title>
+		<id>xds</id>
+		<sort>8</sort>
+	</space>
+	<space>
+		<url>http://www.w3.org/ns/prov</url>
+		<columnName>Prov Mapping</columnName>
+		<title>W3C PROV</title>
+		<id>w3c.prov</id>
+		<preamble>
+			<p>
       The provenance resource is based on known practices in the
       HL7 implementation space, particularly those found in the 
       v2 EVN segment, the v3 ControlAct Wrapper, the CDA header, and 
@@ -83,147 +83,160 @@
       specification, and FHIR resources can be transformed to their W3C
       PROV equivalent.
      </p>
-    </preamble>
-    <sort>9</sort>
-  </space>
-  <space>
-    <url>http://www.ietf.org/rfc/rfc2445.txt</url>
-    <columnName>iCal Mapping</columnName>
-    <title>iCalendar</title>
-    <id>ical</id>
-    <sort>10</sort>
-  </space>
-  <space>
-    <url>http://www.omg.org/spec/ServD/1.0/</url>
-    <columnName>ServD Mapping</columnName>
-    <title>ServD</title>
-    <id>servd</id>
-    <sort>11</sort>
-  </space>
-  <space>
-    <url>http://metadata-standards.org/11179/</url>
-    <columnName>11179 Mapping</columnName>
-    <title>ISO 11179</title>
-    <id>iso11179</id>
-    <preamble>
-     <p>
+		</preamble>
+		<sort>9</sort>
+	</space>
+	<space>
+		<url>http://www.ietf.org/rfc/rfc2445.txt</url>
+		<columnName>iCal Mapping</columnName>
+		<title>iCalendar</title>
+		<id>ical</id>
+		<sort>10</sort>
+	</space>
+	<space>
+		<url>http://www.omg.org/spec/ServD/1.0/</url>
+		<columnName>ServD Mapping</columnName>
+		<title>ServD</title>
+		<id>servd</id>
+		<sort>11</sort>
+	</space>
+	<space>
+		<url>http://metadata-standards.org/11179/</url>
+		<columnName>11179 Mapping</columnName>
+		<title>ISO 11179</title>
+		<id>iso11179</id>
+		<preamble>
+			<p>
       These mappings are included to indicate where properties of the data elements defined by the FHIR specification relate to similar fields in the ISO 11179 specification.
      </p>
-    </preamble>
-    <sort>13</sort>
-  </space>
-
-  <space>
-    <url>http://wiki.ihe.net/index.php?title=Data_Element_Exchange</url>
-    <columnName>IHE DEX mapping</columnName>
-    <title>IHE Data Element Exchange (DEX)</title>
-    <id>dex</id>
-    <sort>14</sort>
-  </space>
-  <space>
-    <url>http://openehr.org</url>
-    <columnName>OpenEHR mapping</columnName>
-    <title>Open EHR</title>
-    <id>openehr</id>
-    <sort>15</sort>
-  </space>
-  <space>
-    <url>http://wiki.siframework.org/IHE+SDC+Profile</url>
-    <columnName>IHE SDC mapping</columnName>
-    <title>IHE Structured Data Capture</title>
-    <id>ihesdc</id>
-    <sort>16</sort>
-  </space>
-  <space>
-    <url>http://wiki.siframework.org/CQF</url>
-    <columnName>QUICK mapping</columnName>
-    <title>Quality Improvement and Clinical Knowledge (QUICK)</title>
-    <id>quick</id>
-    <sort>17</sort>
-  </space>
-  <space>
-    <url>http://www.cdisc.org/define-xml</url>
-    <columnName>CDISC Define.xml 2.0 Mapping</columnName>
-    <title>CDISC Define XML 2.0 metadata standard</title>
-    <id>define.xml2.0</id>
-    <sort>18</sort>
-  </space>
-  <space>
-    <url>http://www.cdisc.org/define-xml</url>
-    <columnName>CDISC Define.xml 2.0 Mapping</columnName>
-    <title>CDISC Define XML 2.0 metadata standard</title>
-    <id>define.xml2.0</id>
-    <sort>18</sort>
-  </space>
-  <space>
-    <url>http://www.cda-adc.ca/en/services/cdanet/</url>
-    <columnName>CDAnet v4 Mapping</columnName>
-    <title>Canadian Dental Association eclaims standard</title>
-    <id>cdanetv4</id>
-    <sort>19</sort>
-  </space>
-  <space>
-    <url>http://www.pharmacists.ca/</url>
-    <columnName>CPhA3 (Pharmacy) Mapping</columnName>
-    <title>Canadian Pharmacy Associaiton eclaims standard</title>
-    <id>cpha3pharm</id>
-    <sort>20</sort>
-  </space>
-  <space>
-    <url>http://www.healthit.gov/quality-data-model</url>
-    <columnName>QDM Mapping</columnName>
-    <title>Quality Data Model</title>
-    <id>qdm</id>
-    <sort>21</sort>
-  </space>
-  <space>
-    <url>http://hl7.org/orim</url>
-    <columnName>ORIM Mapping</columnName>
-    <title>Ontological RIM Mapping</title>
-    <id>orim</id>
-    <sort>22</sort>
-  </space>
-  <space>
-    <url>http://hl7.org/fhir/w5</url>
-    <columnName>...don't use...</columnName>
-    <title>W5 Mapping</title>
-    <id>w5</id>
-    <sort>23</sort>
-  </space>
-  <space>
-    <url>http://hl7.org/fhir/logical</url>
-    <columnName>Logical Mapping</columnName>
-    <title>Logical Mapping</title>
-    <id>logical</id>
-    <sort>24</sort>
-  </space>
-  <space>
-    <url>http://hl7.org/fhir/auditevent</url>
-    <columnName>Auditevent Mapping</columnName>
-    <title>FHIR AuditEvent</title>
-    <id>fhirauditevent</id>
-    <sort>25</sort>
-  </space>
-  <space>
-    <url>http://hl7.org/fhir/provenance</url>
-    <columnName>Provenance Mapping</columnName>
-    <title>FHIR Provenance</title>
-    <id>fhirprovenance</id>
-    <sort>26</sort>
-  </space>
-    <space>
-    <url>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378</url>
-    <columnName>QIDAM Mapping</columnName>
-    <title>Quality Improvement Domain Analysis Model</title>
-    <id>qidam</id>
-    <sort>27</sort>
-  </space>
-  <space>
-    <url>http://cap.org/ecc</url>
-    <columnName>CAP Code</columnName>
-    <title>CAP Code</title>
-    <id>cap</id>
-    <sort>28</sort>
-  </space>
-  
+		</preamble>
+		<sort>13</sort>
+	</space>
+	<space>
+		<url>http://wiki.ihe.net/index.php?title=Data_Element_Exchange</url>
+		<columnName>IHE DEX mapping</columnName>
+		<title>IHE Data Element Exchange (DEX)</title>
+		<id>dex</id>
+		<sort>14</sort>
+	</space>
+	<space>
+		<url>http://openehr.org</url>
+		<columnName>OpenEHR mapping</columnName>
+		<title>Open EHR</title>
+		<id>openehr</id>
+		<sort>15</sort>
+	</space>
+	<space>
+		<url>http://wiki.siframework.org/IHE+SDC+Profile</url>
+		<columnName>IHE SDC mapping</columnName>
+		<title>IHE Structured Data Capture</title>
+		<id>ihesdc</id>
+		<sort>16</sort>
+	</space>
+	<space>
+		<url>http://wiki.siframework.org/CQF</url>
+		<columnName>QUICK mapping</columnName>
+		<title>Quality Improvement and Clinical Knowledge (QUICK)</title>
+		<id>quick</id>
+		<sort>17</sort>
+	</space>
+	<space>
+		<url>http://www.cdisc.org/define-xml</url>
+		<columnName>CDISC Define.xml 2.0 Mapping</columnName>
+		<title>CDISC Define XML 2.0 metadata standard</title>
+		<id>define.xml2.0</id>
+		<sort>18</sort>
+	</space>
+	<space>
+		<url>http://www.cdisc.org/define-xml</url>
+		<columnName>CDISC Define.xml 2.0 Mapping</columnName>
+		<title>CDISC Define XML 2.0 metadata standard</title>
+		<id>define.xml2.0</id>
+		<sort>18</sort>
+	</space>
+	<space>
+		<url>http://www.cda-adc.ca/en/services/cdanet/</url>
+		<columnName>CDAnet v4 Mapping</columnName>
+		<title>Canadian Dental Association eclaims standard</title>
+		<id>cdanetv4</id>
+		<sort>19</sort>
+	</space>
+	<space>
+		<url>http://www.pharmacists.ca/</url>
+		<columnName>CPhA3 (Pharmacy) Mapping</columnName>
+		<title>Canadian Pharmacy Associaiton eclaims standard</title>
+		<id>cpha3pharm</id>
+		<sort>20</sort>
+	</space>
+	<space>
+		<url>http://www.healthit.gov/quality-data-model</url>
+		<columnName>QDM Mapping</columnName>
+		<title>Quality Data Model</title>
+		<id>qdm</id>
+		<sort>21</sort>
+	</space>
+	<space>
+		<url>http://hl7.org/orim</url>
+		<columnName>ORIM Mapping</columnName>
+		<title>Ontological RIM Mapping</title>
+		<id>orim</id>
+		<sort>22</sort>
+	</space>
+	<space>
+		<url>http://hl7.org/fhir/w5</url>
+		<columnName>...don't use...</columnName>
+		<title>W5 Mapping</title>
+		<id>w5</id>
+		<sort>23</sort>
+	</space>
+	<space>
+		<url>http://hl7.org/fhir/logical</url>
+		<columnName>Logical Mapping</columnName>
+		<title>Logical Mapping</title>
+		<id>logical</id>
+		<sort>24</sort>
+	</space>
+	<space>
+		<url>http://hl7.org/fhir/auditevent</url>
+		<columnName>Auditevent Mapping</columnName>
+		<title>FHIR AuditEvent</title>
+		<id>fhirauditevent</id>
+		<sort>25</sort>
+	</space>
+	<space>
+		<url>http://hl7.org/fhir/provenance</url>
+		<columnName>Provenance Mapping</columnName>
+		<title>FHIR Provenance</title>
+		<id>fhirprovenance</id>
+		<sort>26</sort>
+	</space>
+	<space>
+		<url>http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378</url>
+		<columnName>QIDAM Mapping</columnName>
+		<title>Quality Improvement Domain Analysis Model</title>
+		<id>qidam</id>
+		<sort>27</sort>
+	</space>
+	<space>
+		<url>http://cap.org/ecc</url>
+		<columnName>CAP Code</columnName>
+		<title>CAP Code</title>
+		<id>cap</id>
+		<sort>28</sort>
+	</space>
+	<space>
+		<url>http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm</url>
+		<columnName>UDI Mapping</columnName>
+		<title>UDI Mapping</title>
+		<id>udi</id>
+		<preamble>
+			<p>UDI is a unique numeric or alphanumeric code that consists of two parts:			
+			 (1) a device identifier (DI), a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device, and (2)
+		a production identifier (PI), a conditional, variable portion of a UDI that identifies one or more of the following when included on the label of a device: 
+		 (2a) the lot or batch number within which a device was manufactured; (2b) the serial number of a specific device; (2c) the expiration date of a specific device; (2d) the date a specific device was manufactured; (2e) the distinct identification code required by §1271.290(c) for a human cell, tissue, or cellular and tissue-based product (HCT/P) regulated as a device.
+	</p>
+		</preamble>
+		<sort>29</sort>
+	</space>
+	
 </mappingSpaces>

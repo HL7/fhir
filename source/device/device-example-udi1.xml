@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Device xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/device.xsd">
+	<id value="example-udi1"/>
+
+	<identifier>
+		<system value="http://acme.com/devices/pacemakers/octane/serial"/>
+		<value value="1234-5678-90AB-CDEF"/>
+	</identifier>
+	<identifier>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/identifier-type"/>
+				<code value="SNO"/>
+			</coding>
+		</type>
+		<value value="10987654d321"/>
+	</identifier>
+	<udiCarrier>
+		<type>
+			<coding>
+				<system value="http://hl7.org/fhir/identifier-type"/>
+				<code value="UDI"/>
+			</coding>
+		</type>
+		<system value="http://hl7.org/fhir/NamingSystem/fda-udi"/>
+		<value value="{01}09504000059118{17}141120{10}7654321D{21}10987654d321"/>
+	</udiCarrier>
+	<status value="not-available"/>
+	<type>
+		<coding>
+			<system value="http://hl7.org/fhir/NamingSystem/gs1-di"/>
+			<code value="09504000059118"/>
+		</coding>
+		<coding>
+			<system value="http://snomed.info/sct"/>
+			<code value="468063009"/>
+			<display value="Coated femoral stem prosthesis, modular"/>
+		</coding>
+	</type>
+	<lotNumber value="7654321D"/>
+	<manufacturer value="Acme Devices, Inc"/>
+	<expirationDate value="2014-11-20"/>
+	<model value="PM/Octane 2014"/>
+	<patient>
+		<reference value="Patient/example"/>
+	</patient>
+
+</Device>
