@@ -87,6 +87,14 @@
     </resource>
     <resource>
       <example value="false"/>
+      <name value="C-CDA on History and Physical"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-history-and-physical-composition"/>
+      <sourceUri value="StructureDefinition/ccda-history-and-physical-composition.xml"/>
+    </resource>
+    <resource>
+      <example value="false"/>
       <name value="C-CDA on FHIR Procedure Note"/>
       <description
         value="TBD"/>
@@ -134,6 +142,14 @@
         value="TBD"/>
       <acronym value="ReferralDocumentTypeCodes"/>
       <sourceUri value="ValueSet/2.16.840.1.113883.1.11.20.2.3.xml"/>
+    </resource>
+    <resource>
+      <example value="false"/>
+      <name value="HPDocumentType"/>
+      <description
+        value="TBD"/>
+      <acronym value="HPDocumentType"/>
+      <sourceUri value="ValueSet/2.16.840.1.113883.1.11.20.22.xml"/>
     </resource>
     <resource>
       <example value="false"/>
