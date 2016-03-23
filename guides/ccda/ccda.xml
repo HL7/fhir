@@ -14,6 +14,15 @@
   <package>
     <name value="CCDA Package"/>
     <description value="Resource profiles and extensions necessary to support C-CDA on FHIR."/>
+    
+	<resource>
+	  <example value="false"/>
+	  <name value="C-CDA on FHIR Procedure Note"/>
+	  <description
+	    value="TBD"/>
+	  <acronym value="ccda-data-enterer-extension"/>
+	  <sourceUri value="StructureDefinition/ccda-data-enterer-extension.xml"/>
+	</resource>
     <resource>
       <example value="false"/>
       <name value="C-CDA on FHIR US-Realm Header"/>

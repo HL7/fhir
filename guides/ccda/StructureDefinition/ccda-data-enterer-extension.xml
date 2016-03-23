@@ -1,0 +1,50 @@
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <url value="https://trifolia.lantanagroup.com/api/FHIR2/StructureDefinition/ccda-data-enterer" />
+    <name value="C-CDA on FHIR Data Enterer" />
+    <status value="draft" />
+    <contact>
+        <name value="Sarah Gaunt" />
+        <telecom>
+            <system value="phone" />
+            <value value="+6 141-029-2506" />
+            <use value="work" />
+        </telecom>
+        <telecom>
+            <system value="email" />
+            <value value="sarah.gaunt@lantanagroup.com" />
+            <use value="work" />
+        </telecom>
+    </contact>
+    <description value="" />
+    <kind value="resource" />
+    <constrainedType value="Extension" />
+    <abstract value="false" />
+    <base value="http://hl7.org/fhir/StructureDefinition/Extension" />
+    <differential>
+        <element>
+            <path value="Extension" />
+        </element>
+        <element>
+            <path value="Extension.url" />
+            <short value="@url" />
+            <definition value="SHALL contain exactly one [1..1] @url=&quot;https://trifolia.lantanagroup.com/api/FHIR2/StructureDefinition/ccda-data-enterer&quot; (CONF:2219-1842)." />
+            <min value="1" />
+            <max value="1" />
+            <type>
+	    	<code value="uri"/>
+	    </type>
+      	    <fixedUri value="https://trifolia.lantanagroup.com/api/FHIR2/StructureDefinition/ccda-data-enterer"/>
+        </element>
+        <element>
+            <path value="Extension.value[x]" />
+            <short value="A referenced to the data enterer" />
+            <definition value="SHALL contain exactly one [1..1] valueReference (CONF:2219-1843)." />
+            <min value="1" />
+            <max value="1" />
+            <type>
+	            <code value="Reference"/>
+      	    </type>
+        </element>
+    </differential>
+</StructureDefinition>
