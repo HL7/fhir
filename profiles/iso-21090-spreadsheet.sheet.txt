@@ -39,6 +39,13 @@
   Binding = unbound
   Definition = A list of verification methods
 
+ -- Row 7 -----------------------------------
+  Binding Name = NameRepresentationUse
+  Binding = code list
+  Reference = #name-v3-representation
+  Definition = A set of codes for each different representation of a name
+  Conformance = required
+
 === Sheet name-part-qualifier =====================================
 
  -- Row 1 -----------------------------------
@@ -212,5 +219,19 @@
   Code = PST
   Display = postal address
   Definition = Description: Used to send mail.
+
+=== Sheet name-v3-representation =====================================
+
+ -- Row 1 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNameUse
+  Code = ABC
+
+ -- Row 2 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNameUse
+  Code = IDE
+
+ -- Row 3 -----------------------------------
+  System = http://hl7.org/fhir/v3/EntityNameUse
+  Code = SYL
 
 === Sheet Search =====================================
