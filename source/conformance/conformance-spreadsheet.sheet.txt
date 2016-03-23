@@ -825,7 +825,7 @@
 
  -- Row 37 -----------------------------------
   Element = Conformance.rest.resource
-  Card. = 1..*
+  Card. = 0..*
   Summary = Y
   UML = 230;560
   Short Label = Resource served on the REST interface
