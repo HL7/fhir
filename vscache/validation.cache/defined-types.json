@@ -2,14 +2,15 @@
   "url": "http://hl7.org/fhir/ValueSet/defined-types",
   "outcomes": [
     {
-      "hash": "|null|null|*|null",
-      "severity": "error",
-      "message": "Unknown Code * in http://hl7.org/fhir/ValueSet/defined-types"
-    },
-    {
       "hash": "|null|null|ActionDefinition|null",
-      "severity": "error",
-      "message": "Unknown Code ActionDefinition in http://hl7.org/fhir/ValueSet/defined-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ActionDefinition",
+        "definition": null,
+        "display": "ActionDefinition"
+      }
     },
     {
       "hash": "|null|null|Address|null",
@@ -43,11 +44,6 @@
         "definition": null,
         "display": "Annotation"
       }
-    },
-    {
-      "hash": "|null|null|Any|null",
-      "severity": "error",
-      "message": "Unknown Code Any in http://hl7.org/fhir/ValueSet/defined-types"
     },
     {
       "hash": "|null|null|Attachment|null",
@@ -128,8 +124,14 @@
     },
     {
       "hash": "|null|null|CodeSystem|null",
-      "severity": "error",
-      "message": "Unknown Code CodeSystem in http://hl7.org/fhir/ValueSet/defined-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "CodeSystem",
+        "definition": null,
+        "display": "CodeSystem"
+      }
     },
     {
       "hash": "|null|null|CodeableConcept|null",
@@ -187,17 +189,6 @@
       }
     },
     {
-      "hash": "|null|null|ConceptMap|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "ConceptMap",
-        "definition": null,
-        "display": "ConceptMap"
-      }
-    },
-    {
       "hash": "|null|null|Condition|null",
       "severity": null,
       "message": null,
@@ -231,17 +222,6 @@
       }
     },
     {
-      "hash": "|null|null|Coverage|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "Coverage",
-        "definition": null,
-        "display": "Coverage"
-      }
-    },
-    {
       "hash": "|null|null|DataElement|null",
       "severity": null,
       "message": null,
@@ -254,8 +234,14 @@
     },
     {
       "hash": "|null|null|DataRequirement|null",
-      "severity": "error",
-      "message": "Unknown Code DataRequirement in http://hl7.org/fhir/ValueSet/defined-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DataRequirement",
+        "definition": null,
+        "display": "DataRequirement"
+      }
     },
     {
       "hash": "|null|null|DeviceUseRequest|null",
@@ -423,11 +409,6 @@
       }
     },
     {
-      "hash": "|null|null|GuidanceResponse|null",
-      "severity": "error",
-      "message": "Unknown Code GuidanceResponse in http://hl7.org/fhir/ValueSet/defined-types"
-    },
-    {
       "hash": "|null|null|HumanName|null",
       "severity": null,
       "message": null,
@@ -505,11 +486,6 @@
       }
     },
     {
-      "hash": "|null|null|MeasureReport|null",
-      "severity": "error",
-      "message": "Unknown Code MeasureReport in http://hl7.org/fhir/ValueSet/defined-types"
-    },
-    {
       "hash": "|null|null|MedicationAdministration|null",
       "severity": null,
       "message": null,
@@ -582,8 +558,14 @@
     },
     {
       "hash": "|null|null|ModuleMetadata|null",
-      "severity": "error",
-      "message": "Unknown Code ModuleMetadata in http://hl7.org/fhir/ValueSet/defined-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ModuleMetadata",
+        "definition": null,
+        "display": "ModuleMetadata"
+      }
     },
     {
       "hash": "|null|null|Narrative|null",
@@ -605,17 +587,6 @@
         "code": "Observation",
         "definition": null,
         "display": "Observation"
-      }
-    },
-    {
-      "hash": "|null|null|OperationOutcome|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "OperationOutcome",
-        "definition": null,
-        "display": "OperationOutcome"
       }
     },
     {
@@ -642,8 +613,14 @@
     },
     {
       "hash": "|null|null|ParameterDefinition|null",
-      "severity": "error",
-      "message": "Unknown Code ParameterDefinition in http://hl7.org/fhir/ValueSet/defined-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ParameterDefinition",
+        "definition": null,
+        "display": "ParameterDefinition"
+      }
     },
     {
       "hash": "|null|null|Parameters|null",
@@ -878,8 +855,14 @@
     },
     {
       "hash": "|null|null|TriggerDefinition|null",
-      "severity": "error",
-      "message": "Unknown Code TriggerDefinition in http://hl7.org/fhir/ValueSet/defined-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "TriggerDefinition",
+        "definition": null,
+        "display": "TriggerDefinition"
+      }
     },
     {
       "hash": "|null|null|ValueSet|null",
@@ -1045,11 +1028,6 @@
         "definition": null,
         "display": "time"
       }
-    },
-    {
-      "hash": "|null|null|token|null",
-      "severity": "error",
-      "message": "Unknown Code token in http://hl7.org/fhir/ValueSet/defined-types"
     },
     {
       "hash": "|null|null|unsignedInt|null",

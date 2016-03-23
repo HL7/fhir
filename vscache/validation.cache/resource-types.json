@@ -118,8 +118,14 @@
     },
     {
       "hash": "|null|null|CareTeam|null",
-      "severity": "error",
-      "message": "Unknown Code CareTeam in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "CareTeam",
+        "definition": null,
+        "display": "CareTeam"
+      }
     },
     {
       "hash": "|null|null|ClaimResponse|null",
@@ -156,8 +162,14 @@
     },
     {
       "hash": "|null|null|CodeSystem|null",
-      "severity": "error",
-      "message": "Unknown Code CodeSystem in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "CodeSystem",
+        "definition": null,
+        "display": "CodeSystem"
+      }
     },
     {
       "hash": "|null|null|CommunicationRequest|null",
@@ -183,8 +195,14 @@
     },
     {
       "hash": "|null|null|CompartmentDefinition|null",
-      "severity": "error",
-      "message": "Unknown Code CompartmentDefinition in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "CompartmentDefinition",
+        "definition": null,
+        "display": "CompartmentDefinition"
+      }
     },
     {
       "hash": "|null|null|Composition|null",
@@ -265,13 +283,25 @@
     },
     {
       "hash": "|null|null|DecisionSupportRule|null",
-      "severity": "error",
-      "message": "Unknown Code DecisionSupportRule in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DecisionSupportRule",
+        "definition": null,
+        "display": "DecisionSupportRule"
+      }
     },
     {
       "hash": "|null|null|DecisionSupportServiceModule|null",
-      "severity": "error",
-      "message": "Unknown Code DecisionSupportServiceModule in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DecisionSupportServiceModule",
+        "definition": null,
+        "display": "DecisionSupportServiceModule"
+      }
     },
     {
       "hash": "|null|null|DetectedIssue|null",
@@ -451,8 +481,14 @@
     },
     {
       "hash": "|null|null|ExpansionProfile|null",
-      "severity": "error",
-      "message": "Unknown Code ExpansionProfile in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ExpansionProfile",
+        "definition": null,
+        "display": "ExpansionProfile"
+      }
     },
     {
       "hash": "|null|null|ExplanationOfBenefit|null",
@@ -511,8 +547,14 @@
     },
     {
       "hash": "|null|null|GuidanceResponse|null",
-      "severity": "error",
-      "message": "Unknown Code GuidanceResponse in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "GuidanceResponse",
+        "definition": null,
+        "display": "GuidanceResponse"
+      }
     },
     {
       "hash": "|null|null|HealthcareService|null",
@@ -527,8 +569,14 @@
     },
     {
       "hash": "|null|null|ImagingExcerpt|null",
-      "severity": "error",
-      "message": "Unknown Code ImagingExcerpt in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ImagingExcerpt",
+        "definition": null,
+        "display": "ImagingExcerpt"
+      }
     },
     {
       "hash": "|null|null|ImagingObjectSelection|null",
@@ -587,13 +635,25 @@
     },
     {
       "hash": "|null|null|Library|null",
-      "severity": "error",
-      "message": "Unknown Code Library in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Library",
+        "definition": null,
+        "display": "Library"
+      }
     },
     {
       "hash": "|null|null|Linkage|null",
-      "severity": "error",
-      "message": "Unknown Code Linkage in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Linkage",
+        "definition": null,
+        "display": "Linkage"
+      }
     },
     {
       "hash": "|null|null|List|null",
@@ -619,13 +679,25 @@
     },
     {
       "hash": "|null|null|MeasureReport|null",
-      "severity": "error",
-      "message": "Unknown Code MeasureReport in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MeasureReport",
+        "definition": null,
+        "display": "MeasureReport"
+      }
     },
     {
       "hash": "|null|null|Measure|null",
-      "severity": "error",
-      "message": "Unknown Code Measure in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Measure",
+        "definition": null,
+        "display": "Measure"
+      }
     },
     {
       "hash": "|null|null|Media|null",
@@ -706,8 +778,14 @@
     },
     {
       "hash": "|null|null|ModuleDefinition|null",
-      "severity": "error",
-      "message": "Unknown Code ModuleDefinition in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ModuleDefinition",
+        "definition": null,
+        "display": "ModuleDefinition"
+      }
     },
     {
       "hash": "|null|null|NamingSystem|null",
@@ -777,8 +855,14 @@
     },
     {
       "hash": "|null|null|OrderSet|null",
-      "severity": "error",
-      "message": "Unknown Code OrderSet in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "OrderSet",
+        "definition": null,
+        "display": "OrderSet"
+      }
     },
     {
       "hash": "|null|null|Order|null",
@@ -903,8 +987,14 @@
     },
     {
       "hash": "|null|null|Protocol|null",
-      "severity": "error",
-      "message": "Unknown Code Protocol in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Protocol",
+        "definition": null,
+        "display": "Protocol"
+      }
     },
     {
       "hash": "|null|null|Provenance|null",
@@ -1007,8 +1097,14 @@
     },
     {
       "hash": "|null|null|Sequence|null",
-      "severity": "error",
-      "message": "Unknown Code Sequence in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Sequence",
+        "definition": null,
+        "display": "Sequence"
+      }
     },
     {
       "hash": "|null|null|Slot|null",
@@ -1045,8 +1141,14 @@
     },
     {
       "hash": "|null|null|StructureMap|null",
-      "severity": "error",
-      "message": "Unknown Code StructureMap in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "StructureMap",
+        "definition": null,
+        "display": "StructureMap"
+      }
     },
     {
       "hash": "|null|null|Subscription|null",
@@ -1094,8 +1196,14 @@
     },
     {
       "hash": "|null|null|Task|null",
-      "severity": "error",
-      "message": "Unknown Code Task in http://hl7.org/fhir/ValueSet/resource-types"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Task",
+        "definition": null,
+        "display": "Task"
+      }
     },
     {
       "hash": "|null|null|TestScript|null",

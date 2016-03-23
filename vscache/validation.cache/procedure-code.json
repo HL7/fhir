@@ -35,11 +35,6 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|323418000|Fix me up",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Procedure Codes (SNOMED CT)"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|34068001|Heart valve replacement",
       "severity": null,
       "message": null,

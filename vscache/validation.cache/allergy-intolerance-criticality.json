@@ -3,8 +3,14 @@
   "outcomes": [
     {
       "hash": "|null|null|high|null",
-      "severity": "error",
-      "message": "Unknown Code high in http://hl7.org/fhir/ValueSet/allergy-intolerance-criticality"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "high",
+        "definition": null,
+        "display": "High Risk"
+      }
     }
   ]
 }

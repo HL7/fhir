@@ -4,7 +4,7 @@
     {
       "hash": "#|http://ihe.net/connectathon/classCodes|null|History and Physical|History and Physical",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set Document Type Value Set"
     },
     {
       "hash": "#|http://loinc.org|null|34108-1|Outpatient Note",
@@ -12,7 +12,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "34108-1",
+        "code": null,
         "definition": null,
         "display": "Outpatient Note"
       }

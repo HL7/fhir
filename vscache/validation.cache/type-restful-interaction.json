@@ -79,17 +79,6 @@
       }
     },
     {
-      "hash": "|null|null|validate|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "validate",
-        "definition": null,
-        "display": "validate"
-      }
-    },
-    {
       "hash": "|null|null|vread|null",
       "severity": null,
       "message": null,

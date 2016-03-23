@@ -4,12 +4,18 @@
     {
       "hash": "#|http://snomed.info/sct|null|398124009|drug container",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set SNOMED CT Form Codes"
     },
     {
       "hash": "#|http://snomed.info/sct|null|419672006|Bottle - unit of product usage",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Bottle (qualifier value)"
+      }
     }
   ]
 }

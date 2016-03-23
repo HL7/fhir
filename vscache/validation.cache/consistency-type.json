@@ -3,8 +3,14 @@
   "outcomes": [
     {
       "hash": "#|http://snomed.info/sct|null|439021000124105|Dietary liquid consistency - nectar thick liquid",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Liquids included in the diet are provided at a viscosity of 51--350 centipoise (cP). (Source: Nutrition Care Manual, Academy of Nutrition and Dietetics 2013)."
+      }
     }
   ]
 }

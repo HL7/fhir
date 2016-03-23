@@ -7,7 +7,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "11488-4",
+        "code": null,
         "definition": null,
         "display": "Consult note"
       }
@@ -18,7 +18,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "28655-9",
+        "code": null,
         "definition": null,
         "display": "Physician attending Discharge summary"
       }

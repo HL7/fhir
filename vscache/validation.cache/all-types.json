@@ -2,6 +2,22 @@
   "url": "http://hl7.org/fhir/ValueSet/all-types",
   "outcomes": [
     {
+      "hash": "|null|null|*|null",
+      "severity": "error",
+      "message": "Unknown Code * in http://hl7.org/fhir/ValueSet/all-types"
+    },
+    {
+      "hash": "|null|null|Any|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Any",
+        "definition": null,
+        "display": "Any"
+      }
+    },
+    {
       "hash": "|null|null|Basic|null",
       "severity": null,
       "message": null,
@@ -10,6 +26,61 @@
         "code": "Basic",
         "definition": null,
         "display": "Basic"
+      }
+    },
+    {
+      "hash": "|null|null|Bundle|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Bundle",
+        "definition": null,
+        "display": "Bundle"
+      }
+    },
+    {
+      "hash": "|null|null|CarePlan|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "CarePlan",
+        "definition": null,
+        "display": "CarePlan"
+      }
+    },
+    {
+      "hash": "|null|null|CodeableConcept|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "CodeableConcept",
+        "definition": null,
+        "display": "CodeableConcept"
+      }
+    },
+    {
+      "hash": "|null|null|Coding|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Coding",
+        "definition": null,
+        "display": "Coding"
+      }
+    },
+    {
+      "hash": "|null|null|ConceptMap|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ConceptMap",
+        "definition": null,
+        "display": "ConceptMap"
       }
     },
     {
@@ -35,6 +106,50 @@
       }
     },
     {
+      "hash": "|null|null|GuidanceResponse|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "GuidanceResponse",
+        "definition": null,
+        "display": "GuidanceResponse"
+      }
+    },
+    {
+      "hash": "|null|null|MeasureReport|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MeasureReport",
+        "definition": null,
+        "display": "MeasureReport"
+      }
+    },
+    {
+      "hash": "|null|null|Meta|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Meta",
+        "definition": null,
+        "display": "Meta"
+      }
+    },
+    {
+      "hash": "|null|null|OperationOutcome|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "OperationOutcome",
+        "definition": null,
+        "display": "OperationOutcome"
+      }
+    },
+    {
       "hash": "|null|null|Order|null",
       "severity": null,
       "message": null,
@@ -43,6 +158,28 @@
         "code": "Order",
         "definition": null,
         "display": "Order"
+      }
+    },
+    {
+      "hash": "|null|null|Parameters|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Parameters",
+        "definition": null,
+        "display": "Parameters"
+      }
+    },
+    {
+      "hash": "|null|null|Patient|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Patient",
+        "definition": null,
+        "display": "Patient"
       }
     },
     {
@@ -77,6 +214,121 @@
         "definition": null,
         "display": "Questionnaire"
       }
+    },
+    {
+      "hash": "|null|null|Reference|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Reference",
+        "definition": null,
+        "display": "Reference"
+      }
+    },
+    {
+      "hash": "|null|null|Resource|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Resource",
+        "definition": null,
+        "display": "Resource"
+      }
+    },
+    {
+      "hash": "|null|null|ValueSet|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "ValueSet",
+        "definition": null,
+        "display": "ValueSet"
+      }
+    },
+    {
+      "hash": "|null|null|boolean|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "boolean",
+        "definition": null,
+        "display": "boolean"
+      }
+    },
+    {
+      "hash": "|null|null|code|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "code",
+        "definition": null,
+        "display": "code"
+      }
+    },
+    {
+      "hash": "|null|null|dateTime|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "dateTime",
+        "definition": null,
+        "display": "dateTime"
+      }
+    },
+    {
+      "hash": "|null|null|date|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "date",
+        "definition": null,
+        "display": "date"
+      }
+    },
+    {
+      "hash": "|null|null|id|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "id",
+        "definition": null,
+        "display": "id"
+      }
+    },
+    {
+      "hash": "|null|null|integer|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "integer",
+        "definition": null,
+        "display": "integer"
+      }
+    },
+    {
+      "hash": "|null|null|string|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "string",
+        "definition": null,
+        "display": "string"
+      }
+    },
+    {
+      "hash": "|null|null|token|null",
+      "severity": "error",
+      "message": "Unknown Code token in http://hl7.org/fhir/ValueSet/all-types"
     },
     {
       "hash": "|null|null|uri|null",

@@ -7,7 +7,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "228049004",
+        "code": null,
         "definition": null,
         "display": "Chopped food"
       }
@@ -18,7 +18,7 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "228055009",
+        "code": null,
         "definition": null,
         "display": "Liquidized food"
       }

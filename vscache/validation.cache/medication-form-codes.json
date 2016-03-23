@@ -4,7 +4,7 @@
     {
       "hash": "#|http://snomed.info/sct|null|255621006|Cream",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set SNOMED CT Form Codes"
     },
     {
       "hash": "#|http://snomed.info/sct|null|385024007|Oral Suspension",
@@ -12,9 +12,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "385024007",
+        "code": null,
         "definition": null,
-        "display": "Oral suspension"
+        "display": "Oral suspension (product)"
       }
     },
     {
@@ -23,9 +23,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "385049006",
+        "code": null,
         "definition": null,
-        "display": "Capsule"
+        "display": "Capsule (product)"
       }
     },
     {
@@ -34,15 +34,15 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "385055001",
+        "code": null,
         "definition": null,
-        "display": "Tablet"
+        "display": "Tablet (product)"
       }
     },
     {
       "hash": "#|http://snomed.info/sct|null|385218009|Injection",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set SNOMED CT Form Codes"
     },
     {
       "hash": "#|http://snomed.info/sct|null|385219001|Injection Solution",
@@ -50,20 +50,26 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "385219001",
+        "code": null,
         "definition": null,
-        "display": "Injection solution"
+        "display": "Injection solution (product)"
       }
     },
     {
       "hash": "#|http://snomed.info/sct|null|420317006|Inhaler (qualifier value)",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Inhaler (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|42108003|Powder for Suspension",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set SNOMED CT Form Codes"
     },
     {
       "hash": "#|http://snomed.info/sct|null|421606006|Aerosol spray",
@@ -71,25 +77,31 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "421606006",
+        "code": null,
         "definition": null,
-        "display": "Aerosol spray"
+        "display": "Aerosol spray (product)"
       }
     },
     {
       "hash": "#|http://snomed.info/sct|null|440131009|Oral dosage form product",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set SNOMED CT Form Codes"
     },
     {
       "hash": "#|http://snomed.info/sct|null|440132002|Parenteral dosage form product",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set SNOMED CT Form Codes"
     },
     {
       "hash": "#|http://snomed.info/sct|null|48582000|Caplet",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Caplet (product)"
+      }
     },
     {
       "hash": "#|http://snomed.info/sct|null|85581007|Drug Powder",
@@ -97,15 +109,15 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "85581007",
+        "code": null,
         "definition": null,
-        "display": "Drug powder"
+        "display": "Drug powder (product)"
       }
     },
     {
       "hash": "#|null|null|385055001|Tablet dose form",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set SNOMED CT Form Codes"
     }
   ]
 }

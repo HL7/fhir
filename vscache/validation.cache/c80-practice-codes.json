@@ -4,17 +4,17 @@
     {
       "hash": "#|http://ihe.net/connectathon/practiceSettingCodes|null|General Medicine|General Medicine",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|172676009|Myringotomy and insertion of short-term tympanic ventilation tube (procedure)",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|172676009|Myringotomy and insertion of tympanic ventilation tube",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|394587001|Psychiatry",
@@ -22,9 +22,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "394587001",
+        "code": null,
         "definition": null,
-        "display": "Psychiatry"
+        "display": "Psychiatry (qualifier value)"
       }
     },
     {
@@ -33,30 +33,30 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "394913002",
+        "code": null,
         "definition": null,
-        "display": "Psychotherapy"
+        "display": "Psychotherapy (specialty) (qualifier value)"
       }
     },
     {
       "hash": "#|http://www.ihe.net/xds/connectathon/practiceSettingCodes|null|General Medicine|General Medicine",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
     },
     {
       "hash": "#|null|null|385893007|null",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
     },
     {
       "hash": "#|null|null|45|Physiotherapy",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
     },
     {
       "hash": "#|null|null|52|General Discussion",
       "severity": "error",
-      "message": "None of the codes are in the specified value set"
+      "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
     }
   ]
 }

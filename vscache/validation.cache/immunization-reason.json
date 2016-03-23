@@ -7,9 +7,9 @@
       "message": null,
       "definition": {
         "abstract": false,
-        "code": "429060002",
+        "code": null,
         "definition": null,
-        "display": "Procedure to meet occupational requirement"
+        "display": "Procedure to meet occupational requirement (regime/therapy)"
       }
     }
   ]
