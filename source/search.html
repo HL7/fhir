@@ -40,6 +40,7 @@ complexity that they require for their implementations.
 <a href="#text"><code>_text</code></a><br/>
 <a href="#content"><code>_content</code></a><br/>
 <a href="#list"><code>_list</code></a><br/>
+<a href="#_type"><code>_type</code></a><br/>
 <a href="#query"><code>_query</code></a><br/>
 </td>
 <td>
@@ -959,6 +960,41 @@ GET [base]/Observation?_filter=name eq http://loinc.org|1234-5 and subject.name 
 </pre>
 <p>
 The <code>_filter</code> parameter is described in detail on the <a href="search_filter.html">"_Filter Parameter" page</a>.
+</p>
+
+<a name="type"> </a>
+<a name="_type"> </a>
+<h4>Specifying the type of Resource</h4>
+
+<p>
+Normally, a search is initiated against a known type of resource, e.g.
+</p>
+<pre>
+GET [base]/Observation?params...
+</pre>
+<p>
+However in some circumstances, a search is executed where there is no fixed 
+type of resource:
+</p>
+<ul>
+ <li>Using search across all resource types (GET [base]?params...)</li>
+ <li>Using search with <a href="messaging.html">messaging</a></li>
+ <li>Some search specifications inside other services e.g. decision support usage</li>
+</ul>
+<p>
+In these circumstances, the search criteria may need to specify one or more  
+resource types that the search applies to. This can be done by using the 
+<code>_type</code> parameter:
+</p>
+<pre>
+GET [base]/Observation?_type=Observation,Condition&amp;other params...
+</pre>
+<p>
+Note that the only search parameters that be can be used in global search like 
+this are the base parameters that apply to all resources. In other contexts,
+searches on multiple types may allow resource specific search parameters, but 
+implementation experience will be required to determine the correct behaviour in 
+these cases.
 </p>
 
 <a name="return"> </a>
