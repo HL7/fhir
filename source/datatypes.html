@@ -86,7 +86,11 @@ all types, they have <a href="extensibility.html">extensions</a>).
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid">Note that strings SHALL NOT exceed 1MB in size</td>
+   <td colspan="3" style="border-top: 0px silver solid">Note that strings SHALL NOT exceed 1MB in size. String should not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed)</td>
+ </tr> 
+ <tr>
+   <td style="border-top: 0px silver solid"></td>
+   <td colspan="3" style="border-top: 0px silver solid"><i>Todo: is there any reason not to make this a SHALL?</i></td>
  </tr> 
  <tr>
    <td>decimal<a name="decimal"> </a></td>
@@ -112,7 +116,7 @@ all types, they have <a href="extensibility.html">extensions</a>).
  </tr>
  <tr>
    <td style="border-top: 0px silver solid"></td>
-   <td colspan="3" style="border-top: 0px silver solid"><code>Todo: is it possible to impose an upper absolute limit on a base64Binary (for denial of service reasons, like on string)</code></td>
+   <td colspan="3" style="border-top: 0px silver solid"><i>Todo: is it possible to impose an upper absolute limit on a base64Binary (for denial of service reasons, like on string)?</i></td>
  </tr> 
  <tr>
    <td>instant<a name="instant"> </a></td>
@@ -257,6 +261,7 @@ Some additional notes about the <code>markdown</code> datatype:
    so the content of a string should be readable without markdown processing, per markdown philosophy</li>
  <li>The preferred markdown syntax is described at <a href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a>
    (see tests here: <a href="http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip">http://daringfireball.net/projects/downloads/MarkdownTest_1.0.zip</a>)</li> 
+ <li>Markdown content should not contain Unicode character points below 32, except for u0009 (horizontal tab), u0010 (carriage return) and u0013 (line feed). <i>Todo: is there any reason not to make this a SHALL?</i></li>
 </ul>
 
 <blockquote class="dstu-note">

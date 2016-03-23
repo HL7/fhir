@@ -2532,10 +2532,13 @@ public class NarrativeGenerator implements INarrativeGenerator {
 	      a.setAttribute("href", value);
 	      a.addText("SNOMED-CT");
 	    }
-	    else
+	    else {
+	      if (value.startsWith("http://hl7.org") && !Utilities.existsInList(value, "http://hl7.org/fhir/sid/icd-10-us"))
+	        throw new Error("Unable to resolve value set "+value);
 	      li.addText(value);
     }
   }
+	}
 
   private String adjustForPath(String ref) {
     if (prefix == null)

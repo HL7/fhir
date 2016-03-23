@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -63,7 +63,7 @@ public class Annotation extends Type implements ICompositeType {
     /**
      * The text of the annotation.
      */
-    @Child(name = "text", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "text", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The annotation  - text content", formalDefinition="The text of the annotation." )
     protected StringType text;
 

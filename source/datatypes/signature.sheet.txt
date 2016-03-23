@@ -25,6 +25,7 @@
  -- Row 2 -----------------------------------
   Element = Signature.type
   Card. = 1..*
+  Summary = y
   Type = Coding
   Binding = SignatureType
   Short Label = Indication of the reason the entity signed the object(s)
@@ -34,6 +35,7 @@
  -- Row 3 -----------------------------------
   Element = Signature.when
   Card. = 1..1
+  Summary = y
   Type = instant
   Short Label = When the signature was created
   Definition = When the digital signature was signed.
@@ -42,6 +44,7 @@
  -- Row 4 -----------------------------------
   Element = Signature.who[x]
   Card. = 1..1
+  Summary = y
   Type = uri|Reference(Practitioner|RelatedPerson|Patient|Device|Organization)
   Short Label = Who signed the signature
   Definition = A reference to an application-usable description of the person that signed the certificate (e.g. the signature used their private key)
@@ -50,6 +53,7 @@
  -- Row 5 -----------------------------------
   Element = Signature.contentType
   Card. = 0..1
+  Summary = y
   Type = code
   Binding = MimeType
   Short Label = The technical format of the signature

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2127,7 +2127,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         /**
          * A specification of the restful capabilities of the solution for a specific resource type.
          */
-        @Child(name = "resource", type = {}, order=4, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+        @Child(name = "resource", type = {}, order=4, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
         @Description(shortDefinition="Resource served on the REST interface", formalDefinition="A specification of the restful capabilities of the solution for a specific resource type." )
         protected List<ConformanceRestResourceComponent> resource;
 

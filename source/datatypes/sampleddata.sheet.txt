@@ -18,6 +18,7 @@
  -- Row 2 -----------------------------------
   Element = SampledData.origin
   Card. = 1..1
+  Summary = y
   Type = SimpleQuantity
   Short Label = Zero value and units
   Definition = The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series
@@ -26,6 +27,7 @@
  -- Row 3 -----------------------------------
   Element = SampledData.period
   Card. = 1..1
+  Summary = y
   Type = decimal
   Short Label = Number of milliseconds between samples
   Definition = The length of time between sampling times, measured in milliseconds
@@ -35,6 +37,7 @@
  -- Row 4 -----------------------------------
   Element = SampledData.factor
   Card. = 0..1
+  Summary = y
   Type = decimal
   Short Label = Multiply data by this before adding to origin
   Definition = A correction factor that is applied to the sampled data points before they are added to the origin
@@ -44,6 +47,7 @@
  -- Row 5 -----------------------------------
   Element = SampledData.lowerLimit
   Card. = 0..1
+  Summary = y
   Type = decimal
   Short Label = Lower limit of detection
   Definition = The lower limit of detection of the measured points. This is needed if any of the data points have the value \"L\" (lower than detection limit)
@@ -52,6 +56,7 @@
  -- Row 6 -----------------------------------
   Element = SampledData.upperLimit
   Card. = 0..1
+  Summary = y
   Type = decimal
   Short Label = Upper limit of detection
   Definition = The upper limit of detection of the measured points. This is needed if any of the data points have the value \"U\" (higher than detection limit)
@@ -60,6 +65,7 @@
  -- Row 7 -----------------------------------
   Element = SampledData.dimensions
   Card. = 1..1
+  Summary = y
   Type = positiveInt
   Short Label = Number of sample points at each time point
   Definition = The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once

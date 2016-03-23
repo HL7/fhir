@@ -10,13 +10,14 @@
   Type = Type
   Short Label = Text node with attribution
   Definition = A  text note which also  contains information about who made the statement and when
-  Comments = For systems that do not have structured annotations, they can simply communicate a single annotation with no author or time. \nThis element may need to be included in narrative because of the potential for modifying information. \n*Annotations SHOULD NOT* be used to communicate \"modifying\" information that could be computable. (This is a SHOULD because enforcing user behavior is nearly impossible)
+  Comments = For systems that do not have structured annotations, they can simply communicate a single annotation with no author or time.  This element may need to be included in narrative because of the potential for modifying information.  *Annotations SHOULD NOT* be used to communicate \"modifying\" information that could be computable. (This is a SHOULD because enforcing user behavior is nearly impossible)
   v2 Mapping = N/A
   RIM Mapping = Act
 
  -- Row 2 -----------------------------------
   Element = Annotation.author[x]
   Card. = 0..1
+  Summary = y
   Type = Reference(Practitioner|Patient|RelatedPerson)|string
   Short Label = Individual responsible for the annotation
   Definition = The individual responsible for making the annotation.
@@ -26,6 +27,7 @@
  -- Row 3 -----------------------------------
   Element = Annotation.time
   Card. = 0..1
+  Summary = y
   Type = dateTime
   Short Label = When the annotation was made
   Definition = Indicates when this particular annotation was made

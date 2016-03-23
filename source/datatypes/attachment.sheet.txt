@@ -8,7 +8,7 @@
   Context = Attachment
   English = It the Attachment has data, it SHALL have a contentType
   XPath = not(exists(f:data)) or exists(f:contentType)
-  FHIRPath = data.empty() or contentType
+  Expression = data.empty() or contentType
 
 === Sheet Data Elements =====================================
 
@@ -25,6 +25,7 @@
  -- Row 2 -----------------------------------
   Element = Attachment.contentType
   Card. = 0..1
+  Summary = y
   Type = code
   Binding = MimeType
   Short Label = Mime type of the content, with charset etc.
@@ -37,6 +38,7 @@
  -- Row 3 -----------------------------------
   Element = Attachment.language
   Card. = 0..1
+  Summary = y
   Type = code
   Binding = Language
   Short Label = Human language of the content (BCP-47)
@@ -59,6 +61,7 @@
  -- Row 5 -----------------------------------
   Element = Attachment.url
   Card. = 0..1
+  Summary = y
   Type = uri
   Short Label = Uri where the data can be found
   Definition = An alternative location where the data can be accessed
@@ -71,6 +74,7 @@
  -- Row 6 -----------------------------------
   Element = Attachment.size
   Card. = 0..1
+  Summary = y
   Type = unsignedInt
   Short Label = Number of bytes of content (if url provided)
   Definition = The number of bytes of data that make up this attachment.
@@ -81,6 +85,7 @@
  -- Row 7 -----------------------------------
   Element = Attachment.hash
   Card. = 0..1
+  Summary = y
   Type = base64Binary
   Short Label = Hash of the data (sha-1, base64ed)
   Definition = The calculated hash of the data using SHA-1. Represented using base64
@@ -90,6 +95,7 @@
  -- Row 8 -----------------------------------
   Element = !Attachment.lang
   Card. = 0..1
+  Summary = y
   Type = code
   Binding = Language
   Short Label = ISO 639-3 language code
@@ -102,6 +108,7 @@
  -- Row 9 -----------------------------------
   Element = Attachment.title
   Card. = 0..1
+  Summary = y
   Type = string
   Short Label = Label to display in place of the data
   Definition = A label or set of text to display in place of the data
@@ -112,6 +119,7 @@
  -- Row 10 -----------------------------------
   Element = Attachment.creation
   Card. = 0..1
+  Summary = y
   Type = dateTime
   Short Label = Date attachment was first created
   Definition = The date that the attachment was first created

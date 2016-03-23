@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -78,7 +78,7 @@ public class Signature extends Type implements ICompositeType {
     /**
      * The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.
      */
-    @Child(name = "blob", type = {Base64BinaryType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "blob", type = {Base64BinaryType.class}, order=4, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="The actual signature content (XML DigSig. JWT, picture, etc.)", formalDefinition="The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty." )
     protected Base64BinaryType blob;
 

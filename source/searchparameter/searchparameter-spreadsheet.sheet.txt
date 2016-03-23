@@ -106,6 +106,16 @@
   w5 = class
 
  -- Row 6 -----------------------------------
+  Element = SearchParameter.date
+  Card. = 0..1
+  Summary = y
+  Type = dateTime
+  Short Label = Publication Date(/time)
+  Definition = The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes
+  Comments = Additional specific dates may be added as extensions
+  w5 = when.recorded
+
+ -- Row 7 -----------------------------------
   Element = SearchParameter.publisher
   Card. = 0..1
   Summary = y
@@ -116,7 +126,7 @@
   Comments = Usually an organization, but may be an individual. This item SHOULD be populated unless the information is available from context.
   w5 = who.witness
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = SearchParameter.contact
   Card. = 0..*
   Summary = y
@@ -125,7 +135,7 @@
   Definition = Contacts to assist a user in finding and communicating with the publisher
   Comments = May be a web site, an email address, a telephone number (tel:), etc.
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = SearchParameter.contact.name
   Card. = 0..1
   Summary = Y
@@ -134,23 +144,13 @@
   Definition = The name of an individual to contact regarding the search parameter
   Comments = If there is no named individual, the telecom is for the organization as a whole
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = SearchParameter.contact.telecom
   Card. = 0..*
   Summary = Y
   Type = ContactPoint
   Short Label = Contact details for individual or publisher
   Definition = Contact details for individual (if a name was provided) or the publisher
-
- -- Row 10 -----------------------------------
-  Element = SearchParameter.date
-  Card. = 0..1
-  Summary = y
-  Type = dateTime
-  Short Label = Publication Date(/time)
-  Definition = The date  (and optionally time) when the search parameter definition was published. The date must change when the business version changes, if it does, and it must change if the status code changes. In addition, it should change when the substantive content of the search parameter changes
-  Comments = Additional specific dates may be added as extensions
-  w5 = when.recorded
 
  -- Row 11 -----------------------------------
   Element = SearchParameter.requirements

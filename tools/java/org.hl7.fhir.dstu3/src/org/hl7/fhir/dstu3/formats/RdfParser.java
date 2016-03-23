@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -10033,12 +10033,12 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "SearchParameter", "status", element.getStatusElement(), -1);
     if (element.hasExperimentalElement())
       composeBoolean(t, "SearchParameter", "experimental", element.getExperimentalElement(), -1);
+    if (element.hasDateElement())
+      composeDateTime(t, "SearchParameter", "date", element.getDateElement(), -1);
     if (element.hasPublisherElement())
       composeString(t, "SearchParameter", "publisher", element.getPublisherElement(), -1);
     for (int i = 0; i < element.getContact().size(); i++)
       composeSearchParameterSearchParameterContactComponent(t, "SearchParameter", "contact", element.getContact().get(i), i);
-    if (element.hasDateElement())
-      composeDateTime(t, "SearchParameter", "date", element.getDateElement(), -1);
     if (element.hasRequirementsElement())
       composeString(t, "SearchParameter", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCodeElement())

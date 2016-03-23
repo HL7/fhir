@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 07:29+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -951,7 +951,7 @@ public class Enumerations {
          */
         ACTIONDEFINITION, 
         /**
-         * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.
+         * An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
          */
         ADDRESS, 
         /**
@@ -1376,7 +1376,7 @@ public class Enumerations {
         public String getDefinition() {
           switch (this) {
             case ACTIONDEFINITION: return "The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.";
-            case ADDRESS: return "There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.";
+            case ADDRESS: return "An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.";
             case AGE: return "";
             case ANNOTATION: return "A  text note which also  contains information about who made the statement and when.";
             case ATTACHMENT: return "For referring to data content defined in other formats.";
@@ -1925,7 +1925,7 @@ public class Enumerations {
          */
         ACTIONDEFINITION, 
         /**
-         * There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.
+         * An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.
          */
         ADDRESS, 
         /**
@@ -3262,7 +3262,7 @@ public class Enumerations {
         public String getDefinition() {
           switch (this) {
             case ACTIONDEFINITION: return "The definition of an action to be performed. Some aspects of the definition are specified statically, and some aspects can be specified dynamically by referencing logic defined in a library.";
-            case ADDRESS: return "There is a variety of postal address formats defined around the world. This format defines a superset that is the basis for all addresses around the world.";
+            case ADDRESS: return "An address expressed using postal conventions (as opposed to GPS or other location definition formats).  This data type may be used to convey addresses for use in delivering mail as well as for visiting locations and which might not be valid for mail delivery.  There are a variety of postal address formats defined around the world.";
             case AGE: return "";
             case ANNOTATION: return "A  text note which also  contains information about who made the statement and when.";
             case ATTACHMENT: return "For referring to data content defined in other formats.";

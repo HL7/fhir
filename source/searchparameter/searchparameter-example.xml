@@ -6,6 +6,7 @@
   <name value="Example Search Parameter"/>
   <status value="draft"/>
   <experimental value="false"/>
+  <date value="2013-10-23"/>
   <publisher value="Health Level Seven International (FHIR Infrastructure)"/>
   <contact>
   <name value="[string]"/><!-- 0..1 Name of an individual to contact -->
@@ -14,7 +15,6 @@
       <value value="http://hl7.org/fhir"/>
     </telecom>
   </contact>
-  <date value="2013-10-23"/>
   
 <!--  this is the canonical definition for the _id search parameter  -->
   <requirements value="Need to search by identifier for various infrastructural cases - mainly retrieving packages, and matching as part of a chain"/>
