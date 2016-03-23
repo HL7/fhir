@@ -185,7 +185,7 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 
   private void generateElementInner(StructureDefinition profile, ElementDefinition d, int mode, ElementDefinition value) throws Exception {
     tableRowNE("Definition", null, page.processMarkdown(profile.getName(), d.getDefinition(), prefix));
-    tableRowNE("Note", null, businessIdWarning(tail(d.getPath())));
+    tableRowNE("Note", null, businessIdWarning(profile.getName(), tail(d.getPath())));
     tableRow("Control", "conformance-rules.html#conformance", describeCardinality(d) + summariseConditions(d.getCondition()));
     tableRowNE("Binding", "terminologies.html", describeBinding(d));
     if (d.hasContentReference())
@@ -219,11 +219,11 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
     }
   }
 
-  private String businessIdWarning(String name) {
+  private String businessIdWarning(String resource, String name) {
     if (name.equals("identifier"))
       return "This is a business identifer, not a resource identifier (see <a href=\""+prefix+"resource.html#identifiers\">discussion</a>)";
-    if (name.equals("version"))
-      return "This is a business versionId, not a resource identifier (see <a href=\""+prefix+"resource.html#versions\">discussion</a>)";
+    if (name.equals("version")) // && !resource.equals("Device"))
+      return "This is a business versionId, not a resource version id (see <a href=\""+prefix+"resource.html#versions\">discussion</a>)";
     return null;
   }
 
@@ -400,9 +400,9 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
   public void generate(ElementDefn root) throws Exception
 	{
 		write("<table class=\"dict\">\r\n");
-		writeEntry(root.getName(), "1..1", "", null, root);
+		writeEntry(root.getName(), "1..1", "", null, root, root.getName());
 		for (ElementDefn e : root.getElements()) {
-		   generateElement(root.getName(), e);
+		   generateElement(root.getName(), e, root.getName());
 		}
 		write("</table>\r\n");
 		write("\r\n");
@@ -410,17 +410,17 @@ public class DictHTMLGenerator  extends OutputStreamWriter {
 		close();
 	}
 
-	private void generateElement(String name, ElementDefn e) throws Exception {
-		writeEntry(name+"."+e.getName(), e.describeCardinality(), describeType(e), e.getBinding(), e);
+	private void generateElement(String name, ElementDefn e, String resourceName) throws Exception {
+		writeEntry(name+"."+e.getName(), e.describeCardinality(), describeType(e), e.getBinding(), e, resourceName);
 		for (ElementDefn c : e.getElements())	{
-		   generateElement(name+"."+e.getName(), c);
+		   generateElement(name+"."+e.getName(), c, resourceName);
 		}
 	}
 
-	private void writeEntry(String path, String cardinality, String type, BindingSpecification bs, ElementDefn e) throws Exception {
+	private void writeEntry(String path, String cardinality, String type, BindingSpecification bs, ElementDefn e, String resourceName) throws Exception {
 		write("  <tr><td colspan=\"2\" class=\"structure\"><a name=\""+path.replace("[", "_").replace("]", "_")+"\"> </a><b>"+path+"</b></td></tr>\r\n");
 		tableRowNE("Definition", null, page.processMarkdown(path, e.getDefinition(), prefix));
-    tableRowNE("Note", null, businessIdWarning(e.getName()));
+    tableRowNE("Note", null, businessIdWarning(resourceName, e.getName()));
 		tableRow("Control", "conformance-rules.html#conformance", cardinality + (e.hasCondition() ? ": "+  e.getCondition(): ""));
 		tableRowNE("Binding", "terminologies.html", describeBinding(path, e));
 		if (!Utilities.noString(type) && type.startsWith("@"))

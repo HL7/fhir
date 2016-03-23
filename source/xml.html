@@ -44,7 +44,7 @@ Using this format:
  <li>Resource and Element names are case-sensitive (though duplicates that differ only in case are never defined)</li>
  <li>Elements must always appear in the order documented</li>
  <li>When an element is allowed to repeat, the elements are ordered, and implementations must preserve order (note: the meaning of the order may not be known)</li>
- <li>A few properties are represented as attributes: primitive values in the <code>value</code> attribute, extension URLs in the <code>url</code> attribute on an extension, and the <code>id</code> property</li>
+ <li>A few properties are represented as attributes: values of primitive types in a <code>value</code> attribute, extension URLs in the <code>url</code> attribute on an extension, and the <code>id</code> property on elements (but not on resources, where it's an element)</li>
  <li>Any of the XML elements may have an id attribute to serve as <a href="references.html#id">the target of an internal reference</a>. The id attribute is not shown in this format</li>
  <li>FHIR elements are always in the namespace <a href="http://hl7.org/fhir">http://hl7.org/fhir</a>.  This is usually specified as the default namespace on the root element. 
    The only other namespace that occurs in FHIR resources is the XHTML namespace (<a href="narrative.html">XHTML is found in most resources)</a></li>
