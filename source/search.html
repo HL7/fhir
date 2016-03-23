@@ -1001,33 +1001,42 @@ these cases.
 <h3>Managing Returned Resources</h3>
 
 <a name="sort" />
+<a name="_sort" />
+
 <h4>Sorting</h4>
 <p>
 The client can indicate which order to return the results by
-using the parameter <code>_sort</code>, which can have a value of one of the search parameters.
-The <code>_sort</code> parameter can repeat to indicate sort order, with the repeats indicating
-a lower sort priority sequentially.
+using the parameter <code>_sort</code>, which can contains a 
+comma-separated list of sort rules in priority order:
+</p>
+<pre>
+GET [base]/Observation?_sort=status,-date,category
+</pre>
+<p>
+Each item in the comma separated list is a search parameter, 
+optionally with a '-' prefix. The prefix indicates decreasing 
+order; in it's absence, the parameter is applied in increasing order. 
 </p>
 <p>
-The <code>_sort</code> parameter takes one of two qualifiers, <code>:asc</code> and <code>:desc</code>, which specify
-ascending and descending sort order respectively. The default value is <code>:asc</code>.
-</p>
-<p>
-Note:
+Notes:
 </p>
 <ul>
- <li>When sorting, the actual sort value used is not returned explicitly
-by the server for each resource, just the resource contents.</li>
- <li>To sort by relevance, use <code>_sort:asc=_score</code>.</li>
- <li>The server returns the sort it performs as part of the returned search parameters (see <a href="#conformance">below</a>).</li>
- <li>A search parameter can refer to an element that repeats, and therefore
-there can be multiple values for a given search parameter for a single
-resource. In this case, the sort is based on the item in the set of
-multiple parameters that comes earliest in the specified sort order
-when ordering the returned resources.</li>
-  <li>When sorting on string search parameters, sorting SHOULD be performed on a case-insensitive basis. Accents may either be ignored or sorted as per realm convention. Note: 
-   Consistency of sorting across servers isn't as essential as consistency of filtering (even that is variable). The purpose of sorting is to provide data in a "reasonable" order for end-users. 
-   "Reasonable" may vary by realm, particularly for accented characters.</li>
+ <li>When sorting, the actual sort value used is not returned explicitly by 
+     the server for each resource, just the resource contents.</li>
+ <li>To sort by relevance, use <code>_score</code>.</li>
+ <li>The server returns the sort it performs as part of the returned 
+     search parameters (see <a href="#conformance">below</a>).</li>
+ <li>A search parameter can refer to an element that repeats, and therefore 
+     there can be multiple values for a given search parameter for a single
+     resource. In this case, the sort is based on the item in the set of
+     multiple parameters that comes earliest in the specified sort order
+     when ordering the returned resources.</li>
+  <li>When sorting on string search parameters, sorting SHOULD be performed 
+     on a case-insensitive basis. Accents may either be ignored or sorted as 
+     per realm convention. Note: Consistency of sorting across servers isn't 
+     as essential as consistency of filtering (even that is variable). The 
+     purpose of sorting is to provide data in a "reasonable" order for end-users. 
+    "Reasonable" may vary by realm, particularly for accented characters.</li>
 </ul>
 
 <a name="count"> </a>
