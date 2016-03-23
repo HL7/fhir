@@ -233,6 +233,23 @@ Some notes about use and interpretation of contained resources:
   <li>Contained resources SHALL NOT contain any narrative</li>
   <li>A contained resource SHALL only be included in a resource if something in that resource (potentially another contained resource) has a reference to it</li>
 </ul>
+
+<blockquote class="dstu-note">
+<a name="dstu"> </a>
+<p>
+<b>DSTU Note:</b>  
+It might be necessary to allow for the reverse (that is, for a contained resource to reference the container). 
+However this would cause many difficult consequences on the API. 
+Feedback on this issue is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
+</p>
+</blockquote>
+
+
+<p>
+</p>
+<blockquote>
+<div class="design-note">
+
 <p>
 Resources that are contained inline do not "inherit" context from their parent resource. For instance, if
 the parent resource contains a "subject", and the contained resource also has a "subject" element defined,

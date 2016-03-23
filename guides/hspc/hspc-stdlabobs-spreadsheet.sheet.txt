@@ -135,7 +135,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/hspc-updated}
 
  -- Row 21 -----------------------------------
-  Element = Observation.extension
+  Element = Observation.modifierExtension
   Profile Name = focal-subject
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/observation-focal-subject}
