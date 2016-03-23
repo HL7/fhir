@@ -44,6 +44,11 @@
     <definition value="Search based on some filter criteria."/>
   </concept>
   <concept>
+    <code value="batch"/>
+    <display value="Batch"/>
+    <definition value="Update, create or delete a set of resources as independent actions."/>
+  </concept>
+  <concept>
     <code value="transaction"/>
     <display value="Transaction"/>
     <definition value="Update, create or delete a set of resources as a single transaction."/>
@@ -54,73 +59,158 @@
     <definition value="Get a conformance statement for the system."/>
   </concept>
   <concept>
+    <code value="cancel"/>
+    <display value="$cancel"/>
+    <definition value="Cancel Task"/>
+  </concept>
+  <concept>
+    <code value="cds-hook"/>
+    <display value="$cds-hook"/>
+    <definition value="The CDS Hook operation is the core API request for CDS Hooks"/>
+  </concept>
+  <concept>
     <code value="closure"/>
     <display value="$closure"/>
-    <definition value="Closure Table Maintenance."/>
+    <definition value="Closure Table Maintenance"/>
   </concept>
   <concept>
     <code value="document"/>
     <display value="$document"/>
-    <definition value="Generate a Document."/>
+    <definition value="Generate a Document"/>
+  </concept>
+  <concept>
+    <code value="evaluate"/>
+    <display value="$evaluate"/>
+    <definition value="Evaluate DecisionSupportRule / DecisionSupportServiceModule"/>
+  </concept>
+  <concept>
+    <code value="evaluate-measure"/>
+    <display value="$evaluate-measure"/>
+    <definition value="Evaluate Measure"/>
   </concept>
   <concept>
     <code value="everything"/>
     <display value="$everything"/>
-    <definition value="Fetch Encounter/Patient Record."/>
+    <definition value="Fetch Encounter/Patient Record"/>
   </concept>
   <concept>
     <code value="expand"/>
     <display value="$expand"/>
-    <definition value="Value Set Expansion."/>
+    <definition value="Value Set Expansion"/>
+  </concept>
+  <concept>
+    <code value="fail"/>
+    <display value="$fail"/>
+    <definition value="Fail Task"/>
   </concept>
   <concept>
     <code value="find"/>
     <display value="$find"/>
-    <definition value="Find a functional list."/>
+    <definition value="Find a functional list"/>
+  </concept>
+  <concept>
+    <code value="finish"/>
+    <display value="$finish"/>
+    <definition value="Finish Task"/>
   </concept>
   <concept>
     <code value="lookup"/>
     <display value="$lookup"/>
-    <definition value="Concept Look Up."/>
+    <definition value="Concept Look Up"/>
+  </concept>
+  <concept>
+    <code value="match"/>
+    <display value="$match"/>
+    <definition value="Find patient matches using MPI based logic"/>
   </concept>
   <concept>
     <code value="meta"/>
     <display value="$meta"/>
-    <definition value="Access a list of profiles, tags, and security labels."/>
+    <definition value="Access a list of profiles, tags, and security labels"/>
   </concept>
   <concept>
     <code value="meta-add"/>
     <display value="$meta-add"/>
-    <definition value="Add profiles, tags, and security labels to a resource."/>
+    <definition value="Add profiles, tags, and security labels to a resource"/>
   </concept>
   <concept>
     <code value="meta-delete"/>
     <display value="$meta-delete"/>
-    <definition value="Delete profiles, tags, and security labels for a resource."/>
+    <definition value="Delete profiles, tags, and security labels for a resource"/>
+  </concept>
+  <concept>
+    <code value="place"/>
+    <display value="$place"/>
+    <definition value="Place OrderSet"/>
   </concept>
   <concept>
     <code value="populate"/>
     <display value="$populate"/>
-    <definition value="Populate Questionnaire."/>
+    <definition value="Populate Questionnaire"/>
   </concept>
   <concept>
     <code value="process-message"/>
     <display value="$process-message"/>
-    <definition value="Process Message."/>
+    <definition value="Process Message"/>
   </concept>
   <concept>
     <code value="questionnaire"/>
     <display value="$questionnaire"/>
-    <definition value="Build Questionnaire."/>
+    <definition value="Build Questionnaire"/>
+  </concept>
+  <concept>
+    <code value="release"/>
+    <display value="$release"/>
+    <definition value="Release Task"/>
+  </concept>
+  <concept>
+    <code value="reserve"/>
+    <display value="$reserve"/>
+    <definition value="Reserve Task"/>
+  </concept>
+  <concept>
+    <code value="resume"/>
+    <display value="$resume"/>
+    <definition value="Resume Task"/>
+  </concept>
+  <concept>
+    <code value="set-input"/>
+    <display value="$set-input"/>
+    <definition value="Set Task Input"/>
+  </concept>
+  <concept>
+    <code value="set-output"/>
+    <display value="$set-output"/>
+    <definition value="Set Task Output"/>
+  </concept>
+  <concept>
+    <code value="start"/>
+    <display value="$start"/>
+    <definition value="Start Task"/>
+  </concept>
+  <concept>
+    <code value="stop"/>
+    <display value="$stop"/>
+    <definition value="Stop Task"/>
+  </concept>
+  <concept>
+    <code value="suspend"/>
+    <display value="$suspend"/>
+    <definition value="Suspend Task"/>
   </concept>
   <concept>
     <code value="translate"/>
     <display value="$translate"/>
-    <definition value="Concept Translation."/>
+    <definition value="Concept Translation"/>
+  </concept>
+  <concept>
+    <code value="validate"/>
+    <display value="$validate"/>
+    <definition value="Validate a resource"/>
   </concept>
   <concept>
     <code value="validate-code"/>
     <display value="$validate-code"/>
-    <definition value="Value Set based Validation."/>
+    <definition value="Value Set based Validation"/>
   </concept>
 </CodeSystem>

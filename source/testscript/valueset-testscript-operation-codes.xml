@@ -4,7 +4,7 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/valueset-shareable-definition"/>
   </meta>
-  <name value="TestScriptOperationCodes"/>
+  <name value="TestScriptOperationCode"/>
   <status value="draft"/>
   <publisher value="FHIR Project team"/>
   <contact>

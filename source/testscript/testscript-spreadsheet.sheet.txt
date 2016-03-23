@@ -2,11 +2,11 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = TestOperationType
+  Binding Name = TestScriptOperationCode
   Binding = value set
   Reference = valueset-testscript-operation-codes
-  Definition = The allowable operation types.
-  Description = FHIR Operation Types
+  Definition = The allowable operation code types.
+  Description = FHIR Operation Code Types
   Conformance = extensible
 
  -- Row 2 -----------------------------------
@@ -742,8 +742,8 @@
   Element = TestScript.setup.action.operation.type
   Card. = 0..1
   Type = Coding
-  Binding = TestOperationType
-  Short Label = The setup operation type that will be executed
+  Binding = TestScriptOperationCode
+  Short Label = The operation code type that will be executed
   Definition = Server interaction or operation type
   Comments = See http://hl7-fhir.github.io/http.html for list of server interactions
 

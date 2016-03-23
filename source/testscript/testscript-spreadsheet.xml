@@ -2579,13 +2579,13 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">TestOperationType</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">TestScriptOperationCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">The setup operation type that will be executed</Data><NamedCell
+    <Cell><Data ss:Type="String">The operation code type that will be executed</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Server interaction or operation type</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -5855,7 +5855,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>61</TopRowBottomPane>
+   <TopRowBottomPane>43</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5872,7 +5872,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>75</ActiveRow>
+     <ActiveRow>50</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -8226,12 +8226,12 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">TestOperationType</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">The allowable operation types.</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">TestScriptOperationCode</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">The allowable operation code types.</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">value set</Data></Cell>
     <Cell><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">valueset-testscript-operation-codes</Data></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">FHIR Operation Types</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">FHIR Operation Code Types</Data></Cell>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
     <Cell ss:StyleID="s136"/>
