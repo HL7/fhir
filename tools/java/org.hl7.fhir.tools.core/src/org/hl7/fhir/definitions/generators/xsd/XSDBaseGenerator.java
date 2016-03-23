@@ -312,6 +312,8 @@ public class XSDBaseGenerator {
           write("    <xs:restriction base=\""+sp.getSchema().substring(0, sp.getSchema().length()-1)+"\">\r\n");
           write("      <xs:pattern value=\"" + sp.getRegex() + "\"/>\r\n");
           write("      <xs:minLength value=\"1\"/>\r\n");
+          if (sp.getCode().equals("id"))
+            write("      <xs:maxLength value=\"64\"/>\r\n");
           write("    </xs:restriction>\r\n");
           write("  </xs:simpleType>\r\n");
         } else {
