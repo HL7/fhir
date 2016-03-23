@@ -1064,6 +1064,7 @@ In addition to the standard <code>_format</code> parameter, the parameters to th
 <table class="list">
   <tr><td><code>_count</code> : <a href="datatypes.html#integer"><code>integer</code></a></td><td>single</td><td>Number of return records requested. The server is not bound to return the number requested, but cannot return more</td></tr>
   <tr><td><code>_since</code> : <a href="datatypes.html#integer"><code>instant</code></a></td><td>single</td><td>Only include resource versions that were created at or after the given instant in time</td></tr>
+  <tr><td><code>_at</code> : <a href="datatypes.html#integer"><code>dateTime</code></a></td><td>single</td><td>Only include resource versions that were current at some point during the time period specified in the date time value (may be more than one)</td></tr>
 </table>
 <p>
 The history list can be restricted to a limited period by specifying a <code>_since</code> parameter which contains a full date time with time zone.
