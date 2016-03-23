@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StructureDefinition
+    xmlns="http://hl7.org/fhir">
+    <url value="http://hl7.org/fhir/StructureDefinition/ccda-in-fulfillment-of-order-extension" />
+    <name value="C-CDA on FHIR In Fulfillment Of Order" />
+    <status value="draft" />
+    <contact>
+        <name value="Sarah Gaunt" />
+        <telecom>
+            <system value="phone" />
+            <value value="+6 141-029-2506" />
+            <use value="work" />
+        </telecom>
+        <telecom>
+            <system value="email" />
+            <value value="sarah.gaunt@lantanagroup.com" />
+            <use value="work" />
+        </telecom>
+    </contact>
+    <kind value="resource" />
+    <constrainedType value="Extension" />
+    <abstract value="false" />
+    <base value="http://hl7.org/fhir/StructureDefinition/Extension" />
+    <differential>
+        <element>
+            <path value="Extension" />
+        </element>
+        <element>
+            <path value="Extension.url" />
+            <short value="@url" />
+            <definition value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/StructureDefinition/ccda-in-fulfillment-of-order-extension&quot; (CONF:2219-1864)." />
+            <min value="1" />
+            <max value="1" />          
+            <type>
+                <code value="uri"/>
+            </type>
+            <fixedUri value="http://hl7.org/fhir/StructureDefinition/ccda-in-fulfillment-of-order-extension"/>
+        </element>
+        <element>
+            <path value="Extension.value[x]" />
+            <short value="valueReference" />
+            <definition value="SHALL contain exactly one [1..1] valueReference (CONF:2219-1865)." />
+            <min value="1" />
+            <max value="1" />            
+            <type>
+                <code value="Reference"/>
+            </type>
+        </element>
+    </differential>
+</StructureDefinition>

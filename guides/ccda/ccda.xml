@@ -15,14 +15,24 @@
     <name value="CCDA Package"/>
     <description value="Resource profiles and extensions necessary to support C-CDA on FHIR."/>
     
+    <!--
 	<resource>
 	  <example value="false"/>
-	  <name value="C-CDA on FHIR Procedure Note"/>
+	  <name value="C-CDA on FHIR Data Enterer Extension"/>
 	  <description
 	    value="TBD"/>
 	  <acronym value="ccda-data-enterer-extension"/>
 	  <sourceUri value="StructureDefinition/ccda-data-enterer-extension.xml"/>
-	</resource>
+	</resource>    
+    <resource>
+      <example value="false"/>
+      <name value="C-CDA on FHIR Authorization Extension"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-authorization-extension"/>
+      <sourceUri value="StructureDefinition/ccda-authorization-extension.xml"/>
+    </resource>
+    -->
     <resource>
       <example value="false"/>
       <name value="C-CDA on FHIR US-Realm Header"/>
@@ -31,13 +41,15 @@
       <acronym value="ccda-us-realm-header-composition"/>
       <sourceUri value="StructureDefinition/ccda-us-realm-header-composition.xml"/>
     </resource>
+    
+    
     <resource>
       <example value="false"/>
-      <name value="C-CDA on FHIR Continuity of Care Document (CCD)"/>
+      <name value="C-CDA on FHIR Care Plan"/>
       <description
         value="TBD"/>
-      <acronym value="ccda-ccd-composition"/>
-      <sourceUri value="StructureDefinition/ccda-ccd-composition.xml"/>
+      <acronym value="ccda-care-plan-composition"/>
+      <sourceUri value="StructureDefinition/ccda-care-plan-composition.xml"/>
     </resource>
     <resource>
       <example value="false"/>
@@ -49,18 +61,28 @@
     </resource>
     <resource>
       <example value="false"/>
-      <name value="C-CDA on FHIR Care Plan"/>
+      <name value="C-CDA on FHIR Continuity of Care Document (CCD)"/>
       <description
         value="TBD"/>
-      <acronym value="ccda-consultation-note-composition"/>
-      <sourceUri value="StructureDefinition/ccda-care-plan-composition.xml"/>
+      <acronym value="ccda-ccd-composition"/>
+      <sourceUri value="StructureDefinition/ccda-ccd-composition.xml"/>
     </resource>
+    <!--
+    <resource>
+      <example value="false"/>
+      <name value="C-CDA on FHIR Diagnostic Imaging Report"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-diagnostic-imaging-composition"/>
+      <sourceUri value="StructureDefinition/ccda-diagnostic-imaging-composition.xml"/>
+    </resource>
+    -->
     <resource>
       <example value="false"/>
       <name value="C-CDA on FHIR Discharge Summary"/>
       <description
         value="TBD"/>
-      <acronym value="ccda-consultation-note-composition"/>
+      <acronym value="ccda-discharge-summary-composition"/>
       <sourceUri value="StructureDefinition/ccda-discharge-summary-composition.xml"/>
     </resource>
     <resource>
@@ -68,8 +90,16 @@
       <name value="C-CDA on FHIR Procedure Note"/>
       <description
         value="TBD"/>
-      <acronym value="ccda-consultation-note-composition"/>
+      <acronym value="ccda-procedure-note-composition"/>
       <sourceUri value="StructureDefinition/ccda-procedure-note-composition.xml"/>
+    </resource>
+    <resource>
+      <example value="false"/>
+      <name value="C-CDA on FHIR Referral Note"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-referral-note-composition"/>
+      <sourceUri value="StructureDefinition/ccda-referral-note-composition.xml"/>
     </resource>
     <resource>
       <example value="false"/>
@@ -86,6 +116,24 @@
         value="TBD"/>
       <acronym value="ProcedureNoteDocumentTypeCodes"/>
       <sourceUri value="ValueSet/2.16.840.1.113883.11.20.6.1.xml"/>
+    </resource>
+    <!--
+    <resource>
+      <example value="false"/>
+      <name value="LOINCImagingDocumentCodes"/>
+      <description
+        value="TBD"/>
+      <acronym value="LOINCImagingDocumentCodes"/>
+      <sourceUri value="ValueSet/1.3.6.1.4.1.12009.10.2.5.xml"/>
+    </resource>
+    -->
+    <resource>
+      <example value="false"/>
+      <name value="ReferralDocumentTypeCodes"/>
+      <description
+        value="TBD"/>
+      <acronym value="ReferralDocumentTypeCodes"/>
+      <sourceUri value="ValueSet/2.16.840.1.113883.1.11.20.2.3.xml"/>
     </resource>
     <resource>
       <example value="false"/>

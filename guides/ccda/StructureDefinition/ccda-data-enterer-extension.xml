@@ -1,6 +1,6 @@
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
-    <url value="https://trifolia.lantanagroup.com/api/FHIR2/StructureDefinition/ccda-data-enterer" />
+    <url value="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer" />
     <name value="C-CDA on FHIR Data Enterer" />
     <status value="draft" />
     <contact>
@@ -28,13 +28,13 @@
         <element>
             <path value="Extension.url" />
             <short value="@url" />
-            <definition value="SHALL contain exactly one [1..1] @url=&quot;https://trifolia.lantanagroup.com/api/FHIR2/StructureDefinition/ccda-data-enterer&quot; (CONF:2219-1842)." />
+            <definition value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/StructureDefinition/ccda-data-enterer&quot; (CONF:2219-1842)." />
             <min value="1" />
             <max value="1" />
             <type>
 	    	<code value="uri"/>
 	    </type>
-      	    <fixedUri value="https://trifolia.lantanagroup.com/api/FHIR2/StructureDefinition/ccda-data-enterer"/>
+      	    <fixedUri value="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer"/>
         </element>
         <element>
             <path value="Extension.value[x]" />
