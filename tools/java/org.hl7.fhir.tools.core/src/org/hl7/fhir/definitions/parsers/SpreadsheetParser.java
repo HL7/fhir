@@ -2202,7 +2202,6 @@ public class SpreadsheetParser {
       return ExtensionContext.RESOURCE;
     if (value.equals("Extension"))
       return ExtensionContext.EXTENSION;
-	  
     throw new Exception("Unable to read context type '"+value+"' at "+getLocation(row));
   }
 
