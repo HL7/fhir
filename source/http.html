@@ -964,18 +964,21 @@ logical <code>id</code> in the resource, or <code>fullUrl</code> on entries in t
 <h4>Batch/Transaction Response</h4>
 
 <p>
-In order to allow the client to know the outcomes of processing the entry, and the identities
-assigned to the resources by the server, the server SHALL return a <a href="bundle.html">Bundle</a> with
-<a href="bundle-definitions.html#Bundle.type">type</a> set to <code>batch-response</code> or <code>transaction-response</code> that contains one entry for each entry in the
-request, in the same order, with the outcome of processing the entry.
+For a batch, or a successful transaction, the response the server SHALL 
+return a <a href="bundle.html">Bundle</a> with <a href="bundle-definitions.html#Bundle.type">type</a> 
+set to <code>batch-response</code> or <code>transaction-response</code> that contains one entry for each entry in the
+request, in the same order, with the outcome of processing the entry. For a failed transaction,
+the server returns a single <a href="operationoutcome.html">OperationOutcome</a> instead of a Bundle.
+</p>
+<p>
+A client may use the return bundled to track the outcomes of processing the entry, 
+and the identities assigned to the resources by the server. Each entry element SHALL 
+contain a <code>response</code> element which details the outcome of processing the 
+entry - the HTTP status code, and the location and <code>ETag</code> header values, 
+which are used for identifying and versioning the resources. In addition, a resource 
+may be included in the entry, as specified by the <a href="#prefer">Prefer</a> header.
 </p>
 
-<p>
-Each entry element SHALL contain a <code>response</code> element which
-details the outcome of processing the entry - the HTTP status code, and the location
-and <code>ETag</code> header values, which are used for identifying and versioning the resources.
-In addition, a resource may be included in the entry, as specified by the <a href="#prefer">Prefer</a> header.
-</p>
 
 <a name="other-bundles"> </a>
 <h4>Accepting Other bundle types</h4>
