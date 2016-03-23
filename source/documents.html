@@ -134,12 +134,12 @@ documents derived from the same composition SHALL have a different document id.
 <a name="presentation"> </a>
 <h3>Document Presentation</h3>
 <p>
-When the document is presented for human consumption, applications must present the
+When the document is presented for human consumption, applications SHOULD present the
 collated narrative portions in order:
 </p>
 <ol>
- <li>The <a href="composition.html">Composition</a> resource Narrative</li>
  <li>The <a href="composition-definitions.html#Composition.subject">subject resource</a> Narrative</li>
+ <li>The <a href="composition.html">Composition</a> resource Narrative</li>
  <li>The <a href="composition-definitions.html#Composition.section.text">section.text</a> Narratives</li>
 </ol>
 <p>
@@ -153,6 +153,11 @@ The Composition resource narrative should summarize the important parts of the d
 to establish clinical context for the document (other than the subject, which is displayed in its own
 right). To actually build the combined narrative, simply append all the narrative &lt;div&gt; fragments
 together. <!-- todo: title -->
+</p>
+<p>
+If the document is presented in a different order from that given above, 
+it may not represent the original attested content. Implementation Guides may 
+restrict docuemnt narrative and document display behaviour further.
 </p>
 <p>
 The <a href="downloads.html#refimpl">XML Tools reference implementation</a> includes a
