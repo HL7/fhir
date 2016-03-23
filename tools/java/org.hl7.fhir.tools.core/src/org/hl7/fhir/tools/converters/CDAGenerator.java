@@ -111,7 +111,7 @@ public class CDAGenerator {
 //      "  * add cdaNarrative to ElementDefinition.representation: indicate that the content model of the element is \r\n"+
 //      "    a CDA narrative, and must be converted to XHTML by the XML wire format reader\r\n"+
 //      "\r\n"+
-//      "  * define extension http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace\r\n"+
+//      "  * define extension http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace\r\n"+
 //      "    value is a URI that is the namespace used in the XML for the content defined in this structure definition.\r\n"+ 
 //      "    The namespace will apply until another namespace is specified using the same extension\r\n"+
 //      "\r\n");
@@ -227,7 +227,7 @@ public class CDAGenerator {
     sd.setDescription("A set-component that is itself made up of set-components that are evaluated as one value");
     sd.setKind(StructureDefinitionKind.LOGICAL);
     sd.setAbstract(false);
-    sd.addExtension().setUrl("http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace").setValue(new UriType("urn:hl7-org:v3"));
+    sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
     sd.setBase("http://hl7.org/fhir/StructureDefinition/SXCM_TS");
 
     ElementDefinition edb = new ElementDefinition();
@@ -263,7 +263,7 @@ public class CDAGenerator {
     sd.setDescription("Defines the base elements and attributes on all CDA elements (other than data types)");
     sd.setKind(StructureDefinitionKind.LOGICAL);
     sd.setAbstract(true);
-    sd.addExtension().setUrl("http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace").setValue(new UriType("urn:hl7-org:v3"));
+    sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
     sd.setBase("http://hl7.org/fhir/StructureDefinition/ANY");
 
     ElementDefinition edb = new ElementDefinition();
@@ -321,7 +321,7 @@ public class CDAGenerator {
       sd.setDescription(getDefinition(dt));
       sd.setKind(StructureDefinitionKind.LOGICAL);
       sd.setAbstract("true".equals(dt.getAttribute("isAbstract")));
-      sd.addExtension().setUrl("http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace").setValue(new UriType("urn:hl7-org:v3"));
+      sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
       Element derived = XMLUtil.getNamedChild(dt, "mif:derivedFrom");
       if (Utilities.existsInList(n, "ST", "ED", "TEL", "AD", "EN", "IVL_PQ", "IVL_INT", "TS") ) {
         sd.setBase("http://hl7.org/fhir/StructureDefinition/ANY");
@@ -418,13 +418,13 @@ public class CDAGenerator {
     ed.addType().setCode("string");
     ed.addRepresentation(PropertyRepresentation.XMLATTR);
     ed.setDefinition("The valueSet extension adds an attribute for elements with a CD dataType which indicates the particular value set constraining the coded concept");
-    ed.addExtension().setUrl("http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace").setValue(new UriType("urn:hl7-org:sdtc"));
+    ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:sdtc"));
     ed.setPath(n+".valueSetVersion");
     ed.setMin(0);
     ed.setMax("1");
     ed.addType().setCode("string");
     ed.addRepresentation(PropertyRepresentation.XMLATTR);
-    ed.addExtension().setUrl("http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace").setValue(new UriType("urn:hl7-org:sdtc"));
+    ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:sdtc"));
     ed.setDefinition("The valueSetVersion extension adds an attribute for elements with a CD dataType which indicates the version of the particular value set constraining the coded concept.");
     list.add(ed);
   }
@@ -730,7 +730,7 @@ public class CDAGenerator {
     sd.setStatus(ConformanceResourceStatus.ACTIVE);
     sd.setExperimental(false);
     sd.setPublisher("HL7");
-    sd.addExtension().setUrl("http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace").setValue(new UriType("urn:hl7-org:v3"));
+    sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
 
     sd.setDescription("This is a generated StructureDefinition that describes CDA - that is, CDA as it actually is for R2. "+
         "The intent of this StructureDefinition is to enable CDA to be a FHIR resource. That enables the FHIR infrastructure "+
@@ -853,7 +853,7 @@ public class CDAGenerator {
     ed.setMin(Integer.parseInt(attr.getAttribute("minimumMultiplicity")));
     ed.setMax(attr.getAttribute("maximumMultiplicity"));
     if (!Utilities.noString(attr.getAttribute("namespace")))
-      ed.addExtension().setUrl("http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace").setValue(new UriType(attr.getAttribute("namespace")));
+      ed.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType(attr.getAttribute("namespace")));
     String type = getType(attr);
     if ("true".equals(attr.getAttribute("isImmutable"))) {
       if (primitiveTypes.containsKey(type))

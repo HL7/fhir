@@ -55,11 +55,15 @@ public class ValueSetGenerator {
     if (vs.getId().equals("data-types"))
       genDataTypes(vs);
     else if (vs.getId().equals("defined-types"))
-      genDefinedTypes(vs);
+      genDefinedTypes(vs, false);
+    else if (vs.getId().equals("all-types"))
+      genDefinedTypes(vs, true);
     else if (vs.getId().equals("message-events"))
       genMessageEvents(vs);
     else if (vs.getId().equals("resource-types"))
       genResourceTypes(vs);
+    else if (vs.getId().equals("abstract-types"))
+      genAbstractTypes(vs);
   }
 
   private void genDataTypes(ValueSet vs) throws Exception {
@@ -111,7 +115,7 @@ public class ValueSetGenerator {
     cs.setCaseSensitive(true);    
     cs.setContent(CodeSystemContentMode.COMPLETE);
     definitions.getCodeSystems().put(cs.getUrl(), cs);
-    
+        
     List<String> codes = new ArrayList<String>();
     codes.addAll(definitions.getKnownResources().keySet());
     codes.addAll(definitions.getBaseResources().keySet());
@@ -132,11 +136,31 @@ public class ValueSetGenerator {
 
   }
 
-  private void genDefinedTypes(ValueSet vs) throws Exception {
+  private void genAbstractTypes(ValueSet vs) {
+    vs.getCompose().addInclude().setSystem("http://hl7.org/fhir/abstract-types");
+    vs.setUserData("filename", "valueset-"+vs.getId());
+    vs.setUserData("committee", "fhir");
+    vs.setUserData("path", "valueset-"+vs.getId()+".html");
+    
+    CodeSystem cs = new CodeSystem();
+    CodeSystemConvertor.populate(cs, vs);
+    cs.setUrl("http://hl7.org/fhir/abstract-types");
+    cs.setVersion(version);
+    cs.setCaseSensitive(true);    
+    cs.setContent(CodeSystemContentMode.COMPLETE);
+    definitions.getCodeSystems().put(cs.getUrl(), cs);
+
+    cs.addConcept().setCode("Type").setDisplay("Type").setDefinition("A place holder that means any kind of data type");
+    cs.addConcept().setCode("Any").setDisplay("Any").setDefinition("A place holder that means any kind of resource");
+  }
+
+  private void genDefinedTypes(ValueSet vs, boolean doAbstract) throws Exception {
     ValueSetComposeComponent compose = new ValueSetComposeComponent(); 
     vs.setCompose(compose);
     compose.addInclude().setSystem("http://hl7.org/fhir/data-types");
     compose.addInclude().setSystem("http://hl7.org/fhir/resource-types");
+    if (doAbstract)
+      compose.addInclude().setSystem("http://hl7.org/fhir/abstract-types");
   }
 
   private void genMessageEvents(ValueSet vs) {

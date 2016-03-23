@@ -533,7 +533,8 @@ public class Definitions {
       String[] parts = value.split("\\.");
       if (hasType(parts[0]) && getElementByPath(parts, "check extension context") != null)
         return;
-      
+      if (hasResource(parts[0])  && getElementByPath(parts, "check extension context") != null)
+        return;
       throw new Error("The data type context '"+value+"' is not valid @ "+context);
       
     } else if (contextType == ExtensionContext.RESOURCE) {

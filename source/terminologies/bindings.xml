@@ -10,7 +10,7 @@
   <LastAuthor>Grahame Grieve</LastAuthor>
   <Created>2012-05-23T20:36:08Z</Created>
   <LastSaved>2015-07-16T07:36:27Z</LastSaved>
-  <Version>14.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
@@ -239,8 +239,8 @@
     <SheetIndex>12</SheetIndex>
    </Xct>
   </SupBook>
-  <WindowHeight>16440</WindowHeight>
-  <WindowWidth>10005</WindowWidth>
+  <WindowHeight>17610</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>780</TabRatio>
@@ -585,7 +585,7 @@
    ss:RefersTo="='\work\org.hl7.fhir\build\source\conceptmap\[conceptmap-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
  </Names>
  <Worksheet ss:Name="Bindings">
-  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="32" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="16" ss:ExpandedRowCount="34" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s64" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="157.5"/>
    <Column ss:StyleID="s64" ss:AutoFitWidth="0" ss:Width="229.5"/>
@@ -766,11 +766,25 @@
     <Cell ss:Index="10" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">AbstractType</Data></Cell>
+    <Cell><Data ss:Type="String">A type defined by FHIR that is an abstract type</Data></Cell>
+    <Cell><Data ss:Type="String">special</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">#abstract-types</Data></Cell>
+    <Cell ss:Index="10" ss:StyleID="s73"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">FHIRDefinedType</Data></Cell>
     <Cell><Data ss:Type="String">Either a resource or a data type.</Data></Cell>
     <Cell><Data ss:Type="String">special</Data></Cell>
     <Cell ss:Index="5"><Data ss:Type="String">#defined-types</Data></Cell>
     <Cell ss:Index="10" ss:StyleID="s73"><Data ss:Type="String">FHIR</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">FHIRAllTypes</Data></Cell>
+    <Cell><Data ss:Type="String">Either an abstract type, a resource or a data type.</Data></Cell>
+    <Cell><Data ss:Type="String">special</Data></Cell>
+    <Cell ss:Index="5"><Data ss:Type="String">#all-types</Data></Cell>
+    <Cell ss:Index="10" ss:StyleID="s73"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">MessageEvent</Data></Cell>
@@ -1014,7 +1028,7 @@
     <Pane>
      <Number>3</Number>
      <ActiveRow>15</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

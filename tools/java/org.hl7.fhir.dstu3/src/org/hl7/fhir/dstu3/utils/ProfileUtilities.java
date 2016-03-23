@@ -1628,14 +1628,14 @@ public class ProfileUtilities {
     row.getCells().add(c);
 
     if (used) {
-      if (logicalModel && ToolingExtensions.hasExtension(profile, "http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace")) {
+      if (logicalModel && ToolingExtensions.hasExtension(profile, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace")) {
         if (root) {
           c.getPieces().add(gen.new Piece(null, "XML Namespace: ", null).addStyle("font-weight:bold"));
-          c.getPieces().add(gen.new Piece(null, ToolingExtensions.readStringExtension(profile, "http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace"), null));        
-        } else if (!root && ToolingExtensions.hasExtension(definition, "http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace") && 
-            !ToolingExtensions.readStringExtension(definition, "http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace").equals(ToolingExtensions.readStringExtension(profile, "http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace"))) {
+          c.getPieces().add(gen.new Piece(null, ToolingExtensions.readStringExtension(profile, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"), null));        
+        } else if (!root && ToolingExtensions.hasExtension(definition, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace") && 
+            !ToolingExtensions.readStringExtension(definition, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").equals(ToolingExtensions.readStringExtension(profile, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"))) {
           c.getPieces().add(gen.new Piece(null, "XML Namespace: ", null).addStyle("font-weight:bold"));
-          c.getPieces().add(gen.new Piece(null, ToolingExtensions.readStringExtension(definition, "http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace"), null));        
+          c.getPieces().add(gen.new Piece(null, ToolingExtensions.readStringExtension(definition, "http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace"), null));        
         }
       }
       
