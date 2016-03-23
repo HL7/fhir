@@ -237,6 +237,13 @@
   XPath = not(exists(f:durationMax)) or exists(f:duration)
   Expression = durationMax.empty() or duration
 
+ -- Row 8 -----------------------------------
+  Id = 8
+  Context = Timing.repeat
+  English = If there\'s a countMax, there must be a count
+  XPath = not(exists(f:countMax)) or exists(f:count)
+  Expression = countMax.empty() or count
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -286,6 +293,14 @@
   RIM Mapping = PIVL.count
 
  -- Row 6 -----------------------------------
+  Element = Timing.repeat.countMax
+  Card. = 0..1
+  Type = integer
+  Short Label = Maximum number of times to repeat
+  Definition = A maximum value for the count of the desired repetitions (e.g. do something 6-8 times)
+  RIM Mapping = PIVL.count
+
+ -- Row 7 -----------------------------------
   Element = Timing.repeat.duration
   Card. = 0..1
   Type = decimal
@@ -295,7 +310,7 @@
   Comments = For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it\'s part of the timing specification (e.g. exercise)
   RIM Mapping = PIVL.phase / EIVL.offset
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Timing.repeat.durationMax
   Card. = 0..1
   Type = decimal
@@ -305,7 +320,7 @@
   Comments = For some events the duration is part of the definition of the event (e.g. IV infusions, where the duration is implicit in the specified quantity and rate). For others, it\'s part of the timing specification (e.g. exercise)
   RIM Mapping = PIVL.phase / EIVL.offset
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Timing.repeat.durationUnit
   Card. = 0..1
   Type = code
@@ -314,7 +329,7 @@
   Definition = The units of time for the duration, in UCUM units
   RIM Mapping = PIVL.phase.unit
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Timing.repeat.frequency
   Card. = 0..1
   Type = integer
@@ -323,7 +338,7 @@
   RIM Mapping = PIVL.phase / EIVL.offset
   Default Value = 1
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Timing.repeat.frequencyMax
   Card. = 0..1
   Type = integer
@@ -331,7 +346,7 @@
   Definition = If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range
   RIM Mapping = PIVL.phase
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Timing.repeat.period
   Card. = 0..1
   Type = decimal
@@ -339,7 +354,7 @@
   Definition = Indicates the duration of time over which repetitions are to occur; e.g. to express \"3 times per day\", 3 would be the frequency and \"1 day\" would be the period
   RIM Mapping = PIVL.phase
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Timing.repeat.periodMax
   Card. = 0..1
   Type = decimal
@@ -347,7 +362,7 @@
   Definition = If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as \"do this once every 3-5 days
   RIM Mapping = PIVL.phase
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Timing.repeat.periodUnit
   Card. = 0..1
   Type = code
@@ -356,7 +371,7 @@
   Definition = The units of time for the period in UCUM units
   RIM Mapping = PIVL.phase.unit
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Timing.repeat.when
   Card. = 0..1
   Type = code
@@ -366,7 +381,7 @@
   Requirements = Timings are frequently determined by occurrences such as waking, eating and sleep
   RIM Mapping = EIVL.event
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Timing.code
   Card. = 0..1
   Type = CodeableConcept
