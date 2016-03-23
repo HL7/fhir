@@ -533,6 +533,7 @@ have a URI that scopes its meaning. The search is performed against the  pair fr
  <li><b><code>[parameter]=[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value irrespective of the value of the system property</li>
  <li><b><code>[parameter]=[system]|[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value, and the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
  <li><b><code>[parameter]=|[code]</code></b>: the value of <code>[code]</code> matches a Coding.code or Identifier.value, and the Coding/Identifier has no system property</li>
+ <li><b><code>[parameter]=[system]|</code></b>: any element where the value of <code>[system]</code> matches the system property of the Identifier or Coding</li>
 </ul>
 <p>
 Note: The namespace URI and code both must be <a href="#escaping">escaped</a>. Matches are literal (e.g. not based on subsumption or other code system features), but not case sensitive.
