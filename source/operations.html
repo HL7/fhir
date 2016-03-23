@@ -43,7 +43,7 @@ Operations have the following general properties:
 <h3>Executing an Operation</h3>
 
 <p>
-Most Operations are a POST to a FHIR endpoint, where the name of the operations is prefixed by a "dollar sign" ('$') character. For example:
+Operations are executed using a URL derived from the FHIR endpoint, where the name of the operations is prefixed by a "dollar sign" ('$') character. For example:
 </p>
 <pre>
  POST http://fhir.someserver.org/fhir/Patient/1/$everything
@@ -73,7 +73,7 @@ more output parameters. This means that a FHIR operation can take a set of zero 
 result parameters <i>out</i>. Both the body of the POST and the returned result are always a Resource. 
 </p>
 <p>
-Some Operations with primtive input types and a single Resource output parameter named '<code>return</code>' can be invoked using a GET directly, with parameters as HTTP URL parameters. 
+Some Operations with primitive input types and a single Resource output parameter named '<code>return</code>' can be invoked using a GET directly, with parameters as HTTP URL parameters. 
 In this case, the response is simply the resource that is the return value, with no Parameters resource. These kinds of usage are discussed further below.
 </p>
 
