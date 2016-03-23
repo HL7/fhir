@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -4033,6 +4033,8 @@ public class XmlParser extends XmlParserBase {
         res.getContact().add(parseConformanceConformanceContactComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
+        res.getUseContext().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requirements")) {
         res.setRequirementsElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("copyright")) {
@@ -9908,6 +9910,8 @@ public class XmlParser extends XmlParserBase {
         res.getContact().add(parseOperationDefinitionOperationDefinitionContactComponent(xpp, res));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("description")) {
         res.setDescriptionElement(parseString(xpp));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
+        res.getUseContext().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requirements")) {
         res.setRequirementsElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("idempotent")) {
@@ -11518,6 +11522,8 @@ public class XmlParser extends XmlParserBase {
         res.setPublisherElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("contact")) {
         res.getContact().add(parseSearchParameterSearchParameterContactComponent(xpp, res));
+      } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("useContext")) {
+        res.getUseContext().add(parseCodeableConcept(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("requirements")) {
         res.setRequirementsElement(parseString(xpp));
       } else if (eventType == XmlPullParser.START_TAG && xpp.getName().equals("code")) {
@@ -18598,6 +18604,10 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
       }
+      if (element.hasUseContext()) { 
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept("useContext", e);
+      }
       if (element.hasRequirementsElement()) {
         composeString("requirements", element.getRequirementsElement());
       }
@@ -24906,6 +24916,10 @@ public class XmlParser extends XmlParserBase {
       if (element.hasDescriptionElement()) {
         composeString("description", element.getDescriptionElement());
       }
+      if (element.hasUseContext()) { 
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept("useContext", e);
+      }
       if (element.hasRequirementsElement()) {
         composeString("requirements", element.getRequirementsElement());
       }
@@ -26694,6 +26708,10 @@ public class XmlParser extends XmlParserBase {
       if (element.hasContact()) { 
         for (SearchParameter.SearchParameterContactComponent e : element.getContact()) 
           composeSearchParameterSearchParameterContactComponent("contact", e);
+      }
+      if (element.hasUseContext()) { 
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept("useContext", e);
       }
       if (element.hasRequirementsElement()) {
         composeString("requirements", element.getRequirementsElement());

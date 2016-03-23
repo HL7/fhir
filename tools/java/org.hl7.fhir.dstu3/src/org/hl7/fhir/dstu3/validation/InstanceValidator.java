@@ -662,8 +662,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 					ok = true;
 			return rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), ok,
 					"The extension " + extUrl + " is not allowed to be used with the extension '" + extensionParent + "'");
-		} else if (definition.getContextType() == ExtensionContext.MAPPING) {
-			throw new Error("Not handled yet (extensionContext)");
 		} else if (definition.getContextType() == ExtensionContext.RESOURCE) {
 			boolean ok = false;
 			// String simplePath = container.getPath();

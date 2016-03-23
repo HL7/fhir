@@ -2200,8 +2200,6 @@ public class SpreadsheetParser {
       return ExtensionContext.RESOURCE;
     if (value.equals("Element"))
       return ExtensionContext.RESOURCE;
-    if (value.equals("Mapping"))
-      return ExtensionContext.MAPPING;
     if (value.equals("Extension"))
       return ExtensionContext.EXTENSION;
 	  

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -3367,6 +3367,8 @@ public class RdfParser extends RdfParserBase {
       composeConformanceConformanceContactComponent(t, "Conformance", "contact", element.getContact().get(i), i);
     if (element.hasDescriptionElement())
       composeString(t, "Conformance", "description", element.getDescriptionElement(), -1);
+    for (int i = 0; i < element.getUseContext().size(); i++)
+      composeCodeableConcept(t, "Conformance", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
       composeString(t, "Conformance", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCopyrightElement())
@@ -8597,6 +8599,8 @@ public class RdfParser extends RdfParserBase {
       composeOperationDefinitionOperationDefinitionContactComponent(t, "OperationDefinition", "contact", element.getContact().get(i), i);
     if (element.hasDescriptionElement())
       composeString(t, "OperationDefinition", "description", element.getDescriptionElement(), -1);
+    for (int i = 0; i < element.getUseContext().size(); i++)
+      composeCodeableConcept(t, "OperationDefinition", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
       composeString(t, "OperationDefinition", "requirements", element.getRequirementsElement(), -1);
     if (element.hasIdempotentElement())
@@ -10039,6 +10043,8 @@ public class RdfParser extends RdfParserBase {
       composeString(t, "SearchParameter", "publisher", element.getPublisherElement(), -1);
     for (int i = 0; i < element.getContact().size(); i++)
       composeSearchParameterSearchParameterContactComponent(t, "SearchParameter", "contact", element.getContact().get(i), i);
+    for (int i = 0; i < element.getUseContext().size(); i++)
+      composeCodeableConcept(t, "SearchParameter", "useContext", element.getUseContext().get(i), i);
     if (element.hasRequirementsElement())
       composeString(t, "SearchParameter", "requirements", element.getRequirementsElement(), -1);
     if (element.hasCodeElement())

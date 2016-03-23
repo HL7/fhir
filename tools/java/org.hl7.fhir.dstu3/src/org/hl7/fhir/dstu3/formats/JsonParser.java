@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -4439,6 +4439,12 @@ public class JsonParser extends JsonParserBase {
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("useContext")) {
+      JsonArray array = json.getAsJsonArray("useContext");
+      for (int i = 0; i < array.size(); i++) {
+        res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("requirements"))
       res.setRequirementsElement(parseString(json.get("requirements").getAsString()));
     if (json.has("_requirements"))
@@ -10888,6 +10894,12 @@ public class JsonParser extends JsonParserBase {
       res.setDescriptionElement(parseString(json.get("description").getAsString()));
     if (json.has("_description"))
       parseElementProperties(json.getAsJsonObject("_description"), res.getDescriptionElement());
+    if (json.has("useContext")) {
+      JsonArray array = json.getAsJsonArray("useContext");
+      for (int i = 0; i < array.size(); i++) {
+        res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
+      }
+    };
     if (json.has("requirements"))
       res.setRequirementsElement(parseString(json.get("requirements").getAsString()));
     if (json.has("_requirements"))
@@ -12761,6 +12773,12 @@ public class JsonParser extends JsonParserBase {
       JsonArray array = json.getAsJsonArray("contact");
       for (int i = 0; i < array.size(); i++) {
         res.getContact().add(parseSearchParameterSearchParameterContactComponent(array.get(i).getAsJsonObject(), res));
+      }
+    };
+    if (json.has("useContext")) {
+      JsonArray array = json.getAsJsonArray("useContext");
+      for (int i = 0; i < array.size(); i++) {
+        res.getUseContext().add(parseCodeableConcept(array.get(i).getAsJsonObject()));
       }
     };
     if (json.has("requirements"))
@@ -21145,6 +21163,12 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
+      if (element.hasUseContext()) {
+        openArray("useContext");
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasRequirementsElement()) {
         composeStringCore("requirements", element.getRequirementsElement(), false);
         composeStringExtras("requirements", element.getRequirementsElement(), false);
@@ -29234,6 +29258,12 @@ public class JsonParser extends JsonParserBase {
         composeStringCore("description", element.getDescriptionElement(), false);
         composeStringExtras("description", element.getDescriptionElement(), false);
       }
+      if (element.hasUseContext()) {
+        openArray("useContext");
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
+        closeArray();
+      };
       if (element.hasRequirementsElement()) {
         composeStringCore("requirements", element.getRequirementsElement(), false);
         composeStringExtras("requirements", element.getRequirementsElement(), false);
@@ -31542,6 +31572,12 @@ public class JsonParser extends JsonParserBase {
         openArray("contact");
         for (SearchParameter.SearchParameterContactComponent e : element.getContact()) 
           composeSearchParameterSearchParameterContactComponent(null, e);
+        closeArray();
+      };
+      if (element.hasUseContext()) {
+        openArray("useContext");
+        for (CodeableConcept e : element.getUseContext()) 
+          composeCodeableConcept(null, e);
         closeArray();
       };
       if (element.hasRequirementsElement()) {

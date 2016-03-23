@@ -508,6 +508,11 @@
   Type = uri
   Path = ImplementationGuide.resource.sourceUri
 
+ -- Row 13 -----------------------------------
+  Name = resource
+  Type = reference
+  Path = ImplementationGuide.package.resource.source[x]
+
 === Sheet Profiles =====================================
 
 === Sheet Examples =====================================

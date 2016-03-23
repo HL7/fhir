@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -161,10 +161,6 @@ public class StructureDefinition extends DomainResource {
          */
         DATATYPE, 
         /**
-         * The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.
-         */
-        MAPPING, 
-        /**
          * The context is a particular extension from a particular profile, a uri that identifies the extension definition.
          */
         EXTENSION, 
@@ -179,8 +175,6 @@ public class StructureDefinition extends DomainResource {
           return RESOURCE;
         if ("datatype".equals(codeString))
           return DATATYPE;
-        if ("mapping".equals(codeString))
-          return MAPPING;
         if ("extension".equals(codeString))
           return EXTENSION;
         throw new FHIRException("Unknown ExtensionContext code '"+codeString+"'");
@@ -189,7 +183,6 @@ public class StructureDefinition extends DomainResource {
           switch (this) {
             case RESOURCE: return "resource";
             case DATATYPE: return "datatype";
-            case MAPPING: return "mapping";
             case EXTENSION: return "extension";
             default: return "?";
           }
@@ -198,7 +191,6 @@ public class StructureDefinition extends DomainResource {
           switch (this) {
             case RESOURCE: return "http://hl7.org/fhir/extension-context";
             case DATATYPE: return "http://hl7.org/fhir/extension-context";
-            case MAPPING: return "http://hl7.org/fhir/extension-context";
             case EXTENSION: return "http://hl7.org/fhir/extension-context";
             default: return "?";
           }
@@ -207,7 +199,6 @@ public class StructureDefinition extends DomainResource {
           switch (this) {
             case RESOURCE: return "The context is all elements matching a particular resource element path.";
             case DATATYPE: return "The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).";
-            case MAPPING: return "The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.";
             case EXTENSION: return "The context is a particular extension from a particular profile, a uri that identifies the extension definition.";
             default: return "?";
           }
@@ -216,7 +207,6 @@ public class StructureDefinition extends DomainResource {
           switch (this) {
             case RESOURCE: return "Resource";
             case DATATYPE: return "Datatype";
-            case MAPPING: return "Mapping";
             case EXTENSION: return "Extension";
             default: return "?";
           }
@@ -232,8 +222,6 @@ public class StructureDefinition extends DomainResource {
           return ExtensionContext.RESOURCE;
         if ("datatype".equals(codeString))
           return ExtensionContext.DATATYPE;
-        if ("mapping".equals(codeString))
-          return ExtensionContext.MAPPING;
         if ("extension".equals(codeString))
           return ExtensionContext.EXTENSION;
         throw new IllegalArgumentException("Unknown ExtensionContext code '"+codeString+"'");
@@ -248,8 +236,6 @@ public class StructureDefinition extends DomainResource {
           return new Enumeration<ExtensionContext>(this, ExtensionContext.RESOURCE);
         if ("datatype".equals(codeString))
           return new Enumeration<ExtensionContext>(this, ExtensionContext.DATATYPE);
-        if ("mapping".equals(codeString))
-          return new Enumeration<ExtensionContext>(this, ExtensionContext.MAPPING);
         if ("extension".equals(codeString))
           return new Enumeration<ExtensionContext>(this, ExtensionContext.EXTENSION);
         throw new FHIRException("Unknown ExtensionContext code '"+codeString+"'");
@@ -259,8 +245,6 @@ public class StructureDefinition extends DomainResource {
         return "resource";
       if (code == ExtensionContext.DATATYPE)
         return "datatype";
-      if (code == ExtensionContext.MAPPING)
-        return "mapping";
       if (code == ExtensionContext.EXTENSION)
         return "extension";
       return "?";
@@ -1167,7 +1151,7 @@ public class StructureDefinition extends DomainResource {
      * If this is an extension, Identifies the context within FHIR resources where the extension can be used.
      */
     @Child(name = "contextType", type = {CodeType.class}, order=20, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="resource | datatype | mapping | extension", formalDefinition="If this is an extension, Identifies the context within FHIR resources where the extension can be used." )
+    @Description(shortDefinition="resource | datatype | extension", formalDefinition="If this is an extension, Identifies the context within FHIR resources where the extension can be used." )
     protected Enumeration<ExtensionContext> contextType;
 
     /**
@@ -2905,17 +2889,17 @@ public class StructureDefinition extends DomainResource {
  /**
    * Search parameter: <b>context-type</b>
    * <p>
-   * Description: <b>resource | datatype | mapping | extension</b><br>
+   * Description: <b>resource | datatype | extension</b><br>
    * Type: <b>token</b><br>
    * Path: <b>StructureDefinition.contextType</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="context-type", path="StructureDefinition.contextType", description="resource | datatype | mapping | extension", type="token" )
+  @SearchParamDefinition(name="context-type", path="StructureDefinition.contextType", description="resource | datatype | extension", type="token" )
   public static final String SP_CONTEXT_TYPE = "context-type";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>context-type</b>
    * <p>
-   * Description: <b>resource | datatype | mapping | extension</b><br>
+   * Description: <b>resource | datatype | extension</b><br>
    * Type: <b>token</b><br>
    * Path: <b>StructureDefinition.contextType</b><br>
    * </p>

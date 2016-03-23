@@ -57,12 +57,6 @@
   Definition = The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).
 
  -- Row 3 -----------------------------------
-  Id = 3
-  Code = mapping
-  Display = Mapping
-  Definition = The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.
-
- -- Row 4 -----------------------------------
   Id = 4
   Code = extension
   Display = Extension
@@ -419,7 +413,7 @@
   Inv. = 5
   Type = code
   Binding = ExtensionContext
-  Short Label = resource | datatype | mapping | extension
+  Short Label = resource | datatype | extension
   Definition = If this is an extension, Identifies the context within FHIR resources where the extension can be used
 
  -- Row 29 -----------------------------------

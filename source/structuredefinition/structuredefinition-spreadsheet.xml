@@ -2023,7 +2023,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">resource | datatype | mapping | extension</Data><NamedCell
+    <Cell ss:StyleID="s87"><Data ss:Type="String">resource | datatype | extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s88"><Data ss:Type="String">If this is an extension, Identifies the context within FHIR resources where the extension can be used</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4319,7 +4319,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>22</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4332,11 +4332,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>29</ActiveRow>
+     <ActiveCol>13</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -8001,7 +8002,7 @@
    <NamedRange ss:Name="Invariantids"
     ss:RefersTo="='\work\org.hl7.fhir\build\source\extensiondefinition\[extensiondefinition-spreadsheet.xml]Invariants'!R2C1:R50C1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="51" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="9" ss:ExpandedRowCount="50" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s140" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s140" ss:Width="80.25"/>
    <Column ss:StyleID="s140" ss:AutoFitWidth="0" ss:Width="34.5"/>
@@ -8066,17 +8067,6 @@
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"><Data ss:Type="String">Datatype</Data></Cell>
     <Cell ss:StyleID="s152"><Data ss:Type="String">The context is all nodes matching a particular data type element path (root or repeating element) or all elements referencing a particular primitive data type (expressed as the datatype name).</Data></Cell>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s134"/>
-    <Cell ss:StyleID="s145"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="90">
-    <Cell ss:StyleID="s144"><Data ss:Type="String">mapping</Data></Cell>
-    <Cell ss:StyleID="s134"><Data ss:Type="Number">3</Data></Cell>
-    <Cell ss:StyleID="s117"/>
-    <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">Mapping</Data></Cell>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">The context is all nodes whose mapping to a specified reference model corresponds to a particular mapping structure.  The context identifies the mapping target. The mapping should clearly identify where such an extension could be used.</Data></Cell>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s134"/>
     <Cell ss:StyleID="s145"/>
@@ -8615,6 +8605,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>2</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>

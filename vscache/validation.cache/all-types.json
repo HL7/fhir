@@ -1,0 +1,93 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/all-types",
+  "outcomes": [
+    {
+      "hash": "|null|null|Basic|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Basic",
+        "definition": null,
+        "display": "Basic"
+      }
+    },
+    {
+      "hash": "|null|null|Coverage|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Coverage",
+        "definition": null,
+        "display": "Coverage"
+      }
+    },
+    {
+      "hash": "|null|null|Device|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Device",
+        "definition": null,
+        "display": "Device"
+      }
+    },
+    {
+      "hash": "|null|null|Order|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Order",
+        "definition": null,
+        "display": "Order"
+      }
+    },
+    {
+      "hash": "|null|null|Provenance|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Provenance",
+        "definition": null,
+        "display": "Provenance"
+      }
+    },
+    {
+      "hash": "|null|null|QuestionnaireResponse|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "QuestionnaireResponse",
+        "definition": null,
+        "display": "QuestionnaireResponse"
+      }
+    },
+    {
+      "hash": "|null|null|Questionnaire|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "Questionnaire",
+        "definition": null,
+        "display": "Questionnaire"
+      }
+    },
+    {
+      "hash": "|null|null|uri|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "uri",
+        "definition": null,
+        "display": "uri"
+      }
+    }
+  ]
+}

@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -6460,65 +6460,72 @@ public class Conformance extends DomainResource implements IBaseConformance {
     protected StringType description;
 
     /**
+     * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of conformance statements.
+     */
+    @Child(name = "useContext", type = {CodeableConcept.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Content intends to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of conformance statements." )
+    protected List<CodeableConcept> useContext;
+
+    /**
      * Explains why this conformance statement is needed and why it's been constrained as it has.
      */
-    @Child(name = "requirements", type = {StringType.class}, order=9, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "requirements", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why this resource has been created", formalDefinition="Explains why this conformance statement is needed and why it's been constrained as it has." )
     protected StringType requirements;
 
     /**
      * A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.
      */
-    @Child(name = "copyright", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "copyright", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Use and/or publishing restrictions", formalDefinition="A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement." )
     protected StringType copyright;
 
     /**
      * The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).
      */
-    @Child(name = "kind", type = {CodeType.class}, order=11, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "kind", type = {CodeType.class}, order=12, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="instance | capability | requirements", formalDefinition="The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase)." )
     protected Enumeration<ConformanceStatementKind> kind;
 
     /**
      * Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation.
      */
-    @Child(name = "software", type = {}, order=12, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "software", type = {}, order=13, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Software that is covered by this conformance statement", formalDefinition="Software that is covered by this conformance statement.  It is used when the conformance statement describes the capabilities of a particular software version, independent of an installation." )
     protected ConformanceSoftwareComponent software;
 
     /**
      * Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program.
      */
-    @Child(name = "implementation", type = {}, order=13, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "implementation", type = {}, order=14, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="If this describes a specific instance", formalDefinition="Identifies a specific implementation instance that is described by the conformance statement - i.e. a particular installation, rather than the capabilities of a software program." )
     protected ConformanceImplementationComponent implementation;
 
     /**
      * The version of the FHIR specification on which this conformance statement is based.
      */
-    @Child(name = "fhirVersion", type = {IdType.class}, order=14, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "fhirVersion", type = {IdType.class}, order=15, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="FHIR Version the system uses", formalDefinition="The version of the FHIR specification on which this conformance statement is based." )
     protected IdType fhirVersion;
 
     /**
      * A code that indicates whether the application accepts unknown elements or extensions when reading resources.
      */
-    @Child(name = "acceptUnknown", type = {CodeType.class}, order=15, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "acceptUnknown", type = {CodeType.class}, order=16, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="no | extensions | elements | both", formalDefinition="A code that indicates whether the application accepts unknown elements or extensions when reading resources." )
     protected Enumeration<UnknownContentCode> acceptUnknown;
 
     /**
      * A list of the formats supported by this implementation using their content types.
      */
-    @Child(name = "format", type = {CodeType.class}, order=16, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "format", type = {CodeType.class}, order=17, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="formats supported (xml | json | mime type)", formalDefinition="A list of the formats supported by this implementation using their content types." )
     protected List<CodeType> format;
 
     /**
      * A list of profiles that represent different use cases supported by the system. For a server, "supported by the system" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}.
      */
-    @Child(name = "profile", type = {StructureDefinition.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "profile", type = {StructureDefinition.class}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Profiles for use cases supported", formalDefinition="A list of profiles that represent different use cases supported by the system. For a server, \"supported by the system\" means the system hosts/produces a set of resources that are conformant to a particular profile, and allows clients that use its services to search using this profile and to find appropriate data. For a client, it means the system will search by this profile and process data according to the guidance implicit in the profile. See further discussion in [Using Profiles]{profiling.html#profile-uses}." )
     protected List<Reference> profile;
     /**
@@ -6530,25 +6537,25 @@ public class Conformance extends DomainResource implements IBaseConformance {
     /**
      * A definition of the restful capabilities of the solution, if any.
      */
-    @Child(name = "rest", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "rest", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="If the endpoint is a RESTful one", formalDefinition="A definition of the restful capabilities of the solution, if any." )
     protected List<ConformanceRestComponent> rest;
 
     /**
      * A description of the messaging capabilities of the solution.
      */
-    @Child(name = "messaging", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "messaging", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="If messaging is supported", formalDefinition="A description of the messaging capabilities of the solution." )
     protected List<ConformanceMessagingComponent> messaging;
 
     /**
      * A document definition.
      */
-    @Child(name = "document", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "document", type = {}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Document definition", formalDefinition="A document definition." )
     protected List<ConformanceDocumentComponent> document;
 
-    private static final long serialVersionUID = 1969977598L;
+    private static final long serialVersionUID = 64276427L;
 
   /**
    * Constructor
@@ -6986,6 +6993,46 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.description = new StringType();
         this.description.setValue(value);
       }
+      return this;
+    }
+
+    /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of conformance statements.)
+     */
+    public List<CodeableConcept> getUseContext() { 
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      return this.useContext;
+    }
+
+    public boolean hasUseContext() { 
+      if (this.useContext == null)
+        return false;
+      for (CodeableConcept item : this.useContext)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of conformance statements.)
+     */
+    // syntactic sugar
+    public CodeableConcept addUseContext() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public Conformance addUseContext(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
       return this;
     }
 
@@ -7516,6 +7563,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the conformance.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("description", "string", "A free text natural language description of the conformance statement and its use. Typically, this is used when the conformance statement describes a desired rather than an actual solution, for example as a formal expression of requirements as part of an RFP.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of conformance statements.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("requirements", "string", "Explains why this conformance statement is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("copyright", "string", "A copyright statement relating to the conformance statement and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the details of the system described by the conformance statement.", 0, java.lang.Integer.MAX_VALUE, copyright));
         childrenList.add(new Property("kind", "code", "The way that this statement is intended to be used, to describe an actual running instance of software, a particular product (kind not instance of software) or a class of implementation (e.g. a desired purchase).", 0, java.lang.Integer.MAX_VALUE, kind));
@@ -7550,6 +7598,8 @@ public class Conformance extends DomainResource implements IBaseConformance {
           this.getContact().add((ConformanceContactComponent) value);
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
+        else if (name.equals("useContext"))
+          this.getUseContext().add(castToCodeableConcept(value));
         else if (name.equals("requirements"))
           this.requirements = castToString(value); // StringType
         else if (name.equals("copyright"))
@@ -7606,6 +7656,9 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type Conformance.description");
+        }
+        else if (name.equals("useContext")) {
+          return addUseContext();
         }
         else if (name.equals("requirements")) {
           throw new FHIRException("Cannot call addChild on a primitive type Conformance.requirements");
@@ -7670,6 +7723,11 @@ public class Conformance extends DomainResource implements IBaseConformance {
             dst.contact.add(i.copy());
         };
         dst.description = description == null ? null : description.copy();
+        if (useContext != null) {
+          dst.useContext = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : useContext)
+            dst.useContext.add(i.copy());
+        };
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.copyright = copyright == null ? null : copyright.copy();
         dst.kind = kind == null ? null : kind.copy();
@@ -7719,11 +7777,12 @@ public class Conformance extends DomainResource implements IBaseConformance {
         return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
            && compareDeep(status, o.status, true) && compareDeep(experimental, o.experimental, true) && compareDeep(date, o.date, true)
            && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true) && compareDeep(description, o.description, true)
-           && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
-           && compareDeep(kind, o.kind, true) && compareDeep(software, o.software, true) && compareDeep(implementation, o.implementation, true)
-           && compareDeep(fhirVersion, o.fhirVersion, true) && compareDeep(acceptUnknown, o.acceptUnknown, true)
-           && compareDeep(format, o.format, true) && compareDeep(profile, o.profile, true) && compareDeep(rest, o.rest, true)
-           && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true);
+           && compareDeep(useContext, o.useContext, true) && compareDeep(requirements, o.requirements, true)
+           && compareDeep(copyright, o.copyright, true) && compareDeep(kind, o.kind, true) && compareDeep(software, o.software, true)
+           && compareDeep(implementation, o.implementation, true) && compareDeep(fhirVersion, o.fhirVersion, true)
+           && compareDeep(acceptUnknown, o.acceptUnknown, true) && compareDeep(format, o.format, true) && compareDeep(profile, o.profile, true)
+           && compareDeep(rest, o.rest, true) && compareDeep(messaging, o.messaging, true) && compareDeep(document, o.document, true)
+          ;
       }
 
       @Override
@@ -7744,12 +7803,13 @@ public class Conformance extends DomainResource implements IBaseConformance {
         return super.isEmpty() && (url == null || url.isEmpty()) && (version == null || version.isEmpty())
            && (name == null || name.isEmpty()) && (status == null || status.isEmpty()) && (experimental == null || experimental.isEmpty())
            && (date == null || date.isEmpty()) && (publisher == null || publisher.isEmpty()) && (contact == null || contact.isEmpty())
-           && (description == null || description.isEmpty()) && (requirements == null || requirements.isEmpty())
-           && (copyright == null || copyright.isEmpty()) && (kind == null || kind.isEmpty()) && (software == null || software.isEmpty())
-           && (implementation == null || implementation.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty())
-           && (acceptUnknown == null || acceptUnknown.isEmpty()) && (format == null || format.isEmpty())
-           && (profile == null || profile.isEmpty()) && (rest == null || rest.isEmpty()) && (messaging == null || messaging.isEmpty())
-           && (document == null || document.isEmpty());
+           && (description == null || description.isEmpty()) && (useContext == null || useContext.isEmpty())
+           && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
+           && (kind == null || kind.isEmpty()) && (software == null || software.isEmpty()) && (implementation == null || implementation.isEmpty())
+           && (fhirVersion == null || fhirVersion.isEmpty()) && (acceptUnknown == null || acceptUnknown.isEmpty())
+           && (format == null || format.isEmpty()) && (profile == null || profile.isEmpty()) && (rest == null || rest.isEmpty())
+           && (messaging == null || messaging.isEmpty()) && (document == null || document.isEmpty())
+          ;
       }
 
   @Override
@@ -8042,6 +8102,26 @@ public class Conformance extends DomainResource implements IBaseConformance {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the conformance statement</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Conformance.useContext</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="Conformance.useContext", description="A use context assigned to the conformance statement", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the conformance statement</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>Conformance.useContext</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
 
  /**
    * Search parameter: <b>supported-profile</b>

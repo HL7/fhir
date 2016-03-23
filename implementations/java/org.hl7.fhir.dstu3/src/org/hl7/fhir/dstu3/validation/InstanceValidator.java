@@ -662,8 +662,6 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
           ok = true;
       return rule(errors, IssueType.STRUCTURE, element.line(), element.col(), stack.getLiteralPath(), ok,
           "The extension " + extUrl + " is not allowed to be used with the extension '" + extensionParent + "'");
-    } else if (definition.getContextType() == ExtensionContext.MAPPING) {
-      throw new Error("Not handled yet (extensionContext)");
     } else if (definition.getContextType() == ExtensionContext.RESOURCE) {
       boolean ok = false;
       // String simplePath = container.getPath();
@@ -1914,7 +1912,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	private String getNamespace(StructureDefinition sd) {
 	  if (sd == null)
 	    return "http://hl7.org/fhir";
-	  List<Extension> list = sd.getExtensionsByUrl("http://www.healthintersections.com.au/fhir/StructureDefinition/extension-namespace");
+	  List<Extension> list = sd.getExtensionsByUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace");
     for (Extension e : list) 
       if (e.getValue() instanceof UriType)
         return ((UriType) e.getValue()).asStringValue();

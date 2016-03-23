@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 14:42+1100 for FHIR v1.3.0
+// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -1345,37 +1345,44 @@ public class OperationDefinition extends DomainResource {
     protected StringType description;
 
     /**
+     * The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of operation definitions.
+     */
+    @Child(name = "useContext", type = {CodeableConcept.class}, order=10, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Description(shortDefinition="Content intends to support these contexts", formalDefinition="The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of operation definitions." )
+    protected List<CodeableConcept> useContext;
+
+    /**
      * Explains why this operation definition is needed and why it's been constrained as it has.
      */
-    @Child(name = "requirements", type = {StringType.class}, order=10, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "requirements", type = {StringType.class}, order=11, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Why this resource has been created", formalDefinition="Explains why this operation definition is needed and why it's been constrained as it has." )
     protected StringType requirements;
 
     /**
      * Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.
      */
-    @Child(name = "idempotent", type = {BooleanType.class}, order=11, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "idempotent", type = {BooleanType.class}, order=12, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Whether content is unchanged by the operation", formalDefinition="Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST." )
     protected BooleanType idempotent;
 
     /**
      * The name used to invoke the operation.
      */
-    @Child(name = "code", type = {CodeType.class}, order=12, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "code", type = {CodeType.class}, order=13, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Name used to invoke the operation", formalDefinition="The name used to invoke the operation." )
     protected CodeType code;
 
     /**
      * Additional information about how to use this operation or named query.
      */
-    @Child(name = "comment", type = {StringType.class}, order=13, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "comment", type = {StringType.class}, order=14, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Additional information about use", formalDefinition="Additional information about how to use this operation or named query." )
     protected StringType comment;
 
     /**
      * Indicates that this operation definition is a constraining profile on the base.
      */
-    @Child(name = "base", type = {OperationDefinition.class}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "base", type = {OperationDefinition.class}, order=15, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Marks this as a profile of the base", formalDefinition="Indicates that this operation definition is a constraining profile on the base." )
     protected Reference base;
 
@@ -1387,32 +1394,32 @@ public class OperationDefinition extends DomainResource {
     /**
      * Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context).
      */
-    @Child(name = "system", type = {BooleanType.class}, order=15, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "system", type = {BooleanType.class}, order=16, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Invoke at the system level?", formalDefinition="Indicates whether this operation or named query can be invoked at the system level (e.g. without needing to choose a resource type for the context)." )
     protected BooleanType system;
 
     /**
      * Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context).
      */
-    @Child(name = "type", type = {CodeType.class}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "type", type = {CodeType.class}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Invoke at resource level for these type", formalDefinition="Indicates whether this operation or named query can be invoked at the resource type level for any given resource type level (e.g. without needing to choose a resource type for the context)." )
     protected List<CodeType> type;
 
     /**
      * Indicates whether this operation can be invoked on a particular instance of one of the given types.
      */
-    @Child(name = "instance", type = {BooleanType.class}, order=17, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "instance", type = {BooleanType.class}, order=18, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Invoke on an instance?", formalDefinition="Indicates whether this operation can be invoked on a particular instance of one of the given types." )
     protected BooleanType instance;
 
     /**
      * The parameters for the operation/query.
      */
-    @Child(name = "parameter", type = {}, order=18, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "parameter", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Parameters for the operation/query", formalDefinition="The parameters for the operation/query." )
     protected List<OperationDefinitionParameterComponent> parameter;
 
-    private static final long serialVersionUID = -1568019008L;
+    private static final long serialVersionUID = 1780846105L;
 
   /**
    * Constructor
@@ -1900,6 +1907,46 @@ public class OperationDefinition extends DomainResource {
     }
 
     /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of operation definitions.)
+     */
+    public List<CodeableConcept> getUseContext() { 
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      return this.useContext;
+    }
+
+    public boolean hasUseContext() { 
+      if (this.useContext == null)
+        return false;
+      for (CodeableConcept item : this.useContext)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #useContext} (The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of operation definitions.)
+     */
+    // syntactic sugar
+    public CodeableConcept addUseContext() { //3
+      CodeableConcept t = new CodeableConcept();
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public OperationDefinition addUseContext(CodeableConcept t) { //3
+      if (t == null)
+        return this;
+      if (this.useContext == null)
+        this.useContext = new ArrayList<CodeableConcept>();
+      this.useContext.add(t);
+      return this;
+    }
+
+    /**
      * @return {@link #requirements} (Explains why this operation definition is needed and why it's been constrained as it has.). This is the underlying object with id, value and extensions. The accessor "getRequirements" gives direct access to the value
      */
     public StringType getRequirementsElement() { 
@@ -2327,6 +2374,7 @@ public class OperationDefinition extends DomainResource {
         childrenList.add(new Property("publisher", "string", "The name of the individual or organization that published the operation definition.", 0, java.lang.Integer.MAX_VALUE, publisher));
         childrenList.add(new Property("contact", "", "Contacts to assist a user in finding and communicating with the publisher.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("description", "string", "A free text natural language description of the profile and its use.", 0, java.lang.Integer.MAX_VALUE, description));
+        childrenList.add(new Property("useContext", "CodeableConcept", "The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of operation definitions.", 0, java.lang.Integer.MAX_VALUE, useContext));
         childrenList.add(new Property("requirements", "string", "Explains why this operation definition is needed and why it's been constrained as it has.", 0, java.lang.Integer.MAX_VALUE, requirements));
         childrenList.add(new Property("idempotent", "boolean", "Operations that are idempotent (see [HTTP specification definition of idempotent](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)) may be invoked by performing an HTTP GET operation instead of a POST.", 0, java.lang.Integer.MAX_VALUE, idempotent));
         childrenList.add(new Property("code", "code", "The name used to invoke the operation.", 0, java.lang.Integer.MAX_VALUE, code));
@@ -2360,6 +2408,8 @@ public class OperationDefinition extends DomainResource {
           this.getContact().add((OperationDefinitionContactComponent) value);
         else if (name.equals("description"))
           this.description = castToString(value); // StringType
+        else if (name.equals("useContext"))
+          this.getUseContext().add(castToCodeableConcept(value));
         else if (name.equals("requirements"))
           this.requirements = castToString(value); // StringType
         else if (name.equals("idempotent"))
@@ -2413,6 +2463,9 @@ public class OperationDefinition extends DomainResource {
         }
         else if (name.equals("description")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.description");
+        }
+        else if (name.equals("useContext")) {
+          return addUseContext();
         }
         else if (name.equals("requirements")) {
           throw new FHIRException("Cannot call addChild on a primitive type OperationDefinition.requirements");
@@ -2468,6 +2521,11 @@ public class OperationDefinition extends DomainResource {
             dst.contact.add(i.copy());
         };
         dst.description = description == null ? null : description.copy();
+        if (useContext != null) {
+          dst.useContext = new ArrayList<CodeableConcept>();
+          for (CodeableConcept i : useContext)
+            dst.useContext.add(i.copy());
+        };
         dst.requirements = requirements == null ? null : requirements.copy();
         dst.idempotent = idempotent == null ? null : idempotent.copy();
         dst.code = code == null ? null : code.copy();
@@ -2502,10 +2560,11 @@ public class OperationDefinition extends DomainResource {
         return compareDeep(url, o.url, true) && compareDeep(version, o.version, true) && compareDeep(name, o.name, true)
            && compareDeep(status, o.status, true) && compareDeep(kind, o.kind, true) && compareDeep(experimental, o.experimental, true)
            && compareDeep(date, o.date, true) && compareDeep(publisher, o.publisher, true) && compareDeep(contact, o.contact, true)
-           && compareDeep(description, o.description, true) && compareDeep(requirements, o.requirements, true)
-           && compareDeep(idempotent, o.idempotent, true) && compareDeep(code, o.code, true) && compareDeep(comment, o.comment, true)
-           && compareDeep(base, o.base, true) && compareDeep(system, o.system, true) && compareDeep(type, o.type, true)
-           && compareDeep(instance, o.instance, true) && compareDeep(parameter, o.parameter, true);
+           && compareDeep(description, o.description, true) && compareDeep(useContext, o.useContext, true)
+           && compareDeep(requirements, o.requirements, true) && compareDeep(idempotent, o.idempotent, true)
+           && compareDeep(code, o.code, true) && compareDeep(comment, o.comment, true) && compareDeep(base, o.base, true)
+           && compareDeep(system, o.system, true) && compareDeep(type, o.type, true) && compareDeep(instance, o.instance, true)
+           && compareDeep(parameter, o.parameter, true);
       }
 
       @Override
@@ -2528,36 +2587,17 @@ public class OperationDefinition extends DomainResource {
            && (name == null || name.isEmpty()) && (status == null || status.isEmpty()) && (kind == null || kind.isEmpty())
            && (experimental == null || experimental.isEmpty()) && (date == null || date.isEmpty()) && (publisher == null || publisher.isEmpty())
            && (contact == null || contact.isEmpty()) && (description == null || description.isEmpty())
-           && (requirements == null || requirements.isEmpty()) && (idempotent == null || idempotent.isEmpty())
-           && (code == null || code.isEmpty()) && (comment == null || comment.isEmpty()) && (base == null || base.isEmpty())
-           && (system == null || system.isEmpty()) && (type == null || type.isEmpty()) && (instance == null || instance.isEmpty())
-           && (parameter == null || parameter.isEmpty());
+           && (useContext == null || useContext.isEmpty()) && (requirements == null || requirements.isEmpty())
+           && (idempotent == null || idempotent.isEmpty()) && (code == null || code.isEmpty()) && (comment == null || comment.isEmpty())
+           && (base == null || base.isEmpty()) && (system == null || system.isEmpty()) && (type == null || type.isEmpty())
+           && (instance == null || instance.isEmpty()) && (parameter == null || parameter.isEmpty())
+          ;
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.OperationDefinition;
    }
-
- /**
-   * Search parameter: <b>system</b>
-   * <p>
-   * Description: <b>Invoke at the system level?</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.system</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="system", path="OperationDefinition.system", description="Invoke at the system level?", type="token" )
-  public static final String SP_SYSTEM = "system";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>system</b>
-   * <p>
-   * Description: <b>Invoke at the system level?</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.system</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SYSTEM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SYSTEM);
 
  /**
    * Search parameter: <b>status</b>
@@ -2578,52 +2618,6 @@ public class OperationDefinition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam STATUS = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_STATUS);
-
- /**
-   * Search parameter: <b>name</b>
-   * <p>
-   * Description: <b>Informal name for this operation</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OperationDefinition.name</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="name", path="OperationDefinition.name", description="Informal name for this operation", type="string" )
-  public static final String SP_NAME = "name";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>name</b>
-   * <p>
-   * Description: <b>Informal name for this operation</b><br>
-   * Type: <b>string</b><br>
-   * Path: <b>OperationDefinition.name</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
-
- /**
-   * Search parameter: <b>base</b>
-   * <p>
-   * Description: <b>Marks this as a profile of the base</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OperationDefinition.base</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="base", path="OperationDefinition.base", description="Marks this as a profile of the base", type="reference" )
-  public static final String SP_BASE = "base";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>base</b>
-   * <p>
-   * Description: <b>Marks this as a profile of the base</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>OperationDefinition.base</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam BASE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_BASE);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>OperationDefinition:base</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_BASE = new ca.uhn.fhir.model.api.Include("OperationDefinition:base").toLocked();
 
  /**
    * Search parameter: <b>paramprofile</b>
@@ -2672,24 +2666,24 @@ public class OperationDefinition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam CODE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CODE);
 
  /**
-   * Search parameter: <b>instance</b>
+   * Search parameter: <b>date</b>
    * <p>
-   * Description: <b>Invoke on an instance?</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.instance</b><br>
+   * Description: <b>Date for this version of the operation definition</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OperationDefinition.date</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="instance", path="OperationDefinition.instance", description="Invoke on an instance?", type="token" )
-  public static final String SP_INSTANCE = "instance";
+  @SearchParamDefinition(name="date", path="OperationDefinition.date", description="Date for this version of the operation definition", type="date" )
+  public static final String SP_DATE = "date";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>instance</b>
+   * <b>Fluent Client</b> search parameter constant for <b>date</b>
    * <p>
-   * Description: <b>Invoke on an instance?</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.instance</b><br>
+   * Description: <b>Date for this version of the operation definition</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>OperationDefinition.date</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam INSTANCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INSTANCE);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
 
  /**
    * Search parameter: <b>type</b>
@@ -2712,24 +2706,24 @@ public class OperationDefinition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
-   * Search parameter: <b>date</b>
+   * Search parameter: <b>url</b>
    * <p>
-   * Description: <b>Date for this version of the operation definition</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>OperationDefinition.date</b><br>
+   * Description: <b>Logical URL to reference this operation definition</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>OperationDefinition.url</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="date", path="OperationDefinition.date", description="Date for this version of the operation definition", type="date" )
-  public static final String SP_DATE = "date";
+  @SearchParamDefinition(name="url", path="OperationDefinition.url", description="Logical URL to reference this operation definition", type="uri" )
+  public static final String SP_URL = "url";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>date</b>
+   * <b>Fluent Client</b> search parameter constant for <b>url</b>
    * <p>
-   * Description: <b>Date for this version of the operation definition</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>OperationDefinition.date</b><br>
+   * Description: <b>Logical URL to reference this operation definition</b><br>
+   * Type: <b>uri</b><br>
+   * Path: <b>OperationDefinition.url</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam DATE = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_DATE);
+  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
 
  /**
    * Search parameter: <b>kind</b>
@@ -2752,24 +2746,24 @@ public class OperationDefinition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam KIND = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_KIND);
 
  /**
-   * Search parameter: <b>url</b>
+   * Search parameter: <b>version</b>
    * <p>
-   * Description: <b>Logical URL to reference this operation definition</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>OperationDefinition.url</b><br>
+   * Description: <b>Logical id for this version of the operation definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.version</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="url", path="OperationDefinition.url", description="Logical URL to reference this operation definition", type="uri" )
-  public static final String SP_URL = "url";
+  @SearchParamDefinition(name="version", path="OperationDefinition.version", description="Logical id for this version of the operation definition", type="token" )
+  public static final String SP_VERSION = "version";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>url</b>
+   * <b>Fluent Client</b> search parameter constant for <b>version</b>
    * <p>
-   * Description: <b>Logical URL to reference this operation definition</b><br>
-   * Type: <b>uri</b><br>
-   * Path: <b>OperationDefinition.url</b><br>
+   * Description: <b>Logical id for this version of the operation definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.version</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.UriClientParam URL = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_URL);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
 
  /**
    * Search parameter: <b>publisher</b>
@@ -2792,24 +2786,110 @@ public class OperationDefinition extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
 
  /**
-   * Search parameter: <b>version</b>
+   * Search parameter: <b>system</b>
    * <p>
-   * Description: <b>Logical id for this version of the operation definition</b><br>
+   * Description: <b>Invoke at the system level?</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.version</b><br>
+   * Path: <b>OperationDefinition.system</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="version", path="OperationDefinition.version", description="Logical id for this version of the operation definition", type="token" )
-  public static final String SP_VERSION = "version";
+  @SearchParamDefinition(name="system", path="OperationDefinition.system", description="Invoke at the system level?", type="token" )
+  public static final String SP_SYSTEM = "system";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>version</b>
+   * <b>Fluent Client</b> search parameter constant for <b>system</b>
    * <p>
-   * Description: <b>Logical id for this version of the operation definition</b><br>
+   * Description: <b>Invoke at the system level?</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>OperationDefinition.version</b><br>
+   * Path: <b>OperationDefinition.system</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam VERSION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_VERSION);
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SYSTEM = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SYSTEM);
+
+ /**
+   * Search parameter: <b>name</b>
+   * <p>
+   * Description: <b>Informal name for this operation</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>OperationDefinition.name</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="name", path="OperationDefinition.name", description="Informal name for this operation", type="string" )
+  public static final String SP_NAME = "name";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>name</b>
+   * <p>
+   * Description: <b>Informal name for this operation</b><br>
+   * Type: <b>string</b><br>
+   * Path: <b>OperationDefinition.name</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the operation definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.useContext</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="context", path="OperationDefinition.useContext", description="A use context assigned to the operation definition", type="token" )
+  public static final String SP_CONTEXT = "context";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>context</b>
+   * <p>
+   * Description: <b>A use context assigned to the operation definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.useContext</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam CONTEXT = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_CONTEXT);
+
+ /**
+   * Search parameter: <b>base</b>
+   * <p>
+   * Description: <b>Marks this as a profile of the base</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OperationDefinition.base</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="base", path="OperationDefinition.base", description="Marks this as a profile of the base", type="reference" )
+  public static final String SP_BASE = "base";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>base</b>
+   * <p>
+   * Description: <b>Marks this as a profile of the base</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>OperationDefinition.base</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam BASE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_BASE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>OperationDefinition:base</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_BASE = new ca.uhn.fhir.model.api.Include("OperationDefinition:base").toLocked();
+
+ /**
+   * Search parameter: <b>instance</b>
+   * <p>
+   * Description: <b>Invoke on an instance?</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.instance</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="instance", path="OperationDefinition.instance", description="Invoke on an instance?", type="token" )
+  public static final String SP_INSTANCE = "instance";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>instance</b>
+   * <p>
+   * Description: <b>Invoke on an instance?</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>OperationDefinition.instance</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam INSTANCE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_INSTANCE);
 
 
 }

@@ -1328,7 +1328,6 @@ public class ProfileUtilities {
     case DATATYPE: return "Use on data type: "+b.toString();
     case EXTENSION: return "Use on extension: "+b.toString();
     case RESOURCE: return "Use on element: "+b.toString();
-    case MAPPING: return "Use where element has mapping: "+b.toString();
     default:
       return "??";
     }
