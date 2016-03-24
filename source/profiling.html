@@ -552,7 +552,7 @@ profile.  This is called "Re-slicing".  The rules for re-slicing are as follows:
 When you slice, you define a name for each new slice. The name has to be unique across the set of slices in the profile. So if profile A defines an element X with cardinality 0..*, and profile B is derived from profile A, then profile B can either:
 </p>
 <ol>
-  <li>make a constraint on X with no name - in which case the profile is constraining all appearances of X; or </li>
+  <li>make a constraint on X with no name - in which case the profile is aading constraints to all slices of X; or </li>
   <li>make a constraint on X with a name - in which case the profile is describing a specific slice on X, and the constraints only apply to that slice; or </li>
   <li>it can do both</li>
 </ol>
