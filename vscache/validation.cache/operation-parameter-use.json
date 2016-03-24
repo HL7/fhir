@@ -2,37 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/operation-parameter-use",
   "outcomes": [
     {
-      "hash": "|null|null|out|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "out",
-||||||| .r7796
-        "abstract": "in",
-=======
-        "abstract": false,
-        "code": "in",
->>>>>>> .r8010
-        "definition": null,
-        "display": "Out"
-      }
-    },
-    {
       "hash": "|null|null|in|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "in",
-||||||| .r7796
-        "abstract": "out",
-=======
         "abstract": false,
-        "code": "out",
->>>>>>> .r8010
+        "code": "in",
         "definition": null,
         "display": "In"
+      }
+    },
+    {
+      "hash": "|null|null|out|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "out",
+        "definition": null,
+        "display": "Out"
       }
     }
   ]

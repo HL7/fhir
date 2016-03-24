@@ -2,13 +2,7 @@
   "url": "http://hl7.org/fhir/ValueSet/organization-type",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.1060|null|V6|University Medical Hospital#|http://hl7.org/fhir/organization-type|null|prov|Healthcare Provider",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|405608006|Academic Medical Center#|http://hl7.org/fhir/organization-type|null|prov|null",
-=======
       "hash": "#|http://hl7.org/fhir/organization-type|null|dept|Hospital Department",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
@@ -19,13 +13,7 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|405608006|Academic Medical Center#|urn:oid:2.16.840.1.113883.2.4.15.1060|null|V6|University Medical Hospital#|http://hl7.org/fhir/organization-type|null|prov|Healthcare Provider",
-||||||| .r7796
-      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.1060|null|V6|University Medical Hospital#|http://hl7.org/fhir/organization-type|null|prov|Healthcare Provider",
-=======
       "hash": "#|http://hl7.org/fhir/organization-type|null|team|Organizational team",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
@@ -36,35 +24,6 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/organization-type|null|dept|Hospital Department",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/organization-type|null|team|Organizational team",
-=======
-      "hash": "#|http://snomed.info/sct|null|405608006|Academic Medical Center#|http://hl7.org/fhir/organization-type|null|prov|null",
->>>>>>> .r8010
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "dept",
-||||||| .r7796
-        "abstract": "team",
-=======
-        "abstract": false,
-        "code": "prov",
->>>>>>> .r8010
-        "definition": null,
-<<<<<<< .mine
-        "display": "Hospital Department"
-||||||| .r7796
-        "display": "Organizational team"
-=======
-        "display": "Healthcare Provider"
->>>>>>> .r8010
-      }
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|405608006|Academic Medical Center#|http://hl7.org/fhir/organization-type|null|prov|null",
       "severity": null,
       "message": null,
@@ -76,32 +35,25 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/organization-type|null|team|Organizational team",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/organization-type|null|dept|Hospital Department",
-=======
+      "hash": "#|http://snomed.info/sct|null|405608006|Academic Medical Center#|urn:oid:2.16.840.1.113883.2.4.15.1060|null|V6|University Medical Hospital#|http://hl7.org/fhir/organization-type|null|prov|Healthcare Provider",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "prov",
+        "definition": null,
+        "display": "Healthcare Provider"
+      }
+    },
+    {
       "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.1060|null|V6|University Medical Hospital#|http://hl7.org/fhir/organization-type|null|prov|Healthcare Provider",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "team",
-||||||| .r7796
-        "abstract": "dept",
-=======
         "abstract": false,
         "code": "prov",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Organizational team"
-||||||| .r7796
-        "display": "Hospital Department"
-=======
         "display": "Healthcare Provider"
->>>>>>> .r8010
       }
     }
   ]

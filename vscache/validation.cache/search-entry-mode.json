@@ -6,14 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "include",
-||||||| .r7796
-        "abstract": "match",
-=======
         "abstract": false,
         "code": "include",
->>>>>>> .r8010
         "definition": null,
         "display": "Include"
       }
@@ -23,14 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "match",
-||||||| .r7796
-        "abstract": "include",
-=======
         "abstract": false,
         "code": "match",
->>>>>>> .r8010
         "definition": null,
         "display": "Match"
       }

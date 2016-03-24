@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -3312,6 +3312,32 @@ public class ImplementationGuide extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam NAME = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_NAME);
+
+ /**
+   * Search parameter: <b>resource</b>
+   * <p>
+   * Description: <b>Location of the resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImplementationGuide.package.resource.source[x]</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="resource", path="ImplementationGuide.package.resource.source[x]", description="Location of the resource", type="reference" )
+  public static final String SP_RESOURCE = "resource";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>resource</b>
+   * <p>
+   * Description: <b>Location of the resource</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>ImplementationGuide.package.resource.source[x]</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam RESOURCE = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_RESOURCE);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>ImplementationGuide:resource</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_RESOURCE = new ca.uhn.fhir.model.api.Include("ImplementationGuide:resource").toLocked();
 
  /**
    * Search parameter: <b>context</b>

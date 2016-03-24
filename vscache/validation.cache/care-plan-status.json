@@ -6,14 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "active",
-||||||| .r7796
-        "abstract": "completed",
-=======
         "abstract": false,
         "code": "active",
->>>>>>> .r8010
         "definition": null,
         "display": "Active"
       }
@@ -23,14 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "completed",
-||||||| .r7796
-        "abstract": "draft",
-=======
         "abstract": false,
         "code": "completed",
->>>>>>> .r8010
         "definition": null,
         "display": "Completed"
       }
@@ -40,14 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "draft",
-||||||| .r7796
-        "abstract": "active",
-=======
         "abstract": false,
         "code": "draft",
->>>>>>> .r8010
         "definition": null,
         "display": "Pending"
       }

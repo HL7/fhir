@@ -2,72 +2,36 @@
   "url": "http://hl7.org/fhir/ValueSet/patient-contact-relationship",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|127850001|Wife#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null",
+      "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|owner|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "partner",
-||||||| .r7796
-        "abstract": "owner",
-=======
         "abstract": false,
         "code": "owner",
->>>>>>> .r8010
         "definition": null,
-        "display": "Partner"
-      }
-    },
-    {
-<<<<<<< .mine
-      "hash": "#|null|null|guardian|null",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|127850001|Wife#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null",
-=======
-      "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null",
->>>>>>> .r8010
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "guardian",
-||||||| .r7796
-        "abstract": "partner",
-=======
-        "abstract": false,
-        "code": "partner",
->>>>>>> .r8010
-        "definition": null,
-        "display": "Guardian"
-      }
-    },
-    {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|owner|null",
-||||||| .r7796
-      "hash": "#|null|null|guardian|null",
-=======
-      "hash": "#|http://snomed.info/sct|null|127850001|Wife#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null",
->>>>>>> .r8010
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "owner",
-||||||| .r7796
-        "abstract": "guardian",
-=======
-        "abstract": false,
-        "code": "partner",
->>>>>>> .r8010
-        "definition": null,
-<<<<<<< .mine
         "display": "Owner of animal"
-||||||| .r7796
-        "display": "Guardian"
-=======
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "partner",
+        "definition": null,
         "display": "Partner"
->>>>>>> .r8010
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|127850001|Wife#|http://hl7.org/fhir/patient-contact-relationship|null|partner|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "partner",
+        "definition": null,
+        "display": "Partner"
       }
     },
     {

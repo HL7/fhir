@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2749,6 +2749,898 @@ public class TestScript extends DomainResource {
   }
 
     @Block()
+    public static class TestScriptRuleComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Reference to the resource (containing the contents of the rule needed for assertions).
+         */
+        @Child(name = "resource", type = {}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Assert rule resource reference", formalDefinition="Reference to the resource (containing the contents of the rule needed for assertions)." )
+        protected Reference resource;
+
+        /**
+         * The actual object that is the target of the reference (Reference to the resource (containing the contents of the rule needed for assertions).)
+         */
+        protected Resource resourceTarget;
+
+        /**
+         * Each rule template can take one or more parameters for rule evaluation.
+         */
+        @Child(name = "param", type = {}, order=2, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
+        protected List<TestScriptRuleParamComponent> param;
+
+        private static final long serialVersionUID = -524260474L;
+
+    /**
+     * Constructor
+     */
+      public TestScriptRuleComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public TestScriptRuleComponent(Reference resource) {
+        super();
+        this.resource = resource;
+      }
+
+        /**
+         * @return {@link #resource} (Reference to the resource (containing the contents of the rule needed for assertions).)
+         */
+        public Reference getResource() { 
+          if (this.resource == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptRuleComponent.resource");
+            else if (Configuration.doAutoCreate())
+              this.resource = new Reference(); // cc
+          return this.resource;
+        }
+
+        public boolean hasResource() { 
+          return this.resource != null && !this.resource.isEmpty();
+        }
+
+        /**
+         * @param value {@link #resource} (Reference to the resource (containing the contents of the rule needed for assertions).)
+         */
+        public TestScriptRuleComponent setResource(Reference value) { 
+          this.resource = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the resource (containing the contents of the rule needed for assertions).)
+         */
+        public Resource getResourceTarget() { 
+          return this.resourceTarget;
+        }
+
+        /**
+         * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the resource (containing the contents of the rule needed for assertions).)
+         */
+        public TestScriptRuleComponent setResourceTarget(Resource value) { 
+          this.resourceTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
+         */
+        public List<TestScriptRuleParamComponent> getParam() { 
+          if (this.param == null)
+            this.param = new ArrayList<TestScriptRuleParamComponent>();
+          return this.param;
+        }
+
+        public boolean hasParam() { 
+          if (this.param == null)
+            return false;
+          for (TestScriptRuleParamComponent item : this.param)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
+         */
+    // syntactic sugar
+        public TestScriptRuleParamComponent addParam() { //3
+          TestScriptRuleParamComponent t = new TestScriptRuleParamComponent();
+          if (this.param == null)
+            this.param = new ArrayList<TestScriptRuleParamComponent>();
+          this.param.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public TestScriptRuleComponent addParam(TestScriptRuleParamComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.param == null)
+            this.param = new ArrayList<TestScriptRuleParamComponent>();
+          this.param.add(t);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("resource", "Reference(Any)", "Reference to the resource (containing the contents of the rule needed for assertions).", 0, java.lang.Integer.MAX_VALUE, resource));
+          childrenList.add(new Property("param", "", "Each rule template can take one or more parameters for rule evaluation.", 0, java.lang.Integer.MAX_VALUE, param));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("resource"))
+          this.resource = castToReference(value); // Reference
+        else if (name.equals("param"))
+          this.getParam().add((TestScriptRuleParamComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("resource")) {
+          this.resource = new Reference();
+          return this.resource;
+        }
+        else if (name.equals("param")) {
+          return addParam();
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public TestScriptRuleComponent copy() {
+        TestScriptRuleComponent dst = new TestScriptRuleComponent();
+        copyValues(dst);
+        dst.resource = resource == null ? null : resource.copy();
+        if (param != null) {
+          dst.param = new ArrayList<TestScriptRuleParamComponent>();
+          for (TestScriptRuleParamComponent i : param)
+            dst.param.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof TestScriptRuleComponent))
+          return false;
+        TestScriptRuleComponent o = (TestScriptRuleComponent) other;
+        return compareDeep(resource, o.resource, true) && compareDeep(param, o.param, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof TestScriptRuleComponent))
+          return false;
+        TestScriptRuleComponent o = (TestScriptRuleComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (resource == null || resource.isEmpty()) && (param == null || param.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "TestScript.rule";
+
+  }
+
+  }
+
+    @Block()
+    public static class TestScriptRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Descriptive name for this parameter that matches the external assert rule parameter name.
+         */
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Parameter name matching external assert rule parameter", formalDefinition="Descriptive name for this parameter that matches the external assert rule parameter name." )
+        protected StringType name;
+
+        /**
+         * The explict or dynamic value for the parameter that will be passed on to the external rule template.
+         */
+        @Child(name = "value", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Parameter value defined either explicitly or dynamically", formalDefinition="The explict or dynamic value for the parameter that will be passed on to the external rule template." )
+        protected StringType value;
+
+        private static final long serialVersionUID = 395259392L;
+
+    /**
+     * Constructor
+     */
+      public TestScriptRuleParamComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public TestScriptRuleParamComponent(StringType name) {
+        super();
+        this.name = name;
+      }
+
+        /**
+         * @return {@link #name} (Descriptive name for this parameter that matches the external assert rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptRuleParamComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (Descriptive name for this parameter that matches the external assert rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public TestScriptRuleParamComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return Descriptive name for this parameter that matches the external assert rule parameter name.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value Descriptive name for this parameter that matches the external assert rule parameter name.
+         */
+        public TestScriptRuleParamComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #value} (The explict or dynamic value for the parameter that will be passed on to the external rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         */
+        public StringType getValueElement() { 
+          if (this.value == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptRuleParamComponent.value");
+            else if (Configuration.doAutoCreate())
+              this.value = new StringType(); // bb
+          return this.value;
+        }
+
+        public boolean hasValueElement() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        public boolean hasValue() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        /**
+         * @param value {@link #value} (The explict or dynamic value for the parameter that will be passed on to the external rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         */
+        public TestScriptRuleParamComponent setValueElement(StringType value) { 
+          this.value = value;
+          return this;
+        }
+
+        /**
+         * @return The explict or dynamic value for the parameter that will be passed on to the external rule template.
+         */
+        public String getValue() { 
+          return this.value == null ? null : this.value.getValue();
+        }
+
+        /**
+         * @param value The explict or dynamic value for the parameter that will be passed on to the external rule template.
+         */
+        public TestScriptRuleParamComponent setValue(String value) { 
+          if (Utilities.noString(value))
+            this.value = null;
+          else {
+            if (this.value == null)
+              this.value = new StringType();
+            this.value.setValue(value);
+          }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "Descriptive name for this parameter that matches the external assert rule parameter name.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("value", "string", "The explict or dynamic value for the parameter that will be passed on to the external rule template.", 0, java.lang.Integer.MAX_VALUE, value));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("value"))
+          this.value = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.name");
+        }
+        else if (name.equals("value")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.value");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public TestScriptRuleParamComponent copy() {
+        TestScriptRuleParamComponent dst = new TestScriptRuleParamComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof TestScriptRuleParamComponent))
+          return false;
+        TestScriptRuleParamComponent o = (TestScriptRuleParamComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof TestScriptRuleParamComponent))
+          return false;
+        TestScriptRuleParamComponent o = (TestScriptRuleParamComponent) other;
+        return compareValues(name, o.name, true) && compareValues(value, o.value, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "TestScript.rule.param";
+
+  }
+
+  }
+
+    @Block()
+    public static class TestScriptRulesetComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Reference to the resource (containing the contents of the ruleset needed for assertions).
+         */
+        @Child(name = "resource", type = {}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Assert ruleset resource reference", formalDefinition="Reference to the resource (containing the contents of the ruleset needed for assertions)." )
+        protected Reference resource;
+
+        /**
+         * The actual object that is the target of the reference (Reference to the resource (containing the contents of the ruleset needed for assertions).)
+         */
+        protected Resource resourceTarget;
+
+        /**
+         * Id of the referenced rule within the external ruleset template.
+         */
+        @Child(name = "rule", type = {}, order=2, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Id of referenced rule within the ruleset", formalDefinition="Id of the referenced rule within the external ruleset template." )
+        protected List<TestScriptRulesetRuleComponent> rule;
+
+        private static final long serialVersionUID = 5813554L;
+
+    /**
+     * Constructor
+     */
+      public TestScriptRulesetComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public TestScriptRulesetComponent(Reference resource) {
+        super();
+        this.resource = resource;
+      }
+
+        /**
+         * @return {@link #resource} (Reference to the resource (containing the contents of the ruleset needed for assertions).)
+         */
+        public Reference getResource() { 
+          if (this.resource == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptRulesetComponent.resource");
+            else if (Configuration.doAutoCreate())
+              this.resource = new Reference(); // cc
+          return this.resource;
+        }
+
+        public boolean hasResource() { 
+          return this.resource != null && !this.resource.isEmpty();
+        }
+
+        /**
+         * @param value {@link #resource} (Reference to the resource (containing the contents of the ruleset needed for assertions).)
+         */
+        public TestScriptRulesetComponent setResource(Reference value) { 
+          this.resource = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #resource} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Reference to the resource (containing the contents of the ruleset needed for assertions).)
+         */
+        public Resource getResourceTarget() { 
+          return this.resourceTarget;
+        }
+
+        /**
+         * @param value {@link #resource} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Reference to the resource (containing the contents of the ruleset needed for assertions).)
+         */
+        public TestScriptRulesetComponent setResourceTarget(Resource value) { 
+          this.resourceTarget = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #rule} (Id of the referenced rule within the external ruleset template.)
+         */
+        public List<TestScriptRulesetRuleComponent> getRule() { 
+          if (this.rule == null)
+            this.rule = new ArrayList<TestScriptRulesetRuleComponent>();
+          return this.rule;
+        }
+
+        public boolean hasRule() { 
+          if (this.rule == null)
+            return false;
+          for (TestScriptRulesetRuleComponent item : this.rule)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #rule} (Id of the referenced rule within the external ruleset template.)
+         */
+    // syntactic sugar
+        public TestScriptRulesetRuleComponent addRule() { //3
+          TestScriptRulesetRuleComponent t = new TestScriptRulesetRuleComponent();
+          if (this.rule == null)
+            this.rule = new ArrayList<TestScriptRulesetRuleComponent>();
+          this.rule.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public TestScriptRulesetComponent addRule(TestScriptRulesetRuleComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.rule == null)
+            this.rule = new ArrayList<TestScriptRulesetRuleComponent>();
+          this.rule.add(t);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("resource", "Reference(Any)", "Reference to the resource (containing the contents of the ruleset needed for assertions).", 0, java.lang.Integer.MAX_VALUE, resource));
+          childrenList.add(new Property("rule", "", "Id of the referenced rule within the external ruleset template.", 0, java.lang.Integer.MAX_VALUE, rule));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("resource"))
+          this.resource = castToReference(value); // Reference
+        else if (name.equals("rule"))
+          this.getRule().add((TestScriptRulesetRuleComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("resource")) {
+          this.resource = new Reference();
+          return this.resource;
+        }
+        else if (name.equals("rule")) {
+          return addRule();
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public TestScriptRulesetComponent copy() {
+        TestScriptRulesetComponent dst = new TestScriptRulesetComponent();
+        copyValues(dst);
+        dst.resource = resource == null ? null : resource.copy();
+        if (rule != null) {
+          dst.rule = new ArrayList<TestScriptRulesetRuleComponent>();
+          for (TestScriptRulesetRuleComponent i : rule)
+            dst.rule.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof TestScriptRulesetComponent))
+          return false;
+        TestScriptRulesetComponent o = (TestScriptRulesetComponent) other;
+        return compareDeep(resource, o.resource, true) && compareDeep(rule, o.rule, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof TestScriptRulesetComponent))
+          return false;
+        TestScriptRulesetComponent o = (TestScriptRulesetComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (resource == null || resource.isEmpty()) && (rule == null || rule.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "TestScript.ruleset";
+
+  }
+
+  }
+
+    @Block()
+    public static class TestScriptRulesetRuleComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Each rule template can take one or more parameters for rule evaluation.
+         */
+        @Child(name = "param", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Ruleset rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
+        protected List<TestScriptRulesetRuleParamComponent> param;
+
+        private static final long serialVersionUID = 1266281462L;
+
+    /**
+     * Constructor
+     */
+      public TestScriptRulesetRuleComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
+         */
+        public List<TestScriptRulesetRuleParamComponent> getParam() { 
+          if (this.param == null)
+            this.param = new ArrayList<TestScriptRulesetRuleParamComponent>();
+          return this.param;
+        }
+
+        public boolean hasParam() { 
+          if (this.param == null)
+            return false;
+          for (TestScriptRulesetRuleParamComponent item : this.param)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
+         */
+    // syntactic sugar
+        public TestScriptRulesetRuleParamComponent addParam() { //3
+          TestScriptRulesetRuleParamComponent t = new TestScriptRulesetRuleParamComponent();
+          if (this.param == null)
+            this.param = new ArrayList<TestScriptRulesetRuleParamComponent>();
+          this.param.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public TestScriptRulesetRuleComponent addParam(TestScriptRulesetRuleParamComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.param == null)
+            this.param = new ArrayList<TestScriptRulesetRuleParamComponent>();
+          this.param.add(t);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("param", "", "Each rule template can take one or more parameters for rule evaluation.", 0, java.lang.Integer.MAX_VALUE, param));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("param"))
+          this.getParam().add((TestScriptRulesetRuleParamComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("param")) {
+          return addParam();
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public TestScriptRulesetRuleComponent copy() {
+        TestScriptRulesetRuleComponent dst = new TestScriptRulesetRuleComponent();
+        copyValues(dst);
+        if (param != null) {
+          dst.param = new ArrayList<TestScriptRulesetRuleParamComponent>();
+          for (TestScriptRulesetRuleParamComponent i : param)
+            dst.param.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof TestScriptRulesetRuleComponent))
+          return false;
+        TestScriptRulesetRuleComponent o = (TestScriptRulesetRuleComponent) other;
+        return compareDeep(param, o.param, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof TestScriptRulesetRuleComponent))
+          return false;
+        TestScriptRulesetRuleComponent o = (TestScriptRulesetRuleComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (param == null || param.isEmpty());
+      }
+
+  public String fhirType() {
+    return "TestScript.ruleset.rule";
+
+  }
+
+  }
+
+    @Block()
+    public static class TestScriptRulesetRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Descriptive name for this parameter that matches the external assert ruleset rule parameter name.
+         */
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Parameter name matching external assert ruleset rule parameter", formalDefinition="Descriptive name for this parameter that matches the external assert ruleset rule parameter name." )
+        protected StringType name;
+
+        /**
+         * The value for the parameter that will be passed on to the external ruleset rule template.
+         */
+        @Child(name = "value", type = {StringType.class}, order=2, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Parameter value defined either explicitly or dynamically", formalDefinition="The value for the parameter that will be passed on to the external ruleset rule template." )
+        protected StringType value;
+
+        private static final long serialVersionUID = 395259392L;
+
+    /**
+     * Constructor
+     */
+      public TestScriptRulesetRuleParamComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public TestScriptRulesetRuleParamComponent(StringType name) {
+        super();
+        this.name = name;
+      }
+
+        /**
+         * @return {@link #name} (Descriptive name for this parameter that matches the external assert ruleset rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptRulesetRuleParamComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (Descriptive name for this parameter that matches the external assert ruleset rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public TestScriptRulesetRuleParamComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return Descriptive name for this parameter that matches the external assert ruleset rule parameter name.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value Descriptive name for this parameter that matches the external assert ruleset rule parameter name.
+         */
+        public TestScriptRulesetRuleParamComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #value} (The value for the parameter that will be passed on to the external ruleset rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         */
+        public StringType getValueElement() { 
+          if (this.value == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TestScriptRulesetRuleParamComponent.value");
+            else if (Configuration.doAutoCreate())
+              this.value = new StringType(); // bb
+          return this.value;
+        }
+
+        public boolean hasValueElement() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        public boolean hasValue() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        /**
+         * @param value {@link #value} (The value for the parameter that will be passed on to the external ruleset rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         */
+        public TestScriptRulesetRuleParamComponent setValueElement(StringType value) { 
+          this.value = value;
+          return this;
+        }
+
+        /**
+         * @return The value for the parameter that will be passed on to the external ruleset rule template.
+         */
+        public String getValue() { 
+          return this.value == null ? null : this.value.getValue();
+        }
+
+        /**
+         * @param value The value for the parameter that will be passed on to the external ruleset rule template.
+         */
+        public TestScriptRulesetRuleParamComponent setValue(String value) { 
+          if (Utilities.noString(value))
+            this.value = null;
+          else {
+            if (this.value == null)
+              this.value = new StringType();
+            this.value.setValue(value);
+          }
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "Descriptive name for this parameter that matches the external assert ruleset rule parameter name.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("value", "string", "The value for the parameter that will be passed on to the external ruleset rule template.", 0, java.lang.Integer.MAX_VALUE, value));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("value"))
+          this.value = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.name");
+        }
+        else if (name.equals("value")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.value");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public TestScriptRulesetRuleParamComponent copy() {
+        TestScriptRulesetRuleParamComponent dst = new TestScriptRulesetRuleParamComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof TestScriptRulesetRuleParamComponent))
+          return false;
+        TestScriptRulesetRuleParamComponent o = (TestScriptRulesetRuleParamComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof TestScriptRulesetRuleParamComponent))
+          return false;
+        TestScriptRulesetRuleParamComponent o = (TestScriptRulesetRuleParamComponent) other;
+        return compareValues(name, o.name, true) && compareValues(value, o.value, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "TestScript.ruleset.rule.param";
+
+  }
+
+  }
+
+    @Block()
     public static class TestScriptSetupComponent extends BackboneElement implements IBaseBackboneElement {
         /**
          * Capabilities that must exist and are assumed to function correctly on the FHIR server being tested.
@@ -3059,7 +3951,7 @@ public class TestScript extends DomainResource {
          * Server interaction or operation type.
          */
         @Child(name = "type", type = {Coding.class}, order=1, min=0, max=1, modifier=false, summary=false)
-        @Description(shortDefinition="The setup operation type that will be executed", formalDefinition="Server interaction or operation type." )
+        @Description(shortDefinition="The operation code type that will be executed", formalDefinition="Server interaction or operation type." )
         protected Coding type;
 
         /**
@@ -4329,34 +5221,48 @@ public class TestScript extends DomainResource {
         protected StringType responseCode;
 
         /**
+         * The TestScript.rule id value this assert will evaluate.
+         */
+        @Child(name = "rule", type = {}, order=15, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Id of the TestScript.rule", formalDefinition="The TestScript.rule id value this assert will evaluate." )
+        protected SetupActionAssertRuleComponent rule;
+
+        /**
+         * The TestScript.ruleset id value this assert will evaluate.
+         */
+        @Child(name = "ruleset", type = {}, order=16, min=0, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Id of the TestScript.ruleset", formalDefinition="The TestScript.ruleset id value this assert will evaluate." )
+        protected SetupActionAssertRulesetComponent ruleset;
+
+        /**
          * Fixture to evaluate the XPath/JSONPath expression or the headerField  against.
          */
-        @Child(name = "sourceId", type = {IdType.class}, order=15, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "sourceId", type = {IdType.class}, order=17, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Fixture Id of source expression or headerField", formalDefinition="Fixture to evaluate the XPath/JSONPath expression or the headerField  against." )
         protected IdType sourceId;
 
         /**
          * The ID of the Profile to validate against.
          */
-        @Child(name = "validateProfileId", type = {IdType.class}, order=16, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "validateProfileId", type = {IdType.class}, order=18, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Profile Id of validation profile reference", formalDefinition="The ID of the Profile to validate against." )
         protected IdType validateProfileId;
 
         /**
          * The value to compare to.
          */
-        @Child(name = "value", type = {StringType.class}, order=17, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "value", type = {StringType.class}, order=19, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="The value to compare to", formalDefinition="The value to compare to." )
         protected StringType value;
 
         /**
          * Whether or not the test execution will produce a warning only on error for this assert.
          */
-        @Child(name = "warningOnly", type = {BooleanType.class}, order=18, min=0, max=1, modifier=false, summary=false)
+        @Child(name = "warningOnly", type = {BooleanType.class}, order=20, min=0, max=1, modifier=false, summary=false)
         @Description(shortDefinition="Will this assert produce a warning only on error?", formalDefinition="Whether or not the test execution will produce a warning only on error for this assert." )
         protected BooleanType warningOnly;
 
-        private static final long serialVersionUID = -607939856L;
+        private static final long serialVersionUID = -561290310L;
 
     /**
      * Constructor
@@ -5048,6 +5954,54 @@ public class TestScript extends DomainResource {
         }
 
         /**
+         * @return {@link #rule} (The TestScript.rule id value this assert will evaluate.)
+         */
+        public SetupActionAssertRuleComponent getRule() { 
+          if (this.rule == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertComponent.rule");
+            else if (Configuration.doAutoCreate())
+              this.rule = new SetupActionAssertRuleComponent(); // cc
+          return this.rule;
+        }
+
+        public boolean hasRule() { 
+          return this.rule != null && !this.rule.isEmpty();
+        }
+
+        /**
+         * @param value {@link #rule} (The TestScript.rule id value this assert will evaluate.)
+         */
+        public SetupActionAssertComponent setRule(SetupActionAssertRuleComponent value) { 
+          this.rule = value;
+          return this;
+        }
+
+        /**
+         * @return {@link #ruleset} (The TestScript.ruleset id value this assert will evaluate.)
+         */
+        public SetupActionAssertRulesetComponent getRuleset() { 
+          if (this.ruleset == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertComponent.ruleset");
+            else if (Configuration.doAutoCreate())
+              this.ruleset = new SetupActionAssertRulesetComponent(); // cc
+          return this.ruleset;
+        }
+
+        public boolean hasRuleset() { 
+          return this.ruleset != null && !this.ruleset.isEmpty();
+        }
+
+        /**
+         * @param value {@link #ruleset} (The TestScript.ruleset id value this assert will evaluate.)
+         */
+        public SetupActionAssertComponent setRuleset(SetupActionAssertRulesetComponent value) { 
+          this.ruleset = value;
+          return this;
+        }
+
+        /**
          * @return {@link #sourceId} (Fixture to evaluate the XPath/JSONPath expression or the headerField  against.). This is the underlying object with id, value and extensions. The accessor "getSourceId" gives direct access to the value
          */
         public IdType getSourceIdElement() { 
@@ -5255,6 +6209,8 @@ public class TestScript extends DomainResource {
           childrenList.add(new Property("resource", "code", "The type of the resource.  See http://hl7-fhir.github.io/resourcelist.html.", 0, java.lang.Integer.MAX_VALUE, resource));
           childrenList.add(new Property("response", "code", "okay | created | noContent | notModified | bad | forbidden | notFound | methodNotAllowed | conflict | gone | preconditionFailed | unprocessable.", 0, java.lang.Integer.MAX_VALUE, response));
           childrenList.add(new Property("responseCode", "string", "The value of the HTTP response code to be tested.", 0, java.lang.Integer.MAX_VALUE, responseCode));
+          childrenList.add(new Property("rule", "", "The TestScript.rule id value this assert will evaluate.", 0, java.lang.Integer.MAX_VALUE, rule));
+          childrenList.add(new Property("ruleset", "", "The TestScript.ruleset id value this assert will evaluate.", 0, java.lang.Integer.MAX_VALUE, ruleset));
           childrenList.add(new Property("sourceId", "id", "Fixture to evaluate the XPath/JSONPath expression or the headerField  against.", 0, java.lang.Integer.MAX_VALUE, sourceId));
           childrenList.add(new Property("validateProfileId", "id", "The ID of the Profile to validate against.", 0, java.lang.Integer.MAX_VALUE, validateProfileId));
           childrenList.add(new Property("value", "string", "The value to compare to.", 0, java.lang.Integer.MAX_VALUE, value));
@@ -5291,6 +6247,10 @@ public class TestScript extends DomainResource {
           this.response = new AssertionResponseTypesEnumFactory().fromType(value); // Enumeration<AssertionResponseTypes>
         else if (name.equals("responseCode"))
           this.responseCode = castToString(value); // StringType
+        else if (name.equals("rule"))
+          this.rule = (SetupActionAssertRuleComponent) value; // SetupActionAssertRuleComponent
+        else if (name.equals("ruleset"))
+          this.ruleset = (SetupActionAssertRulesetComponent) value; // SetupActionAssertRulesetComponent
         else if (name.equals("sourceId"))
           this.sourceId = castToId(value); // IdType
         else if (name.equals("validateProfileId"))
@@ -5347,6 +6307,14 @@ public class TestScript extends DomainResource {
         else if (name.equals("responseCode")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.responseCode");
         }
+        else if (name.equals("rule")) {
+          this.rule = new SetupActionAssertRuleComponent();
+          return this.rule;
+        }
+        else if (name.equals("ruleset")) {
+          this.ruleset = new SetupActionAssertRulesetComponent();
+          return this.ruleset;
+        }
         else if (name.equals("sourceId")) {
           throw new FHIRException("Cannot call addChild on a primitive type TestScript.sourceId");
         }
@@ -5380,6 +6348,8 @@ public class TestScript extends DomainResource {
         dst.resource = resource == null ? null : resource.copy();
         dst.response = response == null ? null : response.copy();
         dst.responseCode = responseCode == null ? null : responseCode.copy();
+        dst.rule = rule == null ? null : rule.copy();
+        dst.ruleset = ruleset == null ? null : ruleset.copy();
         dst.sourceId = sourceId == null ? null : sourceId.copy();
         dst.validateProfileId = validateProfileId == null ? null : validateProfileId.copy();
         dst.value = value == null ? null : value.copy();
@@ -5399,9 +6369,9 @@ public class TestScript extends DomainResource {
            && compareDeep(contentType, o.contentType, true) && compareDeep(headerField, o.headerField, true)
            && compareDeep(minimumId, o.minimumId, true) && compareDeep(navigationLinks, o.navigationLinks, true)
            && compareDeep(operator, o.operator, true) && compareDeep(path, o.path, true) && compareDeep(resource, o.resource, true)
-           && compareDeep(response, o.response, true) && compareDeep(responseCode, o.responseCode, true) && compareDeep(sourceId, o.sourceId, true)
-           && compareDeep(validateProfileId, o.validateProfileId, true) && compareDeep(value, o.value, true)
-           && compareDeep(warningOnly, o.warningOnly, true);
+           && compareDeep(response, o.response, true) && compareDeep(responseCode, o.responseCode, true) && compareDeep(rule, o.rule, true)
+           && compareDeep(ruleset, o.ruleset, true) && compareDeep(sourceId, o.sourceId, true) && compareDeep(validateProfileId, o.validateProfileId, true)
+           && compareDeep(value, o.value, true) && compareDeep(warningOnly, o.warningOnly, true);
       }
 
       @Override
@@ -5428,13 +6398,763 @@ public class TestScript extends DomainResource {
            && (headerField == null || headerField.isEmpty()) && (minimumId == null || minimumId.isEmpty())
            && (navigationLinks == null || navigationLinks.isEmpty()) && (operator == null || operator.isEmpty())
            && (path == null || path.isEmpty()) && (resource == null || resource.isEmpty()) && (response == null || response.isEmpty())
-           && (responseCode == null || responseCode.isEmpty()) && (sourceId == null || sourceId.isEmpty())
-           && (validateProfileId == null || validateProfileId.isEmpty()) && (value == null || value.isEmpty())
-           && (warningOnly == null || warningOnly.isEmpty());
+           && (responseCode == null || responseCode.isEmpty()) && (rule == null || rule.isEmpty()) && (ruleset == null || ruleset.isEmpty())
+           && (sourceId == null || sourceId.isEmpty()) && (validateProfileId == null || validateProfileId.isEmpty())
+           && (value == null || value.isEmpty()) && (warningOnly == null || warningOnly.isEmpty());
       }
 
   public String fhirType() {
     return "TestScript.setup.action.assert";
+
+  }
+
+  }
+
+    @Block()
+    public static class SetupActionAssertRuleComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Each rule template can take one or more parameters for rule evaluation.
+         */
+        @Child(name = "param", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
+        protected List<SetupActionAssertRuleParamComponent> param;
+
+        private static final long serialVersionUID = 791319302L;
+
+    /**
+     * Constructor
+     */
+      public SetupActionAssertRuleComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
+         */
+        public List<SetupActionAssertRuleParamComponent> getParam() { 
+          if (this.param == null)
+            this.param = new ArrayList<SetupActionAssertRuleParamComponent>();
+          return this.param;
+        }
+
+        public boolean hasParam() { 
+          if (this.param == null)
+            return false;
+          for (SetupActionAssertRuleParamComponent item : this.param)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
+         */
+    // syntactic sugar
+        public SetupActionAssertRuleParamComponent addParam() { //3
+          SetupActionAssertRuleParamComponent t = new SetupActionAssertRuleParamComponent();
+          if (this.param == null)
+            this.param = new ArrayList<SetupActionAssertRuleParamComponent>();
+          this.param.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public SetupActionAssertRuleComponent addParam(SetupActionAssertRuleParamComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.param == null)
+            this.param = new ArrayList<SetupActionAssertRuleParamComponent>();
+          this.param.add(t);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("param", "", "Each rule template can take one or more parameters for rule evaluation.", 0, java.lang.Integer.MAX_VALUE, param));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("param"))
+          this.getParam().add((SetupActionAssertRuleParamComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("param")) {
+          return addParam();
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public SetupActionAssertRuleComponent copy() {
+        SetupActionAssertRuleComponent dst = new SetupActionAssertRuleComponent();
+        copyValues(dst);
+        if (param != null) {
+          dst.param = new ArrayList<SetupActionAssertRuleParamComponent>();
+          for (SetupActionAssertRuleParamComponent i : param)
+            dst.param.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SetupActionAssertRuleComponent))
+          return false;
+        SetupActionAssertRuleComponent o = (SetupActionAssertRuleComponent) other;
+        return compareDeep(param, o.param, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SetupActionAssertRuleComponent))
+          return false;
+        SetupActionAssertRuleComponent o = (SetupActionAssertRuleComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (param == null || param.isEmpty());
+      }
+
+  public String fhirType() {
+    return "TestScript.setup.action.assert.rule";
+
+  }
+
+  }
+
+    @Block()
+    public static class SetupActionAssertRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Descriptive name for this parameter that matches the external assert rule parameter name.
+         */
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Parameter name matching external assert rule parameter", formalDefinition="Descriptive name for this parameter that matches the external assert rule parameter name." )
+        protected StringType name;
+
+        /**
+         * The value for the parameter that will be passed on to the external rule template.
+         */
+        @Child(name = "value", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Parameter value defined either explicitly or dynamically", formalDefinition="The value for the parameter that will be passed on to the external rule template." )
+        protected StringType value;
+
+        private static final long serialVersionUID = 395259392L;
+
+    /**
+     * Constructor
+     */
+      public SetupActionAssertRuleParamComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public SetupActionAssertRuleParamComponent(StringType name, StringType value) {
+        super();
+        this.name = name;
+        this.value = value;
+      }
+
+        /**
+         * @return {@link #name} (Descriptive name for this parameter that matches the external assert rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertRuleParamComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (Descriptive name for this parameter that matches the external assert rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public SetupActionAssertRuleParamComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return Descriptive name for this parameter that matches the external assert rule parameter name.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value Descriptive name for this parameter that matches the external assert rule parameter name.
+         */
+        public SetupActionAssertRuleParamComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #value} (The value for the parameter that will be passed on to the external rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         */
+        public StringType getValueElement() { 
+          if (this.value == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertRuleParamComponent.value");
+            else if (Configuration.doAutoCreate())
+              this.value = new StringType(); // bb
+          return this.value;
+        }
+
+        public boolean hasValueElement() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        public boolean hasValue() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        /**
+         * @param value {@link #value} (The value for the parameter that will be passed on to the external rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         */
+        public SetupActionAssertRuleParamComponent setValueElement(StringType value) { 
+          this.value = value;
+          return this;
+        }
+
+        /**
+         * @return The value for the parameter that will be passed on to the external rule template.
+         */
+        public String getValue() { 
+          return this.value == null ? null : this.value.getValue();
+        }
+
+        /**
+         * @param value The value for the parameter that will be passed on to the external rule template.
+         */
+        public SetupActionAssertRuleParamComponent setValue(String value) { 
+            if (this.value == null)
+              this.value = new StringType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "Descriptive name for this parameter that matches the external assert rule parameter name.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("value", "string", "The value for the parameter that will be passed on to the external rule template.", 0, java.lang.Integer.MAX_VALUE, value));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("value"))
+          this.value = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.name");
+        }
+        else if (name.equals("value")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.value");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public SetupActionAssertRuleParamComponent copy() {
+        SetupActionAssertRuleParamComponent dst = new SetupActionAssertRuleParamComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SetupActionAssertRuleParamComponent))
+          return false;
+        SetupActionAssertRuleParamComponent o = (SetupActionAssertRuleParamComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SetupActionAssertRuleParamComponent))
+          return false;
+        SetupActionAssertRuleParamComponent o = (SetupActionAssertRuleParamComponent) other;
+        return compareValues(name, o.name, true) && compareValues(value, o.value, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "TestScript.setup.action.assert.rule.param";
+
+  }
+
+  }
+
+    @Block()
+    public static class SetupActionAssertRulesetComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Id of the referenced rule within the external ruleset template.
+         */
+        @Child(name = "rule", type = {}, order=1, min=1, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Id of referenced rule within the ruleset", formalDefinition="Id of the referenced rule within the external ruleset template." )
+        protected List<SetupActionAssertRulesetRuleComponent> rule;
+
+        private static final long serialVersionUID = 2134080946L;
+
+    /**
+     * Constructor
+     */
+      public SetupActionAssertRulesetComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #rule} (Id of the referenced rule within the external ruleset template.)
+         */
+        public List<SetupActionAssertRulesetRuleComponent> getRule() { 
+          if (this.rule == null)
+            this.rule = new ArrayList<SetupActionAssertRulesetRuleComponent>();
+          return this.rule;
+        }
+
+        public boolean hasRule() { 
+          if (this.rule == null)
+            return false;
+          for (SetupActionAssertRulesetRuleComponent item : this.rule)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #rule} (Id of the referenced rule within the external ruleset template.)
+         */
+    // syntactic sugar
+        public SetupActionAssertRulesetRuleComponent addRule() { //3
+          SetupActionAssertRulesetRuleComponent t = new SetupActionAssertRulesetRuleComponent();
+          if (this.rule == null)
+            this.rule = new ArrayList<SetupActionAssertRulesetRuleComponent>();
+          this.rule.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public SetupActionAssertRulesetComponent addRule(SetupActionAssertRulesetRuleComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.rule == null)
+            this.rule = new ArrayList<SetupActionAssertRulesetRuleComponent>();
+          this.rule.add(t);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("rule", "", "Id of the referenced rule within the external ruleset template.", 0, java.lang.Integer.MAX_VALUE, rule));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("rule"))
+          this.getRule().add((SetupActionAssertRulesetRuleComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("rule")) {
+          return addRule();
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public SetupActionAssertRulesetComponent copy() {
+        SetupActionAssertRulesetComponent dst = new SetupActionAssertRulesetComponent();
+        copyValues(dst);
+        if (rule != null) {
+          dst.rule = new ArrayList<SetupActionAssertRulesetRuleComponent>();
+          for (SetupActionAssertRulesetRuleComponent i : rule)
+            dst.rule.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SetupActionAssertRulesetComponent))
+          return false;
+        SetupActionAssertRulesetComponent o = (SetupActionAssertRulesetComponent) other;
+        return compareDeep(rule, o.rule, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SetupActionAssertRulesetComponent))
+          return false;
+        SetupActionAssertRulesetComponent o = (SetupActionAssertRulesetComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (rule == null || rule.isEmpty());
+      }
+
+  public String fhirType() {
+    return "TestScript.setup.action.assert.ruleset";
+
+  }
+
+  }
+
+    @Block()
+    public static class SetupActionAssertRulesetRuleComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Each rule template can take one or more parameters for rule evaluation.
+         */
+        @Child(name = "param", type = {}, order=1, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+        @Description(shortDefinition="Rule parameter template", formalDefinition="Each rule template can take one or more parameters for rule evaluation." )
+        protected List<SetupActionAssertRulesetRuleParamComponent> param;
+
+        private static final long serialVersionUID = -905162350L;
+
+    /**
+     * Constructor
+     */
+      public SetupActionAssertRulesetRuleComponent() {
+        super();
+      }
+
+        /**
+         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
+         */
+        public List<SetupActionAssertRulesetRuleParamComponent> getParam() { 
+          if (this.param == null)
+            this.param = new ArrayList<SetupActionAssertRulesetRuleParamComponent>();
+          return this.param;
+        }
+
+        public boolean hasParam() { 
+          if (this.param == null)
+            return false;
+          for (SetupActionAssertRulesetRuleParamComponent item : this.param)
+            if (!item.isEmpty())
+              return true;
+          return false;
+        }
+
+        /**
+         * @return {@link #param} (Each rule template can take one or more parameters for rule evaluation.)
+         */
+    // syntactic sugar
+        public SetupActionAssertRulesetRuleParamComponent addParam() { //3
+          SetupActionAssertRulesetRuleParamComponent t = new SetupActionAssertRulesetRuleParamComponent();
+          if (this.param == null)
+            this.param = new ArrayList<SetupActionAssertRulesetRuleParamComponent>();
+          this.param.add(t);
+          return t;
+        }
+
+    // syntactic sugar
+        public SetupActionAssertRulesetRuleComponent addParam(SetupActionAssertRulesetRuleParamComponent t) { //3
+          if (t == null)
+            return this;
+          if (this.param == null)
+            this.param = new ArrayList<SetupActionAssertRulesetRuleParamComponent>();
+          this.param.add(t);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("param", "", "Each rule template can take one or more parameters for rule evaluation.", 0, java.lang.Integer.MAX_VALUE, param));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("param"))
+          this.getParam().add((SetupActionAssertRulesetRuleParamComponent) value);
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("param")) {
+          return addParam();
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public SetupActionAssertRulesetRuleComponent copy() {
+        SetupActionAssertRulesetRuleComponent dst = new SetupActionAssertRulesetRuleComponent();
+        copyValues(dst);
+        if (param != null) {
+          dst.param = new ArrayList<SetupActionAssertRulesetRuleParamComponent>();
+          for (SetupActionAssertRulesetRuleParamComponent i : param)
+            dst.param.add(i.copy());
+        };
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SetupActionAssertRulesetRuleComponent))
+          return false;
+        SetupActionAssertRulesetRuleComponent o = (SetupActionAssertRulesetRuleComponent) other;
+        return compareDeep(param, o.param, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SetupActionAssertRulesetRuleComponent))
+          return false;
+        SetupActionAssertRulesetRuleComponent o = (SetupActionAssertRulesetRuleComponent) other;
+        return true;
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (param == null || param.isEmpty());
+      }
+
+  public String fhirType() {
+    return "TestScript.setup.action.assert.ruleset.rule";
+
+  }
+
+  }
+
+    @Block()
+    public static class SetupActionAssertRulesetRuleParamComponent extends BackboneElement implements IBaseBackboneElement {
+        /**
+         * Descriptive name for this parameter that matches the external assert ruleset rule parameter name.
+         */
+        @Child(name = "name", type = {StringType.class}, order=1, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Parameter name matching external assert ruleset rule parameter", formalDefinition="Descriptive name for this parameter that matches the external assert ruleset rule parameter name." )
+        protected StringType name;
+
+        /**
+         * The value for the parameter that will be passed on to the external ruleset rule template.
+         */
+        @Child(name = "value", type = {StringType.class}, order=2, min=1, max=1, modifier=false, summary=false)
+        @Description(shortDefinition="Parameter value defined either explicitly or dynamically", formalDefinition="The value for the parameter that will be passed on to the external ruleset rule template." )
+        protected StringType value;
+
+        private static final long serialVersionUID = 395259392L;
+
+    /**
+     * Constructor
+     */
+      public SetupActionAssertRulesetRuleParamComponent() {
+        super();
+      }
+
+    /**
+     * Constructor
+     */
+      public SetupActionAssertRulesetRuleParamComponent(StringType name, StringType value) {
+        super();
+        this.name = name;
+        this.value = value;
+      }
+
+        /**
+         * @return {@link #name} (Descriptive name for this parameter that matches the external assert ruleset rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public StringType getNameElement() { 
+          if (this.name == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertRulesetRuleParamComponent.name");
+            else if (Configuration.doAutoCreate())
+              this.name = new StringType(); // bb
+          return this.name;
+        }
+
+        public boolean hasNameElement() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        public boolean hasName() { 
+          return this.name != null && !this.name.isEmpty();
+        }
+
+        /**
+         * @param value {@link #name} (Descriptive name for this parameter that matches the external assert ruleset rule parameter name.). This is the underlying object with id, value and extensions. The accessor "getName" gives direct access to the value
+         */
+        public SetupActionAssertRulesetRuleParamComponent setNameElement(StringType value) { 
+          this.name = value;
+          return this;
+        }
+
+        /**
+         * @return Descriptive name for this parameter that matches the external assert ruleset rule parameter name.
+         */
+        public String getName() { 
+          return this.name == null ? null : this.name.getValue();
+        }
+
+        /**
+         * @param value Descriptive name for this parameter that matches the external assert ruleset rule parameter name.
+         */
+        public SetupActionAssertRulesetRuleParamComponent setName(String value) { 
+            if (this.name == null)
+              this.name = new StringType();
+            this.name.setValue(value);
+          return this;
+        }
+
+        /**
+         * @return {@link #value} (The value for the parameter that will be passed on to the external ruleset rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         */
+        public StringType getValueElement() { 
+          if (this.value == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create SetupActionAssertRulesetRuleParamComponent.value");
+            else if (Configuration.doAutoCreate())
+              this.value = new StringType(); // bb
+          return this.value;
+        }
+
+        public boolean hasValueElement() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        public boolean hasValue() { 
+          return this.value != null && !this.value.isEmpty();
+        }
+
+        /**
+         * @param value {@link #value} (The value for the parameter that will be passed on to the external ruleset rule template.). This is the underlying object with id, value and extensions. The accessor "getValue" gives direct access to the value
+         */
+        public SetupActionAssertRulesetRuleParamComponent setValueElement(StringType value) { 
+          this.value = value;
+          return this;
+        }
+
+        /**
+         * @return The value for the parameter that will be passed on to the external ruleset rule template.
+         */
+        public String getValue() { 
+          return this.value == null ? null : this.value.getValue();
+        }
+
+        /**
+         * @param value The value for the parameter that will be passed on to the external ruleset rule template.
+         */
+        public SetupActionAssertRulesetRuleParamComponent setValue(String value) { 
+            if (this.value == null)
+              this.value = new StringType();
+            this.value.setValue(value);
+          return this;
+        }
+
+        protected void listChildren(List<Property> childrenList) {
+          super.listChildren(childrenList);
+          childrenList.add(new Property("name", "string", "Descriptive name for this parameter that matches the external assert ruleset rule parameter name.", 0, java.lang.Integer.MAX_VALUE, name));
+          childrenList.add(new Property("value", "string", "The value for the parameter that will be passed on to the external ruleset rule template.", 0, java.lang.Integer.MAX_VALUE, value));
+        }
+
+      @Override
+      public void setProperty(String name, Base value) throws FHIRException {
+        if (name.equals("name"))
+          this.name = castToString(value); // StringType
+        else if (name.equals("value"))
+          this.value = castToString(value); // StringType
+        else
+          super.setProperty(name, value);
+      }
+
+      @Override
+      public Base addChild(String name) throws FHIRException {
+        if (name.equals("name")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.name");
+        }
+        else if (name.equals("value")) {
+          throw new FHIRException("Cannot call addChild on a primitive type TestScript.value");
+        }
+        else
+          return super.addChild(name);
+      }
+
+      public SetupActionAssertRulesetRuleParamComponent copy() {
+        SetupActionAssertRulesetRuleParamComponent dst = new SetupActionAssertRulesetRuleParamComponent();
+        copyValues(dst);
+        dst.name = name == null ? null : name.copy();
+        dst.value = value == null ? null : value.copy();
+        return dst;
+      }
+
+      @Override
+      public boolean equalsDeep(Base other) {
+        if (!super.equalsDeep(other))
+          return false;
+        if (!(other instanceof SetupActionAssertRulesetRuleParamComponent))
+          return false;
+        SetupActionAssertRulesetRuleParamComponent o = (SetupActionAssertRulesetRuleParamComponent) other;
+        return compareDeep(name, o.name, true) && compareDeep(value, o.value, true);
+      }
+
+      @Override
+      public boolean equalsShallow(Base other) {
+        if (!super.equalsShallow(other))
+          return false;
+        if (!(other instanceof SetupActionAssertRulesetRuleParamComponent))
+          return false;
+        SetupActionAssertRulesetRuleParamComponent o = (SetupActionAssertRulesetRuleParamComponent) other;
+        return compareValues(name, o.name, true) && compareValues(value, o.value, true);
+      }
+
+      public boolean isEmpty() {
+        return super.isEmpty() && (name == null || name.isEmpty()) && (value == null || value.isEmpty())
+          ;
+      }
+
+  public String fhirType() {
+    return "TestScript.setup.action.assert.ruleset.rule.param";
 
   }
 
@@ -6236,27 +7956,41 @@ public class TestScript extends DomainResource {
     protected List<TestScriptVariableComponent> variable;
 
     /**
+     * Assert rule to be used in one or more asserts within the test script.
+     */
+    @Child(name = "rule", type = {}, order=19, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Assert rule used within the test script", formalDefinition="Assert rule to be used in one or more asserts within the test script." )
+    protected List<TestScriptRuleComponent> rule;
+
+    /**
+     * Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.
+     */
+    @Child(name = "ruleset", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Description(shortDefinition="Assert ruleset used within the test script", formalDefinition="Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied." )
+    protected List<TestScriptRulesetComponent> ruleset;
+
+    /**
      * A series of required setup operations before tests are executed.
      */
-    @Child(name = "setup", type = {}, order=19, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "setup", type = {}, order=21, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="A series of required setup operations before tests are executed", formalDefinition="A series of required setup operations before tests are executed." )
     protected TestScriptSetupComponent setup;
 
     /**
      * A test in this script.
      */
-    @Child(name = "test", type = {}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "test", type = {}, order=22, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="A test in this script", formalDefinition="A test in this script." )
     protected List<TestScriptTestComponent> test;
 
     /**
      * A series of operations required to clean up after the all the tests are executed (successfully or otherwise).
      */
-    @Child(name = "teardown", type = {}, order=21, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "teardown", type = {}, order=23, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="A series of required clean up steps", formalDefinition="A series of operations required to clean up after the all the tests are executed (successfully or otherwise)." )
     protected TestScriptTeardownComponent teardown;
 
-    private static final long serialVersionUID = 1603560589L;
+    private static final long serialVersionUID = -468958725L;
 
   /**
    * Constructor
@@ -7087,6 +8821,86 @@ public class TestScript extends DomainResource {
     }
 
     /**
+     * @return {@link #rule} (Assert rule to be used in one or more asserts within the test script.)
+     */
+    public List<TestScriptRuleComponent> getRule() { 
+      if (this.rule == null)
+        this.rule = new ArrayList<TestScriptRuleComponent>();
+      return this.rule;
+    }
+
+    public boolean hasRule() { 
+      if (this.rule == null)
+        return false;
+      for (TestScriptRuleComponent item : this.rule)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #rule} (Assert rule to be used in one or more asserts within the test script.)
+     */
+    // syntactic sugar
+    public TestScriptRuleComponent addRule() { //3
+      TestScriptRuleComponent t = new TestScriptRuleComponent();
+      if (this.rule == null)
+        this.rule = new ArrayList<TestScriptRuleComponent>();
+      this.rule.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public TestScript addRule(TestScriptRuleComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.rule == null)
+        this.rule = new ArrayList<TestScriptRuleComponent>();
+      this.rule.add(t);
+      return this;
+    }
+
+    /**
+     * @return {@link #ruleset} (Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.)
+     */
+    public List<TestScriptRulesetComponent> getRuleset() { 
+      if (this.ruleset == null)
+        this.ruleset = new ArrayList<TestScriptRulesetComponent>();
+      return this.ruleset;
+    }
+
+    public boolean hasRuleset() { 
+      if (this.ruleset == null)
+        return false;
+      for (TestScriptRulesetComponent item : this.ruleset)
+        if (!item.isEmpty())
+          return true;
+      return false;
+    }
+
+    /**
+     * @return {@link #ruleset} (Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.)
+     */
+    // syntactic sugar
+    public TestScriptRulesetComponent addRuleset() { //3
+      TestScriptRulesetComponent t = new TestScriptRulesetComponent();
+      if (this.ruleset == null)
+        this.ruleset = new ArrayList<TestScriptRulesetComponent>();
+      this.ruleset.add(t);
+      return t;
+    }
+
+    // syntactic sugar
+    public TestScript addRuleset(TestScriptRulesetComponent t) { //3
+      if (t == null)
+        return this;
+      if (this.ruleset == null)
+        this.ruleset = new ArrayList<TestScriptRulesetComponent>();
+      this.ruleset.add(t);
+      return this;
+    }
+
+    /**
      * @return {@link #setup} (A series of required setup operations before tests are executed.)
      */
     public TestScriptSetupComponent getSetup() { 
@@ -7195,6 +9009,8 @@ public class TestScript extends DomainResource {
         childrenList.add(new Property("fixture", "", "Fixture in the test script - by reference (uri). All fixtures are required for the test script to execute.", 0, java.lang.Integer.MAX_VALUE, fixture));
         childrenList.add(new Property("profile", "Reference(Any)", "Reference to the profile to be used for validation.", 0, java.lang.Integer.MAX_VALUE, profile));
         childrenList.add(new Property("variable", "", "Variable is set based either on element value in response body or on header field value in the response headers.", 0, java.lang.Integer.MAX_VALUE, variable));
+        childrenList.add(new Property("rule", "", "Assert rule to be used in one or more asserts within the test script.", 0, java.lang.Integer.MAX_VALUE, rule));
+        childrenList.add(new Property("ruleset", "", "Contains one or more rules.  Offers a way to group rules so assertions could reference the group of rules and have them all applied.", 0, java.lang.Integer.MAX_VALUE, ruleset));
         childrenList.add(new Property("setup", "", "A series of required setup operations before tests are executed.", 0, java.lang.Integer.MAX_VALUE, setup));
         childrenList.add(new Property("test", "", "A test in this script.", 0, java.lang.Integer.MAX_VALUE, test));
         childrenList.add(new Property("teardown", "", "A series of operations required to clean up after the all the tests are executed (successfully or otherwise).", 0, java.lang.Integer.MAX_VALUE, teardown));
@@ -7240,6 +9056,10 @@ public class TestScript extends DomainResource {
           this.getProfile().add(castToReference(value));
         else if (name.equals("variable"))
           this.getVariable().add((TestScriptVariableComponent) value);
+        else if (name.equals("rule"))
+          this.getRule().add((TestScriptRuleComponent) value);
+        else if (name.equals("ruleset"))
+          this.getRuleset().add((TestScriptRulesetComponent) value);
         else if (name.equals("setup"))
           this.setup = (TestScriptSetupComponent) value; // TestScriptSetupComponent
         else if (name.equals("test"))
@@ -7311,6 +9131,12 @@ public class TestScript extends DomainResource {
         else if (name.equals("variable")) {
           return addVariable();
         }
+        else if (name.equals("rule")) {
+          return addRule();
+        }
+        else if (name.equals("ruleset")) {
+          return addRuleset();
+        }
         else if (name.equals("setup")) {
           this.setup = new TestScriptSetupComponent();
           return this.setup;
@@ -7381,6 +9207,16 @@ public class TestScript extends DomainResource {
           for (TestScriptVariableComponent i : variable)
             dst.variable.add(i.copy());
         };
+        if (rule != null) {
+          dst.rule = new ArrayList<TestScriptRuleComponent>();
+          for (TestScriptRuleComponent i : rule)
+            dst.rule.add(i.copy());
+        };
+        if (ruleset != null) {
+          dst.ruleset = new ArrayList<TestScriptRulesetComponent>();
+          for (TestScriptRulesetComponent i : ruleset)
+            dst.ruleset.add(i.copy());
+        };
         dst.setup = setup == null ? null : setup.copy();
         if (test != null) {
           dst.test = new ArrayList<TestScriptTestComponent>();
@@ -7409,8 +9245,8 @@ public class TestScript extends DomainResource {
            && compareDeep(requirements, o.requirements, true) && compareDeep(copyright, o.copyright, true)
            && compareDeep(origin, o.origin, true) && compareDeep(destination, o.destination, true) && compareDeep(metadata, o.metadata, true)
            && compareDeep(fixture, o.fixture, true) && compareDeep(profile, o.profile, true) && compareDeep(variable, o.variable, true)
-           && compareDeep(setup, o.setup, true) && compareDeep(test, o.test, true) && compareDeep(teardown, o.teardown, true)
-          ;
+           && compareDeep(rule, o.rule, true) && compareDeep(ruleset, o.ruleset, true) && compareDeep(setup, o.setup, true)
+           && compareDeep(test, o.test, true) && compareDeep(teardown, o.teardown, true);
       }
 
       @Override
@@ -7434,8 +9270,9 @@ public class TestScript extends DomainResource {
            && (useContext == null || useContext.isEmpty()) && (requirements == null || requirements.isEmpty())
            && (copyright == null || copyright.isEmpty()) && (origin == null || origin.isEmpty()) && (destination == null || destination.isEmpty())
            && (metadata == null || metadata.isEmpty()) && (fixture == null || fixture.isEmpty()) && (profile == null || profile.isEmpty())
-           && (variable == null || variable.isEmpty()) && (setup == null || setup.isEmpty()) && (test == null || test.isEmpty())
-           && (teardown == null || teardown.isEmpty());
+           && (variable == null || variable.isEmpty()) && (rule == null || rule.isEmpty()) && (ruleset == null || ruleset.isEmpty())
+           && (setup == null || setup.isEmpty()) && (test == null || test.isEmpty()) && (teardown == null || teardown.isEmpty())
+          ;
       }
 
   @Override

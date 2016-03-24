@@ -13,49 +13,25 @@
       }
     },
     {
-      "hash": "|null|null|active|null",
+      "hash": "|null|null|draft|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "active",
-||||||| .r7796
-        "abstract": "draft",
-=======
         "abstract": false,
         "code": "draft",
->>>>>>> .r8010
         "definition": null,
-        "display": "Active"
+        "display": "Draft"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|draft|null",
-||||||| .r7796
-      "hash": "|null|null|active|null",
-=======
       "hash": "|null|null|retired|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "draft",
-||||||| .r7796
-        "abstract": "active",
-=======
         "abstract": false,
         "code": "retired",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Draft"
-||||||| .r7796
-        "display": "Active"
-=======
         "display": "Retired"
->>>>>>> .r8010
       }
     }
   ]

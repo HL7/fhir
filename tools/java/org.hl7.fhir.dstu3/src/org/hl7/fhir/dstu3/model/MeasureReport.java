@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -643,16 +643,16 @@ public class MeasureReport extends DomainResource {
         /**
          * This element refers to a List of patient level MeasureReport resources, one for each patient in this population.
          */
-        @Child(name = "patients", type = {Bundle.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "patients", type = {ListResource.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="For patient-list reports, the patients in this population", formalDefinition="This element refers to a List of patient level MeasureReport resources, one for each patient in this population." )
         protected Reference patients;
 
         /**
          * The actual object that is the target of the reference (This element refers to a List of patient level MeasureReport resources, one for each patient in this population.)
          */
-        protected Bundle patientsTarget;
+        protected ListResource patientsTarget;
 
-        private static final long serialVersionUID = -958834122L;
+        private static final long serialVersionUID = 407500224L;
 
     /**
      * Constructor
@@ -786,19 +786,19 @@ public class MeasureReport extends DomainResource {
         /**
          * @return {@link #patients} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (This element refers to a List of patient level MeasureReport resources, one for each patient in this population.)
          */
-        public Bundle getPatientsTarget() { 
+        public ListResource getPatientsTarget() { 
           if (this.patientsTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MeasureReportGroupPopulationComponent.patients");
             else if (Configuration.doAutoCreate())
-              this.patientsTarget = new Bundle(); // aa
+              this.patientsTarget = new ListResource(); // aa
           return this.patientsTarget;
         }
 
         /**
          * @param value {@link #patients} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (This element refers to a List of patient level MeasureReport resources, one for each patient in this population.)
          */
-        public MeasureReportGroupPopulationComponent setPatientsTarget(Bundle value) { 
+        public MeasureReportGroupPopulationComponent setPatientsTarget(ListResource value) { 
           this.patientsTarget = value;
           return this;
         }
@@ -807,7 +807,7 @@ public class MeasureReport extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The type of the population.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("count", "integer", "The number of members of the population.", 0, java.lang.Integer.MAX_VALUE, count));
-          childrenList.add(new Property("patients", "Reference(Bundle)", "This element refers to a List of patient level MeasureReport resources, one for each patient in this population.", 0, java.lang.Integer.MAX_VALUE, patients));
+          childrenList.add(new Property("patients", "Reference(List)", "This element refers to a List of patient level MeasureReport resources, one for each patient in this population.", 0, java.lang.Integer.MAX_VALUE, patients));
         }
 
       @Override
@@ -1341,16 +1341,16 @@ public class MeasureReport extends DomainResource {
         /**
          * This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum.
          */
-        @Child(name = "patients", type = {Bundle.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "patients", type = {ListResource.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="For patient-list reports, the patients in this population", formalDefinition="This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum." )
         protected Reference patients;
 
         /**
          * The actual object that is the target of the reference (This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum.)
          */
-        protected Bundle patientsTarget;
+        protected ListResource patientsTarget;
 
-        private static final long serialVersionUID = -958834122L;
+        private static final long serialVersionUID = 407500224L;
 
     /**
      * Constructor
@@ -1484,19 +1484,19 @@ public class MeasureReport extends DomainResource {
         /**
          * @return {@link #patients} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum.)
          */
-        public Bundle getPatientsTarget() { 
+        public ListResource getPatientsTarget() { 
           if (this.patientsTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MeasureReportGroupStratifierGroupPopulationComponent.patients");
             else if (Configuration.doAutoCreate())
-              this.patientsTarget = new Bundle(); // aa
+              this.patientsTarget = new ListResource(); // aa
           return this.patientsTarget;
         }
 
         /**
          * @param value {@link #patients} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum.)
          */
-        public MeasureReportGroupStratifierGroupPopulationComponent setPatientsTarget(Bundle value) { 
+        public MeasureReportGroupStratifierGroupPopulationComponent setPatientsTarget(ListResource value) { 
           this.patientsTarget = value;
           return this;
         }
@@ -1505,7 +1505,7 @@ public class MeasureReport extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("type", "code", "The type of the population.", 0, java.lang.Integer.MAX_VALUE, type));
           childrenList.add(new Property("count", "integer", "The number of members of the population in this stratum.", 0, java.lang.Integer.MAX_VALUE, count));
-          childrenList.add(new Property("patients", "Reference(Bundle)", "This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum.", 0, java.lang.Integer.MAX_VALUE, patients));
+          childrenList.add(new Property("patients", "Reference(List)", "This element refers to a List of patient level MeasureReport resources, one for each patient in this population in this stratum.", 0, java.lang.Integer.MAX_VALUE, patients));
         }
 
       @Override
@@ -1767,16 +1767,16 @@ public class MeasureReport extends DomainResource {
         /**
          * This element refers to a List of patient level MeasureReport resources, one for each patient in this population.
          */
-        @Child(name = "patients", type = {Bundle.class}, order=3, min=0, max=1, modifier=false, summary=true)
+        @Child(name = "patients", type = {ListResource.class}, order=3, min=0, max=1, modifier=false, summary=true)
         @Description(shortDefinition="For patient-list reports, the patients in this population", formalDefinition="This element refers to a List of patient level MeasureReport resources, one for each patient in this population." )
         protected Reference patients;
 
         /**
          * The actual object that is the target of the reference (This element refers to a List of patient level MeasureReport resources, one for each patient in this population.)
          */
-        protected Bundle patientsTarget;
+        protected ListResource patientsTarget;
 
-        private static final long serialVersionUID = 1178562147L;
+        private static final long serialVersionUID = 1011446829L;
 
     /**
      * Constructor
@@ -1910,19 +1910,19 @@ public class MeasureReport extends DomainResource {
         /**
          * @return {@link #patients} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (This element refers to a List of patient level MeasureReport resources, one for each patient in this population.)
          */
-        public Bundle getPatientsTarget() { 
+        public ListResource getPatientsTarget() { 
           if (this.patientsTarget == null)
             if (Configuration.errorOnAutoCreate())
               throw new Error("Attempt to auto-create MeasureReportGroupSupplementalDataGroupComponent.patients");
             else if (Configuration.doAutoCreate())
-              this.patientsTarget = new Bundle(); // aa
+              this.patientsTarget = new ListResource(); // aa
           return this.patientsTarget;
         }
 
         /**
          * @param value {@link #patients} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (This element refers to a List of patient level MeasureReport resources, one for each patient in this population.)
          */
-        public MeasureReportGroupSupplementalDataGroupComponent setPatientsTarget(Bundle value) { 
+        public MeasureReportGroupSupplementalDataGroupComponent setPatientsTarget(ListResource value) { 
           this.patientsTarget = value;
           return this;
         }
@@ -1931,7 +1931,7 @@ public class MeasureReport extends DomainResource {
           super.listChildren(childrenList);
           childrenList.add(new Property("value", "string", "The value for this supplemental data element, expressed as a string.  When defining supplemental data  on complex values, the value must be rendered such that the value for each group within the supplemental data element is unique.", 0, java.lang.Integer.MAX_VALUE, value));
           childrenList.add(new Property("count", "integer", "The number of members in the supplemental data group.", 0, java.lang.Integer.MAX_VALUE, count));
-          childrenList.add(new Property("patients", "Reference(Bundle)", "This element refers to a List of patient level MeasureReport resources, one for each patient in this population.", 0, java.lang.Integer.MAX_VALUE, patients));
+          childrenList.add(new Property("patients", "Reference(List)", "This element refers to a List of patient level MeasureReport resources, one for each patient in this population.", 0, java.lang.Integer.MAX_VALUE, patients));
         }
 
       @Override

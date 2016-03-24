@@ -6,161 +6,65 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "collection",
-||||||| .r7796
-        "abstract": "transaction-response",
-=======
         "abstract": false,
         "code": "collection",
->>>>>>> .r8010
         "definition": null,
         "display": "Collection"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|transaction-response|null",
-||||||| .r7796
-      "hash": "|null|null|transaction|null",
-=======
       "hash": "|null|null|document|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "transaction-response",
-||||||| .r7796
-        "abstract": "transaction",
-=======
         "abstract": false,
         "code": "document",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Transaction Response"
-||||||| .r7796
-        "display": "Transaction"
-=======
         "display": "Document"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|searchset|null",
-||||||| .r7796
-      "hash": "|null|null|document|null",
-=======
       "hash": "|null|null|message|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "searchset",
-||||||| .r7796
-        "abstract": "document",
-=======
         "abstract": false,
         "code": "message",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Search Results"
-||||||| .r7796
-        "display": "Document"
-=======
         "display": "Message"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|transaction|null",
-||||||| .r7796
-      "hash": "|null|null|message|null",
-=======
       "hash": "|null|null|searchset|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "transaction",
-||||||| .r7796
-        "abstract": "message",
-=======
         "abstract": false,
         "code": "searchset",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Transaction"
-||||||| .r7796
-        "display": "Message"
-=======
         "display": "Search Results"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|document|null",
-||||||| .r7796
-      "hash": "|null|null|searchset|null",
-=======
       "hash": "|null|null|transaction-response|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "document",
-||||||| .r7796
-        "abstract": "searchset",
-=======
         "abstract": false,
         "code": "transaction-response",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Document"
-||||||| .r7796
-        "display": "Search Results"
-=======
         "display": "Transaction Response"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|message|null",
-||||||| .r7796
-      "hash": "|null|null|collection|null",
-=======
       "hash": "|null|null|transaction|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "message",
-||||||| .r7796
-        "abstract": "collection",
-=======
         "abstract": false,
         "code": "transaction",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Message"
-||||||| .r7796
-        "display": "Collection"
-=======
         "display": "Transaction"
->>>>>>> .r8010
       }
     }
   ]

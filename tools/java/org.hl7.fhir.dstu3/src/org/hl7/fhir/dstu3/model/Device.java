@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -151,17 +151,17 @@ public class Device extends DomainResource {
     }
 
     /**
-     * Unique instance identifiers assigned to a device by organizations like manufacturers or owners. If the identifier identifies the type of device, Device.type should be used.
+     * Unique instance identifiers assigned to a device by manufacturers other organizations or owners.
      */
     @Child(name = "identifier", type = {Identifier.class}, order=0, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Instance id from manufacturer, owner, and others", formalDefinition="Unique instance identifiers assigned to a device by organizations like manufacturers or owners. If the identifier identifies the type of device, Device.type should be used." )
+    @Description(shortDefinition="Instance identifier", formalDefinition="Unique instance identifiers assigned to a device by manufacturers other organizations or owners." )
     protected List<Identifier> identifier;
 
     /**
-     * United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.
+     * [Unique device identifier (UDI)](device.html#5.11.3.2.2) barcode or rfid string assigned to device label or package.
      */
     @Child(name = "udiCarrier", type = {Identifier.class}, order=1, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="Unique Device Identifier (UDI) Barcode string", formalDefinition="United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm." )
+    @Description(shortDefinition="Unique Device Identifier (UDI) Barcode string", formalDefinition="[Unique device identifier (UDI)](device.html#5.11.3.2.2) barcode or rfid string assigned to device label or package." )
     protected Identifier udiCarrier;
 
     /**
@@ -221,14 +221,14 @@ public class Device extends DomainResource {
     protected StringType version;
 
     /**
-     * Patient information, if the resource is affixed to a person.
+     * Patient information, If the device is affixed to a person.
      */
     @Child(name = "patient", type = {Patient.class}, order=10, min=0, max=1, modifier=false, summary=false)
-    @Description(shortDefinition="If the resource is affixed to a person", formalDefinition="Patient information, if the resource is affixed to a person." )
+    @Description(shortDefinition="Patient to whom Device is affixed", formalDefinition="Patient information, If the device is affixed to a person." )
     protected Reference patient;
 
     /**
-     * The actual object that is the target of the reference (Patient information, if the resource is affixed to a person.)
+     * The actual object that is the target of the reference (Patient information, If the device is affixed to a person.)
      */
     protected Patient patientTarget;
 
@@ -295,7 +295,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Unique instance identifiers assigned to a device by organizations like manufacturers or owners. If the identifier identifies the type of device, Device.type should be used.)
+     * @return {@link #identifier} (Unique instance identifiers assigned to a device by manufacturers other organizations or owners.)
      */
     public List<Identifier> getIdentifier() { 
       if (this.identifier == null)
@@ -313,7 +313,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @return {@link #identifier} (Unique instance identifiers assigned to a device by organizations like manufacturers or owners. If the identifier identifies the type of device, Device.type should be used.)
+     * @return {@link #identifier} (Unique instance identifiers assigned to a device by manufacturers other organizations or owners.)
      */
     // syntactic sugar
     public Identifier addIdentifier() { //3
@@ -335,7 +335,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @return {@link #udiCarrier} (United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.)
+     * @return {@link #udiCarrier} ([Unique device identifier (UDI)](device.html#5.11.3.2.2) barcode or rfid string assigned to device label or package.)
      */
     public Identifier getUdiCarrier() { 
       if (this.udiCarrier == null)
@@ -351,7 +351,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @param value {@link #udiCarrier} (United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.)
+     * @param value {@link #udiCarrier} ([Unique device identifier (UDI)](device.html#5.11.3.2.2) barcode or rfid string assigned to device label or package.)
      */
     public Device setUdiCarrier(Identifier value) { 
       this.udiCarrier = value;
@@ -726,7 +726,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} (Patient information, if the resource is affixed to a person.)
+     * @return {@link #patient} (Patient information, If the device is affixed to a person.)
      */
     public Reference getPatient() { 
       if (this.patient == null)
@@ -742,7 +742,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @param value {@link #patient} (Patient information, if the resource is affixed to a person.)
+     * @param value {@link #patient} (Patient information, If the device is affixed to a person.)
      */
     public Device setPatient(Reference value) { 
       this.patient = value;
@@ -750,7 +750,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient information, if the resource is affixed to a person.)
+     * @return {@link #patient} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Patient information, If the device is affixed to a person.)
      */
     public Patient getPatientTarget() { 
       if (this.patientTarget == null)
@@ -762,7 +762,7 @@ public class Device extends DomainResource {
     }
 
     /**
-     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Patient information, if the resource is affixed to a person.)
+     * @param value {@link #patient} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Patient information, If the device is affixed to a person.)
      */
     public Device setPatientTarget(Patient value) { 
       this.patientTarget = value;
@@ -988,8 +988,8 @@ public class Device extends DomainResource {
 
       protected void listChildren(List<Property> childrenList) {
         super.listChildren(childrenList);
-        childrenList.add(new Property("identifier", "Identifier", "Unique instance identifiers assigned to a device by organizations like manufacturers or owners. If the identifier identifies the type of device, Device.type should be used.", 0, java.lang.Integer.MAX_VALUE, identifier));
-        childrenList.add(new Property("udiCarrier", "Identifier", "United States Food and Drug Administration mandated Unique Device Identifier (UDI). Use the human readable information (the content that the user sees, which is sometimes different to the exact syntax represented in the barcode)  - see http://www.fda.gov/MedicalDevices/DeviceRegulationandGuidance/UniqueDeviceIdentification/default.htm.", 0, java.lang.Integer.MAX_VALUE, udiCarrier));
+        childrenList.add(new Property("identifier", "Identifier", "Unique instance identifiers assigned to a device by manufacturers other organizations or owners.", 0, java.lang.Integer.MAX_VALUE, identifier));
+        childrenList.add(new Property("udiCarrier", "Identifier", "[Unique device identifier (UDI)](device.html#5.11.3.2.2) barcode or rfid string assigned to device label or package.", 0, java.lang.Integer.MAX_VALUE, udiCarrier));
         childrenList.add(new Property("status", "code", "Status of the Device availability.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("type", "CodeableConcept", "Code or identifier to identify a kind of device.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("lotNumber", "string", "Lot number assigned by the manufacturer.", 0, java.lang.Integer.MAX_VALUE, lotNumber));
@@ -998,7 +998,7 @@ public class Device extends DomainResource {
         childrenList.add(new Property("expirationDate", "dateTime", "The date and time beyond which this device is no longer valid or should not be used (if applicable).", 0, java.lang.Integer.MAX_VALUE, expirationDate));
         childrenList.add(new Property("model", "string", "The \"model\" is an identifier assigned by the manufacturer to identify the product by its type. This number is shared by the all devices sold as the same type.", 0, java.lang.Integer.MAX_VALUE, model));
         childrenList.add(new Property("version", "string", "The version of the device, if the device has multiple releases under the same model, or if the device is software or carries firmware.", 0, java.lang.Integer.MAX_VALUE, version));
-        childrenList.add(new Property("patient", "Reference(Patient)", "Patient information, if the resource is affixed to a person.", 0, java.lang.Integer.MAX_VALUE, patient));
+        childrenList.add(new Property("patient", "Reference(Patient)", "Patient information, If the device is affixed to a person.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("owner", "Reference(Organization)", "An organization that is responsible for the provision and ongoing maintenance of the device.", 0, java.lang.Integer.MAX_VALUE, owner));
         childrenList.add(new Property("contact", "ContactPoint", "Contact details for an organization or a particular human that is responsible for the device.", 0, java.lang.Integer.MAX_VALUE, contact));
         childrenList.add(new Property("location", "Reference(Location)", "The place where the device can be found.", 0, java.lang.Integer.MAX_VALUE, location));

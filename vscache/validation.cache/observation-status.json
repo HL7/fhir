@@ -2,49 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/observation-status",
   "outcomes": [
     {
-      "hash": "|null|null|entered-in-error|null",
+      "hash": "|null|null|cancelled|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "entered-in-error",
-||||||| .r7796
-        "abstract": "cancelled",
-=======
         "abstract": false,
         "code": "cancelled",
->>>>>>> .r8010
         "definition": null,
-        "display": "Entered in Error"
+        "display": "cancelled"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|cancelled|null",
-||||||| .r7796
-      "hash": "|null|null|final|null",
-=======
       "hash": "|null|null|entered-in-error|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "cancelled",
-||||||| .r7796
-        "abstract": "final",
-=======
         "abstract": false,
         "code": "entered-in-error",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "cancelled"
-||||||| .r7796
-        "display": "Final"
-=======
         "display": "Entered in Error"
->>>>>>> .r8010
       }
     },
     {
@@ -52,14 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "final",
-||||||| .r7796
-        "abstract": "entered-in-error",
-=======
         "abstract": false,
         "code": "final",
->>>>>>> .r8010
         "definition": null,
         "display": "Final"
       }

@@ -2,32 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/http-verb",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "|null|null|GET|null",
-||||||| .r7796
-      "hash": "|null|null|PUT|null",
-=======
       "hash": "|null|null|DELETE|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "GET",
-||||||| .r7796
-        "abstract": "PUT",
-=======
         "abstract": false,
         "code": "DELETE",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "GET"
-||||||| .r7796
-        "display": "PUT"
-=======
         "display": "DELETE"
->>>>>>> .r8010
       }
     },
     {
@@ -42,32 +24,14 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|PUT|null",
-||||||| .r7796
-      "hash": "|null|null|GET|null",
-=======
       "hash": "|null|null|POST|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "PUT",
-||||||| .r7796
-        "abstract": "GET",
-=======
         "abstract": false,
         "code": "POST",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "PUT"
-||||||| .r7796
-        "display": "GET"
-=======
         "display": "POST"
->>>>>>> .r8010
       }
     },
     {

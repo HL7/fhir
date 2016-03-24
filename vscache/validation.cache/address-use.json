@@ -2,37 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/address-use",
   "outcomes": [
     {
-      "hash": "|null|null|work|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "work",
-||||||| .r7796
-        "abstract": "home",
-=======
-        "abstract": false,
-        "code": "home",
->>>>>>> .r8010
-        "definition": null,
-        "display": "Work"
-      }
-    },
-    {
       "hash": "|null|null|home|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "home",
-||||||| .r7796
-        "abstract": "work",
-=======
         "abstract": false,
-        "code": "work",
->>>>>>> .r8010
+        "code": "home",
         "definition": null,
         "display": "Home"
+      }
+    },
+    {
+      "hash": "|null|null|work|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "work",
+        "definition": null,
+        "display": "Work"
       }
     }
   ]

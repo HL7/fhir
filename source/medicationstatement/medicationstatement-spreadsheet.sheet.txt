@@ -156,18 +156,28 @@
   Element = MedicationStatement.informationSource
   Card. = 0..1
   Type = Reference(Patient | Practitioner | RelatedPerson)
-  Definition = The person who provided the information about the taking of this medication.
+  Short Label = Person who provided the information about the taking of this medication
+  Definition = The person who provided the information about the taking of this medication.  Note:  A MedicationStatement may be derived from supportingInformation e.g claims or medicationOrder.
   RIM Mapping = .participation[typeCode=INF].role[classCode=PAT, or  codes for Practioner or Related Person (if PAT is the informer, then syntax for self-reported =true)
   w5 = who.source
 
  -- Row 8 -----------------------------------
+  Element = MedicationStatement.supportingInformation
+  Card. = 0..*
+  Type = Reference(Any)
+  Short Label = Additional supporting information
+  Definition = Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports or is used to derive the MedicationStatement.
+  Comments = Likely references would be to MedicationOrder, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
+  RIM Mapping = .outboundRelationship[typeCode=SPRT]/target[classCode=ACT,moodCode=EVN]
+
+ -- Row 9 -----------------------------------
   Element = MedicationStatement.dateAsserted
   Card. = 0..1
   Type = dateTime
   Short Label = When the statement was asserted?
   Definition = The date when the medication statement was asserted by the information source.
 
- -- Row 9 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = MedicationStatement.wasNotTaken
   Card. = 0..1
   Is Modifier = Y
@@ -177,7 +187,7 @@
   RIM Mapping = SubstanceAdministration.actionNegationInd
   Missing Meaning = If this is missing, then the medication was taken
 
- -- Row 10 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = MedicationStatement.reasonNotTaken
   Card. = 0..*
   Inv. = 1
@@ -187,7 +197,7 @@
   Definition = A code indicating why the medication was not taken.
   RIM Mapping = SubstanceAdministration->Reason->Observation->Value
 
- -- Row 11 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = MedicationStatement.reasonForUse[x]
   Card. = 0..1
   Type = CodeableConcept | Reference(Condition)
@@ -195,22 +205,13 @@
   Definition = A reason for why the medication is being/was taken.
   RIM Mapping = .reasonCode
 
- -- Row 12 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = MedicationStatement.note
   Card. = 0..*
   Type = Annotation
   Short Label = Further information about the statement
   Definition = Provides extra information about the medication statement that is not conveyed by the other attributes.
   RIM Mapping = .inboundRelationship[typeCode=SUBJ]/source[classCode=OBS,moodCode=EVN,code=\"annotation\"].value
-
- -- Row 13 -----------------------------------
-  Element = MedicationStatement.supportingInformation
-  Card. = 0..*
-  Type = Reference(Any)
-  Short Label = Additional supporting information
-  Definition = Allows linking the MedicationStatement to the underlying MedicationOrder, or to other information that supports the MedicationStatement.
-  Comments = Likely references would be to MedicationOrder, MedicationDispense, Claim, Observation or QuestionnaireAnswers.
-  RIM Mapping = .outboundRelationship[typeCode=SPRT]/target[classCode=ACT,moodCode=EVN]
 
  -- Row 14 -----------------------------------
   Element = MedicationStatement.dosage

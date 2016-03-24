@@ -2,20 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/service-referral-method",
   "outcomes": [
     {
-      "hash": "#|null|null|phone|Phone",
+      "hash": "#|null|null|elec|Secure Messaging",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "phone",
-||||||| .r7796
-        "abstract": "elec",
-=======
         "abstract": false,
         "code": "elec",
->>>>>>> .r8010
         "definition": null,
-        "display": "Phone"
+        "display": "Secure Messaging"
       }
     },
     {
@@ -23,14 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "fax",
-||||||| .r7796
-        "abstract": "phone",
-=======
         "abstract": false,
         "code": "fax",
->>>>>>> .r8010
         "definition": null,
         "display": "Fax"
       }
@@ -47,32 +35,14 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|null|null|elec|Secure Messaging",
-||||||| .r7796
-      "hash": "#|null|null|fax|Fax",
-=======
       "hash": "#|null|null|semail|Secure Email",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "elec",
-||||||| .r7796
-        "abstract": "fax",
-=======
         "abstract": false,
         "code": "semail",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Secure Messaging"
-||||||| .r7796
-        "display": "Fax"
-=======
         "display": "Secure Email"
->>>>>>> .r8010
       }
     }
   ]

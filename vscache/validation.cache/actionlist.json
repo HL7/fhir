@@ -6,33 +6,10 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "cancel",
-||||||| .r7796
-        "abstract": "status",
-=======
         "abstract": false,
         "code": "cancel",
->>>>>>> .r8010
         "definition": null,
         "display": "Cancel, Reverse or Nullify"
-      }
-    },
-    {
-      "hash": "|null|null|reprocess|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "reprocess",
-||||||| .r7796
-        "abstract": "poll",
-=======
-        "abstract": false,
-        "code": "poll",
->>>>>>> .r8010
-        "definition": null,
-        "display": "Re-Process"
       }
     },
     {
@@ -40,16 +17,21 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "poll",
-||||||| .r7796
-        "abstract": "reprocess",
-=======
         "abstract": false,
-        "code": "reprocess",
->>>>>>> .r8010
+        "code": "poll",
         "definition": null,
         "display": "Poll"
+      }
+    },
+    {
+      "hash": "|null|null|reprocess|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "reprocess",
+        "definition": null,
+        "display": "Re-Process"
       }
     },
     {
@@ -57,14 +39,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "status",
-||||||| .r7796
-        "abstract": "cancel",
-=======
         "abstract": false,
         "code": "status",
->>>>>>> .r8010
         "definition": null,
         "display": "Status Check"
       }

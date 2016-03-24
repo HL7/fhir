@@ -6,14 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "client",
-||||||| .r7796
-        "abstract": "server",
-=======
         "abstract": false,
         "code": "client",
->>>>>>> .r8010
         "definition": null,
         "display": "Client"
       }
@@ -23,14 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "server",
-||||||| .r7796
-        "abstract": "client",
-=======
         "abstract": false,
         "code": "server",
->>>>>>> .r8010
         "definition": null,
         "display": "Server"
       }

@@ -6,14 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "<=",
-||||||| .r7796
-        "abstract": ">",
-=======
         "abstract": false,
         "code": "<=",
->>>>>>> .r8010
         "definition": null,
         "display": "Less or Equal to"
       }
@@ -45,14 +39,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": ">",
-||||||| .r7796
-        "abstract": "<=",
-=======
         "abstract": false,
         "code": ">",
->>>>>>> .r8010
         "definition": null,
         "display": "Greater than"
       }

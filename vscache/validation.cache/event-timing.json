@@ -2,37 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/event-timing",
   "outcomes": [
     {
-      "hash": "|null|null|HS|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "HS",
-||||||| .r7796
-        "abstract": "C",
-=======
-        "abstract": false,
-        "code": "C",
->>>>>>> .r8010
-        "definition": null,
-        "display": "HS"
-      }
-    },
-    {
       "hash": "|null|null|C|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "C",
-||||||| .r7796
-        "abstract": "HS",
-=======
         "abstract": false,
-        "code": "HS",
->>>>>>> .r8010
+        "code": "C",
         "definition": null,
         "display": "C"
+      }
+    },
+    {
+      "hash": "|null|null|HS|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "HS",
+        "definition": null,
+        "display": "HS"
       }
     }
   ]

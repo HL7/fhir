@@ -6,14 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "json",
-||||||| .r7796
-        "abstract": "xml",
-=======
         "abstract": false,
         "code": "json",
->>>>>>> .r8010
         "definition": null,
         "display": "json"
       }
@@ -23,14 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "xml",
-||||||| .r7796
-        "abstract": "json",
-=======
         "abstract": false,
         "code": "xml",
->>>>>>> .r8010
         "definition": null,
         "display": "xml"
       }

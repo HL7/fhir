@@ -6,14 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "N",
-||||||| .r7796
-        "abstract": "V",
-=======
         "abstract": false,
         "code": "N",
->>>>>>> .r8010
         "definition": null,
         "display": "normal"
       }
@@ -23,14 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "V",
-||||||| .r7796
-        "abstract": "N",
-=======
         "abstract": false,
         "code": "V",
->>>>>>> .r8010
         "definition": null,
         "display": "very restricted"
       }

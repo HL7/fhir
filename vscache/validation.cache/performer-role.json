@@ -2,11 +2,6 @@
   "url": "http://hl7.org/fhir/ValueSet/performer-role",
   "outcomes": [
     {
-      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.000|Arts",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
       "hash": "#|http://snomed.info/sct|null|310512001|Medical oncologist",
       "severity": null,
       "message": null,
@@ -16,20 +11,11 @@
         "definition": null,
         "display": "Medical oncologist"
       }
-<<<<<<< .mine
-||||||| .r7796
-    },
-    {
-      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.000|Arts",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-=======
     },
     {
       "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.000|Arts",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Procedure Performer Role Codes"
->>>>>>> .r8010
     }
   ]
 }

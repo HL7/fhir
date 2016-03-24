@@ -2,107 +2,47 @@
   "url": "http://hl7.org/fhir/ValueSet/contact-point-system",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "|null|null|other|null",
-||||||| .r7796
-      "hash": "|null|null|phone|null",
-=======
       "hash": "|null|null|email|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "other",
-||||||| .r7796
-        "abstract": "phone",
-=======
         "abstract": false,
         "code": "email",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "URL"
-||||||| .r7796
-        "display": "Phone"
-=======
         "display": "Email"
->>>>>>> .r8010
       }
     },
     {
-      "hash": "|null|null|email|null",
+      "hash": "|null|null|fax|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "email",
-||||||| .r7796
-        "abstract": "fax",
-=======
         "abstract": false,
         "code": "fax",
->>>>>>> .r8010
         "definition": null,
-        "display": "Email"
+        "display": "Fax"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|phone|null",
-||||||| .r7796
-      "hash": "|null|null|email|null",
-=======
       "hash": "|null|null|other|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "phone",
-||||||| .r7796
-        "abstract": "email",
-=======
         "abstract": false,
         "code": "other",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Phone"
-||||||| .r7796
-        "display": "Email"
-=======
         "display": "URL"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|fax|null",
-||||||| .r7796
-      "hash": "|null|null|other|null",
-=======
       "hash": "|null|null|phone|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "fax",
-||||||| .r7796
-        "abstract": "other",
-=======
         "abstract": false,
         "code": "phone",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Fax"
-||||||| .r7796
-        "display": "URL"
-=======
         "display": "Phone"
->>>>>>> .r8010
       }
     }
   ]

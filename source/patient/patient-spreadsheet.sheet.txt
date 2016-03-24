@@ -819,6 +819,7 @@
   Use = in
   Documentation = The family name for matching
   Type = string
+  Search Type = string
   Title = The patient\'s family name
   Min = 0
   Max = 1
@@ -828,6 +829,7 @@
   Use = in
   Documentation = The given name for matching
   Type = string
+  Search Type = string
   Title = The patient\'s given name
   Min = 0
   Max = 1
@@ -837,6 +839,7 @@
   Use = in
   Documentation = The gender for matching
   Type = string
+  Search Type = token
   Title = The patient\'s gender
   Min = 0
   Max = 1
@@ -846,6 +849,7 @@
   Use = in
   Documentation = The birth date of the patient for matching
   Type = string
+  Search Type = date
   Title = The patient\'s birthdate
   Min = 0
   Max = 1
@@ -855,6 +859,7 @@
   Use = in
   Documentation = An identifier to use for the matching
   Type = string
+  Search Type = token
   Title = An identifier for the patient
   Min = 0
   Max = 1
@@ -864,6 +869,7 @@
   Use = in
   Documentation = Some kind of telecom to use for the matching
   Type = string
+  Search Type = token
   Title = Any kind of contact for the patient
   Min = 0
   Max = 1
@@ -873,6 +879,7 @@
   Use = in
   Documentation = A phone number to use for matching
   Type = string
+  Search Type = token
   Title = A phone contact for the patient
   Min = 0
   Max = 1
@@ -882,6 +889,7 @@
   Use = in
   Documentation = An email address to use for matching
   Type = string
+  Search Type = token
   Title = An email contact for the patient
   Min = 0
   Max = 1
@@ -891,6 +899,7 @@
   Use = in
   Documentation = A postcode to use for matching
   Type = string
+  Search Type = string
   Title = A postcode for the patient
   Min = 0
   Max = 1

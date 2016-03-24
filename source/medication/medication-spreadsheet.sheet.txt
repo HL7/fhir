@@ -97,9 +97,9 @@
   RIM Mapping = .scopesRole[typeCode=INGR]
 
  -- Row 8 -----------------------------------
-  Element = Medication.product.ingredient.item
+  Element = Medication.product.ingredient.item[x]
   Card. = 1..1
-  Type = Reference(Substance|Medication)
+  Type = CodeableConcept|Reference(Substance|Medication)
   Short Label = The product contained
   Definition = The actual ingredient - either a substance (simple ingredient) or another medication
   v2 Mapping = RXC-2-Component Code  if medication: RXO-1-Requested Give Code / RXE-2-Give Code / RXD-2-Dispense/Give Code / RXG-4-Give Code / RXA-5-Administered Code
@@ -163,9 +163,9 @@
   RIM Mapping = .scopesRole[typeCode=CONT]
 
  -- Row 16 -----------------------------------
-  Element = Medication.package.content.item
+  Element = Medication.package.content.item[x]
   Card. = 1..1
-  Type = Reference(Medication)
+  Type = CodeableConcept|Reference(Medication)
   Short Label = The item in the package
   Definition = Identifies one of the items in the package
   RIM Mapping = .player
@@ -198,17 +198,27 @@
  -- Row 4 -----------------------------------
   Name = ingredient
   Type = reference
-  Path = Medication.product.ingredient.item
+  Path = Medication.product.ingredient.itemReference
 
  -- Row 5 -----------------------------------
+  Name = ingredient-code
+  Type = token
+  Path = Medication.product.ingredient.itemCodeableConcept
+
+ -- Row 6 -----------------------------------
   Name = container
   Type = token
   Path = Medication.package.container
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = package-item
   Type = reference
-  Path = Medication.package.content.item
+  Path = Medication.package.content.itemReference
+
+ -- Row 8 -----------------------------------
+  Name = package-item-code
+  Type = token
+  Path = Medication.package.content.itemCodeableConcept
 
 === Sheet Profiles =====================================
 

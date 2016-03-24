@@ -2,130 +2,58 @@
   "url": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|252275004|Haematology test#|http://hl7.org/fhir/v2/0074|null|HM|null",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|15220000|Laboratory test#|http://hl7.org/fhir/v2/0074|null|LAB|null",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0074|null|HM|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "HM",
-||||||| .r7796
-        "abstract": "LAB",
-=======
         "abstract": false,
         "code": "HM",
->>>>>>> .r8010
         "definition": null,
         "display": "Hematology"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0074|null|HM|null",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|394914008|Radiology#|http://hl7.org/fhir/v2/0074|null|RAD|null",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0074|null|MB|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "HM",
-||||||| .r7796
-        "abstract": "RAD",
-=======
         "abstract": false,
         "code": "MB",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Hematology"
-||||||| .r7796
-        "display": "Radiology"
-=======
         "display": "Microbiology"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|394914008|Radiology#|http://hl7.org/fhir/v2/0074|null|RAD|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0074|null|MB|null",
-=======
       "hash": "#|http://snomed.info/sct|null|15220000|Laboratory test#|http://hl7.org/fhir/v2/0074|null|LAB|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "RAD",
-||||||| .r7796
-        "abstract": "MB",
-=======
         "abstract": false,
         "code": "LAB",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Radiology"
-||||||| .r7796
-        "display": "Microbiology"
-=======
         "display": "Laboratory"
->>>>>>> .r8010
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|15220000|Laboratory test#|http://hl7.org/fhir/v2/0074|null|LAB|null",
+      "hash": "#|http://snomed.info/sct|null|252275004|Haematology test#|http://hl7.org/fhir/v2/0074|null|HM|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "LAB",
-||||||| .r7796
-        "abstract": "HM",
-=======
         "abstract": false,
         "code": "HM",
->>>>>>> .r8010
         "definition": null,
-        "display": "Laboratory"
+        "display": "Hematology"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0074|null|MB|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0074|null|HM|null",
-=======
       "hash": "#|http://snomed.info/sct|null|394914008|Radiology#|http://hl7.org/fhir/v2/0074|null|RAD|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "MB",
-||||||| .r7796
-        "abstract": "HM",
-=======
         "abstract": false,
         "code": "RAD",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Microbiology"
-||||||| .r7796
-        "display": "Hematology"
-=======
         "display": "Radiology"
->>>>>>> .r8010
       }
     }
   ]

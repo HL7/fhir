@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
 
 
 import org.hl7.fhir.instance.model.api.*;
@@ -2254,7 +2254,7 @@ public class Enumerations {
          */
         CAREPLAN, 
         /**
-         * A Care Team includes all the people and organizations of interest who participate in the coordination and delivery of care for a patient.
+         * The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.
          */
         CARETEAM, 
         /**
@@ -3427,7 +3427,7 @@ public class Enumerations {
             case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
-            case CARETEAM: return "A Care Team includes all the people and organizations of interest who participate in the coordination and delivery of care for a patient.";
+            case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
@@ -4981,7 +4981,7 @@ public class Enumerations {
          */
         CAREPLAN, 
         /**
-         * A Care Team includes all the people and organizations of interest who participate in the coordination and delivery of care for a patient.
+         * The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.
          */
         CARETEAM, 
         /**
@@ -6138,7 +6138,7 @@ public class Enumerations {
             case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
-            case CARETEAM: return "A Care Team includes all the people and organizations of interest who participate in the coordination and delivery of care for a patient.";
+            case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";
@@ -7893,7 +7893,7 @@ public class Enumerations {
          */
         CAREPLAN, 
         /**
-         * A Care Team includes all the people and organizations of interest who participate in the coordination and delivery of care for a patient.
+         * The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.
          */
         CARETEAM, 
         /**
@@ -8795,7 +8795,7 @@ public class Enumerations {
             case BODYSITE: return "Record details about the anatomical location of a specimen or body part.  This resource may be used when a coded concept does not provide the necessary detail needed for the use case.";
             case BUNDLE: return "A container for a collection of resources.";
             case CAREPLAN: return "Describes the intention of how one or more practitioners intend to deliver care for a particular patient, group or community for a period of time, possibly limited to care for a specific condition or set of conditions.";
-            case CARETEAM: return "A Care Team includes all the people and organizations of interest who participate in the coordination and delivery of care for a patient.";
+            case CARETEAM: return "The Care Team includes all the people and organizations who plan to participate in the coordination and delivery of care for a patient.";
             case CLAIM: return "A provider issued list of services and products provided, or to be provided, to a patient which is provided to an insurer for payment recovery.";
             case CLAIMRESPONSE: return "This resource provides the adjudication details from the processing of a Claim resource.";
             case CLINICALIMPRESSION: return "A record of a clinical assessment performed to determine what problem(s) may affect the patient and before planning the treatments or management strategies that are best to manage a patient's condition. Assessments are often 1:1 with a clinical consultation / encounter,  but this varies greatly depending on the clinical workflow. This resource is called \"ClinicalImpression\" rather than \"ClinicalAssessment\" to avoid confusion with the recording of assessment tools such as Apgar score.";

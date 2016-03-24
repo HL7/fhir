@@ -2,20 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/designation-use",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "|http://acme.com/config/fhir/codesystems/internal|null|internal-label|null",
-      "severity": "error",
-      "message": "Unknown Code internal-label in http://hl7.org/fhir/ValueSet/designation-use"
-    },
-    {
-||||||| .r7796
-=======
       "hash": "|http://acme.com/config/fhir/codesystems/internal|null|internal-label|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Designation Use"
     },
     {
->>>>>>> .r8010
       "hash": "|http://snomed.info/sct|null|900000000000003001|Fully specified name",
       "severity": null,
       "message": null,

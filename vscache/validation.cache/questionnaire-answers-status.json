@@ -2,37 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/questionnaire-answers-status",
   "outcomes": [
     {
-      "hash": "|null|null|in-progress|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "in-progress",
-||||||| .r7796
-        "abstract": "completed",
-=======
-        "abstract": false,
-        "code": "completed",
->>>>>>> .r8010
-        "definition": null,
-        "display": "In Progress"
-      }
-    },
-    {
       "hash": "|null|null|completed|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "completed",
-||||||| .r7796
-        "abstract": "in-progress",
-=======
         "abstract": false,
-        "code": "in-progress",
->>>>>>> .r8010
+        "code": "completed",
         "definition": null,
         "display": "Completed"
+      }
+    },
+    {
+      "hash": "|null|null|in-progress|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "in-progress",
+        "definition": null,
+        "display": "In Progress"
       }
     }
   ]

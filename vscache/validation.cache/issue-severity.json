@@ -17,45 +17,21 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "fatal",
-||||||| .r7796
-        "abstract": "error",
-=======
         "abstract": false,
         "code": "fatal",
->>>>>>> .r8010
         "definition": null,
         "display": "Fatal"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|error|null",
-||||||| .r7796
-      "hash": "|null|null|fatal|null",
-=======
       "hash": "|null|null|information|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "error",
-||||||| .r7796
-        "abstract": "fatal",
-=======
         "abstract": false,
         "code": "information",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Error"
-||||||| .r7796
-        "display": "Fatal"
-=======
         "display": "Information"
->>>>>>> .r8010
       }
     }
   ]

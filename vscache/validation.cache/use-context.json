@@ -2,24 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/use-context",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT",
-||||||| .r7796
-      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
-=======
       "hash": "#|http://example.org/FBPP|null|null|FBPP Pooled Database#|http://example.org/PhenX|null|null|Demographics#|http://example.org/EligibilityCriteria|null|null|Pt. Administrative#|http://example.org/UAMSClinicalResearch|null|null|UAMS New CDEs#|http://example.org/PhenX|null|null|Substance Abuse and #|http://example.org/Category|null|null|CSAERS Adverse Event#|http://example.org/PhenX|null|null|Core: Tier 1#|http://example.org/Category|null|null|Case Report Forms#|http://example.org/Category|null|null|CSAERS Review Set#|http://example.org/Demonstration%20Applications|null|null|CIAF#|http://example.org/NIDA%20CTN%20Usage|null|null|Clinical Research#|http://example.org/NIDA%20CTN%20Usage|null|null|Electronic Health Re#|http://example.org/Condition|null|null|Barretts Esophagus#|http://example.org/Condition|null|null|Bladder Cancer#|http://example.org/Condition|null|null|Oral Leukoplakia#|http://example.org/Condition|null|null|Sulindac for Breast",
->>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes provided are  valid in the value set Context of Use ValueSet"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
-||||||| .r7796
-      "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT",
-=======
       "hash": "#|http://loinc.org/class|null|null|MISC",
->>>>>>> .r8010
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
@@ -29,40 +17,11 @@
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
     {
-<<<<<<< .mine
-      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "United States Minor Outlying Islands (the)"
-      }
-    },
-    {
-||||||| .r7796
-      "hash": "#|urn:iso:std:iso:3166|null|AU|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "Austria"
-      }
-    },
-    {
-      "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
-    },
-    {
-=======
       "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
     {
->>>>>>> .r8010
       "hash": "#|http://loinc.org/class|null|null|SURVEY.USSGFHT/Survey",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
@@ -78,18 +37,7 @@
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://loinc.org/type|null|null|Survey",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
-    },
-    {
-      "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
-||||||| .r7796
-      "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
-=======
       "hash": "#|http://unstats.un.org/unsd/methods/m49/m49.htm|null|840|United States of America",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
@@ -100,13 +48,7 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://loinc.org/class|null|null|MISC",
-||||||| .r7796
-      "hash": "#|http://loinc.org/type|null|null|Lab",
-=======
       "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
->>>>>>> .r8010
       "severity": "error",
       "message": "The code provided is not  valid in the value set Context of Use ValueSet"
     },
@@ -122,25 +64,6 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|null|null|Healthcare Event Reporting Form|Patient safety event report - hospital: healthcare event reporting form",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
-||||||| .r7796
-      "hash": "#|urn:iso:std:iso:3166|null|US|United States of America (the)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "United States Minor Outlying Islands (the)"
-      }
-    },
-    {
-      "hash": "#|http://loinc.org/type|null|null|Survey",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set Context of Use ValueSet"
-=======
       "hash": "#|urn:iso:std:iso:3166|null|NZ|null",
       "severity": null,
       "message": null,
@@ -172,7 +95,6 @@
         "definition": null,
         "display": "United States Minor Outlying Islands (the)"
       }
->>>>>>> .r8010
     }
   ]
 }

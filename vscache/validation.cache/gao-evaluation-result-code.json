@@ -2,37 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/gao-evaluation-result-code",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/evaluation-result-code|null|outside|Outside Guidelines",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "outside",
-||||||| .r7796
-        "abstract": "noguidelines",
-=======
-        "abstract": false,
-        "code": "noguidelines",
->>>>>>> .r8010
-        "definition": null,
-        "display": "Outside Guidelines"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/evaluation-result-code|null|noguidelines|No Guidelines Apply",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "noguidelines",
-||||||| .r7796
-        "abstract": "outside",
-=======
         "abstract": false,
-        "code": "outside",
->>>>>>> .r8010
+        "code": "noguidelines",
         "definition": null,
         "display": "No Guidelines Apply"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/evaluation-result-code|null|outside|Outside Guidelines",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "outside",
+        "definition": null,
+        "display": "Outside Guidelines"
       }
     }
   ]

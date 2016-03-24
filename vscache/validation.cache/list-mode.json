@@ -2,32 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/list-mode",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "|null|null|working|null",
-||||||| .r7796
-      "hash": "|null|null|snapshot|null",
-=======
       "hash": "|null|null|changes|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "working",
-||||||| .r7796
-        "abstract": "snapshot",
-=======
         "abstract": false,
         "code": "changes",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Working List"
-||||||| .r7796
-        "display": "Snapshot List"
-=======
         "display": "Change List"
->>>>>>> .r8010
       }
     },
     {
@@ -42,20 +24,14 @@
       }
     },
     {
-      "hash": "|null|null|snapshot|null",
+      "hash": "|null|null|working|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "snapshot",
-||||||| .r7796
-        "abstract": "working",
-=======
         "abstract": false,
         "code": "working",
->>>>>>> .r8010
         "definition": null,
-        "display": "Snapshot List"
+        "display": "Working List"
       }
     }
   ]

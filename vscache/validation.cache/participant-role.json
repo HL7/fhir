@@ -2,13 +2,7 @@
   "url": "http://hl7.org/fhir/ValueSet/participant-role",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|http://example.org/local|null|nur|null",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|278110001|Radiographic imaging",
-=======
       "hash": "#|http://example.org/EpisodeOfCare/Role|null|AO|Assessment Worker",
->>>>>>> .r8010
       "severity": "error",
       "message": "The code provided is not  valid in the value set Participant Roles"
     },
@@ -18,46 +12,22 @@
       "message": "The code provided is not  valid in the value set Participant Roles"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://example.org/EpisodeOfCare/Role|null|AO|Assessment Worker",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|425268008|Review of care plan",
-=======
       "hash": "#|http://example.org/local|null|nur|null",
->>>>>>> .r8010
       "severity": "error",
       "message": "The code provided is not  valid in the value set Participant Roles"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://example.org/mysys|null|obs|null",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|28995006|Treated with",
-=======
       "hash": "#|http://example.org/mysys|null|lmc|null",
->>>>>>> .r8010
       "severity": "error",
       "message": "The code provided is not  valid in the value set Participant Roles"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|425268008|Review of care plan",
-||||||| .r7796
-      "hash": "#|http://example.org/local|null|doc|null",
-=======
       "hash": "#|http://example.org/mysys|null|obs|null",
->>>>>>> .r8010
       "severity": "error",
       "message": "The code provided is not  valid in the value set Participant Roles"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|28995006|Treated with",
-||||||| .r7796
-      "hash": "#|http://example.org/EpisodeOfCare/Role|null|AO|Assessment Worker",
-=======
       "hash": "#|http://snomed.info/sct|null|229774002|Carer",
->>>>>>> .r8010
       "severity": "error",
       "message": "The code provided is not  valid in the value set Participant Roles"
     },
@@ -67,24 +37,12 @@
       "message": "The code provided is not  valid in the value set Participant Roles"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://example.org/mysys|null|lmc|null",
-||||||| .r7796
-      "hash": "#|http://example.org/mysys|null|obs|null",
-=======
       "hash": "#|http://snomed.info/sct|null|28995006|Treated with",
->>>>>>> .r8010
       "severity": "error",
       "message": "The code provided is not  valid in the value set Participant Roles"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://example.org/local|null|doc|null",
-||||||| .r7796
-      "hash": "#|http://example.org/mysys|null|lmc|null",
-=======
       "hash": "#|http://snomed.info/sct|null|425268008|Review of care plan",
->>>>>>> .r8010
       "severity": "error",
       "message": "The code provided is not  valid in the value set Participant Roles"
     }

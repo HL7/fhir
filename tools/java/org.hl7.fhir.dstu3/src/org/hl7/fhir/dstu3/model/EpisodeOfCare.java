@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -614,10 +614,10 @@ public class EpisodeOfCare extends DomainResource {
     protected List<EpisodeOfCareStatusHistoryComponent> statusHistory;
 
     /**
-     * A classification of the type of encounter; e.g. specialist referral, disease management, type of funded care.
+     * A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care.
      */
     @Child(name = "type", type = {CodeableConcept.class}, order=3, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
-    @Description(shortDefinition="Type/class  - e.g. specialist referral, disease management", formalDefinition="A classification of the type of encounter; e.g. specialist referral, disease management, type of funded care." )
+    @Description(shortDefinition="Type/class  - e.g. specialist referral, disease management", formalDefinition="A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care." )
     protected List<CodeableConcept> type;
 
     /**
@@ -838,7 +838,7 @@ public class EpisodeOfCare extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (A classification of the type of encounter; e.g. specialist referral, disease management, type of funded care.)
+     * @return {@link #type} (A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care.)
      */
     public List<CodeableConcept> getType() { 
       if (this.type == null)
@@ -856,7 +856,7 @@ public class EpisodeOfCare extends DomainResource {
     }
 
     /**
-     * @return {@link #type} (A classification of the type of encounter; e.g. specialist referral, disease management, type of funded care.)
+     * @return {@link #type} (A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care.)
      */
     // syntactic sugar
     public CodeableConcept addType() { //3
@@ -1200,7 +1200,7 @@ public class EpisodeOfCare extends DomainResource {
         childrenList.add(new Property("identifier", "Identifier", "Identifier(s) by which this EpisodeOfCare is known.", 0, java.lang.Integer.MAX_VALUE, identifier));
         childrenList.add(new Property("status", "code", "planned | waitlist | active | onhold | finished | cancelled.", 0, java.lang.Integer.MAX_VALUE, status));
         childrenList.add(new Property("statusHistory", "", "The history of statuses that the EpisodeOfCare has been through (without requiring processing the history of the resource).", 0, java.lang.Integer.MAX_VALUE, statusHistory));
-        childrenList.add(new Property("type", "CodeableConcept", "A classification of the type of encounter; e.g. specialist referral, disease management, type of funded care.", 0, java.lang.Integer.MAX_VALUE, type));
+        childrenList.add(new Property("type", "CodeableConcept", "A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care.", 0, java.lang.Integer.MAX_VALUE, type));
         childrenList.add(new Property("condition", "Reference(Condition)", "A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.", 0, java.lang.Integer.MAX_VALUE, condition));
         childrenList.add(new Property("patient", "Reference(Patient)", "The patient that this EpisodeOfCare applies to.", 0, java.lang.Integer.MAX_VALUE, patient));
         childrenList.add(new Property("managingOrganization", "Reference(Organization)", "The organization that has assumed the specific responsibilities for the specified duration.", 0, java.lang.Integer.MAX_VALUE, managingOrganization));

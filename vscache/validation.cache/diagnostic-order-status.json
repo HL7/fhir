@@ -2,49 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/diagnostic-order-status",
   "outcomes": [
     {
-      "hash": "|null|null|rejected|null",
+      "hash": "|null|null|received|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "rejected",
-||||||| .r7796
-        "abstract": "received",
-=======
         "abstract": false,
         "code": "received",
->>>>>>> .r8010
         "definition": null,
-        "display": "Rejected"
+        "display": "Received"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|received|null",
-||||||| .r7796
-      "hash": "|null|null|requested|null",
-=======
       "hash": "|null|null|rejected|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "received",
-||||||| .r7796
-        "abstract": "requested",
-=======
         "abstract": false,
         "code": "rejected",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Received"
-||||||| .r7796
-        "display": "Requested"
-=======
         "display": "Rejected"
->>>>>>> .r8010
       }
     },
     {
@@ -52,14 +28,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "requested",
-||||||| .r7796
-        "abstract": "rejected",
-=======
         "abstract": false,
         "code": "requested",
->>>>>>> .r8010
         "definition": null,
         "display": "Requested"
       }

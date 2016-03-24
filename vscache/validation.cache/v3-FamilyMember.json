@@ -2,109 +2,38 @@
   "url": "http://hl7.org/fhir/ValueSet/v3-FamilyMember",
   "outcomes": [
     {
-<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/familial-relationship|null|MTH|Mother",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "MTH",
+        "definition": null,
+        "display": "mother"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/familial-relationship|null|father|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
       "hash": "#|http://hl7.org/fhir/familial-relationship|null|mother|null",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PUNCLE|paternal uncle",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NFTH|natural father",
-=======
-      "hash": "#|http://hl7.org/fhir/familial-relationship|null|MTH|Mother",
->>>>>>> .r8010
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "PUNCLE",
-||||||| .r7796
-        "abstract": "NFTH",
-=======
-        "abstract": false,
-        "code": "MTH",
->>>>>>> .r8010
-        "definition": null,
-<<<<<<< .mine
-        "display": "paternal uncle"
-||||||| .r7796
-        "display": "natural father"
-=======
-        "display": "mother"
->>>>>>> .r8010
-      }
-    },
-    {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PCOUSN|paternal cousin",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "PCOUSN",
-        "definition": null,
-        "display": "paternal cousin"
-      }
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MAUNT|maternal aunt",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": "MAUNT",
-        "definition": null,
-        "display": "maternal aunt"
-      }
-=======
-      "hash": "#|http://hl7.org/fhir/familial-relationship|null|father|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
->>>>>>> .r8010
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/familial-relationship|null|father|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MUNCLE|maternal uncle",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/familial-relationship|null|MTH|Mother",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|BROINLAW|brother-in-law",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "MUNCLE",
-||||||| .r7796
-        "abstract": "MTH",
-=======
         "abstract": false,
         "code": "BROINLAW",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "maternal uncle"
-||||||| .r7796
-        "display": "mother"
-=======
         "display": "brother-in-law"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MCOUSN|maternal cousin",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|38048003|Uncle",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NMTH|natural mother",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|DAU|natural daughter",
       "severity": null,
       "message": null,
@@ -117,624 +46,239 @@
     },
     {
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|EXT|extended family member",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "MCOUSN",
-||||||| .r7796
-        "abstract": "NMTH",
-=======
         "abstract": false,
         "code": "EXT",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "maternal cousin"
-||||||| .r7796
-        "display": "natural mother"
-=======
         "display": "extended family member"
->>>>>>> .r8010
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NMTH|natural mother",
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|FATHER",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "NMTH",
-||||||| .r7796
-        "abstract": "FTH",
-=======
         "abstract": false,
         "code": "FTH",
->>>>>>> .r8010
         "definition": null,
-        "display": "natural mother"
-      }
-    },
-    {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|BROINLAW|brother-in-law",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PUNCLE|paternal uncle",
-=======
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|father",
->>>>>>> .r8010
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "BROINLAW",
-||||||| .r7796
-        "abstract": "PUNCLE",
-=======
-        "abstract": false,
-        "code": "FTH",
->>>>>>> .r8010
-        "definition": null,
-<<<<<<< .mine
-        "display": "brother-in-law"
-||||||| .r7796
-        "display": "paternal uncle"
-=======
         "display": "father"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MAUNT|maternal aunt",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRFTH|maternal grandfather",
-=======
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|GRFTH|grandfather",
->>>>>>> .r8010
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|father",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "MAUNT",
-||||||| .r7796
-        "abstract": "MGRFTH",
-=======
+        "abstract": false,
+        "code": "FTH",
+        "definition": null,
+        "display": "father"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|GRFTH|grandfather",
+      "severity": null,
+      "message": null,
+      "definition": {
         "abstract": false,
         "code": "GRFTH",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "maternal aunt"
-||||||| .r7796
-        "display": "maternal grandfather"
-=======
         "display": "grandfather"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|38048003|Uncle",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PAUNT|paternal aunt",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|72705000|Mother",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRMTH|maternal grandmother",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MAUNT|maternal aunt",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "PAUNT",
-||||||| .r7796
-        "abstract": "MGRMTH",
-=======
         "abstract": false,
         "code": "MAUNT",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "paternal aunt"
-||||||| .r7796
-        "display": "maternal grandmother"
-=======
         "display": "maternal aunt"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NIECE|niece",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRFTH|paternal grandfather",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MCOUSN|maternal cousin",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "NIECE",
-||||||| .r7796
-        "abstract": "PGRFTH",
-=======
         "abstract": false,
         "code": "MCOUSN",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "niece"
-||||||| .r7796
-        "display": "paternal grandfather"
-=======
         "display": "maternal cousin"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NSIS|natural sister",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PAUNT|paternal aunt",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRFTH|maternal grandfather",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "NSIS",
-||||||| .r7796
-        "abstract": "PAUNT",
-=======
         "abstract": false,
         "code": "MGRFTH",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "natural sister"
-||||||| .r7796
-        "display": "paternal aunt"
-=======
         "display": "maternal grandfather"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|father",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PCOUSN|paternal cousin",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRMTH|maternal grandmother",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "FTH",
-||||||| .r7796
-        "abstract": "PCOUSN",
-=======
         "abstract": false,
         "code": "MGRMTH",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "father"
-||||||| .r7796
-        "display": "paternal cousin"
-=======
         "display": "maternal grandmother"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|DAU|natural daughter",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NBRO|natural brother",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MUNCLE|maternal uncle",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "DAU",
-||||||| .r7796
-        "abstract": "NBRO",
-=======
         "abstract": false,
         "code": "MUNCLE",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "natural daughter"
-||||||| .r7796
-        "display": "natural brother"
-=======
         "display": "maternal uncle"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NEPHEW|Nephew",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|DAU|natural daughter",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NBRO|natural brother",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "NEPHEW",
-||||||| .r7796
-        "abstract": "DAU",
-=======
         "abstract": false,
         "code": "NBRO",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "nephew"
-||||||| .r7796
-        "display": "natural daughter"
-=======
         "display": "natural brother"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|72705000|Mother",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRFTH|paternal grandfather",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|SIGOTHR|significant other",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NEPHEW|Nephew",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "PGRFTH",
-||||||| .r7796
-        "abstract": "SIGOTHR",
-=======
         "abstract": false,
         "code": "NEPHEW",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "paternal grandfather"
-||||||| .r7796
-        "display": "significant other"
-=======
         "display": "nephew"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NBRO|natural brother",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|EXT|extended family member",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NFTH|natural father",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "NBRO",
-||||||| .r7796
-        "abstract": "EXT",
-=======
         "abstract": false,
         "code": "NFTH",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "natural brother"
-||||||| .r7796
-        "display": "extended family member"
-=======
         "display": "natural father"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRMTH|paternal grandmother",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|GRFTH|grandfather",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NIECE|niece",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "PGRMTH",
-||||||| .r7796
-        "abstract": "GRFTH",
-=======
         "abstract": false,
         "code": "NIECE",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "paternal grandmother"
-||||||| .r7796
-        "display": "grandfather"
-=======
         "display": "niece"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRFTH|maternal grandfather",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|BROINLAW|brother-in-law",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NMTH|natural mother",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "MGRFTH",
-||||||| .r7796
-        "abstract": "BROINLAW",
-=======
         "abstract": false,
         "code": "NMTH",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "maternal grandfather"
-||||||| .r7796
-        "display": "brother-in-law"
-=======
         "display": "natural mother"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|SIGOTHR|significant other",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NIECE|niece",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NSIS|natural sister",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "SIGOTHR",
-||||||| .r7796
-        "abstract": "NIECE",
-=======
         "abstract": false,
         "code": "NSIS",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "significant other"
-||||||| .r7796
-        "display": "niece"
-=======
         "display": "natural sister"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|EXT|extended family member",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|father",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PAUNT|paternal aunt",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "EXT",
-||||||| .r7796
-        "abstract": "FTH",
-=======
         "abstract": false,
         "code": "PAUNT",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "extended family member"
-||||||| .r7796
-        "display": "father"
-=======
         "display": "paternal aunt"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NFTH|natural father",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NSIS|natural sister",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PCOUSN|paternal cousin",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "NFTH",
-||||||| .r7796
-        "abstract": "NSIS",
-=======
         "abstract": false,
         "code": "PCOUSN",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "natural father"
-||||||| .r7796
-        "display": "natural sister"
-=======
         "display": "paternal cousin"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MGRMTH|maternal grandmother",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|NEPHEW|Nephew",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRFTH|paternal grandfather",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "MGRMTH",
-||||||| .r7796
-        "abstract": "NEPHEW",
-=======
         "abstract": false,
         "code": "PGRFTH",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "maternal grandmother"
-||||||| .r7796
-        "display": "nephew"
-=======
         "display": "paternal grandfather"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|FTH|FATHER",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MUNCLE|maternal uncle",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRMTH|paternal grandmother",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "FTH",
-||||||| .r7796
-        "abstract": "MUNCLE",
-=======
         "abstract": false,
         "code": "PGRMTH",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "father"
-||||||| .r7796
-        "display": "maternal uncle"
-=======
         "display": "paternal grandmother"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|GRFTH|grandfather",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|MCOUSN|maternal cousin",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PUNCLE|paternal uncle",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "GRFTH",
-||||||| .r7796
-        "abstract": "MCOUSN",
-=======
         "abstract": false,
         "code": "PUNCLE",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "grandfather"
-||||||| .r7796
-        "display": "maternal cousin"
-=======
         "display": "paternal uncle"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/familial-relationship|null|MTH|Mother",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PGRMTH|paternal grandmother",
-=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|SIGOTHR|significant other",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "MTH",
-||||||| .r7796
-        "abstract": "PGRMTH",
-=======
         "abstract": false,
         "code": "SIGOTHR",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "mother"
-||||||| .r7796
-        "display": "paternal grandmother"
-=======
         "display": "significant other"
->>>>>>> .r8010
       }
-<<<<<<< .mine
-||||||| .r7796
-    },
-    {
-      "hash": "#|http://hl7.org/fhir/familial-relationship|null|father|null",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-=======
     },
     {
       "hash": "#|http://snomed.info/sct|null|38048003|Uncle",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
->>>>>>> .r8010
     },
     {
       "hash": "#|http://snomed.info/sct|null|72705000|Mother",

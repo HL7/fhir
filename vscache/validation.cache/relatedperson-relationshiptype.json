@@ -6,14 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "owner",
-||||||| .r7796
-        "abstract": "partner",
-=======
         "abstract": false,
         "code": "owner",
->>>>>>> .r8010
         "definition": null,
         "display": "Owner of animal"
       }
@@ -23,14 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "partner",
-||||||| .r7796
-        "abstract": "owner",
-=======
         "abstract": false,
         "code": "partner",
->>>>>>> .r8010
         "definition": null,
         "display": "Partner"
       }

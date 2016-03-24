@@ -2,37 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/entformula-additive",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/entformula-additive|null|lipid|Modular lipid enteral formula component",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "lipid",
-||||||| .r7796
-        "abstract": "carbohydrate",
-=======
-        "abstract": false,
-        "code": "carbohydrate",
->>>>>>> .r8010
-        "definition": null,
-        "display": "Modular lipid enteral formula component"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/entformula-additive|null|carbohydrate|Modular carbohydrate enteral formula component",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "carbohydrate",
-||||||| .r7796
-        "abstract": "lipid",
-=======
         "abstract": false,
-        "code": "lipid",
->>>>>>> .r8010
+        "code": "carbohydrate",
         "definition": null,
         "display": "Modular carbohydrate enteral formula component"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/entformula-additive|null|lipid|Modular lipid enteral formula component",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "lipid",
+        "definition": null,
+        "display": "Modular lipid enteral formula component"
       }
     }
   ]

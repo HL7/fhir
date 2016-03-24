@@ -2,35 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/assert-response-code-types",
   "outcomes": [
     {
-      "hash": "|null|null|okay|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "okay",
-||||||| .r7796
-        "abstract": "bad",
-=======
-        "abstract": false,
-        "code": "bad",
->>>>>>> .r8010
-        "definition": null,
-        "display": "okay"
-      }
-    },
-    {
       "hash": "|null|null|bad|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "bad",
-||||||| .r7796
-        "abstract": "notFound",
-=======
         "abstract": false,
-        "code": "notFound",
->>>>>>> .r8010
+        "code": "bad",
         "definition": null,
         "display": "bad"
       }
@@ -40,16 +17,21 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "notFound",
-||||||| .r7796
-        "abstract": "okay",
-=======
         "abstract": false,
-        "code": "okay",
->>>>>>> .r8010
+        "code": "notFound",
         "definition": null,
         "display": "notFound"
+      }
+    },
+    {
+      "hash": "|null|null|okay|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "okay",
+        "definition": null,
+        "display": "okay"
       }
     }
   ]

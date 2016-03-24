@@ -2,32 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/contact-point-use",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "|null|null|work|null",
-||||||| .r7796
-      "hash": "|null|null|mobile|null",
-=======
       "hash": "|null|null|home|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "work",
-||||||| .r7796
-        "abstract": "mobile",
-=======
         "abstract": false,
         "code": "home",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Work"
-||||||| .r7796
-        "display": "Mobile"
-=======
         "display": "Home"
->>>>>>> .r8010
       }
     },
     {
@@ -42,49 +24,25 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|mobile|null",
-||||||| .r7796
-      "hash": "|null|null|home|null",
-=======
       "hash": "|null|null|temp|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "mobile",
-||||||| .r7796
-        "abstract": "home",
-=======
         "abstract": false,
         "code": "temp",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Mobile"
-||||||| .r7796
-        "display": "Home"
-=======
         "display": "Temp"
->>>>>>> .r8010
       }
     },
     {
-      "hash": "|null|null|home|null",
+      "hash": "|null|null|work|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "home",
-||||||| .r7796
-        "abstract": "work",
-=======
         "abstract": false,
         "code": "work",
->>>>>>> .r8010
         "definition": null,
-        "display": "Home"
+        "display": "Work"
       }
     }
   ]

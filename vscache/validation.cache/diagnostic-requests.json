@@ -2,31 +2,19 @@
   "url": "http://hl7.org/fhir/ValueSet/diagnostic-requests",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|http://loinc.org|null|5671-3|Lead [Mass/volume] in Blood#|urn:oid:2.16.840.1.113883.3.72.5.24|null|BLDLD|Blood Lead",
-||||||| .r7796
-      "hash": "#|http://loinc.org|null|24627-2|null",
-=======
       "hash": "#|http://acme.org/tests|null|LIPID|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set LOINC Diagnostic Order Codes"
     },
     {
       "hash": "#|http://loinc.org|null|24590-2|Brain MRI",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Lead [Mass/volume] in Blood"
-||||||| .r7796
-        "display": "Chest CT"
-=======
         "display": "Brain MRI"
->>>>>>> .r8010
       }
     },
     {
@@ -41,134 +29,69 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://loinc.org|null|49874-1|null",
-||||||| .r7796
-      "hash": "#|http://loinc.org|null|57698-3|null",
-=======
       "hash": "#|http://loinc.org|null|3024-7|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "ABCB4 gene mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
-||||||| .r7796
-        "display": "Lipid panel with direct LDL - Serum or Plasma"
-=======
         "display": "Thyroxine (T4) free [Mass/volume] in Serum or Plasma"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
+      "hash": "#|http://loinc.org|null|30799-1|Head CT WO contrast",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Head CT WO contrast"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|49874-1|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "ABCB4 gene mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|5671-3|Lead [Mass/volume] in Blood#|urn:oid:2.16.840.1.113883.3.72.5.24|null|BLDLD|Blood Lead",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Lead [Mass/volume] in Blood"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|57698-3|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Lipid panel with direct LDL - Serum or Plasma"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|58410-2|Complete blood count (hemogram) panel - Blood by Automated count",
-||||||| .r7796
-      "hash": "#|http://loinc.org|null|5671-3|Lead [Mass/volume] in Blood#|urn:oid:2.16.840.1.113883.3.72.5.24|null|BLDLD|Blood Lead",
-=======
-      "hash": "#|http://loinc.org|null|30799-1|Head CT WO contrast",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
         "display": "Complete blood count (hemogram) panel - Blood by Automated count"
-||||||| .r7796
-        "display": "Lead [Mass/volume] in Blood"
-=======
-        "display": "Head CT WO contrast"
->>>>>>> .r8010
-      }
-    },
-    {
-<<<<<<< .mine
-      "hash": "#|http://acme.org/tests|null|LIPID|null",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set LOINC Diagnostic Order Codes"
-    },
-    {
-      "hash": "#|http://loinc.org|null|30799-1|Head CT WO contrast",
-||||||| .r7796
-      "hash": "#|http://loinc.org|null|3024-7|null",
-=======
-      "hash": "#|http://loinc.org|null|49874-1|null",
->>>>>>> .r8010
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-<<<<<<< .mine
-        "display": "Head CT WO contrast"
-||||||| .r7796
-        "display": "Thyroxine (T4) free [Mass/volume] in Serum or Plasma"
-=======
-        "display": "ABCB4 gene mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
->>>>>>> .r8010
-      }
-    },
-    {
-<<<<<<< .mine
-      "hash": "#|http://loinc.org|null|57698-3|null",
-||||||| .r7796
-      "hash": "#|http://loinc.org|null|30799-1|Head CT WO contrast",
-=======
-      "hash": "#|http://loinc.org|null|5671-3|Lead [Mass/volume] in Blood#|urn:oid:2.16.840.1.113883.3.72.5.24|null|BLDLD|Blood Lead",
->>>>>>> .r8010
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-<<<<<<< .mine
-        "display": "Lipid panel with direct LDL - Serum or Plasma"
-||||||| .r7796
-        "display": "Head CT WO contrast"
-=======
-        "display": "Lead [Mass/volume] in Blood"
->>>>>>> .r8010
-      }
-    },
-    {
-<<<<<<< .mine
-      "hash": "#|http://loinc.org|null|24627-2|null",
-||||||| .r7796
-      "hash": "#|http://loinc.org|null|49874-1|null",
-=======
-      "hash": "#|http://loinc.org|null|57698-3|null",
->>>>>>> .r8010
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-<<<<<<< .mine
-        "display": "Chest CT"
-||||||| .r7796
-        "display": "ABCB4 gene mutation analysis in Blood or Tissue by Molecular genetics method Narrative"
-=======
-        "display": "Lipid panel with direct LDL - Serum or Plasma"
->>>>>>> .r8010
-      }
-    },
-    {
-      "hash": "#|http://loinc.org|null|3024-7|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Thyroxine (T4) free [Mass/volume] in Serum or Plasma"
       }
     }
   ]

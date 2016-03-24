@@ -2,20 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/c80-doc-classcodes",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|http://ihe.net/xds/connectathon/classCodes|null|History and Physical|History and Physical",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-||||||| .r7796
-=======
       "hash": "#|http://ihe.net/xds/connectathon/classCodes|null|History and Physical|History and Physical",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Document Class Value Set"
     },
     {
->>>>>>> .r8010
       "hash": "#|http://loinc.org|null|47039-3|Inpatient Admission history and physical note",
       "severity": null,
       "message": null,

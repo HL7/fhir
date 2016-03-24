@@ -2,32 +2,14 @@
   "url": "http://hl7.org/fhir/ValueSet/filter-operator",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "|null|null|is-a|null",
-||||||| .r7796
-      "hash": "|null|null|in|null",
-=======
       "hash": "|null|null|=|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "is-a",
-||||||| .r7796
-        "abstract": "in",
-=======
         "abstract": false,
         "code": "=",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Is A (by subsumption)"
-||||||| .r7796
-        "display": "In Set"
-=======
         "display": "Equals"
->>>>>>> .r8010
       }
     },
     {
@@ -42,20 +24,14 @@
       }
     },
     {
-      "hash": "|null|null|in|null",
+      "hash": "|null|null|is-a|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "in",
-||||||| .r7796
-        "abstract": "is-a",
-=======
         "abstract": false,
         "code": "is-a",
->>>>>>> .r8010
         "definition": null,
-        "display": "In Set"
+        "display": "Is A (by subsumption)"
       }
     }
   ]

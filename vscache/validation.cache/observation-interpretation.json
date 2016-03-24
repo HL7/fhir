@@ -2,269 +2,113 @@
   "url": "http://hl7.org/fhir/ValueSet/observation-interpretation",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|HH|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|low",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0078|null|A|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "HH",
-||||||| .r7796
-        "abstract": "L",
-=======
         "abstract": false,
         "code": "A",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Critically high"
-||||||| .r7796
-        "display": "Low"
-=======
         "display": "Abnormal"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|H|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|R|null",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0078|null|HH|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "H",
-||||||| .r7796
-        "abstract": "R",
-=======
         "abstract": false,
         "code": "HH",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "High"
-||||||| .r7796
-        "display": "Resistant"
-=======
         "display": "Critically high"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|H|null",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0078|null|H|High",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "L",
-||||||| .r7796
-        "abstract": "H",
-=======
         "abstract": false,
         "code": "H",
->>>>>>> .r8010
-        "definition": null,
-        "display": "Low"
-      }
-    },
-    {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|H|High",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
-=======
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|H|null",
->>>>>>> .r8010
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "H",
-||||||| .r7796
-        "abstract": "N",
-=======
-        "abstract": false,
-        "code": "H",
->>>>>>> .r8010
         "definition": null,
         "display": "High"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|166698001|Serum bicarbonate level normal#|http://hl7.org/fhir/v2/0078|null|N|null",
-=======
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|LL|null",
->>>>>>> .r8010
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|H|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "L",
-||||||| .r7796
-        "abstract": "N",
-=======
+        "abstract": false,
+        "code": "H",
+        "definition": null,
+        "display": "High"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/v2/0078|null|LL|null",
+      "severity": null,
+      "message": null,
+      "definition": {
         "abstract": false,
         "code": "LL",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Low"
-||||||| .r7796
-        "display": "Normal"
-=======
         "display": "Critically low"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|low",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|POS|null",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "L",
-||||||| .r7796
-        "abstract": "POS",
-=======
         "abstract": false,
         "code": "L",
->>>>>>> .r8010
         "definition": null,
         "display": "Low"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|166698001|Serum bicarbonate level normal#|http://hl7.org/fhir/v2/0078|null|N|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|Low",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0078|null|L|low",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "N",
-||||||| .r7796
-        "abstract": "L",
-=======
         "abstract": false,
         "code": "L",
->>>>>>> .r8010
         "definition": null,
-        "display": "Normal"
+        "display": "Low"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|166717003|Serum creatinine raised#|http://hl7.org/fhir/v2/0078|null|H|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|S|null",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0078|null|L|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "H",
-||||||| .r7796
-        "abstract": "S",
-=======
         "abstract": false,
         "code": "L",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "High"
-||||||| .r7796
-        "display": "Susceptible"
-=======
         "display": "Low"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|R|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|LL|null",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0078|null|N|Normal",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "R",
-||||||| .r7796
-        "abstract": "LL",
-=======
         "abstract": false,
         "code": "N",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Resistant"
-||||||| .r7796
-        "display": "Critically low"
-=======
         "display": "Normal"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|S|null",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|166717003|Serum creatinine raised#|http://hl7.org/fhir/v2/0078|null|H|null",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "S",
-||||||| .r7796
-        "abstract": "H",
-=======
         "abstract": false,
         "code": "N",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Susceptible"
-||||||| .r7796
-        "display": "High"
-=======
         "display": "Normal"
->>>>>>> .r8010
       }
     },
     {
@@ -272,113 +116,47 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "POS",
-||||||| .r7796
-        "abstract": "H",
-=======
         "abstract": false,
         "code": "POS",
->>>>>>> .r8010
         "definition": null,
         "display": "Positive"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|A|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|L|null",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0078|null|R|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "A",
-||||||| .r7796
-        "abstract": "L",
-=======
         "abstract": false,
         "code": "R",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Abnormal"
-||||||| .r7796
-        "display": "Low"
-=======
         "display": "Resistant"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|Normal",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|HH|null",
-=======
       "hash": "#|http://hl7.org/fhir/v2/0078|null|S|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "N",
-||||||| .r7796
-        "abstract": "HH",
-=======
         "abstract": false,
         "code": "S",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Normal"
-||||||| .r7796
-        "display": "Critically high"
-=======
         "display": "Susceptible"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|LL|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|A|null",
-=======
       "hash": "#|http://snomed.info/sct|null|166698001|Serum bicarbonate level normal#|http://hl7.org/fhir/v2/0078|null|N|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "LL",
-||||||| .r7796
-        "abstract": "A",
-=======
         "abstract": false,
         "code": "N",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Critically low"
-||||||| .r7796
-        "display": "Abnormal"
-=======
         "display": "Normal"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|null",
-||||||| .r7796
-      "hash": "#|http://hl7.org/fhir/v2/0078|null|N|Normal",
-=======
       "hash": "#|http://snomed.info/sct|null|166717003|Serum creatinine raised#|http://hl7.org/fhir/v2/0078|null|H|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {

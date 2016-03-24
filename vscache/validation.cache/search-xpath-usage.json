@@ -2,37 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/search-xpath-usage",
   "outcomes": [
     {
-      "hash": "|null|null|nearby|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "nearby",
-||||||| .r7796
-        "abstract": "distance",
-=======
-        "abstract": false,
-        "code": "distance",
->>>>>>> .r8010
-        "definition": null,
-        "display": "Nearby"
-      }
-    },
-    {
       "hash": "|null|null|distance|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "distance",
-||||||| .r7796
-        "abstract": "nearby",
-=======
         "abstract": false,
-        "code": "nearby",
->>>>>>> .r8010
+        "code": "distance",
         "definition": null,
         "display": "Distance"
+      }
+    },
+    {
+      "hash": "|null|null|nearby|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "nearby",
+        "definition": null,
+        "display": "Nearby"
       }
     },
     {

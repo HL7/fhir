@@ -2,13 +2,7 @@
   "url": "http://hl7.org/fhir/ValueSet/encounter-priority",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|394849002|High priority",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|17621005|Normal",
-=======
       "hash": "#|http://snomed.info/sct|null|103391001|Non-urgent ear, nose and throat admission",
->>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -18,35 +12,17 @@
       "message": "None of the codes are in the specified value set"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|310361003|Non-urgent cardiological admission",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|103391001|Urgent",
-=======
       "hash": "#|http://snomed.info/sct|null|17621005|Normal",
->>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|17621005|Normal",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|394849002|High priority",
-=======
       "hash": "#|http://snomed.info/sct|null|310361003|Non-urgent cardiological admission",
->>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|103391001|Urgent",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|310361003|Non-urgent cardiological admission",
-=======
       "hash": "#|http://snomed.info/sct|null|394849002|High priority",
->>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     }

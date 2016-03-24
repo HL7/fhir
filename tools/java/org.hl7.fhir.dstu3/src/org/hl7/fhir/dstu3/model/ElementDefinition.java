@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -368,6 +368,109 @@ public class ElementDefinition extends Type implements ICompositeType {
       return "?";
       }
     public String toSystem(AggregationMode code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum ReferenceVersionRules {
+        /**
+         * The reference may be either version independent or version specific
+         */
+        EITHER, 
+        /**
+         * The reference must be version independent
+         */
+        INDEPENDENT, 
+        /**
+         * The reference must be version specific
+         */
+        SPECIFIC, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static ReferenceVersionRules fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("either".equals(codeString))
+          return EITHER;
+        if ("independent".equals(codeString))
+          return INDEPENDENT;
+        if ("specific".equals(codeString))
+          return SPECIFIC;
+        throw new FHIRException("Unknown ReferenceVersionRules code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case EITHER: return "either";
+            case INDEPENDENT: return "independent";
+            case SPECIFIC: return "specific";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case EITHER: return "http://hl7.org/fhir/reference-version-rules";
+            case INDEPENDENT: return "http://hl7.org/fhir/reference-version-rules";
+            case SPECIFIC: return "http://hl7.org/fhir/reference-version-rules";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case EITHER: return "The reference may be either version independent or version specific";
+            case INDEPENDENT: return "The reference must be version independent";
+            case SPECIFIC: return "The reference must be version specific";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case EITHER: return "Either Specific or independent";
+            case INDEPENDENT: return "Version independent";
+            case SPECIFIC: return "Version Specific";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class ReferenceVersionRulesEnumFactory implements EnumFactory<ReferenceVersionRules> {
+    public ReferenceVersionRules fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("either".equals(codeString))
+          return ReferenceVersionRules.EITHER;
+        if ("independent".equals(codeString))
+          return ReferenceVersionRules.INDEPENDENT;
+        if ("specific".equals(codeString))
+          return ReferenceVersionRules.SPECIFIC;
+        throw new IllegalArgumentException("Unknown ReferenceVersionRules code '"+codeString+"'");
+        }
+        public Enumeration<ReferenceVersionRules> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("either".equals(codeString))
+          return new Enumeration<ReferenceVersionRules>(this, ReferenceVersionRules.EITHER);
+        if ("independent".equals(codeString))
+          return new Enumeration<ReferenceVersionRules>(this, ReferenceVersionRules.INDEPENDENT);
+        if ("specific".equals(codeString))
+          return new Enumeration<ReferenceVersionRules>(this, ReferenceVersionRules.SPECIFIC);
+        throw new FHIRException("Unknown ReferenceVersionRules code '"+codeString+"'");
+        }
+    public String toCode(ReferenceVersionRules code) {
+      if (code == ReferenceVersionRules.EITHER)
+        return "either";
+      if (code == ReferenceVersionRules.INDEPENDENT)
+        return "independent";
+      if (code == ReferenceVersionRules.SPECIFIC)
+        return "specific";
+      return "?";
+      }
+    public String toSystem(ReferenceVersionRules code) {
       return code.getSystem();
       }
     }
@@ -1064,7 +1167,14 @@ public class ElementDefinition extends Type implements ICompositeType {
         @Description(shortDefinition="contained | referenced | bundled - how aggregated", formalDefinition="If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle." )
         protected List<Enumeration<AggregationMode>> aggregation;
 
-        private static final long serialVersionUID = -988693373L;
+        /**
+         * Whether this reference needs to be version specific or version independent, or whetehr either can be used.
+         */
+        @Child(name = "versioning", type = {CodeType.class}, order=4, min=0, max=1, modifier=false, summary=true)
+        @Description(shortDefinition="either | independent | specific", formalDefinition="Whether this reference needs to be version specific or version independent, or whetehr either can be used." )
+        protected Enumeration<ReferenceVersionRules> versioning;
+
+        private static final long serialVersionUID = -829583924L;
 
     /**
      * Constructor
@@ -1234,11 +1344,61 @@ public class ElementDefinition extends Type implements ICompositeType {
           return false;
         }
 
+        /**
+         * @return {@link #versioning} (Whether this reference needs to be version specific or version independent, or whetehr either can be used.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
+         */
+        public Enumeration<ReferenceVersionRules> getVersioningElement() { 
+          if (this.versioning == null)
+            if (Configuration.errorOnAutoCreate())
+              throw new Error("Attempt to auto-create TypeRefComponent.versioning");
+            else if (Configuration.doAutoCreate())
+              this.versioning = new Enumeration<ReferenceVersionRules>(new ReferenceVersionRulesEnumFactory()); // bb
+          return this.versioning;
+        }
+
+        public boolean hasVersioningElement() { 
+          return this.versioning != null && !this.versioning.isEmpty();
+        }
+
+        public boolean hasVersioning() { 
+          return this.versioning != null && !this.versioning.isEmpty();
+        }
+
+        /**
+         * @param value {@link #versioning} (Whether this reference needs to be version specific or version independent, or whetehr either can be used.). This is the underlying object with id, value and extensions. The accessor "getVersioning" gives direct access to the value
+         */
+        public TypeRefComponent setVersioningElement(Enumeration<ReferenceVersionRules> value) { 
+          this.versioning = value;
+          return this;
+        }
+
+        /**
+         * @return Whether this reference needs to be version specific or version independent, or whetehr either can be used.
+         */
+        public ReferenceVersionRules getVersioning() { 
+          return this.versioning == null ? null : this.versioning.getValue();
+        }
+
+        /**
+         * @param value Whether this reference needs to be version specific or version independent, or whetehr either can be used.
+         */
+        public TypeRefComponent setVersioning(ReferenceVersionRules value) { 
+          if (value == null)
+            this.versioning = null;
+          else {
+            if (this.versioning == null)
+              this.versioning = new Enumeration<ReferenceVersionRules>(new ReferenceVersionRulesEnumFactory());
+            this.versioning.setValue(value);
+          }
+          return this;
+        }
+
         protected void listChildren(List<Property> childrenList) {
           super.listChildren(childrenList);
           childrenList.add(new Property("code", "code", "Name of Data type or Resource that is a(or the) type used for this element.", 0, java.lang.Integer.MAX_VALUE, code));
           childrenList.add(new Property("profile", "uri", "Identifies a profile structure or implementation Guide that SHALL hold for resources or datatypes referenced as the type of this element. Can be a local reference - to another structure in this profile, or a reference to a structure in another profile. When more than one profile is specified, the content must conform to all of them. When an implementation guide is specified, the resource SHALL conform to at least one profile defined in the implementation guide.", 0, java.lang.Integer.MAX_VALUE, profile));
           childrenList.add(new Property("aggregation", "code", "If the type is a reference to another resource, how the resource is or can be aggregated - is it a contained resource, or a reference, and if the context is a bundle, is it included in the bundle.", 0, java.lang.Integer.MAX_VALUE, aggregation));
+          childrenList.add(new Property("versioning", "code", "Whether this reference needs to be version specific or version independent, or whetehr either can be used.", 0, java.lang.Integer.MAX_VALUE, versioning));
         }
 
       @Override
@@ -1249,6 +1409,8 @@ public class ElementDefinition extends Type implements ICompositeType {
           this.getProfile().add(castToUri(value));
         else if (name.equals("aggregation"))
           this.getAggregation().add(new AggregationModeEnumFactory().fromType(value));
+        else if (name.equals("versioning"))
+          this.versioning = new ReferenceVersionRulesEnumFactory().fromType(value); // Enumeration<ReferenceVersionRules>
         else
           super.setProperty(name, value);
       }
@@ -1263,6 +1425,9 @@ public class ElementDefinition extends Type implements ICompositeType {
         }
         else if (name.equals("aggregation")) {
           throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.aggregation");
+        }
+        else if (name.equals("versioning")) {
+          throw new FHIRException("Cannot call addChild on a primitive type ElementDefinition.versioning");
         }
         else
           return super.addChild(name);
@@ -1282,6 +1447,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           for (Enumeration<AggregationMode> i : aggregation)
             dst.aggregation.add(i.copy());
         };
+        dst.versioning = versioning == null ? null : versioning.copy();
         return dst;
       }
 
@@ -1293,7 +1459,7 @@ public class ElementDefinition extends Type implements ICompositeType {
           return false;
         TypeRefComponent o = (TypeRefComponent) other;
         return compareDeep(code, o.code, true) && compareDeep(profile, o.profile, true) && compareDeep(aggregation, o.aggregation, true)
-          ;
+           && compareDeep(versioning, o.versioning, true);
       }
 
       @Override
@@ -1304,12 +1470,13 @@ public class ElementDefinition extends Type implements ICompositeType {
           return false;
         TypeRefComponent o = (TypeRefComponent) other;
         return compareValues(code, o.code, true) && compareValues(profile, o.profile, true) && compareValues(aggregation, o.aggregation, true)
-          ;
+           && compareValues(versioning, o.versioning, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (code == null || code.isEmpty()) && (profile == null || profile.isEmpty())
-           && (aggregation == null || aggregation.isEmpty());
+           && (aggregation == null || aggregation.isEmpty()) && (versioning == null || versioning.isEmpty())
+          ;
       }
 
   public String fhirType() {

@@ -2,48 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/manifestation-codes",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|247472004|Hives",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "Wheal"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|64305001|Urticaria",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Clinical Findings"
-    },
-    {
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|64305001|Urticaria",
-      "severity": "error",
-      "message": "The code provided is not  valid in the value set SNOMED CT Clinical Findings"
-    },
-    {
-=======
->>>>>>> .r8010
       "hash": "#|http://example.org/system|null|xxx|Hives",
       "severity": "error",
       "message": "The code provided is not  valid in the value set SNOMED CT Clinical Findings"
     },
     {
-<<<<<<< .mine
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|247472004|Hives",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": null,
-        "definition": null,
-        "display": "Wheal"
-      }
-    },
-    {
-=======
       "hash": "#|http://snomed.info/sct|null|247472004|Hives",
       "severity": null,
       "message": null,
@@ -55,7 +18,6 @@
       }
     },
     {
->>>>>>> .r8010
       "hash": "#|http://snomed.info/sct|null|39579001|Anaphylactic reaction",
       "severity": null,
       "message": null,

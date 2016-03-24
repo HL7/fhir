@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Wed, Mar 23, 2016 16:58+1100 for FHIR v1.3.0
+// Generated on Thu, Mar 24, 2016 13:03-0400 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -2160,10 +2160,10 @@ public class Conformance extends DomainResource implements IBaseConformance {
         protected List<ConformanceRestOperationComponent> operation;
 
         /**
-         * An absolute URI which is a reference to the definition of a compartment hosted by the system.
+         * An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.
          */
         @Child(name = "compartment", type = {UriType.class}, order=9, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-        @Description(shortDefinition="Compartments served/used by system", formalDefinition="An absolute URI which is a reference to the definition of a compartment hosted by the system." )
+        @Description(shortDefinition="Compartments served/used by system", formalDefinition="An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL." )
         protected List<UriType> compartment;
 
         private static final long serialVersionUID = 931983837L;
@@ -2511,7 +2511,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
+         * @return {@link #compartment} (An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.)
          */
         public List<UriType> getCompartment() { 
           if (this.compartment == null)
@@ -2529,7 +2529,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @return {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
+         * @return {@link #compartment} (An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.)
          */
     // syntactic sugar
         public UriType addCompartmentElement() {//2 
@@ -2541,7 +2541,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @param value {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
+         * @param value {@link #compartment} (An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.)
          */
         public ConformanceRestComponent addCompartment(String value) { //1
           UriType t = new UriType();
@@ -2553,7 +2553,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
         }
 
         /**
-         * @param value {@link #compartment} (An absolute URI which is a reference to the definition of a compartment hosted by the system.)
+         * @param value {@link #compartment} (An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.)
          */
         public boolean hasCompartment(String value) { 
           if (this.compartment == null)
@@ -2574,7 +2574,7 @@ public class Conformance extends DomainResource implements IBaseConformance {
           childrenList.add(new Property("transactionMode", "code", "A code that indicates how transactions are supported.", 0, java.lang.Integer.MAX_VALUE, transactionMode));
           childrenList.add(new Property("searchParam", "@Conformance.rest.resource.searchParam", "Search parameters that are supported for searching all resources for implementations to support and/or make use of - either references to ones defined in the specification, or additional ones defined for/by the implementation.", 0, java.lang.Integer.MAX_VALUE, searchParam));
           childrenList.add(new Property("operation", "", "Definition of an operation or a named query and with its parameters and their meaning and type.", 0, java.lang.Integer.MAX_VALUE, operation));
-          childrenList.add(new Property("compartment", "uri", "An absolute URI which is a reference to the definition of a compartment hosted by the system.", 0, java.lang.Integer.MAX_VALUE, compartment));
+          childrenList.add(new Property("compartment", "uri", "An absolute URI which is a reference to the definition of a compartment that the system supports. The reference is to a CompartmentDefinition resource by it's canonical URL.", 0, java.lang.Integer.MAX_VALUE, compartment));
         }
 
       @Override

@@ -2,148 +2,58 @@
   "url": "http://hl7.org/fhir/ValueSet/goal-status",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "|null|null|rejected|null",
-||||||| .r7796
-      "hash": "|null|null|cancelled|null",
-=======
       "hash": "|null|null|achieved|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "rejected",
-||||||| .r7796
-        "abstract": "cancelled",
-=======
         "abstract": false,
         "code": "achieved",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Rejected"
-||||||| .r7796
-        "display": "Cancelled"
-=======
         "display": "Achieved"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|planned|null",
-||||||| .r7796
-      "hash": "|null|null|achieved|null",
-=======
       "hash": "|null|null|cancelled|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "planned",
-||||||| .r7796
-        "abstract": "achieved",
-=======
         "abstract": false,
         "code": "cancelled",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Planned"
-||||||| .r7796
-        "display": "Achieved"
-=======
         "display": "Cancelled"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|cancelled|null",
-||||||| .r7796
-      "hash": "|null|null|planned|null",
-=======
       "hash": "|null|null|in-progress|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "cancelled",
-||||||| .r7796
-        "abstract": "planned",
-=======
         "abstract": false,
         "code": "in-progress",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Cancelled"
-||||||| .r7796
-        "display": "Planned"
-=======
         "display": "In Progress"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|in-progress|null",
-||||||| .r7796
-      "hash": "|null|null|rejected|null",
-=======
       "hash": "|null|null|planned|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "in-progress",
-||||||| .r7796
-        "abstract": "rejected",
-=======
         "abstract": false,
         "code": "planned",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "In Progress"
-||||||| .r7796
-        "display": "Rejected"
-=======
         "display": "Planned"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|achieved|null",
-||||||| .r7796
-      "hash": "|null|null|in-progress|null",
-=======
       "hash": "|null|null|rejected|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "achieved",
-||||||| .r7796
-        "abstract": "in-progress",
-=======
         "abstract": false,
         "code": "rejected",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Achieved"
-||||||| .r7796
-        "display": "In Progress"
-=======
         "display": "Rejected"
->>>>>>> .r8010
       }
     }
   ]

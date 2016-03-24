@@ -2,20 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/bodysite-relative-location",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|255549009|Anterior",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
-||||||| .r7796
-=======
       "hash": "#|http://snomed.info/sct|null|255549009|Anterior",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Bodysite Location Modifier"
     },
     {
->>>>>>> .r8010
       "hash": "#|http://snomed.info/sct|null|261183002|Upper",
       "severity": null,
       "message": null,

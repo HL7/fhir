@@ -6,14 +6,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "draft",
-||||||| .r7796
-        "abstract": "published",
-=======
         "abstract": false,
         "code": "draft",
->>>>>>> .r8010
         "definition": null,
         "display": "Draft"
       }
@@ -23,14 +17,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "published",
-||||||| .r7796
-        "abstract": "draft",
-=======
         "abstract": false,
         "code": "published",
->>>>>>> .r8010
         "definition": null,
         "display": "Published"
       }

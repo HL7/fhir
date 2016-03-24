@@ -2,107 +2,47 @@
   "url": "http://hl7.org/fhir/ValueSet/issue-type",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "|null|null|structure|null",
-||||||| .r7796
-      "hash": "|null|null|exception|null",
-=======
       "hash": "|null|null|code-invalid|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "structure",
-||||||| .r7796
-        "abstract": "exception",
-=======
         "abstract": false,
         "code": "code-invalid",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Structural Issue"
-||||||| .r7796
-        "display": "Exception"
-=======
         "display": "Invalid Code"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|code-invalid|null",
-||||||| .r7796
-      "hash": "|null|null|suppressed|null",
-=======
       "hash": "|null|null|exception|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "code-invalid",
-||||||| .r7796
-        "abstract": "suppressed",
-=======
         "abstract": false,
         "code": "exception",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Invalid Code"
-||||||| .r7796
-        "display": "Information  Suppressed"
-=======
         "display": "Exception"
->>>>>>> .r8010
       }
     },
     {
-      "hash": "|null|null|exception|null",
+      "hash": "|null|null|informational|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "exception",
-||||||| .r7796
-        "abstract": "informational",
-=======
         "abstract": false,
         "code": "informational",
->>>>>>> .r8010
         "definition": null,
-        "display": "Exception"
+        "display": "Informational Note"
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|null|null|informational|null",
-||||||| .r7796
-      "hash": "|null|null|code-invalid|null",
-=======
       "hash": "|null|null|structure|null",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "informational",
-||||||| .r7796
-        "abstract": "code-invalid",
-=======
         "abstract": false,
         "code": "structure",
->>>>>>> .r8010
         "definition": null,
-<<<<<<< .mine
-        "display": "Informational Note"
-||||||| .r7796
-        "display": "Invalid Code"
-=======
         "display": "Structural Issue"
->>>>>>> .r8010
       }
     },
     {
@@ -110,14 +50,8 @@
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "suppressed",
-||||||| .r7796
-        "abstract": "structure",
-=======
         "abstract": false,
         "code": "suppressed",
->>>>>>> .r8010
         "definition": null,
         "display": "Information  Suppressed"
       }

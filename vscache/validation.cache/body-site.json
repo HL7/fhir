@@ -2,210 +2,102 @@
   "url": "http://hl7.org/fhir/ValueSet/body-site",
   "outcomes": [
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|272676008|Sphenoid bone",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|39607008|Lung structure",
-=======
       "hash": "#|http://snomed.info/sct|null|14975008|Forearm structure",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Entire sphenoid bone"
-||||||| .r7796
-        "display": "Lung structure"
-=======
         "display": "Forearm"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|39607008|Lung structure",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|181414000|Kidney",
-=======
       "hash": "#|http://snomed.info/sct|null|17401000|Heart valve structure",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Lung structure"
-||||||| .r7796
-        "display": "Kidney"
-=======
         "display": "Heart valve structure"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|368209003|Right arm",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|308046002|Superficial forearm vein",
-=======
       "hash": "#|http://snomed.info/sct|null|181414000|Kidney",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Right upper arm"
-||||||| .r7796
-        "display": "Structure of superficial forearm vein (body structure)"
-=======
         "display": "Kidney"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|17401000|Heart valve structure",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|14975008|Forearm structure",
-=======
       "hash": "#|http://snomed.info/sct|null|272676008|Sphenoid bone",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Heart valve structure"
-||||||| .r7796
-        "display": "Forearm"
-=======
         "display": "Entire sphenoid bone"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|361355005|Entire head and neck",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|53120007|Arm#|http://ehr.goodhealthclinic.org|null|ARM|Arm",
-=======
       "hash": "#|http://snomed.info/sct|null|280193007|Entire retropharyngeal area",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Entire head and neck"
-||||||| .r7796
-        "display": "Arm"
-=======
         "display": "Retropharyngeal space"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "|http://snomed.info/sct|null|67734004|Upper Trunk Structure",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|17401000|Heart valve structure",
-=======
       "hash": "#|http://snomed.info/sct|null|281158006|Pulmonary vascular structure",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Upper trunk"
-||||||| .r7796
-        "display": "Heart valve structure"
-=======
         "display": "Pulmonary vascular structure"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|66754008|Appendix structure",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|51185008|Thorax",
-=======
       "hash": "#|http://snomed.info/sct|null|308046002|Superficial forearm vein",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Appendix"
-||||||| .r7796
-        "display": "Thoracic structure"
-=======
         "display": "Structure of superficial forearm vein (body structure)"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|53120007|Arm",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|38266002|Entire body as a whole",
-=======
       "hash": "#|http://snomed.info/sct|null|361355005|Entire head and neck",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Arm"
-||||||| .r7796
-        "display": "Entire body as a whole"
-=======
         "display": "Entire head and neck"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|51185008|Thoracic structure",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|361355005|Entire head and neck",
-=======
       "hash": "#|http://snomed.info/sct|null|368209003|Right arm",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Thoracic structure"
-||||||| .r7796
-        "display": "Entire head and neck"
-=======
         "display": "Right upper arm"
->>>>>>> .r8010
       }
     },
     {
@@ -220,72 +112,36 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|368225008|Entire Left Forearm",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|51185008|Thoracic structure",
-=======
       "hash": "#|http://snomed.info/sct|null|38266002|Entire body as a whole",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Entire left forearm"
-||||||| .r7796
-        "display": "Thoracic structure"
-=======
         "display": "Entire body as a whole"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|308046002|Superficial forearm vein",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|66754008|Appendix structure",
-=======
       "hash": "#|http://snomed.info/sct|null|39607008|Lung structure",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Structure of superficial forearm vein (body structure)"
-||||||| .r7796
-        "display": "Appendix"
-=======
         "display": "Lung structure"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|281158006|Pulmonary vascular structure",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|83030008|Retropharyngeal area",
-=======
       "hash": "#|http://snomed.info/sct|null|40768004|Left thorax",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Pulmonary vascular structure"
-||||||| .r7796
-        "display": "Retropharyngeal area"
-=======
         "display": "Left thorax structure"
->>>>>>> .r8010
       }
     },
     {
@@ -300,175 +156,91 @@
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|38266002|Entire body as a whole",
-||||||| .r7796
-      "hash": "|http://snomed.info/sct|null|67734004|Upper Trunk Structure",
-=======
       "hash": "#|http://snomed.info/sct|null|51185008|Thoracic structure",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Entire body as a whole"
-||||||| .r7796
-        "display": "Upper trunk"
-=======
         "display": "Thoracic structure"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|181414000|Kidney",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|40768004|Left thorax",
-=======
       "hash": "#|http://snomed.info/sct|null|51185008|Thorax",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Kidney"
-||||||| .r7796
-        "display": "Left thorax structure"
-=======
         "display": "Thoracic structure"
->>>>>>> .r8010
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|40768004|Left thorax",
+      "hash": "#|http://snomed.info/sct|null|53120007|Arm",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Left thorax structure"
-      }
-    },
-    {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|14975008|Forearm structure",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|49521004|Left external ear structure",
-=======
-      "hash": "#|http://snomed.info/sct|null|53120007|Arm#|http://ehr.goodhealthclinic.org|null|ARM|Arm",
->>>>>>> .r8010
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-<<<<<<< .mine
-        "display": "Forearm"
-||||||| .r7796
-        "display": "Left external ear structure"
-=======
         "display": "Arm"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|74262004|Oral cavity",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|272676008|Sphenoid bone",
-=======
+      "hash": "#|http://snomed.info/sct|null|53120007|Arm#|http://ehr.goodhealthclinic.org|null|ARM|Arm",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Arm"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|66754008|Appendix structure",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Oral cavity"
-||||||| .r7796
-        "display": "Entire sphenoid bone"
-=======
         "display": "Appendix"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|53120007|Arm#|http://ehr.goodhealthclinic.org|null|ARM|Arm",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|368209003|Right arm",
-=======
       "hash": "#|http://snomed.info/sct|null|74262004|Oral cavity",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Arm"
-||||||| .r7796
-        "display": "Right upper arm"
-=======
         "display": "Oral cavity"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|51185008|Thorax",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|74262004|Oral cavity",
-=======
       "hash": "#|http://snomed.info/sct|null|83030008|Retropharyngeal area",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Thoracic structure"
-||||||| .r7796
-        "display": "Oral cavity"
-=======
         "display": "Retropharyngeal area"
->>>>>>> .r8010
       }
     },
     {
-<<<<<<< .mine
-      "hash": "#|http://snomed.info/sct|null|83030008|Retropharyngeal area",
-||||||| .r7796
-      "hash": "#|http://snomed.info/sct|null|281158006|Pulmonary vascular structure",
-=======
       "hash": "|http://snomed.info/sct|null|67734004|Upper Trunk Structure",
->>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-<<<<<<< .mine
-        "display": "Retropharyngeal area"
-||||||| .r7796
-        "display": "Pulmonary vascular structure"
-=======
         "display": "Upper trunk"
->>>>>>> .r8010
       }
     }
   ]

@@ -2,37 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/allergy-intolerance-category",
   "outcomes": [
     {
-      "hash": "|null|null|medication|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "medication",
-||||||| .r7796
-        "abstract": "food",
-=======
-        "abstract": false,
-        "code": "food",
->>>>>>> .r8010
-        "definition": null,
-        "display": "Medication"
-      }
-    },
-    {
       "hash": "|null|null|food|null",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "food",
-||||||| .r7796
-        "abstract": "medication",
-=======
         "abstract": false,
-        "code": "medication",
->>>>>>> .r8010
+        "code": "food",
         "definition": null,
         "display": "Food"
+      }
+    },
+    {
+      "hash": "|null|null|medication|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "medication",
+        "definition": null,
+        "display": "Medication"
       }
     }
   ]

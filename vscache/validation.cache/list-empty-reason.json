@@ -2,37 +2,25 @@
   "url": "http://hl7.org/fhir/ValueSet/list-empty-reason",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/list-empty-reason|null|withheld|Information Withheld",
-      "severity": null,
-      "message": null,
-      "definition": {
-<<<<<<< .mine
-        "abstract": "withheld",
-||||||| .r7796
-        "abstract": "nilknown",
-=======
-        "abstract": false,
-        "code": "nilknown",
->>>>>>> .r8010
-        "definition": null,
-        "display": "Information Withheld"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/list-empty-reason|null|nilknown|Nil Known",
       "severity": null,
       "message": null,
       "definition": {
-<<<<<<< .mine
-        "abstract": "nilknown",
-||||||| .r7796
-        "abstract": "withheld",
-=======
         "abstract": false,
-        "code": "withheld",
->>>>>>> .r8010
+        "code": "nilknown",
         "definition": null,
         "display": "Nil Known"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/list-empty-reason|null|withheld|Information Withheld",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "withheld",
+        "definition": null,
+        "display": "Information Withheld"
       }
     }
   ]
