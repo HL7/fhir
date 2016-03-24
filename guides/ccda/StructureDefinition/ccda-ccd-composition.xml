@@ -111,8 +111,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos5"/>
-			<label value="Allergies and Intolerances Section"/>
-			<short value="section"/>
+			<short value="Allergies and Intolerances Section"/>
+			
 			<comments value="Allergies and Intolerances Section"/>
 			<min value="1"/>
 			<max value="1"/>
@@ -152,8 +152,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos6"/>
-			<label value="Medications Section"/>
-			<short value="section"/>
+			<short value="Medications Section"/>
+			
 			<comments value="Medications Section"/>
 			<min value="1"/>
 			<max value="1"/>
@@ -192,8 +192,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos7"/>
-			<label value="Problem Section"/>
-			<short value="section"/>
+			<short value="Problem Section"/>
+			
 			<comments value="Problem Section"/>
 			<min value="1"/>
 			<max value="1"/>
@@ -232,8 +232,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos8"/>
-			<label value="Procedures Section"/>
-			<short value="section"/>
+			<short value="Procedures Section"/>
+			
 			<comments value="Procedures Section"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -272,8 +272,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos9"/>
-			<label value="Results Section"/>
-			<short value="section"/>
+			<short value="Results Section"/>
+			
 			<comments value="Results Section"/>
 			<min value="1"/>
 			<max value="1"/>
@@ -312,8 +312,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos10"/>
-			<label value="Advance Directives Section"/>
-			<short value="section"/>
+			<short value="Advance Directives Section"/>
+			
 			<comments value="Advance Directives Section"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -352,8 +352,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos11"/>
-			<label value="Encounters Section"/>
-			<short value="section"/>
+			<short value="Encounters Section"/>
+			
 			<comments value="Encounters Section"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -392,8 +392,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos12"/>
-			<label value="Family History Section"/>
-			<short value="section"/>
+			<short value="Family History Section"/>
+			
 			<comments value="Family History Section"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -432,8 +432,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos13"/>
-			<label value="Functional Status Section"/>
-			<short value="section"/>
+			<short value="Functional Status Section"/>
+			
 			<comments value="Functional Status Section"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -472,8 +472,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos14"/>
-			<label value="Immunizations Section"/>
-			<short value="section"/>
+			<short value="Immunizations Section"/>
+			
 			<comments value="Immunizations Section"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -512,8 +512,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos15"/>
-			<label value="Nutrition Section"/>
-			<short value="section"/>
+			<short value="Nutrition Section"/>
+			
 			<comments value="Nutrition Section"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -552,8 +552,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos16"/>
-			<label value="Mental Status Section"/>
-			<short value="section"/>
+			<short value="Mental Status Section"/>
+			
 			<comments value="Mental Status Section"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -592,8 +592,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos17"/>
-			<label value="Vital Signs Section"/>
-			<short value="section"/>
+			<short value="Vital Signs Section"/>
+			
 			<comments value="Vital Signs Section"/>
 			<min value="1"/>
 			<max value="1"/>
@@ -632,8 +632,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos18"/>
-			<label value="Social History Section"/>
-			<short value="section"/>
+			<short value="Social History Section"/>
+			
 			<comments value="Social History Section"/>
 			<min value="1"/>
 			<max value="1"/>
@@ -672,8 +672,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos19"/>
-			<label value="Plan of Treatment Section"/>
-			<short value="section"/>
+			<short value="Plan of Treatment Section"/>
+			
 			<comments value="Plan of Treatment Section"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -712,8 +712,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos20"/>
-			<label value="Payers Section"/>
-			<short value="section"/>
+			<short value="Payers Section"/>
+			
 			<comments value="Payers Section"/>
 			<min value="0"/>
 			<max value="1"/>
@@ -752,8 +752,8 @@
 		<element>
 			<path value="Composition.section"/>
 			<name value="section_slice_pos21"/>
-			<label value="Medical Equipment Section"/>
-			<short value="section"/>
+			<short value="Medical Equipment Section"/>
+			
 			<comments value="Medical Equipment Section"/>
 			<min value="0"/>
 			<max value="1"/>
