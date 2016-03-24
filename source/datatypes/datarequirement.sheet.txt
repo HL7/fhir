@@ -15,7 +15,7 @@
   Element = DataRequirement.type
   Card. = 1..1
   Type = code
-  Binding = FHIRDefinedType
+  Binding = FHIRAllTypes
   Short Label = The type of the required data
   Definition = The type of the required data, specified as the type name of a resource. For profiles, this value is set to the type of the base resource of the profile
 

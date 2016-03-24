@@ -58,7 +58,7 @@
   Element = ParameterDefinition.type
   Card. = 1..1
   Type = code
-  Binding = FHIRDefinedType
+  Binding = FHIRAllTypes
   Definition = The type of the parameter
 
  -- Row 8 -----------------------------------
