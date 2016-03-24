@@ -6,7 +6,7 @@
   Binding = value set
   Reference = valueset-relatedperson-relationshiptype
   Definition = The nature of the relationship between a patient and the related person
-  Conformance = required
+  Conformance = extensible
 
 === Sheet Invariants =====================================
 

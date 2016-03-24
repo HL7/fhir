@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8856</WindowHeight>
-  <WindowWidth>22992</WindowWidth>
+  <WindowHeight>7644</WindowHeight>
+  <WindowWidth>23040</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>8</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -4012,11 +4012,10 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -4029,12 +4028,11 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6543,7 +6541,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Bindings!R1C1:R1C13"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="30" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="17" ss:ExpandedRowCount="29" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s114" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s114" ss:Width="115.80000000000001"/>
    <Column ss:StyleID="s114" ss:AutoFitWidth="0" ss:Width="274.8"/>
@@ -6658,25 +6656,10 @@
     <Cell ss:StyleID="s121"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
-    <Cell ss:StyleID="s93"><Data ss:Type="String">ActStatus</Data></Cell>
-    <Cell ss:StyleID="s87"><Data ss:Type="String">The status of the appointment.</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v3-ActStatus</Data></Cell>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s120"/>
-    <Cell ss:StyleID="s121"/>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30">
     <Cell ss:StyleID="s93"><Data ss:Type="String">ApptReason</Data></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">The Reason for the appointment to take place.</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s120"/>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/encounter-reason</Data></Cell>
     <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s120"/>
@@ -7050,6 +7033,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -7069,8 +7053,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>0</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>0</ActiveCol>
+     <RangeSelection>R5</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

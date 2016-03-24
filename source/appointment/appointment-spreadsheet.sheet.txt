@@ -20,25 +20,20 @@
   Definition = Is the Participant required to attend the appointment.
 
  -- Row 4 -----------------------------------
-  Binding Name = ActStatus
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v3-ActStatus
-  Definition = The status of the appointment.
-
- -- Row 5 -----------------------------------
   Binding Name = ApptReason
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/encounter-reason
   Definition = The Reason for the appointment to take place.
+  Conformance = preferred
 
- -- Row 6 -----------------------------------
+ -- Row 5 -----------------------------------
   Binding Name = DocumentC80PracticeSetting
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
   Definition = Additional details about where the content was created (e.g. clinical specialty).
   Conformance = preferred
 
- -- Row 7 -----------------------------------
+ -- Row 6 -----------------------------------
   Binding Name = ParticipantType
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/encounter-participant-type
