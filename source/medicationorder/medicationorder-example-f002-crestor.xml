@@ -24,13 +24,13 @@
         <reference value="Practitioner/f006"/>
         <display value="R.A. van den Berk"/>
     </prescriber>
-    <reasonCodeableConcept>
+    <reasonCode>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="28036006"/>
             <display value="High density lipoprotein cholesterol level"/>
         </coding>
-    </reasonCodeableConcept>
+    </reasonCode>
     <dosageInstruction>
         <timing>
             <repeat>

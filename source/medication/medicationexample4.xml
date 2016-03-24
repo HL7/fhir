@@ -31,9 +31,9 @@
       </coding>
     </form>
     <ingredient>
-      <item>
-        <display value="Amoxicillin"/>
-      </item>
+      <itemCodeableConcept>
+        <text value="Amoxicillin"/>
+      </itemCodeableConcept>
       <amount>
         <numerator>
           <value value="250"/>
@@ -61,9 +61,9 @@
       </coding>
     </container>
     <content>
-      <item>
+      <itemReference>
         <reference value="Medication/medexample014"></reference>
-      </item>
+      </itemReference>
       <amount>
         <value value="7.5"/>
         <unit value="gm"/>

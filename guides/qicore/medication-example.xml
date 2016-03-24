@@ -33,9 +33,9 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/medication-isActiveIngredient" >
         <valueBoolean value="true"/>
       </extension>
-      <item>
-        <display value="flutacisone"/>
-      </item>
+      <itemCodeableConcept>
+        <text value="flutacisone"/>
+      </itemCodeableConcept>
       <amount>
         <numerator>
           <value value="115"/>
@@ -53,9 +53,9 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/medication-isActiveIngredient" >
         <valueBoolean value="true"/>
       </extension>
-      <item>
-        <display value="salmeterol"/>
-      </item>
+      <itemCodeableConcept>
+        <text value="salmeterol"/>
+      </itemCodeableConcept>
       <amount>
         <numerator>
           <value value="21"/>

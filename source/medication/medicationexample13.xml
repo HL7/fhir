@@ -31,9 +31,9 @@
       </coding>
     </form>
     <ingredient>
-      <item>
-        <display value="Insulin Aspart"/>
-      </item>
+      <itemCodeableConcept>
+        <text value="Insulin Aspart"/>
+      </itemCodeableConcept>
       <amount>
         <numerator>
           <value value="100"/>

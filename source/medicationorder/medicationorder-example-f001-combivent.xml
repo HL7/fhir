@@ -25,13 +25,13 @@
         <reference value="Practitioner/f006"/>
         <display value="R.A. van den Berk"/>
     </prescriber>
-    <reasonCodeableConcept>
+    <reasonCode>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="13645005"/>
             <display value="Chronic obstructive pulmonary disease"/>
         </coding>
-    </reasonCodeableConcept>
+    </reasonCode>
     <dosageInstruction>
         <text value="3 tot 4 maal daags 1 flacon"/>
         <additionalInstructions>

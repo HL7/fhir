@@ -29,13 +29,13 @@
 		<reference value="Practitioner/f007"/>
 		<display value="Patricia Primary"/>
 	</prescriber>	
-	<reasonCodeableConcept>
+	<reasonCode>
 		<coding>
 			<system value="http://snomed.info/sct"/>
 			<code value="64859006"/>
 			<display value="Osteoporosis"/>
 		</coding>
-	</reasonCodeableConcept>
+	</reasonCode>
 	<dosageInstruction>
 		<text value="Take one tablet daily as directed"/>
 	</dosageInstruction>

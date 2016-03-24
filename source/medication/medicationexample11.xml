@@ -31,9 +31,9 @@
       </coding>
     </form>
     <ingredient>
-      <item>
-        <display value="Prednisone"/>
-      </item>
+      <itemCodeableConcept>
+        <text value="Prednisone"/>
+      </itemCodeableConcept>
       <amount>
         <numerator>
           <value value="5"/>

@@ -23,7 +23,7 @@
             </coding>
         </container>
         <!-- <content>
-            <item> 1..1 Reference(Medication) A product in the package </item>
+            <itemReference> 1..1 Reference(Medication) A product in the package </itemReference>
             <amount>
                 <value value="30"/>
                 <unit value="Pill"/>

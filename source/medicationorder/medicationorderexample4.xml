@@ -27,13 +27,13 @@
         <reference value="Practitioner/f007"/>
         <display value="Patrick Pump"/>
     </prescriber>
-    <reasonCodeableConcept>
+    <reasonCode>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="195967001"/>
             <display value="Asthma"/>
         </coding>
-    </reasonCodeableConcept>
+    </reasonCode>
     <dosageInstruction>
         <text value="Use 2 puffs twice daily as needed" />
         <timing>

@@ -24,13 +24,13 @@
         <reference value="Practitioner/f007"/>
         <display value="S.M. Heps"/>
     </prescriber>
-    <reasonCodeableConcept>
+    <reasonCode>
         <coding>
             <system value="http://snomed.info/sct"/>
             <code value="444780001"/>
             <display value="High glucose level in blood"/>
         </coding>
-    </reasonCodeableConcept>
+    </reasonCode>
     <dosageInstruction>
         <timing>
             <repeat>

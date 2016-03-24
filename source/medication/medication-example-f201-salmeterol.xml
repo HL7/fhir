@@ -19,9 +19,9 @@
       </coding>
     </form>
     <ingredient>
-      <item>
-        <display value="flutacisone"/>
-      </item>
+      <itemCodeableConcept>
+        <text value="flutacisone"/>
+      </itemCodeableConcept>
       <amount>
         <numerator>
           <value value="25"/>
@@ -36,9 +36,9 @@
       </amount>
     </ingredient>
     <ingredient>
-      <item>
-        <display value="salmeterol"/>
-      </item>
+      <itemCodeableConcept>
+        <text value="salmeterol"/>
+      </itemCodeableConcept>
       <amount>
         <numerator>
           <value value="250"/>

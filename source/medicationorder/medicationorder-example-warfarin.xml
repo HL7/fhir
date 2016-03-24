@@ -33,12 +33,12 @@
     <reference value="Practitioner/example"/>
     <display value="Dr. Adam Careful"/>
   </prescriber>
-  <reasonCodeableConcept>
+  <reasonCode>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="49436004"/>
     </coding>
-  </reasonCodeableConcept>
+  </reasonCode>
   <medication>
     <reference value="#1"/>
   </medication>

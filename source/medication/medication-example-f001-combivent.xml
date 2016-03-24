@@ -23,11 +23,11 @@
             </coding>
         </form>
         <ingredient>
-            <item> <!-- Linked to a RESOURCE Medication -->
+            <itemReference> <!-- Linked to a RESOURCE Medication -->
                 <!-- OID: 2.16.840.1.113883.4.642.1.4 -->
                 <reference value="Medication/f001"/> 
                 <display value="Combivent"/>
-            </item> 
+            </itemReference> 
             <amount>
                 <numerator>
                     <value value="100"/>

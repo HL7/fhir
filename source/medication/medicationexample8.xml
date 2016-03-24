@@ -23,9 +23,9 @@
       </coding>
     </form>
     <ingredient>
-      <item>
-        <display value="Hydrocortisone Powder"/>
-      </item>
+      <itemCodeableConcept>
+        <text value="Hydrocortisone Powder"/>
+      </itemCodeableConcept>
       <amount>
         <numerator>
           <value value="1"/>
@@ -40,9 +40,9 @@
       </amount>
     </ingredient>
     <ingredient>
-      <item>
-        <display value="Salicyclic Acid"/>
-      </item>
+      <itemCodeableConcept>
+        <text value="Salicyclic Acid"/>
+      </itemCodeableConcept>
       <amount>
         <numerator>
           <value value="5"/>
@@ -57,9 +57,9 @@
       </amount>
     </ingredient>
     <ingredient>
-      <item>
-        <display value="Glaxal Base"/>
-      </item>
+      <itemCodeableConcept>
+        <text value="Glaxal Base"/>
+      </itemCodeableConcept>
       <amount>
         <numerator>
           <value value="94"/>

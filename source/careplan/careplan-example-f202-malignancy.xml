@@ -45,19 +45,19 @@
       </code>
       <product>
         <ingredient>
-          <item>
+          <itemReference>
             <reference value="#doce"/>
-          </item>
+          </itemReference>
         </ingredient>
         <ingredient>
-          <item>
+          <itemReference>
             <reference value="#cisp"/>
-          </item>
+          </itemReference>
         </ingredient>
         <ingredient>
-          <item>
+          <itemReference>
             <reference value="#fluo"/>
-          </item>
+          </itemReference>
         </ingredient>
       </product>
     </Medication>
