@@ -16,8 +16,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>14010</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>17610</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -859,9 +859,9 @@
  <Worksheet ss:Name="Data Elements">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='Data Elements'!R1C1:R106C23" ss:Hidden="1"/>
+    ss:RefersTo="='Data Elements'!R1C1:R107C23" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="106" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="107" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s68" ss:DefaultRowHeight="15">
    <Column ss:StyleID="s69" ss:Width="227.25"/>
    <Column ss:StyleID="s68" ss:AutoFitWidth="0" ss:Width="77.25"/>
@@ -1469,6 +1469,37 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75">
+    <Cell ss:StyleID="s86"><Data ss:Type="String">Timing.repeat.offset</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">0..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="Number">9</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">unsignedInt</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">Minutes from event (before or after)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s86"><Data ss:Type="String">Timing.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -1488,10 +1519,10 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><Data ss:Type="String">QD | QOD | Q4H | Q6H | BID | TID | QID | AM | PM +</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">A repeat should always be defined except for the common codes BID, TID, QID, AM and PM, which all systems are required to understand</Data><NamedCell
+    <Cell ss:StyleID="s88"><Data ss:Type="String">BID etc are defined as 'at institutionally specified times'. For example, an institution may choose that BID is &quot;always at 7am and 6pm&quot;.  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or the a structured representation should be used (in this case, specifying the two event times)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">QSC.code</Data><NamedCell
@@ -3744,7 +3775,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>4</TopRowBottomPane>
+   <TopRowBottomPane>10</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3761,14 +3792,14 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
-     <ActiveCol>6</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
   </WorksheetOptions>
-  <AutoFilter x:Range="R1C1:R106C23"
+  <AutoFilter x:Range="R1C1:R107C23"
    xmlns="urn:schemas-microsoft-com:office:excel">
   </AutoFilter>
  </Worksheet>
@@ -3911,14 +3942,15 @@
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:countMax)) or exists(f:count)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="Number">9</Data><NamedCell
+      ss:Name="Invariantids"/></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">offset needs when</Data></Cell>
     <Cell ss:StyleID="s90"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">Timing.repeat</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">If there's an offset, there must be a when</Data></Cell>
     <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s90"/>
-    <Cell ss:StyleID="s108"/>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">offset.empty() or when</Data></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:offset)) or exists(f:when)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s107"><NamedCell ss:Name="Invariantids"/></Cell>
@@ -4353,7 +4385,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>10</ActiveRow>
      <ActiveCol>7</ActiveCol>
     </Pane>
    </Panes>
@@ -6902,7 +6934,7 @@
     <Cell ss:StyleID="s117"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s152"/>
     <Cell ss:StyleID="s152"/>
-    <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [duration] before the hour of sleep (or trying to)</Data></Cell>
+    <Cell ss:StyleID="s152"><Data ss:Type="String">event occurs [offset] before the hour of sleep (or trying to)</Data></Cell>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s130"/>
     <Cell ss:StyleID="s142"/>
@@ -6913,7 +6945,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [duration] after waking</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [offset] after waking</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -6968,7 +7000,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [duration] before a meal (from the Latin ante cibus)</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [offset] before a meal (from the Latin ante cibus)</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -6979,7 +7011,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [duration] before breakfast (from the Latin ante cibus matutinus)</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [offset] before breakfast (from the Latin ante cibus matutinus)</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -6990,7 +7022,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [duration] before lunch (from the Latin ante cibus diurnus)</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [offset] before lunch (from the Latin ante cibus diurnus)</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7001,7 +7033,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [duration] before dinner (from the Latin ante cibus vespertinus)</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [offset] before dinner (from the Latin ante cibus vespertinus)</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7012,7 +7044,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [duration] after a meal (from the Latin post cibus)</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [offset] after a meal (from the Latin post cibus)</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7023,7 +7055,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [duration] after breakfast (from the Latin post cibus matutinus)</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [offset] after breakfast (from the Latin post cibus matutinus)</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7034,7 +7066,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [duration] after lunch (from the Latin post cibus diurnus)</Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [offset] after lunch (from the Latin post cibus diurnus)</Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7045,7 +7077,7 @@
     <Cell ss:StyleID="s120"><Data ss:Type="String">http://hl7.org/fhir/v3/TimingEvent</Data></Cell>
     <Cell ss:StyleID="s153"/>
     <Cell ss:StyleID="s153"/>
-    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [duration] after dinner (from the Latin post cibus vespertinus) </Data></Cell>
+    <Cell ss:StyleID="s153"><Data ss:Type="String">event occurs [offset] after dinner (from the Latin post cibus vespertinus) </Data></Cell>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s133"/>
     <Cell ss:StyleID="s144"/>
@@ -7507,7 +7539,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

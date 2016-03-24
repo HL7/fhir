@@ -26,12 +26,12 @@
  -- Row 1 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = HS
-  Definition = event occurs [duration] before the hour of sleep (or trying to)
+  Definition = event occurs [offset] before the hour of sleep (or trying to)
 
  -- Row 2 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = WAKE
-  Definition = event occurs [duration] after waking
+  Definition = event occurs [offset] after waking
 
  -- Row 3 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
@@ -56,42 +56,42 @@
  -- Row 7 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = AC
-  Definition = event occurs [duration] before a meal (from the Latin ante cibus)
+  Definition = event occurs [offset] before a meal (from the Latin ante cibus)
 
  -- Row 8 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = ACM
-  Definition = event occurs [duration] before breakfast (from the Latin ante cibus matutinus)
+  Definition = event occurs [offset] before breakfast (from the Latin ante cibus matutinus)
 
  -- Row 9 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = ACD
-  Definition = event occurs [duration] before lunch (from the Latin ante cibus diurnus)
+  Definition = event occurs [offset] before lunch (from the Latin ante cibus diurnus)
 
  -- Row 10 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = ACV
-  Definition = event occurs [duration] before dinner (from the Latin ante cibus vespertinus)
+  Definition = event occurs [offset] before dinner (from the Latin ante cibus vespertinus)
 
  -- Row 11 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = PC
-  Definition = event occurs [duration] after a meal (from the Latin post cibus)
+  Definition = event occurs [offset] after a meal (from the Latin post cibus)
 
  -- Row 12 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = PCM
-  Definition = event occurs [duration] after breakfast (from the Latin post cibus matutinus)
+  Definition = event occurs [offset] after breakfast (from the Latin post cibus matutinus)
 
  -- Row 13 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = PCD
-  Definition = event occurs [duration] after lunch (from the Latin post cibus diurnus)
+  Definition = event occurs [offset] after lunch (from the Latin post cibus diurnus)
 
  -- Row 14 -----------------------------------
   System = http://hl7.org/fhir/v3/TimingEvent
   Code = PCV
-  Definition = event occurs [duration] after dinner (from the Latin post cibus vespertinus)
+  Definition = event occurs [offset] after dinner (from the Latin post cibus vespertinus)
 
 === Sheet units-of-time =====================================
 
@@ -244,6 +244,13 @@
   XPath = not(exists(f:countMax)) or exists(f:count)
   Expression = countMax.empty() or count
 
+ -- Row 9 -----------------------------------
+  Id = 9
+  Context = Timing.repeat
+  English = If there\'s an offset, there must be a when
+  XPath = not(exists(f:offset)) or exists(f:when)
+  Expression = offset.empty() or when
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -382,11 +389,18 @@
   RIM Mapping = EIVL.event
 
  -- Row 16 -----------------------------------
+  Element = Timing.repeat.offset
+  Card. = 0..1
+  Type = unsignedInt
+  Short Label = Minutes from event (before or after)
+  Definition = The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event
+
+ -- Row 17 -----------------------------------
   Element = Timing.code
   Card. = 0..1
   Type = CodeableConcept
   Binding = TimingAbbreviation
   Short Label = QD | QOD | Q4H | Q6H | BID | TID | QID | AM | PM +
-  Definition = A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes
-  Comments = A repeat should always be defined except for the common codes BID, TID, QID, AM and PM, which all systems are required to understand
+  Definition = A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing
+  Comments = BID etc are defined as \'at institutionally specified times\'. For example, an institution may choose that BID is \"always at 7am and 6pm\".  If it is inappropriate for this choice to be made, the code BID should not be used. Instead, a distinct organization-specific code should be used in place of the HL7-defined BID code and/or the a structured representation should be used (in this case, specifying the two event times)
   RIM Mapping = QSC.code
