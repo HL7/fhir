@@ -2,12 +2,12 @@
   "url": "http://hl7.org/fhir/ValueSet/medication-package-form-codes",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|398124009|drug container",
+      "hash": "#|http://snomed.info/sct|null|419672006|Bottle - unit of product usage",
       "severity": "error",
       "message": "The code provided is not  valid in the value set SNOMED CT Form Codes"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|419672006|Bottle - unit of product usage",
+      "hash": "#|http://snomed.info/sct|null|398124009|drug container",
       "severity": null,
       "message": null,
       "definition": {
