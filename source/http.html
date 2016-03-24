@@ -401,11 +401,12 @@ that has an identical value to the <code>[id]</code> in the URL. If no <code>id<
 the value is wrong, the server SHALL respond with a HTTP <code>400</code> error code, and SHOULD
 provide an operation outcome identifying the issue.
 If the request body includes a <a href="resource.html#meta"><code>meta</code></a>, the server SHALL
-ignore the existing <code>versionId</code> and <code>lastUpdated</code> values.
+ignore the provided <code>versionId</code> and <code>lastUpdated</code> values.
 
 If the server supports versions, it SHALL populate the <code>meta.versionId</code> and <code>meta.lastUpdated</code>
 with the new correct values. Servers are allowed to review and alter the other metadata values, but SHOULD refrain
-from doing so (see <a href="resource.html#meta">metadata description</a>  for further information).
+from doing so (see <a href="resource.html#meta">metadata description</a>  for further information). Note that 
+there is no support for updating past versions - see notes on the <a href="#history">history</a> interaction.
 </p>
 <p>
 A server SHOULD accept the resource as submitted when it accepts the update, and return the same
@@ -589,7 +590,8 @@ about the state of the real-world corresponding resource implied.
 <p>
 For servers that maintain a version history, the <code>delete</code> interaction does not remove a resource's version history. From a version history respect,
 deleting a resource is the equivalent of creating a special kind of history entry that has
-no content and is marked as deleted.
+no content and is marked as deleted. Note that 
+there is no support for deleting past versions - see notes on the <a href="#history">history</a> interaction.
 </p>
 <p>
 Since deleted resources may be brought back to life, servers MAY include an ETag on the delete response
@@ -1035,7 +1037,7 @@ The interactions <a href="#create"><code>create</code></a>, <a href="#update"><c
 create history entries. Other interactions do not (note that these operations may produce side-effects
 such as new AuditEvent resources; these are represented as create interactions in their own right).
 New resources or updates to existing resources that are triggered by operations also appear in the 
-history, as to updates to the resources that result from interactions outside the scope of the
+history, as do updates to the resources that result from interactions outside the scope of the
 RESTful interface.
 </p>
 <p>
@@ -1083,6 +1085,16 @@ The history interaction can be used to set up a subscription from one system
 to another, so that resources are synchronized between them. Refer to the <a href="subscription.html">Subscription resource</a>
 for an alternate means of system synchronization.
 </p>
+<p>
+Additional Notes about maintaining a history of resources:
+</p>
+<ul>
+ <li>The history is a record version history on a per-resource basis. It is not intended to support concurrent versions, or multi-branch version history</li>
+ <li>Accordingly, there is no way to update or delete past versions of the record, except that the <a href="resource-operations.html">metadata can be modified</a> (mainly for access control purposes)</li>
+ <li>All past versions of a resource are considered to be superceded, and no longer active, but retained for audit/integrity purposes</li>
+ <li>In the case that a past version of a resource needs to be explicitly documented as <a href="lifecycle.html#error">'entered-in-error'</a>, use as provenance resource pointing to the past version of the resource</li>
+ <li>When tracing the history of a specific resource, applications should retrieve any provenance resources relating to the resource or it's past versions</li>
+</ul>
 
 <a name="transactional-integrity"> </a>
 <h3>Transactional Integrity</h3>
