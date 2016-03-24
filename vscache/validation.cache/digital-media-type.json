@@ -2,25 +2,37 @@
   "url": "http://hl7.org/fhir/ValueSet/digital-media-type",
   "outcomes": [
     {
-      "hash": "|null|null|photo|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "photo",
-        "definition": null,
-        "display": "Photo"
-      }
-    },
-    {
       "hash": "|null|null|video|null",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "video",
+||||||| .r7796
+        "abstract": "photo",
+=======
         "abstract": false,
-        "code": "video",
+        "code": "photo",
+>>>>>>> .r8010
         "definition": null,
         "display": "Video"
+      }
+    },
+    {
+      "hash": "|null|null|photo|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "photo",
+||||||| .r7796
+        "abstract": "video",
+=======
+        "abstract": false,
+        "code": "video",
+>>>>>>> .r8010
+        "definition": null,
+        "display": "Photo"
       }
     }
   ]

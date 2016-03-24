@@ -34,17 +34,48 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|406466009|House dust allergen",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|333346007|Silver nitrate 20% solution (product)",
+=======
       "hash": "#|http://snomed.info/sct|null|392259005|Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "House dust allergen (substance)"
+||||||| .r7796
+        "display": "Silver nitrate 20% solution (product)"
+=======
         "display": "Co-amoxiclav 875mg/125mg tablet (product)"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/v3/EntityCode|null|HEPL|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Substance Code"
+    },
+    {
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|3092008|Staphylococcus Aureus",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Substance Code"
+    },
+    {
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|C3214954|cashew nut allergenic extract Injectable Product",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Substance Code"
+    },
+    {
+=======
+>>>>>>> .r8010
       "hash": "#|http://snomed.info/sct|null|395938000|Clavulanate potassium (substance)",
       "severity": null,
       "message": null,
@@ -56,6 +87,20 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|392259005|Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "Co-amoxiclav 875mg/125mg tablet (product)"
+      }
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/v3/EntityCode|null|HEPL|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Substance Code"
+=======
       "hash": "#|http://snomed.info/sct|null|406466009|House dust allergen",
       "severity": null,
       "message": null,
@@ -65,6 +110,7 @@
         "definition": null,
         "display": "House dust allergen (substance)"
       }
+>>>>>>> .r8010
     },
     {
       "hash": "#|http://snomed.info/sct|null|88480006|Potassium",
@@ -78,14 +124,60 @@
       }
     },
     {
+<<<<<<< .mine
       "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|C3214954|cashew nut allergenic extract Injectable Product",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Substance Code"
     },
     {
       "hash": "#|null|null|2556|null",
+||||||| .r7796
+      "hash": "#|null|null|2556|null",
+=======
+      "hash": "#|http://www.nlm.nih.gov/research/umls/rxnorm|null|C3214954|cashew nut allergenic extract Injectable Product",
+>>>>>>> .r8010
       "severity": "error",
       "message": "The code provided is not  valid in the value set Substance Code"
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|333346007|Silver nitrate 20% solution (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "Silver nitrate 20% solution (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|3092008|Staphylococcus Aureus",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Substance Code"
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|392259005|Amoxicillin + clavulanate potassium 875mg/125mg tablet (product)",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "Co-amoxiclav 875mg/125mg tablet (product)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|406466009|House dust allergen",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "House dust allergen (substance)"
+      }
+=======
+      "hash": "#|null|null|2556|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Substance Code"
+>>>>>>> .r8010
     }
   ]
 }

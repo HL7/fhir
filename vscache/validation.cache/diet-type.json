@@ -2,41 +2,92 @@
   "url": "http://hl7.org/fhir/ValueSet/diet-type",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|226211001|Pureed diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Pureed diet",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|33489005|Renal diet#|http://goodhealthhospital.org/diet-type-codes|null|1050|Renal",
+=======
       "hash": "#|http://snomed.info/sct|null|15108003|Restricted fiber diet#|http://goodhealthhospital.org/diet-type-codes|null|1000|Fiber restricted",
+>>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes provided are  valid in the value set Diet Codes"
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|15108003|Restricted fiber diet#|http://goodhealthhospital.org/diet-type-codes|null|1000|Fiber restricted",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|226211001|Pureed diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Pureed diet",
+=======
       "hash": "#|http://snomed.info/sct|null|160670007|Diabetic diet#|http://goodhealthhospital.org/diet-type-codes|null|1030|DD - Diabetic diet",
+>>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes provided are  valid in the value set Diet Codes"
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|386619000|Low sodium diet#|http://goodhealthhospital.org/diet-type-codes|null|1040|Low Sodium Diet",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|435801000124108|Texture modified diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Texture modified diet",
+=======
+      "hash": "#|http://snomed.info/sct|null|16208003|Low fat diet#|http://goodhealthhospital.org/diet-type-codes|null|1100|Low Fat",
+>>>>>>> .r8010
+      "severity": "error",
+      "message": "None of the codes provided are  valid in the value set Diet Codes"
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|33489005|Renal diet#|http://goodhealthhospital.org/diet-type-codes|null|1050|Renal",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|386619000|Low sodium diet#|http://goodhealthhospital.org/diet-type-codes|null|1040|Low Sodium Diet",
+=======
+      "hash": "#|http://snomed.info/sct|null|226208002|Fluid restricted diet#|http://goodhealthhospital.org/diet-type-codes|null|1040|Fluid restricted diet",
+>>>>>>> .r8010
+      "severity": "error",
+      "message": "None of the codes provided are  valid in the value set Diet Codes"
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|226208002|Fluid restricted diet#|http://goodhealthhospital.org/diet-type-codes|null|1040|Fluid restricted diet",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|15108003|Restricted fiber diet#|http://goodhealthhospital.org/diet-type-codes|null|1000|Fiber restricted",
+=======
+      "hash": "#|http://snomed.info/sct|null|226211001|Pureed diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Pureed diet",
+>>>>>>> .r8010
+      "severity": "error",
+      "message": "None of the codes provided are  valid in the value set Diet Codes"
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|160670007|Diabetic diet#|http://goodhealthhospital.org/diet-type-codes|null|1030|DD - Diabetic diet",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|16208003|Low fat diet#|http://goodhealthhospital.org/diet-type-codes|null|1100|Low Fat",
+=======
+      "hash": "#|http://snomed.info/sct|null|33489005|Renal diet#|http://goodhealthhospital.org/diet-type-codes|null|1050|Renal",
+>>>>>>> .r8010
+      "severity": "error",
+      "message": "None of the codes provided are  valid in the value set Diet Codes"
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|435801000124108|Texture modified diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Texture modified diet",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|226208002|Fluid restricted diet#|http://goodhealthhospital.org/diet-type-codes|null|1040|Fluid restricted diet",
+=======
+      "hash": "#|http://snomed.info/sct|null|386619000|Low sodium diet#|http://goodhealthhospital.org/diet-type-codes|null|1040|Low Sodium Diet",
+>>>>>>> .r8010
+      "severity": "error",
+      "message": "None of the codes provided are  valid in the value set Diet Codes"
+    },
+    {
+<<<<<<< .mine
       "hash": "#|http://snomed.info/sct|null|16208003|Low fat diet#|http://goodhealthhospital.org/diet-type-codes|null|1100|Low Fat",
       "severity": "error",
-      "message": "None of the codes provided are  valid in the value set Diet Codes"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|226208002|Fluid restricted diet#|http://goodhealthhospital.org/diet-type-codes|null|1040|Fluid restricted diet",
+      "message": "None of the codes are in the specified value set"
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|160670007|Diabetic diet#|http://goodhealthhospital.org/diet-type-codes|null|1030|DD - Diabetic diet",
       "severity": "error",
-      "message": "None of the codes provided are  valid in the value set Diet Codes"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|226211001|Pureed diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Pureed diet",
-      "severity": "error",
-      "message": "None of the codes provided are  valid in the value set Diet Codes"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|33489005|Renal diet#|http://goodhealthhospital.org/diet-type-codes|null|1050|Renal",
-      "severity": "error",
-      "message": "None of the codes provided are  valid in the value set Diet Codes"
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|386619000|Low sodium diet#|http://goodhealthhospital.org/diet-type-codes|null|1040|Low Sodium Diet",
-      "severity": "error",
-      "message": "None of the codes provided are  valid in the value set Diet Codes"
-    },
-    {
+      "message": "None of the codes are in the specified value set"
+=======
       "hash": "#|http://snomed.info/sct|null|435801000124108|Texture modified diet#|http://goodhealthhospital.org/diet-type-codes|null|1010|Texture modified diet",
       "severity": null,
       "message": null,
@@ -46,6 +97,7 @@
         "definition": null,
         "display": "Texture modified diet (regime/therapy)"
       }
+>>>>>>> .r8010
     }
   ]
 }

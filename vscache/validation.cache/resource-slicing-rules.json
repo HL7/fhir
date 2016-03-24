@@ -2,14 +2,20 @@
   "url": "http://hl7.org/fhir/ValueSet/resource-slicing-rules",
   "outcomes": [
     {
-      "hash": "|null|null|closed|null",
+      "hash": "|null|null|openAtEnd|null",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "openAtEnd",
+||||||| .r7796
+        "abstract": "closed",
+=======
         "abstract": false,
         "code": "closed",
+>>>>>>> .r8010
         "definition": null,
-        "display": "Closed"
+        "display": "Open at End"
       }
     },
     {
@@ -24,14 +30,32 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|closed|null",
+||||||| .r7796
+      "hash": "|null|null|openAtEnd|null",
+=======
       "hash": "|null|null|open|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "closed",
+||||||| .r7796
+        "abstract": "openAtEnd",
+=======
         "abstract": false,
         "code": "open",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Closed"
+||||||| .r7796
+        "display": "Open at End"
+=======
         "display": "Open"
+>>>>>>> .r8010
       }
     }
   ]

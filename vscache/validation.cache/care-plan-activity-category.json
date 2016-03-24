@@ -2,7 +2,23 @@
   "url": "http://hl7.org/fhir/ValueSet/care-plan-activity-category",
   "outcomes": [
     {
+<<<<<<< .mine
       "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|diet|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "diet",
+        "definition": null,
+        "display": "Diet"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|observation|null",
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|observation|null",
+=======
+      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|diet|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
@@ -35,6 +51,19 @@
       }
     },
     {
+<<<<<<< .mine
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|diet|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "diet",
+        "definition": null,
+        "display": "Diet"
+      }
+    },
+    {
+=======
       "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|other|null",
       "severity": null,
       "message": null,
@@ -46,6 +75,7 @@
       }
     },
     {
+>>>>>>> .r8010
       "hash": "#|http://hl7.org/fhir/care-plan-activity-category|null|procedure|null",
       "severity": null,
       "message": null,

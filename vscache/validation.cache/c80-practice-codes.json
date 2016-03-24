@@ -7,7 +7,46 @@
       "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://ihe.net/connectathon/practiceSettingCodes|null|General Medicine|General Medicine",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|394587001|Psychiatry",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "394587001",
+        "definition": null,
+        "display": "Psychiatry"
+      }
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|172676009|Myringotomy and insertion of short-term tympanic ventilation tube (procedure)",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|172676009|Myringotomy and insertion of tympanic ventilation tube",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://www.ihe.net/xds/connectathon/practiceSettingCodes|null|General Medicine|General Medicine",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|null|null|385893007|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+=======
+>>>>>>> .r8010
+      "hash": "#|null|null|52|General Discussion",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
     },
@@ -17,6 +56,29 @@
       "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
     },
     {
+<<<<<<< .mine
+      "hash": "#|null|null|385893007|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|394587001|Psychiatry",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "394587001",
+        "definition": null,
+        "display": "Psychiatry"
+      }
+    },
+    {
+      "hash": "#|null|null|52|General Discussion",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+=======
       "hash": "#|http://snomed.info/sct|null|394587001|Psychiatry",
       "severity": null,
       "message": null,
@@ -28,6 +90,7 @@
       }
     },
     {
+>>>>>>> .r8010
       "hash": "#|http://snomed.info/sct|null|394913002|Psychotherapy",
       "severity": null,
       "message": null,
@@ -37,6 +100,14 @@
         "definition": null,
         "display": "Psychotherapy (specialty) (qualifier value)"
       }
+<<<<<<< .mine
+    },
+    {
+      "hash": "#|http://www.ihe.net/xds/connectathon/practiceSettingCodes|null|General Medicine|General Medicine",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+||||||| .r7796
+=======
     },
     {
       "hash": "#|http://www.ihe.net/xds/connectathon/practiceSettingCodes|null|General Medicine|General Medicine",
@@ -57,6 +128,7 @@
       "hash": "#|null|null|52|General Discussion",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Practice Setting Code Value Set"
+>>>>>>> .r8010
     }
   ]
 }

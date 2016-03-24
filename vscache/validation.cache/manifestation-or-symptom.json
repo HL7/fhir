@@ -17,6 +17,11 @@
       "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|169069000|CT of thorax",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|426396005|Cardiac chest pain",
       "severity": null,
       "message": null,
@@ -26,6 +31,25 @@
         "definition": null,
         "display": "Cardiac chest pain (finding)"
       }
+<<<<<<< .mine
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|169068008|CT of neck",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
+||||||| .r7796
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|169068008|CT of neck",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|169069000|CT of thorax",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Manifestation and Symptom Codes"
+=======
+>>>>>>> .r8010
     }
   ]
 }

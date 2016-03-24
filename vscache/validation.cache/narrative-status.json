@@ -2,14 +2,20 @@
   "url": "http://hl7.org/fhir/ValueSet/narrative-status",
   "outcomes": [
     {
-      "hash": "|null|null|additional|null",
+      "hash": "|null|null|extensions|null",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "extensions",
+||||||| .r7796
+        "abstract": "additional",
+=======
         "abstract": false,
         "code": "additional",
+>>>>>>> .r8010
         "definition": null,
-        "display": "Additional"
+        "display": "Extensions"
       }
     },
     {
@@ -24,14 +30,32 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|additional|null",
+||||||| .r7796
+      "hash": "|null|null|extensions|null",
+=======
       "hash": "|null|null|generated|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "additional",
+||||||| .r7796
+        "abstract": "extensions",
+=======
         "abstract": false,
         "code": "generated",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Additional"
+||||||| .r7796
+        "display": "Extensions"
+=======
         "display": "Generated"
+>>>>>>> .r8010
       }
     }
   ]

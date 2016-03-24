@@ -2,6 +2,19 @@
   "url": "http://hl7.org/fhir/ValueSet/condition-severity",
   "outcomes": [
     {
+<<<<<<< .mine
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|6736007|Moderate",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "6736007",
+        "definition": null,
+        "display": "Moderate"
+      }
+    },
+    {
+=======
       "hash": "#|http://snomed.info/sct|null|24484000|Severe",
       "severity": null,
       "message": null,
@@ -13,6 +26,7 @@
       }
     },
     {
+>>>>>>> .r8010
       "hash": "#|http://snomed.info/sct|null|255604002|Mild",
       "severity": null,
       "message": null,
@@ -40,6 +54,16 @@
       "definition": {
         "abstract": false,
         "code": null,
+        "definition": null,
+        "display": "Moderate"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|6736007|Moderate",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "6736007",
         "definition": null,
         "display": "Moderate"
       }

@@ -6,21 +6,45 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "capability",
+||||||| .r7796
+        "abstract": "requirements",
+=======
         "abstract": false,
         "code": "capability",
+>>>>>>> .r8010
         "definition": null,
         "display": "Capability"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|requirements|null",
+||||||| .r7796
+      "hash": "|null|null|capability|null",
+=======
       "hash": "|null|null|instance|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "requirements",
+||||||| .r7796
+        "abstract": "capability",
+=======
         "abstract": false,
         "code": "instance",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Requirements"
+||||||| .r7796
+        "display": "Capability"
+=======
         "display": "Instance"
+>>>>>>> .r8010
       }
     },
     {

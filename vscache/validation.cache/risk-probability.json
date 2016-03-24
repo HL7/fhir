@@ -18,9 +18,21 @@
       "message": "Unknown Code 0.000168 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|0.000838|null",
+||||||| .r7796
+      "hash": "|null|null|0.001663|null",
+=======
       "hash": "|null|null|0.000368|null",
+>>>>>>> .r8010
       "severity": "error",
+<<<<<<< .mine
+      "message": "Unknown Code 0.000838 in http://hl7.org/fhir/ValueSet/risk-probability"
+||||||| .r7796
+      "message": "Unknown Code 0.001663 in http://hl7.org/fhir/ValueSet/risk-probability"
+=======
       "message": "Unknown Code 0.000368 in http://hl7.org/fhir/ValueSet/risk-probability"
+>>>>>>> .r8010
     },
     {
       "hash": "|null|null|0.000594|null",
@@ -28,9 +40,20 @@
       "message": "Unknown Code 0.000594 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|0.001327|null",
+||||||| .r7796
+      "hash": "|null|null|0.001089|null",
+=======
       "hash": "|null|null|0.000838|null",
       "severity": "error",
       "message": "Unknown Code 0.000838 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+      "hash": "|null|null|0.001089|null",
+>>>>>>> .r8010
+      "severity": "error",
+      "message": "Unknown Code 0.001327 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
       "hash": "|null|null|0.001089|null",
@@ -38,14 +61,23 @@
       "message": "Unknown Code 0.001089 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
-      "hash": "|null|null|0.001327|null",
+<<<<<<< .mine
+      "hash": "|null|null|0.02|null",
       "severity": "error",
-      "message": "Unknown Code 0.001327 in http://hl7.org/fhir/ValueSet/risk-probability"
+      "message": "Unknown Code 0.02 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
-      "hash": "|null|null|0.001530|null",
+||||||| .r7796
+      "hash": "|null|null|0.000168|null",
       "severity": "error",
-      "message": "Unknown Code 0.001530 in http://hl7.org/fhir/ValueSet/risk-probability"
+      "message": "Unknown Code 0.000168 in http://hl7.org/fhir/ValueSet/risk-probability"
+    },
+    {
+=======
+>>>>>>> .r8010
+      "hash": "|null|null|0.000368|null",
+      "severity": "error",
+      "message": "Unknown Code 0.000368 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
       "hash": "|null|null|0.001663|null",
@@ -53,9 +85,21 @@
       "message": "Unknown Code 0.001663 in http://hl7.org/fhir/ValueSet/risk-probability"
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|0.001530|null",
+||||||| .r7796
+      "hash": "|null|null|0.000368|null",
+=======
       "hash": "|null|null|0.02|null",
+>>>>>>> .r8010
       "severity": "error",
+<<<<<<< .mine
+      "message": "Unknown Code 0.001530 in http://hl7.org/fhir/ValueSet/risk-probability"
+||||||| .r7796
+      "message": "Unknown Code 0.000368 in http://hl7.org/fhir/ValueSet/risk-probability"
+=======
       "message": "Unknown Code 0.02 in http://hl7.org/fhir/ValueSet/risk-probability"
+>>>>>>> .r8010
     }
   ]
 }

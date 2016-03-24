@@ -2,7 +2,7 @@
   "url": "http://hl7.org/fhir/ValueSet/supplement-type",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|442971000124100|Adult high energy formula#|http://goodhealthhospital.org/supplement-type-codes|null|1010|Adult high energy drink",
+      "hash": "#|http://snomed.info/sct|null|442971000124100|Adult high energy formula#|http://goodhealthhospital.org/supplement-type-codes|null|1040|Adult high energy pudding",
       "severity": null,
       "message": null,
       "definition": {
@@ -35,7 +35,13 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|442971000124100|Adult high energy formula#|http://goodhealthhospital.org/supplement-type-codes|null|1010|Adult high energy drink",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|442971000124100|Adult high energy formula#|http://goodhealthhospital.org/supplement-type-codes|null|1040|Adult high energy pudding",
+=======
       "hash": "#|http://snomed.info/sct|null|443051000124104|Adult diabetes specialty formula#|http://goodhealthhospital.org/supplement-type-codes|null|1010|Adult diabetic formula",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {

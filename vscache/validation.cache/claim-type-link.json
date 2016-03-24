@@ -6,21 +6,45 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "institutional",
+||||||| .r7796
+        "abstract": "professional",
+=======
         "abstract": false,
         "code": "institutional",
+>>>>>>> .r8010
         "definition": null,
         "display": "Institutional"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|professional|null",
+||||||| .r7796
+      "hash": "|null|null|institutional|null",
+=======
       "hash": "|null|null|oral|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "professional",
+||||||| .r7796
+        "abstract": "institutional",
+=======
         "abstract": false,
         "code": "oral",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Professional"
+||||||| .r7796
+        "display": "Institutional"
+=======
         "display": "Oral Health"
+>>>>>>> .r8010
       }
     },
     {
@@ -35,25 +59,49 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|vision|null",
+||||||| .r7796
+      "hash": "|null|null|pharmacy|null",
+=======
       "hash": "|null|null|professional|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "vision",
+||||||| .r7796
+        "abstract": "pharmacy",
+=======
         "abstract": false,
         "code": "professional",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Vision"
+||||||| .r7796
+        "display": "Pharmacy"
+=======
         "display": "Professional"
+>>>>>>> .r8010
       }
     },
     {
-      "hash": "|null|null|vision|null",
+      "hash": "|null|null|pharmacy|null",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "pharmacy",
+||||||| .r7796
+        "abstract": "vision",
+=======
         "abstract": false,
         "code": "vision",
+>>>>>>> .r8010
         "definition": null,
-        "display": "Vision"
+        "display": "Pharmacy"
       }
     }
   ]

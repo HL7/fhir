@@ -13,25 +13,61 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|sat|null",
+||||||| .r7796
+      "hash": "|null|null|thu|null",
+=======
       "hash": "|null|null|mon|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "sat",
+||||||| .r7796
+        "abstract": "thu",
+=======
         "abstract": false,
         "code": "mon",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Saturday"
+||||||| .r7796
+        "display": "Thursday"
+=======
         "display": "Monday"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|tue|null",
+||||||| .r7796
+      "hash": "|null|null|fri|null",
+=======
       "hash": "|null|null|sat|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "tue",
+||||||| .r7796
+        "abstract": "fri",
+=======
         "abstract": false,
         "code": "sat",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Tuesday"
+||||||| .r7796
+        "display": "Friday"
+=======
         "display": "Saturday"
+>>>>>>> .r8010
       }
     },
     {
@@ -39,32 +75,74 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "thu",
+||||||| .r7796
+        "abstract": "mon",
+=======
         "abstract": false,
         "code": "thu",
+>>>>>>> .r8010
         "definition": null,
         "display": "Thursday"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|mon|null",
+||||||| .r7796
+      "hash": "|null|null|sat|null",
+=======
       "hash": "|null|null|tue|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "mon",
+||||||| .r7796
+        "abstract": "sat",
+=======
         "abstract": false,
         "code": "tue",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Monday"
+||||||| .r7796
+        "display": "Saturday"
+=======
         "display": "Tuesday"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|fri|null",
+||||||| .r7796
+      "hash": "|null|null|tue|null",
+=======
       "hash": "|null|null|wed|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "fri",
+||||||| .r7796
+        "abstract": "tue",
+=======
         "abstract": false,
         "code": "wed",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Friday"
+||||||| .r7796
+        "display": "Tuesday"
+=======
         "display": "Wednesday"
+>>>>>>> .r8010
       }
     }
   ]

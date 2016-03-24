@@ -6,21 +6,16 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "confirmed",
+||||||| .r7796
+        "abstract": "provisional",
+=======
         "abstract": false,
         "code": "confirmed",
+>>>>>>> .r8010
         "definition": null,
         "display": "Confirmed"
-      }
-    },
-    {
-      "hash": "|null|null|differential|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "differential",
-        "definition": null,
-        "display": "Differential"
       }
     },
     {
@@ -28,10 +23,45 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "provisional",
+||||||| .r7796
+        "abstract": "differential",
+=======
         "abstract": false,
-        "code": "provisional",
+        "code": "differential",
+>>>>>>> .r8010
         "definition": null,
         "display": "Provisional"
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|differential|null",
+||||||| .r7796
+      "hash": "|null|null|confirmed|null",
+=======
+      "hash": "|null|null|provisional|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "differential",
+||||||| .r7796
+        "abstract": "confirmed",
+=======
+        "abstract": false,
+        "code": "provisional",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "Differential"
+||||||| .r7796
+        "display": "Confirmed"
+=======
+        "display": "Provisional"
+>>>>>>> .r8010
       }
     }
   ]

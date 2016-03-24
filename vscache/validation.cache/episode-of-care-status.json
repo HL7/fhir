@@ -2,25 +2,49 @@
   "url": "http://hl7.org/fhir/ValueSet/episode-of-care-status",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "|null|null|onhold|null",
+||||||| .r7796
+      "hash": "|null|null|planned|null",
+=======
       "hash": "|null|null|active|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "onhold",
+||||||| .r7796
+        "abstract": "planned",
+=======
         "abstract": false,
         "code": "active",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "On Hold"
+||||||| .r7796
+        "display": "Planned"
+=======
         "display": "Active"
+>>>>>>> .r8010
       }
     },
     {
-      "hash": "|null|null|onhold|null",
+      "hash": "|null|null|planned|null",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "planned",
+||||||| .r7796
+        "abstract": "onhold",
+=======
         "abstract": false,
         "code": "onhold",
+>>>>>>> .r8010
         "definition": null,
-        "display": "On Hold"
+        "display": "Planned"
       }
     },
     {

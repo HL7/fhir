@@ -6,8 +6,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "complete",
+||||||| .r7796
+        "abstract": "proposed",
+=======
         "abstract": false,
         "code": "complete",
+>>>>>>> .r8010
         "definition": null,
         "display": "Complete"
       }
@@ -17,8 +23,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "proposed",
+||||||| .r7796
+        "abstract": "complete",
+=======
         "abstract": false,
         "code": "proposed",
+>>>>>>> .r8010
         "definition": null,
         "display": "Proposed"
       }

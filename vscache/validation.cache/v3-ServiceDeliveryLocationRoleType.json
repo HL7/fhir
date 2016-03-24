@@ -2,14 +2,32 @@
   "url": "http://hl7.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PTRES|Patient's Residence",
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|RNEU|Neuroradiology unit",
+=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|AMB|Ambulance",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "PTRES",
+||||||| .r7796
+        "abstract": "RNEU",
+=======
         "abstract": false,
         "code": "AMB",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Patient's Residence"
+||||||| .r7796
+        "display": "Neuroradiology unit"
+=======
         "display": "Ambulance"
+>>>>>>> .r8010
       }
     },
     {
@@ -24,14 +42,32 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|RNEU|Neuroradiology unit",
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PHARM|Pharmacy",
+=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PTRES|Patient's Residence",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "RNEU",
+||||||| .r7796
+        "abstract": "PHARM",
+=======
         "abstract": false,
         "code": "PTRES",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Neuroradiology unit"
+||||||| .r7796
+        "display": "Pharmacy"
+=======
         "display": "Patient's Residence"
+>>>>>>> .r8010
       }
     },
     {
@@ -46,14 +82,32 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PHARM|Pharmacy",
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|PTRES|Patient's Residence",
+=======
       "hash": "#|http://hl7.org/fhir/v3/RoleCode|null|SLEEP|Sleep disorders unit",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "PHARM",
+||||||| .r7796
+        "abstract": "PTRES",
+=======
         "abstract": false,
         "code": "SLEEP",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Pharmacy"
+||||||| .r7796
+        "display": "Patient's Residence"
+=======
         "display": "Sleep disorders unit"
+>>>>>>> .r8010
       }
     }
   ]

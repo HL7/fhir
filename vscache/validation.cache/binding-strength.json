@@ -2,14 +2,61 @@
   "url": "http://hl7.org/fhir/ValueSet/binding-strength",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "|null|null|required|null",
+||||||| .r7796
+      "hash": "|null|null|extensible|null",
+=======
       "hash": "|null|null|example|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "required",
+||||||| .r7796
+        "abstract": "extensible",
+=======
         "abstract": false,
         "code": "example",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Required"
+||||||| .r7796
+        "display": "Extensible"
+=======
         "display": "Example"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|preferred|null",
+||||||| .r7796
+      "hash": "|null|null|required|null",
+=======
+      "hash": "|null|null|extensible|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "preferred",
+||||||| .r7796
+        "abstract": "required",
+=======
+        "abstract": false,
+        "code": "extensible",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "Preferred"
+||||||| .r7796
+        "display": "Required"
+=======
+        "display": "Extensible"
+>>>>>>> .r8010
       }
     },
     {
@@ -17,21 +64,16 @@
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "extensible",
-        "definition": null,
-        "display": "Extensible"
-      }
-    },
-    {
-      "hash": "|null|null|preferred|null",
-      "severity": null,
-      "message": null,
-      "definition": {
+<<<<<<< .mine
+        "abstract": "extensible",
+||||||| .r7796
+        "abstract": "preferred",
+=======
         "abstract": false,
         "code": "preferred",
+>>>>>>> .r8010
         "definition": null,
-        "display": "Preferred"
+        "display": "Extensible"
       }
     },
     {

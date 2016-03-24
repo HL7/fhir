@@ -17,21 +17,45 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "outpatient",
+||||||| .r7796
+        "abstract": "inpatient",
+=======
         "abstract": false,
         "code": "outpatient",
+>>>>>>> .r8010
         "definition": null,
         "display": "Outpatient"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|inpatient|null",
+||||||| .r7796
+      "hash": "|null|null|outpatient|null",
+=======
       "hash": "|null|null|virtual|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "inpatient",
+||||||| .r7796
+        "abstract": "outpatient",
+=======
         "abstract": false,
         "code": "virtual",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Inpatient"
+||||||| .r7796
+        "display": "Outpatient"
+=======
         "display": "Virtual"
+>>>>>>> .r8010
       }
     }
   ]

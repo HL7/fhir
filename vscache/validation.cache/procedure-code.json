@@ -2,50 +2,91 @@
   "url": "http://hl7.org/fhir/ValueSet/procedure-code",
   "outcomes": [
     {
-      "hash": "#|http://snomed.info/sct|null|172960003|Incision of retropharyngeal abscess",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Incision of retropharyngeal abscess"
-      }
-    },
-    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|367336001|Chemotherapy",
+||||||| .r7796
       "hash": "#|http://snomed.info/sct|null|25267002|Insertion of intracardiac pacemaker (procedure)",
+=======
+      "hash": "#|http://snomed.info/sct|null|172960003|Incision of retropharyngeal abscess",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "CT - Chemotherapy"
+||||||| .r7796
         "display": "Insertion of intracardiac pacemaker"
+=======
+        "display": "Incision of retropharyngeal abscess"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|172960003|Incision of retropharyngeal abscess",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|80146002|Appendectomy (Procedure)",
+=======
+      "hash": "#|http://snomed.info/sct|null|25267002|Insertion of intracardiac pacemaker (procedure)",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+<<<<<<< .mine
+        "display": "Incision of retropharyngeal abscess"
+||||||| .r7796
+        "display": "Appendectomy"
+=======
+        "display": "Insertion of intracardiac pacemaker"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|80146002|Appendectomy (Procedure)",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|172960003|Incision of retropharyngeal abscess",
+=======
       "hash": "#|http://snomed.info/sct|null|303653007|Computed tomography of head",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "Appendectomy"
+||||||| .r7796
+        "display": "Incision of retropharyngeal abscess"
+=======
         "display": "Computed tomography of structures of the head (procedure)"
+>>>>>>> .r8010
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|34068001|Heart valve replacement",
+      "hash": "#|http://snomed.info/sct|null|90105005|Biopsy of soft tissue of forearm (Procedure)",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Replacement of unspecified heart valve"
+        "display": "Biopsy of soft tissue of forearm, superficial"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|25267002|Insertion of intracardiac pacemaker (procedure)",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|367336001|Chemotherapy",
+=======
       "hash": "#|http://snomed.info/sct|null|359615001|Partial lobectomy of lung",
       "severity": null,
       "message": null,
@@ -58,13 +99,14 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|367336001|Chemotherapy",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "CT - Chemotherapy"
+        "display": "Insertion of intracardiac pacemaker"
       }
     },
     {
@@ -90,14 +132,14 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|90105005|Biopsy of soft tissue of forearm (Procedure)",
+      "hash": "#|http://snomed.info/sct|null|34068001|Heart valve replacement",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Biopsy of soft tissue of forearm, superficial"
+        "display": "Replacement of unspecified heart valve"
       }
     }
   ]

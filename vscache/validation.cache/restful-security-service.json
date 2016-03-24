@@ -6,8 +6,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Certificates",
+||||||| .r7796
+        "abstract": "SMART-on-FHIR",
+=======
         "abstract": false,
         "code": "Certificates",
+>>>>>>> .r8010
         "definition": null,
         "display": "Certificates"
       }
@@ -17,8 +23,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "SMART-on-FHIR",
+||||||| .r7796
+        "abstract": "Certificates",
+=======
         "abstract": false,
         "code": "SMART-on-FHIR",
+>>>>>>> .r8010
         "definition": null,
         "display": "SMART-on-FHIR"
       }

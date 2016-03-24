@@ -6,8 +6,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "rejected",
+||||||| .r7796
+        "abstract": "requested",
+=======
         "abstract": false,
         "code": "rejected",
+>>>>>>> .r8010
         "definition": null,
         "display": "Rejected"
       }
@@ -17,8 +23,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "requested",
+||||||| .r7796
+        "abstract": "rejected",
+=======
         "abstract": false,
         "code": "requested",
+>>>>>>> .r8010
         "definition": null,
         "display": "Requested"
       }

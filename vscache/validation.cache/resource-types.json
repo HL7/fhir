@@ -2,55 +2,137 @@
   "url": "http://hl7.org/fhir/ValueSet/resource-types",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "|null|null|CodeSystem|null",
+      "severity": "error",
+      "message": "Unknown Code CodeSystem in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|Schedule|null",
+||||||| .r7796
+      "hash": "|null|null|MedicationDispense|null",
+=======
       "hash": "|http://loinc.org|null|57133-1|Referral note",
       "severity": "error",
       "message": "Unknown Code 57133-1 in http://hl7.org/fhir/ValueSet/resource-types"
     },
     {
       "hash": "|null|null|Account|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Schedule",
+||||||| .r7796
+        "abstract": "MedicationDispense",
+=======
         "abstract": false,
         "code": "Account",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Schedule"
+||||||| .r7796
+        "display": "MedicationDispense"
+=======
         "display": "Account"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|NamingSystem|null",
+||||||| .r7796
+      "hash": "|null|null|Questionnaire|null",
+=======
       "hash": "|null|null|AllergyIntolerance|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "NamingSystem",
+||||||| .r7796
+        "abstract": "Questionnaire",
+=======
         "abstract": false,
         "code": "AllergyIntolerance",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "NamingSystem"
+||||||| .r7796
+        "display": "Questionnaire"
+=======
         "display": "AllergyIntolerance"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Observation|null",
+||||||| .r7796
+      "hash": "|null|null|EligibilityResponse|null",
+=======
       "hash": "|null|null|AppointmentResponse|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Observation",
+||||||| .r7796
+        "abstract": "EligibilityResponse",
+=======
         "abstract": false,
         "code": "AppointmentResponse",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Observation"
+||||||| .r7796
+        "display": "EligibilityResponse"
+=======
         "display": "AppointmentResponse"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|CarePlan|null",
+||||||| .r7796
+      "hash": "|null|null|Group|null",
+=======
       "hash": "|null|null|Appointment|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "CarePlan",
+||||||| .r7796
+        "abstract": "Group",
+=======
         "abstract": false,
         "code": "Appointment",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "CarePlan"
+||||||| .r7796
+        "display": "Group"
+=======
         "display": "Appointment"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Specimen|null",
+||||||| .r7796
+      "hash": "|null|null|Binary|null",
+=======
       "hash": "|null|null|AuditEvent|null",
       "severity": null,
       "message": null,
@@ -74,71 +156,187 @@
     },
     {
       "hash": "|null|null|Binary|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Specimen",
+||||||| .r7796
+        "abstract": "Binary",
+=======
         "abstract": false,
         "code": "Binary",
+>>>>>>> .r8010
         "definition": null,
-        "display": "Binary"
+        "display": "Specimen"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|ClinicalImpression|null",
+||||||| .r7796
+      "hash": "|null|null|Resource|null",
+=======
       "hash": "|null|null|BodySite|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ClinicalImpression",
+||||||| .r7796
+        "abstract": "Resource",
+=======
         "abstract": false,
         "code": "BodySite",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "ClinicalImpression"
+||||||| .r7796
+        "display": "Resource"
+=======
         "display": "BodySite"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DeviceUseStatement|null",
+||||||| .r7796
+      "hash": "|null|null|Subscription|null",
+=======
       "hash": "|null|null|Bundle|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "DeviceUseStatement",
+||||||| .r7796
+        "abstract": "Subscription",
+=======
         "abstract": false,
         "code": "Bundle",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "DeviceUseStatement"
+||||||| .r7796
+        "display": "Subscription"
+=======
         "display": "Bundle"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|NutritionOrder|null",
+||||||| .r7796
+      "hash": "|null|null|QuestionnaireResponse|null",
+=======
       "hash": "|null|null|CarePlan|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "NutritionOrder",
+||||||| .r7796
+        "abstract": "QuestionnaireResponse",
+=======
         "abstract": false,
         "code": "CarePlan",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "NutritionOrder"
+||||||| .r7796
+        "display": "QuestionnaireResponse"
+=======
         "display": "CarePlan"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Composition|null",
+||||||| .r7796
+      "hash": "|null|null|DeviceUseRequest|null",
+=======
       "hash": "|null|null|CareTeam|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Composition",
+||||||| .r7796
+        "abstract": "DeviceUseRequest",
+=======
         "abstract": false,
         "code": "CareTeam",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Composition"
+||||||| .r7796
+        "display": "DeviceUseRequest"
+=======
         "display": "CareTeam"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DecisionSupportRule|null",
+      "severity": "error",
+      "message": "Unknown Code DecisionSupportRule in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|PaymentNotice|null",
+||||||| .r7796
+      "hash": "|null|null|Specimen|null",
+=======
       "hash": "|null|null|ClaimResponse|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "PaymentNotice",
+||||||| .r7796
+        "abstract": "Specimen",
+=======
         "abstract": false,
         "code": "ClaimResponse",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "PaymentNotice"
+||||||| .r7796
+        "display": "Specimen"
+=======
         "display": "ClaimResponse"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DeviceUseRequest|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "DeviceUseRequest",
+        "definition": null,
+        "display": "DeviceUseRequest"
+      }
+||||||| .r7796
+      "hash": "|null|null|MeasureReport|null",
+      "severity": "error",
+      "message": "Unknown Code MeasureReport in http://hl7.org/fhir/ValueSet/resource-types"
+=======
       "hash": "|null|null|Claim|null",
       "severity": null,
       "message": null,
@@ -148,63 +346,174 @@
         "definition": null,
         "display": "Claim"
       }
+>>>>>>> .r8010
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|ImmunizationRecommendation|null",
+||||||| .r7796
+      "hash": "|null|null|Bundle|null",
+=======
       "hash": "|null|null|ClinicalImpression|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ImmunizationRecommendation",
+||||||| .r7796
+        "abstract": "Bundle",
+=======
         "abstract": false,
         "code": "ClinicalImpression",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "ImmunizationRecommendation"
+||||||| .r7796
+        "display": "Bundle"
+=======
         "display": "ClinicalImpression"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Library|null",
+      "severity": "error",
+      "message": "Unknown Code Library in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|Substance|null",
+||||||| .r7796
+      "hash": "|null|null|CarePlan|null",
+=======
       "hash": "|null|null|CodeSystem|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Substance",
+||||||| .r7796
+        "abstract": "CarePlan",
+=======
         "abstract": false,
         "code": "CodeSystem",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Substance"
+||||||| .r7796
+        "display": "CarePlan"
+=======
         "display": "CodeSystem"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|StructureMap|null",
+      "severity": "error",
+      "message": "Unknown Code StructureMap in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|Provenance|null",
+||||||| .r7796
+      "hash": "|null|null|NamingSystem|null",
+=======
       "hash": "|null|null|CommunicationRequest|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Provenance",
+||||||| .r7796
+        "abstract": "NamingSystem",
+=======
         "abstract": false,
         "code": "CommunicationRequest",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Provenance"
+||||||| .r7796
+        "display": "NamingSystem"
+=======
         "display": "CommunicationRequest"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Appointment|null",
+||||||| .r7796
+      "hash": "|null|null|AuditEvent|null",
+=======
       "hash": "|null|null|Communication|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Appointment",
+||||||| .r7796
+        "abstract": "AuditEvent",
+=======
         "abstract": false,
         "code": "Communication",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Appointment"
+||||||| .r7796
+        "display": "AuditEvent"
+=======
         "display": "Communication"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DiagnosticOrder|null",
+||||||| .r7796
+      "hash": "|null|null|FamilyMemberHistory|null",
+=======
       "hash": "|null|null|CompartmentDefinition|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "DiagnosticOrder",
+||||||| .r7796
+        "abstract": "FamilyMemberHistory",
+=======
         "abstract": false,
         "code": "CompartmentDefinition",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "DiagnosticOrder"
+||||||| .r7796
+        "display": "FamilyMemberHistory"
+=======
         "display": "CompartmentDefinition"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|MedicationDispense|null",
+||||||| .r7796
+      "hash": "|null|null|ExpansionProfile|null",
+      "severity": "error",
+      "message": "Unknown Code ExpansionProfile in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|EnrollmentRequest|null",
+=======
       "hash": "|null|null|Composition|null",
       "severity": null,
       "message": null,
@@ -217,27 +526,68 @@
     },
     {
       "hash": "|null|null|ConceptMap|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "MedicationDispense",
+||||||| .r7796
+        "abstract": "EnrollmentRequest",
+=======
         "abstract": false,
         "code": "ConceptMap",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "MedicationDispense"
+||||||| .r7796
+        "display": "EnrollmentRequest"
+=======
         "display": "ConceptMap"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|AllergyIntolerance|null",
+||||||| .r7796
+      "hash": "|null|null|TestScript|null",
+=======
       "hash": "|null|null|Condition|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "AllergyIntolerance",
+||||||| .r7796
+        "abstract": "TestScript",
+=======
         "abstract": false,
         "code": "Condition",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "AllergyIntolerance"
+||||||| .r7796
+        "display": "TestScript"
+=======
         "display": "Condition"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|BodySite|null",
+||||||| .r7796
+      "hash": "|null|null|ModuleDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code ModuleDefinition in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|MedicationOrder|null",
+=======
       "hash": "|null|null|Conformance|null",
       "severity": null,
       "message": null,
@@ -250,115 +600,306 @@
     },
     {
       "hash": "|null|null|Contract|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "BodySite",
+||||||| .r7796
+        "abstract": "MedicationOrder",
+=======
         "abstract": false,
         "code": "Contract",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "BodySite"
+||||||| .r7796
+        "display": "MedicationOrder"
+=======
         "display": "Contract"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|QuestionnaireResponse|null",
+||||||| .r7796
+      "hash": "|null|null|ClaimResponse|null",
+=======
       "hash": "|null|null|Coverage|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "QuestionnaireResponse",
+||||||| .r7796
+        "abstract": "ClaimResponse",
+=======
         "abstract": false,
         "code": "Coverage",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "QuestionnaireResponse"
+||||||| .r7796
+        "display": "ClaimResponse"
+=======
         "display": "Coverage"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DecisionSupportServiceModule|null",
+      "severity": "error",
+      "message": "Unknown Code DecisionSupportServiceModule in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|OrderResponse|null",
+||||||| .r7796
+      "hash": "|null|null|ReferralRequest|null",
+=======
       "hash": "|null|null|DataElement|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "OrderResponse",
+||||||| .r7796
+        "abstract": "ReferralRequest",
+=======
         "abstract": false,
         "code": "DataElement",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "OrderResponse"
+||||||| .r7796
+        "display": "ReferralRequest"
+=======
         "display": "DataElement"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Organization|null",
+||||||| .r7796
+      "hash": "|null|null|EligibilityRequest|null",
+=======
       "hash": "|null|null|DecisionSupportRule|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Organization",
+||||||| .r7796
+        "abstract": "EligibilityRequest",
+=======
         "abstract": false,
         "code": "DecisionSupportRule",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Organization"
+||||||| .r7796
+        "display": "EligibilityRequest"
+=======
         "display": "DecisionSupportRule"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|EligibilityResponse|null",
+||||||| .r7796
+      "hash": "|null|null|Location|null",
+=======
       "hash": "|null|null|DecisionSupportServiceModule|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "EligibilityResponse",
+||||||| .r7796
+        "abstract": "Location",
+=======
         "abstract": false,
         "code": "DecisionSupportServiceModule",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "EligibilityResponse"
+||||||| .r7796
+        "display": "Location"
+=======
         "display": "DecisionSupportServiceModule"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|MedicationAdministration|null",
+||||||| .r7796
+      "hash": "|null|null|SearchParameter|null",
+=======
       "hash": "|null|null|DetectedIssue|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "MedicationAdministration",
+||||||| .r7796
+        "abstract": "SearchParameter",
+=======
         "abstract": false,
         "code": "DetectedIssue",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "MedicationAdministration"
+||||||| .r7796
+        "display": "SearchParameter"
+=======
         "display": "DetectedIssue"
+>>>>>>> .r8010
       }
     },
     {
-      "hash": "|null|null|DeviceComponent|null",
+<<<<<<< .mine
+      "hash": "|null|null|MeasureReport|null",
+      "severity": "error",
+      "message": "Unknown Code MeasureReport in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+||||||| .r7796
+      "hash": "|null|null|StructureMap|null",
+      "severity": "error",
+      "message": "Unknown Code StructureMap in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+=======
+>>>>>>> .r8010
+      "hash": "|null|null|Person|null",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Person",
+||||||| .r7796
+        "abstract": "DeviceComponent",
+=======
         "abstract": false,
         "code": "DeviceComponent",
+>>>>>>> .r8010
         "definition": null,
-        "display": "DeviceComponent"
+        "display": "Person"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|ProcedureRequest|null",
+||||||| .r7796
+      "hash": "|null|null|OperationDefinition|null",
+=======
       "hash": "|null|null|DeviceMetric|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ProcedureRequest",
+||||||| .r7796
+        "abstract": "OperationDefinition",
+=======
         "abstract": false,
         "code": "DeviceMetric",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "ProcedureRequest"
+||||||| .r7796
+        "display": "OperationDefinition"
+=======
         "display": "DeviceMetric"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Basic|null",
+||||||| .r7796
+      "hash": "|null|null|DocumentManifest|null",
+=======
       "hash": "|null|null|DeviceUseRequest|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Basic",
+||||||| .r7796
+        "abstract": "DocumentManifest",
+=======
         "abstract": false,
         "code": "DeviceUseRequest",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Basic"
+||||||| .r7796
+        "display": "DocumentManifest"
+=======
         "display": "DeviceUseRequest"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DetectedIssue|null",
+||||||| .r7796
+      "hash": "|null|null|Account|null",
+=======
       "hash": "|null|null|DeviceUseStatement|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "DetectedIssue",
+||||||| .r7796
+        "abstract": "Account",
+=======
         "abstract": false,
         "code": "DeviceUseStatement",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "DetectedIssue"
+||||||| .r7796
+        "display": "Account"
+=======
         "display": "DeviceUseStatement"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Sequence|null",
+      "severity": "error",
+      "message": "Unknown Code Sequence in http://hl7.org/fhir/ValueSet/resource-types"
+||||||| .r7796
+      "hash": "|null|null|Linkage|null",
+      "severity": "error",
+      "message": "Unknown Code Linkage in http://hl7.org/fhir/ValueSet/resource-types"
+=======
       "hash": "|null|null|Device|null",
       "severity": null,
       "message": null,
@@ -368,63 +909,164 @@
         "definition": null,
         "display": "Device"
       }
+>>>>>>> .r8010
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Device|null",
+||||||| .r7796
+      "hash": "|null|null|BodySite|null",
+=======
       "hash": "|null|null|DiagnosticOrder|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Device",
+||||||| .r7796
+        "abstract": "BodySite",
+=======
         "abstract": false,
         "code": "DiagnosticOrder",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Device"
+||||||| .r7796
+        "display": "BodySite"
+=======
         "display": "DiagnosticOrder"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Coverage|null",
+||||||| .r7796
+      "hash": "|null|null|HealthcareService|null",
+=======
       "hash": "|null|null|DiagnosticReport|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Coverage",
+||||||| .r7796
+        "abstract": "HealthcareService",
+=======
         "abstract": false,
         "code": "DiagnosticReport",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Coverage"
+||||||| .r7796
+        "display": "HealthcareService"
+=======
         "display": "DiagnosticReport"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|OperationOutcome|null",
+||||||| .r7796
+      "hash": "|null|null|ProcessRequest|null",
+=======
       "hash": "|null|null|DocumentManifest|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "OperationOutcome",
+||||||| .r7796
+        "abstract": "ProcessRequest",
+=======
         "abstract": false,
         "code": "DocumentManifest",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "OperationOutcome"
+||||||| .r7796
+        "display": "ProcessRequest"
+=======
         "display": "DocumentManifest"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|AppointmentResponse|null",
+||||||| .r7796
+      "hash": "|null|null|MessageHeader|null",
+=======
       "hash": "|null|null|DocumentReference|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "AppointmentResponse",
+||||||| .r7796
+        "abstract": "MessageHeader",
+=======
         "abstract": false,
         "code": "DocumentReference",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "AppointmentResponse"
+||||||| .r7796
+        "display": "MessageHeader"
+=======
         "display": "DocumentReference"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|EnrollmentRequest|null",
+||||||| .r7796
+      "hash": "|null|null|Coverage|null",
+=======
       "hash": "|null|null|EligibilityRequest|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "EnrollmentRequest",
+||||||| .r7796
+        "abstract": "Coverage",
+=======
         "abstract": false,
         "code": "EligibilityRequest",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "EnrollmentRequest"
+||||||| .r7796
+        "display": "Coverage"
+=======
         "display": "EligibilityRequest"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|MedicationOrder|null",
+||||||| .r7796
+      "hash": "|http://loinc.org|null|57133-1|Referral note",
+      "severity": "error",
+      "message": "Unknown Code 57133-1 in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|EnrollmentResponse|null",
+=======
       "hash": "|null|null|EligibilityResponse|null",
       "severity": null,
       "message": null,
@@ -437,60 +1079,155 @@
     },
     {
       "hash": "|null|null|Encounter|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "MedicationOrder",
+||||||| .r7796
+        "abstract": "EnrollmentResponse",
+=======
         "abstract": false,
         "code": "Encounter",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "MedicationOrder"
+||||||| .r7796
+        "display": "EnrollmentResponse"
+=======
         "display": "Encounter"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|MedicationStatement|null",
+||||||| .r7796
+      "hash": "|null|null|StructureDefinition|null",
+=======
       "hash": "|null|null|EnrollmentRequest|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "MedicationStatement",
+||||||| .r7796
+        "abstract": "StructureDefinition",
+=======
         "abstract": false,
         "code": "EnrollmentRequest",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "MedicationStatement"
+||||||| .r7796
+        "display": "StructureDefinition"
+=======
         "display": "EnrollmentRequest"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|MessageHeader|null",
+||||||| .r7796
+      "hash": "|null|null|MedicationStatement|null",
+=======
       "hash": "|null|null|EnrollmentResponse|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "MessageHeader",
+||||||| .r7796
+        "abstract": "MedicationStatement",
+=======
         "abstract": false,
         "code": "EnrollmentResponse",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "MessageHeader"
+||||||| .r7796
+        "display": "MedicationStatement"
+=======
         "display": "EnrollmentResponse"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Order|null",
+||||||| .r7796
+      "hash": "|null|null|RiskAssessment|null",
+=======
       "hash": "|null|null|EpisodeOfCare|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Order",
+||||||| .r7796
+        "abstract": "RiskAssessment",
+=======
         "abstract": false,
         "code": "EpisodeOfCare",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Order"
+||||||| .r7796
+        "display": "RiskAssessment"
+=======
         "display": "EpisodeOfCare"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Location|null",
+||||||| .r7796
+      "hash": "|null|null|ClinicalImpression|null",
+=======
       "hash": "|null|null|ExpansionProfile|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Location",
+||||||| .r7796
+        "abstract": "ClinicalImpression",
+=======
         "abstract": false,
         "code": "ExpansionProfile",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Location"
+||||||| .r7796
+        "display": "ClinicalImpression"
+=======
         "display": "ExpansionProfile"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Media|null",
+||||||| .r7796
+      "hash": "|null|null|DecisionSupportServiceModule|null",
+      "severity": "error",
+      "message": "Unknown Code DecisionSupportServiceModule in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|OperationOutcome|null",
+=======
       "hash": "|null|null|ExplanationOfBenefit|null",
       "severity": null,
       "message": null,
@@ -503,159 +1240,436 @@
     },
     {
       "hash": "|null|null|FamilyMemberHistory|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Media",
+||||||| .r7796
+        "abstract": "OperationOutcome",
+=======
         "abstract": false,
         "code": "FamilyMemberHistory",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Media"
+||||||| .r7796
+        "display": "OperationOutcome"
+=======
         "display": "FamilyMemberHistory"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|CommunicationRequest|null",
+||||||| .r7796
+      "hash": "|null|null|Communication|null",
+=======
       "hash": "|null|null|Flag|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "CommunicationRequest",
+||||||| .r7796
+        "abstract": "Communication",
+=======
         "abstract": false,
         "code": "Flag",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "CommunicationRequest"
+||||||| .r7796
+        "display": "Communication"
+=======
         "display": "Flag"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Account|null",
+||||||| .r7796
+      "hash": "|null|null|OrderResponse|null",
+=======
       "hash": "|null|null|Goal|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Account",
+||||||| .r7796
+        "abstract": "OrderResponse",
+=======
         "abstract": false,
         "code": "Goal",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Account"
+||||||| .r7796
+        "display": "OrderResponse"
+=======
         "display": "Goal"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|ModuleDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code ModuleDefinition in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|ExpansionProfile|null",
+      "severity": "error",
+      "message": "Unknown Code ExpansionProfile in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|Patient|null",
+||||||| .r7796
+      "hash": "|null|null|AppointmentResponse|null",
+=======
       "hash": "|null|null|Group|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Patient",
+||||||| .r7796
+        "abstract": "AppointmentResponse",
+=======
         "abstract": false,
         "code": "Group",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Patient"
+||||||| .r7796
+        "display": "AppointmentResponse"
+=======
         "display": "Group"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Slot|null",
+||||||| .r7796
+      "hash": "|null|null|VisionPrescription|null",
+=======
       "hash": "|null|null|GuidanceResponse|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Slot",
+||||||| .r7796
+        "abstract": "VisionPrescription",
+=======
         "abstract": false,
         "code": "GuidanceResponse",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Slot"
+||||||| .r7796
+        "display": "VisionPrescription"
+=======
         "display": "GuidanceResponse"
+>>>>>>> .r8010
       }
     },
     {
-      "hash": "|null|null|HealthcareService|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "HealthcareService",
-        "definition": null,
-        "display": "HealthcareService"
-      }
-    },
-    {
-      "hash": "|null|null|ImagingExcerpt|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "ImagingExcerpt",
-        "definition": null,
-        "display": "ImagingExcerpt"
-      }
-    },
-    {
-      "hash": "|null|null|ImagingObjectSelection|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "ImagingObjectSelection",
-        "definition": null,
-        "display": "ImagingObjectSelection"
-      }
-    },
-    {
-      "hash": "|null|null|ImagingStudy|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "ImagingStudy",
-        "definition": null,
-        "display": "ImagingStudy"
-      }
-    },
-    {
-      "hash": "|null|null|ImmunizationRecommendation|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "ImmunizationRecommendation",
-        "definition": null,
-        "display": "ImmunizationRecommendation"
-      }
-    },
-    {
-      "hash": "|null|null|Immunization|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "Immunization",
-        "definition": null,
-        "display": "Immunization"
-      }
-    },
-    {
-      "hash": "|null|null|ImplementationGuide|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "ImplementationGuide",
-        "definition": null,
-        "display": "ImplementationGuide"
-      }
-    },
-    {
-      "hash": "|null|null|Library|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "Library",
-        "definition": null,
-        "display": "Library"
-      }
+<<<<<<< .mine
+      "hash": "|http://loinc.org|null|57133-1|Referral note",
+      "severity": "error",
+      "message": "Unknown Code 57133-1 in http://hl7.org/fhir/ValueSet/resource-types"
     },
     {
       "hash": "|null|null|Linkage|null",
+      "severity": "error",
+      "message": "Unknown Code Linkage in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|EligibilityRequest|null",
+||||||| .r7796
+      "hash": "|null|null|Observation|null",
+=======
+      "hash": "|null|null|HealthcareService|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "EligibilityRequest",
+||||||| .r7796
+        "abstract": "Observation",
+=======
         "abstract": false,
-        "code": "Linkage",
+        "code": "HealthcareService",
+>>>>>>> .r8010
         "definition": null,
-        "display": "Linkage"
+<<<<<<< .mine
+        "display": "EligibilityRequest"
+||||||| .r7796
+        "display": "Observation"
+=======
+        "display": "HealthcareService"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|FamilyMemberHistory|null",
+||||||| .r7796
+      "hash": "|null|null|DocumentReference|null",
+=======
+      "hash": "|null|null|ImagingExcerpt|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "FamilyMemberHistory",
+||||||| .r7796
+        "abstract": "DocumentReference",
+=======
+        "abstract": false,
+        "code": "ImagingExcerpt",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "FamilyMemberHistory"
+||||||| .r7796
+        "display": "DocumentReference"
+=======
+        "display": "ImagingExcerpt"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|SupplyDelivery|null",
+||||||| .r7796
+      "hash": "|null|null|Provenance|null",
+=======
+      "hash": "|null|null|ImagingObjectSelection|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "SupplyDelivery",
+||||||| .r7796
+        "abstract": "Provenance",
+=======
+        "abstract": false,
+        "code": "ImagingObjectSelection",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "SupplyDelivery"
+||||||| .r7796
+        "display": "Provenance"
+=======
+        "display": "ImagingObjectSelection"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|EnrollmentResponse|null",
+||||||| .r7796
+      "hash": "|null|null|Conformance|null",
+=======
+      "hash": "|null|null|ImagingStudy|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "EnrollmentResponse",
+||||||| .r7796
+        "abstract": "Conformance",
+=======
+        "abstract": false,
+        "code": "ImagingStudy",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "EnrollmentResponse"
+||||||| .r7796
+        "display": "Conformance"
+=======
+        "display": "ImagingStudy"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|Subscription|null",
+||||||| .r7796
+      "hash": "|null|null|Person|null",
+=======
+      "hash": "|null|null|ImmunizationRecommendation|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "Subscription",
+||||||| .r7796
+        "abstract": "Person",
+=======
+        "abstract": false,
+        "code": "ImmunizationRecommendation",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "Subscription"
+||||||| .r7796
+        "display": "Person"
+=======
+        "display": "ImmunizationRecommendation"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|SupplyRequest|null",
+||||||| .r7796
+      "hash": "|null|null|Encounter|null",
+=======
+      "hash": "|null|null|Immunization|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "SupplyRequest",
+||||||| .r7796
+        "abstract": "Encounter",
+=======
+        "abstract": false,
+        "code": "Immunization",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "SupplyRequest"
+||||||| .r7796
+        "display": "Encounter"
+=======
+        "display": "Immunization"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|Flag|null",
+||||||| .r7796
+      "hash": "|null|null|DeviceMetric|null",
+=======
+      "hash": "|null|null|ImplementationGuide|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "Flag",
+||||||| .r7796
+        "abstract": "DeviceMetric",
+=======
+        "abstract": false,
+        "code": "ImplementationGuide",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "Flag"
+||||||| .r7796
+        "display": "DeviceMetric"
+=======
+        "display": "ImplementationGuide"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|ProcessRequest|null",
+||||||| .r7796
+      "hash": "|null|null|DiagnosticOrder|null",
+=======
+      "hash": "|null|null|Library|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "ProcessRequest",
+||||||| .r7796
+        "abstract": "DiagnosticOrder",
+=======
+        "abstract": false,
+        "code": "Library",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "ProcessRequest"
+||||||| .r7796
+        "display": "DiagnosticOrder"
+=======
+        "display": "Library"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|RiskAssessment|null",
+||||||| .r7796
+      "hash": "|null|null|EpisodeOfCare|null",
+=======
+      "hash": "|null|null|Linkage|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "RiskAssessment",
+||||||| .r7796
+        "abstract": "EpisodeOfCare",
+=======
+        "abstract": false,
+        "code": "Linkage",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "RiskAssessment"
+||||||| .r7796
+        "display": "EpisodeOfCare"
+=======
+        "display": "Linkage"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|PaymentReconciliation|null",
+||||||| .r7796
+      "hash": "|null|null|DecisionSupportRule|null",
+      "severity": "error",
+      "message": "Unknown Code DecisionSupportRule in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|DataElement|null",
+=======
       "hash": "|null|null|List|null",
       "severity": null,
       "message": null,
@@ -668,38 +1682,97 @@
     },
     {
       "hash": "|null|null|Location|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "PaymentReconciliation",
+||||||| .r7796
+        "abstract": "DataElement",
+=======
         "abstract": false,
         "code": "Location",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "PaymentReconciliation"
+||||||| .r7796
+        "display": "DataElement"
+=======
         "display": "Location"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DocumentManifest|null",
+||||||| .r7796
+      "hash": "|null|null|Procedure|null",
+=======
       "hash": "|null|null|MeasureReport|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "DocumentManifest",
+||||||| .r7796
+        "abstract": "Procedure",
+=======
         "abstract": false,
         "code": "MeasureReport",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "DocumentManifest"
+||||||| .r7796
+        "display": "Procedure"
+=======
         "display": "MeasureReport"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Medication|null",
+||||||| .r7796
+      "hash": "|null|null|ImagingStudy|null",
+=======
       "hash": "|null|null|Measure|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Medication",
+||||||| .r7796
+        "abstract": "ImagingStudy",
+=======
         "abstract": false,
         "code": "Measure",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Medication"
+||||||| .r7796
+        "display": "ImagingStudy"
+=======
         "display": "Measure"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DiagnosticReport|null",
+||||||| .r7796
+      "hash": "|null|null|Protocol|null",
+      "severity": "error",
+      "message": "Unknown Code Protocol in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|Schedule|null",
+=======
       "hash": "|null|null|Media|null",
       "severity": null,
       "message": null,
@@ -712,38 +1785,97 @@
     },
     {
       "hash": "|null|null|MedicationAdministration|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "DiagnosticReport",
+||||||| .r7796
+        "abstract": "Schedule",
+=======
         "abstract": false,
         "code": "MedicationAdministration",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "DiagnosticReport"
+||||||| .r7796
+        "display": "Schedule"
+=======
         "display": "MedicationAdministration"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Group|null",
+||||||| .r7796
+      "hash": "|null|null|Contract|null",
+=======
       "hash": "|null|null|MedicationDispense|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Group",
+||||||| .r7796
+        "abstract": "Contract",
+=======
         "abstract": false,
         "code": "MedicationDispense",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Group"
+||||||| .r7796
+        "display": "Contract"
+=======
         "display": "MedicationDispense"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DeviceComponent|null",
+||||||| .r7796
+      "hash": "|null|null|ConceptMap|null",
+=======
       "hash": "|null|null|MedicationOrder|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "DeviceComponent",
+||||||| .r7796
+        "abstract": "ConceptMap",
+=======
         "abstract": false,
         "code": "MedicationOrder",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "DeviceComponent"
+||||||| .r7796
+        "display": "ConceptMap"
+=======
         "display": "MedicationOrder"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DeviceMetric|null",
+||||||| .r7796
+      "hash": "|null|null|GuidanceResponse|null",
+      "severity": "error",
+      "message": "Unknown Code GuidanceResponse in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|List|null",
+=======
       "hash": "|null|null|MedicationStatement|null",
       "severity": null,
       "message": null,
@@ -756,159 +1888,428 @@
     },
     {
       "hash": "|null|null|Medication|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "DeviceMetric",
+||||||| .r7796
+        "abstract": "List",
+=======
         "abstract": false,
         "code": "Medication",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "DeviceMetric"
+||||||| .r7796
+        "display": "List"
+=======
         "display": "Medication"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|VisionPrescription|null",
+||||||| .r7796
+      "hash": "|null|null|ImagingObjectSelection|null",
+=======
       "hash": "|null|null|MessageHeader|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "VisionPrescription",
+||||||| .r7796
+        "abstract": "ImagingObjectSelection",
+=======
         "abstract": false,
         "code": "MessageHeader",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "VisionPrescription"
+||||||| .r7796
+        "display": "ImagingObjectSelection"
+=======
         "display": "MessageHeader"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Condition|null",
+||||||| .r7796
+      "hash": "|null|null|Practitioner|null",
+=======
       "hash": "|null|null|ModuleDefinition|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Condition",
+||||||| .r7796
+        "abstract": "Practitioner",
+=======
         "abstract": false,
         "code": "ModuleDefinition",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Condition"
+||||||| .r7796
+        "display": "Practitioner"
+=======
         "display": "ModuleDefinition"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|DocumentReference|null",
+||||||| .r7796
+      "hash": "|null|null|Composition|null",
+=======
       "hash": "|null|null|NamingSystem|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "DocumentReference",
+||||||| .r7796
+        "abstract": "Composition",
+=======
         "abstract": false,
         "code": "NamingSystem",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "DocumentReference"
+||||||| .r7796
+        "display": "Composition"
+=======
         "display": "NamingSystem"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Practitioner|null",
+||||||| .r7796
+      "hash": "|null|null|Organization|null",
+=======
       "hash": "|null|null|NutritionOrder|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Practitioner",
+||||||| .r7796
+        "abstract": "Organization",
+=======
         "abstract": false,
         "code": "NutritionOrder",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Practitioner"
+||||||| .r7796
+        "display": "Organization"
+=======
         "display": "NutritionOrder"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|ReferralRequest|null",
+||||||| .r7796
+      "hash": "|null|null|Immunization|null",
+=======
       "hash": "|null|null|Observation|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ReferralRequest",
+||||||| .r7796
+        "abstract": "Immunization",
+=======
         "abstract": false,
         "code": "Observation",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "ReferralRequest"
+||||||| .r7796
+        "display": "Immunization"
+=======
         "display": "Observation"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Resource|null",
+||||||| .r7796
+      "hash": "|null|null|ImmunizationRecommendation|null",
+=======
       "hash": "|null|null|OperationDefinition|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Resource",
+||||||| .r7796
+        "abstract": "ImmunizationRecommendation",
+=======
         "abstract": false,
         "code": "OperationDefinition",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Resource"
+||||||| .r7796
+        "display": "ImmunizationRecommendation"
+=======
         "display": "OperationDefinition"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Goal|null",
+||||||| .r7796
+      "hash": "|null|null|DetectedIssue|null",
+=======
       "hash": "|null|null|OperationOutcome|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Goal",
+||||||| .r7796
+        "abstract": "DetectedIssue",
+=======
         "abstract": false,
         "code": "OperationOutcome",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Goal"
+||||||| .r7796
+        "display": "DetectedIssue"
+=======
         "display": "OperationOutcome"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|StructureDefinition|null",
+||||||| .r7796
+      "hash": "|null|null|ProcedureRequest|null",
+=======
       "hash": "|null|null|OrderResponse|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "StructureDefinition",
+||||||| .r7796
+        "abstract": "ProcedureRequest",
+=======
         "abstract": false,
         "code": "OrderResponse",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "StructureDefinition"
+||||||| .r7796
+        "display": "ProcedureRequest"
+=======
         "display": "OrderResponse"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
       "hash": "|null|null|OrderSet|null",
+      "severity": "error",
+      "message": "Unknown Code OrderSet in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|Communication|null",
+||||||| .r7796
+      "hash": "|null|null|ProcessResponse|null",
+=======
+      "hash": "|null|null|OrderSet|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Communication",
+||||||| .r7796
+        "abstract": "ProcessResponse",
+=======
         "abstract": false,
         "code": "OrderSet",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Communication"
+||||||| .r7796
+        "display": "ProcessResponse"
+=======
         "display": "OrderSet"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|CompartmentDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code CompartmentDefinition in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|ClaimResponse|null",
+||||||| .r7796
+      "hash": "|null|null|Medication|null",
+=======
       "hash": "|null|null|Order|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ClaimResponse",
+||||||| .r7796
+        "abstract": "Medication",
+=======
         "abstract": false,
         "code": "Order",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "ClaimResponse"
+||||||| .r7796
+        "display": "Medication"
+=======
         "display": "Order"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|RelatedPerson|null",
+||||||| .r7796
+      "hash": "|null|null|AllergyIntolerance|null",
+=======
       "hash": "|null|null|Organization|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "RelatedPerson",
+||||||| .r7796
+        "abstract": "AllergyIntolerance",
+=======
         "abstract": false,
         "code": "Organization",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "RelatedPerson"
+||||||| .r7796
+        "display": "AllergyIntolerance"
+=======
         "display": "Organization"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|OperationDefinition|null",
+||||||| .r7796
+      "hash": "|null|null|Condition|null",
+=======
       "hash": "|null|null|Patient|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "OperationDefinition",
+||||||| .r7796
+        "abstract": "Condition",
+=======
         "abstract": false,
         "code": "Patient",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "OperationDefinition"
+||||||| .r7796
+        "display": "Condition"
+=======
         "display": "Patient"
+>>>>>>> .r8010
       }
     },
     {
-      "hash": "|null|null|PaymentNotice|null",
+<<<<<<< .mine
+      "hash": "|null|null|Measure|null",
+      "severity": "error",
+      "message": "Unknown Code Measure in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+||||||| .r7796
+      "hash": "|null|null|Library|null",
+      "severity": "error",
+      "message": "Unknown Code Library in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+=======
+>>>>>>> .r8010
+      "hash": "|null|null|ProcessResponse|null",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ProcessResponse",
+||||||| .r7796
+        "abstract": "PaymentNotice",
+=======
         "abstract": false,
         "code": "PaymentNotice",
+>>>>>>> .r8010
         "definition": null,
-        "display": "PaymentNotice"
+        "display": "ProcessResponse"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|ImplementationGuide|null",
+||||||| .r7796
+      "hash": "|null|null|Sequence|null",
+      "severity": "error",
+      "message": "Unknown Code Sequence in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|ExplanationOfBenefit|null",
+=======
       "hash": "|null|null|PaymentReconciliation|null",
       "severity": null,
       "message": null,
@@ -921,35 +2322,326 @@
     },
     {
       "hash": "|null|null|Person|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ImplementationGuide",
+||||||| .r7796
+        "abstract": "ExplanationOfBenefit",
+=======
         "abstract": false,
         "code": "Person",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "ImplementationGuide"
+||||||| .r7796
+        "display": "ExplanationOfBenefit"
+=======
         "display": "Person"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|EpisodeOfCare|null",
+||||||| .r7796
+      "hash": "|null|null|CommunicationRequest|null",
+=======
       "hash": "|null|null|Practitioner|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "EpisodeOfCare",
+||||||| .r7796
+        "abstract": "CommunicationRequest",
+=======
         "abstract": false,
         "code": "Practitioner",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "EpisodeOfCare"
+||||||| .r7796
+        "display": "CommunicationRequest"
+=======
         "display": "Practitioner"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Questionnaire|null",
+||||||| .r7796
+      "hash": "|null|null|Claim|null",
+=======
       "hash": "|null|null|ProcedureRequest|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Questionnaire",
+||||||| .r7796
+        "abstract": "Claim",
+=======
         "abstract": false,
         "code": "ProcedureRequest",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Questionnaire"
+||||||| .r7796
+        "display": "Claim"
+=======
         "display": "ProcedureRequest"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|Encounter|null",
+||||||| .r7796
+      "hash": "|null|null|MedicationAdministration|null",
+=======
+      "hash": "|null|null|Procedure|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "Encounter",
+||||||| .r7796
+        "abstract": "MedicationAdministration",
+=======
+        "abstract": false,
+        "code": "Procedure",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "Encounter"
+||||||| .r7796
+        "display": "MedicationAdministration"
+=======
+        "display": "Procedure"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|TestScript|null",
+||||||| .r7796
+      "hash": "|null|null|OrderSet|null",
+      "severity": "error",
+      "message": "Unknown Code OrderSet in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|Basic|null",
+=======
+      "hash": "|null|null|ProcessRequest|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "TestScript",
+||||||| .r7796
+        "abstract": "Basic",
+=======
+        "abstract": false,
+        "code": "ProcessRequest",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "TestScript"
+||||||| .r7796
+        "display": "Basic"
+=======
+        "display": "ProcessRequest"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|ValueSet|null",
+||||||| .r7796
+      "hash": "|null|null|Order|null",
+=======
+      "hash": "|null|null|ProcessResponse|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "ValueSet",
+||||||| .r7796
+        "abstract": "Order",
+=======
+        "abstract": false,
+        "code": "ProcessResponse",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "ValueSet"
+||||||| .r7796
+        "display": "Order"
+=======
+        "display": "ProcessResponse"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|DataElement|null",
+||||||| .r7796
+      "hash": "|null|null|DeviceUseStatement|null",
+=======
+      "hash": "|null|null|Protocol|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "DataElement",
+||||||| .r7796
+        "abstract": "DeviceUseStatement",
+=======
+        "abstract": false,
+        "code": "Protocol",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "DataElement"
+||||||| .r7796
+        "display": "DeviceUseStatement"
+=======
+        "display": "Protocol"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|GuidanceResponse|null",
+      "severity": "error",
+      "message": "Unknown Code GuidanceResponse in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|Binary|null",
+||||||| .r7796
+      "hash": "|null|null|Flag|null",
+=======
+      "hash": "|null|null|Provenance|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "Binary",
+||||||| .r7796
+        "abstract": "Flag",
+=======
+        "abstract": false,
+        "code": "Provenance",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "Binary"
+||||||| .r7796
+        "display": "Flag"
+=======
+        "display": "Provenance"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|ImagingStudy|null",
+||||||| .r7796
+      "hash": "|null|null|Patient|null",
+=======
+      "hash": "|null|null|QuestionnaireResponse|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "ImagingStudy",
+||||||| .r7796
+        "abstract": "Patient",
+=======
+        "abstract": false,
+        "code": "QuestionnaireResponse",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "ImagingStudy"
+||||||| .r7796
+        "display": "Patient"
+=======
+        "display": "QuestionnaireResponse"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|Conformance|null",
+||||||| .r7796
+      "hash": "|null|null|Substance|null",
+=======
+      "hash": "|null|null|Questionnaire|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "Conformance",
+||||||| .r7796
+        "abstract": "Substance",
+=======
+        "abstract": false,
+        "code": "Questionnaire",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "Conformance"
+||||||| .r7796
+        "display": "Substance"
+=======
+        "display": "Questionnaire"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|ExplanationOfBenefit|null",
+||||||| .r7796
+      "hash": "|null|null|Appointment|null",
+=======
+      "hash": "|null|null|ReferralRequest|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "ExplanationOfBenefit",
+||||||| .r7796
+        "abstract": "Appointment",
+=======
+        "abstract": false,
+        "code": "ReferralRequest",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "ExplanationOfBenefit"
+||||||| .r7796
+        "display": "Appointment"
+=======
+        "display": "ReferralRequest"
+>>>>>>> .r8010
       }
     },
     {
@@ -957,145 +2649,145 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Procedure",
+||||||| .r7796
+        "abstract": "RelatedPerson",
+=======
         "abstract": false,
-        "code": "Procedure",
+        "code": "RelatedPerson",
+>>>>>>> .r8010
         "definition": null,
         "display": "Procedure"
       }
     },
     {
-      "hash": "|null|null|ProcessRequest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "ProcessRequest",
-        "definition": null,
-        "display": "ProcessRequest"
-      }
-    },
-    {
-      "hash": "|null|null|ProcessResponse|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "ProcessResponse",
-        "definition": null,
-        "display": "ProcessResponse"
-      }
-    },
-    {
-      "hash": "|null|null|Protocol|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "Protocol",
-        "definition": null,
-        "display": "Protocol"
-      }
-    },
-    {
-      "hash": "|null|null|Provenance|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "Provenance",
-        "definition": null,
-        "display": "Provenance"
-      }
-    },
-    {
-      "hash": "|null|null|QuestionnaireResponse|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "QuestionnaireResponse",
-        "definition": null,
-        "display": "QuestionnaireResponse"
-      }
-    },
-    {
-      "hash": "|null|null|Questionnaire|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "Questionnaire",
-        "definition": null,
-        "display": "Questionnaire"
-      }
-    },
-    {
-      "hash": "|null|null|ReferralRequest|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "ReferralRequest",
-        "definition": null,
-        "display": "ReferralRequest"
-      }
-    },
-    {
-      "hash": "|null|null|RelatedPerson|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "RelatedPerson",
-        "definition": null,
-        "display": "RelatedPerson"
-      }
-    },
-    {
+<<<<<<< .mine
+      "hash": "|null|null|Claim|null",
+||||||| .r7796
+      "hash": "|null|null|ImplementationGuide|null",
+=======
       "hash": "|null|null|Resource|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Claim",
+||||||| .r7796
+        "abstract": "ImplementationGuide",
+=======
         "abstract": false,
         "code": "Resource",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Claim"
+||||||| .r7796
+        "display": "ImplementationGuide"
+=======
         "display": "Resource"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Immunization|null",
+||||||| .r7796
+      "hash": "|null|null|NutritionOrder|null",
+=======
       "hash": "|null|null|RiskAssessment|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Immunization",
+||||||| .r7796
+        "abstract": "NutritionOrder",
+=======
         "abstract": false,
         "code": "RiskAssessment",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Immunization"
+||||||| .r7796
+        "display": "NutritionOrder"
+=======
         "display": "RiskAssessment"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|ImagingObjectSelection|null",
+||||||| .r7796
+      "hash": "|null|null|PaymentReconciliation|null",
+=======
       "hash": "|null|null|Schedule|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ImagingObjectSelection",
+||||||| .r7796
+        "abstract": "PaymentReconciliation",
+=======
         "abstract": false,
         "code": "Schedule",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "ImagingObjectSelection"
+||||||| .r7796
+        "display": "PaymentReconciliation"
+=======
         "display": "Schedule"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|List|null",
+||||||| .r7796
+      "hash": "|null|null|DiagnosticReport|null",
+=======
       "hash": "|null|null|SearchParameter|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "List",
+||||||| .r7796
+        "abstract": "DiagnosticReport",
+=======
         "abstract": false,
         "code": "SearchParameter",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "List"
+||||||| .r7796
+        "display": "DiagnosticReport"
+=======
         "display": "SearchParameter"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|AuditEvent|null",
+||||||| .r7796
+      "hash": "|null|null|CompartmentDefinition|null",
+      "severity": "error",
+      "message": "Unknown Code CompartmentDefinition in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|SupplyDelivery|null",
+=======
       "hash": "|null|null|Sequence|null",
       "severity": null,
       "message": null,
@@ -1108,16 +2800,39 @@
     },
     {
       "hash": "|null|null|Slot|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "AuditEvent",
+||||||| .r7796
+        "abstract": "SupplyDelivery",
+=======
         "abstract": false,
         "code": "Slot",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "AuditEvent"
+||||||| .r7796
+        "display": "SupplyDelivery"
+=======
         "display": "Slot"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|SearchParameter|null",
+||||||| .r7796
+      "hash": "|null|null|CodeSystem|null",
+      "severity": "error",
+      "message": "Unknown Code CodeSystem in http://hl7.org/fhir/ValueSet/resource-types"
+    },
+    {
+      "hash": "|null|null|Slot|null",
+=======
       "hash": "|null|null|Specimen|null",
       "severity": null,
       "message": null,
@@ -1130,27 +2845,67 @@
     },
     {
       "hash": "|null|null|StructureDefinition|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "SearchParameter",
+||||||| .r7796
+        "abstract": "Slot",
+=======
         "abstract": false,
         "code": "StructureDefinition",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "SearchParameter"
+||||||| .r7796
+        "display": "Slot"
+=======
         "display": "StructureDefinition"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Bundle|null",
+||||||| .r7796
+      "hash": "|null|null|Goal|null",
+=======
       "hash": "|null|null|StructureMap|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Bundle",
+||||||| .r7796
+        "abstract": "Goal",
+=======
         "abstract": false,
         "code": "StructureMap",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Bundle"
+||||||| .r7796
+        "display": "Goal"
+=======
         "display": "StructureMap"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Protocol|null",
+      "severity": "error",
+      "message": "Unknown Code Protocol in http://hl7.org/fhir/ValueSet/resource-types"
+||||||| .r7796
+      "hash": "|null|null|Measure|null",
+      "severity": "error",
+      "message": "Unknown Code Measure in http://hl7.org/fhir/ValueSet/resource-types"
+=======
       "hash": "|null|null|Subscription|null",
       "severity": null,
       "message": null,
@@ -1160,8 +2915,14 @@
         "definition": null,
         "display": "Subscription"
       }
+>>>>>>> .r8010
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|ConceptMap|null",
+||||||| .r7796
+      "hash": "|null|null|SupplyRequest|null",
+=======
       "hash": "|null|null|Substance|null",
       "severity": null,
       "message": null,
@@ -1185,36 +2946,92 @@
     },
     {
       "hash": "|null|null|SupplyRequest|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ConceptMap",
+||||||| .r7796
+        "abstract": "SupplyRequest",
+=======
         "abstract": false,
         "code": "SupplyRequest",
+>>>>>>> .r8010
         "definition": null,
-        "display": "SupplyRequest"
+        "display": "ConceptMap"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|HealthcareService|null",
+||||||| .r7796
+      "hash": "|null|null|ValueSet|null",
+=======
       "hash": "|null|null|Task|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "HealthcareService",
+||||||| .r7796
+        "abstract": "ValueSet",
+=======
         "abstract": false,
         "code": "Task",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "HealthcareService"
+||||||| .r7796
+        "display": "ValueSet"
+=======
         "display": "Task"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|Contract|null",
+||||||| .r7796
+      "hash": "|null|null|Media|null",
+=======
       "hash": "|null|null|TestScript|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "Contract",
+||||||| .r7796
+        "abstract": "Media",
+=======
         "abstract": false,
         "code": "TestScript",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Contract"
+||||||| .r7796
+        "display": "Media"
+=======
         "display": "TestScript"
+>>>>>>> .r8010
       }
+<<<<<<< .mine
+||||||| .r7796
+    },
+    {
+      "hash": "|null|null|Device|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "Device",
+        "definition": null,
+        "display": "Device"
+      }
+=======
     },
     {
       "hash": "|null|null|ValueSet|null",
@@ -1226,6 +3043,7 @@
         "definition": null,
         "display": "ValueSet"
       }
+>>>>>>> .r8010
     },
     {
       "hash": "|null|null|VisionPrescription|null",

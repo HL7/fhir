@@ -6,8 +6,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "oid",
+||||||| .r7796
+        "abstract": "uri",
+=======
         "abstract": false,
         "code": "oid",
+>>>>>>> .r8010
         "definition": null,
         "display": "OID"
       }
@@ -17,8 +23,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "uri",
+||||||| .r7796
+        "abstract": "oid",
+=======
         "abstract": false,
         "code": "uri",
+>>>>>>> .r8010
         "definition": null,
         "display": "URI"
       }

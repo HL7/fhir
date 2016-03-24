@@ -17,8 +17,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "extensions",
+||||||| .r7796
+        "abstract": "no",
+=======
         "abstract": false,
         "code": "extensions",
+>>>>>>> .r8010
         "definition": null,
         "display": "Unknown Extensions"
       }
@@ -28,8 +34,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "no",
+||||||| .r7796
+        "abstract": "extensions",
+=======
         "abstract": false,
         "code": "no",
+>>>>>>> .r8010
         "definition": null,
         "display": "Neither Elements or Extensions"
       }

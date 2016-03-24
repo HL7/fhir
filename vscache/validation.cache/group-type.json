@@ -6,8 +6,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "animal",
+||||||| .r7796
+        "abstract": "person",
+=======
         "abstract": false,
         "code": "animal",
+>>>>>>> .r8010
         "definition": null,
         "display": "Animal"
       }
@@ -17,8 +23,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "person",
+||||||| .r7796
+        "abstract": "animal",
+=======
         "abstract": false,
         "code": "person",
+>>>>>>> .r8010
         "definition": null,
         "display": "Person"
       }

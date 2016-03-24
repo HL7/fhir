@@ -2,25 +2,61 @@
   "url": "http://hl7.org/fhir/ValueSet/location-physical-type",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/location-physical-type|null|ho|House",
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/location-physical-type|null|ro|Room",
+=======
       "hash": "#|http://hl7.org/fhir/location-physical-type|null|bu|Building",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ho",
+||||||| .r7796
+        "abstract": "ro",
+=======
         "abstract": false,
         "code": "bu",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "House"
+||||||| .r7796
+        "display": "Room"
+=======
         "display": "Building"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/location-physical-type|null|bu|Building",
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/location-physical-type|null|jdn|Jurisdiction",
+=======
       "hash": "#|http://hl7.org/fhir/location-physical-type|null|ho|House",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "bu",
+||||||| .r7796
+        "abstract": "jdn",
+=======
         "abstract": false,
         "code": "ho",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Building"
+||||||| .r7796
+        "display": "Jurisdiction"
+=======
         "display": "House"
+>>>>>>> .r8010
       }
     },
     {
@@ -28,8 +64,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "jdn",
+||||||| .r7796
+        "abstract": "bu",
+=======
         "abstract": false,
         "code": "jdn",
+>>>>>>> .r8010
         "definition": null,
         "display": "Jurisdiction"
       }
@@ -46,14 +88,32 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/location-physical-type|null|ro|Room",
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/location-physical-type|null|wi|Wing",
+=======
       "hash": "#|http://hl7.org/fhir/location-physical-type|null|ve|Vehicle",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "ro",
+||||||| .r7796
+        "abstract": "wi",
+=======
         "abstract": false,
         "code": "ve",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Room"
+||||||| .r7796
+        "display": "Wing"
+=======
         "display": "Vehicle"
+>>>>>>> .r8010
       }
     },
     {
@@ -61,8 +121,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "wi",
+||||||| .r7796
+        "abstract": "ho",
+=======
         "abstract": false,
         "code": "wi",
+>>>>>>> .r8010
         "definition": null,
         "display": "Wing"
       }

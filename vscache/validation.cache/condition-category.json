@@ -2,7 +2,46 @@
   "url": "http://hl7.org/fhir/ValueSet/condition-category",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|439401001|diagnosis",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|55607006|Problem#|http://hl7.org/fhir/condition-category|null|finding|null",
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/condition-category|null|diagnosis|Diagnosis#|http://snomed.info/sct|null|439401001|Diagnosis",
+=======
       "hash": "#|http://hl7.org/fhir/condition-category|null|diagnosis|Diagnosis",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "finding",
+||||||| .r7796
+        "abstract": "diagnosis",
+=======
+        "abstract": false,
+        "code": "diagnosis",
+>>>>>>> .r8010
+        "definition": null,
+        "display": "Finding"
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/condition-category|null|diagnosis|null",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|439401001|diagnosis",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/condition-category|null|diagnosis|Diagnosis",
+=======
+      "hash": "#|http://hl7.org/fhir/condition-category|null|diagnosis|Diagnosis#|http://snomed.info/sct|null|439401001|Diagnosis",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
@@ -24,34 +63,35 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/condition-category|null|diagnosis|null",
+      "hash": "#|http://hl7.org/fhir/condition-category|null|diagnosis|Diagnosis",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "diagnosis",
+||||||| .r7796
+        "abstract": "finding",
+=======
         "abstract": false,
-        "code": "diagnosis",
+        "code": "finding",
+>>>>>>> .r8010
         "definition": null,
         "display": "Diagnosis"
       }
     },
     {
+<<<<<<< .mine
       "hash": "#|http://hl7.org/fhir/condition-category|null|finding|Finding",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "finding",
-        "definition": null,
-        "display": "Finding"
-      }
-    },
-    {
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|55607006|Problem#|http://hl7.org/fhir/condition-category|null|finding|null",
+=======
       "hash": "#|http://snomed.info/sct|null|439401001|diagnosis",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
       "hash": "#|http://snomed.info/sct|null|55607006|Problem#|http://hl7.org/fhir/condition-category|null|finding|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {

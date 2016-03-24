@@ -2,6 +2,39 @@
   "url": "http://hl7.org/fhir/ValueSet/condition-code",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|87628006|Bacterial infectious disease",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "Bacterial infectious disease"
+      }
+    },
+    {
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|18099001|Retropharyngeal abscess",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "Retropharyngeal abscess"
+      }
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C4872|Breast Carcinoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C2924|Ductal Carcinoma In Situ of the Breast",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+=======
       "hash": "#|http://hl7.org/fhir/sid/icd-9|null|850.0|null",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
@@ -12,18 +45,77 @@
       "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
     },
     {
+>>>>>>> .r8010
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|28036006|High density lipoprotein cholesterol level",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
       "hash": "#|http://snomed.info/sct|null|10001005|Bacterial sepsis",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "Bacterial septicemia"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|368009|Heart valve disorder",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|28036006|High density lipoprotein cholesterol level",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C2955|Colorectal Carcinoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|36225005|Acute renal insufficiency specified as due to procedure",
+=======
+      "hash": "#|http://snomed.info/sct|null|10001005|Bacterial sepsis",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "Heart valve disorder"
+||||||| .r7796
+        "display": "Acute renal failure due to procedure"
+=======
         "display": "Bacterial septicemia"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|371041009|Embolic Stroke",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "Embolic stroke (disorder)"
+      }
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|254626006|null",
+||||||| .r7796
+      "hash": "#|http://www.icd10data.com/icd10pcs|null|R78.71|Abnormal lead level in blood",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|254626006|null",
+=======
       "hash": "#|http://snomed.info/sct|null|115665000|Atopy",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
@@ -34,18 +126,46 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|195967001|Asthma",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|10001005|Bacterial sepsis",
+=======
       "hash": "#|http://snomed.info/sct|null|13645005|Chronic obstructive pulmonary disease",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "Hyperreactive airway disease"
+||||||| .r7796
+        "display": "Bacterial septicemia"
+=======
         "display": "Chronic obstructive lung disease"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://www.icd10data.com/icd10pcs|null|R78.71|Abnormal lead level in blood",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|13645005|Chronic obstructive pulmonary disease",
+||||||| .r7796
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C3224|Melanoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|13645005|Chronic obstructive pulmonary disease",
+=======
       "hash": "#|http://snomed.info/sct|null|18099001|Retropharyngeal abscess",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
@@ -56,17 +176,53 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://www.cms.gov/Medicare/Coding/ICD10/index.html|null|R78.71|Abnormal lead level in blood",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|39839004|Diaphragmatic hernia",
+||||||| .r7796
+      "hash": "#|http://www.cms.gov/Medicare/Coding/ICD10/index.html|null|R78.71|Abnormal lead level in blood",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|422504002|Ischemic stroke (disorder)",
+=======
       "hash": "#|http://snomed.info/sct|null|195967001|Asthma",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "Diaphragmatic hernia"
+||||||| .r7796
+        "display": "Ischemic stroke (disorder)"
+=======
         "display": "Hyperreactive airway disease"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/sid/icd-9|null|850.0|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|363346000|Malignant neoplastic disease",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "Malignant neoplastic disease (disorder)"
+      }
+=======
       "hash": "#|http://snomed.info/sct|null|22253000|Pain",
       "severity": null,
       "message": null,
@@ -76,30 +232,75 @@
         "definition": null,
         "display": "Pain observations"
       }
+>>>>>>> .r8010
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/sid/icd-9|null|V173|Fam hx-ischem heart dis",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|407152001|Increased blood lead level",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|115665000|Atopy",
+=======
       "hash": "#|http://snomed.info/sct|null|254626006|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "Increased blood lead level (finding)"
+||||||| .r7796
+        "display": "Atopic state"
+=======
         "display": "Adenocarcinoma of lung"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|18099001|Retropharyngeal abscess",
+||||||| .r7796
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C4908|Ovarian Carcinoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|38341003|High blood pressure",
+=======
       "hash": "#|http://snomed.info/sct|null|254637007|NSCLC - Non-small cell lung cancer",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "Retropharyngeal abscess"
+||||||| .r7796
+        "display": "Hypertensive disorder, systemic arterial (disorder)"
+=======
         "display": "Non-small cell lung cancer"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|115665000|Atopy",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|315619001|Myocardial Infarction",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|407152001|Increased blood lead level",
+=======
       "hash": "#|http://snomed.info/sct|null|28036006|High density lipoprotein cholesterol level",
       "severity": "error",
       "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
@@ -111,13 +312,43 @@
     },
     {
       "hash": "#|http://snomed.info/sct|null|36225005|Acute renal insufficiency specified as due to procedure",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "Atopic state"
+||||||| .r7796
+        "display": "Increased blood lead level (finding)"
+=======
         "display": "Acute renal failure due to procedure"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|65363002|Otitis Media",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|87628006|Bacterial infectious disease",
+=======
+      "hash": "#|http://snomed.info/sct|null|363346000|Malignant neoplastic disease",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+<<<<<<< .mine
+        "display": "Otitis media"
+||||||| .r7796
+        "display": "Bacterial infectious disease"
+=======
+        "display": "Malignant neoplastic disease (disorder)"
+>>>>>>> .r8010
       }
     },
     {
@@ -132,47 +363,85 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|368009|Heart valve disorder",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Heart valve disorder"
-      }
+<<<<<<< .mine
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C4908|Ovarian Carcinoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
     },
     {
+      "hash": "#|http://snomed.info/sct|null|422504002|Ischemic stroke (disorder)",
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/sid/icd-9|null|V173|Fam hx-ischem heart dis",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|null|null|657|BRCA2#|urn:oid:2.16.840.1.113883.6.133|null|1101|BRCA2",
+      "severity": "error",
+      "message": "None of the codes provided are  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C2955|Rectal Carcinoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/sid/icd-9|null|850.0|null",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|22253000|Pain",
+=======
       "hash": "#|http://snomed.info/sct|null|371041009|Embolic Stroke",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "Ischemic stroke (disorder)"
+||||||| .r7796
+        "display": "Pain observations"
+=======
         "display": "Embolic stroke (disorder)"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|36225005|Acute renal insufficiency specified as due to procedure",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|65363002|Otitis Media",
+=======
       "hash": "#|http://snomed.info/sct|null|38341003|High blood pressure",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "Acute renal failure due to procedure"
+||||||| .r7796
+        "display": "Otitis media"
+=======
         "display": "Hypertensive disorder, systemic arterial (disorder)"
+>>>>>>> .r8010
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|386661006|Fever",
+      "hash": "#|http://snomed.info/sct|null|254637007|NSCLC - Non-small cell lung cancer",
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
-        "display": "Fever (finding)"
+        "display": "Non-small cell lung cancer"
       }
     },
     {
@@ -187,61 +456,165 @@
       }
     },
     {
-      "hash": "#|http://snomed.info/sct|null|39839004|Diaphragmatic hernia",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Diaphragmatic hernia"
-      }
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|315619001|Myocardial Infarction",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|407152001|Increased blood lead level",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Increased blood lead level (finding)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|422504002|Ischemic stroke (disorder)",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Ischemic stroke (disorder)"
-      }
-    },
-    {
-      "hash": "#|http://snomed.info/sct|null|444780001|High glucose level in blood",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": null,
-        "definition": null,
-        "display": "Glucose in blood specimen above reference range (finding)"
-      }
-    },
-    {
+      "hash": "#|http://snomed.info/sct|null|386661006|Fever",
+||||||| .r7796
       "hash": "#|http://snomed.info/sct|null|64859006|Osteoporosis",
+=======
+      "hash": "#|http://snomed.info/sct|null|39839004|Diaphragmatic hernia",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
         "abstract": false,
         "code": null,
         "definition": null,
+<<<<<<< .mine
+        "display": "Fever (finding)"
+||||||| .r7796
         "display": "Osteoporosis"
+=======
+        "display": "Diaphragmatic hernia"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C2955|Rectal Carcinoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C4872|Breast Carcinoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|22253000|Pain",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|444780001|High glucose level in blood",
+=======
+      "hash": "#|http://snomed.info/sct|null|407152001|Increased blood lead level",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+<<<<<<< .mine
+        "display": "Pain observations"
+||||||| .r7796
+        "display": "Glucose in blood specimen above reference range (finding)"
+=======
+        "display": "Increased blood lead level (finding)"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|444780001|High glucose level in blood",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|371041009|Embolic Stroke",
+=======
+      "hash": "#|http://snomed.info/sct|null|422504002|Ischemic stroke (disorder)",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+<<<<<<< .mine
+        "display": "Glucose in blood specimen above reference range (finding)"
+||||||| .r7796
+        "display": "Embolic stroke (disorder)"
+=======
+        "display": "Ischemic stroke (disorder)"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|64859006|Osteoporosis",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|254637007|NSCLC - Non-small cell lung cancer",
+=======
+      "hash": "#|http://snomed.info/sct|null|444780001|High glucose level in blood",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+<<<<<<< .mine
+        "display": "Osteoporosis"
+||||||| .r7796
+        "display": "Non-small cell lung cancer"
+=======
+        "display": "Glucose in blood specimen above reference range (finding)"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C2955|Colorectal Carcinoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C3224|Melanoma",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|38341003|High blood pressure",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|39839004|Diaphragmatic hernia",
+=======
+      "hash": "#|http://snomed.info/sct|null|64859006|Osteoporosis",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+<<<<<<< .mine
+        "display": "Hypertensive disorder, systemic arterial (disorder)"
+||||||| .r7796
+        "display": "Diaphragmatic hernia"
+=======
+        "display": "Osteoporosis"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|null|null|657|BRCA2#|urn:oid:2.16.840.1.113883.6.133|null|1101|BRCA2",
+      "severity": "error",
+      "message": "None of the codes provided are  valid in the value set Condition/Problem/Diagnosis Codes"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.3.26.1.1|null|C2924|Ductal Carcinoma In Situ of the Breast",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Condition/Problem/Diagnosis Codes"
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|39065001|Burn of ear",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": null,
+        "definition": null,
+        "display": "Burn of ear structure"
+      }
+=======
       "hash": "#|http://snomed.info/sct|null|65363002|Otitis Media",
       "severity": null,
       "message": null,
@@ -251,6 +624,7 @@
         "definition": null,
         "display": "Otitis media"
       }
+>>>>>>> .r8010
     },
     {
       "hash": "#|http://snomed.info/sct|null|87628006|Bacterial infectious disease",

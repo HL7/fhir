@@ -2,6 +2,11 @@
   "url": "http://hl7.org/fhir/ValueSet/practitioner-specialty",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.011|Cardiothoracal surgery",
+||||||| .r7796
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.015|Physician",
+=======
       "hash": "#|http://hl7.org/fhir/practitioner-specialty|null|cardio|Cardiologist",
       "severity": null,
       "message": null,
@@ -14,36 +19,88 @@
     },
     {
       "hash": "#|http://orionhealth.com/fhir/apps/specialties|null|ent|ENT",
+>>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
+<<<<<<< .mine
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.018|Ear-, Nose and Throat",
+||||||| .r7796
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.018|Keel- neus- en oorarts",
+=======
       "hash": "#|http://snomed.info/sct|null|159285000|Medical laboratory technician",
+>>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|310512001|Medical oncologist",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|159285000|Medical laboratory technician",
+||||||| .r7796
       "hash": "#|http://snomed.info/sct|null|410158009|Assess physical therapist service",
+=======
+      "hash": "#|http://snomed.info/sct|null|310512001|Medical oncologist",
+>>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|417887005|Pediatric otolaryngology",
+<<<<<<< .mine
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.018|Keel- neus- en oorarts",
+||||||| .r7796
+      "hash": "#|null|null|Orthopedic|null",
+=======
+      "hash": "#|http://snomed.info/sct|null|410158009|Assess physical therapist service",
+>>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
-      "hash": "#|http://snomed.info/sct|null|9632001|Nursing procedure",
-      "severity": "error",
-      "message": "None of the codes are in the specified value set"
-    },
-    {
+<<<<<<< .mine
       "hash": "#|null|null|261QM0850X|null",
+||||||| .r7796
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.011|Cardiothoracal surgery",
+=======
+      "hash": "#|http://snomed.info/sct|null|417887005|Pediatric otolaryngology",
+>>>>>>> .r8010
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|null|null|Orthopedic|null",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.015|Physician",
+||||||| .r7796
+      "hash": "#|http://hl7.org/fhir/practitioner-specialty|null|cardio|Cardiologist",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "cardio",
+        "definition": null,
+        "display": "Cardiologist"
+      }
+    },
+    {
+      "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.018|Ear-, Nose and Throat",
+=======
+      "hash": "#|http://snomed.info/sct|null|9632001|Nursing procedure",
+>>>>>>> .r8010
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|417887005|Pediatric otolaryngology",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|310512001|Medical oncologist",
+=======
+      "hash": "#|null|null|261QM0850X|null",
+>>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
@@ -53,22 +110,55 @@
       "message": "None of the codes are in the specified value set"
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://hl7.org/fhir/practitioner-specialty|null|cardio|Cardiologist",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "cardio",
+        "definition": null,
+        "display": "Cardiologist"
+      }
+||||||| .r7796
+      "hash": "#|http://orionhealth.com/fhir/apps/specialties|null|ent|ENT",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+=======
       "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.011|Cardiothoracal surgery",
       "severity": "error",
       "message": "None of the codes are in the specified value set"
+>>>>>>> .r8010
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://orionhealth.com/fhir/apps/specialties|null|ent|ENT",
+||||||| .r7796
+      "hash": "#|null|null|261QM0850X|null",
+=======
       "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.015|Physician",
+>>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|310512001|Medical oncologist",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|159285000|Medical laboratory technician",
+=======
       "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.018|Ear-, Nose and Throat",
+>>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://snomed.info/sct|null|410158009|Assess physical therapist service",
+||||||| .r7796
+      "hash": "#|http://snomed.info/sct|null|417887005|Pediatric otolaryngology",
+=======
       "hash": "#|urn:oid:2.16.840.1.113883.2.4.15.111|null|01.018|Keel- neus- en oorarts",
+>>>>>>> .r8010
       "severity": "error",
       "message": "None of the codes are in the specified value set"
     },

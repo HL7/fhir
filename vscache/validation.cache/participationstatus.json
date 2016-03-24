@@ -2,25 +2,37 @@
   "url": "http://hl7.org/fhir/ValueSet/participationstatus",
   "outcomes": [
     {
-      "hash": "|null|null|accepted|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "accepted",
-        "definition": null,
-        "display": "Accepted"
-      }
-    },
-    {
       "hash": "|null|null|needs-action|null",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "needs-action",
+||||||| .r7796
+        "abstract": "accepted",
+=======
         "abstract": false,
-        "code": "needs-action",
+        "code": "accepted",
+>>>>>>> .r8010
         "definition": null,
         "display": "Needs Action"
+      }
+    },
+    {
+      "hash": "|null|null|accepted|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "accepted",
+||||||| .r7796
+        "abstract": "needs-action",
+=======
+        "abstract": false,
+        "code": "needs-action",
+>>>>>>> .r8010
+        "definition": null,
+        "display": "Accepted"
       }
     }
   ]

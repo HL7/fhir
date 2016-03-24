@@ -2,14 +2,32 @@
   "url": "http://hl7.org/fhir/ValueSet/type-restful-interaction",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "|null|null|history-type|null",
+||||||| .r7796
+      "hash": "|null|null|history-instance|null",
+=======
       "hash": "|null|null|create|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "history-type",
+||||||| .r7796
+        "abstract": "history-instance",
+=======
         "abstract": false,
         "code": "create",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "history-type"
+||||||| .r7796
+        "display": "history-instance"
+=======
         "display": "create"
+>>>>>>> .r8010
       }
     },
     {
@@ -17,21 +35,45 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "delete",
+||||||| .r7796
+        "abstract": "create",
+=======
         "abstract": false,
         "code": "delete",
+>>>>>>> .r8010
         "definition": null,
         "display": "delete"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|vread|null",
+||||||| .r7796
+      "hash": "|null|null|read|null",
+=======
       "hash": "|null|null|history-instance|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "vread",
+||||||| .r7796
+        "abstract": "read",
+=======
         "abstract": false,
         "code": "history-instance",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "vread"
+||||||| .r7796
+        "display": "read"
+=======
         "display": "history-instance"
+>>>>>>> .r8010
       }
     },
     {
@@ -46,47 +88,95 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|history-instance|null",
+||||||| .r7796
+      "hash": "|null|null|history-type|null",
+=======
+      "hash": "|null|null|read|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "history-instance",
+||||||| .r7796
+        "abstract": "history-type",
+=======
+        "abstract": false,
+        "code": "read",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "history-instance"
+||||||| .r7796
+        "display": "history-type"
+=======
+        "display": "read"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|update|null",
+||||||| .r7796
+      "hash": "|null|null|delete|null",
+=======
+      "hash": "|null|null|search-type|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "update",
+||||||| .r7796
+        "abstract": "delete",
+=======
+        "abstract": false,
+        "code": "search-type",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "update"
+||||||| .r7796
+        "display": "delete"
+=======
+        "display": "search-type"
+>>>>>>> .r8010
+      }
+    },
+    {
+      "hash": "|null|null|create|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "create",
+||||||| .r7796
+        "abstract": "update",
+=======
+        "abstract": false,
+        "code": "update",
+>>>>>>> .r8010
+        "definition": null,
+        "display": "create"
+      }
+    },
+    {
       "hash": "|null|null|read|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "read",
-        "definition": null,
-        "display": "read"
-      }
-    },
-    {
-      "hash": "|null|null|search-type|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "search-type",
-        "definition": null,
-        "display": "search-type"
-      }
-    },
-    {
-      "hash": "|null|null|update|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "update",
-        "definition": null,
-        "display": "update"
-      }
-    },
-    {
-      "hash": "|null|null|vread|null",
-      "severity": null,
-      "message": null,
-      "definition": {
+<<<<<<< .mine
+        "abstract": "read",
+||||||| .r7796
+        "abstract": "vread",
+=======
         "abstract": false,
         "code": "vread",
+>>>>>>> .r8010
         "definition": null,
-        "display": "vread"
+        "display": "read"
       }
     }
   ]

@@ -2,25 +2,37 @@
   "url": "http://hl7.org/fhir/ValueSet/observation-category",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/observation-category|null|procedure|Procedure",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "procedure",
-        "definition": null,
-        "display": "Procedure"
-      }
-    },
-    {
       "hash": "#|http://hl7.org/fhir/observation-category|null|vital-signs|Vital Signs",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "vital-signs",
+||||||| .r7796
+        "abstract": "procedure",
+=======
         "abstract": false,
-        "code": "vital-signs",
+        "code": "procedure",
+>>>>>>> .r8010
         "definition": null,
         "display": "Vital Signs"
+      }
+    },
+    {
+      "hash": "#|http://hl7.org/fhir/observation-category|null|procedure|Procedure",
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "procedure",
+||||||| .r7796
+        "abstract": "vital-signs",
+=======
+        "abstract": false,
+        "code": "vital-signs",
+>>>>>>> .r8010
+        "definition": null,
+        "display": "Procedure"
       }
     }
   ]

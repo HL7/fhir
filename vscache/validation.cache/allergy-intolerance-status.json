@@ -6,21 +6,45 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "confirmed",
+||||||| .r7796
+        "abstract": "unconfirmed",
+=======
         "abstract": false,
         "code": "confirmed",
+>>>>>>> .r8010
         "definition": null,
         "display": "Confirmed"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|unconfirmed|null",
+||||||| .r7796
+      "hash": "|null|null|confirmed|null",
+=======
       "hash": "|null|null|refuted|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "unconfirmed",
+||||||| .r7796
+        "abstract": "confirmed",
+=======
         "abstract": false,
         "code": "refuted",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Unconfirmed"
+||||||| .r7796
+        "display": "Confirmed"
+=======
         "display": "Refuted"
+>>>>>>> .r8010
       }
     },
     {

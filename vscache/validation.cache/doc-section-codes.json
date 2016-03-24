@@ -24,14 +24,32 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://loinc.org|null|48765-2|Allergies and adverse reactions Document",
+||||||| .r7796
+      "hash": "#|http://loinc.org|null|10183-2|Hospital discharge medications Narrative",
+=======
       "hash": "#|http://loinc.org|null|11348-0|History of past illness Narrative",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "48765-2",
+||||||| .r7796
+        "abstract": "10183-2",
+=======
         "abstract": false,
         "code": null,
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Allergies and adverse reactions Document"
+||||||| .r7796
+        "display": "Hospital discharge medications Narrative"
+=======
         "display": "History of past illness Narrative"
+>>>>>>> .r8010
       }
     },
     {
@@ -39,21 +57,45 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "29299-5",
+||||||| .r7796
+        "abstract": "48765-2",
+=======
         "abstract": false,
         "code": null,
+>>>>>>> .r8010
         "definition": null,
         "display": "Reason for visit Narrative"
       }
     },
     {
+<<<<<<< .mine
+      "hash": "#|http://loinc.org|null|10183-2|Hospital discharge medications Narrative",
+||||||| .r7796
+      "hash": "#|http://loinc.org|null|29299-5|Reason for visit Narrative",
+=======
       "hash": "#|http://loinc.org|null|48765-2|Allergies and adverse reactions Document",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "10183-2",
+||||||| .r7796
+        "abstract": "29299-5",
+=======
         "abstract": false,
         "code": null,
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Hospital discharge medications Narrative"
+||||||| .r7796
+        "display": "Reason for visit Narrative"
+=======
         "display": "Allergies and adverse reactions Document"
+>>>>>>> .r8010
       }
     }
   ]

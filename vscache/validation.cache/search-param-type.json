@@ -2,17 +2,48 @@
   "url": "http://hl7.org/fhir/ValueSet/search-param-type",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "|null|null|reference|null",
+||||||| .r7796
+      "hash": "|null|null|number|null",
+=======
       "hash": "|null|null|composite|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "reference",
+||||||| .r7796
+        "abstract": "number",
+=======
         "abstract": false,
         "code": "composite",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Reference"
+||||||| .r7796
+        "display": "Number"
+=======
         "display": "Composite"
+>>>>>>> .r8010
       }
     },
     {
+<<<<<<< .mine
+||||||| .r7796
+      "hash": "|null|null|uri|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "uri",
+        "definition": null,
+        "display": "URI"
+      }
+    },
+    {
+=======
       "hash": "|null|null|date|null",
       "severity": null,
       "message": null,
@@ -24,6 +55,7 @@
       }
     },
     {
+>>>>>>> .r8010
       "hash": "|null|null|number|null",
       "severity": null,
       "message": null,
@@ -57,7 +89,23 @@
       }
     },
     {
+<<<<<<< .mine
       "hash": "|null|null|string|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": "string",
+        "definition": null,
+        "display": "String"
+      }
+    },
+    {
+      "hash": "|null|null|date|null",
+||||||| .r7796
+      "hash": "|null|null|date|null",
+=======
+      "hash": "|null|null|string|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
@@ -68,14 +116,32 @@
       }
     },
     {
+<<<<<<< .mine
+      "hash": "|null|null|number|null",
+||||||| .r7796
+      "hash": "|null|null|reference|null",
+=======
       "hash": "|null|null|token|null",
+>>>>>>> .r8010
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "number",
+||||||| .r7796
+        "abstract": "reference",
+=======
         "abstract": false,
         "code": "token",
+>>>>>>> .r8010
         "definition": null,
+<<<<<<< .mine
+        "display": "Number"
+||||||| .r7796
+        "display": "Reference"
+=======
         "display": "Token"
+>>>>>>> .r8010
       }
     },
     {
@@ -83,8 +149,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "uri",
+||||||| .r7796
+        "abstract": "string",
+=======
         "abstract": false,
         "code": "uri",
+>>>>>>> .r8010
         "definition": null,
         "display": "URI"
       }

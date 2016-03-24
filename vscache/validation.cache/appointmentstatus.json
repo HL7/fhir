@@ -6,8 +6,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "booked",
+||||||| .r7796
+        "abstract": "proposed",
+=======
         "abstract": false,
         "code": "booked",
+>>>>>>> .r8010
         "definition": null,
         "display": "Booked"
       }
@@ -17,8 +23,14 @@
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "proposed",
+||||||| .r7796
+        "abstract": "booked",
+=======
         "abstract": false,
         "code": "proposed",
+>>>>>>> .r8010
         "definition": null,
         "display": "Proposed"
       }

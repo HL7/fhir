@@ -2,58 +2,136 @@
   "url": "http://hl7.org/fhir/ValueSet/care-plan-activity-status",
   "outcomes": [
     {
+<<<<<<< .mine
+      "hash": "|null|null|on-hold|null",
+||||||| .r7796
+      "hash": "|null|null|not-started|null",
+=======
+      "hash": "|null|null|completed|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "on-hold",
+||||||| .r7796
+        "abstract": "not-started",
+=======
+        "abstract": false,
+        "code": "completed",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "On Hold"
+||||||| .r7796
+        "display": "Not Started"
+=======
+        "display": "Completed"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|scheduled|null",
+||||||| .r7796
+      "hash": "|null|null|completed|null",
+=======
+      "hash": "|null|null|in-progress|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "scheduled",
+||||||| .r7796
+        "abstract": "completed",
+=======
+        "abstract": false,
+        "code": "in-progress",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "Scheduled"
+||||||| .r7796
+        "display": "Completed"
+=======
+        "display": "In Progress"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|in-progress|null",
+||||||| .r7796
+      "hash": "|null|null|on-hold|null",
+=======
+      "hash": "|null|null|not-started|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "in-progress",
+||||||| .r7796
+        "abstract": "on-hold",
+=======
+        "abstract": false,
+        "code": "not-started",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "In Progress"
+||||||| .r7796
+        "display": "On Hold"
+=======
+        "display": "Not Started"
+>>>>>>> .r8010
+      }
+    },
+    {
+<<<<<<< .mine
+      "hash": "|null|null|not-started|null",
+||||||| .r7796
+      "hash": "|null|null|in-progress|null",
+=======
+      "hash": "|null|null|on-hold|null",
+>>>>>>> .r8010
+      "severity": null,
+      "message": null,
+      "definition": {
+<<<<<<< .mine
+        "abstract": "not-started",
+||||||| .r7796
+        "abstract": "in-progress",
+=======
+        "abstract": false,
+        "code": "on-hold",
+>>>>>>> .r8010
+        "definition": null,
+<<<<<<< .mine
+        "display": "Not Started"
+||||||| .r7796
+        "display": "In Progress"
+=======
+        "display": "On Hold"
+>>>>>>> .r8010
+      }
+    },
+    {
       "hash": "|null|null|completed|null",
       "severity": null,
       "message": null,
       "definition": {
-        "abstract": false,
-        "code": "completed",
-        "definition": null,
-        "display": "Completed"
-      }
-    },
-    {
-      "hash": "|null|null|in-progress|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "in-progress",
-        "definition": null,
-        "display": "In Progress"
-      }
-    },
-    {
-      "hash": "|null|null|not-started|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "not-started",
-        "definition": null,
-        "display": "Not Started"
-      }
-    },
-    {
-      "hash": "|null|null|on-hold|null",
-      "severity": null,
-      "message": null,
-      "definition": {
-        "abstract": false,
-        "code": "on-hold",
-        "definition": null,
-        "display": "On Hold"
-      }
-    },
-    {
-      "hash": "|null|null|scheduled|null",
-      "severity": null,
-      "message": null,
-      "definition": {
+<<<<<<< .mine
+        "abstract": "completed",
+||||||| .r7796
+        "abstract": "scheduled",
+=======
         "abstract": false,
         "code": "scheduled",
+>>>>>>> .r8010
         "definition": null,
-        "display": "Scheduled"
+        "display": "Completed"
       }
     }
   ]

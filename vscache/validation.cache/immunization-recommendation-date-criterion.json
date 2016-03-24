@@ -2,14 +2,20 @@
   "url": "http://hl7.org/fhir/ValueSet/immunization-recommendation-date-criterion",
   "outcomes": [
     {
-      "hash": "#|http://hl7.org/fhir/immunization-recommendation-date-criterion|null|earliest|Earliest Date",
+      "hash": "#|http://hl7.org/fhir/immunization-recommendation-date-criterion|null|recommended|Recommended",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "recommended",
+||||||| .r7796
+        "abstract": "earliest",
+=======
         "abstract": false,
         "code": "earliest",
+>>>>>>> .r8010
         "definition": null,
-        "display": "Earliest Date"
+        "display": "Recommended"
       }
     },
     {
@@ -24,14 +30,20 @@
       }
     },
     {
-      "hash": "#|http://hl7.org/fhir/immunization-recommendation-date-criterion|null|recommended|Recommended",
+      "hash": "#|http://hl7.org/fhir/immunization-recommendation-date-criterion|null|earliest|Earliest Date",
       "severity": null,
       "message": null,
       "definition": {
+<<<<<<< .mine
+        "abstract": "earliest",
+||||||| .r7796
+        "abstract": "recommended",
+=======
         "abstract": false,
         "code": "recommended",
+>>>>>>> .r8010
         "definition": null,
-        "display": "Recommended"
+        "display": "Earliest Date"
       }
     }
   ]
