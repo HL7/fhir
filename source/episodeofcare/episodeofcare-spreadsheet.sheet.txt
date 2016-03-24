@@ -5,13 +5,13 @@
   Binding Name = EpisodeOfCareStatus
   Binding = code list
   Reference = #episode-of-care-status
-  Definition = The status of the encounter.
+  Definition = The status of the episode of care.
   Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = EpisodeOfCareType
   Binding = unbound
-  Definition = The type of the encounter.
+  Definition = The type of the episode of care
 
  -- Row 3 -----------------------------------
   Binding Name = EpisodeOfCareTeamRole
@@ -119,7 +119,7 @@
   Type = CodeableConcept
   Binding = EpisodeOfCareType
   Short Label = Type/class  - e.g. specialist referral, disease management
-  Definition = A classification of the type of encounter; e.g. specialist referral, disease management, type of funded care
+  Definition = A classification of the type of episode of care; e.g. specialist referral, disease management, type of funded care
   Comments = The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications
   w5 = class
 
