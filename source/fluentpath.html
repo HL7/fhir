@@ -39,8 +39,8 @@ XML specific features are not visible to the FluentPath language
 </p>
 
 <p>
-The expressions can (in theory) be converted to XPath, JSON or 
-OCL equivalents.
+The expressions can in theory be converted to equivalent expressions in 
+XPath, OCL, or another similarly expressive language.
 </p>
 
 <h3>1. Navigation model</h3>
@@ -50,7 +50,9 @@ FluentPath navigates and selects nodes from a tree that abstracts away
 and is independent of the actual underlying implementation of the source 
 against which the FluentPath query is run. This way, FluentPath can be 
 used on in-memory Java POJOs, Xml data or any other physical representation, 
-so long as that representation can be viewed as classes that have properties.
+so long as that representation can be viewed as classes that have properties. In 
+somewhat more formal terms, FluentPath operates on a directed acyclic graph of 
+classes as defined by a MOF-equivalent type system.
 </p>
 
 <p>
@@ -71,9 +73,6 @@ repeating members of the FHIR object model. Leaf nodes such as <code>use</code> 
 to carry a value, as is the case for the node labelled <code>active</code>: this 
 allows the tree to represent FHIR "primitives", which may still have child extension data.
 </p>
-
-<pre><code>[27-1-2016 20:19:45] Grahame Grieve: the introduction should say that FluentPath operates on a directed acyclic 
-graph of classes as defined by a MOF compliant typing system or something like that</code></pre>
 
 <h3>2. Path selection</h3>
 
@@ -106,8 +105,10 @@ will only produce results when used on data of type <code>Patient</code>.
 
 <p>
 Paths may use double quotes to include characters in path parts that would otherwise 
-be interpreted as operators, e.g.: Message."PID-1".
+be interpreted as operators, e.g.:
 </p>
+
+<pre><code>Message."PID-1"</code></pre>
 
 <h4>3.1 Paths and polymorphic items</h4>
 
@@ -140,16 +141,14 @@ especially within <code>where()</code> when the value of the current item needs 
 a function parameter. This can be done using the special path <code>$this</code>:
 </p>
 
-<pre><code>Patient.name.given.where(substring($this.length()-3)) = "out"</code></pre>
-
-<p><code>As I've noted before, I don't understand why we need the $ here? It's just an identifier, resolvable just like any other, right?'</code></p>
+<pre><code>Patient.name.given.where(substring($this.length()-3)) = 'out'</code></pre>
 
 <h4>3.3 Order nodes and traversal</h4>
 
 <p>
 Collections of nodes are inherently ordered, and implementations must 
 retain the original order of a collection. There are two special cases: 
-the outcome of operations like <code>children()</code> and <code>parents()</code> 
+the outcome of operations like <code>children()</code> and <code>descendents()</code> 
 cannot be assumed to be in any meaningful order, and <code>first()</code>, 
 <code>last()</code>, <code>tail()</code>, <code>skip()</code> and <code>take()</code> 
 should not be used on collections derived from these paths. Note that some 
@@ -170,15 +169,12 @@ datetime: @2015-02-04T14:34:28Z - @ followed by ISO8601 compliant date/time
 time: @T14:34:28Z @ followed by ISO8601 compliant time (beginning with T)</code></pre>
 
 <p>
-<code>BR: Code and Concept literals? We agreed there was a need to support them as system-defined types, but should we also define literals for them?</code>
-</p>
-
-<p>
 Unicode is supported in both string literals and quoted identifiers. String literals are surrounded 
 by single quotes and may use <code>\</code>-escapes to escape quotes and represent Unicode characters:</p>
 
 <ul>
- <li>Unicode characters may be escaped using <code>\u</code> followed by four hex digits. * Additional escapes are those supported in JSON:
+ <li>Unicode characters may be escaped using <code>\u</code> followed by four hex digits.</li>
+ <li>Additional escapes are those supported in JSON:
  <ul>
   <li><code>\\</code> (backslash), </li>
   <li><code>\/</code> (slash), </li>
@@ -201,7 +197,7 @@ Expressions can also contain <em>operators</em>, like those for mathematical ope
 <pre><code>Appointment.minutesDuration / 60 &gt; 5
 MedicationAdministration.wasNotGiven.exists() implies MedicationAdministration.reasonNotGiven.exists()
 name.given | name.last
-"sir " + name.given</code></pre>
+'sir ' + name.given</code></pre>
 
 <p>
 Finally, FluentPath supports the notion of functions, which all take a collection of values as input 
@@ -217,7 +213,7 @@ identifier.where(use = 'official')</code></pre>
 <p>will return <code>1</code>, since this is implicitly a collection with one constant number <code>9</code>.</p>
 
 <blockquote>
-<p>Note: There is no concept of <code>null</code> in FluentPath, e.g. when, in an underlying model a member is null, there will simply be no corresponding node for that member in the tree. This means that for example <code>Patient.children()</code> will contain only non-null members and <code>Patient.name</code> will return an empty collection if there are no name elements in the instance.</p>
+<p>Note: There is no concept of <code>null</code> in FluentPath. This means that when, in an underlying instance a member is null, there will simply be no corresponding node for that member in the tree. This means that for example <code>Patient.children()</code> will contain only non-null members and <code>Patient.name</code> will return an empty collection if there are no name elements in the instance.</p>
 </blockquote>
 
 <h4>4.1 Boolean evaluation of collections</h4>
@@ -286,7 +282,7 @@ identifier.where(use = 'official')</code></pre>
 
 <p><b>not() : boolean</b></p>
 
-<p>Returns <code>true</code> if the input collection evaluates to <code>false</code>, and <code>true</code> if it evaluates to <code>false</code>. Otherwise, the result is empty (<code>{ }</code>):</p>
+<p>Returns <code>true</code> if the input collection evaluates to <code>false</code>, and <code>false</code> if it evaluates to <code>true</code>. Otherwise, the result is empty (<code>{ }</code>):</p>
 
 <table><thead>
 <tr>
@@ -316,27 +312,17 @@ identifier.where(use = 'official')</code></pre>
 
 <p>Returns <code>true</code> if all items in the input collection are members of the collection passed as the <code>other</code> argument. Membership is determined using the equals (<code>=</code>) operation (see below).</p>
 
-<p><b>supersetOf(other : coollection) : boolean</b></p>
+<p><b>supersetOf(other : collection) : boolean</b></p>
 
 <p>Returns <code>true</code> if all items in the collection passed as the <code>other</code> argument are members of the input collection. Membership is determined using the equals (<code>=</code>) operation (see below).</p>
-
-<pre><code>
-BR: Added supersetOf for symmetry with subsetOf
-
-</code></pre>
 
 <p><b>isDistinct() : boolean</b></p>
 
 <p>Returns <code>true</code> if all the items in the input collection are distinct. To determine whether two items are distinct, the equals (<code>=</code>) operator is used, as defined below.</p>
 
-<p><b>distinct() : boolean</b></p>
+<p><b>distinct() : collection</b></p>
 
 <p>Returns a collection containing only the unique items in the input collection. To determine whether two items are the same, the equals (<code>=</code>) operator is used, as defined below.</p>
-
-<pre><code>
-BR: This was surprising to me that distinct was defined to return a boolean. Seems like it should return the unique set, rather than a boolean indicating whether or not the set is unique. I added the isDistinct function above to return the boolean.
-
-</code></pre>
 
 <p><b>count() : number</b></p>
 
@@ -435,27 +421,29 @@ BR: This was surprising to me that distinct was defined to return a boolean. See
 
 <p>If the input has multiple items or is empty, the function will return an empty collection.</p>
 
-<pre><code>
-BR: This seems wrong to me, why not just have the input collection determine the condition for the if else? The way this is defined, it is effectively a quaternary operator.
+<p><b>toInteger() : integer</b></p>
 
-</code></pre>
-
-<p><b>toNumber() : number</b></p>
-
-<p>If the input collection contains a single item, this function will return a single number if:</p>
+<p>If the input collection contains a single item, this function will return a single integer if:</p>
 
 <ul>
-<li>the item in the input collection is a number</li>
-<li>the item in the input collection is a string and is convertible to a number</li>
+<li>the item in the input collection is an integer</li>
+<li>the item in the input collection is a string and is convertible to an integer</li>
 <li>the item is a boolean, where <code>true</code> results in a 1 and <code>false</code> results in a 0.</li>
 </ul>
 
 <p>In all other cases, the function will return an empty collection.</p>
 
-<pre><code>
-BR: This is defined to return empty if there is more than one, or if the single item is not convertible. Shouldn't those cases return an error? If the empty behavior is desirable, can we define "asNumber" that would have the error = empty behavior?
+<p><b>toDecimal() : decimal</b></p>
 
-</code></pre>
+<p>If the input collection contains a single item, this function will return a single decimal if:</p>
+
+<ul>
+<li>the item in the input collection is a decimal</li>
+<li>the item in the input collection is a string and is convertible to a decimal</li>
+<li>the item is a boolean, where <code>true</code> results in a 1 and <code>false</code> results in a 0.</li>
+</ul>
+
+<p>In all other cases, the function will return an empty collection.</p>
 
 <p><b>toString() : string</b></p>
 
@@ -468,11 +456,6 @@ BR: This is defined to return empty if there is more than one, or if the single 
 </ul>
 
 <p>In all other cases, the function will return an empty collection.</p>
-
-<pre><code>
-BR: Same comment as toNumber
-
-</code></pre>
 
 <h4>5.6 String manipulation</h4>
 
@@ -492,37 +475,31 @@ BR: Same comment as toNumber
 
 <p>If the input collection contains a single item of type string, the function will return <code>true</code> when the value ends with the specified content.</p>
 
-<pre><code>
-BR: Added for symmertry with startsWith
-
-</code></pre>
-
 <p><b>matches(regex : string) : boolean</b></p>
 
 <p>If the input collection contains a single item of type string, the function will return true when the  value matches the given regular expression. Regular expressions are supposed to work culture invariant, case-sensitive and in 'single line' mode and allow Unicode characters. </p>
 
-<p><b>replace(regex : string, substitution: string) : string</b></p>
+<p><b>replaceMatches(regex : string, substitution: string) : string</b></p>
 
 <p>If the input collection contains a single item of type string, the function will match the input using the regular expression in <code>regex</code> and replace each match with the <code>substitution</code> string. The substitution may refer to identified match groups in the regular expression. </p>
 
-<p>This example of <code>replace()</code> will convert a string with a date formatted as MM/dd/yy to dd-MM-yy:</p>
+<p>This example of <code>replaceMatches()</code> will convert a string with a date formatted as MM/dd/yy to dd-MM-yy:</p>
 
-<pre><code>"11/30/1972".replace("\\b(?&lt;month&gt;\\d{1,2})/(?&lt;day&gt;\\d{1,2})/(?&lt;year&gt;\\d{2,4})\\b",
-       "${day}-${month}-${year}")
+<pre><code>'11/30/1972'.replaceMatches('\\b(?&lt;month&gt;\\d{1,2})/(?&lt;day&gt;\\d{1,2})/(?&lt;year&gt;\\d{2,4})\\b',
+       '${day}-${month}-${year}')
 </code></pre>
 
 <blockquote>
 <p>Note: All platforms will use their native regular expression implementations, which will commonly be close to the regular expressions in Perl 5, however there are always small differences. I don't think we can prescribe any "common" dialect for FluentPath.</p>
 </blockquote>
 
-<pre><code>
-BR: `replace` is typically defined to do simple string replace in string libraries, and although this definition is a superset of the functionality, the simpler replace is much more common and understandable. Can we define a simple `replace` and call this `replaceMatches`?
-
-</code></pre>
-
 <p><b>contains(string : string) : boolean</b></p>
 
 <p>A simpler variation of <code>matches()</code> that returns a boolean when the given <code>string</code> is a substring of the single string in the input collection.</p>
+
+<p><b>replace(pattern : string, substitution : string) : string</b></p>
+
+<p>A simpler variation of <code>replaceMatches</code> that returns the input string with all instances of <code>pattern</code> replaced with <code>substitution</code>.</p>
 
 <p><b>length() : number</b></p>
 
@@ -534,20 +511,12 @@ BR: `replace` is typically defined to do simple string replace in string librari
 
 <p>Returns a collection with all immediate child nodes of all items in the input collection.</p>
 
-<p><b>parent() : collection</b></p>
-
-<p>Returns a collection with all parent nodes of all items in the input collection. As described in section 1, each item will have one parent, except for the root node, which is the node passed to the evaluation engine. The <code>parent()</code> function cannot be used to navigate beyond the root, even if the root node is part of a larger tree (and thus has a parent) in the underlying model.</p>
-
-<blockquote>
-<p>Note: <code>parent()</code> may be multiple nodes if the input collection contains children from different branches.</p>
-</blockquote>
-
 <p><b>descendants() : collection</b></p>
 
 <p>Returns a collection with all descendant nodes of all items in the input collection. The result does not include the nodes in the input collection themselves. Is a shorthand for <code>repeat(children())</code>.</p>
 
 <blockquote>
-<p>Note: Many of these functions will result in a set of nodes of different underlying types. It may be necessary to use <code>ofType()</code> as described in the previous section to maintain type safety. See section 8 for more information about type safe use of FluentPath expressions.</p>
+<p>Note: Many of these functions will result in a set of nodes of different underlying types. It may be necessary to use <code>as()</code> as described in the previous section to maintain type safety. See section 8 for more information about type safe use of FluentPath expressions.</p>
 </blockquote>
 
 <h4>5.7 Utility functions</h4>
@@ -556,14 +525,9 @@ BR: `replace` is typically defined to do simple string replace in string librari
 
 <p>If the input collection contains a single string item, it is taken to be a code and valueset membership is tested against the valueset passed as the argument. The <code>valueset</code> argument is a uri used to resolve to a valueset.  </p>
 
-<p><b>log(string : string) : collection</b></p>
+<p><b>output(name : string) : collection</b></p>
 
-<p>Add a string representation of the input collection to the log, using the parameter as the name in the log. This log should be made available to the user in some appropriate fashion. Does not change the input, so returns the input collection as output.</p>
-
-<pre><code>
-BR: There is a potential name clash here with the CQL logarithm operator. Suggest we change this to `output()` or `trace()` to avoid confusion.
-
-</code></pre>
+<p>Add a string representation of the input collection to the log, using the parameter <code>name</code> as the name in the log. This log should be made available to the user in some appropriate fashion. Does not change the input, so returns the input collection as output.</p>
 
 <p><b>today() : datetime</b></p>
 
@@ -607,7 +571,7 @@ BR: There is a potential name clash here with the CQL logarithm operator. Sugges
 
 <p>Note that this implies that if both collections have a different number of items to compare, the result will be <code>false</code>. </p>
 
-<p>Typically, this operator is used with single fixed values as operands. This means that Patient.telecom.system = 'phone' will return <code>false</code> if there is more than one telecom with a use typically, you'd want Patient.telecom.where(system = 'phone')</p>
+<p>Typically, this operator is used with single fixed values as operands. This means that Patient.telecom.system = 'phone' will return <code>false</code> if there is more than one telecom with a <code>use</code> element. Typically, you'd want Patient.telecom.where(system = 'phone')</p>
 
 <p>If one or both of the operands is the empty collection, this operation returns an empty collection.</p>
 
@@ -670,7 +634,7 @@ BR: There is a potential name clash here with the CQL logarithm operator. Sugges
 
 <p>If the left operand is a collection with a single item and the second operand is an identifier, this operator returns <code>true</code> if the type of the left operand is the type specified in the second operand, or a subclass thereof. In all other cases this function returns the empty collection.</p>
 
-<pre><code>Patient.contained.all($this is 'Patient' implies age &gt; 10)
+<pre><code>Patient.contained.all($this is Patient implies age &gt; 10)
 </code></pre>
 
 <p><b>as</b></p>
@@ -681,12 +645,7 @@ BR: There is a potential name clash here with the CQL logarithm operator. Sugges
 
 <p><b>| (union collections)</b></p>
 
-<p>Merge the two collections into a single collection, eliminating any duplicate values (using equals (<code>=</code>)) to determine equality). If one of the operands is the empty collection, the function returns the other operand.</p>
-
-<pre><code>
-BR: I don't think that last clause is desirable, because it implies a change in behavior based on the runtime values.
-
-</code></pre>
+<p>Merge the two collections into a single collection, eliminating any duplicate values (using equals (<code>=</code>)) to determine equality).</p>
 
 <h4>6.5 Boolean logic</h4>
 
@@ -871,7 +830,7 @@ BR: I don't think that last clause is desirable, because it implies a change in 
 #13: implies
 </code></pre>
 
-<p>As customary, expressions may be grouped by parenthesis ("()").</p>
+<p>As customary, expressions may be grouped by parenthesis (<code>()</code>).</p>
 
 <h3>7. Environment variables</h3>
 
@@ -891,7 +850,7 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 
 <p>Implementers should note that using additional environment variables is a formal extension point for the language. Implementation Guides are allowed to define their own externals, and implementers should provide some appropriate configuration framework to allow these constants to be provided to the evaluation engine at run time. E.g.:</p>
 
-<pre><code>%us-zip = "[0-9]{5}(-[0-9]{4}){0,1}"
+<pre><code>%us-zip = '[0-9]{5}(-[0-9]{4}){0,1}'
 </code></pre>
 
 <p>Authors of Implementation Guides should be aware that adding specific environment variables restricts the use of the FluentPath to their particular context. </p>
@@ -911,17 +870,17 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 
 <p>For example, since some functions and most operators will only accept a single item as input, and throw an exception otherwise:</p>
 
-<pre><code>Patient.name.given + " " + Patient.name.family
+<pre><code>Patient.name.given + ' ' + Patient.name.family
 </code></pre>
 
 <p>will work perfectly fine, as long as the patient has a single name, but will fail otherwise. It is in fact "safer" to formulate such statements as either:</p>
 
-<pre><code>Patient.name.select(given + " " + family)
+<pre><code>Patient.name.select(given + ' ' + family)
 </code></pre>
 
 <p>which would return a collection of concatenated first and last names, one for each name of a patient. Of course, if the patient turns out to have multiple given names, even this statement will fail and the author would need to choose the first name in each collection explicitly:</p>
 
-<pre><code>Patient.name.first().select(given.first() + " " + family.first())
+<pre><code>Patient.name.first().select(given.first() + ' ' + family.first())
 </code></pre>
 
 <p>It is clear that, although more robust, the last expression is also much more elaborate, certainly in situations where, because of external constraints, the author is sure names will not repeat, even if the unconstrained data model allows repetition.</p>
@@ -933,7 +892,7 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 
 <p>will return false as soon as a patient has multiple names, even though one of those may well be 'Wouter'. Again, this can be corrected:</p>
 
-<pre><code>Patient.name.any(given = 'Wouter')
+<pre><code>Patient.name.where(given = 'Wouter').exists()
 </code></pre>
 
 <p>but is still less concise than would be possible if constraints were well known in advance.</p>
@@ -954,7 +913,7 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 <p>There are a few constructs in the FluentPath language where the compiler cannot trace the type, and should issue a warning to the user when doing "strict" evaluation:</p>
 
 <ul>
-<li>The <code>parents()</code>, <code>children()</code> and <code>descendants()</code> functions</li>
+<li>The <code>children()</code> and <code>descendants()</code> functions</li>
 <li>The <code>resolve()</code> function</li>
 <li>A member which is polymorphic (e.g. a choice[x] type in FHIR)</li>
 </ul>
@@ -968,25 +927,6 @@ Note how the names of the `vs-` and `ext-` constants are escaped (just like path
 <li>Use <code>select()</code> and <code>where()</code> to turn the expression into one that evaluates each of the repeating items individually (as in the examples above)</li>
 <li>Use <code>single()</code> to return either the single item or else an empty collection. This is especially useful when using FluentPath to formulate invariants: in cases where single items are considered the "positive" or "true" situation, <code>single()</code> will return an empty collection, so the invariant will evaluate to the empty collection (or false) in any other circumstance.</li>
 </ul>
-
-<pre><code>[27-1-2016 20:53:40] Grahame Grieve: I still disagree with the way that the strict evaluation 
-section is framed. The issue should be described, and then possible approaches defined, 
-including type level evaluation for warnings. I'm not sure when a strict mode on evaluation would actually be appropriate or 
-whether strict must be applied purely based on the type definitions, or whether an evaluation 
-engine is allowed to be aware of contextual constraints in addition to the type definitions
-</code></pre>
-
-<blockquote>
-<p>asType() will not be useable if the parent, children or descendants contain backbone elements (which they will). This might not be a big problem, e.g. </p>
-
-<pre><code>  Questionnaire.descendants().question
-</code></pre>
-
-<p>will really always just select the "anonymous" child called "question" and thus the Question complex element, but we will not get any typesafety again until we do</p>
-
-<pre><code>  Questionnaire.descendants().question.concept.asType('Coding').etc
-</code></pre>
-</blockquote>
 
 <h3>Appendix A - Use of FluentPath in HL7 FHIR</h3>
 
@@ -1017,7 +957,7 @@ engine is allowed to be aware of contextual constraints in addition to the type 
 
 <p>FHIR has the notion of choice elements, where elements can be one of multiple types, e.g. <code>Patient.deceased[x]</code>. In actual instances these will be present as either <code>Patient.deceasedBoolean</code> or <code>Patient.deceasedDateTime</code>. In FluentPath choice elements are labeled according to the name without the '[x]' suffix, and children can be explicitly filtered using the <code>asType</code> operation:</p>
 
-<pre><code>Observation.value.asType('Quantity').unit
+<pre><code>Observation.value.as(Quantity).unit
 </code></pre>
 
 <h4>A.2 Using FHIR types in expressions</h4>
@@ -1070,10 +1010,10 @@ Patient.name.given.extension.first().value = true   // extension of the primitiv
 
 <p>Return any extension with the given URL. This is a syntactical shortcut for <code>.extension.where(url = string)</code>, but is simpler to write. </p>
 
-<p><b>log(string : string) : collection</b></p>
+<p><b>output(string : string) : collection</b></p>
 
 <p>When FluentPath statements are used in an invariant, the log contents should be added to the 
-invariant description. e.g. </p>
+error message constructed when the invariant is violated. For example:</p>
 
 <pre><code>"SHALL have a local reference if the resource is provided inline (url: height; ids: length,weight)" 
 
@@ -1083,19 +1023,13 @@ from
     or ($context.reference.substring(1).log('url') in $resource.contained.id.log('ids'))"
 </code></pre>
 
-<blockquote>
-<p>Sorry, still have no idea to parse this line? What does it mean? EK</p>
-</blockquote>
-
 <p><b>resolve() : collection</b></p>
 
-<p>For each item in the collection, if it is a string, locate the target of the reference, and add it to the resulting collection. If the item is not a string, or fetching the resource fails, the item is ignored and nothing is added to the output collection.</p>
+<p>For each item in the collection, if it is a string, locate the target of the reference, and add it to the resulting collection. If the item is not a string, the item is ignored and nothing is added to the output collection.</p>
 
 <p>The items in the collection may also represent a Reference, in which case the <code>Reference.reference</code> is resolved.</p>
 
-<blockquote>
-<p>Just ignoring failed http operations, is that expected behaviour?</p>
-</blockquote>
+<p>If fetching the resource fails, the failure message is added to the output collection.</p>
 
 <p><b>as(type : identifier) : collection</b></p>
 
@@ -1117,9 +1051,45 @@ from
 
 <h3>Appendix B - Use of FluentPath in Clinical Quality Language (CQL)</h3>
 
-<p>
-This section not done yet
-</p>
+<p>Clinical Quality Language is being extended to use FluentPath as its core expression language, in much the same way that XQuery uses XPath to represent expressions within queries. In particular, the following extensions to CQL are proposed:</p>
+
+<h3><a id="Path_Traversal_2"></a>Path Traversal</h3>
+<p>When a path expression involves an element with multiple cardinality, the expression is considered short-hand for an equivalent query invocation. For example:</p>
+<pre><code>Patient.name
+</code></pre>
+<p>is allowed, and is considered a short-hand for the following query expression:</p>
+<pre><code>Patient.name X where X.name is not null return X.name
+</code></pre>
+<p>Note that the restriction is required as it ensures that the resulting list will not contain any null elements.</p>
+<h3><a id="Constants_and_Contexts_13"></a>Constants and Contexts</h3>
+<p>FluentPath has the ability to reference contexts (using the <code>$</code> prefix) and environment-defined variables (using the <code>%</code> prefix). Within CQL, these contexts and environment-defined variables are added to the appropriate scope (global for environment-variables, local for contexts) with the prefix included. This allows them to be referenced like any other variable within CQL, but preserves the prefix as a namespace differentiator.</p>
+<h3><a id="Additional_Operators_16"></a>Additional Operators</h3>
+<p>The following additional operators are being added to CQL:</p>
+<ul>
+<li><code>~</code>, <code>!~</code> - Equivalent operators (formerly <code>matches</code> in CQL)</li>
+<li><code>!=</code> - As a synonym for <code>&lt;&gt;</code></li>
+<li><code>implies</code> - Logical implication</li>
+<li><code>|</code> - As a synonym for <code>union</code></li>
+</ul>
+<h3><a id="Methodstyle_Invocation_23"></a>Method-style Invocation</h3>
+<p>One of the primary syntactic features of FluentPath is the ability to “invoke” a function on a collection. For example:</p>
+<pre><code>Patient.name.given.substring(3)
+</code></pre>
+<p>The CQL syntax is being extended to support this style of invocation, but as a short-hand for an equivalent CQL statement for each operator. For example:</p>
+<pre><code>stringValue.substring(3, 5)
+</code></pre>
+<p>is allowed, and is considered a short-hand for the following CQL expression:</p>
+<pre><code>Substring(stringValue, 3, 5)
+</code></pre>
+<p>For most functions, this short-hand is a simple rewrite, but for contextual functions such as <code>where()</code> and <code>select()</code>, this rewrite must preserve the context semantics:</p>
+<pre><code>Patient.name.where(given = 'John')
+</code></pre>
+<p>is short-hand for:</p>
+<pre><code>Patient.name N where N.given = 'John'
+</code></pre>
+<h3><a id="Strict_Evaluation_44"></a>Strict Evaluation</h3>
+<p>Because CQL is a type-safe language, embedded FluentPath expressions should be compiled in <em>strict</em> mode. However, to enable the use of FluentPath in <em>loose</em> mode, an implicit conversion from a list of elements to an element is added. This implicit conversion is implemented as an invocation of <code>singleton from</code>, ensuring that if the list has multiple elements at run-time an error will be thrown.</p>
+<p>In addition, the underlying Expression Logical Model (ELM) is being extended to allow for dynamic invocation. A <code>Dynamic</code> type is introduced with appropriate operators to support run-time invocation where necessary. However, these operators are introduced as an additional layer on top of core ELM, and CQL compiled with the <em>strict</em> option will never produce expressions containing these elements. This avoids placing additional implementation burden on systems that do not need dynamic capabilities.</p>
 
 </div>
 
