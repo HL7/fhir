@@ -293,7 +293,7 @@ or in JSON:
 <a name="modifierExtension"> </a>
 <h2>Modifier Extensions</h2>
 <p>
-There are some cases where the information provided in extensions modifies the meaning 
+There are some cases where the information provided in an extension modifies the meaning 
 of the element that contains it. Typically, this means information that qualifies or 
 negates the primary meaning of the element that contains it. Some examples:
 </p>
@@ -307,15 +307,31 @@ negates the primary meaning of the element that contains it. Some examples:
 Implementers should avoid the use of modifier extensions where possible.  Any use should be 
 carefully considered against its possible downstream consequences. However, implementers
 are often forced into these situations by the business arrangements around
-the use of resources, so this specification creates a framework for handling these cases.
+the use of resources, so this specification creates a framework for handling such cases.
 If modifier extensions are present, an application cannot safely process the resource unless it knows
 what the extension means for its own use of the data.
 </p>
 <p>
 This specification allows for such modifier elements to be included at the base of a resource or in any elements
 that do not have a data type (e.g. the elements that correspond to classes in the resource UML
-diagrams). Elements that are data types, or that are inside data types SHALL NOT have modifier extensions.
+diagrams). Elements that are data types, or that are inside data types SHALL NOT have modifier extensions,
+nor can extensions have modifier extensions internally.
 </p>
+<p>
+Note that complex extensions are allowed to have elements in the complex extension that are marked is 
+<a href="conformance-rules.html#isModifier">modifier = true</a>, in that the modify the extension value itself. 
+Such elements are conveyed using "extension", not "modifierExtension" because the impact of the modifier 
+element is expected to be known by applications that understand the containing extension. Any modifierExtension 
+defined outside an extension cannot be placed in another extension.
+</p>
+<blockquote class="dstu-note">
+<a name="dstu"> </a>
+<p>
+<b>DSTU Note:</b> Is this a problem? Input from implementers identiying places where modifier 
+extensions might be needed inside other extensions is welcome <a href="http://wiki.hl7.org/index.php?title=FHIR_Specification_Feedback_(DSTU_2)">here</a>.
+</p>
+</blockquote>
+
 <p>
 In XML, these modifier elements are represented using an element named "modifierExtension", which has same content as the 
 <i>extension</i> element documented above: 
