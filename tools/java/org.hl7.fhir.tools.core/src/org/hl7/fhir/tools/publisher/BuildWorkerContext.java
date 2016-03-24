@@ -722,7 +722,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     JsonParser parser = new JsonParser();
     Resource r = parser.parse(new FileInputStream(cacheFn));
     if (r instanceof OperationOutcome)
-      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDiagnostics());
+      return new ValueSetExpansionOutcome(((OperationOutcome) r).getIssue().get(0).getDetails().getText());
     else {
       vs.setExpansion(((ValueSet) r).getExpansion()); // because what is cached might be from a different value set
       return new ValueSetExpansionOutcome(vs);

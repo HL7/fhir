@@ -61,9 +61,11 @@ public class ValueSetExpansionCache implements ValueSetExpanderFactory {
 	  	if (vso.getError() != null) {
 	  	  // well, we'll see if the designated server can expand it, and if it can, we'll cache it locally
 	  		vso = context.expandVS(source, false);
-	  		FileOutputStream s = new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getUrl())));
-	  		context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, vso.getValueset());
-	  		s.close();
+	  		if (cacheFolder != null) {
+	  		  FileOutputStream s = new FileOutputStream(Utilities.path(cacheFolder, makeFile(source.getUrl())));
+	  		  context.newXmlParser().setOutputStyle(OutputStyle.PRETTY).compose(s, vso.getValueset());
+	  		  s.close();
+	  		}
 	  	}
 	  	expansions.put(source.getUrl(), vso);
 	  	return vso;
