@@ -61,9 +61,9 @@
   Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
-  Element = ClaimResponse.request
+  Element = ClaimResponse.request[x]
   Card. = 0..1
-  Type = Reference(Claim)
+  Type = Identifier|Reference(Claim)
   Short Label = Id of resource triggering adjudication
   Definition = Original request resource referrence
   CDAnet v4 Mapping = A02|G01
@@ -71,6 +71,7 @@
  -- Row 5 -----------------------------------
   Element = ClaimResponse.ruleset
   Card. = 0..1
+  Aliases = BusinessVersion
   Type = Coding
   Binding = Ruleset
   Short Label = Resource version
@@ -79,6 +80,7 @@
  -- Row 6 -----------------------------------
   Element = ClaimResponse.originalRuleset
   Card. = 0..1
+  Aliases = OriginalBusinessVersion
   Type = Coding
   Binding = Ruleset
   Short Label = Original version
@@ -93,24 +95,24 @@
   Definition = The date when the enclosed suite of services were performed or completed
 
  -- Row 8 -----------------------------------
-  Element = ClaimResponse.organization
+  Element = ClaimResponse.organization[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Insurer
   Definition = The Insurer who produced this adjudicated response.
 
  -- Row 9 -----------------------------------
-  Element = ClaimResponse.requestProvider
+  Element = ClaimResponse.requestProvider[x]
   Card. = 0..1
-  Type = Reference(Practitioner)
+  Type = Identifier|Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
  -- Row 10 -----------------------------------
-  Element = ClaimResponse.requestOrganization
+  Element = ClaimResponse.requestOrganization[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
@@ -612,9 +614,9 @@
   Requirements = To identify which coverage is being adjudicated.
 
  -- Row 81 -----------------------------------
-  Element = ClaimResponse.coverage.coverage
+  Element = ClaimResponse.coverage.coverage[x]
   Card. = 1..1
-  Type = Reference(Coverage)
+  Type = Identifier|Reference(Coverage)
   Short Label = Insurance information
   Definition = Reference to the program or plan identification, underwriter or payor.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
@@ -627,7 +629,7 @@
   Definition = The contract number of a business agreement which describes the terms and conditions.
 
  -- Row 83 -----------------------------------
-  Element = ClaimResponse.coverage.relationship
+  Element = !ClaimResponse.coverage.relationship
   Card. = 1..1
   Type = Coding
   Binding = Relationship
@@ -655,7 +657,7 @@
   CDAnet v4 Mapping = EOB
 
  -- Row 86 -----------------------------------
-  Element = ClaimResponse.coverage.originalRuleset
+  Element = !ClaimResponse.coverage.originalRuleset
   Card. = 0..1
   Type = Coding
   Binding = Ruleset
@@ -672,36 +674,48 @@
   Path = ClaimResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = request
+  Name = requestreference
   Type = reference
   Description = The claim reference
-  Path = ClaimResponse.request
+  Path = ClaimResponse.requestReference
 
  -- Row 3 -----------------------------------
-  Name = organization
-  Type = reference
-  Description = The organization who generated this resource
-  Path = ClaimResponse.organization
+  Name = requestidentifier
+  Type = token
+  Description = The claim reference
+  Path = ClaimResponse.requestIdentifier
 
  -- Row 4 -----------------------------------
+  Name = organizationreference
+  Type = reference
+  Description = The organization who generated this resource
+  Path = ClaimResponse.organizationReference
+
+ -- Row 5 -----------------------------------
+  Name = organizationidentifier
+  Type = token
+  Description = The organization who generated this resource
+  Path = ClaimResponse.organizationIdentifier
+
+ -- Row 6 -----------------------------------
   Name = outcome
   Type = token
   Description = The processing outcome
   Path = ClaimResponse.outcome
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = created
   Type = date
   Description = The creation date
   Path = ClaimResponse.created
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = disposition
   Type = string
   Description = The contents of the disposition message
   Path = ClaimResponse.disposition
 
- -- Row 7 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = paymentdate
   Type = date
   Description = The expected paymentDate

@@ -342,6 +342,11 @@
       }
     },
     {
+      "hash": "|null|null|datetime|null",
+      "severity": "error",
+      "message": "Unknown Code datetime in http://hl7.org/fhir/ValueSet/all-types"
+    },
+    {
       "hash": "|null|null|date|null",
       "severity": null,
       "message": null,

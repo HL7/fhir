@@ -58,7 +58,7 @@
   Must Support = Y
 
  -- Row 8 -----------------------------------
-  Element = Medication.product.ingredient.item
+  Element = Medication.product.ingredient.itemReference
   Card. = 1..1
   Must Support = Y
   Type = Reference(Substance){http://hl7.org/fhir/StructureDefinition/daf-substance}|Reference(Medication){http://hl7.org/fhir/StructureDefinition/daf-medication}

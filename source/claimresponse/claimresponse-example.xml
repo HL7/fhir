@@ -12,20 +12,26 @@
     <value value="R3500"/>
   </identifier>
 
-  <request>
+  <requestReference>
     <reference value="http://www.BenefitsInc.com/fhir/oralhealthclaim/15476332402"/>
-  </request>
+  </requestReference>
 
   <created value="2014-08-16"/>
 
-  <organization>
+<!-- 
+  <OrganizationReference>
     <reference value="Organization/2"/>
-  </organization>
+  </OrganizationReference>
+ -->
+  <organizationIdentifier>
+    <system value="http://www.jurisdiction.org/insurers"/>
+    <value value="555123"/>
+  </organizationIdentifier>
 
-  <requestOrganization>
+ <!-- <requestOrganizationReference>
     <reference value="Organization/1"/>
-  </requestOrganization>
-
+  </requestOrganizationReference>
+-->
   <outcome value="complete"/>
  
   <disposition value="Claim settled as per contract."/>

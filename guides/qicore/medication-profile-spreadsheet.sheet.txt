@@ -52,7 +52,7 @@
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
 
  -- Row 8 -----------------------------------
-  Element = Medication.product.ingredient.item
+  Element = Medication.product.ingredient.itemReference
   Type = Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance} |Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
 
  -- Row 9 -----------------------------------
@@ -62,7 +62,7 @@
   Element = Medication.package.content
 
  -- Row 11 -----------------------------------
-  Element = Medication.package.content.item
+  Element = Medication.package.content.itemReference
   Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
 
 === Sheet Search =====================================

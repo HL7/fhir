@@ -171,7 +171,7 @@
   Binding = DAFBodySite
 
  -- Row 24 -----------------------------------
-  Element = MedicationOrder.reason[x]
+  Element = MedicationOrder.reasonCode
   Binding = QICoreProblemCode
   QDM Mapping = reason
 
