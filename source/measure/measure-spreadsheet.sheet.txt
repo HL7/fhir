@@ -22,6 +22,13 @@
   Definition = The type of measure
   Conformance = required
 
+ -- Row 4 -----------------------------------
+  Binding Name = MeasureDataUsage
+  Binding = code list
+  Reference = #measure-data-usage
+  Definition = The intended usage for supplemental data elements in the measure
+  Conformance = required
+
 === Sheet measure-population =====================================
 
  -- Row 1 -----------------------------------
@@ -117,6 +124,20 @@
   Code = outcome
   Display = Outcome
   Definition = The measure is an outcome measure
+
+=== Sheet measure-data-usage =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = supplemental-data
+  Display = Supplemental Data
+  Definition = The data is intended to be provided as additional information alongside the measure results
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = risk-adjustment-factor
+  Display = Risk Adjustment Factor
+  Definition = The data is intended to be used to calculate and apply a risk adjustment model for the measure
 
 === Sheet Invariants =====================================
 
@@ -295,7 +316,7 @@
   Element = Measure.group.stratifier
   Card. = 0..*
   Short Label = Stratifier criteria for the measure
-  Definition = The stratifier criteria for the measure report, specified as either the name of a valid referenced CQL expression or a valid FHIR Resource Path
+  Definition = The stratifier criteria for the measure report, specified as either the name of a valid CQL expression defined within a referenced library, or a valid FHIR Resource Path
 
  -- Row 26 -----------------------------------
   Element = Measure.group.stratifier.identifier
@@ -322,7 +343,7 @@
   Element = Measure.supplementalData
   Card. = 0..*
   Short Label = Supplemental data
-  Definition = Supplemental data to be supplied with the measure report
+  Definition = The supplemental data criteria for the measure report, specified as either the name of a valid CQL expression within a referenced library, or a valid FHIR Resource Path
 
  -- Row 30 -----------------------------------
   Element = Measure.supplementalData.identifier
@@ -332,8 +353,23 @@
   Definition = An identifier for the supplemental data
 
  -- Row 31 -----------------------------------
+  Element = Measure.supplementalData.usage
+  Card. = 0..*
+  Type = code
+  Binding = MeasureDataUsage
+  Short Label = supplemental-data | risk-adjustment-factor
+  Definition = An indicator of the intended usage for the supplemental data element. Supplemental data indicates the data is additional information requested to augment the measure information. Risk adjustment factor indicates the data is additional information used to calculate risk adjustment factors when applying a risk model to the measure calculation
+
+ -- Row 32 -----------------------------------
+  Element = Measure.supplementalData.criteria
+  Card. = 0..1
+  Type = string
+  Short Label = Supplemental data criteria
+  Definition = The criteria for the supplemental data. This must be the name of a valid expression defined within a referenced library, and defines the data to be returned for this element
+
+ -- Row 33 -----------------------------------
   Element = Measure.supplementalData.path
-  Card. = 1..1
+  Card. = 0..1
   Type = string
   Short Label = Path to the supplemental data element
   Definition = The supplemental data to be supplied as part of the measure response, specified as a valid FHIR Resource Path
@@ -435,7 +471,7 @@
  -- Row 5 -----------------------------------
   Name = evaluate-measure.reportType
   Use = in
-  Documentation = The type of measure report (patient or population)
+  Documentation = The type of measure report, patient, patient-list, or population
   Type = code
   Title = Report type
   Footer = If not specified, a default value of patient will be used if the patient parameter is supplied, otherwise, population will be used
@@ -453,6 +489,16 @@
   Max = 1
 
  -- Row 7 -----------------------------------
+  Name = evaluate-measure.lastReceivedOn
+  Use = in
+  Documentation = The date the results of this measure were last received
+  Type = datetime
+  Title = Last Received On
+  Footer = This parameter is only valid for patient-level reports and is used to indicate when the last time a result for this patient was received. This information can be used to limit the set of resources returned for a patient-level report
+  Min = 0
+  Max = 1
+
+ -- Row 8 -----------------------------------
   Name = evaluate-measure.return
   Use = out
   Documentation = The results of the measure calculation
