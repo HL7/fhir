@@ -267,25 +267,25 @@
 
  -- Row 2 -----------------------------------
   Name = requestidentifier
-  Type = reference
+  Type = token
   Description = The EligibilityRequest reference
   Path = EligibilityResponse.requestIdentifier
 
  -- Row 3 -----------------------------------
   Name = requestreference
-  Type = token
+  Type = reference
   Description = The EligibilityRequest reference
   Path = EligibilityResponse.requestReference
 
  -- Row 4 -----------------------------------
   Name = organizationidentifier
-  Type = reference
+  Type = token
   Description = The organization which generated this resource
   Path = EligibilityResponse.organizationIdentifier
 
  -- Row 5 -----------------------------------
   Name = organizationreference
-  Type = token
+  Type = reference
   Description = The organization which generated this resource
   Path = EligibilityResponse.organizationReference
 
@@ -309,25 +309,25 @@
 
  -- Row 9 -----------------------------------
   Name = requestprovideridentifier
-  Type = reference
+  Type = token
   Description = The EligibilityRequest provider
   Path = EligibilityResponse.requestProviderIdentifier
 
  -- Row 10 -----------------------------------
   Name = requestproviderreference
-  Type = token
+  Type = reference
   Description = The EligibilityRequest provider
   Path = EligibilityResponse.requestProviderReference
 
  -- Row 11 -----------------------------------
   Name = requestorganizationidentifier
-  Type = reference
+  Type = token
   Description = The EligibilityRequest organization
   Path = EligibilityResponse.requestOrganizationIdentifier
 
  -- Row 12 -----------------------------------
   Name = requestorganizationreference
-  Type = token
+  Type = reference
   Description = The EligibilityRequest organization
   Path = EligibilityResponse.requestOrganizationReference
 

@@ -30,9 +30,9 @@
   Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
-  Element = PaymentReconciliation.request
+  Element = PaymentReconciliation.request[x]
   Card. = 0..1
-  Type = Reference(ProcessRequest)
+  Type = Identifier|Reference(ProcessRequest)
   Short Label = Claim reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
@@ -84,24 +84,24 @@
   Definition = The period of time for which payments have been gathered into this bulk payment for settlement.
 
  -- Row 11 -----------------------------------
-  Element = PaymentReconciliation.organization
+  Element = PaymentReconciliation.organization[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Insurer
   Definition = The Insurer who produced this adjudicated response.
 
  -- Row 12 -----------------------------------
-  Element = PaymentReconciliation.requestProvider
+  Element = PaymentReconciliation.requestProvider[x]
   Card. = 0..1
-  Type = Reference(Practitioner)
+  Type = Identifier|Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
  -- Row 13 -----------------------------------
-  Element = PaymentReconciliation.requestOrganization
+  Element = PaymentReconciliation.requestOrganization[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
@@ -125,30 +125,30 @@
   Definition = Code to indicate the nature of the payment, adjustment, funds advance, etc.
 
  -- Row 17 -----------------------------------
-  Element = PaymentReconciliation.detail.request
+  Element = PaymentReconciliation.detail.request[x]
   Card. = 0..1
-  Type = Reference(Any)
+  Type = Identifier|Reference(Any)
   Short Label = Claim
   Definition = The claim or financial resource.
 
  -- Row 18 -----------------------------------
-  Element = PaymentReconciliation.detail.responce
+  Element = PaymentReconciliation.detail.responce[x]
   Card. = 0..1
-  Type = Reference(Any)
+  Type = Identifier|Reference(Any)
   Short Label = Claim Response
   Definition = The claim response resource.
 
  -- Row 19 -----------------------------------
-  Element = PaymentReconciliation.detail.submitter
+  Element = PaymentReconciliation.detail.submitter[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Submitter
   Definition = The Organization which submitted the invoice or financial transaction.
 
  -- Row 20 -----------------------------------
-  Element = PaymentReconciliation.detail.payee
+  Element = PaymentReconciliation.detail.payee[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Payee
   Definition = The organization which is receiving the payment.
 
@@ -229,46 +229,70 @@
   Path = PaymentReconciliation.identifier
 
  -- Row 2 -----------------------------------
-  Name = request
-  Type = reference
+  Name = requestidentifier
+  Type = token
   Description = The reference to the claim
-  Path = PaymentReconciliation.request
+  Path = PaymentReconciliation.requestIdentifier
 
  -- Row 3 -----------------------------------
-  Name = organization
+  Name = requestreference
   Type = reference
-  Description = The organization who generated this resource
-  Path = PaymentReconciliation.organization
+  Description = The reference to the claim
+  Path = PaymentReconciliation.requestReference
 
  -- Row 4 -----------------------------------
+  Name = organizationidentifier
+  Type = token
+  Description = The organization who generated this resource
+  Path = PaymentReconciliation.organizationIdentifier
+
+ -- Row 5 -----------------------------------
+  Name = organizationreference
+  Type = reference
+  Description = The organization who generated this resource
+  Path = PaymentReconciliation.organizationReference
+
+ -- Row 6 -----------------------------------
   Name = outcome
   Type = token
   Description = The processing outcome
   Path = PaymentReconciliation.outcome
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = created
   Type = date
   Description = The creation date
   Path = PaymentReconciliation.created
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = disposition
   Type = string
   Description = The contents of the disposition message
   Path = PaymentReconciliation.disposition
 
- -- Row 7 -----------------------------------
-  Name = requestprovider
+ -- Row 9 -----------------------------------
+  Name = requestprovideridentifier
+  Type = token
+  Description = The reference to the provider who sumbitted the claim
+  Path = PaymentReconciliation.requestProviderIdentifier
+
+ -- Row 10 -----------------------------------
+  Name = requestproviderreference
   Type = reference
   Description = The reference to the provider who sumbitted the claim
-  Path = PaymentReconciliation.requestProvider
+  Path = PaymentReconciliation.requestProviderReference
 
- -- Row 8 -----------------------------------
-  Name = requestorganization
+ -- Row 11 -----------------------------------
+  Name = requestorganizationidentifier
+  Type = token
+  Description = The organization who generated this resource
+  Path = PaymentReconciliation.requestOrganizationIdentifier
+
+ -- Row 12 -----------------------------------
+  Name = requestorganizationreference
   Type = reference
   Description = The organization who generated this resource
-  Path = PaymentReconciliation.requestOrganization
+  Path = PaymentReconciliation.requestOrganizationReference
 
 === Sheet Profiles =====================================
 

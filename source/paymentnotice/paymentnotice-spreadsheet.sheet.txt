@@ -54,38 +54,38 @@
   Definition = The date when this resource was created.
 
  -- Row 7 -----------------------------------
-  Element = PaymentNotice.target
+  Element = PaymentNotice.target[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Insurer or Regulatory body
   Definition = The Insurer who is target  of the request.
 
  -- Row 8 -----------------------------------
-  Element = PaymentNotice.provider
+  Element = PaymentNotice.provider[x]
   Card. = 0..1
-  Type = Reference(Practitioner)
+  Type = Identifier|Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
  -- Row 9 -----------------------------------
-  Element = PaymentNotice.organization
+  Element = PaymentNotice.organization[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
  -- Row 10 -----------------------------------
-  Element = PaymentNotice.request
+  Element = PaymentNotice.request[x]
   Card. = 0..1
-  Type = Reference(Any)
+  Type = Identifier|Reference(Any)
   Short Label = Request reference
   Definition = Reference of resource to reverse
 
  -- Row 11 -----------------------------------
-  Element = PaymentNotice.response
+  Element = PaymentNotice.response[x]
   Card. = 0..1
-  Type = Reference(Any)
+  Type = Identifier|Reference(Any)
   Short Label = Response reference
   Definition = Reference of response to resource to reverse
 
@@ -113,42 +113,66 @@
   Path = PaymentNotice.identifier
 
  -- Row 2 -----------------------------------
-  Name = organization
-  Type = reference
+  Name = organizationidentifier
+  Type = token
   Description = The organization who generated this resource
-  Path = PaymentNotice.organization
+  Path = PaymentNotice.organizationIdentifier
 
  -- Row 3 -----------------------------------
+  Name = organizationreference
+  Type = token
+  Description = The organization who generated this resource
+  Path = PaymentNotice.organizationReference
+
+ -- Row 4 -----------------------------------
   Name = created
   Type = date
   Description = Creation date fro the notice
   Path = PaymentNotice.created
 
- -- Row 4 -----------------------------------
-  Name = provider
-  Type = reference
-  Description = The reference to the provider
-  Path = PaymentNotice.provider
-
  -- Row 5 -----------------------------------
-  Name = request
-  Type = reference
-  Description = The Claim
-  Path = PaymentNotice.request
+  Name = provideridentifier
+  Type = token
+  Description = The reference to the provider
+  Path = PaymentNotice.providerIdentifier
 
  -- Row 6 -----------------------------------
-  Name = response
-  Type = reference
-  Description = The ClaimResponse
-  Path = PaymentNotice.response
+  Name = providerreference
+  Type = token
+  Description = The reference to the provider
+  Path = PaymentNotice.providerReference
 
  -- Row 7 -----------------------------------
+  Name = requestidentifier
+  Type = token
+  Description = The Claim
+  Path = PaymentNotice.requestIdentifier
+
+ -- Row 8 -----------------------------------
+  Name = requestreference
+  Type = reference
+  Description = The Claim
+  Path = PaymentNotice.requestReference
+
+ -- Row 9 -----------------------------------
+  Name = responseidentifier
+  Type = token
+  Description = The ClaimResponse
+  Path = PaymentNotice.responseIdentifier
+
+ -- Row 10 -----------------------------------
+  Name = responsereference
+  Type = reference
+  Description = The ClaimResponse
+  Path = PaymentNotice.responseReference
+
+ -- Row 11 -----------------------------------
   Name = paymentstatus
   Type = token
   Description = The type of payment notice
   Path = PaymentNotice.paymentStatus
 
- -- Row 8 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = statusdate
   Type = date
   Description = The date of the payment action

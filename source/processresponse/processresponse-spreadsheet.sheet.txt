@@ -154,49 +154,49 @@
 
  -- Row 2 -----------------------------------
   Name = requestidentifier
-  Type = reference
+  Type = token
   Description = The reference to the claim
   Path = ProcessResponse.requestIdentifier
 
  -- Row 3 -----------------------------------
   Name = requestreference
-  Type = token
+  Type = reference
   Description = The reference to the claim
   Path = ProcessResponse.requestReference
 
  -- Row 4 -----------------------------------
   Name = organizationidentifier
-  Type = reference
+  Type = token
   Description = The organization who generated this resource
   Path = ProcessResponse.organizationIdentifier
 
  -- Row 5 -----------------------------------
   Name = organizationreference
-  Type = token
+  Type = reference
   Description = The organization who generated this resource
   Path = ProcessResponse.organizationReference
 
  -- Row 6 -----------------------------------
   Name = requestprovideridentifier
-  Type = reference
+  Type = token
   Description = The Provider who is responsible the request transaction
   Path = ProcessResponse.requestProviderIdentifier
 
  -- Row 7 -----------------------------------
   Name = requestproviderreference
-  Type = token
+  Type = reference
   Description = The Provider who is responsible the request transaction
   Path = ProcessResponse.requestProviderReference
 
  -- Row 8 -----------------------------------
   Name = requestorganizationidentifier
-  Type = reference
+  Type = token
   Description = The Organization who is responsible the request transaction
   Path = ProcessResponse.requestOrganizationIdentifier
 
  -- Row 9 -----------------------------------
   Name = requestorganizationreference
-  Type = token
+  Type = reference
   Description = The Organization who is responsible the request transaction
   Path = ProcessResponse.requestOrganizationReference
 
