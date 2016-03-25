@@ -65,9 +65,9 @@
   Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
-  Element = EligibilityResponse.request
+  Element = EligibilityResponse.request[x]
   Card. = 0..1
-  Type = Reference(EligibilityRequest)
+  Type = Identifier|Reference(EligibilityRequest)
   Short Label = Claim reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
@@ -112,24 +112,24 @@
   Definition = The date when the enclosed suite of services were performed or completed
 
  -- Row 10 -----------------------------------
-  Element = EligibilityResponse.organization
+  Element = EligibilityResponse.organization[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Insurer
   Definition = The Insurer who produced this adjudicated response.
 
  -- Row 11 -----------------------------------
-  Element = EligibilityResponse.requestProvider
+  Element = EligibilityResponse.requestProvider[x]
   Card. = 0..1
-  Type = Reference(Practitioner)
+  Type = Identifier|Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
  -- Row 12 -----------------------------------
-  Element = EligibilityResponse.requestOrganization
+  Element = EligibilityResponse.requestOrganization[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
@@ -266,46 +266,70 @@
   Path = EligibilityResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = request
+  Name = requestidentifier
   Type = reference
   Description = The EligibilityRequest reference
-  Path = EligibilityResponse.request
+  Path = EligibilityResponse.requestIdentifier
 
  -- Row 3 -----------------------------------
-  Name = organization
-  Type = reference
-  Description = The organization which generated this resource
-  Path = EligibilityResponse.organization
+  Name = requestreference
+  Type = token
+  Description = The EligibilityRequest reference
+  Path = EligibilityResponse.requestReference
 
  -- Row 4 -----------------------------------
+  Name = organizationidentifier
+  Type = reference
+  Description = The organization which generated this resource
+  Path = EligibilityResponse.organizationIdentifier
+
+ -- Row 5 -----------------------------------
+  Name = organizationreference
+  Type = token
+  Description = The organization which generated this resource
+  Path = EligibilityResponse.organizationReference
+
+ -- Row 6 -----------------------------------
   Name = outcome
   Type = token
   Description = The processing outcome
   Path = EligibilityResponse.outcome
 
- -- Row 5 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = created
   Type = date
   Description = The creation date
   Path = EligibilityResponse.created
 
- -- Row 6 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = disposition
   Type = string
   Description = The contents of the disposition message
   Path = EligibilityResponse.disposition
 
- -- Row 7 -----------------------------------
-  Name = requestprovider
+ -- Row 9 -----------------------------------
+  Name = requestprovideridentifier
   Type = reference
-  Description = Reference to the EligibilityRequest provider
-  Path = EligibilityResponse.requestProvider
+  Description = The EligibilityRequest provider
+  Path = EligibilityResponse.requestProviderIdentifier
 
- -- Row 8 -----------------------------------
-  Name = requestorganization
+ -- Row 10 -----------------------------------
+  Name = requestproviderreference
+  Type = token
+  Description = The EligibilityRequest provider
+  Path = EligibilityResponse.requestProviderReference
+
+ -- Row 11 -----------------------------------
+  Name = requestorganizationidentifier
   Type = reference
-  Description = Reference to the EligibilityRequest organization
-  Path = EligibilityResponse.requestOrganization
+  Description = The EligibilityRequest organization
+  Path = EligibilityResponse.requestOrganizationIdentifier
+
+ -- Row 12 -----------------------------------
+  Name = requestorganizationreference
+  Type = token
+  Description = The EligibilityRequest organization
+  Path = EligibilityResponse.requestOrganizationReference
 
 === Sheet Profiles =====================================
 

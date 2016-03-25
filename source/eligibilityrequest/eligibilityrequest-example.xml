@@ -13,28 +13,24 @@
  
   <created value="2014-08-16"/>
 
-  <target>
+  <targetReference>
     <reference value="Organization/2"/>
-  </target>
+  </targetReference>
 
-  <organization>
+  <organizationReference>
     <reference value="Organization/1"/>
-  </organization>
+  </organizationReference>
 
   <priority>
     <code value="normal"/>
   </priority>
 
-  <patient>
+  <patientReference>
     <reference value="Patient/pat1"/>
-  </patient>
+  </patientReference>
  
-  <coverage>
+  <coverageReference>
       <reference value="Coverage/9876B1"/>
-  </coverage>
-
-  <relationship>
-      <code value="self"/>
-  </relationship>
+  </coverageReference>
 
  </EligibilityRequest>

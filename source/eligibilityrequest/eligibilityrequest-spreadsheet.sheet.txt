@@ -68,24 +68,24 @@
   Definition = The date when this resource was created.
 
  -- Row 7 -----------------------------------
-  Element = EligibilityRequest.target
+  Element = EligibilityRequest.target[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Insurer
   Definition = The Insurer who is target  of the request.
 
  -- Row 8 -----------------------------------
-  Element = EligibilityRequest.provider
+  Element = EligibilityRequest.provider[x]
   Card. = 0..1
-  Type = Reference(Practitioner)
+  Type = Identifier|Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
  -- Row 9 -----------------------------------
-  Element = EligibilityRequest.organization
+  Element = EligibilityRequest.organization[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
@@ -98,16 +98,16 @@
   Definition = Immediate (STAT), best effort (NORMAL), deferred (DEFER)
 
  -- Row 11 -----------------------------------
-  Element = EligibilityRequest.enterer
+  Element = EligibilityRequest.enterer[x]
   Card. = 0..1
-  Type = Reference(Practitioner)
+  Type = Identifier|Reference(Practitioner)
   Short Label = Author
   Definition = Person who created the invoice/claim/pre-determination or pre-authorization.
 
  -- Row 12 -----------------------------------
-  Element = EligibilityRequest.facility
+  Element = EligibilityRequest.facility[x]
   Card. = 0..1
-  Type = Reference(Location)
+  Type = Identifier|Reference(Location)
   Short Label = Servicing Facility
   Definition = Facility where the services were provided.
 
@@ -115,9 +115,9 @@
   Element = !Patient Information
 
  -- Row 14 -----------------------------------
-  Element = EligibilityRequest.patient
+  Element = EligibilityRequest.patient[x]
   Card. = 0..1
-  Type = Reference(Patient)
+  Type = Identifier|Reference(Patient)
   Short Label = The subject of the Products and Services
   Definition = Patient Resource
   Comments = 1..1
@@ -127,9 +127,9 @@
   Element = !Insurance Information
 
  -- Row 16 -----------------------------------
-  Element = EligibilityRequest.coverage
+  Element = EligibilityRequest.coverage[x]
   Card. = 0..1
-  Type = Reference(Coverage)
+  Type = Identifier|Reference(Coverage)
   Short Label = Insurance or medical plan
   Definition = Financial instrument by which payment information for health care
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
@@ -143,7 +143,7 @@
   Definition = The contract number of a business agreement which describes the terms and conditions.
 
  -- Row 18 -----------------------------------
-  Element = EligibilityRequest.relationship
+  Element = !EligibilityRequest.relationship
   Card. = 0..1
   Type = Coding
   Binding = Relationship
@@ -186,34 +186,58 @@
   Path = EligibilityRequest.identifier
 
  -- Row 2 -----------------------------------
-  Name = patient
+  Name = patientreference
   Type = reference
   Description = The reference to the patient
-  Path = EligibilityRequest.patient
+  Path = EligibilityRequest.patientReference
 
  -- Row 3 -----------------------------------
+  Name = patientidentifier
+  Type = token
+  Description = The reference to the patient
+  Path = EligibilityRequest.patientIdentifier
+
+ -- Row 4 -----------------------------------
   Name = created
   Type = date
   Description = The creation date for the EOB
   Path = EligibilityRequest.created
 
- -- Row 4 -----------------------------------
-  Name = provider
+ -- Row 5 -----------------------------------
+  Name = providerreference
   Type = reference
   Description = The reference to the provider
-  Path = EligibilityRequest.provider
-
- -- Row 5 -----------------------------------
-  Name = organization
-  Type = reference
-  Description = The reference to the providing organization
-  Path = EligibilityRequest.organization
+  Path = EligibilityRequest.providerReference
 
  -- Row 6 -----------------------------------
-  Name = facility
+  Name = provideridentifier
+  Type = token
+  Description = The reference to the provider
+  Path = EligibilityRequest.provideridentifier
+
+ -- Row 7 -----------------------------------
+  Name = organizationreference
+  Type = reference
+  Description = The reference to the providing organization
+  Path = EligibilityRequest.organizationReference
+
+ -- Row 8 -----------------------------------
+  Name = organizationidentifier
+  Type = token
+  Description = The reference to the providing organization
+  Path = EligibilityRequest.organizationidentifier
+
+ -- Row 9 -----------------------------------
+  Name = facilityreference
   Type = reference
   Description = Facility responsible for the goods and services
-  Path = EligibilityRequest.facility
+  Path = EligibilityRequest.facilityReference
+
+ -- Row 10 -----------------------------------
+  Name = facilityidentifier
+  Type = token
+  Description = Facility responsible for the goods and services
+  Path = EligibilityRequest.facilityidentifier
 
 === Sheet Profiles =====================================
 
