@@ -9,22 +9,22 @@
   <action value="status"/>
   
   <identifier>
-       <system value="http://happyvalley.com/processrequest"/>
+    <system value="http://happyvalley.com/processrequest"/>
     <value value="1776543"/>
   </identifier>
  
   <created value="2014-08-16"/>
 
-  <organization>
+  <organizationReference>
     <reference value="Organization/1"/>
-  </organization>
+  </organizationReference>
   
-  <request>
+  <requestReference>
     <reference value="http://BenefitsInc.com/oralhealthclaim/12345"/>
-  </request>
+  </requestReference>
 
-  <response>
+  <responseReference>
     <reference value="http://BenefitsInc.com/fhir/claimresponse/3500"/>
-  </response>
+  </responseReference>
   
  </ProcessRequest>

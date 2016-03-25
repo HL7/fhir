@@ -15,9 +15,9 @@
  
   <created value="2014-08-16"/>
 
-  <organization>
+  <organizationReference>
     <reference value="Organization/1"/>
-  </organization>
+  </organizationReference>
   
   <include value="Reconciliation"/>
   

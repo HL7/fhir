@@ -15,13 +15,13 @@
  
   <created value="2014-08-16"/>
 
-  <organization>
+  <organizationReference>
     <reference value="Organization/1"/>
-  </organization>
+  </organizationReference>
   
-  <request>
+  <requestReference>
     <reference value="http://BenefitsInc.com/fhir/oralhealthclaim/12345"/>
-  </request>
+  </requestReference>
 
   <reference value="ABC12345G"/>
  

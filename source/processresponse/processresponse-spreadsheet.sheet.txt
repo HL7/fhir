@@ -30,9 +30,9 @@
   Definition = The Response business identifier
 
  -- Row 4 -----------------------------------
-  Element = ProcessResponse.request
+  Element = ProcessResponse.request[x]
   Card. = 0..1
-  Type = Reference(Any)
+  Type = Identifier|Reference(Any)
   Short Label = Request reference
   Definition = Original request resource reference
   CDAnet v4 Mapping = A02|G01
@@ -77,24 +77,24 @@
   Definition = The date when the enclosed suite of services were performed or completed
 
  -- Row 10 -----------------------------------
-  Element = ProcessResponse.organization
+  Element = ProcessResponse.organization[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Authoring Organization
   Definition = The organization who produced this adjudicated response.
 
  -- Row 11 -----------------------------------
-  Element = ProcessResponse.requestProvider
+  Element = ProcessResponse.requestProvider[x]
   Card. = 0..1
-  Type = Reference(Practitioner)
+  Type = Identifier|Reference(Practitioner)
   Short Label = Responsible Practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient.
   CDAnet v4 Mapping = B01
 
  -- Row 12 -----------------------------------
-  Element = ProcessResponse.requestOrganization
+  Element = ProcessResponse.requestOrganization[x]
   Card. = 0..1
-  Type = Reference(Organization)
+  Type = Identifier|Reference(Organization)
   Short Label = Responsible organization
   Definition = The organization which is responsible for the services rendered to the patient.
 
@@ -153,28 +153,52 @@
   Path = ProcessResponse.identifier
 
  -- Row 2 -----------------------------------
-  Name = request
+  Name = requestidentifier
   Type = reference
   Description = The reference to the claim
-  Path = ProcessResponse.request
+  Path = ProcessResponse.requestIdentifier
 
  -- Row 3 -----------------------------------
-  Name = organization
-  Type = reference
-  Description = The organization who generated this resource
-  Path = ProcessResponse.organization
+  Name = requestreference
+  Type = token
+  Description = The reference to the claim
+  Path = ProcessResponse.requestReference
 
  -- Row 4 -----------------------------------
-  Name = requestprovider
+  Name = organizationidentifier
   Type = reference
-  Description = The Provider who is responsible the request transaction
-  Path = ProcessResponse.requestProvider
+  Description = The organization who generated this resource
+  Path = ProcessResponse.organizationIdentifier
 
  -- Row 5 -----------------------------------
-  Name = requestorganization
+  Name = organizationreference
+  Type = token
+  Description = The organization who generated this resource
+  Path = ProcessResponse.organizationReference
+
+ -- Row 6 -----------------------------------
+  Name = requestprovideridentifier
+  Type = reference
+  Description = The Provider who is responsible the request transaction
+  Path = ProcessResponse.requestProviderIdentifier
+
+ -- Row 7 -----------------------------------
+  Name = requestproviderreference
+  Type = token
+  Description = The Provider who is responsible the request transaction
+  Path = ProcessResponse.requestProviderReference
+
+ -- Row 8 -----------------------------------
+  Name = requestorganizationidentifier
   Type = reference
   Description = The Organization who is responsible the request transaction
-  Path = ProcessResponse.requestOrganization
+  Path = ProcessResponse.requestOrganizationIdentifier
+
+ -- Row 9 -----------------------------------
+  Name = requestorganizationreference
+  Type = token
+  Description = The Organization who is responsible the request transaction
+  Path = ProcessResponse.requestOrganizationReference
 
 === Sheet Profiles =====================================
 
