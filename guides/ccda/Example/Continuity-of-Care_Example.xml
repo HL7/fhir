@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Composition xmlns="http://hl7.org/fhir">
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-data-enterer-extension" >
+        <valueUri value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-informant-extension" >
+        <valueUri value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-information-recipient-extension" >
+        <valueUri value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-participant-extension" >
+        <valueUri value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-performer-extension" >
+        <valueUri value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension" >
+        <valueUri value="http://hl7.org/fhir/StructureDefinition/ccda-consent"/>
+    </extension>
+    <identifier>
+        <system value="http://hl7.org/fhir/StructureDefinition/ccda-ccd-composition"/>
+        <value value="1"/>
+    </identifier>
+    <date value="2016-02-14T09:10:14Z"/>
+    <type>
+        <coding>
+            <system value="http://loinc.org"/>
+            <code value="34133-9"/>
+            <display value="Summary of episode note"/>
+        </coding>
+    </type>
+    <title value="Continuity of Care Document"/>
+    <status value="preliminary"/>
+    <confidentiality value="N"/>
+    <subject>
+        <reference value="http://fhir2.healthintersections.com.au/open/Patient/1234568501"/>
+        <display value="Henry Jones"/>
+    </subject>
+    <author>
+        <reference value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+        <display value="Adam Everyman, MD"/>
+    </author> 
+    <attester>
+        <mode value="legal"/>
+        <time value="2012-01-04T09:10:14Z"/>
+        <party>
+            <reference value="http://fhir2.healthintersections.com.au/open/Practitioner/00929"/>
+            <display value="Adam Everyman, MD"/>
+        </party>
+    </attester>
+    <custodian>
+        <reference value="http://fhir2.healthintersections.com.au/open/Organization/57"/>
+        <display value="Community Health and Hospitals"/>
+    </custodian>
+    <event>
+        <code>
+            <coding>
+                <system value="http://hl7.org/fhir/v3/ActClass"/>
+                <code value="PCPR"/>
+                <display value="Care Provision"/>
+            </coding>
+        </code>
+        <period>
+            <start value="2015-11-18"/>
+            <end value="2015-12-12"/>
+        </period>
+    </event>
+    <encounter>
+        <reference value="http://hl7.org/fhir/daf-encounter"/>
+    </encounter>
+    <!-- Included all sections identified in the Trifolia C-CDA on FHIR profile http://hl7.org/fhir/StructureDefinition/ccda-ccd-composition -->
+    <section>
+        <title value="Allergies and Intolerances Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="48765-2"/>
+                <display value="Allergies and adverse reactions"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Substance</b>
+                        </td>
+                        <td>
+                            <b>Overall Severity</b>
+                        </td>
+                        <td>
+                            <b>Reaction</b>
+                        </td>
+                        <td>
+                            <b>Reaction Severity</b>
+                        </td>
+                        <td>
+                            <b>Status</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Penicillin</td>
+                        <td>Moderate to Severe</td>
+                        <td>Nausea</td>
+                        <td>Mild</td>
+                        <td>Inactive</td>
+                    </tr>
+                    <tr>
+                        <td>Codeine</td>
+                        <td>Mild</td>
+                        <td>Wheezing</td>
+                        <td>Moderate</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>Aspirin</td>
+                        <td>Mild</td>
+                        <td>Hives</td>
+                        <td>Mild to Moderate</td>
+                        <td>Active</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+        <!-- Composition.section.mode and orderedBy are optional in FHIR DSTU2, and not specified in the Trifolia CCD CCoF profile - should it be removed from the sample?  -->  
+        <mode value="snapshot"/>
+        <orderedBy>
+            <coding>
+                <system value="http://hl7.org/fhir/list-order"/>
+                <code value="event-date"/>
+                <display value="Sorted by Event Date"/>
+            </coding>
+        </orderedBy>
+    </section>
+    <section>
+        <title value="Medication Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="10160-0"/>
+                <display value="History of Medication Use"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Medication</b>
+                        </td>
+                        <td>
+                            <b>Directions</b>
+                        </td>
+                        <td>
+                            <b>Start Date</b>
+                        </td>
+                        <td>
+                            <b>Status</b>
+                        </td>
+                        <td>
+                            <b>Indications</b>
+                        </td>
+                        <td>
+                            <b>Fill Instructions</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Proventil HFA</td>
+                        <td>Inhalant solution - 2 puffs QID PRN wheezing</td>
+                        <td>20151029</td>
+                        <td>Active</td>
+                        <td>Pneumonia</td>
+                        <td>Generic substitution allowed</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Problem Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="11450-4"/>
+                <display value="Problem list"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Problem Name</b>
+                        </td>
+                        <td>
+                            <b>Type</b>
+                        </td>
+                        <td>
+                            <b>Onset Date</b>
+                        </td>
+                        <td>
+                            <b>Abatement Date</b>
+                        </td>
+                        <td>
+                            <b>Status</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Pneumonia</td>
+                        <td>Diagnosis</td>
+                        <td>2015-10-29</td>
+                        <td>2016-01-15</td>
+                        <td>Complete</td>
+                    </tr>
+                    <tr>
+                        <td>Asthma</td>
+                        <td>Condition</td>
+                        <td>2000-02-15</td>
+                        <td></td>
+                        <td>Active</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Procedures Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="47519-4"/>
+                <display value="History of procedures"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Procedure Name</b>
+                        </td>
+                        <td>
+                            <b>Body Site</b>
+                        </td>
+                        <td>
+                            <b>Performer</b>
+                        </td>
+                        <td>
+                            <b>Date Performed</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lumbar Spinal Fusion</td>
+                        <td>Back Region</td>
+                        <td>Dr. S. Steen</td>
+                        <td>20150816</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Results Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="30954-2"/>
+                <display value="Relevant diagnostic tests and laboratory data"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Result Type</b>
+                        </td>
+                        <td>
+                            <b>Quantity Value</b>
+                        </td>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                        <td>
+                            <b>Status</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Blood Chemistry - Folate in Red Blood Cells</td>
+                        <td>13.8 ug</td>
+                        <td>2015/02/01</td>
+                        <td>Preliminary</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Advance Directives Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="42348-3"/>
+                <display value="Advance directives"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Name</b>
+                        </td>
+                        <td>
+                            <b>Applies Period</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Resuscitation</td>
+                        <td>2015/01/01 - 2016/12/31</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Encounters Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="46240-8"/>
+                <display value="Encounters"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Encounter</b>
+                        </td>
+                        <td>
+                            <b>Performer</b>
+                        </td>
+                        <td>
+                            <b>Location</b>
+                        </td>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Checkup Examination</td>
+                        <td>Dr. S. Steene</td>
+                        <td>Community Urgent Care Center</td>
+                        <td>2015/09/26</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Family History Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="10157-6"/>
+                <display value="History of family member diseases"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Relationship</b>
+                        </td>
+                        <td>
+                            <b>Diagnosis</b>
+                        </td>
+                        <td>
+                            <b>Age at Onset</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Father</td>
+                        <td>Myocardial Infarction(cause of Death)</td>
+                        <td>57</td>
+                    </tr>
+                    <tr>
+                        <td>Father</td>
+                        <td>Diabetes</td>
+                        <td>40</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Functional Status Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="47420-5"/>
+                <display value="Functional status assessment"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Functional or Cognitive Finding</b>
+                        </td>
+                        <td>
+                            <b>Observation</b>
+                        </td>
+                        <td>
+                            <b>Observation Date</b>
+                        </td>
+                        <td>
+                            <b>Condition Status</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ambulation (Dependent to Independent</td>
+                        <td>Independently able</td>
+                        <td>2010/03/11</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>Finding of Functional Performance and Activity</td>
+                        <td>Dyspnea</td>
+                        <td>2008/02/16</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td>Cognitive Function Finding</td>
+                        <td>Memory Impairment</td>
+                        <td>2014/04/29</td>
+                        <td>Active</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Immunizations Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="11369-6"/>
+                <display value="History of immunization"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Vaccine</b>
+                        </td>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                        <td>
+                            <b>Status</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Influenza, Seasonal, IM</td>
+                        <td>1999/11/25</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Tetanus and diptheria toxoids, IM</td>
+                        <td>1997/10/16</td>
+                        <td>Refused</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value=" Nutrition Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="61144-2"/>
+                <display value="Diet and nutrition"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                        <td>
+                            <b>Nutritional Status</b>
+                        </td>
+                        <td>
+                            <b>Diet</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2005/12/29</td>
+                        <td>Well nourished</td>
+                        <td>Low sodium diet, excessive carbohydrate</td>
+                    </tr>
+                    <tr>
+                        <td>2010/05/26</td>
+                        <td>Slight dehydration</td>
+                        <td>High protein, low fibre</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Mental Status Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="10190-7"/>
+                <display value="Mental status"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                        <td>
+                            <b>Mental Status</b>
+                        </td>
+                        <td>
+                            <b>Support System</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2005/06/21</td>
+                        <td>Good</td>
+                        <td>Not required</td>
+                    </tr>
+                    <tr>
+                        <td>2015/12/29</td>
+                        <td>Dimentia</td>
+                        <td>Daily Home Care</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Social History Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="29762-2"/>
+                <display value="Social history"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Social History Element</b>
+                        </td>
+                        <td>
+                            <b>Description</b>
+                        </td>
+                        <td>
+                            <b>Effective Dates</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Smoking</td>
+                        <td>1 pack per day</td>
+                        <td>2005/05/01 - 2010/02/28</td>
+                    </tr>
+                    <tr>
+                        <td>Alcohol Consumption</td>
+                        <td>2 Bottles of Wine per week</td>
+                        <td>2001/01/01</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Plan of Treatment Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="18776-5"/>
+                <display value="Plan of treatment"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Planned Activity</b>
+                        </td>
+                        <td>
+                            <b>Period</b>
+                        </td>
+                        <td>
+                            <b>Status</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Colonoscopy</td>
+                        <td>2010/08/16 - 2010/08/16</td>
+                        <td>Completed</td>
+                    </tr>
+                    <tr>
+                        <td>Recommendation to Exercise</td>
+                        <td>2015/10/29</td>
+                        <td>Ongoing</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Payers Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="48768-6"/>
+                <display value="Payers"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Payer Name</b>
+                        </td>
+                        <td>
+                            <b>Policy ID</b>
+                        </td>
+                        <td>
+                            <b>Policy Holder</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>United Healthcare</td>
+                        <td>12341</td>
+                        <td>Self</td>
+                    </tr>
+                    <tr>
+                        <td>Cigna</td>
+                        <td>53123</td>
+                        <td>Spouse</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Medical Equipment Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="46264-8"/>
+                <display value="Medical equipment"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Supply/Device</b>
+                        </td>
+                        <td>
+                            <b>Date Supplied</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Automatic Implantable cardioverter/defbrillator</td>
+                        <td>2008/11/16</td>
+                    </tr>
+                    <tr>
+                        <td>Wheelchair</td>
+                        <td>1999/12/01</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+    <section>
+        <title value="Vital Signs Section"/>
+        <code>
+            <coding>
+                <system value="http://loinc.org"/>
+                <code value="8716-3"/>
+                <display value="Vital signs"/>
+            </coding>
+        </code>
+        <text>
+            <status value="generated"/>
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <table>
+                    <tr>
+                        <td>
+                            <b>Vital Sign</b>
+                        </td>
+                        <td>
+                            <b>Date</b>
+                        </td>
+                        <td>
+                            <b>Value</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Height</td>
+                        <td>2011/01/13</td>
+                        <td>177 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>2011/01/13</td>
+                        <td>86 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Blood Pressure</td>
+                        <td>2011/01/13</td>
+                        <td>132/86 mmHg</td>
+                    </tr>
+                </table>
+            </div>
+        </text>
+    </section>
+</Composition>
