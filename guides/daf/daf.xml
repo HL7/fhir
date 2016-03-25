@@ -119,6 +119,11 @@
       <name value="DAF Requestor"/>
       <sourceUri value="conformance\conformance-daf-query-requestor.xml"/>
     </resource>
+    <resource>
+      <example value="true"/>
+      <name value="DAF Responder Basic"/>
+      <sourceUri value="conformance\conformance-daf-query-responder-core.xml"/>
+    </resource>
   </package>
 <!-- 
   <acronym target="daf-resultobsquantity" id="daf-qty"/>

@@ -811,7 +811,17 @@
                   <a href="../patient.html#search">identifier</a> - Search based on patient identifier (
                   <a href="../search.html#token">token</a>)
                 </li>
-					
+                
+                <li>
+                  <a href="../patient.html#search">gender</a> - Search based on gender  (
+                  <a href="../search.html#token">token</a>)
+                </li>
+                
+                <li>
+                  <a href="../patient.html#search">birthdate</a> - Search based on birthDate (
+                  <a href="../search.html#date">date</a>)
+                </li>
+					<!--
                 <li>
                   <a href="../patient.html#search">language</a> - Search based on preferred language (
                   <a href="../search.html#token">token</a>)
@@ -822,15 +832,7 @@
                   <a href="../search.html#token">token</a>)
                 </li>
 					
-                <li>
-                  <a href="../patient.html#search">gender</a> - Search based on gender  (
-                  <a href="../search.html#token">token</a>)
-                </li>
-					
-                <li>
-                  <a href="../patient.html#search">birthdate</a> - Search based on birthDate (
-                  <a href="../search.html#date">date</a>)
-                </li>
+                
 					
                 <li>
                   <a href="../patient-extensions.html#search">address-city</a> - Search based on City (
@@ -866,7 +868,7 @@
                   <a href="../us-core.html#search">ethnicity</a> - Search based on patient&#39;s ethnicity (
                   <a href="../search.html#token">token</a>)
                 </li>
-				
+				-->
 				<li>
 				  <a href="../patient-operations.html#everything">$everything</a> - Return the entire patient record for a single patient.
 				</li>
