@@ -1060,7 +1060,7 @@
   Definition = The adjudications results.
 
  -- Row 109 -----------------------------------
-  Element = ExplanationOfBenefit.item.detail.adjudication.code
+  Element = ExplanationOfBenefit.item.detail.adjudication.category
   Card. = 1..1
   Type = Coding
   Binding = Adjudication
@@ -1193,7 +1193,7 @@
   Definition = The adjudications results.
 
  -- Row 126 -----------------------------------
-  Element = ExplanationOfBenefit.item.detail.subDetail.adjudication.code
+  Element = ExplanationOfBenefit.item.detail.subDetail.adjudication.category
   Card. = 1..1
   Type = Coding
   Binding = Adjudication
@@ -1272,7 +1272,7 @@
   Definition = The adjudications results.
 
  -- Row 137 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.adjudication.code
+  Element = ExplanationOfBenefit.addItem.adjudication.category
   Card. = 1..1
   Type = Coding
   Binding = Adjudication
@@ -1280,20 +1280,28 @@
   Definition = Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.
 
  -- Row 138 -----------------------------------
+  Element = ExplanationOfBenefit.addItem.adjudication.reason
+  Card. = 0..1
+  Type = Coding
+  Binding = AdjudicationReason
+  Short Label = Adjudication reason
+  Definition = Adjudication reason such as limit reached.
+
+ -- Row 139 -----------------------------------
   Element = ExplanationOfBenefit.addItem.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
   Definition = Monitory amount associated with the code
 
- -- Row 139 -----------------------------------
+ -- Row 140 -----------------------------------
   Element = ExplanationOfBenefit.addItem.adjudication.value
   Card. = 0..1
   Type = decimal
   Short Label = Non-monitory value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
- -- Row 140 -----------------------------------
+ -- Row 141 -----------------------------------
   Element = ExplanationOfBenefit.addItem.detail
   Card. = 0..*
   UML = 600;260
@@ -1301,7 +1309,7 @@
   Short Label = Added items details
   Definition = The second tier service adjudications for payor added services.
 
- -- Row 141 -----------------------------------
+ -- Row 142 -----------------------------------
   Element = ExplanationOfBenefit.addItem.detail.service
   Card. = 1..1
   Type = Coding
@@ -1309,14 +1317,14 @@
   Short Label = Service or Product
   Definition = A code to indicate the Professional Service or Product supplied.
 
- -- Row 142 -----------------------------------
+ -- Row 143 -----------------------------------
   Element = ExplanationOfBenefit.addItem.detail.fee
   Card. = 0..1
   Type = Money
   Short Label = Professional fee or Product charge
   Definition = The fee charged for the professional service or product..
 
- -- Row 143 -----------------------------------
+ -- Row 144 -----------------------------------
   Element = ExplanationOfBenefit.addItem.detail.adjudication
   Card. = 0..*
   UML = 600;370
@@ -1324,39 +1332,47 @@
   Short Label = Added items detail adjudication
   Definition = The adjudications results.
 
- -- Row 144 -----------------------------------
-  Element = ExplanationOfBenefit.addItem.detail.adjudication.code
+ -- Row 145 -----------------------------------
+  Element = ExplanationOfBenefit.addItem.detail.adjudication.category
   Card. = 1..1
   Type = Coding
   Binding = Adjudication
   Short Label = Adjudication category such as co-pay, eligible, benefit, etc.
   Definition = Code indicating: Co-Pay, deductable, elegible, benefit, tax, etc.
 
- -- Row 145 -----------------------------------
+ -- Row 146 -----------------------------------
+  Element = ExplanationOfBenefit.addItem.detail.adjudication.reason
+  Card. = 0..1
+  Type = Coding
+  Binding = AdjudicationReason
+  Short Label = Adjudication reason
+  Definition = Adjudication reason such as limit reached.
+
+ -- Row 147 -----------------------------------
   Element = ExplanationOfBenefit.addItem.detail.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
   Definition = Monitory amount associated with the code
 
- -- Row 146 -----------------------------------
+ -- Row 148 -----------------------------------
   Element = ExplanationOfBenefit.addItem.detail.adjudication.value
   Card. = 0..1
   Type = decimal
   Short Label = Non-monitory value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
- -- Row 147 -----------------------------------
-  Element = ExplanationOfBenefit.claimTotal
+ -- Row 149 -----------------------------------
+  Element = !ExplanationOfBenefit.claimTotal
   Card. = 0..1
   Type = Money
   Short Label = Total claim cost
   Definition = The total value of the claim.
 
- -- Row 148 -----------------------------------
+ -- Row 150 -----------------------------------
   Element = !Oral Health Specific Item Elements
 
- -- Row 149 -----------------------------------
+ -- Row 151 -----------------------------------
   Element = ExplanationOfBenefit.item.prosthesis
   Card. = 0..1
   UML = 300;770
@@ -1364,7 +1380,7 @@
   Short Label = Prosthetic details
   Definition = The materials and placement date of prior fixed prosthesis.
 
- -- Row 150 -----------------------------------
+ -- Row 152 -----------------------------------
   Element = ExplanationOfBenefit.item.prosthesis.initial
   Card. = 0..1
   Type = boolean
@@ -1373,7 +1389,7 @@
   Requirements = May impact on adjudication.
   CDAnet v4 Mapping = F15/F18 Only for Denture, Crown, Bridge
 
- -- Row 151 -----------------------------------
+ -- Row 153 -----------------------------------
   Element = ExplanationOfBenefit.item.prosthesis.priorDate
   Card. = 0..1
   Type = date
@@ -1382,7 +1398,7 @@
   Requirements = May impact on adjudication.
   CDAnet v4 Mapping = F04/F19
 
- -- Row 152 -----------------------------------
+ -- Row 154 -----------------------------------
   Element = ExplanationOfBenefit.item.prosthesis.priorMaterial
   Card. = 0..1
   Type = Coding
@@ -1392,10 +1408,10 @@
   Requirements = May impact on adjudication.
   CDAnet v4 Mapping = F20/F21
 
- -- Row 153 -----------------------------------
+ -- Row 155 -----------------------------------
   Element = !Oral Health Specific
 
- -- Row 154 -----------------------------------
+ -- Row 156 -----------------------------------
   Element = ExplanationOfBenefit.missingTeeth
   Card. = 0..*
   UML = 340;360
@@ -1404,7 +1420,7 @@
   Definition = A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.
   Requirements = The list of missing teeth may influence the adjudication of services for example with Bridges.
 
- -- Row 155 -----------------------------------
+ -- Row 157 -----------------------------------
   Element = ExplanationOfBenefit.missingTeeth.tooth
   Card. = 1..1
   Type = Coding
@@ -1414,7 +1430,7 @@
   Requirements = Provides the tooth number of the missing tooth.
   CDAnet v4 Mapping = F23
 
- -- Row 156 -----------------------------------
+ -- Row 158 -----------------------------------
   Element = ExplanationOfBenefit.missingTeeth.reason
   Card. = 0..1
   Type = Coding
@@ -1424,7 +1440,7 @@
   Requirements = Provides the reason for the missing tooth.
   CDAnet v4 Mapping = not used
 
- -- Row 157 -----------------------------------
+ -- Row 159 -----------------------------------
   Element = ExplanationOfBenefit.missingTeeth.extractionDate
   Card. = 0..1
   Type = date
@@ -1433,40 +1449,40 @@
   Requirements = Some services and adjudications require this information.
   CDAnet v4 Mapping = F24
 
- -- Row 158 -----------------------------------
+ -- Row 160 -----------------------------------
   Element = !Response Information
   Short Label = Financial Information
 
- -- Row 159 -----------------------------------
-  Element = !ExplanationOfBenefit.totalCost
+ -- Row 161 -----------------------------------
+  Element = ExplanationOfBenefit.totalCost
   Card. = 0..1
   Type = Money
   Short Label = Total Cost of service from the Claim
   Definition = The total cost of the services reported.
   Requirements = This is a check value that the receiver calculates and returns.
 
- -- Row 160 -----------------------------------
+ -- Row 162 -----------------------------------
   Element = ExplanationOfBenefit.unallocDeductable
   Card. = 0..1
   Type = Money
   Short Label = Unallocated deductable
   Definition = The amount of deductable applied which was not allocated to any particular service line.
 
- -- Row 161 -----------------------------------
+ -- Row 163 -----------------------------------
   Element = ExplanationOfBenefit.totalBenefit
   Card. = 0..1
   Type = Money
   Short Label = Total benefit payable for the Claim
   Definition = Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductable)
 
- -- Row 162 -----------------------------------
+ -- Row 164 -----------------------------------
   Element = ExplanationOfBenefit.paymentAdjustment
   Card. = 0..1
   Type = Money
   Short Label = Payment adjustment for non-Claim issues
   Definition = Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
 
- -- Row 163 -----------------------------------
+ -- Row 165 -----------------------------------
   Element = ExplanationOfBenefit.paymentAdjustmentReason
   Card. = 0..1
   Type = Coding
@@ -1474,21 +1490,21 @@
   Short Label = Reason for Payment adjustment
   Definition = Reason for the payment adjustment.
 
- -- Row 164 -----------------------------------
+ -- Row 166 -----------------------------------
   Element = ExplanationOfBenefit.paymentDate
   Card. = 0..1
   Type = date
   Short Label = Expected data of Payment
   Definition = Estimated payment data
 
- -- Row 165 -----------------------------------
+ -- Row 167 -----------------------------------
   Element = ExplanationOfBenefit.paymentAmount
   Card. = 0..1
   Type = Money
   Short Label = Payment amount
   Definition = Payable less any payment adjustment.
 
- -- Row 166 -----------------------------------
+ -- Row 168 -----------------------------------
   Element = ExplanationOfBenefit.paymentRef
   Card. = 0..1
   Type = Identifier
@@ -1496,7 +1512,7 @@
   Definition = Payment identifer
   CDAnet v4 Mapping = G01, B.23
 
- -- Row 167 -----------------------------------
+ -- Row 169 -----------------------------------
   Element = ExplanationOfBenefit.reserved
   Card. = 0..1
   Type = Coding
@@ -1504,7 +1520,7 @@
   Short Label = Funds reserved status
   Definition = Status of funds reservation (For provider, for Patient, None).
 
- -- Row 168 -----------------------------------
+ -- Row 170 -----------------------------------
   Element = ExplanationOfBenefit.form
   Card. = 0..1
   Type = Coding
@@ -1513,7 +1529,7 @@
   Definition = The form to be used for printing the content.
   CDAnet v4 Mapping = G42
 
- -- Row 169 -----------------------------------
+ -- Row 171 -----------------------------------
   Element = ExplanationOfBenefit.note
   Card. = 0..*
   UML = 340;480
@@ -1521,14 +1537,14 @@
   Short Label = Processing notes
   Definition = Note text
 
- -- Row 170 -----------------------------------
+ -- Row 172 -----------------------------------
   Element = ExplanationOfBenefit.note.number
   Card. = 0..1
   Type = positiveInt
   Short Label = Note Number for this note
   Definition = An integer associated with each note which may be referred to from each service line item.
 
- -- Row 171 -----------------------------------
+ -- Row 173 -----------------------------------
   Element = ExplanationOfBenefit.note.type
   Card. = 0..1
   Type = Coding
@@ -1536,7 +1552,7 @@
   Short Label = display | print | printoper
   Definition = The note purpose: Print/Display.
 
- -- Row 172 -----------------------------------
+ -- Row 174 -----------------------------------
   Element = ExplanationOfBenefit.note.text
   Card. = 0..1
   Type = string
@@ -1544,10 +1560,10 @@
   Definition = The note text.
   CDAnet v4 Mapping = G32
 
- -- Row 173 -----------------------------------
+ -- Row 175 -----------------------------------
   Element = !Plan Balance Information
 
- -- Row 174 -----------------------------------
+ -- Row 176 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance
   Card. = 0..*
   UML = 600;600
@@ -1555,7 +1571,7 @@
   Short Label = Balance by Benefit Category
   Definition = Balance by Benefit Category
 
- -- Row 175 -----------------------------------
+ -- Row 177 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.category
   Card. = 1..1
   Type = Coding
@@ -1563,7 +1579,7 @@
   Short Label = Benefit Category
   Definition = Dental, Vision, Medical, Pharmacy, Rehab etc.
 
- -- Row 176 -----------------------------------
+ -- Row 178 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.subCategory
   Card. = 0..1
   Type = Coding
@@ -1571,7 +1587,7 @@
   Short Label = Benefit SubCategory
   Definition = Dental: basic, major, ortho; Vision exam, glasses, contacts; etc
 
- -- Row 177 -----------------------------------
+ -- Row 179 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.network
   Card. = 0..1
   Type = Coding
@@ -1579,7 +1595,7 @@
   Short Label = In or out of network
   Definition = Network designation
 
- -- Row 178 -----------------------------------
+ -- Row 180 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.unit
   Card. = 0..1
   Type = Coding
@@ -1587,7 +1603,7 @@
   Short Label = Individual or family
   Definition = Unit designation: individual or family
 
- -- Row 179 -----------------------------------
+ -- Row 181 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.term
   Card. = 0..1
   Type = Coding
@@ -1595,7 +1611,7 @@
   Short Label = Annual or lifetime
   Definition = The term or period of the values such as \'maximum lifetime benefit\' or \'maximum annual vistis\'.
 
- -- Row 180 -----------------------------------
+ -- Row 182 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial
   Card. = 0..*
   UML = 600;750
@@ -1603,7 +1619,7 @@
   Short Label = Benefit Summary
   Definition = Benefits Used to date
 
- -- Row 181 -----------------------------------
+ -- Row 183 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial.type
   Card. = 1..1
   Type = Coding
@@ -1611,14 +1627,14 @@
   Short Label = Deductable, visits, benefit amount
   Definition = Deductable, visits, benefit amount.
 
- -- Row 182 -----------------------------------
+ -- Row 184 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial.benefit[x]
   Card. = 0..1
   Type = unsignedInt|Money
   Short Label = Benefits allowed
   Definition = Benefits allowed
 
- -- Row 183 -----------------------------------
+ -- Row 185 -----------------------------------
   Element = ExplanationOfBenefit.benefitBalance.financial.benefitUsed[x]
   Card. = 0..1
   Type = unsignedInt|Money

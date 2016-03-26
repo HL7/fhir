@@ -187,7 +187,7 @@
   Definition = The adjudications results.
 
  -- Row 22 -----------------------------------
-  Element = ClaimResponse.item.adjudication.code
+  Element = ClaimResponse.item.adjudication.category
   Card. = 1..1
   Type = Coding
   Binding = Adjudication
@@ -195,24 +195,32 @@
   Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
  -- Row 23 -----------------------------------
+  Element = ClaimResponse.item.adjudication.reason
+  Card. = 0..1
+  Type = Coding
+  Binding = AdjudicationReason
+  Short Label = Adjudication reason
+  Definition = Adjudication reason such as limit reached.
+
+ -- Row 24 -----------------------------------
   Element = ClaimResponse.item.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
   Definition = Monetary amount associated with the code
 
- -- Row 24 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = ClaimResponse.item.adjudication.value
   Card. = 0..1
   Type = decimal
   Short Label = Non-monetary value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
- -- Row 25 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = !Additional Charges (lab, expense, materials, components, tax)
   Short Label = 2nd tier line items
 
- -- Row 26 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = ClaimResponse.item.detail
   Card. = 0..*
   UML = 250;450
@@ -220,7 +228,7 @@
   Short Label = Detail line items
   Definition = The second tier service adjudications for submitted services.
 
- -- Row 27 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = ClaimResponse.item.detail.sequenceLinkId
   Card. = 1..1
   Type = positiveInt
@@ -228,7 +236,7 @@
   Definition = A service line number.
   CDAnet v4 Mapping = F07
 
- -- Row 28 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = ClaimResponse.item.detail.adjudication
   Card. = 0..*
   UML = 0;450
@@ -236,33 +244,41 @@
   Short Label = Detail adjudication
   Definition = The adjudications results.
 
- -- Row 29 -----------------------------------
-  Element = ClaimResponse.item.detail.adjudication.code
+ -- Row 30 -----------------------------------
+  Element = ClaimResponse.item.detail.adjudication.category
   Card. = 1..1
   Type = Coding
   Binding = Adjudication
   Short Label = Adjudication category such as co-pay, eligible, benefit, etc.
   Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
- -- Row 30 -----------------------------------
+ -- Row 31 -----------------------------------
+  Element = ClaimResponse.item.detail.adjudication.reason
+  Card. = 0..1
+  Type = Coding
+  Binding = AdjudicationReason
+  Short Label = Adjudication reason
+  Definition = Adjudication reason such as limit reached.
+
+ -- Row 32 -----------------------------------
   Element = ClaimResponse.item.detail.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
   Definition = Monetary amount associated with the code.
 
- -- Row 31 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = ClaimResponse.item.detail.adjudication.value
   Card. = 0..1
   Type = decimal
   Short Label = Non-monetary value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
- -- Row 32 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = !Additional.Additional Charges (lab, expense, materials, components, tax)
   Short Label = 3rd tier line items
 
- -- Row 33 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = ClaimResponse.item.detail.subDetail
   Card. = 0..*
   UML = 250;560
@@ -270,7 +286,7 @@
   Short Label = Subdetail line items
   Definition = The third tier service adjudications for submitted services.
 
- -- Row 34 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = ClaimResponse.item.detail.subDetail.sequenceLinkId
   Card. = 1..1
   Type = positiveInt
@@ -278,7 +294,7 @@
   Definition = A service line number.
   CDAnet v4 Mapping = F07
 
- -- Row 35 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = ClaimResponse.item.detail.subDetail.adjudication
   Card. = 0..*
   UML = 0;560
@@ -286,33 +302,41 @@
   Short Label = Subdetail adjudication
   Definition = The adjudications results.
 
- -- Row 36 -----------------------------------
-  Element = ClaimResponse.item.detail.subDetail.adjudication.code
+ -- Row 38 -----------------------------------
+  Element = ClaimResponse.item.detail.subDetail.adjudication.category
   Card. = 1..1
   Type = Coding
   Binding = Adjudication
   Short Label = Adjudication category such as co-pay, eligible, benefit, etc.
   Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
- -- Row 37 -----------------------------------
+ -- Row 39 -----------------------------------
+  Element = ClaimResponse.item.detail.subDetail.adjudication.reason
+  Card. = 0..1
+  Type = Coding
+  Binding = AdjudicationReason
+  Short Label = Adjudication reason
+  Definition = Adjudication reason such as limit reached.
+
+ -- Row 40 -----------------------------------
   Element = ClaimResponse.item.detail.subDetail.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
   Definition = Monetary amount associated with the code.
 
- -- Row 38 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = ClaimResponse.item.detail.subDetail.adjudication.value
   Card. = 0..1
   Type = decimal
   Short Label = Non-monetary value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
- -- Row 39 -----------------------------------
+ -- Row 42 -----------------------------------
   Element = !Additional Items
   Short Label = Insurer added items
 
- -- Row 40 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = ClaimResponse.addItem
   Card. = 0..*
   UML = 500;120
@@ -320,14 +344,14 @@
   Short Label = Insurer added line items
   Definition = The first tier service adjudications for payor added services.
 
- -- Row 41 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = ClaimResponse.addItem.sequenceLinkId
   Card. = 0..*
   Type = positiveInt
   Short Label = Service instances
   Definition = List of input service items which this service line is intended to replace.
 
- -- Row 42 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = ClaimResponse.addItem.service
   Card. = 1..1
   Type = Coding
@@ -335,21 +359,21 @@
   Short Label = Group, Service or Product
   Definition = A code to indicate the Professional Service or Product supplied.
 
- -- Row 43 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = ClaimResponse.addItem.fee
   Card. = 0..1
   Type = Money
   Short Label = Professional fee or Product charge
   Definition = The fee charged for the professional service or product..
 
- -- Row 44 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = ClaimResponse.addItem.noteNumberLinkId
   Card. = 0..*
   Type = positiveInt
   Short Label = List of note numbers which apply
   Definition = A list of note references to the notes provided below.
 
- -- Row 45 -----------------------------------
+ -- Row 48 -----------------------------------
   Element = ClaimResponse.addItem.adjudication
   Card. = 0..*
   UML = 500;0
@@ -357,29 +381,37 @@
   Short Label = Added items adjudication
   Definition = The adjudications results.
 
- -- Row 46 -----------------------------------
-  Element = ClaimResponse.addItem.adjudication.code
+ -- Row 49 -----------------------------------
+  Element = ClaimResponse.addItem.adjudication.category
   Card. = 1..1
   Type = Coding
   Binding = Adjudication
   Short Label = Adjudication category such as co-pay, eligible, benefit, etc.
   Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
- -- Row 47 -----------------------------------
+ -- Row 50 -----------------------------------
+  Element = ClaimResponse.addItem.adjudication.reason
+  Card. = 0..1
+  Type = Coding
+  Binding = AdjudicationReason
+  Short Label = Adjudication reason
+  Definition = Adjudication reason such as limit reached.
+
+ -- Row 51 -----------------------------------
   Element = ClaimResponse.addItem.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
   Definition = Monetary amount associated with the code
 
- -- Row 48 -----------------------------------
+ -- Row 52 -----------------------------------
   Element = ClaimResponse.addItem.adjudication.value
   Card. = 0..1
   Type = decimal
   Short Label = Non-monetary value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
- -- Row 49 -----------------------------------
+ -- Row 53 -----------------------------------
   Element = ClaimResponse.addItem.detail
   Card. = 0..*
   UML = 500;260
@@ -387,7 +419,7 @@
   Short Label = Added items details
   Definition = The second tier service adjudications for payor added services.
 
- -- Row 50 -----------------------------------
+ -- Row 54 -----------------------------------
   Element = ClaimResponse.addItem.detail.service
   Card. = 1..1
   Type = Coding
@@ -395,14 +427,14 @@
   Short Label = Service or Product
   Definition = A code to indicate the Professional Service or Product supplied.
 
- -- Row 51 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = ClaimResponse.addItem.detail.fee
   Card. = 0..1
   Type = Money
   Short Label = Professional fee or Product charge
   Definition = The fee charged for the professional service or product..
 
- -- Row 52 -----------------------------------
+ -- Row 56 -----------------------------------
   Element = ClaimResponse.addItem.detail.adjudication
   Card. = 0..*
   UML = 500;370
@@ -410,33 +442,41 @@
   Short Label = Added items detail adjudication
   Definition = The adjudications results.
 
- -- Row 53 -----------------------------------
-  Element = ClaimResponse.addItem.detail.adjudication.code
+ -- Row 57 -----------------------------------
+  Element = ClaimResponse.addItem.detail.adjudication.category
   Card. = 1..1
   Type = Coding
   Binding = Adjudication
   Short Label = Adjudication category such as co-pay, eligible, benefit, etc.
   Definition = Code indicating: Co-Pay, deductible, eligible, benefit, tax, etc.
 
- -- Row 54 -----------------------------------
+ -- Row 58 -----------------------------------
+  Element = ClaimResponse.addItem.detail.adjudication.reason
+  Card. = 0..1
+  Type = Coding
+  Binding = AdjudicationReason
+  Short Label = Adjudication reason
+  Definition = Adjudication reason such as limit reached.
+
+ -- Row 59 -----------------------------------
   Element = ClaimResponse.addItem.detail.adjudication.amount
   Card. = 0..1
   Type = Money
   Short Label = Monetary amount
   Definition = Monetary amount associated with the code
 
- -- Row 55 -----------------------------------
+ -- Row 60 -----------------------------------
   Element = ClaimResponse.addItem.detail.adjudication.value
   Card. = 0..1
   Type = decimal
   Short Label = Non-monetary value
   Definition = A non-monetary value for example a percentage. Mutually exclusive to the amount element above.
 
- -- Row 56 -----------------------------------
+ -- Row 61 -----------------------------------
   Element = !Errors
   Short Label = Processing errors
 
- -- Row 57 -----------------------------------
+ -- Row 62 -----------------------------------
   Element = ClaimResponse.error
   Card. = 0..*
   UML = 0;0
@@ -444,28 +484,28 @@
   Short Label = Processing errors
   Definition = Mutually exclusive with Services Provided (Item).
 
- -- Row 58 -----------------------------------
+ -- Row 63 -----------------------------------
   Element = ClaimResponse.error.sequenceLinkId
   Card. = 0..1
   Type = positiveInt
   Short Label = Item sequence number
   Definition = The sequence number of the line item submitted which contains the error. This value is omitted when the error is elsewhere.
 
- -- Row 59 -----------------------------------
+ -- Row 64 -----------------------------------
   Element = ClaimResponse.error.detailSequenceLinkId
   Card. = 0..1
   Type = positiveInt
   Short Label = Detail sequence number
   Definition = The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
 
- -- Row 60 -----------------------------------
+ -- Row 65 -----------------------------------
   Element = ClaimResponse.error.subdetailSequenceLinkId
   Card. = 0..1
   Type = positiveInt
   Short Label = Subdetail sequence number
   Definition = The sequence number of the addition within the line item submitted which contains the error. This value is omitted when the error is not related to an Addition.
 
- -- Row 61 -----------------------------------
+ -- Row 66 -----------------------------------
   Element = ClaimResponse.error.code
   Card. = 1..1
   Type = Coding
@@ -473,11 +513,11 @@
   Short Label = Error code detailing processing issues
   Definition = An error code,from a specified code system, which details why the claim could not be adjudicated.
 
- -- Row 62 -----------------------------------
+ -- Row 67 -----------------------------------
   Element = !Response Information
   Short Label = Financial Information
 
- -- Row 63 -----------------------------------
+ -- Row 68 -----------------------------------
   Element = ClaimResponse.totalCost
   Card. = 0..1
   Type = Money
@@ -485,28 +525,28 @@
   Definition = The total cost of the services reported.
   Requirements = This is a check value that the receiver calculates and returns.
 
- -- Row 64 -----------------------------------
+ -- Row 69 -----------------------------------
   Element = ClaimResponse.unallocDeductable
   Card. = 0..1
   Type = Money
   Short Label = Unallocated deductible
   Definition = The amount of deductible applied which was not allocated to any particular service line.
 
- -- Row 65 -----------------------------------
+ -- Row 70 -----------------------------------
   Element = ClaimResponse.totalBenefit
   Card. = 0..1
   Type = Money
   Short Label = Total benefit payable for the Claim
   Definition = Total amount of benefit payable (Equal to sum of the Benefit amounts from all detail lines and additions less the Unallocated Deductible)
 
- -- Row 66 -----------------------------------
+ -- Row 71 -----------------------------------
   Element = ClaimResponse.paymentAdjustment
   Card. = 0..1
   Type = Money
   Short Label = Payment adjustment for non-Claim issues
   Definition = Adjustment to the payment of this transaction which is not related to adjudication of this transaction.
 
- -- Row 67 -----------------------------------
+ -- Row 72 -----------------------------------
   Element = ClaimResponse.paymentAdjustmentReason
   Card. = 0..1
   Type = Coding
@@ -514,21 +554,21 @@
   Short Label = Reason for Payment adjustment
   Definition = Reason for the payment adjustment.
 
- -- Row 68 -----------------------------------
+ -- Row 73 -----------------------------------
   Element = ClaimResponse.paymentDate
   Card. = 0..1
   Type = date
   Short Label = Expected data of Payment
   Definition = Estimated payment data
 
- -- Row 69 -----------------------------------
+ -- Row 74 -----------------------------------
   Element = ClaimResponse.paymentAmount
   Card. = 0..1
   Type = Money
   Short Label = Payment amount
   Definition = Payable less any payment adjustment.
 
- -- Row 70 -----------------------------------
+ -- Row 75 -----------------------------------
   Element = ClaimResponse.paymentRef
   Card. = 0..1
   Type = Identifier
@@ -536,7 +576,7 @@
   Definition = Payment identifier
   Committee Notes = G01, B.23
 
- -- Row 71 -----------------------------------
+ -- Row 76 -----------------------------------
   Element = ClaimResponse.reserved
   Card. = 0..1
   Type = Coding
@@ -544,7 +584,7 @@
   Short Label = Funds reserved status
   Definition = Status of funds reservation (For provider, for Patient, None).
 
- -- Row 72 -----------------------------------
+ -- Row 77 -----------------------------------
   Element = ClaimResponse.form
   Card. = 0..1
   Type = Coding
@@ -553,7 +593,7 @@
   Definition = The form to be used for printing the content.
   CDAnet v4 Mapping = G42
 
- -- Row 73 -----------------------------------
+ -- Row 78 -----------------------------------
   Element = ClaimResponse.note
   Card. = 0..*
   UML = 20;110
@@ -561,14 +601,14 @@
   Short Label = Processing notes
   Definition = Note text
 
- -- Row 74 -----------------------------------
+ -- Row 79 -----------------------------------
   Element = ClaimResponse.note.number
   Card. = 0..1
   Type = positiveInt
   Short Label = Note Number for this note
   Definition = An integer associated with each note which may be referred to from each service line item.
 
- -- Row 75 -----------------------------------
+ -- Row 80 -----------------------------------
   Element = ClaimResponse.note.type
   Card. = 0..1
   Type = Coding
@@ -576,7 +616,7 @@
   Short Label = display | print | printoper
   Definition = The note purpose: Print/Display.
 
- -- Row 76 -----------------------------------
+ -- Row 81 -----------------------------------
   Element = ClaimResponse.note.text
   Card. = 0..1
   Type = string
@@ -584,10 +624,10 @@
   Definition = The note text.
   CDAnet v4 Mapping = G32
 
- -- Row 77 -----------------------------------
+ -- Row 82 -----------------------------------
   Element = !Insurance Information
 
- -- Row 78 -----------------------------------
+ -- Row 83 -----------------------------------
   Element = ClaimResponse.coverage
   Card. = 0..*
   UML = -20;200
@@ -597,7 +637,7 @@
   Requirements = Health care programs and insurers are significant payors of health service costs
   RIM Mapping = Coverage
 
- -- Row 79 -----------------------------------
+ -- Row 84 -----------------------------------
   Element = ClaimResponse.coverage.sequence
   Card. = 1..1
   Type = positiveInt
@@ -605,7 +645,7 @@
   Definition = A service line item.
   Requirements = To maintain order of the coverages.
 
- -- Row 80 -----------------------------------
+ -- Row 85 -----------------------------------
   Element = ClaimResponse.coverage.focal
   Card. = 1..1
   Type = boolean
@@ -613,7 +653,7 @@
   Definition = The instance number of the Coverage which is the focus for adjudication. The Coverage against which the claim is to be adjudicated.
   Requirements = To identify which coverage is being adjudicated.
 
- -- Row 81 -----------------------------------
+ -- Row 86 -----------------------------------
   Element = ClaimResponse.coverage.coverage[x]
   Card. = 1..1
   Type = Identifier|Reference(Coverage)
@@ -621,14 +661,14 @@
   Definition = Reference to the program or plan identification, underwriter or payor.
   Requirements = Need to identify the issuer to target for processing and for coordination of benefit processing.
 
- -- Row 82 -----------------------------------
+ -- Row 87 -----------------------------------
   Element = ClaimResponse.coverage.businessArrangement
   Card. = 0..1
   Type = string
   Short Label = Business agreement
   Definition = The contract number of a business agreement which describes the terms and conditions.
 
- -- Row 83 -----------------------------------
+ -- Row 88 -----------------------------------
   Element = !ClaimResponse.coverage.relationship
   Card. = 1..1
   Type = Coding
@@ -638,7 +678,7 @@
   Requirements = To determine the relationship between the patient and the subscriber
   CDAnet v4 Mapping = C03
 
- -- Row 84 -----------------------------------
+ -- Row 89 -----------------------------------
   Element = ClaimResponse.coverage.preAuthRef
   Card. = 0..*
   Type = string
@@ -647,7 +687,7 @@
   Requirements = To provide any pre-determination or prior authorization reference.
   CDAnet v4 Mapping = F03
 
- -- Row 85 -----------------------------------
+ -- Row 90 -----------------------------------
   Element = ClaimResponse.coverage.claimResponse
   Card. = 0..1
   Type = Reference(ClaimResponse)
@@ -656,7 +696,7 @@
   Requirements = Used by downstream payers to determine what balance remains and the net payable.
   CDAnet v4 Mapping = EOB
 
- -- Row 86 -----------------------------------
+ -- Row 91 -----------------------------------
   Element = !ClaimResponse.coverage.originalRuleset
   Card. = 0..1
   Type = Coding

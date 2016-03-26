@@ -48,9 +48,9 @@
    <sequenceLinkId value="1"/> 
 
    <adjudication>
-     <code>
+     <category>
        <code value="eligible"/>
-	 </code>
+	 </category>
 	 <amount>
  	    <value value="135.57"/>
 		<system value="urn:iso:std:iso:4217"/>
@@ -59,9 +59,9 @@
    </adjudication>
 
    <adjudication>
-     <code>
+     <category>
        <code value="copay"/>
-	 </code>
+	 </category>
 	 <amount>
 	    <value value="10.00"/>
 		<system value="urn:iso:std:iso:4217"/>
@@ -70,16 +70,16 @@
    </adjudication>
 
    <adjudication>
-     <code>
+     <category>
        <code value="eligpercent"/>
-	 </code>
+	 </category>
 	 <value value="80.00"/>
    </adjudication>
 
    <adjudication>
-     <code>
+     <category>
        <code value="benefit"/>
-	 </code>
+	 </category>
 	 <amount>
   	    <value value="100.47"/>
 		<system value="urn:iso:std:iso:4217"/>

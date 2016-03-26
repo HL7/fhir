@@ -89,13 +89,13 @@
    </adjudication>
   </item>
 
-  <!--
-  <claimTotal>
+
+  <totalCost>
     <value value="135.57"/>
     <system value="urn:iso:std:iso:4217"/>
     <code value="USD"/> 
-  </claimTotal>
-  -->
+  </totalCost>
+  
   <totalBenefit>
     <value value="96.00"/>
     <system value="urn:iso:std:iso:4217"/>
