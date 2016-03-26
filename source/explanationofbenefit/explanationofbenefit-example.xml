@@ -11,33 +11,34 @@
     <value value="987654321"/>
   </identifier>
 
-  <claim>
+  <claimReference>
     <reference value="Claim/100150"/>
-  </claim>
-  
-  <claimResponse>
+  </claimReference>
+
+<!--  
+  <claimResponseReference>
     <reference value="ClaimResponse/R3500"/>
-  </claimResponse>
+  </claimResponseReference> -->
   
   <created value="2014-08-16"/>
 
   <disposition value="Claim settled as per contract."/>
  
-  <organization>
+  <organizationReference>
     <reference value="Organization/2"/>
-  </organization>
+  </organizationReference>
 
-  <patient>
+  <patientReference>
     <reference value="Patient/pat1"/>
-  </patient>
+  </patientReference>
  
   <coverage>
-    <coverage>
+    <coverageReference>
       <reference value="Coverage/9876B1"/>
-    </coverage>
-    <relationship>
+    </coverageReference>
+    <!-- <relationship>
       <code value="self"/>
-    </relationship>
+    </relationship> -->
   </coverage>
  
  <item>
@@ -45,9 +46,9 @@
    <type>
      <code value="service"/>
    </type>
-   <provider>
+   <providerReference>
      <reference value="Practitioner/example"/>
-   </provider>
+   </providerReference>
    <service>
      <system value="http://hl7.org/fhir/ValueSet/service-uscls"/>
      <code value="1200"/>
@@ -91,12 +92,13 @@
    </adjudication>
   </item>
 
+  <!--
   <claimTotal>
     <value value="135.57"/>
     <system value="urn:iso:std:iso:4217"/>
     <code value="USD"/> 
   </claimTotal>
-
+  -->
   <totalBenefit>
     <value value="96.00"/>
     <system value="urn:iso:std:iso:4217"/>
