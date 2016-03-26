@@ -828,6 +828,12 @@
   Filename = observation-genetics.xml
   Type = spreadsheet
 
+ -- Row 12 -----------------------------------
+  Name = Vital Signs Profile
+  IG Name = core
+  Filename = observation-vitalsigns.xml
+  Type = spreadsheet
+
 === Sheet Examples =====================================
 
  -- Row 1 -----------------------------------

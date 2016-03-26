@@ -11,7 +11,7 @@ Note that the  <a href="diagnosticreport.html">DiagnosticReport</a> resource
 provides a clinical or workflow context for a set of observations. Expected uses for the Observation resource include:
 </p>
 <ul>
-  <li>Vital signs: temperature, blood pressure, respiration rate</li>
+  <li><a href="observation-vitalsigns.html">Vital signs:</a> temperature, blood pressure, respiration rate</li>
 	<li>Laboratory Data</li>
 	<li>Imaging results like bone density or fetal measurements</li>
 	<li>Devices Measurements such as EKG data or Pulse Oximetry data</li>

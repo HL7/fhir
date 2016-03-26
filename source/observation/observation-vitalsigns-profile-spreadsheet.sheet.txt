@@ -1,0 +1,259 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = VitalSignResult
+  Binding = value set
+  Reference = valueset-observation-VitalSignResult
+  Definition = This identifies the vital sign result type.
+  Description = This identifies the vital sign result type. Prior name in C-CDA R1.1 was HITSP Vital Sign Result Type.
+  Conformance = extensible
+  Oid = 2.16.840.1.113883.3.88.12.80.62
+
+ -- Row 2 -----------------------------------
+  Binding Name = CommonUCUMunitsVitals
+  Binding = value set
+  Reference = valueset-ucum-vitals-common
+  Definition = Common UCUM units for recording Vital Signs
+  Description = Commonly encountered UCUM units for recording Vital Signs.
+  Conformance = required
+
+ -- Row 3 -----------------------------------
+  Binding Name = UCUMBodyWeight
+  Binding = value set
+  Reference = valueset-ucum-bodyweight
+  Definition = UCUM for Body Weight
+  Description = g | kg  | [lb_av]
+  Conformance = required
+
+=== Sheet VitalSigns =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = DAFVitalSigns
+  Aliases = Vital Signs, Measurement, Results, Tests
+  Type = Resource
+
+ -- Row 2 -----------------------------------
+  Element = Observation.category
+
+ -- Row 3 -----------------------------------
+  Element = Observation.category.coding
+  Card. = 1..*
+  Must Support = Y
+  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
+
+ -- Row 4 -----------------------------------
+  Element = Observation.category.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
+  Value = http://hl7.org/fhir/observation-category
+
+ -- Row 5 -----------------------------------
+  Element = Observation.category.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Type = code
+  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
+  Value = vital-signs
+
+ -- Row 6 -----------------------------------
+  Element = Observation.code
+  Must Support = Y
+  Binding = VitalSignResult
+  Short Label = Coded Responses from C-CDA Vital Sign Results
+  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
+
+ -- Row 7 -----------------------------------
+  Element = Observation.code.coding
+  Card. = 1..*
+  Must Support = Y
+  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
+
+ -- Row 8 -----------------------------------
+  Element = Observation.code.coding.system
+  Card. = 1..1
+  Must Support = Y
+  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
+
+ -- Row 9 -----------------------------------
+  Element = Observation.code.coding.code
+  Card. = 1..1
+  Must Support = Y
+  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
+
+ -- Row 10 -----------------------------------
+  Element = Observation.code.coding.display
+  Must Support = Y
+  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
+
+ -- Row 11 -----------------------------------
+  Element = Observation.valueQuantity
+  Must Support = Y
+  Type = Quantity
+  Binding = CommonUCUMunitsVitals
+  Short Label = Vital Sign Value recorded with UCUM
+  Requirements = 9. SHALL contain exactly one [1..1] value with @xsi:type=\"PQ\" (CONF:7305).
+
+ -- Row 12 -----------------------------------
+  Element = Observation.valueQuantity.value
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 13 -----------------------------------
+  Element = Observation.valueQuantity.unit
+  Must Support = Y
+
+ -- Row 14 -----------------------------------
+  Element = Observation.valueQuantity.system
+  Card. = 1..1
+  Must Support = Y
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 15 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Coded responses from the common UCUM units for vital signs value set.
+
+ -- Row 16 -----------------------------------
+  Element = Observation.dataAbsentReason
+  Must Support = Y
+  Comments = If there is no numeric result then you have to supply a reason
+
+ -- Row 17 -----------------------------------
+  Element = Observation.effective[x]
+  Card. = 1..1
+  Must Support = Y
+  Short Label = Often just a dateTime for Vital Signs
+
+ -- Row 18 -----------------------------------
+  Element = Observation.status
+  Must Support = Y
+
+ -- Row 19 -----------------------------------
+  Element = Observation.subject
+  Card. = 1..1
+  Must Support = Y
+
+ -- Row 20 -----------------------------------
+  Element = Observation.referenceRange
+  Card. = 0..1
+  Must Support = Y
+
+ -- Row 21 -----------------------------------
+  Element = Observation.referenceRange.low
+  Card. = 0..1
+  Must Support = Y
+  Type = SimpleQuantity
+
+ -- Row 22 -----------------------------------
+  Element = Observation.referenceRange.low.value
+  Card. = 0..1
+  Must Support = Y
+  Type = decimal
+
+ -- Row 23 -----------------------------------
+  Element = Observation.referenceRange.low.unit
+  Card. = 0..1
+  Must Support = Y
+  Type = string
+
+ -- Row 24 -----------------------------------
+  Element = Observation.referenceRange.low.system
+  Card. = 0..1
+  Must Support = Y
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 25 -----------------------------------
+  Element = Observation.referenceRange.low.code
+  Card. = 0..1
+  Must Support = Y
+  Type = code
+
+ -- Row 26 -----------------------------------
+  Element = Observation.referenceRange.high
+  Card. = 0..1
+  Must Support = Y
+  Type = SimpleQuantity
+
+ -- Row 27 -----------------------------------
+  Element = Observation.referenceRange.high.value
+  Card. = 0..1
+  Must Support = Y
+  Type = decimal
+
+ -- Row 28 -----------------------------------
+  Element = Observation.referenceRange.high.unit
+  Card. = 0..1
+  Must Support = Y
+  Type = string
+
+ -- Row 29 -----------------------------------
+  Element = Observation.referenceRange.high.system
+  Card. = 0..1
+  Must Support = Y
+  Type = uri
+  Value = http://unitsofmeasure.org
+
+ -- Row 30 -----------------------------------
+  Element = Observation.referenceRange.high.code
+  Card. = 0..1
+  Must Support = Y
+  Type = code
+
+ -- Row 31 -----------------------------------
+  Element = Observation.referenceRange.meaning
+  Card. = 0..1
+  Must Support = Y
+  Type = CodeableConcept
+
+ -- Row 32 -----------------------------------
+  Element = Observation.referenceRange.text
+  Card. = 0..1
+  Must Support = Y
+  Type = string
+
+=== Sheet BodyWeight =====================================
+
+ -- Row 1 -----------------------------------
+  Element = Observation
+  Profile Name = BodyWeight
+  Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
+  Short Label = FHIR Body Weight Profile
+  Definition = This profile defines  how to represent body weight in FHIR
+
+ -- Row 2 -----------------------------------
+  Element = Observation.code
+  Aliases = Test, Name,
+  Short Label = Body Weight
+  Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
+
+ -- Row 3 -----------------------------------
+  Element = Observation.code.coding
+
+ -- Row 4 -----------------------------------
+  Element = Observation.code.coding.system
+  Type = uri
+  Value = http://loinc.org
+
+ -- Row 5 -----------------------------------
+  Element = Observation.code.coding.code
+  Type = code
+  Value = 3141-9
+
+ -- Row 6 -----------------------------------
+  Element = Observation.code.coding.display
+
+ -- Row 7 -----------------------------------
+  Element = Observation.valueQuantity
+
+ -- Row 8 -----------------------------------
+  Element = Observation.valueQuantity.code
+  Binding = UCUMBodyWeight
+
+=== Sheet Search =====================================
