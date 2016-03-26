@@ -701,7 +701,7 @@
   Definition = The start or start and end dates for the treatable condition.
 
  -- Row 63 -----------------------------------
-  Element = !Claim.onset.type
+  Element = ExplanationOfBenefit.onset.type
   Card. = 0..1
   Type = Coding
   Binding = OnsetType
@@ -801,98 +801,6 @@
   CDAnet v4 Mapping = F16 (required field for Oral) and F05
 
  -- Row 76 -----------------------------------
-  Element = ExplanationOfBenefit.item.programCode
-  Card. = 0..*
-  Type = Coding
-  Binding = ProgramCode
-  Short Label = Program specific reason for item inclusion
-  Definition = For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
-
- -- Row 77 -----------------------------------
-  Element = ExplanationOfBenefit.item.serviced[x]
-  Card. = 0..1
-  Type = date|Period
-  Short Label = Date or dates of Service
-  Definition = The date or dates when the enclosed suite of services were performed or completed.
-  CDAnet v4 Mapping = F09
-
- -- Row 78 -----------------------------------
-  Element = ExplanationOfBenefit.item.place
-  Card. = 0..1
-  Type = Coding
-  Binding = ServicePlace
-  Short Label = Place of service
-  Definition = Where the service was provided.
-
- -- Row 79 -----------------------------------
-  Element = ExplanationOfBenefit.item.quantity
-  Card. = 0..1
-  Type = SimpleQuantity
-  Short Label = Count of Products or Services
-  Definition = The number of repetitions of a service or product.
-
- -- Row 80 -----------------------------------
-  Element = ExplanationOfBenefit.item.unitPrice
-  Card. = 0..1
-  Type = Money
-  Short Label = Fee, charge or cost per point
-  Definition = If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
-  CDAnet v4 Mapping = F12
-
- -- Row 81 -----------------------------------
-  Element = ExplanationOfBenefit.item.factor
-  Card. = 0..1
-  Type = decimal
-  Short Label = Price scaling factor
-  Definition = A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
-  Requirements = If a fee is present the associated product/service code must be present
-  CDAnet v4 Mapping = F13/F14
-
- -- Row 82 -----------------------------------
-  Element = ExplanationOfBenefit.item.points
-  Card. = 0..1
-  Type = decimal
-  Short Label = Difficulty scaling factor
-  Definition = An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
-  Requirements = If a fee is present the associated product/service code must be present
-  CDAnet v4 Mapping = F13/F14
-
- -- Row 83 -----------------------------------
-  Element = ExplanationOfBenefit.item.net
-  Card. = 0..1
-  Type = Money
-  Short Label = Total item cost
-  Definition = The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
-  Requirements = If a fee is present the associated product/service code must be present
-  CDAnet v4 Mapping = F13/F14
-
- -- Row 84 -----------------------------------
-  Element = ExplanationOfBenefit.item.udi
-  Card. = 0..*
-  Type = Reference(Device)
-  Short Label = Unique Device Identifier
-  Definition = List of Unique Device Identifiers associated with this line item.
-  Requirements = The UDI code and issuer if applicable for the supplied product.
-
- -- Row 85 -----------------------------------
-  Element = ExplanationOfBenefit.item.bodySite
-  Card. = 0..1
-  Type = Coding
-  Binding = OralSites
-  Short Label = Service Location
-  Definition = Physical service site on the patient (limb, tooth, etc).
-  CDAnet v4 Mapping = F10
-
- -- Row 86 -----------------------------------
-  Element = ExplanationOfBenefit.item.subSite
-  Card. = 0..*
-  Type = Coding
-  Binding = Surface
-  Short Label = Service Sub-location
-  Definition = A region or surface of the site, eg. limb region or tooth surface(s).
-  CDAnet v4 Mapping = F11
-
- -- Row 87 -----------------------------------
   Element = ExplanationOfBenefit.item.modifier
   Card. = 0..*
   Type = Coding
@@ -901,6 +809,98 @@
   Definition = Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.
   Requirements = May impact on adjudication.
   CDAnet v4 Mapping = F16 (required field for Oral) and F05
+
+ -- Row 77 -----------------------------------
+  Element = ExplanationOfBenefit.item.programCode
+  Card. = 0..*
+  Type = Coding
+  Binding = ProgramCode
+  Short Label = Program specific reason for item inclusion
+  Definition = For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
+
+ -- Row 78 -----------------------------------
+  Element = ExplanationOfBenefit.item.serviced[x]
+  Card. = 0..1
+  Type = date|Period
+  Short Label = Date or dates of Service
+  Definition = The date or dates when the enclosed suite of services were performed or completed.
+  CDAnet v4 Mapping = F09
+
+ -- Row 79 -----------------------------------
+  Element = ExplanationOfBenefit.item.place
+  Card. = 0..1
+  Type = Coding
+  Binding = ServicePlace
+  Short Label = Place of service
+  Definition = Where the service was provided.
+
+ -- Row 80 -----------------------------------
+  Element = ExplanationOfBenefit.item.quantity
+  Card. = 0..1
+  Type = SimpleQuantity
+  Short Label = Count of Products or Services
+  Definition = The number of repetitions of a service or product.
+
+ -- Row 81 -----------------------------------
+  Element = ExplanationOfBenefit.item.unitPrice
+  Card. = 0..1
+  Type = Money
+  Short Label = Fee, charge or cost per point
+  Definition = If the item is a node then this is the fee for the product or service, otherwise this is the total of the fees for the children of the group.
+  CDAnet v4 Mapping = F12
+
+ -- Row 82 -----------------------------------
+  Element = ExplanationOfBenefit.item.factor
+  Card. = 0..1
+  Type = decimal
+  Short Label = Price scaling factor
+  Definition = A real number that represents a multiplier used in determining the overall value of services delivered and/or goods received. The concept of a Factor allows for a discount or surcharge multiplier to be applied to a monetary amount.
+  Requirements = If a fee is present the associated product/service code must be present
+  CDAnet v4 Mapping = F13/F14
+
+ -- Row 83 -----------------------------------
+  Element = ExplanationOfBenefit.item.points
+  Card. = 0..1
+  Type = decimal
+  Short Label = Difficulty scaling factor
+  Definition = An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.
+  Requirements = If a fee is present the associated product/service code must be present
+  CDAnet v4 Mapping = F13/F14
+
+ -- Row 84 -----------------------------------
+  Element = ExplanationOfBenefit.item.net
+  Card. = 0..1
+  Type = Money
+  Short Label = Total item cost
+  Definition = The quantity times the unit price for an addittional service or product or charge. For example, the formula: unit Quantity * unit Price (Cost per Point) * factor Number  * points = net Amount. Quantity, factor and points are assumed to be 1 if not supplied.
+  Requirements = If a fee is present the associated product/service code must be present
+  CDAnet v4 Mapping = F13/F14
+
+ -- Row 85 -----------------------------------
+  Element = ExplanationOfBenefit.item.udi
+  Card. = 0..*
+  Type = Reference(Device)
+  Short Label = Unique Device Identifier
+  Definition = List of Unique Device Identifiers associated with this line item.
+  Requirements = The UDI code and issuer if applicable for the supplied product.
+
+ -- Row 86 -----------------------------------
+  Element = ExplanationOfBenefit.item.bodySite
+  Card. = 0..1
+  Type = Coding
+  Binding = OralSites
+  Short Label = Service Location
+  Definition = Physical service site on the patient (limb, tooth, etc).
+  CDAnet v4 Mapping = F10
+
+ -- Row 87 -----------------------------------
+  Element = ExplanationOfBenefit.item.subSite
+  Card. = 0..*
+  Type = Coding
+  Binding = Surface
+  Short Label = Service Sub-location
+  Definition = A region or surface of the site, eg. limb region or tooth surface(s).
+  CDAnet v4 Mapping = F11
 
  -- Row 88 -----------------------------------
   Element = !Notes

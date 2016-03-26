@@ -1153,6 +1153,65 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
     ss:Bold="1"/>
   </Style>
+  <Style ss:ID="s214">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"
+    ss:Bold="1"/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s215">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s216">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s217">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s218">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s219">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s220">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders>
+    <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2"/>
+   </Borders>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s221">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Interior ss:Color="#D6DCE4" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Names>
   <NamedRange ss:Name="Invariantids" ss:RefersTo="=Invariants!R2C1:R50C1"/>
@@ -4108,6 +4167,43 @@
     <Cell ss:StyleID="s142"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s144"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="75" ss:StyleID="s221">
+    <Cell ss:StyleID="s214"><Data ss:Type="String">Claim.item.modifier</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">0..*</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Coding</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Modifiers</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s215"><Data ss:Type="String">Service/Product billing modifiers</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s216"><Data ss:Type="String">Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s217"><Data ss:Type="String">May impact on adjudication.</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s216"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s216"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">24.C, 24.D mods</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s217"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><Data ss:Type="String">F16 (required field for Oral) and F05</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s219"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s218"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s220"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75" ss:StyleID="s118">
     <Cell ss:StyleID="s115"><Data ss:Type="String">Claim.item.programCode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -4520,43 +4616,6 @@
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">F11</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="75">
-    <Cell ss:StyleID="s87"><Data ss:Type="String">Claim.item.modifier</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">0..*</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Coding</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Modifiers</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s88"><Data ss:Type="String">Service/Product billing modifiers</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">May impact on adjudication.</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">24.C, 24.D mods</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">F16 (required field for Oral) and F05</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -5727,7 +5786,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>61</TopRowBottomPane>
+   <TopRowBottomPane>97</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
    <LeftColumnRightPane>1</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5744,7 +5803,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>70</ActiveRow>
+     <ActiveRow>100</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -9017,8 +9076,9 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>36</ActiveRow>
+     <ActiveRow>33</ActiveRow>
      <ActiveCol>0</ActiveCol>
+     <RangeSelection>R34</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
