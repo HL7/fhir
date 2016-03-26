@@ -167,7 +167,7 @@
   Binding Name = ClaimSubType
   Binding = value set
   Reference = valueset-claim-subtype
-  Definition = A more granulat service/product typecode
+  Definition = A more granulat claim typecode
   Conformance = example
 
  -- Row 25 -----------------------------------
@@ -224,6 +224,13 @@
   Binding = value set
   Reference = valueset-ex-program-code
   Definition = Program specific reason codes
+  Conformance = example
+
+ -- Row 33 -----------------------------------
+  Binding Name = OnsetType
+  Binding = value set
+  Reference = valueset-ex-onsettype
+  Definition = Condition related start, end  and period codes
   Conformance = example
 
 === Sheet claim-use-link =====================================
@@ -783,7 +790,7 @@
   Definition = The start or start and end dates for the treatable condition.
 
  -- Row 69 -----------------------------------
-  Element = !Claim.onset.type
+  Element = Claim.onset.type
   Card. = 0..1
   Type = Coding
   Binding = OnsetType

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <url value="http://hl7.org/fhir/ex-onsettype"/>
+  <name value="Example Onset Reason Codes"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <description value="This value set includes sample Onset reason codes."/>
+  <copyright value="This is an example set."/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <concept>
+    <code value="LXM"/>
+    <display value="Last Exam"/>
+    <definition value="Date of last examination."/>
+  </concept>
+  <concept>
+    <code value="SYM"/>
+    <display value="Start of Symptoms"/>
+    <definition value="Date when symptoms were first noticed.."/>
+  </concept>
+  <concept>
+    <code value="LMN"/>
+    <display value="Last Menstruation"/>
+    <definition value="Start date of last menstruation."/>
+  </concept>
+</CodeSystem>

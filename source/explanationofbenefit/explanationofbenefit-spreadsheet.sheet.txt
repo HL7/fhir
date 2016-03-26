@@ -232,6 +232,13 @@
   Definition = Program specific reason codes
   Conformance = example
 
+ -- Row 34 -----------------------------------
+  Binding Name = OnsetType
+  Binding = value set
+  Reference = valueset-ex-onsettype
+  Definition = Condition related start, end  and period codes
+  Conformance = example
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
