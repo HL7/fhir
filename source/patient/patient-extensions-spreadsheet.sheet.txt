@@ -37,42 +37,18 @@
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = city
-  Type = string
-  Description = Return records where one of the patient addresses matches on city.
-  Path = Patient.address.city
-
- -- Row 2 -----------------------------------
-  Name = state
-  Type = string
-  Description = Return records where one of the patient addresses matches on state.
-  Path = Patient.address.state
-
- -- Row 3 -----------------------------------
-  Name = country
-  Type = string
-  Description = Return records where one of the patient addresses matches on country.
-  Path = Patient.address.country
-
- -- Row 4 -----------------------------------
-  Name = postalCode
-  Type = string
-  Description = Return records where one of the patient addresses matches on postalCode.
-  Path = Patient.address.postalCode
-
- -- Row 5 -----------------------------------
   Name = age
   Type = number
   Description = Searches for patients based on age as calculated based on current date and date of birth.  Deceased patients are excluded from the search.
   Path = Patient.birthDate
 
- -- Row 6 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = birthOrderBoolean
   Type = token
   Description = Search based on whether a patient was part of a multiple birth or not.
   Path = Patient.multipleBirth[x]
 
- -- Row 7 -----------------------------------
+ -- Row 3 -----------------------------------
   Name = mothersMaidenName
   Type = string
   Description = Search based on patient\'s mother\'s maiden name
