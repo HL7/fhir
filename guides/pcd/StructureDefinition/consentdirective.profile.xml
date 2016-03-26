@@ -279,14 +279,14 @@
       </mapping>
     </element>
     <element>
-      <path value="Contract.topic" />
-      <name value="ConsentDirective.topic" />
-      <short value="Patient who is the topic of this Consent Directive" />
-      <definition value="Patient information and actions taken on that information that are governed by this Consent Directive." />
+      <path value="Contract.subject" />
+      <name value="ConsentDirective.subject" />
+      <short value="Patient who is the subject of this Privacy Consent Directive" />
+      <definition value="Patient information and actions taken on that information that are governed by this Privacy Consent Directive." />
       <min value="0" />
       <max value="*" />
       <base>
-        <path value="Contract.topic" />
+        <path value="Contract.subject" />
         <min value="0" />
         <max value="*" />
       </base>

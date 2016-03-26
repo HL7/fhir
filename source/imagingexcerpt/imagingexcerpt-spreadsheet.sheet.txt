@@ -149,22 +149,22 @@
  -- Row 1 -----------------------------------
   Code = WADO-RS
   Display = WADO-RS
+  Definition = Web Access to DICOM Persistent Objects - RESTful Services
 
  -- Row 2 -----------------------------------
   Code = WADO-URI
   Display = WADO-URI
+  Definition = Web Access to DICOM Persistent Objects - URI
 
  -- Row 3 -----------------------------------
   Code = IID
   Display = IID
+  Definition = IHE - Invoke Image Display Profile
 
  -- Row 4 -----------------------------------
   Code = WADO-WS
   Display = WADO-WS
-
- -- Row 5 -----------------------------------
-  Code = AE
-  Display = AE
+  Definition = Web Access to DICOM Persistent Objects - Web Services
 
 === Sheet Invariants =====================================
 
@@ -190,8 +190,8 @@
   Short Label = Instance UID
   Definition = Unique identifier of the DICOM Key Object Selection (KOS) representation.
   Requirements = DICOM SOP Instance is always assigned with a unique identifier (UID).
-  DICOM Mapping = (0008,0018) - SOP Instance UID (of the Key Object Selection SOP Class)
   RIM Mapping = .id
+  DICOM Mapping = (0008,0018) - SOP Instance UID (of the Key Object Selection SOP Class)
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -203,8 +203,8 @@
   Definition = A patient resource reference which is the patient subject of all DICOM SOP Instances in this ImagingExcerpt.
   Requirements = SOP Instances in ImagingExcerpt must be from the same patient.
   Comments = SOP instances selected in the ImagingExcerpt can be from different studies, but must be of the same patient.
-  DICOM Mapping = (0010,0010) - Patient Name (0010,0020) - Patient ID (0010,0021) - Issuer of Patient ID
   RIM Mapping = .participation[typeCode=SBJ].role
+  DICOM Mapping = (0010,0010) - Patient Name (0010,0020) - Patient ID (0010,0021) - Issuer of Patient ID
   w5 = who.focus
 
  -- Row 4 -----------------------------------
@@ -216,8 +216,8 @@
   Short Label = Time when the imaging object selection was created
   Definition = Date and time when the selection of the referenced instances were made. It is (typically) different from the creation date of the selection resource, and from dates associated with the referenced instances (e.g. capture time of the referenced image).
   Requirements = Date and time when the selection was made can be important to understand the content of selection.
-  DICOM Mapping = (0040,A032) - Observation Date Time
   RIM Mapping = .effectiveTime
+  DICOM Mapping = (0040,A032) - Observation Date Time
   w5 = when.recorded
 
  -- Row 5 -----------------------------------
@@ -259,6 +259,7 @@
   Element = ImagingExcerpt.study
   Card. = 1..*
   Summary = y
+  UML = 0;200
   Type = =Study
   Short Label = Study identity of the selected instances
   Definition = Study identity and locating information of the DICOM SOP instances in the selection.
@@ -319,6 +320,7 @@
  -- Row 14 -----------------------------------
   Element = ImagingExcerpt.study.dicom
   Card. = 0..*
+  UML = 300;175
   Short Label = Dicom web access
   Definition = Methods of accessing using DICOM web technologies
   Requirements = access methods available using DICOM web protocols
@@ -329,7 +331,7 @@
   Card. = 1..1
   Type = code
   Binding = dWebType
-  Short Label = WADO-RS | WADO-URI | IID | WADO-WS | AE
+  Short Label = WADO-RS | WADO-URI | IID | WADO-WS
   Definition = Access type for DICOM web
 
  -- Row 16 -----------------------------------
@@ -343,6 +345,7 @@
  -- Row 17 -----------------------------------
   Element = ImagingExcerpt.study.viewable
   Card. = 0..*
+  UML = 300;260
   Short Label = Viewable format
   Definition = A set of viewable reference images of various  types.
   Requirements = Accessible viewable forms that can be directly pulled and displayed without knowing DICOM Web protocols.
@@ -439,6 +442,7 @@
   Element = ImagingExcerpt.study.series
   Card. = 1..*
   Summary = y
+  UML = 50;450
   Type = =Series
   Short Label = Series identity of the selected instances
   Definition = Series identity and locating information of the DICOM SOP instances in the selection
@@ -490,6 +494,7 @@
  -- Row 33 -----------------------------------
   Element = ImagingExcerpt.study.series.dicom
   Card. = 0..*
+  UML = 300;450
   Short Label = Dicom web access
   Definition = Methods of accessing using DICOM web technologies
   Requirements = access methods available using DICOM web protocols
@@ -500,7 +505,7 @@
   Card. = 1..1
   Type = code
   Binding = dWebType
-  Short Label = WADO-RS | WADO-URI | IID | WADO-WS | AE
+  Short Label = WADO-RS | WADO-URI | IID | WADO-WS
   Definition = Access type for DICOM web
 
  -- Row 35 -----------------------------------
@@ -515,6 +520,7 @@
   Element = ImagingExcerpt.study.series.instance
   Card. = 1..*
   Summary = y
+  UML = 0;600
   Type = =Instance
   Short Label = The selected instance
   Definition = Identity and locating information of the selected DICOM SOP instances
@@ -548,6 +554,31 @@
   Committee Notes = Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that isModifier is \"no\" on modeCode and preferenceInd.
 
  -- Row 39 -----------------------------------
+  Element = ImagingExcerpt.study.series.instance.dicom
+  Card. = 0..*
+  UML = 300;600
+  Short Label = Dicom web access
+  Definition = Methods of accessing using DICOM web technologies
+  Requirements = access methods available using DICOM web protocols
+  Comments = Access method for applications that understand the DICOM web protocols for higher fidelity access.
+
+ -- Row 40 -----------------------------------
+  Element = ImagingExcerpt.study.series.instance.dicom.type
+  Card. = 1..1
+  Type = code
+  Binding = dWebType
+  Short Label = WADO-RS | WADO-URI | IID | WADO-WS
+  Definition = Access type for DICOM web
+
+ -- Row 41 -----------------------------------
+  Element = ImagingExcerpt.study.series.instance.dicom.url
+  Card. = 1..1
+  Type = uri
+  Short Label = Retrieve study URL
+  Definition = The source system root URL / base URL, from which all content can be retrieved using the specified DICOM protocol.
+  Requirements = URL enables retrieval of the entire series using DICOM Web API.
+
+ -- Row 42 -----------------------------------
   Element = !ImagingExcerpt.study.series.instance.retrieveAETitle
   Card. = 0..1
   Type = id
@@ -557,7 +588,7 @@
   Comments = Instance level locator information is required.
   DICOM Mapping = (0008,0054) Retrieve AE Title
 
- -- Row 40 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = !ImagingExcerpt.study.series.instance.retrieveLocationUid
   Card. = 0..1
   Type = oid
@@ -566,7 +597,7 @@
   Requirements = Retrieve Location UID identifies the system which provides the retrieve service.
   DICOM Mapping = (0040,E011) - Retrieve Location UID
 
- -- Row 41 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = !ImagingExcerpt.study.series.instance.url
   Card. = 1..1
   Aliases = RetrieveURL
@@ -577,7 +608,7 @@
   Comments = Instance level locator information is required.
   DICOM Mapping = (0008,1190) - Retrieve URL
 
- -- Row 42 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = !ImagingExcerpt.study.series.instance.frame
   Card. = 0..*
   Type = =Frames
@@ -586,7 +617,7 @@
   Requirements = The specific set of frames referenced in this imaging object selection. The URL retrieves the pixel data, and is encapsulated in a multipart MIME response.
   Comments = This component may be used if the referenced image SOP Instance is a multi-frame image.
 
- -- Row 43 -----------------------------------
+ -- Row 46 -----------------------------------
   Element = ImagingExcerpt.study.series.instance.frameNumbers
   Card. = 0..*
   Type = unsignedInt
@@ -595,7 +626,7 @@
   Requirements = The specific set of frames referenced in this imaging object selection. The URL retrieves the pixel data, and is encapsulated in a multipart MIME response.
   Comments = This component may be used if the referenced image SOP Instance is a multi-frame image.
 
- -- Row 44 -----------------------------------
+ -- Row 47 -----------------------------------
   Element = !ImagingExcerpt.study.series.instance.frame.url
   Card. = 1..1
   Type = uri

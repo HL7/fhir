@@ -20,10 +20,10 @@
   <issued value="2015-11-18"/>
  <!-- not bound by a timeframe - Contract.applies -->
  
-  <topic>
+  <subject>
     <reference value="Patient/f001"/>
     <display value="P. van de Heuvel"/>
-  </topic>
+  </subject>
 
   <!-- I assume the example given is Canada Infoway wide???  AND I assume it is desired to state that in the Contract.authority element -->
   <authority>
