@@ -16,13 +16,31 @@
 
 <p>The ActionDefinition structure is used to define an action to be taken as part of some context such as the result of evaluating a decision support rule, or completing an order set for a patient. The structure is definitional in that it does not define a concrete action, but rather a template for some action that will be filled out in context.</p>
 
+<p>For example, as part of a Suicide Risk Assessment OrderSet, a provider may choose to refer the patient to a Mental Health specialist. The OrderSet includes a definition of the action as a ProcedureRequest, but without contextual information such as the specific patient involved. As part of placing the OrderSet, the context is used to provide the additional information and complete the ProcedureRequest resource.</p>
+
+<p>Each action definition may be a single action, or a group of actions, each specified as a sub-action using the same ActionDefinition structure. This hierarchical structure allows the ActionDefinition to be used in describing simple recommendations, all the way up through complex multi-level order sets.</p>
+
+<p>The behavior element allows intended behavior of the actions to be described. For each behavior, a type specifies the kind of behavior being described, such as grouping or selection behavior. Each behavior type is then specified using a different value set as defined by the table below:</p>
+
+<table class="grid">
+	<thead>
+		<tr><th>Behavior Type</th><th>Type Code</th><th>Possible Behaviors</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>Grouping Behavior</td><td>grouping</td><td><a href="valueset-action-grouping-behavior.html">Action Grouping Behavior Value Set</a></td></tr>
+		<tr><td>Selection Behavior</td><td>selection</td><td><a href="valueset-action-selection-behavior.html">Action Selection Behavior Value Set</a></td></tr>
+		<tr><td>Required Behavior</td><td>required</td><td><a href="valueset-action-required-behavior.html">Action Required Behavior Value Set</a></td></tr>
+		<tr><td>Precheck Behavior</td><td>precheck</td><td><a href="valueset-action-precheck-behavior.html">Action Precheck Behavior Value Set</a></td></tr>
+		<tr><td>Cardinality Behavior</td><td>cardinality</td><td><a href="valueset-action-cardinality-behavior.html">Action Cardinality Behavior Value Set</a></td></tr>
+	</tbody>
+</table>
+
 <a name="definition"></a>
 <h2 style="margin-bottom: 1px">
 Content
 </h2>
 
 [%dt ActionDefinition 1%]
-
 
 <div class="use">
 <p><b>Constraints</b></p>

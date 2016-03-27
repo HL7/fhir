@@ -24,12 +24,12 @@
 		<tr><th>Component</th><th>Description</th></tr>
 	</thead>
 	<tbody>
-		<tr><td>Metadata</td><td>Information about the knowledge artifact such as status, publisher, documentation, and supporting evidence.</td></tr>
-		<tr><td>Parameters</td><td>Values that can be provided at the time of evaluation to influence the behavior of the artifact based on setting-specific configuration.</td></tr>
-		<tr><td>Data</td><td>Clinical information used by the artifact as part of the representation of knowledge</td></tr>
-		<tr><td>Actions</td><td>Descriptions of actions to be taken as part of the implementation of knowledge</td></tr>
-		<tr><td>Triggers</td><td>Information about what events should trigger the use of the artifact</td></tr>
-		<tr><td>Logic</td><td>Expressions used to represent reasoning such as whether or not some criteria is satisfied, or calculation of new values from existing one.</td></tr>
+		<tr><td><a href="[%fhir-path%]modulemetadata.html">Metadata</a></td><td>Information about the knowledge artifact such as status, publisher, documentation, and supporting evidence.</td></tr>
+		<tr><td><a href="[%fhir-path%]parameterdefinition.html">Parameters</a></td><td>Values that can be provided at the time of evaluation to influence the behavior of the artifact based on setting-specific configuration.</td></tr>
+		<tr><td><a href="[%fhir-path%]datarequirement.html">Data</a></td><td>Clinical information used by the artifact as part of the representation of knowledge</td></tr>
+		<tr><td><a href="[%fhir-path%]actiondefinition.html">Actions</a></td><td>Descriptions of actions to be taken as part of the implementation of knowledge</td></tr>
+		<tr><td><a href="[%fhir-path%]triggerdefinition.html">Triggers</a></td><td>Information about what events should trigger the use of the artifact</td></tr>
+		<tr><td><a href="[%fhir-path%]library.html">Logic</a></td><td>Expressions used to represent reasoning such as whether or not some criteria is satisfied, or calculation of new values from existing one.</td></tr>
 	</tbody>
 </table>
 
@@ -42,11 +42,11 @@
 		<tr><th>Artifact Type</th><th>Description</th><th>Example</th></tr>
 	</thead>
 	<tbody>
-		<tr><td>Library</td><td>A sharable package of clinical logic expressed in Clinical Quality Language.</td><td>Expressions that define the criteria that must be met to determine whether or not a patient has diabetes.</td></tr>
-		<tr><td>DecisionSupportRule</td><td>A decision support rule of the form [on Event] if Condition then Action, defining actions that shoud be taken whenever some condition is met in response to a particular event.</td><td>On admission of a patient, if the patient has diabetes and has not had a recent foot examination, place an unsigned order for a comprehensive foot exam.</td></tr>
-		<tr><td>DocumentationTemplate</td><td>A structured form for recording information on a patient into a set of predefined data slots.</td><td>A form containing the information that should be gathered during a comprehensive diabetic foot exam.</td></tr>
-		<tr><td>OrderSet</td><td>A pre-defined and approved group of orders related to a particular clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). Order sets are used within electronic health record systems as a checklist for physicians when treating a patient with a specific condition. An order set is a structured collection of orders presented to the physician in a computerized physician order entry system (CPOE).</td><td>The specific tasks that should be performed to provide effective treatment for a new diagnosis of diabetes.</td></tr>
-		<tr><td>Measure</td><td>A quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical quidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</td><td>Percentage of patients aged 18-75 years of age with diabetes who had a foot exam during the measurement period.</td></tr>
+		<tr><td><a href="[%fhir-path%]library.html">Library</a></td><td>A sharable package of clinical logic expressed in Clinical Quality Language.</td><td>Expressions that define the criteria that must be met to determine whether or not a patient has diabetes.</td></tr>
+		<tr><td><a href="[%fhir-path%]decisionsupportrule.html">DecisionSupportRule</a></td><td>A decision support rule of the form [on Event] if Condition then Action, defining actions that shoud be taken whenever some condition is met in response to a particular event.</td><td>On admission of a patient, if the patient has diabetes and has not had a recent foot examination, place an unsigned order for a comprehensive foot exam.</td></tr>
+		<tr><td><a href="cqif-questionnaire.html">DocumentationTemplate</a></td><td>A structured form for recording information on a patient into a set of predefined data slots.</td><td>A form containing the information that should be gathered during a comprehensive diabetic foot exam.</td></tr>
+		<tr><td><a href="[%fhir-path%]orderset.html">OrderSet</a></td><td>A pre-defined and approved group of orders related to a particular clinical condition (e.g., hypertension treatment and monitoring) or stage of care (e.g., hospital admission to Coronary Care Unit). Order sets are used within electronic health record systems as a checklist for physicians when treating a patient with a specific condition. An order set is a structured collection of orders presented to the physician in a computerized physician order entry system (CPOE).</td><td>The specific tasks that should be performed to provide effective treatment for a new diagnosis of diabetes.</td></tr>
+		<tr><td><a href="[%fhir-path%]measure.html">Measure</a></td><td>A quantitative tool to assess the performance of an individual or organization with respect to a specified process or outcome via the measurement of actions, processes, or outcomes of clinical care. Quality measures are often derived from clinical quidelines and are designed to determine whether the appropriate care has been provided given a set of clinical criteria and an evidence base.</td><td>Percentage of patients aged 18-75 years of age with diabetes who had a foot exam during the measurement period.</td></tr>
 	</tbody>
 </table>
 

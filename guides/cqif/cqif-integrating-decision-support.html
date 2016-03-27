@@ -12,9 +12,9 @@
 
 <h3>Integrating Decision Support in a Clinical Workflow</h3>
 
-<p>To support the evaluation use case, the DecisionSupportServiceModule and DecisionSupportRule resources both define an <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#evaluate">$evaluate</a> operation with the same signature. The operation allows for consistent invocation of decision support functionality across a broad range of decision support artifacts, allowing consumers to implement the request/response pipeline once to enable access to any decision support functionality provided by the service.</p>
+<p>To support the evaluation use case, the <a href="[%fhir-path%]decisionsupportservicemodule.html">DecisionSupportServiceModule</a> and <a href="[%fhir-path%]decisionsupportrule">DecisionSupportRule</a> resources both define an <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#evaluate">$evaluate</a> operation with the same signature. The operation allows for consistent invocation of decision support functionality across a broad range of decision support artifacts, allowing consumers to implement the request/response pipeline once to enable access to any decision support functionality provided by the service.</p>
 
-<p>The results of the evaluation are returned as a <a href="[%fhir-path%]guidanceresponse.html">GuidanceResponse</a> resource.</p>
+<p>The results of the evaluation are returned as a <a href="[%fhir-path%]guidanceresponse.html">GuidanceResponse</a> resource. This response contains any output parameters returned by the module, as well as a structured description of any actions to be taken. For example, in response to a request for Immunization guidance, an action may be to update the immunization plan for a patient, indicating which immunizations are recommended to be administered to bring the patient into compliance with the immunization guidelines.</p>
 
 <p>The $evaluate operation provides a complete example of a request and response using the Guideline Appropriate Ordering decision support service module: <a href="[%fhir-path%]decisionsupportservicemodule-operations.html#4.10.8.1.1">$evaluate operation example</a></p>
 
@@ -36,7 +36,7 @@
 
 <img alt="Synchoronous, Direct Guidance Conversation" src="cqif-integrating-decision-support-conversation.png"/>
 
-<p>In these cases, the GuidanceResponse will be returned with a status of data-requested or data-required, to indicate the particular scenario, and will contain additional information, usually stated in the form of additional DataRequirement specifications, to let the calling application know what data is needed. The calling application then repeats the request, providing the additional requested information, and the service continues processing. This process can be repeated as many times as necessary to obtain appropriate guidance from the service.</p>
+<p>In these cases, the GuidanceResponse will be returned with a status of data-requested or data-required, to indicate the particular scenario, and will contain additional information, usually stated in the form of additional <a href="[%fhir-path%]datarequirement.html">DataRequirement</a> specifications, to let the calling application know what data is needed. The calling application then repeats the request, providing the additional requested information, and the service continues processing. This process can be repeated as many times as necessary to obtain appropriate guidance from the service.</p>
 
 <h4>Service Integration</h4>
 

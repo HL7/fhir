@@ -33,7 +33,7 @@ Quality Measure Format (HQMF)</a>.
 <a name="representing-quality-measures"/>
 <h4>Representing Quality Measures</h4>
 
-<p>The Measure resource builds on the general approach to representing knowledge artifacts and adds the metadata and structure information that is specific to quality measures:</p>
+<p>The <a href="[%fhir-path%]measure.html">Measure</a> resource builds on the general approach to representing knowledge artifacts and adds the metadata and structure information that is specific to quality measures:</p>
 
 <img alt="Measure Structure" src="cqif-measure-structure.png"/>
 
@@ -87,7 +87,7 @@ Quality Measure Format (HQMF)</a>.
 <a name="measure-logic"/>
 <h5>Measure Logic</h5>
 
-<p>As with other knowledge artifacts, logic is included by referencing a Library resource. Although the base resource allows for the measure to reference any number of libraries, for simplicity of managing sharing, this implementation guide requires that a measure reference only one Library, the <i>primary measure library</i>, and that this library contain all the named expressions required to define the measure structure.</p>
+<p>As with other knowledge artifacts, logic is included by referencing a <a href="[%fhir-path%]library.html">Library</a> resource. Although the base resource allows for the measure to reference any number of libraries, for simplicity of managing sharing, this implementation guide requires that a measure reference only one Library, the <i>primary measure library</i>, and that this library contain all the named expressions required to define the measure structure.</p>
 
 <p>Note that this restriction does not preclude sharing of logic between measures, it only requires that that sharing be explicitly done as dependencies within the referenced libraries, rather than allowing a measure.</p>
 
@@ -128,7 +128,7 @@ Quality Measure Format (HQMF)</a>.
 <a name="Data Criteria"/>
 <h5>Data Criteria</h5>
 
-<p>The data criteria for the primary library defines the patient data of interest in the measure as a set of dataRequirements. Each data requirement identifies specific types of data along with constraints that the data must meet. For example, one data requirement for CMS 146 identifies FHIR Condition resources that represent confirmed diagnoses of acute pharyngitis. Other data requirements for this measure include Encounters, DiagnosticReports and other FHIR resources representing specific data that is used to calculate the measure.</p>
+<p>The data criteria for the primary library defines the patient data of interest in the measure as a set of <a href="[%fhir-path%]datarequirement">DataRequirements</a>. Each data requirement identifies specific types of data along with constraints that the data must meet. For example, one data requirement for CMS 146 identifies FHIR Condition resources that represent confirmed diagnoses of acute pharyngitis. Other data requirements for this measure include Encounters, DiagnosticReports and other FHIR resources representing specific data that is used to calculate the measure.</p>
 
 <p>Specifying the data criteria in this way enables the following use cases:</p>
 
@@ -146,9 +146,9 @@ Quality Measure Format (HQMF)</a>.
 <a name="operation-definition"/>
 <h5>Operation Definition</h5>
 
-<p>FHIR defines a standard set of common interactions that include read, update, delete and search. In addition, FHIR defines a standard set of extended operations that can be performed on resources, resource types and system wide. The standard operations include profile validation, concept translation and value set expansion. FHIR also supports custom operations via the FHIR OperationDefinition resource. This resource offers a means to create a formal definition of a custom operation that can be performed on a FHIR server. For the purposes of measure evaluation we define a new custom operation with a code of evaluateMeasure.</p>
+<p>FHIR defines a standard set of common interactions that include read, update, delete and search. In addition, FHIR defines a standard set of extended operations that can be performed on resources, resource types and system wide. The standard operations include profile validation, concept translation and value set expansion. FHIR also supports custom operations via the FHIR OperationDefinition resource. This resource offers a means to create a formal definition of a custom operation that can be performed on a FHIR server. For the purposes of measure evaluation we define a new custom operation with a code of <a href="[%fhir-path%]operation-measure-evaluate-measure.html">$evaluate-measure</a>.</p>
 
-<p>The evaluateMeasure operation has the following properties:</p>
+<p>The $evaluate-measure operation has the following properties:</p>
 
 <ul>
 <li><b>Idempotent</b> The operation may be invoked multiple times without side effects. Note that the result of invoking the operation may vary over time if patient data used in the eMeasure changes between invocations. Note also that the parameters supplied with the operation invocation can affect the results. 
@@ -157,7 +157,7 @@ Quality Measure Format (HQMF)</a>.
 </li>
 </ul>
 
-<p>The effect of invoking the evaluateMeasure operation is to calculate the quality measure according to the supplied parameters and to return a MeaureResponse resource through which the results will be made available. As described below in Section 5, measure calculation may not be instantaneous and the MeaureResponse resource provides a mechanism to handle long running calculations.
+<p>The effect of invoking the $evaluate-measure operation is to calculate the quality measure according to the supplied parameters and to return a <a href="[%fhir-path%]measurereport.html">MeasureReport</a> resource through which the results will be made available. As described below in Section 5, measure calculation may not be instantaneous and the MeasureReport resource provides a mechanism to handle long running calculations.
 </p>
 
 <a name="operation-parameters"/>
@@ -167,8 +167,8 @@ Quality Measure Format (HQMF)</a>.
 <h5>Examples</h5>
 
 <p>
-GET [base]/Basic/$evaluateMeasure?measure=CMS146&amp;periodStart=2014&amp;periodEnd=2014
-GET [base]/Basic/CMS146/$evaluateMeasure?periodStart=2014&amp;periodEnd=2014
+GET [base]/Basic/$evaluate-measure?measure=CMS146&amp;periodStart=2014&amp;periodEnd=2014
+GET [base]/Basic/CMS146/$evaluate-measure?periodStart=2014&amp;periodEnd=2014
 </p>
 
 <p>
@@ -177,8 +177,8 @@ The above examples show how to obtain the results of evaluating the eMeasure wit
 
 <ul>
 <li>the first variant evaluates the operation on [base]/Basic which is the type of resource and specifies the eMeasure to evaluate using a parameter </li>
-<li>the second variant evaluates the operation on [base]/Basic/CMS146 which is the MeasureArtifact instance that represents that measure so there's no need to also include a reference to the eMeasure in the operation parameters</li>
-<li>the HTTP GET method is used since the evaluateMeasure operation is idempotent</li>
+<li>the second variant evaluates the operation on [base]/Basic/CMS146 which is the Measure instance that represents that measure so there's no need to also include a reference to the eMeasure in the operation parameters</li>
+<li>the HTTP GET method is used since the evaluate-measure operation is idempotent</li>
 <li>[base] is used as a shortcut for the base URI of the FHIR server</li> 
 <li>the type of the resource is Basic in the URI since FHIR does not allow use of alternate paths for profiles of resources </li>
 <li>the period start and end values are both specified to a granularity of a year, the description of the parameters above explains why this results in a measure period that spans the entire year</li>
@@ -188,7 +188,7 @@ The above examples show how to obtain the results of evaluating the eMeasure wit
 The next example demonstrates how to obtain the results of evaluating the eMeasure with identifier "CMS146" for the patient with identifier "124" over a measurement period that consists of the first three months of 2014.</p>
 
 <p>
-GET [base]/Basic/CMS146/$evaluateMeasure?patient=124&amp;periodStart=2014-01&amp;periodEnd=2014-03
+GET [base]/Basic/CMS146/$evaluate-measure?patient=124&amp;periodStart=2014-01&amp;periodEnd=2014-03
 </p>
 
 <a name="measure-report"/>
@@ -196,12 +196,12 @@ GET [base]/Basic/CMS146/$evaluateMeasure?patient=124&amp;periodStart=2014-01&amp
 
 <p>When eCQMs are represented with the Health Quality Measure Format (HQMF), a single HQMF document represnts both the measure itself and the request. Meanwhile, the responses are represented as Quality Reporting Document Architecture (QRDA) documents. QRDA documents come in three flavors: Category I for individual patient reports, Category II for patient list reports, and Category III for population reports.</p>
 
-<p>When eCQMs are represented with FHIR resources, the measure is represented as a Measure resource, and the request is an HTTP GET conforming to the OperationDefinition described above. Meanwhile, the responses are represented as MeasureReport resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (patient-list), and Category III (population) reports.</p>
+<p>When eCQMs are represented with FHIR resources, the measure is represented as a <a href="[%fhir-path%]measure.html">Measure</a> resource, and the request is an HTTP GET conforming to the OperationDefinition described above. Meanwhile, the responses are represented as <a href="[%fhir-path%]measurereport.html">MeasureReport</a> resources. Like QRDA, the MeasureReport allows for Category I (individual), Category II (patient-list), and Category III (population) reports.</p>
 
 <a name="reporting-population-data"/>
 <h5>Reporting Population Data</h5>
 
-<p>A MeasureReport will contain one group of data for each group specified in the corresponding Measure, consisting of a set of population elements, one for each criteria defined in each group.</p>
+<p>A <a href="[%fhir-path%]measurereport.html">MeasureReport</a> will contain one group of data for each group specified in the corresponding <a href="[%fhir-path%]measure.html">Measure</a>, consisting of a set of population elements, one for each criteria defined in each group.</p>
 
 <img alt="Population Measure Report" src="cqif-measure-report-population.png"/>
 
