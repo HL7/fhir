@@ -41,14 +41,12 @@
   Element = Observation.category.coding
   Card. = 1..*
   Must Support = Y
-  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
 
  -- Row 4 -----------------------------------
   Element = Observation.category.coding.system
   Card. = 1..1
   Must Support = Y
   Type = uri
-  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
   Value = http://hl7.org/fhir/observation-category
 
  -- Row 5 -----------------------------------
@@ -56,7 +54,6 @@
   Card. = 1..1
   Must Support = Y
   Type = code
-  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
   Value = vital-signs
 
  -- Row 6 -----------------------------------
@@ -64,30 +61,25 @@
   Must Support = Y
   Binding = VitalSignResult
   Short Label = Coded Responses from C-CDA Vital Sign Results
-  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
 
  -- Row 7 -----------------------------------
   Element = Observation.code.coding
   Card. = 1..*
   Must Support = Y
-  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
 
  -- Row 8 -----------------------------------
   Element = Observation.code.coding.system
   Card. = 1..1
   Must Support = Y
-  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
 
  -- Row 9 -----------------------------------
   Element = Observation.code.coding.code
   Card. = 1..1
   Must Support = Y
-  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
 
  -- Row 10 -----------------------------------
   Element = Observation.code.coding.display
   Must Support = Y
-  Requirements = 5. SHALL contain exactly one [1..1] code, where the @code SHOULD be selected from ValueSet HITSP Vital Sign Result Type 2.16.840.1.113883.3.88.12.80.62 DYNAMIC (CONF:7301).
 
  -- Row 11 -----------------------------------
   Element = Observation.valueQuantity
@@ -95,7 +87,6 @@
   Type = Quantity
   Binding = CommonUCUMunitsVitals
   Short Label = Vital Sign Value recorded with UCUM
-  Requirements = 9. SHALL contain exactly one [1..1] value with @xsi:type=\"PQ\" (CONF:7305).
 
  -- Row 12 -----------------------------------
   Element = Observation.valueQuantity.value
@@ -225,7 +216,7 @@
   Profile Name = BodyWeight
   Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
   Short Label = FHIR Body Weight Profile
-  Definition = This profile defines  how to represent body weight in FHIR
+  Definition = This profile defines  how to represent body weight observations in FHIR using a standard LOINC code and UCUM units of measure
 
  -- Row 2 -----------------------------------
   Element = Observation.code
@@ -235,6 +226,8 @@
 
  -- Row 3 -----------------------------------
   Element = Observation.code.coding
+  Profile Name = BodyWeightCode
+  Discriminator = code|unordered|open
 
  -- Row 4 -----------------------------------
   Element = Observation.code.coding.system
