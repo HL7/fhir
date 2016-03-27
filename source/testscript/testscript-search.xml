@@ -48,6 +48,10 @@
 		<path value="fhir:Patient/fhir:name/fhir:given/@value"/>
 		<sourceId value="R3"/>
 	</variable>
+	<variable>
+		<name value="DefaultValue"/>
+		<defaultValue value="Replace at Runtime"/>
+	</variable>
 	<setup>
 		<!--   Conditional Delete   -->
 		<action>

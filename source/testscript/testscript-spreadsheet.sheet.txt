@@ -680,7 +680,7 @@
   Element = TestScript.variable.defaultValue
   Card. = 0..1
   Type = string
-  Short Label = Default value for this variable
+  Short Label = Default, hard-coded, or user-defined value for this variable
   Definition = A default, hard-coded, or user-defined value for this variable
   Comments = The purpose of this element is to allow for a pre-defined value that can be used as a default or as an override value. Test engines can optionally use this as a placeholder for user-defined execution time values.
 
@@ -1315,30 +1315,36 @@
   Filename = testscript-example.xml
 
  -- Row 2 -----------------------------------
+  Name = Rule
+  Identity = example-rule
+  Description = Rule TestScript Example
+  Filename = testscript-example-rule.xml
+
+ -- Row 3 -----------------------------------
   Name = Multiserver
   Identity = multiserver
   Description = Multiserver TestScript Example
   Filename = testscript-example-multiserver.xml
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Name = Read Test
   Identity = ReadTestScript
   Description = Read TestScript Example
   Filename = testscript-readtest.xml
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Name = Update Test
   Identity = update
   Description = Update TestScript Example
   Filename = testscript-update.xml
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Name = History Test
   Identity = history
   Description = History TestScript Example
   Filename = testscript-history.xml
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Name = Search Test
   Identity = search
   Description = Search TestScript Example

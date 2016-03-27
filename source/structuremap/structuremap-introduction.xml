@@ -1,7 +1,7 @@
 <div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
 
 <div>
-<a name="bnc"> </a>
+<a name="snu"></a>
 <h2>Scope and Usage</h2>
 <p>
 The <i>StructureMap</i> resource defines a detailed set of of rules that describe 
@@ -31,6 +31,7 @@ a StructureMap. See also the <a href="mapping-tutorial.html">Tutorial</a>.
 </div>
 
 <div>
+<a name="bnr"></a>
 <h2>Boundaries and Relationships</h2>
 <p>
 Note that many mappings between models only establish conceptual equivalence
@@ -62,7 +63,8 @@ parts of the mapping language cannot be used in these cases.
 </div>
 
 <div>
-<h2>Using StructureMaps</h2>
+<a name="bnc"></a>
+<h2>Background and Context</h2>
 <p>
 Each structure map contains, in addition to the standard metadata that all 
 conformance resoures contain, the following information:

@@ -31,7 +31,10 @@
 			</link>
 			<capability>
 				<required value="true"/>
+				<validated value="true"/>
 				<description value="Patient Create Operation"/>
+				<origin value="1"/>
+				<destination value="1"/>
 				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#create"/>
 				<conformance>
 					<reference value="Conformance/example" />
@@ -45,6 +48,7 @@
 				</type>
 				<contentType value="xml"/>
 				<destination value="0"/>
+				<origin value="0"/>
 				<sourceId value="F1"/>
 			</operation>
 		</action>
@@ -54,8 +58,11 @@
 		<description value="Read the patient from server 0."/>
 		<metadata>
 			<capability>
+				<required value="true"/>
 				<validated value="true"/>
 				<description value="Patient Read Operation"/>
+				<origin value="1"/>
+				<destination value="1"/>
 				<link value="http://hl7.org/implement/standards/FHIR-Develop/http.html#read"/>
 				<conformance>
 					<reference value="Conformance/example" />

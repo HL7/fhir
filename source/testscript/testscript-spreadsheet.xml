@@ -2330,7 +2330,7 @@
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s87"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Default value for this variable</Data><NamedCell
+    <Cell><Data ss:Type="String">Default, hard-coded, or user-defined value for this variable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">A default, hard-coded, or user-defined value for this variable</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -6489,7 +6489,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>13</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6497,6 +6497,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -8398,7 +8399,7 @@
    <NamedRange ss:Name="_FilterDatabase" ss:RefersTo="=Examples!R1C1:R1C7"
     ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="36" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="37" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s146" ss:DefaultColumnWidth="260.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s146" ss:Width="89.25"/>
@@ -8443,6 +8444,15 @@
     <Cell ss:StyleID="s80"><Data ss:Type="String">General TestScript Example</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">testscript-example.xml</Data></Cell>
+    <Cell ss:StyleID="s140"/>
+    <Cell ss:StyleID="s149"/>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s150"><Data ss:Type="String">Rule</Data></Cell>
+    <Cell ss:StyleID="s87"/>
+    <Cell ss:StyleID="s88"><Data ss:Type="String">Rule TestScript Example</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">example-rule</Data></Cell>
+    <Cell ss:StyleID="s87"><Data ss:Type="String">testscript-example-rule.xml</Data></Cell>
     <Cell ss:StyleID="s140"/>
     <Cell ss:StyleID="s149"/>
    </Row>
