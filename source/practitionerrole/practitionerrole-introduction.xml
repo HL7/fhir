@@ -4,45 +4,25 @@
 <a name="scope"> </a>
 <h2>Scope and Usage</h2>
 <p>
-Practitioner covers all individuals who are engaged in the healthcare process and healthcare-related services as part of their formal 
-responsibilities and this Resource is used for attribution of activities and responsibilities to these individuals.
-
-Practitioners include (but are not limited to):
+PractitionerRole covers the recording of the location and types of services that Practitioners are able to provide
+for an organization.
 </p>
-<ul>
-<li>physicians, dentists, pharmacists</li>
-<li>physician assistants, nurses, scribes</li>
-<li>midwives, dietitians, therapists, optometrists, paramedics</li>
-<li>medical technicians, laboratory scientists, prosthetic technicians, radiographers</li>
-<li>social workers, professional home carers, official volunteers</li>
-<li>receptionists handling patient registration</li>
-<li>IT personnel merging or unmerging patient records</li>
-<li>Service animal (e.g., ward assigned dog capable of detecting cancer in patients)</li>
-</ul>
+<p>
+The role, specialty, Location telecom and HealthcareService properties can be repeated if required in other instances
+of the PractitionerRole. Some systems record a collection of service values for a single location, others record the 
+single service and the list of locations it is available. Both are acceptable options for prepresenting this data.
+</p>
 </div>
 
 <div>
 <a name="bnr"> </a>
 <h2>Boundaries and Relationships</h2>
 <p>
-The Resource SHALL NOT be used for persons involved without a formal responsibility like individuals taking care for friends, 
-relatives or neighbors. These can be registered as a Patient's Contact.  If performing some action or being referenced by another
-resource, use the <a href="relatedperson.html">RelatedPerson</a> resource.
+The PractitionerRole BackboneElement on the Practitioner is to be deprecated if this resource is accepted.
 </p>
 <p>
-	The primary distinction between a Practitioner and a RelatedPerson is based on whether:
-</p>
-<ul>
-<li>
-	The person/animal operates on behalf of the care delivery organization over multiple patients (Practitioner) or,
-</li>
-<li>
-	Where the person/animal is not associated with the organization, and instead is
-	allocated tasks specifically for the RelatedPerson's Patient (RelatedPerson).
-</li>
-</ul>
-<p>
-	A standard extension <a href="extension-practitioner-animalspecies.html">animalSpecies</a> can be used to indicate the species of a service animal.
+	The Qualifications are not a part of the PractitionerRole, as they may be appropriate for the role,
+    however they are a property of the Practitioner, not the role they may perform for an Organization.
 </p>
 </div>
 

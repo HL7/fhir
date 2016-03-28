@@ -23,12 +23,11 @@
   Element = PractitionerRole
   Type = DomainResource
   Short Label = Roles/organizations the practitioner is associated with
-  Definition = A person who is directly or indirectly involved in the provisioning of healthcare.
-  Requirements = Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc.
-  Comments = Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?
+  Definition = A specific set of Roles/Locations/specialties/services that a practitioner may perform at an organization for a period of time
+  Requirements = Need to track services that a healthcare provider is able to provide at an organization\'s location, and the services that they can perform there
   v2 Mapping = PRD (as one example)
   RIM Mapping = Role
-  ServD Mapping = Provider
+  ServD Mapping = ServiceSiteProvider
   w5 = administrative.individual
 
  -- Row 2 -----------------------------------
@@ -62,19 +61,19 @@
   Card. = 0..1
   Summary = y
   Type = Reference(Practitioner)
-  Short Label = Practitioner with the information as defined
+  Short Label = Practitioner that is able to provide the defined services for the organation
 
  -- Row 5 -----------------------------------
   Element = PractitionerRole.organization
   Card. = 0..1
   Type = Reference(Organization)
-  Short Label = Organization where the roles are performed
+  Short Label = Organization where the roles are available
   Definition = The organization where the Practitioner performs the roles associated
   RIM Mapping = scopingOrganization
 
  -- Row 6 -----------------------------------
   Element = PractitionerRole.role
-  Card. = 0..1
+  Card. = 0..*
   Summary = y
   Type = CodeableConcept
   Binding = PractitionerRole
