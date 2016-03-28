@@ -1,0 +1,57 @@
+<div xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../schema/fhir-xhtml.xsd" xmlns="http://www.w3.org/1999/xhtml">
+
+  <div>
+<a name="scope"> </a>
+    <h2>Scope and Usage</h2>
+    <p>
+        An endpoint describes the technical details of a location that can be connected to for the delivery/retrieval of information.
+        Sufficient information is required to ensure that a connection can be made securely, and appropriate data transmitted as
+        defined by the endpoint owner. This is not a description of details of the current system, as found in conformance, but of
+        another (potentially external) system.<br/>
+        These may be locally hosted services, regional services, or national service.
+    </p>
+    <p>
+      These resources are typically used to identify where to locate endpoint details for:
+    </p>
+    <ul>
+      <li>Questionnaires: Where to send information (currently an SDC extension with just the address)</li>
+      <li>ValueSet: Where related Terminology Services can be found (where not local)</li>
+      <li>Subscription: The destination to send the subscribed data (or to pull)</li>
+      <li>Messaging: (currently defined in the Message Header, but only as the address)</li>
+      <li>Referrals: Where to send referral requests<br/>
+          (linked to the services directory resources - Organization/Location/Practitioner/HealthcareService)</li>
+      <li>Referrals - Templates: Where to locate referral templates (Questionnaires)<br/>
+          (linked to the services directory resources - Organization/Location/Practitioner/HealthcareService)</li>
+      <li>CarePlans: Where a shared CarePlan can be found</li>
+      <li>Scheduling: Where to lookup to discover schedules/availability information<br/>
+          (linked to the services directory resources - Organization/Location/Practitioner/HealthcareService)</li>
+      <li>Scheduling: Where to lookup to send appointment requests<br/>
+          (linked to the services directory resources - Organization/Location/Practitioner/HealthcareService)</li>
+      <li>Patient/Person: Location of Master Patient/Person Indexes</li>
+      <li>Service Provider Directories: Location of related directories (parent/child/federated) </li>
+    </ul>
+  </div>
+  <div>
+   <h2>Boundaries and Relationships</h2>
+ <a name="bnr"> </a>
+    <p>
+      The endpoint is distinct from a conformance statement in that the Conformance stataement describes the entire capability
+      of a server (and in the metadata case, just this server)<br/>
+      Where the endpoint resource describes the technical details for how to connect, and for what purposes 
+      (which could be a small sub-set of the server's capabilities, and may not be a FHIR endpoint).
+    </p>
+  </div>
+
+  <div>
+ <a name="bnc"> </a>
+   <h2>Background and Context</h2>
+    <p>
+    </p>
+    <h3>Expected Implementations</h3>
+    <ul>
+      <li>Any solution where there are distributed FHIR servers deployed and need discovery/configuration</li>
+      <li>(Refer to the scope and usage section for common uses)</li>
+    </ul>
+  </div>
+
+</div>

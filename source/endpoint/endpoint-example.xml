@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Endpoint xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/endpoint.xsd">
+  <id value="example"/>
+  <text>
+    <status value="generated" />
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      HACC Program for Peter James Chalmers at HL7 Healthcare 15 Sept 2014 - current<br/>
+			was on leave from 22 Sept - 24 Sept while in respite care
+    </div>
+  </text>
+  <status value="active" />
+  <managingOrganization>
+    <reference value="Organization/hl7" />
+  </managingOrganization>
+  <contact>
+  <!-- Grahame -->
+    <value value="Grahame" />
+  </contact>
+  <connectionType value="POST" />
+  <connectionType value="PUT" />
+  <period>
+    <start value="2014-09-01"/>
+  </period>
+  <addressString value="http://fhir3.healthintersections.com.au/open/CarePlan"/>
+  <payloadFormat value="application/xml+fhir"/>
+  <payloadType>
+    <coding>
+        <system value="http://hl7.org/fhir/ValueSet/resource-types" />
+        <code value="CarePlan" />
+    </coding>
+  </payloadType>
+</endpoint>
