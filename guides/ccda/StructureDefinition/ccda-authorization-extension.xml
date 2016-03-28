@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition
     xmlns="http://hl7.org/fhir">
     <url value="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension" />
     <name value="C-CDA on FHIR Authorization" />
     <status value="draft" />
+    <publisher value="Lantana Consulting Group" />
     <contact>
         <name value="Sarah Gaunt" />
         <telecom>
@@ -17,9 +17,12 @@
             <use value="work" />
         </telecom>
     </contact>
+    <description value="C-CDA on FHIR Authorization Extension" />
     <kind value="resource" />
     <constrainedType value="Extension" />
     <abstract value="false" />
+    <contextType value="resource"/>
+    <context value="Composition"/>
     <base value="http://hl7.org/fhir/StructureDefinition/Extension" />
     <differential>
         <element>
@@ -30,21 +33,14 @@
             <short value="@url" />
             <definition value="SHALL contain exactly one [1..1] @url=&quot;http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension&quot; (CONF:2219-2010)." />
             <min value="1" />
-            <max value="1" />           
-            <type>
-                <code value="uri"/>
-            </type>
-            <fixedUri value="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension"/>
+            <max value="1" />
         </element>
         <element>
-            <path value="Extension.value[x]" />
+            <path value="Extension.valueReference" />
             <short value="valueReference" />
-            <definition value="SHALL contain exactly one [1..1] valueReference (CONF:2219-2011)." />
+            <definition value="SHALL contain exactly one [1..1] C-CDA on FHIR Consent (identifier: http://hl7.org/fhir/StructureDefinition/ccda-consent) (CONF:2219-2011)." />
             <min value="1" />
             <max value="1" />
-            <type>
-                <code value="Reference"/>
-            </type>
         </element>
     </differential>
 </StructureDefinition>
