@@ -1,0 +1,2676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="3ad0687e-f477-468c-afd5-fcc2bf897809"/>
+  <meta>
+    <lastUpdated value="2012-05-29T23:45:32Z"/>
+  </meta>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/13"/>
+    <resource>
+      <Practitioner>
+        <id value="13"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Seven, Henry. SSN:
+            333333333</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="333333333"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Seven"/>
+          <given value="Henry"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1002"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1002 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/14"/>
+    <resource>
+      <Practitioner>
+        <id value="14"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Assigned, Amanda. SSN:
+            33344444</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="33344444"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Assigned"/>
+          <given value="Amanda"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1021"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1020 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/15"/>
+    <resource>
+      <Practitioner>
+        <id value="15"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Hippocrates, Harold. SSN:
+            444444444</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="444444444"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Hippocrates"/>
+          <given value="Harold"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1003"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1003 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/16"/>
+    <resource>
+      <Practitioner>
+        <id value="16"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Primary, Patricia. SSN:
+            555555555</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="555555555"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Primary"/>
+          <given value="Patricia"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1004"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1004 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/17"/>
+    <resource>
+      <Practitioner>
+        <id value="17"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Admit, Alan. SSN:
+            666666666</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="666666666"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Admit"/>
+          <given value="Alan"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1005"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1005 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/18"/>
+    <resource>
+      <Practitioner>
+        <id value="18"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Attend, Aaron. SSN:
+            777777777</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="777777777"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Attend"/>
+          <given value="Aaron"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1006"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1006 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/19"/>
+    <resource>
+      <Practitioner>
+        <id value="19"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Sender, Sam. SSN:
+            888888888</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="888888888"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Sender"/>
+          <given value="Sam"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1007"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1007 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/20"/>
+    <resource>
+      <Practitioner>
+        <id value="20"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Intern, Irving. SSN:
+            888222222</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="888222222"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Intern"/>
+          <given value="Irving"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1022"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1021 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/21"/>
+    <resource>
+      <Practitioner>
+        <id value="21"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Resident, Rachel. SSN:
+            888333333</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="888333333"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Resident"/>
+          <given value="Rachel"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1023"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1022 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/22"/>
+    <resource>
+      <Practitioner>
+        <id value="22"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Leader, Linda. SSN:
+            888444444</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="888444444"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Leader"/>
+          <given value="Linda"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1024"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1023 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/23"/>
+    <resource>
+      <Practitioner>
+        <id value="23"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Verify, Virgil. SSN:
+            999999999</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="999999999"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Verify"/>
+          <given value="Virgil"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1008"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1008 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/24"/>
+    <resource>
+      <Practitioner>
+        <id value="24"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Specialize, Sara. SSN:
+            222333333</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222333333"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Specialize"/>
+          <given value="Sara"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1009"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1009 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/25"/>
+    <resource>
+      <Practitioner>
+        <id value="25"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Reaction, Ramsey. SSN:
+            222223333</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222223333"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Reaction"/>
+          <given value="Ramsey"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1025"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1024 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/26"/>
+    <resource>
+      <Practitioner>
+        <id value="26"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Sleeper, Sally. SSN:
+            222666666</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222666666"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Sleeper"/>
+          <given value="Sally"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1012"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1012 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/27"/>
+    <resource>
+      <Practitioner>
+        <id value="27"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Pump, Patrick. SSN:
+            222334444</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222334444"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Pump"/>
+          <given value="Patrick"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1027"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1025 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/28"/>
+    <resource>
+      <Practitioner>
+        <id value="28"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Valve, Vera. SSN:
+            222335555</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222335555"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Valve"/>
+          <given value="Vera"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1028"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1026 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/29"/>
+    <resource>
+      <Practitioner>
+        <id value="29"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Scratch, Sophie. SSN:
+            222336666</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222336666"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Scratch"/>
+          <given value="Sophie"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1029"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1027 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/30"/>
+    <resource>
+      <Practitioner>
+        <id value="30"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Emergency, Eric. SSN:
+            222337777</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222337777"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Emergency"/>
+          <given value="Eric"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1030"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1028 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/31"/>
+    <resource>
+      <Practitioner>
+        <id value="31"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Hormone, Horace. SSN:
+            222338888</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222338888"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Hormone"/>
+          <given value="Horace"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1031"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1029 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/32"/>
+    <resource>
+      <Practitioner>
+        <id value="32"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Family, Fay. SSN:
+            222339999</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222339999"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Family"/>
+          <given value="Fay"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1032"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1030 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/33"/>
+    <resource>
+      <Practitioner>
+        <id value="33"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Tum, Tony. SSN:
+            222442222</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222442222"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Tum"/>
+          <given value="Tony"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1033"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1031 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/34"/>
+    <resource>
+      <Practitioner>
+        <id value="34"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Sage, Stanley. SSN:
+            222443333</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222443333"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Sage"/>
+          <given value="Stanley"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1034"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1032 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/35"/>
+    <resource>
+      <Practitioner>
+        <id value="35"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Bleeder, Boris. SSN:
+            222443344</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222443344"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Bleeder"/>
+          <given value="Boris"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1035"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1033 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/36"/>
+    <resource>
+      <Practitioner>
+        <id value="36"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Pasteur, Paula. SSN:
+            222445555</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222445555"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Pasteur"/>
+          <given value="Paula"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1036"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1034 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/37"/>
+    <resource>
+      <Practitioner>
+        <id value="37"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Osler, Otto. SSN:
+            222446666</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222446666"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Osler"/>
+          <given value="Otto"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1037"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1035 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/38"/>
+    <resource>
+      <Practitioner>
+        <id value="38"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Renal, Rory. SSN:
+            222447777</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222447777"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Renal"/>
+          <given value="Rory"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1038"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1036 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/39"/>
+    <resource>
+      <Practitioner>
+        <id value="39"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Brain, Barry. SSN:
+            222448888</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222448888"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Brain"/>
+          <given value="Barry"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1039"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1037 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/40"/>
+    <resource>
+      <Practitioner>
+        <id value="40"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Cranium, Carol. SSN:
+            222449999</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222449999"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Cranium"/>
+          <given value="Carol"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1040"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1038 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/41"/>
+    <resource>
+      <Practitioner>
+        <id value="41"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Fem, Flora. SSN:
+            222552222</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222552222"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Fem"/>
+          <given value="Flora"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1041"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1039 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/42"/>
+    <resource>
+      <Practitioner>
+        <id value="42"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Tumor, Trudy. SSN:
+            222553333</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222553333"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Tumor"/>
+          <given value="Trudy"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-2003"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1040 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/43"/>
+    <resource>
+      <Practitioner>
+        <id value="43"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Vision, Victor. SSN:
+            222554444</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222554444"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Vision"/>
+          <given value="Victor"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1043"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1041 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/44"/>
+    <resource>
+      <Practitioner>
+        <id value="44"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Carpenter, Calvin. SSN:
+            222555545</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222555545"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Carpenter"/>
+          <given value="Calvin"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1044"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1042 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/45"/>
+    <resource>
+      <Practitioner>
+        <id value="45"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Rhino, Rick. SSN:
+            222556666</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222556666"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Rhino"/>
+          <given value="Rick"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1045"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1043 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/46"/>
+    <resource>
+      <Practitioner>
+        <id value="46"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Slide, Stan. SSN:
+            222444444</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222444444"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Slide"/>
+          <given value="Stan"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1010"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1010 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/47"/>
+    <resource>
+      <Practitioner>
+        <id value="47"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Kidder, Karen. SSN:
+            222557777</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222557777"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Kidder"/>
+          <given value="Karen"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1046"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1044 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/48"/>
+    <resource>
+      <Practitioner>
+        <id value="48"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Hollywood, Heddie. SSN:
+            222558888</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222558888"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Hollywood"/>
+          <given value="Heddie"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1047"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1045 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/49"/>
+    <resource>
+      <Practitioner>
+        <id value="49"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Shrink, Serena. SSN:
+            222559999</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222559999"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Shrink"/>
+          <given value="Serena"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1048"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1046 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/50"/>
+    <resource>
+      <Practitioner>
+        <id value="50"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Puffer, Penny. SSN:
+            222662222</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222662222"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Puffer"/>
+          <given value="Penny"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1049"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1047 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/51"/>
+    <resource>
+      <Practitioner>
+        <id value="51"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Curie, Christine. SSN:
+            222555555</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222555555"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Curie"/>
+          <given value="Christine"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1011"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1011 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/52"/>
+    <resource>
+      <Practitioner>
+        <id value="52"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Joint, Jeffrey. SSN:
+            222663333</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222663333"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Joint"/>
+          <given value="Jeffrey"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1050"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1048 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/53"/>
+    <resource>
+      <Practitioner>
+        <id value="53"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Cutter, Carl. SSN:
+            222777777</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222777777"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Cutter"/>
+          <given value="Carl"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1013"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1013 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/54"/>
+    <resource>
+      <Practitioner>
+        <id value="54"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Plumber, Peter. SSN:
+            222664444</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222664444"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Plumber"/>
+          <given value="Peter"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1051"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1049 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/55"/>
+    <resource>
+      <Practitioner>
+        <id value="55"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Helper, Horace. SSN:
+            222665555</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222665555"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Helper"/>
+          <given value="Horace"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1052"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1050 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/56"/>
+    <resource>
+      <Practitioner>
+        <id value="56"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Nightingale, Nancy. SSN:
+            222888888</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222888888"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Nightingale"/>
+          <given value="Nancy"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1014"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1014 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/57"/>
+    <resource>
+      <Practitioner>
+        <id value="57"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Barton, Clarence. SSN:
+            222999999</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222999999"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Barton"/>
+          <given value="Clarence"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1015"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1015 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/58"/>
+    <resource>
+      <Practitioner>
+        <id value="58"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Bender, Bob. SSN:
+            222666666</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222666666"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Bender"/>
+          <given value="Bob"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1053"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1051 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/59"/>
+    <resource>
+      <Practitioner>
+        <id value="59"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Chopper, Charlie. SSN:
+            222667777</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222667777"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Chopper"/>
+          <given value="Charlie"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1054"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1052 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/60"/>
+    <resource>
+      <Practitioner>
+        <id value="60"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Brace, Ben. SSN:
+            222668888</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222668888"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Brace"/>
+          <given value="Ben"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1055"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1053 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/61"/>
+    <resource>
+      <Practitioner>
+        <id value="61"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Specs, Sylvia. SSN:
+            222669999</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222669999"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Specs"/>
+          <given value="Sylvia"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1056"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1054 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/62"/>
+    <resource>
+      <Practitioner>
+        <id value="62"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Script, Susan. SSN:
+            333222222</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="333222222"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Script"/>
+          <given value="Susan"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1016"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1016 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/63"/>
+    <resource>
+      <Practitioner>
+        <id value="63"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Bunion, Paul. SSN:
+            222772222</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222772222"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Bunion"/>
+          <given value="Paul"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1057"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1055 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/64"/>
+    <resource>
+      <Practitioner>
+        <id value="64"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Listener, Larry. SSN:
+            222773333</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222773333"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Listener"/>
+          <given value="Larry"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1058"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1056 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/65"/>
+    <resource>
+      <Practitioner>
+        <id value="65"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Beaker, Bill. SSN:
+            333444444</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="333444444"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Beaker"/>
+          <given value="Bill"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1017"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1017 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/66"/>
+    <resource>
+      <Practitioner>
+        <id value="66"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Chow, Connie. SSN:
+            333555555</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="333555555"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Chow"/>
+          <given value="Connie"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1018"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1018 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/67"/>
+    <resource>
+      <Practitioner>
+        <id value="67"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">teHelper. SSN: 000111111</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="000111111"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Helper"/>
+          <given value="Helen"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1019"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1019 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/68"/>
+    <resource>
+      <Practitioner>
+        <id value="68"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Player, Pamela. SSN:
+            222776666</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222776666"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Player"/>
+          <given value="Pamela"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1059"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1057 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/69"/>
+    <resource>
+      <Practitioner>
+        <id value="69"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Stretcher, Seth. SSN:
+            222778888</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="222778888"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Stretcher"/>
+          <given value="Seth"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1060"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1058 Healthcare Drive"/>
+        </address>
+        <gender value="male"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="http://hl7.org/fhir/Practitioner/70"/>
+    <resource>
+      <Practitioner>
+        <id value="70"/>
+        <meta>
+          <lastUpdated value="2012-05-29T23:45:32Z"/>
+        </meta>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml">Enter Ellen, ElleSSN:
+            333777777</div>
+        </text>
+        <identifier>
+          <type>
+            <coding>
+              <system value="http://hl7.org/fhir/v2/0203"/>
+              <code value="SS"/>
+            </coding>
+          </type>
+          <system value="http://hl7.org/fhir/sid/us-ssn"/>
+          <value value="333777777"/>
+        </identifier>
+        <name>
+          <use value="official"/>
+          <family value="Enter"/>
+          <given value="Ellen"/>
+        </name>
+        <telecom>
+          <system value="phone"/>
+          <value value="555-555-1020"/>
+          <use value="work"/>
+        </telecom>
+        <address>
+          <use value="home"/>
+          <line value="1058 Healthcare Drive"/>
+        </address>
+        <gender value="female"/>
+        <practitionerRole>
+          <organization>
+            <reference value="Organization/hl7"/>
+          </organization>
+        </practitionerRole>
+      </Practitioner>
+    </resource>
+  </entry>
+</Bundle>

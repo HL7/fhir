@@ -1,0 +1,205 @@
+﻿
+=== Sheet Bindings =====================================
+
+ -- Row 1 -----------------------------------
+  Binding Name = PractitionerRole
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/practitioner-role
+  Definition = The role a person plays representing an organization
+  Conformance = example
+
+ -- Row 2 -----------------------------------
+  Binding Name = PractitionerSpecialty
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
+  Definition = Specific specialty associated with the agency
+  Conformance = preferred
+
+=== Sheet Invariants =====================================
+
+=== Sheet Data Elements =====================================
+
+ -- Row 1 -----------------------------------
+  Element = PractitionerRole
+  Type = DomainResource
+  Short Label = Roles/organizations the practitioner is associated with
+  Definition = A person who is directly or indirectly involved in the provisioning of healthcare.
+  Requirements = Need to track doctors, staff, locums etc. for both healthcare practitioners, funders, etc.
+  Comments = Note that a cab driver no longer fits the bill. You probably would be interested in the organization rather than the individual?
+  v2 Mapping = PRD (as one example)
+  RIM Mapping = Role
+  ServD Mapping = Provider
+  w5 = administrative.individual
+
+ -- Row 2 -----------------------------------
+  Element = PractitionerRole.identifier
+  Card. = 0..*
+  Summary = y
+  Type = Identifier
+  Short Label = Business Identifiers that are specific to a role/location
+  Requirements = Often, specific identities are assigned for the agent
+  v2 Mapping = PRD-7 (or XCN.1)
+  RIM Mapping = ./id
+  ServD Mapping = ./Identifiers
+  Committee Notes = Under \"Comments\" it said: \"The identifier changes when a new/different person steps into the same role\". This depends on business rules, I would assume a new instance is created instead.  did keep the text here just in case.
+  w5 = id
+
+ -- Row 3 -----------------------------------
+  Element = PractitionerRole.active
+  Card. = 0..1
+  Summary = y
+  Type = boolean
+  Short Label = Whether this practitioner\'s record is in active use
+  Definition = Whether this practitioner\'s record is in active use
+  Requirements = Need to be able to mark a practitioner record as not to be used because it was created in error
+  Comments = Default is true. \n\nIf the practitioner is not in use by one organization, then it should mark the period on the PractitonerRole with an end date (even if they are active) as they may be active in another role.
+  RIM Mapping = ./StatusCode
+  Default Value = True
+  w5 = status
+
+ -- Row 4 -----------------------------------
+  Element = PractitionerRole.practitioner
+  Card. = 0..1
+  Summary = y
+  Type = Reference(Practitioner)
+  Short Label = Practitioner with the information as defined
+
+ -- Row 5 -----------------------------------
+  Element = PractitionerRole.organization
+  Card. = 0..1
+  Type = Reference(Organization)
+  Short Label = Organization where the roles are performed
+  Definition = The organization where the Practitioner performs the roles associated
+  RIM Mapping = scopingOrganization
+
+ -- Row 6 -----------------------------------
+  Element = PractitionerRole.role
+  Card. = 0..1
+  Summary = y
+  Type = CodeableConcept
+  Binding = PractitionerRole
+  Short Label = Roles which this practitioner may perform
+  Definition = Roles which this practitioner is authorized to perform for the organization
+  Requirements = Need to know what authority the practitioner has - what can they do?
+  Comments = A person may have more than one role. At least one role is required.
+  v2 Mapping = PRD-1 / STF-18  / PRA-3  / PRT-4  / ROL-3 / ORC-12 / OBR-16 / PV1-7 / PV1-8 / PV1-9 / PV1-17
+  RIM Mapping = ./code
+  ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
+
+ -- Row 7 -----------------------------------
+  Element = PractitionerRole.specialty
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = PractitionerSpecialty
+  Short Label = Specific specialty of the practitioner
+  Definition = Specific specialty of the practitioner
+  v2 Mapping = PRA-5
+  RIM Mapping = indirectAuthority/QualifiedEntity[code < Speciality]/code
+  ServD Mapping = ./Specialty
+
+ -- Row 8 -----------------------------------
+  Element = PractitionerRole.location
+  Card. = 0..*
+  Type = Reference(Location)
+  Short Label = The location(s) at which this practitioner provides care
+  Definition = The location(s) at which this practitioner provides care
+  RIM Mapping = ./target[classCode=\"indirectAuthority].source[classCode=SDLOC]
+  ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)<br/> However these are accessed via the Site.ServiceSite.ServiceSiteProvider record. (The Site has the location)
+  w5 = where
+
+ -- Row 9 -----------------------------------
+  Element = PractitionerRole.healthcareService
+  Card. = 0..*
+  Type = Reference(HealthcareService)
+  Short Label = The list of healthcare services that this worker provides for this role\'s Organization/Location(s)
+  RIM Mapping = ./target[classCode=\"indirectAuthority].id?
+
+ -- Row 10 -----------------------------------
+  Element = PractitionerRole.telecom
+  Card. = 0..*
+  Summary = y
+  Type = ContactPoint
+  Short Label = Contact details that are specific to the role/location/service
+  Requirements = Often practitioners have a dedicated line for each location (or service) that they work at, and need to be able to define separate contact details for each of these.
+
+ -- Row 11 -----------------------------------
+  Element = PractitionerRole.period
+  Card. = 0..1
+  Summary = y
+  Type = Period
+  Short Label = The period during which the practitioner is authorized to perform in these role(s)
+  Definition = The period during which the person is authorized to act as a practitioner in these role(s) for the organization
+  Requirements = Even after the agencies is revoked, the fact that it existed must still be recorded
+  v2 Mapping = PRD-8/9 / PRA-5.4
+  RIM Mapping = ./effectiveTime
+  ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
+  Committee Notes = Is this separate from the period of validity of the qualification?
+  w5 = when.done
+
+=== Sheet Search =====================================
+
+ -- Row 1 -----------------------------------
+  Name = identifier
+  Type = token
+  Description = A practitioner\'s Identifier
+  Path = PractitionerRole.identifier
+
+ -- Row 2 -----------------------------------
+  Name = practitioner
+  Type = reference
+  Path = PractitionerRole.practitioner
+
+ -- Row 3 -----------------------------------
+  Name = telecom
+  Type = token
+  Description = The value in any kind of contact
+  Path = PractitionerRole.telecom
+
+ -- Row 4 -----------------------------------
+  Name = phone
+  Type = token
+  Description = A value in a phone contact
+  Path = PractitionerRole.telecom(system=phone)
+
+ -- Row 5 -----------------------------------
+  Name = email
+  Type = token
+  Description = A value in an email contact
+  Path = PractitionerRole.telecom(system=email)
+
+ -- Row 6 -----------------------------------
+  Name = organization
+  Type = reference
+  Description = The identity of the organization the practitioner represents / acts on behalf of
+  Path = PractitionerRole.organization
+
+ -- Row 7 -----------------------------------
+  Name = location
+  Type = reference
+  Description = One of the locations at which this practitioner provides care
+  Path = PractitionerRole.location
+
+ -- Row 8 -----------------------------------
+  Name = specialty
+  Type = token
+  Description = The practitioner has this specialty at an organization
+  Path = PractitionerRole.specialty
+
+ -- Row 9 -----------------------------------
+  Name = role
+  Type = token
+  Description = The practitioner can perform this role at for the organization
+  Path = PractitionerRole.role
+
+=== Sheet Profiles =====================================
+
+=== Sheet Examples =====================================
+
+ -- Row 1 -----------------------------------
+  Name = AdamCareFullAtAcme
+  Identity = example
+  Description = Dr Adam Careful\'s role at the Acme Hospital
+  Filename = practitionerrole-example.xml
+
+=== Sheet Examples =====================================

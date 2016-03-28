@@ -510,6 +510,9 @@
         <translation lang="es">Practicante</translation>
         <translation lang="fr">Praticien</translation>
     </item>
+    <item id="PractitionerRole">
+        <translation lang="en">PractitionerRole</translation>
+    </item>
     <item id="Procedure">
         <translation lang="en">Procedure</translation>
         <translation lang="zh">步骤</translation>

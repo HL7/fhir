@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PractitionerRole xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://hl7.org/fhir ../../schema/practitionerrole.xsd">
+	<id value="example"/>
+
+	<text>
+		<status value="generated"/>
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<p>
+				Dr Adam Careful is a Referring Practitioner for Acme Hospital from 1-Jan 2012 to 31-Mar
+				2012
+			</p>
+		</div>
+	</text>
+
+	<identifier>
+		<system value="http://www.acme.org/practitioners"/>
+		<value value="23"/>
+	</identifier>
+	<active value="true"/>
+	<organization>
+		<reference value="Organization/f001"/>
+	</organization>
+
+	<!-- Referring Practitioner for the first 3 months of 2012 -->
+	<role>
+		<coding>
+			<system value="http://hl7.org/fhir/v2/0286"/>
+			<code value="RP"/>
+		</coding>
+	</role>
+
+	<location>
+		<reference value="Location/1"/>
+		<display value="South Wing, second floor"/>
+	</location>
+	<healthcareService>
+		<reference value="HealthcareService/example"/>
+	</healthcareService>
+	<telecom>
+		<system value="phone" />
+		<value value="(03) 5555 6473" />
+		<use value="home"/>
+	</telecom>
+	<period>
+		<start value="2012-01-01"/>
+		<end value="2012-03-31"/>
+	</period>
+</PractitionerRole>

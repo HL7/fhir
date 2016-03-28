@@ -259,6 +259,7 @@ signatures.html
 			<page type="resource" resource="RelatedPerson"/>
 			<page type="resource" resource="Person"/>
 			<page type="resource" resource="Practitioner"/>
+			<page type="resource" resource="PractitionerRole"/>
 			<page type="resource" resource="Organization"/>
 			<page type="resource" resource="HealthcareService"/>
 			<page type="resource" resource="Account"/>
