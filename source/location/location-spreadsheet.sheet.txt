@@ -111,7 +111,7 @@
   Card. = 0..1
   Summary = Y
   Type = string
-  Short Label = Description of the location
+  Short Label = Additional details about the location that could be displayed as further information to identify the location beyond its name
   Definition = Description of the Location, which helps in finding or referencing the place
   Requirements = Humans need additional information to verify a correct location has been identified
   RIM Mapping = .playingEntity[classCode=PLC determinerCode=INSTANCE].desc
