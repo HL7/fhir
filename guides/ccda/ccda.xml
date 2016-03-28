@@ -67,7 +67,6 @@
       <acronym value="ccda-ccd-composition"/>
       <sourceUri value="StructureDefinition/ccda-ccd-composition.xml"/>
     </resource>
-    <!--
     <resource>
       <example value="false"/>
       <name value="C-CDA on FHIR Diagnostic Imaging Report"/>
@@ -76,7 +75,6 @@
       <acronym value="ccda-diagnostic-imaging-composition"/>
       <sourceUri value="StructureDefinition/ccda-diagnostic-imaging-composition.xml"/>
     </resource>
-    -->
     <resource>
       <example value="false"/>
       <name value="C-CDA on FHIR Discharge Summary"/>
