@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>14010</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
+  <WindowHeight>6900</WindowHeight>
+  <WindowWidth>2910</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3899,7 +3899,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4044,7 +4043,7 @@
     <Cell ss:StyleID="s90"><Data ss:Type="String">error</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Bundle</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">FullUrl must be unique in a bundle, or else entries with the same fullUrl must have different meta.versionId</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.where(fullUrl).distinct(fullUrl,resource.meta.versionId)</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">entry.where(fullUrl).select(fullUrl+resource.meta.versionId).distinct()</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">count(for $entry in f:entry[f:resource] return $entry[count(parent::f:Bundle/f:entry[f:fullUrl/@value=$entry/f:fullUrl/@value and ((not(f:resource/*/f:meta/f:versionId/@value) and not($entry/f:resource/*/f:meta/f:versionId/@value)) or f:resource/*/f:meta/f:versionId/@value=$entry/f:resource/*/f:meta/f:versionId/@value)])!=1])=0</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4376,6 +4375,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4395,8 +4395,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>0</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4457,7 +4457,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource(0)</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource.item(0)</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource[0]</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">MessageHeader</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The first resource in the bundle, if the bundle type is &quot;message&quot; - this is a message header, and this parameter provides access to search its contents</Data></Cell>
    </Row>
@@ -4466,7 +4466,7 @@
     <Cell ss:StyleID="s87"><Data ss:Type="String">reference</Data></Cell>
     <Cell ss:StyleID="s87"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource(0)</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource.item(0)</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">Bundle.entry.resource[0]</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">Composition</Data></Cell>
     <Cell ss:StyleID="s119"><Data ss:Type="String">The first resource in the bundle, if the bundle type is &quot;document&quot; - this is a composition, and this parameter provides access to searches its contents</Data></Cell>
    </Row>

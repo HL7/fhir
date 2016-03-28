@@ -8,7 +8,7 @@
   Context = Parameters.parameter
   English = A parameter must have only one of (value, resource, part)
   XPath = exists(f:value) or exists(f:resource) and not(exists(f:value) and exists(f:resource))
-  Expression = value[x] xor resource
+  Expression = value xor resource
 
 === Sheet Data Elements =====================================
 

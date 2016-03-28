@@ -91,7 +91,7 @@
   Context = MedicationAdministration.dosage
   English = SHALL have at least one of dosage.quantity and dosage.rate[x]
   XPath = exists(f:quantity) or exists(f:rateRatio) or exists(f:rateRange)
-  Expression = quantity or rate[x]
+  Expression = quantity or rate
 
  -- Row 2 -----------------------------------
   Id = 2

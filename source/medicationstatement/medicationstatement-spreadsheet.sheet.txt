@@ -90,7 +90,7 @@
   Context = MedicationStatement
   English = Reason for use is only permitted if wasNotTaken is false
   XPath = not(exists(*[starts-with(local-name(.), \'reasonForUse\')]) and f:wasNotTaken/@value=true())
-  Expression = reasonForUse[x].empty() or wasNotTaken = false
+  Expression = reasonForUse.empty() or wasNotTaken = false
 
 === Sheet Data Elements =====================================
 

@@ -10,18 +10,18 @@
   <LastAuthor>Ao Li</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-12-07T22:13:59Z</LastSaved>
-  <Version>12.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5985</WindowHeight>
-  <WindowWidth>25260</WindowWidth>
-  <WindowTopX>-15</WindowTopX>
-  <WindowTopY>-15</WindowTopY>
+  <WindowHeight>6900</WindowHeight>
+  <WindowWidth>2910</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
   <TabRatio>663</TabRatio>
-  <ActiveSheet>6</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4610,7 +4610,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Observation</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">dataAbsentReason SHALL only be present if Observation.value[x] is not present</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">dataAbsentReason.empty() or value[x].empty()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">dataAbsentReason.empty() or value.empty()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:dataAbsentReason)) or (not(exists(*[starts-with(local-name(.), 'value')])))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="120">
@@ -5024,6 +5024,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5043,7 +5044,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -6488,7 +6489,6 @@
     <VerticalResolution>-4</VerticalResolution>
    </Print>
    <Zoom>125</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

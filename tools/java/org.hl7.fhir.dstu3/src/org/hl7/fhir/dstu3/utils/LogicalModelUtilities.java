@@ -17,7 +17,6 @@ import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.BundleMappingContext;
 import org.hl7.fhir.dstu3.utils.FHIRPathEngine.IConstantResolver;
 import org.hl7.fhir.exceptions.DefinitionException;
 import org.hl7.fhir.exceptions.FHIRException;
@@ -66,11 +65,9 @@ public class LogicalModelUtilities implements IConstantResolver {
     
     FHIRPathEngine fp = new FHIRPathEngine(context);
     fp.setConstantResolver(this);
-    FHIRPathEngine.BundleMappingContext mc = new FHIRPathEngine.BundleMappingContext(bnd); 
-    fp.initMapping(mc);
     
     // first, look for data
-    parseExpressions(fp, mc, key, data);
+    parseExpressions(fp, key, data);
 //    executeExpressions(fp, mc, data);
     return bnd; 
   }
@@ -124,13 +121,11 @@ public class LogicalModelUtilities implements IConstantResolver {
     return null;
   }
 
-  private void parseExpressions(FHIRPathEngine fp, BundleMappingContext mc, String key, LogicalModelNode node) throws Exception {
+  private void parseExpressions(FHIRPathEngine fp, String key, LogicalModelNode node) throws Exception {
     node.setMapping(getLogicalMapping(node.getDefinition(), key));
-    if (node.getMapping() != null && !node.getMapping().startsWith("!"))
-      node.setExpressions(fp.parseMap(mc, node.getMapping()));
     if (node.hasChildren())
       for (LogicalModelNode child : node.getChildren()) 
-        parseExpressions(fp, mc, key, child);
+        parseExpressions(fp, key, child);
   }
 
   private String getMappingKey(StructureDefinition logical) throws Exception {
@@ -149,19 +144,12 @@ public class LogicalModelUtilities implements IConstantResolver {
     return null;
   }
 
-  private void executeExpressions(FHIRPathEngine fp, BundleMappingContext mc, LogicalModelNode node) throws Exception {
+  private void executeExpressions(FHIRPathEngine fp, LogicalModelNode node) throws Exception {
     if (node.isEmpty())
       return; // don't execute expressions if there's no data
-    if (node.getExpressions() != null) {
-      try {
-        fp.performMapping(mc, node.getDefinition(), node.getData(), node.getExpressions()); // it's ok if node.getData() == null
-      } catch (Exception e) {
-        throw new FHIRException("Error running mapping '"+node.getMapping()+"': "+e.getMessage(), e);
-      }
-    }
     if (node.hasChildren())
       for (LogicalModelNode child : node.getChildren()) 
-        executeExpressions(fp, mc, child);
+        executeExpressions(fp, child);
   }        
 
   @Override

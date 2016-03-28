@@ -69,7 +69,7 @@
   Context = StructureDefinition
   English = Element paths must be unique unless the structure is a constraint
   XPath = exists(f:constrainedType) or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))
-  Expression = constrainedType or snapshot.element.distinct(path)
+  Expression = constrainedType or snapshot.element.all(path)
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -119,7 +119,7 @@
   Context = StructureDefinition
   English = In any snapshot or differential, all the elements except the first have to have a path that starts with the path of the first + \".\"
   XPath = string-join(for $elementName in f:*[self::f:snapshot or self::f:differential]/f:element[position()>1]/f:path/@value return if (starts-with($elementName, concat($elementName/ancestor::f:element/parent::f:*/f:element[1]/f:path/@value, \'.\'))) then \'\' else $elementName,\'\')=\'\'
-  Expression = snapshot.element.tail().all(path.startsWith($context.snapshot.element.first().path+\".\")) and differential.element.tail().all(path.startsWith($context.differential.element.first().path+\".\"))
+  Expression = snapshot.element.tail().all(path.startsWith($context.snapshot.element.first().path+\'.\')) and differential.element.tail().all(path.startsWith($context.differential.element.first().path+\'.\'))
 
  -- Row 9 -----------------------------------
   Id = 9
@@ -127,7 +127,7 @@
   Context = StructureDefinition
   English = In any snapshot or differential, no label, code or requirements on the an element without a \".\" in the path (e.g. the first element)
   XPath = not(exists(f:snapshot/f:element[not(contains(f:path/@value, \'.\')) and (f:label or f:code or f:requirements)])) and not(exists(f:differential/f:element[not(contains(f:path/@value, \'.\')) and (f:label or f:code or f:requirements)]))
-  Expression = *.element.first().label.empty() and *.element.first().code.empty() and *.element.first().requirements.empty()
+  Expression = children().element.first().label.empty() and children().element.first().code.empty() and children().element.first().requirements.empty()
 
  -- Row 10 -----------------------------------
   Id = 11

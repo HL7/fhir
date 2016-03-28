@@ -158,63 +158,63 @@
   Context = ElementDefinition
   English = Min <= Max
   XPath = not(exists(f:min)) or not(exists(f:max)) or (not(f:max/@value) and not(f:min/@value)) or (f:max/@value = \'*\') or (number(f:max/@value) >= f:min/@value)
-  Expression = min.empty() or max.empty() or (max = \"*\") or (min <= max.asInteger())
+  Expression = min.empty() or max.empty() or (max = \'*\') or (min <= max.toInteger())
 
  -- Row 3 -----------------------------------
   Id = 3
   Context = ElementDefinition.max
   English = Max SHALL be a number or \"*\"
   XPath = @value=\'*\' or (normalize-space(@value)!=\'\' and normalize-space(translate(@value, \'0123456789\',\'\'))=\'\')
-  Expression = max.empty() or (max = \"*\") or (max.asInteger() >= 0)
+  Expression = max.empty() or (max = \'*\') or (max.toInteger() >= 0)
 
  -- Row 4 -----------------------------------
   Id = 4
   Context = ElementDefinition.type
   English = Aggregation may only be specified if one of the allowed types for the element is a resource
   XPath = not(exists(f:aggregation)) or exists(f:code[@value = \'Reference\'])
-  Expression = aggregation.empty() or (code = \"Reference\")
+  Expression = aggregation.empty() or (code = \'Reference\')
 
  -- Row 5 -----------------------------------
   Id = 5
   Context = ElementDefinition
   English = if the element definition has a contentReference, it cannot have type, defaultValue, fixed, pattern, example, minValue, maxValue, maxLength, or binding
   XPath = not(exists(f:contentReference) and (exists(f:type) or exists(f:*[starts-with(local-name(.), \'value\')]) or exists(f:*[starts-with(local-name(.), \'defaultValue\')])  or exists(f:*[starts-with(local-name(.), \'fixed\')]) or exists(f:*[starts-with(local-name(.), \'pattern\')]) or exists(f:*[starts-with(local-name(.), \'example\')]) or exists(f:*[starts-with(local-name(.), \'f:minValue\')]) or exists(f:*[starts-with(local-name(.), \'f:maxValue\')]) or exists(f:maxLength) or exists(f:binding)))
-  Expression = contentReference.empty() or (type.empty() and defaultValue[x].empty() and fixed[x].empty() and pattern[x].empty() and example[x].empty() and minValue[x].empty() and maxValue[x].empty() and maxLength.empty() and binding.empty())
+  Expression = contentReference.empty() or (type.empty() and defaultValue.empty() and fixed.empty() and pattern.empty() and example.empty() and minValue.empty() and maxValue.empty() and maxLength.empty() and binding.empty())
 
  -- Row 6 -----------------------------------
   Id = 6
   Context = ElementDefinition
   English = Fixed value may only be specified if there is one type
   XPath = not(exists(f:*[starts-with(local-name(.), \'fixed\')])) or (count(f:type)=1)
-  Expression = fixed[x].empty() or (type.count() = 1)
+  Expression = fixed.empty() or (type.count() = 1)
 
  -- Row 7 -----------------------------------
   Id = 7
   Context = ElementDefinition
   English = Pattern may only be specified if there is one type
   XPath = not(exists(f:*[starts-with(local-name(.), \'pattern\')])) or (count(f:type)=1)
-  Expression = pattern[x].empty() or (type.count() = 1)
+  Expression = pattern.empty() or (type.count() = 1)
 
  -- Row 8 -----------------------------------
   Id = 8
   Context = ElementDefinition
   English = Pattern and value are mutually exclusive
   XPath = not(exists(f:*[starts-with(local-name(.), \'pattern\')])) or not(exists(f:*[starts-with(local-name(.), \'value\')]))
-  Expression = pattern[x].empty() or fixed[x].empty()
+  Expression = pattern.empty() or fixed.empty()
 
  -- Row 9 -----------------------------------
   Id = 10
   Context = ElementDefinition.binding
   English = provide either a reference or a description (or both)
   XPath = (exists(f:valueSetUri) or exists(f:valueSetReference)) or exists(f:description)
-  Expression = valueSet[x] or description
+  Expression = valueSet or description
 
  -- Row 10 -----------------------------------
   Id = 11
   Context = ElementDefinition
   English = Binding can only be present for coded elements, string, and uri
   XPath = not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=(\'code\',\'Coding\',\'CodeableConcept\',\'Quantity\',\'Extension\', \'string\', \'uri\')
-  Expression = binding.empty() or type.code.empty() or type.any((code = \'code\') or (code = \'Coding\') or (code=\'CodeableConcept\') or (code = \'Quantity\') or (code = \'Extension\') or (code = \'string\') or (code = \'uri\'))
+  Expression = binding.empty() or type.code.empty() or type.select((code = \'code\') or (code = \'Coding\') or (code=\'CodeableConcept\') or (code = \'Quantity\') or (code = \'Extension\') or (code = \'string\') or (code = \'uri\')).exists()
 
  -- Row 11 -----------------------------------
   Id = 12
@@ -228,21 +228,21 @@
   Context = ElementDefinition
   English = Types must be unique by the combination of code and profile
   XPath = not(exists(for $type in f:type return $type/preceding-sibling::f:type[f:code/@value=$type/f:code/@value and f:profile/@value = $type/f:profile/@value]))
-  Expression = type.distinct(code,profile)
+  Expression = type.select(code+profile).distinct()
 
  -- Row 13 -----------------------------------
   Id = 14
   Context = ElementDefinition
   English = Constraints must be unique by key
   XPath = count(f:constraint) = count(distinct-values(f:constraint/f:key/@value))
-  Expression = constraint.distinct(key)
+  Expression = constraint.select(key).distinct()
 
  -- Row 14 -----------------------------------
   Id = 15
   Context = ElementDefinition
   English = default value and meaningWhenMissing are mutually exclusive
   XPath = not(exists(f:*[starts-with(local-name(.), \'fixed\')])) or not(exists(f:meaningWhenMissing))
-  Expression = defaultValue[x].empty() or meaningWhenMissing.empty()
+  Expression = defaultValue.empty() or meaningWhenMissing.empty()
 
  -- Row 15 -----------------------------------
   Id = !16

@@ -77,8 +77,8 @@
   Short Label = Information about an individual or animal receiving health care services
   Definition = Demographics and other administrative information about an individual or animal receiving care or other health-related services.
   Requirements = Tracking patient is the center of the healthcare process
-  RIM Mapping = Patient[classCode=PAT]
   CDA Mapping = ClinicalDocument.recordTarget.patientRole
+  RIM Mapping = Patient[classCode=PAT]
   w5 = administrative.individual
 
  -- Row 2 -----------------------------------
@@ -89,9 +89,9 @@
   Short Label = An identifier for this patient
   Definition = An identifier for this patient
   Requirements = Patients are almost always assigned specific numerical identifiers
+  CDA Mapping = .id
   v2 Mapping = PID-3
   RIM Mapping = id
-  CDA Mapping = .id
   w5 = id
 
  -- Row 3 -----------------------------------
@@ -104,8 +104,8 @@
   Definition = Whether this patient record is in active use
   Requirements = Need to be able to mark a patient record as not to be used because it was created in error
   Comments = Default is true. If a record is inactive, and linked to an active record, then future patient/record updates should occur on the other patient
-  RIM Mapping = statusCode
   CDA Mapping = n/a
+  RIM Mapping = statusCode
   Default Value = True
   w5 = status
 
@@ -118,9 +118,9 @@
   Definition = A name associated with the individual.
   Requirements = Need to be able to track the patient by multiple names. Examples are your official name and a partner name.
   Comments = A patient may have multiple names with different uses or applicable periods. For animals, the name is a \"HumanName\" in the sense that is assigned and used by humans and has the same patterns
+  CDA Mapping = .patient.name
   v2 Mapping = PID-5, PID-9
   RIM Mapping = name
-  CDA Mapping = .patient.name
 
  -- Row 5 -----------------------------------
   Element = Patient.telecom
@@ -131,9 +131,9 @@
   Definition = A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
   Requirements = People have (primary) ways to contact them in some way such as phone, email.
   Comments = A Patient may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently and also to help with identification. The address may not go directly to the individual, but may reach another party that is able to proxy for the patient (i.e. home phone, or pet owner\'s phone)
+  CDA Mapping = .telecom
   v2 Mapping = PID-13, PID-14, PID-40
   RIM Mapping = telecom
-  CDA Mapping = .telecom
 
  -- Row 6 -----------------------------------
   Element = Patient.gender
@@ -145,9 +145,9 @@
   Definition = Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
   Requirements = Needed for identification of the individual, in combination with (at least) name and birth date. Gender of individual drives many clinical processes.
   Comments = The gender may not match the biological sex as determined by genetics, or the individual\'s preferred identification. Note that for both humans and particularly animals, there are other legitimate possibilities than M and F, though the vast majority of systems and contexts only support M and F.  Systems providing decision support or enforcing business rules should ideally do this on the basis of Observations dealing with the specific gender aspect of interest (anatomical, chromosonal, social, etc.)  However, because these observations are infrequently recorded, defaulting to the administrative gender is common practice.  Where such defaulting occurs, rule enforcement should allow for the variation between administrative and biological, chromosonal and other gender aspects.  For example, an alert about a hysterectomy on a male should be handled as a warning or overrideable error, not a \"hard\" error.
+  CDA Mapping = .patient.administrativeGenderCode
   v2 Mapping = PID-8
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/administrativeGender
-  CDA Mapping = .patient.administrativeGenderCode
   Committee Notes = \'gender\' is still the administrative gender, but this is reflected in its description rather than its name.
 
  -- Row 7 -----------------------------------
@@ -159,10 +159,10 @@
   Definition = The date of birth for the individual
   Requirements = Age of the individual drives many clinical processes.
   Comments = At least an estimated year should be provided as a guess if the real DOB is unknown  There is a standard extension \"patient-birthTime\" available that should be used where Time is required (such as in maternaty/infant care systems)
+  LOINC Code = 21112-8
+  CDA Mapping = .patient.birthTime
   v2 Mapping = PID-7
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/birthTime
-  CDA Mapping = .patient.birthTime
-  LOINC Code = 21112-8
   Committee Notes = renamed from dob, because the abbreviation is not obvious to non-English speakers
 
  -- Row 8 -----------------------------------
@@ -172,10 +172,10 @@
   Short Label = The time of birth for the individual
   Definition = The  time of birth for the individual
   Requirements = In some cases birth time is important (e.g. multiple births). Hospitals will capture the time of birth in most cases.
+  LOINC Code = 21112-8
+  CDA Mapping = .patient.birthTime
   v2 Mapping = PID-7
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/birthTime
-  CDA Mapping = .patient.birthTime
-  LOINC Code = 21112-8
   Committee Notes = The time field is not used in 80% of systems, and is available as a standard extension
 
  -- Row 9 -----------------------------------
@@ -188,9 +188,9 @@
   Definition = Indicates if the individual is deceased or not
   Requirements = The fact that a patient is deceased influences the clinical process. Also, in human communication and relation management it is necessary to know whether the person is alive.
   Comments = If there\'s no value in the instance it means there is no statement on whether or not the individual is deceased. Most systems will interpret the absence of a value as a sign of the person being alive.
+  CDA Mapping = n/a
   v2 Mapping = PID-30  (bool) and PID-29 (datetime)
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedInd, player[classCode=PSN|ANM and determinerCode=INSTANCE]/deceasedTime
-  CDA Mapping = n/a
 
  -- Row 10 -----------------------------------
   Element = Patient.address
@@ -201,9 +201,9 @@
   Definition = Addresses for the individual
   Requirements = May need to keep track of patient addresses for contacting, billing or reporting requirements and also to help with identification
   Comments = Patient may have multiple addresses with different uses or applicable periods
+  CDA Mapping = .addr
   v2 Mapping = PID-11
   RIM Mapping = addr
-  CDA Mapping = .addr
 
  -- Row 11 -----------------------------------
   Element = Patient.maritalStatus
@@ -213,9 +213,9 @@
   Short Label = Marital (civil) status of a patient
   Definition = This field contains a patient\'s most recent marital (civil) status.
   Requirements = Most, if not all systems capture it.
+  CDA Mapping = .patient.maritalStatusCode
   v2 Mapping = PID-16
   RIM Mapping = player[classCode=PSN]/maritalStatusCode
-  CDA Mapping = .patient.maritalStatusCode
 
  -- Row 12 -----------------------------------
   Element = Patient.multipleBirth[x]
@@ -225,9 +225,9 @@
   Definition = Indicates whether the patient is part of a multiple (bool) or indicates the actual birth order (integer).
   Requirements = For disambiguation of multiple-birth children, especially relevant where the care provider doesn\'t meet the patient, such as labs.
   Comments = Where the valueInteger is provided, the number is the birth number in the sequence.\nE.g. The middle birth in tripplets would be valueInteger=2 and the third born would have valueInteger=3\nIf a bool value was provided for this tripplets examle, then all 3 patient records would have valueBool=true (the ordering is not indicated).
+  CDA Mapping = n/a
   v2 Mapping = PID-24 (bool), PID-25 (integer)
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthInd,  player[classCode=PSN|ANM and determinerCode=INSTANCE]/multipleBirthOrderNumber
-  CDA Mapping = n/a
 
  -- Row 13 -----------------------------------
   Element = Patient.photo
@@ -236,9 +236,9 @@
   Short Label = Image of the patient
   Definition = Image of the patient
   Requirements = Many EHR systems have the capability to capture an image of the patient. Fits with newer social media usage too.
+  CDA Mapping = n/a
   v2 Mapping = OBX-5 - needs a profile
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/desc
-  CDA Mapping = n/a
 
  -- Row 14 -----------------------------------
   Element = Patient.contact
@@ -249,8 +249,8 @@
   Definition = A contact party (e.g. guardian, partner, friend) for the patient
   Requirements = Need to track people you can contact about the patient
   Comments = Contact covers all kinds of contact parties: family members, business contacts, guardians, caregivers. Not applicable to register pedigree and family ties beyond use of having contact.
-  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/scopedRole[classCode=CON]
   CDA Mapping = n/a
+  RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/scopedRole[classCode=CON]
 
  -- Row 15 -----------------------------------
   Element = Patient.contact.relationship
@@ -260,9 +260,9 @@
   Short Label = The kind of relationship
   Definition = The nature of the relationship between the patient and the contact person
   Requirements = Used to determine which contact person is the most relevant to approach, depending on circumstances
+  CDA Mapping = n/a
   v2 Mapping = NK1-7, NK1-3
   RIM Mapping = code
-  CDA Mapping = n/a
 
  -- Row 16 -----------------------------------
   Element = Patient.contact.name
@@ -271,9 +271,9 @@
   Short Label = A name associated with the contact person
   Definition = A name associated with the contact person
   Requirements = Contact persons need to be identified by name, but it is uncommon to need details about multiple other names for that contact person
+  CDA Mapping = n/a
   v2 Mapping = NK1-2
   RIM Mapping = name
-  CDA Mapping = n/a
 
  -- Row 17 -----------------------------------
   Element = Patient.contact.telecom
@@ -283,9 +283,9 @@
   Definition = A contact detail for the person, e.g. a telephone number or an email address.
   Requirements = People have (primary) ways to contact them in some way such as phone, email.
   Comments = Contact may have multiple ways to be contacted with different uses or applicable periods.  May need to have options for contacting the person urgently, and also to help with identification
+  CDA Mapping = n/a
   v2 Mapping = NK1-5, NK1-6, NK1-40
   RIM Mapping = telecom
-  CDA Mapping = n/a
 
  -- Row 18 -----------------------------------
   Element = Patient.contact.address
@@ -294,9 +294,9 @@
   Short Label = Address for the contact person
   Definition = Address for the contact person
   Requirements = Need to keep track where the contact person can be contacted per postal mail or visited
+  CDA Mapping = n/a
   v2 Mapping = NK1-4
   RIM Mapping = addr
-  CDA Mapping = n/a
 
  -- Row 19 -----------------------------------
   Element = Patient.contact.gender
@@ -306,9 +306,9 @@
   Short Label = male | female | other | unknown
   Definition = Administrative Gender - the gender that the contact person is considered to have for administration and record keeping purposes.
   Requirements = Needed to address the person correctly
+  CDA Mapping = n/a
   v2 Mapping = NK1-15
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/administrativeGender
-  CDA Mapping = n/a
 
  -- Row 20 -----------------------------------
   Element = Patient.contact.organization
@@ -318,9 +318,9 @@
   Short Label = Organization that is associated with the contact
   Definition = Organization on behalf of which the contact is acting or for which the contact is working.
   Requirements = For guardians or business related contacts, the organization is relevant
+  CDA Mapping = n/a
   v2 Mapping = NK1-13, NK1-30, NK1-31, NK1-32, NK1-41
   RIM Mapping = scoper
-  CDA Mapping = n/a
 
  -- Row 21 -----------------------------------
   Element = Patient.contact.period
@@ -328,8 +328,8 @@
   Type = Period
   Short Label = The period during which this contact person or organization is valid to be contacted relating to this patient
   Definition = The period during which this contact person or organization is valid to be contacted relating to this patient
-  RIM Mapping = effectiveTime
   CDA Mapping = n/a
+  RIM Mapping = effectiveTime
 
  -- Row 22 -----------------------------------
   Element = Patient.animal
@@ -342,8 +342,8 @@
   Definition = This patient is known to be an animal
   Requirements = Many clinical systems are extended to care for animal patients as well as human
   Comments = The animal element is labeled \"Is Modifier\" since patients may be non-human. Systems SHALL either handle patient details appropriately (e.g. inform users patient is not human) or reject declared animal records.   The absense of the animal element does not imply that the patient is a human. If a system requires such a positive assertion that the patient is human, an extension will be required.  (Do not use a species of homo-sapiens in animal species, as this would incorrectly infer that the patient is an animal)
-  RIM Mapping = player[classCode=ANM]
   CDA Mapping = n/a
+  RIM Mapping = player[classCode=ANM]
 
  -- Row 23 -----------------------------------
   Element = Patient.animal.species
@@ -355,9 +355,9 @@
   Definition = Identifies the high level taxonomic categorization of the kind of animal
   Requirements = Need to know what kind of animal
   Comments = If the patient is non-human, at least a species SHALL be specified. Species SHALL be a widely recognised taxonomic classification.  It may or may not be Linnaean taxonomy and may or may not be at the level of species. If the level is finer than species--such as a breed code--the code system used SHALL allow inference of the species.  (The common example is that the word \"Hereford\" does not allow inference of the species Bos taurus, because there is a Hereford pig breed, but the SNOMED CT code for \"Hereford Cattle Breed\" does.)
+  CDA Mapping = n/a
   v2 Mapping = PID-35
   RIM Mapping = code
-  CDA Mapping = n/a
 
  -- Row 24 -----------------------------------
   Element = Patient.animal.breed
@@ -369,9 +369,9 @@
   Definition = Identifies the detailed categorization of the kind of animal.
   Requirements = May need to know the specific kind within the species
   Comments = Breed MAY be used to provide further taxonomic or non-taxonomic classification.  It may involve local or proprietary designation--such as commercial strain--and/or additional information such as production type.
+  CDA Mapping = n/a
   v2 Mapping = PID-37
   RIM Mapping = playedRole[classCode=GEN]/scoper[classCode=ANM, determinerCode=KIND]/code
-  CDA Mapping = n/a
 
  -- Row 25 -----------------------------------
   Element = Patient.animal.genderStatus
@@ -382,9 +382,9 @@
   Short Label = E.g. Neutered, Intact
   Definition = Indicates the current state of the animal\'s reproductive organs
   Requirements = Gender status can affect housing and animal behavior
+  CDA Mapping = n/a
   v2 Mapping = N/A
   RIM Mapping = genderStatusCode
-  CDA Mapping = n/a
 
  -- Row 26 -----------------------------------
   Element = !Patient.communication
@@ -395,9 +395,9 @@
   Definition = Languages which may be used to communicate with the patient about his or her health
   Requirements = If a patient does not speak the local language, interpreters may be required, so languages spoken is an important things to keep track of both for patient and other persons of interest
   Comments = If no language is specified, this *implies* that the default local language is spoken. For animals, language is not a relevant field, and should be absent from the instance
+  CDA Mapping = patient.languageCommunication
   v2 Mapping = LAN-2
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/languageCommunication/code
-  CDA Mapping = patient.languageCommunication
   Committee Notes = Define proficiency and mode as extensions
 
  -- Row 27 -----------------------------------
@@ -408,8 +408,8 @@
   Definition = Languages which may be used to communicate with the patient about his or her health
   Requirements = If a patient does not speak the local language, interpreters may be required, so languages spoken and proficiency is an important things to keep track of both for patient and other persons of interest
   Comments = If no language is specified, this *implies* that the default local language is spoken.  If you need to convey proficiency for multiple modes then you need multiple Patient.Communication associations.   For animals, language is not a relevant field, and should be absent from the instance. If the Patient does not speak the default local language, then the Interpreter Required Standard can be used to explicitly declare that an interpreter is required.
-  RIM Mapping = LanguageCommunication
   CDA Mapping = patient.languageCommunication
+  RIM Mapping = LanguageCommunication
   Committee Notes = Rationale for putting this in the core is based on input from Canada. Other persons on call are from single language countries. Committee felt uncomfortable with leaving any of the 3 optional attributes modeCode, proficiencyLevelCode, or preferenceInd up to extensions. Instead we said that isModifier is \"no\" on modeCode and preferenceInd.
 
  -- Row 28 -----------------------------------
@@ -421,9 +421,9 @@
   Definition = The ISO-639-1 alpha 2 code in lower case for the language, optionally followed by a hyphen and the ISO-3166-1 alpha 2 code for the region in upper case; e.g. \"en\" for English, or \"en-US\" for American English versus \"en-EN\" for England English
   Requirements = Most systems in multilingual countries will want to convey language. Not all systems actually need the regional dialect.
   Comments = The structure aa-BB with this exact casing is one the most widely used notations for locale. However not all systems actually code this but instead have it as free text. Hence CodeableConcept instead of code as the data type
+  CDA Mapping = .languageCode
   v2 Mapping = PID-15, LAN-2
   RIM Mapping = player[classCode=PSN|ANM and determinerCode=INSTANCE]/languageCommunication/code
-  CDA Mapping = .languageCode
 
  -- Row 29 -----------------------------------
   Element = !Patient.communication.mode
@@ -434,9 +434,9 @@
   Definition = A value representing the person\'s method of expression of this language. Examples: expressed spoken, expressed written, expressed signed, received spoken, received written, received signed
   Requirements = A Person that can write English fairly well, but is not capable to understand
   Comments = It\'s expected that modeCode and proficiencyLevelCode work in conjunction. It makes less sense to convey modeCode unless you want to distinctly denote someone proficiency for a particular mode. It\'s however perfectly acceptable to have a proficiencyLevelCode without a modeCode
+  CDA Mapping = .modeCode
   v2 Mapping = LAN-3
   RIM Mapping = modeCode
-  CDA Mapping = .modeCode
 
  -- Row 30 -----------------------------------
   Element = !Patient.communication.proficiencyLevel
@@ -447,9 +447,9 @@
   Definition = A code that describes how well the language is expressed or understood
   Requirements = Depending on proficiency level, a common language that is useable to both the patient and the care provider can be chosen.
   Comments = See comments for Person.language.modeCode
+  CDA Mapping = .proficiencyLevelCode
   v2 Mapping = LAN-4
   RIM Mapping = proficiencyLanguageCode
-  CDA Mapping = .proficiencyLevelCode
 
  -- Row 31 -----------------------------------
   Element = Patient.communication.preferred
@@ -459,9 +459,9 @@
   Definition = Indicates whether or not the patient prefers this language (over other languages he masters up a certain level)
   Requirements = People that master multiple languages up to certain level may prefer one or more, i.e. feel more confident in communicating in a particular language making other languages sort of a fall back method
   Comments = This language is specifically identified for communicating healthcare information.
+  CDA Mapping = .preferenceInd
   v2 Mapping = PID-15
   RIM Mapping = preferenceInd
-  CDA Mapping = .preferenceInd
 
  -- Row 32 -----------------------------------
   Element = Patient.careProvider
@@ -470,9 +470,9 @@
   Short Label = Patient\'s nominated primary care provider
   Definition = Patient\'s nominated care provider
   Comments = This may be the primary care provider (in a GP context), or it may be a patient nominated care manager in a community/disablity setting, or even organization that will provide people to perform the care provider roles.\n\nThis is not to be used to record Care Teams, these should be recorded on either the CarePlan or EpisodeOfCare resources.
+  CDA Mapping = n/a
   v2 Mapping = PD1-4
   RIM Mapping = subjectOf.CareEvent.performer.AssignedEntity
-  CDA Mapping = n/a
   Committee Notes = This has been discussed as to how it relates to the CareTeam, and is desired to be a separate item, just for the Primary Care Provider (Typically a GP)
 
  -- Row 33 -----------------------------------
@@ -484,8 +484,8 @@
   Definition = Organization that is the custodian of the patient record
   Requirements = Need to know who recognizes this patient record, manages and updates it
   Comments = There is only one managing organization for a specific patient record. Other organizations will have their own Patient record, and may use the Link property to join the records together (or a Person resource which can include confidence ratings for the association)
-  RIM Mapping = scoper
   CDA Mapping = .providerOrganization
+  RIM Mapping = scoper
 
  -- Row 34 -----------------------------------
   Element = Patient.link
@@ -496,8 +496,8 @@
   Definition = Link to another patient resource that concerns the same actual patient
   Requirements = There are multiple usecases: \n\n* Duplicate patient records due to the clerical errors associated with the difficulties of identifying humans consistently, and * Distribution of patient information across multiple servers
   Comments = There is no assumption that linked patient records have mutual links.
-  RIM Mapping = outboundLink
   CDA Mapping = n/a
+  RIM Mapping = outboundLink
 
  -- Row 35 -----------------------------------
   Element = Patient.link.other
@@ -506,9 +506,9 @@
   Type = Reference(Patient)
   Short Label = The other patient resource that the link refers to
   Definition = The other patient resource that the link refers to
+  CDA Mapping = n/a
   v2 Mapping = PID-3, MRG-1
   RIM Mapping = id
-  CDA Mapping = n/a
 
  -- Row 36 -----------------------------------
   Element = Patient.link.type
@@ -518,8 +518,8 @@
   Binding = LinkType
   Short Label = replace | refer | seealso - type of link
   Definition = The type of link between this patient resource and another patient resource.
-  RIM Mapping = typeCode
   CDA Mapping = n/a
+  RIM Mapping = typeCode
 
 === Sheet Search =====================================
 

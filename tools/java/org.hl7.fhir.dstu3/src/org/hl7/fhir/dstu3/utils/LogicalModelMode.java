@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.Type;
-import org.hl7.fhir.dstu3.utils.FHIRPathEngine.MapExpression;
 
 public class LogicalModelMode {
 
@@ -13,7 +12,6 @@ public class LogicalModelMode {
   private List<LogicalModelMode> children;
   private ElementDefinition definition;
   private String mapping;
-  private List<MapExpression> expressions;
   
   
   public LogicalModelMode(ElementDefinition definition) {
@@ -52,14 +50,6 @@ public class LogicalModelMode {
 
   public ElementDefinition getDefinition() {
     return definition;
-  }
-
-  public List<MapExpression> getExpressions() {
-    return expressions;
-  }
-
-  public void setExpressions(List<MapExpression> expressions) {
-    this.expressions = expressions;
   }
   
   public boolean hasData() {

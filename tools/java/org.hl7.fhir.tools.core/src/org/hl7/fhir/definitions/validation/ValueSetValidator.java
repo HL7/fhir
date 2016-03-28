@@ -173,6 +173,8 @@ public class ValueSetValidator extends BaseValidator {
       handled.add(vs);
       duplicateList.add(new VSDuplicateList(vs));
     }
+    rule(errors, IssueType.BUSINESSRULE, vs.getUserString("committee")+":ValueSet["+vs.getId()+"]", vs.hasDescription(), "Value Sets in the build must have a description");
+    
     if (Utilities.noString(vs.getCopyright()) && !exemptFromCopyrightRule) {
       Set<String> sources = getListOfSources(vs);
       for (String s : sources) {

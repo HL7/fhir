@@ -4648,6 +4648,10 @@
     <display value="Capillary patient thermometer, mercury"/>
     <display value="Capillary patient thermometer, mercury (physical object)"/>
   </concept>
+  <concept id="468063009" display="Coated femoral stem prosthesis, modular (physical object)">
+    <display value="Coated femoral stem prosthesis, modular (physical object)"/>
+    <display value="Coated femoral stem prosthesis, modular"/>
+  </concept>
   <concept id="46825001" display="Electrocardiographic monitoring (procedure)">
     <display value="Electrocardiographic monitoring (regime/therapy)"/>
     <display value="ECG"/>

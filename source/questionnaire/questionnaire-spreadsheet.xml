@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17610</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>6900</WindowHeight>
+  <WindowWidth>2910</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>4</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3849,7 +3849,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s83"><Data ss:Type="String">Group items must have nested items, display items cannot have nested items</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s83"><Data ss:Type="String">(type='group' implies item.empty().not()) and (type.log('type')='display' implies item.log('item').empty())</Data><NamedCell
+    <Cell ss:StyleID="s83"><Data ss:Type="String">(type='group' implies item.empty().not()) and (type.trace('type')='display' implies item.trace('item').empty())</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">not((f:type/@value='group' and not(f:item)) or (f:type/@value='display' and f:item))</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -3861,7 +3861,7 @@
     <Cell ss:StyleID="s91"/>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Questionnaire</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">The link ids for groups and questions must be unique within the questionnaire</Data></Cell>
-    <Cell ss:StyleID="s92"><Data ss:Type="String">**.linkId.distinct()</Data></Cell>
+    <Cell ss:StyleID="s92"><Data ss:Type="String">descendents().linkId.distinct()</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">count(descendant::f:linkId/@value)=count(distinct-values(descendant::f:linkId/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4305,6 +4305,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4324,7 +4325,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
+     <ActiveRow>3</ActiveRow>
      <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
@@ -5231,7 +5232,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

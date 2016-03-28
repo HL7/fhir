@@ -11,6 +11,17 @@
         "definition": null,
         "display": "Complete"
       }
+    },
+    {
+      "hash": "|null|null|examplar|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "examplar",
+        "definition": null,
+        "display": "Examplar"
+      }
     }
   ]
 }

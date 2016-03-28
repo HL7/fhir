@@ -168,7 +168,7 @@
   Context = Observation
   English = dataAbsentReason SHALL only be present if Observation.value[x] is not present
   XPath = not(exists(f:dataAbsentReason)) or (not(exists(*[starts-with(local-name(.), \'value\')])))
-  Expression = dataAbsentReason.empty() or value[x].empty()
+  Expression = dataAbsentReason.empty() or value.empty()
 
  -- Row 3 -----------------------------------
   Id = 7

@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>17610</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>8055</WindowHeight>
+  <WindowWidth>2910</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>694</TabRatio>
-  <ActiveSheet>9</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4579,7 +4579,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Min &lt;= Max</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">min.empty() or max.empty() or (max = &quot;*&quot;) or (min &lt;= max.asInteger())</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">min.empty() or max.empty() or (max = '*') or (min &lt;= max.toInteger())</Data></Cell>
     <Cell ss:StyleID="s109"><Data ss:Type="String">not(exists(f:min)) or not(exists(f:max)) or (not(f:max/@value) and not(f:min/@value)) or (f:max/@value = '*') or (number(f:max/@value) &gt;= f:min/@value)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4590,7 +4590,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition.max</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Max SHALL be a number or &quot;*&quot;</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">max.empty() or (max = &quot;*&quot;) or (max.asInteger() &gt;= 0)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">max.empty() or (max = '*') or (max.toInteger() &gt;= 0)</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">@value='*' or (normalize-space(@value)!='' and normalize-space(translate(@value, '0123456789',''))='')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4601,7 +4601,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition.type</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Aggregation may only be specified if one of the allowed types for the element is a resource</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">aggregation.empty() or (code = &quot;Reference&quot;)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">aggregation.empty() or (code = 'Reference')</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:aggregation)) or exists(f:code[@value = 'Reference'])</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4612,7 +4612,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">if the element definition has a contentReference, it cannot have type, defaultValue, fixed, pattern, example, minValue, maxValue, maxLength, or binding</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">contentReference.empty() or (type.empty() and defaultValue[x].empty() and fixed[x].empty() and pattern[x].empty() and example[x].empty() and minValue[x].empty() and maxValue[x].empty() and maxLength.empty() and binding.empty())</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">contentReference.empty() or (type.empty() and defaultValue.empty() and fixed.empty() and pattern.empty() and example.empty() and minValue.empty() and maxValue.empty() and maxLength.empty() and binding.empty())</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:contentReference) and (exists(f:type) or exists(f:*[starts-with(local-name(.), 'value')]) or exists(f:*[starts-with(local-name(.), 'defaultValue')])  or exists(f:*[starts-with(local-name(.), 'fixed')]) or exists(f:*[starts-with(local-name(.), 'pattern')]) or exists(f:*[starts-with(local-name(.), 'example')]) or exists(f:*[starts-with(local-name(.), 'f:minValue')]) or exists(f:*[starts-with(local-name(.), 'f:maxValue')]) or exists(f:maxLength) or exists(f:binding)))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4623,7 +4623,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Fixed value may only be specified if there is one type</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">fixed[x].empty() or (type.count() = 1)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">fixed.empty() or (type.count() = 1)</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'fixed')])) or (count(f:type)=1)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4634,7 +4634,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Pattern may only be specified if there is one type</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">pattern[x].empty() or (type.count() = 1)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">pattern.empty() or (type.count() = 1)</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'pattern')])) or (count(f:type)=1)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -4645,7 +4645,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Pattern and value are mutually exclusive</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">pattern[x].empty() or fixed[x].empty()</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">pattern.empty() or fixed.empty()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'pattern')])) or not(exists(f:*[starts-with(local-name(.), 'value')]))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4656,7 +4656,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition.binding</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">provide either a reference or a description (or both)</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">valueSet[x] or description</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">valueSet or description</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">(exists(f:valueSetUri) or exists(f:valueSetReference)) or exists(f:description)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="75">
@@ -4667,7 +4667,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Binding can only be present for coded elements, string, and uri</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">binding.empty() or type.code.empty() or type.any((code = 'code') or (code = 'Coding') or (code='CodeableConcept') or (code = 'Quantity') or (code = 'Extension') or (code = 'string') or (code = 'uri'))</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">binding.empty() or type.code.empty() or type.select((code = 'code') or (code = 'Coding') or (code='CodeableConcept') or (code = 'Quantity') or (code = 'Extension') or (code = 'string') or (code = 'uri')).exists()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:binding)) or (count(f:type/f:code) = 0) or  f:type/f:code/@value=('code','Coding','CodeableConcept','Quantity','Extension', 'string', 'uri')</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4689,7 +4689,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Types must be unique by the combination of code and profile</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">type.distinct(code,profile)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">type.select(code+profile).distinct()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(for $type in f:type return $type/preceding-sibling::f:type[f:code/@value=$type/f:code/@value and f:profile/@value = $type/f:profile/@value]))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="30">
@@ -4700,7 +4700,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">Constraints must be unique by key</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">constraint.distinct(key)</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">constraint.select(key).distinct()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">count(f:constraint) = count(distinct-values(f:constraint/f:key/@value))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="45">
@@ -4711,7 +4711,7 @@
     <Cell ss:StyleID="s91"><Data ss:Type="String">ElementDefinition</Data></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">default value and meaningWhenMissing are mutually exclusive</Data></Cell>
     <Cell ss:StyleID="s91"/>
-    <Cell ss:StyleID="s91"><Data ss:Type="String">defaultValue[x].empty() or meaningWhenMissing.empty()</Data></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">defaultValue.empty() or meaningWhenMissing.empty()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">not(exists(f:*[starts-with(local-name(.), 'fixed')])) or not(exists(f:meaningWhenMissing))</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -5059,10 +5059,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>2</SplitVertical>
    <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -5075,10 +5076,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>14</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7619,7 +7622,6 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
-   <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>

@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>16710</WindowHeight>
-  <WindowWidth>-27136</WindowWidth>
+  <WindowHeight>6900</WindowHeight>
+  <WindowWidth>2910</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>893</TabRatio>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>2</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4423,7 +4423,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4506,7 +4505,7 @@
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s90"><Data ss:Type="String">CodeSystem</Data></Cell>
     <Cell ss:StyleID="s90"><Data ss:Type="String">Within a code system definition, all the codes SHALL be unique</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">concept.code*.distinct()</Data></Cell>
+    <Cell ss:StyleID="s90"><Data ss:Type="String">descendents().code.distinct()</Data></Cell>
     <Cell ss:StyleID="s110"><Data ss:Type="String">count(distinct-values(descendant::f:concept/f:code/@value))=count(descendant::f:concept)</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -4874,6 +4873,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4893,8 +4893,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>24</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

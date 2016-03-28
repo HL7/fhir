@@ -22,6 +22,17 @@
         "definition": null,
         "display": "Needs Action"
       }
+    },
+    {
+      "hash": "|null|null|tentative|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "tentative",
+        "definition": null,
+        "display": "Tentative"
+      }
     }
   ]
 }

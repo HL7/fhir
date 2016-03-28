@@ -1,0 +1,31 @@
+﻿{
+  "url": "http://hl7.org/fhir/ValueSet/service-type",
+  "outcomes": [
+    {
+      "hash": "#|http://snomed.info/sct|null|394587001|Psychiatry",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|http://snomed.info/sct|null|394913002|Psychotherapy",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|null|null|52|General Discussion",
+      "severity": "error",
+      "message": "None of the codes are in the specified value set"
+    },
+    {
+      "hash": "#|null|null|57|Immunisation",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "57",
+        "definition": null,
+        "display": "Immunisation"
+      }
+    }
+  ]
+}
