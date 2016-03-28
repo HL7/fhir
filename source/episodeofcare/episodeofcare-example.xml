@@ -67,7 +67,7 @@
     <reference value="Practitioner/14"/>
     <display value="Amanda Assigned" />
   </careManager>
-  <careTeam>
+  <!--<careTeam>
     <role>
       <coding>
         <system value="http://example.org/EpisodeOfCare/Role"/>
@@ -83,5 +83,5 @@
       <reference value="Practitioner/13"/>
       <display value="Henry Seven"/>
     </member>
-  </careTeam>
+  </careTeam>-->
 </EpisodeOfCare>

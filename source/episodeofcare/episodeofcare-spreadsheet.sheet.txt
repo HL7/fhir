@@ -173,14 +173,16 @@
   Definition = The practitioner that is the care manager/care co-ordinator for this patient
 
  -- Row 14 -----------------------------------
-  Element = EpisodeOfCare.careTeam
+  Element = EpisodeOfCare.team
   Card. = 0..*
+  Aliases = CareTeam
   UML = 420;220
+  Type = Reference(CareTeam)
   Short Label = Other practitioners facilitating this episode of care
   Definition = The list of practitioners that may be facilitating this episode of care for specific purposes
 
  -- Row 15 -----------------------------------
-  Element = EpisodeOfCare.careTeam.role
+  Element = !EpisodeOfCare.careTeam.role
   Card. = 0..*
   Type = CodeableConcept
   Binding = EpisodeOfCareTeamRole
@@ -188,14 +190,14 @@
   Definition = The role this team member is taking within this episode of care
 
  -- Row 16 -----------------------------------
-  Element = EpisodeOfCare.careTeam.period
+  Element = !EpisodeOfCare.careTeam.period
   Card. = 0..1
   Type = Period
   Short Label = Period of time for this role
   Definition = The period of time this practitioner is performing some role within the episode of care
 
  -- Row 17 -----------------------------------
-  Element = EpisodeOfCare.careTeam.member
+  Element = !EpisodeOfCare.careTeam.member
   Card. = 0..1
   Type = Reference(Practitioner|Organization)
   Short Label = The practitioner (or Organization) within the team
@@ -260,7 +262,7 @@
   Target Types = Practitioner
 
  -- Row 10 -----------------------------------
-  Name = team-member
+  Name = !team-member
   Type = reference
   Description = A Practitioner or Organization allocated to the care team for this EpisodeOfCare
   Path = EpisodeOfCare.careTeam.member
