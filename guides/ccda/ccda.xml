@@ -16,14 +16,7 @@
     <description value="Resource profiles and extensions necessary to support C-CDA on FHIR."/>
     
 
-	<resource>
-	  <example value="false"/>
-	  <name value="C-CDA on FHIR Data Enterer Extension"/>
-	  <description
-	    value="TBD"/>
-	  <acronym value="ccda-data-enterer-extension"/>
-	  <sourceUri value="StructureDefinition/ccda-data-enterer-extension.xml"/>
-	 </resource>    
+ 
     <resource>
       <example value="false"/>
       <name value="C-CDA on FHIR Authorization Extension"/>
@@ -31,7 +24,56 @@
         value="TBD"/>
       <acronym value="ccda-authorization-extension"/>
       <sourceUri value="StructureDefinition/ccda-authorization-extension.xml"/>
+    </resource> 
+    <resource>
+    	  <example value="false"/>
+    	  <name value="C-CDA on FHIR Data Enterer Extension"/>
+    	  <description
+    	    value="TBD"/>
+    	  <acronym value="ccda-data-enterer-extension"/>
+    	  <sourceUri value="StructureDefinition/ccda-data-enterer-extension.xml"/>
+    </resource>   
+    <resource>
+      <example value="false"/>
+      <name value="C-CDA on FHIR Informant Extension"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-informant-extension"/>
+      <sourceUri value="StructureDefinition/ccda-informant-extension.xml"/>
     </resource>
+    <resource>
+      <example value="false"/>
+      <name value="C-CDA on FHIR Information Recipient Extension"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-information-recipient-extension"/>
+      <sourceUri value="StructureDefinition/ccda-information-recipient-extension.xml"/>
+    </resource>
+    <resource>
+      <example value="false"/>
+      <name value="C-CDA on FHIR In Fulfillment of Order Extension"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-in-fulfillment-of-order-extension"/>
+      <sourceUri value="StructureDefinition/ccda-in-fulfillment-of-order-extension.xml"/>
+    </resource>
+    <resource>
+      <example value="false"/>
+      <name value="C-CDA on FHIR Participant Extension"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-participant-extension"/>
+      <sourceUri value="StructureDefinition/ccda-participant-extension.xml"/>
+    </resource>
+    <resource>
+      <example value="false"/>
+      <name value="C-CDA on FHIR Performer Extension"/>
+      <description
+        value="TBD"/>
+      <acronym value="ccda-performer-extension"/>
+      <sourceUri value="StructureDefinition/ccda-performer-extension.xml"/>
+    </resource>
+    
     <resource>
       <example value="false"/>
       <name value="C-CDA on FHIR US-Realm Header"/>
