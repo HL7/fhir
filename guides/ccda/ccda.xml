@@ -125,7 +125,6 @@
       <acronym value="ProcedureNoteDocumentTypeCodes"/>
       <sourceUri value="ValueSet/2.16.840.1.113883.11.20.6.1.xml"/>
     </resource>
-    <!--
     <resource>
       <example value="false"/>
       <name value="LOINCImagingDocumentCodes"/>
@@ -134,7 +133,6 @@
       <acronym value="LOINCImagingDocumentCodes"/>
       <sourceUri value="ValueSet/1.3.6.1.4.1.12009.10.2.5.xml"/>
     </resource>
-    -->
     <resource>
       <example value="false"/>
       <name value="ReferralDocumentTypeCodes"/>
