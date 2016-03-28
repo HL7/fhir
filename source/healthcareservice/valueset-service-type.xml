@@ -17,7 +17,7 @@
   <description value="This value set defines an example set of codes of service-types."/>
   <compose>
     <include>
-      <system value="http://hl7.org/fhir/CodeSystem/service-type"/>
+      <system value="http://hl7.org/fhir/service-type"/>
     </include>
   </compose>
 </ValueSet>

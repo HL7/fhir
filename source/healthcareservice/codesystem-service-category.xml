@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <CodeSystem xmlns="http://hl7.org/fhir">
-	<url value="http://hl7.org/fhir/ValueSet/service-category"/>
+	<url value="http://hl7.org/fhir/service-category"/>
 	<name value="ServiceCategory"/>
 	<status value="draft"/>
 	<experimental value="true"/>
