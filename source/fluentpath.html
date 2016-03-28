@@ -104,7 +104,7 @@ will only produce results when used on data of type <code>Patient</code>.
 </p>
 
 <p>
-Paths may use double quotes to include characters in path parts that would otherwise 
+Syntactically, FluentPath defines identifiers as any sequence of characters consisting only of letters, digits, and underscores, beginning with a letter or underscore. Paths may use double quotes to include characters in path parts that would otherwise 
 be interpreted as operators, e.g.:
 </p>
 
@@ -308,6 +308,11 @@ identifier.where(use = 'official')</code></pre>
 
 <p>Returns the opposite of <code>empty()</code>, and as such is a shorthand for <code>empty().not()</code></p>
 
+<p><b>all() : boolean</b></p>
+
+<p>Returns <code>true</code> if every element in the input collection evaluates to <code>true</code>, and <code>false</code> if any element evaluates to <code>false</code>. Otherwise, the result is empty (<code>{ }</code>).
+</p>
+
 <p><b>subsetOf(other : collection) :  boolean</b></p>
 
 <p>Returns <code>true</code> if all items in the input collection are members of the collection passed as the <code>other</code> argument. Membership is determined using the equals (<code>=</code>) operation (see below).</p>
@@ -324,7 +329,7 @@ identifier.where(use = 'official')</code></pre>
 
 <p>Returns a collection containing only the unique items in the input collection. To determine whether two items are the same, the equals (<code>=</code>) operator is used, as defined below.</p>
 
-<p><b>count() : number</b></p>
+<p><b>count() : integer</b></p>
 
 <p>Returns a collection with a single value which is the integer count of the number of items in the input collection. Returns 0 when the input collection is empty.</p>
 
@@ -361,7 +366,7 @@ identifier.where(use = 'official')</code></pre>
 
 <p>which would find <strong>any</strong> descendants called <code>group</code> or <code>question</code>, not just the ones nested inside other <code>group</code> or <code>question</code> elements.</p>
 
-<p><b>is(type : identifier) : collection</b></p>
+<p><b>is(type : identifier) : boolean</b></p>
 
 <p>Returns <code>true</code> if the collection contains a single element of the given type or a subclass thereof.</p>
 
@@ -371,7 +376,7 @@ identifier.where(use = 'official')</code></pre>
 
 <h4>5.3 Subsetting</h4>
 
-<p><b><em>name</em>[ index : number ] : collection</b></p>
+<p><b><em>name</em>[ index : integer ] : collection</b></p>
 
 <p>This indexer operation returns a collection with only the <code>index</code>-th item (0-based index). If the index lies outside the boundaries of the input collection, an empty collection is returned.</p>
 
@@ -396,11 +401,11 @@ identifier.where(use = 'official')</code></pre>
 
 <p>Returns a collection containing all but the first item in the list. Will return an empty collection if the input collection has no or just one item.</p>
 
-<p><b>skip(num : number) : collection</b></p>
+<p><b>skip(num : integer) : collection</b></p>
 
 <p>Returns a collection containing all but the first <code>num</code> items in the list. Will return an empty collection if there are no items remaining after the indicated number of items have been skipped.</p>
 
-<p><b>take(num : number) : collection</b></p>
+<p><b>take(num : integer) : collection</b></p>
 
 <p>Returns a collection containing the first <code>num</code> items in the list, or less if there are less then <code>num</code> items. Will return an empty collection if the input collection is empty.</p>
 
@@ -461,7 +466,7 @@ identifier.where(use = 'official')</code></pre>
 
 <p>The functions in this section operate on collections with a single item. If there is more than one item, or an incompatible item, the evaluation of the expression will end and signal an error to the calling environment.</p>
 
-<p><b>substring(start : number [, length : number]) : collection</b></p>
+<p><b>substring(start : integer [, length : integer]) : collection</b></p>
 
 <p>If the input collection contains a single item of type string, it returns a collection with the part of the string starting at position <code>start</code> (zero-based). If <code>length</code> is given, will return at most <code>length</code> number of characters from the input string.</p>
 
@@ -501,7 +506,7 @@ identifier.where(use = 'official')</code></pre>
 
 <p>A simpler variation of <code>replaceMatches</code> that returns the input string with all instances of <code>pattern</code> replaced with <code>substitution</code>.</p>
 
-<p><b>length() : number</b></p>
+<p><b>length() : integer</b></p>
 
 <p>If the input collection contains a single item of type string, the function will return the length of the string.</p>
 
@@ -525,7 +530,7 @@ identifier.where(use = 'official')</code></pre>
 
 <p>If the input collection contains a single string item, it is taken to be a code and valueset membership is tested against the valueset passed as the argument. The <code>valueset</code> argument is a uri used to resolve to a valueset.  </p>
 
-<p><b>output(name : string) : collection</b></p>
+<p><b>trace(name : string) : collection</b></p>
 
 <p>Add a string representation of the input collection to the log, using the parameter <code>name</code> as the name in the log. This log should be made available to the user in some appropriate fashion. Does not change the input, so returns the input collection as output.</p>
 
@@ -533,9 +538,9 @@ identifier.where(use = 'official')</code></pre>
 
 <p>Returns a datetime containing the current date.</p>
 
-<p><b>now() : string</b></p>
+<p><b>now() : datetime</b></p>
 
-<p>Returns a time containing the current date and time, including timezone.</p>
+<p>Returns a datetime containing the current date and time, including timezone.</p>
 
 <h3>6. Operations</h3>
 
@@ -646,6 +651,14 @@ identifier.where(use = 'official')</code></pre>
 <p><b>| (union collections)</b></p>
 
 <p>Merge the two collections into a single collection, eliminating any duplicate values (using equals (<code>=</code>)) to determine equality).</p>
+
+<p><b>in (membership)</b></p>
+
+<p>If the left operand is a collection with a single item, this operator returns true if the item is in the right operand using equality semantics. This is the inverse operation of contains.</p>
+
+<p><b>contains (containership)</b></p>
+
+<p>If the right operand is a collection with a single item, this operator returns true if the item is in the left operand using equality semantics. This is the inverse operation of in.</p>
 
 <h4>6.5 Boolean logic</h4>
 
@@ -818,13 +831,13 @@ identifier.where(use = 'official')</code></pre>
 <pre><code>#01 . (path/function invocation)
 #02 [] (indexer)
 #03 unary + and -
-#04 ^ (power)
-#05: *, /, div, mod
-#06: +, -, 
-#07: |
-#08: &gt;, &lt;, &gt;=, &lt;=
-#09: is
-#10: =, ~, !=, !~
+#04: *, /, div, mod
+#05: +, -, 
+#06: |
+#07: &gt;, &lt;, &gt;=, &lt;=
+#08: is, as
+#09: =, ~, !=, !~
+#10: in, contains
 #11: and 
 #12: xor, or
 #13: implies
@@ -1010,7 +1023,7 @@ Patient.name.given.extension.first().value = true   // extension of the primitiv
 
 <p>Return any extension with the given URL. This is a syntactical shortcut for <code>.extension.where(url = string)</code>, but is simpler to write. </p>
 
-<p><b>output(string : string) : collection</b></p>
+<p><b>trace(name : string) : collection</b></p>
 
 <p>When FluentPath statements are used in an invariant, the log contents should be added to the 
 error message constructed when the invariant is violated. For example:</p>
