@@ -3,7 +3,7 @@
 		<h2>
 			<span class="mw-headline" id="Introduction">Introduction</span>
 		</h2>
-		<p>The FHIR Vitals Signs profile provides a common data model and API documentation for searching and fetching Vitals Signs. It is based on the <a rel="nofollow" class="external text" href="http://hl7.org/fhir/daf/observation-daf-vitalsigns.html">Data Access Framework (DAF) Vital Signs</a>.  Support for basic mandatory searching of resources are defined below in the <a href="#Quick_Start"> Quick Start</a> section.</p>
+		<p>The FHIR Vitals Signs profile provides a common data model and API documentation for searching and fetching Vitals Signs.  <strong>To be conformant to FHIR, the implementation SHALL conform to this profile for the vitals sign observations listed in the table below.</strong>  It is based on the <a rel="nofollow" class="external text" href="http://hl7.org/fhir/daf/observation-daf-vitalsigns.html">Data Access Framework (DAF) Vital Signs</a>.  Support for basic mandatory searching of resources are defined below in the <a href="#Quick_Start"> Quick Start</a> section.</p>
 	</div>
 	<div>
 		<a name="bnc"> </a>
@@ -35,6 +35,10 @@ Each Observation must have:
 		<h3>
 			<span class="mw-headline" id="Vital_Signs_Table">Vital Signs Table</span>
 		</h3>
+		<p>
+Note to reveiwers:  Several examples provided below link to external references.
+They will be updated to link to references within the specification in the future 
+following the connectathon freeze period</p>
 		<table class="grid">
 			<tr>
 				<th> Vital
@@ -99,7 +103,7 @@ Each Observation must have:
 				<td> Cel, [degF]</td>
 				<td> </td>
 				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Body_Temperature_Example" title="Vital Signs Body Temperature Example">Example</a>
+					<a href="observation-example-f202-temperature.html" title="Vital Signs Body Temperature Example">Example</a>
 				</td>
 			</tr>
 			<tr>
@@ -157,7 +161,9 @@ Each Observation must have:
 				</td>
 			</tr>
 			<tr>
-				<td><a href="bsa.html"> Body surface area </a></td>
+				<td>
+					<a href="bsa.html"> Body surface area </a>
+				</td>
 				<td> 3140-1 </td>
 				<td> m2 </td>
 				<td> </td>
@@ -166,37 +172,45 @@ Each Observation must have:
 				</td>
 			</tr>
 			<tr>
-				<td><a href="bp.html"> Blood pressure systolic and diastolic </a></td>
+				<td>
+					<a href="bp.html"> Blood pressure systolic and diastolic </a>
+				</td>
 				<td> 55284-4 </td>
 				<td> — </td>
 				<td> This is a grouping structure. It has no value in Observation.valueQuantity but contains at least two component - systolic blood pressure and diastolic blood pressure. </td>
 				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Blood_Pressure_Example" title="Vital Signs Blood Pressure Example">Example</a>
+					<a href="observation-example-bloodpressure.html" title="Vital Signs Blood Pressure Example">Example</a>
 				</td>
 			</tr>
 			<tr>
-				<td> <a href="sbp.html">Systolic blood pressure </a></td>
+				<td>
+					<a href="sbp.html">Systolic blood pressure </a>
+				</td>
 				<td>8480-6 </td>
 				<td> mm[Hg] </td>
 				<td> This lives in  in the Observation.component structure on a "systolic and diastolic" Observation</td>
 				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Blood_Pressure_Example" title="Vital Signs Blood Pressure Example">Example</a>
+					<a href="observation-example-bloodpressure.html" title="Vital Signs Blood Pressure Example">Example</a>
 				</td>
 			</tr>
 			<tr>
-				<td> <a href="dbp.html">Diastolic blood pressure </a></td>
+				<td>
+					<a href="dbp.html">Diastolic blood pressure </a>
+				</td>
 				<td> 8462-4 </td>
 				<td> mm[Hg] </td>
 				<td> This lives in Observation.component structure on a "systolic and diastolic" Observation</td>
 				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Blood_Pressure_Example" title="Vital Signs Blood Pressure Example">Example</a>
+					<a href="observation-example-bloodpressure.html" title="Vital Signs Blood Pressure Example">Example</a>
 					<p>
 						<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Blood_Pressure_DataAbsentReason_Example" title="Vital Signs Blood Pressure DataAbsentReason Example">DataAbsentReason Example</a>
 					</p>
 				</td>
 			</tr>
 			<tr>
-				<td> <a href="mbp.html">Mean blood pressure </a></td>
+				<td>
+					<a href="mbp.html">Mean blood pressure </a>
+				</td>
 				<td> 8478-0 </td>
 				<td> mm[Hg] </td>
 				<td> Will define this as Mean Arterial Pressure (MAP) = 2/3DP + 1/3SP  </td>
@@ -334,13 +348,13 @@ Explains how this resource relates to others. Particularly important is to diffe
 		</h2>
 		<ul>
 			<li>
-				<a rel="nofollow" class="external text" href="/daf/daf-vitalsigns.html">Vital Signs</a>
+				<a rel="nofollow" class="external text" href="https://en.wikipedia.org/wiki/Vital_signs">Vital Signs</a>
 			</li>
 			<li>
-				<a rel="nofollow" class="external text" href="/http.html">RESTfulAPI</a>
+				<a rel="nofollow" class="external text" href="http://loinc.org">LOINC</a>
 			</li>
 			<li>
-				<a rel="nofollow" class="external text" href="search.html">Search</a>
+				<a rel="nofollow" class="external text" href="http://unitsofmeasure.org">UCUM</a>
 			</li>
 		</ul>
 	</div>

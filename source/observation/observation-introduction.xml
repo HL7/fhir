@@ -8,10 +8,11 @@ Observations are a central element in healthcare, used to support diagnosis, mon
 and even capture demographic characteristics.  Most observations are simple name/value pair assertions with some metadata, 
 but some observations group other observations together logically, or even are multi-component observations.
 Note that the  <a href="diagnosticreport.html">DiagnosticReport</a> resource 
-provides a clinical or workflow context for a set of observations. Expected uses for the Observation resource include:
+provides a clinical or workflow context for a set of observations. </p>
+<p>Uses for the Observation resource include:
 </p>
 <ul>
-  <li><a href="observation-vitalsigns.html">Vital signs:</a> temperature, blood pressure, respiration rate</li>
+  <li>Vital signs: temperature, blood pressure, respiration rate</li>
 	<li>Laboratory Data</li>
 	<li>Imaging results like bone density or fetal measurements</li>
 	<li>Devices Measurements such as EKG data or Pulse Oximetry data</li>
@@ -23,7 +24,23 @@ provides a clinical or workflow context for a set of observations. Expected uses
   <li>Social history: tobacco use, family supports, cognitive status</li>
   <li>Core characteristics: pregnancy status, death assertion</li>
 </ul>
-<p>Normally, an observation will have either a value (e.g. a blood glucose measurement) or a set of related observations (e.g. an electrolyte panel) and not both. A few observations (e.g. Apgar store) may have both a value and related observations (for Apgar, a numeric total score and the five variables whose scores are tallied to derive the total score).</p>
+
+<p>The following core <a href="profiling.html">profiles</a> for the Observation resource have been defined as well. <strong>To be conformant to FHIR, implementations SHALL conform to these profiles:</strong> 
+</p>
+<ul>
+  <li><a href="observation-vitalsigns.html">Vital signs:</a> temperature, blood pressure, respiration rate</li>
+<!--	<li>Laboratory Data</li>
+	<li>Imaging results like bone density or fetal measurements</li>
+	<li>Devices Measurements such as EKG data or Pulse Oximetry data</li>
+  <li>Clinical assessment tools such as APGAR</li>
+  <li>Personal characteristics: height, weight, eye-color</li>
+  --><!--EH 12/7/2014 
+  <li>Diagnoses (Note: trackable conditions, allergies, adverse reactions and more complex structures are handled elsewhere)</li>
+  --><!--
+  <li>Social history: tobacco use, family supports, cognitive status</li>
+  <li>Core characteristics: pregnancy status, death assertion</li>
+</ul>
+<p>Normally, an observation will have either a value (e.g. a blood glucose measurement) or a set of related observations (e.g. an electrolyte panel) and not both. A few observations (e.g. Apgar store) may have both a value and related observations (for Apgar, a numeric total score and the five variables whose scores are tallied to derive the total score).--></ul>
 </div>
 
 
