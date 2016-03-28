@@ -3,9 +3,10 @@
 
  -- Row 1 -----------------------------------
   Binding Name = ParticipantStatus
-  Binding = code list
-  Reference = #participantstatus
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/participationstatus
   Definition = The Participation status of an appointment.
+  Conformance = required
 
  -- Row 2 -----------------------------------
   Binding Name = ParticipantType
@@ -13,44 +14,6 @@
   Reference = http://hl7.org/fhir/ValueSet/encounter-participant-type
   Definition = Role of participant in encounter.
   Conformance = extensible
-
-=== Sheet participantstatus =====================================
-
- -- Row 1 -----------------------------------
-  Id = 1
-  Code = accepted
-  Display = Accepted
-  Definition = The appointment participant has accepted that they can attend the appointment at the time specified in the AppointmentResponse.
-
- -- Row 2 -----------------------------------
-  Id = 2
-  Code = declined
-  Display = Declined
-  Definition = The appointment participant has declined the appointment.
-
- -- Row 3 -----------------------------------
-  Id = 3
-  Code = tentative
-  Display = Tentative
-  Definition = The appointment participant has tentatively accepted the appointment.
-
- -- Row 4 -----------------------------------
-  Id = 4
-  Code = in-process
-  Display = In Process
-  Definition = The participant has in-process the appointment.
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = completed
-  Display = Completed
-  Definition = The participant has completed the appointment.
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = needs-action
-  Display = Needs Action
-  Definition = This is the intitial status of an appointment participant until a participant has replied. It implies that there is no commitment for the appointment.
 
 === Sheet Invariants =====================================
 

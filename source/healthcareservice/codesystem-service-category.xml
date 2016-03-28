@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+	<url value="http://hl7.org/fhir/ValueSet/service-category"/>
+	<name value="ServiceCategory"/>
+	<status value="draft"/>
+	<experimental value="true"/>
+	<description value="This value set defines an example set of codes that can be used to classify groupings of service-types/specialties."/>
+	<caseSensitive value="true"/>
+	<content value="examplar"/>
+    <concept><code value="1"/><display value="Adoption"/><definition value="Adoption"/></concept>
+    <concept><code value="2"/><display value="Aged Care"/><definition value="Aged Care"/></concept>
+    <concept><code value="34"/><display value="Allied Health"/><definition value="Allied Health"/></concept>
+    <concept><code value="3"/><display value="Alternative/Complementary Therapies"/><definition value="Alternative &amp; Complementary Therapies"/></concept>
+    <concept><code value="4"/><display value="Child Care /Kindergarten"/><definition value="Child Care and/or Kindergarten"/></concept>
+    <concept><code value="5"/><display value="Child Development"/><definition value="Child Development"/></concept>
+    <concept><code value="6"/><display value="Child Protection &amp; Family Services"/><definition value="Child Protection &amp; Family Services"/></concept>
+    <concept><code value="7"/><display value="Community Health Care"/><definition value="Community Health Care"/></concept>
+    <concept><code value="8"/><display value="Counselling"/><definition value="Counselling"/></concept>
+    <concept><code value="36"/><display value="Crisis Line (GPAH use only)"/><definition value="Crisis Line (GPAH use only)"/></concept>
+    <concept><code value="9"/><display value="Death Services"/><definition value="Death Services"/></concept>
+    <concept><code value="10"/><display value="Dental"/><definition value="Dental"/></concept>
+    <concept><code value="11"/><display value="Disability Support"/><definition value="Disability Support"/></concept>
+    <concept><code value="12"/><display value="Drug/Alcohol"/><definition value="Drug/Alcohol"/></concept>
+    <concept><code value="13"/><display value="Education &amp; Learning"/><definition value="Education &amp; Learning"/></concept>
+    <concept><code value="14"/><display value="Emergency Department"/><definition value="Emergency Department"/></concept>
+    <concept><code value="15"/><display value="Employment"/><definition value="Employment"/></concept>
+    <concept><code value="16"/><display value="Financial &amp; Material Aid"/><definition value="Financial &amp; Material aid"/></concept>
+    <concept><code value="17"/><display value="General Practice"/><definition value="General Practice/GP (doctor)"/></concept>
+    <concept><code value="35"/><display value="Hospital"/><definition value="Hospital"/></concept>
+    <concept><code value="18"/><display value="Housing/Homelessness"/><definition value="Housing/Homelessness"/></concept>
+    <concept><code value="19"/><display value="Interpreting"/><definition value="Interpreting"/></concept>
+    <concept><code value="20"/><display value="Justice"/><definition value="Justice"/></concept>
+    <concept><code value="21"/><display value="Legal"/><definition value="Legal"/></concept>
+    <concept><code value="22"/><display value="Mental Health"/><definition value="Mental Health"/></concept>
+    <concept><code value="38"/><display value="NDIA"/><definition value="NDIA"/></concept>
+    <concept><code value="23"/><display value="Physical Activity &amp; Recreation"/><definition value="Physical Activity &amp; Recreation"/></concept>
+    <concept><code value="24"/><display value="Regulation"/><definition value="Regulation"/></concept>
+    <concept><code value="25"/><display value="Respite/Carer Support"/><definition value="Respite/Carer Support"/></concept>
+    <concept><code value="26"/><display value="Specialist Clinical Pathology"/><definition value="Specialist Clinical Pathology - requires referral"/></concept>
+    <concept><code value="27"/><display value="Specialist Medical"/><definition value="Specialist Medical - requires referral"/></concept>
+    <concept><code value="28"/><display value="Specialist Obstetrics &amp; Gynaecology"/><definition value="Specialist Obstetrics &amp; Gynaecology - requires referral"/></concept>
+    <concept><code value="29"/><display value="Specialist Paediatric"/><definition value="Specialist Paediatric - requires referral"/></concept>
+    <concept><code value="30"/><display value="Specialist Radiology/Imaging"/><definition value="Specialist Radiology/Imaging - requires referral"/></concept>
+    <concept><code value="31"/><display value="Specialist Surgical"/><definition value="Specialist Surgical - requires referral"/></concept>
+    <concept><code value="32"/><display value="Support Group/s"/><definition value="Support group/s"/></concept>
+    <concept><code value="37"/><display value="Test Message (HSD admin)"/><definition value="Test Message (HSD admin use only)"/></concept>
+    <concept><code value="33"/><display value="Transport"/><definition value="Transport"/></concept>
+</CodeSystem>

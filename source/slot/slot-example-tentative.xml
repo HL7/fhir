@@ -7,13 +7,13 @@
 			25 Dec 2013 9:45am - 10:00am: <b>Tentative</b> Physiotherapy
 		</div>
 	</text>
-	<type>
+	<serviceCategory>
 		<coding>
-			<code value="45"/>
-			<display value="Physiotherapy" />
+			<code value="17"/>
+			<display value="General Practice" />
 		</coding>
-	</type>
-  <schedule>
+	</serviceCategory>
+	<schedule>
     <reference value="Schedule/example" />
   </schedule>
   <status value="busy-tentative" />

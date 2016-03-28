@@ -6,12 +6,33 @@
 		<div xmlns="http://www.w3.org/1999/xhtml">Brian MRI results discussion</div>
 	</text>
 	<status value="booked" />
-	<type>
+	<serviceCategory>
+		<coding>
+			<system value="http://example.org/service-category" />
+			<code value="gp"/>
+			<display value="General Practice" />
+		</coding>
+	</serviceCategory>
+	<serviceType>
 		<coding>
 			<code value="52"/>
 			<display value="General Discussion" />
 		</coding>
-	</type>
+	</serviceType>
+	<specialty>
+		<coding>
+			<system value="http://example.org/specialty" />
+			<code value="gp"/>
+			<display value="General Practice" />
+		</coding>
+	</specialty>
+	<appointmentType>
+		<coding>
+			<system value="http://example.org/appointment-type" />
+			<code value="wi" />
+			<display value="Walk in" />
+		</coding>
+	</appointmentType>
 	<priority value="5" />
 	<description value="Discussion about Peter Chalmers MRI results" />
 	<start value="2013-12-09T09:00:00Z" />

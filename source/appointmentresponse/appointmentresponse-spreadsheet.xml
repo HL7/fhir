@@ -7,17 +7,17 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Grahame</LastAuthor>
+  <LastAuthor>Brian Postlethwaite</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-06-11T11:27:25Z</LastSaved>
+  <LastSaved>2016-03-28T03:43:31Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8856</WindowHeight>
-  <WindowWidth>22992</WindowWidth>
+  <WindowHeight>8880</WindowHeight>
+  <WindowWidth>22824</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>8</ActiveSheet>
@@ -6386,7 +6386,7 @@
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="274.8"/>
    <Column ss:StyleID="s112" ss:Width="51"/>
    <Column ss:StyleID="s112" ss:Width="79.2"/>
-   <Column ss:StyleID="s112" ss:Width="146.39999999999998"/>
+   <Column ss:StyleID="s112" ss:Width="255.6"/>
    <Column ss:StyleID="s112" ss:Width="172.79999999999998"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="97.800000000000011"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="88.800000000000011"/>
@@ -6452,9 +6452,9 @@
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s146"><Data ss:Type="String">ParticipantStatus</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">The Participation status of an appointment.</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">code list</Data></Cell>
-    <Cell ss:StyleID="s118"/>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">#participantstatus</Data></Cell>
+    <Cell ss:StyleID="s115"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/participationstatus</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -6919,7 +6919,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

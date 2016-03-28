@@ -5,13 +5,31 @@
   Binding Name = SlotStatus
   Binding = code list
   Reference = #slotstatus
-  Definition = The free/busy status of a slot.
+  Definition = The free/busy status of the slot.
 
  -- Row 2 -----------------------------------
-  Binding Name = DocumentC80PracticeSetting
+  Binding Name = service-category
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0265
+  Conformance = example
+
+ -- Row 3 -----------------------------------
+  Binding Name = service-type
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/service-type
+  Conformance = preferred
+
+ -- Row 4 -----------------------------------
+  Binding Name = specialty
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
   Definition = Additional details about where the content was created (e.g. clinical specialty).
+  Conformance = Preferred
+
+ -- Row 5 -----------------------------------
+  Binding Name = appointment-type
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0276
   Conformance = Preferred
 
 === Sheet slotstatus =====================================
@@ -62,21 +80,46 @@
   w5 = id
 
  -- Row 3 -----------------------------------
-  Element = Slot.type
+  Element = Slot.serviceCategory
   Card. = 0..1
+  Summary = Y
   Type = CodeableConcept
-  Binding = DocumentC80PracticeSetting
-  Short Label = The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource
-  w5 = class
+  Binding = service-category
+  Short Label = A broad categorisation of the service that is to be performed during this appointment
 
  -- Row 4 -----------------------------------
+  Element = Slot.serviceType
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = service-type
+  Short Label = The type of appointments that can be booked into this slot (ideally this would be an identifiable service - which is at a location, rather than the location itself). If provided then this overrides the value provided on the availability resource
+
+ -- Row 5 -----------------------------------
+  Element = Slot.specialty
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = specialty
+  Short Label = The specialty of a practitioner that would be required to perform the service requested in this appointment
+  w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = Slot.appointmentType
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = appointment-type
+  Short Label = The style of appointment or patient that has been booked in the slot (not service type)
+
+ -- Row 7 -----------------------------------
   Element = Slot.schedule
   Card. = 1..1
   Summary = Y
   Type = Reference(Schedule)
   Short Label = The schedule resource that this slot defines an interval of status information
 
- -- Row 5 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Slot.status
   Card. = 1..1
   Summary = Y
@@ -86,7 +129,7 @@
   iCal Mapping = FREEBUSY;FBTYPE=(freeBusyType):19980314T233000Z/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded
   Committee Notes = This is not a modifier element as the status of the slot being busy is not a change in the interpretation of the slot.
 
- -- Row 6 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Slot.start
   Card. = 1..1
   Summary = Y
@@ -95,7 +138,7 @@
   iCal Mapping = FREEBUSY;FBTYPE=FREE:(start)/19980315T003000Z If the freeBusyType is BUSY, then this value can be excluded
   w5 = when.planned
 
- -- Row 7 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Slot.end
   Card. = 1..1
   Summary = Y
@@ -104,20 +147,20 @@
   iCal Mapping = FREEBUSY:19980314T233000Z/(end) If the freeBusyType is BUSY, then this value can be excluded (as shown)
   w5 = when.planned
 
- -- Row 8 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Slot.overbooked
   Card. = 0..1
   Type = boolean
   Short Label = This slot has already been overbooked, appointments are unlikely to be accepted for this time
   Missing Meaning = If overbooked is missing, systems may assume that there are still appointments available
 
- -- Row 9 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Slot.comment
   Card. = 0..1
   Type = string
   Short Label = Comments on the slot to describe any extended information. Such as custom constraints on the slot
 
- -- Row 10 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = !Slot.lastModified
   Card. = 0..1
   Type = dateTime
@@ -130,7 +173,7 @@
   Name = slot-type
   Type = token
   Description = The type of appointments that can be booked into the slot
-  Path = Slot.type
+  Path = Slot.serviceType
 
  -- Row 2 -----------------------------------
   Name = schedule

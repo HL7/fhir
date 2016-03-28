@@ -11,12 +11,12 @@
     <system value="http://example.org/identifiers/slots"/>
     <value value="123132"/>
   </identifier>
-	<type>
+	<serviceCategory>
 		<coding>
-			<code value="45"/>
-			<display value="Physiotherapy" />
+			<code value="17"/>
+			<display value="General Practice" />
 		</coding>
-	</type>
+	</serviceCategory>
   <schedule>
     <reference value="Schedule/example" />
   </schedule>

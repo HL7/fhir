@@ -27,9 +27,8 @@
   Conformance = preferred
 
  -- Row 5 -----------------------------------
-  Binding Name = DocumentC80PracticeSetting
+  Binding Name = !DocumentC80PracticeSetting
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
   Definition = Additional details about where the content was created (e.g. clinical specialty).
   Conformance = preferred
 
@@ -39,6 +38,30 @@
   Reference = http://hl7.org/fhir/ValueSet/encounter-participant-type
   Definition = Role of participant in encounter.
   Conformance = extensible
+
+ -- Row 7 -----------------------------------
+  Binding Name = service-category
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0265
+  Conformance = example
+
+ -- Row 8 -----------------------------------
+  Binding Name = service-type
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/service-type
+  Conformance = preferred
+
+ -- Row 9 -----------------------------------
+  Binding Name = specialty
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
+  Conformance = preferred
+
+ -- Row 10 -----------------------------------
+  Binding Name = appointment-type
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/v2-0276
+  Conformance = preferred
 
 === Sheet appointmentstatus =====================================
 
@@ -190,17 +213,40 @@
   w5 = status
 
  -- Row 4 -----------------------------------
-  Element = Appointment.type
+  Element = Appointment.serviceCategory
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
-  Binding = DocumentC80PracticeSetting
-  Short Label = The type of appointment that is being booked
-  Definition = The type of appointment that is being booked (This may also be associated with participants for location, and/or a HealthcareService)
-  RIM Mapping = .code
-  w5 = class
+  Binding = service-category
+  Short Label = A broad categorisation of the service that is to be performed during this appointment
 
  -- Row 5 -----------------------------------
+  Element = Appointment.serviceType
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = service-type
+  Short Label = The specific service that is to be performed during this appointment
+
+ -- Row 6 -----------------------------------
+  Element = Appointment.specialty
+  Card. = 0..*
+  Summary = Y
+  Type = CodeableConcept
+  Binding = specialty
+  Short Label = The specialty of a practitioner that would be required to perform the service requested in this appointment
+  w5 = class
+
+ -- Row 7 -----------------------------------
+  Element = Appointment.appointmentType
+  Card. = 0..1
+  Summary = Y
+  Type = CodeableConcept
+  Binding = appointment-type
+  Short Label = The style of appointment or patient that has been booked in the slot (not service type)
+  RIM Mapping = .code
+
+ -- Row 8 -----------------------------------
   Element = Appointment.reason
   Card. = 0..1
   Summary = Y
@@ -211,7 +257,7 @@
   v2 Mapping = AIS-3, ARQ-7, SCH-7
   RIM Mapping = (encounter appointment).reason
 
- -- Row 6 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Appointment.priority
   Card. = 0..1
   Type = unsignedInt
@@ -223,7 +269,7 @@
   iCal Mapping = PRIORITY
   w5 = class
 
- -- Row 7 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Appointment.description
   Card. = 0..1
   Type = string
@@ -233,7 +279,7 @@
   RIM Mapping = .text
   iCal Mapping = DESCRIPTION
 
- -- Row 8 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Appointment.start
   Card. = 0..1
   Summary = Y
@@ -244,7 +290,7 @@
   RIM Mapping = .effectiveTime.low
   w5 = when.init
 
- -- Row 9 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Appointment.end
   Card. = 0..1
   Summary = Y
@@ -255,7 +301,7 @@
   RIM Mapping = .effectiveTime.high
   w5 = when.done
 
- -- Row 10 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Appointment.minutesDuration
   Card. = 0..1
   Type = positiveInt
@@ -263,14 +309,14 @@
   Definition = Number of minutes that the appointment is to take. This can be less than the duration between the start and end times (where actual time of appointment is only an estimate or is a planned appointment request)
   Committee Notes = Removed when taking out the recurrence fields
 
- -- Row 11 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = !Appointment.recurrence
   Card. = 0..1
   Type = Schedule
   Short Label = When (if) appointment repeats
   Definition = The recurrence schedule for the appointment. The end date in the schedule marks the end of the recurrence(s), not the end of an individual appointment
 
- -- Row 12 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = !Appointment.timezone
   Card. = 0..1
   Type = string
@@ -278,7 +324,7 @@
   Definition = The timezone that the times are to be converted to. Required for recurring appointments to remain accurate where the schedule makes the appointment cross a daylight saving boundary
   Comments = The timezone should be a value referenced from a timezone database
 
- -- Row 13 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Appointment.slot
   Card. = 0..*
   Type = Reference(Slot)
@@ -286,7 +332,7 @@
   Definition = The slot that this appointment is filling. If provided then the schedule will not be provided as slots are not recursive, and the start/end values MUST be the same as from the slot
   RIM Mapping = Schedule-Slot (classCode=ACT, moodCode = SLOT)
 
- -- Row 14 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Appointment.created
   Card. = 0..1
   Type = dateTime
@@ -294,7 +340,7 @@
   Definition = The date that this appointment was initially created. This could be different to the meta.lastModified value on the initial entry, as this could have been before the resource was created on the FHIR server, and should remain unchanged over the lifespan of the appointment.
   Comments = This property is required for many use cases where the age of an appointment is considered in processing workflows for scheduling and billing of appointments.
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = !Appointment.location
   Card. = 0..1
   Type = Reference(Location)
@@ -303,7 +349,7 @@
   RIM Mapping = .location
   w5 = where
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Appointment.comment
   Card. = 0..1
   Type = string
@@ -313,7 +359,7 @@
   v2 Mapping = NTE-3
   iCal Mapping = COMMENT
 
- -- Row 17 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = !Appointment.order
   Card. = 0..1
   Type = Reference(Order)
@@ -323,7 +369,7 @@
   RIM Mapping = .referencedOrder
   Committee Notes = The Supply Order from the HL7 v3 DMIM was discussed and decided outside 80%, permit via extensions where required
 
- -- Row 18 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Appointment.participant
   Card. = 1..*
   UML = right
@@ -332,7 +378,7 @@
   v2 Mapping = PID, AIP, AIG, AIL
   iCal Mapping = ATTENDEE component to be created
 
- -- Row 19 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Appointment.participant.type
   Card. = 0..*
   Summary = Y
@@ -344,7 +390,7 @@
   v2 Mapping = AIP-4, AIG-4
   iCal Mapping = n/a
 
- -- Row 20 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Appointment.participant.actor
   Card. = 0..1
   Summary = Y
@@ -356,7 +402,7 @@
   iCal Mapping = ATTENDEE: (Need to provide the common name CN and also the MAILTO properties from the practitioner resource) where the participant type is not \"information-only\"
   w5 = who
 
- -- Row 21 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Appointment.participant.required
   Card. = 0..1
   Summary = Y
@@ -367,7 +413,7 @@
   RIM Mapping = performer.performIndicator
   iCal Mapping = ROLE=REQ-PARTICIPANT (roleparam)
 
- -- Row 22 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Appointment.participant.status
   Card. = 1..1
   Type = code
@@ -377,7 +423,7 @@
   v2 Mapping = AIP-12, AIG-14
   iCal Mapping = ATTENDEE;CN=\"Brian Postlethwaite\";RSVP=TRUE:mailto:BPostlethwaite@data.com (rsvpparam | partstatparam)
 
- -- Row 23 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = !Appointment.participant.observation
   Card. = 0..*
   Type = Reference(Observation)
@@ -385,7 +431,7 @@
   Comments = PA discussed, concerms that this was part of HL7 v2 and v3, but not sure that is should be in 80%
   v2 Mapping = OBX-21-Observation Instance Identifier (Subject to Ch7 caveats)
 
- -- Row 24 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = !Appointment.participant.location
   Card. = 0..1
   Type = Reference(Location)
@@ -393,7 +439,7 @@
   Definition = If this location is defined, this is where this participant is expected to be, otherwise the location in the appointment is used. This covers use-cases where teleconferencing is used, and some participants are in a different location.
   RIM Mapping = (wrapper)
 
- -- Row 25 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = !Appointment.lastModifiedBy
   Card. = 0..1
   Type = Reference(Practitioner|Patient|RelatedPerson)
@@ -402,7 +448,7 @@
   RIM Mapping = .author
   w5 = who.author
 
- -- Row 26 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = !Appointment.lastModified
   Card. = 0..1
   Type = dateTime
@@ -468,6 +514,16 @@
   Type = token
   Description = An Identifier of the Appointment
   Path = Appointment.identifier
+
+ -- Row 10 -----------------------------------
+  Name = appointment-type
+  Type = token
+  Path = Appointment.appointmentType
+
+ -- Row 11 -----------------------------------
+  Name = service-type
+  Type = token
+  Path = Appointment.serviceType
 
 === Sheet Profiles =====================================
 

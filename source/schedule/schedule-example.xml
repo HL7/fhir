@@ -12,12 +12,24 @@
 		<system value="http://example.org/scheduleid"/>
 		<value value="45"/>
 	</identifier>
-	<type>
+	<serviceCategory>
 		<coding>
-			<code value="45"/>
-			<display value="Physiotherapy" />
+			<code value="17"/>
+			<display value="General Practice" />
 		</coding>
-	</type>
+	</serviceCategory>
+	<serviceType>
+		<coding>
+			<code value="57"/>
+			<display value="Immunisation" />
+		</coding>
+	</serviceType>
+	<specialty>
+		<coding>
+			<code value="408480009"/>
+			<display value="Clinical immunology" />
+		</coding>
+	</specialty>
 	<actor>
 		<reference value="Location/1" />
 		<display value="Burgers UMC, South Wing, second floor" />
@@ -26,5 +38,5 @@
 		<start value="2013-12-25T09:15:00Z" />
 		<end value="2013-12-25T09:30:00Z" />
 	</planningHorizon>
-	<comment value="Assessments should be performed before requesting appointments in this slot." />
+	<comment value="The slots attached to this schedule should be specialized to cover immunizations within the clinic" />
 </Schedule>

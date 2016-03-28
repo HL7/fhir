@@ -10,12 +10,27 @@
 		<value value="123"/>
 	</identifier>
 	<status value="proposed" />
-	<type>
+	<serviceCategory>
 		<coding>
-			<code value="52"/>
-			<display value="General Discussion" />
+			<system value="http://example.org/service-category" />
+			<code value="gp"/>
+			<display value="General Practice" />
 		</coding>
-	</type>
+	</serviceCategory>
+	<specialty>
+		<coding>
+			<system value="http://example.org/specialty" />
+			<code value="gp"/>
+			<display value="General Practice" />
+		</coding>
+	</specialty>
+	<appointmentType>
+		<coding>
+			<system value="http://example.org/appointment-type" />
+			<code value="wi" />
+			<display value="Walk in" />
+		</coding>
+	</appointmentType>
 	<reason>
     <coding>
       <system value="http://snomed.info/sct"/>

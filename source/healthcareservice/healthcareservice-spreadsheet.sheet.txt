@@ -22,21 +22,25 @@
   Conformance = Example
 
  -- Row 4 -----------------------------------
-  Binding Name = DocumentC80PracticeSetting
+  Binding Name = service-category
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
+  Reference = http://hl7.org/fhir/ValueSet/v2-0265
+  Definition = A category of the service(s) that could be provided.
+  Conformance = example
+
+ -- Row 5 -----------------------------------
+  Binding Name = service-type
+  Binding = value set
+  Reference = valueset-service-type
   Definition = Additional details about where the content was created (e.g. clinical specialty).
   Conformance = Preferred
 
- -- Row 5 -----------------------------------
-  Binding Name = ServiceSpecialty
-  Binding = unbound
-  Definition = A specialty that a healthcare service may provide.
-
  -- Row 6 -----------------------------------
-  Binding Name = ServiceCategory
-  Binding = unbound
-  Definition = A category of the service(s) that could be provided.
+  Binding Name = service-specialty
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/c80-practice-codes
+  Definition = A specialty that a healthcare service may provide.
+  Conformance = Preferred
 
  -- Row 7 -----------------------------------
   Binding Name = ServiceCharacteristic
@@ -181,7 +185,7 @@
   Card. = 0..1
   Summary = Y
   Type = CodeableConcept
-  Binding = ServiceCategory
+  Binding = service-category
   Short Label = Broad category of service being performed or delivered
   Definition = Identifies the broad category of service being performed or delivered
   Comments = Selecting a Service Category then determines the list of relevant service types that can be selected in the primary service type
@@ -201,7 +205,7 @@
   Card. = 1..1
   Summary = Y
   Type = CodeableConcept
-  Binding = DocumentC80PracticeSetting
+  Binding = service-type
   Short Label = Type of service delivered or performed
   Definition = The specific type of service being delivered or performed
   Comments = Change to serviceType?
@@ -211,7 +215,7 @@
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
-  Binding = ServiceSpecialty
+  Binding = service-specialty
   Short Label = Specialties handled by the Service Site
   Definition = Collection of specialties handled by the service site. This is more of a medical term
 

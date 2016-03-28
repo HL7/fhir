@@ -8,12 +8,12 @@
 			Dr Careful is out of the office
 		</div>
 	</text>
-	<type>
+	<serviceCategory>
 		<coding>
-			<code value="45"/>
-			<display value="Physiotherapy" />
+			<code value="17"/>
+			<display value="General Practice" />
 		</coding>
-	</type>
+	</serviceCategory>
 	<schedule>
 		<reference value="Schedule/example" />
 	</schedule>
