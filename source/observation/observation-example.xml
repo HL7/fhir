@@ -2,7 +2,7 @@
 <!-- 
  This is an example of a simple weight measurement.
  -->
-<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file://ERICHPLAPTOP/Users/FHIRBuild/schema/observation.xsd">
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir file:///C:/Users/Eric/Documents/HL7/FHIR/BUILD_EDIT_FILES/fhir-all-xsd/observation.xsd">
 	<id value="example"/>
 	<!--  the mandatory quality flags:  -->
 	<status value="final"/>
@@ -46,6 +46,7 @@
 	<encounter>
 		<reference value="Encounter/example"/>
 	</encounter>
+	<effectiveDateTime value="2016-03-28"/>
 	<!--  In FHIR, units may be represented twice. Once in the
     agreed human representation, and once in a coded form.
     Both is best, since it's not always possible to infer
