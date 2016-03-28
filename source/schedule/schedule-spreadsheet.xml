@@ -6400,7 +6400,7 @@
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="274.8"/>
    <Column ss:StyleID="s112" ss:Width="51"/>
    <Column ss:StyleID="s112" ss:Width="79.2"/>
-   <Column ss:StyleID="s112" ss:Width="146.39999999999998"/>
+   <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="222"/>
    <Column ss:StyleID="s112" ss:Width="172.79999999999998"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="97.800000000000011"/>
    <Column ss:StyleID="s112" ss:AutoFitWidth="0" ss:Width="88.800000000000011"/>
@@ -6483,7 +6483,7 @@
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/v2-0265</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/service-category</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -6497,7 +6497,7 @@
     <Cell ss:StyleID="s88"><Data ss:Type="String">service-type</Data></Cell>
     <Cell ss:StyleID="s88"/>
     <Cell ss:StyleID="s118"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s118"><Data ss:Type="String">Preferred</Data></Cell>
+    <Cell ss:StyleID="s118"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s154"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/service-type</Data></Cell>
     <Cell ss:StyleID="s118"/>
     <Cell ss:StyleID="s118"/>
@@ -6951,7 +6951,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

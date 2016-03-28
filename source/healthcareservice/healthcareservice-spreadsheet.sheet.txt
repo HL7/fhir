@@ -13,6 +13,7 @@
   Binding = code list
   Reference = #days-of-week
   Definition = The days of the week.
+  Conformance = required
 
  -- Row 3 -----------------------------------
   Binding Name = ServiceProvisionConditions
@@ -24,7 +25,7 @@
  -- Row 4 -----------------------------------
   Binding Name = service-category
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v2-0265
+  Reference = valueset-service-category
   Definition = A category of the service(s) that could be provided.
   Conformance = example
 
@@ -33,7 +34,7 @@
   Binding = value set
   Reference = valueset-service-type
   Definition = Additional details about where the content was created (e.g. clinical specialty).
-  Conformance = Preferred
+  Conformance = example
 
  -- Row 6 -----------------------------------
   Binding Name = service-specialty
@@ -192,7 +193,7 @@
   w5 = class
 
  -- Row 5 -----------------------------------
-  Element = HealthcareService.serviceType
+  Element = !HealthcareService.serviceType
   Card. = 0..*
   Summary = Y
   UML = 350;0
@@ -201,22 +202,21 @@
   Definition = A specific type of service that may be delivered or performed
 
  -- Row 6 -----------------------------------
-  Element = HealthcareService.serviceType.type
-  Card. = 1..1
+  Element = HealthcareService.serviceType
+  Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = service-type
-  Short Label = Type of service delivered or performed
-  Definition = The specific type of service being delivered or performed
-  Comments = Change to serviceType?
+  Short Label = Type of service that may be delivered or performed
+  Definition = The specific type of service that may be delivered or performed
 
  -- Row 7 -----------------------------------
-  Element = HealthcareService.serviceType.specialty
+  Element = HealthcareService.specialty
   Card. = 0..*
   Summary = Y
   Type = CodeableConcept
   Binding = service-specialty
-  Short Label = Specialties handled by the Service Site
+  Short Label = Specialties handled by the HealthcareService
   Definition = Collection of specialties handled by the service site. This is more of a medical term
 
  -- Row 8 -----------------------------------
@@ -463,7 +463,7 @@
   Name = servicetype
   Type = token
   Description = The type of service provided by this healthcare service
-  Path = HealthcareService.serviceType.type
+  Path = HealthcareService.serviceType
 
  -- Row 4 -----------------------------------
   Name = !availability

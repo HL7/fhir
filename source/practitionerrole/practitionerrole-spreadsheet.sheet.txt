@@ -15,6 +15,13 @@
   Definition = Specific specialty associated with the agency
   Conformance = preferred
 
+ -- Row 3 -----------------------------------
+  Binding Name = DaysOfWeek
+  Binding = value set
+  Reference = http://hl7.org/fhir/ValueSet/days-of-week
+  Definition = The days of the week.
+  Conformance = required
+
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
@@ -66,6 +73,7 @@
  -- Row 5 -----------------------------------
   Element = PractitionerRole.organization
   Card. = 0..1
+  Summary = y
   Type = Reference(Organization)
   Short Label = Organization where the roles are available
   Definition = The organization where the Practitioner performs the roles associated
@@ -100,6 +108,7 @@
  -- Row 8 -----------------------------------
   Element = PractitionerRole.location
   Card. = 0..*
+  Summary = y
   Type = Reference(Location)
   Short Label = The location(s) at which this practitioner provides care
   Definition = The location(s) at which this practitioner provides care
@@ -135,6 +144,71 @@
   ServD Mapping = (ServD maps Practitioners and Organizations via another entity, so this concept is not available)
   Committee Notes = Is this separate from the period of validity of the qualification?
   w5 = when.done
+
+ -- Row 12 -----------------------------------
+  Element = PractitionerRole.availableTime
+  Card. = 0..*
+  Short Label = Times the Service Site is available
+  Definition = A collection of times that the Service Site is available
+  Comments = More detailed availability information may be provided in associated Schedule/Slot resources.
+
+ -- Row 13 -----------------------------------
+  Element = PractitionerRole.availableTime.daysOfWeek
+  Card. = 0..*
+  Type = code
+  Binding = DaysOfWeek
+  Short Label = mon | tue | wed | thu | fri | sat | sun
+  Definition = Indicates which days of the week are available between the start and end Times
+
+ -- Row 14 -----------------------------------
+  Element = PractitionerRole.availableTime.allDay
+  Card. = 0..1
+  Type = boolean
+  Short Label = Always available? e.g. 24 hour service
+  Definition = Is this always available? (hence times are irrelevant) e.g. 24 hour service
+
+ -- Row 15 -----------------------------------
+  Element = PractitionerRole.availableTime.availableStartTime
+  Card. = 0..1
+  Type = time
+  Short Label = Opening time of day (ignored if allDay = true)
+  Definition = The opening time of day. Note: If the AllDay flag is set, then this time is ignored
+  Comments = The timezone is expected to be for where this HealthcareService is provided at.
+
+ -- Row 16 -----------------------------------
+  Element = PractitionerRole.availableTime.availableEndTime
+  Card. = 0..1
+  Type = time
+  Short Label = Closing time of day (ignored if allDay = true)
+  Definition = The closing time of day. Note: If the AllDay flag is set, then this time is ignored
+  Comments = The timezone is expected to be for where this HealthcareService is provided at.
+
+ -- Row 17 -----------------------------------
+  Element = PractitionerRole.notAvailable
+  Card. = 0..*
+  Short Label = Not available during this time due to provided reason
+  Definition = The HealthcareService is not available during this period of time due to the provided reason
+
+ -- Row 18 -----------------------------------
+  Element = PractitionerRole.notAvailable.description
+  Card. = 1..1
+  Type = string
+  Short Label = Reason presented to the user explaining why time not available
+  Definition = The reason that can be presented to the user as to why this time is not available
+
+ -- Row 19 -----------------------------------
+  Element = PractitionerRole.notAvailable.during
+  Card. = 0..1
+  Type = Period
+  Short Label = Service not availablefrom this date
+  Definition = Service is not available (seasonally or for a public holiday) from this date
+
+ -- Row 20 -----------------------------------
+  Element = PractitionerRole.availabilityExceptions
+  Card. = 0..1
+  Type = string
+  Short Label = Description of availability exceptions
+  Definition = A description of site availability exceptions, e.g. public holiday availability. Succinctly describing all possible exceptions to normal site availability as details in the available Times and not available Times
 
 === Sheet Search =====================================
 

@@ -10,14 +10,14 @@
  -- Row 2 -----------------------------------
   Binding Name = service-category
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/v2-0265
+  Reference = http://hl7.org/fhir/ValueSet/service-category
   Conformance = example
 
  -- Row 3 -----------------------------------
   Binding Name = service-type
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/service-type
-  Conformance = Preferred
+  Conformance = example
 
  -- Row 4 -----------------------------------
   Binding Name = specialty

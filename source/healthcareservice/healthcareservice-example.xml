@@ -21,22 +21,19 @@
 		</Location>
 	</contained>
 	<serviceType>
-		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="394913002"/>
 				<display value="Psychotherapy"/>
 			</coding>
-		</type>
 	</serviceType>
 	<serviceType>
-		<type>
 			<coding>
 				<system value="http://snomed.info/sct"/>
 				<code value="394587001"/>
 				<display value="Psychiatry"/>
 			</coding>
-		</type>
+	</serviceType>
 		<specialty>
 			<coding>
 				<system value="http://snomed.info/sct"/>
@@ -44,7 +41,6 @@
 				<display value="Posttraumatic stress disorder"/>
 			</coding>
 		</specialty>
-	</serviceType>
 	<location>
 		<reference value="Location/1"/>
 	</location>
