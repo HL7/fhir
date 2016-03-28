@@ -65,12 +65,13 @@ public class XmlParser extends ParserBase {
     for (Property property : properties) {
       if (isAttr(property)) {
       	Attr attr = node.getAttributeNode(property.getName());
-      	processed.add(attr);
-      	if (attr != null)
+      	if (attr != null) {
+          processed.add(attr);
       		if (property.getName().equals("value"))
       			context.setValue(attr.getValue());
       		else
       	    context.getChildren().add(new Element(property.getName(), property, property.getType(), attr.getValue()));
+      	}
       } else if (property.isPrimitive() && "xhtml".equals(property.getType())) {
       	org.w3c.dom.Element div = XMLUtil.getNamedChild(node, property.getName());
       	processed.add(div);

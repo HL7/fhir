@@ -955,8 +955,8 @@ public class Publisher implements URIResolver, SectionNumberer {
         if (t.getProfile().hasSnapshot())
           return t.getProfile();
         throw new Exception("unable to find snapshot for "+name);
-      } else
-        throw new Exception("unable to find base definition for "+name);
+      } //else 
+//        throw new Exception("unable to find base definition for "+name);
     }
     StructureDefinition p = new ProfileUtilities(page.getWorkerContext(), page.getValidationErrors(), page).getProfile(null, parts[0]);
     if (p == null)
