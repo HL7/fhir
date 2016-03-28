@@ -21,13 +21,29 @@
         <code value="cm"/>
         <display value="centimeter"/>
       </concept>
+       <concept>
+        <code value="[in_i]"/>
+        <display value="inch (international)"/>
+      </concept>
       <concept>
         <code value="kg"/>
         <display value="kilogram"/>
       </concept>
+       <concept>
+        <code value="g"/>
+        <display value="gram"/>
+      </concept>
+       <concept>
+        <code value="[lb_av]"/>
+        <display value="pound (US and British)"/>
+      </concept>
       <concept>
         <code value="Cel"/>
         <display value="degree Celsius"/>
+      </concept>
+       <concept>
+        <code value="[degF]"/>
+        <display value="degree Fahrenheit"/>
       </concept>
       <concept>
         <code value="mm[Hg]"/>
