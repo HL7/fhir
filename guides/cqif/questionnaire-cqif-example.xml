@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
-  <!-- This example demonstrates the CQIF-Questionnaire profile of Questionnaire to represent dynamic logic in a Questionnaire -->
   <id value="questionnaire-cqif-example"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/cqif-questionnaire"/>
@@ -14,7 +13,6 @@
       <reference value="Library/phq-9-logic"/>
     </valueReference>
   </extension>
-  <!-- Identifier -->
   <identifier>
     <use value="official"/>
     <value value="phq-9"/>
@@ -133,9 +131,9 @@
     </options>
   </item>
   <item>
-	<extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-calculatedValue">
-		<valueString value="CalculateTotalScore"/>
-	</extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/cqif-basic-calculatedValue">
+      <valueString value="CalculateTotalScore"/>
+    </extension>
     <linkId value="TotalScore"/>
     <concept>
       <system value="http://loinc.org"/>

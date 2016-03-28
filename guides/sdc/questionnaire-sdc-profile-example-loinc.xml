@@ -693,13 +693,7 @@
       </compose>
     </ValueSet>
   </contained>
-  <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-category">
-    <valueCodeableConcept>
-      <coding>
-        <code value="Acute Care Hospitals"/>
-      </coding>
-    </valueCodeableConcept>
-  </extension>
+  <url value="http://hl7.org/fhir/Questionnaire/questionnaire-sdc-profile-example-loinc"/>
   <identifier>
     <system value="http://loinc.org/vs"/>
     <value value="74080-3"/>
@@ -728,12 +722,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-hidden">
         <valueBoolean value="true"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-defaultValue">
-        <valueString value="AHRQ F8"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-readOnly">
-        <valueBoolean value="true"/>
-      </extension>
       <text value="Form ID:"/>
       <type value="string"/>
       <required value="true"/>
@@ -741,9 +729,6 @@
     <item>
       <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
         <valueInteger value="3"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-        <valueInteger value="9"/>
       </extension>
       <linkId value="74080-3/74081-1"/>
       <text value="Event ID:"/>
@@ -774,14 +759,8 @@
       <type value="group"/>
       <required value="true"/>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="1."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="1"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-          <valueInteger value="30"/>
         </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
           <valueReference>
@@ -796,9 +775,6 @@
           <reference value="#ll2654-3"/>
         </options>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-            <valueString value="2."/>
-          </extension>
           <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
             <valueInteger value="7"/>
           </extension>
@@ -815,14 +791,8 @@
             <reference value="#ll2655-0"/>
           </options>
           <item>
-            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-              <valueString value="3."/>
-            </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
               <valueInteger value="0"/>
-            </extension>
-            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-              <valueInteger value="500"/>
             </extension>
             <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-deReference">
               <valueReference>
@@ -836,14 +806,8 @@
           </item>
         </item>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-            <valueString value="4."/>
-          </extension>
           <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
             <valueInteger value="8"/>
-          </extension>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-            <valueInteger value="65"/>
           </extension>
           <linkId value="74080-3/74074-6"/>
           <text value="What type of biological product?"/>
@@ -852,9 +816,6 @@
             <reference value="#ll2657-6"/>
           </options>
           <item>
-            <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-              <valueString value="5."/>
-            </extension>
             <linkId value="74080-3/30959-1"/>
             <text value="What was the lot number of the vaccine?"/>
             <type value="string"/>
@@ -862,9 +823,6 @@
           </item>
         </item>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-            <valueString value="6."/>
-          </extension>
           <linkId value="74080-3/74073-8"/>
           <text value="What type of nutritional product?"/>
           <type value="open-choice"/>
@@ -887,9 +845,6 @@
         </item>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="7."/>
-        </extension>
         <linkId value="74080-3/74072-0"/>
         <text value="Which of the following best characterizes the event?"/>
         <type value="open-choice"/>
@@ -899,9 +854,6 @@
         </options>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="8."/>
-        </extension>
         <linkId value="74080-3/74071-2"/>
         <text value="What was the incorrect action?"/>
         <type value="choice"/>
@@ -909,9 +861,6 @@
           <reference value="#ll2661-8"/>
         </options>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-            <valueString value="9."/>
-          </extension>
           <linkId value="74080-3/74070-4"/>
           <text value="Which best describes the incorrect dose(s)?"/>
           <type value="open-choice"/>
@@ -921,9 +870,6 @@
           </options>
         </item>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-            <valueString value="10."/>
-          </extension>
           <linkId value="Medication/74069-6"/>
           <text value="Which best describes the incorrect timing?"/>
           <type value="open-choice"/>
@@ -933,9 +879,6 @@
           </options>
         </item>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-            <valueString value="11."/>
-          </extension>
           <linkId value="74080-3/74068-8"/>
           <text value="Which best describes the incorrect rate?"/>
           <type value="open-choice"/>
@@ -945,9 +888,6 @@
           </options>
         </item>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-            <valueString value="12."/>
-          </extension>
           <linkId value="Medication/74067-0"/>
           <text value="Which best describes the incorrect strength or concentration?"/>
           <type value="open-choice"/>
@@ -957,18 +897,12 @@
           </options>
         </item>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-            <valueString value="13."/>
-          </extension>
           <linkId value="Medication/74066-2"/>
           <text value="What was the expiration date?"/>
           <type value="string"/>
           <required value="true"/>
         </item>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-            <valueString value="14."/>
-          </extension>
           <linkId value="Medication/74065-4"/>
           <text value="Was there a documented history of allergies or sensitivities to the medication/substance                      administered?"/>
           <type value="open-choice"/>
@@ -978,9 +912,6 @@
           </options>
         </item>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-            <valueString value="15."/>
-          </extension>
           <linkId value="Medication/74064-7"/>
           <text value="What was the contraindication (potential or actual interaction)?"/>
           <type value="open-choice"/>
@@ -1003,9 +934,6 @@
         </item>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="16."/>
-        </extension>
         <linkId value="74080-3/74063-9"/>
         <text value="At what stage in the process did the event originate, regardless of the stage at which                  it was discovered?"/>
         <type value="open-choice"/>
@@ -1033,14 +961,8 @@
         <type value="display"/>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="17."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="0"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-          <valueInteger value="65"/>
         </extension>
         <linkId value="74080-3/74078-7/74062-1"/>
         <text value="Generic name or investigational drug name"/>
@@ -1050,22 +972,13 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-          <valueInteger value="65"/>
-        </extension>
         <linkId value="74080-3/74078-7/74061-3"/>
         <text value="Ingredient RXCUI (if known)"/>
         <type value="string"/>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="18."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="0"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-          <valueInteger value="65"/>
         </extension>
         <linkId value="74080-3/74078-7/74060-5"/>
         <text value="Brand name (if known)"/>
@@ -1075,36 +988,21 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-          <valueInteger value="65"/>
-        </extension>
         <linkId value="74080-3/74078-7/74059-7"/>
         <text value="Brand name RXCUI (if known)"/>
         <type value="string"/>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="19."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="0"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-          <valueInteger value="65"/>
         </extension>
         <linkId value="74080-3/74078-7/74058-9"/>
         <text value="Manufacturer (if known)"/>
         <type value="string"/>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="20."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="0"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-          <valueInteger value="65"/>
         </extension>
         <linkId value="74080-3/74078-7/74057-1"/>
         <text value="Strength or concentration of product"/>
@@ -1114,22 +1012,13 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-          <valueInteger value="65"/>
-        </extension>
         <linkId value="74080-3/74078-7/74056-3"/>
         <text value="Clinical drug component RXCUI (if known)"/>
         <type value="string"/>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="21."/>
-        </extension>
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="0"/>
-        </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-          <valueInteger value="65"/>
         </extension>
         <linkId value="74080-3/74078-7/74055-5"/>
         <text value="Dosage form of Product"/>
@@ -1139,17 +1028,11 @@
         <extension url="http://hl7.org/fhir/StructureDefinition/minLength">
           <valueInteger value="0"/>
         </extension>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-          <valueInteger value="65"/>
-        </extension>
         <linkId value="74080-3/74078-7/74054-8"/>
         <text value="Dose form RXCUI (if known)"/>
         <type value="string"/>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="22."/>
-        </extension>
         <linkId value="74080-3/74078-7/74053-0"/>
         <text value="Was this medication/substance prescribed for this patient?"/>
         <type value="choice"/>
@@ -1159,9 +1042,6 @@
         </options>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="23."/>
-        </extension>
         <linkId value="Medication/74052-2"/>
         <text value="Was this medication/substance given to this patient?"/>
         <type value="choice"/>
@@ -1175,9 +1055,6 @@
       <linkId value="Medication/SEC03"/>
       <type value="group"/>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="24."/>
-        </extension>
         <linkId value="74080-3/74051-4"/>
         <text value="What was the intended route of administration?"/>
         <type value="open-choice"/>
@@ -1193,9 +1070,6 @@
         </item>
       </item>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
-          <valueString value="25."/>
-        </extension>
         <linkId value="74080-3/74050-6"/>
         <text value="What was the actual route of administration (attempted or completed)?"/>
         <type value="open-choice"/>

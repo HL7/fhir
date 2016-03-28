@@ -131,7 +131,6 @@
     <options>
       <reference value="#verbal"/>
     </options>
-    <!--  motor  -->
   </item>
   <item>
     <linkId value="1.2"/>

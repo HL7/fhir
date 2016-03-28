@@ -755,8 +755,8 @@
   Type = Identifier|Reference(Practitioner)
   Short Label = Responsible practitioner
   Definition = The practitioner who is responsible for the services rendered to the patient
-  RIM Mapping = 24G&H not sure
   CDAnet v4 Mapping = not used
+  RIM Mapping = 24G&H not sure
 
  -- Row 71 -----------------------------------
   Element = ExplanationOfBenefit.item.supervisor[x]

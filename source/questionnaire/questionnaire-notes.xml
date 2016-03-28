@@ -147,8 +147,8 @@ Where the names are the same (ignoring case), the "answer" must use the specifie
 <a name="choices"/>
 <h3>Permitted values for questions</h3>
 <p>
-Many questionnaires place constraints on the allowed list of values for a given question.  FHIR supports this notion through the <code>item.choices</code> or the
-<code>item.choice</code> element.
+Many questionnaires place constraints on the allowed list of values for a given question.  FHIR supports this notion through the <code>item.options</code> or the
+<code>item.option</code> element.
 </p>
 <p>
 The "choice" mechanism is simplest - all options are listed in-line with the question.  Maintenance of the set of permitted question answers involves maintenance of

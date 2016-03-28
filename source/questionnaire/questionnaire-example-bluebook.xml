@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Questionnaire xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/questionnaire.xsd">
-  <!-- Please not that in this questionnaire, the questions are mostly uncoded.  That is, the questions are not identified using the <concept> element. It will therefore
-    be hard to extract useful information in an automated way from this questionnaire. This is, however, quite often the case when modelling existing questionnaires -->
   <id value="bb"/>
   <text>
     <status value="generated"/>
@@ -45,10 +43,14 @@
         <text value="Sex"/>
         <type value="choice"/>
         <option>
-          <code value="F"/>
+          <valueCoding>
+            <code value="F"/>
+          </valueCoding>
         </option>
         <option>
-          <code value="M"/>
+          <valueCoding>
+            <code value="M"/>
+          </valueCoding>
         </option>
       </item>
     </item>
@@ -71,23 +73,21 @@
         <text value="Vitamin K given"/>
         <type value="choice"/>
         <option>
-          <code value="INJECTION"/>
+          <valueCoding>
+            <code value="INJECTION"/>
+          </valueCoding>
         </option>
         <option>
-          <code value="INTRAVENOUS"/>
+          <valueCoding>
+            <code value="INTRAVENOUS"/>
+          </valueCoding>
         </option>
         <option>
-          <code value="ORAL"/>
+          <valueCoding>
+            <code value="ORAL"/>
+          </valueCoding>
         </option>
         <item>
-          <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
-            <extension url="question">
-              <valueString value="vitaminKgiven"/>
-            </extension>
-            <extension url="answered">
-              <valueBoolean value="true"/>
-            </extension>
-          </extension>
           <linkId value="vitaminKgivenDoses"/>
           <type value="group"/>
           <item>

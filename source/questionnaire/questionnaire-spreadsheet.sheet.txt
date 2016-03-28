@@ -201,6 +201,37 @@
   XPath = not(f:type/@value=\'display\' and (f:required or f:repeats))
   Expression = type!=\'display\' or (required.empty() and repeats.empty())
 
+ -- Row 7 -----------------------------------
+  Id = 7
+  Context = Questionnaire.item.enableWhen
+  English = enableWhen must contain either an \'answer\' or an \'answered\' element
+  XPath = count(*[starts-with(local-name(.), \'answer\')]|answered) = 1
+  Expression = answered or answer[x]
+
+ -- Row 8 -----------------------------------
+  Id = 8
+  Context = Questionnaire.item
+  English = Default values can\'t be specified for groups or display items
+  XPath = not(f:type/@value=(\'group\', \'display\') and f:*[starts-with(local-name(.), \'initial\')])
+  Expression = (type!=\'group\' and type!=\'display\') or initial[x].empty()
+  Severity = error
+
+ -- Row 9 -----------------------------------
+  Id = 9
+  Context = Questionnaire.item
+  English = Read-only can\'t be specified for \"display\" items
+  XPath = not(f:type/@value=\'display\' and f:readOnly)
+  Expression = type!=\'display\' or readOnly.empty()
+  Severity = error
+
+ -- Row 10 -----------------------------------
+  Id = 10
+  Context = Questionnaire.item
+  English = Maximum length can only be declared for simple question types
+  XPath = f:type/@value=(\'boolean\', \'decimal\', \'integer\', \'open-choice\', \'string\', \'text\', \'url\') or not(f:maxLength)
+  Expression = type in (\'boolean\' | \'decimal\' | \'integer\' | \'string\' | \'text\' | \'url\') or maxLength.empty()
+  Severity = error
+
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
@@ -214,6 +245,16 @@
   w5 = infrastructure.information
 
  -- Row 2 -----------------------------------
+  Element = Questionnaire.url
+  Card. = 0..1
+  Summary = y
+  Type = uri
+  Short Label = Globally unique logical identifier for  questionnaire
+  Definition = An absolute URL that is used to identify this questionnaire when it is referenced in a specification, model, design or an instance. This SHALL be a URL, SHOULD be globally unique, and SHOULD be an address at which this questionnaire is (or will be) published
+  RIM Mapping = .id[use=BUSN, reliability=ISS, extension is a URI]
+  w5 = id
+
+ -- Row 3 -----------------------------------
   Element = Questionnaire.identifier
   Card. = 0..*
   Summary = y
@@ -221,11 +262,11 @@
   Short Label = External identifiers for this questionnaire
   Definition = This records identifiers associated with this question set that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate (e.g. in CDA documents, or in written / printed documentation)
   Requirements = Need to allow connection to a wider workflow
-  RIM Mapping = .id[use=BUS]
+  RIM Mapping = .id[use=BUSN]
   Committee Notes = Is this 80%?
   w5 = id
 
- -- Row 3 -----------------------------------
+ -- Row 4 -----------------------------------
   Element = Questionnaire.version
   Card. = 0..1
   Aliases = N/A - MIF rather than RIM level
@@ -237,7 +278,7 @@
   RIM Mapping = .id[use=VER]
   w5 = id.version
 
- -- Row 4 -----------------------------------
+ -- Row 5 -----------------------------------
   Element = Questionnaire.status
   Card. = 1..1
   Is Modifier = y
@@ -249,7 +290,7 @@
   RIM Mapping = .statusCode (also whether there\'s a revisionControlAct - and possibly mood to distinguish \"in-progress\" from \"published)
   w5 = status
 
- -- Row 5 -----------------------------------
+ -- Row 6 -----------------------------------
   Element = Questionnaire.date
   Card. = 0..1
   Aliases = Date created, Date published, Date issued, Date updated
@@ -260,7 +301,7 @@
   RIM Mapping = .participation[typeCode=AUT].time
   w5 = when.recorded
 
- -- Row 6 -----------------------------------
+ -- Row 7 -----------------------------------
   Element = Questionnaire.publisher
   Card. = 0..1
   Summary = y
@@ -271,7 +312,7 @@
   RIM Mapping = .participation[typeCode=AUT].role
   w5 = who.witness
 
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = Questionnaire.telecom
   Card. = 0..*
   Summary = Y
@@ -280,7 +321,17 @@
   Definition = Contact details to assist a user in finding and communicating with the publisher
   RIM Mapping = .participation[typeCode=AUT].role.telecom
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
+  Element = Questionnaire.useContext
+  Card. = 0..*
+  Summary = y
+  Type = CodeableConcept
+  Binding = ConformanceUseContext
+  Short Label = Questionnaire intends to support these contexts
+  Definition = A code that identifies the questionnaire as falling into a particular group of like questionnaires; e.g. \"Pediatric\", \"Admissions\", \"Research\", \"Demographic\", \"Opinion Survey\", etc.
+  Requirements = Allows discovery of questionnaires.  Also allows organization of lists of questionnaires into groups for presentation
+
+ -- Row 10 -----------------------------------
   Element = Questionnaire.title
   Card. = 0..1
   Summary = Y
@@ -290,7 +341,7 @@
   Requirements = Used for display, searching
   RIM Mapping = .title
 
- -- Row 9 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Questionnaire.concept
   Card. = 0..*
   Summary = Y
@@ -301,7 +352,7 @@
   Requirements = Allows linking of the complete Questionnaire resources to formal terminologies.  It\'s common for \"pannels\" of questions to be identified by a code.
   RIM Mapping = .code
 
- -- Row 10 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Questionnaire.subjectType
   Card. = 0..*
   Summary = y
@@ -312,7 +363,7 @@
   Comments = If none are specified, then the subject is unlimited
   RIM Mapping = .outboundRelationship[typeCode=META].target[classCode=OBS, moodCode=DEFN, isCriterion=true].participation.role.classCode
 
- -- Row 11 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Questionnaire.item
   Card. = 0..*
   UML = right
@@ -321,7 +372,7 @@
   Definition = The questions and groupings of questions that make up the questionnaire
   RIM Mapping = .outboundRelationship[typeCode=COMP].target[classCode=OBS, moodCode=DEF]
 
- -- Row 12 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Questionnaire.item.linkId
   Card. = 0..1
   Type = string
@@ -331,7 +382,7 @@
   Comments = May be omitted if there is no expectation to link answers back to a Questionnaire.  This \'\'can\'\' be a meaningful identifier (e.g. a LOINC code) but is not intended to have any meaning.  GUIDs or sequential numbers are appropriate here.
   RIM Mapping = .id
 
- -- Row 13 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Questionnaire.item.concept
   Card. = 0..*
   Summary = Y
@@ -344,7 +395,18 @@
   Comments = The code(s) for the \"root\" group apply to the questionnaire as a whole.
   RIM Mapping = .code
 
- -- Row 14 -----------------------------------
+ -- Row 16 -----------------------------------
+  Element = Questionnaire.item.prefix
+  Card. = 0..1
+  Aliases = label
+  Type = string
+  Short Label = E.g. \"1(a)\", \"2.5.3\"
+  Definition = A short label for a particular group, question or set of display text within the questionnaire
+  Requirements = Separating the label from the question text allows improved rendering.  Also, instructions will often refer to specific prefixes, so there\'s a need for the questionnaire design to have control over what labels are used.
+  Comments = These are generally unique within a questionnaire, though this is not guaranteed. Some questionnaires may have multiple questions with the same label with logic to control which gets exposed.\n\nTypically these won\'t be used for \"text\" items, though such use is not prohibited.\n\nSystems SHOULD NOT generate their own prefixes if prefixes are defined for any items within a Questionnaire.
+  RIM Mapping = Not supported
+
+ -- Row 17 -----------------------------------
   Element = Questionnaire.item.text
   Card. = 0..1
   Summary = Y
@@ -353,7 +415,7 @@
   Definition = The name of a section, the text of a question or text content for a text item
   RIM Mapping = .text
 
- -- Row 15 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Questionnaire.item.type
   Card. = 1..1
   Type = code
@@ -364,17 +426,57 @@
   Comments = Additional constraints on the type of answer can be conveyed by extensions
   RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 16 -----------------------------------
+ -- Row 19 -----------------------------------
+  Element = Questionnaire.item.enableWhen
+  Card. = 0..*
+  Is Modifier = Y
+  Short Label = Only allow data when:
+  Definition = If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true
+  Requirements = Allows questionnaires to adapt based on answers to other questions; e.g. If physical gender is specified as a male, no need to capture pregnancy history.  Also allows conditional display of instructions or groups of questions
+  Comments = If multiple repetitions of this extension are present, the item should be enabled when the condition for *any* of the repetitions is true.  I.e. Treat \"enableWhen\"s as being joined by an \"or\" clause.\n\nIf enableWhen is present for an item, \"required\" is ignored unless one of the enableWhen conditions is met.
+  RIM Mapping = N/A - MIF rather than RIM level
+
+ -- Row 20 -----------------------------------
+  Element = Questionnaire.item.enableWhen.question
+  Card. = 1..1
+  Type = string
+  Short Label = Question that determines whether item is enabled
+  Definition = The linkId for the question whose answer (or lack of answer) governs whether this item is enabled
+  Comments = If multiple question occurrences are present for the same question (same linkId), then this refers to the nearest question occurrence reachable by tracing first the \"ancestor\" axis and then the \"preceding\" axis and then the \"following\" axis
+  RIM Mapping = N/A - MIF rather than RIM level
+
+ -- Row 21 -----------------------------------
+  Element = Questionnaire.item.enableWhen.answered
+  Card. = 0..1
+  Inv. = 7
+  Type = boolean
+  Short Label = Enable when answered or not
+  Definition = If present, indicates that this item should be enabled only if the specified question is answered or not answered
+  Comments = If answered=false and answer values are also provided, then they are treated as \"or\".  I.e. \"Enable if the question is unanswered or the answer is one of the specified values\".  If answered=true and answers are present, one of the specified answers must be met. (So there\'s little reason to specify answered=true if answers are present.)
+  RIM Mapping = N/A - MIF rather than RIM level
+
+ -- Row 22 -----------------------------------
+  Element = Questionnaire.item.enableWhen.answer[x]
+  Card. = 0..1
+  Inv. = 7
+  Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  Short Label = Value question must have
+  Definition = If present, then the answer for the referenced question must match this answer for all components present in the enableWhen.answer
+  Comments = Components not specified in the answer do not need to match.  For example, if enableWhen specifies code + system for a Coding, it\'s ok if the answer has a \"display\" element.\n\nThe dataType of this element must be the same as the data type of the question being referenced.
+  RIM Mapping = N/A - MIF rather than RIM level
+
+ -- Row 23 -----------------------------------
   Element = Questionnaire.item.required
   Card. = 0..1
   Inv. = 6
   Type = boolean
   Short Label = Whether the item must be included in data results
   Definition = If true, indicates that the item must be present in a \"completed\" QuestionnaireResponse.  If false, the item may be skipped when answering the questionnaire.
-  RIM Mapping = Not supported - MIF/templating layer
+  Comments = If an item that contains other items is marked as required, that does not automatically make the contained elements required (though required groups must contain at least one child element).
+  RIM Mapping = N/A - MIF rather than RIM level
   Default Value = False
 
- -- Row 17 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Questionnaire.item.repeats
   Card. = 0..1
   Inv. = 6
@@ -382,10 +484,32 @@
   Short Label = Whether the item may repeat
   Definition = Whether the item may occur multiple times in the instance, containing multiple sets of answers
   Requirements = Items may be used to create set of (related) questions that can be repeated to give multiple answers to such a set
-  RIM Mapping = Not supported - MIF/templating layer
+  RIM Mapping = N/A - MIF rather than RIM level
   Default Value = False
 
- -- Row 18 -----------------------------------
+ -- Row 25 -----------------------------------
+  Element = Questionnaire.item.readOnly
+  Card. = 0..1
+  Inv. = 9
+  Type = boolean
+  Short Label = Don\'t allow human editing
+  Definition = If true, the value cannot be changed by a human respondent to the Questionnaire.
+  Requirements = Allows certain information to be phrased (and rendered) as a question and an answer, while keeping users from changing it.  May also be useful for preventing changes to pre-populated portions of a questionnaire, for calculated values, etc.
+  Comments = The value of readOnly elements can be established by asserting  extensions for defaultValues, linkages that support pre-population and/or extensions that support calculation based on other answers.
+  RIM Mapping = N/A - MIF rather than RIM level
+
+ -- Row 26 -----------------------------------
+  Element = Questionnaire.item.maxLength
+  Card. = 0..1
+  Inv. = 10
+  Type = integer
+  Short Label = No more than this many characters
+  Definition = The maximum number of characters that are permitted in the answer to be considered a \"valid\" QuestionnaireResponse.
+  Comments = For base64binary, reflects the number of characters representing the encoded data, not the number of bytes of the binary data.
+  v2 Mapping = N/A
+  RIM Mapping = N/A - MIF rather than RIM level
+
+ -- Row 27 -----------------------------------
   Element = Questionnaire.item.options
   Card. = 0..1
   Inv. = 4,5
@@ -393,19 +517,37 @@
   Short Label = Valueset containing permitted answers
   Definition = Reference to a value set containing a list of codes representing permitted answers for the question
   Comments = LOINC defines many useful value sets for questionnaire response. See [LOINC Answer Lists](loinc.html#alist)
-  RIM Mapping = Not supported - MIF/templating layer to capture value set
+  RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 19 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Questionnaire.item.option
   Card. = 0..*
   Inv. = 4,5
   Type = Coding
-  Binding = QuestionnaireQuestionOption
   Short Label = Permitted answer
   Definition = For a \"choice\" question, identifies one of the permitted answers for the question.
-  RIM Mapping = Not supported - MIF/templating layer to capture value set
+  RIM Mapping = N/A - MIF rather than RIM level
 
- -- Row 20 -----------------------------------
+ -- Row 29 -----------------------------------
+  Element = Questionnaire.item.option.value[x]
+  Card. = 1..1
+  Type = integer | date | time | string | Coding
+  Binding = QuestionnaireQuestionOption
+  Short Label = Answer value
+  Definition = Identifies a specific answer that\'s allowed as the answer to a question
+  RIM Mapping = N/A - MIF rather than RIM level
+
+ -- Row 30 -----------------------------------
+  Element = Questionnaire.item.initial[x]
+  Card. = 0..1
+  Inv. = 8
+  Type = boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  Short Label = Initial presumed answer for question
+  Definition = The value that should be pre-populated when rendering the questionnaire for user input.
+  Requirements = In some workflows, having defaults saves time.
+  RIM Mapping = N/A - MIF rather than RIM level
+
+ -- Row 31 -----------------------------------
   Element = Questionnaire.item.item
   Card. = 0..*
   Inv. = 1
@@ -459,6 +601,12 @@
   Description = All or part of the name of the questionnaire
   Path = Questionnaire.title
 
+ -- Row 8 -----------------------------------
+  Name = context
+  Type = token
+  Description = A use context assigned to the questionnaire
+  Path = Questionnaire.useContext
+
 === Sheet Profiles =====================================
 
  -- Row 1 -----------------------------------
@@ -503,7 +651,7 @@
   Example.Request = $populate-request.txt
   Example.Response = $populate-response.txt
   Title = Populate Questionnaire
-  Footer = While it is theoretically possible for a [[[QuestionnaireResponse]]] instance to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  A client **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.\n\nComplex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondent, answering only those questions that are enabled based on previously answered questions.  However, doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  It will be up to the client to appropriately prune the final populated questionnaire once human review has taken place.\n\nInvoking this operation with the \'\'content\'\' parameter may involve the disclosure of personally identifiable healthcare information to the system which is performing the population process.  No such disclosures should be made unless the system on which the operation is being invoked is a \"trusted\" system and appropriate agreements are in place to protect the confidentiality of any information shared with that system.
+  Footer = While it is theoretically possible for a [[[QuestionnaireResponse]]] instance to be completely auto-populated and submitted without human review, the intention of this transaction is merely to reduce redundant data entry.  A client **SHOULD** ensure that a human submitter has an opportunity to review the auto-populated answers to confirm correctness as well as to complete or expand on information provided by the auto-population process.\n\nWhen creating an \"empty\" questionnaire, the general algorithm is to create a QuestionnaireResponse with one item for every item in the source Questionnaire, including items with \"enableWhen\", \"display\" items, etc.  If a question has a default, the default answer should be populated.  And the QuestionnaireResponse should point back to the originating Questionnaire.  Repeating items will typically only include a single repetition.  Other extensions and/or \n\nComplex form designs with conditional logic or tight constraints on cardinalities may be challenging to auto-populate.  A server MAY choose to traverse the questionnaire as if it were a human respondent, answering only those questions that are enabled based on previously answered questions.  However, doing so may result in minimal population.  Alternatively, systems may choose to populate all known answers, independent of dependencies and other constraints.  This may cause questions to be answered that should not be answered.  It will be up to the client to appropriately prune the final populated questionnaire once human review has taken place.\n\nInvoking this operation with the \'\'content\'\' parameter may involve the disclosure of personally identifiable healthcare information to the system which is performing the population process.  No such disclosures should be made unless the system on which the operation is being invoked is a \"trusted\" system and appropriate agreements are in place to protect the confidentiality of any information shared with that system.
 
  -- Row 2 -----------------------------------
   Name = populate.identifier

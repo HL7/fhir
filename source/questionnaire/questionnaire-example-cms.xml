@@ -8,7 +8,6 @@
   </identifier>
   <status value="published"/>
   <date value="2009-08"/>
-  <!-- Expiration date of 12/31/2014 would need to be captured as an extension -->
   <publisher value="Centers for Medicare &amp; Medicaid Services"/>
   <title value="OACIS-C: All Items - Home Health Patient Tracking Sheet"/>
   <item>
@@ -29,9 +28,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
         <valueString value="M0010"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-        <valueInteger value="6"/>
-      </extension>
       <linkId value="M0010"/>
       <text value="C M S Certification Number"/>
       <type value="string"/>
@@ -41,12 +37,8 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
         <valueString value="M0014"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-        <valueInteger value="2"/>
-      </extension>
       <linkId value="M0014"/>
       <text value="Branch State"/>
-      <!-- This could have been a choice, but it wasn't set up that way in the form -->
       <type value="string"/>
       <required value="true"/>
     </item>
@@ -54,28 +46,23 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
         <valueString value="M0018"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-        <valueInteger value="10"/>
-      </extension>
       <linkId value="M0018"/>
       <text value="National Provider Identifier (N P I) for the attending physician who has signed the plan of care"/>
       <type value="string"/>
-      <required value="false"/>
       <item>
         <type value="choice"/>
         <required value="true"/>
         <option>
-          <code value="NA"/>
-          <display value="Not Applicable"/>
+          <valueCoding>
+            <code value="NA"/>
+            <display value="Not Applicable"/>
+          </valueCoding>
         </option>
       </item>
     </item>
     <item>
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
         <valueString value="M0020"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-        <valueInteger value="20"/>
       </extension>
       <linkId value="M0020"/>
       <text value="Patient I D Number"/>
@@ -109,13 +96,14 @@
         <type value="choice"/>
         <required value="true"/>
         <option>
-          <code value="NA"/>
-          <display value="Not Applicable"/>
+          <valueCoding>
+            <code value="NA"/>
+            <display value="Not Applicable"/>
+          </valueCoding>
         </option>
       </item>
     </item>
     <item>
-      <!-- Revisit this if we can treat this question as a group of sub-questions -->
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
         <valueString value="M0040"/>
       </extension>
@@ -131,9 +119,6 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
         <valueString value="M0050"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-        <valueInteger value="2"/>
-      </extension>
       <linkId value="M0050"/>
       <text value="Patient State of Residence"/>
       <type value="string"/>
@@ -142,9 +127,6 @@
     <item>
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
         <valueString value="M0060"/>
-      </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-        <valueInteger value="10"/>
       </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
         <valueString value="nnnnn-nnnn"/>
@@ -158,19 +140,17 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
         <valueString value="M0063"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-        <valueInteger value="12"/>
-      </extension>
       <linkId value="M0063"/>
       <text value="Medicare Number"/>
       <type value="string"/>
-      <required value="false"/>
       <item>
         <type value="choice"/>
         <required value="true"/>
         <option>
-          <code value="NA"/>
-          <display value="No Medicare"/>
+          <valueCoding>
+            <code value="NA"/>
+            <display value="No Medicare"/>
+          </valueCoding>
         </option>
       </item>
     </item>
@@ -178,22 +158,20 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
         <valueString value="M0064"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-        <valueInteger value="11"/>
-      </extension>
       <extension url="http://hl7.org/fhir/StructureDefinition/entryFormat">
         <valueString value="nnn-nn-nnnn"/>
       </extension>
       <linkId value="M0064"/>
       <text value="Social Security Number"/>
       <type value="string"/>
-      <required value="false"/>
       <item>
         <type value="choice"/>
         <required value="true"/>
         <option>
-          <code value="UK"/>
-          <display value="Unknown or Not Available"/>
+          <valueCoding>
+            <code value="UK"/>
+            <display value="Unknown or Not Available"/>
+          </valueCoding>
         </option>
       </item>
     </item>
@@ -201,19 +179,17 @@
       <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-label">
         <valueString value="M0065"/>
       </extension>
-      <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength">
-        <valueInteger value="14"/>
-      </extension>
       <linkId value="M0065"/>
       <text value="Medicaid Number"/>
       <type value="string"/>
-      <required value="false"/>
       <item>
         <type value="choice"/>
         <required value="true"/>
         <option>
-          <code value="NA"/>
-          <display value="No Medicaid"/>
+          <valueCoding>
+            <code value="NA"/>
+            <display value="No Medicaid"/>
+          </valueCoding>
         </option>
       </item>
     </item>
@@ -238,12 +214,16 @@
       <type value="choice"/>
       <required value="true"/>
       <option>
-        <code value="1"/>
-        <display value="Male"/>
+        <valueCoding>
+          <code value="1"/>
+          <display value="Male"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="2"/>
-        <display value="Female"/>
+        <valueCoding>
+          <code value="2"/>
+          <display value="Female"/>
+        </valueCoding>
       </option>
     </item>
     <item>
@@ -256,28 +236,40 @@
       <required value="true"/>
       <repeats value="true"/>
       <option>
-        <code value="1"/>
-        <display value="American Indian or Alaska Native"/>
+        <valueCoding>
+          <code value="1"/>
+          <display value="American Indian or Alaska Native"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="2"/>
-        <display value="Asian"/>
+        <valueCoding>
+          <code value="2"/>
+          <display value="Asian"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="3"/>
-        <display value="Black or African-American"/>
+        <valueCoding>
+          <code value="3"/>
+          <display value="Black or African-American"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="4"/>
-        <display value="Hispanic or Latino"/>
+        <valueCoding>
+          <code value="4"/>
+          <display value="Hispanic or Latino"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="5"/>
-        <display value="Native Hawaiian or Pacific Islander"/>
+        <valueCoding>
+          <code value="5"/>
+          <display value="Native Hawaiian or Pacific Islander"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="6"/>
-        <display value="White"/>
+        <valueCoding>
+          <code value="6"/>
+          <display value="White"/>
+        </valueCoding>
       </option>
     </item>
     <item>
@@ -290,68 +282,84 @@
       <required value="true"/>
       <repeats value="true"/>
       <option>
-        <code value="0"/>
-        <display value="None; no charge for current services"/>
+        <valueCoding>
+          <code value="0"/>
+          <display value="None; no charge for current services"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="1"/>
-        <display value="Medicare (traditional fee-for-service)"/>
+        <valueCoding>
+          <code value="1"/>
+          <display value="Medicare (traditional fee-for-service)"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="2"/>
-        <display value="Medicare (HMO/managed care/Advantage plan)"/>
+        <valueCoding>
+          <code value="2"/>
+          <display value="Medicare (HMO/managed care/Advantage plan)"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="3"/>
-        <display value="Medicaid (traditional fee-for-service)"/>
+        <valueCoding>
+          <code value="3"/>
+          <display value="Medicaid (traditional fee-for-service)"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="4"/>
-        <display value="Medicaid (HMO/managed care)"/>
+        <valueCoding>
+          <code value="4"/>
+          <display value="Medicaid (HMO/managed care)"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="5"/>
-        <display value="Workers' compensation"/>
+        <valueCoding>
+          <code value="5"/>
+          <display value="Workers' compensation"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="6"/>
-        <display value="Title programs (e.g. Title III, V, or XX)"/>
+        <valueCoding>
+          <code value="6"/>
+          <display value="Title programs (e.g. Title III, V, or XX)"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="7"/>
-        <display value="Other government (e.g. TriCare, VA, etc.)"/>
+        <valueCoding>
+          <code value="7"/>
+          <display value="Other government (e.g. TriCare, VA, etc.)"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="8"/>
-        <display value="Private insurance"/>
+        <valueCoding>
+          <code value="8"/>
+          <display value="Private insurance"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="9"/>
-        <display value="Private HMO/managed care"/>
+        <valueCoding>
+          <code value="9"/>
+          <display value="Private HMO/managed care"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="10"/>
-        <display value="Self-pay"/>
+        <valueCoding>
+          <code value="10"/>
+          <display value="Self-pay"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="11"/>
-        <display value="Other (specify)"/>
+        <valueCoding>
+          <code value="11"/>
+          <display value="Other (specify)"/>
+        </valueCoding>
       </option>
       <option>
-        <code value="UK"/>
-        <display value="Unknown"/>
+        <valueCoding>
+          <code value="UK"/>
+          <display value="Unknown"/>
+        </valueCoding>
       </option>
       <item>
-        <extension url="http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen">
-          <extension url="question">
-            <valueString value="M0150"/>
-          </extension>
-          <extension url="answered">
-            <valueCoding>
-              <code value="11"/>
-            </valueCoding>
-          </extension>
-        </extension>
         <type value="string"/>
         <required value="true"/>
       </item>

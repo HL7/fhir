@@ -30,7 +30,6 @@
     <type value="boolean"/>
   </item>
   <item>
-    <!--Answers to general questions-->
     <linkId value="2"/>
     <text value="General questions"/>
     <type value="group"/>
@@ -57,7 +56,6 @@
   </item>
   <item>
     <linkId value="3"/>
-    <!--Answers to intoxications-->
     <text value="Intoxications"/>
     <type value="group"/>
     <item>

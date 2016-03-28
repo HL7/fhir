@@ -24,15 +24,12 @@
   <title value="Cancer Quality Forum Questionnaire 2012"/>
   <subjectType value="Patient"/>
   <item>
-    <!--   COMORBIDITY   -->
-    <!--   First main section of the form, questions about comorbidity   -->
     <linkId value="1"/>
     <concept>
       <system value="http://example.org/system/code/sections"/>
       <code value="COMORBIDITY"/>
     </concept>
     <type value="group"/>
-    <!--   section contains one question: whether there is comorbidity   -->
     <item>
       <linkId value="1.1"/>
       <concept>
@@ -44,8 +41,6 @@
         <reference value="http://hl7.org/fhir/ValueSet/yesnodontknow"/>
       </options>
       <item>
-        <!--   COMORBIDITY/CARDIAL   -->
-        <!--   Subsection about specific comorbidity: cardial   -->
         <linkId value="1.1.1"/>
         <concept>
           <system value="http://example.org/system/code/sections"/>
@@ -64,7 +59,6 @@
           </options>
         </item>
         <item>
-          <!--   This answer carries both the questionnaire-specific name and an equivalent SNOMED CT code   -->
           <linkId value="1.1.1.2"/>
           <concept>
             <system value="http://example.org/system/code/questions"/>
@@ -96,9 +90,7 @@
       </item>
     </item>
   </item>
-  <!--   Todo: What's supposed to go here?   -->
   <item>
-    <!--   HISTOPATHOLOGY   -->
     <linkId value="2"/>
     <concept>
       <system value="http://example.org/system/code/sections"/>

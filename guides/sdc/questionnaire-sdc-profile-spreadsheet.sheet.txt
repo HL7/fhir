@@ -44,17 +44,15 @@
 
  -- Row 5 -----------------------------------
   Element = Questionnaire.extension
-  Profile Name = category
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-category}
-  IHE SDC mapping = ./form_design/classifier
-
- -- Row 6 -----------------------------------
-  Element = Questionnaire.extension
   Profile Name = deMap
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-deMap}
+
+ -- Row 6 -----------------------------------
+  Element = Questionnaire.url
+  Card. = 1..1
+  Must Support = y
+  Type = !uri
 
  -- Row 7 -----------------------------------
   Element = Questionnaire.identifier
@@ -93,12 +91,19 @@
   IHE SDC mapping = ./administration_package/registration/organization
 
  -- Row 12 -----------------------------------
+  Element = Questionnaire.useContext
+  Card. = !0..1
+  Must Support = Y
+  Type = !CodeableContext
+  IHE SDC mapping = ./form_design/classifier
+
+ -- Row 13 -----------------------------------
   Element = Questionnaire.title
   Card. = 1..1
   Must Support = Y
   Type = !string
 
- -- Row 13 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Questionnaire.title.extension
   Profile Name = title.renderingStyle
   Card. = 0..1
@@ -106,7 +111,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ../style
 
- -- Row 14 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Questionnaire.title.extension
   Profile Name = title.markup
   Card. = 0..1
@@ -114,52 +119,25 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
   IHE SDC mapping = (strings can contain markup)
 
- -- Row 15 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Questionnaire.concept
   Card. = 0..1
   Must Support = Y
   Type = !Coding
 
- -- Row 16 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Questionnaire.subjectType
   Card. = !0..*
   Must Support = Y
   Type = !code
 
- -- Row 17 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Questionnaire.item
   Card. = !1..1
   Must Support = y
   IHE SDC mapping = ./form_design/*[self::header or self::footer or self::section]
 
- -- Row 18 -----------------------------------
-  Element = Questionnaire.item.extension
-  Profile Name = itemLabel
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-label}
-  IHE SDC mapping = ./section_number/label
-
  -- Row 19 -----------------------------------
-  Element = Questionnaire.item.extension.valueString
-
- -- Row 20 -----------------------------------
-  Element = Questionnaire.item.extension.valueString.extension
-  Profile Name = itemLabel.renderingStyle
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
-  IHE SDC mapping = ../style
-
- -- Row 21 -----------------------------------
-  Element = Questionnaire.item.extension.valueString.extension
-  Profile Name = itemLabel.markup
-  Card. = 0..1
-  Must Support = n
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
-  IHE SDC mapping = (strings can contain markup)
-
- -- Row 22 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = itemMinOccurs
   Card. = 0..1
@@ -167,7 +145,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-minOccurs}
   IHE SDC mapping = ./cardinality/minimum
 
- -- Row 23 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = itemMaxOccurs
   Card. = 0..1
@@ -175,7 +153,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-maxOccurs}
   IHE SDC mapping = ./cardinality/maximum
 
- -- Row 24 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = itemOptionalDisplay
   Card. = 0..1
@@ -183,7 +161,7 @@
   Type = Extension{#optionalDisplay}
   IHE SDC mapping = N/A (new requirement)
 
- -- Row 25 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = itemHidden
   Card. = 0..1
@@ -191,67 +169,20 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-hidden}
   IHE SDC mapping = Any element with @initial_state=\"hidden\" and no rule that unhides the element
 
- -- Row 26 -----------------------------------
-  Element = Questionnaire.item.extension
-  Profile Name = itemEnableWhen
-  Card. = 0..*
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen}
-  IHE SDC mapping = parent::guarded_element/guard //guard[guarded_element_identifier = current()/question-identifier]
-
- -- Row 27 -----------------------------------
-  Element = Questionnaire.item.extension.extension
-  Profile Name = question
-  Card. = 1..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen#question}
-  IHE SDC mapping = parent::list_item/parent::list_field/parent::question
-
- -- Row 28 -----------------------------------
-  Element = Questionnaire.item.extension.extension
-  Profile Name = answered
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen#answered}
-
- -- Row 29 -----------------------------------
-  Element = Questionnaire.item.extension.extension
-  Profile Name = answer
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-enableWhen#answer}
-  IHE SDC mapping = parent::list_item
-
- -- Row 30 -----------------------------------
+ -- Row 23 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = itemControl
   Card. = 0..1
   Must Support = Y
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-itemControl}
 
- -- Row 31 -----------------------------------
+ -- Row 24 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = choiceOrientation
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-choiceOrientation}
 
- -- Row 32 -----------------------------------
-  Element = Questionnaire.item.extension
-  Profile Name = defaultValue
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-defaultValue}
-  IHE SDC mapping = ./default_value  ./default_element/default/value  ./default_element/list_item_identifier (resolve)
-
- -- Row 33 -----------------------------------
-  Element = Questionnaire.item.extension
-  Profile Name = readOnly
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-readOnly}
-  IHE SDC mapping = ./*_Field/default_value_read_only  ./default_element/read_only
-
- -- Row 34 -----------------------------------
+ -- Row 25 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = minLength
   Card. = 0..1
@@ -259,15 +190,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/minLength}
   IHE SDC mapping = ./*_Field/datatype/string/maximum_characters
 
- -- Row 35 -----------------------------------
-  Element = Questionnaire.item.extension
-  Profile Name = maxLength
-  Card. = 0..1
-  Must Support = y
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-maxLength}
-  IHE SDC mapping = ./*_Field/maximum_character_quantity | ./*_Field/datatype/string/maximum_characters
-
- -- Row 36 -----------------------------------
+ -- Row 26 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = regex
   Card. = 0..1
@@ -275,7 +198,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/regex}
   IHE SDC mapping = ./*_Field/datatype/string/reg_ex
 
- -- Row 37 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = entryFormat
   Card. = 0..1
@@ -283,7 +206,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/entryFormat}
   IHE SDC mapping = ./*_Field/format | ./*_Field/datatype/string/pattern
 
- -- Row 38 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = minValue
   Card. = 0..1
@@ -292,7 +215,7 @@
   IHE SDC mapping = ./*_Field/datatype/[integer|decimal]/minimum_value
   Committee Notes = Note: Will support this for dates & timestamps too.
 
- -- Row 39 -----------------------------------
+ -- Row 29 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = maxValue
   Card. = 0..1
@@ -301,7 +224,7 @@
   IHE SDC mapping = ./*_Field/datatype/[integer|decimal]/maximum_value
   Committee Notes = Note: Will support this for dates & timestamps too.
 
- -- Row 40 -----------------------------------
+ -- Row 30 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = maxDecimalPlaces
   Card. = 0..1
@@ -310,7 +233,28 @@
   IHE SDC mapping = ./*_Field/datatype/decimal/fractionDigits
   Committee Notes = What\'s string_time/timezone?  Do we really need duration? Or file?
 
- -- Row 41 -----------------------------------
+ -- Row 31 -----------------------------------
+  Element = Questionnaire.item.extension
+  Profile Name = mimeType
+  Card. = 0..1
+  Must Support = y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/mimeType}
+
+ -- Row 32 -----------------------------------
+  Element = Questionnaire.item.extension
+  Profile Name = maxSize
+  Card. = 0..1
+  Must Support = n
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/maxSize}
+
+ -- Row 33 -----------------------------------
+  Element = Questionnaire.item.extension
+  Profile Name = unit
+  Card. = 0..1
+  Must Support = y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-unit}
+
+ -- Row 34 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = deReference
   Card. = 0..1
@@ -318,7 +262,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-deReference}
   IHE SDC mapping = /form_package/mapping_package/mdr_mapping/question_element_data_element_association[question_element_identifier=current()/question_identifier]/data_element_scoped_identifier
 
- -- Row 42 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = allowedResource
   Card. = 0..*
@@ -326,7 +270,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-allowedResource}
   IHE SDC mapping = /form_package/mapping_package/mdr_mapping/question_element_data_element_association[question_element_identifier=current()/question_identifier]/data_element_scoped_identifier
 
- -- Row 43 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = Questionnaire.item.extension
   Profile Name = displayCategory
   Card. = 0..1
@@ -334,20 +278,43 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-displayCategory}
   IHE SDC mapping = /form_package/mapping_package/mdr_mapping/question_element_data_element_association[question_element_identifier=current()/question_identifier]/data_element_scoped_identifier
 
- -- Row 44 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = Questionnaire.item.linkId
   Card. = 1..1
   Must Support = Y
   Type = !string
   IHE SDC mapping = ./section_identifier
 
- -- Row 45 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = Questionnaire.item.concept
   Card. = 0..1
   Must Support = y
   Type = !Coding
 
- -- Row 46 -----------------------------------
+ -- Row 39 -----------------------------------
+  Element = Questionnaire.item.prefix
+  Card. = 0..1
+  Must Support = y
+  Type = !string
+  IHE SDC mapping = ./section_number/label
+
+ -- Row 40 -----------------------------------
+  Element = Questionnaire.item.prefix.extension
+  Profile Name = itemLabel.renderingStyle
+  Card. = 0..1
+  Must Support = n
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
+  IHE SDC mapping = ../style
+
+ -- Row 41 -----------------------------------
+  Element = Questionnaire.item.prefix.extension
+  Profile Name = itemLabel.markup
+  Card. = 0..1
+  Must Support = n
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
+  IHE SDC mapping = (strings can contain markup)
+
+ -- Row 42 -----------------------------------
   Element = Questionnaire.item.text
   Card. = !0..1
   Must Support = y
@@ -355,7 +322,7 @@
   IHE SDC mapping = Form Design/designation[context=\"primary?\"/definition/  ./section_instruction/label
   Committee Notes = Just one repetition - if you want multiple styles, use additionalInstruction
 
- -- Row 47 -----------------------------------
+ -- Row 43 -----------------------------------
   Element = Questionnaire.item.text.extension
   Profile Name = groupText.renderingStyle
   Card. = 0..1
@@ -363,7 +330,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/style}
   IHE SDC mapping = ../style
 
- -- Row 48 -----------------------------------
+ -- Row 44 -----------------------------------
   Element = Questionnaire.item.text.extension
   Profile Name = groupText.markup
   Card. = 0..1
@@ -371,7 +338,7 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/markup}
   IHE SDC mapping = (strings can contain markup)
 
- -- Row 49 -----------------------------------
+ -- Row 45 -----------------------------------
   Element = Questionnaire.item.type
   Card. = 1..1
   Must Support = y
@@ -380,34 +347,101 @@
   IHE SDC mapping = ./*/datatype
   Committee Notes = No support for File, duration or time
 
+ -- Row 46 -----------------------------------
+  Element = Questionnaire.item.enableWhen
+  Card. = !0..*
+  Must Support = y
+  IHE SDC mapping = parent::guarded_element/guard //guard[guarded_element_identifier = current()/question-identifier]
+
+ -- Row 47 -----------------------------------
+  Element = Questionnaire.item.enableWhen.question
+  Card. = !1..1
+  Must Support = y
+  Type = !string
+  IHE SDC mapping = parent::list_item/parent::list_field/parent::question
+
+ -- Row 48 -----------------------------------
+  Element = Questionnaire.item.enableWhen.answered
+  Card. = !0..1
+  Must Support = y
+  Type = !boolean
+
+ -- Row 49 -----------------------------------
+  Element = Questionnaire.item.enableWhen.answer[x]
+  Card. = !0..1
+  Must Support = y
+  Type = !boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  IHE SDC mapping = parent::list_item
+
  -- Row 50 -----------------------------------
   Element = Questionnaire.item.required
-  Card. = 1..1
+  Card. = !0..1
   Must Support = y
   Type = !boolean
   IHE SDC mapping = ./cardinality/minimum!=0
 
  -- Row 51 -----------------------------------
   Element = Questionnaire.item.repeats
-  Card. = 1..1
+  Card. = !0..1
   Must Support = y
   Type = !boolean
   IHE SDC mapping = ./cardinality/maximum!=1
 
  -- Row 52 -----------------------------------
+  Element = Questionnaire.item.readOnly
+  Card. = !0..1
+  Must Support = y
+  Type = !boolean
+  IHE SDC mapping = ./*_Field/default_value_read_only  ./default_element/read_only
+
+ -- Row 53 -----------------------------------
+  Element = Questionnaire.item.maxLength
+  Card. = !0..1
+  Must Support = y
+  Type = !integer
+  IHE SDC mapping = ./*_Field/maximum_character_quantity | ./*_Field/datatype/string/maximum_characters
+
+ -- Row 54 -----------------------------------
   Element = Questionnaire.item.options
   Card. = !0..1
   Must Support = y
   Type = !Reference(ValueSet)
   IHE SDC mapping = ./list_field | ./lookup_field/endpoint
 
- -- Row 53 -----------------------------------
+ -- Row 55 -----------------------------------
   Element = Questionnaire.item.option
   Card. = !0..*
   Must Support = Y
   Type = !Coding
 
- -- Row 54 -----------------------------------
+ -- Row 56 -----------------------------------
+  Element = Questionnaire.item.option.extension
+  Profile Name = OptionPrefix
+  Card. = 0..1
+  Must Support = y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-optionPrefix}
+
+ -- Row 57 -----------------------------------
+  Element = Questionnaire.item.option.value[x]
+  Card. = !1..1
+  Must Support = Y
+  Type = !integer | date | time | string | Coding
+
+ -- Row 58 -----------------------------------
+  Element = !Questionnaire.item.option.valueCoding.extension
+  Profile Name = !OrdinalValue
+  Card. = 0..1
+  Must Support = y
+  Type = Extension{http://hl7.org/fhir/StructureDefinition/questionnaire-ordinalValue}
+
+ -- Row 59 -----------------------------------
+  Element = Questionnaire.item.initial[x]
+  Card. = !0..1
+  Must Support = y
+  Type = !boolean | decimal | integer | date | dateTime | instant | time | string | uri | Attachment | Coding | Quantity | Reference(Any)
+  IHE SDC mapping = ./default_value  ./default_element/default/value  ./default_element/list_item_identifier (resolve)
+
+ -- Row 60 -----------------------------------
   Element = Questionnaire.item.item
   Card. = !0..*
   Must Support = y

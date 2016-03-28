@@ -20,6 +20,7 @@ import org.hl7.fhir.dstu3.model.CodeSystem;
 import org.hl7.fhir.dstu3.model.CodeableConcept;
 import org.hl7.fhir.dstu3.model.Coding;
 import org.hl7.fhir.dstu3.model.ContactPoint;
+import org.hl7.fhir.dstu3.model.DateType;
 import org.hl7.fhir.dstu3.model.DomainResource;
 import org.hl7.fhir.dstu3.model.ElementDefinition;
 import org.hl7.fhir.dstu3.model.ElementDefinition.ConstraintSeverity;
@@ -30,6 +31,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.Extension;
 import org.hl7.fhir.dstu3.model.HumanName;
 import org.hl7.fhir.dstu3.model.Identifier;
+import org.hl7.fhir.dstu3.model.IntegerType;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueType;
 import org.hl7.fhir.dstu3.model.Period;
@@ -37,6 +39,7 @@ import org.hl7.fhir.dstu3.model.Property;
 import org.hl7.fhir.dstu3.model.Quantity;
 import org.hl7.fhir.dstu3.model.Questionnaire;
 import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemComponent;
+import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemOptionComponent;
 import org.hl7.fhir.dstu3.model.Questionnaire.QuestionnaireItemType;
 import org.hl7.fhir.dstu3.model.Range;
 import org.hl7.fhir.dstu3.model.Ratio;
@@ -49,6 +52,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionSnapshotComponent;
+import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.Timing;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
@@ -1614,13 +1618,21 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	              validateQuestionnaireResponseItemQuantity(errors, answer, ns);
 	              break;
 	        case CHOICE:     
-	          if (validateQuestionnaireResponseItemType(errors, answer, ns, "Coding").equals("Coding"))
-	            validateAnswerCode(errors, answer, ns, qsrc, qItem);
-	            break;
-	         case OPENCHOICE: 
-	           if (validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "string").equals("Coding"))
-	            validateAnswerCode(errors, answer, ns, qsrc, qItem);
-              break;
+	          String itemType=validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "date", "time", "integer", "string");
+	          if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem);
+	          else if (itemType.equals("date")) checkOption(errors, answer, ns, qsrc, qItem, "date");
+	          else if (itemType.equals("time")) checkOption(errors, answer, ns, qsrc, qItem, "time");
+	          else if (itemType.equals("integer")) checkOption(errors, answer, ns, qsrc, qItem, "integer");
+	          else if (itemType.equals("string")) checkOption(errors, answer, ns, qsrc, qItem, "string");
+            break;
+	        case OPENCHOICE: 
+	          itemType=validateQuestionnaireResponseItemType(errors, answer, ns, "Coding", "date", "time", "integer", "string");
+	          if (itemType.equals("Coding")) validateAnswerCode(errors, answer, ns, qsrc, qItem);
+	          else if (itemType.equals("date")) checkOption(errors, answer, ns, qsrc, qItem, "date");
+	          else if (itemType.equals("time")) checkOption(errors, answer, ns, qsrc, qItem, "time");
+	          else if (itemType.equals("integer")) checkOption(errors, answer, ns, qsrc, qItem, "integer");
+	          else if (itemType.equals("string")) checkOption(errors, answer, ns, qsrc, qItem, "string", true);
+            break;
 	        }
 	        validateQuestionannaireResponseItems(qsrc, qItem.getItem(), errors, answer, stack, inProgress);
 	    }
@@ -1735,7 +1747,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  return null;
 	}
 
-	private void validateAnswerCode(List<ValidationMessage> errors, WrapperElement value, NodeStack stack, List<Coding> optionList) {
+/*	private void validateAnswerCode(List<ValidationMessage> errors, WrapperElement value, NodeStack stack, List<Coding> optionList) {
 	  String system = value.getNamedChildValue("system");
 	  String code = value.getNamedChildValue("code");
 	  boolean found = false;
@@ -1746,7 +1758,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	    }
 	  }
 	  rule(errors, IssueType.STRUCTURE, value.line(), value.col(), stack.getLiteralPath(), found, "The code "+system+"::"+code+" is not a valid option");
-	}
+	}*/
 
 	private void validateAnswerCode(List<ValidationMessage> errors, WrapperElement value, NodeStack stack, Questionnaire qSrc, Reference ref) {
 	  ValueSet vs = resolveBindingReference(qSrc, ref);
@@ -1766,11 +1778,176 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 	  WrapperElement v = answer.getNamedChild("valueCoding");
 	  NodeStack ns = stack.push(v, -1, null, null);
 	  if (qItem.getOption().size() > 0)
-	    validateAnswerCode(errors, v, stack, qItem.getOption());
+	  	checkCodingOption(errors, answer, stack, qSrc, qItem, false);
+//	    validateAnswerCode(errors, v, stack, qItem.getOption());
 	  else if (qItem.hasOptions())
 	    validateAnswerCode(errors, v, stack, qSrc, qItem.getOptions());
 	  else
 	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate options because no option or options are provided");
+	}
+
+	private void checkOption( List<ValidationMessage> errors, WrapperElement answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, String type) {
+		checkOption(errors, answer, stack, qSrc,  qItem, type, false);
+	}
+
+	private void checkOption( List<ValidationMessage> errors, WrapperElement answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, String type, boolean openChoice) {
+		if (type.equals("integer"))     checkIntegerOption(errors, answer, stack, qSrc, qItem, openChoice);
+		else if (type.equals("date"))   checkDateOption(errors, answer, stack, qSrc, qItem, openChoice);
+		else if (type.equals("time"))   checkTimeOption(errors, answer, stack, qSrc, qItem, openChoice);
+		else if (type.equals("string")) checkStringOption(errors, answer, stack, qSrc, qItem, openChoice);
+		else if (type.equals("Coding")) checkCodingOption(errors, answer, stack, qSrc, qItem, openChoice);
+	}
+
+	private void checkIntegerOption( List<ValidationMessage> errors, WrapperElement answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
+	  WrapperElement v = answer.getNamedChild("valueInteger");
+	  NodeStack ns = stack.push(v, -1, null, null);
+	  if (qItem.getOption().size() > 0) {
+			List<IntegerType> list = new ArrayList<IntegerType>();
+	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+	    	try {
+    			list.add(components.getValueIntegerType());
+    		} catch (FHIRException e) {
+    			// If it's the wrong type, just keep going
+    		}
+	    }
+	  	if (list.isEmpty() && !openChoice) {
+		    rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type integer");
+	  	} else {
+	  		boolean found = false;
+			  for (IntegerType item : list) {
+		      if (item.getValue() == Integer.parseInt(v.getAttribute("value"))) {
+	  			      found = true;
+			      break;
+			    }
+			  }
+			  if (!found) {
+			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The integer "+v.getAttribute("value")+" is not a valid option");
+			  }
+	  	}
+	  } else
+	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate integer answer option because no option list is provided");
+	}
+
+	private void checkDateOption( List<ValidationMessage> errors, WrapperElement answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
+	  WrapperElement v = answer.getNamedChild("valueDate");
+	  NodeStack ns = stack.push(v, -1, null, null);
+	  if (qItem.getOption().size() > 0) {
+			List<DateType> list = new ArrayList<DateType>();
+	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+	    	try {
+    			list.add(components.getValueDateType());
+    		} catch (FHIRException e) {
+    			// If it's the wrong type, just keep going
+    		}
+	    }
+	  	if (list.isEmpty() && !openChoice) {
+		    rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type date");
+	  	} else {
+	  		boolean found = false;
+			  for (DateType item : list) {
+		      if (item.getValue().equals(v.getAttribute("value"))) {
+	  			      found = true;
+			      break;
+			    }
+			  }
+			  if (!found) {
+			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The date "+v.getAttribute("value")+" is not a valid option");
+			  }
+	  	}
+	  } else
+	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate date answer option because no option list is provided");
+	}
+
+	private void checkTimeOption( List<ValidationMessage> errors, WrapperElement answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
+	  WrapperElement v = answer.getNamedChild("valueTime");
+	  NodeStack ns = stack.push(v, -1, null, null);
+	  if (qItem.getOption().size() > 0) {
+			List<TimeType> list = new ArrayList<TimeType>();
+	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+	    	try {
+    			list.add(components.getValueTimeType());
+    		} catch (FHIRException e) {
+    			// If it's the wrong type, just keep going
+    		}
+	    }
+	  	if (list.isEmpty() && !openChoice) {
+		    rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type time");
+	  	} else {
+	  		boolean found = false;
+			  for (TimeType item : list) {
+		      if (item.getValue().equals(v.getAttribute("value"))) {
+	  			      found = true;
+			      break;
+			    }
+			  }
+			  if (!found) {
+			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The time "+v.getAttribute("value")+" is not a valid option");
+			  }
+	  	}
+	  } else
+	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate time answer option because no option list is provided");
+	}
+
+	private void checkStringOption( List<ValidationMessage> errors, WrapperElement answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
+	  WrapperElement v = answer.getNamedChild("valueString");
+	  NodeStack ns = stack.push(v, -1, null, null);
+	  if (qItem.getOption().size() > 0) {
+			List<StringType> list = new ArrayList<StringType>();
+	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+	    	try {
+    			list.add(components.getValueStringType());
+    		} catch (FHIRException e) {
+    			// If it's the wrong type, just keep going
+    		}
+	    }
+	  	if (list.isEmpty() && !openChoice) {
+		    rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type string");
+	  	} else {
+	  		boolean found = false;
+			  for (StringType item : list) {
+		      if (item.getValue().equals((v.getAttribute("value")))) {
+	  			      found = true;
+			      break;
+			    }
+			  }
+			  if (!found) {
+			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The string "+v.getAttribute("value")+" is not a valid option");
+			  }
+	  	}
+	  } else
+	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate string answer option because no option list is provided");
+	}
+
+	private void checkCodingOption( List<ValidationMessage> errors, WrapperElement answer, NodeStack stack, Questionnaire qSrc, QuestionnaireItemComponent qItem, boolean openChoice) {
+	  WrapperElement v = answer.getNamedChild("valueCoding");
+	  String system = v.getNamedChildValue("system");
+	  String code = v.getNamedChildValue("code");
+	  NodeStack ns = stack.push(v, -1, null, null);
+	  if (qItem.getOption().size() > 0) {
+			List<Coding> list = new ArrayList<Coding>();
+	    for (QuestionnaireItemOptionComponent components : qItem.getOption())  {
+	    	try {
+    			list.add(components.getValueCoding());
+    		} catch (FHIRException e) {
+    			// If it's the wrong type, just keep going
+    		}
+	    }
+	  	if (list.isEmpty() && !openChoice) {
+		    rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Option list has no option values of type coding");
+	  	} else {
+	  		boolean found = false;
+			  for (Coding item : list) {
+		      if (ObjectUtil.equals(item.getSystem(), system) && ObjectUtil.equals(item.getCode(), code)) {
+			      found = true;
+			      break;
+			    }
+			  }
+			  if (!found) {
+			  	rule(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), found, "The code "+system+"::"+code+" is not a valid option");
+			  }
+	  	}
+	  } else
+	    hint(errors, IssueType.STRUCTURE, v.line(), v.col(), stack.getLiteralPath(), false, "Cannot validate Coding option because no option list is provided");
 	}
 
 	private String tail(String path) {
