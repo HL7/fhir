@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
-	<id value="valueset-ucum-bodyweight"/>
-	<url value="http://hl7.org/fhir/ValueSet/ucum-bodyweight"/>
-	<name value="Body Weight Units"/>
+	<id value="valueset-ucum-bodylength"/>
+	<url value="http://hl7.org/fhir/ValueSet/ucum-bodylength"/>
+	<name value="Body Length Units"/>
 	<status value="draft"/>
 	<publisher value="FHIR Project"/>
-	<description value="UCUM units for recording Body Weight"/>
+	<description value="UCUM units for recording Body Length measures such as height and head circumference"/>
 	<copyright value="UCUM is Copyright © 1999-2013 Regenstrief Institute, Inc. and The UCUM Organization, Indianapolis, IN. All rights reserved. See http://unitsofmeasure.org/trac//wiki/TermsOfUse for details"/>
 	<extensible value="false"/>
 	<compose>
 		<include>
 			<system value="http://unitsofmeasure.org"/>
 			<concept>
-				<code value="kg"/>
+				<code value="cm"/>
 			</concept>
 			<concept>
-				<code value="[lb_av]"/>
-			</concept>
-			<concept>
-				<code value="g"/>
+				<code value="[in_i]"/>
 			</concept>
 		</include>
 	</compose>
