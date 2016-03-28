@@ -17,6 +17,7 @@
         </telecom>
     </contact>
     <description value="Extension for the CDA data enterer (transcriptionist)" />
+    <fhirVersion value="1.3.0" />
     <kind value="resource" />
     <constrainedType value="Extension" />
     <abstract value="false" />
