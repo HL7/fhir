@@ -2,155 +2,106 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = EpisodeOfCareStatus
+  Binding Name = EndpointStatus
   Binding = code list
-  Reference = #episode-of-care-status
+  Reference = #endpoint-status
   Definition = The status of the encounter.
   Conformance = required
 
  -- Row 2 -----------------------------------
-  Binding Name = EpisodeOfCareType
-  Binding = unbound
-  Definition = The type of the encounter.
-
- -- Row 3 -----------------------------------
-  Binding Name = EpisodeOfCareTeamRole
+  Binding Name = SubscriptionChannelType
   Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/participant-role
-  Definition = Type of participation expected by a team member.
-  Conformance = example
+  Reference = http://hl7.org/fhir/ValueSet/subscription-channel-type
+  Definition = The type of the subscription.
+  Conformance = required
 
-=== Sheet episode-of-care-status =====================================
+=== Sheet endpoint-status =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
-  Code = planned
-  Display = Planned
-  Definition = This episode of care is planned to start at the date specified in the period.start. During this status an organization may perform assessments to determine if they are eligible to receive services, or be organizing to make resources available to provide care services.
+  Code = active
+  Display = Active
+  Definition = This endpoint is expected to be active and can be used
 
  -- Row 2 -----------------------------------
   Id = 2
-  Code = waitlist
-  Display = Waitlist
-  Definition = This episode has been placed on a waitlist, pending the episode being made active (or cancelled).
+  Code = suspended
+  Display = Suspended
+  Definition = This endpoint is temporarily unavailable
 
  -- Row 3 -----------------------------------
   Id = 3
-  Code = active
-  Display = Active
-  Definition = This episode of care is current.
+  Code = error
+  Display = Error
+  Definition = This endpoint has exceeded connectivity thresholds and is considered in an error state and should no longer be attempted to connect to until corrective action is taken
 
  -- Row 4 -----------------------------------
   Id = 4
-  Code = onhold
-  Display = On Hold
-  Definition = This episode of care is on hold, the organization has limited responsibility for the patient (such as while on respite).
-
- -- Row 5 -----------------------------------
-  Id = 5
-  Code = finished
-  Display = Finished
-  Definition = This episode of care is finished at the organization is not expecting to be providing care to the patient. Can also be known as \"closed\", \"completed\" or other similar terms.
-
- -- Row 6 -----------------------------------
-  Id = 6
-  Code = cancelled
-  Display = Cancelled
-  Definition = The episode of care was cancelled, or withdrawn from service, often selected during the planned stage as the patient may have gone elsewhere, or the circumstances have changed and the organization is unable to provide the care. It indicates that services terminated outside the planned/expected workflow.
+  Code = off
+  Display = Off
+  Definition = This endpoint is no longer to be used
 
 === Sheet Invariants =====================================
 
 === Sheet Data Elements =====================================
 
  -- Row 1 -----------------------------------
-  Element = EpisodeOfCare
-  Aliases = Case Program Problem
+  Element = Endpoint
   UML = 200;0
   Type = DomainResource
-  Short Label = An association of a Patient with an Organization and  Healthcare Provider(s) for a period of time that the Organization assumes some level of responsibility
-  Definition = An association between a patient and an organization / healthcare provider(s) during which time encounters may occur. The managing organization assumes a level of responsibility for the patient during this time.
-  w5 = workflow.encounter
+  Short Label = The technical details of an endpoint that can be used for electronic services
+  Definition = The technical details of an endpoint that can be used for electronic services, such as for web services providing XDS.b or a REST endpoint for another FHIR server. This may include any security context information.
 
  -- Row 2 -----------------------------------
-  Element = EpisodeOfCare.identifier
-  Card. = 0..*
-  Type = Identifier
-  Short Label = Identifier(s) for the EpisodeOfCare
-  Definition = Identifier(s) by which this EpisodeOfCare is known
-  w5 = id
-
- -- Row 3 -----------------------------------
-  Element = EpisodeOfCare.status
+  Element = Endpoint.status
   Card. = 1..1
   Is Modifier = Y
   Summary = Y
   Type = code
-  Binding = EpisodeOfCareStatus
-  Short Label = planned | waitlist | active | onhold | finished | cancelled
-  Definition = planned | waitlist | active | onhold | finished | cancelled
+  Binding = EndpointStatus
+  Short Label = active | suspended | inactive
+  Definition = active | suspended | inactive
   w5 = status
 
- -- Row 4 -----------------------------------
-  Element = EpisodeOfCare.statusHistory
-  Card. = 0..*
-  UML = 0;220
-  Short Label = Past list of status codes
-  Definition = The history of statuses that the EpisodeOfCare has been through (without requiring processing the history of the resource)
-
- -- Row 5 -----------------------------------
-  Element = EpisodeOfCare.statusHistory.status
-  Card. = 1..1
-  Type = code
-  Binding = EpisodeOfCareStatus
-  Short Label = planned | waitlist | active | onhold | finished | cancelled
-  Definition = planned | waitlist | active | onhold | finished | cancelled
-
- -- Row 6 -----------------------------------
-  Element = EpisodeOfCare.statusHistory.period
-  Card. = 1..1
-  Type = Period
-  Short Label = Period for the status
-  Definition = The period during this EpisodeOfCare that the specific status applied
-
- -- Row 7 -----------------------------------
-  Element = EpisodeOfCare.type
-  Card. = 0..*
-  Summary = Y
-  Type = CodeableConcept
-  Binding = EpisodeOfCareType
-  Short Label = Type/class  - e.g. specialist referral, disease management
-  Definition = A classification of the type of encounter; e.g. specialist referral, disease management, type of funded care
-  Comments = The type can be very important in processing as this could be used in determining if the EpisodeOfCare is relevant to specific government reporting, or other types of classifications
-  w5 = class
-
- -- Row 8 -----------------------------------
-  Element = EpisodeOfCare.condition
-  Card. = 0..*
-  Type = Reference(Condition)
-  Short Label = Conditions/problems/diagnoses this episode of care is for
-  Definition = A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for
-  w5 = what
-
- -- Row 9 -----------------------------------
-  Element = EpisodeOfCare.patient
-  Card. = 1..1
-  Summary = Y
-  Type = Reference(Patient)
-  Short Label = Patient for this episode of care
-  Definition = The patient that this EpisodeOfCare applies to
-  w5 = who.focus
-
- -- Row 10 -----------------------------------
-  Element = EpisodeOfCare.managingOrganization
+ -- Row 3 -----------------------------------
+  Element = Endpoint.managingOrganization
   Card. = 0..1
   Summary = Y
   Type = Reference(Organization)
-  Short Label = Organization that assumes care
-  Definition = The organization that has assumed the specific responsibilities for the specified duration
+  Short Label = Organization that exposes the endpoint
+  Definition = The organization that exposes the endpoint (even if technically another organisation is hosting this in the cloud, it is the organisation associated with the data)
   Committee Notes = This was left as 0..1 to permit small systems having an implied Organization
 
- -- Row 11 -----------------------------------
-  Element = EpisodeOfCare.period
+ -- Row 4 -----------------------------------
+  Element = Endpoint.contact
+  Card. = 0..*
+  Type = ContactPoint
+  Short Label = Contact details for source (e.g. troubleshooting)
+  Definition = Contact details for a human to contact about the subscription. The primary use of this for system administrator troubleshooting
+  w5 = who.focus
+
+ -- Row 5 -----------------------------------
+  Element = Endpoint.connectionType
+  Card. = 1..1
+  Summary = Y
+  Type = code
+  Binding = SubscriptionChannelType
+  Short Label = rest-hook | websocket | email | sms | message
+  Definition = The type of channel to send notifications on
+  w5 = class
+
+ -- Row 6 -----------------------------------
+  Element = Endpoint.method
+  Card. = 0..*
+  Summary = Y
+  Type = code
+  Short Label = POST | PUT | GET
+  Definition = POST | PUT | GET
+  Comments = This is the HTTP method that must be used when using the connection
+  To Do = Should this be single, or multiple cardinality?
+
+ -- Row 7 -----------------------------------
+  Element = Endpoint.period
   Card. = 0..1
   Summary = Y
   Type = Period
@@ -158,112 +109,74 @@
   Definition = The interval during which the managing organization assumes the defined responsibility
   w5 = when.init
 
- -- Row 12 -----------------------------------
-  Element = EpisodeOfCare.referralRequest
+ -- Row 8 -----------------------------------
+  Element = Endpoint.address[x]
+  Card. = 0..1
+  Summary = y
+  Type = uri|string
+  Short Label = Where the channel points to
+  Definition = The uri that describes the actual end-point to send messages to
+  Comments = For rest-hook, and websocket, the end-point must be an http: or https: URL; for email, a mailto: url, for sms, a tel: url, and for message the endpoint can be in any form of url the server understands (usually, http: or mllp:). The URI is allowed to be relative; in which case, it is relative to the server end-point (since their may be more than one, clients should avoid using relative URIs)
+
+ -- Row 9 -----------------------------------
+  Element = Endpoint.payloadFormat
+  Card. = 1..1
+  Type = string
+  Short Label = Mimetype to send, or blank for no payload
+  Definition = The mime type to send the payload in - either application/xml+fhir, or application/json+fhir. If the mime type is blank, then there is no payload in the notification, just a notification
+  Comments = Sending the payload has obvious security consequences. The server is responsible for ensuring that the content is appropriately secured
+  To Do = Should this have multiple cardinality?
+
+ -- Row 10 -----------------------------------
+  Element = Endpoint.payloadType
+  Card. = 1..*
+  Summary = Y
+  Type = CodeableConcept
+  Short Label = The type of content that may be used at this endpoint (e.g. XDS Discharge summaries)
+  Definition = The payload type describes the acceptable content that can be communicated on the endpoint
+  Comments = The payloadFormat describes the wire format of the data, where the payloadType indicates the specific document/schema that is being transferred. E.g. DischargeSummary or CarePlan
+
+ -- Row 11 -----------------------------------
+  Element = !Endpoint.payloadSubType
   Card. = 0..*
-  Type = Reference(ReferralRequest)
-  Short Label = Originating Referral Request(s)
-  Definition = Referral Request(s) that are fulfilled by this EpisodeOfCare, incoming referrals
+  Summary = Y
+  Type = CodeableConcept
+  Short Label = The subtypes of content that can be used on this endpoint (e.g. DischargeSummary)
+
+ -- Row 12 -----------------------------------
+  Element = Endpoint.header
+  Card. = 0..*
+  Type = string
+  Short Label = Usage depends on the channel type
+  Definition = Additional headers / information to send as part of the notification
+  Comments = Exactly what these mean depend on the channel type. The can convey additional information to the recipient and/or meet security requirements
 
  -- Row 13 -----------------------------------
-  Element = EpisodeOfCare.careManager
+  Element = Endpoint.publicKey
   Card. = 0..1
-  Type = Reference(Practitioner)
-  Short Label = Care manager/care co-ordinator for the patient
-  Definition = The practitioner that is the care manager/care co-ordinator for this patient
-
- -- Row 14 -----------------------------------
-  Element = EpisodeOfCare.careTeam
-  Card. = 0..*
-  UML = 420;220
-  Short Label = Other practitioners facilitating this episode of care
-  Definition = The list of practitioners that may be facilitating this episode of care for specific purposes
-
- -- Row 15 -----------------------------------
-  Element = EpisodeOfCare.careTeam.role
-  Card. = 0..*
-  Type = CodeableConcept
-  Binding = EpisodeOfCareTeamRole
-  Short Label = Role taken by this team member
-  Definition = The role this team member is taking within this episode of care
-
- -- Row 16 -----------------------------------
-  Element = EpisodeOfCare.careTeam.period
-  Card. = 0..1
-  Type = Period
-  Short Label = Period of time for this role
-  Definition = The period of time this practitioner is performing some role within the episode of care
-
- -- Row 17 -----------------------------------
-  Element = EpisodeOfCare.careTeam.member
-  Card. = 0..1
-  Type = Reference(Practitioner|Organization)
-  Short Label = The practitioner (or Organization) within the team
-  Definition = The practitioner (or Organization) within the team
-  Comments = Where an Organization is included in the CareTeam, it is really providing some form of services to the EpisodeOfCare (e.g. Jim\'s Mowing Services) the details of the services would be included on a CarePlan
-  w5 = who
+  Type = string
+  Short Label = PKI Public keys to support secure communications
+  Definition = The public part of the \'keys\' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available
 
 === Sheet Search =====================================
 
  -- Row 1 -----------------------------------
-  Name = patient
-  Type = reference
-  Path = EpisodeOfCare.patient
-  Target Types = Patient
-
- -- Row 2 -----------------------------------
-  Name = identifier
-  Type = token
-  Path = EpisodeOfCare.identifier
-
- -- Row 3 -----------------------------------
   Name = status
   Type = token
-  Description = The current status of the Episode of Care as provided (does not check the status history collection)
-  Path = EpisodeOfCare.status
+  Description = The current status of the Endpoint (usually expected to be active)
+  Path = Endpoint.status
 
- -- Row 4 -----------------------------------
+ -- Row 2 -----------------------------------
   Name = organization
   Type = reference
-  Description = The organization that has assumed the specific responsibilities of this EpisodeOfCare
-  Path = EpisodeOfCare.managingOrganization
+  Description = The organization that is exposing the endpoint
+  Path = Endpoint.managingOrganization
   Target Types = Organization
 
- -- Row 5 -----------------------------------
-  Name = date
-  Type = date
-  Description = The provided date search value falls within the episode of care\'s period
-  Path = EpisodeOfCare.period
-
- -- Row 6 -----------------------------------
-  Name = type
+ -- Row 3 -----------------------------------
+  Name = payload-type
   Type = token
-  Path = EpisodeOfCare.type
-
- -- Row 7 -----------------------------------
-  Name = condition
-  Type = reference
-  Path = EpisodeOfCare.condition
-  Target Types = Condition
-
- -- Row 8 -----------------------------------
-  Name = incomingreferral
-  Type = reference
-  Description = Incoming Referral Request
-  Path = EpisodeOfCare.referralRequest
-  Target Types = ReferralRequest
-
- -- Row 9 -----------------------------------
-  Name = care-manager
-  Type = reference
-  Path = EpisodeOfCare.careManager
-  Target Types = Practitioner
-
- -- Row 10 -----------------------------------
-  Name = team-member
-  Type = reference
-  Description = A Practitioner or Organization allocated to the care team for this EpisodeOfCare
-  Path = EpisodeOfCare.careTeam.member
+  Path = Endpoint.payloadType
 
 === Sheet Profiles =====================================
 
@@ -272,7 +185,7 @@
  -- Row 1 -----------------------------------
   Name = example
   Identity = example
-  Description = Episode of Care example
-  Filename = episodeofcare-example.xml
+  Description = Episode Endpoint
+  Filename = endpoint-example.xml
 
 === Sheet Examples =====================================

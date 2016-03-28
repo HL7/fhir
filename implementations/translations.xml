@@ -272,13 +272,16 @@
         <translation lang="en">Goal</translation>
         <translation lang="fr">But</translation>
     </item>
-    <item id="Subscription">
-        <translation lang="en">Subscription</translation>
-        <translation lang="zh">订阅</translation>
-        <translation lang="es">Suscripción</translation>
-        <translation lang="fr">Souscription</translation>
-    </item>
-    <item id="GeneExpression">
+	<item id="Endpoint">
+		<translation lang="en">Endpoint</translation>
+	</item>
+	<item id="Subscription">
+		<translation lang="en">Subscription</translation>
+		<translation lang="zh">订阅</translation>
+		<translation lang="es">Suscripción</translation>
+		<translation lang="fr">Souscription</translation>
+	</item>
+	<item id="GeneExpression">
         <translation lang="en">GeneExpression</translation>
         <translation lang="zh">基因表达</translation>
         <translation lang="es">ExpresionGenica</translation>

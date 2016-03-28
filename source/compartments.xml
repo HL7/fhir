@@ -20,8 +20,8 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9768</WindowHeight>
-  <WindowWidth>23040</WindowWidth>
+  <WindowHeight>8880</WindowHeight>
+  <WindowWidth>22824</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -135,7 +135,7 @@
   </WorksheetOptions>
  </Worksheet>
  <Worksheet ss:Name="resources">
-  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="114" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="6" ss:ExpandedRowCount="115" x:FullColumns="1"
    x:FullRows="1" ss:DefaultColumnWidth="65.400000000000006"
    ss:DefaultRowHeight="15">
    <Column ss:AutoFitWidth="0" ss:Width="156.6"/>
@@ -343,6 +343,9 @@
     <Cell><Data ss:Type="String">{def}</Data></Cell>
     <Cell><Data ss:Type="String">participant</Data></Cell>
     <Cell><Data ss:Type="String">practitioner | participant</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell><Data ss:Type="String">Endpoint</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell><Data ss:Type="String">EnrollmentRequest</Data></Cell>
@@ -700,8 +703,7 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>41</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>39</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
