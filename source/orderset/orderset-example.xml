@@ -10,7 +10,8 @@
 		<!-- The referral request here is only partially specified, additional information will be provided from context, see the action definition below -->
 		<ReferralRequest>
 			<id value="referralRequest"/>
-			<status value="requested"/>
+			<status value="active"/>
+			<category value="request"/>
 			<type>
 				<coding>
 					<!-- Error: Connection to http://localhost:960 refused -->

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ReferralRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xsi:schemaLocation="http://hl7.org/fhir ../../schema/referralrequest.xsd">
- <id value="example"/>
+<ReferralRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/referralrequest.xsd">
+  <id value="example"/>
   <text>
-    <status value="generated" />
+    <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">Referral to Dr Dave for Beverly weaver to have grommets inserted in her r) ear</div>
   </text>
-  <status value="requested"/>
   <identifier>
     <system value="http://orionhealth.com/fhir/apps/referralids"/>
     <value value="ret4421"/>
   </identifier>
+  <status value="active"/>
+  <category value="request"/>
   <!-- replace with a code from a recognized coding system-->
   <type>
     <coding>
@@ -20,13 +20,6 @@
     </coding>
   </type>
   <!-- replace with a code from a recognized coding system-->
-  <specialty>
-    <coding>
-      <system value="http://orionhealth.com/fhir/apps/specialties"/>
-      <code value="ent"/>
-      <display value="ENT"/>
-    </coding>
-  </specialty>
   <!-- replace with a code from a recognized coding system-->
   <priority>
     <coding>
@@ -39,15 +32,22 @@
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Patient/77662"/>
     <display value="Beverly Weaver"/>
   </patient>
+  <authored value="2014-02-14"/>
   <requester>
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272"/>
     <display value="Serena Shrink"/>
   </requester>
+  <specialty>
+    <coding>
+      <system value="http://orionhealth.com/fhir/apps/specialties"/>
+      <code value="ent"/>
+      <display value="ENT"/>
+    </coding>
+  </specialty>
   <recipient>
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/76597"/>
     <display value="Dr Dave"/>
   </recipient>
-  <dateSent value="2014-02-14"/>
   <reason>
     <text value="For consideration of Grommets"/>
   </reason>
@@ -60,6 +60,5 @@
       <display value="Myringotomy and insertion of tympanic ventilation tube"/>
     </coding>
     <text value="Insertion of grommets"/>
-    
   </serviceRequested>
 </ReferralRequest>

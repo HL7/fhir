@@ -2,15 +2,22 @@
 <Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../schema/task.xsd">
   <id value='example'/>
   <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml"></div>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"/>
   </text>
-  <type><text value="Refill Request"/></type>
-  <status value="created"/>
-  <suspended value="false"/>
-  <subject><reference value="Medication/123"/></subject>
+  <type>
+    <text value="Refill Request"/>
+  </type>
+  <status value="draft"/>
+  <subject>
+    <reference value="Medication/123"/>
+  </subject>
   <created value="2016-03-10T22:39:32-04:00"/>
   <lastModified value="2016-03-10T22:39:32-04:00"/>
-  <creator><reference value='Patient/Keith'/></creator>
-  <owner><reference value='Practitioner/MyDoc'/></owner>
+  <creator>
+    <reference value="Patient/Keith"/>
+  </creator>
+  <owner>
+    <reference value="Practitioner/MyDoc"/>
+  </owner>
 </Task>

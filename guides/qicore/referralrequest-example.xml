@@ -15,7 +15,8 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-  <status value="rejected"/>
+  <status value="cancelled"/>
+  <category value="request"/>
   <type>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -23,13 +24,6 @@
       <display value="Referral for procedure"/>
     </coding>
   </type>
-  <specialty>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="417887005"/>
-      <display value="Pediatric otolaryngology"/>
-    </coding>
-  </specialty>
   <priority>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -41,15 +35,22 @@
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Patient/77662"/>
     <display value="Beverly Weaver"/>
   </patient>
+  <authored value="2014-02-14"/>
   <requester>
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/77272"/>
     <display value="Serena Shrink"/>
   </requester>
+  <specialty>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="417887005"/>
+      <display value="Pediatric otolaryngology"/>
+    </coding>
+  </specialty>
   <recipient>
     <reference value="https://fhir.orionhealth.com/blaze/fhir/Practitioner/76597"/>
     <display value="Dr Dave"/>
   </recipient>
-  <dateSent value="2014-02-14"/>
   <reason>
     <coding>
       <system value="http://snomed.info/sct"/>
