@@ -188,6 +188,16 @@
       <acronym value="HPDocumentType"/>
       <sourceUri value="ValueSet/2.16.840.1.113883.1.11.20.22.xml"/>
     </resource>
+        <resource>
+          <example value="true"/>
+          <name value="Example CCD"/>
+          <description value="Example CCD"/>
+          <acronym value="ccd-example"/>
+          <sourceUri value="Example/ccd-example.xml"/>
+          <exampleFor>
+            <reference value="http://hl7.org/fhir/StructureDefinition/ccda-ccd-composition"/>
+          </exampleFor>
+    </resource>
     <resource>
       <example value="false"/>
       <name value="V3 Data type ANY (DataValue)"/>
@@ -343,6 +353,7 @@
       <name value="CDA R2"/>
       <sourceUri value="CDA/cda-logical-ClinicalDocument.xml"/>
     </resource>
+    
   </package>
   <page>
     <source value="ccda.html"/>

@@ -1,5 +1,6 @@
-<StructureDefinition
-    xmlns="http://hl7.org/fhir">
+<StructureDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir ../../../schema/composition.xsd"
+ xmlns="http://hl7.org/fhir">
     <url value="http://hl7.org/fhir/StructureDefinition/ccda-us-realm-header-composition" />
     <name value="C-CDA on FHIR US Realm Header" />
     <status value="draft" />
@@ -16,7 +17,6 @@
             <use value="work" />
         </telecom>
     </contact>
-    <fhirVersion value="1.3.0" />
     <kind value="resource" />
     <constrainedType value="Composition" />
     <abstract value="false" />
@@ -32,10 +32,11 @@
             <min value="1" />
             <max value="1" />
         </element>
-        <!--
+
         <element>
             <path value="Composition.extension" />
             <slicing>
+        	<discriminator value="url"/>
                 <rules value="open" />
             </slicing>
         </element>
@@ -117,7 +118,6 @@
                 <profile value="http://hl7.org/fhir/StructureDefinition/ccda-authorization-extension" />
             </type>
         </element>
-        -->
         <element>
             <path value="Composition.identifier" />
             <short value="identifier" />
