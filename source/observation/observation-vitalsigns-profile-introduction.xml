@@ -36,12 +36,12 @@ Each Observation must have:
 			<span class="mw-headline" id="Vital_Signs_Table">Vital Signs Table</span>
 		</h3>
 		<p>
-Note to reveiwers:  Several examples provided below link to external references.
+Note to reviewers:  Several examples provided below link to external references.
 They will be updated to link to references within the specification in the future 
 following the connectathon freeze period</p>
 		<table class="grid">
 			<tr>
-				<th> Vital
+				<th> Vital Sign
 </th>
 				<th> LOINC&#160;Code
 </th>
@@ -53,17 +53,17 @@ following the connectathon freeze period</p>
 </th>
 			</tr>
 			<tr>
-				<td> Vital Signs Panel</td>
+				<td> Vital signs</td>
 				<td> 8716-3 </td>
 				<td> — </td>
 				<td> This is the top-level grouping structure for a set of vital signs.  It has no value in Observation.valueQuantity&#160;; instead, it just includes related links (with type=has-member) to the Observations in this set (e.g. respiratory rate, heart rate, BP)</td>
 				<td>
-					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Panel_Example" title="Vital Signs Panel Example">Example</a> Note that querying for the panel may miss individual results that are not part of an actual panel.
+					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Panel_Example" title="Vital Signs Panel Example">Example</a> Note that querying for the grouping (panel) code may miss individual results that are not grouped.
 </td>
 			</tr>
 			<tr>
 				<td>
-					<a href="resprate.html">Respiratory Rate</a>
+					<a href="resprate.html">Respiratory rate</a>
 				</td>
 				<td> 9279-1 </td>
 				<td>/min </td>
@@ -85,12 +85,12 @@ following the connectathon freeze period</p>
 			</tr>
 			<tr>
 				<td>
-					<a href="oxygensat.html"> Oxygen saturation</a>
+					<a href="oxygensat.html"> Oxygen saturation (arterial)</a>
 				</td>
 				<td> 2708-6  </td>
 				<td>&#160;% </td>
 				<td>
-					<a rel="nofollow" class="external text" href="http://s.details.loinc.org/LOINC/2710-2.html">LOINC has deprecated 2710-2</a> (which is listed in C-CDA) and replaced  it with 59408-5, but  2708-6 is the one we want because it's methodless.</td>
+					<a rel="nofollow" class="external text" href="http://s.details.loinc.org/LOINC/2710-2.html">LOINC has deprecated 2710-2</a> (which is listed in C-CDA) and replaced  it with 59408-5, but 2708-6 is the one we want because it's methodless.  LOINC Long Common Name description: "Oxygen saturation in Arterial blood".</td>
 				<td>
 					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Oxygen_Saturation_Example" title="Vital Signs Oxygen Saturation Example">Example</a>
 				</td>
@@ -139,7 +139,7 @@ following the connectathon freeze period</p>
 	-->
 				<td>9843-4 </td>
 				<td> cm, [in_i]</td>
-				<td> </td>
+				<td> LOINC Long Common Name description: "Head Occipital-frontal circumference"</td>
 				<td>
 					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Head_Cirmcumference_Example" title="Vital Signs Head Cirmcumference Example">Example</a>
 				</td>
@@ -149,7 +149,7 @@ following the connectathon freeze period</p>
 					<a href="bodyweight.html"/>Body weight </td>
 				<td> 29463-7 </td>
 				<td> g, kg,[lb_av]</td>
-				<td> </td>
+				<td> LOINC Long Common Name description: "Body weight Measured"</td>
 				<td>
 					<a href="observation-example.html"> Example</a>
 				</td>
@@ -160,7 +160,7 @@ following the connectathon freeze period</p>
 				</td>
 				<td> 39156-5 </td>
 				<td> kg/m2 </td>
-				<td> </td>
+				<td> LOINC Long Common Name description: "Body mass index (BMI) [Ratio]"</td>
 				<td>
 					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Body_Mass_Example" title="Vital Body Mass Example">Example</a>
 				</td>
