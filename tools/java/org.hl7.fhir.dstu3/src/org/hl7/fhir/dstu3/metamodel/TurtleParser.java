@@ -10,6 +10,7 @@ import org.hl7.fhir.dstu3.formats.RdfGenerator.Complex;
 import org.hl7.fhir.dstu3.formats.RdfGenerator.Section;
 import org.hl7.fhir.dstu3.formats.RdfGenerator.Subject;
 import org.hl7.fhir.dstu3.utils.IWorkerContext;
+import org.hl7.fhir.utilities.Utilities;
 
 public class TurtleParser extends ParserBase {
 
@@ -88,10 +89,10 @@ public class TurtleParser extends ParserBase {
 				en = en.substring(0, en.length()-3);
 				doType = true;				
 			}
+	   if (doType || element.getProperty().getDefinition().getType().size() > 1)
+	     en = en + Utilities.capitalize(element.getType());
 
 	  Complex t = ctxt.predicate("fhir:"+en);
-	  if (doType || element.getProperty().getDefinition().getType().size() > 1)
-	  	t.predicate("a", "fhir:"+element.getType());
 	  if (element.hasValue())
 	  	t.predicate("fhir:value", ttlLiteral(element.getValue()));
 	  if (element.hasIndex())
