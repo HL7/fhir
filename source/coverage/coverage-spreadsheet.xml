@@ -16,11 +16,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13110</WindowHeight>
+  <WindowHeight>14010</WindowHeight>
   <WindowWidth>28800</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>9</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -4596,7 +4596,7 @@
   </Names>
   <Table ss:ExpandedColumnCount="5" ss:ExpandedRowCount="33" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s123" ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s123" ss:AutoFitWidth="0" ss:Width="101.25"/>
+   <Column ss:StyleID="s123" ss:AutoFitWidth="0" ss:Width="135.75"/>
    <Column ss:StyleID="s123" ss:AutoFitWidth="0" ss:Width="57"/>
    <Column ss:StyleID="s123" ss:AutoFitWidth="0" ss:Width="109.5"/>
    <Column ss:StyleID="s123" ss:AutoFitWidth="0" ss:Width="210"/>
@@ -4624,7 +4624,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s125"><Data ss:Type="String">issueridentifier</Data></Cell>
-    <Cell ss:StyleID="s79"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s79"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s79"/>
     <Cell ss:StyleID="s126"><Data ss:Type="String">Coverage.issuerIdentifier</Data></Cell>
     <Cell ss:StyleID="s127"><Data ss:Type="String">The identity of the insurer</Data></Cell>
@@ -4701,7 +4701,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s131"><Data ss:Type="String">beneficiaryidentifier</Data></Cell>
-    <Cell ss:StyleID="s90"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s90"/>
     <Cell ss:StyleID="s132"><Data ss:Type="String">Coverage.beneficiaryIdentifier</Data></Cell>
     <Cell ss:StyleID="s133"><Data ss:Type="String">Covered party</Data></Cell>
@@ -4715,7 +4715,7 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s128"><Data ss:Type="String">planholderidentifier</Data></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">reference</Data></Cell>
+    <Cell ss:StyleID="s89"><Data ss:Type="String">token</Data></Cell>
     <Cell ss:StyleID="s89"/>
     <Cell ss:StyleID="s129"><Data ss:Type="String">Coverage.planholderIdentifier</Data></Cell>
     <Cell ss:StyleID="s130"><Data ss:Type="String">Reference to the planholder</Data></Cell>
@@ -4848,6 +4848,7 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Unsynced/>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -4867,7 +4868,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
+     <ActiveRow>9</ActiveRow>
      <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
@@ -7222,7 +7223,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

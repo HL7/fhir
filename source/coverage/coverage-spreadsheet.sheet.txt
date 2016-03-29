@@ -220,7 +220,7 @@
 
  -- Row 1 -----------------------------------
   Name = issueridentifier
-  Type = reference
+  Type = token
   Description = The identity of the insurer
   Path = Coverage.issuerIdentifier
 
@@ -286,7 +286,7 @@
 
  -- Row 12 -----------------------------------
   Name = beneficiaryidentifier
-  Type = reference
+  Type = token
   Description = Covered party
   Path = Coverage.beneficiaryIdentifier
 
@@ -298,7 +298,7 @@
 
  -- Row 14 -----------------------------------
   Name = planholderidentifier
-  Type = reference
+  Type = token
   Description = Reference to the planholder
   Path = Coverage.planholderIdentifier
 
