@@ -10,75 +10,6 @@
 
 <div class="col-9">
 
-<tr><td colspan="4" style="border-top: silver solid 1px"><a href="administration.html"><b>Identification</b></a></td></tr>
-<tr><td>
-<p><b>Individuals:</b></p>
-<ul>
-  <li><a title="[%resdesc Patient%]" href="patient.html">Patient</a>[%fmm Patient%]</li>
-  <li><a title="[%resdesc Practitioner%]" href="practitioner.html">Practitioner</a>[%fmm Practitioner%]</li>
-  <li><a title="[%resdesc PractitionerRole%]" href="practitionerrole.html">PractitionerRole</a>[%fmm PractitionerRole%]</li>
-  <li><a title="[%resdesc RelatedPerson%]" href="relatedperson.html">RelatedPerson</a>[%fmm RelatedPerson%]</li>
-</ul>
-</td><td style="border-left: 1px solid #eeeeee">
-<p><b>Groups:</b></p>
-<ul>
-  <li><a title="[%resdesc Group%]" href="group.html">Group</a>[%fmm Group%]</li>
-  <li><a title="[%resdesc HealthcareService%]" href="healthcareservice.html">HealthcareService</a>[%fmm HealthcareService%]</li>
-  <li><a title="[%resdesc Organization%]" href="organization.html">Organization</a>[%fmm Organization%]</li>
-</ul>
-</td><td style="border-left: 1px solid #eeeeee">
-<p><b>Entities:</b></p>
-<ul>
-  <li><a title="[%resdesc Location%]" href="location.html">Location</a>[%fmm Location%]</li>
-  <li><a title="[%resdesc Person%]" href="person.html">Person</a>[%fmm Person%]</li>
-  <li><a title="[%resdesc Substance%]" href="substance.html">Substance</a>[%fmm Substance%]</li>
-</ul>
-</td><td style="border-left: 1px solid #eeeeee">
-<p><b>Devices:</b></p>
-<ul>
-  <li><a title="[%resdesc Device%]" href="device.html">Device</a>[%fmm Device%]</li>
-  <li><a title="[%resdesc DeviceComponent%]" href="devicecomponent.html">DeviceComponent</a>[%fmm DeviceComponent%]</li>
-  <li><a title="[%resdesc DeviceMetric%]" href="devicemetric.html">DeviceMetric</a>[%fmm DeviceMetric%]</li>
-</ul>
-</td></tr>
-<tr><td colspan="4" style="border-top: silver solid 1px"><a href="administration.html"><b>Workflow</b></a></td></tr>
-<tr><td>
-<p><b>Patient Management:</b></p>
-<ul>
-  <li><a title="[%resdesc Encounter%]" href="encounter.html">Encounter</a>[%fmm Encounter%]</li>
-  <li><a title="[%resdesc EpisodeOfCare%]" href="episodeofcare.html">EpisodeOfCare</a>[%fmm EpisodeOfCare%]</li>
-  <li><a title="[%resdesc Flag%]" href="flag.html">Flag</a>[%fmm Flag%]</li>
-  <li><a title="[%resdesc Communication%]" href="communication.html">Communication</a>[%fmm Communication%]</li>
-</ul>
-</td><td style="border-left: 1px solid #eeeeee">
-<p><b>Scheduling:</b></p>
-<ul>
-	<li><a title="[%resdesc Appointment%]" href="appointment.html">Appointment</a>[%fmm Appointment%]</li>
-	<li><a title="[%resdesc AppointmentResponse%]" href="appointmentresponse.html">AppointmentResponse</a>[%fmm AppointmentResponse%]</li>
-	<li><a title="[%resdesc Schedule%]" href="schedule.html">Schedule</a>[%fmm Schedule%]</li>
-	<li><a title="[%resdesc Slot%]" href="slot.html">Slot</a>[%fmm Slot%]</li>
-</ul>
-</td><td style="border-left: 1px solid #eeeeee">
-<p><b>Workflow #1:</b></p>
-<ul>
-  <li><a title="[%resdesc Order%]" href="order.html">Order</a>[%fmm Order%]</li>
-  <li><a title="[%resdesc OrderResponse%]" href="orderresponse.html">OrderResponse</a>[%fmm OrderResponse%]</li>
-  <li><a title="[%resdesc DeviceUseRequest%]" href="deviceuserequest.html">DeviceUseRequest</a>[%fmm DeviceUseRequest%]</li>
-  <li><a title="[%resdesc DeviceUseStatement%]" href="deviceusestatement.html">DeviceUseStatement</a>[%fmm DeviceUseStatement%]</li>
-  <li><a title="[%resdesc CommunicationRequest%]" href="communicationrequest.html">CommunicationRequest</a>[%fmm CommunicationRequest%]</li>
-</ul>
-</td><td style="border-left: 1px solid #eeeeee">
-<p><b>Workflow #2:</b></p>
-<ul>
-  <li><a title="[%resdesc ProcessRequest%]" href="processrequest.html">ProcessRequest</a>[%fmm ProcessRequest%]</li>
-  <li><a title="[%resdesc ProcessResponse%]" href="processresponse.html">ProcessResponse</a>[%fmm ProcessResponse%]</li>
-  <li><a title="[%resdesc SupplyRequest%]" href="supplyrequest.html">SupplyRequest</a>[%fmm SupplyRequest%]</li>
-  <li><a title="[%resdesc SupplyDelivery%]" href="supplydelivery.html">SupplyDelivery</a>[%fmm SupplyDelivery%]</li>
-  <li><a title="[%resdesc Task%]" href="task.html">Task</a>[%fmm Task%]</li>
-</ul>
-</td></tr>
-
-
 <a name="admin"> </a>
 
 <h2>Administrative Resources</h2>
@@ -89,22 +20,22 @@
   [%res-category Individuals|Track individuals involved in the provision of healthcare%]
 		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
 		[%res-item Patient%]
-		[%res-item RelatedPerson%]
 		[%res-item Practitioner%]
-        [%res-item PractitionerRole%]
+    [%res-item PractitionerRole%]
+		[%res-item RelatedPerson%]
 
 		[%res-category Groups|Track grouping entities involved in the provision of healthcare%]
 		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
-		[%res-item Group%]
-		[%res-item HealthcareService%]
 		[%res-item Organization%]
+		[%res-item HealthcareService%]
+		[%res-item Group%]
 
 		[%res-category Entities|Track other kinds of entities used in the provision of healthcare%]
 		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
 		[%res-item Location%]
-		[%res-item Person%]
 		[%res-item Substance%]
-    
+		[%res-item Person%]
+		[%res-item Contract%]
     
 		[%res-category Devices|Devices and their capabilities%]
 		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
@@ -112,16 +43,13 @@
 		[%res-item DeviceComponent%]
 		[%res-item DeviceMetric%]
 
-		[%res-category Patient Management|Tracking the status of patients%]
+		[%res-category Patient Management|Tracking the status of patients and their appointments%]
+ 		<tr><td colspan="3"><i><em>Note:</em> The PA work-group would appreciate contributions to enhance the appointment resource(s) to cover additional use-cases if required for implementations</i></td></tr>
 		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
 		[%res-item Encounter%]
 		[%res-item EpisodeOfCare%]
-		[%res-item Flag%]
 		[%res-item Communication%]
-    
-		[%res-category Scheduling/Ordering|Creation and management of appointments as well as workflow around orders. %]
- 		<tr><td colspan="3"><i><em>Note:</em> The PA work-group would appreciate contributions to enhance the appointment resource(s) to cover additional use-cases if required for implementations</i></td></tr>
-		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+		[%res-item Flag%]
 		[%res-item Appointment%]
 		[%res-item AppointmentResponse%]
 		[%res-item Schedule%]
@@ -129,16 +57,27 @@
     
 		[%res-category Workflow|General healthcare provision workflow support%]
 		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+		[%res-item Task%]
 		[%res-item Order%]
 		[%res-item OrderResponse%]
+		[%res-item CommunicationRequest%]
 		[%res-item DeviceUseRequest%]
 		[%res-item DeviceUseStatement%]
-		[%res-item CommunicationRequest%]
 		[%res-item ProcessRequest%]
-		[%res-item ProcessDelivery%]
+		[%res-item ProcessResponse%]
 		[%res-item SupplyRequest%]
 		[%res-item SupplyDelivery%]
-		[%res-item Task%]
+
+		[%res-category Decision Support/Quality Measurement|Expressions for defining decision support and quality metrics %]
+		<tr><td><b>Name</b></td><td><b>Aliases</b></td><td><b>Description</b></td></tr>
+		[%res-item DecisionSupportServiceModule%]
+		[%res-item DecisionSupportRule%]
+		[%res-item GuidanceResponse%]
+		[%res-item Library%]
+		[%res-item OrderSet%]
+		[%res-item Measure%]
+		[%res-item MeasureReport%]
+    
 	</table>
 
 <p>

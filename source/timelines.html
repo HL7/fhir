@@ -43,7 +43,7 @@ different aspects of the specification.  They are as follows:
       risk". The content that is draft that will usually be elevated to DSTU once review and correction is complete after ballot</td>
     </tr>
     <tr>
-      <th>Draft Standard for Trial Use (DSTU)</th>
+      <th>Standard for Trial Use (STU)</th>
       <td>
       <p>This content has been well reviewed and is considered by the authors to be ready for use in production
       systems.  It has been subjected to ballot and approved as an official standard.  However, it has not yet
@@ -52,13 +52,13 @@ different aspects of the specification.  They are as follows:
       resolutions for.
       </p>
       <p>
-      For these reasons, DSTU content is not subject to FHIR <a href="compatibility.html">Inter-version Compatibility Rules</a>.
-      Future versions of FHIR may make significant changes to DSTU-level content that are not compatible with
-      previously published content.  See <a href="#dstu">DSTU suggestions</a> for implementation strategies to
+      For these reasons, STU content is not subject to FHIR <a href="compatibility.html">Inter-version Compatibility Rules</a>.
+      Future versions of FHIR may make significant changes to STU-level content that are not compatible with
+      previously published content.  See <a href="#stu">STU suggestions</a> for implementation strategies to
       help manage the risk of non-compatible future changes.
       </p>
       <p>
-      DSTU content can have a wide range of stability ranging from never before implemented even in test systems through
+      STU content can have a wide range of stability ranging from never before implemented even in test systems through
       to widely implemented in production and well reviewed.  FHIR makes use of a <a href="resource.html#maturity>Maturity rating</a>
       that provides insight into how well polished a given resource or other artifact is.  Artifacts with higher maturity
       ratings (4 or 5) will be subject to somewhat tighter constraints on non-backward compatible changes, though these
@@ -69,6 +69,11 @@ different aspects of the specification.  They are as follows:
       For this reason, we encourage implementers to share with the <a href="mailto:fmgcontact@hl7.org">FHIR Management Group</a>
       what artifacts they have implemented.  A detailed analysis of the maturity metrics for FHIR artifacts can be found
       <a href="https://docs.google.com/spreadsheets/d/18HfXF7mUCUV7jACCG0oejFp6D-ibtvbmcgywNhn76lw">here</a>.
+      </p>
+      <p>
+      Note: STU specifications were previously called DSTU (Draft Standard for Trial Use).  The name has been changed due to
+      the reluctance of implementers to make use of a "draft" specification - when the whole purpose of the STU phase is for
+      implementers to exercise the specification.
       </p>
       </td>
     </tr>
@@ -85,8 +90,8 @@ different aspects of the specification.  They are as follows:
 <p>
 The above statuses can apply to both the standard overall as well as to individual components of the FHIR specification.
 Specification components cannot ever have a "higher" standard level than the overall specification, but they can have
-lower levels.  For example, at DSTU, FHIR can include draft content.  When it reaches Normative, FHIR may include
-some content that remains at DSTU or draft levels if that content has not yet reached the criteria for normative.
+lower levels.  For example, at STU, FHIR can include draft content.  When it reaches Normative, FHIR may include
+some content that remains at STU or draft levels if that content has not yet reached the criteria for normative.
 All content that is at a different ballot level than the overall specification will be clearly identified.
 </p>
 
@@ -102,33 +107,26 @@ In some situations, the FHIR Management Group may authorize a limited-scope rele
 implementer requirements and is achievable with available HL7 resources.
 </p>
 <p>
-This release (DSTU 2) is hoped to be the final publication of the specification at the DSTU level.  The subsequent
-publication of the specification (targeted for 2017) should take the core aspects of the specification and many
+The forthcoming release (STU 3) may be the final publication of the specification that is entirely at the STU level.  The subsequent
+publication of the specification (targeted for 2018) will hopefully take the core aspects of the specification and many
 of the most broadly used resources to Normative level.  Whether this timeline will be met will be dependent on
 uptake and feedback from implementers.  This feedback will also govern exactly which resources, profiles and other content become
 normative.  Only content that has been successfully implemented in a wide variety of implementation environments with
-minimal divergence from the DSTU specification will be candidates for normative.
+minimal divergence from the STU specification will be candidates for normative.
 </p>
 <p>
 Once FHIR has reached normative status, subsequent publications will continue on the 18-24 month schedule with subsequent releases
-introducing additional resources, capabilities and other content as well as migrating existing content from draft to DSTU and
-DSTU to normative, based on the level of implementation.
-</p>
-<p>
-Not all of the intended scope for DSTU 2 was ready in sufficient time to be included in this specification.  This includes
-many resources included in DSTU 2 as draft, as well as refinement of the "request" and "order"-related resources to
-better flesh out and standardize how workflow occurs.  For this reason, an interim release (tentatively labeled 2.1) is
-planned, likely for publication in Spring, 2016.  This release will have a tightly constrained scope and will focus on
-positioning existing resources for normative ballot in the 2017 release and meeting other urgent implementer requirements.
+introducing additional resources, capabilities and other content as well as migrating existing content from draft to STU and
+STU to normative, based on the level of implementation.
 </p>
 
-<a name="dstu"/>
-<h3>DSTU Suggestions</h3>
+<a name="stu"/>
+<h3>STU Suggestions</h3>
 <p>
-The FHIR specification is a "Draft Standard for Trial Use" (DSTU).  It has been subject to significant review through ballot and other HL7 processes and many aspects of it have been 
+The FHIR specification is a "Standard for Trial Use" (DSTU).  It has been subject to significant review through ballot and other HL7 processes and many aspects of it have been 
 implemented and subjected to interoperability testing through Connectathons and early adoption.  However, the degree of testing has varied.  Some resources 
 have been well tested in a variety of environments.  Others have received relatively little real-world exercise.  In general, the infrastructure should be 
-considered to be more stable than the resources themselves.  In some cases, there are issues on which input is specifically requested during the DSTU period
+considered to be more stable than the resources themselves.  In some cases, there are issues on which input is specifically requested during the STU period
 (see the <a href="todo.html">Outstanding Issue List</a>, and known issues will arise after publication (refer to the 
 <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse&amp;tracker_id=677">FHIR Change Request</a> tracker for details.)
 Guidance from early implementation will help address these areas.
@@ -136,11 +134,13 @@ Guidance from early implementation will help address these areas.
 <p>
 Regardless of the degree of prior implementation, all aspects of the FHIR specification are potentially subject to change.  These changes may be minor 
 (clarifications of definitions, etc.) or major (refactoring of resources, changes to serialization rules, eliminating or adding data types, etc.)  There is no 
-commitment to backward or forward compatibility during the DSTU process.  Changes will not be made without cause, however the interests of long-term 
-implementability will generally trump the impact on early adopters when determining what changes should be made.
+commitment to backward or forward compatibility during the STU process.  Changes will not be made without cause, however the interests of long-term 
+implementability will generally trump the impact on early adopters when determining what changes should be made.  This balance will shift more towards
+early adopters as maturity levels increase.  I.e. Impact on existing implementations will be weighted more highly for an FMM-level 5 artifact than they would
+for an FMM-level 1 artifact.
 </p>
 <p>
-This specification has been promoted to DSTU because it is felt that the specification, as is, is implementable and that more value can be gleaned from 
+This specification has been promoted to STU because it is felt that the specification, as is, is implementable and that more value can be gleaned from 
 implementer experience than from subsequent review as part of the ballot process.  Implementers who are willing to accept the risk of change (perhaps 
 for the benefit of early implementation experience, first mover advantage and the ability to leverage FHIR's intrinsic benefits) are encouraged to implement 
 FHIR in real-world systems.  However, those implementers should be aware that local adaptations may be necessary to meet real-world requirements.  Furthermore, 
@@ -148,11 +148,11 @@ such implementers should architect their solutions to be tolerant of changes to 
 that may be using different versions of the specification or different local adaptations.
 </p>
 <p>
-During the DSTU period, requests for change may be submitted using the HL7 gForge tracker which can be found  
+During the STU period, requests for change may be submitted using the HL7 gForge tracker which can be found  
 <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse&amp;tracker_id=677">here</a>.  Where possible, updates to the 
 "development" version of the specification will be made in a timely fashion.  A list of these proposed changes will be published 
-as a continuously updated supplement to the official DSTU publication.  Implementers should be aware that the changes are not considered "official" until such 
-time as they are balloted and approved as part of a subsequent DSTU or Normative publication.  Change requests might be fixes to allow implementation, 
+as a continuously updated supplement to the official STU publication.  Implementers should be aware that the changes are not considered "official" until such 
+time as they are balloted and approved as part of a subsequent STU or Normative publication.  Change requests might be fixes to allow implementation, 
 clarifications or enhancements.  In addition, HL7 will be developing and introducing additional resources and profiles as part of the FHIR specification.
 </p>
 <p>
@@ -160,7 +160,7 @@ SDOs and regulatory bodies that are interested in making use of the FHIR specifi
 that the specification will evolve and change prior to becoming normative. 
 </p>
 <p>
-A key objective of the DSTU process is gaining feedback from implementers making use of the specification.  As well, HL7 has a need to
+A key objective of the STU process is gaining feedback from implementers making use of the specification.  As well, HL7 has a need to
 monitor which portions of FHIR are being implemented in what sorts of environments so as to make an informed decision on when the specification is ready to
 proceed to Normative status.  For this reason, all FHIR implementers are asked to complete a short survey which can be found 
 <a href="https://www.surveymonkey.com/s/PXZTY7Z">here</a>.
@@ -171,11 +171,11 @@ be kept confidential unless the participant authorizes inclusion of their projec
 will be reported in aggregate only.
 </p>
 <p>
-While implementation of this DSTU release is occurring, development will be progressing on the next (hopefully Normative) release.  This next release will include 
+While implementation of this STU release is occurring, development will be progressing on the next (hopefully Normative) release.  This next release will include 
 additional resources, profiles and quality enhancements over the current release.  It will also incorporate fixes for issues raised with the 
 <a href="http://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemBrowse&amp;tracker_id=677">FHIR change tracker</a>.  It may be useful for implementers
-of the DSTU to browse the development release to get a sense of what changes are likely coming and perhaps to find more robust definitions and guidance than
-are available in the first release.  The FHIR development release can be found at <a href="http://hl7.org/fhir-develop">hl7.org/fhir-develop</a>.  Some implementers
+of the STU to browse the development release to get a sense of what changes are likely coming and perhaps to find more robust definitions and guidance than
+are available in the first release.  The FHIR development release can be found at <a href="http://hl7-fhir.github.io/">hl7-fhir.github.io/</a>.  Some implementers
 who are dependent on content that exists in a draft release may choose to implement based on a particular snapshot of the development release, though in doing so, they
 will limit their potential communication partners and would not be considered to be completely FHIR conformant.
 </p>
