@@ -16,7 +16,7 @@
 	</category>
 	<!-- 
     Observations are often coded in multiple code systems.
-      - LOINC provides a very specific code (though not usefully more specific in this particular case)
+      - LOINC provides codes of varying granularity (though not usefully more specific in this particular case) and more generic LOINCs  can be mapped to more specific codes as shown here
       - snomed provides a clinically relevant code that is usually less granular than LOINC
       - the source system provides its own code, which may be less or more granular than LOINC
    -->
@@ -24,8 +24,13 @@
 		<!--  LOINC - always recommended to have a LOINC code  -->
 		<coding>
 			<system value="http://loinc.org"/>
-			<code value="3141-9"/>
-			<display value="Weight Measured"/>
+			<code value="29463-7"/> <!--more generic methodless LOINC-->
+			<display value="Body Weight"/>
+		</coding>
+		<coding>
+			<system value="http://loinc.org"/>
+			<code value="3141-9"/><!--translation is more specific method = measured LOINC-->
+			<display value="Body weight Measured"/>
 		</coding>
 		<!--  SNOMED CT Codes - becoming more common  -->
 		<coding>

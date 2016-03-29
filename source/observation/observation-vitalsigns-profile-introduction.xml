@@ -117,7 +117,8 @@ following the connectathon freeze period</p>
 					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Body_height_Example" title="Vital Signs Body height Example">Example</a>
 				</td>
 			</tr>
-			<tr>
+			<!--			
+           <tr>
 				<td>
 					<a href="bodylength.html">Body length </a>
 				</td>
@@ -128,11 +129,15 @@ following the connectathon freeze period</p>
 					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Body_Length_Example" title="Vital Signs Body Length Example">Example</a>
 				</td>
 			</tr>
+-->
 			<tr>
 				<td>
 					<a href="headcircum.html">Head circumference </a>
 				</td>
+<!--				
 				<td> 8287-5 </td>
+	-->
+				<td>9843-4 </td>
 				<td> cm, [in_i]</td>
 				<td> </td>
 				<td>
@@ -142,7 +147,7 @@ following the connectathon freeze period</p>
 			<tr>
 				<td>
 					<a href="bodyweight.html"/>Body weight </td>
-				<td> 3141-9 </td>
+				<td> 29463-7 </td>
 				<td> g, kg,[lb_av]</td>
 				<td> </td>
 				<td>
@@ -160,6 +165,7 @@ following the connectathon freeze period</p>
 					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Body_Mass_Example" title="Vital Body Mass Example">Example</a>
 				</td>
 			</tr>
+			<!--
 			<tr>
 				<td>
 					<a href="bsa.html"> Body surface area </a>
@@ -171,6 +177,8 @@ following the connectathon freeze period</p>
 					<a href="http://argonautwiki.hl7.org/index.php?title=Vital_Signs_Body_Surface_Example" title="Vital Signs Body Surface Example">Example</a>
 				</td>
 			</tr>
+			
+-->
 			<tr>
 				<td>
 					<a href="bp.html"> Blood pressure systolic and diastolic </a>

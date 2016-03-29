@@ -253,7 +253,7 @@
  -- Row 5 -----------------------------------
   Element = Observation.code.coding.code
   Type = code
-  Value = 3141-9
+  Value = 29463-7
 
  -- Row 6 -----------------------------------
   Element = Observation.valueQuantity
@@ -412,43 +412,6 @@
   Element = Observation.valueQuantity.code
   Binding = BodyLengthUnits
 
-=== Sheet BodyLength =====================================
-
- -- Row 1 -----------------------------------
-  Element = Observation
-  Profile Name = BodyLength
-  Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Body Length Profile
-  Definition = This profile defines  how to represent Body Length observations in FHIR using a standard LOINC code and UCUM units of measure
-
- -- Row 2 -----------------------------------
-  Element = Observation.code
-  Aliases = Test, Name,
-  Short Label = Body Length
-  Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
-
- -- Row 3 -----------------------------------
-  Element = Observation.code.coding
-  Profile Name = BodyLengthCode
-  Discriminator = code|unordered|open
-
- -- Row 4 -----------------------------------
-  Element = Observation.code.coding.system
-  Type = uri
-  Value = http://loinc.org
-
- -- Row 5 -----------------------------------
-  Element = Observation.code.coding.code
-  Type = code
-  Value = 8306-3
-
- -- Row 6 -----------------------------------
-  Element = Observation.valueQuantity
-
- -- Row 7 -----------------------------------
-  Element = Observation.valueQuantity.code
-  Binding = BodyLengthUnits
-
 === Sheet HeadCircum =====================================
 
  -- Row 1 -----------------------------------
@@ -477,7 +440,7 @@
  -- Row 5 -----------------------------------
   Element = Observation.code.coding.code
   Type = code
-  Value = 8287-5
+  Value = 9843-4
 
  -- Row 6 -----------------------------------
   Element = Observation.valueQuantity
@@ -561,44 +524,6 @@
   Element = Observation.valueQuantity.code
   Type = code
   Value = kg/m2
-
-=== Sheet BSA =====================================
-
- -- Row 1 -----------------------------------
-  Element = Observation
-  Profile Name = BodySurfaceArea
-  Type = {http://hl7.org/fhir/StructureDefinition/vitalsigns}
-  Short Label = FHIR Body Surface Area Profile
-  Definition = This profile defines  how to represent Body Surface Area observations in FHIR using a standard LOINC code and UCUM units of measure
-
- -- Row 2 -----------------------------------
-  Element = Observation.code
-  Aliases = Test, Name,
-  Short Label = Body Surface Area
-  Comments = additional codes that translate or map to this code are allowed.  For example a more granular LOINC code or code that is used locally in a system.
-
- -- Row 3 -----------------------------------
-  Element = Observation.code.coding
-  Profile Name = BSACode
-  Discriminator = code|unordered|open
-
- -- Row 4 -----------------------------------
-  Element = Observation.code.coding.system
-  Type = uri
-  Value = http://loinc.org
-
- -- Row 5 -----------------------------------
-  Element = Observation.code.coding.code
-  Type = code
-  Value = 3140-1
-
- -- Row 6 -----------------------------------
-  Element = Observation.valueQuantity
-
- -- Row 7 -----------------------------------
-  Element = Observation.valueQuantity.code
-  Type = code
-  Value = m2
 
 === Sheet MBP =====================================
 
