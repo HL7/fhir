@@ -14,7 +14,7 @@
   <description value="A character string that optionally may have a code attached. The text must always be present if a code is present. The code is often a local code."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/ST"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ST"/>
   <snapshot>
     <element>
       <path value="SC"/>

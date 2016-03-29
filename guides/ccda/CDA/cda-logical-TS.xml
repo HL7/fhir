@@ -14,7 +14,7 @@
   <description value="A quantity specifying a point on the axis of natural time. A point in time is most often represented as a calendar expression."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/ANY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ANY"/>
   <snapshot>
     <element>
       <path value="TS"/>

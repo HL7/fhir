@@ -14,7 +14,7 @@
   <description value="A set of points in time, specifying the timing of events and actions and the cyclical validity-patterns that may exist for certain kinds of information, such as phone numbers (evening, daytime), addresses (so called &quot;snowbirds,&quot; residing closer to the equator during winter and farther from the equator during summer) and office hours."/>
   <kind value="logical"/>
   <abstract value="true"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/TS"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/TS"/>
   <differential>
     <element>
       <path value="SXCM_TS"/>

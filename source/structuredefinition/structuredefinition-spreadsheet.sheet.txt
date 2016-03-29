@@ -22,6 +22,13 @@
   Definition = Codes for the meaning of the defined structure (SNOMED CT and LOINC codes, as an example).
   Conformance = example
 
+ -- Row 4 -----------------------------------
+  Binding Name = TypeDerivationRule
+  Binding = code list
+  Reference = #type-derivation-rule
+  Definition = How a type relates to it\'s baseDefinition.
+  Conformance = required
+
 === Sheet structure-definition-kind =====================================
 
  -- Row 1 -----------------------------------
@@ -62,14 +69,28 @@
   Display = Extension
   Definition = The context is a particular extension from a particular profile, a uri that identifies the extension definition.
 
+=== Sheet type-derivation-rule =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = specialization
+  Display = Specialization
+  Definition = This definition defines a new type that adds additional elements to the base type
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = constraint
+  Display = Constraint
+  Definition = This definition adds additional rules to an existing concrete type
+
 === Sheet Invariants =====================================
 
  -- Row 1 -----------------------------------
   Id = 1
   Context = StructureDefinition
   English = Element paths must be unique unless the structure is a constraint
-  XPath = exists(f:constrainedType) or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))
-  Expression = constrainedType or snapshot.element.all(path)
+  XPath = exists(f:baseType) or (count(f:snapshot/f:element) = count(distinct-values(f:snapshot/f:element/f:path/@value)))
+  Expression = derivation = \'constraint\' or snapshot.element.select(path).distinct()
 
  -- Row 2 -----------------------------------
   Id = 2
@@ -90,15 +111,15 @@
   Requirements = Ensure that there\'s a base unless the type is abstract and there\'s no constrainedType
   Context = StructureDefinition
   English = If the structure is not abstract, or there\'s a constrained type, then there SHALL be a base
-  XPath = (f:abstract/@value=true()) or not(exists(f:constrainedType)) or exists(f:base)
-  Expression = base or abstract = true or constrainedType
+  XPath = (f:abstract/@value=true()) or (exists(f:baseType) and exists(f:baseDefinition))
+  Expression = abstract = true or (baseType and baseDefinition)
 
  -- Row 5 -----------------------------------
   Id = 5
   Context = StructureDefinition
   English = If the structure defines an extension then the structure must have context information
-  XPath = not(f:constrainedType/@value = \'extension\') or (exists(f:context) and exists(f:contextType))
-  Expression = constrainedType != \'Extension\' or (context and contextType)
+  XPath = not(f:baseType/@value = \'extension\') or (exists(f:context) and exists(f:contextType))
+  Expression = baseType != \'Extension\' or (context and contextType)
 
  -- Row 6 -----------------------------------
   Id = 6
@@ -111,8 +132,8 @@
   Id = 7
   Context = StructureDefinition
   English = If the structure describes a base Resource or Type, the URL has to start with \"http://hl7.org/fhir/StructureDefinition/\" and the tail must match the id
-  XPath = exists(f:constrainedType) or f:url/@value=concat(\'http://hl7.org/fhir/StructureDefinition/\', f:id/@value)
-  Expression = constrainedType or url = \'http://hl7.org/fhir/StructureDefinition/\'+id
+  XPath = (f:derivation/@value = \'constraint\') or f:url/@value=concat(\'http://hl7.org/fhir/StructureDefinition/\', f:id/@value)
+  Expression = (derivation = \'constraint\') or (url = \'http://hl7.org/fhir/StructureDefinition/\'+id)
 
  -- Row 8 -----------------------------------
   Id = 8
@@ -134,16 +155,24 @@
   Requirements = Ensure that the constrainedType is not inconsistent with the other information in the structure
   Context = StructureDefinition
   English = If there\'s a constrained type, its content must match the path name in the first element of a snapshot
-  XPath = not(exists(f:constrainedType)) or not(exists(f:snapshot)) or (f:constrainedType/@value = f:snapshot/f:element[1]/f:path/@value)
-  Expression = constrainedType.empty() or snapshot.empty() or snapshot.element.first().path = constrainedType
+  XPath = not(exists(f:baseType)) or (f:derivation/@value != \'constraint\') or not(exists(f:snapshot)) or (f:baseType/@value = f:snapshot/f:element[1]/f:path/@value)
+  Expression = derivation = \'constraint\' implies baseType and (snapshot.empty() or snapshot.element.first().path = baseType)
 
  -- Row 11 -----------------------------------
   Id = 12
   Requirements = Ensure that element.base appears with base or not
   Context = StructureDefinition
   English = element.base cannot appear if there is no base on the structure definition
-  XPath = f:base or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))
-  Expression = snapshot.element.base implies base
+  XPath = f:baseType or not(exists(f:snapshot/f:element/f:base) or exists(f:differential/f:element/f:base))
+  Expression = snapshot.element.base implies baseType
+
+ -- Row 12 -----------------------------------
+  Id = 13
+  Requirements = must specify derivation
+  Context = StructureDefinition
+  English = baseType implies derivation
+  XPath = not(exists(f:baseType)) or exists(f:derivation)
+  Expression = baseType implies derivation
 
 === Sheet Data Elements =====================================
 
@@ -387,17 +416,6 @@
   Definition = Defines the kind of structure that this definition is describing
 
  -- Row 26 -----------------------------------
-  Element = StructureDefinition.constrainedType
-  Card. = 0..1
-  Summary = Y
-  Inv. = 4,11
-  Type = code
-  Binding = FHIRDefinedType
-  Short Label = Any datatype or resource, including abstract ones
-  Definition = The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure
-  Comments = if a constrained type is present, then there SHALL be a base resource as well. Note that the constrained type could be determined by chasing through the base references until the base definition is reached, or by looking at the path of the first element in the snapshot - if present - but providing the constrainedType directly makes for simpler tooling and indexing
-
- -- Row 27 -----------------------------------
   Element = StructureDefinition.abstract
   Card. = 1..1
   Summary = Y
@@ -406,7 +424,7 @@
   Definition = Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type
   Comments = Abstract Resources cannot be instantiated - a concrete sub-type must be used. Abstract datatypes and extensions cannot be used in an instance. Flagging a constraint structure as abstract conveys design intent but makes no difference to how the structure definition is handled. Note that inline declared elements that are given the type \"Element\" in the profile, but have children described, are anonymous concrete types that specialise Element. Abstract is not relevant for logical models
 
- -- Row 28 -----------------------------------
+ -- Row 27 -----------------------------------
   Element = StructureDefinition.contextType
   Card. = 0..1
   Summary = Y
@@ -416,7 +434,7 @@
   Short Label = resource | datatype | extension
   Definition = If this is an extension, Identifies the context within FHIR resources where the extension can be used
 
- -- Row 29 -----------------------------------
+ -- Row 28 -----------------------------------
   Element = StructureDefinition.context
   Card. = 0..*
   Summary = Y
@@ -426,17 +444,39 @@
   Definition = Identifies the types of resource or data type elements to which the extension can be applied
   Comments = If the context is an element that can have multiple types, then use (e.g.) value[x] if the extension works on all choice types, or otherwise an enumeration of explicitly named elements if not. Note that a context of \"string\" doesn\'t mean that the extension can be used with one of the string patterns such as \"id\" etc.
 
+ -- Row 29 -----------------------------------
+  Element = StructureDefinition.baseType
+  Card. = 0..1
+  Summary = Y
+  Inv. = 4,11
+  Type = code
+  Binding = FHIRDefinedType
+  Short Label = Any datatype or resource, including abstract ones
+  Definition = The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure
+  Comments = if a baseType is present, then there SHALL be a baseDefinition as well. Note that the baseType could be determined by chasing through the baseDefinition references until a concrete structure (derivation = specialization) is reached, or by looking at the path of the first element in the snapshot - if present - but providing the baseType directly makes for simpler tooling and indexing
+
  -- Row 30 -----------------------------------
-  Element = StructureDefinition.base
+  Element = StructureDefinition.baseDefinition
   Card. = 0..1
   Summary = Y
   Inv. = 4
   Type = uri
-  Short Label = Structure that this set of constraints applies to
-  Definition = An absolute URI that is the base structure from which this set of constraints is derived
+  Short Label = Definition that this type is constrained/specialized from
+  Definition = An absolute URI that is the base structure from which this type is derived, either by specialization or constraint
   Comments = If differential constraints are specified in this structure, they are applied to the base in a \"differential\" fashion. If there is no base, then the differential constraints cannot be provided (snapshot only). Differential structures are useful for the editing perspective, and snapshot structures are suitable for operational use. The FHIR Project provides a number of tools/services to populate snapshots from differential constraints. Logical Models have a base of \"Element\" or another logical model
 
  -- Row 31 -----------------------------------
+  Element = StructureDefinition.derivation
+  Card. = 0..1
+  Summary = y
+  Inv. = 13
+  Type = code
+  Binding = TypeDerivationRule
+  Short Label = specialization | constraint - How relates to base definition
+  Definition = How the type relates to the baseDefinition.
+  Comments = If the definition is a specialization, then it adds new elements in the differential, and the snapshot includes the inherited elements.\n\nIf the definition is a constraint, then it can not define new elements, it can only make new rules about existing content (see [Profiling Resources](profiling.html#resources))
+
+ -- Row 32 -----------------------------------
   Element = StructureDefinition.snapshot
   Card. = 0..1
   UML = 400;190
@@ -444,7 +484,7 @@
   Short Label = Snapshot view of the structure
   Definition = A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition
 
- -- Row 32 -----------------------------------
+ -- Row 33 -----------------------------------
   Element = StructureDefinition.snapshot.element
   Card. = 1..*
   Inv. = 3
@@ -453,7 +493,7 @@
   Definition = Captures constraints on each element within the resource
   11179 Mapping = --
 
- -- Row 33 -----------------------------------
+ -- Row 34 -----------------------------------
   Element = StructureDefinition.differential
   Card. = 0..1
   UML = 400;270
@@ -461,7 +501,7 @@
   Short Label = Differential view of the structure
   Definition = A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies
 
- -- Row 34 -----------------------------------
+ -- Row 35 -----------------------------------
   Element = StructureDefinition.differential.element
   Card. = 1..*
   Type = ElementDefinition
@@ -469,14 +509,14 @@
   Definition = Captures constraints on each element within the resource
   11179 Mapping = --
 
- -- Row 35 -----------------------------------
+ -- Row 36 -----------------------------------
   Element = !StructureDefinition.searchParam
   Card. = 0..*
   UML = 400;0
   Short Label = Additional Search params defined by this StructureDefinition
   Definition = Additional search parameters defined for this structure that implementations can support and/or make use of
 
- -- Row 36 -----------------------------------
+ -- Row 37 -----------------------------------
   Element = !StructureDefinition.searchParam.name
   Card. = 1..1
   Inv. = 3
@@ -485,7 +525,7 @@
   Definition = The name of the standard or custom search parameter
   Requirements = Parameter names cannot overlap with standard parameter names, and standard parameters cannot be redefined
 
- -- Row 37 -----------------------------------
+ -- Row 38 -----------------------------------
   Element = !StructureDefinition.searchParam.type
   Card. = 1..1
   Type = code
@@ -493,14 +533,14 @@
   Short Label = number | date | string | token | reference | composite | quantity
   Definition = The type of value a search parameter refers to, and how the content is interpreted
 
- -- Row 38 -----------------------------------
+ -- Row 39 -----------------------------------
   Element = !StructureDefinition.searchParam.documentation
   Card. = 1..1
   Type = string
   Short Label = Contents and meaning of search parameter
   Definition = A specification for search parameters. For standard parameters, provides additional information on how the parameter is used in this solution.  For custom parameters, provides a description of what the parameter does
 
- -- Row 39 -----------------------------------
+ -- Row 40 -----------------------------------
   Element = !StructureDefinition.searchParam.xpath
   Card. = 0..1
   Type = string
@@ -509,7 +549,7 @@
   Requirements = Note that the elements are sometimes complex elements where logic is required to determine quite how to handle them; e.g. CodeableConcepts may contain text and/or multiple codings, where the codings themselves contain a code and a system
   Comments = The XPath expression may use parent references, but this technique should be avoided except in the special case of an extension making rules about its use with other extensions. Parent references SHALL not refer to content outside the resouce that contains the content
 
- -- Row 40 -----------------------------------
+ -- Row 41 -----------------------------------
   Element = !StructureDefinition.searchParam.target
   Card. = 0..*
   Type = code
@@ -581,7 +621,7 @@
  -- Row 11 -----------------------------------
   Name = type
   Type = token
-  Path = StructureDefinition.constrainedType
+  Path = StructureDefinition.baseType
 
  -- Row 12 -----------------------------------
   Name = kind
@@ -628,12 +668,17 @@
  -- Row 20 -----------------------------------
   Name = base
   Type = uri
-  Path = StructureDefinition.base
+  Path = StructureDefinition.baseDefinition
 
  -- Row 21 -----------------------------------
   Name = base-path
   Type = token
   Path = StructureDefinition.snapshot.element.base.path | StructureDefinition.differential.element.base.path
+
+ -- Row 22 -----------------------------------
+  Name = derivation
+  Type = token
+  Path = StructureDefinition.derivation
 
 === Sheet Profiles =====================================
 

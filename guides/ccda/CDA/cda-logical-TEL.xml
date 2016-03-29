@@ -14,7 +14,7 @@
   <description value="A telephone number (voice or fax), e-mail address, or other locator for a resource mediated by telecommunication equipment. The address is specified as a Universal Resource Locator (URL) qualified by time specification and use codes that help in deciding which address to use for a given time and purpose."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/ANY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ANY"/>
   <snapshot>
     <element>
       <path value="TEL"/>

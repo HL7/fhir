@@ -324,7 +324,9 @@ Here are the relevant parts of the Profile on patient:
 
 &lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;!-- snip --&gt;
-    &lt;constrainedType value=&quot;Patient&quot;/&gt;
+    &lt;baseType value="Patient" /&gt;
+    &lt;baseDefinition value="http://hl7.org.fhir/StructureDefinition/Patient" /&gt;
+    &lt;derivation value="constraint" /&gt;
     &lt;snapshot&gt;
       &lt;element&gt;
         &lt;path value=&quot;Patient&quot;/&gt;
@@ -405,9 +407,11 @@ the LOINC code in the observation.
 &lt;StructureDefinition xmlns=&quot;http://hl7.org/fhir&quot;&gt;
   &lt;!-- snip --&gt;
   &lt;url value=&quot;http://acme.org/fhir/StructureDefinition/lipid-report&quot;/&gt;
-  &lt;constrainedType value=&quot;DiagnosticReport&quot;/&gt;
-  &lt;base value=&quot;http://hl7.org/fhir/StructureDefinition/DiagnosticReport&quot;/&gt;
   &lt;name value=&quot;LipidProfile&quot;/&gt;
+  &lt;baseType value=&quot;DiagnosticReport&quot;/&gt;
+  &lt;baseDefinition value=&quot;http://hl7.org/fhir/StructureDefinition/DiagnosticReport&quot;/&gt;
+  &lt;derivation value="constraint" /&gt;
+
   &lt;!-- snip --&gt;
   &lt;snapshot&gt;
     &lt;!-- snip elements --&gt;
@@ -473,9 +477,10 @@ the LOINC code in the observation.
 &lt;!-- now, the second structure, for the Cholesterol profile --&gt;
 &lt;StructureDefinition&gt;
   &lt;url value=&quot;http://acme.org/fhir/StructureDefinition/Cholesterol&quot;/&gt;
-  &lt;constrainedType value=&quot;Observation&quot;/&gt;
-  &lt;base value=&quot;http://hl7.org/fhir/StructureDefinition/Observation&quot;/&gt;
   &lt;name value=&quot;Cholesterol&quot;/&gt; 
+  &lt;baseType value=&quot;Observation&quot;/&gt;
+  &lt;baseDefinition value=&quot;http://hl7.org/fhir/StructureDefinition/Observation&quot;/&gt;
+  &lt;derivation value="constraint" /&gt;
   &lt;snapshot&gt;
     &lt;!-- snip elements --&gt;
     &lt;element&gt;
@@ -504,9 +509,10 @@ the LOINC code in the observation.
 &lt;!-- Triglyceride profile --&gt;
 &lt;StructureDefinition&gt;
   &lt;url value=&quot;http://acme.org/fhir/StructureDefinition/Triglyceride&quot;/&gt;
-  &lt;constrainedType value=&quot;Observation&quot;/&gt;
-  &lt;base value=&quot;http://hl7.org/fhir/StructureDefinition/Observation&quot;/&gt;
   &lt;name value=&quot;Triglyceride&quot;/&gt; 
+  &lt;baseType value=&quot;Observation&quot;/&gt;
+  &lt;baseDefinition value=&quot;http://hl7.org/fhir/StructureDefinition/Observation&quot;/&gt;
+  &lt;derivation value="constraint" /&gt;
   &lt;snapshot&gt;
     &lt;!-- snip elements --&gt;
     &lt;element&gt;
@@ -535,9 +541,10 @@ the LOINC code in the observation.
 &lt;!-- LDLCholesterol profile --&gt;
 &lt;StructureDefinition&gt;
   &lt;url value=&quot;http://acme.org/fhir/StructureDefinition/LDLCholesterol&quot;/&gt;
-  &lt;constrainedType value=&quot;Observation&quot;/&gt;
-  &lt;base value=&quot;http://hl7.org/fhir/StructureDefinition/Observation&quot;/&gt;
   &lt;name value=&quot;LDLCholesterol&quot;/&gt; 
+  &lt;baseType value=&quot;Observation&quot;/&gt;
+  &lt;baseDefinition value=&quot;http://hl7.org/fhir/StructureDefinition/Observation&quot;/&gt;
+  &lt;derivation value="constraint" /&gt;
   &lt;snapshot&gt;
     &lt;!-- snip elements --&gt;
     &lt;element&gt;
@@ -566,9 +573,10 @@ the LOINC code in the observation.
 &lt;!-- HDLCholesterol profile --&gt;
 &lt;StructureDefinition&gt;
   &lt;url value=&quot;http://acme.org/fhir/StructureDefinition/HDLCholesterol&quot;/&gt;
-  &lt;constrainedType value=&quot;Observation&quot;/&gt;
-  &lt;base value=&quot;http://hl7.org/fhir/StructureDefinition/Observation&quot;/&gt;
   &lt;name value=&quot;HDLCholesterol&quot;/&gt; 
+  &lt;baseType value=&quot;Observation&quot;/&gt;
+  &lt;baseDefinition value=&quot;http://hl7.org/fhir/StructureDefinition/Observation&quot;/&gt;
+  &lt;derivation value="constraint" /&gt;
   &lt;snapshot&gt;
     &lt;!-- snip elements --&gt;
     &lt;element&gt;

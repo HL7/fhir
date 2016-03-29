@@ -11,6 +11,11 @@
         "definition": null,
         "display": "Created"
       }
+    },
+    {
+      "hash": "|null|null|draft|null",
+      "severity": "error",
+      "message": "Unknown Code draft in http://hl7.org/fhir/ValueSet/task-status"
     }
   ]
 }

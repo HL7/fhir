@@ -14,7 +14,7 @@
   <description value="Coded data, specifying only a code, code system, and optionally display name and original text. Used only as the data type for other data types&#39; properties."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/CE"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CE"/>
   <snapshot>
     <element>
       <path value="CV"/>

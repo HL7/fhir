@@ -101,6 +101,7 @@ import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.ExtensionContext;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.TimeType;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UnsignedIntType;
@@ -1894,8 +1895,8 @@ public class SpreadsheetParser {
         type = definitions.getConstraints().get(type).getBaseType();
     } else {
       StructureDefinition sd = context.getProfiles().get("http://hl7.org/fhir/StructureDefinition/"+type);
-      if (sd != null && sd.hasConstrainedType())
-        type = sd.getConstrainedType();
+      if (sd != null && sd.hasBaseType() && sd.getDerivation() == TypeDerivationRule.CONSTRAINT)
+        type = sd.getBaseType();
       if (type.equals("SimpleQuantity"))
         type = "Quantity";
     }
@@ -2027,8 +2028,9 @@ public class SpreadsheetParser {
     StructureDefinition ex = new StructureDefinition();
     ex.setUserData(ToolResourceUtilities.NAME_RES_IG, ig == null ? "core" : ig.getCode());
     ex.setKind(StructureDefinitionKind.DATATYPE);
-    ex.setConstrainedType("Extension");
-    ex.setBase("http://hl7.org/fhir/StructureDefinition/Extension");
+    ex.setBaseType("Extension");
+    ex.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Extension");
+    ex.setDerivation(TypeDerivationRule.CONSTRAINT);
     ex.setAbstract(false);
     ex.setFhirVersion(version);
 

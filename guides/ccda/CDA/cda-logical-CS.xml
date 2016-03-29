@@ -14,7 +14,7 @@
   <description value="XCoded data in its simplest form, where only the code is not predetermined. The code system and code system version are fixed by the context in which the CS value occurs. CS is used for coded attributes that have a single HL7-defined value set."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/CV"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CV"/>
   <snapshot>
     <element>
       <path value="CS"/>

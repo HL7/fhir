@@ -14,7 +14,7 @@
   <description value="Coded data that consists of a coded value (CV) and, optionally, coded value(s) from other coding systems that identify the same concept. Used when alternative codes may exist."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/CD"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/CD"/>
   <snapshot>
     <element>
       <path value="CE"/>

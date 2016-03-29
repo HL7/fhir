@@ -14,7 +14,7 @@
   <description value="Mailing and home or office addresses. A sequence of address parts, such as street or post office Box, city, postal code, country, etc."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/ANY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ANY"/>
   <snapshot>
     <element>
       <path value="AD"/>

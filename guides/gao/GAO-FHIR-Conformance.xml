@@ -35,7 +35,8 @@
     <name value="HL7 v2" />
   </mapping>
   <type value="constraint" />
-  <base value="http://hl7.org/fhir/StructureDefinition/Order" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Order" />
+    <derivation value="constraint"/>
   <differential>
     <element>
       <path value="Order.identifier" />

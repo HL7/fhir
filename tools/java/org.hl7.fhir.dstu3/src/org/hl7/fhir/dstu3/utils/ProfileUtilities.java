@@ -39,6 +39,7 @@ import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionComponent;
 import org.hl7.fhir.dstu3.model.ValueSet.ValueSetExpansionContainsComponent;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.terminologies.ValueSetExpander.ValueSetExpansionOutcome;
 import org.hl7.fhir.dstu3.utils.ProfileUtilities.ProfileKnowledgeProvider.BindingResolution;
 import org.hl7.fhir.dstu3.validation.ValidationMessage;
@@ -344,9 +345,9 @@ public class ProfileUtilities {
             StructureDefinition sd = context.fetchResource(StructureDefinition.class, p);
             if (sd != null) {
               if (!sd.hasSnapshot()) {
-                StructureDefinition sdb = context.fetchResource(StructureDefinition.class, sd.getBase());
+                StructureDefinition sdb = context.fetchResource(StructureDefinition.class, sd.getBaseDefinition());
                 if (sdb == null)
-                  throw new DefinitionException("no base for "+sd.getBase());
+                  throw new DefinitionException("no base for "+sd.getBaseDefinition());
                 generateSnapshot(sdb, sd, sd.getUrl(), sd.getName());
               }
               template = sd.getSnapshot().getElement().get(0).copy().setPath(currentBase.getPath());
@@ -2044,12 +2045,12 @@ public class ProfileUtilities {
   // generate schematroins for the rules in a structure definition
 
   public void generateSchematrons(OutputStream dest, StructureDefinition structure) throws IOException, DefinitionException {
-    if (!structure.hasConstrainedType())
+    if (structure.getDerivation() != TypeDerivationRule.CONSTRAINT)
       throw new DefinitionException("not the right kind of structure to generate schematrons for");
     if (!structure.hasSnapshot())
       throw new DefinitionException("needs a snapshot");
 
-  	StructureDefinition base = context.fetchResource(StructureDefinition.class, structure.getBase());
+  	StructureDefinition base = context.fetchResource(StructureDefinition.class, structure.getBaseDefinition());
 
   	SchematronWriter sch = new SchematronWriter(dest, SchematronType.PROFILE, base.getName());
 

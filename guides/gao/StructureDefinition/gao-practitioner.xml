@@ -24,9 +24,11 @@
   
   
   <kind value="resource"></kind>
-  <constrainedType value="Practitioner"></constrainedType>
   <abstract value="false"></abstract>
-  <base value="http://hl7.org/fhir/StructureDefinition/Practitioner"></base>
+  <baseType value="Practitioner"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Practitioner"/>
+    <derivation value="constraint"/>
+
   <differential>
     <element>
       <path value="Practitioner"></path>

@@ -52,9 +52,10 @@
     <name value="W5 Mapping" />
   </mapping>
   <kind value="resource" />
-  <constrainedType value="Practitioner" />
   <abstract value="false" />
-  <base value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+  <baseType value="Practitioner" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+    <derivation value="constraint"/>
   <differential>
     <element>
       <path value="Practitioner" />

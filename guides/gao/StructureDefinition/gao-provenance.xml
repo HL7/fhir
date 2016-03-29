@@ -24,9 +24,11 @@
   
   
   <kind value="resource"></kind>
-  <constrainedType value="Provenance"></constrainedType>
   <abstract value="false"></abstract>
-  <base value="http://hl7.org/fhir/StructureDefinition/Provenance"></base>
+  <baseType value="Provenance"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Provenance"/>
+    <derivation value="constraint"/>
+
   <differential>
     <element>
       <path value="Provenance"></path>

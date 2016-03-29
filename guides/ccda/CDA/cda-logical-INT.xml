@@ -14,7 +14,7 @@
   <description value="Integer numbers (-1,0,1,2, 100, 3398129, etc.) are precise numbers that are results of counting and enumerating. Integer numbers are discrete, the set of integers is infinite but countable. No arbitrary limit is imposed on the range of integer numbers. Two NULL flavors are defined for the positive and negative infinity."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/QTY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/QTY"/>
   <snapshot>
     <element>
       <path value="INT"/>

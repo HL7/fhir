@@ -169,7 +169,7 @@ public class IgParser {
             lm.setId(sd.getId());
             igd.getLogicalModels().add(lm);        
             
-          } else if ("extension".equals(sd.getConstrainedType())) {
+          } else if ("extension".equals(sd.getBaseType())) {
             sd.setId(tail(sd.getUrl()));
             sd.setUserData(ToolResourceUtilities.NAME_RES_IG, igd.getCode());
             ToolResourceUtilities.updateUsage(sd, igd.getCode());

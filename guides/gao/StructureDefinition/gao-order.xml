@@ -26,9 +26,10 @@
   
   
   <kind value="resource"></kind>
-  <constrainedType value="Order"></constrainedType>
   <abstract value="false"></abstract>
-  <base value="http://hl7.org/fhir/StructureDefinition/Order"></base>
+  <baseType value="Order"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Order"/>
+    <derivation value="constraint"/>
   <differential>
     <element>
       <path value="Order"></path>

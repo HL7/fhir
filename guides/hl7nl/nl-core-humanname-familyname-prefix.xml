@@ -20,11 +20,12 @@
     <name value="RIM" />
   </mapping>
   <kind value="datatype" />
-  <constrainedType value="Extension" />
   <abstract value="false" />
   <contextType value="resource" />
   <context value="HumanName" />
-  <base value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <baseType value="Extension" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+  <derivation value="constraint"/>
   <differential>
     <element>
       <path value="Extension" />

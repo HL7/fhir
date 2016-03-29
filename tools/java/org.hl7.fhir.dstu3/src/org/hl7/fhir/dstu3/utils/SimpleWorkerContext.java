@@ -140,11 +140,11 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     if (Utilities.noString(url))
       url = p.getUrl();
     if (!p.hasSnapshot()) {
-      if (!p.hasBase())
+      if (!p.hasBaseDefinition())
         throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") has no base and no snapshot");
-      StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBase());
+      StructureDefinition sd = fetchResource(StructureDefinition.class, p.getBaseDefinition());
       if (sd == null)
-        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") base "+p.getBase()+" could not be resolved");
+        throw new DefinitionException("Profile "+p.getName()+" ("+p.getUrl()+") base "+p.getBaseDefinition()+" could not be resolved");
       List<ValidationMessage> msgs = new ArrayList<ValidationMessage>();
       ProfileUtilities pu = new ProfileUtilities(this, msgs, this);
       pu.generateSnapshot(sd, p, p.getUrl(), p.getName());
@@ -276,7 +276,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
   public List<String> getResourceNames() {
     List<String> result = new ArrayList<String>();
     for (StructureDefinition sd : structures.values()) {
-      if (sd.getKind() == StructureDefinitionKind.RESOURCE && !sd.hasConstrainedType())
+      if (sd.getKind() == StructureDefinitionKind.RESOURCE && !sd.hasBaseType())
         result.add(sd.getName());
     }
     Collections.sort(result);
@@ -304,7 +304,7 @@ public class SimpleWorkerContext extends BaseWorkerContext implements IWorkerCon
     }
     if (sd == null)
       return false;
-    if (sd.hasConstrainedType())
+    if (sd.hasBaseType())
       return false;
     return sd.getKind() == StructureDefinitionKind.RESOURCE;
   }

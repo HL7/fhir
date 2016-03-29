@@ -100,6 +100,7 @@ import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionDifferent
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionMappingComponent;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionSnapshotComponent;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.utils.NarrativeGenerator;
@@ -215,7 +216,9 @@ public class ProfileGenerator {
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
     p.setUserData("path", "datatypes.html#"+type.getCode());
-    p.setBase("http://hl7.org/fhir/StructureDefinition/Element");
+    p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element");
+    p.setBaseType("Element");
+    p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setFhirVersion(version);
 
     
@@ -335,7 +338,9 @@ public class ProfileGenerator {
     StructureDefinition p = new StructureDefinition();
     p.setId(type.getCode());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ type.getCode());
-    p.setBase("http://hl7.org/fhir/StructureDefinition/"+ type.getBase());
+    p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+ type.getBase());
+    p.setBaseType(type.getBase());
+    p.setDerivation(TypeDerivationRule.SPECIALIZATION);
     p.setKind(StructureDefinitionKind.DATATYPE);
     p.setAbstract(false);
     p.setUserData("filename", type.getCode().toLowerCase());
@@ -344,7 +349,6 @@ public class ProfileGenerator {
 
     ToolResourceUtilities.updateUsage(p, "core");
     p.setName(type.getCode());
-    p.setConstrainedType(type.getBase());
     p.setPublisher("HL7 FHIR Standard");
     p.addContact().getTelecom().add(Factory.newContactPoint(ContactPointSystem.OTHER, "http://hl7.org/fhir"));
     p.setDescription("Base StructureDefinition for "+type.getCode()+" type: "+type.getDefinition());
@@ -442,8 +446,11 @@ public class ProfileGenerator {
     p.setAbstract(t.getName().equals("Element") || t.getName().equals("BackboneElement") );
     p.setUserData("filename", t.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+t.getName());
-    if (!Utilities.noString(t.typeCode()))
-      p.setBase("http://hl7.org/fhir/StructureDefinition/Element"); // all deemd to be element whether they say Type or Structure
+    if (!Utilities.noString(t.typeCode())) {
+      p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Element"); // all deemd to be element whether they say Type or Structure
+      p.setBaseType("Element");
+      p.setDerivation(TypeDerivationRule.SPECIALIZATION);
+    }
     p.setFhirVersion(version);
 
     ToolResourceUtilities.updateUsage(p, "core");
@@ -494,9 +501,10 @@ public class ProfileGenerator {
     StructureDefinition p = new StructureDefinition();
     p.setId(pt.getName());
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ pt.getName());
-    p.setBase("http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType());
+    p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+pt.getBaseType());
     p.setKind(StructureDefinitionKind.DATATYPE);
-    p.setConstrainedType(pt.getBaseType());
+    p.setBaseType(pt.getBaseType());
+    p.setDerivation(TypeDerivationRule.CONSTRAINT);
     p.setAbstract(false);
     p.setUserData("filename", pt.getName().toLowerCase());
     p.setUserData("path", "datatypes.html#"+pt.getName());
@@ -629,8 +637,12 @@ public class ProfileGenerator {
     p.setUrl("http://hl7.org/fhir/StructureDefinition/"+ r.getRoot().getName());
     p.setKind(StructureDefinitionKind.RESOURCE);
     p.setAbstract(r.isAbstract());
-    if (!Utilities.noString(r.getRoot().typeCode()))
-      p.setBase("http://hl7.org/fhir/StructureDefinition/"+r.getRoot().typeCode());
+    if (!Utilities.noString(r.getRoot().typeCode())) {
+      p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+r.getRoot().typeCode());
+      p.setBaseType(r.getRoot().typeCode());
+      p.setDerivation(TypeDerivationRule.SPECIALIZATION);
+      
+    }
     p.setUserData("filename", r.getName().toLowerCase());
     p.setUserData("path", r.getName().toLowerCase()+".html");
     p.setDisplay(pack.metadata("display"));
@@ -718,11 +730,12 @@ public class ProfileGenerator {
     }
 
     if (!resource.getRoot().getTypes().isEmpty() && (resource.getRoot().getTypes().get(0).getProfile() != null))
-      p.setBase(resource.getRoot().getTypes().get(0).getProfile());
+      p.setBaseDefinition(resource.getRoot().getTypes().get(0).getProfile());
     else
-      p.setBase("http://hl7.org/fhir/StructureDefinition/"+resource.getName());    
+      p.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+resource.getName());    
     p.setKind(StructureDefinitionKind.RESOURCE);
-    p.setConstrainedType(resource.getName());    
+    p.setBaseType(resource.getName());
+    p.setDerivation(TypeDerivationRule.CONSTRAINT);
     p.setAbstract(false);
     p.setUserData("filename", id);
     p.setUserData("path", ((usage == null || usage.isCore()) ? "" : usage.getCode()+File.separator)+id+".html");
@@ -769,7 +782,7 @@ public class ProfileGenerator {
     for (String pn : names) {
       pack.getSearchParameters().add(makeSearchParam(p, pack.getId()+"-"+resource.getName()+"-"+pn, resource.getName(), resource.getSearchParams().get(pn)));
     }
-    StructureDefinition base = definitions.getSnapShotForBase(p.getBase());
+    StructureDefinition base = definitions.getSnapShotForBase(p.getBaseDefinition());
 
     List<String> errors = new ArrayList<String>();
     new ProfileUtilities(context, null, pkp).sortDifferential(base, p, p.getName(), errors);
@@ -777,7 +790,7 @@ public class ProfileGenerator {
       issues.add(new ValidationMessage(Source.ProfileValidator, IssueType.STRUCTURE, -1, -1, p.getUrl(), s, IssueSeverity.WARNING));
     reset();
     // ok, c is the differential. now we make the snapshot
-    new ProfileUtilities(context, issues, pkp).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+p.getConstrainedType(), p.getName());
+    new ProfileUtilities(context, issues, pkp).generateSnapshot(base, p, "http://hl7.org/fhir/StructureDefinition/"+p.getBaseType(), p.getName());
     reset();
 
     p.getDifferential().getElement().get(0).getType().clear();
@@ -835,11 +848,11 @@ public class ProfileGenerator {
       for (ContactPoint ts : tc.getTelecom())
         t.getTelecom().add(ts.copy());
     }
-    if (p.hasConstrainedType())
-      sp.setBase(p.getConstrainedType());
+    if (p.hasBaseType())
+      sp.setBase(p.getBaseType());
     else
       sp.setBase(p.getName());
-    if (!definitions.hasResource(sp.getBase()) && !sp.getBase().equals("Resource"))
+    if (!definitions.hasResource(sp.getBase()) && !sp.getBase().equals("Resource") && !sp.getBase().equals("DomainResource"))
       throw new Exception("unknown resource type "+sp.getBase());
     
     sp.setType(getSearchParamType(spd.getType()));

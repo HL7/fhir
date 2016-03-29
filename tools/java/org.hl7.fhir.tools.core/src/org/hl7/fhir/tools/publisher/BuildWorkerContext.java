@@ -236,7 +236,7 @@ public class BuildWorkerContext extends BaseWorkerContext implements IWorkerCont
     if (resourceNames.contains(name))
       return true;
     StructureDefinition sd = profiles.get("http://hl7.org/fhir/StructureDefinition/" + name);
-    return sd != null && (sd.getBase().endsWith("Resource") || sd.getBase().endsWith("DomainResource"));
+    return sd != null && (sd.getBaseDefinition().endsWith("Resource") || sd.getBaseDefinition().endsWith("DomainResource"));
   }
 
   public List<String> getResourceNames() {

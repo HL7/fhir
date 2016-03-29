@@ -43,9 +43,10 @@
         <name value="LOINC"/>
     </mapping>
     <kind value="resource"/>
-    <constrainedType value="Patient"/>
     <abstract value="false"/>
-    <base value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+    <baseType value="Patient"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+    <derivation value="constraint"/>
     <differential>
         <element>
             <path value="Patient"/>

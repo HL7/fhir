@@ -14,7 +14,7 @@
   <description value="A quantity constructed as the quotient of a numerator quantity divided by a denominator quantity. Common factors in the numerator and denominator are not automatically cancelled out. The data type supports titers (e.g., &quot;1:128&quot;) and other quantities produced by laboratories that truly represent ratios. Ratios are not simply &quot;structured numerics&quot;, particularly blood pressure measurements (e.g. &quot;120/60&quot;) are not ratios. In many cases the should be used instead of the ."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/QTY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/QTY"/>
   <snapshot>
     <element>
       <path value="RTO_PQ_PQ"/>

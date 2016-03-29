@@ -14,7 +14,7 @@
   <description value="The Boolean type stands for the values of two-valued logic. A Boolean value can be either true or false, or, as any other value may be NULL."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/ANY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ANY"/>
   <snapshot>
     <element>
       <path value="BL"/>

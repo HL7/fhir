@@ -20,6 +20,7 @@ import org.hl7.fhir.dstu3.model.Enumerations.BindingStrength;
 import org.hl7.fhir.dstu3.model.OperationOutcome.IssueSeverity;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.utils.EOperationOutcome;
 import org.hl7.fhir.dstu3.utils.ProfileComparer;
 import org.hl7.fhir.dstu3.utils.ProfileComparer.ProfileComparison;
@@ -145,7 +146,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
     new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test");
 
@@ -181,7 +183,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/ValueSet").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     List<ValidationMessage> messages = new ArrayList<ValidationMessage>();
     new ProfileUtilities(context, messages, null).generateSnapshot(base, focus, focus.getUrl(), "Simple Test" );
 
@@ -217,7 +220,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
     id.setMin(1);
@@ -261,7 +265,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
     id.setDefinition("... some more doco");
@@ -309,7 +314,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.deceased[x]");
     id.addType().setCode("dateTime");
@@ -357,7 +363,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.deceasedDateTime");
     id.addType().setCode("dateTime");
@@ -404,7 +411,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
     id.addMapping().setIdentity("rim").setMap("test");
@@ -450,7 +458,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier");
     id.setMustSupport(true);
@@ -501,7 +510,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Patient.identifier.system");
     id.setMustSupport(true);
@@ -545,7 +555,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     
     // set the slice up
     ElementDefinition id = focus.getDifferential().addElement();
@@ -633,7 +644,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     
     // set the slice up
     ElementDefinition id;
@@ -717,7 +729,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Patient").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     
     // set the slice up
     ElementDefinition id;
@@ -817,7 +830,8 @@ public class ProfileUtilitiesTests {
     StructureDefinition focus = new StructureDefinition();
     StructureDefinition base = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/Organization").copy();
     focus.setUrl(Utilities.makeUuidUrn());
-    focus.setBase(base.getUrl());
+    focus.setBaseType(base.getUrl());
+    focus.setDerivation(TypeDerivationRule.CONSTRAINT);
     
     ElementDefinition id = focus.getDifferential().addElement();
     id.setPath("Organization.address");

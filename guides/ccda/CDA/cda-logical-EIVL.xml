@@ -14,7 +14,7 @@
   <description value="Specifies a periodic interval of time where the recurrence is based on activities of daily living or other important events that are time-related but not fully determined by time."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/SXCM_TS"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/SXCM_TS"/>
   <snapshot>
     <element>
       <path value="EIVL"/>

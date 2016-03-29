@@ -1149,8 +1149,6 @@ public class FHIRPathEngine {
 				break;
 			}
 		}
-		if (!ans)
-			System.out.println("Unable to find "+left.toString()+" in "+right.toString());
 		return makeBoolean(ans);
 	}
 
@@ -1710,6 +1708,7 @@ public class FHIRPathEngine {
 		}
 		return result;
 	}
+
 
 	private List<Base> funcItem(ExecutionContext context, List<Base> focus, ExpressionNode exp) throws PathEngineException {
 		List<Base> result = new ArrayList<Base>();

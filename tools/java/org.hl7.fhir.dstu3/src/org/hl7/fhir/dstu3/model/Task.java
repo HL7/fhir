@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 15:58+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -152,29 +152,45 @@ public class Task extends DomainResource {
 
     public enum TaskStatus {
         /**
-         * The task was not completed due to some process issue.  It may not have been attempted, or if attempted, it may not have failed (e.g., an issue elsewhere might have resulted in the task being cancelled).
+         * The task is not yet ready to be acted upon.
          */
-        CANCELLED, 
+        DRAFT, 
         /**
-         * The task has been completed (more or less) as planned.
+         * The task is ready to be acted upon
          */
-        COMPLETED, 
+        REQUESTED, 
         /**
-         * The task has been created by is not yet ready to be performed.
+         * A potential performer has claimed ownership of the task and is evaluating whether to perform it
          */
-        CREATED, 
+        RECEIVED, 
         /**
-         * The task was attempted but could not be completed due to some error.
+         * The potential performer has agreed to execute the task but has not yet started work
          */
-        FAILED, 
+        ACCEPTED, 
+        /**
+         * The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.
+         */
+        REJECTED, 
+        /**
+         * Task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.
+         */
+        READY, 
         /**
          * Task has been started but is not yet complete.
          */
         INPROGRESS, 
         /**
-         * Task is ready to be performed, but no action has yet been taken.
+         * Task has been started but work has been paused
          */
-        READY, 
+        ONHOLD, 
+        /**
+         * The task was attempted but could not be completed due to some error.
+         */
+        FAILED, 
+        /**
+         * The task has been completed (more or less) as requested.
+         */
+        COMPLETED, 
         /**
          * added to help the parsers
          */
@@ -182,61 +198,85 @@ public class Task extends DomainResource {
         public static TaskStatus fromCode(String codeString) throws FHIRException {
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("cancelled".equals(codeString))
-          return CANCELLED;
-        if ("completed".equals(codeString))
-          return COMPLETED;
-        if ("created".equals(codeString))
-          return CREATED;
-        if ("failed".equals(codeString))
-          return FAILED;
-        if ("in-progress".equals(codeString))
-          return INPROGRESS;
+        if ("draft".equals(codeString))
+          return DRAFT;
+        if ("requested".equals(codeString))
+          return REQUESTED;
+        if ("received".equals(codeString))
+          return RECEIVED;
+        if ("accepted".equals(codeString))
+          return ACCEPTED;
+        if ("rejected".equals(codeString))
+          return REJECTED;
         if ("ready".equals(codeString))
           return READY;
+        if ("in-progress".equals(codeString))
+          return INPROGRESS;
+        if ("on-hold".equals(codeString))
+          return ONHOLD;
+        if ("failed".equals(codeString))
+          return FAILED;
+        if ("completed".equals(codeString))
+          return COMPLETED;
         throw new FHIRException("Unknown TaskStatus code '"+codeString+"'");
         }
         public String toCode() {
           switch (this) {
-            case CANCELLED: return "cancelled";
-            case COMPLETED: return "completed";
-            case CREATED: return "created";
-            case FAILED: return "failed";
-            case INPROGRESS: return "in-progress";
+            case DRAFT: return "draft";
+            case REQUESTED: return "requested";
+            case RECEIVED: return "received";
+            case ACCEPTED: return "accepted";
+            case REJECTED: return "rejected";
             case READY: return "ready";
+            case INPROGRESS: return "in-progress";
+            case ONHOLD: return "on-hold";
+            case FAILED: return "failed";
+            case COMPLETED: return "completed";
             default: return "?";
           }
         }
         public String getSystem() {
           switch (this) {
-            case CANCELLED: return "http://hl7.org/fhir/task-status";
-            case COMPLETED: return "http://hl7.org/fhir/task-status";
-            case CREATED: return "http://hl7.org/fhir/task-status";
-            case FAILED: return "http://hl7.org/fhir/task-status";
-            case INPROGRESS: return "http://hl7.org/fhir/task-status";
+            case DRAFT: return "http://hl7.org/fhir/task-status";
+            case REQUESTED: return "http://hl7.org/fhir/task-status";
+            case RECEIVED: return "http://hl7.org/fhir/task-status";
+            case ACCEPTED: return "http://hl7.org/fhir/task-status";
+            case REJECTED: return "http://hl7.org/fhir/task-status";
             case READY: return "http://hl7.org/fhir/task-status";
+            case INPROGRESS: return "http://hl7.org/fhir/task-status";
+            case ONHOLD: return "http://hl7.org/fhir/task-status";
+            case FAILED: return "http://hl7.org/fhir/task-status";
+            case COMPLETED: return "http://hl7.org/fhir/task-status";
             default: return "?";
           }
         }
         public String getDefinition() {
           switch (this) {
-            case CANCELLED: return "The task was not completed due to some process issue.  It may not have been attempted, or if attempted, it may not have failed (e.g., an issue elsewhere might have resulted in the task being cancelled).";
-            case COMPLETED: return "The task has been completed (more or less) as planned.";
-            case CREATED: return "The task has been created by is not yet ready to be performed.";
-            case FAILED: return "The task was attempted but could not be completed due to some error.";
+            case DRAFT: return "The task is not yet ready to be acted upon.";
+            case REQUESTED: return "The task is ready to be acted upon";
+            case RECEIVED: return "A potential performer has claimed ownership of the task and is evaluating whether to perform it";
+            case ACCEPTED: return "The potential performer has agreed to execute the task but has not yet started work";
+            case REJECTED: return "The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.";
+            case READY: return "Task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.";
             case INPROGRESS: return "Task has been started but is not yet complete.";
-            case READY: return "Task is ready to be performed, but no action has yet been taken.";
+            case ONHOLD: return "Task has been started but work has been paused";
+            case FAILED: return "The task was attempted but could not be completed due to some error.";
+            case COMPLETED: return "The task has been completed (more or less) as requested.";
             default: return "?";
           }
         }
         public String getDisplay() {
           switch (this) {
-            case CANCELLED: return "Cancelled";
-            case COMPLETED: return "Completed";
-            case CREATED: return "Created";
-            case FAILED: return "Failed";
-            case INPROGRESS: return "In Progress";
+            case DRAFT: return "Draft";
+            case REQUESTED: return "Requested";
+            case RECEIVED: return "Received";
+            case ACCEPTED: return "Accepted";
+            case REJECTED: return "Rejected";
             case READY: return "Ready";
+            case INPROGRESS: return "In Progress";
+            case ONHOLD: return "On Hold";
+            case FAILED: return "Failed";
+            case COMPLETED: return "Completed";
             default: return "?";
           }
         }
@@ -247,18 +287,26 @@ public class Task extends DomainResource {
       if (codeString == null || "".equals(codeString))
             if (codeString == null || "".equals(codeString))
                 return null;
-        if ("cancelled".equals(codeString))
-          return TaskStatus.CANCELLED;
-        if ("completed".equals(codeString))
-          return TaskStatus.COMPLETED;
-        if ("created".equals(codeString))
-          return TaskStatus.CREATED;
-        if ("failed".equals(codeString))
-          return TaskStatus.FAILED;
-        if ("in-progress".equals(codeString))
-          return TaskStatus.INPROGRESS;
+        if ("draft".equals(codeString))
+          return TaskStatus.DRAFT;
+        if ("requested".equals(codeString))
+          return TaskStatus.REQUESTED;
+        if ("received".equals(codeString))
+          return TaskStatus.RECEIVED;
+        if ("accepted".equals(codeString))
+          return TaskStatus.ACCEPTED;
+        if ("rejected".equals(codeString))
+          return TaskStatus.REJECTED;
         if ("ready".equals(codeString))
           return TaskStatus.READY;
+        if ("in-progress".equals(codeString))
+          return TaskStatus.INPROGRESS;
+        if ("on-hold".equals(codeString))
+          return TaskStatus.ONHOLD;
+        if ("failed".equals(codeString))
+          return TaskStatus.FAILED;
+        if ("completed".equals(codeString))
+          return TaskStatus.COMPLETED;
         throw new IllegalArgumentException("Unknown TaskStatus code '"+codeString+"'");
         }
         public Enumeration<TaskStatus> fromType(Base code) throws FHIRException {
@@ -267,33 +315,49 @@ public class Task extends DomainResource {
           String codeString = ((PrimitiveType) code).asStringValue();
           if (codeString == null || "".equals(codeString))
             return null;
-        if ("cancelled".equals(codeString))
-          return new Enumeration<TaskStatus>(this, TaskStatus.CANCELLED);
-        if ("completed".equals(codeString))
-          return new Enumeration<TaskStatus>(this, TaskStatus.COMPLETED);
-        if ("created".equals(codeString))
-          return new Enumeration<TaskStatus>(this, TaskStatus.CREATED);
-        if ("failed".equals(codeString))
-          return new Enumeration<TaskStatus>(this, TaskStatus.FAILED);
-        if ("in-progress".equals(codeString))
-          return new Enumeration<TaskStatus>(this, TaskStatus.INPROGRESS);
+        if ("draft".equals(codeString))
+          return new Enumeration<TaskStatus>(this, TaskStatus.DRAFT);
+        if ("requested".equals(codeString))
+          return new Enumeration<TaskStatus>(this, TaskStatus.REQUESTED);
+        if ("received".equals(codeString))
+          return new Enumeration<TaskStatus>(this, TaskStatus.RECEIVED);
+        if ("accepted".equals(codeString))
+          return new Enumeration<TaskStatus>(this, TaskStatus.ACCEPTED);
+        if ("rejected".equals(codeString))
+          return new Enumeration<TaskStatus>(this, TaskStatus.REJECTED);
         if ("ready".equals(codeString))
           return new Enumeration<TaskStatus>(this, TaskStatus.READY);
+        if ("in-progress".equals(codeString))
+          return new Enumeration<TaskStatus>(this, TaskStatus.INPROGRESS);
+        if ("on-hold".equals(codeString))
+          return new Enumeration<TaskStatus>(this, TaskStatus.ONHOLD);
+        if ("failed".equals(codeString))
+          return new Enumeration<TaskStatus>(this, TaskStatus.FAILED);
+        if ("completed".equals(codeString))
+          return new Enumeration<TaskStatus>(this, TaskStatus.COMPLETED);
         throw new FHIRException("Unknown TaskStatus code '"+codeString+"'");
         }
     public String toCode(TaskStatus code) {
-      if (code == TaskStatus.CANCELLED)
-        return "cancelled";
-      if (code == TaskStatus.COMPLETED)
-        return "completed";
-      if (code == TaskStatus.CREATED)
-        return "created";
-      if (code == TaskStatus.FAILED)
-        return "failed";
-      if (code == TaskStatus.INPROGRESS)
-        return "in-progress";
+      if (code == TaskStatus.DRAFT)
+        return "draft";
+      if (code == TaskStatus.REQUESTED)
+        return "requested";
+      if (code == TaskStatus.RECEIVED)
+        return "received";
+      if (code == TaskStatus.ACCEPTED)
+        return "accepted";
+      if (code == TaskStatus.REJECTED)
+        return "rejected";
       if (code == TaskStatus.READY)
         return "ready";
+      if (code == TaskStatus.INPROGRESS)
+        return "in-progress";
+      if (code == TaskStatus.ONHOLD)
+        return "on-hold";
+      if (code == TaskStatus.FAILED)
+        return "failed";
+      if (code == TaskStatus.COMPLETED)
+        return "completed";
       return "?";
       }
     public String toSystem(TaskStatus code) {
@@ -930,27 +994,20 @@ public class Task extends DomainResource {
      * The current status of the task.
      */
     @Child(name = "status", type = {CodeType.class}, order=5, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="cancelled | completed | created | failed | in-progress | ready", formalDefinition="The current status of the task." )
+    @Description(shortDefinition="draft | requested | received | accepted | +", formalDefinition="The current status of the task." )
     protected Enumeration<TaskStatus> status;
-
-    /**
-     * True if the task has been suspended (put on hold), false otherwise.
-     */
-    @Child(name = "suspended", type = {BooleanType.class}, order=6, min=1, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Task Suspended", formalDefinition="True if the task has been suspended (put on hold), false otherwise." )
-    protected BooleanType suspended;
 
     /**
      * An explaination as to why this task failed.
      */
-    @Child(name = "failureReason", type = {CodeableConcept.class}, order=7, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "failureReason", type = {CodeableConcept.class}, order=6, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Task Failure Reason", formalDefinition="An explaination as to why this task failed." )
     protected CodeableConcept failureReason;
 
     /**
      * The subject of the task.
      */
-    @Child(name = "subject", type = {}, order=8, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "subject", type = {}, order=7, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Task Subject", formalDefinition="The subject of the task." )
     protected Reference subject;
 
@@ -962,7 +1019,7 @@ public class Task extends DomainResource {
     /**
      * The entity who benefits from the performance of the service specified in the task (e.g., the patient).
      */
-    @Child(name = "for", type = {}, order=9, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "for", type = {}, order=8, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Beneficiary of the Task", formalDefinition="The entity who benefits from the performance of the service specified in the task (e.g., the patient)." )
     protected Reference for_;
 
@@ -974,28 +1031,28 @@ public class Task extends DomainResource {
     /**
      * A reference to a formal or informal definition of the task.
      */
-    @Child(name = "definition", type = {UriType.class}, order=10, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "definition", type = {UriType.class}, order=9, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Task Definition", formalDefinition="A reference to a formal or informal definition of the task." )
     protected UriType definition;
 
     /**
      * The date and time this task was created.
      */
-    @Child(name = "created", type = {DateTimeType.class}, order=11, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "created", type = {DateTimeType.class}, order=10, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Task Creation Date", formalDefinition="The date and time this task was created." )
     protected DateTimeType created;
 
     /**
      * The date and time of last modification to this task.
      */
-    @Child(name = "lastModified", type = {DateTimeType.class}, order=12, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "lastModified", type = {DateTimeType.class}, order=11, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Task Last Modified Date", formalDefinition="The date and time of last modification to this task." )
     protected DateTimeType lastModified;
 
     /**
      * The creator of the task.
      */
-    @Child(name = "creator", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=13, min=1, max=1, modifier=false, summary=false)
+    @Child(name = "creator", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=12, min=1, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Task Creator", formalDefinition="The creator of the task." )
     protected Reference creator;
 
@@ -1007,7 +1064,7 @@ public class Task extends DomainResource {
     /**
      * The owner of this task.  The participant who can execute this task.
      */
-    @Child(name = "owner", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "owner", type = {Device.class, Organization.class, Patient.class, Practitioner.class, RelatedPerson.class}, order=13, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Task Owner", formalDefinition="The owner of this task.  The participant who can execute this task." )
     protected Reference owner;
 
@@ -1017,32 +1074,32 @@ public class Task extends DomainResource {
     protected Resource ownerTarget;
 
     /**
-     * Subtasks to be performed before this task can be considered to be complete.
+     * Task that this particular task is part of.
      */
-    @Child(name = "subtask", type = {Task.class}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
-    @Description(shortDefinition="Subtasks", formalDefinition="Subtasks to be performed before this task can be considered to be complete." )
-    protected List<Reference> subtask;
-    /**
-     * The actual objects that are the target of the reference (Subtasks to be performed before this task can be considered to be complete.)
-     */
-    protected List<Task> subtaskTarget;
+    @Child(name = "parent", type = {Task.class}, order=14, min=0, max=1, modifier=false, summary=false)
+    @Description(shortDefinition="Composite task", formalDefinition="Task that this particular task is part of." )
+    protected Reference parent;
 
+    /**
+     * The actual object that is the target of the reference (Task that this particular task is part of.)
+     */
+    protected Task parentTarget;
 
     /**
      * Inputs to the task.
      */
-    @Child(name = "input", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "input", type = {}, order=15, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Task Input", formalDefinition="Inputs to the task." )
     protected List<ParameterComponent> input;
 
     /**
      * Outputs produced by the Task.
      */
-    @Child(name = "output", type = {}, order=17, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
+    @Child(name = "output", type = {}, order=16, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=false)
     @Description(shortDefinition="Task Output", formalDefinition="Outputs produced by the Task." )
     protected List<TaskOutputComponent> output;
 
-    private static final long serialVersionUID = 1295440655L;
+    private static final long serialVersionUID = 969281174L;
 
   /**
    * Constructor
@@ -1054,10 +1111,9 @@ public class Task extends DomainResource {
   /**
    * Constructor
    */
-    public Task(Enumeration<TaskStatus> status, BooleanType suspended, DateTimeType created, DateTimeType lastModified, Reference creator) {
+    public Task(Enumeration<TaskStatus> status, DateTimeType created, DateTimeType lastModified, Reference creator) {
       super();
       this.status = status;
-      this.suspended = suspended;
       this.created = created;
       this.lastModified = lastModified;
       this.creator = creator;
@@ -1291,51 +1347,6 @@ public class Task extends DomainResource {
         if (this.status == null)
           this.status = new Enumeration<TaskStatus>(new TaskStatusEnumFactory());
         this.status.setValue(value);
-      return this;
-    }
-
-    /**
-     * @return {@link #suspended} (True if the task has been suspended (put on hold), false otherwise.). This is the underlying object with id, value and extensions. The accessor "getSuspended" gives direct access to the value
-     */
-    public BooleanType getSuspendedElement() { 
-      if (this.suspended == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create Task.suspended");
-        else if (Configuration.doAutoCreate())
-          this.suspended = new BooleanType(); // bb
-      return this.suspended;
-    }
-
-    public boolean hasSuspendedElement() { 
-      return this.suspended != null && !this.suspended.isEmpty();
-    }
-
-    public boolean hasSuspended() { 
-      return this.suspended != null && !this.suspended.isEmpty();
-    }
-
-    /**
-     * @param value {@link #suspended} (True if the task has been suspended (put on hold), false otherwise.). This is the underlying object with id, value and extensions. The accessor "getSuspended" gives direct access to the value
-     */
-    public Task setSuspendedElement(BooleanType value) { 
-      this.suspended = value;
-      return this;
-    }
-
-    /**
-     * @return True if the task has been suspended (put on hold), false otherwise.
-     */
-    public boolean getSuspended() { 
-      return this.suspended == null || this.suspended.isEmpty() ? false : this.suspended.getValue();
-    }
-
-    /**
-     * @param value True if the task has been suspended (put on hold), false otherwise.
-     */
-    public Task setSuspended(boolean value) { 
-        if (this.suspended == null)
-          this.suspended = new BooleanType();
-        this.suspended.setValue(value);
       return this;
     }
 
@@ -1659,64 +1670,47 @@ public class Task extends DomainResource {
     }
 
     /**
-     * @return {@link #subtask} (Subtasks to be performed before this task can be considered to be complete.)
+     * @return {@link #parent} (Task that this particular task is part of.)
      */
-    public List<Reference> getSubtask() { 
-      if (this.subtask == null)
-        this.subtask = new ArrayList<Reference>();
-      return this.subtask;
+    public Reference getParent() { 
+      if (this.parent == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Task.parent");
+        else if (Configuration.doAutoCreate())
+          this.parent = new Reference(); // cc
+      return this.parent;
     }
 
-    public boolean hasSubtask() { 
-      if (this.subtask == null)
-        return false;
-      for (Reference item : this.subtask)
-        if (!item.isEmpty())
-          return true;
-      return false;
+    public boolean hasParent() { 
+      return this.parent != null && !this.parent.isEmpty();
     }
 
     /**
-     * @return {@link #subtask} (Subtasks to be performed before this task can be considered to be complete.)
+     * @param value {@link #parent} (Task that this particular task is part of.)
      */
-    // syntactic sugar
-    public Reference addSubtask() { //3
-      Reference t = new Reference();
-      if (this.subtask == null)
-        this.subtask = new ArrayList<Reference>();
-      this.subtask.add(t);
-      return t;
-    }
-
-    // syntactic sugar
-    public Task addSubtask(Reference t) { //3
-      if (t == null)
-        return this;
-      if (this.subtask == null)
-        this.subtask = new ArrayList<Reference>();
-      this.subtask.add(t);
+    public Task setParent(Reference value) { 
+      this.parent = value;
       return this;
     }
 
     /**
-     * @return {@link #subtask} (The actual objects that are the target of the reference. The reference library doesn't populate this, but you can use this to hold the resources if you resolvethemt. Subtasks to be performed before this task can be considered to be complete.)
+     * @return {@link #parent} The actual object that is the target of the reference. The reference library doesn't populate this, but you can use it to hold the resource if you resolve it. (Task that this particular task is part of.)
      */
-    public List<Task> getSubtaskTarget() { 
-      if (this.subtaskTarget == null)
-        this.subtaskTarget = new ArrayList<Task>();
-      return this.subtaskTarget;
+    public Task getParentTarget() { 
+      if (this.parentTarget == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create Task.parent");
+        else if (Configuration.doAutoCreate())
+          this.parentTarget = new Task(); // aa
+      return this.parentTarget;
     }
 
-    // syntactic sugar
     /**
-     * @return {@link #subtask} (Add an actual object that is the target of the reference. The reference library doesn't use these, but you can use this to hold the resources if you resolvethemt. Subtasks to be performed before this task can be considered to be complete.)
+     * @param value {@link #parent} The actual object that is the target of the reference. The reference library doesn't use these, but you can use it to hold the resource if you resolve it. (Task that this particular task is part of.)
      */
-    public Task addSubtaskTarget() { 
-      Task r = new Task();
-      if (this.subtaskTarget == null)
-        this.subtaskTarget = new ArrayList<Task>();
-      this.subtaskTarget.add(r);
-      return r;
+    public Task setParentTarget(Task value) { 
+      this.parentTarget = value;
+      return this;
     }
 
     /**
@@ -1807,7 +1801,6 @@ public class Task extends DomainResource {
         childrenList.add(new Property("performerType", "Coding", "The type of participant that can execute the task.", 0, java.lang.Integer.MAX_VALUE, performerType));
         childrenList.add(new Property("priority", "code", "The priority of the task among other tasks of the same type.", 0, java.lang.Integer.MAX_VALUE, priority));
         childrenList.add(new Property("status", "code", "The current status of the task.", 0, java.lang.Integer.MAX_VALUE, status));
-        childrenList.add(new Property("suspended", "boolean", "True if the task has been suspended (put on hold), false otherwise.", 0, java.lang.Integer.MAX_VALUE, suspended));
         childrenList.add(new Property("failureReason", "CodeableConcept", "An explaination as to why this task failed.", 0, java.lang.Integer.MAX_VALUE, failureReason));
         childrenList.add(new Property("subject", "Reference(Any)", "The subject of the task.", 0, java.lang.Integer.MAX_VALUE, subject));
         childrenList.add(new Property("for", "Reference(Any)", "The entity who benefits from the performance of the service specified in the task (e.g., the patient).", 0, java.lang.Integer.MAX_VALUE, for_));
@@ -1816,7 +1809,7 @@ public class Task extends DomainResource {
         childrenList.add(new Property("lastModified", "dateTime", "The date and time of last modification to this task.", 0, java.lang.Integer.MAX_VALUE, lastModified));
         childrenList.add(new Property("creator", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "The creator of the task.", 0, java.lang.Integer.MAX_VALUE, creator));
         childrenList.add(new Property("owner", "Reference(Device|Organization|Patient|Practitioner|RelatedPerson)", "The owner of this task.  The participant who can execute this task.", 0, java.lang.Integer.MAX_VALUE, owner));
-        childrenList.add(new Property("subtask", "Reference(Task)", "Subtasks to be performed before this task can be considered to be complete.", 0, java.lang.Integer.MAX_VALUE, subtask));
+        childrenList.add(new Property("parent", "Reference(Task)", "Task that this particular task is part of.", 0, java.lang.Integer.MAX_VALUE, parent));
         childrenList.add(new Property("input", "", "Inputs to the task.", 0, java.lang.Integer.MAX_VALUE, input));
         childrenList.add(new Property("output", "", "Outputs produced by the Task.", 0, java.lang.Integer.MAX_VALUE, output));
       }
@@ -1835,8 +1828,6 @@ public class Task extends DomainResource {
           this.priority = new TaskPriorityEnumFactory().fromType(value); // Enumeration<TaskPriority>
         else if (name.equals("status"))
           this.status = new TaskStatusEnumFactory().fromType(value); // Enumeration<TaskStatus>
-        else if (name.equals("suspended"))
-          this.suspended = castToBoolean(value); // BooleanType
         else if (name.equals("failureReason"))
           this.failureReason = castToCodeableConcept(value); // CodeableConcept
         else if (name.equals("subject"))
@@ -1853,8 +1844,8 @@ public class Task extends DomainResource {
           this.creator = castToReference(value); // Reference
         else if (name.equals("owner"))
           this.owner = castToReference(value); // Reference
-        else if (name.equals("subtask"))
-          this.getSubtask().add(castToReference(value));
+        else if (name.equals("parent"))
+          this.parent = castToReference(value); // Reference
         else if (name.equals("input"))
           this.getInput().add((ParameterComponent) value);
         else if (name.equals("output"))
@@ -1885,9 +1876,6 @@ public class Task extends DomainResource {
         else if (name.equals("status")) {
           throw new FHIRException("Cannot call addChild on a primitive type Task.status");
         }
-        else if (name.equals("suspended")) {
-          throw new FHIRException("Cannot call addChild on a primitive type Task.suspended");
-        }
         else if (name.equals("failureReason")) {
           this.failureReason = new CodeableConcept();
           return this.failureReason;
@@ -1917,8 +1905,9 @@ public class Task extends DomainResource {
           this.owner = new Reference();
           return this.owner;
         }
-        else if (name.equals("subtask")) {
-          return addSubtask();
+        else if (name.equals("parent")) {
+          this.parent = new Reference();
+          return this.parent;
         }
         else if (name.equals("input")) {
           return addInput();
@@ -1948,7 +1937,6 @@ public class Task extends DomainResource {
         };
         dst.priority = priority == null ? null : priority.copy();
         dst.status = status == null ? null : status.copy();
-        dst.suspended = suspended == null ? null : suspended.copy();
         dst.failureReason = failureReason == null ? null : failureReason.copy();
         dst.subject = subject == null ? null : subject.copy();
         dst.for_ = for_ == null ? null : for_.copy();
@@ -1957,11 +1945,7 @@ public class Task extends DomainResource {
         dst.lastModified = lastModified == null ? null : lastModified.copy();
         dst.creator = creator == null ? null : creator.copy();
         dst.owner = owner == null ? null : owner.copy();
-        if (subtask != null) {
-          dst.subtask = new ArrayList<Reference>();
-          for (Reference i : subtask)
-            dst.subtask.add(i.copy());
-        };
+        dst.parent = parent == null ? null : parent.copy();
         if (input != null) {
           dst.input = new ArrayList<ParameterComponent>();
           for (ParameterComponent i : input)
@@ -1988,11 +1972,11 @@ public class Task extends DomainResource {
         Task o = (Task) other;
         return compareDeep(identifier, o.identifier, true) && compareDeep(type, o.type, true) && compareDeep(description, o.description, true)
            && compareDeep(performerType, o.performerType, true) && compareDeep(priority, o.priority, true)
-           && compareDeep(status, o.status, true) && compareDeep(suspended, o.suspended, true) && compareDeep(failureReason, o.failureReason, true)
-           && compareDeep(subject, o.subject, true) && compareDeep(for_, o.for_, true) && compareDeep(definition, o.definition, true)
-           && compareDeep(created, o.created, true) && compareDeep(lastModified, o.lastModified, true) && compareDeep(creator, o.creator, true)
-           && compareDeep(owner, o.owner, true) && compareDeep(subtask, o.subtask, true) && compareDeep(input, o.input, true)
-           && compareDeep(output, o.output, true);
+           && compareDeep(status, o.status, true) && compareDeep(failureReason, o.failureReason, true) && compareDeep(subject, o.subject, true)
+           && compareDeep(for_, o.for_, true) && compareDeep(definition, o.definition, true) && compareDeep(created, o.created, true)
+           && compareDeep(lastModified, o.lastModified, true) && compareDeep(creator, o.creator, true) && compareDeep(owner, o.owner, true)
+           && compareDeep(parent, o.parent, true) && compareDeep(input, o.input, true) && compareDeep(output, o.output, true)
+          ;
       }
 
       @Override
@@ -2003,51 +1987,24 @@ public class Task extends DomainResource {
           return false;
         Task o = (Task) other;
         return compareValues(description, o.description, true) && compareValues(priority, o.priority, true)
-           && compareValues(status, o.status, true) && compareValues(suspended, o.suspended, true) && compareValues(definition, o.definition, true)
-           && compareValues(created, o.created, true) && compareValues(lastModified, o.lastModified, true);
+           && compareValues(status, o.status, true) && compareValues(definition, o.definition, true) && compareValues(created, o.created, true)
+           && compareValues(lastModified, o.lastModified, true);
       }
 
       public boolean isEmpty() {
         return super.isEmpty() && (identifier == null || identifier.isEmpty()) && (type == null || type.isEmpty())
            && (description == null || description.isEmpty()) && (performerType == null || performerType.isEmpty())
-           && (priority == null || priority.isEmpty()) && (status == null || status.isEmpty()) && (suspended == null || suspended.isEmpty())
-           && (failureReason == null || failureReason.isEmpty()) && (subject == null || subject.isEmpty())
-           && (for_ == null || for_.isEmpty()) && (definition == null || definition.isEmpty()) && (created == null || created.isEmpty())
-           && (lastModified == null || lastModified.isEmpty()) && (creator == null || creator.isEmpty())
-           && (owner == null || owner.isEmpty()) && (subtask == null || subtask.isEmpty()) && (input == null || input.isEmpty())
-           && (output == null || output.isEmpty());
+           && (priority == null || priority.isEmpty()) && (status == null || status.isEmpty()) && (failureReason == null || failureReason.isEmpty())
+           && (subject == null || subject.isEmpty()) && (for_ == null || for_.isEmpty()) && (definition == null || definition.isEmpty())
+           && (created == null || created.isEmpty()) && (lastModified == null || lastModified.isEmpty())
+           && (creator == null || creator.isEmpty()) && (owner == null || owner.isEmpty()) && (parent == null || parent.isEmpty())
+           && (input == null || input.isEmpty()) && (output == null || output.isEmpty());
       }
 
   @Override
   public ResourceType getResourceType() {
     return ResourceType.Task;
    }
-
- /**
-   * Search parameter: <b>subtask</b>
-   * <p>
-   * Description: <b>Search by subtasks</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.subtask</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="subtask", path="Task.subtask", description="Search by subtasks", type="reference" )
-  public static final String SP_SUBTASK = "subtask";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>subtask</b>
-   * <p>
-   * Description: <b>Search by subtasks</b><br>
-   * Type: <b>reference</b><br>
-   * Path: <b>Task.subtask</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam SUBTASK = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_SUBTASK);
-
-/**
-   * Constant for fluent queries to be used to add include statements. Specifies
-   * the path value of "<b>Task:subtask</b>".
-   */
-  public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBTASK = new ca.uhn.fhir.model.api.Include("Task:subtask").toLocked();
 
  /**
    * Search parameter: <b>definition</b>
@@ -2116,6 +2073,32 @@ public class Task extends DomainResource {
   public static final ca.uhn.fhir.model.api.Include INCLUDE_SUBJECT = new ca.uhn.fhir.model.api.Include("Task:subject").toLocked();
 
  /**
+   * Search parameter: <b>parent</b>
+   * <p>
+   * Description: <b>Search by parent task</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.parent</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="parent", path="Task.parent", description="Search by parent task", type="reference" )
+  public static final String SP_PARENT = "parent";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>parent</b>
+   * <p>
+   * Description: <b>Search by parent task</b><br>
+   * Type: <b>reference</b><br>
+   * Path: <b>Task.parent</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.ReferenceClientParam PARENT = new ca.uhn.fhir.rest.gclient.ReferenceClientParam(SP_PARENT);
+
+/**
+   * Constant for fluent queries to be used to add include statements. Specifies
+   * the path value of "<b>Task:parent</b>".
+   */
+  public static final ca.uhn.fhir.model.api.Include INCLUDE_PARENT = new ca.uhn.fhir.model.api.Include("Task:parent").toLocked();
+
+ /**
    * Search parameter: <b>type</b>
    * <p>
    * Description: <b>Search by task type</b><br>
@@ -2136,24 +2119,24 @@ public class Task extends DomainResource {
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
 
  /**
-   * Search parameter: <b>suspended</b>
+   * Search parameter: <b>modified</b>
    * <p>
-   * Description: <b>Search by suspension status</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.suspended</b><br>
+   * Description: <b>Search by last modification date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Task.lastModified</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="suspended", path="Task.suspended", description="Search by suspension status", type="token" )
-  public static final String SP_SUSPENDED = "suspended";
+  @SearchParamDefinition(name="modified", path="Task.lastModified", description="Search by last modification date", type="date" )
+  public static final String SP_MODIFIED = "modified";
  /**
-   * <b>Fluent Client</b> search parameter constant for <b>suspended</b>
+   * <b>Fluent Client</b> search parameter constant for <b>modified</b>
    * <p>
-   * Description: <b>Search by suspension status</b><br>
-   * Type: <b>token</b><br>
-   * Path: <b>Task.suspended</b><br>
+   * Description: <b>Search by last modification date</b><br>
+   * Type: <b>date</b><br>
+   * Path: <b>Task.lastModified</b><br>
    * </p>
    */
-  public static final ca.uhn.fhir.rest.gclient.TokenClientParam SUSPENDED = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_SUSPENDED);
+  public static final ca.uhn.fhir.rest.gclient.DateClientParam MODIFIED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_MODIFIED);
 
  /**
    * Search parameter: <b>creator</b>
@@ -2180,26 +2163,6 @@ public class Task extends DomainResource {
    * the path value of "<b>Task:creator</b>".
    */
   public static final ca.uhn.fhir.model.api.Include INCLUDE_CREATOR = new ca.uhn.fhir.model.api.Include("Task:creator").toLocked();
-
- /**
-   * Search parameter: <b>modified</b>
-   * <p>
-   * Description: <b>Search by last modification date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Task.lastModified</b><br>
-   * </p>
-   */
-  @SearchParamDefinition(name="modified", path="Task.lastModified", description="Search by last modification date", type="date" )
-  public static final String SP_MODIFIED = "modified";
- /**
-   * <b>Fluent Client</b> search parameter constant for <b>modified</b>
-   * <p>
-   * Description: <b>Search by last modification date</b><br>
-   * Type: <b>date</b><br>
-   * Path: <b>Task.lastModified</b><br>
-   * </p>
-   */
-  public static final ca.uhn.fhir.rest.gclient.DateClientParam MODIFIED = new ca.uhn.fhir.rest.gclient.DateClientParam(SP_MODIFIED);
 
  /**
    * Search parameter: <b>failure</b>

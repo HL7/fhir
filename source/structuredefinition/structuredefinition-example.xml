@@ -46,9 +46,10 @@
     <comments value="Actual mappings haven't yet been filled out"/>
    </mapping>
   <kind value="resource"/>
-  <constrainedType value="DiagnosticReport"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+  <baseType value="DiagnosticReport"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticReport"/>
+  <derivation value="constraint"/>
   <snapshot>
     <element>
       <path value="DiagnosticReport"/>

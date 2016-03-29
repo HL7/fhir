@@ -16,9 +16,10 @@
   <description value="$de_definition$"/> 
   <date value="2015-02-18"/>
   <kind value="resource"/>
-  <constrainedType value="Observation"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/hspc-stdqty"/>
+  <baseType value="Observation"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/hspc-stdqty"/>
+  <derivation value="constraint"/>
   <differential>
     <element>
       <path value="Observation.code"/>

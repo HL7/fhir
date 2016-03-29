@@ -22,9 +22,11 @@
   
   
   <kind value="resource"></kind>
-  <constrainedType value="Basic"></constrainedType>
   <abstract value="false"></abstract>
-  <base value="http://hl7.org/fhir/StructureDefinition/Basic"></base>
+  <baseType value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+    <derivation value="constraint"/>
+
   <differential>
     <element>
       <path value="Basic"></path>

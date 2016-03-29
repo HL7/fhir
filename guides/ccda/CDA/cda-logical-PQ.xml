@@ -14,7 +14,7 @@
   <description value="A dimensioned quantity expressing the result of measuring."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/QTY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/QTY"/>
   <snapshot>
     <element>
       <path value="PQ"/>

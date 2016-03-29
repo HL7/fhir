@@ -20,11 +20,12 @@
     <description value="C-CDA on FHIR In Fulfillment Of Order Extension" />
     <fhirVersion value="1.3.0" />
     <kind value="resource" />
-    <constrainedType value="Extension" />
     <abstract value="false" />  
     <contextType value="resource"></contextType>
     <context value="Composition"></context>
-    <base value="http://hl7.org/fhir/StructureDefinition/Extension" />
+    <baseType value="Extension" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension" />
+    <derivation value="constraint"/>
     <differential>
         <element>
             <path value="Extension" />

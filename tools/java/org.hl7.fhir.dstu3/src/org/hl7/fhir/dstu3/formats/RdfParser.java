@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.formats;
   
 */
 
-// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 15:58+1100 for FHIR v1.3.0
 
 import org.hl7.fhir.dstu3.model.MarkdownType;
 import org.hl7.fhir.dstu3.model.IntegerType;
@@ -10103,28 +10103,34 @@ public class RdfParser extends RdfParserBase {
       t = parent.predicate("fhir:"+parentType+'.'+name);
     }
     composeDomainResource(t, "ReferralRequest", name, element, index);
-    if (element.hasStatusElement())
-      composeEnum(t, "ReferralRequest", "status", element.getStatusElement(), -1);
     for (int i = 0; i < element.getIdentifier().size(); i++)
       composeIdentifier(t, "ReferralRequest", "identifier", element.getIdentifier().get(i), i);
-    if (element.hasDateElement())
-      composeDateTime(t, "ReferralRequest", "date", element.getDateElement(), -1);
+    for (int i = 0; i < element.getBasedOn().size(); i++)
+      composeReference(t, "ReferralRequest", "basedOn", element.getBasedOn().get(i), i);
+    if (element.hasParent())
+      composeIdentifier(t, "ReferralRequest", "parent", element.getParent(), -1);
+    if (element.hasStatusElement())
+      composeEnum(t, "ReferralRequest", "status", element.getStatusElement(), -1);
+    if (element.hasCategoryElement())
+      composeEnum(t, "ReferralRequest", "category", element.getCategoryElement(), -1);
     if (element.hasType())
       composeCodeableConcept(t, "ReferralRequest", "type", element.getType(), -1);
-    if (element.hasSpecialty())
-      composeCodeableConcept(t, "ReferralRequest", "specialty", element.getSpecialty(), -1);
     if (element.hasPriority())
       composeCodeableConcept(t, "ReferralRequest", "priority", element.getPriority(), -1);
     if (element.hasPatient())
       composeReference(t, "ReferralRequest", "patient", element.getPatient(), -1);
+    if (element.hasContext())
+      composeReference(t, "ReferralRequest", "context", element.getContext(), -1);
+    if (element.hasFulfillmentTime())
+      composePeriod(t, "ReferralRequest", "fulfillmentTime", element.getFulfillmentTime(), -1);
+    if (element.hasAuthoredElement())
+      composeDateTime(t, "ReferralRequest", "authored", element.getAuthoredElement(), -1);
     if (element.hasRequester())
       composeReference(t, "ReferralRequest", "requester", element.getRequester(), -1);
+    if (element.hasSpecialty())
+      composeCodeableConcept(t, "ReferralRequest", "specialty", element.getSpecialty(), -1);
     for (int i = 0; i < element.getRecipient().size(); i++)
       composeReference(t, "ReferralRequest", "recipient", element.getRecipient().get(i), i);
-    if (element.hasEncounter())
-      composeReference(t, "ReferralRequest", "encounter", element.getEncounter(), -1);
-    if (element.hasDateSentElement())
-      composeDateTime(t, "ReferralRequest", "dateSent", element.getDateSentElement(), -1);
     if (element.hasReason())
       composeCodeableConcept(t, "ReferralRequest", "reason", element.getReason(), -1);
     if (element.hasDescriptionElement())
@@ -10133,8 +10139,6 @@ public class RdfParser extends RdfParserBase {
       composeCodeableConcept(t, "ReferralRequest", "serviceRequested", element.getServiceRequested().get(i), i);
     for (int i = 0; i < element.getSupportingInformation().size(); i++)
       composeReference(t, "ReferralRequest", "supportingInformation", element.getSupportingInformation().get(i), i);
-    if (element.hasFulfillmentTime())
-      composePeriod(t, "ReferralRequest", "fulfillmentTime", element.getFulfillmentTime(), -1);
   }
 
   protected void composeRelatedPerson(Complex parent, String parentType, String name, RelatedPerson element, int index) {
@@ -10679,16 +10683,18 @@ public class RdfParser extends RdfParserBase {
       composeStructureDefinitionStructureDefinitionMappingComponent(t, "StructureDefinition", "mapping", element.getMapping().get(i), i);
     if (element.hasKindElement())
       composeEnum(t, "StructureDefinition", "kind", element.getKindElement(), -1);
-    if (element.hasConstrainedTypeElement())
-      composeCode(t, "StructureDefinition", "constrainedType", element.getConstrainedTypeElement(), -1);
     if (element.hasAbstractElement())
       composeBoolean(t, "StructureDefinition", "abstract", element.getAbstractElement(), -1);
     if (element.hasContextTypeElement())
       composeEnum(t, "StructureDefinition", "contextType", element.getContextTypeElement(), -1);
     for (int i = 0; i < element.getContext().size(); i++)
       composeString(t, "StructureDefinition", "context", element.getContext().get(i), i);
-    if (element.hasBaseElement())
-      composeUri(t, "StructureDefinition", "base", element.getBaseElement(), -1);
+    if (element.hasBaseTypeElement())
+      composeCode(t, "StructureDefinition", "baseType", element.getBaseTypeElement(), -1);
+    if (element.hasBaseDefinitionElement())
+      composeUri(t, "StructureDefinition", "baseDefinition", element.getBaseDefinitionElement(), -1);
+    if (element.hasDerivationElement())
+      composeEnum(t, "StructureDefinition", "derivation", element.getDerivationElement(), -1);
     if (element.hasSnapshot())
       composeStructureDefinitionStructureDefinitionSnapshotComponent(t, "StructureDefinition", "snapshot", element.getSnapshot(), -1);
     if (element.hasDifferential())
@@ -11199,8 +11205,6 @@ public class RdfParser extends RdfParserBase {
       composeEnum(t, "Task", "priority", element.getPriorityElement(), -1);
     if (element.hasStatusElement())
       composeEnum(t, "Task", "status", element.getStatusElement(), -1);
-    if (element.hasSuspendedElement())
-      composeBoolean(t, "Task", "suspended", element.getSuspendedElement(), -1);
     if (element.hasFailureReason())
       composeCodeableConcept(t, "Task", "failureReason", element.getFailureReason(), -1);
     if (element.hasSubject())
@@ -11217,8 +11221,8 @@ public class RdfParser extends RdfParserBase {
       composeReference(t, "Task", "creator", element.getCreator(), -1);
     if (element.hasOwner())
       composeReference(t, "Task", "owner", element.getOwner(), -1);
-    for (int i = 0; i < element.getSubtask().size(); i++)
-      composeReference(t, "Task", "subtask", element.getSubtask().get(i), i);
+    if (element.hasParent())
+      composeReference(t, "Task", "parent", element.getParent(), -1);
     for (int i = 0; i < element.getInput().size(); i++)
       composeTaskParameterComponent(t, "Task", "input", element.getInput().get(i), i);
     for (int i = 0; i < element.getOutput().size(); i++)

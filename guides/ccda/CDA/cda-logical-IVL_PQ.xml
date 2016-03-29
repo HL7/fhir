@@ -14,7 +14,7 @@
   <description value="A set of consecutive values of an ordered base data type."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/ANY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ANY"/>
   <snapshot>
     <element>
       <path value="IVL_PQ"/>

@@ -98,34 +98,54 @@
 === Sheet task-status =====================================
 
  -- Row 1 -----------------------------------
-  Code = cancelled
-  Display = Cancelled
-  Definition = The task was not completed due to some process issue.  It may not have been attempted, or if attempted, it may not have failed (e.g., an issue elsewhere might have resulted in the task being cancelled).
+  Code = draft
+  Display = Draft
+  Definition = The task is not yet ready to be acted upon.
 
  -- Row 2 -----------------------------------
-  Code = completed
-  Display = Completed
-  Definition = The task has been completed (more or less) as planned.
+  Code = requested
+  Display = Requested
+  Definition = The task is ready to be acted upon
 
  -- Row 3 -----------------------------------
-  Code = created
-  Display = Created
-  Definition = The task has been created by is not yet ready to be performed.
+  Code = received
+  Display = Received
+  Definition = A potential performer has claimed ownership of the task and is evaluating whether to perform it
 
  -- Row 4 -----------------------------------
-  Code = failed
-  Display = Failed
-  Definition = The task was attempted but could not be completed due to some error.
+  Code = accepted
+  Display = Accepted
+  Definition = The potential performer has agreed to execute the task but has not yet started work
 
  -- Row 5 -----------------------------------
-  Code = in-progress
-  Display = In Progress
-  Definition = Task has been started but is not yet complete.
+  Code = rejected
+  Display = Rejected
+  Definition = The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.
 
  -- Row 6 -----------------------------------
   Code = ready
   Display = Ready
-  Definition = Task is ready to be performed, but no action has yet been taken.
+  Definition = Task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given.
+
+ -- Row 7 -----------------------------------
+  Code = in-progress
+  Display = In Progress
+  Definition = Task has been started but is not yet complete.
+
+ -- Row 8 -----------------------------------
+  Code = on-hold
+  Display = On Hold
+  Definition = Task has been started but work has been paused
+
+ -- Row 9 -----------------------------------
+  Code = failed
+  Display = Failed
+  Definition = The task was attempted but could not be completed due to some error.
+
+ -- Row 10 -----------------------------------
+  Code = completed
+  Display = Completed
+  Definition = The task has been completed (more or less) as requested.
 
 === Sheet Invariants =====================================
 
@@ -203,20 +223,11 @@
   Inv. = inv-2
   Type = code
   Binding = TaskStatus
-  Short Label = cancelled | completed | created | failed | in-progress | ready
+  Short Label = draft | requested | received | accepted | +
   Definition = The current status of the task.
   Requirements = These states enable coordination of task status with off-the-shelf workflow solutions that support automation of tasks.
 
  -- Row 8 -----------------------------------
-  Element = Task.suspended
-  Card. = 1..1
-  Summary = Y
-  Type = boolean
-  Short Label = Task Suspended
-  Definition = True if the task has been suspended (put on hold), false otherwise.
-  Requirements = Used to place a task on hold.
-
- -- Row 9 -----------------------------------
   Element = Task.failureReason
   Card. = 0..1
   Summary = Y
@@ -225,7 +236,7 @@
   Short Label = Task Failure Reason
   Definition = An explaination as to why this task failed.
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = Task.subject
   Card. = 0..1
   Type = Reference(Any)
@@ -233,7 +244,7 @@
   Definition = The subject of the task
   Requirements = Used to identify the thing to be done (not the beneficiary -- see for below).
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Element = Task.for
   Card. = 0..1
   Summary = Y
@@ -242,7 +253,7 @@
   Definition = The entity who benefits from the performance of the service specified in the task (e.g., the patient).
   Requirements = Used to track tasks outstanding for a beneficiary.  Do not use to track the task owner or creator (see owner and creator respectively).
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = Task.definition
   Card. = 0..1
   Summary = Y
@@ -251,7 +262,7 @@
   Definition = A reference to a formal or informal definition of the task.
   Requirements = Enables a formal definition of how he task is to be performed (e.g. using BPMN, BPEL, XPDL or other formal notation) to be associated with a task, enabling automation.
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Task.created
   Card. = 1..1
   Aliases = Created Date
@@ -262,7 +273,7 @@
   Requirements = Most often used along with lastUpdated to track duration of task to supporting monitoring and management.
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Task.lastModified
   Card. = 1..1
   Aliases = Update Date
@@ -274,7 +285,7 @@
   Requirements = Used along with history to track task activity and time in a particular task state.  This enables monitoring and management.
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Task.creator
   Card. = 1..1
   Aliases = Initiator; Author
@@ -284,7 +295,7 @@
   Requirements = Identifies who created this task.  May be used by access control mechanisms (e.g., to ensure that only the creator can cancel a task).
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Task.owner
   Card. = 0..1
   Aliases = Performer; Executer
@@ -294,15 +305,15 @@
   Requirements = Identifies who is expected to perform this task.
   Comments = This information duplicates what appear in Provenance but is often needs to be more accessible.
 
- -- Row 17 -----------------------------------
-  Element = Task.subtask
-  Card. = 0..*
+ -- Row 16 -----------------------------------
+  Element = Task.parent
+  Card. = 0..1
   Type = Reference(Task)
-  Short Label = Subtasks
-  Definition = Subtasks to be performed before this task can be considered to be complete.
-  Requirements = Enables suspend/resume processing to propogate through a task hierarchy.
+  Short Label = Composite task
+  Definition = Task that this particular task is part of
+  Requirements = Allows tasks to be broken down into sub-steps (and this division can occur independent of the original task)
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Task.input
   Card. = 0..*
   Type = =Parameter
@@ -310,7 +321,7 @@
   Definition = Inputs to the task
   Requirements = Resources and data used to perform the task.  This data is used in the business logic of task execution, and is stored separately because it varies between workflows.
 
- -- Row 19 -----------------------------------
+ -- Row 18 -----------------------------------
   Element = Task.input.name
   Card. = 1..1
   Type = string
@@ -318,7 +329,7 @@
   Definition = The name of the input parameter.
   Requirements = Inputs are named to enable task automation to bind data and pass it from one task to the next.
 
- -- Row 20 -----------------------------------
+ -- Row 19 -----------------------------------
   Element = Task.input.value[x]
   Card. = 1..1
   Type = *
@@ -326,7 +337,7 @@
   Definition = The value of the input parameter as a basic type.
   Requirements = Task inputs can take any form.
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Task.output
   Card. = 0..*
   Type = @Task.input
@@ -334,7 +345,7 @@
   Definition = Outputs produced by the Task
   Requirements = Resources and data produced during the execution the task.  This data is generated by the business logic of task execution, and is stored separately because it varies between workflows.
 
- -- Row 22 -----------------------------------
+ -- Row 21 -----------------------------------
   Element = Task.output.name
   Card. = 1..1
   Type = string
@@ -342,7 +353,7 @@
   Definition = The name of the Output parameter.
   Requirements = Outputs are named to enable task automation to bind data and pass it from one task to the next.
 
- -- Row 23 -----------------------------------
+ -- Row 22 -----------------------------------
   Element = Task.output.value[x]
   Card. = 1..1
   Type = *
@@ -389,52 +400,46 @@
   Path = Task.failureReason
 
  -- Row 7 -----------------------------------
-  Name = suspended
-  Type = token
-  Description = Search by suspension status
-  Path = Task.suspended
-
- -- Row 8 -----------------------------------
   Name = subject
   Type = reference
   Description = Search by task subject
   Path = Task.subject
 
- -- Row 9 -----------------------------------
+ -- Row 8 -----------------------------------
   Name = definition
   Type = uri
   Description = Search by task definition
   Path = Task.definition
 
- -- Row 10 -----------------------------------
+ -- Row 9 -----------------------------------
   Name = created
   Type = date
   Description = Search by creation date
   Path = Task.created
 
- -- Row 11 -----------------------------------
+ -- Row 10 -----------------------------------
   Name = modified
   Type = date
   Description = Search by last modification date
   Path = Task.lastModified
 
- -- Row 12 -----------------------------------
+ -- Row 11 -----------------------------------
   Name = owner
   Type = reference
   Description = Search by task owner
   Path = Task.owner
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Name = creator
   Type = reference
   Description = Search by task creator
   Path = Task.creator
 
- -- Row 14 -----------------------------------
-  Name = subtask
+ -- Row 13 -----------------------------------
+  Name = parent
   Type = reference
-  Description = Search by subtasks
-  Path = Task.subtask
+  Description = Search by parent task
+  Path = Task.parent
 
 === Sheet Profiles =====================================
 

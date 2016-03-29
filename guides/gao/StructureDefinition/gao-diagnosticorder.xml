@@ -23,9 +23,10 @@
     value="The diagnostic order resource is required to identify the diagnostic service or services that were ordered, and to provide additional details that may be necessary to evaluate the order for appropriateness."/>
   <fhirVersion value="1.3.0" />
   <kind value="resource"/>
-  <constrainedType value="DiagnosticOrder"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/DiagnosticOrder"/>
+  <baseType value="DiagnosticOrder"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticOrder"/>
+  <derivation value="constraint"/>
   <differential>
     <element>
       <path value="DiagnosticOrder"/>

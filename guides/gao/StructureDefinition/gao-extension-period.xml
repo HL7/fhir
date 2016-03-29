@@ -21,11 +21,13 @@
   <requirements value="This field SHALL be provided unless the evaluation was issued manually, in which case it is optional."></requirements>
   <fhirVersion value="1.3.0"></fhirVersion>
   <kind value="datatype"></kind>
-  <constrainedType value="Extension"></constrainedType>
   <abstract value="false"></abstract>
   <contextType value="resource"></contextType>
   <context value="Basic"></context>
-  <base value="http://hl7.org/fhir/StructureDefinition/Extension"></base>
+  <baseType value="Extension"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
+    <derivation value="constraint"/>
+
   <differential>
     <element>
       <path value="Extension"></path>

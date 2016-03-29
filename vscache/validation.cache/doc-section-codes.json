@@ -2,6 +2,17 @@
   "url": "http://hl7.org/fhir/ValueSet/doc-section-codes",
   "outcomes": [
     {
+      "hash": "#|http://loinc.org|null|10157-6|History of family member diseases",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "History of family member diseases Narrative"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|10157-6|History of family member diseases Narrative",
       "severity": null,
       "message": null,
@@ -10,6 +21,17 @@
         "code": null,
         "definition": null,
         "display": "History of family member diseases Narrative"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|10160-0|History of Medication Use",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "History of medication use Narrative"
       }
     },
     {
@@ -24,6 +46,11 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|10190-7|Mental status",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Document Section Codes"
+    },
+    {
       "hash": "#|http://loinc.org|null|11348-0|History of past illness Narrative",
       "severity": null,
       "message": null,
@@ -32,6 +59,39 @@
         "code": null,
         "definition": null,
         "display": "History of past illness Narrative"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|11369-6|History of immunization",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "History of immunization Narrative"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|11450-4|Problem list",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Problem list - Reported"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|18776-5|Plan of treatment",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Plan of treatment (narrative)"
       }
     },
     {
@@ -46,6 +106,94 @@
       }
     },
     {
+      "hash": "#|http://loinc.org|null|29762-2|Social history",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Social history Narrative"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|30954-2|Relevant diagnostic tests and laboratory data",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Relevant diagnostic tests/laboratory data Narrative"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|42348-3|Advance directives",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Advance directives (narrative)"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|46240-8|Encounters",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "History of hospitalizations+History of outpatient visits Narrative"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|46264-8|Medical equipment",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "History of medical device use"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|47420-5|Functional status assessment",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Functional status assessment note"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|47519-4|History of procedures",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "History of Procedures Document"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|48765-2|Allergies and adverse reactions",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Allergies and adverse reactions Document"
+      }
+    },
+    {
       "hash": "#|http://loinc.org|null|48765-2|Allergies and adverse reactions Document",
       "severity": null,
       "message": null,
@@ -54,6 +202,33 @@
         "code": null,
         "definition": null,
         "display": "Allergies and adverse reactions Document"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|48768-6|Payers",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Payment sources Document"
+      }
+    },
+    {
+      "hash": "#|http://loinc.org|null|61144-2|Diet and nutrition",
+      "severity": "error",
+      "message": "The code provided is not  valid in the value set Document Section Codes"
+    },
+    {
+      "hash": "#|http://loinc.org|null|8716-3|Vital signs",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": null,
+        "definition": null,
+        "display": "Vital signs"
       }
     }
   ]

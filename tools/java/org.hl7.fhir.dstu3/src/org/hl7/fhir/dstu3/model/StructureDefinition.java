@@ -29,7 +29,7 @@ package org.hl7.fhir.dstu3.model;
   
 */
 
-// Generated on Tue, Mar 29, 2016 12:10+1100 for FHIR v1.3.0
+// Generated on Tue, Mar 29, 2016 15:58+1100 for FHIR v1.3.0
 
 import java.util.*;
 
@@ -250,6 +250,93 @@ public class StructureDefinition extends DomainResource {
       return "?";
       }
     public String toSystem(ExtensionContext code) {
+      return code.getSystem();
+      }
+    }
+
+    public enum TypeDerivationRule {
+        /**
+         * This definition defines a new type that adds additional elements to the base type
+         */
+        SPECIALIZATION, 
+        /**
+         * This definition adds additional rules to an existing concrete type
+         */
+        CONSTRAINT, 
+        /**
+         * added to help the parsers
+         */
+        NULL;
+        public static TypeDerivationRule fromCode(String codeString) throws FHIRException {
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("specialization".equals(codeString))
+          return SPECIALIZATION;
+        if ("constraint".equals(codeString))
+          return CONSTRAINT;
+        throw new FHIRException("Unknown TypeDerivationRule code '"+codeString+"'");
+        }
+        public String toCode() {
+          switch (this) {
+            case SPECIALIZATION: return "specialization";
+            case CONSTRAINT: return "constraint";
+            default: return "?";
+          }
+        }
+        public String getSystem() {
+          switch (this) {
+            case SPECIALIZATION: return "http://hl7.org/fhir/type-derivation-rule";
+            case CONSTRAINT: return "http://hl7.org/fhir/type-derivation-rule";
+            default: return "?";
+          }
+        }
+        public String getDefinition() {
+          switch (this) {
+            case SPECIALIZATION: return "This definition defines a new type that adds additional elements to the base type";
+            case CONSTRAINT: return "This definition adds additional rules to an existing concrete type";
+            default: return "?";
+          }
+        }
+        public String getDisplay() {
+          switch (this) {
+            case SPECIALIZATION: return "Specialization";
+            case CONSTRAINT: return "Constraint";
+            default: return "?";
+          }
+        }
+    }
+
+  public static class TypeDerivationRuleEnumFactory implements EnumFactory<TypeDerivationRule> {
+    public TypeDerivationRule fromCode(String codeString) throws IllegalArgumentException {
+      if (codeString == null || "".equals(codeString))
+            if (codeString == null || "".equals(codeString))
+                return null;
+        if ("specialization".equals(codeString))
+          return TypeDerivationRule.SPECIALIZATION;
+        if ("constraint".equals(codeString))
+          return TypeDerivationRule.CONSTRAINT;
+        throw new IllegalArgumentException("Unknown TypeDerivationRule code '"+codeString+"'");
+        }
+        public Enumeration<TypeDerivationRule> fromType(Base code) throws FHIRException {
+          if (code == null || code.isEmpty())
+            return null;
+          String codeString = ((PrimitiveType) code).asStringValue();
+          if (codeString == null || "".equals(codeString))
+            return null;
+        if ("specialization".equals(codeString))
+          return new Enumeration<TypeDerivationRule>(this, TypeDerivationRule.SPECIALIZATION);
+        if ("constraint".equals(codeString))
+          return new Enumeration<TypeDerivationRule>(this, TypeDerivationRule.CONSTRAINT);
+        throw new FHIRException("Unknown TypeDerivationRule code '"+codeString+"'");
+        }
+    public String toCode(TypeDerivationRule code) {
+      if (code == TypeDerivationRule.SPECIALIZATION)
+        return "specialization";
+      if (code == TypeDerivationRule.CONSTRAINT)
+        return "constraint";
+      return "?";
+      }
+    public String toSystem(TypeDerivationRule code) {
       return code.getSystem();
       }
     }
@@ -1134,55 +1221,62 @@ public class StructureDefinition extends DomainResource {
     protected Enumeration<StructureDefinitionKind> kind;
 
     /**
-     * The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.
-     */
-    @Child(name = "constrainedType", type = {CodeType.class}, order=18, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Any datatype or resource, including abstract ones", formalDefinition="The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure." )
-    protected CodeType constrainedType;
-
-    /**
      * Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.
      */
-    @Child(name = "abstract", type = {BooleanType.class}, order=19, min=1, max=1, modifier=false, summary=true)
+    @Child(name = "abstract", type = {BooleanType.class}, order=18, min=1, max=1, modifier=false, summary=true)
     @Description(shortDefinition="Whether the structure is abstract", formalDefinition="Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type." )
     protected BooleanType abstract_;
 
     /**
      * If this is an extension, Identifies the context within FHIR resources where the extension can be used.
      */
-    @Child(name = "contextType", type = {CodeType.class}, order=20, min=0, max=1, modifier=false, summary=true)
+    @Child(name = "contextType", type = {CodeType.class}, order=19, min=0, max=1, modifier=false, summary=true)
     @Description(shortDefinition="resource | datatype | extension", formalDefinition="If this is an extension, Identifies the context within FHIR resources where the extension can be used." )
     protected Enumeration<ExtensionContext> contextType;
 
     /**
      * Identifies the types of resource or data type elements to which the extension can be applied.
      */
-    @Child(name = "context", type = {StringType.class}, order=21, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
+    @Child(name = "context", type = {StringType.class}, order=20, min=0, max=Child.MAX_UNLIMITED, modifier=false, summary=true)
     @Description(shortDefinition="Where the extension can be used in instances", formalDefinition="Identifies the types of resource or data type elements to which the extension can be applied." )
     protected List<StringType> context;
 
     /**
-     * An absolute URI that is the base structure from which this set of constraints is derived.
+     * The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.
      */
-    @Child(name = "base", type = {UriType.class}, order=22, min=0, max=1, modifier=false, summary=true)
-    @Description(shortDefinition="Structure that this set of constraints applies to", formalDefinition="An absolute URI that is the base structure from which this set of constraints is derived." )
-    protected UriType base;
+    @Child(name = "baseType", type = {CodeType.class}, order=21, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Any datatype or resource, including abstract ones", formalDefinition="The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure." )
+    protected CodeType baseType;
+
+    /**
+     * An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.
+     */
+    @Child(name = "baseDefinition", type = {UriType.class}, order=22, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="Definition that this type is constrained/specialized from", formalDefinition="An absolute URI that is the base structure from which this type is derived, either by specialization or constraint." )
+    protected UriType baseDefinition;
+
+    /**
+     * How the type relates to the baseDefinition.
+     */
+    @Child(name = "derivation", type = {CodeType.class}, order=23, min=0, max=1, modifier=false, summary=true)
+    @Description(shortDefinition="specialization | constraint - How relates to base definition", formalDefinition="How the type relates to the baseDefinition." )
+    protected Enumeration<TypeDerivationRule> derivation;
 
     /**
      * A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.
      */
-    @Child(name = "snapshot", type = {}, order=23, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "snapshot", type = {}, order=24, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Snapshot view of the structure", formalDefinition="A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition." )
     protected StructureDefinitionSnapshotComponent snapshot;
 
     /**
      * A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.
      */
-    @Child(name = "differential", type = {}, order=24, min=0, max=1, modifier=false, summary=false)
+    @Child(name = "differential", type = {}, order=25, min=0, max=1, modifier=false, summary=false)
     @Description(shortDefinition="Differential view of the structure", formalDefinition="A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies." )
     protected StructureDefinitionDifferentialComponent differential;
 
-    private static final long serialVersionUID = -580779569L;
+    private static final long serialVersionUID = -1505153076L;
 
   /**
    * Constructor
@@ -2021,55 +2115,6 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #constrainedType} (The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.). This is the underlying object with id, value and extensions. The accessor "getConstrainedType" gives direct access to the value
-     */
-    public CodeType getConstrainedTypeElement() { 
-      if (this.constrainedType == null)
-        if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StructureDefinition.constrainedType");
-        else if (Configuration.doAutoCreate())
-          this.constrainedType = new CodeType(); // bb
-      return this.constrainedType;
-    }
-
-    public boolean hasConstrainedTypeElement() { 
-      return this.constrainedType != null && !this.constrainedType.isEmpty();
-    }
-
-    public boolean hasConstrainedType() { 
-      return this.constrainedType != null && !this.constrainedType.isEmpty();
-    }
-
-    /**
-     * @param value {@link #constrainedType} (The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.). This is the underlying object with id, value and extensions. The accessor "getConstrainedType" gives direct access to the value
-     */
-    public StructureDefinition setConstrainedTypeElement(CodeType value) { 
-      this.constrainedType = value;
-      return this;
-    }
-
-    /**
-     * @return The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.
-     */
-    public String getConstrainedType() { 
-      return this.constrainedType == null ? null : this.constrainedType.getValue();
-    }
-
-    /**
-     * @param value The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.
-     */
-    public StructureDefinition setConstrainedType(String value) { 
-      if (Utilities.noString(value))
-        this.constrainedType = null;
-      else {
-        if (this.constrainedType == null)
-          this.constrainedType = new CodeType();
-        this.constrainedType.setValue(value);
-      }
-      return this;
-    }
-
-    /**
      * @return {@link #abstract_} (Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.). This is the underlying object with id, value and extensions. The accessor "getAbstract" gives direct access to the value
      */
     public BooleanType getAbstractElement() { 
@@ -2218,50 +2263,148 @@ public class StructureDefinition extends DomainResource {
     }
 
     /**
-     * @return {@link #base} (An absolute URI that is the base structure from which this set of constraints is derived.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
+     * @return {@link #baseType} (The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.). This is the underlying object with id, value and extensions. The accessor "getBaseType" gives direct access to the value
      */
-    public UriType getBaseElement() { 
-      if (this.base == null)
+    public CodeType getBaseTypeElement() { 
+      if (this.baseType == null)
         if (Configuration.errorOnAutoCreate())
-          throw new Error("Attempt to auto-create StructureDefinition.base");
+          throw new Error("Attempt to auto-create StructureDefinition.baseType");
         else if (Configuration.doAutoCreate())
-          this.base = new UriType(); // bb
-      return this.base;
+          this.baseType = new CodeType(); // bb
+      return this.baseType;
     }
 
-    public boolean hasBaseElement() { 
-      return this.base != null && !this.base.isEmpty();
+    public boolean hasBaseTypeElement() { 
+      return this.baseType != null && !this.baseType.isEmpty();
     }
 
-    public boolean hasBase() { 
-      return this.base != null && !this.base.isEmpty();
+    public boolean hasBaseType() { 
+      return this.baseType != null && !this.baseType.isEmpty();
     }
 
     /**
-     * @param value {@link #base} (An absolute URI that is the base structure from which this set of constraints is derived.). This is the underlying object with id, value and extensions. The accessor "getBase" gives direct access to the value
+     * @param value {@link #baseType} (The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.). This is the underlying object with id, value and extensions. The accessor "getBaseType" gives direct access to the value
      */
-    public StructureDefinition setBaseElement(UriType value) { 
-      this.base = value;
+    public StructureDefinition setBaseTypeElement(CodeType value) { 
+      this.baseType = value;
       return this;
     }
 
     /**
-     * @return An absolute URI that is the base structure from which this set of constraints is derived.
+     * @return The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.
      */
-    public String getBase() { 
-      return this.base == null ? null : this.base.getValue();
+    public String getBaseType() { 
+      return this.baseType == null ? null : this.baseType.getValue();
     }
 
     /**
-     * @param value An absolute URI that is the base structure from which this set of constraints is derived.
+     * @param value The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.
      */
-    public StructureDefinition setBase(String value) { 
+    public StructureDefinition setBaseType(String value) { 
       if (Utilities.noString(value))
-        this.base = null;
+        this.baseType = null;
       else {
-        if (this.base == null)
-          this.base = new UriType();
-        this.base.setValue(value);
+        if (this.baseType == null)
+          this.baseType = new CodeType();
+        this.baseType.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #baseDefinition} (An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.). This is the underlying object with id, value and extensions. The accessor "getBaseDefinition" gives direct access to the value
+     */
+    public UriType getBaseDefinitionElement() { 
+      if (this.baseDefinition == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create StructureDefinition.baseDefinition");
+        else if (Configuration.doAutoCreate())
+          this.baseDefinition = new UriType(); // bb
+      return this.baseDefinition;
+    }
+
+    public boolean hasBaseDefinitionElement() { 
+      return this.baseDefinition != null && !this.baseDefinition.isEmpty();
+    }
+
+    public boolean hasBaseDefinition() { 
+      return this.baseDefinition != null && !this.baseDefinition.isEmpty();
+    }
+
+    /**
+     * @param value {@link #baseDefinition} (An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.). This is the underlying object with id, value and extensions. The accessor "getBaseDefinition" gives direct access to the value
+     */
+    public StructureDefinition setBaseDefinitionElement(UriType value) { 
+      this.baseDefinition = value;
+      return this;
+    }
+
+    /**
+     * @return An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.
+     */
+    public String getBaseDefinition() { 
+      return this.baseDefinition == null ? null : this.baseDefinition.getValue();
+    }
+
+    /**
+     * @param value An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.
+     */
+    public StructureDefinition setBaseDefinition(String value) { 
+      if (Utilities.noString(value))
+        this.baseDefinition = null;
+      else {
+        if (this.baseDefinition == null)
+          this.baseDefinition = new UriType();
+        this.baseDefinition.setValue(value);
+      }
+      return this;
+    }
+
+    /**
+     * @return {@link #derivation} (How the type relates to the baseDefinition.). This is the underlying object with id, value and extensions. The accessor "getDerivation" gives direct access to the value
+     */
+    public Enumeration<TypeDerivationRule> getDerivationElement() { 
+      if (this.derivation == null)
+        if (Configuration.errorOnAutoCreate())
+          throw new Error("Attempt to auto-create StructureDefinition.derivation");
+        else if (Configuration.doAutoCreate())
+          this.derivation = new Enumeration<TypeDerivationRule>(new TypeDerivationRuleEnumFactory()); // bb
+      return this.derivation;
+    }
+
+    public boolean hasDerivationElement() { 
+      return this.derivation != null && !this.derivation.isEmpty();
+    }
+
+    public boolean hasDerivation() { 
+      return this.derivation != null && !this.derivation.isEmpty();
+    }
+
+    /**
+     * @param value {@link #derivation} (How the type relates to the baseDefinition.). This is the underlying object with id, value and extensions. The accessor "getDerivation" gives direct access to the value
+     */
+    public StructureDefinition setDerivationElement(Enumeration<TypeDerivationRule> value) { 
+      this.derivation = value;
+      return this;
+    }
+
+    /**
+     * @return How the type relates to the baseDefinition.
+     */
+    public TypeDerivationRule getDerivation() { 
+      return this.derivation == null ? null : this.derivation.getValue();
+    }
+
+    /**
+     * @param value How the type relates to the baseDefinition.
+     */
+    public StructureDefinition setDerivation(TypeDerivationRule value) { 
+      if (value == null)
+        this.derivation = null;
+      else {
+        if (this.derivation == null)
+          this.derivation = new Enumeration<TypeDerivationRule>(new TypeDerivationRuleEnumFactory());
+        this.derivation.setValue(value);
       }
       return this;
     }
@@ -2334,11 +2477,12 @@ public class StructureDefinition extends DomainResource {
         childrenList.add(new Property("fhirVersion", "id", "The version of the FHIR specification on which this StructureDefinition is based - this is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 1.3.0 for this version.", 0, java.lang.Integer.MAX_VALUE, fhirVersion));
         childrenList.add(new Property("mapping", "", "An external specification that the content is mapped to.", 0, java.lang.Integer.MAX_VALUE, mapping));
         childrenList.add(new Property("kind", "code", "Defines the kind of structure that this definition is describing.", 0, java.lang.Integer.MAX_VALUE, kind));
-        childrenList.add(new Property("constrainedType", "code", "The type of type that is being constrained - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is a constraint. If it is not present, then the structure definition is the definition of a base structure.", 0, java.lang.Integer.MAX_VALUE, constrainedType));
         childrenList.add(new Property("abstract", "boolean", "Whether structure this definition describes is abstract or not  - that is, whether an actual exchanged item can ever be of this type.", 0, java.lang.Integer.MAX_VALUE, abstract_));
         childrenList.add(new Property("contextType", "code", "If this is an extension, Identifies the context within FHIR resources where the extension can be used.", 0, java.lang.Integer.MAX_VALUE, contextType));
         childrenList.add(new Property("context", "string", "Identifies the types of resource or data type elements to which the extension can be applied.", 0, java.lang.Integer.MAX_VALUE, context));
-        childrenList.add(new Property("base", "uri", "An absolute URI that is the base structure from which this set of constraints is derived.", 0, java.lang.Integer.MAX_VALUE, base));
+        childrenList.add(new Property("baseType", "code", "The type of type that this structure is derived from - a data type, an extension, a resource, including abstract ones. If this field is present, it indicates that the structure definition is deriving from this type. If it is not present, then the structure definition is the definition of a base abstract structure.", 0, java.lang.Integer.MAX_VALUE, baseType));
+        childrenList.add(new Property("baseDefinition", "uri", "An absolute URI that is the base structure from which this type is derived, either by specialization or constraint.", 0, java.lang.Integer.MAX_VALUE, baseDefinition));
+        childrenList.add(new Property("derivation", "code", "How the type relates to the baseDefinition.", 0, java.lang.Integer.MAX_VALUE, derivation));
         childrenList.add(new Property("snapshot", "", "A snapshot view is expressed in a stand alone form that can be used and interpreted without considering the base StructureDefinition.", 0, java.lang.Integer.MAX_VALUE, snapshot));
         childrenList.add(new Property("differential", "", "A differential view is expressed relative to the base StructureDefinition - a statement of differences that it applies.", 0, java.lang.Integer.MAX_VALUE, differential));
       }
@@ -2381,16 +2525,18 @@ public class StructureDefinition extends DomainResource {
           this.getMapping().add((StructureDefinitionMappingComponent) value);
         else if (name.equals("kind"))
           this.kind = new StructureDefinitionKindEnumFactory().fromType(value); // Enumeration<StructureDefinitionKind>
-        else if (name.equals("constrainedType"))
-          this.constrainedType = castToCode(value); // CodeType
         else if (name.equals("abstract"))
           this.abstract_ = castToBoolean(value); // BooleanType
         else if (name.equals("contextType"))
           this.contextType = new ExtensionContextEnumFactory().fromType(value); // Enumeration<ExtensionContext>
         else if (name.equals("context"))
           this.getContext().add(castToString(value));
-        else if (name.equals("base"))
-          this.base = castToUri(value); // UriType
+        else if (name.equals("baseType"))
+          this.baseType = castToCode(value); // CodeType
+        else if (name.equals("baseDefinition"))
+          this.baseDefinition = castToUri(value); // UriType
+        else if (name.equals("derivation"))
+          this.derivation = new TypeDerivationRuleEnumFactory().fromType(value); // Enumeration<TypeDerivationRule>
         else if (name.equals("snapshot"))
           this.snapshot = (StructureDefinitionSnapshotComponent) value; // StructureDefinitionSnapshotComponent
         else if (name.equals("differential"))
@@ -2455,9 +2601,6 @@ public class StructureDefinition extends DomainResource {
         else if (name.equals("kind")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.kind");
         }
-        else if (name.equals("constrainedType")) {
-          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.constrainedType");
-        }
         else if (name.equals("abstract")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.abstract");
         }
@@ -2467,8 +2610,14 @@ public class StructureDefinition extends DomainResource {
         else if (name.equals("context")) {
           throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.context");
         }
-        else if (name.equals("base")) {
-          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.base");
+        else if (name.equals("baseType")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.baseType");
+        }
+        else if (name.equals("baseDefinition")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.baseDefinition");
+        }
+        else if (name.equals("derivation")) {
+          throw new FHIRException("Cannot call addChild on a primitive type StructureDefinition.derivation");
         }
         else if (name.equals("snapshot")) {
           this.snapshot = new StructureDefinitionSnapshotComponent();
@@ -2528,7 +2677,6 @@ public class StructureDefinition extends DomainResource {
             dst.mapping.add(i.copy());
         };
         dst.kind = kind == null ? null : kind.copy();
-        dst.constrainedType = constrainedType == null ? null : constrainedType.copy();
         dst.abstract_ = abstract_ == null ? null : abstract_.copy();
         dst.contextType = contextType == null ? null : contextType.copy();
         if (context != null) {
@@ -2536,7 +2684,9 @@ public class StructureDefinition extends DomainResource {
           for (StringType i : context)
             dst.context.add(i.copy());
         };
-        dst.base = base == null ? null : base.copy();
+        dst.baseType = baseType == null ? null : baseType.copy();
+        dst.baseDefinition = baseDefinition == null ? null : baseDefinition.copy();
+        dst.derivation = derivation == null ? null : derivation.copy();
         dst.snapshot = snapshot == null ? null : snapshot.copy();
         dst.differential = differential == null ? null : differential.copy();
         return dst;
@@ -2559,10 +2709,10 @@ public class StructureDefinition extends DomainResource {
            && compareDeep(contact, o.contact, true) && compareDeep(date, o.date, true) && compareDeep(description, o.description, true)
            && compareDeep(useContext, o.useContext, true) && compareDeep(requirements, o.requirements, true)
            && compareDeep(copyright, o.copyright, true) && compareDeep(code, o.code, true) && compareDeep(fhirVersion, o.fhirVersion, true)
-           && compareDeep(mapping, o.mapping, true) && compareDeep(kind, o.kind, true) && compareDeep(constrainedType, o.constrainedType, true)
-           && compareDeep(abstract_, o.abstract_, true) && compareDeep(contextType, o.contextType, true) && compareDeep(context, o.context, true)
-           && compareDeep(base, o.base, true) && compareDeep(snapshot, o.snapshot, true) && compareDeep(differential, o.differential, true)
-          ;
+           && compareDeep(mapping, o.mapping, true) && compareDeep(kind, o.kind, true) && compareDeep(abstract_, o.abstract_, true)
+           && compareDeep(contextType, o.contextType, true) && compareDeep(context, o.context, true) && compareDeep(baseType, o.baseType, true)
+           && compareDeep(baseDefinition, o.baseDefinition, true) && compareDeep(derivation, o.derivation, true)
+           && compareDeep(snapshot, o.snapshot, true) && compareDeep(differential, o.differential, true);
       }
 
       @Override
@@ -2576,9 +2726,10 @@ public class StructureDefinition extends DomainResource {
            && compareValues(display, o.display, true) && compareValues(status, o.status, true) && compareValues(experimental, o.experimental, true)
            && compareValues(publisher, o.publisher, true) && compareValues(date, o.date, true) && compareValues(description, o.description, true)
            && compareValues(requirements, o.requirements, true) && compareValues(copyright, o.copyright, true)
-           && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(kind, o.kind, true) && compareValues(constrainedType, o.constrainedType, true)
-           && compareValues(abstract_, o.abstract_, true) && compareValues(contextType, o.contextType, true) && compareValues(context, o.context, true)
-           && compareValues(base, o.base, true);
+           && compareValues(fhirVersion, o.fhirVersion, true) && compareValues(kind, o.kind, true) && compareValues(abstract_, o.abstract_, true)
+           && compareValues(contextType, o.contextType, true) && compareValues(context, o.context, true) && compareValues(baseType, o.baseType, true)
+           && compareValues(baseDefinition, o.baseDefinition, true) && compareValues(derivation, o.derivation, true)
+          ;
       }
 
       public boolean isEmpty() {
@@ -2589,9 +2740,9 @@ public class StructureDefinition extends DomainResource {
            && (description == null || description.isEmpty()) && (useContext == null || useContext.isEmpty())
            && (requirements == null || requirements.isEmpty()) && (copyright == null || copyright.isEmpty())
            && (code == null || code.isEmpty()) && (fhirVersion == null || fhirVersion.isEmpty()) && (mapping == null || mapping.isEmpty())
-           && (kind == null || kind.isEmpty()) && (constrainedType == null || constrainedType.isEmpty())
-           && (abstract_ == null || abstract_.isEmpty()) && (contextType == null || contextType.isEmpty())
-           && (context == null || context.isEmpty()) && (base == null || base.isEmpty()) && (snapshot == null || snapshot.isEmpty())
+           && (kind == null || kind.isEmpty()) && (abstract_ == null || abstract_.isEmpty()) && (contextType == null || contextType.isEmpty())
+           && (context == null || context.isEmpty()) && (baseType == null || baseType.isEmpty()) && (baseDefinition == null || baseDefinition.isEmpty())
+           && (derivation == null || derivation.isEmpty()) && (snapshot == null || snapshot.isEmpty())
            && (differential == null || differential.isEmpty());
       }
 
@@ -2745,17 +2896,17 @@ public class StructureDefinition extends DomainResource {
    * <p>
    * Description: <b>Any datatype or resource, including abstract ones</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>StructureDefinition.constrainedType</b><br>
+   * Path: <b>StructureDefinition.baseType</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="type", path="StructureDefinition.constrainedType", description="Any datatype or resource, including abstract ones", type="token" )
+  @SearchParamDefinition(name="type", path="StructureDefinition.baseType", description="Any datatype or resource, including abstract ones", type="token" )
   public static final String SP_TYPE = "type";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>type</b>
    * <p>
    * Description: <b>Any datatype or resource, including abstract ones</b><br>
    * Type: <b>token</b><br>
-   * Path: <b>StructureDefinition.constrainedType</b><br>
+   * Path: <b>StructureDefinition.baseType</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.TokenClientParam TYPE = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_TYPE);
@@ -2839,6 +2990,26 @@ public class StructureDefinition extends DomainResource {
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.StringClientParam PUBLISHER = new ca.uhn.fhir.rest.gclient.StringClientParam(SP_PUBLISHER);
+
+ /**
+   * Search parameter: <b>derivation</b>
+   * <p>
+   * Description: <b>specialization | constraint - How relates to base definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureDefinition.derivation</b><br>
+   * </p>
+   */
+  @SearchParamDefinition(name="derivation", path="StructureDefinition.derivation", description="specialization | constraint - How relates to base definition", type="token" )
+  public static final String SP_DERIVATION = "derivation";
+ /**
+   * <b>Fluent Client</b> search parameter constant for <b>derivation</b>
+   * <p>
+   * Description: <b>specialization | constraint - How relates to base definition</b><br>
+   * Type: <b>token</b><br>
+   * Path: <b>StructureDefinition.derivation</b><br>
+   * </p>
+   */
+  public static final ca.uhn.fhir.rest.gclient.TokenClientParam DERIVATION = new ca.uhn.fhir.rest.gclient.TokenClientParam(SP_DERIVATION);
 
  /**
    * Search parameter: <b>base-path</b>
@@ -2949,19 +3120,19 @@ public class StructureDefinition extends DomainResource {
  /**
    * Search parameter: <b>base</b>
    * <p>
-   * Description: <b>Structure that this set of constraints applies to</b><br>
+   * Description: <b>Definition that this type is constrained/specialized from</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>StructureDefinition.base</b><br>
+   * Path: <b>StructureDefinition.baseDefinition</b><br>
    * </p>
    */
-  @SearchParamDefinition(name="base", path="StructureDefinition.base", description="Structure that this set of constraints applies to", type="uri" )
+  @SearchParamDefinition(name="base", path="StructureDefinition.baseDefinition", description="Definition that this type is constrained/specialized from", type="uri" )
   public static final String SP_BASE = "base";
  /**
    * <b>Fluent Client</b> search parameter constant for <b>base</b>
    * <p>
-   * Description: <b>Structure that this set of constraints applies to</b><br>
+   * Description: <b>Definition that this type is constrained/specialized from</b><br>
    * Type: <b>uri</b><br>
-   * Path: <b>StructureDefinition.base</b><br>
+   * Path: <b>StructureDefinition.baseDefinition</b><br>
    * </p>
    */
   public static final ca.uhn.fhir.rest.gclient.UriClientParam BASE = new ca.uhn.fhir.rest.gclient.UriClientParam(SP_BASE);

@@ -414,6 +414,17 @@
       }
     },
     {
+      "hash": "|null|null|DomainResource|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "DomainResource",
+        "definition": null,
+        "display": "DomainResource"
+      }
+    },
+    {
       "hash": "|null|null|EligibilityRequest|null",
       "severity": null,
       "message": null,

@@ -29,6 +29,7 @@ import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
 import org.hl7.fhir.dstu3.model.StructureDefinition.StructureDefinitionKind;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.utilities.CommaSeparatedStringBuilder;
@@ -135,8 +136,8 @@ public class CDAGenerator {
 
   private void dumpPaths() {
     for (StructureDefinition sd : structures) {
-      if (sd.hasBase())
-        System.out.println("Class "+sd.getId() +" : "+sd.getBase().substring(40));
+      if (sd.hasBaseDefinition())
+        System.out.println("Class "+sd.getId() +" : "+sd.getBaseDefinition().substring(40));
       else
         System.out.println("Class "+sd.getId());
       for (ElementDefinition ed : sd.getDifferential().getElement()) {
@@ -189,8 +190,8 @@ public class CDAGenerator {
   }
 
   private void generateSnapShot(StructureDefinition dst, StructureDefinition src, String typeName) {
-    if (src.hasBase()) {
-      StructureDefinition dt = getDataType(src.getBase());
+    if (src.hasBaseDefinition()) {
+      StructureDefinition dt = getDataType(src.getBaseDefinition());
       if (dt != null)
         generateSnapShot(dst, dt, typeName);
     }
@@ -228,7 +229,8 @@ public class CDAGenerator {
     sd.setKind(StructureDefinitionKind.LOGICAL);
     sd.setAbstract(false);
     sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
-    sd.setBase("http://hl7.org/fhir/StructureDefinition/SXCM_TS");
+    sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/SXCM_TS");
+    sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
 
     ElementDefinition edb = new ElementDefinition();
     edb.setPath(sd.getId());
@@ -264,7 +266,8 @@ public class CDAGenerator {
     sd.setKind(StructureDefinitionKind.LOGICAL);
     sd.setAbstract(true);
     sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
-    sd.setBase("http://hl7.org/fhir/StructureDefinition/ANY");
+    sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/ANY");
+    sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
 
     ElementDefinition edb = new ElementDefinition();
     edb.setPath(sd.getId());
@@ -324,14 +327,15 @@ public class CDAGenerator {
       sd.addExtension().setUrl("http://hl7.org/fhir/StructureDefinition/elementdefinition-namespace").setValue(new UriType("urn:hl7-org:v3"));
       Element derived = XMLUtil.getNamedChild(dt, "mif:derivedFrom");
       if (Utilities.existsInList(n, "ST", "ED", "TEL", "AD", "EN", "IVL_PQ", "IVL_INT", "TS") ) {
-        sd.setBase("http://hl7.org/fhir/StructureDefinition/ANY");
+        sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/ANY");
       } else if (Utilities.existsInList(n, "SXCM_TS") ) {
-        sd.setBase("http://hl7.org/fhir/StructureDefinition/TS");
+        sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/TS");
       } else if (n.equals("PIVL") || n.equals("EIVL") || n.equals("IVL_TS")) {
-        sd.setBase("http://hl7.org/fhir/StructureDefinition/SXCM_TS");
+        sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/SXCM_TS");
       } else if (derived != null) {
-        sd.setBase("http://hl7.org/fhir/StructureDefinition/"+XMLUtil.getNamedChildAttribute(derived, "mif:targetDatatype", "name"));
+        sd.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+XMLUtil.getNamedChildAttribute(derived, "mif:targetDatatype", "name"));
       }
+      sd.setDerivation(TypeDerivationRule.SPECIALIZATION);
       ElementDefinition edb = new ElementDefinition();
       edb.setPath(sd.getId());
       edb.setMin(1);

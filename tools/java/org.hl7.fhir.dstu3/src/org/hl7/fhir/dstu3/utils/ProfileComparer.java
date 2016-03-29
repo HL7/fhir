@@ -26,6 +26,7 @@ import org.hl7.fhir.dstu3.model.PrimitiveType;
 import org.hl7.fhir.dstu3.model.Reference;
 import org.hl7.fhir.dstu3.model.StringType;
 import org.hl7.fhir.dstu3.model.StructureDefinition;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.Type;
 import org.hl7.fhir.dstu3.model.UriType;
 import org.hl7.fhir.dstu3.model.ValueSet;
@@ -293,15 +294,17 @@ public class ProfileComparer {
         outcome.subset.setName("intersection of "+outcome.leftName()+" and "+outcome.rightName());
         outcome.subset.setStatus(ConformanceResourceStatus.DRAFT);
         outcome.subset.setKind(outcome.left.getKind());
-        outcome.subset.setConstrainedType(outcome.left.getConstrainedType());
-        outcome.subset.setBase("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getConstrainedType());
+        outcome.subset.setBaseType(outcome.left.getBaseType());
+        outcome.subset.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getBaseType());
+        outcome.subset.setDerivation(TypeDerivationRule.CONSTRAINT);
         outcome.subset.setAbstract(false);
         outcome.superset.setName("union of "+outcome.leftName()+" and "+outcome.rightName());
         outcome.superset.setStatus(ConformanceResourceStatus.DRAFT);
         outcome.superset.setKind(outcome.left.getKind());
-        outcome.superset.setConstrainedType(outcome.left.getConstrainedType());
-        outcome.superset.setBase("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getConstrainedType());
+        outcome.superset.setBaseType(outcome.left.getBaseType());
+        outcome.superset.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/"+outcome.subset.getBaseType());
         outcome.superset.setAbstract(false);
+        outcome.superset.setDerivation(TypeDerivationRule.CONSTRAINT);
       } else {
         outcome.subset = null;
         outcome.superset = null;
@@ -805,7 +808,7 @@ public class ProfileComparer {
               c.getProfile().clear();
               c.getProfile().add(r.getProfile().get(0));
               found = true;
-            } else if (sdl.hasConstrainedType() && sdr.hasConstrainedType() && sdl.getConstrainedType().equals(sdr.getConstrainedType())) {
+            } else if (sdl.hasBaseType() && sdr.hasBaseType() && sdl.getBaseType().equals(sdr.getBaseType())) {
               ProfileComparison comp = compareProfiles(sdl, sdr);
               if (comp.getSubset() != null) {
                 found = true;
@@ -888,7 +891,7 @@ public class ProfileComparer {
   private boolean derivesFrom(StructureDefinition left, StructureDefinition right) {
     // left derives from right if it's base is the same as right
     // todo: recursive...
-    return left.hasBase() && left.getBase().equals(right.getUrl());
+    return left.hasBaseDefinition() && left.getBaseDefinition().equals(right.getUrl());
   }
 
 //    result.addAll(left);

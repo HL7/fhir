@@ -2,6 +2,28 @@
   "url": "http://hl7.org/fhir/ValueSet/referralstatus",
   "outcomes": [
     {
+      "hash": "|null|null|active|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "active",
+        "definition": null,
+        "display": "Active"
+      }
+    },
+    {
+      "hash": "|null|null|cancelled|null",
+      "severity": null,
+      "message": null,
+      "definition": {
+        "abstract": false,
+        "code": "cancelled",
+        "definition": null,
+        "display": "Cancelled"
+      }
+    },
+    {
       "hash": "|null|null|rejected|null",
       "severity": null,
       "message": null,

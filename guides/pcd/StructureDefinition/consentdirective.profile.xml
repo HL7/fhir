@@ -22,9 +22,10 @@
     <name value="HL7 v2" />
   </mapping>
   <kind value="resource" />
-  <constrainedType value="Contract" />
   <abstract value="false" />
-  <base value="http://hl7.org/fhir/StructureDefinition/Contract" />
+  <baseType value="Contract" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Contract" />
+    <derivation value="constraint"/>
   <snapshot>
     <element>
       <path value="Contract" />

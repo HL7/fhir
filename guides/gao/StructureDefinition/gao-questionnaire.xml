@@ -23,9 +23,10 @@
   
   
   <kind value="resource"></kind>
-  <constrainedType value="Questionnaire"></constrainedType>
   <abstract value="false"></abstract>
-  <base value="http://hl7.org/fhir/StructureDefinition/Questionnaire"></base>
+  <baseType value="Questionnaire"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Questionnaire"/>
+    <derivation value="constraint"/>
   <differential>
     <element>
       <path value="Questionnaire"></path>

@@ -14,7 +14,7 @@
   <description value="Fractional numbers. Typically used whenever quantities are measured, estimated, or computed from other real numbers. The typical representation is decimal, where the number of significant decimal digits is known as the precision."/>
   <kind value="logical"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/QTY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/QTY"/>
   <snapshot>
     <element>
       <path value="REAL"/>

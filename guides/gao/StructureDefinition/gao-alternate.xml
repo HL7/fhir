@@ -23,9 +23,10 @@
     value="Similar to the result resource, the alternate resource enables the results of an evaluation to be returned.  However, because the alternate is suggested by the decision support service, the constraints on what may appear are slightly different."/>
   <fhirVersion value="1.3.0" />
   <kind value="resource"/>
-  <constrainedType value="Basic"/>
   <abstract value="false"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+  <baseType value="Basic"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Basic"/>
+    <derivation value="constraint"/>
   <differential>
     <element>
       <path value="Basic"/>

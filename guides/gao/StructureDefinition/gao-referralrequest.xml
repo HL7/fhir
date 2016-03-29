@@ -23,9 +23,10 @@
   
   
   <kind value="resource"></kind>
-  <constrainedType value="ReferralRequest"></constrainedType>
   <abstract value="false"></abstract>
-  <base value="http://hl7.org/fhir/StructureDefinition/ReferralRequest"></base>
+  <baseType value="ReferralRequest"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ReferralRequest"/>
+  <derivation value="constraint"/>
   <differential>
     <element>
       <path value="ReferralRequest"></path>

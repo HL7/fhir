@@ -1222,7 +1222,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
     if (resource == null || !(resource instanceof StructureDefinition))
       return "";
     StructureDefinition sd = (StructureDefinition) resource;
-    if (!sd.hasConstrainedType())
+    if (!sd.hasBaseType())
       return "";
     String pack = "";
     if (sd.hasUserData("pack")) {
@@ -2559,15 +2559,15 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String presentPath(String path) {
-    String[] parts = path.split("\\.");
-    StringBuilder s = new StringBuilder();
-    for (String p : parts) {
-      if (s.length() > 0)
-        s.append("/");
-      s.append("f:" + p);
-    }
-    return s.toString();
-      
+//    String[] parts = path.split("\\.");
+//    StringBuilder s = new StringBuilder();
+//    for (String p : parts) {
+//      if (s.length() > 0)
+//        s.append("/");
+//      s.append("f:" + p);
+//    }
+//    return s.toString();
+      return path;
   }
 
   private String pageHeader(String n) {
@@ -6063,23 +6063,23 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
   }
 
   private String baseLink(StructureDefinition structure, String prefix) throws Exception {
-    if (!structure.hasBase())
+    if (!structure.hasBaseDefinition())
       return "";
-    if (structure.getBase().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
-      String name = structure.getBase().substring(40);
+    if (structure.getBaseDefinition().startsWith("http://hl7.org/fhir/StructureDefinition/")) {
+      String name = structure.getBaseDefinition().substring(40);
       if (definitions.hasResource(name))
         return "<a href=\""+prefix+name.toLowerCase()+".html\">"+name+"</a>";
       else if (definitions.hasElementDefn(name))
         return "<a href=\""+prefix+definitions.getSrcFile(name)+".html#"+name+"\">"+name+"</a>";  
       else {
-        StructureDefinition p = definitions.getSnapShotForBase(structure.getBase());
+        StructureDefinition p = definitions.getSnapShotForBase(structure.getBaseDefinition());
         if (p == null)
           return "??"+name;
         else
           return "<a href=\""+prefix+p.getUserString("path")+"\">"+p.getName()+"</a>";  
       }
     } else {
-      String[] parts = structure.getBase().split("#");
+      String[] parts = structure.getBaseDefinition().split("#");
       StructureDefinition profile = new ProfileUtilities(workerContext, null, null).getProfile(structure, parts[0]);
       if (profile != null) {
         if (parts.length == 2) {
@@ -6088,7 +6088,7 @@ public class PageProcessor implements Logger, ProfileKnowledgeProvider  {
           return "<a href=\""+prefix+profile.getUserData("filename")+".html\">the "+profile.getName()+" profile</a>";
         }
       } else
-        return "<a href=\""+structure.getBase()+"\">"+structure.getBase()+"</a>";
+        return "<a href=\""+structure.getBaseDefinition()+"\">"+structure.getBaseDefinition()+"</a>";
     }
   }
 

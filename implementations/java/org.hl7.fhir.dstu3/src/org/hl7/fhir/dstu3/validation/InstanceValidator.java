@@ -2663,7 +2663,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
 				profile = context.fetchResource(StructureDefinition.class, "http://hl7.org/fhir/StructureDefinition/" + resourceName);
 				ok = rule(errors, IssueType.INVALID, element.line(), element.col(), stack.addToLiteralPath(resourceName), profile != null, "No profile found for resource type '" + resourceName + "'");
 			} else {
-				String type = profile.getKind() == StructureDefinitionKind.LOGICAL ? profile.getId() : profile.hasConstrainedType() ? profile.getConstrainedType() : profile.getName();
+				String type = profile.getKind() == StructureDefinitionKind.LOGICAL ? profile.getId() : profile.hasBaseType() ? profile.getBaseType() : profile.getName();
 				// special case: we have a bundle, and the profile is not for a bundle. We'll try the first entry instead 
 				if (!type.equals(resourceName) && resourceName.equals("Bundle")) {
 					WrapperElement first = getFirstEntry(element);
@@ -3096,7 +3096,7 @@ public class InstanceValidator extends BaseValidator implements IResourceValidat
     public void getNamedChildrenWithTails(String name, List<WrapperElement> list, Set<String> typeTails) {
       for (JsonWrapperElement j : children) {
         String n = j.name;
-        if (n.equals(name) || (!name.equals("responseCode") && (n.startsWith(name) && typeTails.contains(n.substring(name.length())))))
+        if (n.equals(name) || (!n.equals("responseCode") && (n.startsWith(name) && typeTails.contains(n.substring(name.length())))))
 		      list.add(j);
 		  }
 		}

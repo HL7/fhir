@@ -40,6 +40,13 @@
   Definition = Codes indicating why the referral is being requested.
   Conformance = example
 
+ -- Row 7 -----------------------------------
+  Binding Name = ReferralCategory
+  Binding = code list
+  Reference = #referralcategory
+  Definition = Identifies the degree of intention/authorization associated with the request
+  Conformance = required
+
 === Sheet referralstatus =====================================
 
  -- Row 1 -----------------------------------
@@ -49,40 +56,48 @@
   Definition = A draft referral that has yet to be send.
 
  -- Row 2 -----------------------------------
-  Id = 2
-  Code = requested
-  Display = Requested
-  Definition = The referral has been transmitted, but not yet acknowledged by the recipient.
-
- -- Row 3 -----------------------------------
   Id = 3
   Code = active
   Display = Active
-  Definition = The referral has been acknowledged by the recipient, and is in the process of being actioned.
+  Definition = The referral is complete and is ready for fulfillment.
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Id = 4
   Code = cancelled
   Display = Cancelled
   Definition = The referral has been cancelled without being completed. For example it is no longer needed.
 
- -- Row 5 -----------------------------------
-  Id = 7
-  Code = accepted
-  Display = Accepted
-  Definition = The recipient has agreed to deliver the care requested by the referral.
-
- -- Row 6 -----------------------------------
-  Id = 5
-  Code = rejected
-  Display = Rejected
-  Definition = The recipient has declined to accept the referral.
-
- -- Row 7 -----------------------------------
+ -- Row 4 -----------------------------------
   Id = 6
   Code = completed
   Display = Completed
   Definition = The referral has been completely actioned.
+
+ -- Row 5 -----------------------------------
+  Id = 8
+  Code = entered-in-error
+  Display = Entered in Error
+  Definition = This referral record should never have existed, though it\'s possible some degree of real-world activity or decisions may have been taken due to its existence
+
+=== Sheet referralcategory =====================================
+
+ -- Row 1 -----------------------------------
+  Id = 1
+  Code = proposal
+  Display = Proposal
+  Definition = The referral request represents a suggestion or recommendation that a referral be made.
+
+ -- Row 2 -----------------------------------
+  Id = 2
+  Code = plan
+  Display = Plan
+  Definition = The referral request represents an intention by the author to make a referral, but no actual referral has yet been made/authorized.
+
+ -- Row 3 -----------------------------------
+  Id = 3
+  Code = request
+  Display = Request
+  Definition = This is an actual referral request which, when active, will have the authorizations needed to allow it to be actioned.
 
 === Sheet Invariants =====================================
 
@@ -97,18 +112,6 @@
   w5 = clinical.careprovision
 
  -- Row 2 -----------------------------------
-  Element = ReferralRequest.status
-  Card. = 1..1
-  Is Modifier = Y
-  Summary = Y
-  Type = code
-  Binding = ReferralStatus
-  Short Label = draft | requested | active | cancelled | accepted | rejected | completed
-  Definition = The workflow status of the referral or transfer of care request
-  v2 Mapping = RF1-1
-  w5 = status
-
- -- Row 3 -----------------------------------
   Element = ReferralRequest.identifier
   Card. = 0..*
   Is Modifier = N
@@ -118,18 +121,50 @@
   v2 Mapping = RF1-6 / RF1-11
   w5 = id
 
+ -- Row 3 -----------------------------------
+  Element = ReferralRequest.basedOn
+  Card. = 0..*
+  Is Modifier = N
+  Type = Reference(ReferralRequest|CarePlan|DiagnosticOrder|ProcedureRequest)
+  Short Label = Request fulfilled by this request
+  Definition = Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.
+
  -- Row 4 -----------------------------------
-  Element = ReferralRequest.date
+  Element = ReferralRequest.parent
   Card. = 0..1
   Is Modifier = N
   Summary = Y
-  Type = dateTime
-  Short Label = Date of creation/activation
-  Definition = Date/DateTime of creation for draft requests and date of activation for active requests
-  v2 Mapping = RF1-7 / RF1-9?
-  w5 = when.init
+  Type = Identifier
+  Short Label = Composite request this is part of
+  Definition = The business identifier of the logical \"grouping\" request/order that this referral is a part of
+  Requirements = Allows multiple orders to be collected as part of a single requisition
 
  -- Row 5 -----------------------------------
+  Element = ReferralRequest.status
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ReferralStatus
+  Short Label = draft | active | cancelled | completed | entered-in-error
+  Definition = The status of the authorization/intention reflected by the referral request record
+  Requirements = Workflow status is handled by the Task resource
+  v2 Mapping = RF1-1
+  w5 = status
+
+ -- Row 6 -----------------------------------
+  Element = ReferralRequest.category
+  Card. = 1..1
+  Is Modifier = Y
+  Summary = Y
+  Type = code
+  Binding = ReferralCategory
+  Short Label = proposal | plan | request
+  Definition = Distinguishes the \"level\" of authorization/demand implicit in this request.
+  Requirements = The same resource structure is used when capturing proposals/recommendations, plans and actual requests.
+  w5 = class
+
+ -- Row 7 -----------------------------------
   Element = ReferralRequest.type
   Card. = 0..1
   Is Modifier = N
@@ -142,17 +177,7 @@
   v2 Mapping = RF1-10
   w5 = class
 
- -- Row 6 -----------------------------------
-  Element = ReferralRequest.specialty
-  Card. = 0..1
-  Is Modifier = N
-  Type = CodeableConcept
-  Binding = ReferralSpecialty
-  Short Label = The clinical specialty (discipline) that the referral is requested for
-  Definition = Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.  For example: Cardiology Gastroenterology Diabetology
-  v2 Mapping = RF1-3
-
- -- Row 7 -----------------------------------
+ -- Row 8 -----------------------------------
   Element = ReferralRequest.priority
   Card. = 0..1
   Is Modifier = N
@@ -164,7 +189,7 @@
   v2 Mapping = RF1-2
   w5 = grade
 
- -- Row 8 -----------------------------------
+ -- Row 9 -----------------------------------
   Element = ReferralRequest.patient
   Card. = 0..1
   Is Modifier = N
@@ -177,93 +202,17 @@
   Committee Notes = [3710]
   w5 = who.focus
 
- -- Row 9 -----------------------------------
-  Element = ReferralRequest.requester
-  Card. = 0..1
-  Is Modifier = N
-  Summary = Y
-  Type = Reference(Practitioner | Organization | Patient)
-  Short Label = Requester of referral / transfer of care
-  Definition = The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral)
-  v2 Mapping = Practitioner: PRD-2/PRD-7 where PRD-3 = RP; Organization: PRD-10 where PRD-3 = RP
-  w5 = who.author
-
  -- Row 10 -----------------------------------
-  Element = ReferralRequest.recipient
-  Card. = 0..*
-  Is Modifier = N
-  Summary = Y
-  Type = Reference(Practitioner | Organization)
-  Short Label = Receiver of referral / transfer of care request
-  Definition = The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request
-  Comments = There will be a primary receiver. But the request can be received by any number of \"copied to\" providers or organizations
-  v2 Mapping = Practitioner: PRD-2/PRD-7 where PRD-3 = RT; Organization: PRD-10 where PRD-3 = RT
-  w5 = who.actor
-
- -- Row 11 -----------------------------------
-  Element = ReferralRequest.encounter
+  Element = ReferralRequest.context
   Card. = 0..1
   Is Modifier = N
-  Type = Reference(Encounter)
+  Type = Reference(Encounter|EpisodeOfCare)
   Short Label = Originating encounter
   Definition = The encounter at which the request for referral or transfer of care is initiated
   v2 Mapping = PV1-19
   w5 = context
 
- -- Row 12 -----------------------------------
-  Element = ReferralRequest.dateSent
-  Card. = 0..1
-  Is Modifier = N
-  Summary = Y
-  Type = dateTime
-  Short Label = Date referral/transfer of care request is sent
-  Definition = Date/DateTime the request for referral or transfer of care is sent by the author
-  v2 Mapping = RF1-7 / RF1-9?
-  w5 = when.init
-
- -- Row 13 -----------------------------------
-  Element = ReferralRequest.reason
-  Card. = 0..1
-  Is Modifier = N
-  Summary = Y
-  Type = CodeableConcept
-  Binding = ReferralReason
-  Short Label = Reason for referral / transfer of care request
-  Definition = Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management
-  v2 Mapping = RF1-10
-  w5 = why
-
- -- Row 14 -----------------------------------
-  Element = ReferralRequest.description
-  Card. = 0..1
-  Is Modifier = N
-  Type = string
-  Short Label = A textual description of the referral
-  Definition = The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary
-  To Do = This would be a good candidate for a \'markdown\' data type
-
- -- Row 15 -----------------------------------
-  Element = ReferralRequest.serviceRequested
-  Card. = 0..*
-  Is Modifier = N
-  Summary = Y
-  Type = CodeableConcept
-  Binding = RequestedService
-  Short Label = Actions requested as part of the referral
-  Definition = The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion
-  v2 Mapping = PR1-3 / OBR-4
-  w5 = what
-
- -- Row 16 -----------------------------------
-  Element = ReferralRequest.supportingInformation
-  Card. = 0..*
-  Is Modifier = N
-  Summary = Y
-  Type = Reference (Any)
-  Short Label = Additonal information to support referral or transfer of care request
-  Definition = Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan
-
- -- Row 17 -----------------------------------
+ -- Row 11 -----------------------------------
   Element = ReferralRequest.fulfillmentTime
   Card. = 0..1
   Aliases = EffectiveTime
@@ -275,6 +224,103 @@
   Requirements = Use cases: (1) to indicate that the requested service is not to happen before a specified date, and saving the start date in Period.start; (2) to indicate that the requested service must happen before a specified date, and saving the end date in Period.end; (3) to indicate that the requested service must happen during the specified dates (\"start\" and \"end\" values).
   v2 Mapping = OBR-7/OBR-8
   w5 = when.planned
+
+ -- Row 12 -----------------------------------
+  Element = ReferralRequest.authored
+  Card. = 0..1
+  Is Modifier = N
+  Summary = Y
+  Type = dateTime
+  Short Label = Date of creation/activation
+  Definition = Date/DateTime of creation for draft requests and date of activation for active requests
+  v2 Mapping = RF1-7 / RF1-9?
+  w5 = when.init
+
+ -- Row 13 -----------------------------------
+  Element = ReferralRequest.requester
+  Card. = 0..1
+  Is Modifier = N
+  Summary = Y
+  Type = Reference(Practitioner | Organization | Patient)
+  Short Label = Requester of referral / transfer of care
+  Definition = The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral)
+  v2 Mapping = Practitioner: PRD-2/PRD-7 where PRD-3 = RP; Organization: PRD-10 where PRD-3 = RP
+  w5 = who.author
+
+ -- Row 14 -----------------------------------
+  Element = ReferralRequest.specialty
+  Card. = 0..1
+  Is Modifier = N
+  Type = CodeableConcept
+  Binding = ReferralSpecialty
+  Short Label = The clinical specialty (discipline) that the referral is requested for
+  Definition = Indication of the clinical domain or discipline to which the referral or transfer of care request is sent.  For example: Cardiology Gastroenterology Diabetology
+  v2 Mapping = RF1-3
+
+ -- Row 15 -----------------------------------
+  Element = ReferralRequest.recipient
+  Card. = 0..*
+  Is Modifier = N
+  Summary = Y
+  Type = Reference(Practitioner | Organization)
+  Short Label = Receiver of referral / transfer of care request
+  Definition = The healthcare provider(s) or provider organization(s) who/which is to receive the referral/transfer of care request
+  Comments = There will be a primary receiver. But the request can be received by any number of \"copied to\" providers or organizations
+  v2 Mapping = Practitioner: PRD-2/PRD-7 where PRD-3 = RT; Organization: PRD-10 where PRD-3 = RT
+  w5 = who.actor
+
+ -- Row 16 -----------------------------------
+  Element = !ReferralRequest.dateSent
+  Card. = 0..1
+  Is Modifier = N
+  Summary = Y
+  Type = dateTime
+  Short Label = Date referral/transfer of care request is sent
+  Definition = Date/DateTime the request for referral or transfer of care is sent by the author
+  v2 Mapping = RF1-7 / RF1-9?
+  w5 = when.init
+
+ -- Row 17 -----------------------------------
+  Element = ReferralRequest.reason
+  Card. = 0..1
+  Is Modifier = N
+  Summary = Y
+  Type = CodeableConcept
+  Binding = ReferralReason
+  Short Label = Reason for referral / transfer of care request
+  Definition = Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management
+  v2 Mapping = RF1-10
+  w5 = why
+
+ -- Row 18 -----------------------------------
+  Element = ReferralRequest.description
+  Card. = 0..1
+  Is Modifier = N
+  Type = string
+  Short Label = A textual description of the referral
+  Definition = The reason element gives a short description of why the referral is being made, the description expands on this to support a more complete clinical summary
+  To Do = This would be a good candidate for a \'markdown\' data type
+
+ -- Row 19 -----------------------------------
+  Element = ReferralRequest.serviceRequested
+  Card. = 0..*
+  Is Modifier = N
+  Summary = Y
+  Type = CodeableConcept
+  Binding = RequestedService
+  Short Label = Actions requested as part of the referral
+  Definition = The service(s) that is/are requested to be provided to the patient.  For example: cardiac pacemaker insertion
+  v2 Mapping = PR1-3 / OBR-4
+  w5 = what
+
+ -- Row 20 -----------------------------------
+  Element = ReferralRequest.supportingInformation
+  Card. = 0..*
+  Is Modifier = N
+  Summary = Y
+  Type = Reference (Any)
+  Short Label = Additonal information to support referral or transfer of care request
+  Definition = Any additional (administrative, financial or clinical) information required to support request for referral or transfer of care.  For example: Presenting problems/chief complaints Medical History Family History Alerts Allergy/Intolerance and Adverse Reactions Medications Observations/Assessments (may include cognitive and fundtional assessments) Diagnostic Reports Care Plan
 
 === Sheet Search =====================================
 
@@ -288,7 +334,7 @@
   Name = date
   Type = date
   Description = Creation or activation date
-  Path = ReferralRequest.date
+  Path = ReferralRequest.authored
 
  -- Row 3 -----------------------------------
   Name = type
@@ -324,6 +370,30 @@
   Name = requester
   Type = reference
   Path = ReferralRequest.requester
+
+ -- Row 9 -----------------------------------
+  Name = category
+  Type = token
+  Description = Proposal, plan or request
+  Path = ReferralRequest.category
+
+ -- Row 10 -----------------------------------
+  Name = context
+  Type = reference
+  Description = Part of encounter or episode of care
+  Path = ReferralRequest.context
+
+ -- Row 11 -----------------------------------
+  Name = basedon
+  Type = reference
+  Description = Request being fulfilled
+  Path = ReferralRequest.basedOn
+
+ -- Row 12 -----------------------------------
+  Name = parent
+  Type = token
+  Description = Part of common request
+  Path = ReferralRequest.parent
 
 === Sheet Profiles =====================================
 

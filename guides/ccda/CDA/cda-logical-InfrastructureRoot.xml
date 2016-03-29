@@ -14,7 +14,7 @@
   <description value="Defines the base elements and attributes on all CDA elements (other than data types)"/>
   <kind value="logical"/>
   <abstract value="true"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/ANY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ANY"/>
   <differential>
     <element>
       <path value="InfrastructureRoot"/>

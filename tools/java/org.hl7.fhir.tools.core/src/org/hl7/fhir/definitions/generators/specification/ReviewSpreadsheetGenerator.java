@@ -60,7 +60,7 @@ public class ReviewSpreadsheetGenerator {
     
     ElementDefinition ed = profile.getSnapshot().getElement().get(0);
     String path = ed.getPath();
-    addRow(sheet, style, path+" : "+profile.getConstrainedType(), profile.getName(), "", ed.getDefinition(), "");
+    addRow(sheet, style, path+" : "+profile.getBaseType(), profile.getName(), "", ed.getDefinition(), "");
     processRows(workbook, path, profile.getSnapshot().getElement(), 1, sheet, "  ");
   }
 

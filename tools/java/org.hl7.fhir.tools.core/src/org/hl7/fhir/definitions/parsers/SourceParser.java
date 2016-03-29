@@ -75,6 +75,7 @@ import org.hl7.fhir.dstu3.formats.XmlParser;
 import org.hl7.fhir.dstu3.model.Bundle;
 import org.hl7.fhir.dstu3.model.Bundle.BundleEntryComponent;
 import org.hl7.fhir.dstu3.model.Bundle.BundleType;
+import org.hl7.fhir.dstu3.model.StructureDefinition.TypeDerivationRule;
 import org.hl7.fhir.dstu3.model.Composition;
 import org.hl7.fhir.dstu3.model.Resource;
 import org.hl7.fhir.dstu3.model.StringType;
@@ -546,7 +547,7 @@ public class SourceParser {
       for (BundleEntryComponent ae : ((Bundle) rf).getEntry()) {
         if (ae.getResource() instanceof Composition)
           pack.loadFromComposition((Composition) ae.getResource(), file.getAbsolutePath());
-        else if (ae.getResource() instanceof StructureDefinition && !((StructureDefinition) ae.getResource()).getConstrainedType().equals("Extension")) {
+        else if (ae.getResource() instanceof StructureDefinition && !((StructureDefinition) ae.getResource()).getBaseType().equals("Extension")) {
           StructureDefinition ed = (StructureDefinition) ae.getResource();
           for (StringType s : ed.getContext())
             definitions.checkContextValid(ed.getContextType(), s.getValue(), file.getName());
@@ -554,8 +555,9 @@ public class SourceParser {
           pack.getProfiles().add(new ConstraintStructure(ed, definitions.getUsageIG(usage, "Parsing "+file.getAbsolutePath())));
         } else if (ae.getResource() instanceof StructureDefinition) {
           StructureDefinition ed = (StructureDefinition) ae.getResource();
-          if (Utilities.noString(ed.getBase()))
-            ed.setBase("http://hl7.org/fhir/StructureDefinition/Extension");
+          if (Utilities.noString(ed.getBaseDefinition()))
+            ed.setBaseDefinition("http://hl7.org/fhir/StructureDefinition/Extension");
+          ed.setDerivation(TypeDerivationRule.CONSTRAINT);
           context.seeExtensionDefinition(ae.hasFullUrl() ? ae.getFullUrl() : "http://hl7.org/fhir/StructureDefinition/"+ed.getId(), ed);
           pack.getExtensions().add(ed);
         }

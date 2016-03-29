@@ -67,7 +67,8 @@
         </mapping>
         <type value="constraint"/>
         <abstract value="false"/>
-        <base value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+        <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition"/>
+        <derivation value="specialization"/>
         <!-- todo: this is a bundle with a document tag.... -->
         <!-- todo: Clinical Document Id goes in feed.id -->
         <differential>
@@ -720,7 +721,8 @@
         <!-- record target structure - used from Composition -->
         <type value="constraint"/>
         <abstract value="false"/>
-        <base value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+        <derivation value="specialization"/>
 
         <differential>
           <element>
@@ -1152,7 +1154,8 @@
 
         <type value="constraint"/>
         <abstract value="false"/>
-        <base value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Organization"/>
+        <derivation value="specialization"/>
 
         <differential>
           <element>
@@ -1339,7 +1342,8 @@
 
         <type value="constraint"/>
         <abstract value="false"/>
-        <base value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Location"/>
+        <derivation value="specialization"/>
         <differential>
           <element>
             <path value="Location"/>
@@ -1455,7 +1459,8 @@
         <!-- Diagnostic Order (inFulfillmentOf) -->
         <type value="constraint"/>
         <abstract value="false"/>
-        <base value="http://hl7.org/fhir/StructureDefinition/DiagnosticOrder"/>
+        <baseDefinition value="http://hl7.org/fhir/StructureDefinition/DiagnosticOrder"/>
+        <derivation value="specialization"/>
         <differential>
           <element>
             <path value="DiagnosticOrder"/>

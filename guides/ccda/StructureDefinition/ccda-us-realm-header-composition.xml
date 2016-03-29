@@ -18,9 +18,10 @@
         </telecom>
     </contact>
     <kind value="resource" />
-    <constrainedType value="Composition" />
     <abstract value="false" />
-    <base value="http://hl7.org/fhir/StructureDefinition/Composition" />
+    <baseType value="Composition" />
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Composition" />
+    <derivation value="constraint"/>
     <differential>
         <element>
             <path value="Composition" />

@@ -30,9 +30,10 @@
         <name value="ServD"/>
     </mapping>
     <kind value="datatype"/>
-    <constrainedType value="HumanName"/>
     <abstract value="false"/>
-    <base value="http://hl7.org/fhir/StructureDefinition/HumanName"/>
+    <baseType value="HumanName"/>
+    <baseDefinition value="http://hl7.org/fhir/StructureDefinition/HumanName"/>
+    <derivation value="constraint"/>
     <differential>
         <element>
             <path value="HumanName"/>

@@ -25,9 +25,10 @@
   
   
   <kind value="resource"></kind>
-  <constrainedType value="Patient"></constrainedType>
   <abstract value="false"></abstract>
-  <base value="http://hl7.org/fhir/StructureDefinition/Patient"></base>
+  <baseType value="Patient"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+    <derivation value="constraint"/>
   <differential>
     <element>
       <path value="Patient"></path>

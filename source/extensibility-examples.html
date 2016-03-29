@@ -80,9 +80,12 @@ From this table, we can build a formal extension definition. In this case, it lo
   &lt;name value="Example Extension Definition" /&gt;
   &lt;!-- snip other metadata -->
   &lt;kind value="datatype" /&gt;
-  &lt;constrainedType value="Extension" /&gt;
   &lt;contextType value="resource" /&gt;
   &lt;context value="Patient" /&gt;
+  &lt;baseType value="Extension" /&gt;
+  &lt;baseDefinition value="http://hl7.org.fhir/StructureDefinition/Extension" /&gt;
+  &lt;derivation value="constraint" /&gt;
+
   &lt;differential>
     &lt;element>
       &lt;path value="Extension"/>
@@ -281,12 +284,14 @@ and their associated bindings. In this case, the definition looks like this:
   &lt;name value="iso-21090 Name Qualifier" /&gt;
   &lt;!-- snip other metadata, including definition of RIM Mapping -->
   &lt;kind value="datatype" /&gt;
-  &lt;constrainedType value="Extension" /&gt;
   &lt;contextType value="datatype" /&gt;
   &lt;context value="HumanName.given" /&gt;
   &lt;context value="HumanName.prefix" /&gt;
   &lt;context value="HumanName.family" /&gt;
   &lt;context value="HumanName.suffix" /&gt;
+  &lt;baseType value="Extension" /&gt;
+  &lt;baseDefinition value="http://hl7.org.fhir/StructureDefinition/Extension" /&gt;
+  &lt;derivation value="constraint" /&gt;
   &lt;differential>
     &lt;element>
       &lt;path value="Extension"/>
@@ -382,10 +387,11 @@ Here's the relevant parts of the definition of this extension:
   &lt;!-- metadata - setting up the base definition --&gt;
   &lt;url value=&quot;http://hl7.org/fhir/StructureDefinition/patient-clinicalTrial&quot;/&gt;
   &lt;name value=&quot;The patient's participation in clinical trials&quot;/&gt;
-  &lt;constrainedType value=&quot;Extension&quot;/&gt;
   &lt;contextType value=&quot;resource&quot;/&gt;
   &lt;context value=&quot;Patient&quot;/&gt;
-  &lt;base value=&quot;http://hl7.org/fhir/StructureDefinition/Extension&quot;/&gt;
+  &lt;baseType value="Extension" /&gt;
+  &lt;baseDefinition value="http://hl7.org.fhir/StructureDefinition/Extension" /&gt;
+  &lt;derivation value="constraint" /&gt;
   &lt;snapshot&gt;
     &lt;element&gt;
       &lt;path value=&quot;Extension&quot;/&gt;

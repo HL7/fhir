@@ -14,7 +14,7 @@
   <description value="The quantity data type is an abstract generalization for all data types (1) whose value set has an order relation (less-or-equal) and (2) where difference is defined in all of the data type&#39;s totally ordered value subsets. The quantity type abstraction is needed in defining certain other types, such as the interval and the probability distribution."/>
   <kind value="logical"/>
   <abstract value="true"/>
-  <base value="http://hl7.org/fhir/StructureDefinition/ANY"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/ANY"/>
   <differential>
     <element>
       <path value="QTY"/>

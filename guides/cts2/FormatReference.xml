@@ -17,7 +17,7 @@
    <fhirVersion value="1.3.0"/>
    <kind value="logical"/>
    <abstract value="false"/>
-   <base value="{http://www.omg.org/spec/CTS2/1.1/Core}NameAndMeaningReference"/>
+   <baseDefinition value="{http://www.omg.org/spec/CTS2/1.1/Core}NameAndMeaningReference"/>
    <snapshot>
       <element>
          <path value="FormatReference"/>
