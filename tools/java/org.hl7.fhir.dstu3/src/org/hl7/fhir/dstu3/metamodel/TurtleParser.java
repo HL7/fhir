@@ -40,7 +40,7 @@ public class TurtleParser extends ParserBase {
 			subject = section.triple("<"+base+"/"+e.getType()+"/"+id+">", "a", "fhir:"+e.getType());
 		else
 		  subject = section.triple("_", "a", "fhir:"+e.getType());
-		subject.predicate("fhir:nodeRole", "treeRoot");
+		subject.predicate("fhir:nodeRole", "fhir:treeRoot");
 
 		for (Element child : e.getChildren()) {
 			composeElement(subject, child);
