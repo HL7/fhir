@@ -10,14 +10,14 @@
   <LastAuthor>Rob Hausam</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2016-02-07T23:29:55Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>9225</WindowHeight>
-  <WindowWidth>21300</WindowWidth>
+  <WindowHeight>17610</WindowHeight>
+  <WindowWidth>-27136</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>1</ActiveSheet>
@@ -843,7 +843,7 @@
    <NumberFormat/>
    <Protection/>
   </Style>
-  <Style ss:ID="s159">
+  <Style ss:ID="s158">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
    <Interior/>
@@ -1204,7 +1204,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">value &lt; IntoleranceValue (Agent)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">AL1-2</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1241,7 +1242,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">inboundRelationship[typeCode=SUBJ].source[classCode=OBS, moodCode=EVN, code=SEV, value &lt;= SeverityObservation (Severity Level)]</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="21" ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">AL1-4</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1659,7 +1661,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">AL1-5</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1726,7 +1729,8 @@
     <Cell ss:StyleID="s90"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><Data ss:Type="String">effectiveTime.low</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s91"><Data ss:Type="String">AL1-6</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s91"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3854,9 +3858,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>6</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>12</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3864,6 +3868,7 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
@@ -3871,7 +3876,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>0</ActiveCol>
+     <ActiveCol>19</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -7597,7 +7602,7 @@
     <Cell ss:StyleID="s157"><Data ss:Type="String">Low Risk</Data></Cell>
     <Cell ss:StyleID="s157"><Data ss:Type="String">Worst case result of a future exposure is not assessed to be life-threatening or having high potential for organ system failure.</Data></Cell>
     <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">=_CriticalityObservationValue.CRITL</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">=_CriticalityObservationValue.CRITL</Data></Cell>
     <Cell ss:StyleID="s140"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="60">
@@ -7608,7 +7613,7 @@
     <Cell ss:StyleID="s155"><Data ss:Type="String">High Risk</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Worst case result of a future exposure is assessed to be life-threatening or having high potential for organ system failure.</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">=_CriticalityObservationValue.CRITH</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">=_CriticalityObservationValue.CRITH</Data></Cell>
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -7619,7 +7624,7 @@
     <Cell ss:StyleID="s155"><Data ss:Type="String">Unable to Assess Risk</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">Unable to assess the worst case result of a future exposure.</Data></Cell>
     <Cell ss:StyleID="s131"/>
-    <Cell ss:StyleID="s159"><Data ss:Type="String">=_CriticalityObservationValue.CRITU</Data></Cell>
+    <Cell ss:StyleID="s158"><Data ss:Type="String">=_CriticalityObservationValue.CRITU</Data></Cell>
     <Cell ss:StyleID="s142"/>
    </Row>
    <Row ss:AutoFitHeight="0">
