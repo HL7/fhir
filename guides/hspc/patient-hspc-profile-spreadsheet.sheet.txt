@@ -122,17 +122,17 @@
 === Sheet administrativeGender =====================================
 
  -- Row 1 -----------------------------------
-  System = http://hl7.org/fhir/ValueSet/v3-AdministrativeGender
+  System = http://hl7.org/fhir/v3/AdministrativeGender
   Code = M
   Display = Male
 
  -- Row 2 -----------------------------------
-  System = http://hl7.org/fhir/ValueSet/v3-AdministrativeGender
+  System = http://hl7.org/fhir/v3/AdministrativeGender
   Code = F
   Display = Female
 
  -- Row 3 -----------------------------------
-  System = http://hl7.org/fhir/ValueSet/v3-AdministrativeGender
+  System = http://hl7.org/fhir/v3/AdministrativeGender
   Code = UN
   Display = Undifferentiated
 
@@ -206,7 +206,6 @@
 
  -- Row 6 -----------------------------------
   Element = Patient.gender
-  Binding = HSPCAdministrativeGender
 
  -- Row 7 -----------------------------------
   Element = Patient.address

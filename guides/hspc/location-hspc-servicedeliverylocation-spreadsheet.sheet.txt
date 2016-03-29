@@ -39,12 +39,12 @@
 === Sheet status =====================================
 
  -- Row 1 -----------------------------------
-  System = http://hl7.org/fhir/ValueSet/v3-EntityStatus
+  System = http://hl7.org/fhir/v3/EntityStatus
   Code = active
   Display = Active
 
  -- Row 2 -----------------------------------
-  System = http://hl7.org/fhir/ValueSet/v3-EntityStatus
+  System = http://hl7.org/fhir/v3/EntityStatus
   Code = inactive
   Display = Inactive
 
@@ -100,6 +100,5 @@
 
  -- Row 11 -----------------------------------
   Element = Location.status
-  Binding = Status
 
 === Sheet Search =====================================
